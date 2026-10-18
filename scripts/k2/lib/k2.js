@@ -148,34 +148,64 @@ function whereChip(g, p, t) { const Wh = p.where; if (!Wh || V) return; const o 
 function asof(g, p, t) { if (!p.asof) return; const u = vis(t, p.asofAt === undefined ? p.t0 : p.asofAt); const s = p.asof === true ? 'Facts as of 11 Oct 2026' : p.asof;
   const px = 30 * S, wd = tw(g, s, px, 600) + 40, x = W - SAFE.x0 - wd, y = p.asofY !== undefined ? p.asofY : V ? 210 : (p.card ? 28 : 56);   /* asofY: Short có hook 2 dòng đặt nhãn dưới dải hook */ panel(g, x, y, wd, px * 1.7, { a: u, stroke: 'rgba(242,193,78,0.6)' }); text(g, s, x + 20, y + px * 1.18, px, K.amber, { a: u, w: 600 }); }
 
+// ---------- V5b-2c · M13-lite: lớp 2D của BẢN ĐỒ CHIẾN LƯỢC (shot type strategic trên relief/map) ----------
+// p.counter: [{t, s}] bộ đếm ngày/tháng (chữ chính, dưới trái, 72 px; đổi chữ có nảy nhẹ) · p.bnote: 'approx. borders c. YYYY — <nguồn>' (≥ 38 px, dưới trái, role 'bien_gioi', B5/BD-3)
+// p.legend: {items: [{s, c, hatch}], at, out} chú giải ≤ 3 phe (trên trái, ô màu + tên; gạch 45° cho đồng minh) · p.points: [{a: 'pt:<id>', s, c, at, out, sub}] lãnh thổ < 8 px = vòng tròn viền trắng + tên
+function stratLayer(g, p, t) {
+  if (p.legend) { const Lg = p.legend, u = vis(t, Lg.at === undefined ? p.t0 : Lg.at, Lg.out, 0.4); if (u > 0.01) { const items = (Lg.items || []).slice(0, 3), px = 34 * S, sw = 30 * S, rh = px * 1.45;
+    const wmax = Math.max(...items.map((it) => tw(g, it.s, px, 600))), w = wmax + sw + 64, h = items.length * rh + 30, x = SAFE.x0, y = 56;
+    panel(g, x, y, w, h, { a: u, fill: 'rgba(12,18,27,0.88)', stroke: 'rgba(230,235,240,0.30)' });
+    items.forEach((it, i) => { const yy = y + 15 + i * rh, bx = x + 22, by = yy + (rh - sw) / 2; g.save(); g.globalAlpha *= u; g.fillStyle = it.c; g.fillRect(bx, by, sw, sw);
+      if (it.hatch) { g.save(); g.beginPath(); g.rect(bx, by, sw, sw); g.clip(); g.strokeStyle = 'rgba(245,238,220,0.75)'; g.lineWidth = 3; for (let k = -sw; k < sw * 2; k += 9) { g.beginPath(); g.moveTo(bx + k, by + sw); g.lineTo(bx + k + sw, by); g.stroke(); } g.restore(); }
+      g.strokeStyle = 'rgba(255,255,255,0.8)'; g.lineWidth = 1.5; g.strokeRect(bx, by, sw, sw); g.restore();
+      text(g, it.s, bx + sw + 18, yy + rh / 2 + px * 0.36, px, K.text, { a: u, w: 600, role: 'chu_giai' }); });
+    (LL.occ = LL.occ || []).push([x, y, x + w, y + h]); LL.legend = { box: [x, y, x + w, y + h].map(Math.round), n: items.length }; } }
+  if (p.counter) { let k = -1; p.counter.forEach((c, i) => { if (t >= c.t) k = i; }); if (k >= 0) { const c = p.counter[k], px = 72 * S, w = tw(g, c.s, px, 700, true) + 56, h = px * 1.42, x = SAFE.x0, y = H - EDGE_B - SRCPX * 1.6 - 18 - h;
+    const sc = backOut(cl((t - c.t) / 0.4)), u = vis(t, p.counter[0].t, p.counterOut, 0.4); g.save(); g.translate(x + w / 2, y + h / 2); g.scale(sc, sc); g.translate(-(x + w / 2), -(y + h / 2));
+    panel(g, x, y, w, h, { a: u, fill: 'rgba(12,18,27,0.92)', stroke: k > 0 && t - c.t < 0.6 ? K.amber : 'rgba(230,235,240,0.35)', r: 12 }); text(g, c.s, x + 28, y + h / 2 + px * 0.36, px, K.text, { a: u, w: 700, disp: true, role: 'year' }); g.restore();
+    (LL.occ = LL.occ || []).push([x, y, x + w, y + h]); } }
+  if (p.bnote) { const u = vis(t, p.bnoteAt === undefined ? p.t0 : p.bnoteAt, p.bnoteOut, 0.35), px = SRCPX, w = tw(g, p.bnote, px, 600) + 36, x = SAFE.x0, y = H - EDGE_B - px * 1.2;
+    if (u > 0.01) { panel(g, x - 4, y - px * 0.95, w, px * 1.55, { a: u, fill: 'rgba(12,18,27,0.82)', stroke: 'transparent', r: 7 }); text(g, p.bnote, x + 14, y + px * 0.12, px, '#E6EBF0', { a: u, w: 600, role: 'bien_gioi' }); (LL.occ = LL.occ || []).push([x - 4, y - px * 0.95, x - 4 + w, y + px * 0.6]); } }
+  for (const P of p.points || []) { const u = vis(t, P.at === undefined ? p.t0 : P.at, P.out, 0.4); if (u <= 0.01) continue; const A = anc(p, t, P.a); if (!A || !A.v) continue;
+    const r = (P.r || 9) * S; g.save(); g.globalAlpha *= u; g.fillStyle = P.c || '#b03a2e'; g.strokeStyle = '#ffffff'; g.lineWidth = 3.5 * S; g.beginPath(); g.arc(A.x, A.y, r, 0, 7); g.fill(); g.stroke();
+    g.strokeStyle = 'rgba(20,14,8,0.8)'; g.lineWidth = 1.2; g.beginPath(); g.arc(A.x, A.y, r + 2.6 * S, 0, 7); g.stroke(); g.restore();
+    if (P.s) { const px = (P.px || 32) * S, wd = tw(g, P.s, px, 700) + 26, ph = px * 1.6, box = (sd) => sd === 'left' ? [A.x - r - 12 - wd, A.y - px * 0.85] : sd === 'up' ? [A.x - wd / 2, A.y - r - 12 - ph] : sd === 'down' ? [A.x - wd / 2, A.y + r + 12] : [A.x + r + 12, A.y - px * 0.85],
+        hits = (sd) => { const [x0, y0] = box(sd); return (x0 < SAFE.x0 || x0 + wd > W - SAFE.x0 || y0 < 0 || y0 + ph > H ? 1e6 : 0) + (LL.occ || []).reduce((n, o) => n + Math.max(0, Math.min(x0 + wd, o[2]) - Math.max(x0, o[0])) * Math.max(0, Math.min(y0 + ph, o[3]) - Math.max(y0, o[1])), 0); },
+        side = P.side === 'auto' || !P.side ? ['right', 'left', 'up', 'down'].reduce((b, sd) => hits(sd) < hits(b) ? sd : b, P.side ? 'right' : 'right') : P.side, [bx, by] = box(side);   /* V5b-2c: 'auto' tránh hộp chữ đã vẽ (đếm sau bộ đếm + nhãn ranh) */
+      panel(g, bx, by, wd, ph, { a: u, fill: 'rgba(12,18,27,0.86)', stroke: 'transparent', r: 7 }); text(g, P.s, bx + 13, by + px * 1.13, px, K.text, { a: u, w: 700, role: 'diem' }); (LL.occ = LL.occ || []).push([bx, by, bx + wd, by + ph]); } }
+}
+
 // ---------- BẢN ĐỒ ĐỊNH VỊ GÓC (inset — V5b-2b, lệnh AD3 chủ dự án 17/10) ----------
-// p.inset: true (3–5 s khi vào nơi mới, mặc định 4 s) | 'giu' (giữ suốt shot — cảnh chiến sự) | {dur}; p.inset_map: tên trong design/k2v/inset/ (đường bờ Natural Earth, KHÔNG ranh giới);
-// p.inset_dot: [lon, lat] chấm đỏ nơi đang xem (+ p.inset_label); p.inset_route: [[lon, lat]…] (+ p.inset_route_label) tuyến hạm đội/quân; p.inset_bien: GeoJSON có nguồn
-// (ranh giới thời kỳ — chỉ vẽ khi khai; KHÔNG tự vẽ). Góc trên trái, ≤ 12 % khung (đếm RIÊNG, LL.inset — không gộp ngân sách chữ), nền giấy, viền mảnh, hiện/ẩn mờ 0,4 s.
+// V5b-2c (B4, chủ dự án duyệt 17/10; thay AD3 của V5b-2b): p.inset: true | {t: giây vào sau đầu shot (mặc định 0,6), dur: 2,5–4 (mặc định 3,0)} — hiện/ẩn mờ 0,3 s; 'giu' KHÔNG còn
+//   (đọc như true, ghi log); GÓC TRÊN TRÁI, ≤ 12 % khung; p.inset_map: tên trong design/k2v/inset/ (đường bờ Natural Earth — khu ≈ 120 km: 'eo-gib' 1:10m); HỘP ĐỎ = dấu chân khung máy
+//   trên mặt đất (frames_meta[f].foot của plate tl, tính từ máy quay mỗi khung) — hộp < 16 px thì thêm VÒNG ĐỊNH VỊ 16 px (E6); 1–2 nhãn (p.inset_labels [{s, ll}] hoặc inset_label);
+//   KHÔNG ranh giới (inset_bien bị bỏ qua — ranh để ở shot strategic), không tuyến; dòng "Map: Natural Earth" trong khung. Log: LL.inset (box, t, inset_goc, ly_do, area_pct, foot_px).
 const INSET_PAPER = { sea: '#D9D1BC', land: '#F2ECDE', coast: '#5E5446', frame: 'rgba(15,23,34,0.85)', dot: '#D9442B' };
 function insetLayer(g, p, t) { if (!p.inset || V) return; const M = (window.INSETS && window.INSETS.maps || {})[p.inset_map]; if (!M) return;
-  const giu = p.inset === 'giu' || (p.inset && p.inset.giu), dur = (p.inset && p.inset.dur) || 4, a = giu ? vis(t, p.t0, null, 0.4) : Math.min(vis(t, p.t0, null, 0.4), 1 - cl((t - (p.t0 + dur)) / 0.4));
+  const o = typeof p.inset === 'object' ? p.inset : {}, tin = p.t0 + (o.t ?? 0.6), dur = Math.max(2.5, Math.min(4, o.dur ?? 3.0)), a = Math.min(cl((t - tin) / 0.3), 1 - cl((t - (tin + dur - 0.3)) / 0.3));
   if (a <= 0.01) { LL.inset = null; return; }
   const D = p.tl ? tlData(p, t) : null, nm = D && D.chrome && D.chrome.method && !D.chrome.method.bottom ? D.chrome.method.lines.length : 0;
-  const w = 460 * S, h = w / M.aspect, x = SAFE.x0, y = 56 + nm * (SRCPX * 1.6 + 10), area = (w + 6) * (h + 6) / (W * H) * 100;
+  const w = (o.w || 560) * S, h = w / M.aspect, x = SAFE.x0, y = 56 + nm * (SRCPX * 1.6 + 10), area = (w + 6) * (h + 6) / (W * H) * 100;
   const X = (lo, la) => { const [lo0, la0, lo1, la1] = M.box, k = Math.cos(((la0 + la1) / 2) * Math.PI / 180); return [x + ((lo - lo0) * k) / ((lo1 - lo0) * k) * w, y + (la1 - la) / (la1 - la0) * h]; };
   g.save(); g.globalAlpha *= a; g.shadowColor = 'rgba(0,0,0,0.35)'; g.shadowBlur = 18; g.fillStyle = INSET_PAPER.sea; g.fillRect(x, y, w, h); g.shadowColor = 'transparent';
   g.beginPath(); g.rect(x, y, w, h); g.clip();
   g.fillStyle = INSET_PAPER.land; g.strokeStyle = INSET_PAPER.coast; g.lineWidth = 1.3; g.lineJoin = 'round';
   for (const r of M.rings) { g.beginPath(); r.forEach(([u, v], i) => (i ? g.lineTo : g.moveTo).call(g, x + u * w, y + v * h)); g.closePath(); g.fill(); g.stroke(); }
-  const B = (window.INSETS.bien || {})[p.inset_bien]; if (B) { g.strokeStyle = 'rgba(15,23,34,0.75)'; g.lineWidth = 2; g.setLineDash([6, 4]); for (const l of B.lines) { g.beginPath(); l.forEach(([lo, la], i) => (i ? g.lineTo : g.moveTo).call(g, ...X(lo, la))); g.stroke(); } g.setLineDash([]); }
-  if (p.inset_route) { const R2 = p.inset_route.map(([lo, la]) => X(lo, la)), u = giu ? cl((t - p.t0 - 0.4) / 2.0) : 1;   // tuyến mọc 2 s
-    g.strokeStyle = K.orange; g.lineWidth = 4; g.setLineDash([10, 7]); g.beginPath(); let len = 0; const tot = R2.slice(1).reduce((s2, q, i) => s2 + Math.hypot(q[0] - R2[i][0], q[1] - R2[i][1]), 0); g.moveTo(...R2[0]);
-    for (let i = 1; i < R2.length; i++) { const d = Math.hypot(R2[i][0] - R2[i - 1][0], R2[i][1] - R2[i - 1][1]); if (len + d >= u * tot) { const f = (u * tot - len) / d; g.lineTo(R2[i - 1][0] + (R2[i][0] - R2[i - 1][0]) * f, R2[i - 1][1] + (R2[i][1] - R2[i - 1][1]) * f); break; } g.lineTo(...R2[i]); len += d; }
-    g.stroke(); g.setLineDash([]); }
-  if (p.inset_dot) { const [dx, dy] = X(...p.inset_dot), k2 = (t * 1.1) % 1; g.fillStyle = INSET_PAPER.dot; g.beginPath(); g.arc(dx, dy, 9 * S, 0, 7); g.fill(); g.strokeStyle = `rgba(217,68,43,${1 - k2})`; g.lineWidth = 3; g.beginPath(); g.arc(dx, dy, (10 + 22 * k2) * S, 0, 7); g.stroke(); }
+  // hộp đỏ dấu chân khung máy (theo khung plate hiện tại)
+  const FT = (window.INSETS.foot || {})[p.dir] || {}, fi = plateIdx(p, t), foot = FT[fi] || FT[String(fi)] || null; let fpx = null, fc = null;
+  if (foot) { const Q = foot.map(([lo, la]) => X(lo, la)); fc = [Q.reduce((s2, q) => s2 + q[0], 0) / 4, Q.reduce((s2, q) => s2 + q[1], 0) / 4]; fpx = Math.max(...Q.map((q) => q[0])) - Math.min(...Q.map((q) => q[0]));
+    g.fillStyle = 'rgba(217,68,43,0.22)'; g.strokeStyle = INSET_PAPER.dot; g.lineWidth = 3 * S; g.beginPath(); Q.forEach((q, i) => (i ? g.lineTo : g.moveTo).call(g, q[0], q[1])); g.closePath(); g.fill(); g.stroke();
+    if (fpx < 16 * S) { g.strokeStyle = INSET_PAPER.dot; g.lineWidth = 3 * S; g.beginPath(); g.arc(fc[0], fc[1], 16 * S, 0, 7); g.stroke(); } }
+  else if (p.inset_dot) { const [dx, dy] = X(...p.inset_dot); fc = [dx, dy]; g.strokeStyle = INSET_PAPER.dot; g.lineWidth = 3 * S; g.beginPath(); g.arc(dx, dy, 16 * S, 0, 7); g.stroke(); }
   g.restore(); g.save(); g.globalAlpha *= a; g.strokeStyle = INSET_PAPER.frame; g.lineWidth = 2; g.strokeRect(x, y, w, h); g.restore();
-  // nhãn trong inset (30 px, quầng nền tối nhẹ, role 'inset'): nơi + tên tuyến
-  const lab = (s2, lx, ly, al = 'left') => { const pw = tw(g, s2, 30 * S, 700) + 20, bx = al === 'right' ? lx - pw : lx; panel(g, Math.max(x + 4, Math.min(x + w - pw - 4, bx)), ly - 22 * S, pw, 34 * S, { a, fill: 'rgba(15,23,34,0.86)', stroke: 'transparent', r: 6 });
-    text(g, s2, Math.max(x + 4, Math.min(x + w - pw - 4, bx)) + 10, ly + 3 * S, 30 * S, K.text, { a, w: 700, role: 'inset' }); };
-  if (p.inset_dot && p.inset_label) { const [dx, dy] = X(...p.inset_dot); lab(p.inset_label, dx + 18 * S, dy + 4 * S); }
-  if (p.inset_route && p.inset_route_label) { const [rx, ry] = X(...p.inset_route[0]); lab(p.inset_route_label, rx + 12 * S, ry + 36 * S); }
-  LL.inset = { box: [x, y, x + w, y + h].map(Math.round), area_pct: +area.toFixed(2), a: +a.toFixed(2), map: p.inset_map, src: M.src, bien: B ? B.src : null, route: !!p.inset_route };
+  // nhãn (≤ 2, 30 px, role 'inset') + dòng nguồn bản đồ trong khung
+  const lab = (s2, lx, ly) => { const pw = tw(g, s2, 30 * S, 700) + 20, bx = Math.max(x + 4, Math.min(x + w - pw - 4, lx)); panel(g, bx, ly - 22 * S, pw, 34 * S, { a, fill: 'rgba(15,23,34,0.86)', stroke: 'transparent', r: 6 });
+    text(g, s2, bx + 10, ly + 3 * S, 30 * S, K.text, { a, w: 700, role: 'inset' }); };
+  const LBS = (p.inset_labels || (p.inset_label ? [{ s: p.inset_label, ll: p.inset_dot }] : [])).slice(0, 2);
+  for (const L of LBS) { const [lx, ly] = L.ll ? X(...L.ll) : fc || [x + w / 2, y + h / 2]; lab(L.s, lx + (L.dx ?? 22) * S, ly + (L.dy ?? 6) * S); }
+  text(g, M.src && /Natural Earth/.test(M.src) ? 'Map: Natural Earth' : (M.src || 'Map: Natural Earth'), x + w - 10, y + h - 10, MINPX, '#3a3226', { a: a * 0.95, w: 600, align: 'right', role: 'inset_src', deco: true });
+  LL.inset = { box: [x, y, x + w, y + h].map(Math.round), area_pct: +area.toFixed(2), a: +a.toFixed(2), t: [+tin.toFixed(2), +(tin + dur).toFixed(2)], inset_goc: 'tren-trai', ly_do: p.inset_ly_do || 'B4: góc trên trái',
+    map: p.inset_map, src: M.src, bien: null, route: false, foot_px: fpx === null ? null : +fpx.toFixed(1), vong_dinh_vi: fpx !== null && fpx < 16 * S, giu_bo: p.inset === 'giu' };
   (LL.occ = LL.occ || []).push([x, y, x + w, y + h]); }
 
 // ---------- XƯƠNG SỐNG THỜI GIAN (V5b-2b, V5B2A §8.5): lớp chữ của cảnh 'tl/<cảnh>' ----------
@@ -380,7 +410,7 @@ TPL.plate = (p) => ({ kind: 'full', full(g, t) {
   drawPlate(g, p, t, blur, dim); if (!c) { labels(g, p, t); title(g, p, t); }
   if (c) { const u = vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5); cardFrame(g, c, t, u); (TPLC[c.type] || (() => {}))(g, c, t, u); LL.fill = true;
     if (p.src) srcLine(g, p.src, CARD.x + 50, CARD.y + CARD.h - 34, u); }
-  else { colOcc(p, t); yearChip(g, p, t); insetLayer(g, p, t); if (p.tl) tlLayer(g, p, t); else whereChip(g, p, t); stickers(g, p, t); caps(g, p, t); sideCap(g, p, t); tags(g, p, t, p.places); tags(g, p, t, p.tags); score(g, p, t); }   // V2: sticker dưới dải chú thích; bảng điểm trên cùng   // nhãn k2v vẽ SAU dải chú thích/nguồn: dải tối của caps phủ mờ nhãn ở 1/3 dưới khung (chấm mù P2, 12/10)
+  else { colOcc(p, t); yearChip(g, p, t); stratLayer(g, p, t); insetLayer(g, p, t); if (p.tl) tlLayer(g, p, t); else whereChip(g, p, t); stickers(g, p, t); caps(g, p, t); sideCap(g, p, t); tags(g, p, t, p.places); tags(g, p, t, p.tags); score(g, p, t); }   // V2: sticker dưới dải chú thích; bảng điểm trên cùng   // nhãn k2v vẽ SAU dải chú thích/nguồn: dải tối của caps phủ mờ nhãn ở 1/3 dưới khung (chấm mù P2, 12/10)
   const kd = p.__kind === undefined ? (p.__kind = typeof p.kind === 'string' ? p.kind : /"kind":"projection"/.test(JSON.stringify(p)) ? 'projection' : /"kind":"actual"/.test(JSON.stringify(p)) ? 'actual' : '') : p.__kind;   // G2 (K 1.11 O5): p.kind khai rõ nhãn góc ('' = không nhãn góc, khi các thẻ tự mang nhãn) — thẻ dưới nhãn góc thôi khai kind → 1 ACTUAL/khung
   if (kd) { if (c) kindTag(g, kd, CARD.x + CARD.w - 40, CARD.y + CARD.h - 44, vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5), 'right'); else if (V) kindTag(g, kd, W / 2, H * 0.70 - 24, 1, 'center'); else kindTag(g, kd, W - SAFE.x0, H - (EDGE_B + 14), 1, 'right'); }   // 9:16: trên dải chú thích (13/10: ở H−330 đè dòng nguồn 2 dòng)   // Q7: shot có số → nhãn ACTUAL/PROJECTION
   asof(g, p, t); } });
@@ -412,4 +442,4 @@ TPL.endcard = (p) => ({ kind: 'full', full(g, t) { const gr = g.createRadialGrad
 function frameAt(g, t) { g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; g.setTransform(1, 0, 0, 1, 0, 0); g.filter = 'none'; LL.SEG.frame(g, t); g.globalAlpha = 1; g.setTransform(1, 0, 0, 1, 0, 0);
   const S2 = LL.SEG, fi = S2.fadeIn === undefined || S2.fadeIn === null ? 6 : S2.fadeIn, fo = S2.fadeOut === undefined || S2.fadeOut === null ? 6 : S2.fadeOut, fr = t * FPS, N = S2.frames; let k = 0;
   if (fi > 0 && fr < fi) k = Math.max(k, 1 - sm((fr + 1) / (fi + 1))); if (fo > 0 && fr > N - 1 - fo) k = Math.max(k, sm((fr - (N - 1 - fo)) / (fo + 1))); if (k > 0) { g.fillStyle = `rgba(3,4,8,${k})`; g.fillRect(0, 0, W, H); if (k > 0.2 && LL.tlog) LL.tlog.length = 0; } }   // khung đang tối dần (chuyển đoạn): không tính chữ cho Q5
-window.drawFrame = (f) => { LL.inset = null; LL.occ = []; LL.act = false; LL.fill = false; LL.camNear = Infinity; LL.zones = []; LL.hit = 0; frameAt(X, f / FPS); };
+window.drawFrame = (f) => { LL.inset = null; LL.legend = null; LL.occ = []; LL.act = false; LL.fill = false; LL.camNear = Infinity; LL.zones = []; LL.hit = 0; frameAt(X, f / FPS); };

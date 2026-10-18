@@ -1,0 +1,82 @@
+# Luật kênh 2 (checks 1.14.0) — v5b2c-t — TRƯỢT
+
+| Mục | Kiểm | Kết quả | Cấp (1.12.1) | Giá trị | Ngưỡng | Sát ngưỡng (±5 %) |
+|---|---|---|---|---|---|---|
+| Q26b | Đa dạng bối cảnh | **TRƯỢT** |  | 6 bối cảnh · lớn nhất tl/vinh1782 31.3 % · liên tục dài nhất tl/vinh1782 18.0 s · nửa sau 4 · trung tính 12.2 % | ≤ 25 % · ≤ 90 s · nửa sau ≥ 3 |  |
+| Q32 | Footage/ảnh nguồn ngoài | **ĐẠT** |  | không dùng footage ngoài | ≤ 40 % · footage ≤ 20 % · ≤ 8 s/clip · < 720p trong khung ≤ 1,5× |  |
+| Q33 | Lặp cảnh | **ĐẠT** |  | 7 góc máy · 7 lần xuất hiện · nhiều nhất relief/map · sm2 1 lần · 0 góc > 2 · pHash xám toàn khung θ=14, thêm 0 lần lặp không khai | ≤ 2 lần |  |
+| Q34 | Loại shot | **ĐẠT** |  | 9/9 shot có type · scene3d 76.5 % · map 12.2 % · strategic 11.3 % · số neo 3D 100 %, chỉ card 0 % (0 số) · địa danh 0 · nhân vật 0 | type · map ±6 s · photo ±6 s · số neo 3D ≥ 60 % · document ≤ 3 s · record ≤ 12 s + dòng tô + nguồn |  |
+| Q35 | Nhãn loại số (D5) | **ĐẠT** |  | mô hình đặc tả · 33 khung xét · ACTUAL nhiều nhất 0/khung · lỗi a 0 · b 0 · c 0 · d 0 | ACTUAL ≤ 1/khung · ESTIMATE bắt buộc · số có năm rõ không cần ACTUAL |  |
+| Q36 | Chữ trên màn hình | **ĐẠT** |  | 0 dòng nguồn · dài nhất 0 ký tự · không có log (cỡ chữ THIẾU) · lỗi a 0 · b 0 · thiếu 0 | nguồn ≥ 38 px, 1 dòng, ≤ 70 ký tự · Facts as of chỉ với luật hiệu lực (+ 1 lần trong câu miễn trừ 0:00–0:15) |  |
+| Q37 | Nhịp thị giác | **TRƯỢT** |  | 57.5 s · biến cố khai 7 (gộp 7) · TB 8.21 s · dài nhất 18.0 s · khung tĩnh (khung liền < 0.6/255) dài nhất 2.21 s (từ 0:53.2) | TB ≤ 3,5 s · dài nhất ≤ 6 s · khung tĩnh ≤ 6 s |  |
+| A1–A13 | Âm thanh (tập cũ — chỉ báo) | **CHỈ BÁO** |  | CHỈ BÁO · A1 -14.1 LUFS · A2 -0.0 dBTP · A5 0 đoạn · A7 0 · A4 không có stem (--vo/--bed) và mix.json không có smr · A8 0 | docs/AUDIO-THUOC-DO.md | A1 I = -14.1 LUFS (ngưỡng -15 / -13.8) |
+| ML1 | Mạch truyện | **CHỈ BÁO (TRƯỢT)** | Chặn (b), (c) · Cảnh báo (a) ở T3 (Chặn từ T4) — lỗi Chặn 1, Cảnh báo 2 | 0/9 shot gắn (0 suy từ mốc @từ) · timelapse 44.0 s, trôi 76.5 % | mỗi shot gắn câu/claim · timelapse trôi ≤ 15 % |  |
+| ML2 | Lời lặp ý | **CHỈ BÁO (ĐẠT)** | Chặn có giải trình (người quyết; không vào mã thoát tự động) — lỗi Chặn 0, Cảnh báo 0 | 0 câu · 0 cặp ứng viên (chấm 0) · 0 lặp ý · không khai tóm tắt | n-gram/IDF + chấm ngữ nghĩa ghim mô hình; ngoài tóm tắt cuối |  |
+| ML3 | Lời mời đăng ký | **CHỈ BÁO (ĐẠT)** | Chặn — lỗi Chặn 0, Cảnh báo 0 | 0 câu mời: không có · 0 luận điểm chính khai | 60 s cuối hoặc ±5 s ranh chương · không trong 20 s trước luận điểm chính |  |
+| FT1 | Chỉ báo footage/ảnh | **CHỈ BÁO (ĐẠT)** | Cảnh báo (20 % footage đã Chặn ở Q32 b2) — lỗi Chặn 0, Cảnh báo 0 | 0 shot footage/ảnh · tính 0.0 s = 0.0 % (miễn ảnh nhỏ 0.0 s) · khai lý do: 0/0 | ≤ 20 % (trần) · mỗi shot có lý do · ảnh ≤ 1/3 khung ≤ 6 s không tính |  |
+| NHIP-K2 | Nhịp kênh 2 (Q14–Q18 không áp → Q37) | **CHỈ BÁO (ĐẠT)** | Chặn (như Q37) — lỗi Chặn 0, Cảnh báo 0 | không áp (tập LL: Q14–Q18 như cũ) | TB ≤ 3,5 s · dài nhất ≤ 6 s |  |
+| Q26b-K2 | Đa dạng loại cảnh + vùng | **CHỈ BÁO (TRƯỢT)** | Chặn (c), (d), (e) (như Q26b) · Cảnh báo (a), (b) — lỗi Chặn 1, Cảnh báo 3 | loại: 3d 76.5 %, ban_do 12.2 %, khac 11.3 % · 6 vùng, lớn nhất tl/vinh1782 31.3 % · nửa sau 4 vùng · không vùng 0.0 % | ≥ 3 loại/nửa · loại ≤ 70 % · vùng ≤ 25 %, ≤ 90 s, nửa sau ≥ 3 |  |
+| Q33-K2 | Lặp cảnh (vùng, góc) + pHash L/ΔE | **CHỈ BÁO (ĐẠT)** | Chặn (như Q33) — lỗi Chặn 0, Cảnh báo 0 | 7 khoá (vùng, góc) · 7 lần xuất hiện · nhiều nhất relief/map · sm2 1 · 0 khoá > 2 · pHash L θ=16 + ΔE ≤ 10, thêm 0 lần lặp không khai, miễn 0 | ≤ 2 lần (miễn: khác chương + khác năm/lớp) |  |
+| Q32b-K2 | Trần clip/ảnh | **CHỈ BÁO (ĐẠT)** | Chặn (như Q32b) — lỗi Chặn 0, Cảnh báo 0 | 0 clip/ảnh ·  | footage ≤ 8 s · ảnh có máy/chú thích đổi ≤ 12 s · ảnh tĩnh ≤ 8 s |  |
+| NC-H1 | Thành phố có nhà | **CHỈ BÁO (ĐẠT)** | Chặn (a), (b) (đúng lỗi chủ dự án nêu ở T2) — lỗi Chặn 0, Cảnh báo 0 | 4 shot thành phố (28.4 s; khai 4, suy 0) · có lớp nhà khai 4 · không lớp nhà 0 · không đo fabric 4 | fabric trung vị ≥ 25 % · không khung < 15 % (trừ ≤ 3 s cuối reveal) |  |
+| NC-H2 | Địa cầu | **CHỈ BÁO (TRƯỢT)** | Chặn (a), (b) — lỗi Chặn 1, Cảnh báo 0 | 1 lần · 7.2 s (12.6 % phim) · map/globe 0.0 s · bản đồ nổi tầm cao 7.2 s · dài nhất 7.25 s · loại strategic hợp lệ 1 shot (6.5 s) khỏi NC-H2/H3 | AGL > 50 km: ≤ 1 lần/tập · ≤ 3 s/lần |  |
+| NC-H3 | Tầm mặc định | **CHỈ BÁO (ĐẠT)** | Cảnh báo — lỗi Chặn 0, Cảnh báo 0 | 3D địa lý 31.2 s · AGL ≤ 60 km 76.8 % · ≤ 3 km 76.8 % · có thành phố: có · loại strategic hợp lệ 1 shot (6.5 s) khỏi NC-H2/H3 | AGL ≤ 60 km ≥ 70 % 3D · có thành phố: AGL ≤ 3 km ≥ 40 % |  |
+| NC-H4 | Nơi có tên | **CHỈ BÁO (ĐẠT)** | Chặn — lỗi Chặn 0, Cảnh báo 0 | 2 shot bản đồ · chip nơi 0 · nhãn địa danh 2 · thiếu 0 (nguồn: đặc tả, không log chữ) | mọi shot bản đồ: chip nơi hoặc nhãn địa danh |  |
+| NC-H5 | Đúng thời kỳ | **CHỈ BÁO (KHÔNG ÁP)** | Chặn (a) · Cảnh báo (b) — lỗi Chặn 0, Cảnh báo 0 | không áp (tập không có bộ đếm năm/timelapse) | năm xây ≤ bộ đếm · ghost: nhãn nguồn ≥ 38 px, ≥ 3 s lần đầu |  |
+| Q7/Q8-K2 | Nhãn/loại số nhận estimate (khiếu nại TT5 i) | **CHỈ BÁO (ĐẠT)** | Chặn (thay Q7/Q8 cho kênh 2, như Q35) — lỗi Chặn 0, Cảnh báo 0 | Q7 nhận ESTIMATE: 0 lỗi (không log: chỉ kiểm kind khai) · Q8 loại số: 0 lỗi | kind ∈ actual/projection/estimate (kênh 2) · đủ nhãn, không thừa nhãn |  |
+| Q33 (1.13) | Lặp cảnh — pHash bỏ lớp chữ cố định | **CHỈ BÁO (ĐẠT)** | Chặn (thay Q33 cho kênh 2) — lỗi Chặn 0, Cảnh báo 0 | 7 góc máy · 7 lần xuất hiện · nhiều nhất relief/map · sm2 1 lần · 0 góc > 2 · pHash L vùng nội dung (bỏ lớp chữ cố định) θ=16, thêm 0 lần lặp không khai | ≤ 2 lần · pHash L vùng nội dung y 18–72 %, θ 16 |  |
+| Q36 (1.13) | Chữ — câu miễn trừ nhận theo chữ | **CHỈ BÁO (ĐẠT)** | Chặn (thay Q36 cho kênh 2) — lỗi Chặn 0, Cảnh báo 0 | 0 dòng nguồn · dài nhất 0 ký tự · không có log (cỡ chữ THIẾU) · lỗi a 0 · b 0 · thiếu 0 | "This video explains… Facts as of" 1 lần trong 0:00–0:15 không đòi nguồn luật |  |
+| Q37 (1.13) | Nhịp — khung tĩnh theo khung neo | **CHỈ BÁO (TRƯỢT)** | Chặn (thay Q37 cho kênh 2) — lỗi Chặn 2, Cảnh báo 0 | 57.5 s · biến cố khai 7 (gộp 7) · TB 8.21 s · dài nhất 18.0 s · khung tĩnh (neo, < 2.0/255) dài nhất 0.79 s (từ 0:53.5) | khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s |  |
+| BD-1 | Bản đồ chiến lược: tỷ trọng + định nghĩa | **CHỈ BÁO (ĐẠT)** | Chặn — lỗi Chặn 0, Cảnh báo 0 | 1 shot strategic · 6.5 s = 11.3 % phim · dài nhất 6.50 s · nhiều nhất/chương 1 · hợp lệ định nghĩa 1 | ≤ 15 % · ≤ 8 s · ≤ 2/chương · không liền nhau · nghiêng ≤ 30°, 300–5 000 km · mốc thời gian, chú giải ≤ 3 phe, kề 3D nơi chỉ tới |  |
+| BD-2 | Bản đồ chiến lược: chuyển động | **CHỈ BÁO (ĐẠT)** | Cảnh báo (tới khi hiệu chuẩn trên V5b-2c) — lỗi Chặn 0, Cảnh báo 0 | 1 shot strategic · đạt 1 | phần tử chuyển động bắt đầu ≤ 1,5 s, phủ ≥ 60 % |  |
+| BD-3 | Nhãn ranh "approx. borders c. YYYY — nguồn" | **CHỈ BÁO (THIẾU)** | Chặn (a) · Cảnh báo (c) năm nhãn ≠ năm lớp (K thêm, chờ duyệt) — lỗi Chặn 1, Cảnh báo 0 | 1 cặp shot–lớp ranh ·  | nhãn regex ≥ 38 px ở ≥ 95 % khung có ranh |  |
+| BD-4 | Manifest lớp ranh | **CHỈ BÁO (ĐẠT)** | Chặn — lỗi Chặn 0, Cảnh báo 0 | 1 lớp · bien_gioi_lich_su 1 · shot trỏ 1 | nam/nguon/nguon_doi_chieu/lech_tb_px/giay_phep ∈ CC0·PD·CC-BY-4.0; lệch > 4 px → mép mềm/gạch |  |
+| BD-5 | Biên hiện đại tranh chấp + lãnh thổ nhỏ | **CHỈ BÁO (ĐẠT)** | Chặn — lỗi Chặn 0, Cảnh báo 0 | 0 lớp bien_gioi_hien_dai · đệm 10 km quanh NE disputed 1:10m | ∩ (NE disputed ⊕ 10 km) = ∅ · lãnh thổ < 8 px là điểm |  |
+| BD-6 | Tuyến biển không cắt đất | **CHỈ BÁO (ĐẠT)** | Chặn — lỗi Chặn 0, Cảnh báo 0 | 4 tuyến · biển 3 · đất NE 1:10m, đệm cảng 5 km | tuyến biển ∩ đất NE 1:10m (trừ 5 km quanh cảng) = ∅ · ≥ 1 claim |  |
+| BD-7 | Màu phe cố định (+ B8 bản địa) | **CHỈ BÁO (ĐẠT)** | Cảnh báo (tới khi hiệu chuẩn trên V5b-2c) — lỗi Chặn 0, Cảnh báo 0 | 3 phe · đổi màu 0 · fill cờ/biểu tượng 0 · bản địa tô trống 0 | một faction_id một màu · không cờ/biểu tượng làm fill · bản địa không tô như đất trống |  |
+| BD-8 | Inset định vị | **CHỈ BÁO (THIẾU)** | Cảnh báo (tới khi hiệu chuẩn trên V5b-2c) — lỗi Chặn 0, Cảnh báo 1 | 1 inset · 1920×1080 | ≤ 12 % khung · góc trên trái, an toàn 5 % · 2,5–4 s · không giao chữ/LL.occ · không trong liên hoàn/thẻ số/ảnh lưu trữ/2 s sau cắt cứng |  |
+| K-R1…K-R9 | ĐỎ-K | **CHỈ BÁO (KHÔNG ÁP)** | — — lỗi Chặn 0, Cảnh báo 0 | tập không khai rui_ro: do-k |  |  |
+| LOCK | checks/ khớp LOCK (1.14.0) | **ĐẠT** |  | KHỚP |  |  |
+
+## Âm thanh A1–A13
+| Mục | Kiểm | Loại | Kết quả | Giá trị | Ngưỡng |
+|---|---|---|---|---|---|
+| A1 | Loudness tích hợp (master sau AAC) | chặn | ĐẠT | -14.1 LUFS | -15.0 … -13.8 |
+| A2 | Đỉnh thật sau AAC | chặn | BÁO | -0.0 dBTP | ≤ -1.0 |
+| A3 | Biên độ loudness LRA | báo | BÁO | 0.7 LU | 2–8 (báo) |
+| A4 | Lời trên nhạc (SMR) | chặn | BÁO | không có stem (--vo/--bed) và mix.json không có smr | p10 ≥ 15 · min ≥ 12 |
+| A5 | Lặng bất thường ≥ 1 s (< −50 LUFS tức thời) | chặn | ĐẠT | 0 đoạn | 0 |
+| A6 | Tỉ lệ lặng | báo | ĐẠT | 0.00 % | báo |
+| A7 | Chạm trần (≥ 3 mẫu |x| ≥ 0,999) | chặn | ĐẠT | 0 | 0 |
+| A8 | Chồng lời | chặn | ĐẠT | 0 | 0 |
+| A9 | ASR hai cách nghe (beam 5 + tham lam): số + tên riêng | chặn | ĐẠT | beam 5 0/0 · tham lam 0/0 đoạn · miễn 0 câu | 100 % đoạn, cả hai cách |
+| A10 | Quãng không lời > 8 s không khai khoảnh khắc nhạc | báo | ĐẠT | dài nhất 0.0 s · 0 quãng | > 8 s (báo) |
+| A11 | Giao nhạc | chặn | — | không đo (mix.json không phải chuỗi mới) | ≤ 1 ô nhịp · không lặp |
+| A12 | Loudnorm tuyến tính | chặn | — | không đo (mix.json không phải chuỗi mới) | linear |
+| A13 | Đồng bộ tiếng | báo | — | không đo (không có stem lời --vo) | ≤ 5 ms (báo) |
+
+## Chi tiết lỗi
+### Q26b
+- tl/vinh1782 chiếm 31.3 % thời lượng (> 25 %)
+### Q37
+- (b) khoảng biến cố trung bình 8.21 s > 3.5 s
+- (c) khoảng dài nhất 18.0 s > 6.0 s (từ a 6.50s (dissolve))
+### ML1
+- a/0 @0:00.0 (strategic, 6.5 s): không gắn câu lời hay claim
+- b/0 @0:24.5 (map, 7.0 s): không gắn câu lời hay claim
+- timelapse trôi 44.0 s = 76.5 % > 15 %
+### Q26b-K2
+- (a) nửa đầu: 2 loại cảnh ≥ 3 s (3d, ban_do) < 3
+- (a) nửa sau: 1 loại cảnh ≥ 3 s (3d) < 3
+- (b) loại 3d chiếm 76.5 % > 70 %
+- (c) vùng tl/vinh1782 chiếm 31.3 % > 25 %
+### NC-H2
+- (b) 0:24.5–0:31.8 7.25 s > 3 s · cao nhất 1,498 km · relief · b/0 sm2fb @0:24.5
+### Q37 (1.13)
+- (b) khoảng biến cố trung bình 8.21 s > 3.5 s
+- (c) khoảng dài nhất 18.0 s > 6.0 s (từ a 6.50s (dissolve))
+### BD-3
+- (a) a/0 @0:00.0 lớp sm2-1782: không có log chữ của đoạn a
+### BD-8
+- không có log chữ — (d) không đo giao hộp chữ
+

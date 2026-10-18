@@ -135,6 +135,18 @@ export function lateral({ vai, c, yaw, dist, len, h, t0, t1, fov = 30, hAt = () 
     K.push({ t: r4(t), p: [e, hAt(e, n) + h, n], l: [c[0] + sd[0] * len * u * 0.35, gc + c[1], c[2] + sd[1] * len * u * 0.35], fov }); }
   return shot('lateral-parallax', vai, t0, t1, K, [{ kind: 'lateral', t: [t0, t1] }], { subject: c });
 }
+// V5b-2c (F1/F3 chủ dự án 17/10) · NEO — KHUNG CỐ ĐỊNH quay lại 4–6 lần/tập, giữ 6–10 s; thời gian trôi bằng bộ đếm năm (chữ chính, F2) + chu kỳ ngày → chiều
+//  (mặt trời M6 theo giờ của cảnh) và chuyển mốc bằng hoà ở dựng. Tư thế máy MẶC ĐỊNH lấy đúng KHUNG NEO của phiên PT (nhánh claude/pt-khung-neo-ab-test-njr9wp,
+//  design/pt/scene/pt_site.py): Grand Parade / Commercial Square, mép Main Street, cao 4,6 m, phương vị 281°, ngẩng 2°, 32 mm (khung 36 mm) → fov dọc 41,1°.
+//  Máy "thở" ≤ 0,15 m (không đứng yên tuyệt đối — bài học LL #44), không đổi hướng.
+export const NEO_PT = { E: -459.6, N: -1139.9, h: 4.6, heading: 281, pitch: 2, fovV: 41.1, nguon: 'PT pt_site.py (Grand Parade, UTM 30N 288244.6 / 4002145.8)' };
+export function neo({ vai = 'co-che', pose = NEO_PT, t0, t1, hAt = () => 0, breathe = 0.15 }) {
+  if (t1 - t0 < 6 - 1e-6 || t1 - t0 > 10 + 1e-6) throw new Error(`neo: giữ ${(t1 - t0).toFixed(2)} s ngoài 6–10 s (F1)`);
+  const K = [], a = (90 - pose.heading) * Math.PI / 180, pi = pose.pitch * Math.PI / 180, g = hAt(pose.E, pose.N), d = [Math.cos(a) * Math.cos(pi), Math.sin(pi), Math.sin(a) * Math.cos(pi)];
+  for (const t of times(t0, t1, 0.2)) { const w = Math.sin((t - t0) * 0.9) * breathe, p = [pose.E + w * 0.3, g + pose.h + w * 0.2, pose.N - w * 0.2];
+    K.push({ t: r4(t), p, l: [p[0] + d[0] * 300, p[1] + d[1] * 300, p[2] + d[2] * 300], fov: pose.fovV }); }
+  return shot('neo', vai, t0, t1, K, [{ kind: 'neo', t: [t0, t1] }], { subject: [pose.E, 0, pose.N], neo: pose });
+}
 // 6) TOP-DOWN RISE: nhìn thẳng xuống (lệch 0,5° tránh suy biến lookAt), bay lên h0 → h1 và xoay chậm yaw0 → yaw1 (bản đồ sống)
 export function topDownRise({ vai, c, h0, h1, t0, t1, yaw0 = 0, yaw1 = 15, fov = 40, hAt = () => 0 }) {
   const K = [], gc = hAt(c[0], c[2]);

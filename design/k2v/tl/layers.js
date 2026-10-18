@@ -194,6 +194,8 @@ export async function town1782(ctx, { hidPack = true, infill = true, kbOpt = {} 
   const cv = document.createElement('canvas'); cv.width = Math.ceil((e1 - e0) / res); cv.height = Math.ceil((n1 - n0) / res); const g = cv.getContext('2d');
   g.fillStyle = '#000'; g.fillRect(0, 0, cv.width, cv.height); g.fillStyle = g.strokeStyle = '#fff'; g.lineWidth = 50 / res; g.lineJoin = 'round';
   for (const r of recs) { g.beginPath(); r.forEach(([e, n], i) => (i ? g.lineTo : g.moveTo).call(g, (e - e0) / res, (n1 - n) / res)); g.closePath(); g.fill(); g.stroke(); }
+  // cây 2026 trong phố cổ (trong hộp ghost, dưới 70 m cao độ) ẩn ở mốc 1782 — không có nguồn vườn/cây 1782
+  if (ctx.trees && ctx.trees.hideWhere) ctx._treesHid = ctx.trees.hideWhere((e, n) => e > e0 + 40 && e < e1 - 20 && n > n0 + 40 && n < n1 - 40 && ctx.terr.hAt(e, n) < 70);
   g.filter = 'blur(4px)'; g.drawImage(cv, 0, 0); const tx = new THREE.CanvasTexture(cv); tx.minFilter = THREE.LinearFilter;
   const u = ctx.terr.uni; u.tGhostU.value = tx; u.uGhostBox.value.set(e0, n0, e1 - e0, n1 - n0); u.uGhostOn.value = 1; if (ctx.roads) ctx.roads.mesh.visible = false;
   return { FP, FL, WL, LN, KB, kbRing, infill, INFILL_SRC: 'Grey-washed blocks: estimated infill', update(year, cam) { FP.update(year, cam); FL.update(year); }, namMax: (y) => FP.namMax(y), src: SRC1782 };

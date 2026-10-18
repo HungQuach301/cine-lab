@@ -41,7 +41,7 @@ window.setup = async (cfg) => {
   // ánh trời xanh làm bóng ngả lạnh (tương phản ấm–lạnh), bóng sắc hơn (bán kính PCF 3 → 1,5).
   const L = Object.assign({ fogC: [0.60, 0.74, 0.90], fogD: 0.0000175, hemiSky: '#9cbcf0', hemiGnd: '#7a6648', hemiI: 0.62, sunC: '#ffe3b8', sunI: 3.3, shR: 1.5 }, cfg.look || {}, mod.LOOK || {}); C.look = L;   /* V5b-2c: cảnh khai LOOK (ánh sáng riêng) */
   const fogC = new THREE.Color(...L.fogC); scene.fog = new THREE.FogExp2(fogC, L.fogD);
-  scene.add(new THREE.HemisphereLight(L.hemiSky, L.hemiGnd, L.hemiI));
+  const hemi = new THREE.HemisphereLight(L.hemiSky, L.hemiGnd, L.hemiI); scene.add(hemi);
   const sun = new THREE.DirectionalLight(L.sunC, L.sunI); sun.castShadow = T.shadows !== false; sun.shadow.mapSize.set(T.shadowRes, T.shadowRes); sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.6; sun.shadow.radius = L.shR;
   scene.add(sun, sun.target);
   const terr = await makeTerrain(base, M, U, Object.assign({}, mod.TERRAIN || {}, (cfg.opt && cfg.opt.terrain) || {})); scene.add(terr.group);
@@ -60,7 +60,7 @@ window.setup = async (cfg) => {
   cam = new THREE.PerspectiveCamera(38, cfg.W / cfg.H, 5, 80000);
   txt = makeText(cfg.W, cfg.H); rec = makeRecorder(cfg.W, cfg.H);
   const photo = cfg.photo ? await loadImg(cfg.photo) : null;
-  ctx = { THREE, U, M, terr, city, roads, trees, heroes, ships, sun, sunDir, cam, photo, lines: LINES, W: cfg.W, H: cfg.H, track, scene, maskify, base, opt: cfg.opt || {}, makeCity, loadJSON, R };   /* V5b-2b: opt của shot + makeCity (lớp footprint M9) */   /* V5b-2a: cảnh thêm phần tử 3D riêng (overlay3d.js) */
+  ctx = { hemi, THREE, U, M, terr, city, roads, trees, heroes, ships, sun, sunDir, cam, photo, lines: LINES, W: cfg.W, H: cfg.H, track, scene, maskify, base, opt: cfg.opt || {}, makeCity, loadJSON, R };   /* V5b-2b: opt của shot + makeCity (lớp footprint M9) */   /* V5b-2a: cảnh thêm phần tử 3D riêng (overlay3d.js) */
   SC = await mod.build(ctx);
   // mặt nạ nội dung: hero + đường = nội dung (city/terrain tự có mã mặt nạ); cây = nền
   const mk = (obj, v, hid = 0) => obj && obj.traverse((o) => { if (o.isMesh) for (const m of [].concat(o.material)) if (!m.isShaderMaterial) maskify(m, U, v, hid); });
@@ -85,7 +85,10 @@ function fitShadow(st) {   // hộp bóng bám điểm nhìn; cỡ theo khoảng
 }
 // dựng một khung: trả JPEG base64 + nhật ký (ms, spp, ngân sách chữ, tương phản, LOD)
 // V5b-2b (M6): cảnh khai st.sun = {el, az} (thiên văn, sun.js) → đổi hướng nắng mỗi khung (khoá bóng gồm hướng nắng)
-function applySun(st) { if (!st.sun) return; const d = sunDirENU(st.sun); if (Math.abs(d[0] - ctx.sunDir.x) + Math.abs(d[1] - ctx.sunDir.y) + Math.abs(d[2] - ctx.sunDir.z) > 1e-6) { ctx.sunDir.set(...d).normalize(); shadowKey = null; } }
+function applySun(st) { if (!st.sun) return; const d = sunDirENU(st.sun); if (Math.abs(d[0] - ctx.sunDir.x) + Math.abs(d[1] - ctx.sunDir.y) + Math.abs(d[2] - ctx.sunDir.z) > 1e-6) { ctx.sunDir.set(...d).normalize(); shadowKey = null; }
+  // V5b-2c (F1 chu kỳ ngày): nắng thấp → yếu + ngả cam, ánh trời giảm (chỉ khi cảnh khai st.dayCycle; cảnh cũ giữ ánh sáng cố định)
+  if (st.dayCycle) { const el = st.sun.el, k = Math.max(0, Math.min(1, (el + 2) / 14)), w = Math.max(0, Math.min(1, (18 - el) / 18));
+    ctx.sun.intensity = C.look.sunI * (0.15 + 0.85 * k); ctx.sun.color.set(C.look.sunC).lerp(new THREE.Color('#ff9a52'), 0.75 * w * w); ctx.hemi.intensity = C.look.hemiI * (0.35 + 0.65 * k); } }
 window.renderFrame = async (f, measure, ov) => {
   const t = f / SC.fps, st = Object.assign(SC.state(t), ov || {}); const U = ctx.U;   // ov: ghi đè trạng thái (khung kiểm: năm/máy cố định)
   applySun(st); last = { f, t, st };
@@ -144,9 +147,15 @@ window.anchorsAt = () => { if (!last) return null; const { t, st } = last, P = p
   for (const [k, a] of Object.entries(SC.anchors || {})) { const w = typeof a === 'function' ? a(t, st) : a; const q = w ? P(new THREE.Vector3(w[0], w[1], -w[2])) : null;
     out[k] = q && q[0] >= -0.05 * C.W && q[0] <= 1.05 * C.W && q[1] >= -0.05 * C.H && q[1] <= 1.05 * C.H ? [+(q[0] / C.W).toFixed(4), +(q[1] / C.H).toFixed(4), 1] : [0, 0, 0]; }
   rec.begin(); SC.overlay(t, st, rec, P); out._tl = rec.data(); return out; };
+// V5b-2c (M14/B4): DẤU CHÂN KHUNG MÁY trên mặt đất — 4 tia góc khung cắt mặt phẳng cao độ tâm nhìn (tia trên chân trời: cắt ở 25 km), đổi ENU → lon/lat (gần đúng phẳng quanh gốc gói)
+function footprint() { cam.updateMatrixWorld(); const ivp = new THREE.Matrix4().multiplyMatrices(cam.matrixWorld, cam.projectionMatrixInverse), o = cam.position, out = [];
+  const gl = last && last.st.cam ? Math.max(0, ctx.terr.hAt(last.st.cam.l[0], last.st.cam.l[2])) : 0, [lon0, lat0] = ctx.M.origin_ll || [-5.3487, 36.1513];
+  for (const [x, y] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) { const d = new THREE.Vector3(x, y, 0.5).applyMatrix4(ivp).sub(o).normalize(); let k = d.y < -1e-4 ? (gl - o.y) / d.y : 25000; k = Math.min(k, 25000);
+    const E = o.x + d.x * k, N = -(o.z + d.z * k); out.push([+(lon0 + E / (111320 * Math.cos(lat0 * Math.PI / 180))).toFixed(5), +(lat0 + N / 110574).toFixed(5)]); }
+  return out; }
 window.frameMeta = () => { if (!last) return null; const { f, t, st } = last, c = st.cam, g = Math.max(0, ctx.terr.hAt(c.p[0], c.p[2])), agl = c.p[1] - g;
   return { f, t: +t.toFixed(3), agl_m: +agl.toFixed(1), agl_km: +(agl / 1000).toFixed(4), spp: C.tech.spp === 'adaptive' ? st.spp : +C.tech.spp, phase: st.phase || null, preset: st.preset || null, vai: st.vai || null,
-    year: +st.year.toFixed(3), clock: st.clock ? st.clock.s : null, noi: st.noi || null, hero: st.hero || null, sun: st.sun ? { el: +st.sun.el.toFixed(2), az: +st.sun.az.toFixed(2) } : null, quan: SC.troops ? SC.troops() : null, song: SC.song ? SC.song() : null }; };   /* V5b-2c: lớp sống — số vật chuyển động theo loại */   /* V5b-2b (AC1): khối quân hiện / ẩn vì khói */
+    year: +st.year.toFixed(3), clock: st.clock ? st.clock.s : null, noi: st.noi || null, hero: st.hero || null, sun: st.sun ? { el: +st.sun.el.toFixed(2), az: +st.sun.az.toFixed(2) } : null, quan: SC.troops ? SC.troops() : null, song: SC.song ? SC.song() : null, foot: footprint() }; };   /* V5b-2c: lớp sống — số vật chuyển động theo loại */   /* V5b-2b (AC1): khối quân hiện / ẩn vì khói */
 window.budgetAll = () => { const out = []; for (let f = 0; f < SC.N; f++) { const t = f / SC.fps, st = SC.state(t); applyCam(cam, st.cam); txt.begin(null); SC.overlay(t, st, txt, projOf());
   out.push(Object.assign({ f }, txt.budget(), { overflow: txt.log.overflow.length, msg: txt.log.overflow.slice(0, 2), roles: txt.roles() }, txt.log.leaders.length ? { leaders: txt.log.leaders.slice() } : {})); } return out; };
 window.grammarLog = () => (SC.grammarLog ? SC.grammarLog() : null);

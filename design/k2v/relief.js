@@ -16,6 +16,11 @@
 //   walkers: [{id, route, t:[t0,t1], u:[u0,u1]}]                   neo 'st:<id>' chạy theo tuyến (nhân vật/tàu đi trên bản đồ)
 //   cols: [{id, at, kind:'coins'|'bar', n|v, unit, t:[t0,t1], color, r, dx, dy}]   chồng xu (n đồng, mỗi đồng = unit) / cột (v km) tỷ lệ thật; neo 'col:<id>' (đỉnh) — Q34(c)
 //   cam: [{t|u, lon, lat, dist (km), tilt°, head°, mm}]              máy quay: nhìn (lon,lat) từ khoảng cách dist, nghiêng tilt khỏi phương đứng, hướng head (0 = Bắc)
+//   V5b-2c · M13-lite (bản đồ chiến lược, NC-BD §5.2; opt-in — shot cũ không đổi):
+//   borders: {src: '<lớp>' (/cache/hist/<lớp>/ của scripts/k2/hist/hist_borders.py), B: '<lớp B>', blend: [t0, t1] (hoà A → B), dates: [[t, 'YYYY-MM-DD'], …] (bộ đếm ngày:
+//            thực thể đổi chủ ĐÚNG ngày trong entities.json → đổi màu 0,35 s), a (độ phủ màu, 0,62), edge (px nét biên 1080p, 2,2), soft (px mép mềm khi kieu_mep 'mem', 10), hatch (px gạch đồng minh, ≥ 6)}
+//            ảnh chỉ số thực thể (nearest) + trường khoảng cách tới biên → tô theo bảng faction → màu (giữ vân địa hình), viền theo px cố định khi zoom; ĐIỂM (< 8 px) xuất neo 'pt:<id>'
+//   routes[].arrow: true → mũi tên đầu nhọn 2D (px cố định) ở đầu tuyến đang vẽ; routes[].dim: [[t, a], …] → độ đậm theo thời gian (tuyến trước mờ còn 30 %); routes[].close: true → vòng kín
 import { THREE, C, cl, lerp, eo, ease, win, fovOf, loadImg, loadJSON, glowSprite } from './common.js';
 export const NEEDS = ['geo'];
 // tone map riêng cho bản đồ: giữ bảng màu (ACES làm xỉn/đổi sắc giấy sepia); vai mềm trên 0,82
@@ -82,19 +87,51 @@ export const HEROES = {
     for (let i = 3; i < fillA.length; i += 4) { fillA[i] = 255; edgeA[i] = 255; }
     const dtex = (A) => { const t = new THREE.DataTexture(A, RW, RH, THREE.RGBAFormat); t.generateMipmaps = true; t.minFilter = THREE.LinearMipmapLinearFilter; t.magFilter = THREE.LinearFilter; t.needsUpdate = true; return t; };
     const tFill = dtex(fillA), tEdge = dtex(edgeA);
+    // ---- V5b-2c M13-lite: RANH GIỚI LỊCH SỬ theo phe (raster chỉ số + khoảng cách biên; bảng màu theo ngày)
+    const BO = o.borders || null; let bord = null;
+    const bLoad = async (nm) => { const bb = `/cache/hist/${nm}/`, M = await loadJSON(bb + 'meta.json'), Ej = await loadJSON(bb + 'entities.json'), [ii, ee] = await Promise.all([loadImg(bb + 'idx.png'), loadImg(bb + 'edge.png')]);
+      const ti = new THREE.Texture(ii); ti.minFilter = ti.magFilter = THREE.NearestFilter; ti.generateMipmaps = false; ti.colorSpace = THREE.NoColorSpace; ti.needsUpdate = true;
+      const te = new THREE.Texture(ee); te.minFilter = THREE.LinearFilter; te.magFilter = THREE.LinearFilter; te.generateMipmaps = false; te.colorSpace = THREE.NoColorSpace; te.needsUpdate = true;
+      const pal = new Uint8Array(256 * 4), tp = new THREE.DataTexture(pal, 256, 1, THREE.RGBAFormat); tp.minFilter = tp.magFilter = THREE.NearestFilter; tp.needsUpdate = true;
+      return { M, E: Ej.entities, P: Ej.points, ti, te, pal, tp, prev: {} }; };
+    if (BO) { bord = { A: await bLoad(BO.src), B: BO.B ? await bLoad(BO.B) : null }; }
+    const isoAt = (t) => { const D = (BO && BO.dates) || []; if (!D.length) return null; let i = 0; while (i < D.length - 1 && D[i + 1][0] <= t) i++;
+      const [ta, da] = D[i], [tb, db] = D[Math.min(D.length - 1, i + 1)], ms = (s) => Date.parse(s + (s.length === 7 ? '-01' : '') + 'T00:00:00Z'), u = tb > ta ? cl((t - ta) / (tb - ta)) : 0;
+      return new Date(ms(da) + (ms(db) - ms(da)) * u).toISOString().slice(0, 10); };
+    const hexA = (h) => [1, 3, 5].map((k) => parseInt(h.slice(k, k + 2), 16));
+    const palAt = (L, t) => { const day = isoAt(t); for (const e of L.E) { let f = e.fill, fid = e.faction_id, ve = e.ve; for (const ch of e.doi_chu || []) if (day && day >= ch.ngay) { f = ch.fill; fid = ch.faction_id; if (ch.ve) ve = ch.ve; }
+        const tgt = hexA(f), pv = L.prev[e.i] || { c: tgt, t0: -1, from: tgt, to: tgt }; if (tgt.join() !== pv.to.join()) { pv.from = pv.c; pv.to = tgt; pv.t0 = t; }
+        const u = pv.t0 < 0 ? 1 : cl((t - pv.t0) / 0.35); pv.c = pv.from.map((v, k) => Math.round(v + (pv.to[k] - v) * u)); L.prev[e.i] = pv; e._fid = fid;
+        L.pal.set([...pv.c, (ve === 'gach' ? 128 : 0) + (e.kieu_mep === 'mem' ? 64 : 0) + 1], e.i * 4); } L.tp.needsUpdate = true; };
     const maskAt = (lon, lat) => { const x = Math.round(cl((lon - lon0) / (lon1 - lon0)) * (RW - 1)), y = RH - 1 - Math.round(cl((lat1 - lat) / (lat1 - lat0)) * (RH - 1)), d = (y * RW + x) * 4; return [fillA[d] / 255, fillA[d + 1] / 255, fillA[d + 2] / 255]; };
     const rcol = regions.map((r) => new THREE.Color(r.color || C.teal)); while (rcol.length < 3) rcol.push(new THREE.Color('#ffffff'));
     const FAST = o.fast ?? true, SHN = FAST ? 1024 : 2048;   // V3 (E6a): shadow map ½ (1024²), giãn viền 12 hướng (mặt nạ vẫn đủ độ phân giải); fast:false = cấu hình V2b (đo bằng lod_test.py)
     const SHT = new THREE.DepthTexture(SHN, SHN); SHT.type = THREE.UnsignedIntType; const shRT = new THREE.WebGLRenderTarget(SHN, SHN, { depthTexture: SHT, depthBuffer: true });
     const U = { shTexel: { value: 1 / SHN }, tShadow: { value: SHT }, shMat: { value: new THREE.Matrix4() }, shOn: { value: 0 }, tNat: { value: tNat }, tSep: { value: tSep }, tFill: { value: tFill }, tEdge: { value: tEdge }, sep: { value: 0 }, rk: { value: new THREE.Vector3() }, rlift: { value: new THREE.Vector3() },
-      rfill: { value: new THREE.Vector3(...[0, 1, 2].map((i) => regions[i] ? regions[i].fill ?? 0.5 : 0)) }, rc0: { value: rcol[0] }, rc1: { value: rcol[1] }, rc2: { value: rcol[2] }, bg: { value: new THREE.Color() }, shOff: { value: new THREE.Vector2(0.0042, -0.0062) } };
+      rfill: { value: new THREE.Vector3(...[0, 1, 2].map((i) => regions[i] ? regions[i].fill ?? 0.5 : 0)) }, rc0: { value: rcol[0] }, rc1: { value: rcol[1] }, rc2: { value: rcol[2] }, bg: { value: new THREE.Color() }, shOff: { value: new THREE.Vector2(0.0042, -0.0062) },
+      bOn: { value: bord ? 1 : 0 }, bTi: { value: bord ? bord.A.ti : null }, bTe: { value: bord ? bord.A.te : null }, bTp: { value: bord ? bord.A.tp : null }, bTiB: { value: bord && bord.B ? bord.B.ti : (bord ? bord.A.ti : null) },
+      bTeB: { value: bord && bord.B ? bord.B.te : (bord ? bord.A.te : null) }, bTpB: { value: bord && bord.B ? bord.B.tp : (bord ? bord.A.tp : null) }, bW: { value: 0 }, bA: { value: BO ? BO.a ?? 0.62 : 0 },
+      bBox: { value: new THREE.Vector4(...(bord ? bord.A.M.bbox : [0, 0, 1, 1])) }, bRes: { value: new THREE.Vector2(...(bord ? bord.A.M.raster : [1, 1])) }, bGeo: { value: new THREE.Vector4(lon0, lat0, lon1, lat1) },
+      bEdge: { value: BO ? BO.edge ?? 2.2 : 0 }, bSoft: { value: BO ? BO.soft ?? 10 : 0 }, bHatch: { value: BO ? Math.max(6, BO.hatch ?? 7) : 6 }, bPx: { value: 1 } };
     const LIFT_GLSL = 'uniform sampler2D tFill; uniform vec3 rk, rlift; float liftAt(vec2 uv){ return dot(texture2D(tFill, uv).rgb * rk, rlift); }';
     const terr = new THREE.Mesh(geo, new THREE.ShaderMaterial({ uniforms: U, extensions: { derivatives: true },
       vertexShader: `${LIFT_GLSL} varying vec2 vUv; varying vec3 vW; varying vec3 vM;
         void main(){ vUv = uv; vec3 p = position; vM = textureLod(tFill, uv, 1.6).rgb; p.y += dot(vM * rk, rlift);   /* mip ~1,6: tường nổi mượt, không răng cưa theo lưới */ vec4 w = modelMatrix * vec4(p, 1.0); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
       fragmentShader: `uniform sampler2D tNat, tSep, tFill, tEdge, tShadow; uniform mat4 shMat; uniform float shOn, shTexel; uniform float sep; uniform vec3 rk, rfill, rc0, rc1, rc2, bg; uniform vec2 shOff; varying vec2 vUv; varying vec3 vW; varying vec3 vM;
+        uniform sampler2D bTi, bTe, bTp, bTiB, bTeB, bTpB; uniform float bOn, bW, bA, bEdge, bSoft, bHatch, bPx; uniform vec4 bBox, bGeo; uniform vec2 bRes;
+        /* V5b-2c M13-lite: màu phe + nét biên theo px khung (dB = khoảng cách tới biên, đổi ra px màn hình bằng fwidth toạ độ raster) */
+        vec4 bSample(sampler2D TI, sampler2D TE, sampler2D TP, vec2 q, out float edgeA){ vec3 ix = texture2D(TI, q).rgb; float id = floor(ix.r * 255.0 + 0.5) + 256.0 * floor(ix.g * 255.0 + 0.5);
+          vec4 pc = texture2D(TP, vec2((id + 0.5) / 256.0, 0.5)); float dR = texture2D(TE, q).r * 25.5, fw = max(1e-4, length(fwidth(q * bRes))), dS = dR / fw;
+          float fl = floor(pc.a * 255.0 + 0.5); bool soft = mod(floor(fl / 64.0), 2.0) > 0.5; edgeA = soft ? (1.0 - smoothstep(0.0, bSoft, dS)) * 0.55 : 1.0 - smoothstep(bEdge * 0.5, bEdge * 0.5 + 1.0, dS);
+          return vec4(pc.rgb, id < 0.5 ? 0.0 : (floor(fl / 128.0) > 0.5 ? 2.0 : 1.0)); }
         void main(){
           vec3 c = mix(texture2D(tNat, vUv).rgb, texture2D(tSep, vUv).rgb, sep);
+          if (bOn > 0.5) { vec2 ll = vec2(mix(bGeo.x, bGeo.z, vUv.x), mix(bGeo.y, bGeo.w, vUv.y)), q = vec2((ll.x - bBox.x) / (bBox.z - bBox.x), (bBox.w - ll.y) / (bBox.w - bBox.y));
+            if (q.x > 0.0 && q.x < 1.0 && q.y > 0.0 && q.y < 1.0) { q.y = 1.0 - q.y; float eA, eB; vec4 A = bSample(bTi, bTe, bTp, q, eA), B = bSample(bTiB, bTeB, bTpB, q, eB);
+              vec3 pc = mix(A.rgb, B.rgb, bW); float own = mix(step(0.5, A.a), step(0.5, B.a), bW), hat = mix(step(1.5, A.a), step(1.5, B.a), bW), ea = mix(eA, eB, bW);
+              float L = dot(c, vec3(0.299, 0.587, 0.114)); vec3 tint = pc * (0.55 + 0.62 * L);   /* màu phe giữ vân tô bóng địa hình */
+              if (hat > 0.5) { float st = mod(gl_FragCoord.x + gl_FragCoord.y, 2.0 * bHatch * bPx); tint = mix(mix(tint, vec3(0.94, 0.90, 0.80), 0.15), vec3(0.96, 0.93, 0.85), step(bHatch * bPx, st) * 0.55); }   /* đồng minh: pha 85 % + gạch 45°, nét ≥ 6 px (E4) */
+              c = mix(c, tint, bA * own); c = mix(c, vec3(0.18, 0.12, 0.07), ea * 0.85 * own); } }
           vec3 m = texture2D(tFill, vUv).rgb * rk, e = texture2D(tEdge, vUv).rgb * rk;
           /* bóng đổ của khối nổi lên nền xung quanh (mặt nạ mờ theo mipmap, lệch về Đông Nam) */
           vec3 sh = rk.x + rk.y + rk.z > 0.0005 ? texture2D(tFill, vUv + shOff, 3.5).rgb * rk : vec3(0.0); float shade = max(max(sh.r * (1.0 - m.r), sh.g * (1.0 - m.g)), sh.b * (1.0 - m.b));
@@ -141,7 +178,7 @@ export const HEROES = {
     const routePts = (r) => { const out = []; for (const p of r.pts) { if (Array.isArray(p) || typeof p === 'string') out.push(LL(p)); else out.push(...sub(RTS[p.src] || [], p.from && LL(p.from), p.to && LL(p.to))); } return out; };
     const routes = {}, rmeshes = [];
     for (const r of o.routes || []) {
-      const ll = routePts(r), P = [];   // lấy mẫu dày ~1,5 km, làm mượt nhẹ
+      const ll = routePts(r), P = []; if (r.close) ll.push(ll[0]);   // lấy mẫu dày ~1,5 km, làm mượt nhẹ (V5b-2c: close = vòng kín, vd vòng phong toả)
       for (let i = 0; i < ll.length - 1; i++) { const a = ll[i], b = ll[i + 1], n = Math.max(1, Math.ceil(Math.hypot(X(b[0]) - X(a[0]), Z(b[1]) - Z(a[1])) / 1.5)); for (let k = 0; k < n; k++) P.push([lerp(a[0], b[0], k / n), lerp(a[1], b[1], k / n)]); }
       P.push(ll[ll.length - 1]);
       for (let it = 0; it < (r.smooth ?? 3); it++) for (let i = 1; i < P.length - 1; i++) P[i] = [(P[i - 1][0] + 2 * P[i][0] + P[i + 1][0]) / 4, (P[i - 1][1] + 2 * P[i][1] + P[i + 1][1]) / 4];
@@ -163,7 +200,10 @@ export const HEROES = {
       const line = new THREE.Mesh(g, mk(false)), glow = new THREE.Mesh(g, mk(true)); line.renderOrder = 6; glow.renderOrder = 5; scene.add(glow, line);
       const head = glowSprite(r.color || C.amber, 2.0, 0.5); head.renderOrder = 7; head.material.depthTest = false; scene.add(head);
       const at = (u) => { const sv = cl(u) * L; let i = 0; while (i < n - 2 && S[i + 1] < sv) i++; const f = (sv - S[i]) / Math.max(1e-6, S[i + 1] - S[i]); return [lerp(P[i][0], P[i + 1][0], f), lerp(P[i][1], P[i + 1][1], f)]; };
-      routes[r.id] = { r, L, at }; rmeshes.push({ r, line, glow, head, L, at }); }
+      let arrow = null; if (r.arrow) { const ag = new THREE.BufferGeometry(); ag.setAttribute('position', new THREE.Float32BufferAttribute([1.0, 0, 0, -0.55, 0, -0.62, -0.55, 0, 0.62, -0.55, 0, -0.62, -0.30, 0, 0, -0.55, 0, 0.62], 3));   // V5b-2c: mũi tên đầu nhọn 2D (đuôi khuyết), cỡ theo px khung
+        arrow = new THREE.Mesh(ag, new THREE.MeshBasicMaterial({ color: new THREE.Color(r.color || C.amber), transparent: true, depthTest: false, depthWrite: false, side: THREE.DoubleSide })); arrow.renderOrder = 8; scene.add(arrow);
+        const ao = new THREE.Mesh(ag, new THREE.MeshBasicMaterial({ color: new THREE.Color(r.ink || '#1a1208'), transparent: true, depthTest: false, depthWrite: false, side: THREE.DoubleSide })); ao.renderOrder = 7; arrow.userData.ol = ao; scene.add(ao); }
+      routes[r.id] = { r, L, at }; rmeshes.push({ r, line, glow, head, L, at, arrow }); }
     // ---- vòng sáng
     const rings = [];
     for (const R of o.rings || []) { const [lon, lat] = LL(R.at); const m = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({ transparent: true, depthWrite: false, depthTest: false, blending: THREE.AdditiveBlending,
@@ -214,10 +254,11 @@ export const HEROES = {
       anchors['colR:' + c.id] = () => { rgt.setFromMatrixColumn(cam.matrixWorld, 0).setY(0).normalize().multiplyScalar(r * 1.1); return cc.grp.visible ? pr.set(cc.x, cc.grp.position.y, cc.z).add(rgt) : null; }; }
     // ---- neo
     for (const p of o.places || []) { const id = typeof p === 'string' ? p : p.id, [lon, lat] = LL(id), v = new THREE.Vector3(); anchors[id] = () => v.set(X(lon), ground(lon, lat) + 0.2, Z(lat)); }
+    if (bord) for (const P of bord.A.P) { const [lon, lat] = P.ll, v = new THREE.Vector3(); anchors['pt:' + P.id] = () => v.set(X(lon), ground(lon, lat) + 0.2, Z(lat)); }   // V5b-2c: lãnh thổ < 8 px = ĐIỂM (lớp 2D vẽ vòng + tên, p.points)
     for (const p of o.pins || []) { const [lon, lat] = LL(p.at), v = new THREE.Vector3(); anchors['st:' + p.id] = () => v.set(X(lon) + (p.dx || 0), ground(lon, lat) + (p.dy || 0.3), Z(lat) + (p.dz || 0)); }
     const walkers = (o.walkers || []).map((w) => { const v = new THREE.Vector3(); let cur = null; anchors['st:' + w.id] = () => cur; return { w, v, u: 0, set(t) { const R = routes[w.route]; if (!R) return; const uu = w.u || [0, 1], u = lerp(uu[0], uu[1], cl((t - w.t[0]) / (w.t[1] - w.t[0]))); this.u = cl(u);
       const [lon, lat] = R.at(u); cur = v.set(X(lon), ground(lon, lat) + 0.3, Z(lat)); } }; });
-    for (const R of rmeshes) anchors['rt:' + R.r.id] = () => R.head.visible ? R.head.position : null;
+    for (const R of rmeshes) anchors['rt:' + R.r.id] = () => (R.arrow ? R.arrow.visible : R.head.visible) ? (R.arrow || R.head).position : null;   // V5b-2c: nhãn bám đầu tuyến (mũi tên)
     // ---- D2b (duyệt 14/10 18:08): sticker VẬT dựng trong cảnh 3D + nhân vật A-lite phẳng trong cảnh
     //   opt.props: [{id, a: 'st:<pin|walker>' | at: địa danh|[lon,lat], obj: 'boat'|… (thư viện design/k2v/sticker-lab.js) | char: {role, hat, hand}, t, out, px, walk, hz, yaw, face}]
     //   (scripts/k2/prep.py tự chuyển p.stickers của shot relief vào đây → tập khai như cũ). Vật: toon + ánh sáng cảnh + bóng thật + viền trắng shader.
@@ -317,10 +358,16 @@ export const HEROES = {
           close.visible = a > 0.002; close.material.uniforms.a.value = a; close.material.uniforms.c.value.set(lerp(k0[0], k1[0], u), lerp(k0[1], k1[1], u)); close.material.uniforms.s.value = Math.exp(lerp(Math.log(k0[2]), Math.log(k1[2]), u)); } U.sep.value = sp; U.bg.value.copy(BGN).lerp(BGS, sp); scene.background = U.bg.value;
         RK = regions.map((r) => { const a = Array.isArray(r.at) ? eo(cl((t - r.at[0]) / Math.max(0.01, r.at[1] - r.at[0]))) : win(r.at, t, 1.0); return r.out !== undefined ? a * (1 - ease(cl((t - r.out) / 0.8))) : a; });
         U.rk.value.set(RK[0] || 0, RK[1] || 0, RK[2] || 0); U.rlift.value.set(RL[0] || 0, RL[1] || 0, RL[2] || 0);
+        if (bord) { palAt(bord.A, t); if (bord.B) palAt(bord.B, t); U.bW.value = BO.blend ? ease(cl((t - BO.blend[0]) / Math.max(0.01, BO.blend[1] - BO.blend[0]))) : 0; U.bPx.value = H / 1080; self.day = isoAt(t); }
         const wk = 2 * camDist * Math.tan(cam.fov * D2R / 2) / 1080;   // km ứng với 1 px của khung 1080p ở tâm khung (độ dày nét, cỡ vòng sáng theo px)
         for (const R of rmeshes) { const u = win(R.r.draw, t), d = u * R.L; for (const m of [R.line, R.glow]) { m.material.uniforms.draw.value = d; m.material.uniforms.flow.value = t * (R.r.flow ?? 6); m.material.uniforms.a.value = R.r.out !== undefined ? 1 - ease(cl((t - R.r.out) / 0.6)) : 1; }
           R.line.material.uniforms.wk.value = wk * (R.r.w || 7) / 2; R.glow.material.uniforms.wk.value = wk * (R.r.w || 7) * 1.6;
-          R.head.visible = u > 0.002 && u < 0.998; if (R.head.visible) { const [lon, lat] = R.at(u); R.head.position.set(X(lon), ground(lon, lat) + 0.5, Z(lat)); R.head.scale.setScalar(wk * 46); } }
+          R.head.visible = u > 0.002 && u < 0.998; if (R.head.visible) { const [lon, lat] = R.at(u); R.head.position.set(X(lon), ground(lon, lat) + 0.5, Z(lat)); R.head.scale.setScalar(wk * 46); }
+          if (R.r.dim) { const Dm = R.r.dim; let j = 0; while (j < Dm.length - 1 && Dm[j + 1][0] <= t) j++; const [t0, a0] = Dm[j], [t1, a1] = Dm[Math.min(Dm.length - 1, j + 1)], k = t1 > t0 ? ease(cl((t - t0) / (t1 - t0))) : 0, av = a0 + (a1 - a0) * k;
+            for (const m of [R.line, R.glow]) m.material.uniforms.a.value *= av; R.head.visible = R.head.visible && av > 0.6; if (R.arrow) { R.arrow.material.opacity = av; R.arrow.userData.ol.material.opacity = av; } }
+          if (R.arrow) { const ua = R.r.trail ? null : u, vis2 = ua !== null && ua > 0.004; R.arrow.visible = R.arrow.userData.ol.visible = vis2 && !(R.r.out !== undefined && t > R.r.out + 0.6); if (R.arrow.visible) { R.head.visible = false;
+              const [la, lb] = [R.at(Math.max(0, ua - 0.006)), R.at(ua)], ang = Math.atan2(-(Z(lb[1]) - Z(la[1])), X(lb[0]) - X(la[0])), sz = wk * (R.r.w || 7) * 3.2;
+              for (const [m, k2] of [[R.arrow, 1], [R.arrow.userData.ol, 1.28]]) { m.position.set(X(lb[0]), ground(lb[0], lb[1]) + 0.6, Z(lb[1])); m.rotation.set(0, ang, 0); m.scale.setScalar(sz * k2); } } } }
         for (const g of rings) { const a = win(g.R.t, t, 0.5) * (g.R.out !== undefined ? 1 - ease(cl((t - g.R.out) / 0.6)) : 1); g.m.visible = a > 0.001; g.m.material.uniforms.a.value = a; g.m.material.uniforms.ph.value = (t * 0.55) % 1;
           g.m.position.set(X(g.lon), ground(g.lon, g.lat) + 0.25, Z(g.lat)); g.m.scale.setScalar(g.R.r || wk * (g.R.px || 80)); }
         for (const cc of cols) { const y0 = ground(cc.lon, cc.lat); cc.grp.position.set(cc.x, y0, cc.z); const [t0, t1] = cc.c.t || [0, 0.01];

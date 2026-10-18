@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 4,
+  "flags": [
+   "cluttered",
+   "too_many_things_at_once",
+   "confusing",
+   "text_overlap"
+  ],
+  "from": "Gibraltar (Allied HQ). Civilians leave it in 1940. In Nov 1942 red arrows come from the open Atlantic, off the left edge, and an aircraft route runs from Gibraltar.",
+  "route": "1940: Gibraltar to Casablanca (civilians), then to Tangier, London, Jamaica and Madeira (thin pale lines). 1942: red arrows to the Moroccan coast, with labels for Casablanca, Oran and Algiers, plus aircraft from Gibraltar to Oran.",
+  "when": "May 1940; May\u2013Jun 1940; 12 Jun 1940; 12\u201314 Jun 1940 (Tangier Spanish-occupied from 14 Jun); Jul\u2013Oct 1940; 8 Nov 1942. 'c. 1941' appears only as a borders caption.",
+  "where": "Gibraltar, the red dot at the southern tip of Spain at the Strait, lower-center of frame. It sits at about 65% across and 60% down in X1 and shifts around as the camera moves.",
+  "note": "The relief basemap and dark label cards look good. But the camera keeps zooming and panning, so Gibraltar and the Strait keep moving. The labels are small for a phone: the 'civilians, May\u2013Jun 1940' subtext and the 'approx. borders c. 1941 \u2014 Cliopatria (Seshat)' credit are tiny. The route lines are thin, pale and low-contrast on the pale sea. In X3 the 'Spain' card covers Spain and Portugal, 'to Jamaica' crosses the credit line, and the route lines run through the date block and credit. Several labels ('to Madeira', 'to Jamaica', 'to London') have no clear route end. The 'Spain (non-belligerent)' tag is stuck on and repeated. In X4 the red arrows are unlabeled, 'Allied landings' hides the Moroccan coast, the Gibraltar and Oran cards overlap the arrows, and the Casablanca, Oran and Algiers points are not marked on the map. The legend's red 'Britain & Allies' only becomes meaningful in X4. The Tangier label in X2 is placed over the sea and is not tied to a point. There is no scale or place label for Casablanca or Morocco in X1\u2013X3."
+ },
+ "split": true,
+ "why_split": "The 1940 evacuation and the Nov 1942 Torch landings are different stories, with different directions, scales and framing, and 2.5 years apart. Putting both in one moving shot makes the camera zoom out and drag the viewer through unrelated routes.",
+ "top_fix": "Cut into two shots with a locked camera. Shot 1 is 1940 only: Gibraltar to Casablanca, Tangier, London and the islands, shown as thick high-contrast animated arrows with destination dots and fewer labels. Shot 2 is 8 Nov 1942 only: show the Atlantic, Casablanca, Oran and Algiers as marked dots and make the red arrows land on them. Make all type at least 1.5\u00d7 bigger, move the credit line out of the way of the routes, and remove the repeated Spain card."
+}

@@ -1,0 +1,29 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "from": "England / Spithead (Relief 1 Rodney, Relief 2 Darby, Relief 3 Howe)",
+  "route": "Down the Atlantic past Portugal's coast to the Strait of Gibraltar. Relief 3 then goes on into the Mediterranean.",
+  "when": "1780\u201382 only. The date range never changes, and there are no individual dates.",
+  "where": "Gibraltar at the southern tip of Spain, labelled. The territory colours have no legend.",
+  "note": "The relief labels are clean and the relief map looks good. The date is a single static block. There is no legend, so the colours are unexplained. The Relief 3 label sits on top of the route line and the Gibraltar pin at the end. The 'Relief 3' label also appears to partly cover the Iberian coast."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "from": "England / Spithead (Relief 1 Rodney, Relief 2 Darby, Relief 3 Howe)",
+  "route": "Down the Atlantic past Portugal to the Strait of Gibraltar. Relief 3 then goes on into the Mediterranean. The earlier routes stay as faded ghost lines.",
+  "when": "Jan 1780, Apr 1781, Oct 1782 (a dated clock for each relief). A Minorca to Spain 5 Feb 1782 callout is also shown.",
+  "where": "Gibraltar at the southern tip of Spain, marked with a white pin and a label. The Britain, Spain and France legend explains the territory colours.",
+  "note": "It has a legend and a changing date, which gives a clear timeline. It adds a Minorca event and a source credit. The bottom-left block is a bit heavy. The small text under the date and the credit line are tiny for a phone. In frame 4 the Relief 3 label slightly covers the route."
+ },
+ "better": "Y",
+ "why": "Y gives each relief its own date, includes a colour legend and keeps ghost trails of the earlier routes, so a viewer can follow who sailed, when, and to where. X only shows a static '1780\u201382' and has no legend.",
+ "top_fix_for_weaker": "In X, replace the static '1780\u201382' with a date that updates for each relief (Jan 1780, Apr 1781, Oct 1782). Add a Britain/Spain/France legend. Move the labels off the route line and the Gibraltar pin."
+}

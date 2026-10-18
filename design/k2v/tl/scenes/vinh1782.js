@@ -13,7 +13,7 @@ import { jdLocal, sunPos, clockLabel } from '../sun.js';
 import { life, chimneysFrom } from '../life.js';
 
 export const TERRAIN = { cliff: true };
-export const LOOK = { hemiI: 0.74, hemiSky: '#a9c0e2', hemiGnd: '#b0845a', skyHor: [0.42, 0.62, 0.92], fogC: [0.46, 0.65, 0.91] };   // trời Địa Trung Hải sáng tháng 9: chân trời xanh hơn (S 0,33 → 0,46)   // V5b-2c (I5): bóng đổ bớt xám-lam, ánh dội đất ấm (0,74: không cháy sáng)
+export const LOOK = { hemiI: 0.74, hemiSky: '#a9c0e2', hemiGnd: '#b0845a', skyHor: [0.30, 0.52, 0.90], fogC: [0.40, 0.60, 0.90] };   // trời Địa Trung Hải sáng tháng 9: chân trời xanh hơn (S 0,33 → 0,46)   // V5b-2c (I5): bóng đổ bớt xám-lam, ánh dội đất ấm (0,74: không cháy sáng)
 export const GRADE = { vib: 0.62 };   // V5b-2c (I5): vibrance 0,35 → 0,62 (vữa/đá nhạt lên màu; màu đã đậm gần như giữ)
 export const META = { cau: 'lien-hoan', vai: 'buoc-ngoat', moc_dinh: '1782-09-13T09:45 LMT', noi: [[0, 5.6, 'bien'], [5.6, 12.0, 'thanh_pho'], [12.0, 18.0, 'vung']] };
 export async function build(ctx) {

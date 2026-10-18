@@ -45,7 +45,9 @@ const SAMPLE = +arg('sample', 12);
     if (q.inset_map && !INS.maps[q.inset_map]) INS.maps[q.inset_map] = JSON.parse(fs.readFileSync(path.join(REPO, 'design/k2v/inset', q.inset_map + '.json'), 'utf8'));
     if (q.inset_bien && !INS.bien[q.inset_bien]) { const G = JSON.parse(fs.readFileSync(path.join(REPO, q.inset_bien), 'utf8')), lines = [];
       for (const f of G.features || []) { const gg = f.geometry || {}; const L = gg.type === 'LineString' ? [gg.coordinates] : gg.type === 'MultiLineString' || gg.type === 'Polygon' ? gg.coordinates : gg.type === 'MultiPolygon' ? gg.coordinates.flat() : []; lines.push(...L); }
-      INS.bien[q.inset_bien] = { lines, src: (G.nguon || G.source || (G.ghost && G.ghost.ghi_cong) || q.inset_bien) }; } }
+      INS.bien[q.inset_bien] = { lines, src: (G.nguon || G.source || (G.ghost && G.ghost.ghi_cong) || q.inset_bien) }; }
+    // V5b-2c (M14/B4): dấu chân khung máy mỗi khung của plate (meta.json frames_meta[f].foot, hero.js tl) → hộp đỏ trong inset
+    if (q.dir && !(INS.foot = INS.foot || {})[q.dir]) { const d = path.isAbsolute(q.dir) ? q.dir : path.join(REPO, q.dir); try { const fm = JSON.parse(fs.readFileSync(path.join(d, 'meta.json'), 'utf8')).frames_meta || {}; INS.foot[q.dir] = Object.fromEntries(Object.entries(fm).map(([k, v]) => [k, v.foot || null])); } catch (e) { INS.foot[q.dir] = {}; } } }
   const html = `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#000"><canvas id="c"></canvas>
 <script>window.LL={fmt:'${fmt}'};window.SPEC=${JSON.stringify(spec)};window.IMGS={};window.PLATES={};window.ANC=${JSON.stringify(ANCS)};window.INSETS=${JSON.stringify(INS)};${imgjs}</script><script>${libs}</script></body></html>`;
   await page.setContent(html); await page.evaluate(() => document.fonts.ready); await page.evaluate(() => Promise.all(Object.values(window.IMGS).map((i) => i.decode())));
@@ -65,7 +67,7 @@ const SAMPLE = +arg('sample', 12);
     await loadPlates(f);
     const r = await page.evaluate(([f, smp]) => {
       LL.tlog = smp ? [] : null; window.drawFrame(f);
-      const c = document.getElementById('c'), out = { inset: LL.inset, hit: LL.hit ? 1 : 0, act: LL.act ? 1 : 0, fill: LL.fill ? 1 : 0, cam: isFinite(LL.camNear) ? +LL.camNear.toFixed(3) : null, img: c.toDataURL('image/jpeg', 0.96).slice(23) };
+      const c = document.getElementById('c'), out = { occ: smp ? (LL.occ || []).map((b) => b.map(Math.round)) : null, legend: LL.legend || null, inset: LL.inset, hit: LL.hit ? 1 : 0, act: LL.act ? 1 : 0, fill: LL.fill ? 1 : 0, cam: isFinite(LL.camNear) ? +LL.camNear.toFixed(3) : null, img: c.toDataURL('image/jpeg', 0.96).slice(23) };
       if (smp) { const g = c.getContext('2d'), lum = (r, g2, b) => [r, g2, b].map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }).reduce((a, v, i) => a + v * [0.2126, 0.7152, 0.0722][i], 0);
         const parse = (s) => { if (s[0] === '#') return [1, 3, 5].map((i) => parseInt(s.slice(i, i + 2), 16)); const m = s.match(/[\d.]+/g).map(Number); return m.slice(0, 3); };
         out.text = LL.tlog.filter((e) => e.alpha >= 0.95).map((e) => { const [x0, y0, x1, y1] = e.box, X0 = Math.max(0, x0 - 5), Y0 = Math.max(0, y0 - 5), X1 = Math.min(c.width - 1, x1 + 5), Y1 = Math.min(c.height - 1, y1 + 5);
@@ -77,7 +79,7 @@ const SAMPLE = +arg('sample', 12);
           I.sort((a, b) => a - b); const ft = !I.length ? nom : nom < bg ? I[Math.floor(I.length * 0.05)] : I[Math.floor(I.length * 0.95)];   // màu chữ đo trên điểm ảnh (đã qua ánh rọi)
           return { s: e.s, role: e.role || undefined, cap: e.cap, ratio: +((Math.max(bg, ft) + 0.05) / (Math.min(bg, ft) + 0.05)).toFixed(2), box: e.box, out: x0 < 0 || y0 < 0 || x1 > c.width || y1 > c.height ? 1 : 0 }; }).filter(Boolean);  out.zones = (LL.zones || []).map((z) => z.map((v) => Math.round(v))); }   /* Q-L20 (checks LL v2): vùng hình (isotype…) của khung, toạ độ khung */
       return out; }, [f, f % SAMPLE === 0]);
-    if (r.inset && smpOk(f)) insets.push(Object.assign({ f }, r.inset)); act.push(r.act); hit.push(r.hit); fill.push(r.fill); cam.push(r.cam); if (r.text) texts.push({ f, items: r.text, zones: r.zones || [] });
+    if (r.inset && smpOk(f)) insets.push(Object.assign({ f }, r.inset)); act.push(r.act); hit.push(r.hit); fill.push(r.fill); cam.push(r.cam); if (r.text) texts.push({ f, items: r.text, zones: r.zones || [], occ: r.occ || [] });   /* V5b-2c (K-1.14 §9): occ = bản sao LL.occ ở khung mẫu (BD-8 d) */
     if (!ff.stdin.write(Buffer.from(r.img, 'base64'))) await new Promise((res) => ff.stdin.once('drain', res));
     if ((f - F0) % 120 === 0) console.error(`[render ${SEG || SH}] ${f}/${F1} ${((Date.now() - t0) / 1000 / (f - F0 + 1)).toFixed(2)} s/khung`);
   }

@@ -51,7 +51,8 @@ open(f'{O}/list.txt', 'w').write('\n'.join(L) + '\n')
 if bad: sys.exit('LỆCH số khung: ' + ', '.join(bad))
 # 3 phần: cắt ở ranh giới đoạn gần 1/3 và 2/3 tổng thời lượng nhất
 T = tl['tong_s']; b = [s['t1'] for s in tl['segments'][:-1]]
-c1 = min(b, key=lambda x: abs(x - T / 3)); c2 = min([x for x in b if x > c1] or [T], key=lambda x: abs(x - 2 * T / 3))
+c1 = min(b or [T], key=lambda x: abs(x - T / 3));   # V5b-2c: tập 1 đoạn (SM3 thử) không có ranh giới đoạn
+c2 = min([x for x in b if x > c1] or [T], key=lambda x: abs(x - 2 * T / 3))
 for k, (a, z) in enumerate([(0, c1), (c1, c2), (c2, T)], 1):
     ds = [s for s in tl['segments'] if s['t0'] >= a - 1e-6 and s['t1'] <= z + 1e-6]
     if not ds: ds = tl['segments'][-1:]   # V5b-2b: đoạn thử ít đoạn (< 3) → phần rỗng lấy đoạn cuối (PARTS=0 không mã hoá phần nào)
