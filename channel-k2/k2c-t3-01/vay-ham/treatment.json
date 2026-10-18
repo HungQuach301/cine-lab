@@ -1,5 +1,5 @@
 {
- "note": "Bảng shot T3b (tiền kỳ, KHÔNG phải lời). Thời lượng ước theo treatment, chốt ở G1 theo lời thật. claims: S.. = claims-vay-ham.md; C.. = tienky/claims.json. | G1 (18/10/2026): đã áp tuyen/treatment-patch.json (SM1–SM3 strategic + 4 inset). | G1 18/10: + 6 khung neo (g1/neo.json) + thời lượng theo lời v1 (g1/dur-g1.json; dur_t3b = giá trị cũ). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1).",
+ "note": "Bảng shot T3b (tiền kỳ, KHÔNG phải lời). Thời lượng ước theo treatment, chốt ở G1 theo lời thật. claims: S.. = claims-vay-ham.md; C.. = tienky/claims.json. | G1 (18/10/2026): đã áp tuyen/treatment-patch.json (SM1–SM3 strategic + 4 inset). | G1 18/10: + 6 khung neo (g1/neo.json) + thời lượng theo lời v1 (g1/dur-g1.json; dur_t3b = giá trị cũ). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1).",
  "shots": [
   {
    "id": "0a",
@@ -432,7 +432,7 @@
   {
    "id": "1f",
    "ch": 1,
-   "dur": 6.0,
+   "dur": 5.625,
    "loai": "thẻ số",
    "noi": "—",
    "vung": "the",
@@ -449,7 +449,8 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Số hai phía, ghi \"British account\" / \"Spanish account\""
+   "mo_ta": "Số hai phía, ghi \"British account\" / \"Spanish account\"",
+   "dur_truoc_rut": 6.0
   },
   {
    "id": "1g",
@@ -677,7 +678,7 @@
   {
    "id": "2d",
    "ch": 2,
-   "dur": 8.0,
+   "dur": 7.625,
    "loai": "thẻ số",
    "noi": "—",
    "vung": "the",
@@ -695,7 +696,8 @@
    "hero": "—",
    "engine": "—",
    "mo_ta": "Trở ngại: đói — \"thistles, dandelion and wild leeks\"",
-   "dur_t3b": 7.0
+   "dur_t3b": 7.0,
+   "dur_truoc_rut": 8.0
   },
   {
    "id": "2e",
@@ -1688,7 +1690,7 @@
   {
    "id": "KB1943",
    "ch": 4,
-   "dur": 9.0,
+   "dur": 8.0,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "neo-commercial-sq",
@@ -1717,7 +1719,8 @@
     "xe quân sự",
     "chim",
     "khói ống khói tàu xa"
-   ]
+   ],
+   "dur_truoc_rut": 9.0
   },
   {
    "id": "4h",
@@ -1772,7 +1775,7 @@
   {
    "id": "5a",
    "ch": 5,
-   "dur": 9.0,
+   "dur": 14.0,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "cong-bien-gioi",
@@ -1788,7 +1791,8 @@
    "du_lieu_nha": "OSM + Catastro (≤ 1969)",
    "hero": "cổng biên giới",
    "engine": "M6",
-   "mo_ta": "Câu hỏi: khi cổng đóng, ai mất gì? 6/1969"
+   "mo_ta": "Câu hỏi: khi cổng đóng, ai mất gì? 6/1969",
+   "dur_g1": 9.0
   },
   {
    "id": "5b",
@@ -1965,7 +1969,7 @@
   {
    "id": "5e",
    "ch": 5,
-   "dur": 7.0,
+   "dur": 6.4167,
    "loai": "thẻ số",
    "noi": "—",
    "vung": "the",
@@ -1984,7 +1988,8 @@
    "hero": "—",
    "engine": "—",
    "mo_ta": "CÚ LẬT (giữ từ TIEN-KY)",
-   "dur_t3b": 8.0
+   "dur_t3b": 8.0,
+   "dur_truoc_rut": 7.0
   },
   {
    "id": "5f",
@@ -2108,7 +2113,7 @@
   {
    "id": "KA2026",
    "ch": 5,
-   "dur": 9.0,
+   "dur": 8.0,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "neo-hem-k09",
@@ -2137,7 +2142,8 @@
     "chim",
     "cờ",
     "đèn đường bật (đêm từ lượt chiếu sáng A)"
-   ]
+   ],
+   "dur_truoc_rut": 9.0
   },
   {
    "id": "5k",

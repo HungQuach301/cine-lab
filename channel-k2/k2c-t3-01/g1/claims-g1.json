@@ -21,7 +21,9 @@
    "nguon_doi_chieu": [
     {
      "nguon": "George F. Howe, Northwest Africa: Seizing the Initiative in the West (US Army in WWII, CMH, 1957), ch. XIII \"The Occupation of Algiers\" (HyperWar)",
-     "loai_nguon": "chinh-thuc (sử quân đội Mỹ)", "phia": "Mỹ", "lang": "en",
+     "loai_nguon": "chinh-thuc (sử quân đội Mỹ)",
+     "phia": "Mỹ",
+     "lang": "en",
      "url": "https://www.ibiblio.org/hyperwar/USA/USA-MTO-NWA/USA-MTO-NWA-13.html",
      "file_sha256": "c61c7d558204ece351381064ceb952450fb8c0ee7f06d8bbdf014fbe09065659",
      "vi_tri": "ch. XIII (tệp trùng SHA với claims-tuyen T023)",
@@ -29,7 +31,9 @@
     },
     {
      "nguon": "UK Hansard, Commons, 3 December 1942, \"Naval Operations, North Africa\" — First Lord of the Admiralty (A. V. Alexander)",
-     "loai_nguon": "chinh-thuc", "phia": "Anh", "lang": "en",
+     "loai_nguon": "chinh-thuc",
+     "phia": "Anh",
+     "lang": "en",
      "url": "https://hansard-api.parliament.uk/debates/debate/c4e0c5dd-6e70-434f-9246-3dd83fdb48c6.json",
      "file_sha256": "271abe2a283c96de34ce76206ce35c53a4dfbb5764aaba335553cc2524fd144e",
      "vi_tri": "đóng góp aee9d84d-a4d7-4b2d-9696-05d45b2a4f74",
@@ -57,11 +61,63 @@
    "nguon_doi_chieu": [
     {
      "nguon": "George F. Howe, Northwest Africa (CMH, 1957), ch. IV (HyperWar) — = nguồn chính của T025",
-     "loai_nguon": "chinh-thuc (sử quân đội Mỹ)", "phia": "Mỹ", "lang": "en",
+     "loai_nguon": "chinh-thuc (sử quân đội Mỹ)",
+     "phia": "Mỹ",
+     "lang": "en",
      "url": "https://www.ibiblio.org/hyperwar/USA/USA-MTO-NWA/USA-MTO-NWA-4.html",
      "file_sha256": "dc5ff5c6e210f8f9aae950b3703efb18a24953ecf2a6ef646b8ff2b38b33157a",
      "vi_tri": "ch. IV (tệp trùng SHA với claims-tuyen T024/T025)",
      "trich_nguyen_van": "all combat-loaded ships from the United States departed from the Hampton Roads Port of Embarkation"
+    }
+   ]
+  },
+  {
+   "id": "G003",
+   "nhom": "bien-gioi-1969",
+   "claim_en": "Gibraltar's new constitution was promulgated on 23 May 1969; sixteen days later (8 June 1969) Spain closed the frontier. A Spanish historian describes the closure as the culmination of an escalation over Gibraltar's constitutional change and self-determination, in which Madrid applied the terms of the Treaty of Utrecht strictly.",
+   "trich_nguyen_van": "Gibraltar's new Constitution was promulgated on 23rd May 1969. Sixteen days later Spain closed the frontier.",
+   "lang": "en",
+   "nguon": "HM Government of Gibraltar, \"50 Years — Gibraltar: Closure of the Border 1969–2019\" (commemorative booklet), ch. 6 \"Spain closes the frontier\"",
+   "loai_nguon": "chinh-thuc",
+   "url": "https://www.gibraltar.gov.gi/uploads/Closure%20Booklet1.pdf",
+   "file_sha256": "5caf6820741488cc05ea44c9339f2e2c9d2efb60f9ef7749f9268adec4afc843",
+   "vi_tri": "Chapter Six, đoạn mở đầu (pdftotext)",
+   "as_of": "đọc 2026-10-18",
+   "phia": "Gibraltar",
+   "status": "XÁC MINH",
+   "nhay_cam": "TRUNG — lý do đóng biên giới là điểm tranh cãi chủ quyền; chỉ nói thời điểm (hai phía khớp) + cách giải thích có ghi 'a Spanish historian'.",
+   "ghi_chu": "Phiên khoá lời v4.1 (LK3). Ngày: HMGoG 23/5 + 16 ngày = 8/6/1969; Langa Nuño (TBN) cũng ghi 'el domingo 8 de junio de 1969' và Hiến pháp 'se hizo pública en mayo de 1969'. Hansard/HMGoG political-development ghi 9/6 là ngày rút 4 666 lao động (C19) — lời chỉ nói 'June 1969' + 'sixteen days after'. Sánchez Mantero nhắc trưng cầu 1964 (về đổi hiến pháp), KHÔNG phải trưng cầu 10/9/1967 → lời không nói trưng cầu. Bộ sách HMGoG là nguồn chính thức một phía (giọng 'Spanish dictator' ở lời tựa) → chỉ dùng mốc thời gian. Không dùng Wikipedia.",
+   "kiem_doc_lap": "khớp nguyên khối (khoa-loi/verify_g003.py)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Rafael Sánchez Mantero (Universidad de Sevilla), \"Desde el otro lado de la verja (los gibraltareños y el bloqueo de Gibraltar en 1969)\", Historia Contemporánea 41 (2010): 373–390, tr. 377",
+     "loai_nguon": "hoc-thuat",
+     "phia": "TBN",
+     "lang": "es",
+     "url": "https://ojs.ehu.eus/index.php/HC/article/download/1336/948/3672",
+     "file_sha256": "80579430181af6a774728a91dedfe43290799bc55d00415157bb8c73aef240ab",
+     "vi_tri": "tr. 377, mục 1",
+     "trich_nguyen_van": "La actitud de Gran Bretaña, convocando un referendum en 1964 para cambiar la constitución gibraltareña y acelerar la autodeterminación de la colonia, marcaron una escalada del conflicto que culminó con la decisión del Gobierno de Madrid de cerrar la comunicación con el Peñón en 1969. En realidad, lo que hizo el Gobierno español fue aplicar estrictamente los terminos del Tratado de Utrecht."
+    },
+    {
+     "nguon": "Concha Langa Nuño (Universidad de Sevilla), \"A través del espejo: la imagen de los gibraltareños a este lado de la frontera\", Historia Contemporánea 41 (2010): 391–412",
+     "loai_nguon": "hoc-thuat",
+     "phia": "TBN",
+     "lang": "es",
+     "url": "https://ojs.ehu.eus/index.php/HC/article/download/1338/950/3674",
+     "file_sha256": "383f723c5c1e34912f1fb595b605a7bf36763120b9be972ac576a079a1ced73d",
+     "vi_tri": "mục giới thiệu nguồn báo chí",
+     "trich_nguyen_van": "El segundo periodo es el inmediatamente posterior al cierre de la verja, el domingo 8 de junio de 1969."
+    },
+    {
+     "nguon": "Luis María Manglano Tirado (UNED), \"Gibraltar al final de la Transición: la agenda británica\", Aportes nº117, año XL (1/2025), pp. 169–198, chú thích 4 — dịch tiếng TBN lời mở đầu Gibraltar Constitution Order 1969 (23/5/1969)",
+     "loai_nguon": "hoc-thuat",
+     "phia": "TBN",
+     "lang": "es",
+     "url": "https://www.revistaaportes.com/index.php/aportes/article/download/885/475/2475",
+     "file_sha256": "89d34a4006a0d9801ad4306f3e376ab16b6f2ef642ec634f18a7d8856bfadcfc",
+     "vi_tri": "chú thích 4",
+     "trich_nguyen_van": "el Gobierno de Su Majestad nunca concederá acuerdo alguno en virtud del cual el pueblo gibraltareño pase a depender de la soberanía de otro Estado contra su voluntad libre y democráticamente expresada"
     }
    ]
   }

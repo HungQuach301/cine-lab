@@ -3,13 +3,14 @@ chữ trên hình, tấm im lặng và shot không lời); (2) từ điển phá
 tài liệu ElevenLabs "Pronunciation dictionaries", đọc 18/10/2026) → PLS chỉ có <alias>; IPA để tham khảo trong JSON; PLS phân biệt hoa/thường;
 (3) loi-khoa.tts-preview.txt = lời sau khi áp alias (chỉ để kiểm + đếm ký tự; KHÔNG gửi đi); (4) LOI-KHOA.sha256 (khuôn T2, sha256sum).
 KHÔNG gọi ElevenLabs. Dùng: /opt/cine/bin/python -I channel-k2/k2c-t3-01/khoa-loi/lam_loi_khoa.py"""
-import hashlib, json, re, sys
+import hashlib, json, os, re, sys
 from pathlib import Path
 from xml.sax.saxutils import escape
 HERE = Path(__file__).resolve().parent; EP = HERE.parent; PA = HERE / 'phat-am'
 sys.path.insert(0, str(EP / 'g1')); from kiem_loi import year, parse  # noqa: E402  (cùng bộ đọc năm với kiểm chữ G1)
 
-md = (EP / 'script-v4-KHOA.md').read_text()
+LOI = os.environ.get('LOI', 'script-v4-KHOA.md')   # khoá lời v4.1: LOI=script-v4.1-KHOA.md
+md = (EP / LOI).read_text()
 L, ch = [], None
 for line in md.splitlines():
     m = re.match(r'^(\[\d\d \w+\])', line)
@@ -65,6 +66,8 @@ for g, a, *_ in sorted(D, key=lambda x: -len(x[0])): tts = re.sub(r'(?<![\w-])' 
 (PA / 'loi-khoa.tts-preview.txt').write_text(tts)
 body = '\n'.join(l for l in txt.splitlines() if l and not l.startswith('['))
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
-(EP / 'LOI-KHOA.sha256').write_text(''.join(f'{sha(EP / n)}  {n}\n' for n in ('script-v4-KHOA.md', 'loi-khoa.txt')) + f'{sha(PA / "gibraltar-eric.pls")}  khoa-loi/phat-am/gibraltar-eric.pls\n')
+cu = os.environ.get('SHA_CU', '')   # tệp SHA bản trước → ghi thành dòng chú thích '# cũ' (sha256sum -c bỏ qua kèm cảnh báo định dạng)
+hdr = ''.join(f'# cũ ({os.environ.get("NHAN_CU", "trước")}): {l}\n' for l in Path(cu).read_text().splitlines() if l and not l.startswith('#')) if cu else ''
+(EP / 'LOI-KHOA.sha256').write_text(hdr + ''.join(f'{sha(EP / n)}  {n}\n' for n in (LOI, 'loi-khoa.txt')) + f'{sha(PA / "gibraltar-eric.pls")}  khoa-loi/phat-am/gibraltar-eric.pls\n')
 print(f'loi-khoa.txt: {len(body.split())} từ viết, {len(body)} ký tự (ElevenLabs tính ký tự lời đọc ≈ {len(body)}); từ điển {len(D)} mục; tts-preview {len(tts)} ký tự')
 print((EP / 'LOI-KHOA.sha256').read_text())

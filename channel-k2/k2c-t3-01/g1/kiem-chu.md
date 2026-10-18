@@ -1,21 +1,21 @@
-# T3 · Kiểm chữ lời KHOÁ v4 (khoá lời 18/10/2026; trước là lời v1 G1) — sinh bằng `g1/bang_kiem_chu.py`
+# T3 · Kiểm chữ lời KHOÁ v4.1 (khoá lời 18/10/2026, LK2 + LK3; trước là v4, lời v1 G1) — sinh bằng `g1/bang_kiem_chu.py`
 
-Nguồn: `script-v4-KHOA.md` × `vay-ham/treatment.json` (bản G1). Ước **2,5 từ NÓI/s** (Kinh thánh §3: ~150 từ/phút; số đọc thành chữ, tách gạch nối — cùng cách đếm gói TUYẾN). Đối chiếu: Eric đo thật ở T2 = 151,2 từ VIẾT/phút.
+Nguồn: `script-v4.1-KHOA.md` × `vay-ham/treatment.json` (bản G1). Ước **2,5 từ NÓI/s** (Kinh thánh §3: ~150 từ/phút; số đọc thành chữ, tách gạch nối — cùng cách đếm gói TUYẾN). Đối chiếu: Eric đo thật ở T2 = 151,2 từ VIẾT/phút.
 
 ## 0. Tổng
 
-- Từ viết **1574** · từ nói **1656** · ước lời **662.4 s** (2,5 từ nói/s) · ước theo nhịp Eric T2 **624.6 s** · tổng phim (bảng shot) **718.0 s**.
+- Từ viết **1588** · từ nói **1670** · ước lời **668.0 s** (2,5 từ nói/s) · ước theo nhịp Eric T2 **630.2 s** · tổng phim (bảng shot) **719.7 s**.
 - Lỗi: không
-- Cảnh báo tràn > 1,5 s: 1h: lời tràn 3.2 s sang shot sau; 1i: lời tràn 2.6 s sang shot sau; 2l: lời tràn 2.0 s sang shot sau; 2n: lời tràn 2.4 s sang shot sau; 2o: lời tràn 1.9 s sang shot sau; 2r: lời tràn 1.7 s sang shot sau; 4b: lời tràn 3.0 s sang shot sau; 4c: lời tràn 2.0 s sang shot sau; SM3: lời tràn 4.8 s sang shot sau; 5i: lời tràn 2.0 s sang shot sau
+- Cảnh báo tràn > 1,5 s: 1h: lời tràn 3.2 s sang shot sau; 1i: lời tràn 2.6 s sang shot sau; 2l: lời tràn 2.0 s sang shot sau; 2n: lời tràn 2.4 s sang shot sau; 2o: lời tràn 1.9 s sang shot sau; 2r: lời tràn 1.7 s sang shot sau; 4b: lời tràn 3.0 s sang shot sau; 4c: lời tràn 2.0 s sang shot sau; SM3: lời tràn 5.2 s sang shot sau; 5i: lời tràn 2.0 s sang shot sau
 
 | Chương | Dài (s) | Từ nói | Ước lời (s) | Lời/cửa sổ |
 |---|---|---|---|---|
 | 00 | 44.5 | 103 | 41.2 | 0.926 |
-| 01 | 122.5 | 287 | 114.8 | 0.937 |
-| 02 | 204.0 | 488 | 195.2 | 0.957 |
+| 01 | 122.1 | 287 | 114.8 | 0.940 |
+| 02 | 203.6 | 488 | 195.2 | 0.959 |
 | 03 | 84.5 | 189 | 75.6 | 0.895 |
-| 04 | 111.5 | 248 | 99.2 | 0.890 |
-| 05 | 151.0 | 341 | 136.4 | 0.903 |
+| 04 | 110.5 | 249 | 99.6 | 0.901 |
+| 05 | 154.4 | 354 | 141.6 | 0.917 |
 
 ## 1. Từ điển đọc số (áp khi khoá lời, BAI-HOC #19/#59/#104)
 
@@ -73,7 +73,7 @@ Số lớn đã viết bằng chữ ngay trong lời (fifteen thousand, three hu
 | 1c | 01 | 10.5 | 25 | 10.0 | 0.0 | 0.0 |  |
 | 1d | 01 | 13.5 | 32 | 12.8 | 0.0 | 0.0 |  |
 | 1e | 01 | 9.5 | 14 | 5.6 | 0.0 | 0.0 |  |
-| 1f | 01 | 6.0 | 13 | 5.2 | 0.0 | 0.0 |  |
+| 1f | 01 | 5.625 | 13 | 5.2 | 0.0 | 0.0 |  |
 | 1g | 01 | 14.0 | 33 | 13.2 | 0.0 | 0.0 |  |
 | 1h | 01 | 12 | 38 | 15.2 | 0.0 | 3.2 |  |
 | 1i | 01 | 13.0 | 31 | 12.4 | 3.2 | 2.6 |  |
@@ -82,7 +82,7 @@ Số lớn đã viết bằng chữ ngay trong lời (fifteen thousand, three hu
 | 2a | 02 | 12.0 | 28 | 11.2 | 0.9 | 0.1 |  |
 | 2b | 02 | 10.5 | 25 | 10.0 | 0.1 | 0.0 |  |
 | 2c | 02 | 12.0 | 28 | 11.2 | 0.0 | 0.0 |  |
-| 2d | 02 | 8.0 | 18 | 7.2 | 0.0 | 0.0 |  |
+| 2d | 02 | 7.625 | 18 | 7.2 | 0.0 | 0.0 |  |
 | 2e | 02 | 6.5 | 15 | 6.0 | 0.0 | 0.0 |  |
 | SM2 | 02 | 7.5 | 17 | 6.8 | 0.0 | 0.0 |  |
 | 2f | 02 | 6.0 | 14 | 5.6 | 0.0 | 0.0 |  |
@@ -114,24 +114,24 @@ Số lớn đã viết bằng chữ ngay trong lời (fifteen thousand, three hu
 | 4d | 04 | 10.5 | 24 | 9.6 | 2.0 | 1.1 |  |
 | 4e | 04 | 7.5 | 17 | 6.8 | 1.1 | 0.4 |  |
 | 4f | 04 | 9.0 | 20 | 8.0 | 0.4 | 0.0 |  |
-| SM3 | 04 | 8 | 32 | 12.8 | 0.0 | 4.8 |  |
-| 4g | 04 | 5.5 | 0 | 0.0 | 4.8 | 0.0 |  |
-| KB1943 | 04 | 9.0 | 0 | 0.0 | 0.0 | 0.0 | IM LẶNG |
+| SM3 | 04 | 8 | 33 | 13.2 | 0.0 | 5.2 |  |
+| 4g | 04 | 5.5 | 0 | 0.0 | 5.2 | 0.0 |  |
+| KB1943 | 04 | 8.0 | 0 | 0.0 | 0.0 | 0.0 | IM LẶNG |
 | 4h | 04 | 11.5 | 27 | 10.8 | 0.0 | 0.0 |  |
 | 4i | 04 | 16.0 | 38 | 15.2 | 0.0 | 0.0 |  |
-| 5a | 05 | 9.0 | 20 | 8.0 | 0.0 | 0.0 |  |
+| 5a | 05 | 14.0 | 33 | 13.2 | 0.0 | 0.0 |  |
 | 5b | 05 | 8.0 | 20 | 8.0 | 0.0 | 0.0 |  |
 | KB2026 | 05 | 9.5 | 22 | 8.8 | 0.0 | 0.0 |  |
 | 5c | 05 | 8.5 | 19 | 7.6 | 0.0 | 0.0 |  |
 | 5d | 05 | 4.5 | 8 | 3.2 | 0.0 | 0.0 |  |
 | KC2026 | 05 | 10.0 | 25 | 10.0 | 0.0 | 0.0 |  |
-| 5e | 05 | 7.0 | 15 | 6.0 | 0.0 | 0.0 |  |
+| 5e | 05 | 6.4167 | 15 | 6.0 | 0.0 | 0.0 |  |
 | 5f | 05 | 16.5 | 40 | 16.0 | 0.0 | 0.0 |  |
 | 5g | 05 | 8.0 | 19 | 7.6 | 0.0 | 0.0 |  |
 | 5h | 05 | 16.0 | 38 | 15.2 | 0.0 | 0.0 |  |
 | 5i | 05 | 8 | 25 | 10.0 | 0.0 | 2.0 |  |
 | 5j | 05 | 17.0 | 41 | 16.4 | 2.0 | 1.4 |  |
-| KA2026 | 05 | 9.0 | 0 | 0.0 | 1.4 | 0.0 | IM LẶNG |
+| KA2026 | 05 | 8.0 | 0 | 0.0 | 1.4 | 0.0 | IM LẶNG |
 | 5k | 05 | 20.0 | 49 | 19.6 | 0.0 | 0.0 |  |
 
 ## 3. Câu nhạy cảm (§10.6, TIEN-KY-VAY-HAM §6.1 CS1–CS10) — bộ lọc bắt và cách xử lý
