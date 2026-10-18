@@ -1,0 +1,52 @@
+{
+ "key": {
+  "L0-R1": {
+   "order": [
+    "frame_21.jpg",
+    "frame_47.jpg",
+    "frame_58.jpg",
+    "frame_40.jpg"
+   ],
+   "map": {
+    "frame_21.jpg": "P4crop_sau",
+    "frame_47.jpg": "P4crop_truoc",
+    "frame_58.jpg": "lab_sau",
+    "frame_40.jpg": "lab_truoc"
+   }
+  },
+  "L0-R2": {
+   "order": [
+    "frame_28.jpg",
+    "frame_68.jpg",
+    "frame_62.jpg",
+    "frame_46.jpg"
+   ],
+   "map": {
+    "frame_28.jpg": "P4crop_truoc",
+    "frame_68.jpg": "lab_sau",
+    "frame_62.jpg": "lab_truoc",
+    "frame_46.jpg": "P4crop_sau"
+   }
+  },
+  "L0-R3": {
+   "order": [
+    "frame_28.jpg",
+    "frame_64.jpg",
+    "frame_88.jpg",
+    "frame_36.jpg"
+   ],
+   "map": {
+    "frame_28.jpg": "P4crop_truoc",
+    "frame_64.jpg": "lab_sau",
+    "frame_88.jpg": "lab_truoc",
+    "frame_36.jpg": "P4crop_sau"
+   }
+  }
+ },
+ "src": {
+  "P4crop_truoc": "/var/tmp/cine-out/g1b/nguoi/P4crop-truoc.jpg",
+  "P4crop_sau": "/var/tmp/cine-out/g1b/nguoi/P4crop-sau.jpg",
+  "lab_truoc": "/var/tmp/cine-out/g1b/nguoi/lab-truoc.jpg",
+  "lab_sau": "/var/tmp/cine-out/g1b/nguoi/lab-sau.jpg"
+ }
+}
