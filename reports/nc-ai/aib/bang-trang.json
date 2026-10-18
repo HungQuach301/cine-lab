@@ -1,0 +1,9 @@
+{"ghi_chu": "Ranh trang theo dòng (1-based, gồm cả hai đầu) trong tệp djvu.txt có đúng SHA của TIEN-KY-VAY-HAM (nguon_da_tai). Số trang in đọc từ dòng đầu trang; OCR làm hỏng số trang ở nhiều chỗ ('3S3', '*54', '25«', Spilsbury '78' cho 73) → ranh trang dò bằng mắt, không bằng regex. Spilsbury 73–75 có bảng 'DETAILS OF THE GUARDS … 7TH SEPTEMBER, 1782' vắt hai trang.",
+ "nguon": {
+  "drinkwater1786": {"mo_ta": "John Drinkwater, A History of the Late Siege of Gibraltar (Dublin, 1786)", "url": "https://archive.org/download/historyoflatesie00driniala/historyoflatesie00driniala_djvu.txt", "sha256": "7576bb8fb645db341cbf981383d7d41efae91fce1c9991737e21be4d04565212",
+     "trang": {"351": [14855, 14893], "352": [14894, 14932], "353": [14933, 14972]}},
+  "spilsbury1908": {"mo_ta": "John Spilsbury, A Journal of the Siege of Gibraltar 1779–1783 (ed. 1908)", "url": "https://archive.org/download/ajournalsiegegi00spilgoog/ajournalsiegegi00spilgoog_djvu.txt", "sha256": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+     "trang": {"73": [4708, 4757], "74": [4758, 4812], "75": [4813, 4935]}},
+  "ancell1784": {"mo_ta": "Samuel Ancell, A Circumstantial Journal of the Long and Tedious Blockade and Siege of Gibraltar (1784)", "url": "https://archive.org/download/acircumstantial00ancegoog/acircumstantial00ancegoog_djvu.txt", "sha256": "67d61d0aced585978cd08b34717ca985699b3dc7e32d01014f974d1fe488b526",
+     "trang": {"253": [10283, 10359], "254": [10360, 10403], "255": [10404, 10443]}}
+ }}
