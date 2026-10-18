@@ -1,0 +1,305 @@
+{
+ "note": "Toạ độ điểm mốc (OSM Nominatim 17/10/2026, ODbL; tệp thô ngoài git /var/tmp/cine-out/tuyen/gaz/). Độ dời ra khơi ghi ở ghi_chu.",
+ "diem": {
+  "st_helens": {
+   "lat": 50.69937,
+   "lon": -1.11307,
+   "nguon_toa_do": "OSM Nominatim relation/2273395 (boundary/administrative)",
+   "sha256_tho": "12a0d53a119edfece3017add21c19f23e253ace858482ed66060bfdd933f1fce",
+   "ghi_chu": "làng St Helens (Isle of Wight); neo \"St Helen's Roads\" ngoài khơi ≤ 3 km → coi là cảng (đệm 5 km)"
+  },
+  "spithead": {
+   "lat": 50.75004,
+   "lon": -1.13315,
+   "nguon_toa_do": "OSM Nominatim node/672768750 (place/locality)",
+   "sha256_tho": "5c71f3eeaa80fcad1146cc09cd52ae8009c1e9b269786758433112de3065fefe",
+   "ghi_chu": "Spithead (locality trên mặt nước)"
+  },
+  "lisbon": {
+   "lat": 38.70775,
+   "lon": -9.13659,
+   "nguon_toa_do": "OSM Nominatim relation/5400890 (boundary/administrative)",
+   "sha256_tho": "ec14d2f3b5d104a4cb76fe628630ed88e61994b74f06c9f3facd1b2897bebf84",
+   "ghi_chu": "Lisboa (cảng sông Tagus)"
+  },
+  "off_lagos": {
+   "lat": 37.0278,
+   "lon": -8.67287,
+   "nguon_toa_do": "OSM Nominatim relation/5404104 (boundary/administrative)",
+   "sha256_tho": "c1cdc6273de7d132f9f21628ee7e7ffa47048b320f9a2c208ee22abb67076d95",
+   "ghi_chu": "ngoài khơi Lagos: dời 8,3 km về nam"
+  },
+  "off_tetuan": {
+   "lat": 35.64244,
+   "lon": -5.21915,
+   "nguon_toa_do": "OSM Nominatim relation/2464645 (boundary/administrative)",
+   "sha256_tho": "860ef2fc85a4594479879c05cb6d7db2a8c54f12ffe6751be11d662e749eda8c",
+   "ghi_chu": "ngoài khơi Martil (cảng của Tétouan): dời ≈ 5,7 km về đông bắc"
+  },
+  "gib_bay": {
+   "lat": 36.12938,
+   "lon": -5.39143,
+   "nguon_toa_do": "OSM Nominatim relation/12475298 (natural/bay)",
+   "sha256_tho": "d58a46fb5b8923ebe84eb25afa00476758633a6d30e48cdb36b93c9f9649d8e1",
+   "ghi_chu": "Bahía de Algeciras / Bay of Gibraltar (natural/bay)"
+  },
+  "algeciras_anch": {
+   "lat": 36.13517,
+   "lon": -5.4204,
+   "nguon_toa_do": "OSM Nominatim relation/342446 (boundary/administrative)",
+   "sha256_tho": "3cda646ab1c1391555c08bd4e96f67ea05fc9f354f79d8f911718599df133f82",
+   "ghi_chu": "neo \"between the Orange Grove and Algeziras\": dời 2,4 km về đông từ tâm Algeciras (ra mặt vịnh)"
+  },
+  "strait_west": {
+   "lat": 35.90222,
+   "lon": -5.76534,
+   "nguon_toa_do": "tính từ Nominatim tarifa + cap_spartel",
+   "sha256_tho": "b96802a5461d1eec+61d0e31a699cea1d",
+   "ghi_chu": "cửa tây eo biển = trung điểm Tarifa–Cap Spartel (tính)"
+  },
+  "off_st_vincent": {
+   "lat": 36.97262,
+   "lon": -9.04661,
+   "nguon_toa_do": "OSM Nominatim node/5003941303 (natural/cape)",
+   "sha256_tho": "e7161aa2a90a257c566c4a1ed7ffbfb8a93cba494440ab0b534047223e7a5c68",
+   "ghi_chu": "ngoài khơi mũi St Vincent: dời ≈ 7 km về tây nam"
+  },
+  "off_cork": {
+   "lat": 51.76023,
+   "lon": -8.25006,
+   "nguon_toa_do": "OSM Nominatim relation/14579064 (place/town)",
+   "sha256_tho": "b0d1c394c68c5ef595fef331ed9eb81cf7df08dd19d1f80567273d6926c390f9",
+   "ghi_chu": "ngoài cửa cảng Cork: dời ≈ 10 km về nam–đông nam từ Cobh"
+  },
+  "off_spartel": {
+   "lat": 35.82153,
+   "lon": -6.00067,
+   "nguon_toa_do": "OSM Nominatim node/5849091714 (natural/cape)",
+   "sha256_tho": "61d0e31a699cea1d0434e1af380c8d4623009d7cb6c4256399b90be5cf39d929",
+   "ghi_chu": "ngoài khơi Cap Spartel: dời ≈ 7,5 km về tây bắc"
+  },
+  "off_fuengirola": {
+   "lat": 36.47884,
+   "lon": -4.5534,
+   "nguon_toa_do": "OSM Nominatim relation/345414 (boundary/administrative)",
+   "sha256_tho": "05a83f2130838359b029e96e4f3da00f93c9aa03db9458ee4289d9e2dc36eadf",
+   "ghi_chu": "ngoài khơi Fuengirola: dời ≈ 9 km về đông nam"
+  },
+  "casablanca": {
+   "lat": 33.59451,
+   "lon": -7.62003,
+   "nguon_toa_do": "OSM Nominatim relation/4072985 (boundary/administrative)",
+   "sha256_tho": "3bd7d2841008358a836071a447ea023a57aef3a84ffc8adb5ef48defd45c425c",
+   "ghi_chu": "Casablanca (cảng)"
+  },
+  "mohammedia": {
+   "lat": 33.69584,
+   "lon": -7.38933,
+   "nguon_toa_do": "OSM Nominatim relation/2523547 (boundary/administrative)",
+   "sha256_tho": "bef8b6bccb72a8efeb4761d8f1a4c6757f2bf589ac8288f43f649c6990d90bd5",
+   "ghi_chu": "Mohammédia = Fedala 1942 (cảng)"
+  },
+  "oran": {
+   "lat": 35.70444,
+   "lon": -0.6503,
+   "nguon_toa_do": "OSM Nominatim relation/1259562 (boundary/administrative)",
+   "sha256_tho": "bddc8db240ada85806e06d01363c1e33481dac3f941824daeff357a544424881",
+   "ghi_chu": "Oran (cảng)"
+  },
+  "algiers": {
+   "lat": 36.77293,
+   "lon": 3.05884,
+   "nguon_toa_do": "OSM Nominatim node/299617915 (place/city)",
+   "sha256_tho": "97452d1ae56726d63608e1143757d533e7245310a8455407ac8156f354d7ce43",
+   "ghi_chu": "Alger (cảng)"
+  },
+  "tafraoui": {
+   "lat": 35.44476,
+   "lon": -0.55423,
+   "nguon_toa_do": "OSM Nominatim relation/4270346 (boundary/administrative)",
+   "sha256_tho": "b0c8fb82ab30d4cb34a01fe9f1be90f0e73497c358e9c32f052a0bf507c99df5",
+   "ghi_chu": "Tafraoui — sân bay Tafaraoui 1942 (điểm đến đường không)"
+  },
+  "funchal": {
+   "lat": 32.64965,
+   "lon": -16.90868,
+   "nguon_toa_do": "OSM Nominatim relation/8421413 (boundary/administrative)",
+   "sha256_tho": "45f5fe07441a078eb8c061292d99ca5219baaa8b225bc209291a2e9bbb4fdfed",
+   "ghi_chu": "Funchal, Madeira (cảng)"
+  },
+  "gibraltar": {
+   "lat": 36.12859,
+   "lon": -5.34748,
+   "nguon_toa_do": "OSM Nominatim relation/1278736 (boundary/administrative)",
+   "sha256_tho": "a3bf66f6e919a72219f06e0f9b41d9ef066caa53a368533fae855d759a5a83b4",
+   "ghi_chu": "Gibraltar (cảng; điểm trên đất liền, trong đệm cảng)"
+  },
+  "thames": {
+   "lat": 51.48,
+   "lon": 0.9,
+   "nguon_toa_do": "điểm biểu trưng (không phải gazetteer)",
+   "sha256_tho": "",
+   "ghi_chu": "cửa Thames (điểm cuối biểu trưng cho \"London\"; tính: 51.48 N, 0.90 E — không phải sự kiện có nguồn)"
+  }
+ },
+ "dieu_khien": {
+  "c_channel_w": {
+   "lat": 49.95,
+   "lon": -2.2
+  },
+  "c_ushant": {
+   "lat": 48.55,
+   "lon": -5.9
+  },
+  "c_finisterre": {
+   "lat": 43.0,
+   "lon": -10.2
+  },
+  "c_roca": {
+   "lat": 38.75,
+   "lon": -9.75
+  },
+  "c_porto_off": {
+   "lat": 41.2,
+   "lon": -9.7
+  },
+  "c_lizard": {
+   "lat": 49.8,
+   "lon": -5.3
+  },
+  "c_scilly_s": {
+   "lat": 49.6,
+   "lon": -6.6
+  },
+  "c_biscay": {
+   "lat": 46.0,
+   "lon": -9.0
+  },
+  "c_ireland_s": {
+   "lat": 51.2,
+   "lon": -8.0
+  },
+  "c_gulf_cadiz": {
+   "lat": 36.65,
+   "lon": -7.2
+  },
+  "c_strait_mid": {
+   "lat": 35.95,
+   "lon": -5.6
+  },
+  "c_europa_s": {
+   "lat": 36.03,
+   "lon": -5.3
+  },
+  "c_alboran_w": {
+   "lat": 36.25,
+   "lon": -4.95
+  },
+  "c_trafalgar_off": {
+   "lat": 36.12,
+   "lon": -6.15
+  },
+  "c_madeira_n": {
+   "lat": 34.5,
+   "lon": -13.0
+  },
+  "c_dover": {
+   "lat": 51.0,
+   "lon": 1.45
+  },
+  "c_alboran_e": {
+   "lat": 36.1,
+   "lon": -2.5
+  },
+  "c_oran_off": {
+   "lat": 35.85,
+   "lon": -0.75
+  },
+  "c_algiers_off": {
+   "lat": 36.97,
+   "lon": 2.8
+  },
+  "c_algiers_bay": {
+   "lat": 36.82,
+   "lon": 3.13
+  },
+  "c_off_rabat": {
+   "lat": 34.3,
+   "lon": -7.3
+  },
+  "c_wight_e": {
+   "lat": 50.655,
+   "lon": -0.94
+  },
+  "c_wight_s": {
+   "lat": 50.42,
+   "lon": -1.3
+  },
+  "c_tagus": {
+   "lat": 38.665,
+   "lon": -9.3
+  },
+  "c_strait_w": {
+   "lat": 35.9,
+   "lon": -5.85
+  },
+  "c_strait_e": {
+   "lat": 35.99,
+   "lon": -5.42
+  },
+  "c_ceuta_n": {
+   "lat": 35.955,
+   "lon": -5.27
+  },
+  "c_ceuta_e": {
+   "lat": 35.86,
+   "lon": -5.17
+  },
+  "c_bay_mouth": {
+   "lat": 36.06,
+   "lon": -5.38
+  },
+  "c_foreland": {
+   "lat": 51.42,
+   "lon": 1.62
+  },
+  "c_thames_mouth": {
+   "lat": 51.52,
+   "lon": 1.15
+  },
+  "c_madeira_e": {
+   "lat": 32.665,
+   "lon": -16.62
+  },
+  "c_funchal_off": {
+   "lat": 32.6,
+   "lon": -16.86
+  },
+  "c_fedala_off": {
+   "lat": 33.82,
+   "lon": -7.45
+  },
+  "c_cork_app": {
+   "lat": 51.55,
+   "lon": -8.05
+  }
+ },
+ "mep": {
+  "e_west_portugal": {
+   "lat": 41.9,
+   "lon": -11.0
+  },
+  "e_west_strait": {
+   "lat": 35.6,
+   "lon": -19.0
+  },
+  "e_west_morocco": {
+   "lat": 33.3,
+   "lon": -19.0
+  },
+  "e_west_jamaica": {
+   "lat": 33.0,
+   "lon": -20.0
+  }
+ }
+}

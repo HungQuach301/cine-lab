@@ -1,0 +1,1355 @@
+{
+ "note": "Claim tuyến đường T3 (gói TUYẾN, 17/10/2026). Schema = claims-vay-ham.json + `nguon_doi_chieu` (nguồn độc lập thứ hai trở đi) + `muc_lenh` (a–k của lệnh). Tệp thô ngoài git, SHA ở `nguon_da_tai`.",
+ "claims": [
+  {
+   "id": "T001",
+   "id_goc": "TUYEN-a",
+   "nhom": "tuyen-1704",
+   "claim_en": "The Anglo-Dutch fleet carrying the Habsburg claimant \"Charles III\" sailed from the Solent (St Helens, off Portsmouth) on 12 February 1704 (Old Style) and reached Lisbon on 25 February (O.S.) — the Spanish count gives the Tagus bar on 6 March (New Style).",
+   "trich_nguyen_van": "On the 12th of February the fleet set sail from St. Helens, and arrived at Lisbon on the 25th, after a favourable passage.",
+   "lang": "en",
+   "nguon": "Capt. Frederick Sayer, The History of Gibraltar (London, 1862)",
+   "loai_nguon": "thu-cap",
+   "url": "https://archive.org/download/historyofgibralt00sayeuoft/historyofgibralt00sayeuoft_djvu.txt",
+   "file_sha256": "3dd2e42aa4bab8f62f2b83c9d9ae7c8761915cce89e74b10f4ac8781a31c127d",
+   "vi_tri": "Ch. VI · tệp dòng 3791 · tr. in theo đầu trang OCR gần nhất: 100",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Hai nguồn Anh dùng lịch cũ (O.S.); Fernández Duro dùng lịch mới (N.S.). 25/2 O.S. = 7/3 N.S. → lệch 1 ngày với \"6 de Marzo\" (barra del Tajo ≠ neo trong cảng); 16/1 N.S. (Fernández Duro) = 5/1 O.S. ≈ lần ra khơi đầu bị gió đẩy về (Clowes: \"sailed on January 6th, but was driven back\"). Cách nói an toàn: \"sailed from England in February 1704 and reached Lisbon within two weeks\". Không vẽ vòng Lisbon → Barcelona → quay lại (5–6/1704) trong SM1 (6 s); chỉ nêu ở mô tả.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "W. Laird Clowes et al., The Royal Navy: A History, vol. II (London, 1898)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/royalnavyhistory02clowuoft/royalnavyhistory02clowuoft_djvu.txt",
+     "file_sha256": "a9a4bc4dde03314fba80c2819e595140f21a332419c09071c9ef600d12b3afc3",
+     "vi_tri": "tệp dòng 31025 · tr. in theo đầu trang OCR gần nhất: 390",
+     "trich_nguyen_van": "Sailing again on February 12th, with a very large convoy, it reached Lisbon on the 25th ; and King Charles landed a few days afterwards."
+    },
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VI (Madrid, 1900)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/armadaespaolade00durogoog/armadaespaolade00durogoog_djvu.txt",
+     "file_sha256": "3f93284d66cf4e7fd589c7195dc636476f22abc7bb24ed5f761ec83ebeaa134a",
+     "vi_tri": "cap. \"1704-1705\" · tệp dòng 2180 · tr. in theo đầu trang OCR gần nhất: 45",
+     "trich_nguyen_van": "franqueada la boca del puerto de Portsmouth el 1 6 de Enero de 1704, una y otra vez tuvo que arribar la escuadra en dispersión, tardando en alcanzar la barra del Tajo hasta el 6 de Marzo"
+    }
+   ],
+   "muc_lenh": "a"
+  },
+  {
+   "id": "T002",
+   "id_goc": "TUYEN-a",
+   "nhom": "tuyen-1704",
+   "claim_en": "In June 1704 Rooke, back from the Mediterranean, was joined off the Algarve coast (off Lagos, 16 June O.S.) by Sir Cloudesley Shovell's squadron.",
+   "trich_nguyen_van": "Off Lagos, on the 16th, Admiral Sir Clowdisley Shovell's squadron joined.",
+   "lang": "en",
+   "nguon": "W. Laird Clowes et al., The Royal Navy: A History, vol. II (London, 1898)",
+   "loai_nguon": "thu-cap (học thuật)",
+   "url": "https://archive.org/download/royalnavyhistory02clowuoft/royalnavyhistory02clowuoft_djvu.txt",
+   "file_sha256": "a9a4bc4dde03314fba80c2819e595140f21a332419c09071c9ef600d12b3afc3",
+   "vi_tri": "(tháng 6/1704) · tệp dòng 31128 · tr. in theo đầu trang OCR gần nhất: 390",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Tên điểm \"Lagos\" chỉ Clowes nêu; Fernández Duro chỉ nói \"costa de Portugal\" → điểm mốc vẽ là \"ngoài khơi Algarve gần Lagos\", `approx: true`.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VI (Madrid, 1900)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/armadaespaolade00durogoog/armadaespaolade00durogoog_djvu.txt",
+     "file_sha256": "3f93284d66cf4e7fd589c7195dc636476f22abc7bb24ed5f761ec83ebeaa134a",
+     "vi_tri": "tệp dòng 2354 · tr. in theo đầu trang OCR gần nhất: 51",
+     "trich_nguyen_van": "Por ello volvió á la costa de Portugal é hizo incorporar al almirante Shovel"
+    }
+   ],
+   "muc_lenh": "a"
+  },
+  {
+   "id": "T003",
+   "id_goc": "TUYEN-a",
+   "nhom": "tuyen-1704",
+   "claim_en": "On 17 July 1704 (O.S.), with the fleet off Tetuan on the African shore, Rooke held a council of war on the Royal Catherine that decided on a sudden attack on Gibraltar; the fleet then crossed the Strait and anchored in the bay (S012).",
+   "trich_nguyen_van": "the admiral, on the 17th July, when within a few leagues of Tetuan, hove to the squadron and called a Council of War on board the flag-ship",
+   "lang": "en",
+   "nguon": "Capt. Frederick Sayer, The History of Gibraltar (London, 1862)",
+   "loai_nguon": "thu-cap",
+   "url": "https://archive.org/download/historyofgibralt00sayeuoft/historyofgibralt00sayeuoft_djvu.txt",
+   "file_sha256": "3dd2e42aa4bab8f62f2b83c9d9ae7c8761915cce89e74b10f4ac8781a31c127d",
+   "vi_tri": "Ch. VI · tệp dòng 3844 · tr. in theo đầu trang OCR gần nhất: 101",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Bốn nguồn (2 Anh, 2 TBN) khớp. Điểm \"off Tetuan\" = ngoài khơi Martil (cảng của Tétouan), `approx: true`.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Francisco María Montero, Historia de Gibraltar y de su campo (Cádiz, 1860)",
+     "loai_nguon": "thu-cap",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/historiadegibra00montgoog/historiadegibra00montgoog_djvu.txt",
+     "file_sha256": "a9b8f6b07ee075c9f5a7c79b47925ddb3c539e6feb31ebb0ca621459e31abfe5",
+     "vi_tri": "tệp dòng 11675 · tr. in theo đầu trang OCR gần nhất: 258",
+     "trich_nguyen_van": "Estando, pues, la -escuadra á la vista de las costas de Tetuan se celebró un consejo de guerra á bordo de la Real Catalina"
+    },
+    {
+     "nguon": "W. Laird Clowes et al., The Royal Navy: A History, vol. II (London, 1898)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/royalnavyhistory02clowuoft/royalnavyhistory02clowuoft_djvu.txt",
+     "file_sha256": "a9a4bc4dde03314fba80c2819e595140f21a332419c09071c9ef600d12b3afc3",
+     "vi_tri": "tệp dòng 31146 · tr. in theo đầu trang OCR gần nhất: 390",
+     "trich_nguyen_van": "delayed the fleet, which, by July 17th, had not advanced eastward of Tetuan."
+    },
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VI (Madrid, 1900)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/armadaespaolade00durogoog/armadaespaolade00durogoog_djvu.txt",
+     "file_sha256": "3f93284d66cf4e7fd589c7195dc636476f22abc7bb24ed5f761ec83ebeaa134a",
+     "vi_tri": "tệp dòng 2407 · tr. in theo đầu trang OCR gần nhất: 52",
+     "trich_nguyen_van": "hechos los preparativos en el fondeadero de Tetuán, pusiéronse á la vela para atravesar el Estrecho"
+    }
+   ],
+   "muc_lenh": "a"
+  },
+  {
+   "id": "T004",
+   "id_goc": "TUYEN-b",
+   "nhom": "lien-minh-1704",
+   "claim_en": "The war of 1704 pitted the Grand Alliance — England, the Emperor (Austria) and the Dutch Republic — against France and the Spain of Philip V.",
+   "trich_nguyen_van": "was followed by the conclusion of the Grand Alliance, signed on September 7th, between England, the Emperor, and the Dutch. The alliance against Erance and Spain had scarcely been entered into when William III. died",
+   "lang": "en",
+   "nguon": "Capt. Frederick Sayer, The History of Gibraltar (London, 1862)",
+   "loai_nguon": "thu-cap",
+   "url": "https://archive.org/download/historyofgibralt00sayeuoft/historyofgibralt00sayeuoft_djvu.txt",
+   "file_sha256": "3dd2e42aa4bab8f62f2b83c9d9ae7c8761915cce89e74b10f4ac8781a31c127d",
+   "vi_tri": "Ch. VI · tệp dòng 3758 · tr. in theo đầu trang OCR gần nhất: 99",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "XÁC MINH",
+   "nhay_cam": "TRUNG BÌNH — chú giải phe: không gọi một bên là \"Spain\" chung chung; dùng \"Spain (Philip V)\" và \"Grand Alliance\".",
+   "ghi_chu": "Đại Liên minh ký 7/9/1701 (Sayer). Fernández Duro gọi phe này là \"los aliados contra la casa de Borbón\" (đúng cách nhìn TBN). Gibraltar bị chiếm nhân danh \"Charles III\" (S012/S017) — chú giải SM1 phải giữ sắc thái này.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Lord Mahon [P. H. Stanhope], History of the War of the Succession in Spain (London, 1836)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/historyofwarofsu00stan/historyofwarofsu00stan_djvu.txt",
+     "file_sha256": "626c4d7c2138a7725db3afa16bf1a678d5266f70f287548474fbe6819e5ec5c9",
+     "vi_tri": "ch. I · tệp dòng 4310",
+     "trich_nguyen_van": "the basis of the “ Grand Alliance” between Eng- land, Austria, and the States General."
+    },
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VI (Madrid, 1900)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/armadaespaolade00durogoog/armadaespaolade00durogoog_djvu.txt",
+     "file_sha256": "3f93284d66cf4e7fd589c7195dc636476f22abc7bb24ed5f761ec83ebeaa134a",
+     "vi_tri": "tệp dòng 1439 · tr. in theo đầu trang OCR gần nhất: 33",
+     "trich_nguyen_van": "Su defección alegró á los aliados contra la casa de Borbón"
+    }
+   ],
+   "muc_lenh": "b"
+  },
+  {
+   "id": "T005",
+   "id_goc": "TUYEN-b",
+   "nhom": "lien-minh-1704",
+   "claim_en": "Portugal joined the Grand Alliance in May 1703, recognising the Archduke Charles as King of Spain.",
+   "trich_nguyen_van": "A treaty between Portugal and the 3 allied powers was signed at Lisbon on the 6th of May acknowledging Charles as King of Spain, and - undertaking to vindicate his rights.",
+   "lang": "en",
+   "nguon": "Lord Mahon [P. H. Stanhope], History of the War of the Succession in Spain (London, 1836)",
+   "loai_nguon": "thu-cap (học thuật)",
+   "url": "https://archive.org/download/historyofwarofsu00stan/historyofwarofsu00stan_djvu.txt",
+   "file_sha256": "626c4d7c2138a7725db3afa16bf1a678d5266f70f287548474fbe6819e5ec5c9",
+   "vi_tri": "ch. II (lề: \"Portugal accedes to the Grand Alliance\") · tệp dòng 5892",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Khớp tháng (5/1703) và nội dung (nhượng Badajoz, Alburquerque, Tuy, Bayona, Vigo — cả hai nguồn). LỆCH ngày/nơi: Mahon \"Lisbon, 6 May\" ↔ Fernández Duro \"Londres, 10 de Mayo\" (có thể khác lịch O.S./N.S. và nơi phê chuẩn) → chỉ nói \"May 1703\". Bồ Đào Nha tuyên chiến TBN năm 1704 (Fernández Duro, mục lục chương 1704–05) — không cần cho SM1.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VI (Madrid, 1900)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/armadaespaolade00durogoog/armadaespaolade00durogoog_djvu.txt",
+     "file_sha256": "3f93284d66cf4e7fd589c7195dc636476f22abc7bb24ed5f761ec83ebeaa134a",
+     "vi_tri": "tệp dòng 1444 · tr. in theo đầu trang OCR gần nhất: 33",
+     "trich_nguyen_van": "Alcanzó la influencia del procer castellano á mover el espíritu vacilante del Rey de Portugal y á entrarle en la gran liga contra España"
+    },
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VI (Madrid, 1900)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/armadaespaolade00durogoog/armadaespaolade00durogoog_djvu.txt",
+     "file_sha256": "3f93284d66cf4e7fd589c7195dc636476f22abc7bb24ed5f761ec83ebeaa134a",
+     "vi_tri": "chú thích · tệp dòng 1472 · tr. in theo đầu trang OCR gần nhất: 33",
+     "trich_nguyen_van": "Firmóse el tratado en Londres el 10 de Mayo de 1703"
+    }
+   ],
+   "muc_lenh": "b"
+  },
+  {
+   "id": "T006",
+   "id_goc": "TUYEN-c",
+   "nhom": "phong-toa-1779",
+   "claim_en": "From July 1779 the Spanish blockade squadron under Admiral Antonio Barceló was based at the anchorage off Algeciras, across the bay from Gibraltar; its aim was to cut the supplies reaching the Rock from the African shore.",
+   "trich_nguyen_van": "they anchored in the bay, off Algeziras, and being judiciously arranged, and keeping a vigilant lookout, the garrison became closely blockaded.",
+   "lang": "en",
+   "nguon": "John Drinkwater, A History of the Siege of Gibraltar 1779–1783, new ed. (London: John Murray, 1905; text of 1785)",
+   "loai_nguon": "so-cap",
+   "url": "https://archive.org/download/historysiegegibr00drin/historysiegegibr00drin_djvu.txt",
+   "file_sha256": "9a0c3c3e45f39e2fdbb46de1b92aef6d61d1d8b5100e170d4dcf60c86eb42709",
+   "vi_tri": "Ch. III (= S042) · tệp dòng 2871 · tr. in theo đầu trang OCR gần nhất: 58",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Căn cứ = Algeciras (cả hai phía). Barceló cũng dùng Ceuta (Drinkwater) → vòng phong toả vẽ bao cả Ceuta–Algeciras, nét đứt, không vẽ đường tàu cụ thể.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "John Drinkwater, A History of the Siege of Gibraltar 1779–1783, new ed. (London: John Murray, 1905; text of 1785)",
+     "loai_nguon": "so-cap",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/historysiegegibr00drin/historysiegegibr00drin_djvu.txt",
+     "file_sha256": "9a0c3c3e45f39e2fdbb46de1b92aef6d61d1d8b5100e170d4dcf60c86eb42709",
+     "vi_tri": "Ch. III (1779) · tệp dòng 3864 · tr. in theo đầu trang OCR gần nhất: 82",
+     "trich_nguyen_van": "Admiral Barcelo returned from Ceuta to his old anchorage off Algeziras, and the port again became closely blockaded."
+    },
+    {
+     "nguon": "Francisco María Montero, Historia de Gibraltar y de su campo (Cádiz, 1860)",
+     "loai_nguon": "thu-cap",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/historiadegibra00montgoog/historiadegibra00montgoog_djvu.txt",
+     "file_sha256": "a9b8f6b07ee075c9f5a7c79b47925ddb3c539e6feb31ebb0ca621459e31abfe5",
+     "vi_tri": "tệp dòng 15722 · tr. in theo đầu trang OCR gần nhất: 338",
+     "trich_nguyen_van": "Mandaba las fuerzas sutiles marítimas Don Antonio Barceló, general acreditado y aptísimo para este intere- sante servicio del que dependía casi el éxito del bloqueo, encaminado principalmente á privar a la plaza de los vi- veres que le llegaban de las costas de África"
+    },
+    {
+     "nguon": "Robert Beatson, Naval and Military Memoirs of Great Britain, from 1727 to 1783, vol. V (London, 1804)",
+     "loai_nguon": "thu-cap (gần đương thời)",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/navalmilitarymem05beatuoft/navalmilitarymem05beatuoft_djvu.txt",
+     "file_sha256": "329043a6870ab8d86883159c24532daa3ea4b54e5af9c9e3e2c72c926942f3a7",
+     "vi_tri": "(1/1780) · tệp dòng 5480 · tr. in theo đầu trang OCR gần nhất: 104",
+     "trich_nguyen_van": "retired to Algefiras, where Don Antonio Barcelo, with his line of battle {hips and frigates, hauled as clofe to the fhore"
+    }
+   ],
+   "muc_lenh": "c"
+  },
+  {
+   "id": "T007",
+   "id_goc": "TUYEN-c",
+   "nhom": "phong-toa-1779",
+   "claim_en": "Spanish lookouts and gunboats were stationed at Cabrita Point (Punta Carnero), the western horn of the bay, to signal and intercept ships entering from the Strait.",
+   "trich_nguyen_van": "The usual signal for seeing an enemy was made by the Spaniards at Cabrita Point",
+   "lang": "en",
+   "nguon": "John Drinkwater, A History of the Siege of Gibraltar 1779–1783, new ed. (London: John Murray, 1905; text of 1785)",
+   "loai_nguon": "so-cap",
+   "url": "https://archive.org/download/historysiegegibr00drin/historysiegegibr00drin_djvu.txt",
+   "file_sha256": "9a0c3c3e45f39e2fdbb46de1b92aef6d61d1d8b5100e170d4dcf60c86eb42709",
+   "vi_tri": "Ch. III (1779) · tệp dòng 3647 · tr. in theo đầu trang OCR gần nhất: 74",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Vị trí tuần tra cố định có nguồn: Punta Carnero/Cabrita Point (1779–82). Không có nguồn cho \"đường tuần tra\" ngoài eo → không vẽ.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Francisco María Montero, Historia de Gibraltar y de su campo (Cádiz, 1860)",
+     "loai_nguon": "thu-cap",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/historiadegibra00montgoog/historiadegibra00montgoog_djvu.txt",
+     "file_sha256": "a9b8f6b07ee075c9f5a7c79b47925ddb3c539e6feb31ebb0ca621459e31abfe5",
+     "vi_tri": "(4/1781) · tệp dòng 16252 · tr. in theo đầu trang OCR gần nhất: 350",
+     "trich_nguyen_van": "Cuando esta dobló la punta de Carnero (de cabrita la llaman loa in- gleses) salieron á impedirle el paso quince lanchas ca- ñoneras"
+    },
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VII (Madrid, 1901)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/bub_gb_G1y3VAtRHTIC/bub_gb_G1y3VAtRHTIC_djvu.txt",
+     "file_sha256": "3c2dc7d23f078a9cdd5125e715eab0ee0c103b5bcdfcc8c53d0b6dd4ef2d4ec8",
+     "vi_tri": "(10/1782) · tệp dòng 17209",
+     "trich_nguyen_van": "las cañoneras de Barceló, situadas sobre Punta Carnero"
+    }
+   ],
+   "muc_lenh": "c"
+  },
+  {
+   "id": "T008",
+   "id_goc": "TUYEN-c",
+   "nhom": "phong-toa-1779",
+   "claim_en": "In January 1780 a Spanish squadron under Juan de Lángara cruised between the Strait and Cape St Vincent to stop relief reaching Gibraltar.",
+   "trich_nguyen_van": "que al mando del general Don Juan de Lángara y Huarte cruzaba desde el Estrecho al cabo de San Vicente para impedir los socorros á la plaza bloqueada.",
+   "lang": "es",
+   "nguon": "Francisco María Montero, Historia de Gibraltar y de su campo (Cádiz, 1860)",
+   "loai_nguon": "thu-cap",
+   "url": "https://archive.org/download/historiadegibra00montgoog/historiadegibra00montgoog_djvu.txt",
+   "file_sha256": "a9b8f6b07ee075c9f5a7c79b47925ddb3c539e6feb31ebb0ca621459e31abfe5",
+   "vi_tri": "tệp dòng 15846 · tr. in theo đầu trang OCR gần nhất: 340",
+   "as_of": "đọc 2026-10-17",
+   "phia": "TBN + Anh",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Số tàu khác nhau: Beatson \"said to consist of fourteen\" (tin tình báo), Montero/Fernández Duro 9 tàu chiến tuyến + 2 frigate → không nói số tàu trong lời SM2.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Robert Beatson, Naval and Military Memoirs of Great Britain, from 1727 to 1783, vol. V (London, 1804)",
+     "loai_nguon": "thu-cap (gần đương thời)",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/navalmilitarymem05beatuoft/navalmilitarymem05beatuoft_djvu.txt",
+     "file_sha256": "329043a6870ab8d86883159c24532daa3ea4b54e5af9c9e3e2c72c926942f3a7",
+     "vi_tri": "tệp dòng 5520 · tr. in theo đầu trang OCR gần nhất: 106",
+     "trich_nguyen_van": "a Spanifh fquadron, faid to confift of fourteen fail of the line, was cruifing off Cape St. Vincent"
+    }
+   ],
+   "muc_lenh": "c"
+  },
+  {
+   "id": "T009",
+   "id_goc": "TUYEN-d",
+   "nhom": "tiep-te-1780",
+   "claim_en": "Rodney's relief fleet put to sea from England on 27 December 1779.",
+   "trich_nguyen_van": "On the 27th of December, 1779, Sir George Rodney put to fea, with twenty fail of the line and nine fri- gates",
+   "lang": "en",
+   "nguon": "Robert Beatson, Naval and Military Memoirs of Great Britain, from 1727 to 1783, vol. V (London, 1804)",
+   "loai_nguon": "thu-cap (gần đương thời)",
+   "url": "https://archive.org/download/navalmilitarymem05beatuoft/navalmilitarymem05beatuoft_djvu.txt",
+   "file_sha256": "329043a6870ab8d86883159c24532daa3ea4b54e5af9c9e3e2c72c926942f3a7",
+   "vi_tri": "(mục Home 1780) · tệp dòng 881 · tr. in theo đầu trang OCR gần nhất: 4",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Cảng đi KHÔNG có nguồn nêu thẳng (Drinkwater chỉ ngầm: tàu than \"too late … to join at Spithead\"; Montero viết \"Entrado el de 1780 salió de Londres\" — sai rõ về ngày, coi là ngoại lệ). → Tuyến Rodney vẽ `vao_tu_mep: true`, nhãn \"from England\". Số tàu lệch (20–22 chiến tuyến) → không nói.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VII (Madrid, 1901)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/bub_gb_G1y3VAtRHTIC/bub_gb_G1y3VAtRHTIC_djvu.txt",
+     "file_sha256": "3c2dc7d23f078a9cdd5125e715eab0ee0c103b5bcdfcc8c53d0b6dd4ef2d4ec8",
+     "vi_tri": "tệp dòng 13439",
+     "trich_nguyen_van": "Rodney se hizo á la mar el 27 de Diciembre, escoltando con 22 navios de línea y 10 fragatas el convoy de 200 velas"
+    },
+    {
+     "nguon": "John Drinkwater, A History of the Siege of Gibraltar 1779–1783, new ed. (London: John Murray, 1905; text of 1785)",
+     "loai_nguon": "so-cap",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/historysiegegibr00drin/historysiegegibr00drin_djvu.txt",
+     "file_sha256": "9a0c3c3e45f39e2fdbb46de1b92aef6d61d1d8b5100e170d4dcf60c86eb42709",
+     "vi_tri": "Ch. III · tệp dòng 4145 · tr. in theo đầu trang OCR gần nhất: 88",
+     "trich_nguyen_van": "she was one of a large convoy which had sailed the latter end of the preceding month for our relief"
+    }
+   ],
+   "muc_lenh": "d"
+  },
+  {
+   "id": "T010",
+   "id_goc": "TUYEN-d",
+   "nhom": "tiep-te-1780",
+   "claim_en": "Rodney captured a Spanish Caracas Company convoy (San Sebastián → Cádiz) on 8 January 1780; where it happened is disputed — \"off the coast of Portugal\" (Drinkwater, Fernández Duro) or \"one hundred leagues E.N.E. of Cape Finisterre\" (Beatson).",
+   "trich_nguyen_van": "on the 8th of January Admiral Sir George Brydges Rodney had captured off the coast of Portugal, a Spanish 64-gun ship",
+   "lang": "en",
+   "nguon": "John Drinkwater, A History of the Siege of Gibraltar 1779–1783, new ed. (London: John Murray, 1905; text of 1785)",
+   "loai_nguon": "so-cap",
+   "url": "https://archive.org/download/historysiegegibr00drin/historysiegegibr00drin_djvu.txt",
+   "file_sha256": "9a0c3c3e45f39e2fdbb46de1b92aef6d61d1d8b5100e170d4dcf60c86eb42709",
+   "vi_tri": "Ch. III (= S054) · tệp dòng 4187 · tr. in theo đầu trang OCR gần nhất: 90",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "MÂU THUẪN",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Ngày 8/1 khớp 3 nguồn. VỊ TRÍ mâu thuẫn: \"E.N.E. of Finisterre\" đặt điểm trong vịnh Biscay, \"off Portugal\" đặt điểm ngoài khơi Bồ Đào Nha. → KHÔNG vẽ điểm bắt đoàn tàu; tuyến chỉ đi \"dọc bờ Bồ Đào Nha\" (Fernández Duro) với `approx: true`.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VII (Madrid, 1901)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/bub_gb_G1y3VAtRHTIC/bub_gb_G1y3VAtRHTIC_djvu.txt",
+     "file_sha256": "3c2dc7d23f078a9cdd5125e715eab0ee0c103b5bcdfcc8c53d0b6dd4ef2d4ec8",
+     "vi_tri": "tệp dòng 13442",
+     "trich_nguyen_van": "descendió por la costa de Francia y golfo de Gascuña, sin encuentro de ene- migos, y continuando por la de Portugal, lo tuvo el 8 de Enero con otro convoy español"
+    },
+    {
+     "nguon": "Robert Beatson, Naval and Military Memoirs of Great Britain, from 1727 to 1783, vol. V (London, 1804)",
+     "loai_nguon": "thu-cap (gần đương thời)",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/navalmilitarymem05beatuoft/navalmilitarymem05beatuoft_djvu.txt",
+     "file_sha256": "329043a6870ab8d86883159c24532daa3ea4b54e5af9c9e3e2c72c926942f3a7",
+     "vi_tri": "tệp dòng 5492 · tr. in theo đầu trang OCR gần nhất: 104",
+     "trich_nguyen_van": "At day-break on the 8th, about one hun- dred leagues E. N. E. of Cape Finefterre"
+    }
+   ],
+   "muc_lenh": "d"
+  },
+  {
+   "id": "T011",
+   "id_goc": "TUYEN-d",
+   "nhom": "tiep-te-1780",
+   "claim_en": "On 16 January 1780 Rodney's fleet rounded Cape St Vincent.",
+   "trich_nguyen_van": "On the i6th in the morm'ng, he paiTed that Cape with his whole fleet.",
+   "lang": "en",
+   "nguon": "Robert Beatson, Naval and Military Memoirs of Great Britain, from 1727 to 1783, vol. V (London, 1804)",
+   "loai_nguon": "thu-cap (gần đương thời)",
+   "url": "https://archive.org/download/navalmilitarymem05beatuoft/navalmilitarymem05beatuoft_djvu.txt",
+   "file_sha256": "329043a6870ab8d86883159c24532daa3ea4b54e5af9c9e3e2c72c926942f3a7",
+   "vi_tri": "tệp dòng 5523 · tr. in theo đầu trang OCR gần nhất: 106",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Điểm mốc chắc nhất của tuyến Rodney trước eo biển.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VII (Madrid, 1901)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/bub_gb_G1y3VAtRHTIC/bub_gb_G1y3VAtRHTIC_djvu.txt",
+     "file_sha256": "3c2dc7d23f078a9cdd5125e715eab0ee0c103b5bcdfcc8c53d0b6dd4ef2d4ec8",
+     "vi_tri": "tệp dòng 13461",
+     "trich_nguyen_van": "El 16 de Enero montó el cabo de San Vicente"
+    }
+   ],
+   "muc_lenh": "d"
+  },
+  {
+   "id": "T012",
+   "id_goc": "TUYEN-e",
+   "nhom": "tran-1780",
+   "claim_en": "The \"Moonlight Battle\" of 16 January 1780 began south-east of Cape St Vincent; British accounts name it after Cape St Vincent, Spanish accounts (and the Gibraltar diarist Ancell) place the Spanish squadron off Cape Santa María, some 100 km further east.",
+   "trich_nguyen_van": "About one in the afternoon, Cape St. Vincent bearing north, diftant four leagues, the Bedford -made the fignal for feeing a fleet in the fouth-eaft quarter.",
+   "lang": "en",
+   "nguon": "Robert Beatson, Naval and Military Memoirs of Great Britain, from 1727 to 1783, vol. V (London, 1804)",
+   "loai_nguon": "thu-cap (gần đương thời)",
+   "url": "https://archive.org/download/navalmilitarymem05beatuoft/navalmilitarymem05beatuoft_djvu.txt",
+   "file_sha256": "329043a6870ab8d86883159c24532daa3ea4b54e5af9c9e3e2c72c926942f3a7",
+   "vi_tri": "tệp dòng 5524 · tr. in theo đầu trang OCR gần nhất: 106",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "MÂU THUẪN",
+   "nhay_cam": "TRUNG BÌNH — tên trận là của phía Anh (\"Battle of Cape St Vincent\"); TBN gọi theo Santa María.",
+   "ghi_chu": "Hai cách gọi hoà giải được: Anh thấy địch lúc ~13:00 khi mũi St Vincent ở phía bắc 4 league (≈ 22 km) và đuổi về đông nam; TBN đang ở ngoài Santa María. Cuộc đuổi kéo tới đêm. → Vẽ VÙNG trận (elip) giữa hai mũi, nhãn \"Moonlight Battle, 16 Jan 1780 (approx.)\", không vẽ điểm đơn.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VII (Madrid, 1901)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/bub_gb_G1y3VAtRHTIC/bub_gb_G1y3VAtRHTIC_djvu.txt",
+     "file_sha256": "3c2dc7d23f078a9cdd5125e715eab0ee0c103b5bcdfcc8c53d0b6dd4ef2d4ec8",
+     "vi_tri": "tệp dòng 13466",
+     "trich_nguyen_van": "allá por el cabo de Santa María avistaron sus descubridores velas sospechosas."
+    },
+    {
+     "nguon": "Samuel Ancell, A Circumstantial Journal of the Long and Tedious Blockade and Siege of Gibraltar (Liverpool, 1784)",
+     "loai_nguon": "so-cap",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/acircumstantial00ancegoog/acircumstantial00ancegoog_djvu.txt",
+     "file_sha256": "67d61d0aced585978cd08b34717ca985699b3dc7e32d01014f974d1fe488b526",
+     "vi_tri": "thư tháng 1/1780 · tệp dòng 1395",
+     "trich_nguyen_van": "which Admiral Rodney fell in with off Cape St. Mary's"
+    },
+    {
+     "nguon": "Francisco María Montero, Historia de Gibraltar y de su campo (Cádiz, 1860)",
+     "loai_nguon": "thu-cap",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/historiadegibra00montgoog/historiadegibra00montgoog_djvu.txt",
+     "file_sha256": "a9b8f6b07ee075c9f5a7c79b47925ddb3c539e6feb31ebb0ca621459e31abfe5",
+     "vi_tri": "tệp dòng 15850 · tr. in theo đầu trang OCR gần nhất: 340",
+     "trich_nguyen_van": "sin saber, por la niebla, que se encontraba en el cabo de ' Santa María."
+    },
+    {
+     "nguon": "[F. G. Stephens], A History of Gibraltar and its Sieges (London, 1870)",
+     "loai_nguon": "thu-cap",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/historyofgibralt00step/historyofgibralt00step_djvu.txt",
+     "file_sha256": "4da9d1c355e465161a409aaa56183c800c26c37cb189726e221532cf4ea7c7b8",
+     "vi_tri": "tệp dòng 9670 · tr. in theo đầu trang OCR gần nhất: 256",
+     "trich_nguyen_van": "news of a fight off Cape St. Vincent between Rodney and Langara"
+    }
+   ],
+   "muc_lenh": "e"
+  },
+  {
+   "id": "T013",
+   "id_goc": "TUYEN-d",
+   "nhom": "tiep-te-1781",
+   "claim_en": "Darby's relief fleet sailed in March 1781 — 13 March from St Helens/Spithead by the British count; the Spanish naval historian puts the sailing six days after 22 March.",
+   "trich_nguyen_van": "On the 1 3th of March, Vice- Admiral Darby, with the fleet and the great convoys under his efcort, put to fea from St. Helen's.",
+   "lang": "en",
+   "nguon": "Robert Beatson, Naval and Military Memoirs of Great Britain, from 1727 to 1783, vol. V (London, 1804)",
+   "loai_nguon": "thu-cap (gần đương thời)",
+   "url": "https://archive.org/download/navalmilitarymem05beatuoft/navalmilitarymem05beatuoft_djvu.txt",
+   "file_sha256": "329043a6870ab8d86883159c24532daa3ea4b54e5af9c9e3e2c72c926942f3a7",
+   "vi_tri": "tệp dòng 16082 · tr. in theo đầu trang OCR gần nhất: 338",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "MÂU THUẪN",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Ba nguồn Anh: 13/3 (St Helens/Spithead) — Clowes dẫn Beatson ở đoạn này, không hẳn độc lập. Fernández Duro: ~28/3 (có thể là ngày rời Cork). Drinkwater: tàu cutter rời Plymouth ~5/3 đã thấy hạm đội \"at anchor in Torbay\" → thêm một chặng dừng không khớp lịch → không vẽ Torbay. Cảng đi Spithead/St Helens có 3 nguồn Anh → vẽ được; bộ đếm SM2 ghi \"Mar 1781\", không ghi ngày.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "W. Laird Clowes et al., The Royal Navy: A History, vol. III (London, 1898; ch. \"Major Operations 1762–1783\" by A. T. Mahan)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Anh/Mỹ",
+     "lang": "en",
+     "url": "https://archive.org/download/royalnavyhistor03clow/royalnavyhistor03clow_djvu.txt",
+     "file_sha256": "3db070766de70e1dbc481f9856d2e62cd450530f06828c929354995872d0fbd0",
+     "vi_tri": "tệp dòng 39265 · tr. in theo đầu trang OCR gần nhất: 502",
+     "trich_nguyen_van": "Admiral George Darby, sailed from St. Helen's on the 13th of INIarch, 1781, with a large convoy."
+    },
+    {
+     "nguon": "Isaac Schomberg, Naval Chronology, vol. II (London, 1802)",
+     "loai_nguon": "thu-cap (gần đương thời)",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/10281675bsb/10281675bsb_djvu.txt",
+     "file_sha256": "23f6446e8e8513d7ce2a0da433597e4537d3513d4ad3b5ab577407627b27e68f",
+     "vi_tri": "(1781) · tệp dòng 2844 · tr. in theo đầu trang OCR gần nhất: 2",
+     "trich_nguyen_van": "On the 13th of March, Vice-Admiral Darby failed from Spithead with the channel fleet"
+    },
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VII (Madrid, 1901)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/bub_gb_G1y3VAtRHTIC/bub_gb_G1y3VAtRHTIC_djvu.txt",
+     "file_sha256": "3c2dc7d23f078a9cdd5125e715eab0ee0c103b5bcdfcc8c53d0b6dd4ef2d4ec8",
+     "vi_tri": "tệp dòng 15353",
+     "trich_nguyen_van": "Con rumbo á las Occidentales partió la armada francesa el 22 de Marzo de 1781, y con ello desaparecía uno de los cuidados de los britanos; zarparon ellos con 400 velas seis días después"
+    }
+   ],
+   "muc_lenh": "d"
+  },
+  {
+   "id": "T014",
+   "id_goc": "TUYEN-d",
+   "nhom": "tiep-te-1781",
+   "claim_en": "Darby went first to the coast of Ireland to pick up victuallers from Cork, then made for Gibraltar, passing Cape St Vincent and bringing-to off Cape Spartel on the evening of 11 April 1781 before entering the bay on the 12th.",
+   "trich_nguyen_van": "His firft courfe was for the coaft of Ireland, where he met with fome little delay, before the fleet of victuallers joined him from Corke.",
+   "lang": "en",
+   "nguon": "Robert Beatson, Naval and Military Memoirs of Great Britain, from 1727 to 1783, vol. V (London, 1804)",
+   "loai_nguon": "thu-cap (gần đương thời)",
+   "url": "https://archive.org/download/navalmilitarymem05beatuoft/navalmilitarymem05beatuoft_djvu.txt",
+   "file_sha256": "329043a6870ab8d86883159c24532daa3ea4b54e5af9c9e3e2c72c926942f3a7",
+   "vi_tri": "tệp dòng 16086 · tr. in theo đầu trang OCR gần nhất: 338",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Chặng Cork: Clowes dẫn Beatson (không độc lập hoàn toàn) → điểm \"off Cork\" `approx: true`. Chặng Spartel → vịnh: Beatson + Clowes + Drinkwater (độc lập) + Montero (đến 12/4, S055).",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "W. Laird Clowes et al., The Royal Navy: A History, vol. III (London, 1898; ch. \"Major Operations 1762–1783\" by A. T. Mahan)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Anh/Mỹ",
+     "lang": "en",
+     "url": "https://archive.org/download/royalnavyhistor03clow/royalnavyhistor03clow_djvu.txt",
+     "file_sha256": "3db070766de70e1dbc481f9856d2e62cd450530f06828c929354995872d0fbd0",
+     "vi_tri": "tệp dòng 39267 · tr. in theo đầu trang OCR gần nhất: 502",
+     "trich_nguyen_van": "Off Cork a number of victuallers joined"
+    },
+    {
+     "nguon": "Robert Beatson, Naval and Military Memoirs of Great Britain, from 1727 to 1783, vol. V (London, 1804)",
+     "loai_nguon": "thu-cap (gần đương thời)",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/navalmilitarymem05beatuoft/navalmilitarymem05beatuoft_djvu.txt",
+     "file_sha256": "329043a6870ab8d86883159c24532daa3ea4b54e5af9c9e3e2c72c926942f3a7",
+     "vi_tri": "tệp dòng 16182",
+     "trich_nguyen_van": "In the evening of the nth, Admiral Darby with the fleet, brought to off Cape Spartel"
+    },
+    {
+     "nguon": "W. Laird Clowes et al., The Royal Navy: A History, vol. III (London, 1898; ch. \"Major Operations 1762–1783\" by A. T. Mahan)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Anh/Mỹ",
+     "lang": "en",
+     "url": "https://archive.org/download/royalnavyhistor03clow/royalnavyhistor03clow_djvu.txt",
+     "file_sha256": "3db070766de70e1dbc481f9856d2e62cd450530f06828c929354995872d0fbd0",
+     "vi_tri": "tệp dòng 39275 · tr. in theo đầu trang OCR gần nhất: 502",
+     "trich_nguyen_van": "on the 11th of April the main expedition sighted Cape Spartel."
+    },
+    {
+     "nguon": "John Drinkwater, A History of the Siege of Gibraltar 1779–1783, new ed. (London: John Murray, 1905; text of 1785)",
+     "loai_nguon": "so-cap",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/historysiegegibr00drin/historysiegegibr00drin_djvu.txt",
+     "file_sha256": "9a0c3c3e45f39e2fdbb46de1b92aef6d61d1d8b5100e170d4dcf60c86eb42709",
+     "vi_tri": "Ch. IV · tệp dòng 6523 · tr. in theo đầu trang OCR gần nhất: 146",
+     "trich_nguyen_van": "Captain Trollop, with the joyful news that the convoy was at the entrance of the Straits, under charge of Admiral Darby"
+    }
+   ],
+   "muc_lenh": "d"
+  },
+  {
+   "id": "T015",
+   "id_goc": "TUYEN-d",
+   "nhom": "tiep-te-1782",
+   "claim_en": "Howe's relief expedition sailed from Spithead on 11 September 1782.",
+   "trich_nguyen_van": "On the 11th of September the expedition started, 183 sail in all; thirty-four being ships of the line",
+   "lang": "en",
+   "nguon": "W. Laird Clowes et al., The Royal Navy: A History, vol. III (London, 1898; ch. \"Major Operations 1762–1783\" by A. T. Mahan)",
+   "loai_nguon": "thu-cap (học thuật)",
+   "url": "https://archive.org/download/royalnavyhistor03clow/royalnavyhistor03clow_djvu.txt",
+   "file_sha256": "3db070766de70e1dbc481f9856d2e62cd450530f06828c929354995872d0fbd0",
+   "vi_tri": "tệp dòng 41867 · tr. in theo đầu trang OCR gần nhất: 540",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Schomberg OCR vỡ ngày (\"r1ith\") → trích hai mảnh; Clowes cho ngày 11/9. Không có nguồn TBN cho ngày đi (Fernández Duro chỉ nói \"procedían de Occidente\").",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Isaac Schomberg, Naval Chronology, vol. II (London, 1802)",
+     "loai_nguon": "thu-cap (gần đương thời)",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/10281675bsb/10281675bsb_djvu.txt",
+     "file_sha256": "23f6446e8e8513d7ce2a0da433597e4537d3513d4ad3b5ab577407627b27e68f",
+     "vi_tri": "(1782) · tệp dòng 5313",
+     "trich_nguyen_van": "Admiral Lord Howe failed"
+    },
+    {
+     "nguon": "Isaac Schomberg, Naval Chronology, vol. II (London, 1802)",
+     "loai_nguon": "thu-cap (gần đương thời)",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/10281675bsb/10281675bsb_djvu.txt",
+     "file_sha256": "23f6446e8e8513d7ce2a0da433597e4537d3513d4ad3b5ab577407627b27e68f",
+     "vi_tri": "(1782) · tệp dòng 5491 · tr. in theo đầu trang OCR gần nhất: 94",
+     "trich_nguyen_van": "from Spithead with a powerful fleet for the"
+    },
+    {
+     "nguon": "W. Laird Clowes et al., The Royal Navy: A History, vol. III (London, 1898; ch. \"Major Operations 1762–1783\" by A. T. Mahan)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Anh/Mỹ",
+     "lang": "en",
+     "url": "https://archive.org/download/royalnavyhistor03clow/royalnavyhistor03clow_djvu.txt",
+     "file_sha256": "3db070766de70e1dbc481f9856d2e62cd450530f06828c929354995872d0fbd0",
+     "vi_tri": "tệp dòng 41859 · tr. in theo đầu trang OCR gần nhất: 540",
+     "trich_nguyen_van": "it was determined to concentrate the whole Channel Fleet at Spithead, where also the transports and sup[)ly-ships were directed to rendez- vous."
+    }
+   ],
+   "muc_lenh": "d"
+  },
+  {
+   "id": "T016",
+   "id_goc": "TUYEN-d",
+   "nhom": "tiep-te-1782",
+   "claim_en": "Howe was off Cape St Vincent on 8 October 1782, entered the Strait on 11 October, but most transports missed the bay and were carried east into the Mediterranean; on 13 October the fleet lay off the Spanish coast near Fuengirola–Marbella before working back to land the stores (18 October).",
+   "trich_nguyen_van": "On the 8th of October, oft\" Cape St. Vincent, a frigate, the Latona, 38, was sent ahead for information.",
+   "lang": "en",
+   "nguon": "W. Laird Clowes et al., The Royal Navy: A History, vol. III (London, 1898; ch. \"Major Operations 1762–1783\" by A. T. Mahan)",
+   "loai_nguon": "thu-cap (học thuật)",
+   "url": "https://archive.org/download/royalnavyhistor03clow/royalnavyhistor03clow_djvu.txt",
+   "file_sha256": "3db070766de70e1dbc481f9856d2e62cd450530f06828c929354995872d0fbd0",
+   "vi_tri": "tệp dòng 41879 · tr. in theo đầu trang OCR gần nhất: 540",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Vị trí 13/10: Schomberg \"off Fungarola\" (≈ 70 km ĐĐB Gibraltar), Clowes \"fifty miles east\", Montero \"aguas de Marbella\" → khớp vùng; điểm mốc `approx: true`. Montero ghi thấy Gibraltar 12/10 (Anh: tối 11/10, S056) → bộ đếm ghi \"11–12 Oct\".",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Isaac Schomberg, Naval Chronology, vol. II (London, 1802)",
+     "loai_nguon": "thu-cap (gần đương thời)",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/10281675bsb/10281675bsb_djvu.txt",
+     "file_sha256": "23f6446e8e8513d7ce2a0da433597e4537d3513d4ad3b5ab577407627b27e68f",
+     "vi_tri": "(1782) · tệp dòng 6111",
+     "trich_nguyen_van": "difcovered by the Bri- tith fleet then off Fungarola"
+    },
+    {
+     "nguon": "Francisco María Montero, Historia de Gibraltar y de su campo (Cádiz, 1860)",
+     "loai_nguon": "thu-cap",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/historiadegibra00montgoog/historiadegibra00montgoog_djvu.txt",
+     "file_sha256": "a9b8f6b07ee075c9f5a7c79b47925ddb3c539e6feb31ebb0ca621459e31abfe5",
+     "vi_tri": "tệp dòng 17127 · tr. in theo đầu trang OCR gần nhất: 868",
+     "trich_nguyen_van": "pero el fuerte poniente lo arrastro hasta las aguas de Marbella"
+    },
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VII (Madrid, 1901)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/bub_gb_G1y3VAtRHTIC/bub_gb_G1y3VAtRHTIC_djvu.txt",
+     "file_sha256": "3c2dc7d23f078a9cdd5125e715eab0ee0c103b5bcdfcc8c53d0b6dd4ef2d4ec8",
+     "vi_tri": "tệp dòng 17244",
+     "trich_nguyen_van": "propasaron la punta de Europa, yendo adentro del Mediterráneo."
+    },
+    {
+     "nguon": "W. Laird Clowes et al., The Royal Navy: A History, vol. III (London, 1898; ch. \"Major Operations 1762–1783\" by A. T. Mahan)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Anh/Mỹ",
+     "lang": "en",
+     "url": "https://archive.org/download/royalnavyhistor03clow/royalnavyhistor03clow_djvu.txt",
+     "file_sha256": "3db070766de70e1dbc481f9856d2e62cd450530f06828c929354995872d0fbd0",
+     "vi_tri": "tệp dòng 41927 · tr. in theo đầu trang OCR gần nhất: 540",
+     "trich_nguyen_van": "During the forenoon of the same da}' the British were off the Spanish coast, fifty miles east of Gibraltar."
+    }
+   ],
+   "muc_lenh": "d"
+  },
+  {
+   "id": "T017",
+   "id_goc": "TUYEN-f",
+   "nhom": "tran-1782",
+   "claim_en": "The fleet action of 20 October 1782 (British name: Cape Spartel) was fought west of the Strait towards evening; the Spanish naval historian places it in sight of Cape Spartel, while Montero and Córdoba's own report place it near Cádiz.",
+   "trich_nguyen_van": "A 20 de Octubre salían también de la estrechura los aliados",
+   "lang": "es",
+   "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VII (Madrid, 1901)",
+   "loai_nguon": "thu-cap (học thuật)",
+   "url": "https://archive.org/download/bub_gb_G1y3VAtRHTIC/bub_gb_G1y3VAtRHTIC_djvu.txt",
+   "file_sha256": "3c2dc7d23f078a9cdd5125e715eab0ee0c103b5bcdfcc8c53d0b6dd4ef2d4ec8",
+   "vi_tri": "tệp dòng 17281",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "MÂU THUẪN",
+   "nhay_cam": "TRUNG BÌNH — kết quả trận \"indecisive\" theo cả hai phía; không nói \"victory\".",
+   "ghi_chu": "Ngày 20/10 khớp (Clowes; Fernández Duro; Schomberg: rời eo 19/10, \"the next morning\" địch đuổi tới). Vị trí: Fernández Duro \"á la vista de Cabo Espartel\" (câu nối sang trang sau: \"…estando á la vista de | Cabo Espartel\") ↔ Montero/Córdoba \"al oeste de Cádiz/junto á Cádiz\". Clowes chỉ nói \"outside\" eo. → vẽ VÙNG (elip phủ từ ngoài Spartel tới ngoài Cádiz), nhãn \"Cape Spartel, 20 Oct 1782 (approx.)\".",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VII (Madrid, 1901)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/bub_gb_G1y3VAtRHTIC/bub_gb_G1y3VAtRHTIC_djvu.txt",
+     "file_sha256": "3c2dc7d23f078a9cdd5125e715eab0ee0c103b5bcdfcc8c53d0b6dd4ef2d4ec8",
+     "vi_tri": "tệp dòng 17285",
+     "trich_nguyen_van": "lo cual lograron al- gunos navios hacia las cinco de la tarde, estando á la vista de 1"
+    },
+    {
+     "nguon": "W. Laird Clowes et al., The Royal Navy: A History, vol. III (London, 1898; ch. \"Major Operations 1762–1783\" by A. T. Mahan)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Anh/Mỹ",
+     "lang": "en",
+     "url": "https://archive.org/download/royalnavyhistor03clow/royalnavyhistor03clow_djvu.txt",
+     "file_sha256": "3db070766de70e1dbc481f9856d2e62cd450530f06828c929354995872d0fbd0",
+     "vi_tri": "tệp dòng 41950 · tr. in theo đầu trang OCR gần nhất: 542",
+     "trich_nguyen_van": "On the following day, the 20th, towards sunset they bore down, and a partial engagement ensued; but it was wholly indecisive"
+    },
+    {
+     "nguon": "Francisco María Montero, Historia de Gibraltar y de su campo (Cádiz, 1860)",
+     "loai_nguon": "thu-cap",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/historiadegibra00montgoog/historiadegibra00montgoog_djvu.txt",
+     "file_sha256": "a9b8f6b07ee075c9f5a7c79b47925ddb3c539e6feb31ebb0ca621459e31abfe5",
+     "vi_tri": "tệp dòng 17165 · tr. in theo đầu trang OCR gần nhất: 868",
+     "trich_nguyen_van": "Logró esta alcanzarla oí oeste de Cádiz y se empeñó una refriega entre ellas"
+    },
+    {
+     "nguon": "Francisco María Montero, Historia de Gibraltar y de su campo (Cádiz, 1860)",
+     "loai_nguon": "thu-cap",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/historiadegibra00montgoog/historiadegibra00montgoog_djvu.txt",
+     "file_sha256": "a9b8f6b07ee075c9f5a7c79b47925ddb3c539e6feb31ebb0ca621459e31abfe5",
+     "vi_tri": "tệp dòng 17188 · tr. in theo đầu trang OCR gần nhất: 870",
+     "trich_nguyen_van": "El general Córdoba decia en su parte sobre el com- bate junto á Cádiz."
+    }
+   ],
+   "muc_lenh": "f"
+  },
+  {
+   "id": "T018",
+   "id_goc": "TUYEN-g",
+   "nhom": "ham-doi-1782",
+   "claim_en": "The combined French–Spanish fleet came in through the Strait from the west on the morning of 12 September 1782 and by afternoon lay at anchor between the Orange Grove and Algeciras — about fifty ships of the line by the Spanish count, 47 by the British.",
+   "trich_nguyen_van": "that a large fleet had appeared in the Straits from the westward.",
+   "lang": "en",
+   "nguon": "John Drinkwater, A History of the Siege of Gibraltar 1779–1783, new ed. (London: John Murray, 1905; text of 1785)",
+   "loai_nguon": "so-cap",
+   "url": "https://archive.org/download/historysiegegibr00drin/historysiegegibr00drin_djvu.txt",
+   "file_sha256": "9a0c3c3e45f39e2fdbb46de1b92aef6d61d1d8b5100e170d4dcf60c86eb42709",
+   "vi_tri": "Ch. VII (= S065) · tệp dòng 12869 · tr. in theo đầu trang OCR gần nhất: 292",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Hướng đến: \"from the westward\" (Drinkwater) → mũi tên vào từ cửa tây eo biển. Số tàu: 47 (Drinkwater) ↔ 50 (Fernández Duro, gồm tàu đã ở Algeciras).",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "John Drinkwater, A History of the Siege of Gibraltar 1779–1783, new ed. (London: John Murray, 1905; text of 1785)",
+     "loai_nguon": "so-cap",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/historysiegegibr00drin/historysiegegibr00drin_djvu.txt",
+     "file_sha256": "9a0c3c3e45f39e2fdbb46de1b92aef6d61d1d8b5100e170d4dcf60c86eb42709",
+     "vi_tri": "Ch. VII · tệp dòng 12878 · tr. in theo đầu trang OCR gần nhất: 292",
+     "trich_nguyen_van": "In the afternoon, they were all at anchor in the bay between the Orange Grove and Algeziras."
+    },
+    {
+     "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VII (Madrid, 1901)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Tây Ban Nha",
+     "lang": "es",
+     "url": "https://archive.org/download/bub_gb_G1y3VAtRHTIC/bub_gb_G1y3VAtRHTIC_djvu.txt",
+     "file_sha256": "3c2dc7d23f078a9cdd5125e715eab0ee0c103b5bcdfcc8c53d0b6dd4ef2d4ec8",
+     "vi_tri": "tệp dòng 16693",
+     "trich_nguyen_van": "hasta el 12 no entró en la bahía la armada, alegrando la vista los 50 navios que se juntaron en Algeciras"
+    }
+   ],
+   "muc_lenh": "g"
+  },
+  {
+   "id": "T019",
+   "id_goc": "TUYEN-g",
+   "nhom": "ham-doi-1782",
+   "claim_en": "The date on which the combined fleet left Cádiz for Algeciras in September 1782 is not established in the sources read.",
+   "trich_nguyen_van": "an allied fleet of thirty-two ships of the line, five only of which were French, had sailed from Cadiz eai-ly in .June, to cruise between Ushant and Scilly.",
+   "lang": "en",
+   "nguon": "W. Laird Clowes et al., The Royal Navy: A History, vol. III (London, 1898; ch. \"Major Operations 1762–1783\" by A. T. Mahan)",
+   "loai_nguon": "thu-cap (học thuật)",
+   "url": "https://archive.org/download/royalnavyhistor03clow/royalnavyhistor03clow_djvu.txt",
+   "file_sha256": "3db070766de70e1dbc481f9856d2e62cd450530f06828c929354995872d0fbd0",
+   "vi_tri": "(bối cảnh: tháng 6, KHÔNG phải chặng Cádiz → Algeciras) · tệp dòng 41819 · tr. in theo đầu trang OCR gần nhất: 538",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh",
+   "status": "CHƯA XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Đã tìm: Drinkwater, Montero (chỉ nói các pin nổi đóng ở Cádiz \"llegadas que fueron de Cádiz\"), Fernández Duro t. VII, Clowes t. III, Schomberg t. II — không nguồn nào cho ngày rời Cádiz. → SM2 chỉ vẽ đoạn cuối \"từ cửa tây eo → Algeciras\" (T018), KHÔNG vẽ Cádiz → eo. Việc chờ: tra Gaceta de Madrid 9/1782 hoặc nhật ký Córdoba.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [],
+   "muc_lenh": "g"
+  },
+  {
+   "id": "T020",
+   "id_goc": "TUYEN-h",
+   "nhom": "minorca-1782",
+   "claim_en": "Fort St Philip on Minorca hoisted the white flag on 4 February 1782; the capitulation was agreed and the garrison marched out on 5 February 1782, and the island passed to Spain.",
+   "trich_nguyen_van": "hasta ver ondear sobre ellas bandera blanca el 4 de Febrero de 1782. La capitulación quedó acordada el siguiente día",
+   "lang": "es",
+   "nguon": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VII (Madrid, 1901)",
+   "loai_nguon": "thu-cap (học thuật)",
+   "url": "https://archive.org/download/bub_gb_G1y3VAtRHTIC/bub_gb_G1y3VAtRHTIC_djvu.txt",
+   "file_sha256": "3c2dc7d23f078a9cdd5125e715eab0ee0c103b5bcdfcc8c53d0b6dd4ef2d4ec8",
+   "vi_tri": "tệp dòng 15754",
+   "as_of": "đọc 2026-10-17",
+   "phia": "TBN + Anh",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Ngày chuẩn để đổi màu Minorca: **1782-02-05** (Fernández Duro + Schomberg; Clowes \"February 1782\"). OHM ghi 1782-01-05 (sai một tháng — có thể nhầm với ngày 6/1/1782 bắt đầu pháo kích, Fernández Duro tr. 303) và Cliopatria ghi 1781 (khoảng năm thô) → cả hai phải chỉnh tay. Montero tr. 352–353 lẫn sự kiện 1756 (Byng, Blakeney) vào 1781–82 → không dùng Montero cho Minorca.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "Isaac Schomberg, Naval Chronology, vol. II (London, 1802)",
+     "loai_nguon": "thu-cap (gần đương thời)",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://archive.org/download/10281675bsb/10281675bsb_djvu.txt",
+     "file_sha256": "23f6446e8e8513d7ce2a0da433597e4537d3513d4ad3b5ab577407627b27e68f",
+     "vi_tri": "(1782; ngày ghi ngay trước: \"On the’sth of Fe- bruary\") · tệp dòng 5651",
+     "trich_nguyen_van": "General Murray was under the neceflity of fur- rendering by capitulation, and the whole ifland fell under the dominion of Spain."
+    },
+    {
+     "nguon": "W. Laird Clowes et al., The Royal Navy: A History, vol. III (London, 1898; ch. \"Major Operations 1762–1783\" by A. T. Mahan)",
+     "loai_nguon": "thu-cap (học thuật)",
+     "phia": "Anh/Mỹ",
+     "lang": "en",
+     "url": "https://archive.org/download/royalnavyhistor03clow/royalnavyhistor03clow_djvu.txt",
+     "file_sha256": "3db070766de70e1dbc481f9856d2e62cd450530f06828c929354995872d0fbd0",
+     "vi_tri": "tệp dòng 39354 · tr. in theo đầu trang OCR gần nhất: 504",
+     "trich_nguyen_van": "Minorca, after a six moirths' siege, capitulated in February, 1782."
+    }
+   ],
+   "muc_lenh": "h"
+  },
+  {
+   "id": "T021",
+   "id_goc": "TUYEN-i",
+   "nhom": "wwii-1940",
+   "claim_en": "On 12 June 1940, two days after Italy entered the war, Franco's government declared Spain \"non-belligerent\" in place of neutral; the decree appeared in the Boletín Oficial on 13 June.",
+   "trich_nguyen_van": "The hostilities having extended to the Mediterranean by the entrance of Italy into war against France and England the Government has decided upon the non-belligerency of Spain in the conflict. Done in the Pardo the 12th of June, 1940.",
+   "lang": "en",
+   "nguon": "FRUS 1940, vol. II, doc. 920 — Weddell (Madrid) to Secretary of State, 13 June 1940 (dịch sắc lệnh TBN ngày 12/6/1940)",
+   "loai_nguon": "so-cap (công văn ngoại giao, dẫn văn bản TBN)",
+   "url": "https://history.state.gov/historicaldocuments/frus1940v02/d920",
+   "file_sha256": "f07898b95870b53a23955df3ffce6e76dd06c2348d205dc92f46234ab9253518",
+   "vi_tri": "tel. 186, 13/6/1940 · tệp dòng 246",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Mỹ dẫn văn bản TBN + Anh",
+   "status": "XÁC MINH",
+   "nhay_cam": "TRUNG BÌNH — gọi đúng \"non-belligerent\", không gọi \"Axis ally\".",
+   "ghi_chu": "Văn bản TBN gốc (BOE 13/6/1940) chưa tải được: bộ tìm Gazeta của BOE không nhận tham số qua curl (thử 2 lần, dừng theo BAI-HOC #12). FRUS dịch nguyên văn sắc lệnh. Nhãn bản đồ 1941: \"Spain (non-belligerent)\".",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "UK Hansard, Commons, \"War Situation\", 20 August 1940 — Mr Cocks (Broxtowe)",
+     "loai_nguon": "chinh-thuc (phát biểu nghị sĩ)",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://hansard-api.parliament.uk/debates/debate/ebe6c652-0e92-46d7-978c-7a49003c589e.json",
+     "file_sha256": "8d485d8d62955f4d743b656428644ffea487b5484d18a7b3b33a04ef659deb58",
+     "vi_tri": "cột Hansard 20/8/1940 · tệp dòng 121",
+     "trich_nguyen_van": "Spain at present under Nazi influence has ceased to be neutral and has become non-belligerent"
+    },
+    {
+     "nguon": "FRUS 1940, vol. II, doc. 919 — Weddell (Madrid) to Secretary of State, 12 June 1940",
+     "loai_nguon": "so-cap (công văn ngoại giao)",
+     "phia": "Mỹ (bên thứ ba)",
+     "lang": "en",
+     "url": "https://history.state.gov/historicaldocuments/frus1940v02/d919",
+     "file_sha256": "05a8cba2af8dfd972ebcb00952006fa4b20087afeb4b7c09a6e4596b98e7c99b",
+     "vi_tri": "tel. 182, 12/6/1940 (bối cảnh trước sắc lệnh) · tệp dòng 252",
+     "trich_nguyen_van": "this might in the first phase at least, be manifest in an attitude of “non-belligerency” in place of the present “neutrality”"
+    }
+   ],
+   "muc_lenh": "i"
+  },
+  {
+   "id": "T022",
+   "id_goc": "TUYEN-j",
+   "nhom": "wwii-1940",
+   "claim_en": "On 14 June 1940 Spanish-commanded Moroccan (Khalifan) troops occupied the Tangier international zone, officially \"provisionally\" and in the Sultan's name; on 3 November 1940 the Spanish commander took over the zone's administration as Governor.",
+   "trich_nguyen_van": "On 14th June, the Spanish High Commissioner at Tetuan notified the French Consul-General that, in agreement with the French Government, the Spanish Government intended to occupy Tangier at once.",
+   "lang": "en",
+   "nguon": "UK Hansard, Commons, \"Tangier International Zone\", 19 June 1940 — R. A. Butler (Under-Secretary, Foreign Office)",
+   "loai_nguon": "chinh-thuc",
+   "url": "https://hansard-api.parliament.uk/debates/debate/fcaddc7c-5070-48da-a185-ee988eeb1e44.json",
+   "file_sha256": "d3c880126b4d0bcfa1631b40a9d2479112a52e8560d6816020f5183d5d002ccc",
+   "vi_tri": "Commons 19/6/1940 · tệp dòng 27",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + TBN (qua FRUS)",
+   "status": "XÁC MINH",
+   "nhay_cam": "TRUNG BÌNH — \"occupied\" là chữ của cả Anh lẫn văn bản TBN; không nói \"annexed\".",
+   "ghi_chu": "Bản đồ 1941: Tangier đổi từ \"International Zone\" (Cliopatria) sang \"Spanish-occupied (from June 1940)\" — tô màu TBN có gạch, nhãn chữ. Thời điểm kết thúc 1945 KHÔNG có claim → không ghi.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "FRUS 1940, vol. III, doc. 712 — Weddell (Madrid) to Secretary of State, 14 June 1940 (dịch công hàm của Bộ Ngoại giao TBN)",
+     "loai_nguon": "so-cap (công văn ngoại giao, dẫn văn bản TBN)",
+     "phia": "Mỹ dẫn TBN",
+     "lang": "en",
+     "url": "https://history.state.gov/historicaldocuments/frus1940v03/d712",
+     "file_sha256": "259b63644bfd9051d7ac4d32e1ceae35409a3afe7a6f604c9b71cffb395cba70",
+     "vi_tri": "tel. 192, 14/6/1940 (dịch công hàm Bộ Ngoại giao TBN) · tệp dòng 264",
+     "trich_nguyen_van": "the High Commissioner of Tetuan was authorized to order Moorish [ Khalifan ] 16c troops, in the name of the Sultan, to occupy Tangier with that view. Said forces have orders to enter the Tangier Zone this morning."
+    },
+    {
+     "nguon": "UK Hansard, Commons, \"Tangier\", 13 November 1940 — R. A. Butler",
+     "loai_nguon": "chinh-thuc",
+     "phia": "Anh",
+     "lang": "en",
+     "url": "https://hansard-api.parliament.uk/debates/debate/cdba6c00-3f06-4eb0-b08b-587c14c8151f.json",
+     "file_sha256": "ca87c77ff85dd1e7252723642593d0fecb17eedb8c9750e5aec704c187bf00d8",
+     "vi_tri": "Commons 13/11/1940 · tệp dòng 35",
+     "trich_nguyen_van": "On 3rd November the Officer Commanding the Spanish troops in Tangier published a notice stating that by reason of the present situation the Committee of Control, the Legislative Assembly, and the Mixed Bureau of Information would cease to function"
+    }
+   ],
+   "muc_lenh": "j"
+  },
+  {
+   "id": "T023",
+   "id_goc": "TUYEN-k",
+   "nhom": "wwii-1942",
+   "claim_en": "On 8 November 1942 Allied forces landed in French North Africa — at and around Casablanca (French Morocco), Oran and Algiers (Algeria).",
+   "trich_nguyen_van": "The Allied landings had been successfully effected, and effected with no very substantial losses, at Casablanca in French Morocco, at Oran, which is now in Allied hands, and at Algiers",
+   "lang": "en",
+   "nguon": "UK Hansard, Lords, Address in Reply, 11 November 1942 — Viscount Cranborne (Secretary of State for the Colonies)",
+   "loai_nguon": "chinh-thuc",
+   "url": "https://hansard-api.parliament.uk/debates/debate/6460ce17-cab4-4653-a83d-014ee1c5ee97.json",
+   "file_sha256": "bc12998992aaa22d075f4ebc3b37ee6f7df2f7f96da507db5d584fbedbf2d82a",
+   "vi_tri": "Lords 11/11/1942 · tệp dòng 60",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + Mỹ",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Bãi đổ bộ chi tiết (Safi, Fedala, Mehdia; Arzew, Les Andalouses; Castiglione, Sidi Ferruch, Surcouf) có trong Howe 1957 nhưng chưa có nguồn thứ hai từng bãi → SM3 chỉ vẽ ba KHU (Casablanca, Oran, Algiers), mũi tên vào bờ `approx: true`.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "George F. Howe, Northwest Africa (CMH, 1957), ch. XIII \"The Occupation of Algiers\"",
+     "loai_nguon": "chinh-thuc (sử quân đội Mỹ)",
+     "phia": "Mỹ",
+     "lang": "en",
+     "url": "https://www.ibiblio.org/hyperwar/USA/USA-MTO-NWA/USA-MTO-NWA-13.html",
+     "file_sha256": "c61c7d558204ece351381064ceb952450fb8c0ee7f06d8bbdf014fbe09065659",
+     "vi_tri": "ch. XIII, bản đồ 3 · tệp dòng 284",
+     "trich_nguyen_van": "Landings at Algiers 8 November 1942"
+    },
+    {
+     "nguon": "George F. Howe, Northwest Africa (CMH, 1957), ch. XI \"The First Day's Operations Against Oran\"",
+     "loai_nguon": "chinh-thuc (sử quân đội Mỹ)",
+     "phia": "Mỹ",
+     "lang": "en",
+     "url": "https://www.ibiblio.org/hyperwar/USA/USA-MTO-NWA/USA-MTO-NWA-11.html",
+     "file_sha256": "c1e2f1ad94da181dd3145940551a100d25d54ee02f20f67808fc58d1c283efe9",
+     "vi_tri": "ch. XI (Oran) · tệp dòng 783",
+     "trich_nguyen_van": "Operation RESERVIST was instead allowed to begin at 0245, 8 November"
+    }
+   ],
+   "muc_lenh": "k"
+  },
+  {
+   "id": "T024",
+   "id_goc": "TUYEN-k",
+   "nhom": "wwii-1942",
+   "claim_en": "Gibraltar was the command post and air base for Torch: Eisenhower and his staff flew in on 5–6 November 1942 and set up an advanced command post inside the Rock, and the first Twelfth Air Force Spitfires flew from Gibraltar to Tafaraoui (Oran) on 8 November.",
+   "trich_nguyen_van": "Deep within the Rock, in damp and limited quarters excavated during the previous year, General Eisenhower, Commander in Chief, Allied Force, and his principal staff, who flew from the United Kingdom to Gibraltar on 5 and 6 November in B-17's, set up an advanced command post.",
+   "lang": "en",
+   "nguon": "George F. Howe, Northwest Africa: Seizing the Initiative in the West (US Army in WWII, CMH, 1957), ch. IV (HyperWar transcription)",
+   "loai_nguon": "chinh-thuc (sử quân đội Mỹ)",
+   "url": "https://www.ibiblio.org/hyperwar/USA/USA-MTO-NWA/USA-MTO-NWA-4.html",
+   "file_sha256": "dc5ff5c6e210f8f9aae950b3703efb18a24953ecf2a6ef646b8ff2b38b33157a",
+   "vi_tri": "ch. IV · tệp dòng 1912",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Mỹ + Gibraltar (S122, S123)",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Đối chiếu Gibraltar: HMGoG 838/2022 (= S122, độc lập với Howe) + S123 (Nghị viện Gibraltar: 650 máy bay đỗ dọc đường băng đêm 7/8/11/1942). Chuyến bay Gibraltar → Tafaraoui chỉ Howe nêu → mũi tên KHÔNG (air) `approx: true`, nhãn \"Spitfires to Oran, 8 Nov\".",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "HM Government of Gibraltar, Press Release 838/2022 (9 Nov 2022) — tải lại 17/10/2026 (SHA khác bản T3b: trang động; câu trích giống S122)",
+     "loai_nguon": "chinh-thuc",
+     "phia": "Gibraltar",
+     "lang": "en",
+     "url": "https://www.gibraltar.gov.gi/press-releases/exhibition-opened-to-mark-80-years-since-operation-torch-8382022-8438",
+     "file_sha256": "ef048a3e1d4b0cf538e4640e6956b24d5218a8521ee76fbda74399080903f16f",
+     "vi_tri": "đoạn 1–3 (= S122) · tệp dòng 218",
+     "trich_nguyen_van": "General Eisenhower, who was the overall commander of Operation Torch, based his headquarters in tunnels deep inside the actual Rock itself."
+    },
+    {
+     "nguon": "George F. Howe, Northwest Africa (CMH, 1957), ch. XI \"The First Day's Operations Against Oran\"",
+     "loai_nguon": "chinh-thuc (sử quân đội Mỹ)",
+     "phia": "Mỹ",
+     "lang": "en",
+     "url": "https://www.ibiblio.org/hyperwar/USA/USA-MTO-NWA/USA-MTO-NWA-11.html",
+     "file_sha256": "c1e2f1ad94da181dd3145940551a100d25d54ee02f20f67808fc58d1c283efe9",
+     "vi_tri": "ch. XI · tệp dòng 1394",
+     "trich_nguyen_van": "When the first two squadrons of Twelfth Air Force Spitfires from Gibraltar were landed at 1630 at Tafaraoui"
+    }
+   ],
+   "muc_lenh": "k"
+  },
+  {
+   "id": "T025",
+   "id_goc": "TUYEN-k",
+   "nhom": "wwii-1942",
+   "claim_en": "The Torch assault convoys did not start from Gibraltar: the Western Task Force sailed from Hampton Roads (USA) and the Centre and Eastern forces from the Clyde (Britain), entering the Mediterranean through the Strait.",
+   "trich_nguyen_van": "all combat-loaded ships from the United States departed from the Hampton Roads Port of Embarkation.",
+   "lang": "en",
+   "nguon": "George F. Howe, Northwest Africa: Seizing the Initiative in the West (US Army in WWII, CMH, 1957), ch. IV (HyperWar transcription)",
+   "loai_nguon": "chinh-thuc (sử quân đội Mỹ)",
+   "url": "https://www.ibiblio.org/hyperwar/USA/USA-MTO-NWA/USA-MTO-NWA-4.html",
+   "file_sha256": "dc5ff5c6e210f8f9aae950b3703efb18a24953ecf2a6ef646b8ff2b38b33157a",
+   "vi_tri": "ch. IV · tệp dòng 589",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Mỹ",
+   "status": "CHƯA XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "MỘT nguồn (Howe 1957, cũng nêu \"returned to the Clyde\" cho lực lượng Anh). Chưa tìm nguồn thứ hai (công văn Cunningham, London Gazette 38204 — chưa tải). Hệ quả cho SM3: KHÔNG vẽ tuyến đoàn tàu \"từ Gibraltar\" (sẽ sai); tuyến biển Torch chỉ vẽ đoạn cuối qua eo, `vao_tu_mep: true`, không nhãn nơi đi.",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [],
+   "muc_lenh": "k"
+  },
+  {
+   "id": "T026",
+   "id_goc": "TUYEN-ranh-1941",
+   "nhom": "wwii-1941",
+   "claim_en": "In 1941 metropolitan France was divided by a \"line of demarcation\" into a German-occupied zone and an unoccupied zone administered by the government at Vichy.",
+   "trich_nguyen_van": "for the alleviation of the restrictive measures regarding the line of demarcation between occupied and unoccupied France",
+   "lang": "en",
+   "nguon": "UK Hansard, Commons, \"France and Germany (Agreement)\", 14 May 1941 — Anthony Eden (Foreign Secretary)",
+   "loai_nguon": "chinh-thuc",
+   "url": "https://hansard-api.parliament.uk/debates/debate/c57585b5-6078-41c5-be4c-bc7b8433ace4.json",
+   "file_sha256": "a5f62e0b542f82b056899a9026bd63ab0cb0897c5e64f889fae5a7b460a14b12",
+   "vi_tri": "Commons 14/5/1941 · tệp dòng 27",
+   "as_of": "đọc 2026-10-17",
+   "phia": "Anh + Pháp (Vichy, qua FRUS)",
+   "status": "XÁC MINH",
+   "nhay_cam": "CAO — không dùng biểu tượng chế độ; nhãn chữ \"German-occupied France\" / \"Vichy France\"; vùng chiếm đóng tô xám-nâu gạch (NC-BD §3.3.7).",
+   "ghi_chu": "Claim bổ sung (không có trong a–k của lệnh) vì ranh-gioi.json 1941 dùng nhãn \"German-occupied France\"/\"Vichy France\". Đường phân giới lấy theo Cliopatria 1941 (có vùng chiếm đóng); OHM 1941 tô cả nước là \"French State\" → không dùng OHM cho đường này. Hình dạng đường phân giới KHÔNG được claim kiểm (chỉ sự tồn tại hai vùng) → nhãn \"approx. borders c. 1941\".",
+   "kiem_doc_lap": "khớp nguyên khối (tim.py, tệp có đúng SHA)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "FRUS 1941, vol. II, doc. 109 — French Ambassador (Henry-Haye) to the Secretary of State (công hàm phía Pháp, 1941)",
+     "loai_nguon": "so-cap (công hàm của chính phủ Vichy)",
+     "phia": "Pháp (Vichy)",
+     "lang": "en",
+     "url": "https://history.state.gov/historicaldocuments/frus1941v02/d109",
+     "file_sha256": "d741ca4a83a0cb6066ade0eb30e2f80583bef0282c589e78d561155fbe3b9481",
+     "vi_tri": "công hàm Đại sứ Pháp, 1941 · tệp dòng 252",
+     "trich_nguyen_van": "despite the line of demarcation, the economic unity of France"
+    },
+    {
+     "nguon": "FRUS 1941, vol. II, doc. 90 — Leahy (Vichy) to Secretary of State, 6 Feb 1941 (thuật lời Pétain)",
+     "loai_nguon": "so-cap (công văn ngoại giao)",
+     "phia": "Mỹ (thuật lời phía Pháp)",
+     "lang": "en",
+     "url": "https://history.state.gov/historicaldocuments/frus1941v02/d90",
+     "file_sha256": "d97076fdf8d23e37f3c792532ef8cae770422d522883c81ba0901ee791f38a5b",
+     "vi_tri": "tel. 164, Vichy 6/2/1941 · tệp dòng 285",
+     "trich_nguyen_van": "The Germans, said the Marshal, are using the line of demarcation as a bit in the horse’s mouth"
+    }
+   ],
+   "muc_lenh": "ranh-1941"
+  }
+ ],
+ "nguon_da_tai": [
+  {
+   "key": "sayer",
+   "url": "https://archive.org/download/historyofgibralt00sayeuoft/historyofgibralt00sayeuoft_djvu.txt",
+   "file": "/var/tmp/cine-out/tuyen/src/historyofgibralt00sayeuoft_djvu.txt",
+   "sha256": "3dd2e42aa4bab8f62f2b83c9d9ae7c8761915cce89e74b10f4ac8781a31c127d",
+   "bytes": 892382,
+   "note": "Capt. Frederick Sayer, The History of Gibraltar (London, 1862)"
+  },
+  {
+   "key": "drink",
+   "url": "https://archive.org/download/historysiegegibr00drin/historysiegegibr00drin_djvu.txt",
+   "file": "/var/tmp/cine-out/tuyen/src/historysiegegibr00drin_djvu.txt",
+   "sha256": "9a0c3c3e45f39e2fdbb46de1b92aef6d61d1d8b5100e170d4dcf60c86eb42709",
+   "bytes": 822542,
+   "note": "John Drinkwater, A History of the Siege of Gibraltar 1779–1783, new ed. (London: John Murray, 1905; text of 1785)"
+  },
+  {
+   "key": "montero",
+   "url": "https://archive.org/download/historiadegibra00montgoog/historiadegibra00montgoog_djvu.txt",
+   "file": "/var/tmp/cine-out/tuyen/src/historiadegibra00montgoog_djvu.txt",
+   "sha256": "a9b8f6b07ee075c9f5a7c79b47925ddb3c539e6feb31ebb0ca621459e31abfe5",
+   "bytes": 860098,
+   "note": "Francisco María Montero, Historia de Gibraltar y de su campo (Cádiz, 1860)"
+  },
+  {
+   "key": "ancell",
+   "url": "https://archive.org/download/acircumstantial00ancegoog/acircumstantial00ancegoog_djvu.txt",
+   "file": "/var/tmp/cine-out/tuyen/src/acircumstantial00ancegoog_djvu.txt",
+   "sha256": "67d61d0aced585978cd08b34717ca985699b3dc7e32d01014f974d1fe488b526",
+   "bytes": 337942,
+   "note": "Samuel Ancell, A Circumstantial Journal of the Long and Tedious Blockade and Siege of Gibraltar (Liverpool, 1784)"
+  },
+  {
+   "key": "stephens",
+   "url": "https://archive.org/download/historyofgibralt00step/historyofgibralt00step_djvu.txt",
+   "file": "/var/tmp/cine-out/tuyen/src/historyofgibralt00step_djvu.txt",
+   "sha256": "4da9d1c355e465161a409aaa56183c800c26c37cb189726e221532cf4ea7c7b8",
+   "bytes": 601333,
+   "note": "[F. G. Stephens], A History of Gibraltar and its Sieges (London, 1870)"
+  },
+  {
+   "key": "beatson5",
+   "url": "https://archive.org/download/navalmilitarymem05beatuoft/navalmilitarymem05beatuoft_djvu.txt",
+   "file": "/var/tmp/cine-out/tuyen/src/navalmilitarymem05beatuoft_djvu.txt",
+   "sha256": "329043a6870ab8d86883159c24532daa3ea4b54e5af9c9e3e2c72c926942f3a7",
+   "bytes": 1853587,
+   "note": "Robert Beatson, Naval and Military Memoirs of Great Britain, from 1727 to 1783, vol. V (London, 1804)"
+  },
+  {
+   "key": "clowes2",
+   "url": "https://archive.org/download/royalnavyhistory02clowuoft/royalnavyhistory02clowuoft_djvu.txt",
+   "file": "/var/tmp/cine-out/tuyen/src/royalnavyhistory02clowuoft_djvu.txt",
+   "sha256": "a9a4bc4dde03314fba80c2819e595140f21a332419c09071c9ef600d12b3afc3",
+   "bytes": 1807506,
+   "note": "W. Laird Clowes et al., The Royal Navy: A History, vol. II (London, 1898)"
+  },
+  {
+   "key": "clowes3",
+   "url": "https://archive.org/download/royalnavyhistor03clow/royalnavyhistor03clow_djvu.txt",
+   "file": "/var/tmp/cine-out/tuyen/src/royalnavyhistor03clow_djvu.txt",
+   "sha256": "3db070766de70e1dbc481f9856d2e62cd450530f06828c929354995872d0fbd0",
+   "bytes": 1908355,
+   "note": "W. Laird Clowes et al., The Royal Navy: A History, vol. III (London, 1898; ch. \"Major Operations 1762–1783\" by A. T. Mahan)"
+  },
+  {
+   "key": "schomb",
+   "url": "https://archive.org/download/10281675bsb/10281675bsb_djvu.txt",
+   "file": "/var/tmp/cine-out/tuyen/src/10281675bsb_djvu.txt",
+   "sha256": "23f6446e8e8513d7ce2a0da433597e4537d3513d4ad3b5ab577407627b27e68f",
+   "bytes": 1193952,
+   "note": "Isaac Schomberg, Naval Chronology, vol. II (London, 1802)"
+  },
+  {
+   "key": "fd6",
+   "url": "https://archive.org/download/armadaespaolade00durogoog/armadaespaolade00durogoog_djvu.txt",
+   "file": "/var/tmp/cine-out/tuyen/src/armadaespaolade00durogoog_djvu.txt",
+   "sha256": "3f93284d66cf4e7fd589c7195dc636476f22abc7bb24ed5f761ec83ebeaa134a",
+   "bytes": 1384558,
+   "note": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VI (Madrid, 1900)"
+  },
+  {
+   "key": "fd7",
+   "url": "https://archive.org/download/bub_gb_G1y3VAtRHTIC/bub_gb_G1y3VAtRHTIC_djvu.txt",
+   "file": "/var/tmp/cine-out/tuyen/src/bub_gb_G1y3VAtRHTIC_djvu.txt",
+   "sha256": "3c2dc7d23f078a9cdd5125e715eab0ee0c103b5bcdfcc8c53d0b6dd4ef2d4ec8",
+   "bytes": 1286426,
+   "note": "Cesáreo Fernández Duro, Armada española desde la unión de los reinos de Castilla y de Aragón, tomo VII (Madrid, 1901)"
+  },
+  {
+   "key": "mahon",
+   "url": "https://archive.org/download/historyofwarofsu00stan/historyofwarofsu00stan_djvu.txt",
+   "file": "/var/tmp/cine-out/tuyen/src/historyofwarofsu00stan_djvu.txt",
+   "sha256": "626c4d7c2138a7725db3afa16bf1a678d5266f70f287548474fbe6819e5ec5c9",
+   "bytes": 927134,
+   "note": "Lord Mahon [P. H. Stanhope], History of the War of the Succession in Spain (London, 1836)"
+  },
+  {
+   "key": "frus919",
+   "url": "https://history.state.gov/historicaldocuments/frus1940v02/d919",
+   "file": "/var/tmp/cine-out/tuyen/web/frus_d919.html",
+   "sha256": "05a8cba2af8dfd972ebcb00952006fa4b20087afeb4b7c09a6e4596b98e7c99b",
+   "bytes": 50213,
+   "note": "FRUS 1940, vol. II, doc. 919 — Weddell (Madrid) to Secretary of State, 12 June 1940"
+  },
+  {
+   "key": "frus920",
+   "url": "https://history.state.gov/historicaldocuments/frus1940v02/d920",
+   "file": "/var/tmp/cine-out/tuyen/web/frus_d920.html",
+   "sha256": "f07898b95870b53a23955df3ffce6e76dd06c2348d205dc92f46234ab9253518",
+   "bytes": 50001,
+   "note": "FRUS 1940, vol. II, doc. 920 — Weddell (Madrid) to Secretary of State, 13 June 1940 (dịch sắc lệnh TBN ngày 12/6/1940)"
+  },
+  {
+   "key": "frus712",
+   "url": "https://history.state.gov/historicaldocuments/frus1940v03/d712",
+   "file": "/var/tmp/cine-out/tuyen/web/frus3_d712.html",
+   "sha256": "259b63644bfd9051d7ac4d32e1ceae35409a3afe7a6f604c9b71cffb395cba70",
+   "bytes": 67721,
+   "note": "FRUS 1940, vol. III, doc. 712 — Weddell (Madrid) to Secretary of State, 14 June 1940 (dịch công hàm của Bộ Ngoại giao TBN)"
+  },
+  {
+   "key": "hs400619",
+   "url": "https://hansard-api.parliament.uk/debates/debate/fcaddc7c-5070-48da-a185-ee988eeb1e44.json",
+   "file": "/var/tmp/cine-out/tuyen/web/hd_fcaddc7c-5070-48da-a185-ee988eeb1e44.json",
+   "sha256": "d3c880126b4d0bcfa1631b40a9d2479112a52e8560d6816020f5183d5d002ccc",
+   "bytes": 4974,
+   "note": "UK Hansard, Commons, \"Tangier International Zone\", 19 June 1940 — R. A. Butler (Under-Secretary, Foreign Office)"
+  },
+  {
+   "key": "hs401113",
+   "url": "https://hansard-api.parliament.uk/debates/debate/cdba6c00-3f06-4eb0-b08b-587c14c8151f.json",
+   "file": "/var/tmp/cine-out/tuyen/web/hd_cdba6c00-3f06-4eb0-b08b-587c14c8151f.json",
+   "sha256": "ca87c77ff85dd1e7252723642593d0fecb17eedb8c9750e5aec704c187bf00d8",
+   "bytes": 10590,
+   "note": "UK Hansard, Commons, \"Tangier\", 13 November 1940 — R. A. Butler"
+  },
+  {
+   "key": "hs400820",
+   "url": "https://hansard-api.parliament.uk/debates/debate/ebe6c652-0e92-46d7-978c-7a49003c589e.json",
+   "file": "/var/tmp/cine-out/tuyen/web/hs_ebe6c652.json",
+   "sha256": "8d485d8d62955f4d743b656428644ffea487b5484d18a7b3b33a04ef659deb58",
+   "bytes": 300021,
+   "note": "UK Hansard, Commons, \"War Situation\", 20 August 1940 — Mr Cocks (Broxtowe)"
+  },
+  {
+   "key": "hs421111",
+   "url": "https://hansard-api.parliament.uk/debates/debate/6460ce17-cab4-4653-a83d-014ee1c5ee97.json",
+   "file": "/var/tmp/cine-out/tuyen/web/hs_6460ce17.json",
+   "sha256": "bc12998992aaa22d075f4ebc3b37ee6f7df2f7f96da507db5d584fbedbf2d82a",
+   "bytes": 83956,
+   "note": "UK Hansard, Lords, Address in Reply, 11 November 1942 — Viscount Cranborne (Secretary of State for the Colonies)"
+  },
+  {
+   "key": "hs410514",
+   "url": "https://hansard-api.parliament.uk/debates/debate/c57585b5-6078-41c5-be4c-bc7b8433ace4.json",
+   "file": "/var/tmp/cine-out/tuyen/web/hd_c57585b5.json",
+   "sha256": "a5f62e0b542f82b056899a9026bd63ab0cb0897c5e64f889fae5a7b460a14b12",
+   "bytes": 4420,
+   "note": "UK Hansard, Commons, \"France and Germany (Agreement)\", 14 May 1941 — Anthony Eden (Foreign Secretary)"
+  },
+  {
+   "key": "frus41_109",
+   "url": "https://history.state.gov/historicaldocuments/frus1941v02/d109",
+   "file": "/var/tmp/cine-out/tuyen/web/frus41_d109.html",
+   "sha256": "d741ca4a83a0cb6066ade0eb30e2f80583bef0282c589e78d561155fbe3b9481",
+   "bytes": 51355,
+   "note": "FRUS 1941, vol. II, doc. 109 — French Ambassador (Henry-Haye) to the Secretary of State (công hàm phía Pháp, 1941)"
+  },
+  {
+   "key": "frus41_90",
+   "url": "https://history.state.gov/historicaldocuments/frus1941v02/d90",
+   "file": "/var/tmp/cine-out/tuyen/web/frus41_d90.html",
+   "sha256": "d97076fdf8d23e37f3c792532ef8cae770422d522883c81ba0901ee791f38a5b",
+   "bytes": 51867,
+   "note": "FRUS 1941, vol. II, doc. 90 — Leahy (Vichy) to Secretary of State, 6 Feb 1941 (thuật lời Pétain)"
+  },
+  {
+   "key": "hmgog838",
+   "url": "https://www.gibraltar.gov.gi/press-releases/exhibition-opened-to-mark-80-years-since-operation-torch-8382022-8438",
+   "file": "/var/tmp/cine-out/tuyen/web/hmgog_838-2022.html",
+   "sha256": "ef048a3e1d4b0cf538e4640e6956b24d5218a8521ee76fbda74399080903f16f",
+   "bytes": 68835,
+   "note": "HM Government of Gibraltar, Press Release 838/2022 (9 Nov 2022) — tải lại 17/10/2026 (SHA khác bản T3b: trang động; câu trích giống S122)"
+  },
+  {
+   "key": "howe4",
+   "url": "https://www.ibiblio.org/hyperwar/USA/USA-MTO-NWA/USA-MTO-NWA-4.html",
+   "file": "/var/tmp/cine-out/tuyen/web/hw_nwa_4.html",
+   "sha256": "dc5ff5c6e210f8f9aae950b3703efb18a24953ecf2a6ef646b8ff2b38b33157a",
+   "bytes": 105072,
+   "note": "George F. Howe, Northwest Africa: Seizing the Initiative in the West (US Army in WWII, CMH, 1957), ch. IV (HyperWar transcription)"
+  },
+  {
+   "key": "howe11",
+   "url": "https://www.ibiblio.org/hyperwar/USA/USA-MTO-NWA/USA-MTO-NWA-11.html",
+   "file": "/var/tmp/cine-out/tuyen/web/hw_nwa_11.html",
+   "sha256": "c1e2f1ad94da181dd3145940551a100d25d54ee02f20f67808fc58d1c283efe9",
+   "bytes": 81022,
+   "note": "George F. Howe, Northwest Africa (CMH, 1957), ch. XI \"The First Day's Operations Against Oran\""
+  },
+  {
+   "key": "howe13",
+   "url": "https://www.ibiblio.org/hyperwar/USA/USA-MTO-NWA/USA-MTO-NWA-13.html",
+   "file": "/var/tmp/cine-out/tuyen/web/hw_nwa_13.html",
+   "sha256": "c61c7d558204ece351381064ceb952450fb8c0ee7f06d8bbdf014fbe09065659",
+   "bytes": 89869,
+   "note": "George F. Howe, Northwest Africa (CMH, 1957), ch. XIII \"The Occupation of Algiers\""
+  }
+ ]
+}
