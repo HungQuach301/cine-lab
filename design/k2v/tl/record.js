@@ -15,8 +15,8 @@ export function makeRecorder(W, H) {
         idxSrc: idxSrc && idxSrc.a > 0.001 ? { s: idxSrc.s, a: +idxSrc.a.toFixed(3) } : null,
         method: method ? { bottom: !!method.bottom, lines: (method.lines || [{ s: method.s, a: method.a }]).filter((m) => m.a > 0.001).map((m) => ({ s: m.s, a: +m.a.toFixed(3) })) } : null };
     },
-    card(t, win, title, src, anchorPx) { const a = fade(t, win[0], win[1]); if (a <= 0) return;   // như text.js: không neo (null) → dải dưới
-      D.cards.push({ title, src, a: +a.toFixed(3), anchor: nx(anchorPx), world: w3(anchorPx) }); },
+    card(t, win, title, src, anchorPx, opt = {}) { const a = fade(t, win[0], win[1]); if (a <= 0) return;   // như text.js: không neo (null) → dải dưới
+      D.cards.push(Object.assign({ title, src, a: +a.toFixed(3), anchor: nx(anchorPx), world: w3(anchorPx) }, opt.yFrac ? { yFrac: opt.yFrac } : {})); },   // V6: yFrac — thẻ không neo đặt cao (k2.js)
     photo(t, win, img, title, src, anchorPx) { const a = fade(t, win[0], win[1]); if (a <= 0 || !anchorPx) return; D.photos.push({ title, src, a: +a.toFixed(3), anchor: nx(anchorPx), world: w3(anchorPx), img: img && img.src ? String(img.src).replace(/^.*\/cache\//, 'cache:') : null }); },
     tag(t, win, s, anchorPx) { const a = fade(t, win[0], win[1]); if (a <= 0 || !anchorPx) return; D.tags.push({ s, a: +a.toFixed(3), anchor: nx(anchorPx), world: w3(anchorPx) }); },
     where(t, win, s) { const a = fade(t, win[0], win[1]); if (a > 0 && s) D.where = { s, a: +a.toFixed(3) }; },

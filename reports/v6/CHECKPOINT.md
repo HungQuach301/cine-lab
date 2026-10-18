@@ -1,4 +1,4 @@
-# V6 — CHECKPOINT 14:33 UTC 18/10/2026 (nhánh thật: `ccr-0e3bf8dd-nst2mv`; lệnh yêu cầu `v6` — harness buộc tên này)
+# V6 — CHECKPOINT 15:09 UTC 18/10/2026 (nhánh thật: `ccr-0e3bf8dd-nst2mv`; lệnh yêu cầu `v6` — harness buộc tên này)
 
 Nhánh = origin/ccr-8f16467a-mhu954 (V5b-2d @1eecfec2) + merge --no-ff pt3-van-nuong @685f11bb, pt4-song @5a7c9a27, claude/checks-v1-15-1qzf9z @001ee5d (0 xung đột); `checks/lock.py --verify` KHỚP 1.15.0 f4fa0349….
 
@@ -17,7 +17,7 @@ Nhánh = origin/ccr-8f16467a-mhu954 (V5b-2d @1eecfec2) + merge --no-ff pt3-van-n
 
 ## Đang dở
 - Chấm mù lượt 2 XONG (reports/v6/kiem-mu): TỐT NHẤT hạng 1 11/18, SX 1/18, V5b-2d 6/18; P3, P5 vẫn thua 3/3 (lý do bố cục: phế tích / quảng trường trống — theo lệnh; chờ chủ dự án).
-- Đoạn thử 540p lượt 1 XONG 13:59 (42 s, 13,7 MB; A1 −14,0 LUFS). k2check 1.15: LOCK KHỚP; NC-H1…H4 ĐẠT, NC-H5/BD-* không áp; Q37/Q26b/ML1 TRƯỢT (cấu trúc đoạn thử 3D liền); A2 đỉnh thật sau AAC +0,1 dBTP TRƯỢT; K-LAI thiếu khối lai → thêm khối `lai:` (log khung 1008 khung, log chữ) → K-LAI-1 ĐẠT 19,5 %; K-LAI-2 bắt 2 lỗi thật (khung 0 trong hoà đen không có nhãn; nhãn 37,96 px) → sửa k2.js (vẽ nhãn AI trên lớp hoà, 40 px) + dòng nguồn P3 đè chip nơi + thẻ P6 đè pin nổi → đang dựng lại lượt 2.
+- Đoạn thử 540p: lượt 2 xong 15:00 (k2check: K-LAI-1 ĐẠT 19,5 %, K-LAI-2 ĐẠT 40 px 36/36; A2 ĐẠT −1,1 dBTP với MIX=audio; K-LAI-3…6 + A4 → khiếu nại reports/v6/checks-appeal.md). Thẻ P6 vẫn đè thân pin nổi (thẻ không neo) → thêm yFrac (record.js/k2.js) → đang dựng lượt 3. Video ≤ 5 MB trong git (preflight chặn > 5 MB ngoài LFS); bản 13,7 MB ngoài git.
 - Khung neo XONG (phiên con; reports/v6/khung-neo/KHUNG-NEO-V6.md): 2 khung trưa SX + TỐT NHẤT (Cycles 256 spp: 663 / 794 s), người/khung ngày TB 44,6 / 38,1 (min 22 / 26); toy_like CHƯA ĐẠT (SX 6,61, TỐT NHẤT 5,83 > 4); K-LAI-2…6 ĐẠT, K-LAI-1 (100 % khung neo) + K-LAI-B (đêm) TRƯỢT; q_thoi_dai 0 nghi vấn; OpenAI $0,0632; Claude phiên con $2,948. Không có MPFB (proxy 403) → người tự dựng.
 
 ## Chưa làm
@@ -36,7 +36,7 @@ k2check 1.15 trên đoạn thử · ước tính chi phí/giờ máy cả tập 
 | /var/tmp/cine-out/v6/src/rijks/r19249.jpg | 5,1 MB | 3fb24fc6210b9c80 | iiif.micr.io/saQvn (CC0) |
 
 ## Chi phí lũy kế (thật)
-- Claude API: **$5,202** (P: $2,254 = kiểm đường gọi + chấm mù 2 lượt; phiên con khung neo: $2,948). **Vượt mốc theo dõi $5 lúc ≈ 15:00 UTC** — tiếp tục theo lệnh.
+- Claude API: **$5,202** (P: $2,254 = kiểm đường gọi + chấm mù 2 lượt; phiên con khung neo: $2,948). **Vượt mốc theo dõi $5 khi nhận báo cáo phiên con (14:33 UTC)** — tiếp tục theo lệnh.
 - OpenAI: **$0,063** (1 lệnh tấm C 1943 lần 3 — phiên con).
 - YouTube 0 · ElevenLabs 0.
 - Giờ máy: đồng hồ tường hoạt động ≈ 06:00 → 10:35 + 13:01 → 13:05 UTC ≈ **4,6 h** (mốc theo dõi 10 h chưa vượt). Không tính 2,4 h phiên dừng.

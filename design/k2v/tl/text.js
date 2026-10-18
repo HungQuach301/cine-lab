@@ -23,7 +23,7 @@ export function makeText(W, H) {
   const fade = (t, a, b, k = 0.35) => Math.max(0, Math.min(1, (t - a) / k, (b - t) / k));
   let YBOX = 0;
   // thẻ: dải dưới (bên phải hộp năm) hoặc neo vào điểm 3D (anchorPx = [x, y] màn hình)
-  function card(t, win, title, src, anchorPx) {
+  function card(t, win, title, src, anchorPx, opt = {}) {   // opt.yFrac (V6): đáy thẻ không neo ở yFrac·H thay vì sát đáy khung (thẻ đè vật chính)
     const a = fade(t, win[0], win[1]); if (a <= 0) return; LOG.cards++; if (words(title) > 10) LOG.overflow.push('tiêu đề > 10 từ: ' + title);
     g.globalAlpha = a; const xl = anchorPx ? 36 * S : YBOX + 24 * S, avail = W - 36 * S - xl;
     let tp = 48; g.font = `700 ${Math.round(tp * S)}px ${FONT}`; let w1 = g.measureText(title).width;
@@ -31,7 +31,7 @@ export function makeText(W, H) {
     g.font = `500 ${Math.round(38 * S)}px ${FONT}`; const w2 = g.measureText(src).width;
     if (Math.max(w1, w2) + 64 * S > avail + 1) LOG.overflow.push('thẻ tràn: ' + title);
     const w = Math.min(avail, Math.max(w1, w2) + 60 * S), hgt = 126 * S;
-    let cx = Math.min(W - 36 * S - w / 2, Math.max(xl + w / 2, W / 2)), y1 = H - 40 * S;
+    let cx = Math.min(W - 36 * S - w / 2, Math.max(xl + w / 2, W / 2)), y1 = opt.yFrac ? Math.round(H * opt.yFrac) : H - 40 * S;
     if (anchorPx) { const [ax, ay] = anchorPx; cx = Math.min(W - 36 * S - w / 2, Math.max(36 * S + w / 2, ax)); y1 = Math.max(hgt + 40 * S, Math.min(H * 0.62, ay - 70 * S));
       anch = true; g.strokeStyle = '#ffd166'; g.lineWidth = 4 * S; g.beginPath(); g.moveTo(cx, y1); g.lineTo(ax, ay); g.stroke(); g.fillStyle = '#ffd166'; g.beginPath(); g.arc(ax, ay, 9 * S, 0, 7); g.fill();
       leader('card', title, [cx, y1], [ax, ay], anchorPx); }
