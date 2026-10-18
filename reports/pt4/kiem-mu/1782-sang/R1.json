@@ -1,0 +1,37 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "Strong wall textures and a hazy, atmospheric depth. The soldiers are smooth mannequin figures with white legs, tiny heads and uniform poses, and they are clumped in a cluster in the middle. The Union Jack floats over empty haze with no visible pole. The sea is lost in fog. The shadow under the front soldier is an odd dark smear."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "anachronism",
+   "cluttered"
+  ],
+  "note": "Same strong walls, but the horizon is clearer: a flagpole, a sea strip and a ship. Warm light on the street ties the scene together. The figures are still game-asset mannequins, with grey stick legs and a mix of red, blue and brown coats. They are crowded in a clump and some overlap or merge. The barrel with red X straps looks like a clipping glitch. The sea horizon is flat and clean."
+ },
+ "better": "Y",
+ "why": "Same set, but Y has a clearer sense of place (flagpole, sea, ship), warmer light and more varied figures, though both crowds look like game mannequins and Y's overlapping figures are messier.",
+ "top_fix_for_weaker": "Replace the mannequin crowd in X with a few well-spaced, properly sculpted and animated figures with correct tricorne hats and varied poses. Add a flagpole and a visible harbour or sea beyond the lane. Warm the street light and fix the odd shadow so the figures sit in the scene.",
+ "anachronisms_seen": [
+  "Union Jack with the post-1801 cross layout (the 1782 flag had no St Patrick's cross)",
+  "Modern-looking dark shutters and flush rectangular window frames",
+  "Tidy uniform plaster-and-brick texture that looks like a modern PBR material",
+  "Black cylindrical barrels or drums that look too modern",
+  "Blue coats and white trousers that do not match the 1782 British line uniform of red coats with white or buff breeches and gaiters"
+ ]
+}

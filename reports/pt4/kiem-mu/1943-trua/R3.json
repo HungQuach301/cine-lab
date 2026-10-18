@@ -1,0 +1,37 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "cluttered",
+   "anachronism"
+  ],
+  "note": "Hazy atmosphere and weathered plaster look good, and the left wall's salmon colour has depth. The figures are the problem. They are small, faceless, mannequin-like and have a translucent bluish cast. They bunch in a blob at the centre and read as game assets. The ship on the horizon is hazy, the sea is barely visible and the square looks like a flat sand plain. The Union Jack is plausible but small. The buildings are generic Mediterranean rather than distinctly Gibraltarian."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "anachronism",
+   "cluttered"
+  ],
+  "note": "Brighter and clearer. The sea and ship are legible and the warm walls are richer. The figures are spread in a ring across the foreground, which gives better depth. They are still plastic-looking and stiff, with identical poses and ghostly transparent bodies, one with a see-through shadow. A few white-clad figures add variety. The ship looks like a pasted flat sprite floating on a blue rectangle. The lighting is slightly flat and the haze is gone."
+ },
+ "better": "Y",
+ "why": "Y has a clearer, more readable layout with visible sea, better figure spacing and larger foreground figures, though both frames suffer from the same toy-like, translucent mannequins.",
+ "top_fix_for_weaker": "Replace the translucent mannequin crowd with fewer, larger, opaque figures that have proper period uniforms, cast grounded shadows and varied poses, and spread them across the square instead of clumping them in the centre. Also give the sea and ship proper depth.",
+ "anachronisms_seen": [
+  "Modern-looking uniform-less identical mannequin figures with uniform pastel blue and khaki palette",
+  "Clean modern balcony railings and shutters in uniform condition",
+  "Flat blue rectangle/ship sprite on the water (Y)",
+  "Generic Mediterranean architecture rather than Gibraltar's British-colonial style"
+ ]
+}
