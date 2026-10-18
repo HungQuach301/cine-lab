@@ -1,10 +1,10 @@
 {
- "note": "Bảng shot T3b (tiền kỳ, KHÔNG phải lời). Thời lượng ước theo treatment, chốt ở G1 theo lời thật. claims: S.. = claims-vay-ham.md; C.. = tienky/claims.json.",
+ "note": "Bảng shot T3b (tiền kỳ, KHÔNG phải lời). Thời lượng ước theo treatment, chốt ở G1 theo lời thật. claims: S.. = claims-vay-ham.md; C.. = tienky/claims.json. | G1 (18/10/2026): đã áp tuyen/treatment-patch.json (SM1–SM3 strategic + 4 inset). | G1 18/10: + 6 khung neo (g1/neo.json) + thời lượng theo lời v1 (g1/dur-g1.json; dur_t3b = giá trị cũ). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1).",
  "shots": [
   {
    "id": "0a",
    "ch": 0,
-   "dur": 5.5,
+   "dur": 6.5,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "cong-bien-gioi",
@@ -22,12 +22,13 @@
    "du_lieu_nha": "OSM 2026 + Catastro (La Línea)",
    "hero": "cổng biên giới 2026, đường băng",
    "engine": "M9",
-   "mo_ta": "Nửa đêm 2026: người đi bộ băng qua đường băng về phía Rock; chip nơi \"Gibraltar–La Línea frontier\""
+   "mo_ta": "Nửa đêm 2026: người đi bộ băng qua đường băng về phía Rock; chip nơi \"Gibraltar–La Línea frontier\"",
+   "dur_t3b": 5.5
   },
   {
    "id": "0b",
    "ch": 0,
-   "dur": 6.0,
+   "dur": 5.5,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -45,7 +46,8 @@
    "du_lieu_nha": "OSM + Catastro",
    "hero": "Rock + vách bắc, đường băng",
    "engine": "—",
-   "mo_ta": "Một đường băng nằm ngang giữa hai thành phố; vách bắc Rock đứng sau"
+   "mo_ta": "Một đường băng nằm ngang giữa hai thành phố; vách bắc Rock đứng sau",
+   "dur_t3b": 6.0
   },
   {
    "id": "0c",
@@ -75,7 +77,7 @@
   {
    "id": "0d",
    "ch": 0,
-   "dur": 5.0,
+   "dur": 7.5,
    "loai": "thẻ số",
    "noi": "—",
    "vung": "the",
@@ -93,12 +95,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "\"14 sieges, 1309–1783\" — \"historians count\"; nguồn ngắn: Sayer 1862 · Gibraltar National Museum"
+   "mo_ta": "\"14 sieges, 1309–1783\" — \"historians count\"; nguồn ngắn: Sayer 1862 · Gibraltar National Museum",
+   "dur_t3b": 5.0
   },
   {
    "id": "0e",
    "ch": 0,
-   "dur": 8.0,
+   "dur": 5.5,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "pho-co",
@@ -116,12 +119,13 @@
    "du_lieu_nha": "OSM 2026 → ghost 1943 (AMS M981) → ghost 1782 (bình đồ c.1779–83) → ghost 1704",
    "hero": "King's Bastion, Line Wall",
    "engine": "M9,M12",
-   "mo_ta": "\"Tua ngược\": phố đổi qua 4 mốc có nguồn"
+   "mo_ta": "\"Tua ngược\": phố đổi qua 4 mốc có nguồn",
+   "dur_t3b": 8.0
   },
   {
    "id": "0f",
    "ch": 0,
-   "dur": 4.0,
+   "dur": 5.0,
    "loai": "tranh Ken Burns",
    "noi": "—",
    "vung": "tranh-1782",
@@ -138,12 +142,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "M8",
-   "mo_ta": "Nháy hứa: pin nổi trước thành luỹ"
+   "mo_ta": "Nháy hứa: pin nổi trước thành luỹ",
+   "dur_t3b": 4.0
   },
   {
    "id": "0g",
    "ch": 0,
-   "dur": 5.0,
+   "dur": 6.0,
    "loai": "3D phố",
    "noi": "eo_dat",
    "vung": "giao-lo-1941",
@@ -160,12 +165,13 @@
    "du_lieu_nha": "OSM + Catastro + Baedeker 1913",
    "hero": "giao lộ đường băng 1941, trạm biên giới",
    "engine": "—",
-   "mo_ta": "Nháy hứa 1941: đường băng cắt ngang con đường sang Tây Ban Nha"
+   "mo_ta": "Nháy hứa 1941: đường băng cắt ngang con đường sang Tây Ban Nha",
+   "dur_t3b": 5.0
   },
   {
    "id": "0h",
    "ch": 0,
-   "dur": 7.0,
+   "dur": 5.5,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "vach-bac",
@@ -183,12 +189,98 @@
    "du_lieu_nha": "",
    "hero": "Rock + vách bắc",
    "engine": "M6",
-   "mo_ta": "Câu hỏi trùng tiêu đề; hứa cú lật: \"the last siege of the Rock is being fought with paperwork — and payrolls\""
+   "mo_ta": "Câu hỏi trùng tiêu đề; hứa cú lật: \"the last siege of the Rock is being fought with paperwork — and payrolls\"",
+   "dur_t3b": 7.0
+  },
+  {
+   "id": "SM1",
+   "ch": 1,
+   "dur": 6.5,
+   "loai": "bản đồ chiến lược",
+   "type": "strategic",
+   "noi": "luc_dia",
+   "vung": "tay-au",
+   "goc": "strategic-1704",
+   "moc_nam": "1704",
+   "agl_km": 0.0,
+   "agl_max_km": 0.0,
+   "khung_rong_km": 2500,
+   "bbox": [
+    -12.0,
+    35.0,
+    8.0,
+    52.5
+   ],
+   "claims": [
+    "T001",
+    "T002",
+    "T003",
+    "T004",
+    "T005",
+    "S012",
+    "S013"
+   ],
+   "vai": "co-che",
+   "tuyen": [
+    "R1704-GIB"
+   ],
+   "tuyen_phu": [
+    "R1704-LIS"
+   ],
+   "ranh": "1704",
+   "nhan_ranh": "approx. borders c. 1704 — OpenHistoricalMap, IGN",
+   "chu_giai": [
+    "Grand Alliance (England & allies)",
+    "France",
+    "Spain (Philip V)"
+   ],
+   "bo_dem": [
+    {
+     "t": 0.0,
+     "hien": "Feb 1704"
+    },
+    {
+     "t": 2.0,
+     "hien": "Jun 1704"
+    },
+    {
+     "t": 4.2,
+     "hien": "21 July (O.S.) / 1 Aug (N.S.) 1704"
+    }
+   ],
+   "nhip": [
+    {
+     "t": 0.0,
+     "su_kien": "mở trên Tây Âu c. 1704, tô 3 phe + Gibraltar là điểm (màu TBN) + nhãn nguồn ranh"
+    },
+    {
+     "t": 0.8,
+     "su_kien": "R1704-LIS vẽ mờ (nét đứt mảnh, 1,0 s) — St Helens → Lisbon, bộ đếm \"Feb 1704\""
+    },
+    {
+     "t": 2.0,
+     "su_kien": "R1704-GIB vẽ đậm: ngoài khơi Algarve → ngoài khơi Tetuan → vịnh; bộ đếm chạy tới \"1 Aug (N.S.)\""
+    },
+    {
+     "t": 4.4,
+     "su_kien": "Gibraltar đổi điểm sang màu Đại Liên minh; nhãn phụ \"taken in the name of 'Charles III'\""
+    },
+    {
+     "t": 5.2,
+     "su_kien": "máy lặn liên tục xuống vịnh → hoà vào 1a (3D vịnh), giữ bộ đếm"
+    }
+   ],
+   "may": "push-in chậm Tây Âu → eo biển (2 500 → ~400 km), không dừng; hoà vào 1a",
+   "engine": "M13-lite",
+   "du_lieu_nha": "",
+   "hero": "hạm đội 1704 (sticker tàu buồm theo tuyến)",
+   "mo_ta": "Ai đứng về phía nào năm 1704 và hạm đội Anh–Hà Lan đến eo biển bằng đường nào.",
+   "dur_t3b": 6.0
   },
   {
    "id": "1a",
    "ch": 1,
-   "dur": 11.0,
+   "dur": 5.0,
    "loai": "3D vùng",
    "noi": "bien",
    "vung": "vinh",
@@ -210,7 +302,7 @@
   {
    "id": "1b",
    "ch": 1,
-   "dur": 6.0,
+   "dur": 8.0,
    "loai": "tranh Ken Burns",
    "noi": "—",
    "vung": "chan-dung",
@@ -227,12 +319,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "M8",
-   "mo_ta": "Nhân vật: Rooke + Hesse-Darmstadt — nhân danh ứng viên Habsburg (hai nguồn)"
+   "mo_ta": "Nhân vật: Rooke + Hesse-Darmstadt — nhân danh ứng viên Habsburg (hai nguồn)",
+   "dur_t3b": 6.0
   },
   {
    "id": "1c",
    "ch": 1,
-   "dur": 9.0,
+   "dur": 10.5,
    "loai": "bản đồ lịch sử",
    "noi": "thanh_pho",
    "vung": "bd-1705",
@@ -249,12 +342,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "M12",
-   "mo_ta": "Trở ngại: tường + vách; phố trong tường theo bản in 1705"
+   "mo_ta": "Trở ngại: tường + vách; phố trong tường theo bản in 1705",
+   "dur_t3b": 9.0
   },
   {
    "id": "1d",
    "ch": 1,
-   "dur": 12.5,
+   "dur": 13.5,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "pho-co",
@@ -272,12 +366,49 @@
    "du_lieu_nha": "ghost 1704 — khối phố từ Exact Plan 1705 + Visscher 1706 (nắn hạn chế, RMS ước 100–120 m → chỉ mức khối phố); dự phòng ghost gib20 356 khối",
    "hero": "Line Wall, Old Mole, Tower of Homage",
    "engine": "M9,M12",
-   "mo_ta": "Phố 1704 ghost có nhãn nguồn; \"a few hundred defenders\" (hai nguồn)"
+   "mo_ta": "Phố 1704 ghost có nhãn nguồn; \"a few hundred defenders\" (hai nguồn)",
+   "inset": {
+    "vi_tri": "tren-trai",
+    "x_px": 96,
+    "y_px": 54,
+    "w_px": 600,
+    "h_px": 340,
+    "ty_le_khung": 0.0984,
+    "t_vao_s": 0.6,
+    "dur_s": 3.0,
+    "mo_s": 0.3,
+    "khu": "eo biển Gibraltar ~120 km",
+    "bbox": [
+     -6.2,
+     35.6,
+     -4.8,
+     36.5
+    ],
+    "lop": [
+     "bờ biển (Natural Earth 1:10m)",
+     "hộp đỏ = dấu chân khung máy (lấy từ campath.json khi dựng)"
+    ],
+    "nhan": [
+     "Gibraltar",
+     "Strait of Gibraltar"
+    ],
+    "khong_ve": [
+     "ranh giới",
+     "tuyến",
+     "chú giải"
+    ],
+    "nguon_tren_hinh": "Map: Natural Earth",
+    "chip_noi": "chuyển sang góc TRÊN PHẢI khi inset hiện",
+    "dau_chan_uoc_km": 0.81,
+    "ghi_chu": "lần đầu ở phố 1704 (máy ≤ 3 km tại nơi có tên); hộp đỏ ≈ 0,8 km → ≈ 4 px ở 5 px/km: vẽ đúng tỉ lệ + vòng định vị 16 px"
+   },
+   "dur_t3b": 12.5,
+   "dur_g1": 11.5
   },
   {
    "id": "1e",
    "ch": 1,
-   "dur": 9.0,
+   "dur": 9.5,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "old-mole",
@@ -295,12 +426,13 @@
    "hero": "Old Mole",
    "engine": "M7,M6",
    "mo_ta": "MỐC ĐINH 4/8/1704 (N.S.) = 24/7 (O.S.): đầu hàng — nhãn phụ giải thích hai lịch",
-   "moc_dinh": "4/8/1704 (N.S.) = 24/7 (O.S.)"
+   "moc_dinh": "4/8/1704 (N.S.) = 24/7 (O.S.)",
+   "dur_t3b": 9.0
   },
   {
    "id": "1f",
    "ch": 1,
-   "dur": 6.0,
+   "dur": 5.625,
    "loai": "thẻ số",
    "noi": "—",
    "vung": "the",
@@ -317,12 +449,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Số hai phía, ghi \"British account\" / \"Spanish account\""
+   "mo_ta": "Số hai phía, ghi \"British account\" / \"Spanish account\"",
+   "dur_truoc_rut": 6.0
   },
   {
    "id": "1g",
    "ch": 1,
-   "dur": 10.0,
+   "dur": 14.0,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -339,12 +472,14 @@
    "du_lieu_nha": "ghost 1704",
    "hero": "—",
    "engine": "M1",
-   "mo_ta": "Hệ quả: gần hết dân rời lên bắc, lập San Roque"
+   "mo_ta": "Hệ quả: gần hết dân rời lên bắc, lập San Roque",
+   "dur_t3b": 10.0,
+   "dur_g1": 12.5
   },
   {
    "id": "1h",
    "ch": 1,
-   "dur": 8.0,
+   "dur": 12,
    "loai": "ảnh",
    "noi": "—",
    "vung": "van-ban-utrecht",
@@ -362,12 +497,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Hồ sơ thật: \"without any territorial jurisdiction…without any open communication by land\""
+   "mo_ta": "Hồ sơ thật: \"without any territorial jurisdiction…without any open communication by land\"",
+   "dur_t3b": 8.0
   },
   {
    "id": "1i",
    "ch": 1,
-   "dur": 10.0,
+   "dur": 13.0,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -385,12 +521,13 @@
    "du_lieu_nha": "ghost 1704–1713",
    "hero": "tường bắc",
    "engine": "M12",
-   "mo_ta": "Hai cách hiểu cùng một câu: TBN (S030) ↔ Anh (S031)"
+   "mo_ta": "Hai cách hiểu cùng một câu: TBN (S030) ↔ Anh (S031)",
+   "dur_g1": 10.0
   },
   {
    "id": "1j",
    "ch": 1,
-   "dur": 11.0,
+   "dur": 10.0,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -407,12 +544,14 @@
    "du_lieu_nha": "ghost 1727 — Homann 1733 (Rijks CC0, RMS ước ~60–90 m, khối phố)",
    "hero": "—",
    "engine": "M4,M6",
-   "mo_ta": "Tây Ban Nha thử lại hai lần (1704–05, 1727) — cuộc vây thứ 12 và 13 theo bảo tàng"
+   "mo_ta": "Tây Ban Nha thử lại hai lần (1704–05, 1727) — cuộc vây thứ 12 và 13 theo bảo tàng",
+   "dur_t3b": 11.0,
+   "dur_g1": 11.5
   },
   {
    "id": "1k",
    "ch": 1,
-   "dur": 9.0,
+   "dur": 14.5,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -428,12 +567,13 @@
    "du_lieu_nha": "",
    "hero": "Línea de Contravalación",
    "engine": "M4,M6",
-   "mo_ta": "Hệ quả: TBN dựng một chiến tuyến cố định ngoài tầm pháo — tên \"La Línea\" bắt đầu từ đây"
+   "mo_ta": "Hệ quả: TBN dựng một chiến tuyến cố định ngoài tầm pháo — tên \"La Línea\" bắt đầu từ đây",
+   "dur_t3b": 9.0
   },
   {
    "id": "2a",
    "ch": 2,
-   "dur": 11.0,
+   "dur": 12.0,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -451,12 +591,48 @@
    "du_lieu_nha": "ghost 1782 (Drinkwater 1786 + Faden 1783)",
    "hero": "Línea, Fort San Felipe, Santa Bárbara",
    "engine": "M4,M6",
-   "mo_ta": "Câu hỏi chương: làm sao bỏ đói một tảng đá? Cổng đóng 21/6/1779"
+   "mo_ta": "Câu hỏi chương: làm sao bỏ đói một tảng đá? Cổng đóng 21/6/1779",
+   "inset": {
+    "vi_tri": "tren-trai",
+    "x_px": 96,
+    "y_px": 54,
+    "w_px": 600,
+    "h_px": 340,
+    "ty_le_khung": 0.0984,
+    "t_vao_s": 0.6,
+    "dur_s": 3.0,
+    "mo_s": 0.3,
+    "khu": "eo biển Gibraltar ~120 km",
+    "bbox": [
+     -6.2,
+     35.6,
+     -4.8,
+     36.5
+    ],
+    "lop": [
+     "bờ biển (Natural Earth 1:10m)",
+     "hộp đỏ = dấu chân khung máy (lấy từ campath.json khi dựng)"
+    ],
+    "nhan": [
+     "Gibraltar",
+     "Spain"
+    ],
+    "khong_ve": [
+     "ranh giới",
+     "tuyến",
+     "chú giải"
+    ],
+    "nguon_tren_hinh": "Map: Natural Earth",
+    "chip_noi": "chuyển sang góc TRÊN PHẢI khi inset hiện",
+    "dau_chan_uoc_km": 2.16,
+    "ghi_chu": "chương mới, máy ≤ 3 km; hộp ≈ 2,2 km ≈ 11 px"
+   },
+   "dur_t3b": 11.0
   },
   {
    "id": "2b",
    "ch": 2,
-   "dur": 9.0,
+   "dur": 10.5,
    "loai": "bản đồ lịch sử",
    "noi": "eo_dat",
    "vung": "bd-faden-1781",
@@ -473,12 +649,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "M12",
-   "mo_ta": "Hồ sơ thật: vịnh, chiến tuyến, hai thành phố đối diện"
+   "mo_ta": "Hồ sơ thật: vịnh, chiến tuyến, hai thành phố đối diện",
+   "dur_g1": 9.0
   },
   {
    "id": "2c",
    "ch": 2,
-   "dur": 10.0,
+   "dur": 12.0,
    "loai": "3D vùng",
    "noi": "bien",
    "vung": "vinh",
@@ -495,12 +672,13 @@
    "du_lieu_nha": "",
    "hero": "hạm đội TBN",
    "engine": "M3",
-   "mo_ta": "Phong toả biển từ 16/7/1779; quân bộ ~14 000 (10/1779)"
+   "mo_ta": "Phong toả biển từ 16/7/1779; quân bộ ~14 000 (10/1779)",
+   "dur_t3b": 10.0
   },
   {
    "id": "2d",
    "ch": 2,
-   "dur": 7.0,
+   "dur": 7.625,
    "loai": "thẻ số",
    "noi": "—",
    "vung": "the",
@@ -517,12 +695,14 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Trở ngại: đói — \"thistles, dandelion and wild leeks\""
+   "mo_ta": "Trở ngại: đói — \"thistles, dandelion and wild leeks\"",
+   "dur_t3b": 7.0,
+   "dur_truoc_rut": 8.0
   },
   {
    "id": "2e",
    "ch": 2,
-   "dur": 6.0,
+   "dur": 6.5,
    "loai": "tranh Ken Burns",
    "noi": "—",
    "vung": "chan-dung",
@@ -538,12 +718,119 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "M8",
-   "mo_ta": "Nhân vật: thống đốc giữ thành"
+   "mo_ta": "Nhân vật: thống đốc giữ thành",
+   "dur_t3b": 6.0
+  },
+  {
+   "id": "SM2",
+   "ch": 2,
+   "dur": 7.5,
+   "loai": "bản đồ chiến lược",
+   "type": "strategic",
+   "noi": "bien",
+   "vung": "iberia-eo-bien",
+   "goc": "strategic-1780-82",
+   "moc_nam": "1780–82",
+   "agl_km": 0.0,
+   "agl_max_km": 0.0,
+   "khung_rong_km": 1500,
+   "bbox": [
+    -11.5,
+    34.0,
+    5.0,
+    41.5
+   ],
+   "claims": [
+    "T006",
+    "T007",
+    "T009",
+    "T011",
+    "T013",
+    "T014",
+    "T015",
+    "T016",
+    "T020",
+    "S054",
+    "S055",
+    "S056"
+   ],
+   "vai": "co-che",
+   "tuyen": [
+    "R1780-RODNEY",
+    "R1781-DARBY",
+    "R1782-HOWE"
+   ],
+   "vung_ve": [
+    "Z1779-BLOCKADE"
+   ],
+   "ranh": "1780–82",
+   "nhan_ranh": "approx. borders c. 1782 — Cliopatria (Seshat)",
+   "chu_giai": [
+    "Britain",
+    "Spain",
+    "France"
+   ],
+   "bo_dem": [
+    {
+     "t": 0.0,
+     "hien": "Jan 1780"
+    },
+    {
+     "t": 2.6,
+     "hien": "Apr 1781"
+    },
+    {
+     "t": 4.2,
+     "hien": "5 Feb 1782"
+    },
+    {
+     "t": 4.8,
+     "hien": "Oct 1782"
+    }
+   ],
+   "nhip": [
+    {
+     "t": 0.0,
+     "su_kien": "mở trên Iberia–eo biển c. 1780; vòng phong toả nét đứt quanh Algeciras–Cabrita–Ceuta (T006, T007)"
+    },
+    {
+     "t": 0.6,
+     "su_kien": "Rodney: mũi tên vào từ mép bắc-tây \"from England\" → qua mũi St Vincent → vịnh (bộ đếm Jan 1780)"
+    },
+    {
+     "t": 2.6,
+     "su_kien": "tuyến Rodney mờ còn 30 % (ba đoàn đi cùng hành lang — xem xem-truoc/SM2.png); Darby: vào từ mép bắc (St Helens/Cork ngoài khung) → Cap Spartel → vịnh (Apr 1781)"
+    },
+    {
+     "t": 4.2,
+     "su_kien": "Minorca đổi đỏ → vàng đúng lúc bộ đếm qua 5 Feb 1782 (T020); nhãn nhỏ \"Minorca → Spain\""
+    },
+    {
+     "t": 4.8,
+     "su_kien": "tuyến Darby mờ còn 30 %; Howe: vào từ mép bắc → St Vincent → eo → TRÔI vào Địa Trung Hải tới ngoài khơi Fuengirola → quay lại vịnh (Oct 1782; dừng ở 18 Oct)"
+    },
+    {
+     "t": 6.5,
+     "su_kien": "hoà vào 2f (3D eo biển, chanh Malaga)"
+    }
+   ],
+   "khong_ve": {
+    "R1780-PATROL": "không có lời tương ứng",
+    "Z1780-MOONLIGHT": "không có lời tương ứng (MÂU THUẪN vị trí, T012)",
+    "R1782-ALLIED": "tới 12/9/1782 — trước cú liên hoàn 2m; đưa vào SM2 sẽ lộ cao trào",
+    "Z1782-SPARTEL": "20/10/1782 — sau cao trào 13/9; không có lời"
+   },
+   "may": "trượt chậm bắc → nam theo tuyến đang vẽ; không zoom quá 1 lần",
+   "engine": "M13-lite",
+   "du_lieu_nha": "",
+   "hero": "sticker tàu buồm theo tuyến",
+   "mo_ta": "Ba đoàn tiếp tế phá vòng phong toả: đi đường nào, khi nào; Minorca mất giữa đoàn 2 và 3.",
+   "dur_t3b": 7.0
   },
   {
    "id": "2f",
    "ch": 2,
-   "dur": 11.0,
+   "dur": 6.0,
    "loai": "3D vùng",
    "noi": "bien",
    "vung": "eo-bien",
@@ -562,7 +849,9 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "M1,M3,M6",
-   "mo_ta": "Ba đoàn tiếp tế; scorbut được chữa bằng chanh — hậu cần khán giả hỏi"
+   "mo_ta": "Ba đoàn tiếp tế; scorbut được chữa bằng chanh — hậu cần khán giả hỏi",
+   "dur_t3b": 4.0,
+   "dur_g1": 5.5
   },
   {
    "id": "2g",
@@ -590,7 +879,7 @@
   {
    "id": "2h",
    "ch": 2,
-   "dur": 6.0,
+   "dur": 7.0,
    "loai": "ảnh",
    "noi": "thanh_pho",
    "vung": "ban-khac-pho",
@@ -607,12 +896,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Hồ sơ thật: phố sau bắn phá (không cảnh cướp bóc có người)"
+   "mo_ta": "Hồ sơ thật: phố sau bắn phá (không cảnh cướp bóc có người)",
+   "dur_t3b": 6.0
   },
   {
    "id": "2i",
    "ch": 2,
-   "dur": 7.0,
+   "dur": 6.0,
    "loai": "thẻ số",
    "noi": "—",
    "vung": "the",
@@ -628,12 +918,48 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Hậu cần đạn dược hai phía (Drinkwater ↔ Montero)"
+   "mo_ta": "Hậu cần đạn dược hai phía (Drinkwater ↔ Montero)",
+   "dur_t3b": 7.0,
+   "dur_g1": 5.5
+  },
+  {
+   "id": "KA1782",
+   "ch": 2,
+   "dur": 8.0,
+   "loai": "3D phố",
+   "noi": "thanh_pho",
+   "vung": "neo-hem-k09",
+   "goc": "neo-mat-dat-k09",
+   "moc_nam": "1782",
+   "agl_km": 0.002,
+   "agl_max_km": 0.003,
+   "claims": [
+    "S079",
+    "S062"
+   ],
+   "vai": "he-qua",
+   "may": "KHUNG NEO: máy cố định tầm mắt 2–3 m, không chuyển động máy; bộ đếm năm; sáng → chiều tối (không đêm: tránh trùng khói/lửa 13/9)",
+   "du_lieu_nha": "ghost 1782 — Drinkwater 1786 plan of batteries + Faden 1783 (khối phố) + PT2 K09/K10",
+   "hero": "hẻm K09/K10 (phố cổ, cạnh Main Street)",
+   "engine": "M9 + phim trường Cycles (PT2)",
+   "mo_ta": "khán giả đứng TRONG phố đang bị vây ngay trước cao trào; nối PT2 đã thắng chấm mù 22/24",
+   "neo": true,
+   "ai_image": true,
+   "im_lang": false,
+   "pt2": true,
+   "bo_dem": "Sep 1782",
+   "nguoi": "30–60 người; gần như toàn lính đồn + thuỷ binh lữ đoàn (S079); dân thường: số người còn ở phố 1782 CHƯA có claim → mặc định không đặt phụ nữ/trẻ em cho tới khi có nguồn (ghi việc chờ)",
+   "vat_dong": [
+    "người đi",
+    "cờ Union 1707 (PT2)",
+    "chim",
+    "khói bếp xa"
+   ]
   },
   {
    "id": "2j",
    "ch": 2,
-   "dur": 11.0,
+   "dur": 12.5,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "king-bastion",
@@ -651,12 +977,13 @@
    "du_lieu_nha": "ghost 1779–83 + OSM footprint bastion",
    "hero": "King's Bastion",
    "engine": "M5(rút gọn),M6",
-   "mo_ta": "Cơ chế: đạn nung đỏ (thử 9/1779; dùng hàng loạt 8/9/1782)"
+   "mo_ta": "Cơ chế: đạn nung đỏ (thử 9/1779; dùng hàng loạt 8/9/1782)",
+   "dur_t3b": 11.0
   },
   {
    "id": "2k",
    "ch": 2,
-   "dur": 10.0,
+   "dur": 12.0,
    "loai": "bản đồ lịch sử",
    "noi": "bien",
    "vung": "bd-13-9-1782",
@@ -673,12 +1000,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "M12",
-   "mo_ta": "Hồ sơ thật: thế trận — 47 tàu chiến tuyến, 33 000–40 000 quân (hai nguồn)"
+   "mo_ta": "Hồ sơ thật: thế trận — 47 tàu chiến tuyến, 33 000–40 000 quân (hai nguồn)",
+   "dur_t3b": 10.0
   },
   {
    "id": "2l",
    "ch": 2,
-   "dur": 7.5,
+   "dur": 12,
    "loai": "tranh Ken Burns",
    "noi": "—",
    "vung": "tranh-1782",
@@ -695,7 +1023,8 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "M8",
-   "mo_ta": "d'Arçon và pin nổi; ông đã xin thử với đạn đỏ trước (nguồn Pháp)"
+   "mo_ta": "d'Arçon và pin nổi; ông đã xin thử với đạn đỏ trước (nguồn Pháp)",
+   "dur_t3b": 7.5
   },
   {
    "id": "2m",
@@ -726,7 +1055,7 @@
   {
    "id": "2n",
    "ch": 2,
-   "dur": 7.0,
+   "dur": 8.0,
    "loai": "thẻ số",
    "noi": "—",
    "vung": "the",
@@ -745,7 +1074,8 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Hệ quả bằng số, ghi rõ ai đếm"
+   "mo_ta": "Hệ quả bằng số, ghi rõ ai đếm",
+   "dur_t3b": 7.0
   },
   {
    "id": "2o",
@@ -774,7 +1104,7 @@
   {
    "id": "2p",
    "ch": 2,
-   "dur": 5.0,
+   "dur": 8.0,
    "loai": "footage",
    "noi": "ham",
    "vung": "ham-hom-nay",
@@ -790,12 +1120,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Then/now: lỗ châu mai vẫn còn"
+   "mo_ta": "Then/now: lỗ châu mai vẫn còn",
+   "dur_t3b": 5.0
   },
   {
    "id": "2q",
    "ch": 2,
-   "dur": 10.0,
+   "dur": 11.0,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -814,12 +1145,13 @@
    "hero": "—",
    "engine": "M4,M6",
    "mo_ta": "Kết vây: phát súng cuối 5/2/1783",
-   "s_tren_3km": 2.5
+   "s_tren_3km": 2.5,
+   "dur_t3b": 10.0
   },
   {
    "id": "2r",
    "ch": 2,
-   "dur": 6.0,
+   "dur": 12,
    "loai": "ảnh",
    "noi": "—",
    "vung": "van-ban-1783",
@@ -837,12 +1169,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Hiệp ước 1783: TBN lấy Minorca + Florida, Gibraltar giữ nguyên"
+   "mo_ta": "Hiệp ước 1783: TBN lấy Minorca + Florida, Gibraltar giữ nguyên",
+   "dur_t3b": 6.0
   },
   {
    "id": "3a",
    "ch": 3,
-   "dur": 10.0,
+   "dur": 12.0,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -859,12 +1192,13 @@
    "du_lieu_nha": "ghost (bình đồ 1779–83 + 1830–60)",
    "hero": "Fort San Felipe, Santa Bárbara",
    "engine": "M4",
-   "mo_ta": "Câu hỏi: Rock kết thúc ở đâu?"
+   "mo_ta": "Câu hỏi: Rock kết thúc ở đâu?",
+   "dur_t3b": 10.0
   },
   {
    "id": "3b",
    "ch": 3,
-   "dur": 9.0,
+   "dur": 10.5,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -881,12 +1215,13 @@
    "hero": "Fort San Felipe, Santa Bárbara",
    "engine": "M7,M6",
    "mo_ta": "MỐC ĐINH 1810: Anh phá chiến tuyến, TBN đồng ý (Montero ghi 1811)",
-   "moc_dinh": "1810"
+   "moc_dinh": "1810",
+   "dur_t3b": 9.0
   },
   {
    "id": "3c",
    "ch": 3,
-   "dur": 9.0,
+   "dur": 8.5,
    "loai": "bản đồ lịch sử",
    "noi": "eo_dat",
    "vung": "bd-eo-dat-tk19",
@@ -902,12 +1237,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "M12",
-   "mo_ta": "Hồ sơ thật: \"Neutral Ground\" trên bản đồ đương thời"
+   "mo_ta": "Hồ sơ thật: \"Neutral Ground\" trên bản đồ đương thời",
+   "dur_t3b": 9.0
   },
   {
    "id": "3d",
    "ch": 3,
-   "dur": 12.5,
+   "dur": 10.0,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "la-linea",
@@ -923,12 +1259,81 @@
    "du_lieu_nha": "Catastro BU 11022 (tầng ĐẦY ĐỦ)",
    "hero": "—",
    "engine": "M9",
-   "mo_ta": "La Línea mọc sau chiến tuyến; tách khỏi San Roque 1870"
+   "mo_ta": "La Línea mọc sau chiến tuyến; tách khỏi San Roque 1870",
+   "inset": {
+    "vi_tri": "tren-trai",
+    "x_px": 96,
+    "y_px": 54,
+    "w_px": 600,
+    "h_px": 340,
+    "ty_le_khung": 0.0984,
+    "t_vao_s": 0.6,
+    "dur_s": 3.0,
+    "mo_s": 0.3,
+    "khu": "eo biển Gibraltar ~120 km",
+    "bbox": [
+     -6.2,
+     35.6,
+     -4.8,
+     36.5
+    ],
+    "lop": [
+     "bờ biển (Natural Earth 1:10m)",
+     "hộp đỏ = dấu chân khung máy (lấy từ campath.json khi dựng)"
+    ],
+    "nhan": [
+     "La Línea",
+     "Gibraltar"
+    ],
+    "khong_ve": [
+     "ranh giới",
+     "tuyến",
+     "chú giải"
+    ],
+    "nguon_tren_hinh": "Map: Natural Earth",
+    "chip_noi": "chuyển sang góc TRÊN PHẢI khi inset hiện",
+    "dau_chan_uoc_km": 0.3,
+    "ghi_chu": "chương mới; hộp ≈ 0,3 km → vòng định vị"
+   },
+   "dur_t3b": 12.5
+  },
+  {
+   "id": "KC1910",
+   "ch": 3,
+   "dur": 7.0,
+   "loai": "3D phố",
+   "noi": "thanh_pho",
+   "vung": "neo-la-linea",
+   "goc": "neo-mat-dat-ll",
+   "moc_nam": "1910",
+   "agl_km": 0.002,
+   "agl_max_km": 0.003,
+   "claims": [
+    "S033"
+   ],
+   "vai": "he-qua",
+   "may": "KHUNG NEO: máy cố định tầm mắt 2–3 m, không chuyển động máy; bộ đếm năm; trưa → hoàng hôn",
+   "du_lieu_nha": "Catastro BU 11022 — chỉ toà có năm xây ≤ 1910 (tầng ĐẦY ĐỦ), lô trống để trống, không lấp khối",
+   "hero": "phố hẹp La Línea gần cổng (ô Catastro BU 11022)",
+   "engine": "M9 + phim trường Cycles (PT2)",
+   "mo_ta": "La Línea mọc sau chiến tuyến (S033); cặp then/now với KC2026 cho cú lật kinh tế ch.5",
+   "neo": true,
+   "ai_image": true,
+   "im_lang": false,
+   "pt2": false,
+   "bo_dem": "1910",
+   "nguoi": "30–60 người, trang phục Andalusia c. 1910 (nguồn ảnh: LoC 2025710366 + Rijks — đối chiếu ở G1b)",
+   "vat_dong": [
+    "người",
+    "xe ngựa",
+    "chim",
+    "cờ (không)"
+   ]
   },
   {
    "id": "3e",
    "ch": 3,
-   "dur": 5.0,
+   "dur": 6.0,
    "loai": "ảnh",
    "noi": "eo_dat",
    "vung": "anh-neutral-ground",
@@ -945,12 +1350,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Hồ sơ thật: khoảng giữa c.1900"
+   "mo_ta": "Hồ sơ thật: khoảng giữa c.1900",
+   "dur_g1": 5.0
   },
   {
    "id": "3f",
    "ch": 3,
-   "dur": 11.0,
+   "dur": 16.0,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "north-front",
@@ -968,7 +1374,8 @@
    "hero": "hàng rào 1908–09",
    "engine": "M12,M6",
    "mo_ta": "MỐC ĐINH 1909: hàng rào Anh (báo TBN 8/1908) — TBN không công nhận là biên giới",
-   "moc_dinh": "1909"
+   "moc_dinh": "1909",
+   "dur_t3b": 11.0
   },
   {
    "id": "3g",
@@ -994,7 +1401,7 @@
   {
    "id": "3h",
    "ch": 3,
-   "dur": 9.0,
+   "dur": 9.5,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -1012,12 +1419,14 @@
    "du_lieu_nha": "Baedeker 1913 + AMS 1943",
    "hero": "dải cỏ 1936",
    "engine": "M12,M6",
-   "mo_ta": "Eo đất trước chiến tranh: trường đua thành dải cỏ hạ cánh (£573)"
+   "mo_ta": "Eo đất trước chiến tranh: trường đua thành dải cỏ hạ cánh (£573)",
+   "dur_t3b": 9.0,
+   "dur_g1": 10.0
   },
   {
    "id": "4a",
    "ch": 4,
-   "dur": 5.0,
+   "dur": 10.5,
    "loai": "ảnh",
    "noi": "eo_dat",
    "vung": "anh-1941",
@@ -1033,7 +1442,8 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Câu hỏi: vì sao xây sân bay trên đất tranh chấp?"
+   "mo_ta": "Câu hỏi: vì sao xây sân bay trên đất tranh chấp?",
+   "dur_t3b": 5.0
   },
   {
    "id": "4b",
@@ -1064,7 +1474,7 @@
   {
    "id": "4c",
    "ch": 4,
-   "dur": 10.0,
+   "dur": 9.0,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "vinh-tay",
@@ -1081,12 +1491,13 @@
    "du_lieu_nha": "AMS 1943 + OSM",
    "hero": "đường băng 1941–43",
    "engine": "M12,M6",
-   "mo_ta": "Đường băng mọc ra biển; đá từ hầm + vách bắc"
+   "mo_ta": "Đường băng mọc ra biển; đá từ hầm + vách bắc",
+   "dur_t3b": 10.0
   },
   {
    "id": "4d",
    "ch": 4,
-   "dur": 12.5,
+   "dur": 10.5,
    "loai": "3D phố",
    "noi": "ham",
    "vung": "ham-wwii",
@@ -1104,12 +1515,14 @@
    "du_lieu_nha": "",
    "hero": "mạng hầm WWII (sơ đồ)",
    "engine": "M11,M1",
-   "mo_ta": "\"Thành phố ngầm\": Great North Road ~1 dặm, bệnh viện, nhà máy điện"
+   "mo_ta": "\"Thành phố ngầm\": Great North Road ~1 dặm, bệnh viện, nhà máy điện",
+   "dur_t3b": 12.5,
+   "dur_g1": 11.0
   },
   {
    "id": "4e",
    "ch": 4,
-   "dur": 5.0,
+   "dur": 7.5,
    "loai": "thẻ số",
    "noi": "—",
    "vung": "the",
@@ -1127,7 +1540,9 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Một con số quy tầm người; ~30 km đào trong WWII (một nguồn)"
+   "mo_ta": "Một con số quy tầm người; ~30 km đào trong WWII (một nguồn)",
+   "dur_t3b": 5.0,
+   "dur_g1": 7.0
   },
   {
    "id": "4f",
@@ -1151,9 +1566,106 @@
    "mo_ta": "Hồ sơ thật: bình đồ quân sự 1943"
   },
   {
+   "id": "SM3",
+   "ch": 4,
+   "dur": 8,
+   "loai": "bản đồ chiến lược",
+   "type": "strategic",
+   "noi": "luc_dia",
+   "vung": "tay-au-bac-phi",
+   "goc": "strategic-1941",
+   "moc_nam": "1940–42",
+   "agl_km": 0.0,
+   "agl_max_km": 0.0,
+   "khung_rong_km": 2500,
+   "bbox": [
+    -17.5,
+    31.0,
+    6.0,
+    49.5
+   ],
+   "claims": [
+    "T021",
+    "T022",
+    "T023",
+    "T024",
+    "T026",
+    "S114",
+    "S115",
+    "S117",
+    "S118",
+    "S120",
+    "S122"
+   ],
+   "vai": "he-qua",
+   "tuyen": [
+    "R1940-EV-CASA",
+    "R1940-EV-LON",
+    "R1940-EV-MAD",
+    "R1940-EV-JAM",
+    "R1942-AIR-ORAN",
+    "R1942-SEA-WEST",
+    "R1942-SEA-ORAN",
+    "R1942-SEA-ALG"
+   ],
+   "ranh": "1941",
+   "nhan_ranh": "approx. borders c. 1941 — Cliopatria (Seshat)",
+   "chu_giai": [
+    "Britain & Allies",
+    "Spain (non-belligerent)",
+    "France: Vichy / German-occupied (hatched)"
+   ],
+   "bo_dem": [
+    {
+     "t": 0.0,
+     "hien": "May 1940"
+    },
+    {
+     "t": 1.0,
+     "hien": "12–14 Jun 1940"
+    },
+    {
+     "t": 2.2,
+     "hien": "Jul–Oct 1940"
+    },
+    {
+     "t": 5.0,
+     "hien": "8 Nov 1942"
+    }
+   ],
+   "nhip": [
+    {
+     "t": 0.0,
+     "su_kien": "mở c. 1941; cung sơ tán đầu tiên (kem) Gibraltar → Casablanca (22/5–24/6/1940)"
+    },
+    {
+     "t": 1.0,
+     "su_kien": "nhãn \"Spain (non-belligerent)\" hiện (12/6, T021); Tangier đổi gạch vàng + nhãn (14/6, T022)"
+    },
+    {
+     "t": 2.2,
+     "su_kien": "cung sơ tán London (lên mép bắc), Madeira, Jamaica (ra mép tây) — màu kem trung tính, không mũi tên quân sự"
+    },
+    {
+     "t": 5.0,
+     "su_kien": "Torch: mũi tên KHÔNG Gibraltar → Tafaraoui (đỏ, nét đứt) + ba mũi tên biển từ mép tây vào Casablanca/Oran/Alger, KHÔNG ghi nơi đi (T025 CHƯA XÁC MINH)"
+    },
+    {
+     "t": 6.5,
+     "su_kien": "hoà vào 4g (3D vịnh 1940)"
+    }
+   ],
+   "may": "trượt nhẹ nam → bắc rồi giữ; một lần zoom ra cho cung Jamaica/London ra mép",
+   "engine": "M13-lite",
+   "du_lieu_nha": "",
+   "hero": "—",
+   "mo_ta": "Sơ tán dân 1940 (trung tính) trong bối cảnh Tây Ban Nha \"không tham chiến\" + Tangier; hai năm sau Gibraltar là bàn đạp Torch.",
+   "dur_t3b": 7.0
+  },
+  {
    "id": "4g",
    "ch": 4,
-   "dur": 9.0,
+   "dur": 5.5,
    "loai": "3D vùng",
    "noi": "bien",
    "vung": "vinh",
@@ -1172,12 +1684,48 @@
    "du_lieu_nha": "ghost 1943",
    "hero": "—",
    "engine": "M1,M3",
-   "mo_ta": "Hệ quả: hầu hết dân thường rời Rock 1940 (13 000–16 000 tuỳ nguồn)"
+   "mo_ta": "Hệ quả: hầu hết dân thường rời Rock 1940 (13 000–16 000 tuỳ nguồn)",
+   "dur_t3b": 2.0
+  },
+  {
+   "id": "KB1943",
+   "ch": 4,
+   "dur": 8.0,
+   "loai": "3D phố",
+   "noi": "thanh_pho",
+   "vung": "neo-commercial-sq",
+   "goc": "neo-mat-dat-csq",
+   "moc_nam": "1943",
+   "agl_km": 0.002,
+   "agl_max_km": 0.003,
+   "claims": [
+    "S114",
+    "S120"
+   ],
+   "vai": "he-qua",
+   "may": "KHUNG NEO: máy cố định tầm mắt 2–3 m, không chuyển động máy; bộ đếm năm; trưa → đêm (đêm từ lượt chiếu sáng A, tắt đèn thời chiến)",
+   "du_lieu_nha": "AMS M981 1943 1:10 000 (từng nhà, RMS ~12 m) + PT2",
+   "hero": "Commercial Square (nay John Mackintosh Square)",
+   "engine": "M9 + phim trường Cycles (PT2)",
+   "mo_ta": "tấm im lặng #1: kể bằng khoảng trống; khung PT2 đã có",
+   "neo": true,
+   "ai_image": true,
+   "im_lang": true,
+   "pt2": true,
+   "bo_dem": "1943",
+   "nguoi": "30–60 người, CHỈ nam (lính, thuỷ thủ, công nhân) — sơ tán 1940 (S114, S120); không phụ nữ/trẻ em",
+   "vat_dong": [
+    "người",
+    "xe quân sự",
+    "chim",
+    "khói ống khói tàu xa"
+   ],
+   "dur_truoc_rut": 9.0
   },
   {
    "id": "4h",
    "ch": 4,
-   "dur": 6.0,
+   "dur": 11.5,
    "loai": "ảnh",
    "noi": "—",
    "vung": "van-ban-tbn",
@@ -1196,12 +1744,14 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Hai phía: \"porción usurpada\" (TBN 1939), \"ilegal\" (MAEUEC) ↔ Anh (Hansard 1991)"
+   "mo_ta": "Hai phía: \"porción usurpada\" (TBN 1939), \"ilegal\" (MAEUEC) ↔ Anh (Hansard 1991)",
+   "dur_t3b": 6.0,
+   "dur_g1": 9.0
   },
   {
    "id": "4i",
    "ch": 4,
-   "dur": 7.5,
+   "dur": 16.0,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -1218,12 +1768,14 @@
    "du_lieu_nha": "AMS 1943 + OSM",
    "hero": "đường băng 1942",
    "engine": "M6",
-   "mo_ta": "Hệ quả: đường băng thành bàn đạp Torch — 650 máy bay"
+   "mo_ta": "Hệ quả: đường băng thành bàn đạp Torch — 650 máy bay",
+   "dur_t3b": 7.5,
+   "dur_g1": 14.0
   },
   {
    "id": "5a",
    "ch": 5,
-   "dur": 9.0,
+   "dur": 14.0,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "cong-bien-gioi",
@@ -1239,12 +1791,13 @@
    "du_lieu_nha": "OSM + Catastro (≤ 1969)",
    "hero": "cổng biên giới",
    "engine": "M6",
-   "mo_ta": "Câu hỏi: khi cổng đóng, ai mất gì? 6/1969"
+   "mo_ta": "Câu hỏi: khi cổng đóng, ai mất gì? 6/1969",
+   "dur_g1": 9.0
   },
   {
    "id": "5b",
    "ch": 5,
-   "dur": 6.0,
+   "dur": 8.0,
    "loai": "thẻ số",
    "noi": "—",
    "vung": "the",
@@ -1261,12 +1814,47 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "\"4 in 10 jobs\""
+   "mo_ta": "\"4 in 10 jobs\"",
+   "dur_t3b": 6.0
+  },
+  {
+   "id": "KB2026",
+   "ch": 5,
+   "dur": 9.5,
+   "loai": "3D phố",
+   "noi": "thanh_pho",
+   "vung": "neo-commercial-sq",
+   "goc": "neo-mat-dat-csq",
+   "moc_nam": "2026",
+   "agl_km": 0.002,
+   "agl_max_km": 0.003,
+   "claims": [
+    "C08"
+   ],
+   "vai": "he-qua",
+   "may": "KHUNG NEO: máy cố định tầm mắt 2–3 m, không chuyển động máy; bộ đếm năm; sáng → tối",
+   "du_lieu_nha": "OSM 2026",
+   "hero": "Commercial Square (nay John Mackintosh Square)",
+   "engine": "M9 + phim trường Cycles (PT2)",
+   "mo_ta": "cặp KB1943 ↔ KB2026: cùng khung, quảng trường chỉ nam (1943) ↔ đông người qua biên giới (2026)",
+   "neo": true,
+   "ai_image": true,
+   "im_lang": false,
+   "pt2": false,
+   "bo_dem": "2026",
+   "nguoi": "40–80 người, nam nữ mọi tuổi, nhiều người mang túi làm việc buổi sáng",
+   "vat_dong": [
+    "người",
+    "xe đạp/xe giao hàng",
+    "chim",
+    "cờ (không làm điểm nhấn)"
+   ],
+   "dur_t3b": 9.0
   },
   {
    "id": "5c",
    "ch": 5,
-   "dur": 11.0,
+   "dur": 8.5,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "duong-bang-2026",
@@ -1284,12 +1872,13 @@
    "du_lieu_nha": "OSM + Catastro",
    "hero": "đường băng, cổng",
    "engine": "—",
-   "mo_ta": "Mở lại 1985; sáng 2026 dòng người qua đường băng"
+   "mo_ta": "Mở lại 1985; sáng 2026 dòng người qua đường băng",
+   "dur_t3b": 11.0
   },
   {
    "id": "5d",
    "ch": 5,
-   "dur": 11.0,
+   "dur": 4.5,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "la-linea",
@@ -1306,12 +1895,81 @@
    "du_lieu_nha": "Catastro BU 11022",
    "hero": "—",
    "engine": "M9",
-   "mo_ta": "Thất nghiệp cao nhất 113 đô thị INE đo"
+   "mo_ta": "Thất nghiệp cao nhất 113 đô thị INE đo",
+   "inset": {
+    "vi_tri": "tren-trai",
+    "x_px": 96,
+    "y_px": 54,
+    "w_px": 600,
+    "h_px": 340,
+    "ty_le_khung": 0.0984,
+    "t_vao_s": 0.6,
+    "dur_s": 3.0,
+    "mo_s": 0.3,
+    "khu": "eo biển Gibraltar ~120 km",
+    "bbox": [
+     -6.2,
+     35.6,
+     -4.8,
+     36.5
+    ],
+    "lop": [
+     "bờ biển (Natural Earth 1:10m)",
+     "hộp đỏ = dấu chân khung máy (lấy từ campath.json khi dựng)"
+    ],
+    "nhan": [
+     "La Línea",
+     "Gibraltar"
+    ],
+    "khong_ve": [
+     "ranh giới",
+     "tuyến",
+     "chú giải"
+    ],
+    "nguon_tren_hinh": "Map: Natural Earth",
+    "chip_noi": "chuyển sang góc TRÊN PHẢI khi inset hiện",
+    "dau_chan_uoc_km": 0.41,
+    "ghi_chu": "chương mới; hộp ≈ 0,4 km → vòng định vị"
+   },
+   "dur_t3b": 11.0
+  },
+  {
+   "id": "KC2026",
+   "ch": 5,
+   "dur": 10.0,
+   "loai": "3D phố",
+   "noi": "thanh_pho",
+   "vung": "neo-la-linea",
+   "goc": "neo-mat-dat-ll",
+   "moc_nam": "2026",
+   "agl_km": 0.002,
+   "agl_max_km": 0.003,
+   "claims": [
+    "C14",
+    "C15"
+   ],
+   "vai": "he-qua",
+   "may": "KHUNG NEO: máy cố định tầm mắt 2–3 m, không chuyển động máy; bộ đếm năm; chiều → tối",
+   "du_lieu_nha": "Catastro BU 11022 (năm xây ≤ 2026)",
+   "hero": "phố hẹp La Línea gần cổng (ô Catastro BU 11022)",
+   "engine": "M9 + phim trường Cycles (PT2)",
+   "mo_ta": "trả lời 'Remember this street' của KC1910; số thất nghiệp neo trên phố thật (thay phần cuối 5d)",
+   "neo": true,
+   "ai_image": true,
+   "im_lang": false,
+   "pt2": false,
+   "bo_dem": "2026",
+   "nguoi": "30–60 người (dân cư thường ngày, không dàn cảnh nghèo khổ)",
+   "vat_dong": [
+    "người",
+    "xe",
+    "chim"
+   ]
   },
   {
    "id": "5e",
    "ch": 5,
-   "dur": 8.0,
+   "dur": 6.4167,
    "loai": "thẻ số",
    "noi": "—",
    "vung": "the",
@@ -1329,12 +1987,14 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "CÚ LẬT (giữ từ TIEN-KY)"
+   "mo_ta": "CÚ LẬT (giữ từ TIEN-KY)",
+   "dur_t3b": 8.0,
+   "dur_truoc_rut": 7.0
   },
   {
    "id": "5f",
    "ch": 5,
-   "dur": 11.0,
+   "dur": 16.5,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -1352,12 +2012,14 @@
    "du_lieu_nha": "OSM + Catastro",
    "hero": "biên giới OSM admin_level=2",
    "engine": "—",
-   "mo_ta": "Hai thành phố cùng một cổng — tô theo số, không vẽ lại biên giới"
+   "mo_ta": "Hai thành phố cùng một cổng — tô theo số, không vẽ lại biên giới",
+   "dur_t3b": 11.0,
+   "dur_g1": 15.0
   },
   {
    "id": "5g",
    "ch": 5,
-   "dur": 6.0,
+   "dur": 8.0,
    "loai": "ảnh",
    "noi": "—",
    "vung": "van-ban-2026",
@@ -1374,12 +2036,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Điều khoản chủ quyền"
+   "mo_ta": "Điều khoản chủ quyền",
+   "dur_t3b": 6.0
   },
   {
    "id": "5h",
    "ch": 5,
-   "dur": 10.0,
+   "dur": 16.0,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "cong-bien-gioi",
@@ -1396,12 +2059,14 @@
    "du_lieu_nha": "OSM + Catastro",
    "hero": "cổng, hàng rào 2026",
    "engine": "—",
-   "mo_ta": "Đúng C03: không phải \"hàng rào đã đổ\""
+   "mo_ta": "Đúng C03: không phải \"hàng rào đã đổ\"",
+   "dur_t3b": 10.0,
+   "dur_g1": 14.0
   },
   {
    "id": "5i",
    "ch": 5,
-   "dur": 6.0,
+   "dur": 8,
    "loai": "thẻ số",
    "noi": "—",
    "vung": "the",
@@ -1418,12 +2083,13 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Điều cần theo dõi — có ngày"
+   "mo_ta": "Điều cần theo dõi — có ngày",
+   "dur_t3b": 6.0
   },
   {
    "id": "5j",
    "ch": 5,
-   "dur": 15.0,
+   "dur": 17.0,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -1441,12 +2107,48 @@
    "du_lieu_nha": "tất cả lớp mốc",
    "hero": "tất cả hero",
    "engine": "M4,M12",
-   "mo_ta": "Bảng điểm tổng kết bằng địa hình"
+   "mo_ta": "Bảng điểm tổng kết bằng địa hình",
+   "dur_t3b": 15.0
+  },
+  {
+   "id": "KA2026",
+   "ch": 5,
+   "dur": 8.0,
+   "loai": "3D phố",
+   "noi": "thanh_pho",
+   "vung": "neo-hem-k09",
+   "goc": "neo-mat-dat-k09",
+   "moc_nam": "2026",
+   "agl_km": 0.002,
+   "agl_max_km": 0.003,
+   "claims": [
+    "C08",
+    "C02"
+   ],
+   "vai": "he-qua",
+   "may": "KHUNG NEO: máy cố định tầm mắt 2–3 m, không chuyển động máy; bộ đếm năm; chiều → đêm",
+   "du_lieu_nha": "OSM 2026 (706 toà phố cổ; chiều cao ước — chỉ 8 toà có số tầng)",
+   "hero": "hẻm K09/K10 (phố cổ, cạnh Main Street)",
+   "engine": "M9 + phim trường Cycles (PT2)",
+   "mo_ta": "tấm im lặng #2: hẻm thời vây ↔ hẻm nay, không lời; bookend trước câu chốt",
+   "neo": true,
+   "ai_image": true,
+   "im_lang": true,
+   "pt2": false,
+   "bo_dem": "2026",
+   "nguoi": "30–60 người, nam nữ mọi tuổi",
+   "vat_dong": [
+    "người",
+    "chim",
+    "cờ",
+    "đèn đường bật (đêm từ lượt chiếu sáng A)"
+   ],
+   "dur_truoc_rut": 9.0
   },
   {
    "id": "5k",
    "ch": 5,
-   "dur": 7.5,
+   "dur": 20.0,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "cong-bien-gioi",
@@ -1462,7 +2164,8 @@
    "du_lieu_nha": "OSM + Catastro",
    "hero": "cổng",
    "engine": "—",
-   "mo_ta": "Câu chốt nghịch lý; dẫn sang tập kế"
+   "mo_ta": "Câu chốt nghịch lý; dẫn sang tập kế",
+   "dur_t3b": 7.5
   }
  ]
 }

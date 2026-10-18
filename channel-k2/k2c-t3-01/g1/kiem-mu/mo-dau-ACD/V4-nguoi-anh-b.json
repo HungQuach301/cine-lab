@@ -1,0 +1,32 @@
+{
+ "X": {
+  "keep_watching": true,
+  "chance_0to10": 6,
+  "why": "The 'key of the Mediterranean' hook with both a British and a Spanish historian is clever and fair-minded, and the sourced labels give me confidence it's proper history. But 'Same rock. Same image. Opposite sides.' has a faint whiff of framing the thing as a contested political matter, and starting on the Spanish quote after the British one feels a touch like it's setting up equivalence rather than telling the story of the Rock.",
+  "moment_you_would_leave_or_doubt": "'Opposite sides.' If the next minute drifts into sovereignty argument or 'Britain stole it' territory, I'm gone. The 'both sides' framing promises balance but could easily turn into a modern political lecture."
+ },
+ "Y": {
+  "keep_watching": true,
+  "chance_0to10": 7,
+  "why": "Cleaner and more neutral than X: the Spanish quote and the British one are simply presented as two historians' phrases, and then it gets on with geography ('western gate of the Mediterranean'), which is what a history video should do. Source line naming Sayer, a Spanish academic and the Gibraltar National Museum is reassuring. 'Historians on both sides' is sensible, not sneering.",
+  "moment_you_would_leave_or_doubt": "Opening on the Spanish historian first and 'the Spanish one' leading, with the British quote second, is a small irritation. And the 'told from both sides' records' line makes me wary it will keep apologising or equivocating about Britain's role."
+ },
+ "Z": {
+  "keep_watching": true,
+  "chance_0to10": 8,
+  "why": "Opens with the vivid, factual hook of walking across the runway, then the Rock, then the geography, and the '14 sieges, only five changed who ruled it' line is a genuinely interesting, specific hook that promises real military history (1704, 1782 Great Siege). It names Sayer and the Gibraltar National Museum and rewinds through dates I care about, 1943, 1782, 1704. No quote-trading, no framing of the Rock as a dispute.",
+  "moment_you_would_leave_or_doubt": "The 'new UK–EU treaty, no routine checks' line is topical politics in the first 15 seconds, and 'Midnight at the edge of Spain' frames Gibraltar from Spain's side. If that thread gets pushed into Brexit or sovereignty commentary rather than the sieges, I'd switch off. 'Told from both sides' is a mild worry too."
+ },
+ "ranking_best_first": [
+  "Z",
+  "Y",
+  "X"
+ ],
+ "one_change_to_the_best_version": "Change the opening line to 'Midnight at the foot of the Rock' (or 'at the Gibraltar frontier') and drop or defer the treaty/border-checks line, so the first 20 seconds are about geography and the sieges rather than present-day politics; keep the '14 sieges, only five changed hands' hook.",
+ "_nhan": {
+  "X": "C",
+  "Y": "D",
+  "Z": "A"
+ },
+ "_prompt": "You are 61, British, your father served in the Gibraltar garrison; you enjoy history videos but you leave when one sneers at Britain or turns Gibraltar's story into a modern political rant.\n\nYou just clicked a YouTube video titled \"Why Gibraltar Was Besieged 14 Times\". Below are three different versions of its first ~30 seconds (X, Y and Z). Each line gives the picture on screen in [brackets] and then the narration. After these 30 seconds, all three versions continue identically.\n\n--- Version X ---\n[midnight 2026 at the border gate, a pedestrian crossing the runway; the quote appears on screen credited \"Sayer, 1862\"] A British historian called it \"the key of the Mediterranean.\"\n[camera cranes up over the isthmus; on screen: «la preciosa llave del Mediterráneo» — Montero, 1860] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[quick zoom out to the Strait between Europe and Africa, and back down] Same rock. Same image. Opposite sides.\n[title card \"14 sieges · 1309–1783\" with a small source line] Historians count fourteen sieges of it, between 1309 and 1783.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] Here's why everyone fought over this key, told from both sides' records.\n\n--- Version Y ---\n[midnight 2026 at the border gate, a pedestrian crossing the runway toward the Rock; on screen: «la preciosa llave del Mediterráneo» — Montero, 1860] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[camera cranes up over the isthmus and the runway to the Rock's north face; on screen: \"the key of the Mediterranean\" — Sayer, 1862] A British one, two years later: \"the key of the Mediterranean.\"\n[quick zoom out to the Strait between Europe and Africa, and straight back down] It sits at the western gate of the Mediterranean.\n[title card \"14 sieges · 1309–1783\", source line \"Sayer 1862 · García Sanz 2022 · Gibraltar National Museum\"] Historians on both sides count fourteen sieges of it, between 1309 and 1783.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] This is why everyone fought over this key, told from both sides' records.\n\n--- Version Z ---\n[midnight 2026, camera at walking height follows a pedestrian crossing an airport runway toward a huge rock; small place label \"Gibraltar–La Línea frontier\"] Midnight at the edge of Spain. To walk into Gibraltar, you cross an airport runway.\n[camera cranes up from the border gate: the sandy isthmus, the runway across it, the Rock's sheer north face] Since July, under a new UK–EU treaty, there are no routine checks at this gate.\n[quick zoom out to the whole Strait — Europe and Africa, the mouth of the Mediterranean — and straight back down] But look where it sits.\n[title card \"14 sieges · 1309–1783\", small source line \"Sayer 1862 · Gibraltar National Museum\"] Historians count fourteen sieges of Gibraltar between 1309 and 1783.\n[camera pushes in from the bay into the old town, which rewinds 2026 → 1943 → 1782 → 1704 (each step labelled with year and source map)] Only five changed who ruled it. This is why everyone fought over it, told from both sides' records.\n\nFor EACH version, answer honestly as yourself: after these 30 seconds, would you keep watching? Then rank the three. Do not be polite; you have no stake in who made it.\nReply with ONLY this JSON (no other text):\n{\"X\": {\"keep_watching\": true|false, \"chance_0to10\": n, \"why\": \"...\", \"moment_you_would_leave_or_doubt\": \"...\"},\n \"Y\": {...}, \"Z\": {...},\n \"ranking_best_first\": [\"?\", \"?\", \"?\"], \"one_change_to_the_best_version\": \"...\"}"
+}

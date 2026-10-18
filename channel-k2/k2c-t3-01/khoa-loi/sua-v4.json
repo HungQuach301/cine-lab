@@ -1,0 +1,173 @@
+[
+ {
+  "ma": "F01",
+  "shot": "1b",
+  "truoc": "came in the name of the rival claimant, \"Charles the Third.\" {S012} {S020}",
+  "sau": "fought for the rival claimant, \"Charles the Third.\" {S012} {S017}",
+  "ai_neu": "R1, R2 + REVIEWER (dữ kiện)",
+  "claim": "S012 S017 S020",
+  "ly_do": "S020 MÂU THUẪN: \"nhân danh ai\" lệch giữa nguồn (García Sanz: Carlos III; Sayer/Montero: Nữ hoàng Anne) → nói điều mọi nguồn cùng nhận"
+ },
+ {
+  "ma": "F02",
+  "shot": "1d",
+  "truoc": "The fleet answered with some fifteen thousand rounds. {S016}",
+  "sau": "The fleet answered with some fifteen thousand rounds, by British and Spanish accounts alike. {S016}",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S016",
+  "ly_do": "số đạn không nói ai đếm (Sayer ≥ 15 000 · Montero \"sobre quince mil\")"
+ },
+ {
+  "ma": "F03",
+  "shot": "1e",
+  "truoc": "On the fourth of August 1704, Gibraltar surrendered.",
+  "sau": "On the fourth of August 1704, by the new calendar, Gibraltar surrendered.",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S013",
+  "ly_do": "ngày lịch cũ chỉ trên hình → người chỉ nghe thấy lệch; nói \"new calendar\""
+ },
+ {
+  "ma": "F04",
+  "shot": "1g",
+  "truoc": "By Spanish accounts, almost all left, and the largest group settled a league north-east, at San Roque.",
+  "sau": "By a British account, almost all left; by a Spanish one, the largest group settled a league north-east, at San Roque.",
+  "ai_neu": "R1, R2, R3 + REVIEWER (dữ kiện)",
+  "claim": "S017 S019",
+  "ly_do": "\"almost all\" là nguồn Anh (GHT, S017), không phải nguồn TBN"
+ },
+ {
+  "ma": "F05",
+  "shot": "1h",
+  "truoc": "In 1713, the Treaty of Utrecht made it permanent: the town, castle and port went to the British Crown, \"for ever.\" {S022} {S028} {S029} But \"without any territorial jurisdiction, and without any open communication by land.\" {S023} {S027}",
+  "sau": "In 1713, the Treaty of Utrecht gave it to the British Crown \"for ever,\" {S022} {S028} {S029} but \"without any territorial jurisdiction, and without any open communication by land.\" {S023} {S027} If Britain ever gave it up, Spain would have first refusal. {S025}",
+  "ai_neu": "R1, R2, R3 (cả hai vòng)",
+  "claim": "S022 S023 S025",
+  "ly_do": "trích Điều X một chiều — thiếu điều khoản ưu tiên cho Tây Ban Nha (S025 XÁC MINH); \"town, castle and port\" dời sang 1i (tránh lặp, giữ thời lượng)"
+ },
+ {
+  "ma": "F06",
+  "shot": "1i",
+  "truoc": "The treaty never mentions the sandy isthmus to the north. {S022} {S035} Spain says the isthmus was never ceded. {S030} Britain said in 2015 that it does. {S031}",
+  "sau": "The treaty names the town, castle and port, not the sandy isthmus to the north. {S022} {S035} Spain says the isthmus was never ceded. {S030} Britain said in 2015 that Gibraltar includes it. {S031}",
+  "ai_neu": "R1, R3 + REVIEWER (dữ kiện)",
+  "claim": "S022 S035 S030 S031",
+  "ly_do": "\"it does\" mơ hồ (lỗi do sửa vòng 1); \"never mentions\" nói về cả hiệp ước, claim chỉ trích Điều X"
+ },
+ {
+  "ma": "F07",
+  "shot": "1j",
+  "truoc": "Spain besieged it twice more: from 1704 to 1705, with French troops, and in 1727. {S021} {S004} Neither siege took it.",
+  "sau": "Within weeks, Spain and France besieged it, into 1705. {S021} {S004} Spain tried again in 1727. {S004} Neither siege took it.",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S021 S004",
+  "ly_do": "\"twice more\" (sửa vòng 1) nghe như đếm sai"
+ },
+ {
+  "ma": "F08",
+  "shot": "2b",
+  "truoc": "By October, by the British count, about fourteen thousand Spanish troops faced the Rock. {S048}",
+  "sau": "By October, British intelligence put the Spanish army facing the Rock at up to fourteen thousand. {S048}",
+  "ai_neu": "REVIEWER (dữ kiện)",
+  "claim": "S048",
+  "ly_do": "S048: quân số giấy \"nếu đủ biên chế\", tin tình báo Anh"
+ },
+ {
+  "ma": "F09",
+  "shot": "2i",
+  "truoc": "the two sides fired over four hundred and sixty thousand rounds. {S051} {S077}",
+  "sau": "the two sides fired over four hundred and sixty thousand rounds. {S051} {S077}\n[TRÊN HÌNH] Drinkwater (garrison officer), 1785: \"garrison 205,328 rounds · besiegers 258,387 (counted from April 1781)\"",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S051",
+  "ly_do": "\"British tallies\" không nói của ai → tên + số tách hai phía lên hình (không thêm lời)"
+ },
+ {
+  "ma": "F10",
+  "shot": "2m",
+  "truoc": "That morning, the batteries moved into position, and the garrison opened fire on them. {S066}",
+  "sau": "That morning, the batteries moved into position under the garrison's fire. {S066}",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S066",
+  "ly_do": "trình tự ai bắn trước khó hình dung"
+ },
+ {
+  "ma": "F11",
+  "shot": "2n",
+  "truoc": "By British and Spanish counts, over two thousand attackers were lost, prisoners included; the British rescued three hundred and fifty-seven. {S069}",
+  "sau": "Over two thousand attackers were lost, by a British estimate that includes prisoners, and by a Spanish one; the British rescued three hundred and fifty-seven. {S069}",
+  "ai_neu": "R1, R2, R3 + REVIEWER (dữ kiện)",
+  "claim": "S069",
+  "ly_do": "chỉ số Anh gồm tù binh; Montero không nói"
+ },
+ {
+  "ma": "F12",
+  "shot": "2r",
+  "truoc": "From all causes, the Spanish historian Montero put the losses near two thousand defenders and six thousand besiegers. {S077} The garrison's own records count at least eight hundred and sixty-nine dead. {S076}",
+  "sau": "Spanish historian Montero put losses near two thousand defenders and, from all causes, six thousand besiegers. {S077} The garrison's records count fewer dead: at least eight hundred and sixty-nine. {S076}",
+  "ai_neu": "R1, R2, R3 + REVIEWER (dữ kiện)",
+  "claim": "S077 S076",
+  "ly_do": "\"por todas causas\" chỉ áp cho 6 000; hai số phía giữ thành không cùng cách tính → nói \"fewer\""
+ },
+ {
+  "ma": "F13",
+  "shot": "3b",
+  "truoc": "In 1810, with",
+  "sau": "Around 1810, with",
+  "ai_neu": "R1, R2, R3 + REVIEWER",
+  "claim": "S034",
+  "ly_do": "S034 MÂU THUẪN năm (Montero 1811) — lời nói chắc 1810"
+ },
+ {
+  "ma": "F14",
+  "shot": "4b",
+  "truoc": "called the strip a fait accompli, like the Rock itself. {S098}",
+  "sau": "called the strip a fait accompli, like the Rock itself, while insisting its use breached Spanish territory. {S098}",
+  "ai_neu": "R1, R2, R3 (4h, cả hai vòng) + REVIEWER ×2",
+  "claim": "S098",
+  "ly_do": "cắt nửa claim S098 → nghe như Tây Ban Nha chấp nhận; đoạn 4a–4h bị 3/3 chê nghiêng"
+ },
+ {
+  "ma": "F15",
+  "shot": "4e",
+  "truoc": "more than its roads above ground. {S106} {S108}",
+  "sau": "more than its roads above ground. {S106} {S108}\n[TRÊN HÌNH] \"HM Government of Gibraltar, 2017 · UK Hansard, 2015: 34 miles of tunnels, twice the road length\"",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S106 S108",
+  "ly_do": "so sánh với đường bộ bị nghi không nguồn → nguồn lên hình"
+ },
+ {
+  "ma": "F16",
+  "shot": "5c",
+  "truoc": "The UK government puts the daily crossers at about fifteen thousand.",
+  "sau": "The UK government puts the daily crossers higher, at about fifteen thousand.",
+  "ai_neu": "R1, R3 (+ R2 vòng 1)",
+  "claim": "C09b C08",
+  "ly_do": "14 000 việc làm ↔ 15 000 người qua lại nghe như lệch — báo là số khác, cơ quan khác"
+ },
+ {
+  "ma": "F17",
+  "shot": "5h",
+  "truoc": "only about a hundred and fifty metres, where walkers cross, stays open. {C03}",
+  "sau": "only about a hundred and fifty metres would stay open. {C03}",
+  "ai_neu": "REVIEWER (dữ kiện)",
+  "claim": "C03",
+  "ly_do": "tin 2/7 là kế hoạch (thì tương lai); \"where walkers cross\" không có trong trích lưu ở C03"
+ },
+ {
+  "ma": "F18",
+  "shot": "5i",
+  "truoc": "the treaty is applied provisionally, pending",
+  "sau": "the treaty is in force only provisionally, pending",
+  "ai_neu": "R1, R2, R3",
+  "claim": "C26",
+  "ly_do": "\"applied provisionally\" (sửa vòng 1) nghe như thuật ngữ luật"
+ },
+ {
+  "ma": "F19",
+  "shot": "5k",
+  "truoc": "In 1730, Spain built a line to cut the Rock off by land.",
+  "sau": "In 1730, Spain ordered a line to cut the Rock off by land.",
+  "ai_neu": "REVIEWER (dữ kiện)",
+  "claim": "S032",
+  "ly_do": "S032: lệnh 1730, xong 1735 — câu chốt L15 chỉ đổi một từ"
+ }
+]

@@ -1,0 +1,32 @@
+{
+ "X": {
+  "keep_watching": true,
+  "chance_0to10": 7,
+  "why": "The runway-crossing hook is a vivid, specific image, and the 2026 treaty detail makes it feel current. 'But look where it sits' points at geography as the mechanism, which is what I came for. '14 sieges, only five changed hands' is a good tension: it raises the question of why a place that was fought over so often kept staying put. 'Told from both sides' records' makes me trust it.",
+  "moment_you_would_leave_or_doubt": "'This is why everyone fought over it' is a generic promise, and the 'but look where it sits' beat is vague. If the next minute is only a list of sieges and dates, I'm gone. I'd also doubt the 'no routine checks since July' claim until I saw it sourced."
+ },
+ "Y": {
+  "keep_watching": true,
+  "chance_0to10": 5,
+  "why": "The British and Spanish 'key of the Mediterranean' quotes side by side are clever and I like the symmetry. But they give me a metaphor, not a mechanism, and I came for why the place matters economically. The quotes say it is strategic without saying how.",
+  "moment_you_would_leave_or_doubt": "At 'Same rock. Same image. Opposite sides.' it starts to feel like a historiography or national-narratives video. The opening is literary, with no concrete stake or surprising number until the 14 card, and nothing about wealth, trade or the strait. I'd start scrubbing ahead if the next stretch is two historians quoting each other."
+ },
+ "Z": {
+  "keep_watching": true,
+  "chance_0to10": 6,
+  "why": "It opens with a blunt number, '14', and then delivers the surprise that only five sieges changed who ruled it. The 'under six square kilometres' contrast against 'everyone fought over it' states the puzzle of a tiny place with outsized importance. The strait zoom gives geography.",
+  "moment_you_would_leave_or_doubt": "Opening on a bare '14' on a dark screen with no hook is a cold start. 'British and Spanish historians count the same way' is a dry methodological aside that kills momentum. The two-column historian-names card looks like bibliography on screen, and I'd get restless there."
+ },
+ "ranking_best_first": [
+  "X",
+  "Z",
+  "Y"
+ ],
+ "one_change_to_the_best_version": "Replace the vague 'But look where it sits' with one concrete stake from the strait that has a number and a mechanism. For example, say how wide the strait is and that everything sailing between the Atlantic and the Mediterranean has to pass this rock. Then open the 'only five changed hands' tension straight afterward, so the viewer is promised a mechanism, not just a history of sieges.",
+ "_nhan": {
+  "X": "A",
+  "Y": "C",
+  "Z": "B"
+ },
+ "_prompt": "You are 31 and watch economics and geography explainer videos about why places get rich or poor; you came for the mechanism behind a place, and you leave if a video is only battles and dates.\n\nYou just clicked a YouTube video titled \"Why Gibraltar Was Besieged 14 Times\". Below are three different versions of its first ~30 seconds (X, Y and Z). Each line gives the picture on screen in [brackets] and then the narration. After these 30 seconds, all three versions continue identically.\n\n--- Version X ---\n[nửa đêm 2026, máy 3 m theo người đi bộ băng qua đường băng về phía Rock; chip \"Gibraltar–La Línea frontier\"] Midnight at the edge of Spain. To walk into Gibraltar, you cross an airport runway.\n[crane lên từ cổng → eo đất, đường băng, vách bắc] Since July, under a new UK–EU treaty, there are no routine checks at this gate.\n[zoom nhiều tầng chạm 90 km (2,5 s) rồi lặn lại: cửa Địa Trung Hải, hai lục địa] But look where it sits.\n[thẻ \"14 sieges · 1309–1783\", nguồn ngắn Sayer 1862 · Gibraltar National Museum] Historians count fourteen sieges of Gibraltar between 1309 and 1783.\n[push-in từ vịnh vào phố, phố \"tua ngược\" 2026 → 1943 → 1782 → 1704 (mỗi mốc có nhãn năm + nguồn)] Only five changed who ruled it. This is why everyone fought over it, told from both sides' records.\n\n--- Version Y ---\n[nửa đêm 2026 ở cổng, người đi bộ qua đường băng; chữ trích Sayer 1862 hiện góc dưới] A British historian called it \"the key of the Mediterranean.\"\n[crane lên → eo đất; chữ trích Montero 1860 «la preciosa llave del Mediterráneo»] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[zoom 90 km: eo biển giữa hai lục địa] Same rock. Same image. Opposite sides.\n[thẻ \"14 sieges · 1309–1783\"] Historians count fourteen sieges of it, between 1309 and 1783.\n[push-in vào phố \"tua ngược\" 2026 → 1704] Here's why everyone fought over this key, told from both sides' records.\n\n--- Version Z ---\n[thẻ \"14\" hiện trên nền tối mờ Rock (thẻ 0d đưa lên đầu)] Fourteen.\n[crane lên từ cổng → eo đất, đường băng, vách bắc (bình minh)] That's how many times historians count Gibraltar being besieged, between 1309 and 1783.\n[zoom nhiều tầng chạm 90 km rồi lặn lại] British and Spanish historians count the same way.\n[thẻ hai cột: tên sử gia Anh ↔ Tây Ban Nha, cùng số 14] And only five of those sieges changed who ruled it.\n[push-in vào phố \"tua ngược\" 2026 → 1704] This is how a rock of under six square kilometres became the place everyone fought over, told from both sides' records.\n\nFor EACH version, answer honestly as yourself: after these 30 seconds, would you keep watching? Then rank the three. Do not be polite; you have no stake in who made it.\nReply with ONLY this JSON (no other text):\n{\"X\": {\"keep_watching\": true|false, \"chance_0to10\": n, \"why\": \"...\", \"moment_you_would_leave_or_doubt\": \"...\"},\n \"Y\": {...}, \"Z\": {...},\n \"ranking_best_first\": [\"?\", \"?\", \"?\"], \"one_change_to_the_best_version\": \"...\"}"
+}

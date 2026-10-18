@@ -1,0 +1,32 @@
+{
+ "X": {
+  "keep_watching": true,
+  "chance_0to10": 6,
+  "why": "Straight, sober hook: a number, a promise that British and Spanish historians count alike, and that only five sieges changed hands. Respectful of both sides, no sneering. But 'told from both sides' records' and the two-column British v Spanish card is a little worksheet-like, and the opening is colder than a story.",
+  "moment_you_would_leave_or_doubt": "The 'British historians ↔ Spanish historians' card. If the next line frames it as 'whose Rock is it really', I'd start to suspect a politicised angle, though nothing so far actually does. Also the bare '14' with no human scene is a bit flat."
+ },
+ "Y": {
+  "keep_watching": true,
+  "chance_0to10": 8,
+  "why": "Opens on a quotation, 'the key of the Mediterranean', the phrase I grew up hearing from my father's lot, and sets a Spanish historian's equivalent beside it with sources named. That reads as fair, scholarly and respectful of the Rock's history. A midnight border scene gives atmosphere, and the 14 sieges figure arrives with a source line. It sets up the history rather than the politics.",
+  "moment_you_would_leave_or_doubt": "'Same rock. Same image. Opposite sides.' is a touch glib and could be a prelude to a both-sides-equal sermon. I'd also be wary if the Spanish quote were given equal standing to the claim on Gibraltar itself. Not a leaving point yet, just a raised eyebrow."
+ },
+ "Z": {
+  "keep_watching": true,
+  "chance_0to10": 4,
+  "why": "Strong visual hook (walking across the runway), but within 15 seconds it drops a 2026 treaty and 'no routine checks at this gate' into a history video. That's current politics, which is exactly what I'm trying to avoid. 'Midnight at the edge of Spain' also frames Gibraltar as Spain's periphery. The history it then offers (14 sieges, five changed hands, 1943 and 1782 map steps) is good and sourced.",
+  "moment_you_would_leave_or_doubt": "'Since July, under a new UK–EU treaty, there are no routine checks at this gate.' That's the moment the video turns into a modern political piece, and 'edge of Spain' sets the tone. I'd be thinking about leaving at once and give it only a few more seconds to see whether it returns to the 18th century."
+ },
+ "ranking_best_first": [
+  "Y",
+  "X",
+  "Z"
+ ],
+ "one_change_to_the_best_version": "Replace 'Same rock. Same image. Opposite sides.' with something plainly historical, such as 'Fourteen sieges in nearly five hundred years, and only five changed who held it.' That keeps the two quotes and the fair-minded tone, adds the strongest fact, and removes the glib line that hints at a both-sides moral.",
+ "_nhan": {
+  "X": "B",
+  "Y": "C",
+  "Z": "A"
+ },
+ "_prompt": "You are 61, British, your father served in the Gibraltar garrison; you enjoy history videos but you leave when one sneers at Britain or turns Gibraltar's story into a modern political rant.\n\nYou just clicked a YouTube video titled \"Why Gibraltar Was Besieged 14 Times\". Below are three different versions of its first ~30 seconds (X, Y and Z). Each line gives the picture on screen in [brackets] and then the narration. After these 30 seconds, all three versions continue identically.\n\n--- Version X ---\n[a large \"14\" appears over a dark, blurred view of the Rock] Fourteen.\n[camera cranes up from the border gate at dawn: the isthmus, the runway, the Rock's north face] That's how many times historians count Gibraltar being besieged, between 1309 and 1783.\n[quick zoom out to the whole Strait between Europe and Africa, and back down] British and Spanish historians count the same way.\n[two-column card: British historians ↔ Spanish historians, the same \"14\" under each] And only five of those sieges changed who ruled it.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] This is how a rock of under six square kilometres became the place everyone fought over, told from both sides' records.\n\n--- Version Y ---\n[midnight 2026 at the border gate, a pedestrian crossing the runway; the quote appears on screen credited \"Sayer, 1862\"] A British historian called it \"the key of the Mediterranean.\"\n[camera cranes up over the isthmus; on screen: «la preciosa llave del Mediterráneo» — Montero, 1860] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[quick zoom out to the Strait between Europe and Africa, and back down] Same rock. Same image. Opposite sides.\n[title card \"14 sieges · 1309–1783\" with a small source line] Historians count fourteen sieges of it, between 1309 and 1783.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] Here's why everyone fought over this key, told from both sides' records.\n\n--- Version Z ---\n[midnight 2026, camera at walking height follows a pedestrian crossing an airport runway toward a huge rock; small place label \"Gibraltar–La Línea frontier\"] Midnight at the edge of Spain. To walk into Gibraltar, you cross an airport runway.\n[camera cranes up from the border gate: the sandy isthmus, the runway across it, the Rock's sheer north face] Since July, under a new UK–EU treaty, there are no routine checks at this gate.\n[quick zoom out to the whole Strait — Europe and Africa, the mouth of the Mediterranean — and straight back down] But look where it sits.\n[title card \"14 sieges · 1309–1783\", small source line \"Sayer 1862 · Gibraltar National Museum\"] Historians count fourteen sieges of Gibraltar between 1309 and 1783.\n[camera pushes in from the bay into the old town, which rewinds 2026 → 1943 → 1782 → 1704 (each step labelled with year and source map)] Only five changed who ruled it. This is why everyone fought over it, told from both sides' records.\n\nFor EACH version, answer honestly as yourself: after these 30 seconds, would you keep watching? Then rank the three. Do not be polite; you have no stake in who made it.\nReply with ONLY this JSON (no other text):\n{\"X\": {\"keep_watching\": true|false, \"chance_0to10\": n, \"why\": \"...\", \"moment_you_would_leave_or_doubt\": \"...\"},\n \"Y\": {...}, \"Z\": {...},\n \"ranking_best_first\": [\"?\", \"?\", \"?\"], \"one_change_to_the_best_version\": \"...\"}"
+}

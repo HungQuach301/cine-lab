@@ -1,0 +1,32 @@
+{
+ "X": {
+  "keep_watching": false,
+  "chance_0to10": 3,
+  "why": "It opens on two dry quotes from 1860 and 1862 that say the same thing, so it feels like a lecture or a school essay. There's no hook and no stakes. The midnight runway shot is cool, but the narration ignores it. The 'told from both sides' line ends up as the final beat and says nothing concrete.",
+  "moment_you_would_leave_or_doubt": "The second line, the British historian saying the exact same phrase. It's a nerdy 'huh, same quote' beat that I don't care about yet. I'd swipe at about 6 seconds."
+ },
+ "Y": {
+  "keep_watching": true,
+  "chance_0to10": 8,
+  "why": "'To walk into Gibraltar, you cross an airport runway' is a real hook, and the visuals match the words. The 'no routine checks since July' line adds a fresh, current detail. 'But look where it sits' makes me look at the Strait and creates curiosity. 'Only five changed who ruled it' is a surprising twist that makes me want to know why there were so many sieges but so few changes of ruler.",
+  "moment_you_would_leave_or_doubt": "'Midnight at the edge of Spain' sounds slightly off for a place that isn't Spain. 'Told from both sides' records' at the very end is a bit vague and homework-ish, but the five-of-fourteen hook carries it."
+ },
+ "Z": {
+  "keep_watching": true,
+  "chance_0to10": 6,
+  "why": "The runway opening is strong and the visuals are good. But the middle gets flat: 'sits at the western gate of the Mediterranean' is a textbook sentence, and the narration just states 14 sieges without any tension. 'Historians on both sides' and 'told from both sides' repeats itself. It ends on 'this is why everyone fought over it' without having given me a surprising reason to stay.",
+  "moment_you_would_leave_or_doubt": "Around the Strait zoom with 'sits at the western gate of the Mediterranean', where it turns into a geography lecture. I'd also start to drift at the second 'both sides' mention."
+ },
+ "ranking_best_first": [
+  "Y",
+  "Z",
+  "X"
+ ],
+ "one_change_to_the_best_version": "Replace the vague closer 'This is why everyone fought over it, told from both sides' records' with a concrete question that pays off the 'only five changed hands' twist, for example 'So what were the other nine sieges even for?'",
+ "_nhan": {
+  "X": "D",
+  "Y": "A",
+  "Z": "E"
+ },
+ "_prompt": "You are 23, you scroll YouTube on your phone on the bus, mostly short history and geography videos; you leave in seconds if an opening feels slow, vague or like a lecture.\n\nYou just clicked a YouTube video titled \"Why Gibraltar Was Besieged 14 Times\". Below are three different versions of its first ~30 seconds (X, Y and Z). Each line gives the picture on screen in [brackets] and then the narration. After these 30 seconds, all three versions continue identically.\n\n--- Version X ---\n[midnight 2026 at the border gate, a pedestrian crossing the runway toward the Rock; on screen: «la preciosa llave del Mediterráneo» — Montero, 1860] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[camera cranes up over the isthmus and the runway to the Rock's north face; on screen: \"the key of the Mediterranean\" — Sayer, 1862] A British one, two years later: \"the key of the Mediterranean.\"\n[quick zoom out to the Strait between Europe and Africa, and straight back down] It sits at the western gate of the Mediterranean.\n[title card \"14 sieges · 1309–1783\", source line \"Sayer 1862 · García Sanz 2022 · Gibraltar National Museum\"] Historians on both sides count fourteen sieges of it, between 1309 and 1783.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] This is why everyone fought over this key, told from both sides' records.\n\n--- Version Y ---\n[midnight 2026, camera at walking height follows a pedestrian crossing an airport runway toward a huge rock; small place label \"Gibraltar–La Línea frontier\"] Midnight at the edge of Spain. To walk into Gibraltar, you cross an airport runway.\n[camera cranes up from the border gate: the sandy isthmus, the runway across it, the Rock's sheer north face] Since July, under a new UK–EU treaty, there are no routine checks at this gate.\n[quick zoom out to the whole Strait — Europe and Africa, the mouth of the Mediterranean — and straight back down] But look where it sits.\n[title card \"14 sieges · 1309–1783\", small source line \"Sayer 1862 · Gibraltar National Museum\"] Historians count fourteen sieges of Gibraltar between 1309 and 1783.\n[camera pushes in from the bay into the old town, which rewinds 2026 → 1943 → 1782 → 1704 (each step labelled with year and source map)] Only five changed who ruled it. This is why everyone fought over it, told from both sides' records.\n\n--- Version Z ---\n[midnight 2026, camera at walking height follows a pedestrian crossing an airport runway toward a huge rock; small place label \"Gibraltar–La Línea frontier\"] Midnight at the Gibraltar frontier. To walk in from Spain, you cross an airport runway.\n[camera cranes up from the border gate: the sandy isthmus, the runway across it, the Rock's sheer north face] Since July 2026, this gate has had no routine checks.\n[quick zoom out to the whole Strait — Europe and Africa, the mouth of the Mediterranean — and straight back down] The Rock sits at the western gate of the Mediterranean.\n[title card \"14 sieges · 1309–1783\", source line \"Sayer 1862 · García Sanz 2022 · Gibraltar National Museum\"] Historians on both sides count fourteen sieges of it, between 1309 and 1783.\n[camera pushes in from the bay into the old town, which rewinds 2026 → 1943 → 1782 → 1704 (each step labelled with year and source map)] This is why everyone fought over it, told from both sides' records.\n\nFor EACH version, answer honestly as yourself: after these 30 seconds, would you keep watching? Then rank the three. Do not be polite; you have no stake in who made it.\nReply with ONLY this JSON (no other text):\n{\"X\": {\"keep_watching\": true|false, \"chance_0to10\": n, \"why\": \"...\", \"moment_you_would_leave_or_doubt\": \"...\"},\n \"Y\": {...}, \"Z\": {...},\n \"ranking_best_first\": [\"?\", \"?\", \"?\"], \"one_change_to_the_best_version\": \"...\"}"
+}

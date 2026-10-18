@@ -1,0 +1,32 @@
+{
+ "X": {
+  "keep_watching": true,
+  "chance_0to10": 6,
+  "why": "Plain, factual hook: fourteen sieges, 1309-1783, and 'British and Spanish historians count the same way' is reassuring. It answers the title directly. Slightly flat and a bit abstract (a number card on a dark background), and 'told from both sides' records' is a mild flag, but nothing sneers.",
+  "moment_you_would_leave_or_doubt": "The two-column card of British vs Spanish historians, and 'told from both sides'. It tells me the video is going to be careful about balance, which could mean a lot of hedging. I would leave if the next minute starts treating the British period as an 'occupation' or reaches for 2026 politics."
+ },
+ "Y": {
+  "keep_watching": false,
+  "chance_0to10": 3,
+  "why": "It opens on 2026 border politics: a midnight crossing, a new UK-EU treaty, no checks at the gate. That is exactly the modern-political framing I leave over. My father served in the garrison, so a video that starts with the frontier and the treaty before any history suggests Gibraltar will be a present-day argument. The history content (fourteen sieges, five changed hands) is fine but comes after it.",
+  "moment_you_would_leave_or_doubt": "The second line, 'Since July, under a new UK–EU treaty, there are no routine checks at this gate.' That is current politics, not history, and I would click away there. The 'rewind' street scene ending in 2026 reinforces it."
+ },
+ "Z": {
+  "keep_watching": true,
+  "chance_0to10": 8,
+  "why": "Best hook. It opens with a quotation, 'the key of the Mediterranean', from a British historian (Sayer 1862), then a Spanish one saying essentially the same thing. 'Same rock. Same image. Opposite sides.' is a real hook and fits the title. Naming sources makes me trust it, and it leads into the sieges as history, not grievance.",
+  "moment_you_would_leave_or_doubt": "'Opposite sides' could set up a 'who is right' debate. The midnight 2026 gate shot is also a small worry, but with no commentary on it I would let it pass. I would doubt it if the Spanish quote is framed as the 'true' view and the British one as imperial bluster."
+ },
+ "ranking_best_first": [
+  "Z",
+  "X",
+  "Y"
+ ],
+ "one_change_to_the_best_version": "Open on the 1860s quotations with period imagery (an old engraving of the Rock) in place of the 2026 midnight gate shot, so nothing modern appears until the history has been told, and keep the line 'Same rock. Same image.'",
+ "_nhan": {
+  "X": "B",
+  "Y": "A",
+  "Z": "C"
+ },
+ "_prompt": "You are 61, British, your father served in the Gibraltar garrison; you enjoy history videos but you leave when one sneers at Britain or turns Gibraltar's story into a modern political rant.\n\nYou just clicked a YouTube video titled \"Why Gibraltar Was Besieged 14 Times\". Below are three different versions of its first ~30 seconds (X, Y and Z). Each line gives the picture on screen in [brackets] and then the narration. After these 30 seconds, all three versions continue identically.\n\n--- Version X ---\n[thẻ \"14\" hiện trên nền tối mờ Rock (thẻ 0d đưa lên đầu)] Fourteen.\n[crane lên từ cổng → eo đất, đường băng, vách bắc (bình minh)] That's how many times historians count Gibraltar being besieged, between 1309 and 1783.\n[zoom nhiều tầng chạm 90 km rồi lặn lại] British and Spanish historians count the same way.\n[thẻ hai cột: tên sử gia Anh ↔ Tây Ban Nha, cùng số 14] And only five of those sieges changed who ruled it.\n[push-in vào phố \"tua ngược\" 2026 → 1704] This is how a rock of under six square kilometres became the place everyone fought over, told from both sides' records.\n\n--- Version Y ---\n[nửa đêm 2026, máy 3 m theo người đi bộ băng qua đường băng về phía Rock; chip \"Gibraltar–La Línea frontier\"] Midnight at the edge of Spain. To walk into Gibraltar, you cross an airport runway.\n[crane lên từ cổng → eo đất, đường băng, vách bắc] Since July, under a new UK–EU treaty, there are no routine checks at this gate.\n[zoom nhiều tầng chạm 90 km (2,5 s) rồi lặn lại: cửa Địa Trung Hải, hai lục địa] But look where it sits.\n[thẻ \"14 sieges · 1309–1783\", nguồn ngắn Sayer 1862 · Gibraltar National Museum] Historians count fourteen sieges of Gibraltar between 1309 and 1783.\n[push-in từ vịnh vào phố, phố \"tua ngược\" 2026 → 1943 → 1782 → 1704 (mỗi mốc có nhãn năm + nguồn)] Only five changed who ruled it. This is why everyone fought over it, told from both sides' records.\n\n--- Version Z ---\n[nửa đêm 2026 ở cổng, người đi bộ qua đường băng; chữ trích Sayer 1862 hiện góc dưới] A British historian called it \"the key of the Mediterranean.\"\n[crane lên → eo đất; chữ trích Montero 1860 «la preciosa llave del Mediterráneo»] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[zoom 90 km: eo biển giữa hai lục địa] Same rock. Same image. Opposite sides.\n[thẻ \"14 sieges · 1309–1783\"] Historians count fourteen sieges of it, between 1309 and 1783.\n[push-in vào phố \"tua ngược\" 2026 → 1704] Here's why everyone fought over this key, told from both sides' records.\n\nFor EACH version, answer honestly as yourself: after these 30 seconds, would you keep watching? Then rank the three. Do not be polite; you have no stake in who made it.\nReply with ONLY this JSON (no other text):\n{\"X\": {\"keep_watching\": true|false, \"chance_0to10\": n, \"why\": \"...\", \"moment_you_would_leave_or_doubt\": \"...\"},\n \"Y\": {...}, \"Z\": {...},\n \"ranking_best_first\": [\"?\", \"?\", \"?\"], \"one_change_to_the_best_version\": \"...\"}"
+}

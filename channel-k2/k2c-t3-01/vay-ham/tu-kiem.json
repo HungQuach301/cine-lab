@@ -1,19 +1,21 @@
 {
- "tong_s": 563.5,
- "so_shot": 65,
+ "tong_s": 719.7,
+ "so_shot": 74,
  "Q26b_K2": [
   {
    "nua": 1,
-   "so_loai": 6,
+   "so_loai": 8,
    "loai_lon_nhat": "3D vùng",
-   "ty_le_lon_nhat": 0.422,
+   "ty_le_lon_nhat": 0.365,
    "chia": {
-    "3D vùng": 0.422,
-    "3D phố": 0.232,
-    "thẻ số": 0.114,
-    "bản đồ lịch sử": 0.099,
-    "tranh Ken Burns": 0.083,
-    "ảnh": 0.05
+    "3D vùng": 0.365,
+    "3D phố": 0.24,
+    "thẻ số": 0.097,
+    "bản đồ lịch sử": 0.092,
+    "tranh Ken Burns": 0.088,
+    "ảnh": 0.057,
+    "bản đồ chiến lược": 0.039,
+    "footage": 0.022
    },
    "dat": true
   },
@@ -21,14 +23,14 @@
    "nua": 2,
    "so_loai": 6,
    "loai_lon_nhat": "3D phố",
-   "ty_le_lon_nhat": 0.391,
+   "ty_le_lon_nhat": 0.436,
    "chia": {
-    "3D phố": 0.391,
-    "3D vùng": 0.321,
-    "ảnh": 0.117,
-    "thẻ số": 0.089,
-    "bản đồ lịch sử": 0.064,
-    "footage": 0.018
+    "3D phố": 0.436,
+    "3D vùng": 0.267,
+    "ảnh": 0.143,
+    "thẻ số": 0.083,
+    "bản đồ lịch sử": 0.049,
+    "bản đồ chiến lược": 0.022
    },
    "dat": true
   }
@@ -44,14 +46,14 @@
   "dat": true
  },
  "NC_H3": {
-  "tong_3D_s": 385.0,
-  "ty_le_3D_phim": 0.683,
-  "le60km": 0.992,
-  "le3km": 0.875,
+  "tong_3D_s": 471.0,
+  "ty_le_3D_phim": 0.654,
+  "le60km": 0.994,
+  "le3km": 0.925,
   "dat": true
  },
  "NC_H1": {
-  "so_shot_pho": 17,
+  "so_shot_pho": 23,
   "loi": [],
   "dat": true,
   "shot_3D_pho": [
@@ -60,65 +62,72 @@
    "1d",
    "1e",
    "2g",
+   "KA1782",
    "2j",
    "3d",
+   "KC1910",
    "3f",
+   "KB1943",
    "5a",
+   "KB2026",
    "5c",
    "5d",
+   "KC2026",
    "5h",
+   "KA2026",
    "5k"
   ]
  },
  "lap_vung_goc": {
-  "max": 1,
+  "max": 2,
   "vuot_2": [],
   "dat": true
  },
  "ty_le_loai": {
-  "3D vùng": 0.372,
-  "3D phố": 0.311,
-  "thẻ số": 0.101,
-  "ảnh": 0.083,
-  "bản đồ lịch sử": 0.082,
-  "tranh Ken Burns": 0.042,
-  "footage": 0.009
+  "3D phố": 0.338,
+  "3D vùng": 0.316,
+  "ảnh": 0.1,
+  "thẻ số": 0.09,
+  "bản đồ lịch sử": 0.07,
+  "tranh Ken Burns": 0.044,
+  "bản đồ chiến lược": 0.031,
+  "footage": 0.011
  },
  "footage": {
-  "ty_le": 0.009,
+  "ty_le": 0.011,
   "dat": true
  },
- "ho_so_that": 0.207,
+ "ho_so_that": 0.214,
  "shot_khong_claim": [],
  "moc_dinh": [
   {
    "shot": "1e",
-   "t": 82.0,
+   "t": 88.0,
    "moc": "4/8/1704 (N.S.) = 24/7 (O.S.)"
   },
   {
    "shot": "2g",
-   "t": 199.0,
+   "t": 228.8,
    "moc": "12/4/1781 10"
   },
   {
    "shot": "2m",
-   "t": 253.0,
+   "t": 298.8,
    "moc": "13/9/1782"
   },
   {
    "shot": "3b",
-   "t": 323.5,
+   "t": 382.2,
    "moc": "1810"
   },
   {
    "shot": "3f",
-   "t": 359.0,
+   "t": 424.2,
    "moc": "1909"
   },
   {
    "shot": "4b",
-   "t": 389.0,
+   "t": 465.2,
    "moc": "1941 (đã dựng ở gib20)"
   }
  ],
@@ -127,12 +136,86 @@
   "lien-hoan-2-vinh-1782"
  ],
  "chuong_s": {
-  "0": 43.5,
-  "1": 101.5,
-  "2": 168.5,
-  "3": 70.5,
-  "4": 79.0,
-  "5": 100.5
+  "0": 44.5,
+  "1": 122.1,
+  "2": 203.6,
+  "3": 84.5,
+  "4": 110.5,
+  "5": 154.4
  },
- "sat_nguong_5pct": []
+ "strategic": {
+  "so_lan": 3,
+  "tong_s": 22.0,
+  "ty_le": 0.0306,
+  "dai_nhat_s": 8,
+  "moi_chuong": {
+   "1": 1,
+   "2": 1,
+   "4": 1
+  },
+  "lien_nhau": [],
+  "shot": [
+   "SM1",
+   "SM2",
+   "SM3"
+  ],
+  "dat": true
+ },
+ "khung_neo": {
+  "so_khung": 6,
+  "shot": [
+   "KA1782",
+   "KC1910",
+   "KB1943",
+   "KB2026",
+   "KC2026",
+   "KA2026"
+  ],
+  "giay": [
+   8.0,
+   7.0,
+   8.0,
+   9.5,
+   10.0,
+   8.0
+  ],
+  "vi_tri": [
+   "neo-commercial-sq",
+   "neo-hem-k09",
+   "neo-la-linea"
+  ],
+  "ai_image_s": 50.5,
+  "ai_image_ty_le": 0.0702,
+  "im_lang": [
+   [
+    "KB1943",
+    8.0
+   ],
+   [
+    "KA2026",
+    8.0
+   ]
+  ],
+  "dat": true
+ },
+ "sat_nguong_5pct": [
+  {
+   "chi_so": "strategic SM3 giây",
+   "do": 8,
+   "nguong": 8.0,
+   "lech_pct": 0.0
+  },
+  {
+   "chi_so": "khung neo KB2026 giây (trần 10)",
+   "do": 9.5,
+   "nguong": 10.0,
+   "lech_pct": -5.0
+  },
+  {
+   "chi_so": "khung neo KC2026 giây (trần 10)",
+   "do": 10.0,
+   "nguong": 10.0,
+   "lech_pct": 0.0
+  }
+ ]
 }

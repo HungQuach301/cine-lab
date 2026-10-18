@@ -1,0 +1,32 @@
+{
+ "X": {
+  "keep_watching": true,
+  "chance_0to10": 5,
+  "why": "Opens with two quotes calling Gibraltar the key of the Mediterranean, which is the traditional framing and a good hook, and it promises both sides' records. But the 'midnight at the border' picture is left unexplained, and the first 30 seconds go to quotation rather than story. The 'both sides' wording is mildly reassuring and mildly wary.",
+  "moment_you_would_leave_or_doubt": "Opening with a Spanish historian before any British voice makes me wonder whose story this is. 'Told from both sides' records' could be a lead-in to a revisionist take, so I'd leave at the first sneer at Britain. The crossing shot also seems to have no purpose."
+ },
+ "Y": {
+  "keep_watching": true,
+  "chance_0to10": 7,
+  "why": "A concrete, vivid opening: you walk across the runway, which is a real Gibraltar curiosity I know well. The Strait zoom-out explains the strategic point cleanly, and the rewind through 1943 and 1782 to 1704 takes me to the Great Siege, which is what I came for. The plain 'no routine checks' line is a neutral fact.",
+  "moment_you_would_leave_or_doubt": "'Since July 2026, no routine checks' is a modern border line that could be the start of a political tangent about the treaty. 'Everyone fought over it' is vague. If the video lingers on the present-day border politics I'd go."
+ },
+ "Z": {
+  "keep_watching": false,
+  "chance_0to10": 3,
+  "why": "It puts the new UK–EU treaty in the first 15 seconds and calls the place 'the edge of Spain'. That reads as the modern-politics framing I avoid. 'Only five changed who ruled it' is a good hook, but it comes with a deflating tone. The cut to a single source line also weakens its credibility with me.",
+  "moment_you_would_leave_or_doubt": "'The edge of Spain' is the instant I'd doubt it. It describes Gibraltar from Spain's point of view, and the treaty line confirms the video is more interested in today's politics than the Rock's history. I'd probably click away there."
+ },
+ "ranking_best_first": [
+  "Y",
+  "X",
+  "Z"
+ ],
+ "one_change_to_the_best_version": "Cut 'Since July 2026, this gate has had no routine checks' and say something historical over the crane shot, such as 'Britain's flag has flown above this isthmus for over three hundred years. Fourteen times, someone tried to take it.' That keeps the opening about the siege story and away from the border politics.",
+ "_nhan": {
+  "X": "D",
+  "Y": "E",
+  "Z": "A"
+ },
+ "_prompt": "You are 61, British, your father served in the Gibraltar garrison; you enjoy history videos but you leave when one sneers at Britain or turns Gibraltar's story into a modern political rant.\n\nYou just clicked a YouTube video titled \"Why Gibraltar Was Besieged 14 Times\". Below are three different versions of its first ~30 seconds (X, Y and Z). Each line gives the picture on screen in [brackets] and then the narration. After these 30 seconds, all three versions continue identically.\n\n--- Version X ---\n[midnight 2026 at the border gate, a pedestrian crossing the runway toward the Rock; on screen: «la preciosa llave del Mediterráneo» — Montero, 1860] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[camera cranes up over the isthmus and the runway to the Rock's north face; on screen: \"the key of the Mediterranean\" — Sayer, 1862] A British one, two years later: \"the key of the Mediterranean.\"\n[quick zoom out to the Strait between Europe and Africa, and straight back down] It sits at the western gate of the Mediterranean.\n[title card \"14 sieges · 1309–1783\", source line \"Sayer 1862 · García Sanz 2022 · Gibraltar National Museum\"] Historians on both sides count fourteen sieges of it, between 1309 and 1783.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] This is why everyone fought over this key, told from both sides' records.\n\n--- Version Y ---\n[midnight 2026, camera at walking height follows a pedestrian crossing an airport runway toward a huge rock; small place label \"Gibraltar–La Línea frontier\"] Midnight at the Gibraltar frontier. To walk in from Spain, you cross an airport runway.\n[camera cranes up from the border gate: the sandy isthmus, the runway across it, the Rock's sheer north face] Since July 2026, this gate has had no routine checks.\n[quick zoom out to the whole Strait — Europe and Africa, the mouth of the Mediterranean — and straight back down] The Rock sits at the western gate of the Mediterranean.\n[title card \"14 sieges · 1309–1783\", source line \"Sayer 1862 · García Sanz 2022 · Gibraltar National Museum\"] Historians on both sides count fourteen sieges of it, between 1309 and 1783.\n[camera pushes in from the bay into the old town, which rewinds 2026 → 1943 → 1782 → 1704 (each step labelled with year and source map)] This is why everyone fought over it, told from both sides' records.\n\n--- Version Z ---\n[midnight 2026, camera at walking height follows a pedestrian crossing an airport runway toward a huge rock; small place label \"Gibraltar–La Línea frontier\"] Midnight at the edge of Spain. To walk into Gibraltar, you cross an airport runway.\n[camera cranes up from the border gate: the sandy isthmus, the runway across it, the Rock's sheer north face] Since July, under a new UK–EU treaty, there are no routine checks at this gate.\n[quick zoom out to the whole Strait — Europe and Africa, the mouth of the Mediterranean — and straight back down] But look where it sits.\n[title card \"14 sieges · 1309–1783\", small source line \"Sayer 1862 · Gibraltar National Museum\"] Historians count fourteen sieges of Gibraltar between 1309 and 1783.\n[camera pushes in from the bay into the old town, which rewinds 2026 → 1943 → 1782 → 1704 (each step labelled with year and source map)] Only five changed who ruled it. This is why everyone fought over it, told from both sides' records.\n\nFor EACH version, answer honestly as yourself: after these 30 seconds, would you keep watching? Then rank the three. Do not be polite; you have no stake in who made it.\nReply with ONLY this JSON (no other text):\n{\"X\": {\"keep_watching\": true|false, \"chance_0to10\": n, \"why\": \"...\", \"moment_you_would_leave_or_doubt\": \"...\"},\n \"Y\": {...}, \"Z\": {...},\n \"ranking_best_first\": [\"?\", \"?\", \"?\"], \"one_change_to_the_best_version\": \"...\"}"
+}

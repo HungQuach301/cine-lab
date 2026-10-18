@@ -1,0 +1,281 @@
+[
+ {
+  "ma": "E01",
+  "shot": "1b",
+  "truoc": "came in the name of \"Charles the Third.\"",
+  "sau": "came in the name of the rival claimant, \"Charles the Third.\"",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S012 S020",
+  "ly_do": "khó theo ai đứng phía nào (nối với SM1)"
+ },
+ {
+  "ma": "E02",
+  "shot": "1e",
+  "truoc": "Gibraltar surrendered. English histories say the twenty-fourth of July, on the old calendar. {S013}",
+  "sau": "Gibraltar surrendered. {S013}\n[TRÊN HÌNH] \"4 August 1704 · English histories: 24 July 1704 (old calendar)\"",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S013",
+  "ly_do": "hai ngày + đổi lịch nghe một lần khó hiểu → ngày lịch cũ lên hình"
+ },
+ {
+  "ma": "E03",
+  "shot": "1g",
+  "truoc": "Almost all of them left. {S017} By Spanish accounts, most settled a league to the north-east, at San Roque. {S019}",
+  "sau": "By Spanish accounts, almost all left, and the largest group settled a league north-east, at San Roque. {S017} {S019}",
+  "ai_neu": "R1, R2, R3 + REVIEWER (dữ kiện)",
+  "claim": "S017 S019",
+  "ly_do": "\"almost all\" không nói ai kể; S019 nói \"nhóm lớn nhất\", không phải \"most\""
+ },
+ {
+  "ma": "E04",
+  "shot": "1i",
+  "truoc": "Britain says Gibraltar includes it. {S031}",
+  "sau": "Britain said in 2015 that it does. {S031}",
+  "ai_neu": "R2, R3 + REVIEWER (as of)",
+  "claim": "S031",
+  "ly_do": "lập trường Anh là phát biểu 2015 (Lidington), nói như hiện tại"
+ },
+ {
+  "ma": "E05",
+  "shot": "1j",
+  "truoc": "Spain tried to take Gibraltar back from 1704 to 1705, with French troops, and again in 1727.",
+  "sau": "Spain besieged it twice more: from 1704 to 1705, with French troops, and in 1727.",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S021 S004",
+  "ly_do": "\"back from 1704\" mơ hồ, đoạn dồn ngày"
+ },
+ {
+  "ma": "E06",
+  "shot": "2a",
+  "truoc": "Madrid closed every link with Gibraltar. {S040}",
+  "sau": "Madrid cut Gibraltar off from Spain. {S040}",
+  "ai_neu": "REVIEWER (dữ kiện)",
+  "claim": "S040",
+  "ly_do": "S040: đóng giao thông với Tây Ban Nha; đường biển còn mở tới phong toả 7/1779"
+ },
+ {
+  "ma": "E07",
+  "shot": "2b",
+  "truoc": "By autumn, about fourteen thousand men faced the Rock across the isthmus. {S048}",
+  "sau": "By October, by the British count, about fourteen thousand Spanish troops faced the Rock. {S048}",
+  "ai_neu": "R1, R3 + REVIEWER (dữ kiện)",
+  "claim": "S048",
+  "ly_do": "số của tình báo Anh (Drinkwater) — nói ai đếm"
+ },
+ {
+  "ma": "E08",
+  "shot": "2c",
+  "truoc": "Its boats at Algeciras had one job: to cut off",
+  "sau": "Based at Algeciras, its boats were there to cut off",
+  "ai_neu": "R1, R2 + REVIEWER",
+  "claim": "T006 T007",
+  "ly_do": "\"had one job\" nghiêng giọng; giữ \"food\" theo trích Montero trên hình"
+ },
+ {
+  "ma": "E09",
+  "shot": "2f",
+  "truoc": "Scurvy spread, until a Danish ship full of lemons was brought in.",
+  "sau": "Scurvy spread, until a Danish ship of lemons was brought in, garrison diaries record.",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S053 S057",
+  "ly_do": "giai thoại không nói nguồn; S053: chanh và cam"
+ },
+ {
+  "ma": "E10",
+  "shot": "2i",
+  "truoc": "Between them, the two sides fired nearly half a million rounds.",
+  "sau": "By British tallies, the two sides fired over four hundred and sixty thousand rounds.",
+  "ai_neu": "R1, R2, R3 + REVIEWER (dữ kiện)",
+  "claim": "S051 S077",
+  "ly_do": "205 328 + 258 387 = 463 715 theo sổ Anh; phía địch chỉ tính từ 4/1781 → \"at least\""
+ },
+ {
+  "ma": "E11",
+  "shot": "KA1782",
+  "truoc": "By September 1782, about seven and a half thousand men held the Rock.",
+  "sau": "By September 1782, the garrison counted about seven and a half thousand men.",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S079",
+  "ly_do": "số quân không nói ai đếm"
+ },
+ {
+  "ma": "E12",
+  "shot": "2j",
+  "truoc": "The garrison's answer was heat:",
+  "sau": "The garrison turned to heat:",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S058 S060",
+  "ly_do": "giọng ca ngợi một phía (\"answer\"); trình tự"
+ },
+ {
+  "ma": "E13",
+  "shot": "2k",
+  "truoc": "Four days later, the French and Spanish fleets sailed in, under the Duc de Crillon: forty-seven ships of the line by the British count, fifty by the Spanish.",
+  "sau": "Four days later, the French and Spanish fleets gathered in the bay: forty-seven ships of the line by the British count, fifty by the Spanish. The Duc de Crillon led the siege.",
+  "ai_neu": "R2, R3 + REVIEWER (dữ kiện)",
+  "claim": "S065 T018 S049",
+  "ly_do": "Crillon chỉ huy cuộc vây (S049), không chỉ huy hạm đội; 50 gồm tàu đã ở Algeciras (T018)"
+ },
+ {
+  "ma": "E14",
+  "shot": "2m",
+  "truoc": "At half past nine, the batteries moved into position. At a quarter to ten, the garrison opened fire. {S066} At ten twenty-five, by the Spanish account, some four hundred guns answered together. {S067} By the next morning, all ten batteries were gone. {S074}",
+  "sau": "That morning, the batteries moved into position, and the garrison opened fire on them. {S066} At ten twenty-five, by the Spanish account, the attackers' guns, some four hundred, opened fire together. {S067} By the next afternoon, all ten batteries were lost. {S074}",
+  "ai_neu": "R1, R2, R3 + REVIEWER (dữ kiện)",
+  "claim": "S066 S067 S074",
+  "ly_do": "bốn mốc giờ liền nhau, \"answered\" mơ hồ; S074: chiếc cuối bị đốt chiều 14/9 (giờ vẫn trên bộ đếm)"
+ },
+ {
+  "ma": "E15",
+  "shot": "2n",
+  "truoc": "More than two thousand attackers were lost, by British and Spanish counts; three hundred and fifty-seven were rescued. {S069}",
+  "sau": "By British and Spanish counts, over two thousand attackers were lost, prisoners included; the British rescued three hundred and fifty-seven. {S069}",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S069",
+  "ly_do": "\"lost\" chưa rõ; 357 không nói ai đếm"
+ },
+ {
+  "ma": "E16",
+  "shot": "2o",
+  "truoc": "All that summer, the garrison had also been digging through the north face.",
+  "sau": "Before the attack, all summer, the garrison had been digging through the north face.",
+  "ai_neu": "R1, R2",
+  "claim": "S080",
+  "ly_do": "nhảy lùi thời gian sau cao trào — báo trước bằng lời"
+ },
+ {
+  "ma": "E17",
+  "shot": "2q",
+  "truoc": "The Rock was never starved out.",
+  "sau": "The blockade never forced a surrender.",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S045 S046",
+  "ly_do": "câu khải hoàn một phía"
+ },
+ {
+  "ma": "E18",
+  "shot": "2r",
+  "truoc": "From all causes, Montero put the losses near two thousand inside and six thousand outside. {S077} The garrison's own records count at least eight hundred and seventy dead. {S076}",
+  "sau": "From all causes, the Spanish historian Montero put the losses near two thousand defenders and six thousand besiegers. {S077} The garrison's own records count at least eight hundred and sixty-nine dead. {S076}",
+  "ai_neu": "R1, R2, R3 + REVIEWER (dữ kiện)",
+  "claim": "S077 S076",
+  "ly_do": "333 + 536 = 869 (không phải 870); \"inside/outside\" khó hiểu; loại trừ scorbut 1779–80 giữ trên thẻ (\"at least\" đã báo thiếu) — lời không đủ chỗ"
+ },
+ {
+  "ma": "E19",
+  "shot": "KC1910",
+  "truoc": "Remember this street. We'll come back to it.",
+  "sau": "Remember this street in La Línea. We'll come back to it.",
+  "ai_neu": "R1, R2",
+  "claim": "S033",
+  "ly_do": "nghe riêng không biết phố nào"
+ },
+ {
+  "ma": "E20",
+  "shot": "3e",
+  "truoc": "This was the gap between them: open sand, between two towns.",
+  "sau": "This was the gap between them: a strip of neutral ground between two towns.",
+  "ai_neu": "REVIEWER (dữ kiện)",
+  "claim": "S035 S088",
+  "ly_do": "\"open sand\" quá tay (S035 có trại lính từ 1854)"
+ },
+ {
+  "ma": "E21",
+  "shot": "3f",
+  "truoc": "Spain has never recognised it as a border.",
+  "sau": "Spain does not recognise it as a border.",
+  "ai_neu": "R1, R3 + REVIEWER (dữ kiện)",
+  "claim": "S036 S030",
+  "ly_do": "S030 nói \"không công nhận\" (hiện tại), không có \"never\""
+ },
+ {
+  "ma": "E22",
+  "shot": "3h",
+  "truoc": "And in 1934, part of the old racecourse became a grass airstrip.",
+  "sau": "And from 1934, a grass airstrip was built there.",
+  "ai_neu": "REVIEWER (dữ kiện)",
+  "claim": "S090 S089",
+  "ly_do": "không claim nào nói dải cỏ chiếm \"một phần trường đua\"; S090: xây 1934–36"
+ },
+ {
+  "ma": "E23",
+  "shot": "4d",
+  "truoc": "Those tunnels became a city inside the Rock: a road about a mile long, a hospital, a power station, dug by British and Canadian tunnellers.",
+  "sau": "Inside the Rock, those tunnels held a road about a mile long, a hospital and a power station, dug by British and Canadian tunnellers.",
+  "ai_neu": "R2, R3",
+  "claim": "S112 S113 S110",
+  "ly_do": "giọng ngưỡng mộ một phía (\"a city\")"
+ },
+ {
+  "ma": "E24",
+  "shot": "4e",
+  "truoc": "Today, the tunnels add up to about fifty-five kilometres, more than the roads above ground.",
+  "sau": "Gibraltar counts about fifty-five kilometres of tunnels from every era, more than its roads above ground.",
+  "ai_neu": "R1, R2, R3 + REVIEWER",
+  "claim": "S106 S108",
+  "ly_do": "không nói ai đếm; 55 km là mọi thời kỳ, không riêng WWII"
+ },
+ {
+  "ma": "E25",
+  "shot": "4h",
+  "truoc": "Spain protested British ships in its waters, but not the airstrip.",
+  "sau": "Spain protested what it called breaches of Spanish waters; no complaint over the airstrip is on record.",
+  "ai_neu": "R1, R2, R3 + REVIEWER (một phía)",
+  "claim": "S105",
+  "ly_do": "\"its waters\" là lập trường chủ quyền; S105: \"không có hồ sơ phản đối\", không phải chắc chắn không phản đối"
+ },
+ {
+  "ma": "E26",
+  "shot": "4i",
+  "truoc": "at least six hundred and fifty aircraft lined the runway.",
+  "sau": "by Gibraltar's official record, at least six hundred and fifty aircraft lined the runway.",
+  "ai_neu": "R1, R2, R3",
+  "claim": "S123",
+  "ly_do": "số không nói nguồn (nghị quyết Quốc hội Gibraltar)"
+ },
+ {
+  "ma": "E27",
+  "shot": "5b",
+  "truoc": "Some four thousand six hundred Spanish day workers were cut off.",
+  "sau": "Britain counted some four thousand six hundred Spanish day workers cut off.",
+  "ai_neu": "R1, R2, R3",
+  "claim": "C19",
+  "ly_do": "số không nói ai đếm (Ngoại trưởng Anh, Hansard 9/6/1969)"
+ },
+ {
+  "ma": "E28",
+  "shot": "5f",
+  "truoc": "That divides by the thirty-eight thousand who live there, and leaves out the people in Spain who hold fourteen thousand of its jobs. {C11} {C08} ‹Our read› Our read: the rich-looking number partly rests on the other side. {C08} {C14}",
+  "sau": "That spreads output over the thirty-eight thousand who live there, and leaves out the people in Spain who hold fourteen thousand of its jobs. {C11} {C08} ‹Our read› Our read: part of the work behind that number is done from the other side. {C08}",
+  "ai_neu": "R1, R2, R3 + REVIEWER (vượt claim)",
+  "claim": "C11 C08",
+  "ly_do": "\"divides by\" khó nghe; câu Our read vượt claim (C14 không đỡ) → nói đúng phạm vi C08, giữ nhãn"
+ },
+ {
+  "ma": "E29",
+  "shot": "5g",
+  "truoc": "In July 2026, Britain and the EU signed a treaty to take the checks off this border. {C01} {C02}",
+  "sau": "In July 2026, Britain and the EU signed a treaty; the next day, routine checks here ended. {C01} {C02}",
+  "ai_neu": "R1, R2, R3",
+  "claim": "C01 C02",
+  "ly_do": "\"signed\" nghe như đã xong; nối với 0b (ký 14/7, bỏ kiểm tra 15/7)"
+ },
+ {
+  "ma": "E30",
+  "shot": "5h",
+  "truoc": "The old fence is coming down, but a new one stands a few metres behind it, with about a hundred and fifty metres left open. {C03}",
+  "sau": "In July, Gibraltar's government said the old fence was coming down, with a new one a few metres behind; only about a hundred and fifty metres, where walkers cross, stays open. {C03}",
+  "ai_neu": "R1, R2, R3 + REVIEWER (as of)",
+  "claim": "C03",
+  "ly_do": "tin 2/7/2026 nói như hiện tại, không nói ai nói; 150 m là chỗ gì (HMGoG 517/2026: \"where pedestrians have always crossed\")"
+ },
+ {
+  "ma": "E31",
+  "shot": "5i",
+  "truoc": "the treaty is provisional, pending",
+  "sau": "the treaty is applied provisionally, pending",
+  "ai_neu": "R1, R2, R3 + REVIEWER",
+  "claim": "C26",
+  "ly_do": "\"provisional\" nghe như mâu thuẫn 0b \"no routine checks\" — C26: áp dụng tạm thời"
+ }
+]
