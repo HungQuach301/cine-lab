@@ -1,0 +1,105 @@
+{
+ "ghi": "MỞ SAU KHI ĐÃ CHẤM. X/Y gán ngẫu nhiên bằng secrets.randbelow(2) cho từng cặp.",
+ "cap": {
+  "1-moc": {
+   "mo_ta": "móc 0a–0f (phim 0,0–34,0 s)",
+   "X": {
+    "phuong_an": "B",
+    "tep": "1-moc-X.mp3",
+    "I": -14.0,
+    "TP": -1.9,
+    "dich_LUFS": -14.0,
+    "bu_db": 0.4,
+    "tran_limiter": 0.84,
+    "sha256": "878b6c5f190142ccea3fea56f2d0e30dc776c3e94cf4c2901f2cbeb382b8ddfb",
+    "mb": 0.68
+   },
+   "Y": {
+    "phuong_an": "A",
+    "tep": "1-moc-Y.mp3",
+    "I": -14.0,
+    "TP": -1.8,
+    "dich_LUFS": -14.0,
+    "bu_db": 0.4,
+    "tran_limiter": 0.84,
+    "sha256": "8afe3ff42f713010909f454a23d630984f110cc1afcbece69f806175300015ba",
+    "mb": 0.68
+   }
+  },
+  "2-pin-noi": {
+   "mo_ta": "2k–2n pin nổi (phim 302,0–356,5 s)",
+   "X": {
+    "phuong_an": "B",
+    "tep": "2-pin-noi-X.mp3",
+    "I": -14.1,
+    "TP": -1.9,
+    "dich_LUFS": -14.0,
+    "bu_db": 0.3,
+    "tran_limiter": 0.84,
+    "sha256": "d87b94007dc4809af1d8f8c349105450e838cdc0d6f2b5f4c584071042bd9e17",
+    "mb": 1.09
+   },
+   "Y": {
+    "phuong_an": "A",
+    "tep": "2-pin-noi-Y.mp3",
+    "I": -14.0,
+    "TP": -1.9,
+    "dich_LUFS": -14.0,
+    "bu_db": 0.4,
+    "tran_limiter": 0.84,
+    "sha256": "cece0beb27828b59c14e9fa0304b7b6634dba81d3a33d48279108735035dafb1",
+    "mb": 1.09
+   }
+  },
+  "3-KB1943": {
+   "mo_ta": "tấm im lặng KB1943 — chỉ nhạc (phim 549,3–558,6 s)",
+   "X": {
+    "phuong_an": "B",
+    "tep": "3-KB1943-X.mp3",
+    "I": -17.0,
+    "TP": -2.6,
+    "dich_LUFS": -17.0,
+    "bu_db": -0.1,
+    "tran_limiter": 0.84,
+    "sha256": "093ebc1cec0d6cd7a58362bba6e23a73dee532f9f6c5914cc9e39ebe89d6b3cf",
+    "mb": 0.19
+   },
+   "Y": {
+    "phuong_an": "A",
+    "tep": "3-KB1943-Y.mp3",
+    "I": -17.0,
+    "TP": -1.9,
+    "dich_LUFS": -17.0,
+    "bu_db": 1.5,
+    "tran_limiter": 0.84,
+    "sha256": "d4a4c014561945ab06e7e193b8d9539fe9319e5f89c863a7da9814014a9abbf7",
+    "mb": 0.19
+   }
+  },
+  "4-KA2026": {
+   "mo_ta": "tấm im lặng KA2026 — chỉ nhạc (phim 716,1–725,0 s)",
+   "X": {
+    "phuong_an": "A",
+    "tep": "4-KA2026-X.mp3",
+    "I": -17.0,
+    "TP": -4.0,
+    "dich_LUFS": -17.0,
+    "bu_db": 0.4,
+    "tran_limiter": 0.84,
+    "sha256": "e36ea4e1ec65cb5b1d4fd0c38e81ecf6f8012a1e6e18625558c0df9f894c3c60",
+    "mb": 0.18
+   },
+   "Y": {
+    "phuong_an": "B",
+    "tep": "4-KA2026-Y.mp3",
+    "I": -17.0,
+    "TP": -5.0,
+    "dich_LUFS": -17.0,
+    "bu_db": 0.9,
+    "tran_limiter": 0.84,
+    "sha256": "100f59a2b69d9d238f151c2d6cb98aa81abf5fcfee451d7380e24133aee22fc1",
+    "mb": 0.18
+   }
+  }
+ }
+}
