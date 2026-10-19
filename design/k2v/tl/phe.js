@@ -28,7 +28,7 @@ export function shipFlags(F, phe, ctx, { scale = 1.5, w0 = 8, toward = 100 } = {
 }
 
 // list: [{phe, at:[E,N] | pos: () => [E,N,hd], a, b (bán trục m), rot (rad, hướng trục a), y0 (cốt), on: () => bool}]
-export function rims(list, ctx, { dNear = 800, dFar = 1200, width = 0.16, opacity = 0.55 } = {}) {
+export function rims(list, ctx, { dNear = 800, dFar = 1200, width = 0.32, opacity = 0.8 } = {}) {   // V7B lượt 2: viền dày/đậm hơn (lượt 1 không thấy ở 2,8 km)
   const group = new THREE.Group(), items = [], ring = new THREE.RingGeometry(1 - width, 1, 48).rotateX(-Math.PI / 2), mats = {};
   for (const it of list) {
     const col = PHE[it.phe] || '#a89f8a'; mats[col] = mats[col] || new THREE.MeshBasicMaterial({ color: new THREE.Color(col), transparent: true, opacity, depthWrite: false, fog: false });

@@ -89,6 +89,8 @@ def shots():
     # C1 · A2 (a) hoặc A (b) · 2a + 2b — 20/6 → 28/10/1779: trại TBN dựng lên, khối quân, cờ trung đoàn Borgoña trên dãy trại
     c1 = V7P.shots()[3]; o = dict(c1['opt']); o['units'] = o['units'] + [dict(at=[e, n], heading=hd, rows=6, cols=28, side='es', day=[dy('1779-08-10 12:00') + i * 0.015, 1783.2], seed=90 + i) for i, (e, n, hd) in enumerate([(-1200, 3300, 250), (-1220, 3150, 250), (-1360, 3550, 80), (-1350, 3400, 80), (-1050, 3050, 250), (-1180, 3000, 250)])]; o.update(campFlags=True, hideCampTrees=True)   # cây bụi 2026 (NDVI) trong dải trại + 60 m ẩn: đất trại đã giẫm/phát quang (bậc 5)
     for u in o['units']: u['rim'] = True
+    o['time'] = [dict(t=0, at='1779-06-20 14:00', sun='real', lab='d'), dict(t=2.2, at='1779-06-20 20:40', sun='real', lab='d'), dict(t=3.0, at='1779-06-21 06:40', sun='real', lab='d'),
+                 dict(t=4.6, at='1779-06-21 11:00', sun='real', lab='d'), dict(t=5.6, at='1779-06-21 12:00', sun=12.0, lab='d'), dict(t=8.0, at='1779-07-13 12:00', sun=12.0, lab='d'), dict(t=22.5, at='1779-10-28 12:00', sun=12.0, lab='d')]   # V7B: trại mọc từ 8 s (13/7) thay vì 15 s
     d = dur_of(['2a', '2b']); fad_t = NH['2b']['cau'][1]['bd_phim'] - NH['2a']['bd_phim']   # "…facing the Rock…" — câu 2 của 2b
     if C1V == 'b': o['faden'] = dict(t=[round(fad_t + 0.1, 2), round(fad_t + 3.1, 2)], fade=0.45, op=0.9)
     S.append(dict(id='C1', lines=['2a', '2b'], diem='A2' if C1V == 'a' else 'A', vai='co-che', noi='eo_dat', chuong='1779 — The Great Siege', opt=o,
@@ -101,6 +103,8 @@ def shots():
     import random as _r; _g = _r.Random(1780); FOR = [(-150 + 80 * _g.random(), -1380 + 90 * _g.random(), _g.random() * 360) for _ in range(34)]   # 34 cặp người rải trên sườn trên phố (tất định)
     o['units'] = o['units'] + [dict(at=[e, n], heading=hd, rows=1, cols=2, sx=2.4, side=None, uni='woman' if i % 2 else 'civ', kind='woman' if i % 2 else 'civ', crew=True, lean=0.45, leanFrac=0.8, day=[1779, 1784], seed=500 + i, rim=False)
                                for i, (e, n, hd) in enumerate(FOR)]   # ≈ 68 người hái rau dại, phần lớn cúi (S052 bậc 2; vị trí/số người minh hoạ); nửa nữ (dân thường)
+    o['time'] = [dict(t=0, at='1780-01-14 10:00', sun='real', lab='d'), dict(t=3.9, at='1780-01-14 12:00', sun='real', lab='d'), dict(t=7.6, at='1780-01-14 15:00', sun='real', lab='d'),
+                 dict(t=8.4, at='1780-01-14 15:30', sun=15.0, lab='d'), dict(t=14.125, at='1780-01-16 15:30', sun=15.0, lab='d')]   # V7B: cận người ban ngày (V7P: tối dần lúc hoàng hôn)
     d3 = dur_of(['2d', '2e'])
     C3cam = [dict(t=0, p=[-70, 140, -1395], l=[-124, 99, -1336], fov=24), dict(t=3.9, p=[-72, 141, -1393], l=[-124, 99, -1336], fov=24),   # cận người hái rau (≈ 30 m; lướt thấp ≈ 4 s)
              dict(t=7.6, p=[-170, 300, -1700], l=[-760, 0, -920], fov=50), dict(t=d3, p=[-185, 298, -1690], l=[-760, 0, -920], fov=50)]   # cần cẩu lên điểm C (Ca)
