@@ -1,4 +1,4 @@
-# KINH THÁNH KÊNH 2 — Moving Parts (chủ dự án duyệt 13/10/2026 22:49; bổ sung 14/10/2026 10:41, 18:08, 20:45, 22:11, 15/10/2026, 16–17/10/2026 — §10 và 17–18/10/2026 — §11; bổ sung 18/10/2026 tối — §12)
+# KINH THÁNH KÊNH 2 — Moving Parts (chủ dự án duyệt 13/10/2026 22:49; bổ sung 14/10/2026 10:41, 18:08, 20:45, 22:11, 15/10/2026, 16–17/10/2026 — §10 và 17–18/10/2026 — §11; bổ sung 18/10/2026 tối — §12; §13 + sửa 19/10)
 
 Nguồn hình thành: phân tích đối thủ "Fortune of Nations Animated" (lời + 14 khung, 13/10) và "GoDocs" (video Suez 11:00 đo bằng máy, 14/10) + định hướng nâng cấp nhà máy (Bảng trạng thái) + Teardown số liệu 15/10 (channel-k2/TEARDOWN-FON.md) + NC-LS / NC-LS2 (17/10). Nguyên tắc: học CÔNG THỨC, không sao chép sản phẩm (không dùng câu chữ, hình, thumbnail, nhận diện, danh sách đề tài của đối thủ; lời/video của đối thủ không đưa vào repo).
 
@@ -49,7 +49,7 @@ Nguồn hình thành: phân tích đối thủ "Fortune of Nations Animated" (l�
 - Thủ pháp chạy suốt: bảng điểm (biểu tượng góc + bảng tổng kết).
 - **Nhịp (sửa 14/10 18:08): đo theo NHỊP THỊ GIÁC** — trung bình ≤ 3,5 s có một biến cố hình mới (máy đổi hướng/tầm, vùng/tuyến/sticker/số liệu xuất hiện, chuyển bảng màu, cắt cảnh); cắt cứng chỉ khi đổi cảnh; không giữ khung tĩnh > 6 s (đo trên điểm ảnh, checks 1.13 Q37). (Đối thủ đo được 3,3 s/shot.)
 - Chữ trên màn hình: dòng nguồn ngắn khi có con số: chỉ tên nguồn ngắn, cỡ ≥ 38 px; nguồn đầy đủ ở mô tả/bình luận ghim (duyệt 14/10 20:45); "Facts as of" chỉ với luật đang hiệu lực; khung chữ §10.5.
-- Âm thanh (duyệt 15/10 L1–L7): mục tiêu −14,0 LUFS (đạt −15,0…−13,8), đỉnh thật ≤ −1 dBTP, lời trên nhạc p10 ≥ 15 dB / min ≥ 12 dB, đọc đúng ASR 100 %; chuỗi MIX=audio mặc định từ T3 (xuất stem); giọng Eric eleven_multilingual_v2; từ điển phát âm áp khi khoá lời.
+- Âm thanh (duyệt 15/10 L1–L7): mục tiêu −14,0 LUFS (đạt −15,0…−13,8), đỉnh thật ≤ −1 dBTP, lời trên nhạc p10 ≥ 15 dB / min ≥ 12 dB, đọc đúng ASR 100 %; chuỗi MIX=audio mặc định từ T3 (xuất stem); giọng G1 (Voice Design `VDLncRBHDjLHBqLhQ1Qt`, chọn qua nghe mù 18/10 và 19/10) eleven_multilingual_v2, speed 1,03; điều khoản chờ thư Đ5; từ điển phát âm áp khi khoá lời.
 
 ## 5. Gói phát hành
 Master, 1 Short, .en.srt, mô tả (chương + nguồn đầy đủ + ghi công), 3 tiêu đề, PACKAGING-BRIEF (ảnh nền + chữ gợi ý; chủ dự án tự làm thumbnail), video nối ở màn hình kết thúc, SHA256SUMS. Mô tả: dòng 1 là câu móc (câu hỏi tiêu đề + một sự thật); câu miễn trừ nằm trong 3 dòng đầu (duyệt 15/10 N4); câu minh bạch giọng/hình (§10.6). Thử lồng tiếng nhiều ngôn ngữ (ElevenLabs) khi kênh bật được nhiều bản âm thanh. Khi đăng: bật lọc bình luận (giữ lại bình luận có thể không phù hợp để duyệt) (N7).
@@ -114,7 +114,7 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - Bối cảnh giáo dục nằm trong hình và tiếng của chính video.
 - Thumbnail: không vũ khí chĩa vào người, không lửa có người, không biểu tượng cực đoan/tôn giáo, không cờ làm điểm nhấn.
 - Tranh lưu trữ: crop bỏ người chết/hấp hối làm tiêu điểm.
-- Mô tả ghi minh bạch: *"Narration: synthetic voice. Visuals: 3D reconstructions built from the cited sources and registers; on marked street frames, surface detail is AI-assisted — layout, landmarks and flags come from the sources. Historical images: public domain / CC0, credited."* (§11.3)
+- Mô tả ghi minh bạch: *"Narration: synthetic voice. Visuals: 3D reconstructions built from the cited sources and registers; on two street frames, surface detail is AI-assisted — layout, landmarks and flags come from the sources. Historical images: public domain / CC0, credited."* (§11.3)
 - Mỗi tập khác nhau thật về nội dung chính (tránh "inauthentic content").
 
 ### 10.7 Mức rủi ro ĐỎ-K (XX1, YY1–YY6, 17/10)
@@ -141,7 +141,7 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 ### 11.2 Khung neo, bộ đếm, sự sống, nhịp (F1–F8 17/10 23:29; G1–G5 23:50)
 - Mỗi tập 4–6 KHUNG NEO máy cố định tầm mắt 2–15 m, quay lại ở các mốc, giữ 6–10 s, bộ đếm năm chạy, chuyển mốc bằng chu kỳ ngày–đêm + hoà; khung neo là phim trường: chỉ dựng phần trong khung, nền mỗi thời kỳ render chất lượng cao một lần (Cycles nhiều lượt chiếu sáng), lớp sống ghép trên. Khung neo phải là phố hẹp có mặt tiền gần: trời ≤ 25 %, đất trống ≤ 1/3.
 - Bộ đếm năm là chữ chính (cỡ lớn, góc cố định, suốt tập); chữ khác nhỏ và ít hơn.
-- Không tấm nào trống sự sống: mọi cảnh 3D có ≥ 3 vật chuyển động (người, xe, tàu, khói, chim, cờ); khung neo phố ban ngày 30–80 người ở 10–60 m, trang phục và thành phần dân cư theo nguồn (1943 không phụ nữ/trẻ em — sơ tán 1940).
+- Không tấm nào trống sự sống: mọi cảnh 3D có ≥ 3 vật chuyển động (người, xe, tàu, khói, chim, cờ); khung neo phố ban ngày 30–80 người ở 10–60 m (1782: theo bảng gác Spilsbury 7/9/1782 + dân thường từ danh-sach-9-1782 — D8), trang phục và thành phần dân cư theo nguồn (1943 không phụ nữ/trẻ em — sơ tán 1940).
 - Mỗi tập có 1–2 tấm "im lặng" (chỉ hình + nhạc, 8–10 s) kể bằng khoảng trống.
 - Khuôn đóng gói series: thumbnail = tên nơi cỡ lớn + dải năm + huy hiệu; tiêu đề "Nơi | lời hứa định dạng: chủ đề".
 - Bản không lời (nhạc + bộ đếm + chữ tối thiểu) làm từ T3, đăng sau khi có số 7 ngày của bản chính.
@@ -170,15 +170,15 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - Có điều kiện: lồng tiếng đa ngôn ngữ — thử tiếng Tây Ban Nha trên T1 trước. Đo trước: âm thanh AI (tạm dùng Freesound CC0).
 
 ### 11.6 Kỹ thuật (17–18/10)
-- Video thử: 540p ≤ 15 MB, KHÔNG vào LFS; chỉ master phát hành vào LFS (LFS đã vượt 10 GiB miễn phí ≈ 0,7 GiB).
+- Video thử: 540p ≤ 5 MB (§12.5), KHÔNG vào LFS; chỉ master phát hành vào LFS (LFS đã vượt 10 GiB miễn phí ≈ 0,7 GiB).
 - Blender bpy 5.2.2: Cycles CPU 1080p ≈ 223 s/khung @64 spp (4 lõi) → chỉ dùng kiểu phim trường; người: MakeHuman/MPFB (CC0) qua bộ nạp chỉ đọc dữ liệu.
 - OpenAI: khoá qua credential proxy của môi trường cine-lab-av (không in/ghi khoá); model ảnh chọn theo tài liệu hiện hành mỗi phiên; trần chi phí ghi trong lệnh.
 
 ## 12. Bổ sung 18/10/2026 tối (chủ dự án duyệt; áp từ T3)
 
 ### 12.1 Khung sạch (CHU-1 = A, 23:15)
-- Trên hình CHỈ có: bộ đếm năm/ngày (chữ chính, suốt tập); chip tên nơi khi vào một nơi mới, ≤ 3 s rồi tắt; số liệu hoặc câu trích khi lời đang nói tới, kèm tên nguồn ngắn cỡ nhỏ, ≤ 3 s.
-- KHÔNG hiện trên hình: dòng nguồn cho mọi cảnh 3D/bản đồ; nhãn "Surface detail AI-assisted"; "approx. borders", "estimated infill", "Ruins: estimated", "illustrative". Các thông tin này chuyển sang: (a) mô tả + bình luận ghim (nguồn đầy đủ); (b) thẻ "How this film was made" 4–5 s ở cuối video (bản đồ/nguồn chính, chỗ nào là ước tính, AI dùng vào việc gì); (c) nút khai báo nội dung AI của YouTube khi chính sách hiện hành yêu cầu (kiểm trang chính sách mỗi lần đăng).
+- Trên hình CHỈ có: bộ đếm năm/ngày (chữ chính, suốt tập); chip tên nơi khi vào một nơi mới, ≤ 3 s rồi tắt; (bỏ — theo §13.6 TL-4).
+- KHÔNG hiện trên hình: dòng nguồn cho mọi cảnh 3D/bản đồ; nhãn "Surface detail AI-assisted"; "approx. borders", "estimated infill", "Ruins: estimated", "illustrative". Các thông tin này chuyển sang: (a) mô tả + bình luận ghim (nguồn đầy đủ); (b) thẻ "How this film was made" 2 thẻ × ≈ 8 s cuối phim (D6) (bản đồ/nguồn chính, chỗ nào là ước tính, AI dùng vào việc gì); (c) nút khai báo nội dung AI của YouTube khi chính sách hiện hành yêu cầu (kiểm trang chính sách mỗi lần đăng).
 - Giá trị cốt lõi ở §11.3 đổi từ "mọi mốc/dữ kiện có nguồn trên hình" thành "mọi mốc/dữ kiện có nguồn, người xem tra được (mô tả, bình luận ghim, thẻ phương pháp)". Các câu yêu cầu nhãn trên hình ở §10.4 (nhãn nguồn ghost), §10.5, §11.1 (nhãn "approx. borders…"), §11.3 (nhãn AI suốt shot), §11.4 ("estimated infill") được thay bằng §12.1. Dữ liệu nguồn/bậc/ai_image/ai_texture vẫn ghi đầy đủ trong log và bảng shot để kiểm bằng máy.
 
 ### 12.2 Tái dựng có căn cứ — 5 bậc (AI-A; NCAI-2; NCAI-3 = B, 20:57–20:59)
@@ -207,3 +207,23 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - Chi phí: không trần cứng; mốc theo dõi (vượt thì ghi một dòng lợi ích rồi làm tiếp) + chặn an toàn chống vòng lặp (cùng lỗi ≥ 3 lần → đổi cách; ngưỡng dừng tổng ghi trong lệnh).
 - Phiên dài (> 1 h): đẩy việc dở sau mỗi lượt dựng hoặc ≤ 30 phút + reports/<phiên>/CHECKPOINT.md.
 - Không đưa email chủ dự án vào header/URL/payload/User-Agent; User-Agent dùng "CineLab-research (+https://github.com/HungQuach301/cine-lab)".
+
+## 13. Hiểu hai đường (chủ dự án duyệt HC-1, HC-2 ngày 19/10/2026 06:44)
+
+13.1 Mục tiêu: có lời hay tắt lời, người xem vẫn hiểu câu chuyện chính. Lời cho chiều sâu; hình cho mạch chính.
+
+13.2 Mỗi nhịp chính của lời khoá có ít nhất một vật mang nghĩa bằng hình: cờ hoặc chủ quyền đổi trên công trình, bộ đếm năm, ranh giới hoặc mũi tên động trên bản đồ, sự kiện thấy được (tàu, lửa, xây, phá, đám đông), hoặc thẻ chương. Bảng nhịp → vật mang nghĩa phủ ≥ 90 % nhịp chính.
+
+13.3 Thẻ chương (ngoại lệ của §12.1): kiểu A, góc dưới trái, hiện và tắt mờ dần trên cảnh đang chạy; tối đa 8 thẻ/tập; dạng "năm — cụm ≤ 6 từ"; ≤ 3 s; lời trung tính giữa các phía tranh chấp ("changes hands", không "captured/liberated"); không thẻ trong móc mở đầu.
+
+13.4 Cổng XEM CÂM (bắt buộc từ T3): animatic tắt tiếng + 8 câu hỏi hiểu cốt truyện; 3 người chấm AI xem chuỗi khung + chủ dự án xem tắt tiếng ≈ 2 phút; đạt ≥ 6/8. Trượt → sửa bằng hình, không thêm chữ ngoài §13.3, rồi chấm lại.
+
+13.5 Phụ đề CC tiếng Anh chuẩn từ lời khoá cho mọi tập; bật lồng tiếng tự động YouTube khi có cho kênh.
+
+13.6 Ngữ pháp hình timelapse (duyệt TL-1…TL-6 ngày 19/10/2026 12:45)
+- TL-1 Xương sống timelapse: 6–8 điểm máy cao cố định (hoặc trôi ≤ 2 % khung/giây); trong shot, thời gian chạy (nhà mọc/cháy/sập, công trình có ngày đầu/cuối, tàu, ngày–đêm, khói); mỗi phần phim quay lại cùng điểm máy ở năm khác. Mục tiêu ≥ 75 % thời lượng là góc cao/toàn cảnh có thời gian chạy; ≤ 5 cắt/phút (shot trung bình ≥ 12 s). Số hiệu chỉnh sau bản thử V7.
+- TL-2 Lướt thấp ≤ 10 % thời lượng, chỉ cho khung neo phố và khoảnh khắc người, có vai truyện ghi log.
+- TL-3 Không shot trống: mỗi shot ≥ 1 thay đổi theo thời gian hoặc biến cố thấy được; nội dung từ nguồn bậc 1–3, chỗ ước tính ghi `bac`.
+- TL-4 Không tấm tư liệu và tấm số/câu trích đứng riêng; tư liệu chỉ phủ khớp lên địa hình rồi tan vào cảnh ≤ 3 s; số liệu và câu trích do lời + phụ đề CC mang.
+- TL-5 Mở đầu là timelapse từ giây 0, dài theo lời móc; khoảnh khắc giá trị nhất xuất hiện trong 30 s đầu.
+- TL-6 Thẻ chương theo §13.3.

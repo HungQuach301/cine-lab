@@ -1,0 +1,71 @@
+{
+ "ghi": "KHOÁ TÊN — chỉ mở SAU khi chủ dự án đã chấm xong. Thứ tự M do secrets.randbelow (Fisher–Yates) sinh, không chọn tay.",
+ "chuoi": "highpass=f=70,deesser=i=0.35:m=0.5:f=0.5:s=o,acompressor=threshold=-24dB:ratio=2.5:attack=5:release=120:knee=6",
+ "G": {
+  "M1": {
+   "ma": "A1",
+   "voice_id": "1K08hmaUm6TgNqGPT87I",
+   "gain_truoc_dB": -1.64,
+   "gain_dB": 10.39,
+   "kbps": 112,
+   "I": -14.0,
+   "TP": -2.2,
+   "LRA": 3.0,
+   "giay": 85.39,
+   "sha256": "3b628fa9df7871d874461f9abd18df5b4fb3a45c50123eff2a8c2abd5a99f065",
+   "mb": 1.2
+  },
+  "M2": {
+   "ma": "DC-G1",
+   "voice_id": "VDLncRBHDjLHBqLhQ1Qt",
+   "gain_truoc_dB": -5.73,
+   "gain_dB": 10.62,
+   "kbps": 112,
+   "I": -14.1,
+   "TP": -2.4,
+   "LRA": 4.0,
+   "giay": 90.46,
+   "sha256": "e0c9e37005d490a445cac55cb523c358edd5e6011d71fdf1a23fb4939a01414f",
+   "mb": 1.27
+  },
+  "M3": {
+   "ma": "B-kenton",
+   "voice_id": "IUG7kl2EzGm6iS3Zorj4",
+   "gain_truoc_dB": 10.48,
+   "gain_dB": 12.97,
+   "kbps": 112,
+   "I": -14.0,
+   "TP": -2.1,
+   "LRA": 2.8,
+   "giay": 88.42,
+   "sha256": "ec2b06515c9b4fca631b2be1324799fffad548265031bd56a1eca3d18e694369",
+   "mb": 1.24
+  },
+  "M4": {
+   "ma": "B-sully",
+   "voice_id": "wAGzRVkxKEs8La0lmdrE",
+   "gain_truoc_dB": -0.08,
+   "gain_dB": 11.56,
+   "kbps": 112,
+   "I": -13.9,
+   "TP": -1.7,
+   "LRA": 2.9,
+   "giay": 85.08,
+   "sha256": "7151d7429e11396106f580bc1b0aea125b1c34b064389edb744eddce772b09fe",
+   "mb": 1.19
+  },
+  "M5": {
+   "ma": "A2",
+   "voice_id": "gWR1B4JC9a1r8sYB9XBQ",
+   "gain_truoc_dB": -1.48,
+   "gain_dB": 10.39,
+   "kbps": 112,
+   "I": -13.9,
+   "TP": -2.2,
+   "LRA": 2.9,
+   "giay": 83.36,
+   "sha256": "00e71cab7b349084685282c848e8241593b1a43906b0f0f3b99566ba315870d9",
+   "mb": 1.17
+  }
+ }
+}

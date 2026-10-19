@@ -17,6 +17,11 @@
 >
 > Cả hai phép đo đều chỉ đọc chữ.
 
+## CẬP NHẬT 19/10/2026 (phiên P-1910: T3) — bổ sung, không thay
+| Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 19/10 (P-1910) |
+|---|---|---|---|---|
+| T3 | K2C-T3-01 | **Gibraltar — khung vây hãm** ("Why Gibraltar Was Besieged 14 Times") | VÀNG | G1b (animatic 540p) đã merge. **Kế tiếp: V7-PILOT** — bản thử ngữ pháp hình timelapse (Kinh thánh §13.6 TL-1…TL-6; hiệu chỉnh số TL-1 sau bản thử) **rồi dựng cả tập** (khung sạch §12.1 + thẻ chương §13.3 + cổng XEM CÂM §13.4). **Giọng G1 chốt** (Voice Design `VDLncRBHDjLHBqLhQ1Qt`, `eleven_multilingual_v2`, speed 1,03; quyền phát hành chờ thư Đ5). **Lời: chờ chủ dự án chọn câu nối D11 (A/B)** trong `khoa-loi/loi-v4.2-NHAP.txt`, rồi khoá lại; `loi-khoa.txt` v4.1 (`0fdc72ce…`) còn hiệu lực tới khi đó. D2–D8 duyệt (AUTHORSHIP 19/10 12:45) |
+
 ## CẬP NHẬT 18/10/2026 tối (phiên P-1810c: T3, T8) — bổ sung, không thay
 | Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 18/10 tối (P-1810c) |
 |---|---|---|---|---|
