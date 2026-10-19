@@ -2,7 +2,7 @@
 <lexicon version="1.0" xmlns="http://www.w3.org/2005/01/pronunciation-lexicon" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
   alphabet="ipa" xml:lang="en-GB">
-  <!-- K2C-T3-01 Gibraltar · giọng G1 (Voice Design) · eleven_multilingual_v2 (chỉ alias). Sinh bằng khoa-loi/lam_loi_khoa.py từ lời khoá v4.2 19/10/2026; alias Đ3 (reports/giong-chot/sua_pls.py) + GC-C chữ thường hết (reports/kl42/sua_pls_gcc.py) 19/10/2026. Tên tệp giữ "eric" để không đổi đường dẫn đã khoá. -->
+  <!-- K2C-T3-01 Gibraltar · giọng G1 (Voice Design) · eleven_multilingual_v2 (chỉ alias). Sinh bằng khoa-loi/lam_loi_khoa.py từ lời khoá v4.2 19/10/2026; alias Đ3 (reports/giong-chot/sua_pls.py) + GC-C chữ thường hết (reports/kl42/sua_pls_gcc.py) + GC-C′ isthmus (reports/kl42/sua_pls_isthmus.py, chờ duyệt) 19/10/2026. Tên tệp giữ "eric" để không đổi đường dẫn đã khoá. -->
   <lexeme>
     <grapheme>La Línea de la Concepción</grapheme>
     <alias>la lee-nay-ah deh la kon-sep-syon</alias>
@@ -61,7 +61,7 @@
   </lexeme>
   <lexeme>
     <grapheme>isthmus</grapheme>
-    <alias>iss-muss</alias>
+    <alias>issmus</alias>
   </lexeme>
   <lexeme>
     <grapheme>Eliott</grapheme>
