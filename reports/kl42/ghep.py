@@ -1,6 +1,6 @@
 #!/opt/cine/bin/python
 """KL42 · nối bản thu thành stem lời: mỗi phần giải mã 48 kHz mono, cắt lặng đầu/cuối theo năng lượng (giữ 80 ms đầu, 150 ms cuối, fade 10 ms),
-đặt phần sau sao cho khoảng ngừng (theo alignment) ở chỗ nối = trung vị khoảng ngừng tự nhiên giữa các đoạn trong chương. Không kéo nhịp, không đổi chữ.
+đặt phần sau sao cho khoảng ngừng (theo alignment) ở chỗ nối = trung vị khoảng ngừng tự nhiên giữa các đoạn trong chương. Không kéo nhịp, không đổi chữ. Câu thu lại đã chọn (thay.json, chon=true) được ghép đè bằng ghep_cau().
 Chương nối nhau cách 2,0 s (chỉ để nghe; V7 đặt lời theo shot).
 → $KL_OUT/stem/{NN}.wav (thô, 24-bit), stem/T3-loi-tho.wav; mốc: $KL_OUT/stem/moc.json (giây trong chương và trong stem)."""
 import json, sys
@@ -33,7 +33,27 @@ def chuong(rec):
         for d in p['doan']:
             doan.append(dict(shot=d['shot'], bd=round(d['bd'] + sh, 3), kt=round(d['kt'] + sh, 3), cau=[dict(khoa=c['khoa'], bd=round(c['bd'] + sh, 3), kt=round(c['kt'] + sh, 3)) for c in d['cau']]))
         last_kt = p['doan'][-1]['kt'] + sh
+    for t in sorted([t for t in THAY if t['chon'] and t['chuong'] == rec['chuong'][:2]], key=lambda t: -[c['bd'] for d in doan if d['shot'] == t['shot'] for c in d['cau']][t['i']]):
+        out = ghep_cau(out, doan, t)
+    for d in doan: d['bd'], d['kt'] = d['cau'][0]['bd'], d['cau'][-1]['kt']
     return out, doan, g
+
+
+def ghep_cau(out, doan, t):
+    """câu thu lại: cắt [bd − pre, kt + post] của câu cũ (pre/post = ½ khoảng ngừng tới câu kề, ≤ 0,25 s), chèn bản mới cắt cùng lề theo alignment; dời mốc sau đó."""
+    C = [c for d in doan for c in d['cau']]; c = [c for d in doan if d['shot'] == t['shot'] for c in d['cau']][t['i']]; k = C.index(c)
+    pe = C[k - 1]['kt'] if k else 0.0; nb = C[k + 1]['bd'] if k + 1 < len(C) else len(out) / SR
+    pre, post = min(0.25, (c['bd'] - pe) / 2), min(0.25, (nb - c['kt']) / 2)
+    y = mono(t['tep']); seg = y[max(0, int((t['bd'] - pre) * SR)):int((t['kt'] + post) * SR)].copy(); f = int(FADE * SR)
+    seg[:f] *= np.linspace(0, 1, f); seg[-f:] *= np.linspace(1, 0, f)
+    a, b = int(round((c['bd'] - pre) * SR)), int(round((c['kt'] + post) * SR)); delta = (len(seg) - (b - a)) / SR
+    out = np.concatenate([out[:a], seg, out[b:]])
+    c['bd'] = round(a / SR + pre, 3); c['kt'] = round(c['bd'] + t['kt'] - t['bd'], 3); c['thu_lai'] = dict(seed=t['seed'], tep=t['tep'])
+    for x in C[k + 1:]: x['bd'] = round(x['bd'] + delta, 3); x['kt'] = round(x['kt'] + delta, 3)
+    return out
+
+
+THAY = json.loads((K.H / 'thay.json').read_text()) if (K.H / 'thay.json').exists() else []
 
 
 if __name__ == '__main__':

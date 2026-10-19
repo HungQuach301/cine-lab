@@ -1,0 +1,3026 @@
+{
+ "ghi": "KL42 · bước 4: nhịp thật → đề xuất bảng giãn shot (CHỈ ĐỌC vay-ham/treatment.json + g1/kiem-chu.json; KHÔNG sửa treatment.json).",
+ "phuong_an_chon": "B",
+ "phuong_an": {
+  "A": {
+   "tong": 753.667,
+   "them": 32.5,
+   "shot_gian": 13,
+   "shot_rut": [],
+   "tran_duoi": null
+  },
+  "C102": {
+   "tong": 747.625,
+   "them": 26.458,
+   "shot_gian": 12,
+   "shot_rut": [],
+   "tran_duoi": null
+  },
+  "C103": {
+   "tong": 745.208,
+   "them": 24.042,
+   "shot_gian": 12,
+   "shot_rut": [],
+   "tran_duoi": null
+  },
+  "B": {
+   "tong": 745.125,
+   "them": 23.958,
+   "shot_gian": 13,
+   "shot_rut": [
+    [
+     "0e",
+     0.0833
+    ],
+    [
+     "0g",
+     0.5
+    ],
+    [
+     "0h",
+     0.5
+    ],
+    [
+     "1a",
+     0.875
+    ],
+    [
+     "2e",
+     0.0417
+    ],
+    [
+     "2o",
+     2.2083
+    ],
+    [
+     "2p",
+     0.25
+    ],
+    [
+     "3d",
+     0.2083
+    ],
+    [
+     "3h",
+     0.2917
+    ],
+    [
+     "4d",
+     0.8333
+    ],
+    [
+     "4f",
+     0.9583
+    ],
+    [
+     "4h",
+     0.4167
+    ],
+    [
+     "4i",
+     0.2083
+    ],
+    [
+     "5d",
+     0.5
+    ],
+    [
+     "5h",
+     0.6667
+    ]
+   ],
+   "tran_duoi": 1.2
+  }
+ },
+ "thu_tu_v42": [
+  "0a",
+  "0b",
+  "0c",
+  "0d",
+  "0e",
+  "0f",
+  "0g",
+  "0h",
+  "SM1",
+  "1a",
+  "1b",
+  "1c",
+  "1d",
+  "1e",
+  "1f",
+  "1g",
+  "1h",
+  "1i",
+  "1j",
+  "1k",
+  "2a",
+  "2b",
+  "2c",
+  "2d",
+  "2e",
+  "SM2",
+  "2f",
+  "2g",
+  "2h",
+  "2i",
+  "KA1782",
+  "2o",
+  "2p",
+  "2j",
+  "2k",
+  "2l",
+  "2m",
+  "2n",
+  "2q",
+  "2r",
+  "3a",
+  "3b",
+  "3c",
+  "3d",
+  "KC1910",
+  "3e",
+  "3f",
+  "3g",
+  "3h",
+  "4a",
+  "4b",
+  "4c",
+  "4d",
+  "4e",
+  "4f",
+  "SM3",
+  "4g",
+  "KB1943",
+  "4h",
+  "4i",
+  "5a",
+  "5b",
+  "KB2026",
+  "5c",
+  "5d",
+  "KC2026",
+  "5e",
+  "5f",
+  "5g",
+  "5h",
+  "5i",
+  "5j",
+  "KA2026",
+  "5k"
+ ],
+ "tong_cu": 721.167,
+ "tong_moi": 745.125,
+ "them": 23.958,
+ "so_shot_gian": 13,
+ "tong_loi_shot": 668.018,
+ "stem_giay": 735.242,
+ "chuong": {
+  "0": {
+   "cu": 44.5,
+   "moi": 43.417,
+   "shot_gian": 0
+  },
+  "1": {
+   "cu": 122.125,
+   "moi": 129.917,
+   "shot_gian": 3
+  },
+  "2": {
+   "cu": 203.625,
+   "moi": 210.458,
+   "shot_gian": 4
+  },
+  "3": {
+   "cu": 84.5,
+   "moi": 88.75,
+   "shot_gian": 1
+  },
+  "4": {
+   "cu": 110.5,
+   "moi": 113.542,
+   "shot_gian": 2
+  },
+  "5": {
+   "cu": 155.917,
+   "moi": 159.042,
+   "shot_gian": 3
+  }
+ },
+ "kiem": {
+  "loi_cach_duoi_04s": [],
+  "loi_vao_tam_im_lang": [],
+  "du_cuoi": 0.0
+ },
+ "shot": [
+  {
+   "id": "0a",
+   "ch": 0,
+   "loai": "3D phố",
+   "kieu": "gian",
+   "may": "follow A-lite đi bộ băng qua đường băng, máy cao 3 m",
+   "dur": 6.5,
+   "loi": 6.269,
+   "chay_vao": 0.0,
+   "dur_moi": 6.5,
+   "chay_sang": 0.0,
+   "tran_duoi_X": 1.2,
+   "them": 0.0,
+   "bd_phim": 0.0,
+   "loi_bd_phim": 0.0,
+   "loi_kt_phim": 6.269,
+   "cau": [
+    {
+     "khoa": "Midnight at the Gibraltar frontier.",
+     "bd_phim": 0.0,
+     "kt_phim": 2.148,
+     "bd_chuong": 0.0,
+     "kt_chuong": 2.148
+    },
+    {
+     "khoa": "To walk in from Spain, you cross an airport runway.",
+     "bd_phim": 3.413,
+     "kt_phim": 6.269,
+     "bd_chuong": 3.413,
+     "kt_chuong": 6.269
+    }
+   ],
+   "ban_thu": {
+    "chuong": "00 HOOK",
+    "bd_chuong": 0.0,
+    "kt_chuong": 6.269,
+    "bd_stem": 0.0,
+    "kt_stem": 6.269
+   },
+   "kt_phim": 6.5
+  },
+  {
+   "id": "0b",
+   "ch": 0,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "crane up từ cổng → eo đất, đường băng, vách bắc",
+   "dur": 5.5,
+   "loi": 4.342,
+   "chay_vao": 0.169,
+   "dur_moi": 5.5,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 6.5,
+   "loi_bd_phim": 6.669,
+   "loi_kt_phim": 11.011,
+   "cau": [
+    {
+     "khoa": "Since July 2026, this gate has had no routine checks.",
+     "bd_phim": 6.669,
+     "kt_phim": 11.011,
+     "bd_chuong": 6.943,
+     "kt_chuong": 11.285
+    }
+   ],
+   "ban_thu": {
+    "chuong": "00 HOOK",
+    "bd_chuong": 6.943,
+    "kt_chuong": 11.285,
+    "bd_stem": 6.943,
+    "kt_stem": 11.285
+   },
+   "kt_phim": 12.0
+  },
+  {
+   "id": "0c",
+   "ch": 0,
+   "loai": "3D vùng",
+   "kieu": "giu",
+   "may": "zoom nhiều tầng: chạm 90 km 2,5 s rồi lặn lại (lần DUY NHẤT > 50 km)",
+   "dur": 3.0,
+   "loi": 2.833,
+   "chay_vao": 0.0,
+   "dur_moi": 3.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 12.0,
+   "loi_bd_phim": 12.0,
+   "loi_kt_phim": 14.833,
+   "cau": [
+    {
+     "khoa": "The Rock sits at the western gate of the Mediterranean.",
+     "bd_phim": 12.0,
+     "kt_phim": 14.833,
+     "bd_chuong": 12.074,
+     "kt_chuong": 14.907
+    }
+   ],
+   "ban_thu": {
+    "chuong": "00 HOOK",
+    "bd_chuong": 12.074,
+    "kt_chuong": 14.907,
+    "bd_stem": 12.074,
+    "kt_stem": 14.907
+   },
+   "kt_phim": 15.0
+  },
+  {
+   "id": "0d",
+   "ch": 0,
+   "loai": "thẻ số",
+   "kieu": "tran",
+   "may": "thẻ số trên nền mờ Rock",
+   "dur": 7.5,
+   "loi": 6.873,
+   "chay_vao": 0.233,
+   "dur_moi": 7.5,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 15.0,
+   "loi_bd_phim": 15.233,
+   "loi_kt_phim": 22.106,
+   "cau": [
+    {
+     "khoa": "Historians on both sides count fourteen sieges of it, between 1309 and 1783.",
+     "bd_phim": 15.233,
+     "kt_phim": 22.106,
+     "bd_chuong": 15.697,
+     "kt_chuong": 22.57
+    }
+   ],
+   "ban_thu": {
+    "chuong": "00 HOOK",
+    "bd_chuong": 15.697,
+    "kt_chuong": 22.57,
+    "bd_stem": 15.697,
+    "kt_stem": 22.57
+   },
+   "kt_phim": 22.5
+  },
+  {
+   "id": "0e",
+   "ch": 0,
+   "loai": "3D phố",
+   "kieu": "gian",
+   "may": "push-in từ vịnh vào phố; cắt nhảy năm 2026 / 1943 / 1782 / 1704, mỗi m",
+   "dur": 5.5,
+   "loi": 4.179,
+   "chay_vao": 0.006,
+   "dur_moi": 5.416666666666667,
+   "chay_sang": 0.0,
+   "rut": 0.0833,
+   "them": -0.0833,
+   "bd_phim": 22.5,
+   "loi_bd_phim": 22.506,
+   "loi_kt_phim": 26.685,
+   "cau": [
+    {
+     "khoa": "This is why everyone fought over it, told from both sides' records.",
+     "bd_phim": 22.506,
+     "kt_phim": 26.685,
+     "bd_chuong": 23.499,
+     "kt_chuong": 27.678
+    }
+   ],
+   "ban_thu": {
+    "chuong": "00 HOOK",
+    "bd_chuong": 23.499,
+    "kt_chuong": 27.678,
+    "bd_stem": 23.499,
+    "kt_stem": 27.678
+   },
+   "kt_phim": 27.917
+  },
+  {
+   "id": "0f",
+   "ch": 0,
+   "loai": "tranh Ken Burns",
+   "kieu": "tran",
+   "may": "Ken Burns bản khắc Sharp theo Copley (LoC 96510788) — CHỈ crop nửa phả",
+   "dur": 5.0,
+   "loi": 3.877,
+   "chay_vao": 0.0,
+   "dur_moi": 5.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 27.917,
+   "loi_bd_phim": 27.917,
+   "loi_kt_phim": 31.794,
+   "cau": [
+    {
+     "khoa": "In 1782, ten floating batteries came to break it.",
+     "bd_phim": 27.917,
+     "kt_phim": 31.794,
+     "bd_chuong": 28.758,
+     "kt_chuong": 32.635
+    }
+   ],
+   "ban_thu": {
+    "chuong": "00 HOOK",
+    "bd_chuong": 28.758,
+    "kt_chuong": 32.635,
+    "bd_stem": 28.758,
+    "kt_stem": 32.635
+   },
+   "kt_phim": 32.917
+  },
+  {
+   "id": "0g",
+   "ch": 0,
+   "loai": "3D phố",
+   "kieu": "gian",
+   "may": "orbit ngắn quanh giao lộ (hero gib20)",
+   "dur": 6.0,
+   "loi": 4.273,
+   "chay_vao": 0.0,
+   "dur_moi": 5.5,
+   "chay_sang": 0.0,
+   "rut": 0.5,
+   "them": -0.5,
+   "bd_phim": 32.917,
+   "loi_bd_phim": 32.917,
+   "loi_kt_phim": 37.19,
+   "cau": [
+    {
+     "khoa": "In 1941, a runway was laid across the only road to Spain.",
+     "bd_phim": 32.917,
+     "kt_phim": 37.19,
+     "bd_chuong": 33.715,
+     "kt_chuong": 37.988
+    }
+   ],
+   "ban_thu": {
+    "chuong": "00 HOOK",
+    "bd_chuong": 33.715,
+    "kt_chuong": 37.988,
+    "bd_stem": 33.715,
+    "kt_stem": 37.988
+   },
+   "kt_phim": 38.417
+  },
+  {
+   "id": "0h",
+   "ch": 0,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "push-in giữ hơi lên vách bắc lúc bình minh",
+   "dur": 5.5,
+   "loi": 3.762,
+   "chay_vao": 0.0,
+   "dur_moi": 5.0,
+   "chay_sang": 0.0,
+   "rut": 0.5,
+   "them": -0.5,
+   "bd_phim": 38.417,
+   "loi_bd_phim": 38.417,
+   "loi_kt_phim": 42.179,
+   "cau": [
+    {
+     "khoa": "So why, today, is the fight over it about paperwork and payrolls?",
+     "bd_phim": 38.417,
+     "kt_phim": 42.179,
+     "bd_chuong": 38.916,
+     "kt_chuong": 42.678
+    }
+   ],
+   "ban_thu": {
+    "chuong": "00 HOOK",
+    "bd_chuong": 38.916,
+    "kt_chuong": 42.678,
+    "bd_stem": 38.916,
+    "kt_stem": 42.678
+   },
+   "kt_phim": 43.417
+  },
+  {
+   "id": "SM1",
+   "ch": 1,
+   "loai": "bản đồ chiến lược",
+   "kieu": "tran",
+   "may": "push-in chậm Tây Âu → eo biển (2 500 → ~400 km), không dừng; hoà vào 1",
+   "dur": 6.5,
+   "loi": 5.968,
+   "chay_vao": 0.0,
+   "dur_moi": 6.5,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 43.417,
+   "loi_bd_phim": 43.417,
+   "loi_kt_phim": 49.385,
+   "cau": [
+    {
+     "khoa": "Austria, England and the Dutch backed a rival for Spain's crown; France backed Madrid's king.",
+     "bd_phim": 43.417,
+     "kt_phim": 49.385,
+     "bd_chuong": 0.0,
+     "kt_chuong": 5.968
+    }
+   ],
+   "ban_thu": {
+    "chuong": "01 ROCK",
+    "bd_chuong": 0.0,
+    "kt_chuong": 5.968,
+    "bd_stem": 44.678,
+    "kt_stem": 50.646
+   },
+   "kt_phim": 49.917
+  },
+  {
+   "id": "1a",
+   "ch": 1,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "lateral theo hạm đội Anh–Hà Lan vào vịnh (M3); bộ đếm ngày hai lịch",
+   "dur": 5.0,
+   "loi": 2.903,
+   "chay_vao": 0.0,
+   "dur_moi": 4.125,
+   "chay_sang": 0.0,
+   "rut": 0.875,
+   "them": -0.875,
+   "bd_phim": 49.917,
+   "loi_bd_phim": 49.917,
+   "loi_kt_phim": 52.82,
+   "cau": [
+    {
+     "khoa": "That summer, their fleet sailed into the Bay of Gibraltar.",
+     "bd_phim": 49.917,
+     "kt_phim": 52.82,
+     "bd_chuong": 7.233,
+     "kt_chuong": 10.136
+    }
+   ],
+   "ban_thu": {
+    "chuong": "01 ROCK",
+    "bd_chuong": 7.233,
+    "kt_chuong": 10.136,
+    "bd_stem": 51.911,
+    "kt_stem": 54.814
+   },
+   "kt_phim": 54.042
+  },
+  {
+   "id": "1b",
+   "ch": 1,
+   "loai": "tranh Ken Burns",
+   "kieu": "tran",
+   "may": "chân dung cắt nền Rooke (Rijksmuseum CC0)",
+   "dur": 8.0,
+   "loi": 8.487,
+   "chay_vao": 0.0,
+   "dur_moi": 8.0,
+   "chay_sang": 0.487,
+   "them": 0.0,
+   "bd_phim": 54.042,
+   "loi_bd_phim": 54.042,
+   "loi_kt_phim": 62.529,
+   "cau": [
+    {
+     "khoa": "Its commanders, Admiral George Rooke and Prince George of Hesse-Darmstadt, fought for the rival claimant, \"Charles the Third.\"",
+     "bd_phim": 54.042,
+     "kt_phim": 62.529,
+     "bd_chuong": 10.809,
+     "kt_chuong": 19.296
+    }
+   ],
+   "ban_thu": {
+    "chuong": "01 ROCK",
+    "bd_chuong": 10.809,
+    "kt_chuong": 19.296,
+    "bd_stem": 55.487,
+    "kt_stem": 63.974
+   },
+   "kt_phim": 62.042
+  },
+  {
+   "id": "1c",
+   "ch": 1,
+   "loai": "bản đồ lịch sử",
+   "kieu": "tran",
+   "may": "\"Exact Plan 1704/5\" (Rijksmuseum RP-P-OB-83.400, CC0) phẳng có nhãn; d",
+   "dur": 10.5,
+   "loi": 8.742,
+   "chay_vao": 0.887,
+   "dur_moi": 10.5,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 62.042,
+   "loi_bd_phim": 62.929,
+   "loi_kt_phim": 71.671,
+   "cau": [
+    {
+     "khoa": "This plan, printed in 1705, shows the prize: a walled town that historians on both sides would call the key of the Mediterranean.",
+     "bd_phim": 62.929,
+     "kt_phim": 71.671,
+     "bd_chuong": 20.55,
+     "kt_chuong": 29.292
+    }
+   ],
+   "ban_thu": {
+    "chuong": "01 ROCK",
+    "bd_chuong": 20.55,
+    "kt_chuong": 29.292,
+    "bd_stem": 65.228,
+    "kt_stem": 73.97
+   },
+   "kt_phim": 72.542
+  },
+  {
+   "id": "1d",
+   "ch": 1,
+   "loai": "3D phố",
+   "kieu": "gian",
+   "may": "push-in giữ hơi từ vịnh vào Old Mole",
+   "dur": 13.5,
+   "loi": 15.847,
+   "chay_vao": 0.0,
+   "dur_moi": 16.25,
+   "chay_sang": 0.0,
+   "them": 2.75,
+   "bd_phim": 72.542,
+   "loi_bd_phim": 72.542,
+   "loi_kt_phim": 88.389,
+   "cau": [
+    {
+     "khoa": "Inside, Governor Diego de Salinas had barely a hundred soldiers, by a Spanish count.",
+     "bd_phim": 72.542,
+     "kt_phim": 80.053,
+     "bd_chuong": 29.966,
+     "kt_chuong": 37.477
+    },
+    {
+     "khoa": "He refused to surrender.",
+     "bd_phim": 81.318,
+     "kt_phim": 82.758,
+     "bd_chuong": 38.742,
+     "kt_chuong": 40.182
+    },
+    {
+     "khoa": "The fleet answered with some fifteen thousand rounds, by British and Spanish accounts alike.",
+     "bd_phim": 83.431,
+     "kt_phim": 88.389,
+     "bd_chuong": 40.855,
+     "kt_chuong": 45.813
+    }
+   ],
+   "ban_thu": {
+    "chuong": "01 ROCK",
+    "bd_chuong": 29.966,
+    "kt_chuong": 45.813,
+    "bd_stem": 74.644,
+    "kt_stem": 90.491
+   },
+   "kt_phim": 88.792
+  },
+  {
+   "id": "1e",
+   "ch": 1,
+   "loai": "3D phố",
+   "kieu": "giu",
+   "may": "orbit Old Mole; khói 2D xa (không người); MỐC ĐINH ngày đầu hàng",
+   "dur": 9.5,
+   "loi": 5.933,
+   "chay_vao": 0.0,
+   "dur_moi": 9.5,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 88.792,
+   "loi_bd_phim": 88.792,
+   "loi_kt_phim": 94.725,
+   "cau": [
+    {
+     "khoa": "On the fourth of August 1704, by the new calendar, Gibraltar surrendered.",
+     "bd_phim": 88.792,
+     "kt_phim": 94.725,
+     "bd_chuong": 46.602,
+     "kt_chuong": 52.535
+    }
+   ],
+   "ban_thu": {
+    "chuong": "01 ROCK",
+    "bd_chuong": 46.602,
+    "kt_chuong": 52.535,
+    "bd_stem": 91.28,
+    "kt_stem": 97.213
+   },
+   "kt_phim": 98.292
+  },
+  {
+   "id": "1f",
+   "ch": 1,
+   "loai": "thẻ số",
+   "kieu": "tran",
+   "may": "thẻ hai cột: phòng thủ (Sayer ≤ 500 / Montero ~100 lính) — chấm trung ",
+   "dur": 5.625,
+   "loi": 4.47,
+   "chay_vao": 0.0,
+   "dur_moi": 5.625,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 98.292,
+   "loi_bd_phim": 98.292,
+   "loi_kt_phim": 102.762,
+   "cau": [
+    {
+     "khoa": "British accounts put the defenders at up to five hundred, counting armed townsmen.",
+     "bd_phim": 98.292,
+     "kt_phim": 102.762,
+     "bd_chuong": 53.615,
+     "kt_chuong": 58.085
+    }
+   ],
+   "ban_thu": {
+    "chuong": "01 ROCK",
+    "bd_chuong": 53.615,
+    "kt_chuong": 58.085,
+    "bd_stem": 98.293,
+    "kt_stem": 102.763
+   },
+   "kt_phim": 103.917
+  },
+  {
+   "id": "1g",
+   "ch": 1,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "top-down; mũi tên trắng nét đứt phố → San Roque (M1)",
+   "dur": 14.0,
+   "loi": 13.479,
+   "chay_vao": 0.0,
+   "dur_moi": 14.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 103.917,
+   "loi_bd_phim": 103.917,
+   "loi_kt_phim": 117.396,
+   "cau": [
+    {
+     "khoa": "Townspeople could stay if they swore loyalty to \"Charles the Third.\"",
+     "bd_phim": 103.917,
+     "kt_phim": 107.969,
+     "bd_chuong": 58.758,
+     "kt_chuong": 62.81
+    },
+    {
+     "khoa": "By a British account, almost all left; by a Spanish one, the largest group settled a league north-east, at San Roque.",
+     "bd_phim": 109.049,
+     "kt_phim": 117.396,
+     "bd_chuong": 63.89,
+     "kt_chuong": 72.237
+    }
+   ],
+   "ban_thu": {
+    "chuong": "01 ROCK",
+    "bd_chuong": 58.758,
+    "kt_chuong": 72.237,
+    "bd_stem": 103.436,
+    "kt_stem": 116.915
+   },
+   "kt_phim": 117.917
+  },
+  {
+   "id": "1h",
+   "ch": 1,
+   "loai": "ảnh",
+   "kieu": "tran",
+   "may": "trang Điều X (Jenkinson 1785, archive.org, PD) tô dòng — 2 nửa ≤ 4,5 s",
+   "dur": 12,
+   "loi": 16.15,
+   "chay_vao": 0.0,
+   "dur_moi": 12,
+   "chay_sang": 4.15,
+   "them": 0,
+   "bd_phim": 117.917,
+   "loi_bd_phim": 117.917,
+   "loi_kt_phim": 134.067,
+   "cau": [
+    {
+     "khoa": "In 1713, the Treaty of Utrecht gave it to the British Crown \"for ever,\" but \"without any territorial jurisdiction, and without any open communication by land.\"",
+     "bd_phim": 117.917,
+     "kt_phim": 129.364,
+     "bd_chuong": 72.91,
+     "kt_chuong": 84.357
+    },
+    {
+     "khoa": "If Britain ever gave it up, Spain would have first refusal.",
+     "bd_phim": 130.63,
+     "kt_phim": 134.067,
+     "bd_chuong": 85.623,
+     "kt_chuong": 89.06
+    }
+   ],
+   "ban_thu": {
+    "chuong": "01 ROCK",
+    "bd_chuong": 72.91,
+    "kt_chuong": 89.06,
+    "bd_stem": 117.588,
+    "kt_stem": 133.738
+   },
+   "kt_phim": 129.917
+  },
+  {
+   "id": "1i",
+   "ch": 1,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "boundary trace dọc tường bắc — không vẽ biên giới trên eo đất",
+   "dur": 13.0,
+   "loi": 12.969,
+   "chay_vao": 4.55,
+   "dur_moi": 17.958333333333332,
+   "chay_sang": 0.0,
+   "them": 4.9583,
+   "bd_phim": 129.917,
+   "loi_bd_phim": 134.467,
+   "loi_kt_phim": 147.436,
+   "cau": [
+    {
+     "khoa": "The treaty names the town, castle and port, not the sandy isthmus to the north.",
+     "bd_phim": 134.467,
+     "kt_phim": 140.04,
+     "bd_chuong": 89.733,
+     "kt_chuong": 95.306
+    },
+    {
+     "khoa": "Spain says the isthmus was never ceded.",
+     "bd_phim": 140.62,
+     "kt_phim": 143.546,
+     "bd_chuong": 95.886,
+     "kt_chuong": 98.812
+    },
+    {
+     "khoa": "Britain said in 2015 that Gibraltar includes it.",
+     "bd_phim": 144.22,
+     "kt_phim": 147.436,
+     "bd_chuong": 99.486,
+     "kt_chuong": 102.702
+    }
+   ],
+   "ban_thu": {
+    "chuong": "01 ROCK",
+    "bd_chuong": 89.733,
+    "kt_chuong": 102.702,
+    "bd_stem": 134.411,
+    "kt_stem": 147.38
+   },
+   "kt_phim": 147.875
+  },
+  {
+   "id": "1j",
+   "ch": 1,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "lateral; năm nhảy 1704–05 → 1727; hai tuyến tấn công dạng dải",
+   "dur": 10.0,
+   "loi": 10.519,
+   "chay_vao": 0.0,
+   "dur_moi": 10.958333333333334,
+   "chay_sang": 0.0,
+   "them": 0.9583,
+   "bd_phim": 147.875,
+   "loi_bd_phim": 147.875,
+   "loi_kt_phim": 158.394,
+   "cau": [
+    {
+     "khoa": "Within weeks, Spain and France besieged it, into 1705.",
+     "bd_phim": 147.875,
+     "kt_phim": 152.868,
+     "bd_chuong": 103.781,
+     "kt_chuong": 108.774
+    },
+    {
+     "khoa": "Spain tried again in 1727.",
+     "bd_phim": 153.947,
+     "kt_phim": 156.641,
+     "bd_chuong": 109.853,
+     "kt_chuong": 112.547
+    },
+    {
+     "khoa": "Neither siege took it.",
+     "bd_phim": 157.071,
+     "kt_phim": 158.394,
+     "bd_chuong": 112.977,
+     "kt_chuong": 114.3
+    }
+   ],
+   "ban_thu": {
+    "chuong": "01 ROCK",
+    "bd_chuong": 103.781,
+    "kt_chuong": 114.3,
+    "bd_stem": 148.459,
+    "kt_stem": 158.978
+   },
+   "kt_phim": 158.833
+  },
+  {
+   "id": "1k",
+   "ch": 1,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "crane chậm; Línea de Contravalación mọc 1730→1735 (M4)",
+   "dur": 14.5,
+   "loi": 14.919,
+   "chay_vao": 0.0,
+   "dur_moi": 14.5,
+   "chay_sang": 0.419,
+   "them": 0.0,
+   "bd_phim": 158.833,
+   "loi_bd_phim": 158.833,
+   "loi_kt_phim": 173.752,
+   "cau": [
+    {
+     "khoa": "So in 1730, Philip the Fifth ordered a stone line across the isthmus, out of gun range, to cut Gibraltar off by land.",
+     "bd_phim": 158.833,
+     "kt_phim": 167.494,
+     "bd_chuong": 114.881,
+     "kt_chuong": 123.542
+    },
+    {
+     "khoa": "The town behind it is still called La Línea: \"the line.\"",
+     "bd_phim": 168.76,
+     "kt_phim": 173.752,
+     "bd_chuong": 124.808,
+     "kt_chuong": 129.8
+    }
+   ],
+   "ban_thu": {
+    "chuong": "01 ROCK",
+    "bd_chuong": 114.881,
+    "kt_chuong": 129.8,
+    "bd_stem": 159.559,
+    "kt_stem": 174.478
+   },
+   "kt_phim": 173.333
+  },
+  {
+   "id": "2a",
+   "ch": 2,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "lateral chậm dọc chiến tuyến TBN 6/1779; bộ đếm ngày (M6)",
+   "dur": 12.0,
+   "loi": 12.074,
+   "chay_vao": 0.819,
+   "dur_moi": 13.333333333333334,
+   "chay_sang": 0.0,
+   "them": 1.3333,
+   "bd_phim": 173.333,
+   "loi_bd_phim": 174.152,
+   "loi_kt_phim": 186.226,
+   "cau": [
+    {
+     "khoa": "Half a century later came a different question: can you starve a rock?",
+     "bd_phim": 174.152,
+     "kt_phim": 179.609,
+     "bd_chuong": -0.033,
+     "kt_chuong": 5.424
+    },
+    {
+     "khoa": "On the twenty-first of June 1779, Madrid cut Gibraltar off from Spain.",
+     "bd_phim": 180.537,
+     "kt_phim": 186.226,
+     "bd_chuong": 6.352,
+     "kt_chuong": 12.041
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": -0.033,
+    "kt_chuong": 12.041,
+    "bd_stem": 176.445,
+    "kt_stem": 188.519
+   },
+   "kt_phim": 186.667
+  },
+  {
+   "id": "2b",
+   "ch": 2,
+   "loai": "bản đồ lịch sử",
+   "kieu": "tran",
+   "may": "Faden 1783 (Yale 2046612: công sự TBN đến 19/10/1782) phẳng có nhãn Fo",
+   "dur": 10.5,
+   "loi": 9.625,
+   "chay_vao": 0.0,
+   "dur_moi": 10.5,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 186.667,
+   "loi_bd_phim": 186.667,
+   "loi_kt_phim": 196.292,
+   "cau": [
+    {
+     "khoa": "Spain had joined France in its war with Britain.",
+     "bd_phim": 186.667,
+     "kt_phim": 189.569,
+     "bd_chuong": 12.413,
+     "kt_chuong": 15.315
+    },
+    {
+     "khoa": "By October, British intelligence put the Spanish army facing the Rock at up to fourteen thousand.",
+     "bd_phim": 190.243,
+     "kt_phim": 196.292,
+     "bd_chuong": 15.989,
+     "kt_chuong": 22.038
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 12.413,
+    "kt_chuong": 22.038,
+    "bd_stem": 188.891,
+    "kt_stem": 198.516
+   },
+   "kt_phim": 197.167
+  },
+  {
+   "id": "2c",
+   "ch": 2,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "hạm đội phong toả (M3 rút gọn) quanh vịnh",
+   "dur": 12.0,
+   "loi": 11.1,
+   "chay_vao": 0.0,
+   "dur_moi": 12.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 197.167,
+   "loi_bd_phim": 197.167,
+   "loi_kt_phim": 208.267,
+   "cau": [
+    {
+     "khoa": "At sea, from mid-July, a Spanish squadron sealed the port.",
+     "bd_phim": 197.167,
+     "kt_phim": 201.44,
+     "bd_chuong": 23.303,
+     "kt_chuong": 27.576
+    },
+    {
+     "khoa": "Based at Algeciras, its boats were there to cut off the food reaching the Rock from Africa.",
+     "bd_phim": 202.113,
+     "kt_phim": 208.267,
+     "bd_chuong": 28.249,
+     "kt_chuong": 34.403
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 23.303,
+    "kt_chuong": 34.403,
+    "bd_stem": 199.781,
+    "kt_stem": 210.881
+   },
+   "kt_phim": 209.167
+  },
+  {
+   "id": "2d",
+   "ch": 2,
+   "loai": "thẻ số",
+   "kieu": "tran",
+   "may": "thẻ hậu cần: giá trứng/thực phẩm 1/1780 + 5 382 người trong đồn",
+   "dur": 7.625,
+   "loi": 7.791,
+   "chay_vao": 0.0,
+   "dur_moi": 7.625,
+   "chay_sang": 0.166,
+   "them": 0.0,
+   "bd_phim": 209.167,
+   "loi_bd_phim": 209.167,
+   "loi_kt_phim": 216.958,
+   "cau": [
+    {
+     "khoa": "By January 1780, thistles, dandelions and wild leeks were daily food for many; an egg cost sixpence.",
+     "bd_phim": 209.167,
+     "kt_phim": 216.958,
+     "bd_chuong": 35.668,
+     "kt_chuong": 43.459
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 35.668,
+    "kt_chuong": 43.459,
+    "bd_stem": 212.146,
+    "kt_stem": 219.937
+   },
+   "kt_phim": 216.792
+  },
+  {
+   "id": "2e",
+   "ch": 2,
+   "loai": "tranh Ken Burns",
+   "kieu": "tran",
+   "may": "chân dung Eliott (The Met 18113, CC0) cắt nền",
+   "dur": 6.5,
+   "loi": 4.679,
+   "chay_vao": 0.566,
+   "dur_moi": 6.458333333333333,
+   "chay_sang": 0.0,
+   "rut": 0.0417,
+   "them": -0.0417,
+   "bd_phim": 216.792,
+   "loi_bd_phim": 217.358,
+   "loi_kt_phim": 222.037,
+   "cau": [
+    {
+     "khoa": "The governor, General Eliott, could hold the walls.",
+     "bd_phim": 217.358,
+     "kt_phim": 219.993,
+     "bd_chuong": 44.132,
+     "kt_chuong": 46.767
+    },
+    {
+     "khoa": "The food had to come by sea.",
+     "bd_phim": 220.307,
+     "kt_phim": 222.037,
+     "bd_chuong": 47.081,
+     "kt_chuong": 48.811
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 44.132,
+    "kt_chuong": 48.811,
+    "bd_stem": 220.61,
+    "kt_stem": 225.289
+   },
+   "kt_phim": 223.25
+  },
+  {
+   "id": "SM2",
+   "ch": 2,
+   "loai": "bản đồ chiến lược",
+   "kieu": "tran",
+   "may": "trượt chậm bắc → nam theo tuyến đang vẽ; không zoom quá 1 lần",
+   "dur": 7.5,
+   "loi": 7.593,
+   "chay_vao": 0.0,
+   "dur_moi": 7.5,
+   "chay_sang": 0.093,
+   "them": 0.0,
+   "bd_phim": 223.25,
+   "loi_bd_phim": 223.25,
+   "loi_kt_phim": 230.843,
+   "cau": [
+    {
+     "khoa": "To break the blockade, Britain sent three relief fleets: 1780, 1781, 1782.",
+     "bd_phim": 223.25,
+     "kt_phim": 230.843,
+     "bd_chuong": 50.076,
+     "kt_chuong": 57.669
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 50.076,
+    "kt_chuong": 57.669,
+    "bd_stem": 226.554,
+    "kt_stem": 234.147
+   },
+   "kt_phim": 230.75
+  },
+  {
+   "id": "2f",
+   "ch": 2,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "mũi tên đoàn tiếp tế (M1) từ tây: 1/1780, 4/1781, 10/1782; chanh Malag",
+   "dur": 6.0,
+   "loi": 5.376,
+   "chay_vao": 0.493,
+   "dur_moi": 6.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 230.75,
+   "loi_bd_phim": 231.243,
+   "loi_kt_phim": 236.619,
+   "cau": [
+    {
+     "khoa": "Scurvy spread, until a Danish ship of lemons was brought in, garrison diaries record.",
+     "bd_phim": 231.243,
+     "kt_phim": 236.619,
+     "bd_chuong": 58.749,
+     "kt_chuong": 64.125
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 58.749,
+    "kt_chuong": 64.125,
+    "bd_stem": 235.227,
+    "kt_stem": 240.603
+   },
+   "kt_phim": 236.75
+  },
+  {
+   "id": "2g",
+   "ch": 2,
+   "loai": "3D phố",
+   "kieu": "giu",
+   "may": "push-in; phố đổi vật liệu \"cháy → ghost tro\" (M7), không người; mũi tê",
+   "dur": 12.5,
+   "loi": 11.819,
+   "chay_vao": 0.269,
+   "dur_moi": 12.5,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 236.75,
+   "loi_bd_phim": 237.019,
+   "loi_kt_phim": 248.838,
+   "cau": [
+    {
+     "khoa": "On the twelfth of April 1781, the second relief convoy dropped anchor, and Spain's batteries opened fire on the town.",
+     "bd_phim": 237.019,
+     "kt_phim": 245.889,
+     "bd_chuong": 64.914,
+     "kt_chuong": 73.784
+    },
+    {
+     "khoa": "The townspeople fled south.",
+     "bd_phim": 246.818,
+     "kt_phim": 248.838,
+     "bd_chuong": 74.713,
+     "kt_chuong": 76.733
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 64.914,
+    "kt_chuong": 76.733,
+    "bd_stem": 241.392,
+    "kt_stem": 253.211
+   },
+   "kt_phim": 249.25
+  },
+  {
+   "id": "2h",
+   "ch": 2,
+   "loai": "ảnh",
+   "kieu": "tran",
+   "may": "bản khắc Drinkwater 1786 \"view of the Spanish batteries\" / Rijks RP-P-",
+   "dur": 7.0,
+   "loi": 8.046,
+   "chay_vao": 0.0,
+   "dur_moi": 8.458333333333334,
+   "chay_sang": 0.0,
+   "them": 1.4583,
+   "bd_phim": 249.25,
+   "loi_bd_phim": 249.25,
+   "loi_kt_phim": 257.296,
+   "cau": [
+    {
+     "khoa": "Two days later, soldiers broke into the merchants' stores.",
+     "bd_phim": 249.25,
+     "kt_phim": 252.536,
+     "bd_chuong": 77.812,
+     "kt_chuong": 81.098
+    },
+    {
+     "khoa": "A British officer blamed \"resentment and intoxication.\"",
+     "bd_phim": 253.117,
+     "kt_phim": 257.296,
+     "bd_chuong": 81.679,
+     "kt_chuong": 85.858
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 77.812,
+    "kt_chuong": 85.858,
+    "bd_stem": 254.29,
+    "kt_stem": 262.336
+   },
+   "kt_phim": 257.708
+  },
+  {
+   "id": "2i",
+   "ch": 2,
+   "loai": "thẻ số",
+   "kieu": "tran",
+   "may": "thẻ: 205 328 vs 258 387 phát; ~8 000 thùng thuốc súng",
+   "dur": 6.0,
+   "loi": 5.085,
+   "chay_vao": 0.0,
+   "dur_moi": 6.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 257.708,
+   "loi_bd_phim": 257.708,
+   "loi_kt_phim": 262.793,
+   "cau": [
+    {
+     "khoa": "By British tallies, the two sides fired over four hundred and sixty thousand rounds.",
+     "bd_phim": 257.708,
+     "kt_phim": 262.793,
+     "bd_chuong": 86.532,
+     "kt_chuong": 91.617
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 86.532,
+    "kt_chuong": 91.617,
+    "bd_stem": 263.01,
+    "kt_stem": 268.095
+   },
+   "kt_phim": 263.708
+  },
+  {
+   "id": "KA1782",
+   "ch": 2,
+   "loai": "3D phố",
+   "kieu": "giu",
+   "may": "KHUNG NEO: máy cố định tầm mắt 2–3 m, không chuyển động máy; bộ đếm nă",
+   "dur": 8.0,
+   "loi": 5.225,
+   "chay_vao": 0.0,
+   "dur_moi": 8.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 263.708,
+   "loi_bd_phim": 263.708,
+   "loi_kt_phim": 268.933,
+   "cau": [
+    {
+     "khoa": "By September 1782, the garrison counted about seven and a half thousand men.",
+     "bd_phim": 263.708,
+     "kt_phim": 268.933,
+     "bd_chuong": 92.406,
+     "kt_chuong": 97.631
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 92.406,
+    "kt_chuong": 97.631,
+    "bd_stem": 268.884,
+    "kt_stem": 274.109
+   },
+   "kt_phim": 271.708
+  },
+  {
+   "id": "2o",
+   "ch": 2,
+   "loai": "3D phố",
+   "kieu": "gian",
+   "may": "mặt cắt vách bắc (M11): đường hầm đào theo ngày từ 25/5/1782, lỗ châu ",
+   "dur": 12.5,
+   "loi": 9.056,
+   "chay_vao": 0.0,
+   "dur_moi": 10.291666666666666,
+   "chay_sang": 0.0,
+   "rut": 2.2083,
+   "them": -2.2083,
+   "bd_phim": 271.708,
+   "loi_bd_phim": 271.708,
+   "loi_kt_phim": 280.764,
+   "cau": [
+    {
+     "khoa": "That summer, they had been digging through the north face.",
+     "bd_phim": 271.708,
+     "kt_phim": 275.04,
+     "bd_chuong": 98.896,
+     "kt_chuong": 102.228
+    },
+    {
+     "khoa": "By early July, Sergeant Ince's thirteen men had cut about eighty-two feet of solid rock.",
+     "bd_phim": 275.713,
+     "kt_phim": 280.764,
+     "bd_chuong": 102.901,
+     "kt_chuong": 107.952
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 98.896,
+    "kt_chuong": 107.952,
+    "bd_stem": 275.374,
+    "kt_stem": 284.43
+   },
+   "kt_phim": 282.0
+  },
+  {
+   "id": "2p",
+   "ch": 2,
+   "loai": "footage",
+   "kieu": "tran",
+   "may": "footage trong đường hầm hôm nay (CHỈ khi có clip giấy phép rõ; nếu khô",
+   "dur": 8.0,
+   "loi": 6.536,
+   "chay_vao": 0.0,
+   "dur_moi": 7.75,
+   "chay_sang": 0.0,
+   "rut": 0.25,
+   "them": -0.25,
+   "bd_phim": 282.0,
+   "loi_bd_phim": 282.0,
+   "loi_kt_phim": 288.536,
+   "cau": [
+    {
+     "khoa": "In July they blasted a hole for air.",
+     "bd_phim": 282.0,
+     "kt_phim": 284.659,
+     "bd_chuong": 108.532,
+     "kt_chuong": 111.191
+    },
+    {
+     "khoa": "A Spanish historian wrote it was big enough for a cannon.",
+     "bd_phim": 285.332,
+     "kt_phim": 288.536,
+     "bd_chuong": 111.864,
+     "kt_chuong": 115.068
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 108.532,
+    "kt_chuong": 115.068,
+    "bd_stem": 285.01,
+    "kt_stem": 291.546
+   },
+   "kt_phim": 289.75
+  },
+  {
+   "id": "2j",
+   "ch": 2,
+   "loai": "3D phố",
+   "kieu": "gian",
+   "may": "orbit King's Bastion; lò nung đạn đỏ (sticker vật 3D, ánh đỏ ấm)",
+   "dur": 12.5,
+   "loi": 13.978,
+   "chay_vao": 0.0,
+   "dur_moi": 14.416666666666666,
+   "chay_sang": 0.0,
+   "them": 1.9167,
+   "bd_phim": 289.75,
+   "loi_bd_phim": 289.75,
+   "loi_kt_phim": 303.728,
+   "cau": [
+    {
+     "khoa": "The garrison turned to heat: cannonballs heated red-hot, so that whatever they hit caught fire.",
+     "bd_phim": 289.75,
+     "kt_phim": 297.192,
+     "bd_chuong": 115.742,
+     "kt_chuong": 123.184
+    },
+    {
+     "khoa": "On the eighth of September, they used them in earnest against the Spanish works.",
+     "bd_phim": 298.457,
+     "kt_phim": 303.728,
+     "bd_chuong": 124.449,
+     "kt_chuong": 129.72
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 115.742,
+    "kt_chuong": 129.72,
+    "bd_stem": 292.22,
+    "kt_stem": 306.198
+   },
+   "kt_phim": 304.167
+  },
+  {
+   "id": "2k",
+   "ch": 2,
+   "loai": "bản đồ lịch sử",
+   "kieu": "tran",
+   "may": "Drinkwater 1786 \"plan of the batteries 13 Sept 1782\" (archive.org, PD)",
+   "dur": 12.0,
+   "loi": 11.738,
+   "chay_vao": 0.0,
+   "dur_moi": 12.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 304.167,
+   "loi_bd_phim": 304.167,
+   "loi_kt_phim": 315.905,
+   "cau": [
+    {
+     "khoa": "Four days later, the French and Spanish fleets gathered in the bay: forty-seven ships of the line by the British count, fifty by the Spanish.",
+     "bd_phim": 304.167,
+     "kt_phim": 312.271,
+     "bd_chuong": 130.579,
+     "kt_chuong": 138.683
+    },
+    {
+     "khoa": "The Duc de Crillon led the siege.",
+     "bd_phim": 312.851,
+     "kt_phim": 315.905,
+     "bd_chuong": 139.263,
+     "kt_chuong": 142.317
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 130.579,
+    "kt_chuong": 142.317,
+    "bd_stem": 307.057,
+    "kt_stem": 318.795
+   },
+   "kt_phim": 316.167
+  },
+  {
+   "id": "2l",
+   "ch": 2,
+   "loai": "tranh Ken Burns",
+   "kieu": "tran",
+   "may": "Rijks RP-P-OB-19.249 \"Destruction of the Floating Batteries\" (CC0) — c",
+   "dur": 12,
+   "loi": 12.028,
+   "chay_vao": 0.138,
+   "dur_moi": 12,
+   "chay_sang": 0.166,
+   "them": 0,
+   "bd_phim": 316.167,
+   "loi_bd_phim": 316.305,
+   "loi_kt_phim": 328.333,
+   "cau": [
+    {
+     "khoa": "Their answer to red-hot shot: ten floating batteries, designed by the French engineer d'Arçon.",
+     "bd_phim": 316.305,
+     "kt_phim": 322.342,
+     "bd_chuong": 142.99,
+     "kt_chuong": 149.027
+    },
+    {
+     "khoa": "A French account says he'd asked to test them against red-hot shot first.",
+     "bd_phim": 323.015,
+     "kt_phim": 326.846,
+     "bd_chuong": 149.7,
+     "kt_chuong": 153.531
+    },
+    {
+     "khoa": "It was refused.",
+     "bd_phim": 327.276,
+     "kt_phim": 328.333,
+     "bd_chuong": 153.961,
+     "kt_chuong": 155.018
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 142.99,
+    "kt_chuong": 155.018,
+    "bd_stem": 319.468,
+    "kt_stem": 331.496
+   },
+   "kt_phim": 328.167
+  },
+  {
+   "id": "2m",
+   "ch": 2,
+   "loai": "3D vùng",
+   "kieu": "giu",
+   "may": "CÚ LIÊN HOÀN #2: bay thấp 100 m dọc mặt vịnh từ Algeciras → ramp → orb",
+   "dur": 20.0,
+   "loi": 20.538,
+   "chay_vao": 0.566,
+   "dur_moi": 20.0,
+   "chay_sang": 1.104,
+   "them": 0.0,
+   "bd_phim": 328.167,
+   "loi_bd_phim": 328.733,
+   "loi_kt_phim": 349.271,
+   "cau": [
+    {
+     "khoa": "The thirteenth of September 1782.",
+     "bd_phim": 328.733,
+     "kt_phim": 331.809,
+     "bd_chuong": 155.691,
+     "kt_chuong": 158.767
+    },
+    {
+     "khoa": "That morning, the batteries moved into position under the garrison's fire.",
+     "bd_phim": 332.483,
+     "kt_phim": 336.488,
+     "bd_chuong": 159.441,
+     "kt_chuong": 163.446
+    },
+    {
+     "khoa": "At ten twenty-five, by the Spanish account, the attackers' guns, some four hundred, opened fire together.",
+     "bd_phim": 337.417,
+     "kt_phim": 344.139,
+     "bd_chuong": 164.375,
+     "kt_chuong": 171.097
+    },
+    {
+     "khoa": "By the next afternoon, all ten batteries were lost.",
+     "bd_phim": 345.405,
+     "kt_phim": 349.271,
+     "bd_chuong": 172.363,
+     "kt_chuong": 176.229
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 155.691,
+    "kt_chuong": 176.229,
+    "bd_stem": 332.169,
+    "kt_stem": 352.707
+   },
+   "kt_phim": 348.167
+  },
+  {
+   "id": "2n",
+   "ch": 2,
+   "loai": "thẻ số",
+   "kieu": "tran",
+   "may": "thẻ: 10 → 0 pin nổi; thương vong hai phía bằng số + chấm trung tính; 3",
+   "dur": 8.0,
+   "loi": 9.671,
+   "chay_vao": 1.504,
+   "dur_moi": 8.0,
+   "chay_sang": 3.175,
+   "them": 0.0,
+   "bd_phim": 348.167,
+   "loi_bd_phim": 349.671,
+   "loi_kt_phim": 359.342,
+   "cau": [
+    {
+     "khoa": "Over two thousand attackers were lost, by a British estimate that includes prisoners, and by a Spanish one; the British rescued three hundred and fifty-seven.",
+     "bd_phim": 349.671,
+     "kt_phim": 359.342,
+     "bd_chuong": 177.158,
+     "kt_chuong": 186.829
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 177.158,
+    "kt_chuong": 186.829,
+    "bd_stem": 353.636,
+    "kt_stem": 363.307
+   },
+   "kt_phim": 356.167
+  },
+  {
+   "id": "2q",
+   "ch": 2,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "reveal kéo lùi; tuyến vây mờ dần theo ngày 2/1783",
+   "dur": 11.0,
+   "loi": 11.633,
+   "chay_vao": 3.575,
+   "dur_moi": 15.625,
+   "chay_sang": 0.0,
+   "them": 4.625,
+   "bd_phim": 356.167,
+   "loi_bd_phim": 359.742,
+   "loi_kt_phim": 371.375,
+   "cau": [
+    {
+     "khoa": "The blockade never forced a surrender.",
+     "bd_phim": 359.742,
+     "kt_phim": 362.215,
+     "bd_chuong": 187.908,
+     "kt_chuong": 190.381
+    },
+    {
+     "khoa": "In February 1783, word came of a preliminary peace, and on the fifth, the last shot was fired.",
+     "bd_phim": 363.295,
+     "kt_phim": 371.375,
+     "bd_chuong": 191.461,
+     "kt_chuong": 199.541
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 187.908,
+    "kt_chuong": 199.541,
+    "bd_stem": 364.386,
+    "kt_stem": 376.019
+   },
+   "kt_phim": 371.792
+  },
+  {
+   "id": "2r",
+   "ch": 2,
+   "loai": "ảnh",
+   "kieu": "tran",
+   "may": "văn bản/ấn bản hiệp ước 1783 (PD) tô dòng + thẻ tổn thất cả cuộc vây h",
+   "dur": 12,
+   "loi": 16.672,
+   "chay_vao": 0.0,
+   "dur_moi": 12,
+   "chay_sang": 4.672,
+   "them": 0,
+   "bd_phim": 371.792,
+   "loi_bd_phim": 371.792,
+   "loi_kt_phim": 388.464,
+   "cau": [
+    {
+     "khoa": "Spanish historian Montero put losses near two thousand defenders and, from all causes, six thousand besiegers.",
+     "bd_phim": 371.792,
+     "kt_phim": 379.71,
+     "bd_chuong": 200.47,
+     "kt_chuong": 208.388
+    },
+    {
+     "khoa": "The garrison's records count fewer dead: at least eight hundred and sixty-nine.",
+     "bd_phim": 380.5,
+     "kt_phim": 385.597,
+     "bd_chuong": 209.178,
+     "kt_chuong": 214.275
+    },
+    {
+     "khoa": "Gibraltar stayed British.",
+     "bd_phim": 386.862,
+     "kt_phim": 388.464,
+     "bd_chuong": 215.54,
+     "kt_chuong": 217.142
+    }
+   ],
+   "ban_thu": {
+    "chuong": "02 SIEGE",
+    "bd_chuong": 200.47,
+    "kt_chuong": 217.142,
+    "bd_stem": 376.948,
+    "kt_stem": 393.62
+   },
+   "kt_phim": 383.792
+  },
+  {
+   "id": "3a",
+   "ch": 3,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "lateral dọc chiến tuyến; dải giữa tô trung tính \"neutral ground (as ma",
+   "dur": 12.0,
+   "loi": 11.262,
+   "chay_vao": 5.072,
+   "dur_moi": 16.75,
+   "chay_sang": 0.0,
+   "them": 4.75,
+   "bd_phim": 383.792,
+   "loi_bd_phim": 388.864,
+   "loi_kt_phim": 400.126,
+   "cau": [
+    {
+     "khoa": "Which leaves a question the treaty never answered: where does the Rock end?",
+     "bd_phim": 388.864,
+     "kt_phim": 393.775,
+     "bd_chuong": 0.0,
+     "kt_chuong": 4.911
+    },
+    {
+     "khoa": "Between the walls and the Spanish line lay a strip of sand: the neutral ground.",
+     "bd_phim": 394.855,
+     "kt_phim": 400.126,
+     "bd_chuong": 5.991,
+     "kt_chuong": 11.262
+    }
+   ],
+   "ban_thu": {
+    "chuong": "03 NEUTRAL",
+    "bd_chuong": 0.0,
+    "kt_chuong": 11.262,
+    "bd_stem": 395.621,
+    "kt_stem": 406.883
+   },
+   "kt_phim": 400.542
+  },
+  {
+   "id": "3b",
+   "ch": 3,
+   "loai": "3D vùng",
+   "kieu": "giu",
+   "may": "orbit; hai pháo đài bốc khói (M7) — MỐC ĐINH 1810",
+   "dur": 10.5,
+   "loi": 10.646,
+   "chay_vao": 0.0,
+   "dur_moi": 10.5,
+   "chay_sang": 0.146,
+   "them": 0.0,
+   "bd_phim": 400.542,
+   "loi_bd_phim": 400.542,
+   "loi_kt_phim": 411.188,
+   "cau": [
+    {
+     "khoa": "Around 1810, with Napoleon's armies heading for the Strait, Spain and Britain were allies.",
+     "bd_phim": 400.542,
+     "kt_phim": 407.113,
+     "bd_chuong": 12.527,
+     "kt_chuong": 19.098
+    },
+    {
+     "khoa": "With Spain's consent, the British blew up the Spanish forts.",
+     "bd_phim": 407.902,
+     "kt_phim": 411.188,
+     "bd_chuong": 19.887,
+     "kt_chuong": 23.173
+    }
+   ],
+   "ban_thu": {
+    "chuong": "03 NEUTRAL",
+    "bd_chuong": 12.527,
+    "kt_chuong": 23.173,
+    "bd_stem": 408.148,
+    "kt_stem": 418.794
+   },
+   "kt_phim": 411.042
+  },
+  {
+   "id": "3c",
+   "ch": 3,
+   "loai": "bản đồ lịch sử",
+   "kieu": "tran",
+   "may": "Sayer 1865 plan (archive.org, PD) phẳng có nhãn \"Neutral Ground\"; ảnh ",
+   "dur": 8.5,
+   "loi": 7.813,
+   "chay_vao": 0.546,
+   "dur_moi": 8.5,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 411.042,
+   "loi_bd_phim": 411.588,
+   "loi_kt_phim": 419.401,
+   "cau": [
+    {
+     "khoa": "After that, the edge kept moving.",
+     "bd_phim": 411.588,
+     "kt_phim": 413.41,
+     "bd_chuong": 23.963,
+     "kt_chuong": 25.785
+    },
+    {
+     "khoa": "A Spanish historian describes Britain advancing into the neutral zone step by step.",
+     "bd_phim": 414.339,
+     "kt_phim": 419.401,
+     "bd_chuong": 26.714,
+     "kt_chuong": 31.776
+    }
+   ],
+   "ban_thu": {
+    "chuong": "03 NEUTRAL",
+    "bd_chuong": 23.963,
+    "kt_chuong": 31.776,
+    "bd_stem": 419.584,
+    "kt_stem": 427.397
+   },
+   "kt_phim": 419.542
+  },
+  {
+   "id": "3d",
+   "ch": 3,
+   "loai": "3D phố",
+   "kieu": "gian",
+   "may": "lateral parallax trước La Línea: toà Catastro mọc đúng năm",
+   "dur": 10.0,
+   "loi": 8.29,
+   "chay_vao": 0.259,
+   "dur_moi": 9.791666666666666,
+   "chay_sang": 0.0,
+   "rut": 0.2083,
+   "them": -0.2083,
+   "bd_phim": 419.542,
+   "loi_bd_phim": 419.801,
+   "loi_kt_phim": 428.091,
+   "cau": [
+    {
+     "khoa": "On the Spanish side, a town grew up behind the old line.",
+     "bd_phim": 419.801,
+     "kt_phim": 423.632,
+     "bd_chuong": 32.565,
+     "kt_chuong": 36.396
+    },
+    {
+     "khoa": "In 1870, it became La Línea de la Concepción.",
+     "bd_phim": 424.689,
+     "kt_phim": 428.091,
+     "bd_chuong": 37.453,
+     "kt_chuong": 40.855
+    }
+   ],
+   "ban_thu": {
+    "chuong": "03 NEUTRAL",
+    "bd_chuong": 32.565,
+    "kt_chuong": 40.855,
+    "bd_stem": 428.186,
+    "kt_stem": 436.476
+   },
+   "kt_phim": 429.333
+  },
+  {
+   "id": "KC1910",
+   "ch": 3,
+   "loai": "3D phố",
+   "kieu": "giu",
+   "may": "KHUNG NEO: máy cố định tầm mắt 2–3 m, không chuyển động máy; bộ đếm nă",
+   "dur": 7.0,
+   "loi": 3.681,
+   "chay_vao": 0.0,
+   "dur_moi": 7.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 429.333,
+   "loi_bd_phim": 429.333,
+   "loi_kt_phim": 433.014,
+   "cau": [
+    {
+     "khoa": "Remember this street in La Línea.",
+     "bd_phim": 429.333,
+     "kt_phim": 431.33,
+     "bd_chuong": 41.632,
+     "kt_chuong": 43.629
+    },
+    {
+     "khoa": "We'll come back to it.",
+     "bd_phim": 431.83,
+     "kt_phim": 433.014,
+     "bd_chuong": 44.129,
+     "kt_chuong": 45.313
+    }
+   ],
+   "ban_thu": {
+    "chuong": "03 NEUTRAL",
+    "bd_chuong": 41.632,
+    "kt_chuong": 45.313,
+    "bd_stem": 437.253,
+    "kt_stem": 440.934
+   },
+   "kt_phim": 436.333
+  },
+  {
+   "id": "3e",
+   "ch": 3,
+   "loai": "ảnh",
+   "kieu": "tran",
+   "may": "ảnh Rijks RP-F-2001-7-257-16 \"neutral ground\" c.1860 (CC0) neo điểm 3D",
+   "dur": 6.0,
+   "loi": 5.027,
+   "chay_vao": 0.0,
+   "dur_moi": 6.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 436.333,
+   "loi_bd_phim": 436.333,
+   "loi_kt_phim": 441.36,
+   "cau": [
+    {
+     "khoa": "This was the gap between them: a strip of neutral ground between two towns.",
+     "bd_phim": 436.333,
+     "kt_phim": 441.36,
+     "bd_chuong": 46.23,
+     "kt_chuong": 51.257
+    }
+   ],
+   "ban_thu": {
+    "chuong": "03 NEUTRAL",
+    "bd_chuong": 46.23,
+    "kt_chuong": 51.257,
+    "bd_stem": 441.851,
+    "kt_stem": 446.878
+   },
+   "kt_phim": 442.333
+  },
+  {
+   "id": "3f",
+   "ch": 3,
+   "loai": "3D phố",
+   "kieu": "giu",
+   "may": "push-in giữ hơi; hàng rào 1909 mọc (MỐC ĐINH)",
+   "dur": 16.0,
+   "loi": 12.655,
+   "chay_vao": 0.0,
+   "dur_moi": 16.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 442.333,
+   "loi_bd_phim": 442.333,
+   "loi_kt_phim": 454.988,
+   "cau": [
+    {
+     "khoa": "In 1908, Britain told Spain, \"as an act of courtesy,\" that it would fence the edge of the neutral ground.",
+     "bd_phim": 442.333,
+     "kt_phim": 448.963,
+     "bd_chuong": 52.51,
+     "kt_chuong": 59.14
+    },
+    {
+     "khoa": "The fence went up in 1909; Spain does not recognise it as a border.",
+     "bd_phim": 449.752,
+     "kt_phim": 454.988,
+     "bd_chuong": 59.929,
+     "kt_chuong": 65.165
+    }
+   ],
+   "ban_thu": {
+    "chuong": "03 NEUTRAL",
+    "bd_chuong": 52.51,
+    "kt_chuong": 65.165,
+    "bd_stem": 448.131,
+    "kt_stem": 460.786
+   },
+   "kt_phim": 458.333
+  },
+  {
+   "id": "3g",
+   "ch": 3,
+   "loai": "ảnh",
+   "kieu": "tran",
+   "may": "ảnh LoC 2020680546 North Town (≤ 8 s)",
+   "dur": 5.0,
+   "loi": 5.294,
+   "chay_vao": 0.0,
+   "dur_moi": 5.0,
+   "chay_sang": 0.294,
+   "them": 0.0,
+   "bd_phim": 458.333,
+   "loi_bd_phim": 458.333,
+   "loi_kt_phim": 463.627,
+   "cau": [
+    {
+     "khoa": "Behind the fence: a garrison camp, gardens, rifle ranges, a racecourse.",
+     "bd_phim": 458.333,
+     "kt_phim": 463.627,
+     "bd_chuong": 66.094,
+     "kt_chuong": 71.388
+    }
+   ],
+   "ban_thu": {
+    "chuong": "03 NEUTRAL",
+    "bd_chuong": 66.094,
+    "kt_chuong": 71.388,
+    "bd_stem": 461.715,
+    "kt_stem": 467.009
+   },
+   "kt_phim": 463.333
+  },
+  {
+   "id": "3h",
+   "ch": 3,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "top-down: trại lính, vườn, trường đua, dải cỏ 1934–36 hiện theo năm",
+   "dur": 9.5,
+   "loi": 7.268,
+   "chay_vao": 0.694,
+   "dur_moi": 9.208333333333334,
+   "chay_sang": 0.0,
+   "rut": 0.2917,
+   "them": -0.2917,
+   "bd_phim": 463.333,
+   "loi_bd_phim": 464.027,
+   "loi_kt_phim": 471.295,
+   "cau": [
+    {
+     "khoa": "And from 1934, a grass airstrip was built there.",
+     "bd_phim": 464.027,
+     "kt_phim": 467.533,
+     "bd_chuong": 72.468,
+     "kt_chuong": 75.974
+    },
+    {
+     "khoa": "Subscribe if you'd like the next place in this series.",
+     "bd_phim": 468.462,
+     "kt_phim": 471.295,
+     "bd_chuong": 76.903,
+     "kt_chuong": 79.736
+    }
+   ],
+   "ban_thu": {
+    "chuong": "03 NEUTRAL",
+    "bd_chuong": 72.468,
+    "kt_chuong": 79.736,
+    "bd_stem": 468.089,
+    "kt_stem": 475.357
+   },
+   "kt_phim": 472.542
+  },
+  {
+   "id": "4a",
+   "ch": 4,
+   "loai": "ảnh",
+   "kieu": "tran",
+   "may": "ảnh NARA 342-FH 204918833 (2/10/1943, C-47 ở North Front, PD) — nhãn đ",
+   "dur": 10.5,
+   "loi": 10.379,
+   "chay_vao": 0.0,
+   "dur_moi": 10.5,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 472.542,
+   "loi_bd_phim": 472.542,
+   "loi_kt_phim": 482.921,
+   "cau": [
+    {
+     "khoa": "Why build an airfield on disputed ground?",
+     "bd_phim": 472.542,
+     "kt_phim": 475.537,
+     "bd_chuong": 0.0,
+     "kt_chuong": 2.995
+    },
+    {
+     "khoa": "In March 1939, Spain protested that the works stood on \"a usurped portion\" of its territory.",
+     "bd_phim": 476.803,
+     "kt_phim": 482.921,
+     "bd_chuong": 4.261,
+     "kt_chuong": 10.379
+    }
+   ],
+   "ban_thu": {
+    "chuong": "04 RUNWAY",
+    "bd_chuong": 0.0,
+    "kt_chuong": 10.379,
+    "bd_stem": 477.359,
+    "kt_stem": 487.738
+   },
+   "kt_phim": 483.042
+  },
+  {
+   "id": "4b",
+   "ch": 4,
+   "loai": "3D phố",
+   "kieu": "giu",
+   "may": "CÚ LIÊN HOÀN #1 gib20: bay WCA 100 m → ramp → orbit giao lộ (năm dừng ",
+   "dur": 15.0,
+   "loi": 18.529,
+   "chay_vao": 0.279,
+   "dur_moi": 15.0,
+   "chay_sang": 3.808,
+   "them": 0.0,
+   "bd_phim": 483.042,
+   "loi_bd_phim": 483.321,
+   "loi_kt_phim": 501.85,
+   "cau": [
+    {
+     "khoa": "That November, Spain's foreign minister called the strip a fait accompli, like the Rock itself, while insisting its use breached Spanish territory.",
+     "bd_phim": 483.321,
+     "kt_phim": 493.201,
+     "bd_chuong": 11.053,
+     "kt_chuong": 20.933
+    },
+    {
+     "khoa": "Late in 1939, Britain began a hard runway; in 1941, it was laid across the only road to Spain.",
+     "bd_phim": 494.13,
+     "kt_phim": 501.85,
+     "bd_chuong": 21.862,
+     "kt_chuong": 29.582
+    }
+   ],
+   "ban_thu": {
+    "chuong": "04 RUNWAY",
+    "bd_chuong": 11.053,
+    "kt_chuong": 29.582,
+    "bd_stem": 488.412,
+    "kt_stem": 506.941
+   },
+   "kt_phim": 498.042
+  },
+  {
+   "id": "4c",
+   "ch": 4,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "top-down rise; đường băng lấn vịnh theo tháng (M12) tới 1 550 yd",
+   "dur": 9.0,
+   "loi": 6.409,
+   "chay_vao": 4.208,
+   "dur_moi": 11.041666666666666,
+   "chay_sang": 0.0,
+   "them": 2.0417,
+   "bd_phim": 498.042,
+   "loi_bd_phim": 502.25,
+   "loi_kt_phim": 508.659,
+   "cau": [
+    {
+     "khoa": "Then Britain pushed it out into the bay, with stone blasted from the north face and rubble from new tunnels.",
+     "bd_phim": 502.25,
+     "kt_phim": 508.659,
+     "bd_chuong": 30.256,
+     "kt_chuong": 36.665
+    }
+   ],
+   "ban_thu": {
+    "chuong": "04 RUNWAY",
+    "bd_chuong": 30.256,
+    "kt_chuong": 36.665,
+    "bd_stem": 507.615,
+    "kt_stem": 514.024
+   },
+   "kt_phim": 509.083
+  },
+  {
+   "id": "4d",
+   "ch": 4,
+   "loai": "3D phố",
+   "kieu": "gian",
+   "may": "mặt cắt khối Rock (M11) theo plan hầm ONI 1954 (NARA 353129601, PD); m",
+   "dur": 10.5,
+   "loi": 8.452,
+   "chay_vao": 0.0,
+   "dur_moi": 9.666666666666666,
+   "chay_sang": 0.0,
+   "rut": 0.8333,
+   "them": -0.8333,
+   "bd_phim": 509.083,
+   "loi_bd_phim": 509.083,
+   "loi_kt_phim": 517.535,
+   "cau": [
+    {
+     "khoa": "Inside the Rock, those tunnels held a road about a mile long, a hospital and a power station, dug by British and Canadian tunnellers.",
+     "bd_phim": 509.083,
+     "kt_phim": 517.535,
+     "bd_chuong": 37.93,
+     "kt_chuong": 46.382
+    }
+   ],
+   "ban_thu": {
+    "chuong": "04 RUNWAY",
+    "bd_chuong": 37.93,
+    "kt_chuong": 46.382,
+    "bd_stem": 515.289,
+    "kt_stem": 523.741
+   },
+   "kt_phim": 518.75
+  },
+  {
+   "id": "4e",
+   "ch": 4,
+   "loai": "thẻ số",
+   "kieu": "tran",
+   "may": "thẻ: ~55 km hầm (≈ 34 dặm) — dài hơn đường bộ trên mặt",
+   "dur": 7.5,
+   "loi": 6.385,
+   "chay_vao": 0.0,
+   "dur_moi": 7.5,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 518.75,
+   "loi_bd_phim": 518.75,
+   "loi_kt_phim": 525.135,
+   "cau": [
+    {
+     "khoa": "Gibraltar counts about fifty-five kilometres of tunnels from every era, more than its roads above ground.",
+     "bd_phim": 518.75,
+     "kt_phim": 525.135,
+     "bd_chuong": 47.648,
+     "kt_chuong": 54.033
+    }
+   ],
+   "ban_thu": {
+    "chuong": "04 RUNWAY",
+    "bd_chuong": 47.648,
+    "kt_chuong": 54.033,
+    "bd_stem": 525.007,
+    "kt_stem": 531.392
+   },
+   "kt_phim": 526.25
+  },
+  {
+   "id": "4f",
+   "ch": 4,
+   "loai": "bản đồ lịch sử",
+   "kieu": "tran",
+   "may": "AMS M981 1943 phẳng có nhãn (lên hình: bản Yale 15487373 — ĐIỀU KIỆN; ",
+   "dur": 9.0,
+   "loi": 6.827,
+   "chay_vao": 0.0,
+   "dur_moi": 8.041666666666666,
+   "chay_sang": 0.0,
+   "rut": 0.9583,
+   "them": -0.9583,
+   "bd_phim": 526.25,
+   "loi_bd_phim": 526.25,
+   "loi_kt_phim": 533.077,
+   "cau": [
+    {
+     "khoa": "This 1943 US Army map shows the town house by house, and the runway reaching into the bay.",
+     "bd_phim": 526.25,
+     "kt_phim": 533.077,
+     "bd_chuong": 55.229,
+     "kt_chuong": 62.056
+    }
+   ],
+   "ban_thu": {
+    "chuong": "04 RUNWAY",
+    "bd_chuong": 55.229,
+    "kt_chuong": 62.056,
+    "bd_stem": 532.588,
+    "kt_stem": 539.415
+   },
+   "kt_phim": 534.292
+  },
+  {
+   "id": "SM3",
+   "ch": 4,
+   "loai": "bản đồ chiến lược",
+   "kieu": "tran",
+   "may": "trượt nhẹ nam → bắc rồi giữ; một lần zoom ra cho cung Jamaica/London r",
+   "dur": 8,
+   "loi": 16.092,
+   "chay_vao": 0.0,
+   "dur_moi": 8,
+   "chay_sang": 8.092,
+   "them": 0,
+   "bd_phim": 534.292,
+   "loi_bd_phim": 534.292,
+   "loi_kt_phim": 550.384,
+   "cau": [
+    {
+     "khoa": "May 1940: Gibraltar sends its women and children away.",
+     "bd_phim": 534.292,
+     "kt_phim": 539.261,
+     "bd_chuong": 62.938,
+     "kt_chuong": 67.907
+    },
+    {
+     "khoa": "June: Spain turns \"non-belligerent\" and occupies Tangier.",
+     "bd_phim": 540.341,
+     "kt_phim": 544.567,
+     "bd_chuong": 68.987,
+     "kt_chuong": 73.213
+    },
+    {
+     "khoa": "By 1942, the invasion of North Africa is run from inside the Rock.",
+     "bd_phim": 545.647,
+     "kt_phim": 550.384,
+     "bd_chuong": 74.293,
+     "kt_chuong": 79.03
+    }
+   ],
+   "ban_thu": {
+    "chuong": "04 RUNWAY",
+    "bd_chuong": 62.938,
+    "kt_chuong": 79.03,
+    "bd_stem": 540.297,
+    "kt_stem": 556.389
+   },
+   "kt_phim": 542.292
+  },
+  {
+   "id": "4g",
+   "ch": 4,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "mũi tên trung tính: dân sơ tán (M1) → Casablanca, London, Madeira, Jam",
+   "dur": 5.5,
+   "loi": 0.0,
+   "chay_vao": 8.492,
+   "dur_moi": 8.916666666666666,
+   "chay_sang": 0.0,
+   "them": 3.4167,
+   "bd_phim": 542.292,
+   "kt_phim": 551.208
+  },
+  {
+   "id": "KB1943",
+   "ch": 4,
+   "loai": "3D phố",
+   "kieu": "im_lang",
+   "may": "KHUNG NEO: máy cố định tầm mắt 2–3 m, không chuyển động máy; bộ đếm nă",
+   "dur": 8.0,
+   "loi": 0.0,
+   "chay_vao": 0.0,
+   "dur_moi": 8.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 551.208,
+   "kt_phim": 559.208
+  },
+  {
+   "id": "4h",
+   "ch": 4,
+   "loai": "ảnh",
+   "kieu": "tran",
+   "may": "văn bản phản đối 1939 / lập trường MAEUEC hôm nay — trích nguyên văn",
+   "dur": 11.5,
+   "loi": 9.846,
+   "chay_vao": 0.0,
+   "dur_moi": 11.083333333333334,
+   "chay_sang": 0.0,
+   "rut": 0.4167,
+   "them": -0.4167,
+   "bd_phim": 559.208,
+   "loi_bd_phim": 559.208,
+   "loi_kt_phim": 569.054,
+   "cau": [
+    {
+     "khoa": "For the rest of the war, a Spanish scholar found, Spain protested what it called breaches of Spanish waters; no complaint over the airstrip is on record.",
+     "bd_phim": 559.208,
+     "kt_phim": 569.054,
+     "bd_chuong": 79.61,
+     "kt_chuong": 89.456
+    }
+   ],
+   "ban_thu": {
+    "chuong": "04 RUNWAY",
+    "bd_chuong": 79.61,
+    "kt_chuong": 89.456,
+    "bd_stem": 556.969,
+    "kt_stem": 566.815
+   },
+   "kt_phim": 570.292
+  },
+  {
+   "id": "4i",
+   "ch": 4,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "lateral dọc đường băng đêm 7/8/11/1942: hàng máy bay (khối A-lite) hai",
+   "dur": 16.0,
+   "loi": 14.558,
+   "chay_vao": 0.0,
+   "dur_moi": 15.791666666666666,
+   "chay_sang": 0.0,
+   "rut": 0.2083,
+   "them": -0.2083,
+   "bd_phim": 570.292,
+   "loi_bd_phim": 570.292,
+   "loi_kt_phim": 584.85,
+   "cau": [
+    {
+     "khoa": "On the night of the seventh of November 1942, by Gibraltar's official record, at least six hundred and fifty aircraft lined the runway.",
+     "bd_phim": 570.292,
+     "kt_phim": 579.765,
+     "bd_chuong": 90.536,
+     "kt_chuong": 100.009
+    },
+    {
+     "khoa": "The invasion fleets, from Britain and the United States, came through the Strait.",
+     "bd_phim": 580.439,
+     "kt_phim": 584.85,
+     "bd_chuong": 100.683,
+     "kt_chuong": 105.094
+    }
+   ],
+   "ban_thu": {
+    "chuong": "04 RUNWAY",
+    "bd_chuong": 90.536,
+    "kt_chuong": 105.094,
+    "bd_stem": 567.895,
+    "kt_stem": 582.453
+   },
+   "kt_phim": 586.083
+  },
+  {
+   "id": "5a",
+   "ch": 5,
+   "loai": "3D phố",
+   "kieu": "gian",
+   "may": "cổng biên giới đóng (sepia), chắn hạ; không người",
+   "dur": 14.0,
+   "loi": 15.313,
+   "chay_vao": 0.0,
+   "dur_moi": 15.75,
+   "chay_sang": 0.0,
+   "them": 1.75,
+   "bd_phim": 586.083,
+   "loi_bd_phim": 586.083,
+   "loi_kt_phim": 601.396,
+   "cau": [
+    {
+     "khoa": "After the war, the argument returned to the gate.",
+     "bd_phim": 586.083,
+     "kt_phim": 588.753,
+     "bd_chuong": 0.0,
+     "kt_chuong": 2.67
+    },
+    {
+     "khoa": "In June 1969, Spain closed the land frontier completely.",
+     "bd_phim": 589.682,
+     "kt_phim": 594.001,
+     "bd_chuong": 3.599,
+     "kt_chuong": 7.918
+    },
+    {
+     "khoa": "It followed Gibraltar's new constitution; a Spanish historian says Madrid applied Utrecht strictly.",
+     "bd_phim": 594.674,
+     "kt_phim": 601.396,
+     "bd_chuong": 8.591,
+     "kt_chuong": 15.313
+    }
+   ],
+   "ban_thu": {
+    "chuong": "05 GATE",
+    "bd_chuong": 0.0,
+    "kt_chuong": 15.313,
+    "bd_stem": 584.452,
+    "kt_stem": 599.765
+   },
+   "kt_phim": 601.833
+  },
+  {
+   "id": "5b",
+   "ch": 5,
+   "loai": "thẻ số",
+   "kieu": "tran",
+   "may": "thẻ: ~4 600 lao động ngày 1969 → 14 112 việc làm 2025",
+   "dur": 8.0,
+   "loi": 8.243,
+   "chay_vao": 0.0,
+   "dur_moi": 8.0,
+   "chay_sang": 0.243,
+   "them": 0.0,
+   "bd_phim": 601.833,
+   "loi_bd_phim": 601.833,
+   "loi_kt_phim": 610.076,
+   "cau": [
+    {
+     "khoa": "Britain counted some four thousand six hundred Spanish day workers cut off.",
+     "bd_phim": 601.833,
+     "kt_phim": 606.396,
+     "bd_chuong": 16.242,
+     "kt_chuong": 20.805
+    },
+    {
+     "khoa": "The gate fully reopened in 1985.",
+     "bd_phim": 607.476,
+     "kt_phim": 610.076,
+     "bd_chuong": 21.885,
+     "kt_chuong": 24.485
+    }
+   ],
+   "ban_thu": {
+    "chuong": "05 GATE",
+    "bd_chuong": 16.242,
+    "kt_chuong": 24.485,
+    "bd_stem": 600.694,
+    "kt_stem": 608.937
+   },
+   "kt_phim": 609.833
+  },
+  {
+   "id": "KB2026",
+   "ch": 5,
+   "loai": "3D phố",
+   "kieu": "giu",
+   "may": "KHUNG NEO: máy cố định tầm mắt 2–3 m, không chuyển động máy; bộ đếm nă",
+   "dur": 9.5,
+   "loi": 9.462,
+   "chay_vao": 0.643,
+   "dur_moi": 9.5,
+   "chay_sang": 0.605,
+   "them": 0.0,
+   "bd_phim": 609.833,
+   "loi_bd_phim": 610.476,
+   "loi_kt_phim": 619.938,
+   "cau": [
+    {
+     "khoa": "The same square, today.",
+     "bd_phim": 610.476,
+     "kt_phim": 612.333,
+     "bd_chuong": 24.915,
+     "kt_chuong": 26.772
+    },
+    {
+     "khoa": "In October 2025, people living in Spain held more than four in ten of Gibraltar's jobs.",
+     "bd_phim": 613.123,
+     "kt_phim": 619.938,
+     "bd_chuong": 27.562,
+     "kt_chuong": 34.377
+    }
+   ],
+   "ban_thu": {
+    "chuong": "05 GATE",
+    "bd_chuong": 24.915,
+    "kt_chuong": 34.377,
+    "bd_stem": 609.367,
+    "kt_stem": 618.829
+   },
+   "kt_phim": 619.333
+  },
+  {
+   "id": "5c",
+   "ch": 5,
+   "loai": "3D phố",
+   "kieu": "gian",
+   "may": "follow-object: người lao động A-lite đi bộ băng qua đường băng 2026",
+   "dur": 8.5,
+   "loi": 6.838,
+   "chay_vao": 1.005,
+   "dur_moi": 8.5,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 619.333,
+   "loi_bd_phim": 620.338,
+   "loi_kt_phim": 627.176,
+   "cau": [
+    {
+     "khoa": "The UK government puts the daily crossers higher, at about fifteen thousand.",
+     "bd_phim": 620.338,
+     "kt_phim": 624.448,
+     "bd_chuong": 35.05,
+     "kt_chuong": 39.16
+    },
+    {
+     "khoa": "People on foot still cross the runway.",
+     "bd_phim": 624.947,
+     "kt_phim": 627.176,
+     "bd_chuong": 39.659,
+     "kt_chuong": 41.888
+    }
+   ],
+   "ban_thu": {
+    "chuong": "05 GATE",
+    "bd_chuong": 35.05,
+    "kt_chuong": 41.888,
+    "bd_stem": 619.502,
+    "kt_stem": 626.34
+   },
+   "kt_phim": 627.833
+  },
+  {
+   "id": "5d",
+   "ch": 5,
+   "loai": "3D phố",
+   "kieu": "gian",
+   "may": "lateral dọc phố La Línea (Catastro); 28,6 % neo trên phố",
+   "dur": 4.5,
+   "loi": 1.509,
+   "chay_vao": 0.0,
+   "dur_moi": 4.0,
+   "chay_sang": 0.0,
+   "rut": 0.5,
+   "them": -0.5,
+   "bd_phim": 627.833,
+   "loi_bd_phim": 627.833,
+   "loi_kt_phim": 629.342,
+   "cau": [
+    {
+     "khoa": "And on the other side of the gate.",
+     "bd_phim": 627.833,
+     "kt_phim": 629.342,
+     "bd_chuong": 42.26,
+     "kt_chuong": 43.769
+    }
+   ],
+   "ban_thu": {
+    "chuong": "05 GATE",
+    "bd_chuong": 42.26,
+    "kt_chuong": 43.769,
+    "bd_stem": 626.712,
+    "kt_stem": 628.221
+   },
+   "kt_phim": 631.833
+  },
+  {
+   "id": "KC2026",
+   "ch": 5,
+   "loai": "3D phố",
+   "kieu": "giu",
+   "may": "KHUNG NEO: máy cố định tầm mắt 2–3 m, không chuyển động máy; bộ đếm nă",
+   "dur": 10.0,
+   "loi": 12.458,
+   "chay_vao": 0.0,
+   "dur_moi": 10.0,
+   "chay_sang": 2.458,
+   "them": 0.0,
+   "bd_phim": 631.833,
+   "loi_bd_phim": 631.833,
+   "loi_kt_phim": 644.291,
+   "cau": [
+    {
+     "khoa": "Remember this street?",
+     "bd_phim": 631.833,
+     "kt_phim": 633.041,
+     "bd_chuong": 44.442,
+     "kt_chuong": 45.65
+    },
+    {
+     "khoa": "In 2024, La Línea's unemployment was twenty-eight point six percent: the highest of a hundred and thirteen Spanish cities.",
+     "bd_phim": 633.714,
+     "kt_phim": 644.291,
+     "bd_chuong": 46.323,
+     "kt_chuong": 56.9
+    }
+   ],
+   "ban_thu": {
+    "chuong": "05 GATE",
+    "bd_chuong": 44.442,
+    "kt_chuong": 56.9,
+    "bd_stem": 628.894,
+    "kt_stem": 641.352
+   },
+   "kt_phim": 641.833
+  },
+  {
+   "id": "5e",
+   "ch": 5,
+   "loai": "thẻ số",
+   "kieu": "tran",
+   "may": "thẻ mẫu số: GDP/người theo dân cư trú vs người làm qua biên giới",
+   "dur": 6.4167,
+   "loi": 6.594,
+   "chay_vao": 2.858,
+   "dur_moi": 8.0,
+   "chay_sang": 1.452,
+   "them": 1.5833,
+   "bd_phim": 641.833,
+   "loi_bd_phim": 644.691,
+   "loi_kt_phim": 651.285,
+   "cau": [
+    {
+     "khoa": "Here's the twist.",
+     "bd_phim": 644.691,
+     "kt_phim": 645.689,
+     "bd_chuong": 57.829,
+     "kt_chuong": 58.827
+    },
+    {
+     "khoa": "Gibraltar's government puts output per resident at about eighty-five thousand pounds.",
+     "bd_phim": 646.618,
+     "kt_phim": 651.285,
+     "bd_chuong": 59.756,
+     "kt_chuong": 64.423
+    }
+   ],
+   "ban_thu": {
+    "chuong": "05 GATE",
+    "bd_chuong": 57.829,
+    "kt_chuong": 64.423,
+    "bd_stem": 642.281,
+    "kt_stem": 648.875
+   },
+   "kt_phim": 649.833
+  },
+  {
+   "id": "5f",
+   "ch": 5,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "boundary trace preset gib20: hai dải màu theo số toà hai bên",
+   "dur": 16.5,
+   "loi": 13.456,
+   "chay_vao": 1.852,
+   "dur_moi": 16.5,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 649.833,
+   "loi_bd_phim": 651.685,
+   "loi_kt_phim": 665.141,
+   "cau": [
+    {
+     "khoa": "That spreads output over the thirty-eight thousand who live there, and leaves out the people in Spain who hold fourteen thousand of its jobs.",
+     "bd_phim": 651.685,
+     "kt_phim": 659.545,
+     "bd_chuong": 65.352,
+     "kt_chuong": 73.212
+    },
+    {
+     "khoa": "Our read: part of the work behind that number is done from the other side.",
+     "bd_phim": 660.473,
+     "kt_phim": 665.141,
+     "bd_chuong": 74.14,
+     "kt_chuong": 78.808
+    }
+   ],
+   "ban_thu": {
+    "chuong": "05 GATE",
+    "bd_chuong": 65.352,
+    "kt_chuong": 78.808,
+    "bd_stem": 649.804,
+    "kt_stem": 663.26
+   },
+   "kt_phim": 666.333
+  },
+  {
+   "id": "5g",
+   "ch": 5,
+   "loai": "ảnh",
+   "kieu": "tran",
+   "may": "văn bản hiệp ước 2026 Điều 2 tô dòng",
+   "dur": 8.0,
+   "loi": 7.767,
+   "chay_vao": 0.0,
+   "dur_moi": 8.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 666.333,
+   "loi_bd_phim": 666.333,
+   "loi_kt_phim": 674.1,
+   "cau": [
+    {
+     "khoa": "In July 2026, Britain and the EU signed a treaty; the next day, routine checks here ended.",
+     "bd_phim": 666.333,
+     "kt_phim": 674.1,
+     "bd_chuong": 79.597,
+     "kt_chuong": 87.364
+    }
+   ],
+   "ban_thu": {
+    "chuong": "05 GATE",
+    "bd_chuong": 79.597,
+    "kt_chuong": 87.364,
+    "bd_stem": 664.049,
+    "kt_stem": 671.816
+   },
+   "kt_phim": 674.333
+  },
+  {
+   "id": "5h",
+   "ch": 5,
+   "loai": "3D phố",
+   "kieu": "gian",
+   "may": "orbit cổng 2026: hàng rào cũ gỡ từng đoạn, hàng rào mới phía sau",
+   "dur": 16.0,
+   "loi": 13.92,
+   "chay_vao": 0.167,
+   "dur_moi": 15.333333333333334,
+   "chay_sang": 0.0,
+   "rut": 0.6667,
+   "them": -0.6667,
+   "bd_phim": 674.333,
+   "loi_bd_phim": 674.5,
+   "loi_kt_phim": 688.42,
+   "cau": [
+    {
+     "khoa": "It says it changes neither side's position on sovereignty.",
+     "bd_phim": 674.5,
+     "kt_phim": 677.692,
+     "bd_chuong": 88.038,
+     "kt_chuong": 91.23
+    },
+    {
+     "khoa": "In July, Gibraltar's government said the old fence was coming down, with a new one a few metres behind; only about a hundred and fifty metres would stay open.",
+     "bd_phim": 678.482,
+     "kt_phim": 688.42,
+     "bd_chuong": 92.02,
+     "kt_chuong": 101.958
+    }
+   ],
+   "ban_thu": {
+    "chuong": "05 GATE",
+    "bd_chuong": 88.038,
+    "kt_chuong": 101.958,
+    "bd_stem": 672.49,
+    "kt_stem": 686.41
+   },
+   "kt_phim": 689.667
+  },
+  {
+   "id": "5i",
+   "ch": 5,
+   "loai": "thẻ số",
+   "kieu": "tran",
+   "may": "thẻ \"as of\": áp dụng tạm thời từ 15/7; EP dự kiến biểu quyết 14/12/202",
+   "dur": 8,
+   "loi": 10.148,
+   "chay_vao": 0.0,
+   "dur_moi": 8,
+   "chay_sang": 2.148,
+   "them": 0,
+   "bd_phim": 689.667,
+   "loi_bd_phim": 689.667,
+   "loi_kt_phim": 699.815,
+   "cau": [
+    {
+     "khoa": "As of 18 October 2026, the treaty is in force only provisionally, pending a European Parliament vote indicated for the fourteenth of December.",
+     "bd_phim": 689.667,
+     "kt_phim": 699.815,
+     "bd_chuong": 103.223,
+     "kt_chuong": 113.371
+    }
+   ],
+   "ban_thu": {
+    "chuong": "05 GATE",
+    "bd_chuong": 103.223,
+    "kt_chuong": 113.371,
+    "bd_stem": 687.675,
+    "kt_stem": 697.823
+   },
+   "kt_phim": 697.667
+  },
+  {
+   "id": "5j",
+   "ch": 5,
+   "loai": "3D vùng",
+   "kieu": "gian",
+   "may": "reveal kéo lùi; chồng các tuyến lịch sử dạng ghost sepia (1704 tường, ",
+   "dur": 18.5,
+   "loi": 16.475,
+   "chay_vao": 2.548,
+   "dur_moi": 19.458333333333332,
+   "chay_sang": 0.0,
+   "them": 0.9583,
+   "bd_phim": 697.667,
+   "loi_bd_phim": 700.215,
+   "loi_kt_phim": 716.69,
+   "cau": [
+    {
+     "khoa": "So why did everyone fight over this place?",
+     "bd_phim": 700.215,
+     "kt_phim": 702.503,
+     "bd_chuong": 114.16,
+     "kt_chuong": 116.448
+    },
+    {
+     "khoa": "Where it sits, and the sea that could feed it.",
+     "bd_phim": 703.292,
+     "kt_phim": 705.614,
+     "bd_chuong": 117.237,
+     "kt_chuong": 119.559
+    },
+    {
+     "khoa": "A wall in 1704.",
+     "bd_phim": 706.194,
+     "kt_phim": 708.168,
+     "bd_chuong": 120.139,
+     "kt_chuong": 122.113
+    },
+    {
+     "khoa": "A line in 1730.",
+     "bd_phim": 708.598,
+     "kt_phim": 710.386,
+     "bd_chuong": 122.543,
+     "kt_chuong": 124.331
+    },
+    {
+     "khoa": "A fence in 1909.",
+     "bd_phim": 711.059,
+     "kt_phim": 712.905,
+     "bd_chuong": 125.004,
+     "kt_chuong": 126.85
+    },
+    {
+     "khoa": "A runway in 1941.",
+     "bd_phim": 713.578,
+     "kt_phim": 716.69,
+     "bd_chuong": 127.523,
+     "kt_chuong": 130.635
+    }
+   ],
+   "ban_thu": {
+    "chuong": "05 GATE",
+    "bd_chuong": 114.16,
+    "kt_chuong": 130.635,
+    "bd_stem": 698.612,
+    "kt_stem": 715.087
+   },
+   "kt_phim": 717.125
+  },
+  {
+   "id": "KA2026",
+   "ch": 5,
+   "loai": "3D phố",
+   "kieu": "im_lang",
+   "may": "KHUNG NEO: máy cố định tầm mắt 2–3 m, không chuyển động máy; bộ đếm nă",
+   "dur": 8.0,
+   "loi": 0.0,
+   "chay_vao": 0.0,
+   "dur_moi": 8.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 717.125,
+   "kt_phim": 725.125
+  },
+  {
+   "id": "5k",
+   "ch": 5,
+   "loai": "3D phố",
+   "kieu": "gian",
+   "may": "quay về hình mở đầu (nửa đêm) — góc ngược 0a",
+   "dur": 20.0,
+   "loi": 19.365,
+   "chay_vao": 0.0,
+   "dur_moi": 20.0,
+   "chay_sang": 0.0,
+   "them": 0.0,
+   "bd_phim": 725.125,
+   "loi_bd_phim": 725.125,
+   "loi_kt_phim": 744.49,
+   "cau": [
+    {
+     "khoa": "In 1730, Spain ordered a line to cut the Rock off by land.",
+     "bd_phim": 725.125,
+     "kt_phim": 729.212,
+     "bd_chuong": 131.424,
+     "kt_chuong": 135.511
+    },
+    {
+     "khoa": "Today, four in ten of the Rock's jobs are held by people who live beyond it.",
+     "bd_phim": 729.885,
+     "kt_phim": 734.25,
+     "bd_chuong": 136.184,
+     "kt_chuong": 140.549
+    },
+    {
+     "khoa": "The last siege ended in 1783.",
+     "bd_phim": 734.924,
+     "kt_phim": 737.965,
+     "bd_chuong": 141.223,
+     "kt_chuong": 144.264
+    },
+    {
+     "khoa": "The argument didn't.",
+     "bd_phim": 738.465,
+     "kt_phim": 739.73,
+     "bd_chuong": 144.764,
+     "kt_chuong": 146.029
+    },
+    {
+     "khoa": "Next in Contested Places: London, 1666.",
+     "bd_phim": 740.659,
+     "kt_phim": 744.49,
+     "bd_chuong": 146.958,
+     "kt_chuong": 150.789
+    }
+   ],
+   "ban_thu": {
+    "chuong": "05 GATE",
+    "bd_chuong": 131.424,
+    "kt_chuong": 150.789,
+    "bd_stem": 715.876,
+    "kt_stem": 735.241
+   },
+   "kt_phim": 745.125
+  }
+ ]
+}

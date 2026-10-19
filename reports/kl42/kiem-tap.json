@@ -1,0 +1,2295 @@
+{
+ "ghi": "ASR M=medium.en beam5, S=small.en beam1, không hotwords; theo câu ±0,4 s",
+ "chuong": {
+  "00 HOOK": {
+   "nghe": {
+    "medium.en": {
+     "asr": "midnight at the Gibraltar frontier. To walk in from Spain you cross an airport runway. Since July 2026 this gate has had no routine checks. The rock sits at the western gate of the Mediterranean. Historians on both sides count 14 sieges of it, between 1309 and 1783. This is why everyone fought over it, told from both sides records. In 1782 10 floating batteries came to break it. In 1941 a runway was laid across the only road to Spain. So why today is the fight over it about paperwork and payrolls?",
+     "tu_dung": 1.0,
+     "loi": 0,
+     "so_tu": 102,
+     "cho_lech": []
+    },
+    "small.en": {
+     "asr": "midnight at the Gibraltar frontier. To walk in from Spain, you cross an airport runway. Since July, 2026, this gate has had no routine checks. The rock sits at the western gate of the Mediterranean. Historians on both sides count 14 sieges of it, between 1309 and 1783. This is why everyone fought over it, told from both sides' records. In 1782, ten floating batteries came to break it. In 1941, a runway was laid across the only road to Spain. So why today is the fight over it about paperwork and payrolls?",
+     "tu_dung": 1.0,
+     "loi": 0,
+     "so_tu": 102,
+     "cho_lech": []
+    }
+   },
+   "cau": [
+    {
+     "shot": "0a",
+     "i": 0,
+     "khoa": "Midnight at the Gibraltar frontier.",
+     "bd": 0.0,
+     "kt": 2.148,
+     "muc": {
+      "ten:Gibraltar": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "midnight at the Gibraltar frontier.",
+      "small.en": "midnight at the Gibraltar frontier."
+     }
+    },
+    {
+     "shot": "0a",
+     "i": 1,
+     "khoa": "To walk in from Spain, you cross an airport runway.",
+     "bd": 3.413,
+     "kt": 6.269,
+     "muc": {
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "To walk in from Spain you cross an airport runway.",
+      "small.en": "To walk in from Spain, you cross an airport runway."
+     }
+    },
+    {
+     "shot": "0b",
+     "i": 0,
+     "khoa": "Since July 2026, this gate has had no routine checks.",
+     "bd": 6.943,
+     "kt": 11.285,
+     "muc": {
+      "so:2026": "DUNG",
+      "ten:July": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Since July 2026 this gate has had no routine checks.",
+      "small.en": "Since July, 2026, this gate has had no routine checks."
+     }
+    },
+    {
+     "shot": "0c",
+     "i": 0,
+     "khoa": "The Rock sits at the western gate of the Mediterranean.",
+     "bd": 12.074,
+     "kt": 14.907,
+     "muc": {
+      "ten:Mediterranean": "DUNG",
+      "ten:Rock": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "The rock sits at the western gate of the Mediterranean.",
+      "small.en": "The rock sits at the western gate of the Mediterranean."
+     }
+    },
+    {
+     "shot": "0d",
+     "i": 0,
+     "khoa": "Historians on both sides count fourteen sieges of it, between 1309 and 1783.",
+     "bd": 15.697,
+     "kt": 22.57,
+     "muc": {
+      "so:14": "DUNG",
+      "so:1309": "DUNG",
+      "so:1783": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Historians on both sides count 14 sieges of it, between 1309 and 1783.",
+      "small.en": "Historians on both sides count 14 sieges of it, between 1309 and 1783."
+     }
+    },
+    {
+     "shot": "0e",
+     "i": 0,
+     "khoa": "This is why everyone fought over it, told from both sides' records.",
+     "bd": 23.499,
+     "kt": 27.678,
+     "muc": {},
+     "nghe": {
+      "medium.en": "This is why everyone fought over it, told from both sides records.",
+      "small.en": "This is why everyone fought over it, told from both sides' records."
+     }
+    },
+    {
+     "shot": "0f",
+     "i": 0,
+     "khoa": "In 1782, ten floating batteries came to break it.",
+     "bd": 28.758,
+     "kt": 32.635,
+     "muc": {
+      "so:10": "DUNG",
+      "so:1782": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "In 1782 10 floating batteries came to break it.",
+      "small.en": "In 1782, ten floating batteries came to break it."
+     }
+    },
+    {
+     "shot": "0g",
+     "i": 0,
+     "khoa": "In 1941, a runway was laid across the only road to Spain.",
+     "bd": 33.715,
+     "kt": 37.988,
+     "muc": {
+      "so:1941": "DUNG",
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "In 1941 a runway was laid across the only road to Spain.",
+      "small.en": "In 1941, a runway was laid across the only road to Spain."
+     }
+    },
+    {
+     "shot": "0h",
+     "i": 0,
+     "khoa": "So why, today, is the fight over it about paperwork and payrolls?",
+     "bd": 38.916,
+     "kt": 42.678,
+     "muc": {},
+     "nghe": {
+      "medium.en": "So why today is the fight over it about paperwork and payrolls?",
+      "small.en": "So why today is the fight over it about paperwork and payrolls?"
+     }
+    }
+   ],
+   "tong": {
+    "muc": 13,
+    "dung": 13,
+    "nghi": 0,
+    "sai": 0
+   }
+  },
+  "01 ROCK": {
+   "nghe": {
+    "medium.en": {
+     "asr": "Austria, England and the Dutch backed a rival for Spain's crown, France backed Madrid's king. That summer their fleet sailed into the Bay of Gibraltar. Its commanders, Admiral George Rook and Prince George of Hesse -Darmstadt, fought for the rival claimant, Charles III. This plan, printed in 1705, shows the prize, a walled town that historians on both sides would call the key of the Mediterranean. Inside, Governor Diego de Salinas had barely a hundred soldiers by a Spanish count. He refused to surrender. The fleet answered with some 15 ,000 rounds by British and Spanish accounts alike. On the 4th of August 1704, by the new calendar, Gibraltar surrendered. British accounts put the defenders at up to 500 counting armed townsmen. Townspeople could stay if they swore loyalty to Charles III. By a British account, almost all left. By a Spanish one, the largest group settled a league northeast at San Roque. In 1713, the Treaty of Utrecht gave it to the British crown forever, but without any territorial jurisdiction and without any open communication by land. If Britain ever gave it up, Spain would have first refusal. The treaty names the town, castle and port, not the sandy Isesmus to the north. Spain says the Isesmus was never ceded. Britain said in 2015 that Gibraltar includes it. Within weeks, Spain and France besieged it into 1705. Spain tried again in 1727. Neither siege took it. So in 1730, Philip V ordered a stone line across the Isesmus out of gun range to cut Gibraltar off by land. The town behind it is still called La Li Naia, the Line.",
+     "tu_dung": 0.9653,
+     "loi": 10,
+     "so_tu": 288,
+     "cho_lech": [
+      [
+       "rooke",
+       "rook"
+      ],
+      [
+       "north east",
+       "northeast"
+      ],
+      [
+       "for ever",
+       "forever"
+      ],
+      [
+       "isthmus",
+       "isesmus"
+      ],
+      [
+       "isthmus",
+       "isesmus"
+      ],
+      [
+       "isthmus",
+       "isesmus"
+      ],
+      [
+       "l nea",
+       "li naia"
+      ]
+     ]
+    },
+    "small.en": {
+     "asr": "Austria, England, and the Dutch backed a rival for Spain's crown. France backed Madrid's king. That summer, their fleet sailed into the Bay of Gibraltar. Its commanders, Admiral George Rook and Prince George of Hesse -Dame -Stadt, fought for the rival claimant, Charles III. This plan, printed in 1705, shows the prize, a walled town that historians on both sides would call the key of the Mediterranean. Inside, Governor D. A. Gaudet Sa -Li -Nas had barely a hundred soldiers by a Spanish count. He refused to surrender. The fleet answered with some 15 ,000 rounds by British and Spanish accounts alike. On the 4th of August, 1704, by the new calendar, Gibraltar surrendered. British accounts put the defenders at up to 500 counting armed townsmen. Townspeople could stay if they swore loyalty to Charles III. By a British account, almost all left. By a Spanish one, the largest group settled a league northeast at San Roque. In 1713, the Treaty of Utrecht gave it to the British crown forever, but without any territorial jurisdiction and without any open communication by land. If Britain ever gave it up, Spain would have first refusal. The treaty names the town, castle and port, not the sandy Icesmus to the north. Spain says the Icesmus was never ceded. Britain said in 2015 that Gibraltar includes it. Within weeks, Spain and France besieged it into 1705. Spain tried again in 1727. Neither siege took it. So in 1730, Philip V ordered a stone line across the Icesmus out of gun range to cut Gibraltar off by land. The town behind it is still called La -Li -Nay -Ah, the Line.",
+     "tu_dung": 0.934,
+     "loi": 19,
+     "so_tu": 288,
+     "cho_lech": [
+      [
+       "rooke",
+       "rook"
+      ],
+      [
+       "darmstadt",
+       "dame stadt"
+      ],
+      [
+       "diego de salinas",
+       "d a gaudet sa li nas"
+      ],
+      [
+       "north east",
+       "northeast"
+      ],
+      [
+       "for ever",
+       "forever"
+      ],
+      [
+       "isthmus",
+       "icesmus"
+      ],
+      [
+       "isthmus",
+       "icesmus"
+      ],
+      [
+       "isthmus",
+       "icesmus"
+      ],
+      [
+       "l nea",
+       "li nay ah"
+      ]
+     ]
+    }
+   },
+   "cau": [
+    {
+     "shot": "SM1",
+     "i": 0,
+     "khoa": "Austria, England and the Dutch backed a rival for Spain's crown; France backed Madrid's king.",
+     "bd": 0.0,
+     "kt": 5.968,
+     "muc": {
+      "ten:Dutch": "DUNG",
+      "ten:England": "DUNG",
+      "ten:France": "DUNG",
+      "ten:Madrid": "DUNG",
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Austria, England and the Dutch backed a rival for Spain's crown, France backed Madrid's king.",
+      "small.en": "Austria, England, and the Dutch backed a rival for Spain's crown. France backed Madrid's king."
+     }
+    },
+    {
+     "shot": "1a",
+     "i": 0,
+     "khoa": "That summer, their fleet sailed into the Bay of Gibraltar.",
+     "bd": 7.233,
+     "kt": 10.136,
+     "muc": {
+      "ten:Bay": "DUNG",
+      "ten:Gibraltar": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "That summer their fleet sailed into the Bay of Gibraltar.",
+      "small.en": "That summer, their fleet sailed into the Bay of Gibraltar."
+     }
+    },
+    {
+     "shot": "1b",
+     "i": 0,
+     "khoa": "Its commanders, Admiral George Rooke and Prince George of Hesse-Darmstadt, fought for the rival claimant, \"Charles the Third.\"",
+     "bd": 10.809,
+     "kt": 19.296,
+     "muc": {
+      "ten:Admiral": "DUNG",
+      "ten:Charles": "DUNG",
+      "ten:George": "DUNG",
+      "ten:Hesse-Darmstadt": "DUNG",
+      "ten:Prince": "DUNG",
+      "ten:Rooke": "DUNG",
+      "ten:Third": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Its commanders, Admiral George Rook and Prince George of Hesse -Darmstadt, fought for the rival claimant, Charles the third.",
+      "small.en": "Its commanders, Admiral George Rook and Prince George of Hesse -Dame -Stadt, fought for the rival claimant, Charles the third."
+     }
+    },
+    {
+     "shot": "1c",
+     "i": 0,
+     "khoa": "This plan, printed in 1705, shows the prize: a walled town that historians on both sides would call the key of the Mediterranean.",
+     "bd": 20.55,
+     "kt": 29.292,
+     "muc": {
+      "so:1705": "DUNG",
+      "ten:Mediterranean": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "This plan, printed in 1705, shows the prize, a walled town that historians on both sides would call the key of the Mediterranean.",
+      "small.en": "This plan, printed in 1705, shows the prize, a walled town that historians on both sides would call the key of the Mediterranean."
+     }
+    },
+    {
+     "shot": "1d",
+     "i": 0,
+     "khoa": "Inside, Governor Diego de Salinas had barely a hundred soldiers, by a Spanish count.",
+     "bd": 29.966,
+     "kt": 37.477,
+     "muc": {
+      "ten:Diego de Salinas": "DUNG",
+      "ten:Governor": "DUNG",
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Inside, Governor Diego de Salinas had barely a hundred soldiers by a Spanish count.",
+      "small.en": "Inside, Governor D. A. Gaudet Sa -Li -Nas had barely a hundred soldiers by a Spanish count."
+     }
+    },
+    {
+     "shot": "1d",
+     "i": 1,
+     "khoa": "He refused to surrender.",
+     "bd": 38.742,
+     "kt": 40.182,
+     "muc": {},
+     "nghe": {
+      "medium.en": "He refused to surrender.",
+      "small.en": "He refused to surrender."
+     }
+    },
+    {
+     "shot": "1d",
+     "i": 2,
+     "khoa": "The fleet answered with some fifteen thousand rounds, by British and Spanish accounts alike.",
+     "bd": 40.855,
+     "kt": 45.813,
+     "muc": {
+      "so:15000": "DUNG",
+      "ten:British": "DUNG",
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "The fleet answered with some 15,000 rounds by British and Spanish accounts alike.",
+      "small.en": "The fleet answered with some 15,000 rounds by British and Spanish accounts alike."
+     }
+    },
+    {
+     "shot": "1e",
+     "i": 0,
+     "khoa": "On the fourth of August 1704, by the new calendar, Gibraltar surrendered.",
+     "bd": 46.602,
+     "kt": 52.535,
+     "muc": {
+      "so:1704": "DUNG",
+      "ten:August": "DUNG",
+      "ten:Gibraltar": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "On the 4th of August 1704, by the new calendar, Gibraltar surrendered.",
+      "small.en": "On the 4th of August, 1704, by the new calendar, Gibraltar surrendered."
+     }
+    },
+    {
+     "shot": "1f",
+     "i": 0,
+     "khoa": "British accounts put the defenders at up to five hundred, counting armed townsmen.",
+     "bd": 53.615,
+     "kt": 58.085,
+     "muc": {
+      "so:500": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "British accounts put the defenders at up to 500 counting armed townsmen.",
+      "small.en": "British accounts put the defenders at up to 500 counting armed townsmen."
+     }
+    },
+    {
+     "shot": "1g",
+     "i": 0,
+     "khoa": "Townspeople could stay if they swore loyalty to \"Charles the Third.\"",
+     "bd": 58.758,
+     "kt": 62.81,
+     "muc": {
+      "ten:Charles": "DUNG",
+      "ten:Third": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Townspeople could stay if they swore loyalty to Charles the third.",
+      "small.en": "Townspeople could stay if they swore loyalty to Charles the third."
+     }
+    },
+    {
+     "shot": "1g",
+     "i": 1,
+     "khoa": "By a British account, almost all left; by a Spanish one, the largest group settled a league north-east, at San Roque.",
+     "bd": 63.89,
+     "kt": 72.237,
+     "muc": {
+      "so:1": "DUNG",
+      "ten:British": "DUNG",
+      "ten:San Roque": "DUNG",
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "By a British account, almost all left. By a Spanish one, the largest group settled a league northeast at San Roque.",
+      "small.en": "By a British account, almost all left. By a Spanish one, the largest group settled a league northeast at San Roque."
+     }
+    },
+    {
+     "shot": "1h",
+     "i": 0,
+     "khoa": "In 1713, the Treaty of Utrecht gave it to the British Crown \"for ever,\" but \"without any territorial jurisdiction, and without any open communication by land.\"",
+     "bd": 72.91,
+     "kt": 84.357,
+     "muc": {
+      "so:1713": "DUNG",
+      "ten:British": "DUNG",
+      "ten:Crown": "DUNG",
+      "ten:Treaty": "DUNG",
+      "ten:Utrecht": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "In 1713, the Treaty of Utrecht gave it to the British crown forever, but without any territorial jurisdiction and without any open communication by land.",
+      "small.en": "In 1713, the Treaty of Utrecht gave it to the British crown forever, but without any territorial jurisdiction and without any open communication by land."
+     }
+    },
+    {
+     "shot": "1h",
+     "i": 1,
+     "khoa": "If Britain ever gave it up, Spain would have first refusal.",
+     "bd": 85.623,
+     "kt": 89.06,
+     "muc": {
+      "ten:Britain": "DUNG",
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "If Britain ever gave it up, Spain would have first refusal.",
+      "small.en": "If Britain ever gave it up, Spain would have first refusal."
+     }
+    },
+    {
+     "shot": "1i",
+     "i": 0,
+     "khoa": "The treaty names the town, castle and port, not the sandy isthmus to the north.",
+     "bd": 89.733,
+     "kt": 95.306,
+     "muc": {
+      "ten:isthmus": "NGHI"
+     },
+     "nghe": {
+      "medium.en": "The treaty names the town, castle and port, not the sandy Isesmus to the north.",
+      "small.en": "The treaty names the town, castle and port, not the sandy Icesmus to the north."
+     }
+    },
+    {
+     "shot": "1i",
+     "i": 1,
+     "khoa": "Spain says the isthmus was never ceded.",
+     "bd": 95.886,
+     "kt": 98.812,
+     "muc": {
+      "ten:isthmus": "NGHI"
+     },
+     "nghe": {
+      "medium.en": "Spain says the Isesmus was never ceded.",
+      "small.en": "Spain says the Icesmus was never ceded."
+     }
+    },
+    {
+     "shot": "1i",
+     "i": 2,
+     "khoa": "Britain said in 2015 that Gibraltar includes it.",
+     "bd": 99.486,
+     "kt": 102.702,
+     "muc": {
+      "so:2015": "DUNG",
+      "ten:Gibraltar": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Britain said in 2015 that Gibraltar includes it.",
+      "small.en": "Britain said in 2015 that Gibraltar includes it."
+     }
+    },
+    {
+     "shot": "1j",
+     "i": 0,
+     "khoa": "Within weeks, Spain and France besieged it, into 1705.",
+     "bd": 103.781,
+     "kt": 108.774,
+     "muc": {
+      "so:1705": "DUNG",
+      "ten:France": "DUNG",
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Within weeks, Spain and France besieged it into 1705.",
+      "small.en": "Within weeks, Spain and France besieged it into 1705."
+     }
+    },
+    {
+     "shot": "1j",
+     "i": 1,
+     "khoa": "Spain tried again in 1727.",
+     "bd": 109.853,
+     "kt": 112.547,
+     "muc": {
+      "so:1727": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Spain tried again in 1727.",
+      "small.en": "Spain tried again in 1727."
+     }
+    },
+    {
+     "shot": "1j",
+     "i": 2,
+     "khoa": "Neither siege took it.",
+     "bd": 112.977,
+     "kt": 114.3,
+     "muc": {},
+     "nghe": {
+      "medium.en": "Neither siege took it.",
+      "small.en": "Neither siege took it."
+     }
+    },
+    {
+     "shot": "1k",
+     "i": 0,
+     "khoa": "So in 1730, Philip the Fifth ordered a stone line across the isthmus, out of gun range, to cut Gibraltar off by land.",
+     "bd": 114.881,
+     "kt": 123.542,
+     "muc": {
+      "so:1730": "DUNG",
+      "ten:Fifth": "DUNG",
+      "ten:Gibraltar": "DUNG",
+      "ten:Philip": "DUNG",
+      "ten:isthmus": "NGHI"
+     },
+     "nghe": {
+      "medium.en": "So in 1730, Philip the fifth ordered a stone line across the Isesmus out of gun range to cut Gibraltar off by land.",
+      "small.en": "So in 1730, Philip the fifth ordered a stone line across the Icesmus out of gun range to cut Gibraltar off by land."
+     }
+    },
+    {
+     "shot": "1k",
+     "i": 1,
+     "khoa": "The town behind it is still called La Línea: \"the line.\"",
+     "bd": 124.808,
+     "kt": 129.8,
+     "muc": {
+      "ten:La Línea": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "The town behind it is still called La Li Naia, the Line.",
+      "small.en": "The town behind it is still called La -Li -Nay -Ah, the Line."
+     }
+    }
+   ],
+   "tong": {
+    "muc": 53,
+    "dung": 50,
+    "nghi": 3,
+    "sai": 0
+   }
+  },
+  "02 SIEGE": {
+   "nghe": {
+    "medium.en": {
+     "asr": "Half a century later came a different question. Can you starve a rock? On the 21st of June 1779, Madrid cut Gibraltar off from Spain. Spain had joined France in its war with Britain. By October, British intelligence put the Spanish army facing the rock at up to 14 ,000. At sea from mid -July, a Spanish squadron sealed the port. Based at Alhaciras, its boats were there to cut off the food reaching the rock from Africa. By January 1780, thistles, dandelions and wild leeks were daily food for many. An egg cost sixpence. The governor, General Elliott, could hold the walls. The food had to come by sea. To break the blockade, Britain sent three relief fleets. 1780, 1781, 1782. Scurvy spread until a Danish ship of lemons was brought in, Garrison Diaries record. On the 12th of April 1781, the second relief convoy dropped anchor and Spain's batteries opened fire on the town. The townspeople fled south. Two days later, soldiers broke into the merchant's stores. A British officer blamed resentment and intoxication. By British tallies, the two sides fired over 460 ,000 rounds. By September 1782, the garrison counted about seven and a half thousand men. That summer, they had been digging through the north face. By early July, Sergeant Ince's 13 men had cut about 82 feet of solid rock. In July, they blasted a hole for air. A Spanish historian wrote it was big enough for a cannon. The garrison turned to heat. Cannonballs heated red hot. So that whatever they hit caught fire. On the 8th of September, they used them in earnest against the Spanish works. Four days later, the French and Spanish fleets gathered in the bay. 47 ships of the line by the British count, 50 by the Spanish. The Duc du Crillon led the siege. Their answer to red hot shot, 10 floating batteries designed by the French engineer Darcon. A French account says he'd asked to test them against red hot shot first. It was refused. The 13th of September 1782. That morning, the batteries moved into position under the garrison's fire. At 10 .25 by the Spanish account, the attacker's guns, some 400, opened fire together. By the next afternoon, all 10 batteries were lost. Over 2 ,000 attackers were lost by a British estimate that includes prisoners, and by a Spanish one. The British rescued 357. The blockade never forced a surrender. In February 1783, word came of a preliminary peace. And on the 5th, the last shot was fired. Spanish historian Montair O put losses near 2 ,000 defenders, and from all causes, 6 ,000 besiegers. The garrison's records count fewer dead, at least 869. Gibraltar stayed British.",
+     "tu_dung": 0.9793,
+     "loi": 10,
+     "so_tu": 482,
+     "cho_lech": [
+      [
+       "first",
+       "oneth"
+      ],
+      [
+       "algeciras",
+       "alhaciras"
+      ],
+      [
+       "eliott",
+       "elliott"
+      ],
+      [
+       "merchants",
+       "merchant's"
+      ],
+      [
+       "de",
+       "du"
+      ],
+      [
+       "d'ar on",
+       "darcon"
+      ],
+      [
+       "attackers",
+       "attacker's"
+      ],
+      [
+       "montero",
+       "montair oh"
+      ]
+     ]
+    },
+    "small.en": {
+     "asr": "Half a century later came a different question. Can you starve a rock? On the 21st of June 1779, Madrid cut Gibraltar off from Spain. Spain had joined France in its war with Britain. By October, British intelligence put the Spanish army facing the rock at up to 14 ,000. At sea from mid -July, a Spanish squadron sealed the port. Based at Alhay Sea Raas, its boats were there to cut off the food reaching the rock from Africa. By January 1780, thistles, dandelions and wild leeks were daily food for many. An egg cost sixpence. The governor, General Elliot, could hold the walls. The food had to come by sea. To break the blockade, Britain sent three relief fleets. 1780, 1781, 1782. Scurvy spread until a Danish ship of lemons was brought in. Garrison Diaries record. On the 12th of April 1781, the second relief convoy dropped anchor. And Spain's batteries opened fire on the town. The townspeople fled south. Two days later, soldiers broke into the merchant stores. A British officer blamed resentment and intoxication. By British tallies, the two sides fired over 460 ,000 rounds. By September 1782, the garrison counted about seven and a half thousand men. That summer, they had been digging through the north face. By early July, Sergeant Ince's 13 men had cut about 82 feet of solid rock. In July, they blasted a hole for air. A Spanish historian wrote it was big enough for a cannon. The garrison turned to heat. Cannonballs heated red hot. So that whatever they hit caught fire. On the 8th of September, they used them in earnest against the Spanish works. Four days later, the French and Spanish fleets gathered in the bay. 47 ships of the line by the British count, 50 by the Spanish. The Duc de Creon led the siege. Their answer to red hot shot, 10 floating batteries designed by the French engineer Darson. A French account says he'd asked to test them against red hot shot first. It was refused. The 13th of September 1782. That morning, the batteries moved into position under the garrison's fire. At 10 .25 by the Spanish account, the attacker's guns, some 400, opened fire together. By the next afternoon, all 10 batteries were lost. Over 2 ,000 attackers were lost by a British estimate that includes prisoners, and by a Spanish one. The British rescued 357. The blockade never forced a surrender. In February 1783, word came of a preliminary peace. And on the 5th, the last shot was fired. Spanish historian Montayo put losses near 2 ,000 defenders and from all causes, 6 ,000 besiegers. The garrison's records count fewer dead, at least 869. Gibraltar stayed British.",
+     "tu_dung": 0.9772,
+     "loi": 11,
+     "so_tu": 482,
+     "cho_lech": [
+      [
+       "first",
+       "oneth"
+      ],
+      [
+       "algeciras",
+       "alhay sea raas"
+      ],
+      [
+       "eliott",
+       "elliot"
+      ],
+      [
+       "merchants",
+       "merchant"
+      ],
+      [
+       "crillon",
+       "creon"
+      ],
+      [
+       "d'ar on",
+       "darson"
+      ],
+      [
+       "attackers",
+       "attacker's"
+      ],
+      [
+       "montero",
+       "montayo"
+      ]
+     ]
+    }
+   },
+   "cau": [
+    {
+     "shot": "2a",
+     "i": 0,
+     "khoa": "Half a century later came a different question: can you starve a rock?",
+     "bd": -0.033,
+     "kt": 5.424,
+     "muc": {},
+     "nghe": {
+      "medium.en": "Half a century later came a different question. Can you starve a rock?",
+      "small.en": "Half a century later came a different question. Can you starve a rock?"
+     }
+    },
+    {
+     "shot": "2a",
+     "i": 1,
+     "khoa": "On the twenty-first of June 1779, Madrid cut Gibraltar off from Spain.",
+     "bd": 6.352,
+     "kt": 12.041,
+     "muc": {
+      "so:20": "DUNG",
+      "so:1779": "DUNG",
+      "ten:Gibraltar": "DUNG",
+      "ten:June": "DUNG",
+      "ten:Madrid": "DUNG",
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "On the 21st of June 1779, Madrid cut Gibraltar off from Spain.",
+      "small.en": "On the 21st of June 1779, Madrid cut Gibraltar off from Spain."
+     }
+    },
+    {
+     "shot": "2b",
+     "i": 0,
+     "khoa": "Spain had joined France in its war with Britain.",
+     "bd": 12.413,
+     "kt": 15.315,
+     "muc": {
+      "ten:Britain": "DUNG",
+      "ten:France": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Spain had joined France in its war with Britain.",
+      "small.en": "Spain had joined France in its war with Britain."
+     }
+    },
+    {
+     "shot": "2b",
+     "i": 1,
+     "khoa": "By October, British intelligence put the Spanish army facing the Rock at up to fourteen thousand.",
+     "bd": 15.989,
+     "kt": 22.038,
+     "muc": {
+      "so:14000": "DUNG",
+      "ten:British": "DUNG",
+      "ten:October": "DUNG",
+      "ten:Rock": "DUNG",
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "By October, British intelligence put the Spanish army facing the rock at up to 14,000.",
+      "small.en": "By October, British intelligence put the Spanish army facing the rock at up to 14,000."
+     }
+    },
+    {
+     "shot": "2c",
+     "i": 0,
+     "khoa": "At sea, from mid-July, a Spanish squadron sealed the port.",
+     "bd": 23.303,
+     "kt": 27.576,
+     "muc": {
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "At sea from mid -July, a Spanish squadron sealed the port.",
+      "small.en": "At sea from mid -July, a Spanish squadron sealed the port."
+     }
+    },
+    {
+     "shot": "2c",
+     "i": 1,
+     "khoa": "Based at Algeciras, its boats were there to cut off the food reaching the Rock from Africa.",
+     "bd": 28.249,
+     "kt": 34.403,
+     "muc": {
+      "ten:Africa": "DUNG",
+      "ten:Algeciras": "NGHI",
+      "ten:Rock": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Based at Alhaciras, its boats were there to cut off the food reaching the rock from Africa.",
+      "small.en": "Based at Alhay Sea Raas, its boats were there to cut off the food reaching the rock from Africa."
+     }
+    },
+    {
+     "shot": "2d",
+     "i": 0,
+     "khoa": "By January 1780, thistles, dandelions and wild leeks were daily food for many; an egg cost sixpence.",
+     "bd": 35.668,
+     "kt": 43.459,
+     "muc": {
+      "so:1780": "DUNG",
+      "ten:January": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "By January 1780, thistles, dandelions and wild leeks were daily food for many. An egg cost sixpence.",
+      "small.en": "By January 1780, thistles, dandelions and wild leeks were daily food for many. An egg cost sixpence."
+     }
+    },
+    {
+     "shot": "2e",
+     "i": 0,
+     "khoa": "The governor, General Eliott, could hold the walls.",
+     "bd": 44.132,
+     "kt": 46.767,
+     "muc": {
+      "ten:Eliott": "DUNG",
+      "ten:General": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "The governor, General Elliott, could hold the walls. The",
+      "small.en": "The governor, General Elliot, could hold the walls. The"
+     }
+    },
+    {
+     "shot": "2e",
+     "i": 1,
+     "khoa": "The food had to come by sea.",
+     "bd": 47.081,
+     "kt": 48.811,
+     "muc": {},
+     "nghe": {
+      "medium.en": "The food had to come by sea.",
+      "small.en": "The food had to come by sea."
+     }
+    },
+    {
+     "shot": "SM2",
+     "i": 0,
+     "khoa": "To break the blockade, Britain sent three relief fleets: 1780, 1781, 1782.",
+     "bd": 50.076,
+     "kt": 57.669,
+     "muc": {
+      "so:3": "DUNG",
+      "so:1780": "DUNG",
+      "so:1781": "DUNG",
+      "so:1782": "DUNG",
+      "ten:Britain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "To break the blockade, Britain sent three relief fleets. 1780, 1781, 1782.",
+      "small.en": "break the blockade, Britain sent three relief fleets. 1780, 1781, 1782."
+     }
+    },
+    {
+     "shot": "2f",
+     "i": 0,
+     "khoa": "Scurvy spread, until a Danish ship of lemons was brought in, garrison diaries record.",
+     "bd": 58.749,
+     "kt": 64.125,
+     "muc": {
+      "ten:Danish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Scurvy spread until a Danish ship of lemons was brought in, Garrison Diaries record.",
+      "small.en": "Scurvy spread until a Danish ship of lemons was brought in. Garrison Diaries record."
+     }
+    },
+    {
+     "shot": "2g",
+     "i": 0,
+     "khoa": "On the twelfth of April 1781, the second relief convoy dropped anchor, and Spain's batteries opened fire on the town.",
+     "bd": 64.914,
+     "kt": 73.784,
+     "muc": {
+      "so:1781": "DUNG",
+      "ten:April": "DUNG",
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "On the 12th of April 1781, the second relief convoy dropped anchor and Spain's batteries opened fire on the town.",
+      "small.en": "On the 12th of April 1781, the second relief convoy dropped anchor. And Spain's batteries opened fire on the town."
+     }
+    },
+    {
+     "shot": "2g",
+     "i": 1,
+     "khoa": "The townspeople fled south.",
+     "bd": 74.713,
+     "kt": 76.733,
+     "muc": {},
+     "nghe": {
+      "medium.en": "The townspeople fled south.",
+      "small.en": "The townspeople fled south."
+     }
+    },
+    {
+     "shot": "2h",
+     "i": 0,
+     "khoa": "Two days later, soldiers broke into the merchants' stores.",
+     "bd": 77.812,
+     "kt": 81.098,
+     "muc": {
+      "so:2": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Two days later, soldiers broke into the merchant's stores.",
+      "small.en": "Two days later, soldiers broke into the merchant stores."
+     }
+    },
+    {
+     "shot": "2h",
+     "i": 1,
+     "khoa": "A British officer blamed \"resentment and intoxication.\"",
+     "bd": 81.679,
+     "kt": 85.858,
+     "muc": {
+      "ten:British": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "A British officer blamed resentment and intoxication.",
+      "small.en": "A British officer blamed resentment and intoxication."
+     }
+    },
+    {
+     "shot": "2i",
+     "i": 0,
+     "khoa": "By British tallies, the two sides fired over four hundred and sixty thousand rounds.",
+     "bd": 86.532,
+     "kt": 91.617,
+     "muc": {
+      "so:2": "DUNG",
+      "so:460000": "DUNG",
+      "ten:British": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "By British tallies, the two sides fired over 460,000 rounds.",
+      "small.en": "By British tallies, the two sides fired over 460,000 rounds."
+     }
+    },
+    {
+     "shot": "KA1782",
+     "i": 0,
+     "khoa": "By September 1782, the garrison counted about seven and a half thousand men.",
+     "bd": 92.406,
+     "kt": 97.631,
+     "muc": {
+      "so:7.5": "DUNG",
+      "so:1782": "DUNG",
+      "ten:September": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "By September 1782, the garrison counted about seven and a half thousand men.",
+      "small.en": "By September 1782, the garrison counted about seven and a half thousand men."
+     }
+    },
+    {
+     "shot": "2o",
+     "i": 0,
+     "khoa": "That summer, they had been digging through the north face.",
+     "bd": 98.896,
+     "kt": 102.228,
+     "muc": {},
+     "nghe": {
+      "medium.en": "That summer, they had been digging through the north face.",
+      "small.en": "That summer, they had been digging through the north face."
+     }
+    },
+    {
+     "shot": "2o",
+     "i": 1,
+     "khoa": "By early July, Sergeant Ince's thirteen men had cut about eighty-two feet of solid rock.",
+     "bd": 102.901,
+     "kt": 107.952,
+     "muc": {
+      "so:13": "DUNG",
+      "so:82": "DUNG",
+      "ten:Ince's": "DUNG",
+      "ten:July": "DUNG",
+      "ten:Sergeant": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "By early July, Sergeant Ince's 13 men had cut about 82 feet of solid rock.",
+      "small.en": "By early July, Sergeant Ince's 13 men had cut about 82 feet of solid rock."
+     }
+    },
+    {
+     "shot": "2p",
+     "i": 0,
+     "khoa": "In July they blasted a hole for air.",
+     "bd": 108.532,
+     "kt": 111.191,
+     "muc": {
+      "ten:July": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "In July, they blasted a hole for air.",
+      "small.en": "In July, they blasted a hole for air."
+     }
+    },
+    {
+     "shot": "2p",
+     "i": 1,
+     "khoa": "A Spanish historian wrote it was big enough for a cannon.",
+     "bd": 111.864,
+     "kt": 115.068,
+     "muc": {
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "A Spanish historian wrote it was big enough for a cannon.",
+      "small.en": "A Spanish historian wrote it was big enough for a cannon."
+     }
+    },
+    {
+     "shot": "2j",
+     "i": 0,
+     "khoa": "The garrison turned to heat: cannonballs heated red-hot, so that whatever they hit caught fire.",
+     "bd": 115.742,
+     "kt": 123.184,
+     "muc": {},
+     "nghe": {
+      "medium.en": "The garrison turned to heat. Cannonballs heated red hot. So that whatever they hit caught fire.",
+      "small.en": "The garrison turned to heat. Cannonballs heated red hot. So that whatever they hit caught fire."
+     }
+    },
+    {
+     "shot": "2j",
+     "i": 1,
+     "khoa": "On the eighth of September, they used them in earnest against the Spanish works.",
+     "bd": 124.449,
+     "kt": 129.72,
+     "muc": {
+      "ten:September": "DUNG",
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "On the 8th of September, they used them in earnest against the Spanish works.",
+      "small.en": "On the 8th of September, they used them in earnest against the Spanish works."
+     }
+    },
+    {
+     "shot": "2k",
+     "i": 0,
+     "khoa": "Four days later, the French and Spanish fleets gathered in the bay: forty-seven ships of the line by the British count, fifty by the Spanish.",
+     "bd": 130.579,
+     "kt": 138.683,
+     "muc": {
+      "so:4": "DUNG",
+      "so:47": "DUNG",
+      "so:50": "DUNG",
+      "ten:British": "DUNG",
+      "ten:French": "DUNG",
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Four days later, the French and Spanish fleets gathered in the bay. 47 ships of the line by the British count, 50 by the Spanish.",
+      "small.en": "Four days later, the French and Spanish fleets gathered in the bay. 47 ships of the line by the British count, 50 by the Spanish."
+     }
+    },
+    {
+     "shot": "2k",
+     "i": 1,
+     "khoa": "The Duc de Crillon led the siege.",
+     "bd": 139.263,
+     "kt": 142.317,
+     "muc": {
+      "ten:Duc de Crillon": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "The Duc du Crillon led the siege.",
+      "small.en": "The Duc de Creon led the siege."
+     }
+    },
+    {
+     "shot": "2l",
+     "i": 0,
+     "khoa": "Their answer to red-hot shot: ten floating batteries, designed by the French engineer d'Arçon.",
+     "bd": 142.99,
+     "kt": 149.027,
+     "muc": {
+      "so:10": "DUNG",
+      "ten:French": "DUNG",
+      "ten:d'Arçon": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Their answer to red hot shot, 10 floating batteries designed by the French engineer Darcon.",
+      "small.en": "Their answer to red hot shot, 10 floating batteries designed by the French engineer Darson."
+     }
+    },
+    {
+     "shot": "2l",
+     "i": 1,
+     "khoa": "A French account says he'd asked to test them against red-hot shot first.",
+     "bd": 149.7,
+     "kt": 153.531,
+     "muc": {
+      "ten:French": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "A French account says he'd asked to test them against red hot shot first. It",
+      "small.en": "A French account says he'd asked to test them against red hot shot first. It"
+     }
+    },
+    {
+     "shot": "2l",
+     "i": 2,
+     "khoa": "It was refused.",
+     "bd": 153.961,
+     "kt": 155.018,
+     "muc": {},
+     "nghe": {
+      "medium.en": "It was refused.",
+      "small.en": "It was refused."
+     }
+    },
+    {
+     "shot": "2m",
+     "i": 0,
+     "khoa": "The thirteenth of September 1782.",
+     "bd": 155.691,
+     "kt": 158.767,
+     "muc": {
+      "so:1782": "DUNG",
+      "ten:September": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "The 13th of September 1782.",
+      "small.en": "The 13th of September 1782."
+     }
+    },
+    {
+     "shot": "2m",
+     "i": 1,
+     "khoa": "That morning, the batteries moved into position under the garrison's fire.",
+     "bd": 159.441,
+     "kt": 163.446,
+     "muc": {},
+     "nghe": {
+      "medium.en": "That morning, the batteries moved into position under the garrison's fire.",
+      "small.en": "That morning, the batteries moved into position under the garrison's fire."
+     }
+    },
+    {
+     "shot": "2m",
+     "i": 2,
+     "khoa": "At ten twenty-five, by the Spanish account, the attackers' guns, some four hundred, opened fire together.",
+     "bd": 164.375,
+     "kt": 171.097,
+     "muc": {
+      "so:10": "DUNG",
+      "so:25": "DUNG",
+      "so:400": "DUNG",
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "At 10 .25 by the Spanish account, the attacker's guns, some 400, opened fire together.",
+      "small.en": "At 10 .25 by the Spanish account, the attacker's guns, some 400, opened fire together."
+     }
+    },
+    {
+     "shot": "2m",
+     "i": 3,
+     "khoa": "By the next afternoon, all ten batteries were lost.",
+     "bd": 172.363,
+     "kt": 176.229,
+     "muc": {
+      "so:10": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "By the next afternoon, all 10 batteries were lost.",
+      "small.en": "By the next afternoon, all 10 batteries were lost."
+     }
+    },
+    {
+     "shot": "2n",
+     "i": 0,
+     "khoa": "Over two thousand attackers were lost, by a British estimate that includes prisoners, and by a Spanish one; the British rescued three hundred and fifty-seven.",
+     "bd": 177.158,
+     "kt": 186.829,
+     "muc": {
+      "so:1": "DUNG",
+      "so:357": "DUNG",
+      "so:2000": "DUNG",
+      "ten:British": "DUNG",
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Over 2,000 attackers were lost by a British estimate that includes prisoners, and by a Spanish one. The British rescued 357.",
+      "small.en": "Over 2,000 attackers were lost by a British estimate that includes prisoners, and by a Spanish one. The British rescued 357."
+     }
+    },
+    {
+     "shot": "2q",
+     "i": 0,
+     "khoa": "The blockade never forced a surrender.",
+     "bd": 187.908,
+     "kt": 190.381,
+     "muc": {},
+     "nghe": {
+      "medium.en": "The blockade never forced a surrender.",
+      "small.en": "The blockade never forced a surrender."
+     }
+    },
+    {
+     "shot": "2q",
+     "i": 1,
+     "khoa": "In February 1783, word came of a preliminary peace, and on the fifth, the last shot was fired.",
+     "bd": 191.461,
+     "kt": 199.541,
+     "muc": {
+      "so:1783": "DUNG",
+      "ten:February": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "In February 1783, word came of a preliminary peace. And on the 5th, the last shot was fired.",
+      "small.en": "In February 1783, word came of a preliminary peace. And on the 5th, the last shot was fired."
+     }
+    },
+    {
+     "shot": "2r",
+     "i": 0,
+     "khoa": "Spanish historian Montero put losses near two thousand defenders and, from all causes, six thousand besiegers.",
+     "bd": 200.47,
+     "kt": 208.388,
+     "muc": {
+      "so:2000": "DUNG",
+      "so:6000": "DUNG",
+      "ten:Montero": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Spanish historian Montair O put losses near 2,000 defenders, and from all causes, 6,000 besiegers.",
+      "small.en": "Spanish historian Montayo put losses near 2,000 defenders and from all causes, 6,000 besiegers."
+     }
+    },
+    {
+     "shot": "2r",
+     "i": 1,
+     "khoa": "The garrison's records count fewer dead: at least eight hundred and sixty-nine.",
+     "bd": 209.178,
+     "kt": 214.275,
+     "muc": {
+      "so:869": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "The garrison's records count fewer dead, at least 869.",
+      "small.en": "The garrison's records count fewer dead, at least 869."
+     }
+    },
+    {
+     "shot": "2r",
+     "i": 2,
+     "khoa": "Gibraltar stayed British.",
+     "bd": 215.54,
+     "kt": 217.142,
+     "muc": {
+      "ten:British": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Gibraltar stayed British.",
+      "small.en": "Gibraltar stayed British."
+     }
+    }
+   ],
+   "tong": {
+    "muc": 77,
+    "dung": 76,
+    "nghi": 1,
+    "sai": 0
+   }
+  },
+  "03 NEUTRAL": {
+   "nghe": {
+    "medium.en": {
+     "asr": "Which leaves a question the treaty never answered. Where does the rock end? Between the walls and the Spanish line lay a strip of sand, the neutral ground. Around 1810, with Napoleon's armies heading for the strait, Spain and Britain were allies. With Spain's consent, the British blew up the Spanish forts. After that, the edge kept moving. A Spanish historian describes Britain advancing into the neutral zone, step by step. On the Spanish side, a town grew up behind the old line. In 1870 it became La Linaire de la Concepción. Remember this street in La Linaire, we'll come back to it. This was the gap between them, a strip of neutral ground between two towns. In 1908, Britain told Spain, as an act of courtesy, that it would fence the edge of the neutral ground. The fence went up in 1909. Spain does not recognise it as a border. Behind the fence, a garrison camp, gardens, rifle ranges, a race course. And from 1934, a grass airstrip was built there. Subscribe if you'd like the next place in this series.",
+     "tu_dung": 0.9688,
+     "loi": 6,
+     "so_tu": 192,
+     "cho_lech": [
+      [
+       "l nea",
+       "linaire"
+      ],
+      [
+       "l nea",
+       "linaire"
+      ],
+      [
+       "racecourse",
+       "race course"
+      ]
+     ]
+    },
+    "small.en": {
+     "asr": "Which leaves a question the treaty never answered? Where does the rock end? Between the walls and the Spanish line lay a strip of sand, the neutral ground. Around 1810, with Napoleon's armies heading for the strait, Spain and Britain were allies. With Spain's consent, the British blew up the Spanish forts. After that, the edge kept moving. A Spanish historian describes Britain advancing into the neutral zone step by step. On the Spanish side, a town grew up behind the old line. In 1870, it became La Linea della Concepcion. Remember this street in La Linea. We'll come back to it. This was the gap between them, a strip of neutral ground between two towns. In 1908, Britain told Spain as an act of courtesy that it would fence the edge of the neutral ground. The fence went up in 1909. Spain does not recognize it as a border. Behind the fence, a garrison camp, gardens, rifle ranges, a race course. And from 1934, a grass airstrip was built there. Subscribe if you'd like the next place in this series.",
+     "tu_dung": 0.9427,
+     "loi": 11,
+     "so_tu": 192,
+     "cho_lech": [
+      [
+       "l nea de la concepci n",
+       "linea della concepcion"
+      ],
+      [
+       "l nea",
+       "linea"
+      ],
+      [
+       "recognise",
+       "recognize"
+      ],
+      [
+       "racecourse",
+       "race course"
+      ]
+     ]
+    }
+   },
+   "cau": [
+    {
+     "shot": "3a",
+     "i": 0,
+     "khoa": "Which leaves a question the treaty never answered: where does the Rock end?",
+     "bd": 0.0,
+     "kt": 4.911,
+     "muc": {
+      "ten:Rock": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Which leaves a question the treaty never answered. Where does the rock end?",
+      "small.en": "Which leaves a question the treaty never answered? Where does the rock end?"
+     }
+    },
+    {
+     "shot": "3a",
+     "i": 1,
+     "khoa": "Between the walls and the Spanish line lay a strip of sand: the neutral ground.",
+     "bd": 5.991,
+     "kt": 11.262,
+     "muc": {
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Between the walls and the Spanish line lay a strip of sand, the neutral ground.",
+      "small.en": "Between the walls and the Spanish line lay a strip of sand, the neutral ground."
+     }
+    },
+    {
+     "shot": "3b",
+     "i": 0,
+     "khoa": "Around 1810, with Napoleon's armies heading for the Strait, Spain and Britain were allies.",
+     "bd": 12.527,
+     "kt": 19.098,
+     "muc": {
+      "so:1810": "DUNG",
+      "ten:Britain": "DUNG",
+      "ten:Napoleon": "DUNG",
+      "ten:Spain": "DUNG",
+      "ten:Strait": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Around 1810, with Napoleon's armies heading for the strait, Spain and Britain were allies.",
+      "small.en": "Around 1810, with Napoleon's armies heading for the strait, Spain and Britain were allies."
+     }
+    },
+    {
+     "shot": "3b",
+     "i": 1,
+     "khoa": "With Spain's consent, the British blew up the Spanish forts.",
+     "bd": 19.887,
+     "kt": 23.173,
+     "muc": {
+      "ten:British": "DUNG",
+      "ten:Spain": "DUNG",
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "With Spain's consent, the British blew up the Spanish forts.",
+      "small.en": "With Spain's consent, the British blew up the Spanish forts."
+     }
+    },
+    {
+     "shot": "3c",
+     "i": 0,
+     "khoa": "After that, the edge kept moving.",
+     "bd": 23.963,
+     "kt": 25.785,
+     "muc": {},
+     "nghe": {
+      "medium.en": "After that, the edge kept moving.",
+      "small.en": "After that, the edge kept moving."
+     }
+    },
+    {
+     "shot": "3c",
+     "i": 1,
+     "khoa": "A Spanish historian describes Britain advancing into the neutral zone step by step.",
+     "bd": 26.714,
+     "kt": 31.776,
+     "muc": {
+      "ten:Britain": "DUNG",
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "A Spanish historian describes Britain advancing into the neutral zone, step by step.",
+      "small.en": "A Spanish historian describes Britain advancing into the neutral zone step by step."
+     }
+    },
+    {
+     "shot": "3d",
+     "i": 0,
+     "khoa": "On the Spanish side, a town grew up behind the old line.",
+     "bd": 32.565,
+     "kt": 36.396,
+     "muc": {
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "On the Spanish side, a town grew up behind the old line.",
+      "small.en": "On the Spanish side, a town grew up behind the old line."
+     }
+    },
+    {
+     "shot": "3d",
+     "i": 1,
+     "khoa": "In 1870, it became La Línea de la Concepción.",
+     "bd": 37.453,
+     "kt": 40.855,
+     "muc": {
+      "so:1870": "DUNG",
+      "ten:La Línea": "DUNG",
+      "ten:La Línea de la Concepción": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "In 1870 it became La Linaire de la Concepción.",
+      "small.en": "In 1870, it became La Linea della Concepcion."
+     }
+    },
+    {
+     "shot": "KC1910",
+     "i": 0,
+     "khoa": "Remember this street in La Línea.",
+     "bd": 41.632,
+     "kt": 43.629,
+     "muc": {
+      "ten:La Línea": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Remember this street in La Linaire,",
+      "small.en": "Remember this street in La Linea."
+     }
+    },
+    {
+     "shot": "KC1910",
+     "i": 1,
+     "khoa": "We'll come back to it.",
+     "bd": 44.129,
+     "kt": 45.313,
+     "muc": {},
+     "nghe": {
+      "medium.en": "we'll come back to it.",
+      "small.en": "We'll come back to it."
+     }
+    },
+    {
+     "shot": "3e",
+     "i": 0,
+     "khoa": "This was the gap between them: a strip of neutral ground between two towns.",
+     "bd": 46.23,
+     "kt": 51.257,
+     "muc": {
+      "so:2": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "This was the gap between them, a strip of neutral ground between two towns.",
+      "small.en": "This was the gap between them, a strip of neutral ground between two towns."
+     }
+    },
+    {
+     "shot": "3f",
+     "i": 0,
+     "khoa": "In 1908, Britain told Spain, \"as an act of courtesy,\" that it would fence the edge of the neutral ground.",
+     "bd": 52.51,
+     "kt": 59.14,
+     "muc": {
+      "so:1908": "DUNG",
+      "ten:Britain": "DUNG",
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "In 1908, Britain told Spain, as an act of courtesy, that it would fence the edge of the neutral ground.",
+      "small.en": "In 1908, Britain told Spain as an act of courtesy that it would fence the edge of the neutral ground."
+     }
+    },
+    {
+     "shot": "3f",
+     "i": 1,
+     "khoa": "The fence went up in 1909; Spain does not recognise it as a border.",
+     "bd": 59.929,
+     "kt": 65.165,
+     "muc": {
+      "so:1909": "DUNG",
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "The fence went up in 1909. Spain does not recognise it as a border.",
+      "small.en": "The fence went up in 1909. Spain does not recognize it as a border."
+     }
+    },
+    {
+     "shot": "3g",
+     "i": 0,
+     "khoa": "Behind the fence: a garrison camp, gardens, rifle ranges, a racecourse.",
+     "bd": 66.094,
+     "kt": 71.388,
+     "muc": {},
+     "nghe": {
+      "medium.en": "Behind the fence, a garrison camp, gardens, rifle ranges, a race course.",
+      "small.en": "Behind the fence, a garrison camp, gardens, rifle ranges, a race course."
+     }
+    },
+    {
+     "shot": "3h",
+     "i": 0,
+     "khoa": "And from 1934, a grass airstrip was built there.",
+     "bd": 72.468,
+     "kt": 75.974,
+     "muc": {
+      "so:1934": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "And from 1934, a grass airstrip was built there.",
+      "small.en": "And from 1934, a grass airstrip was built there."
+     }
+    },
+    {
+     "shot": "3h",
+     "i": 1,
+     "khoa": "Subscribe if you'd like the next place in this series.",
+     "bd": 76.903,
+     "kt": 79.736,
+     "muc": {},
+     "nghe": {
+      "medium.en": "Subscribe if you'd like the next place in this series.",
+      "small.en": "Subscribe if you'd like the next place in this series."
+     }
+    }
+   ],
+   "tong": {
+    "muc": 24,
+    "dung": 24,
+    "nghi": 0,
+    "sai": 0
+   }
+  },
+  "04 RUNWAY": {
+   "nghe": {
+    "medium.en": {
+     "asr": "Why build an airfield on disputed ground? In March 1939, Spain protested that the works stood on a usurped portion of its territory. That November, Spain's foreign minister called the strip a fête -à -com -pli, like the rock itself, while insisting its use breached Spanish territory. Late in 1939, Britain began a hard runway. In 1941, it was laid across the only road to Spain. Then, Britain pushed it out into the bay, with stone blasted from the north face and rubble from new tunnels. Inside the rock, those tunnels held a road about a mile long, a hospital and a power station dug by British and Canadian tunnellers. Gibraltar counts about 55 kilometres of tunnels from every era, more than its roads above ground. This 1943 US Army map shows the townhouse by house and the runway reaching into the bay. May 1940. Gibraltar sends its women and children away. June, Spain turns non -belligerent and occupies Tangier. By 1942, the invasion of North Africa is run from inside the rock. For the rest of the war, a Spanish scholar found Spain protested what it called breaches of Spanish waters. No complaint over the airstrip is on record. On the night of the 7th of November 1942, by Gibraltar's official record, at least 650 aircraft lined the runway. The invasion fleets from Britain and the United States came through the strait.",
+     "tu_dung": 0.9758,
+     "loi": 6,
+     "so_tu": 248,
+     "cho_lech": [
+      [
+       "fait accompli",
+       "f te com pli"
+      ],
+      [
+       "town house",
+       "townhouse"
+      ]
+     ]
+    },
+    "small.en": {
+     "asr": "Why build an airfield on disputed ground? In March 1939, Spain protested that the work stood on a usurped portion of its territory. That November, Spain's foreign minister called the strip a Fête -Arcomple, like the rock itself, while insisting its use breached Spanish territory. Late in 1939, Britain began a hard runway. In 1941, it was laid across the only road to Spain. Then Britain pushed it out into the bay, with stone blasted from the north face and rubble from new tunnels. Inside the rock, those tunnels held a road about a mile long, a hospital and a power station dug by British and Canadian tunnellers. Gibraltar counts about 55 kilometres of tunnels from every era, more than its roads above ground. This 1943 US Army map shows the townhouse by house and the runway reaching into the bay. May 1940, Gibraltar sends its women and children away. June, Spain turns non -belligerent and occupies Tangier. By 1942, the invasion of North Africa is run from inside the rock. For the rest of the war, a Spanish scholar found Spain protested what it called breaches of Spanish waters. No complaint over the airstrip is on record. On the night of 7 November 1942, by Gibraltar's official record, at least 650 aircraft lined the runway. The invasion fleets from Britain and the United States came through the strait.",
+     "tu_dung": 0.9637,
+     "loi": 9,
+     "so_tu": 248,
+     "cho_lech": [
+      [
+       "works",
+       "work"
+      ],
+      [
+       "fait accompli",
+       "f te arcomple"
+      ],
+      [
+       "town house",
+       "townhouse"
+      ],
+      [
+       "the seventh of",
+       "seven"
+      ]
+     ]
+    }
+   },
+   "cau": [
+    {
+     "shot": "4a",
+     "i": 0,
+     "khoa": "Why build an airfield on disputed ground?",
+     "bd": 0.0,
+     "kt": 2.995,
+     "muc": {},
+     "nghe": {
+      "medium.en": "Why build an airfield on disputed ground?",
+      "small.en": "Why build an airfield on disputed ground?"
+     }
+    },
+    {
+     "shot": "4a",
+     "i": 1,
+     "khoa": "In March 1939, Spain protested that the works stood on \"a usurped portion\" of its territory.",
+     "bd": 4.261,
+     "kt": 10.379,
+     "muc": {
+      "so:1939": "DUNG",
+      "ten:March": "DUNG",
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "In March 1939, Spain protested that the works stood on a usurped portion of its territory.",
+      "small.en": "In March 1939, Spain protested that the work stood on a usurped portion of its territory."
+     }
+    },
+    {
+     "shot": "4b",
+     "i": 0,
+     "khoa": "That November, Spain's foreign minister called the strip a fait accompli, like the Rock itself, while insisting its use breached Spanish territory.",
+     "bd": 11.053,
+     "kt": 20.933,
+     "muc": {
+      "ten:November": "DUNG",
+      "ten:Rock": "DUNG",
+      "ten:Spain": "DUNG",
+      "ten:Spanish": "DUNG",
+      "ten:fait accompli": "NGHI"
+     },
+     "nghe": {
+      "medium.en": "That November, Spain's foreign minister called the strip a fête -à -com -pli, like the rock itself, while insisting its use breached Spanish territory.",
+      "small.en": "That November, Spain's foreign minister called the strip a Fête -Arcomple, like the rock itself, while insisting its use breached Spanish territory."
+     }
+    },
+    {
+     "shot": "4b",
+     "i": 1,
+     "khoa": "Late in 1939, Britain began a hard runway; in 1941, it was laid across the only road to Spain.",
+     "bd": 21.862,
+     "kt": 29.582,
+     "muc": {
+      "so:1939": "DUNG",
+      "so:1941": "DUNG",
+      "ten:Britain": "DUNG",
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Late in 1939, Britain began a hard runway. In 1941, it was laid across the only road to Spain.",
+      "small.en": "Late in 1939, Britain began a hard runway. In 1941, it was laid across the only road to Spain."
+     }
+    },
+    {
+     "shot": "4c",
+     "i": 0,
+     "khoa": "Then Britain pushed it out into the bay, with stone blasted from the north face and rubble from new tunnels.",
+     "bd": 30.256,
+     "kt": 36.665,
+     "muc": {
+      "ten:Britain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Then, Britain pushed it out into the bay, with stone blasted from the north face and rubble from new tunnels.",
+      "small.en": "Then Britain pushed it out into the bay, with stone blasted from the north face and rubble from new tunnels."
+     }
+    },
+    {
+     "shot": "4d",
+     "i": 0,
+     "khoa": "Inside the Rock, those tunnels held a road about a mile long, a hospital and a power station, dug by British and Canadian tunnellers.",
+     "bd": 37.93,
+     "kt": 46.382,
+     "muc": {
+      "ten:British": "DUNG",
+      "ten:Canadian": "DUNG",
+      "ten:Rock": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Inside the rock, those tunnels held a road about a mile long, a hospital and a power station dug by British and Canadian tunnellers.",
+      "small.en": "Inside the rock, those tunnels held a road about a mile long, a hospital and a power station dug by British and Canadian tunnellers."
+     }
+    },
+    {
+     "shot": "4e",
+     "i": 0,
+     "khoa": "Gibraltar counts about fifty-five kilometres of tunnels from every era, more than its roads above ground.",
+     "bd": 47.648,
+     "kt": 54.033,
+     "muc": {
+      "so:55": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Gibraltar counts about 55 kilometres of tunnels from every era, more than its roads above ground.",
+      "small.en": "Gibraltar counts about 55 kilometres of tunnels from every era, more than its roads above ground."
+     }
+    },
+    {
+     "shot": "4f",
+     "i": 0,
+     "khoa": "This 1943 US Army map shows the town house by house, and the runway reaching into the bay.",
+     "bd": 55.229,
+     "kt": 62.056,
+     "muc": {
+      "so:1943": "DUNG",
+      "ten:Army": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "This 1943 US Army map shows the townhouse by house and the runway reaching into the bay.",
+      "small.en": "This 1943 US Army map shows the townhouse by house and the runway reaching into the bay."
+     }
+    },
+    {
+     "shot": "SM3",
+     "i": 0,
+     "khoa": "May 1940: Gibraltar sends its women and children away.",
+     "bd": 62.938,
+     "kt": 67.907,
+     "muc": {
+      "so:1940": "DUNG",
+      "ten:Gibraltar": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "May 1940. Gibraltar sends its women and children away.",
+      "small.en": "May 1940, Gibraltar sends its women and children away."
+     }
+    },
+    {
+     "shot": "SM3",
+     "i": 1,
+     "khoa": "June: Spain turns \"non-belligerent\" and occupies Tangier.",
+     "bd": 68.987,
+     "kt": 73.213,
+     "muc": {
+      "ten:Spain": "DUNG",
+      "ten:Tangier": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "June, Spain turns non -belligerent and occupies Tangier.",
+      "small.en": "June, Spain turns non -belligerent and occupies Tangier."
+     }
+    },
+    {
+     "shot": "SM3",
+     "i": 2,
+     "khoa": "By 1942, the invasion of North Africa is run from inside the Rock.",
+     "bd": 74.293,
+     "kt": 79.03,
+     "muc": {
+      "so:1942": "DUNG",
+      "ten:Africa": "DUNG",
+      "ten:North": "DUNG",
+      "ten:Rock": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "By 1942, the invasion of North Africa is run from inside the rock.",
+      "small.en": "By 1942, the invasion of North Africa is run from inside the rock."
+     }
+    },
+    {
+     "shot": "4h",
+     "i": 0,
+     "khoa": "For the rest of the war, a Spanish scholar found, Spain protested what it called breaches of Spanish waters; no complaint over the airstrip is on record.",
+     "bd": 79.61,
+     "kt": 89.456,
+     "muc": {
+      "ten:Spain": "DUNG",
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "For the rest of the war, a Spanish scholar found Spain protested what it called breaches of Spanish waters. No complaint over the airstrip is on record.",
+      "small.en": "the rest of the war, a Spanish scholar found Spain protested what it called breaches of Spanish waters. No complaint over the airstrip is on record."
+     }
+    },
+    {
+     "shot": "4i",
+     "i": 0,
+     "khoa": "On the night of the seventh of November 1942, by Gibraltar's official record, at least six hundred and fifty aircraft lined the runway.",
+     "bd": 90.536,
+     "kt": 100.009,
+     "muc": {
+      "so:650": "DUNG",
+      "so:1942": "DUNG",
+      "ten:Gibraltar": "DUNG",
+      "ten:November": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "On the night of the 7th of November 1942, by Gibraltar's official record, at least 650 aircraft lined the runway.",
+      "small.en": "On the night of 7 November 1942, by Gibraltar's official record, at least 650 aircraft lined the runway."
+     }
+    },
+    {
+     "shot": "4i",
+     "i": 1,
+     "khoa": "The invasion fleets, from Britain and the United States, came through the Strait.",
+     "bd": 100.683,
+     "kt": 105.094,
+     "muc": {
+      "ten:Britain": "DUNG",
+      "ten:States": "DUNG",
+      "ten:Strait": "DUNG",
+      "ten:United": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "The invasion fleets from Britain and the United States came through the strait.",
+      "small.en": "The invasion fleets from Britain and the United States came through the strait."
+     }
+    }
+   ],
+   "tong": {
+    "muc": 37,
+    "dung": 36,
+    "nghi": 1,
+    "sai": 0
+   }
+  },
+  "05 GATE": {
+   "nghe": {
+    "medium.en": {
+     "asr": "After the war, the argument returned to the gate. In June 1969, Spain closed the land frontier completely. It followed Gibraltar's new constitution. A Spanish historian says Madrid applied Utrecht strictly. Britain counted some 4 ,600 Spanish day workers cut off. The gate fully reopened in 1985, the same square today. In October 2025, people living in Spain held more than 4 in 10 of Gibraltar's jobs. The UK government puts the daily crosses higher at about 15 ,000. People on foot still cross the runway, and on the other side of the gate. Remember this street. In 2024, La Le Ne R's unemployment was 28 .6%. The highest of 113 Spanish cities. Here's the twist. Gibraltar's government puts output per resident at about 85 ,000 pounds. That spreads output over the 38 ,000 who live there. And leaves out the people in Spain who hold 14 ,000 of its jobs. Our read. Part of the work behind that number is done from the other side. In July 2026, Britain and the EU signed a treaty. The next day routine checks here ended. It says it changes neither side's position on sovereignty. In July, Gibraltar's government said the old fence was coming down, with a new one a few meters behind. Only about 150 meters would stay open. As of the 18th of October 2026, the treaty is in force only provisionally, pending a European Parliament vote indicated for the 14th of December. So why did everyone fight over this place? Where it sits and the sea that could feed it. A wall in 1704. A line in 1730. A fence in 1909. A runway in 1941. In 1730, Spain ordered a line to cut the rock off by land. Today, four in ten of the rock's jobs are held by people who live beyond it. The last siege ended in 1783. The argument didn't. Next, in contested places, London, 1666.",
+     "tu_dung": 0.9831,
+     "loi": 6,
+     "so_tu": 354,
+     "cho_lech": [
+      [
+       "crossers",
+       "crosses"
+      ],
+      [
+       "l nea's",
+       "le ne r's"
+      ],
+      [
+       "point",
+       ""
+      ],
+      [
+       "",
+       "the"
+      ]
+     ]
+    },
+    "small.en": {
+     "asr": "After the war, the argument returned to the gate. In June 1969, Spain closed the land frontier completely. It followed Gibraltar's new constitution. A Spanish historian says Madrid applied Utrecht strictly. Britain counted some 4 ,600 Spanish day workers cut off. The gate fully reopened in 1985, the same square today. In October 2025, people living in Spain held more than 4 in 10 of Gibraltar's jobs. The UK government puts the daily crosses higher at about 15 ,000. People on foot still crossed the runway, and on the other side of the gate. Remember this street? In 2024, La Léneil -Ars unemployment was 28 .6%. The highest of 113 Spanish cities. Here's the twist. Gibraltar's government puts output per resident at about 85 ,000 pounds. That spreads output over the 38 ,000 who live there, and leaves out the people in Spain who hold 14 ,000 of its jobs. Our read, part of the work behind that number is done from the other side. In July 2026, Britain and the EU signed a treaty. The next day, routine checks here ended. It says it changes neither side's position on sovereignty. In July, Gibraltar's government said the old fence was coming down, with a new one a few metres behind. Only about 150 metres would stay open. As of 18 October 2026, the treaty is in force only provisionally, pending a European Parliament vote indicated for 14 December. So why did everyone fight over this place? Where it sits and the sea that could feed it. A wall in 1704. A line in 1730. A fence in 1909. A runway in 1941. In 1730, Spain ordered a line to cut the rock off by land. Today, four in ten of the rock's jobs are held by people who live beyond it. The last siege ended in 1783. The argument didn't. Next in contested places London, 1666.",
+     "tu_dung": 0.9774,
+     "loi": 8,
+     "so_tu": 354,
+     "cho_lech": [
+      [
+       "crossers",
+       "crosses"
+      ],
+      [
+       "cross",
+       "crossed"
+      ],
+      [
+       "nea's",
+       "neil ars"
+      ],
+      [
+       "point",
+       ""
+      ],
+      [
+       "the fourteenth of",
+       "fourteen"
+      ]
+     ]
+    }
+   },
+   "cau": [
+    {
+     "shot": "5a",
+     "i": 0,
+     "khoa": "After the war, the argument returned to the gate.",
+     "bd": 0.0,
+     "kt": 2.67,
+     "muc": {},
+     "nghe": {
+      "medium.en": "After the war, the argument returned to the gate.",
+      "small.en": "After the war, the argument returned to the gate."
+     }
+    },
+    {
+     "shot": "5a",
+     "i": 1,
+     "khoa": "In June 1969, Spain closed the land frontier completely.",
+     "bd": 3.599,
+     "kt": 7.918,
+     "muc": {
+      "so:1969": "DUNG",
+      "ten:June": "DUNG",
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "In June 1969, Spain closed the land frontier completely.",
+      "small.en": "In June 1969, Spain closed the land frontier completely."
+     }
+    },
+    {
+     "shot": "5a",
+     "i": 2,
+     "khoa": "It followed Gibraltar's new constitution; a Spanish historian says Madrid applied Utrecht strictly.",
+     "bd": 8.591,
+     "kt": 15.313,
+     "muc": {
+      "ten:Gibraltar": "DUNG",
+      "ten:Madrid": "DUNG",
+      "ten:Spanish": "DUNG",
+      "ten:Utrecht": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "It followed Gibraltar's new constitution. A Spanish historian says Madrid applied Utrecht strictly.",
+      "small.en": "It followed Gibraltar's new constitution. A Spanish historian says Madrid applied Utrecht strictly."
+     }
+    },
+    {
+     "shot": "5b",
+     "i": 0,
+     "khoa": "Britain counted some four thousand six hundred Spanish day workers cut off.",
+     "bd": 16.242,
+     "kt": 20.805,
+     "muc": {
+      "so:4600": "DUNG",
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Britain counted some 4,600 Spanish day workers cut off.",
+      "small.en": "Britain counted some 4,600 Spanish day workers cut off."
+     }
+    },
+    {
+     "shot": "5b",
+     "i": 1,
+     "khoa": "The gate fully reopened in 1985.",
+     "bd": 21.885,
+     "kt": 24.485,
+     "muc": {
+      "so:1985": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "The gate fully reopened in 1985,",
+      "small.en": "The gate fully reopened in 1985, the"
+     }
+    },
+    {
+     "shot": "KB2026",
+     "i": 0,
+     "khoa": "The same square, today.",
+     "bd": 24.915,
+     "kt": 26.772,
+     "muc": {},
+     "nghe": {
+      "medium.en": "the same square today.",
+      "small.en": "the same square today."
+     }
+    },
+    {
+     "shot": "KB2026",
+     "i": 1,
+     "khoa": "In October 2025, people living in Spain held more than four in ten of Gibraltar's jobs.",
+     "bd": 27.562,
+     "kt": 34.377,
+     "muc": {
+      "so:4": "DUNG",
+      "so:10": "DUNG",
+      "so:2025": "DUNG",
+      "ten:Gibraltar": "DUNG",
+      "ten:October": "DUNG",
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "In October 2025, people living in Spain held more than 4 in 10 of Gibraltar's jobs.",
+      "small.en": "In October 2025, people living in Spain held more than 4 in 10 of Gibraltar's jobs."
+     }
+    },
+    {
+     "shot": "5c",
+     "i": 0,
+     "khoa": "The UK government puts the daily crossers higher, at about fifteen thousand.",
+     "bd": 35.05,
+     "kt": 39.16,
+     "muc": {
+      "so:15000": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "The UK government puts the daily crosses higher at about 15,000.",
+      "small.en": "The UK government puts the daily crosses higher at about 15,000."
+     }
+    },
+    {
+     "shot": "5c",
+     "i": 1,
+     "khoa": "People on foot still cross the runway.",
+     "bd": 39.659,
+     "kt": 41.888,
+     "muc": {},
+     "nghe": {
+      "medium.en": "People on foot still cross the runway, and",
+      "small.en": "People on foot still crossed the runway, and"
+     }
+    },
+    {
+     "shot": "5d",
+     "i": 0,
+     "khoa": "And on the other side of the gate.",
+     "bd": 42.26,
+     "kt": 43.769,
+     "muc": {},
+     "nghe": {
+      "medium.en": "and on the other side of the gate.",
+      "small.en": "and on the other side of the gate."
+     }
+    },
+    {
+     "shot": "KC2026",
+     "i": 0,
+     "khoa": "Remember this street?",
+     "bd": 44.442,
+     "kt": 45.65,
+     "muc": {},
+     "nghe": {
+      "medium.en": "Remember this street.",
+      "small.en": "Remember this street?"
+     }
+    },
+    {
+     "shot": "KC2026",
+     "i": 1,
+     "khoa": "In 2024, La Línea's unemployment was twenty-eight point six percent: the highest of a hundred and thirteen Spanish cities.",
+     "bd": 46.323,
+     "kt": 56.9,
+     "muc": {
+      "so:13": "DUNG",
+      "so:28.6": "DUNG",
+      "so:2024": "DUNG",
+      "ten:La Línea": "DUNG",
+      "ten:La Línea's": "DUNG",
+      "ten:Spanish": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "In 2024, La Le Ne R's unemployment was 28 .6%. The highest of 113 Spanish cities.",
+      "small.en": "In 2024, La Léneil -Ars unemployment was 28 .6%. The highest of 113 Spanish cities."
+     }
+    },
+    {
+     "shot": "5e",
+     "i": 0,
+     "khoa": "Here's the twist.",
+     "bd": 57.829,
+     "kt": 58.827,
+     "muc": {},
+     "nghe": {
+      "medium.en": "Here's the twist.",
+      "small.en": "Here's the twist."
+     }
+    },
+    {
+     "shot": "5e",
+     "i": 1,
+     "khoa": "Gibraltar's government puts output per resident at about eighty-five thousand pounds.",
+     "bd": 59.756,
+     "kt": 64.423,
+     "muc": {
+      "so:85000": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Gibraltar's government puts output per resident at about 85,000 pounds.",
+      "small.en": "Gibraltar's government puts output per resident at about 85,000 pounds."
+     }
+    },
+    {
+     "shot": "5f",
+     "i": 0,
+     "khoa": "That spreads output over the thirty-eight thousand who live there, and leaves out the people in Spain who hold fourteen thousand of its jobs.",
+     "bd": 65.352,
+     "kt": 73.212,
+     "muc": {
+      "so:14000": "DUNG",
+      "so:38000": "DUNG",
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "That spreads output over the 38,000 who live there. And leaves out the people in Spain who hold 14,000 of its jobs.",
+      "small.en": "That spreads output over the 38,000 who live there, and leaves out the people in Spain who hold 14,000 of its jobs."
+     }
+    },
+    {
+     "shot": "5f",
+     "i": 1,
+     "khoa": "Our read: part of the work behind that number is done from the other side.",
+     "bd": 74.14,
+     "kt": 78.808,
+     "muc": {},
+     "nghe": {
+      "medium.en": "Our read. Part of the work behind that number is done from the other side.",
+      "small.en": "Our read, part of the work behind that number is done from the other side."
+     }
+    },
+    {
+     "shot": "5g",
+     "i": 0,
+     "khoa": "In July 2026, Britain and the EU signed a treaty; the next day, routine checks here ended.",
+     "bd": 79.597,
+     "kt": 87.364,
+     "muc": {
+      "so:2026": "DUNG",
+      "ten:Britain": "DUNG",
+      "ten:July": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "In July 2026, Britain and the EU signed a treaty. The next day routine checks here ended.",
+      "small.en": "In July 2026, Britain and the EU signed a treaty. The next day, routine checks here ended."
+     }
+    },
+    {
+     "shot": "5h",
+     "i": 0,
+     "khoa": "It says it changes neither side's position on sovereignty.",
+     "bd": 88.038,
+     "kt": 91.23,
+     "muc": {},
+     "nghe": {
+      "medium.en": "It says it changes neither side's position on sovereignty.",
+      "small.en": "It says it changes neither side's position on sovereignty."
+     }
+    },
+    {
+     "shot": "5h",
+     "i": 1,
+     "khoa": "In July, Gibraltar's government said the old fence was coming down, with a new one a few metres behind; only about a hundred and fifty metres would stay open.",
+     "bd": 92.02,
+     "kt": 101.958,
+     "muc": {
+      "so:1": "DUNG",
+      "so:50": "DUNG",
+      "ten:Gibraltar": "DUNG",
+      "ten:July": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "In July, Gibraltar's government said the old fence was coming down, with a new one a few meters behind. Only about 150 meters would stay open.",
+      "small.en": "In July, Gibraltar's government said the old fence was coming down, with a new one a few metres behind. Only about 150 metres would stay open."
+     }
+    },
+    {
+     "shot": "5i",
+     "i": 0,
+     "khoa": "As of 18 October 2026, the treaty is in force only provisionally, pending a European Parliament vote indicated for the fourteenth of December.",
+     "bd": 103.223,
+     "kt": 113.371,
+     "muc": {
+      "so:18": "DUNG",
+      "so:2026": "DUNG",
+      "ten:December": "DUNG",
+      "ten:European": "DUNG",
+      "ten:October": "DUNG",
+      "ten:Parliament": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "As of the 18th of October 2026, the treaty is in force only provisionally, pending a European Parliament vote indicated for the 14th of December.",
+      "small.en": "As of 18 October 2026, the treaty is in force only provisionally, pending a European Parliament vote indicated for 14 December."
+     }
+    },
+    {
+     "shot": "5j",
+     "i": 0,
+     "khoa": "So why did everyone fight over this place?",
+     "bd": 114.16,
+     "kt": 116.448,
+     "muc": {},
+     "nghe": {
+      "medium.en": "So why did everyone fight over this place?",
+      "small.en": "So why did everyone fight over this place?"
+     }
+    },
+    {
+     "shot": "5j",
+     "i": 1,
+     "khoa": "Where it sits, and the sea that could feed it.",
+     "bd": 117.237,
+     "kt": 119.559,
+     "muc": {},
+     "nghe": {
+      "medium.en": "Where it sits and the sea that could feed it.",
+      "small.en": "Where it sits and the sea that could feed it."
+     }
+    },
+    {
+     "shot": "5j",
+     "i": 2,
+     "khoa": "A wall in 1704.",
+     "bd": 120.139,
+     "kt": 122.113,
+     "muc": {
+      "so:1704": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "A wall in 1704.",
+      "small.en": "A wall in 1704. A"
+     }
+    },
+    {
+     "shot": "5j",
+     "i": 3,
+     "khoa": "A line in 1730.",
+     "bd": 122.543,
+     "kt": 124.331,
+     "muc": {
+      "so:1730": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "A line in 1730.",
+      "small.en": "A line in 1730."
+     }
+    },
+    {
+     "shot": "5j",
+     "i": 4,
+     "khoa": "A fence in 1909.",
+     "bd": 125.004,
+     "kt": 126.85,
+     "muc": {
+      "so:1909": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "A fence in 1909.",
+      "small.en": "A fence in 1909."
+     }
+    },
+    {
+     "shot": "5j",
+     "i": 5,
+     "khoa": "A runway in 1941.",
+     "bd": 127.523,
+     "kt": 130.635,
+     "muc": {
+      "so:1941": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "A runway in 1941.",
+      "small.en": "A runway in 1941."
+     }
+    },
+    {
+     "shot": "5k",
+     "i": 0,
+     "khoa": "In 1730, Spain ordered a line to cut the Rock off by land.",
+     "bd": 131.424,
+     "kt": 135.511,
+     "muc": {
+      "so:1730": "DUNG",
+      "ten:Rock": "DUNG",
+      "ten:Spain": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "In 1730, Spain ordered a line to cut the rock off by land.",
+      "small.en": "In 1730, Spain ordered a line to cut the rock off by land."
+     }
+    },
+    {
+     "shot": "5k",
+     "i": 1,
+     "khoa": "Today, four in ten of the Rock's jobs are held by people who live beyond it.",
+     "bd": 136.184,
+     "kt": 140.549,
+     "muc": {
+      "so:4": "DUNG",
+      "so:10": "DUNG",
+      "ten:Rock": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Today, four in ten of the rock's jobs are held by people who live beyond it.",
+      "small.en": "Today, four in ten of the rock's jobs are held by people who live beyond it."
+     }
+    },
+    {
+     "shot": "5k",
+     "i": 2,
+     "khoa": "The last siege ended in 1783.",
+     "bd": 141.223,
+     "kt": 144.264,
+     "muc": {
+      "so:1783": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "The last siege ended in 1783.",
+      "small.en": "The last siege ended in 1783."
+     }
+    },
+    {
+     "shot": "5k",
+     "i": 3,
+     "khoa": "The argument didn't.",
+     "bd": 144.764,
+     "kt": 146.029,
+     "muc": {},
+     "nghe": {
+      "medium.en": "The argument didn't.",
+      "small.en": "The argument didn't."
+     }
+    },
+    {
+     "shot": "5k",
+     "i": 4,
+     "khoa": "Next in Contested Places: London, 1666.",
+     "bd": 146.958,
+     "kt": 150.789,
+     "muc": {
+      "so:1666": "DUNG",
+      "ten:Contested": "DUNG",
+      "ten:London": "DUNG",
+      "ten:Places": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Next, in contested places, London, 1666.",
+      "small.en": "Next in contested places London, 1666."
+     }
+    }
+   ],
+   "tong": {
+    "muc": 55,
+    "dung": 55,
+    "nghi": 0,
+    "sai": 0
+   }
+  }
+ }
+}

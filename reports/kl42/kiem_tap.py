@@ -5,11 +5,12 @@ Theo TỪNG CÂU (mốc từ moc.json, cửa sổ ±0,4 s quanh câu theo dấu 
  - tên: mục từ điển có trong câu (khớp mờ ≥ 0,75 với chữ viết hoặc alias) + từ viết hoa giữa câu (khớp mờ ≥ 0,75);
  ĐÚNG = cả hai cách nghe; NGHI = một cách; SAI = không cách nào. Thêm tỷ lệ từ đúng toàn chương + chỗ lệch.
 kiem_tap.py [chương…] → kiem-tap.json (gộp các chương đã kiểm)."""
-import json, re, sys
+import difflib, json, re, sys, unicodedata
 import kl_lib as K
 sys.path.insert(0, str(K.R / 'reports/casting-giong')); import kiem_lib as KL   # noqa: E402
 import asr as A   # noqa: E402
-TDM = {d['viet']: d for d in K.TD}; W = 0.4
+TDM = {d['viet']: d for d in K.TD}; W = 0.6
+LA = {'iii': 'the third', 'v': 'the fifth', 'ii': 'the second'}   # ASR viết số hiệu vua bằng chữ La Mã
 THUONG = {'the', 'its', 'and', 'but', 'by', 'in', 'on', 'at', 'as', 'for', 'a', 'an', 'it', 'he', 'she', 'they', 'that', 'this', 'from', 'to', 'of', 'our', 'read'}
 
 
@@ -22,12 +23,40 @@ def ten_cau(c):
     return sorted(set(out))
 
 
-def cua_so(ws, a, b): return ' '.join(w.word.strip() for w in ws if w.start >= a - W and w.end <= b + W)
+def chuan(h):
+    h = re.sub(r'(\d) ,(\d)', r'\1,\2', h)                       # "15 ,000" → "15,000" (cách faster-whisper tách token)
+    return re.sub(r'\b(III|II|V)\b', lambda m: LA[m.group(1).lower()], h)
+
+
+def bo_dau(t): return ''.join(c for c in unicodedata.normalize('NFD', t.lower()) if unicodedata.category(c) != 'Mn')
+
+
+def ten_ok(t, hyp):
+    """khớp mờ ≥ 0,75 (kiem_lib.name_ok, chữ viết hoặc alias) — thêm cách so bỏ dấu + bỏ khoảng trắng/gạch ("fête-à-com-pli" ↔ "fait accompli")"""
+    s = KL.name_ok(t, hyp, TDM.get(t, {}).get('doc'))
+    if s >= 0.75: return s
+    H = re.sub(r'[^a-z]', '', bo_dau(hyp)); best = s
+    for c in [t] + ([TDM[t]['doc']] if t in TDM else []):
+        a = re.sub(r'[^a-z]', '', bo_dau(c)); n = len(a)
+        for k in range(max(1, n - 3), n + 4):
+            for i in range(0, max(1, len(H) - k + 1)): best = max(best, difflib.SequenceMatcher(None, a, H[i:i + k]).ratio())
+    return round(best, 3)
+
+
+def cua_so(ws, a, b): return chuan(' '.join(w['w'].strip() for w in ws if w['s'] >= a - W and w['e'] <= b + W))
 
 
 def kiem_cau(c, hyp):
     so = sorted(A.nums_of(c)); ten = ten_cau(c)
-    return dict(so_sai=[v for v in so if not KL.num_ok(v, hyp)], ten_sai=[t for t in ten if KL.name_ok(t, hyp, TDM.get(t, {}).get('doc')) < 0.75], so=so, ten=ten)
+    return dict(so_sai=[v for v in so if not KL.num_ok(v, hyp)], ten_sai=[t for t in ten if ten_ok(t, hyp) < 0.75], so=so, ten=ten)
+
+
+def asr_cache(wav, name, beam):
+    """ASR có cache theo SHA tệp (ngoài git, $KL_OUT/asr/)"""
+    import hashlib
+    h = hashlib.sha256(open(wav, 'rb').read()).hexdigest()[:16]; p = K.OUT / 'asr' / f'{h}-{name}-b{beam}.json'; p.parent.mkdir(exist_ok=True)
+    if p.exists(): return json.loads(p.read_text())
+    _, ws = KL.transcribe(wav, name, beam); ws = [dict(w=x.word, s=x.start, e=x.end) for x in ws]; p.write_text(json.dumps(ws)); return ws
 
 
 if __name__ == '__main__':
@@ -40,7 +69,7 @@ if __name__ == '__main__':
         wav = str(K.OUT / 'stem' / f'{cid[:2]}.wav'); khoa = ' '.join(d['khoa'] for d in K.doan_v42_dict()[cid]); rc = dict(nghe={}, cau=[])
         res = {}
         for name, beam in KL.NGHE:
-            txt, ws = KL.transcribe(wav, name, beam); w = KL.wer(khoa, txt); res[name] = ws
+            ws = asr_cache(wav, name, beam); txt = ' '.join(x['w'].strip() for x in ws); w = KL.wer(khoa, chuan(txt)); res[name] = ws
             rc['nghe'][name] = dict(asr=txt, tu_dung=w['tu_dung'], loi=w['loi'], so_tu=w['so_tu'], cho_lech=w['cho_lech'])
         for d in ch['doan']:
             for i, c in enumerate(d['cau']):
