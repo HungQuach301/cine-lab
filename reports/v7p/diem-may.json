@@ -1,0 +1,773 @@
+{
+ "tong_s": 726.2,
+ "so_shot_moi": 42,
+ "so_shot_cu": 74,
+ "cat_phut": 3.47,
+ "shot_tb_s": 17.3,
+ "ty_le": {
+  "tl": 93.5,
+  "neo": 5.9,
+  "the": 0.7
+ },
+ "luot_thap_pct": 0.0,
+ "diem": {
+  "D": {
+   "ten": "Cổng biên giới + đường băng — trên mép nam La Línea nhìn nam",
+   "shot": [
+    "H1",
+    "H3",
+    "N2.10",
+    "N3.5",
+    "N4.1",
+    "N4.5",
+    "N5.1",
+    "N5.2",
+    "N5.4",
+    "N5.6"
+   ],
+   "giay": 193.5
+  },
+  "B": {
+   "ten": "Vịnh — trên mặt nước tây-bắc phố, nhìn phố + Old Mole + Line Wall + Rock",
+   "shot": [
+    "H2",
+    "N1.1",
+    "C4",
+    "N2.8",
+    "N2.9",
+    "N4.3",
+    "N5.5"
+   ],
+   "giay": 141.5
+  },
+  "C": {
+   "ten": "Trên phố — sườn tây trên Grand Parade / King's Bastion",
+   "shot": [
+    "N1.2",
+    "N1.3",
+    "C3",
+    "C5",
+    "N2.6"
+   ],
+   "giay": 78.8
+  },
+  "A": {
+   "ten": "Bắc — đồi Campamento/San Roque nhìn Rock + eo đất + La Línea",
+   "shot": [
+    "N1.4",
+    "N1.6",
+    "C1",
+    "N2.11",
+    "N3.1"
+   ],
+   "giay": 106.5
+  },
+  "G": {
+   "ten": "Đỉnh Rock (O'Hara/Signal Hill) nhìn bắc xuống phố bắc + đường băng + eo đất + La Línea",
+   "shot": [
+    "N1.5",
+    "N2.7",
+    "N3.2",
+    "N3.4",
+    "N4.4"
+   ],
+   "giay": 86.5
+  },
+  "E": {
+   "ten": "Phía Algeciras — trên vịnh 2,8 km ngoài bờ Algeciras nhìn sang Rock (tele)",
+   "shot": [
+    "C2"
+   ],
+   "giay": 12.0
+  },
+  "neo": {
+   "ten": "neo",
+   "shot": [
+    "KA1782",
+    "KC1910",
+    "KB1943",
+    "KB2026",
+    "KC2026"
+   ],
+   "giay": 42.5
+  },
+  "H": {
+   "ten": "La Línea — trên phố trung tâm nhìn nam về cổng + Rock (chương 3, 5)",
+   "shot": [
+    "N3.3",
+    "N5.3"
+   ],
+   "giay": 32.9
+  },
+  "F": {
+   "ten": "Đông — trên biển ngoài Catalan Bay nhìn vách đông + eo đất phía Địa Trung Hải (chương 4: đất lấy đá vách bắc/đường hầm)",
+   "shot": [
+    "N4.2"
+   ],
+   "giay": 27.0
+  },
+  "the": {
+   "ten": "the",
+   "shot": [
+    "PP"
+   ],
+   "giay": 5.0
+  }
+ },
+ "bang": [
+  {
+   "shot": "H1",
+   "diem": "D",
+   "loai": "tl",
+   "cu": [
+    "0a",
+    "0b"
+   ],
+   "cu_loai": [
+    "scene3d",
+    "scene3d"
+   ],
+   "dur": 12.0,
+   "thoi_gian": "18/10/2026 23:52 → 19/10 08:20",
+   "khoanh_khac": "đêm biên giới, đèn đường + đèn đường băng, người đi bộ qua đường băng; đêm → bình minh"
+  },
+  {
+   "shot": "H2",
+   "diem": "B",
+   "loai": "tl",
+   "cu": [
+    "0c",
+    "0d",
+    "0e",
+    "0f"
+   ],
+   "cu_loai": [
+    "photo",
+    "card",
+    "scene3d",
+    "photo"
+   ],
+   "dur": 21.0,
+   "thoi_gian": "2026 → TUA NGƯỢC 1309 → 1704 (cờ đổi) → 1779 → 13–14/9/1782 đêm",
+   "khoanh_khac": "14 nhịp vây hãm trên phố/lâu đài; phố 1704 → 1782; pin nổi cháy đêm (≤ 30 s)"
+  },
+  {
+   "shot": "H3",
+   "diem": "D",
+   "loai": "tl",
+   "cu": [
+    "0g",
+    "0h"
+   ],
+   "cu_loai": [
+    "scene3d",
+    "scene3d"
+   ],
+   "dur": 11.5,
+   "thoi_gian": "1938 → 1943 → 2026",
+   "khoanh_khac": "mặt đường băng mọc qua đường (1939–41), lấn vịnh (1941–43); dòng người qua cổng 2026"
+  },
+  {
+   "shot": "N1.1",
+   "diem": "B",
+   "loai": "tl",
+   "cu": [
+    "SM1",
+    "1a",
+    "1b"
+   ],
+   "cu_loai": [
+    "strategic",
+    "scene3d",
+    "photo"
+   ],
+   "dur": 19.5,
+   "thoi_gian": "2/1704 → 1/8/1704",
+   "khoanh_khac": "hạm đội Rooke vào vịnh (thay bản đồ chiến lược SM1: lời mang ý liên minh)"
+  },
+  {
+   "shot": "N1.2",
+   "diem": "C",
+   "loai": "tl",
+   "cu": [
+    "1c",
+    "1d"
+   ],
+   "cu_loai": [
+    "photo",
+    "scene3d"
+   ],
+   "dur": 24.0,
+   "thoi_gian": "7/1704 → 3/8/1704",
+   "khoanh_khac": "plan 1705 phủ khớp lên phố ≤ 3 s rồi tan; phố 1704 dưới pháo hạm (khói)"
+  },
+  {
+   "shot": "N1.3",
+   "diem": "C",
+   "loai": "tl",
+   "cu": [
+    "1e",
+    "1f"
+   ],
+   "cu_loai": [
+    "scene3d",
+    "card"
+   ],
+   "dur": 15.12,
+   "thoi_gian": "3/8 → 6/8/1704",
+   "khoanh_khac": "cờ Borgoña → Union trên lâu đài (4/8/1704); không tấm số \"100 / 500\""
+  },
+  {
+   "shot": "N1.4",
+   "diem": "A",
+   "loai": "tl",
+   "cu": [
+    "1g"
+   ],
+   "cu_loai": [
+    "scene3d"
+   ],
+   "dur": 14.0,
+   "thoi_gian": "8/1704 → 1705",
+   "khoanh_khac": "dòng người rời phố lên bắc về San Roque dọc eo đất"
+  },
+  {
+   "shot": "N1.5",
+   "diem": "G",
+   "loai": "tl",
+   "cu": [
+    "1h",
+    "1i"
+   ],
+   "cu_loai": [
+    "card",
+    "scene3d"
+   ],
+   "dur": 25.0,
+   "thoi_gian": "1713 → 2015",
+   "khoanh_khac": "từ đỉnh Rock nhìn eo đất trống (điều 10 không nhắc); 2015: ranh hiện nay hiện lên (không thẻ trích)"
+  },
+  {
+   "shot": "N1.6",
+   "diem": "A",
+   "loai": "tl",
+   "cu": [
+    "1j",
+    "1k"
+   ],
+   "cu_loai": [
+    "scene3d",
+    "scene3d"
+   ],
+   "dur": 24.5,
+   "thoi_gian": "1704 → 1727 → 1730–35",
+   "khoanh_khac": "chiến hào 1704–05, 1727; Línea mọc tây → đông 1730–35"
+  },
+  {
+   "shot": "C1",
+   "diem": "A",
+   "loai": "tl",
+   "cu": [
+    "2a",
+    "2b"
+   ],
+   "cu_loai": [
+    "scene3d",
+    "photo"
+   ],
+   "dur": 22.5,
+   "thoi_gian": "20/6 → 28/10/1779",
+   "khoanh_khac": "cổng đóng 21/6; trại TBN dựng (Faden 1783); thẻ chương \"1779 — The Great Siege\""
+  },
+  {
+   "shot": "C2",
+   "diem": "E",
+   "loai": "tl",
+   "cu": [
+    "2c"
+   ],
+   "cu_loai": [
+    "scene3d"
+   ],
+   "dur": 12.0,
+   "thoi_gian": "12/7 → 20/12/1779",
+   "khoanh_khac": "hải đội rời Algeciras ra hàng chặn; thuyền châu Phi quay lại"
+  },
+  {
+   "shot": "C3",
+   "diem": "C",
+   "loai": "tl",
+   "cu": [
+    "2d",
+    "2e"
+   ],
+   "cu_loai": [
+    "card",
+    "photo"
+   ],
+   "dur": 14.12,
+   "thoi_gian": "14 → 15/1/1780 (ngày–đêm)",
+   "khoanh_khac": "người hái rau dại trên sườn; đồn trú tập; vịnh bị chặn (không tấm \"trứng 6 xu\")"
+  },
+  {
+   "shot": "C4",
+   "diem": "B",
+   "loai": "tl",
+   "cu": [
+    "SM2",
+    "2f"
+   ],
+   "cu_loai": [
+    "strategic",
+    "scene3d"
+   ],
+   "dur": 13.5,
+   "thoi_gian": "16/1 → 30/11/1780",
+   "khoanh_khac": "đoàn Rodney vào/ra; tàu Đan Mạch chở chanh (thay SM2)"
+  },
+  {
+   "shot": "C5",
+   "diem": "C",
+   "loai": "tl",
+   "cu": [
+    "2g"
+   ],
+   "cu_loai": [
+    "scene3d"
+   ],
+   "dur": 12.5,
+   "thoi_gian": "12/4 09:20 → 14/4/1781 11:00",
+   "khoanh_khac": "đoàn Darby thả neo 10:45, pháo TBN bắn phố, dân chạy nam, 5 nhà cháy đêm 13→14/4"
+  },
+  {
+   "shot": "N2.6",
+   "diem": "C",
+   "loai": "tl",
+   "cu": [
+    "2h",
+    "2i"
+   ],
+   "cu_loai": [
+    "photo",
+    "card"
+   ],
+   "dur": 13.0,
+   "thoi_gian": "14/4/1781 → 9/1782",
+   "khoanh_khac": "phố sập dần thành \"RUINS\" (plan 1786); khói pháo hai phía (không tấm 205 328 / 258 387)"
+  },
+  {
+   "shot": "KA1782",
+   "diem": "neo",
+   "loai": "neo",
+   "cu": [
+    "KA1782"
+   ],
+   "cu_loai": [
+    "scene3d"
+   ],
+   "dur": 8.0,
+   "thoi_gian": "9/1782",
+   "khoanh_khac": "khung neo then/now phố hẹp 1782 (TL-2: vai \"then/now\")"
+  },
+  {
+   "shot": "N2.7",
+   "diem": "G",
+   "loai": "tl",
+   "cu": [
+    "2j"
+   ],
+   "cu_loai": [
+    "scene3d"
+   ],
+   "dur": 12.5,
+   "thoi_gian": "8/9/1782 07:00 → 18:00",
+   "khoanh_khac": "đạn nung đỏ từ pháo bắc: ụ Mahon + tuyến song song cháy (S059)"
+  },
+  {
+   "shot": "N2.8",
+   "diem": "B",
+   "loai": "tl",
+   "cu": [
+    "2k",
+    "2l"
+   ],
+   "cu_loai": [
+    "photo",
+    "photo"
+   ],
+   "dur": 24.0,
+   "thoi_gian": "11 → 12/9/1782",
+   "khoanh_khac": "hạm đội liên quân 47–50 tàu vào vịnh; 10 pin nổi rời Algeciras"
+  },
+  {
+   "shot": "N2.9",
+   "diem": "B",
+   "loai": "tl",
+   "cu": [
+    "2m",
+    "2n"
+   ],
+   "cu_loai": [
+    "scene3d",
+    "card"
+   ],
+   "dur": 28.0,
+   "thoi_gian": "13/9 06:45 → 14/9/1782 15:00",
+   "khoanh_khac": "pin nổi vào vị trí → bắn → cháy đêm → nổ rạng sáng (bản dài của H2)"
+  },
+  {
+   "shot": "N2.10",
+   "diem": "D",
+   "loai": "tl",
+   "cu": [
+    "2o",
+    "2p"
+   ],
+   "cu_loai": [
+    "scene3d",
+    "photo"
+   ],
+   "dur": 20.5,
+   "thoi_gian": "5 → 7/1782",
+   "khoanh_khac": "vách bắc: lỗ thông hầm Ince nổ thủng (khói) — mặt cắt hầm cần M11 (D2 G1b)"
+  },
+  {
+   "shot": "N2.11",
+   "diem": "A",
+   "loai": "tl",
+   "cu": [
+    "2q",
+    "2r"
+   ],
+   "cu_loai": [
+    "scene3d",
+    "card"
+   ],
+   "dur": 23.0,
+   "thoi_gian": "1/1783 → 3/1783",
+   "khoanh_khac": "phát súng cuối 5/2/1783; trại + công sự rút dần (không thẻ trích Versailles)"
+  },
+  {
+   "shot": "N3.1",
+   "diem": "A",
+   "loai": "tl",
+   "cu": [
+    "3a",
+    "3b"
+   ],
+   "cu_loai": [
+    "scene3d",
+    "scene3d"
+   ],
+   "dur": 22.5,
+   "thoi_gian": "1783 → 14/2/1810",
+   "khoanh_khac": "đất trung lập trống; Línea + 2 pháo đài nổ tung 1810"
+  },
+  {
+   "shot": "N3.2",
+   "diem": "G",
+   "loai": "tl",
+   "cu": [
+    "3c"
+   ],
+   "cu_loai": [
+    "photo"
+   ],
+   "dur": 8.5,
+   "thoi_gian": "1810 → 1860",
+   "khoanh_khac": "mép đất Anh tiến dần (doanh trại, vườn) — cần lớp có nguồn 1810–60"
+  },
+  {
+   "shot": "N3.3",
+   "diem": "H",
+   "loai": "tl",
+   "cu": [
+    "3d"
+   ],
+   "cu_loai": [
+    "scene3d"
+   ],
+   "dur": 10.0,
+   "thoi_gian": "1849 → 1870 → 1905",
+   "khoanh_khac": "La Línea mọc theo năm xây (Catastro)"
+  },
+  {
+   "shot": "KC1910",
+   "diem": "neo",
+   "loai": "neo",
+   "cu": [
+    "KC1910"
+   ],
+   "cu_loai": [
+    "scene3d"
+   ],
+   "dur": 7.0,
+   "thoi_gian": "1910",
+   "khoanh_khac": "khung neo phố La Línea then/now"
+  },
+  {
+   "shot": "N3.4",
+   "diem": "G",
+   "loai": "tl",
+   "cu": [
+    "3e",
+    "3f",
+    "3g"
+   ],
+   "cu_loai": [
+    "photo",
+    "scene3d",
+    "photo"
+   ],
+   "dur": 27.0,
+   "thoi_gian": "1900 → 1909 → 1930",
+   "khoanh_khac": "dải trung lập; hàng rào 1909 mọc dọc ranh; trại, vườn, trường bắn, trường đua (cần nguồn bậc 1–3)"
+  },
+  {
+   "shot": "N3.5",
+   "diem": "D",
+   "loai": "tl",
+   "cu": [
+    "3h"
+   ],
+   "cu_loai": [
+    "scene3d"
+   ],
+   "dur": 9.5,
+   "thoi_gian": "1933 → 1938",
+   "khoanh_khac": "đường băng cỏ 1934 (dải cắt cỏ) trên dải trung lập"
+  },
+  {
+   "shot": "N4.1",
+   "diem": "D",
+   "loai": "tl",
+   "cu": [
+    "4a",
+    "4b"
+   ],
+   "cu_loai": [
+    "photo",
+    "scene3d"
+   ],
+   "dur": 25.5,
+   "thoi_gian": "3/1939 → 1941",
+   "khoanh_khac": "phản đối 1939 (lời); mặt cứng mọc, cắt qua đường (1941)"
+  },
+  {
+   "shot": "N4.2",
+   "diem": "F",
+   "loai": "tl",
+   "cu": [
+    "4c",
+    "4d",
+    "4e"
+   ],
+   "cu_loai": [
+    "scene3d",
+    "scene3d",
+    "card"
+   ],
+   "dur": 27.0,
+   "thoi_gian": "1941 → 7/1943",
+   "khoanh_khac": "đá vách bắc + đất hầm đổ ra vịnh, đường băng kéo dài (không tấm \"55 km\")"
+  },
+  {
+   "shot": "N4.3",
+   "diem": "B",
+   "loai": "tl",
+   "cu": [
+    "4f"
+   ],
+   "cu_loai": [
+    "photo"
+   ],
+   "dur": 9.0,
+   "thoi_gian": "1943",
+   "khoanh_khac": "bản đồ AMS 1943 phủ khớp lên phố ≤ 3 s rồi tan; phố 1943"
+  },
+  {
+   "shot": "N4.4",
+   "diem": "G",
+   "loai": "tl",
+   "cu": [
+    "SM3",
+    "4g"
+   ],
+   "cu_loai": [
+    "strategic",
+    "scene3d"
+   ],
+   "dur": 13.5,
+   "thoi_gian": "5/1940 → 11/1942",
+   "khoanh_khac": "tàu sơ tán phụ nữ–trẻ em rời cảng (5/1940); máy bay tụ trên đường băng (thay SM3)"
+  },
+  {
+   "shot": "KB1943",
+   "diem": "neo",
+   "loai": "neo",
+   "cu": [
+    "KB1943"
+   ],
+   "cu_loai": [
+    "scene3d"
+   ],
+   "dur": 8.0,
+   "thoi_gian": "1943",
+   "khoanh_khac": "khung neo phố 1943 (không phụ nữ/trẻ em)"
+  },
+  {
+   "shot": "N4.5",
+   "diem": "D",
+   "loai": "tl",
+   "cu": [
+    "4h",
+    "4i"
+   ],
+   "cu_loai": [
+    "card",
+    "scene3d"
+   ],
+   "dur": 27.5,
+   "thoi_gian": "1942 → đêm 7/11/1942",
+   "khoanh_khac": "≥ 650 máy bay xếp đường băng ban đêm (mô hình máy bay — D3 G1b)"
+  },
+  {
+   "shot": "N5.1",
+   "diem": "D",
+   "loai": "tl",
+   "cu": [
+    "5a",
+    "5b"
+   ],
+   "cu_loai": [
+    "scene3d",
+    "card"
+   ],
+   "dur": 22.0,
+   "thoi_gian": "1946 → 6/1969 → 1985",
+   "khoanh_khac": "cổng đóng: dòng người/xe dừng hẳn 1969; mở lại 1985"
+  },
+  {
+   "shot": "KB2026",
+   "diem": "neo",
+   "loai": "neo",
+   "cu": [
+    "KB2026"
+   ],
+   "cu_loai": [
+    "scene3d"
+   ],
+   "dur": 9.5,
+   "thoi_gian": "2026",
+   "khoanh_khac": "khung neo \"the same square, today\""
+  },
+  {
+   "shot": "N5.2",
+   "diem": "D",
+   "loai": "tl",
+   "cu": [
+    "5c",
+    "5d"
+   ],
+   "cu_loai": [
+    "scene3d",
+    "scene3d"
+   ],
+   "dur": 13.0,
+   "thoi_gian": "2026 sáng → trưa",
+   "khoanh_khac": "dòng người qua cổng giờ cao điểm"
+  },
+  {
+   "shot": "KC2026",
+   "diem": "neo",
+   "loai": "neo",
+   "cu": [
+    "KC2026"
+   ],
+   "cu_loai": [
+    "scene3d"
+   ],
+   "dur": 10.0,
+   "thoi_gian": "2026",
+   "khoanh_khac": "khung neo phố La Línea \"remember this street?\""
+  },
+  {
+   "shot": "N5.3",
+   "diem": "H",
+   "loai": "tl",
+   "cu": [
+    "5e",
+    "5f"
+   ],
+   "cu_loai": [
+    "card",
+    "scene3d"
+   ],
+   "dur": 22.92,
+   "thoi_gian": "2026 ngày",
+   "khoanh_khac": "La Línea ↔ Gibraltar: dòng người sáng đi chiều về (không tấm £85 000)"
+  },
+  {
+   "shot": "N5.4",
+   "diem": "D",
+   "loai": "tl",
+   "cu": [
+    "5g",
+    "5h",
+    "5i"
+   ],
+   "cu_loai": [
+    "card",
+    "scene3d",
+    "card"
+   ],
+   "dur": 32.0,
+   "thoi_gian": "7/2026 → 18/10/2026",
+   "khoanh_khac": "kiểm tra dừng; hàng rào cũ gỡ, hàng mới lùi vài mét (cần nguồn vị trí); không thẻ dòng thời gian"
+  },
+  {
+   "shot": "N5.5",
+   "diem": "B",
+   "loai": "tl",
+   "cu": [
+    "5j",
+    "KA2026"
+   ],
+   "cu_loai": [
+    "scene3d",
+    "scene3d"
+   ],
+   "dur": 26.5,
+   "thoi_gian": "2026 → tua ngược 1704 → 2026",
+   "khoanh_khac": "bookend H2: \"why did everyone fight over this place?\""
+  },
+  {
+   "shot": "N5.6",
+   "diem": "D",
+   "loai": "tl",
+   "cu": [
+    "5k"
+   ],
+   "cu_loai": [
+    "scene3d"
+   ],
+   "dur": 20.0,
+   "thoi_gian": "1730 → đêm 2026",
+   "khoanh_khac": "bookend H1: Línea 1730 → đêm biên giới hôm nay"
+  },
+  {
+   "shot": "PP",
+   "diem": "the",
+   "loai": "the",
+   "cu": [
+    "PP"
+   ],
+   "cu_loai": [
+    "card"
+   ],
+   "dur": 5.0,
+   "thoi_gian": "—",
+   "khoanh_khac": "thẻ \"How this film was made\" (§12.1 b) — không phải tấm số"
+  }
+ ]
+}
