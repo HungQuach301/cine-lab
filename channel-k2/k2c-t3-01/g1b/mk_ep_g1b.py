@@ -65,7 +65,7 @@ def era_push(eras, fr, to, look, fov=42, base=None):
 LIFE_WCA = lambda n=60, women=True: dict(walkers=[dict(line='WCA', n=n, width=6, women=women)], birds=dict(c=[0, -200], r=200, h=60, n=10))
 S3 = {
  '0a': T3(year=2026, date=[2026, 10, 18, 16.80, 16.86], dayCycle=True, noi='thanh_pho', counter={'s': '2026'},
-          cams=[push([-30, 3, 230], [-45, 3, 120], [250, 140, -1600], 3.5, fov=48), lat([0, 2, -30], -90, 45, 26, 3, None, fov=42)],
+          cams=[push([15, 2.5, 150], [8, 2.5, 70], [250, 140, -1600], 3.5, fov=48), lat([0, 2, -30], -90, 45, 26, 3, None, fov=42)],
           life=dict(walkers=[dict(line='WCA', n=70, width=6)], crowds=[dict(line='WCA', groups=5, size=[4, 10], speed=1.2)], birds=dict(c=[0, 0], r=180, h=50, n=8)), ghi='lời nói NỬA ĐÊM nhưng máy dựng V6 chưa có cảnh đêm có đèn đường → animatic dùng nắng chiều thấp (mặt trời ≈ 4°) — đề xuất làm đêm (lượt chiếu sáng + đèn có nguồn) trước bản sản xuất'),
  '0b': T3(year=2026, date=[2026, 10, 18, 9, 9.2], noi='eo_dat', cams=[push([61, 8, 430], [30, 380, 820], [230, 150, -1000], fov=46)], life=LIFE_WCA(60)),
  '0e': era_push([dict(d=1.375, year=2026), dict(d=1.375, year=1943, town='1943'), dict(d=1.375, year=1782.6, town='1782', tech=dict(v6=dict(earth=True))), dict(d=1.375, year=1704.6, town='1704', hideTrees=OLDBOX)],
@@ -270,9 +270,9 @@ def main():
             prev3d = first; cutplan[sid] = [b['t'] for b in seg['beats']]
             L['bac'] = 'bậc 1 (bố cục: bản đồ/ghost có nguồn) + bậc 5 (vật nền phụ) · người/quân: minh hoạ số lượng (bậc 2 khi có mục AI đọc nguồn)'
         elif sid in LAI:
-            key = f'g1b_{sid}'; heroes[key] = dict(hero='footage/lai', opt=dict(file=str(REPO / LAI[sid]), crop='810:456:0:0', frame=False, ss=0.5), dur=d)
+            key = f'g1b_{sid}'; heroes[key] = dict(hero='footage/lai', opt=dict(file=str(REPO / LAI[sid]), crop='810:456:0:0', frame=False, ss=0, pts=0.85), dur=d)
             sh['type'] = 'scene3d'; sh['khung_neo'] = True; sh['ai_image'] = True; sh['p'].update(hero=key, frame0=0)
-            seg['shots'].append(sh); L.update(ai_image=True, nguon='khung neo V6 bản LAI 540p (reports/v6/khung-neo) — cắt bỏ chữ cũ', chu_tat=L['chu_tat'] + ['dòng nguồn + nhãn AI (đã nung trong bản LAI) — cắt khỏi khung'])
+            seg['shots'].append(sh); L.update(ai_image=True, nguon='khung neo V6 bản LAI 540p (reports/v6/khung-neo) — cắt bỏ chữ cũ; chậm 0,85× để đủ thời lượng (clip 9 s < 10,3 s cần cho đoạn) — chỉ animatic', chu_tat=L['chu_tat'] + ['dòng nguồn + nhãn AI (đã nung trong bản LAI) — cắt khỏi khung'])
             L['bac'] = 'bậc 1 (ghost Drinkwater/AMS) + bậc 3–4 (quân phục RIGHTS-V6) + AI tấm C (ai_image)'
         elif sid in PHOTO or sid in DOC:
             if PHOTO.get(sid):

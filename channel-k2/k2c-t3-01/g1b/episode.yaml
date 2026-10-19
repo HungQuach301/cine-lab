@@ -30,13 +30,13 @@ heroes:
       cams:
       - k: push
         from:
-        - -30
-        - 3
-        - 230
+        - 15
+        - 2.5
+        - 150
         to:
-        - -45
-        - 3
-        - 120
+        - 8
+        - 2.5
+        - 70
         look:
         - 250
         - 140
@@ -3319,7 +3319,8 @@ heroes:
       file: /home/user/cine-lab/reports/v6/khung-neo/v6-LAI-960x540-1782.mp4
       crop: 810:456:0:0
       frame: false
-      ss: 0.5
+      ss: 0
+      pts: 0.85
     dur: 8.0
   g1b_2j_0:
     hero: tl/t3s
@@ -6981,7 +6982,8 @@ heroes:
       file: /home/user/cine-lab/reports/v6/khung-neo/v6-LAI-960x540-1943.mp4
       crop: 810:456:0:0
       frame: false
-      ss: 0.5
+      ss: 0
+      pts: 0.85
     dur: 8.0
   g1b_4h:
     hero: photo/print

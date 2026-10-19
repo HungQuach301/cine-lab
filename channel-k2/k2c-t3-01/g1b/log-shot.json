@@ -186,16 +186,18 @@
    "S012",
    "S013"
   ],
-  "nguon": "g1b/sm/SM1.yaml",
-  "bac": "bậc 1 (ranh Cliopatria/OHM; tuyến claim T…)",
+  "nguon": null,
+  "bac": null,
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
   "ghi": null,
   "bien_co": [
-   0.0
+   0.0,
+   2.0,
+   4.2
   ],
-  "khoang_max_s": 6.5
+  "khoang_max_s": 2.3
  },
  {
   "shot": "1a",
@@ -569,16 +571,19 @@
    "S055",
    "S056"
   ],
-  "nguon": "g1b/sm/SM2.yaml",
-  "bac": "bậc 1 (ranh Cliopatria/OHM; tuyến claim T…)",
+  "nguon": null,
+  "bac": null,
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
   "ghi": null,
   "bien_co": [
-   0.0
+   0.0,
+   2.6,
+   4.2,
+   4.8
   ],
-  "khoang_max_s": 7.5
+  "khoang_max_s": 2.7
  },
  {
   "shot": "2f",
@@ -676,7 +681,7 @@
    "S079",
    "S062"
   ],
-  "nguon": "khung neo V6 bản LAI 540p (reports/v6/khung-neo) — cắt bỏ chữ cũ",
+  "nguon": "khung neo V6 bản LAI 540p (reports/v6/khung-neo) — cắt bỏ chữ cũ; chậm 0,85× để đủ thời lượng (clip 9 s < 10,3 s cần cho đoạn) — chỉ animatic",
   "bac": "bậc 1 (ghost Drinkwater/AMS) + bậc 3–4 (quân phục RIGHTS-V6) + AI tấm C (ai_image)",
   "ai_image": true,
   "ai_texture": false,
@@ -1241,11 +1246,14 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "bản đồ chiến lược chưa có tệp phiên con → thẻ chờ",
+  "ghi": null,
   "bien_co": [
-   0.0
+   0.0,
+   1.6,
+   2.6,
+   4.6
   ],
-  "khoang_max_s": 8.0
+  "khoang_max_s": 3.4
  },
  {
   "shot": "4g",
@@ -1278,7 +1286,7 @@
    "S114",
    "S120"
   ],
-  "nguon": "khung neo V6 bản LAI 540p (reports/v6/khung-neo) — cắt bỏ chữ cũ",
+  "nguon": "khung neo V6 bản LAI 540p (reports/v6/khung-neo) — cắt bỏ chữ cũ; chậm 0,85× để đủ thời lượng (clip 9 s < 10,3 s cần cho đoạn) — chỉ animatic",
   "bac": "bậc 1 (ghost Drinkwater/AMS) + bậc 3–4 (quân phục RIGHTS-V6) + AI tấm C (ai_image)",
   "ai_image": true,
   "ai_texture": false,

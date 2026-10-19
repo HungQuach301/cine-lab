@@ -429,7 +429,7 @@ const sachTat = (role) => { (LL.sachTat = LL.sachTat || {})[role] = (LL.sachTat[
 function soLayer(g, p, t) { for (const Q of p.so || []) { const d = Math.min(SACH_MAX, Q.dur || SACH_MAX), u = vis(t, Q.at, Q.at + d - 0.35, 0.35); if (u <= 0.01) continue;
   const big = !!Q.big, px = (big ? 72 : 44) * S, spx = 34 * S, mw = W - 2 * SAFE.x0 - 420, L = wrap(g, Q.s, mw, px, 700, big).slice(0, 3), Ls = Q.sub ? wrap(g, Q.sub, mw, 38 * S, 500).slice(0, 2) : [];
   const w = Math.max(...L.map((l) => tw(g, l, px, 700, big)), ...Ls.map((l) => tw(g, l, 38 * S, 500)), Q.src ? tw(g, Q.src, spx, 500) : 0) + 64;
-  const h = L.length * px * 1.22 + Ls.length * 38 * S * 1.3 + (Q.src ? spx * 1.5 : 0) + 40, x = Q.x === 'left' ? SAFE.x0 : W - SAFE.x0 - w, y = Q.y === 'top' ? 150 : H - EDGE_B - h - 150;
+  const h = L.length * px * 1.22 + Ls.length * 38 * S * 1.3 + (Q.src ? spx * 2.1 : 0) + 40, x = Q.x === 'left' ? SAFE.x0 : W - SAFE.x0 - w, y = Q.y === 'top' ? 150 : H - EDGE_B - h - 150;
   panel(g, x, y, w, h, { a: u, accent: Q.c || K.amber, fill: 'rgba(12,18,27,0.92)' }); let yy = y + 20 + px;
   L.forEach((l) => { text(g, l, x + 32, yy, px, big ? (Q.c || K.amber) : K.text, { a: u, w: 700, disp: big, role: Q.role || (big ? 'so' : 'trich') }); yy += px * 1.22; });
   Ls.forEach((l) => { text(g, l, x + 32, yy - px * 0.22 + 38 * S * 0.9, 38 * S, '#E6EBF0', { a: u, w: 500, role: 'trich_dich' }); yy += 38 * S * 1.3; });
