@@ -435,6 +435,11 @@ function soLayer(g, p, t) { for (const Q of p.so || []) { const d = Math.min(SAC
   Ls.forEach((l) => { text(g, l, x + 32, yy - px * 0.22 + 38 * S * 0.9, 38 * S, '#E6EBF0', { a: u, w: 500, role: 'trich_dich' }); yy += 38 * S * 1.3; });
   if (Q.src) text(g, Q.src, x + 32, y + h - 20, spx, '#B9C3CE', { a: u, w: 500, role: 'src_ngan' }); (LL.occ = LL.occ || []).push([x, y, x + w, y + h]); LL.fill = true; } }
 
+// V7P (TL-6 / HC-1 kiểu A): THẺ CHƯƠNG p.chuong = {s (≤ 6 từ, lời trung tính), at, dur ≤ 3} — góc dưới trái, ngay trên bộ đếm; ≤ 3 s, mờ vào/ra 0,4 s
+function chuongLayer(g, p, t) { const C = p.chuong; if (!C || !C.s) return; const d = Math.min(SACH_MAX, C.dur || SACH_MAX), u = vis(t, C.at ?? p.t0, (C.at ?? p.t0) + d - 0.4, 0.4); if (u <= 0.01) return;
+  const px = 40 * S, w = tw(g, C.s, px, 600) + 56, h = px * 1.9, x = SAFE.x0, y = H - EDGE_B - h - 130 * S;
+  panel(g, x, y, w, h, { a: u, accent: K.amber, fill: 'rgba(12,18,27,0.86)' }); text(g, C.s, x + 28, y + h / 2 + px * 0.36, px, K.text, { a: u, w: 600, role: 'chuong' }); (LL.occ = LL.occ || []).push([x, y, x + w, y + h]); }
+
 // ---------- mẫu plate (duy nhất) ----------
 const TPL = {};
 TPL.plate = (p0) => { const p = sachP(p0); return ({ kind: 'full', full(g, t) {
@@ -445,7 +450,7 @@ TPL.plate = (p0) => { const p = sachP(p0); return ({ kind: 'full', full(g, t) {
   else { colOcc(p, t); yearChip(g, p, t); stratLayer(g, p, t); insetLayer(g, p, t); if (p.tl) tlLayer(g, p, t); else whereChip(g, p, t); stickers(g, p, t); caps(g, p, t); sideCap(g, p, t); tags(g, p, t, p.places); tags(g, p, t, p.tags); score(g, p, t); }   // V2: sticker dưới dải chú thích; bảng điểm trên cùng   // nhãn k2v vẽ SAU dải chú thích/nguồn: dải tối của caps phủ mờ nhãn ở 1/3 dưới khung (chấm mù P2, 12/10)
   const kd = p.__kind === undefined ? (p.__kind = typeof p.kind === 'string' ? p.kind : /"kind":"projection"/.test(JSON.stringify(p)) ? 'projection' : /"kind":"actual"/.test(JSON.stringify(p)) ? 'actual' : '') : p.__kind;   // G2 (K 1.11 O5): p.kind khai rõ nhãn góc ('' = không nhãn góc, khi các thẻ tự mang nhãn) — thẻ dưới nhãn góc thôi khai kind → 1 ACTUAL/khung
   if (kd) { if (c) kindTag(g, kd, CARD.x + CARD.w - 40, CARD.y + CARD.h - 44, vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5), 'right'); else if (V) kindTag(g, kd, W / 2, H * 0.70 - 24, 1, 'center'); else kindTag(g, kd, W - SAFE.x0, H - (EDGE_B + 14), 1, 'right'); }   // 9:16: trên dải chú thích (13/10: ở H−330 đè dòng nguồn 2 dòng)   // Q7: shot có số → nhãn ACTUAL/PROJECTION
-  if (p.sach) soLayer(g, p, t); asof(g, p, t); } }); };
+  if (p.sach) { soLayer(g, p, t); chuongLayer(g, p, t); } asof(g, p, t); } }); };
 
 // thẻ cuối Short (ll.py tự chèn tpl 'endcard', p.line)
 TPL.endcard = (p) => ({ kind: 'full', full(g, t) { const gr = g.createRadialGradient(W / 2, H * 0.45, 40, W / 2, H * 0.45, H * 0.8); gr.addColorStop(0, '#1b2738'); gr.addColorStop(1, K.ink); g.fillStyle = gr; g.fillRect(0, 0, W, H);

@@ -95,7 +95,7 @@ export function makeCity(B, U, { lod = true, hid = 0, ghostDesat = 0.22 } = {}) 
     if (!depth && lodLevel === 0) m.side = THREE.DoubleSide;
     m.customProgramCacheKey = () => 'tl-city-' + lodLevel + (depth ? '-d' : '') + '-h' + hid + '-g' + ghostDesat;   // tường chắn mái / lan can thấy cả mặt trong
     m.onBeforeCompile = (sh) => {
-      Object.assign(sh.uniforms, { uYear: U.uYear, uDim: U.uDim, uSample: U.uSample, uMask: U.uMask, uGhostDesat: { value: ghostDesat } });
+      Object.assign(sh.uniforms, { uYear: U.uYear, uDim: U.uDim, uSample: U.uSample, uMask: U.uMask, uGhostDesat: { value: ghostDesat }, uWinNight: U.uWinNight || { value: 0 } });
       sh.vertexShader = sh.vertexShader.replace('#include <common>', `#include <common>
         attribute float aYear; attribute float aGhost; attribute float aBase; attribute float aU; attribute float aDur; attribute float aH; attribute float aReg; attribute float aEL; attribute float aSty; attribute float aGH;
         uniform float uYear; varying float vU; varying float vLY; varying float vGhost; varying float vReg; varying float vH; varying float vYear; varying float vEL; varying float vSty; varying vec3 vObjN; varying vec3 vWPc;
@@ -110,11 +110,12 @@ export function makeCity(B, U, { lod = true, hid = 0, ghostDesat = 0.22 } = {}) 
         if (!gh && gk <= 0.0) transformed.y -= 80.0;
         transformed.y += aBase; vWPc = (modelMatrix * vec4(transformed, 1.0)).xyz;`);
       const FR = `${GLSL_NOISE}
-        uniform float uYear, uDim, uSample, uMask, uGhostDesat; varying float vU; varying float vLY; varying float vGhost; varying float vReg; varying float vH; varying float vYear; varying float vEL; varying float vSty; varying vec3 vObjN;
+        uniform float uYear, uDim, uSample, uMask, uGhostDesat, uWinNight; varying float vU; varying float vLY; varying float vGhost; varying float vReg; varying float vH; varying float vYear; varying float vEL; varying float vSty; varying vec3 vObjN;
         varying vec3 vWPc; bool railHole(){ if (vU > -3.5) return false; float hr = fract(vLY); return hr < 0.88 && fract((vWPc.x + vWPc.z) * 7.0) > 0.30; }   // lan can: song sắt 0,14 m, tay vịn trên`;
       if (depth) { sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\n' + FR); return; }
       sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\n' + FR)
         .replace('#include <color_fragment>', `#include <color_fragment>
+        float litW_ = 0.0;   // V7P: cửa sổ sáng ban đêm (uWinNight, chỉ cảnh ≥ 1900 bật)
         float dd_ = length(vViewPosition); if (railHole() && dd_ < 900.0) discard;
         float dd = dd_; int sty = int(vSty); vec3 base = diffuseColor.rgb;
         float seedB = fract(vReg * 2.0) * 97.0;
@@ -154,11 +155,14 @@ export function makeCity(B, U, { lod = true, hid = 0, ghostDesat = 0.22 } = {}) 
           c = mix(c, sty == 1 || sty == 0 ? vec3(0.95, 0.94, 0.90) : base * 0.8, frame * k * 0.9);
           c = mix(c, shc * louv, shOpen * k);
           c = mix(c, wcol, win * k);
+          litW_ = (win * k + shopw * k * 0.9) * step(0.55, h21(id * 3.7 + seedB + 11.0)) + (1.0 - k) * 0.35 * step(1.0, fl) * step(0.62, h21(id * 1.9 + seedB));
           c = mix(c, vec3(0.20, 0.16, 0.12) * (0.8 + 0.4 * h21(id + 5.0)), door * k);
           c = mix(c, mix(vec3(0.12, 0.15, 0.18), vec3(0.50, 0.42, 0.30), step(0.55, f.y)), shopw * k * 0.9);
           float far_ = 1.0 - k; c = mix(c, base * 0.86, far_ * 0.35 * step(1.0, fl));   // xa: tông cửa trung bình (không nhấp nháy)
           diffuseColor.rgb = c;
         }
+        else if (vU >= 0.0) litW_ = 0.4 * step(0.84, vn(vec2(vU * 0.7 + seedB, vLY * 0.45))) * step(2.6, vLY);
+        if (vGhost > 0.5) litW_ = 0.0;
         if (vU < -1.5 && vU > -2.5) diffuseColor.rgb *= 0.92;   // sàn ban công
         if (vU < -3.5) diffuseColor.rgb = vec3(0.12, 0.13, 0.13);
         if (vU >= 0.0 || vU < -1.5) diffuseColor.rgb *= 0.74 + 0.26 * smoothstep(0.0, 6.0, vLY);   // AO chân tường
@@ -172,6 +176,7 @@ export function makeCity(B, U, { lod = true, hid = 0, ghostDesat = 0.22 } = {}) 
         }
         if (vGhost > 0.5) { float L = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114)); diffuseColor.rgb = mix(diffuseColor.rgb, vec3(L), uGhostDesat); }   // lớp tái dựng: giảm bão hoà 22 %
         float L = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114)); diffuseColor.rgb = mix(diffuseColor.rgb, vec3(L), 0.55 * uDim) * (1.0 - 0.36 * uDim);`)
+        .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\n totalEmissiveRadiance += uWinNight * litW_ * vec3(1.0, 0.70, 0.40) * 1.5;')
         .replace('#include <dithering_fragment>', `#include <dithering_fragment>\n if (uMask > 2.5) gl_FragColor = vec4(diffuseColor.rgb, 1.0); else if (uMask > 1.5) gl_FragColor = vec4(normalize(normal) * 0.5 + 0.5, 1.0); else if (uMask > 0.5) gl_FragColor = vec4(1.0, vGhost > 0.5 ? 0.2 : 0.0, ${(hid / 255).toFixed(6)}, 1.0);   /* V5b-2b: G = 0,2 → toà lớp TÁI DỰNG (ghost_pct, K-1.13); B = id hero của lớp */`);
     };
     return m;

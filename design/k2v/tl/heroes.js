@@ -159,12 +159,14 @@ export function makeHeroes(H, hAt, U, terr, lines) {
   const RI = []; for (let i = 0; i < N; i++) { const k = i * 2; RI.push(k, k + 2, k + 1, k + 1, k + 2, k + 3); }
   const rg = new THREE.BufferGeometry(); rg.setAttribute('position', new THREE.Float32BufferAttribute(RP, 3)); rg.setAttribute('uv', new THREE.Float32BufferAttribute(RU, 2)); rg.setIndex(RI); rg.computeVertexNormals();
   const rmat = new THREE.MeshStandardMaterial({ map: rtex, roughness: 0.85, polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -4 });
-  rmat.onBeforeCompile = (sh) => { Object.assign(sh.uniforms, { uYear: U.uYear, uDim: U.uDim, uHi: out.hi.runway, tYears: terr.uni.tYears, uExt: terr.uni.uExt });
+  rmat.onBeforeCompile = (sh) => { Object.assign(sh.uniforms, { uYear: U.uYear, uDim: U.uDim, uHi: out.hi.runway, tYears: terr.uni.tYears, uExt: terr.uni.uExt, uRecl: U.uRecl || { value: 0 } });
     sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vWPr;').replace('#include <begin_vertex>', '#include <begin_vertex>\n vWPr = (modelMatrix * vec4(transformed,1.0)).xyz;');
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>\nuniform float uYear, uDim, uHi; uniform sampler2D tYears; uniform vec4 uExt; varying vec3 vWPr; ${GLSL_LAND}`)
       .replace('#include <map_fragment>', `#include <map_fragment>
-      vec2 guv = vec2((vWPr.x - uExt.x) / uExt.z, (-vWPr.z - uExt.y) / uExt.w); float lk = landK(decYear(texture(tYears, guv).ba), uYear);
-      if (uYear < 1941.0 || lk < 0.98) discard;
+      vec2 guv = vec2((vWPr.x - uExt.x) / uExt.z, (-vWPr.z - uExt.y) / uExt.w); float lk = landKx(decYear(texture(tYears, guv).ba), uYear, vWPr.x);
+      if (uRecl > 0.5) { float eW = uYear < 1941.0 ? mix(700.0, 0.0, clamp((uYear - 1939.9) / 1.1, 0.0, 1.0)) : mix(0.0, -330.0, clamp((uYear - 1941.0) / 0.9, 0.0, 1.0));   // V7P: mặt cứng mọc từ đầu đông (cuối 1939, S091) qua đường (1941) tới bờ cũ
+        if (uYear < 1939.9 || vWPr.x < eW || lk < 0.98) discard; }
+      else if (uYear < 1941.0 || lk < 0.98) discard;
       diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb * 1.35 + vec3(0.06, 0.05, 0.02), uHi);   // V5b-1b: mốc đinh làm SÁNG (không ám nâu)
       { float L = dot(diffuseColor.rgb, vec3(0.299,0.587,0.114)); diffuseColor.rgb = mix(diffuseColor.rgb, vec3(L), 0.55*uDim*(1.0-uHi)) * (1.0 - 0.36*uDim*(1.0-uHi)); }`); };
   const runway = new THREE.Mesh(rg, rmat); runway.receiveShadow = true; group.add(runway);

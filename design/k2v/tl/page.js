@@ -40,7 +40,7 @@ window.setup = async (cfg) => {
   if (mod.GRADE) { if (mod.GRADE.vib != null && cfg.vib == null) LU.uVib.value = mod.GRADE.vib; if (mod.GRADE.exposure != null && pipe.setExposure) pipe.setExposure(mod.GRADE.exposure); }   // V5b-2c (I5): vibrance riêng cảnh (opt.vib của shot vẫn thắng)
   const sunEl = 31 * Math.PI / 180, sunAz = 238 * Math.PI / 180;   // nắng chiều hướng tây-nam (nổi mặt tây Rock, vách bắc vào bóng)
   const sunDir = new THREE.Vector3(Math.sin(sunAz) * Math.cos(sunEl), Math.sin(sunEl), -Math.cos(sunAz) * Math.cos(sunEl)).normalize();
-  const U = { uMask: { value: 0 }, uYear: { value: 1700 }, uDim: { value: 0 }, uSample: { value: 0 }, uT: { value: 0 }, uAOon: { value: T.ao ? 1 : 0 }, uBaked: { value: T.baked ? 1 : 0 }, lambert: T.lambert, terrainLod: T.terrainLod, treeDetail: T.treeDetail, groundNear: T.groundNear ?? 1, sunDir };
+  const U = { uMask: { value: 0 }, uYear: { value: 1700 }, uNight: { value: 0 }, uWinNight: { value: 0 }, uRecl: { value: 0 },   /* V7P: đêm (0..1), cửa sổ sáng đêm (≥ 1900), đất lấn biển + đường băng mọc dần (tl7.js) */ uDim: { value: 0 }, uSample: { value: 0 }, uT: { value: 0 }, uAOon: { value: T.ao ? 1 : 0 }, uBaked: { value: T.baked ? 1 : 0 }, lambert: T.lambert, terrainLod: T.terrainLod, treeDetail: T.treeDetail, groundNear: T.groundNear ?? 1, sunDir };
   // V5b-1b: sương CHỈ ở xa, ngả xanh (cùng màu chân trời trời mới), mật độ thấp hơn → cận/trung cảnh trong; nắng thấp có hướng mạnh hơn,
   // ánh trời xanh làm bóng ngả lạnh (tương phản ấm–lạnh), bóng sắc hơn (bán kính PCF 3 → 1,5).
   const L = Object.assign({ fogC: [0.60, 0.74, 0.90], fogD: 0.0000175, hemiSky: '#9cbcf0', hemiGnd: '#7a6648', hemiI: 0.62, sunC: '#ffe3b8', sunI: 3.3, shR: 1.5 }, cfg.look || {}, mod.LOOK || {}); C.look = L;   /* V5b-2c: cảnh khai LOOK (ánh sáng riêng) */
@@ -102,7 +102,15 @@ function fitShadow(st) {   // hộp bóng bám điểm nhìn; cỡ theo khoảng
 function applySun(st) { if (!st.sun) return; const d = sunDirENU(st.sun); if (Math.abs(d[0] - ctx.sunDir.x) + Math.abs(d[1] - ctx.sunDir.y) + Math.abs(d[2] - ctx.sunDir.z) > 1e-6) { ctx.sunDir.set(...d).normalize(); shadowKey = null; }
   // V5b-2c (F1 chu kỳ ngày): nắng thấp → yếu + ngả cam, ánh trời giảm (chỉ khi cảnh khai st.dayCycle; cảnh cũ giữ ánh sáng cố định)
   if (st.dayCycle) { const el = st.sun.el, k = Math.max(0, Math.min(1, (el + 2) / 14)), w = Math.max(0, Math.min(1, (18 - el) / 18));
-    ctx.sun.intensity = C.look.sunI * (0.15 + 0.85 * k); ctx.sun.color.set(C.look.sunC).lerp(new THREE.Color('#ff9a52'), 0.75 * w * w); ctx.hemi.intensity = C.look.hemiI * (0.35 + 0.65 * k); } }
+    ctx.sun.intensity = C.look.sunI * (0.15 + 0.85 * k); ctx.sun.color.set(C.look.sunC).lerp(new THREE.Color('#ff9a52'), 0.75 * w * w); ctx.hemi.intensity = C.look.hemiI * (0.35 + 0.65 * k); }
+  // V7P (TL-5, D1): ĐÊM — cảnh khai st.night (0..1, theo độ cao mặt trời). Ánh trăng/ánh trời đêm từ hướng cố định (không sinh ảnh đêm; một lượt chiếu sáng thủ tục),
+  //  trời + nước tối dần (water.js uNight), sương ngả lam đậm; đèn (tl7.lamps) và cửa sổ sáng (city.js uWinNight) do cảnh bật. Đêm không sáng hơn ngày (§11.3: ≤ 1,5× A).
+  const nk = st.night || 0; ctx.U.uNight.value = nk; ctx.U.uWinNight.value = st.winNight ?? 0;
+  if (!C._fog0) C._fog0 = ctx.scene.fog.color.clone(); ctx.scene.fog.color.copy(C._fog0).lerp(new THREE.Color(0.035, 0.05, 0.09), nk);
+  if (nk > 0) { const md = sunDirENU(st.moon || { el: 38, az: 215 }); if (st.sun.el < -1) { if (Math.abs(md[0] - ctx.sunDir.x) + Math.abs(md[1] - ctx.sunDir.y) + Math.abs(md[2] - ctx.sunDir.z) > 1e-6) { ctx.sunDir.set(...md).normalize(); shadowKey = null; } }
+    ctx.sun.intensity = ctx.sun.intensity * (1 - nk) + C.look.sunI * 0.13 * nk; ctx.sun.color.lerp(new THREE.Color('#9db2d6'), nk);
+    ctx.hemi.intensity = ctx.hemi.intensity * (1 - nk) + C.look.hemiI * 0.30 * nk; ctx.hemi.color.set(C.look.hemiSky).lerp(new THREE.Color('#33466e'), nk); ctx.hemi.groundColor.set(C.look.hemiGnd).lerp(new THREE.Color('#15181f'), nk); }
+  else if (st.night != null) { ctx.hemi.color.set(C.look.hemiSky); ctx.hemi.groundColor.set(C.look.hemiGnd); } }
 window.renderFrame = async (f, measure, ov) => {
   const t = f / SC.fps, st = Object.assign(SC.state(t), ov || {}); const U = ctx.U;   // ov: ghi đè trạng thái (khung kiểm: năm/máy cố định)
   applySun(st); last = { f, t, st };
