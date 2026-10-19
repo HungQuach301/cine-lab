@@ -1,0 +1,38 @@
+{
+ "ghi": "KHOÁ MODEL — chỉ mở SAU khi chủ dự án đã nghe X/Y. Gán X/Y bằng secrets.randbelow(2), không chọn tay.",
+ "G": {
+  "X": {
+   "ban": "pin-v4",
+   "model": "eleven_v4",
+   "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75
+   },
+   "I": -13.9,
+   "TP": -2.3,
+   "LRA": 1.9,
+   "gain_truoc_dB": -1.1,
+   "gain_dB": 10.62,
+   "giay": 49.32,
+   "sha256": "2e03a0abc5731b8db0e38741fbcd5bdd3a286308916e5299fe59a9357391cb8b",
+   "mb": 0.69
+  },
+  "Y": {
+   "ban": "pin-v2",
+   "model": "eleven_multilingual_v2",
+   "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "speed": 1.0
+   },
+   "I": -14.0,
+   "TP": -2.3,
+   "LRA": 2.4,
+   "gain_truoc_dB": 0.08,
+   "gain_dB": 11.8,
+   "giay": 58.93,
+   "sha256": "3c94d9432afdd4bd9e56e203dbe50e803c0feaa8b6634efb9da7c76974392f2b",
+   "mb": 0.83
+  }
+ }
+}

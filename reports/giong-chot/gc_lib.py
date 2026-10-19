@@ -28,3 +28,15 @@ def tts(text, tag, model=V2, speed=1.0, settings=None):
 def sub():
     d = json.loads(L.call('/v1/user/subscription'))
     return dict(character_count=d['character_count'], character_limit=d['character_limit'], next_reset_unix=d.get('next_character_count_reset_unix'), tier=d.get('tier'))
+
+
+def tts_seed(text, tag, seed, model=V2, settings=None):
+    """Như tts() nhưng gửi thêm `seed` (cùng seed cho mọi mức speed → tách tác dụng của speed khỏi biến thiên giữa các lượt thu)."""
+    s = dict(settings or dict(stability=0.5, similarity_boost=0.75, speed=1.0))
+    key = hashlib.sha1(json.dumps([G1, text, model, s, seed], sort_keys=True).encode()).hexdigest()[:16]; p = f'{L.OUT}/raw/{key}.mp3'
+    if os.path.exists(p): return p, 0
+    if da_gui() + len(text) >= CHAN: raise SystemExit(f'CHẶN: {da_gui()} + {len(text)} ≥ {CHAN} ký tự gửi')
+    audio = L.call(f'/v1/text-to-speech/{G1}?output_format=mp3_44100_192', dict(text=text, model_id=model, voice_settings=s, seed=seed), accept='audio/mpeg')
+    open(p, 'wb').write(audio)
+    with open(L.LOG, 'a') as f: f.write(json.dumps(dict(viec='tts', tag=tag, model=model, seed=seed, ky_tu=len(text), tep=os.path.basename(p)), ensure_ascii=False) + '\n')
+    return p, len(text)

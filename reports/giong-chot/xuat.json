@@ -1,0 +1,98 @@
+{
+ "chuoi": "highpass=f=70,deesser=i=0.35:m=0.5:f=0.5:s=o,acompressor=threshold=-24dB:ratio=2.5:attack=5:release=120:knee=6",
+ "tran_dBFS": -2.0,
+ "tep": {
+  "toc-do/G1-moc-speed-1.00-A.mp3": {
+   "I": -13.9,
+   "TP": -3.3,
+   "LRA": 1.7,
+   "gain_truoc_dB": -2.09,
+   "gain_dB": 10.62,
+   "giay": 27.4,
+   "sha256": "60bc43dbd032e2399efaf52eec4c3f1d92946181bcb27759dfe9943dab46bac3",
+   "mb": 0.38
+  },
+  "toc-do/G1-moc-speed-1.00-B.mp3": {
+   "I": -13.9,
+   "TP": -2.4,
+   "LRA": 2.2,
+   "gain_truoc_dB": -0.82,
+   "gain_dB": 11.09,
+   "giay": 27.85,
+   "sha256": "8c7975403b5bd88a0084b85e3cce847dc905931e713073194f0dd4acc045822c",
+   "mb": 0.39
+  },
+  "toc-do/G1-moc-speed-1.03-A.mp3": {
+   "I": -13.9,
+   "TP": -2.4,
+   "LRA": 2.4,
+   "gain_truoc_dB": -1.44,
+   "gain_dB": 10.62,
+   "giay": 29.62,
+   "sha256": "a623df870de8ec147e9000ede2681bd3526deb28f0a88c6cf4575d3e49677eaf",
+   "mb": 0.42
+  },
+  "toc-do/G1-moc-speed-1.03-B.mp3": {
+   "I": -14.1,
+   "TP": -2.3,
+   "LRA": 2.2,
+   "gain_truoc_dB": 0.23,
+   "gain_dB": 11.09,
+   "giay": 27.59,
+   "sha256": "28e3478127a054484c334f934578e38a9b2d444e8204cdc6511db4248789238e",
+   "mb": 0.39
+  },
+  "toc-do/G1-moc-speed-1.06-A.mp3": {
+   "I": -14.0,
+   "TP": -2.4,
+   "LRA": 1.9,
+   "gain_truoc_dB": -0.52,
+   "gain_dB": 10.86,
+   "giay": 27.06,
+   "sha256": "1cdd7b362538528403908c2df961819b9a3cea314f00f28b1c7fdfc7b1a1b450",
+   "mb": 0.38
+  },
+  "toc-do/G1-moc-speed-1.06-B.mp3": {
+   "I": -14.0,
+   "TP": -2.5,
+   "LRA": 2.2,
+   "gain_truoc_dB": -0.77,
+   "gain_dB": 11.09,
+   "giay": 27.06,
+   "sha256": "f749ca516b92f10a2acf8f65a83282dd4c16cf20e6c2c2d635578ac5601d6cfb",
+   "mb": 0.38
+  },
+  "toc-do/G1-moc-speed-1.00-A-keo-x1.03.mp3": {
+   "I": -14.1,
+   "TP": -3.1,
+   "LRA": 1.8,
+   "gain_truoc_dB": -0.25,
+   "gain_dB": 10.16,
+   "giay": 26.59,
+   "sha256": "4d9fe6a28434d95afd2daafaca9495b471f004a038054ff31c6055a13484dc0b",
+   "mb": 0.37
+  }
+ },
+ "model": {
+  "X": {
+   "I": -13.9,
+   "TP": -2.3,
+   "LRA": 1.9,
+   "gain_truoc_dB": -1.1,
+   "gain_dB": 10.62,
+   "giay": 49.32,
+   "sha256": "2e03a0abc5731b8db0e38741fbcd5bdd3a286308916e5299fe59a9357391cb8b",
+   "mb": 0.69
+  },
+  "Y": {
+   "I": -14.0,
+   "TP": -2.3,
+   "LRA": 2.4,
+   "gain_truoc_dB": 0.08,
+   "gain_dB": 11.8,
+   "giay": 58.93,
+   "sha256": "3c94d9432afdd4bd9e56e203dbe50e803c0feaa8b6634efb9da7c76974392f2b",
+   "mb": 0.83
+  }
+ }
+}

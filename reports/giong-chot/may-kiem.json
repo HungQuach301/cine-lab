@@ -1,0 +1,501 @@
+{
+ "ghi": "G1 · GIỌNG-CHỐT · ASR M=medium.en beam5, S=small.en beam1, không hotwords",
+ "ban": {
+  "bang": {
+   "model": "eleven_multilingual_v2",
+   "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "speed": 1.0
+   },
+   "giay_tep": 79.83,
+   "giay_loi": 79.44,
+   "tu_viet": 98,
+   "tu_giay": 1.234,
+   "f0": {
+    "trung_vi": 81.2,
+    "p10": 60.2,
+    "p90": 104.1
+   },
+   "nghe": {
+    "medium.en": {
+     "asr": "Places on the map. La lénaïa de la Concepción, La lénaïa, La lénaïa's Harbour, San Roque, Alhesiras, Cadiz, Tangier and Utrecht. People in the story, Admiral Rook, Di Aigaudé, Sahlinas, Prince George of Hesse-Darmstadt, General Elliott, Sergeant Ince's men and the historian Montero. A sandy ISS musse, a fête accompli. The years 1666, 1704, 1705, 1713, 1727, 1730, 1779, 1780, 1781, 1810, 1870, 1908, 1909, 1934, 1939, 1940, 1941, 1942, 1943, 1969, 1985, 2015, 2024, 2025. As of the 18th of October, 2026, the treaty is in force only provisionally pending a European Parliament vote, indicated for the 14th of December.",
+     "tu_dung": 0.8716,
+     "cho_lech": [
+      [
+       "nea",
+       "na a"
+      ],
+      [
+       "nea",
+       "na a"
+      ],
+      [
+       "nea's",
+       "na a's"
+      ],
+      [
+       "algeciras c diz",
+       "alhesiras cadiz"
+      ],
+      [
+       "rooke diego de salinas",
+       "rook di aigaud sahlinas"
+      ],
+      [
+       "eliott",
+       "elliott"
+      ],
+      [
+       "isthmus",
+       "iss musse"
+      ],
+      [
+       "fait",
+       "f te"
+      ],
+      [
+       "",
+       "the"
+      ]
+     ],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [
+      "Diego de Salinas"
+     ],
+     "diem": {
+      "1666": 1.0,
+      "1704": 1.0,
+      "1705": 1.0,
+      "1713": 1.0,
+      "1727": 1.0,
+      "1730": 1.0,
+      "1779": 1.0,
+      "1780": 1.0,
+      "1781": 1.0,
+      "1810": 1.0,
+      "1870": 1.0,
+      "1908": 1.0,
+      "1909": 1.0,
+      "1934": 1.0,
+      "1939": 1.0,
+      "1940": 1.0,
+      "1941": 1.0,
+      "1942": 1.0,
+      "1943": 1.0,
+      "1969": 1.0,
+      "1985": 1.0,
+      "2015": 1.0,
+      "2024": 1.0,
+      "2025": 1.0,
+      "La Línea de la Concepción": 1.0,
+      "La Línea's": 1.0,
+      "La Línea": 1.0,
+      "San Roque": 1.0,
+      "Algeciras": 1.0,
+      "Cádiz": 1.0,
+      "Tangier": 1.0,
+      "Utrecht": 1.0,
+      "Diego de Salinas": 0.706,
+      "Hesse-Darmstadt": 1.0,
+      "Rooke": 1.0,
+      "Montero": 1.0,
+      "Eliott": 1.0,
+      "Ince's": 1.0,
+      "fait accompli": 1.0,
+      "isthmus": 1.0,
+      "18 October 2026": 1.0
+     }
+    },
+    "small.en": {
+     "asr": "Places on the map. La la naya de la Concepcion, la la naya, la la naya's harbor, San Roque, Alhesiraz, Cadith, Tangier, and Utrecht. People in the story, Admiral Rook, Di Igoe de Sahlinaaz, Prince George of Hesse-Darmstadt, General Elliot. Sergeant Ince's men and the historian Montero. Asandie, ismaz. A fête à complie. The years 1666, 1704, 1705, 1713, 1727, 1730. 1779, 1780, 1781. 1810, 1870, 1908, 1909, 1934, 1939, 1940, 1941, 1942, 1943, 1969, 1985, 2015, 2024, 2025. As of the 18th of October, 2026, the treaty is in force only provisionally, pending a European Parliament vote. Indicated for the 14th of December.",
+     "tu_dung": 0.8378,
+     "cho_lech": [
+      [
+       "l nea",
+       "la naya"
+      ],
+      [
+       "concepci n",
+       "concepcion"
+      ],
+      [
+       "l nea",
+       ""
+      ],
+      [
+       "l nea's harbour",
+       "naya la la naya's harbor"
+      ],
+      [
+       "algeciras c diz",
+       "alhesiraz cadith"
+      ],
+      [
+       "rooke diego",
+       "rook di igoe"
+      ],
+      [
+       "salinas",
+       "sahlinaaz"
+      ],
+      [
+       "eliott",
+       "elliot"
+      ],
+      [
+       "",
+       "asandie ismaz"
+      ],
+      [
+       "sandy isthmus a fait accompli",
+       "f te complie"
+      ],
+      [
+       "",
+       "the"
+      ]
+     ],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [
+      "Algeciras",
+      "Cádiz",
+      "fait accompli",
+      "isthmus"
+     ],
+     "diem": {
+      "1666": 1.0,
+      "1704": 1.0,
+      "1705": 1.0,
+      "1713": 1.0,
+      "1727": 1.0,
+      "1730": 1.0,
+      "1779": 1.0,
+      "1780": 1.0,
+      "1781": 1.0,
+      "1810": 1.0,
+      "1870": 1.0,
+      "1908": 1.0,
+      "1909": 1.0,
+      "1934": 1.0,
+      "1939": 1.0,
+      "1940": 1.0,
+      "1941": 1.0,
+      "1942": 1.0,
+      "1943": 1.0,
+      "1969": 1.0,
+      "1985": 1.0,
+      "2015": 1.0,
+      "2024": 1.0,
+      "2025": 1.0,
+      "La Línea de la Concepción": 1.0,
+      "La Línea's": 1.0,
+      "La Línea": 1.0,
+      "San Roque": 1.0,
+      "Algeciras": 0.667,
+      "Cádiz": 0.571,
+      "Tangier": 1.0,
+      "Utrecht": 1.0,
+      "Diego de Salinas": 1.0,
+      "Hesse-Darmstadt": 1.0,
+      "Rooke": 1.0,
+      "Montero": 1.0,
+      "Eliott": 1.0,
+      "Ince's": 1.0,
+      "fait accompli": 0.72,
+      "isthmus": 0.5,
+      "18 October 2026": 1.0
+     }
+    }
+   }
+  },
+  "moc-1.00": {
+   "model": "eleven_multilingual_v2",
+   "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "speed": 1.0
+   },
+   "giay_tep": 27.4,
+   "giay_loi": 26.98,
+   "tu_viet": 60,
+   "tu_giay": 2.224,
+   "f0": {
+    "trung_vi": 91.2,
+    "p10": 59.1,
+    "p90": 114.9
+   },
+   "nghe": {
+    "medium.en": {
+     "asr": "Midnight at the Gibraltar frontier. To walk in from Spain you cross an airport runway. Since July 2026 this gate has had no routine checks. The rock sits at the western gate of the Mediterranean. Historians on both sides count 14 sieges of it, between 1309 and 1783. This is why everyone fought over it, told from both sides' records.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1309": 1.0,
+      "1783": 1.0,
+      "2026": 1.0
+     }
+    },
+    "small.en": {
+     "asr": "midnight at the Gibraltar frontier. To walk in from Spain, you cross an airport runway. Since July 2026, this gate has had no routine checks. The rock sits at the western gate of the Mediterranean. Historians on both sides count 14 sieges of it, between 1309 and 1783. This is why everyone fought over it, told from both sides' records.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1309": 1.0,
+      "1783": 1.0,
+      "2026": 1.0
+     }
+    }
+   }
+  },
+  "moc-1.03": {
+   "model": "eleven_multilingual_v2",
+   "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "speed": 1.03
+   },
+   "giay_tep": 29.62,
+   "giay_loi": 29.24,
+   "tu_viet": 60,
+   "tu_giay": 2.052,
+   "f0": {
+    "trung_vi": 97.2,
+    "p10": 59.5,
+    "p90": 124.5
+   },
+   "nghe": {
+    "medium.en": {
+     "asr": "midnight at the Gibraltar frontier. To walk in from Spain, you cross an airport runway. Since July 2026, this gate has had no routine checks. The rock sits at the western gate of the Mediterranean. Historians on both sides count 14 sieges of it, between 1309 and 1783. This is why everyone fought over it, told from both sides' records.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1309": 1.0,
+      "1783": 1.0,
+      "2026": 1.0
+     }
+    },
+    "small.en": {
+     "asr": "midnight at the Gibraltar frontier. To walk in from Spain, you cross an airport runway. Since July, 2026, this gate has had no routine checks. The rock sits at the western gate of the Mediterranean. Historians on both sides count 14 sieges of it between 1309 and 1783. This is why everyone fought over it, told from both sides' records.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1309": 1.0,
+      "1783": 1.0,
+      "2026": 1.0
+     }
+    }
+   }
+  },
+  "moc-1.06": {
+   "model": "eleven_multilingual_v2",
+   "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "speed": 1.06
+   },
+   "giay_tep": 27.06,
+   "giay_loi": 26.64,
+   "tu_viet": 60,
+   "tu_giay": 2.252,
+   "f0": {
+    "trung_vi": 87.1,
+    "p10": 58.4,
+    "p90": 120.3
+   },
+   "nghe": {
+    "medium.en": {
+     "asr": "midnight at the Gibraltar frontier. To walk in from Spain you cross an airport runway. Since July 2026 this gate has had no routine checks. The rock sits at the western gate of the Mediterranean. Historians on both sides count 14 sieges of it, between 1309 and 1783. This is why everyone fought over it, told from both sides' records.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1309": 1.0,
+      "1783": 1.0,
+      "2026": 1.0
+     }
+    },
+    "small.en": {
+     "asr": "midnight at the Gibraltar frontier. To walk in from Spain, you cross an airport runway. Since July 2026, this gate has had no routine checks. The rock sits at the western gate of the Mediterranean. Historians on both sides count 14 sieges of it, between 1309 and 1783. This is why everyone fought over it, told from both sides' records.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1309": 1.0,
+      "1783": 1.0,
+      "2026": 1.0
+     }
+    }
+   }
+  },
+  "pin-v2": {
+   "model": "eleven_multilingual_v2",
+   "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "speed": 1.0
+   },
+   "giay_tep": 58.93,
+   "giay_loi": 58.18,
+   "tu_viet": 128,
+   "tu_giay": 2.2,
+   "f0": {
+    "trung_vi": 73.2,
+    "p10": 58.1,
+    "p90": 105.9
+   },
+   "nghe": {
+    "medium.en": {
+     "asr": "Four days later, the French and Spanish fleets gathered in the bay, 47 ships of the line by the British count, 50 by the Spanish. The Duc du Creon led the siege, their answer to Red Hot Shot, 10 floating batteries designed by the French engineer Darzone. A French account says he'd asked to test them against Red Hot Shot first. It was refused. The 13th of September, 1782. That morning, the batteries moved into position under the garrison's fire. At 10.25, by the Spanish account, the attackers' guns, some 400, opened fire together. By the next afternoon, all 10 batteries were lost. Over 2,000 attackers were lost by a British estimate that includes prisoners and by a Spanish one. The British rescued 357.",
+     "tu_dung": 0.9704,
+     "cho_lech": [
+      [
+       "de crillon",
+       "du creon"
+      ],
+      [
+       "d'ar on",
+       "darzone"
+      ]
+     ],
+     "so_thieu": [],
+     "ten_thieu": [
+      "d'Arçon"
+     ],
+     "muc_sai": [
+      "d'Arçon"
+     ],
+     "diem": {
+      "1782": 1.0,
+      "Duc de Crillon": 1.0,
+      "d'Arçon": 0.667
+     }
+    },
+    "small.en": {
+     "asr": "Four days later, the French and Spanish fleets gathered in the bay, 47 ships of the line by the British count, 50 by the Spanish. The Duc du Creon led the siege. Their answer to Red Hot Shot, 10 floating batteries designed by the French engineer Darson. A French account says he'd asked to test them against Red Hot Shot first. It was refused. The 13th of September 1782. That morning, the batteries moved into position under the garrison's fire. At 10.25 by the Spanish account, the attacker's guns, some 400, opened fire together. By the next afternoon, all 10 batteries were lost. Over 2,000 attackers were lost by a British estimate that includes prisoners and by a Spanish one. The British rescued 357.",
+     "tu_dung": 0.963,
+     "cho_lech": [
+      [
+       "de crillon",
+       "du creon"
+      ],
+      [
+       "d'ar on",
+       "darson"
+      ],
+      [
+       "attackers",
+       "attacker's"
+      ]
+     ],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1782": 1.0,
+      "Duc de Crillon": 1.0,
+      "d'Arçon": 1.0
+     }
+    }
+   }
+  },
+  "pin-v4": {
+   "model": "eleven_v4",
+   "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75
+   },
+   "giay_tep": 49.32,
+   "giay_loi": 48.56,
+   "tu_viet": 128,
+   "tu_giay": 2.636,
+   "f0": {
+    "trung_vi": 90.6,
+    "p10": 50.3,
+    "p90": 150.7
+   },
+   "nghe": {
+    "medium.en": {
+     "asr": "Four days later, the French and Spanish fleets gathered in the bay. 47 ships of the line by the British count, 50 by the Spanish. The Duc de Crillon led the siege. Their answer to Red Hot Shot. Ten floating batteries, designed by the French engineer D'Arson. A French account says he'd asked to test them against Red Hot Shot first. It was refused. The 13th of September 1782. That morning, the batteries moved into position under the garrison's fire. At 10.25, by the Spanish account, the attackers' guns, some 400, opened fire together. By the next afternoon, all 10 batteries were lost. Over 2,000 attackers were lost, by a British estimate that includes prisoners and by a Spanish one. The British rescued 357.",
+     "tu_dung": 0.9852,
+     "cho_lech": [
+      [
+       "d'ar on",
+       "d'arson"
+      ]
+     ],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1782": 1.0,
+      "Duc de Crillon": 1.0,
+      "d'Arçon": 1.0
+     }
+    },
+    "small.en": {
+     "asr": "Four days later, the French and Spanish fleets gathered in the bay. 47 ships of the line by the British count, 50 by the Spanish. The Duc de Creon led the siege. Their answer to Red Hot Shot, 10 floating batteries, designed by the French engineer D'Arson. A French account says he'd asked to test them against Red Hot Shot first. It was refused. The 13th of September 1782. That morning, the batteries moved into position under the garrison's fire. At 10.25, by the Spanish account, the attackers' guns, some 400, opened fire together. By the next afternoon, all 10 batteries were lost. Over 2,000 attackers were lost, by a British estimate that includes prisoners, and by a Spanish one. The British rescued 357.",
+     "tu_dung": 0.9778,
+     "cho_lech": [
+      [
+       "crillon",
+       "creon"
+      ],
+      [
+       "d'ar on",
+       "d'arson"
+      ]
+     ],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1782": 1.0,
+      "Duc de Crillon": 1.0,
+      "d'Arçon": 1.0
+     }
+    }
+   }
+  }
+ },
+ "phat_am_47": {
+  "sai": [],
+  "nghi": [
+   "Algeciras",
+   "Cádiz",
+   "Diego de Salinas",
+   "d'Arçon",
+   "fait accompli",
+   "isthmus"
+  ],
+  "dung_ca_hai": 41,
+  "dat_it_nhat_mot": 47,
+  "pin_v4": {
+   "sai": [],
+   "nghi": [],
+   "muc": [
+    "1782",
+    "Duc de Crillon",
+    "d'Arçon"
+   ]
+  }
+ }
+}
