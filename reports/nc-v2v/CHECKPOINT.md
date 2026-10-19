@@ -1,4 +1,4 @@
-# CHECKPOINT NC-V2V — 2026-10-19 16:35 UTC
-- Trạng thái: DỪNG ở bước 0 — khoá Gemini bị Google từ chối (400 API_KEY_INVALID). Xem NC-V2V-BAO-CAO.md §1–§2.
-- Đã xong: không có bước sản xuất/đo nào. Chưa tạo design/k2v/v2v/.
-- Phiên kế: kiểm bước 0 lại; qua thì bắt đầu bước 1 (đọc origin/ccr-ef2b66f0-9639kq, dựng 4 clip nguồn + mặt nạ ID ở thư mục tạm).
+# CHECKPOINT NC-V2V lượt 2 — 2026-10-19 (UTC, cập nhật mỗi ≤ 30 phút)
+- Bước 0: QUA. `GET /v1beta/models` → HTTP 200; có `models/gemini-omni-1.1-flash` (và `gemini-omni-flash-preview`). Tệp liệt kê SHA-256 4111db50….
+- Đang làm: bước 1 — dựng lại bộ đệm cảnh V7B (worktree tạm `/var/tmp/v7b-wt` @ origin/ccr-ef2b66f0-9639kq 317dcf5), viết bộ mặt nạ ID `design/k2v/v2v/`.
+- Chi phí đến giờ: Gemini $0 · Claude (phiên) — · OpenAI $0.
