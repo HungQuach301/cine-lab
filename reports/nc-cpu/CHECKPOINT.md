@@ -16,3 +16,7 @@
 - 6 khung cổng 1080p: A (`khung/A`), B nhanh 16 spp (`khung/B-nhanh`), C Eevee 32 mẫu (`khung/C`), V7B (bản sao JPG `khung/V7B`). Tờ so `to-so-khung.jpg`.
 - Chấm mù 640×360 (3 vai × 6 loại, $1,10): hạng 1 — A 11, V7B 3, B 2, C 2.
 - Đang dựng: cú lặn phần B (khung 216–348, Cycles 12 spp 1080p, lửa + khói thể tích), rồi B đẹp 128 spp 6 khung.
+
+## Lượt 4 (≈ 20:05 UTC 19/10)
+- Báo cáo nháp `NC-CPU-BAO-CAO.md` (§0–§9, còn ô [..] chờ số cú lặn B, B đẹp, đo lại Eevee/chuỗi A). Cú lặn B: 29/97 khung (khung 216–312), ≈ 130–145 s/khung.
+- Lỗi vận hành: một tiến trình `chain.sh` cũ (nohup) chạy chồng lượt Eevee + cú lặn B (18:27–19:22) → số Eevee 6 khung và khung lặn 216–227 có tải chồng; sẽ đo lại Eevee khi máy rảnh.
