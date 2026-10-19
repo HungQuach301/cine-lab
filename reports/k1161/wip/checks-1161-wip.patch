@@ -1,0 +1,1676 @@
+diff --git a/checks/cinecheck/__init__.py b/checks/cinecheck/__init__.py
+index aed17a6e..799f5910 100644
+--- a/checks/cinecheck/__init__.py
++++ b/checks/cinecheck/__init__.py
+@@ -1,2 +1,2 @@
+ """Cine Lab — bộ máy kiểm L1 (phiên K). Phiên xưởng không đọc mã này; chỉ đọc checks/RUN.md."""
+-VERSION = "1.16.0"
++VERSION = "1.16.1"
+diff --git a/checks/ll/RULES-LL.md b/checks/ll/RULES-LL.md
+index f084cc48..a997522b 100644
+--- a/checks/ll/RULES-LL.md
++++ b/checks/ll/RULES-LL.md
+@@ -1,4 +1,4 @@
+-# Last Lamplighters — luật kênh khoá, bản LL v3 (phiên K, 07/10/2026; LL v2 06/10/2026; 1.10.0 12/10/2026, Q32 áp cả kênh 2; 1.10.1 12/10/2026: Q26b "the", Q33, Q34; 1.10.2 13/10/2026: Q26b đọc kênh 2, Q34c cột bản đồ; **1.11.0 15/10/2026: luật kênh 2 đợt 15/10 — âm thanh A1–A13, Q35 nhãn số, Q36 chữ, Q37 nhịp thị giác, Q32 DVIDS/giấy phép/20 %/< 720p, Q34d năm, Q14–Q18 không áp kênh 2**; **1.11.1 15/10/2026: Q34(e) loại `record` văn bản gốc, Q36(b) câu miễn trừ, D5 duyệt**; **1.12.0 16/10/2026: ML1–ML3 mạch truyện/lời, FT1 footage, BC1 bố cục, MAU1 màu, KHOP1 đổi trình dựng, TL-Q1…Q6 timelapse — CHỈ BÁO**; **1.12.1 17/10/2026: Q35 "≈" bộ đếm timelapse (HH3), TL-Q2 AGL theo loại tuyến (HH2), TL-Q1(c) tương phản cục bộ (MM3), TL-Q7 năm/s theo pha (MM2), TL-Q8 nội dung bay thấp (MM1), TL-Q9 tiết chế máy (JJ1/KK1), KHOP1 khai khung vàng (MM4), Q34 type timelapse; cấp Chặn/Cảnh báo ghi cạnh kết quả, `--cap` áp cấp**; **1.12.2 17/10/2026: biến thể kênh 2 NHIP-K2 (Q14–Q18 → Q37), Q26b-K2 (loại cảnh + vùng; bản đồ không còn trung tính), Q33-K2 (khoá vùng + pHash L/ΔE vùng nội dung), Q32b-K2 (ảnh có máy/chú thích ≤ 12 s) — CHỈ BÁO cạnh luật cũ, chờ duyệt**; **1.13 17/10/2026: NC-H1…NC-H5 luật hình nơi chốn (NC-LS §6), Q7/Q8-K2 estimate, Q33/Q36/Q37 (1.13) theo khiếu nại T2 G2 §13–§14 — CHỈ BÁO, chờ duyệt**; **1.14 17/10/2026: BD-1…BD-8 bản đồ chiến lược `strategic`/inset/ranh lịch sử (B1–B8), NC-H2/H3 loại strategic, K-R1…K-R9 ĐỎ-K (YY5) — CHỈ BÁO**; **1.15 18/10/2026: K-LAI-1…6 + K-LAI-B khung neo LAI (P2-2, P2-3), O2 máy soi lỗi thời đại (O-AI, lưới lọc thứ hai), BC2–BC4 bố cục (I3), Q37/TL-Q1 nhận biến cố cảnh tl và mốc dừng giờ (I8) — CHỈ BÁO**)
++# Last Lamplighters — luật kênh khoá, bản LL v3 (phiên K, 07/10/2026; LL v2 06/10/2026; 1.10.0 12/10/2026, Q32 áp cả kênh 2; 1.10.1 12/10/2026: Q26b "the", Q33, Q34; 1.10.2 13/10/2026: Q26b đọc kênh 2, Q34c cột bản đồ; **1.11.0 15/10/2026: luật kênh 2 đợt 15/10 — âm thanh A1–A13, Q35 nhãn số, Q36 chữ, Q37 nhịp thị giác, Q32 DVIDS/giấy phép/20 %/< 720p, Q34d năm, Q14–Q18 không áp kênh 2**; **1.11.1 15/10/2026: Q34(e) loại `record` văn bản gốc, Q36(b) câu miễn trừ, D5 duyệt**; **1.12.0 16/10/2026: ML1–ML3 mạch truyện/lời, FT1 footage, BC1 bố cục, MAU1 màu, KHOP1 đổi trình dựng, TL-Q1…Q6 timelapse — CHỈ BÁO**; **1.12.1 17/10/2026: Q35 "≈" bộ đếm timelapse (HH3), TL-Q2 AGL theo loại tuyến (HH2), TL-Q1(c) tương phản cục bộ (MM3), TL-Q7 năm/s theo pha (MM2), TL-Q8 nội dung bay thấp (MM1), TL-Q9 tiết chế máy (JJ1/KK1), KHOP1 khai khung vàng (MM4), Q34 type timelapse; cấp Chặn/Cảnh báo ghi cạnh kết quả, `--cap` áp cấp**; **1.12.2 17/10/2026: biến thể kênh 2 NHIP-K2 (Q14–Q18 → Q37), Q26b-K2 (loại cảnh + vùng; bản đồ không còn trung tính), Q33-K2 (khoá vùng + pHash L/ΔE vùng nội dung), Q32b-K2 (ảnh có máy/chú thích ≤ 12 s) — CHỈ BÁO cạnh luật cũ, chờ duyệt**; **1.13 17/10/2026: NC-H1…NC-H5 luật hình nơi chốn (NC-LS §6), Q7/Q8-K2 estimate, Q33/Q36/Q37 (1.13) theo khiếu nại T2 G2 §13–§14 — CHỈ BÁO, chờ duyệt**; **1.14 17/10/2026: BD-1…BD-8 bản đồ chiến lược `strategic`/inset/ranh lịch sử (B1–B8), NC-H2/H3 loại strategic, K-R1…K-R9 ĐỎ-K (YY5) — CHỈ BÁO**; **1.15 18/10/2026: K-LAI-1…6 + K-LAI-B khung neo LAI (P2-2, P2-3), O2 máy soi lỗi thời đại (O-AI, lưới lọc thứ hai), BC2–BC4 bố cục (I3), Q37/TL-Q1 nhận biến cố cảnh tl và mốc dừng giờ (I8) — CHỈ BÁO**; **1.16 19/10/2026: luật T3 (SACH-1…PC-1, K-LAI-3V) + khiếu nại V6/G1b**; **1.16.1 19/10/2026: thước cắt cấu trúc (TL-1 (c)), chủ dự án duyệt K116-D1…D9 (18:48)**)
+ 
+ LL v2: chủ dự án duyệt 06/10/2026. LL v3 (Q26–Q31, sửa Q14, Q16): chủ dự án duyệt 07/10/2026, kèm phán quyết Q-L27 = B, Q-L30 = B, Q-L31 = A có điều kiện, Q-L6v2 = B. **Q26–Q31 áp từ tập 7**; tập 6 v2 phát hành theo luật làm việc của P. **Bản 1.8.0 (K, 09/10/2026, sau tập 7):** sửa Q27, Q31; thêm Q26b (áp từ tập 8, không áp ngược tập 7). **1.8.1:** sửa quãng liên tục Q26b theo chủ dự án. **1.9.0 (K, 11/10/2026, chủ dự án duyệt hướng sửa):** Q28f bộ chuyển chữ→số (khiếu nại P 09/10); Q27 chấm theo manifest của lần chấm (khiếu nại P 10/10); người chấm mù Q27, Q31, G1 qua **Claude API** thay subagent. **1.9.1 (chủ dự án duyệt 1.9.0 và chọn Q27 = phương án A + đặt lại mốc, 11/10/2026):** Q27 chấm kèm mốc tập 8 bản phát hành. **1.10.0 (K, 12/10/2026; chủ dự án 12/10 cho phép footage/ảnh nguồn ngoài, ưu tiên miễn phí):** thêm **Q32** footage nguồn ngoài, áp **mọi tập LL và kênh 2** (`channel-k2/<tập>/`); footage tính là bối cảnh trong Q26b, cảnh toàn khung trong Q16, hình vật chất trong Q29. Chi tiết, mẫu sổ và nguyên văn giấy phép Pexels/Pixabay: `checks/ll/FOOTAGE.md`. **1.10.1 (chủ dự án duyệt 1.10.0 và giao sửa sau khi xem Steel, 12/10/2026):** Q26b tính thẻ/đồ hoạ phẳng là một bối cảnh riêng `the` (LL + kênh 2); thêm **Q33** lặp cảnh (LL từ tập 9, kênh 2 từ K2 tập 2) và **Q34** loại shot (kênh 2 từ K2 tập 2); Q34d cộng photo/document/footage vào trần 40 % của Q32. Đo hồi tố trên Steel không chặn. **1.10.2 (chủ dự án duyệt 13/10/2026; không đổi ngưỡng):** Q26b đọc định dạng kênh 2 (vshot/episode): CLI nhận `episode.yaml [--tl]` như Q33/Q34/Q32 (lỗi P 13/10: đưa `.yaml` cho CLI chỉ nhận timeline → JSONDecodeError), `type` đọc từ shot timeline hoặc đặc tả, `map`/`photo`/`document` là bản đồ / ảnh tư liệu → trung tính, `card` → `the`, `footage` → như footage; Q34(c) chấp nhận khiếu nại V 12/10: số bám đỉnh cột 3D của bản đồ tính là hiện bằng 3D (điều kiện ở dòng Q34). Áp cho mọi tập dựng bằng `scripts/ll/`, chạy qua `bash scripts/ll/qc.sh <episode.yaml>`.
+ 
+@@ -69,10 +69,46 @@ Một lệnh: `k2check.py <episode.yaml> … [--root <gốc repo có vo/*.align.
+ **Khai `mach`** (gốc episode.yaml hoặc tệp `--khai`): `tom_tat: {tu: "<đầu câu>", den: "<đầu câu>"}`, `luan_diem_chinh: [{claim: C22, cau: "<đầu câu>"}]` (mẫu: `fixtures/k112/t2-mach.yaml`).
+ **Đề xuất cho phiên V (ngoài vùng K):** mặt nạ `render.js --maskonly` ghi thêm `hero_pct` và chạy MỌI khung (BC1, TL-Q1c); log chữ mỗi khung có `role` thẻ ảnh; log lệch đầu đường dẫn ảnh neo (TL-Q4b).
+ 
++## 1.16.1 — thước cắt cấu trúc + duyệt K116-D1…D9 (chủ dự án 19/10/2026 18:48) — 19/10
++Căn cứ: `reports/k1161/K1161-BAO-CAO.md`. Chỉ tập kênh 2 từ T3 (cổng 1.16 như dưới); tập cũ không đổi.
++
++**Thước cắt TL-1 (c) (thay thước histogram + điểm ảnh của 1.16.0 — báo nhầm 26 cắt = 13,1/phút trên bản thử V7P 8 shot/119 s):**
++- Đo trên khung xám 320×180, vùng y **6–70 %** (bỏ dải chữ dưới: phụ đề nung, thẻ chương, bộ đếm; bỏ mép trên).
++- Mỗi khung: cân bằng histogram (bỏ độ sáng/tương phản toàn khung), làm mờ σ 1,2, biên độ gradient Sobel. Khung tối/phẳng (σ xám < 2/255, fade) bỏ qua; so khung sáng sau với khung sáng trước.
++- `s[i]` = tương quan cấu trúc khung i với khung sáng trước: bù tịnh tiến (phase correlation, ≤ 4 % bề ngang), hệ số tương quan Pearson của bản đồ gradient trên lưới **4×3** ô, lấy **trung vị** các ô có cấu trúc.
++- **Cắt** = `s[i]` < **0,30** VÀ trung vị `s` trong ±**0,5 s** (trừ i±1) − `s[i]` ≥ **0,40**; cực tiểu ±2 khung; cách cắt trước > 2 khung; bỏ 0,5 s đầu.
++- Đổi ngày–đêm, chớp đèn, khói, nhà mọc theo năm **cùng góc máy** KHÔNG là cắt; cắt cứng giữa hai cảnh **cùng độ sáng** LÀ cắt (selftest k116).
++- Có đặc tả: đối chiếu một-một cắt video ↔ ranh shot đặc tả (đầu shot + beats `cut`), lệch ≤ **0,5 s**; TL-1 báo **cả hai số** (cắt/phút video, cắt/phút đặc tả, số khớp, chỉ video, chỉ đặc tả). Video quyết (c).
++- Kiểm có đáp án (ranh shot từ đặc tả; G1b bỏ 9 ranh "liền máy" cùng góc đổi năm): **V7P P 1,000 / R 1,000; G1b P 0,983 / R 1,000** (1.16.0: 0,269 / 1,000 và 0,920 / 0,896).
++
++**Duyệt K116 (chủ dự án 19/10/2026 18:48, theo khuyến nghị điều phối):**
++| Mã | Nội dung | Trong mã |
++|---|---|---|
++| K116-D1 | Mức 1.16 như bảng §3 báo cáo K116 (Chặn: SACH-1, CHUONG-1 (a)–(e), PP-1 (a)–(d), NHIP-NGHIA, XEM-CAM; Cảnh báo: TL-1/2/3 tới khi hiệu chỉnh sau V7-PILOT, PC-1, CHUONG-1 (f), PP-1 (e)) và các thay đổi khiếu nại §2 | `cap112.py` (mặc định `k2check` vẫn ghi cấp cạnh kết quả; `--cap` áp vào mã thoát, như mọi luật đã duyệt) |
++| K116-D2 | XEM-CAM đạt = **chủ dự án ≥ 6/8 VÀ trung bình người chấm AI ≥ 6/8** (thay "mỗi người ≥ 6/8") | `q_k116.xem_cam` |
++| K116-D3 | Chữ bản đồ: bản đồ phủ địa hình được **tối đa 2 nhãn địa danh** (vai `diem`, `inset`, `tag`), hiện trong **≤ 3 s** mỗi shot (từ nhãn đầu hiện tới nhãn cuối tắt); **KHÔNG chú giải chữ** (`chu_giai` — phe bằng màu + cờ); chữ khác ngoài danh sách §12.1 (`index`, `card`, vai lạ) là lỗi → **SACH-1 (e) Chặn** | `q_k116.sach1`, `cap112.py` |
++| K116-D4 | Duyệt hướng thước **biến cố trên video** cho Q37 (đổi nội dung trong cửa sổ máy cố định, không nhận biến cố tự khai). **Chỉ kế hoạch**: làm sau khi có dữ liệu V7B | chưa có mã |
++| K116-D5 | K-LAI-3V **Chặn ở cổng G2** (bản phát hành), **Cảnh báo ở animatic** (`animatic: true`) | `cap112.py` + `k2check.py` (`cong`) |
++| K116-D6 | Đo phóng bằng **LK** (tịnh tiến vẫn phase correlation) — giữ như 1.16.0 | `q_k116.zoom_lk` |
++| K116-D7 | `scripts/common/golden.py` so với `checks/golden/tham_chieu/<ca>.png` (khung vàng V6, khoá trong LOCK); ca chưa có tham chiếu V6 (k2v4) giữ nguồn cũ | 1 dòng `golden.py` |
++| K116-D8 | "≈ 8 s" = **7–9 s**; tốc độ đọc ≤ **3 từ/s** là Cảnh báo — giữ như 1.16.0 | `q_k116.pp1` |
++| K116-D9 | Danh sách trường phiên dựng phải xuất (dưới); K không sửa trình dựng | — |
++
++**Trường phiên dựng xuất (K116-D9) — để mọi hàng 1.16 đo được, hết THIẾU:**
++1. `log_shot` mỗi shot: `goc` (cao · thap · neo · phang), `tl` (bool), `vai` (bắt buộc với `thap`), `trong_pct`, `su_kien` [{t, k, s}], `diem_may`, `moc`, `noi`, `nguoi`, `bac`, `nguon`, `ai_image`/`ai_texture`.
++2. `nhip_vat` (`nhip-vat.json`): `{nhip: [{id, chinh, cau, vat: [{loai, shot}]}]}`.
++3. `xem_cam` (`xem-cam.json`): 8 câu, người chấm {id, vai ai|chu_du_an, dung, tong: 8, ngay}, `tat_tieng: true`, `video` + `video_sha256` của bản đã chấm; không email.
++4. `nam_khung` `[{shot, nam_dem, nam_max: {lớp: năm}}]` (NC-H5 (a)).
++5. Log chữ k2.js của lượt kiểm (`--logs`) hoặc `log_chu` — có `role`, `s`, `alpha`, `px1080|cap`, `box` (SACH-1 (c)(d)(e), CHUONG-1 (f), PP-1).
++6. Đặc tả: `khung_neo: true` cho MỌI shot khung neo, `im_lang: true` cho tấm im lặng (miễn Q37 (c)); `animatic: true` cho bản animatic.
++7. `phat_hanh.mo_ta`: mô tả + bình luận ghim có "AI use = Yes", nguồn ghost, nguồn ranh.
++8. Khối `lai:` có sổ vân (`kiem_du_kien_van`, `goi_api_van`) + `dieu_kien_dat` cho kết luận "dùng nếu …".
++9. Video cho TL-1: master hoặc `--tl16-video` (≥ 270p; 12 hoặc 24 khung/s đều đo được).
++
+ ## 1.16 — khung sạch §12.1 (sửa 19/10) + TL-4, thẻ chương §13.3, thẻ phương pháp D6, ngữ pháp timelapse §13.6, nhịp → vật mang nghĩa §13.2, cổng XEM CÂM §13.4, phục chế §12.3; khiếu nại V6/G1b — 19/10, CHỈ BÁO
+ **Chỉ tập kênh 2 từ T3**: bật khi episode.yaml khai `khung_sach: true` (đặc tả T3 đã có) hoặc `kenh2_tu_t3: true`. Tập không khai → mọi luật chạy đúng như 1.15
+ (một hàng gộp "1.16 KHÔNG ÁP"). Mã: `checks/ll/q_k116.py` (`q_k116.py <episode.yaml> --tl … [--video …] [--logs …] [--log-shot …]`); `k2check.py` tự gọi
+-(video: `--tl16-video <tệp>` hoặc master). Cấp đề xuất ở cap112.py, chờ chủ dự án duyệt.
++(video: `--tl16-video <tệp>` hoặc master). Cấp ở cap112.py — chủ dự án duyệt K116-D1 19/10 18:48 (mục 1.16.1).
+ 
+ **Khai mới (gốc episode.yaml, đường dẫn tương đối thư mục tập):**
+ | Khoá | Nội dung |
+@@ -90,21 +126,21 @@ Thẻ chương: `p.the_chuong: {s: "1704 — The Rock changes hands", at, dur}`
+ (id `PP`/part `END`/tiêu đề "How this film was made" cũng nhận). Tư liệu chỉ được dùng dạng phủ: `p.phu_dia_hinh: {img, dur ≤ 3}`. Khung neo / tấm im lặng
+ (miễn Q37 (c)): shot khai `khung_neo: true` (hoặc `neo: true`) / `im_lang: true`.
+ 
+-| Mã | Đo | Ngưỡng | Cấp đề xuất |
++| Mã | Đo | Ngưỡng | Cấp (duyệt K116-D1) |
+ |---|---|---|---|
+-| **SACH-1** | (a) p.so, tấm num/quote/list ngoài thẻ chương/PP · (b) photo/document/record/footage đứng riêng · (c) log chữ: vai cấm (src, src_ngan, ai_label, ghost_src, inset_src, index_src, method, bien_gioi, so, trich, trich_dich) hay chữ "approx. borders / estimated infill / Ruins: estimated / illustrative / AI-assisted / Source:" có alpha > 0 · (d) chip `where` mỗi lần · (e) chữ khác (diem, chu_giai, inset, tag, index, card) · (f) shot không `p.sach` | 0 · 0 (phủ ≤ **3 s**) · 0 · ≤ **3 s** · liệt kê · 0 | Chặn (a)–(d), (f) · Cảnh báo (e) |
++| **SACH-1** | (a) p.so, tấm num/quote/list ngoài thẻ chương/PP · (b) photo/document/record/footage đứng riêng · (c) log chữ: vai cấm (src, src_ngan, ai_label, ghost_src, inset_src, index_src, method, bien_gioi, so, trich, trich_dich) hay chữ "approx. borders / estimated infill / Ruins: estimated / illustrative / AI-assisted / Source:" có alpha > 0 · (d) chip `where` mỗi lần · (e) chữ bản đồ (1.16.1, K116-D3): nhãn địa danh `diem`/`inset`/`tag` mỗi shot; `chu_giai`, `index`, `card`, vai lạ · (f) shot không `p.sach` | 0 · 0 (phủ ≤ **3 s**) · 0 · ≤ **3 s** · ≤ **2** nhãn trong ≤ **3 s**; 0 · 0 | Chặn (a)–(f) (1.16.1) |
+ | **CHUONG-1** | thẻ chương | ≤ **8**/tập · "năm — ≤ **6** từ" · ≤ **3 s** · không trong chương 0/CH0/`moc_s` · không captur*/liberat*/conquer*/seiz* · (f) log: góc dưới trái, mờ vào/ra | Chặn (a)–(e) · Cảnh báo (f) |
+ | **PP-1** | thẻ phương pháp (D6) | đúng **2** thẻ · mỗi thẻ **7–9 s** (≈ 8) · liền nhau, kết ≤ 0,5 s trước cuối · nói nguồn/bản đồ, ước tính, AI · (e) ≤ **3 từ/s** | Chặn (a)–(d) · Cảnh báo (e) |
+-| **TL-1** | (a) Σ shot `goc: cao` + `tl: true` / thân phim (trừ thẻ PP) · (b) số shot đặc tả (cận trên, chỉ báo) · (c) cắt/phút trên video: cắt = [chênh lệch histogram xám 32 bin ≥ 0,20 VÀ lệch điểm ảnh TB ≥ 12/255] hoặc [lệch ≥ 20/255 VÀ ≥ 3× trung vị ±6 khung], cực đại cục bộ · (d) chuyển động máy shot góc cao: tịnh tiến (phase correlation, bước 0,25 s, vùng y 10–68 %) + phóng (LK) quy ra % bề ngang/s, trung vị cửa sổ 1 s · (e)(f) `diem_may` | ≥ **75 %** · — · ≤ **5**/phút · ≤ **2 %/s** · **6–8** điểm, mỗi điểm ≥ 2 năm | Cảnh báo — **hiệu chỉnh sau V7-PILOT** |
++| **TL-1** | (a) Σ shot `goc: cao` + `tl: true` / thân phim (trừ thẻ PP) · (b) số shot đặc tả (cận trên, chỉ báo) · (c) cắt/phút trên video: cắt = đổi CẤU TRÚC (1.16.1, xem mục 1.16.1; thước histogram + điểm ảnh của 1.16.0 đã bỏ), đối chiếu ranh đặc tả ±0,5 s · (d) chuyển động máy shot góc cao: tịnh tiến (phase correlation, bước 0,25 s, vùng y 10–68 %) + phóng (LK) quy ra % bề ngang/s, trung vị cửa sổ 1 s · (e)(f) `diem_may` | ≥ **75 %** · — · ≤ **5**/phút · ≤ **2 %/s** · **6–8** điểm, mỗi điểm ≥ 2 năm | Cảnh báo — **hiệu chỉnh sau V7-PILOT** |
+ | **TL-2** | Σ `goc: thap` / thân phim · mỗi shot thấp có `vai` và (`noi: thanh_pho` hoặc `nguoi: true`) | ≤ **10 %** | Cảnh báo — hiệu chỉnh sau V7-PILOT |
+ | **TL-3** | shot 3D (cao/thap/neo): `tl` hoặc `su_kien` · "trống": `trong_pct` > **60 %** mà không `tl` · có `bac` | 0 vi phạm | Cảnh báo — hiệu chỉnh sau V7-PILOT |
+ | **NHIP-NGHIA** | nhịp chính có ≥ 1 vật hợp lệ (loại đúng, shot có thật, the_chuong có thẻ) | ≥ **90 %** | Chặn |
+-| **XEM-CAM** | tệp kết quả: 8 câu · ≥ 3 AI + chủ dự án · tắt tiếng · không email · SHA video khớp (nếu khai) | mỗi người chấm ≥ **6/8** | Chặn |
++| **XEM-CAM** | tệp kết quả: 8 câu · ≥ 3 AI + chủ dự án · tắt tiếng · không email · SHA video khớp (nếu khai) | chủ dự án ≥ **6/8** VÀ trung bình AI ≥ **6/8** (1.16.1, K116-D2) | Chặn |
+ | **PC-1** | kiểm có đáp án: Δ cạnh mới = công cụ − **bicubic cùng ô**; PSNR công cụ − bicubic | Δ ≤ **1,0** điểm % · ΔPSNR ≥ 0 cho mọi ảnh dùng | Cảnh báo (thước tạm) |
+ 
+ **Thay luật cũ ở tập từ T3 (khiếu nại chấp nhận — `reports/k116/K116-BAO-CAO.md` §2):**
+ - **K-LAI-2** (§12.1): (a) log khung có cờ `ai_image`/`ai_texture` true/false ở mọi khung · (b) đoạn có khung AI phải khai AI ở đặc tả hoặc log shot · (c) thẻ PP nói "AI" · (d) mô tả có "AI use = Yes" · (e) nhãn "Surface detail AI-assisted" KHÔNG hiện trên hình. Bỏ đo cỡ/vị trí nhãn.
+-- **K-LAI nhánh vân** (`ai_texture`, HC7): K-LAI-4, K-LAI-5, K-LAI-B chỉ áp khi có khung `ai_image` (tấm C). Sổ vân: `lai.kiem_du_kien_van` + `lai.goi_api_van` (hoặc sổ dạng `tep` của PT3 đặt ở `kiem_du_kien`). K-LAI-3 vân: (a) có tệp "dùng", có trong goi-api · (b) `loi_chac` rỗng · (d) kết luận "dùng nếu …" cần `dieu_kien_dat: true`, ngoại lệ có duyệt · (e) không chấm mù. K-LAI-6 vân nhận `input.mask_frac` (hoặc `mask: null` khi không mặt nạ). Hàng mới **K-LAI-3V** (Cảnh báo): tệp vân dùng còn ghi `nghi_van`.
++- **K-LAI nhánh vân** (`ai_texture`, HC7): K-LAI-4, K-LAI-5, K-LAI-B chỉ áp khi có khung `ai_image` (tấm C). Sổ vân: `lai.kiem_du_kien_van` + `lai.goi_api_van` (hoặc sổ dạng `tep` của PT3 đặt ở `kiem_du_kien`). K-LAI-3 vân: (a) có tệp "dùng", có trong goi-api · (b) `loi_chac` rỗng · (d) kết luận "dùng nếu …" cần `dieu_kien_dat: true`, ngoại lệ có duyệt · (e) không chấm mù. K-LAI-6 vân nhận `input.mask_frac` (hoặc `mask: null` khi không mặt nạ). Hàng mới **K-LAI-3V**: tệp vân dùng còn ghi `nghi_van` — Chặn ở cổng G2, Cảnh báo ở animatic (1.16.1, K116-D5).
+ - **NC-H5**: nhận bộ đếm của cảnh `tl/*` (opt.year/counter) hoặc `p.counter`; (a) đọc `nam_khung` (thiếu → THIẾU); (b) mỗi ghost có nguồn và nguồn có trong mô tả — không đòi nhãn trên hình.
+ - **BD-3**: (a) manifest lớp ranh có `nam` + `nguon` · (b) nguồn ranh có trong mô tả · (c) nhãn "approx. borders" hiện trên hình là LỖI (§12.1).
+ - **Q26b**: cảnh mô-đun `tl/*` tính bối cảnh theo `tl/<mô-đun> · <vung>` của shot đặc tả.
+@@ -284,6 +320,8 @@ Không có tệp khoá giải mã Q27: thứ tự trộn suy ra từ SHA video,
+ Ngưỡng của Q12–Q22 giữ nguyên như P đề xuất ở lô 3–5; ngưỡng Q26–Q31 giữ nguyên như chủ dự án định (CHUAN-KENH §11.2), K chỉ định nghĩa cách đo. Q1–Q6 và Q8–Q11 vẫn là luật làm việc của P (xem checks-appeal mục 8; chưa khoá ở bản này).
+ 
+ ## Tự kiểm
++**1.16.1:** `selftest_k116.py` thêm ca thước cắt cấu trúc (video `fixtures/k116/vid/v-ngaydem.mp4` timelapse một góc máy đổi ngày–đêm + đèn + chớp + khói + phụ đề → 0 cắt; `v-cungsang.mp4` cắt cứng hai cảnh cùng histogram → 1 cắt; đối chiếu đặc tả ±0,5 s), K116-D2 (XEM-CAM), K116-D3 (SACH-1 (e)), K116-D5 (K-LAI-3V theo cổng). Số ca: `reports/k1161/K1161-BAO-CAO.md`.
++
+ **1.16:** `/opt/cine/bin/python checks/ll/selftest_k116.py` — ≥ 1 ca đạt + ≥ 1 ca trượt cho SACH-1, CHUONG-1, PP-1, TL-1/2/3 (gồm video tổng hợp `fixtures/k116/vid/`), NHIP-NGHIA, XEM-CAM, PC-1, K-LAI 1.16 (nhánh vân, cả SAO dữ liệu thật V6/PT3 `fixtures/k116/v6/`), NC-H5, BD-3, Q26b, Q37, A*, ML1, cổng 1.16 và cấp (fixture `fixtures/k116/ep-t3/` sinh bằng `make_fixtures.py`; `g1b/kiem.json` SAO thật); không gọi mạng/API. Số ca: `reports/k116/K116-BAO-CAO.md`.
+ 
+ **1.15:** `/opt/cine/bin/python checks/ll/selftest_k115.py` — ≥ 1 ca đạt + ≥ 1 ca trượt cho K-LAI-1…6, K-LAI-B, O2, BC2–BC4, Q37 + TL-Q1 (I8) và cấp (fixture `fixtures/k115/`: ep-lai, bc tổng hợp từ `make_fixtures.py`; SAO dữ liệu thật PT2 `pt2/`, đoạn thử V5b-2b `v5b2b/`; O2 đọc `o2/cache.json` = trả lời thật claude-sonnet-5-5 lượt 18/10, không gọi mạng; `--api` gọi lại có chi phí). Số ca: `reports/K-1.15-BAO-CAO.md`.
+diff --git a/checks/ll/cap112.py b/checks/ll/cap112.py
+index 7df0013b..fa596383 100644
+--- a/checks/ll/cap112.py
++++ b/checks/ll/cap112.py
+@@ -1,5 +1,5 @@
+ #!/opt/cine/bin/python
+-"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) + 1.16 (SACH-1…PC-1, K-LAI-3V; chỉ tập từ T3) (phiên K, 17–19/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
++"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) + 1.16 (SACH-1…PC-1, K-LAI-3V; chỉ tập từ T3; chủ dự án duyệt K116-D1…D9 19/10 18:48 → 1.16.1) (phiên K, 17–19/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
+ HH1) và các luật 1.12.1 (chủ dự án duyệt 16–17/10: HH2, HH3, MM1–MM4, JJ1–JJ2, KK1). Mặc định `k2check.py` vẫn CHỈ BÁO (ghi cấp cạnh kết quả);
+ `--cap` áp cấp vào mã thoát: hàng có lỗi thuộc phần Chặn → TRƯỢT, chỉ có lỗi phần Cảnh báo → CẢNH BÁO (không tính vào mã thoát).
+ 
+@@ -60,17 +60,17 @@ CAP = {
+     'O2': ('Cảnh báo (lưới lọc thứ hai — không thay kiểm nguồn)', set(), {'*'}),
+     'BC2': ('Cảnh báo (tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}), 'BC3': ('Cảnh báo (tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}),
+     'BC4': ('Cảnh báo (chỉ báo; tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}),
+-    # 1.16 (CHỈ tập từ T3; mức đề xuất chờ chủ dự án duyệt — reports/k116/K116-BAO-CAO.md §3)
+-    'SACH-1': ('Chặn (a)–(d), (f) · Cảnh báo (e) chữ bản đồ ngoài danh sách §12.1 (chờ quyết)', set('abcdf'), set('e')),
+-    'CHUONG-1': ('Chặn (a)–(e) · Cảnh báo (f) vị trí/mờ', set('abcde'), set('f')),
+-    'PP-1': ('Chặn (a)–(d) · Cảnh báo (e) tốc độ đọc', set('abcd'), set('e')),
+-    'TL-1': ('Cảnh báo (mục tiêu §13.6; hiệu chỉnh sau V7-PILOT)', set(), {'*'}),
+-    'TL-2': ('Cảnh báo (hiệu chỉnh sau V7-PILOT)', set(), {'*'}),
+-    'TL-3': ('Cảnh báo (hiệu chỉnh sau V7-PILOT)', set(), {'*'}),
+-    'NHIP-NGHIA': ('Chặn (§13.2)', {'*'}, set()),
+-    'XEM-CAM': ('Chặn (§13.4 bắt buộc từ T3)', {'*'}, set()),
+-    'PC-1': ('Cảnh báo (thước tạm; hiệu chuẩn trên ≥ 10 ảnh)', set(), {'*'}),
+-    'K-LAI-3V': ('Cảnh báo (nghi vấn vân; chờ quyết có Chặn như tấm C)', set(), {'*'}),
++    # 1.16 (CHỈ tập từ T3) — chủ dự án DUYỆT K116-D1 19/10/2026 18:48 (mức như bảng §3 reports/k116/K116-BAO-CAO.md) + D2/D3/D5 (1.16.1)
++    'SACH-1': ('Chặn (a)–(f) (K116-D1; (e) chữ bản đồ Chặn theo K116-D3: ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ)', set('abcdef'), set()),
++    'CHUONG-1': ('Chặn (a)–(e) · Cảnh báo (f) vị trí/mờ (K116-D1)', set('abcde'), set('f')),
++    'PP-1': ('Chặn (a)–(d) · Cảnh báo (e) tốc độ đọc ≤ 3 từ/s (K116-D1, D8: ≈ 8 s = 7–9 s)', set('abcd'), set('e')),
++    'TL-1': ('Cảnh báo (K116-D1; mục tiêu §13.6, hiệu chỉnh sau V7-PILOT)', set(), {'*'}),
++    'TL-2': ('Cảnh báo (K116-D1; hiệu chỉnh sau V7-PILOT)', set(), {'*'}),
++    'TL-3': ('Cảnh báo (K116-D1; hiệu chỉnh sau V7-PILOT)', set(), {'*'}),
++    'NHIP-NGHIA': ('Chặn (K116-D1; §13.2)', {'*'}, set()),
++    'XEM-CAM': ('Chặn (K116-D1, D2; §13.4 bắt buộc từ T3)', {'*'}, set()),
++    'PC-1': ('Cảnh báo (K116-D1; thước tạm, hiệu chuẩn trên ≥ 10 ảnh)', set(), {'*'}),
++    'K-LAI-3V': ('Chặn ở cổng G2 (bản phát hành) · Cảnh báo ở animatic (K116-D5)', {'*'}, set()),
+ }
+ _M = re.compile(r'^\((\w)\)')
+ 
+@@ -94,6 +94,7 @@ def cap(ma, r):
+     if ma == 'KHOP1':
+         ch = [x for x in loi + th if (_muc(x) or '*') in 'abd*' or (_muc(x) == 'c' and r.get('doi_trinh_dung'))]
+         return mo, ch, [x for x in loi if x not in ch]
++    if ma == 'K-LAI-3V' and r.get('cong') == 'animatic': return mo, [], loi + th   # K116-D5: animatic (`animatic: true`) chỉ Cảnh báo
+     if '*' in CH: return mo, loi + th, []
+     if '*' in CB: return mo, [], loi + th
+     ch = [x for x in loi + th if _muc(x, M) in CH]
+diff --git a/checks/ll/fixtures/k116/make_fixtures.py b/checks/ll/fixtures/k116/make_fixtures.py
+index c0b428cf..2ed9d71c 100644
+--- a/checks/ll/fixtures/k116/make_fixtures.py
++++ b/checks/ll/fixtures/k116/make_fixtures.py
+@@ -5,7 +5,7 @@
+   vid/        v-ok.mp4 (3 shot × 12 s: máy cố định trôi 1 %/s · lia 6 %/s · đẩy máy 3 %/s phóng) · v-cat.mp4 (12 shot × 3 s), 320×180, 12 khung/s
+ Bản sao THẬT: v6/ (log khung + log chữ đoạn thử V6, sổ PT3 vân King's Bastion) · g1b/ (kiem.json phục chế G1b) — chép bằng tay, ghi nguồn ở README.
+ """
+-import json, os, subprocess
++import sys, json, os, subprocess
+ 
+ import cv2
+ import numpy as np
+@@ -139,5 +139,49 @@ def videos():
+     write(os.path.join(d, 'v-cat.mp4'), fr)
+ 
+ 
++def _canh(seed, W=1280, H=720):
++    """cảnh có cấu trúc (trời trơn trên 35 %, địa hình có vân + khối nhà) — giống khung timelapse góc cao"""
++    rng = np.random.default_rng(seed); im = texture(seed, W, H).copy(); hz = int(0.35 * H)
++    im[:hz] = np.linspace(200, 150, hz)[:, None]
++    for _ in range(40):
++        x, y, w, h = int(rng.integers(0, W - 60)), int(rng.integers(hz, H - 60)), int(rng.integers(20, 60)), int(rng.integers(15, 50))
++        im[y:y + h, x:x + w] = float(rng.integers(60, 230))
++    return np.clip(im, 0, 255).astype(np.float32)
++
++
++def _phu_de(f, k):
++    """phụ đề nung ở dải dưới (y 84–94 %), đổi chữ mỗi lượt k"""
++    h, w = f.shape; cv2.rectangle(f, (40, int(0.84 * h)), (w - 40, int(0.94 * h)), 20, -1)
++    cv2.putText(f, ['In 1782, ten floating batteries', 'came to break it.', 'The townspeople fled south.', 'That morning, the guns'][k % 4], (48, int(0.92 * h)), 0, 0.35, 235, 1)
++    return f
++
++
++def videos_1161():
++    """K-1.16.1 (thước cắt cấu trúc): v-ngaydem.mp4 = MỘT góc máy (lia 0,5 %/s) 8 s: ngày → hoàng hôn nhanh → đêm có đèn bật → bình minh, một chớp sáng 2 khung,
++    khói trôi, phụ đề nung đổi chữ mỗi 1,5 s → KHÔNG cắt nào. v-cungsang.mp4 = cắt cứng ở 3,0 s giữa hai cảnh khác nhau đã khớp histogram (cùng độ sáng) → 1 cắt."""
++    d = os.path.join(D, 'vid'); rng = np.random.default_rng(7); n = 8 * FPS
++    base = _canh(31); lamps = [(int(rng.integers(0, 1280)), int(rng.integers(260, 700))) for _ in range(60)]
++    fr = []
++    for i in range(n):
++        t = i / FPS
++        k = 1.0 if t < 1 else (1.0 - 0.88 * (t - 1) / 1.5 if t < 2.5 else (0.12 if t < 5.5 else min(1.0, 0.12 + 0.88 * (t - 5.5) / 1.0)))
++        im = base * k
++        if 0.12 <= k < 0.5:
++            for j, (x, y) in enumerate(lamps):
++                if (j * 7 + i) % 5: cv2.circle(im, (x, y), 4, 250, -1)
++        if 6.5 <= t < 6.5 + 2 / FPS: im = im * 1.8
++        sm = np.zeros_like(im); cv2.circle(sm, (int(200 + 90 * t), 420), 260, 1.0, -1); sm = cv2.GaussianBlur(sm, (0, 0), 90)
++        im = im * (1 - 0.45 * sm) + 170 * 0.45 * sm
++        M = np.float32([[1, 0, -0.005 * 640 * t], [0, 1, 0]])
++        im = cv2.warpAffine(np.clip(im, 0, 255).astype(np.float32), M, (1280, 720), borderMode=cv2.BORDER_REFLECT)[180:540, 320:960]
++        fr.append(_phu_de(cv2.resize(im, (320, 180), interpolation=cv2.INTER_AREA).astype(np.uint8), int(t / 1.5)))
++    write(os.path.join(d, 'v-ngaydem.mp4'), fr)
++    A, B = _canh(41), _canh(42)
++    B = np.interp(B, np.sort(B.ravel())[np.linspace(0, B.size - 1, 256).astype(int)], np.sort(A.ravel())[np.linspace(0, A.size - 1, 256).astype(int)]).astype(np.float32)   # khớp histogram B → A
++    fr = shot_frames(A, 3 * FPS, tx_pct_s=0.5) + shot_frames(B, 3 * FPS, tx_pct_s=0.5)
++    write(os.path.join(d, 'v-cungsang.mp4'), fr)
++
++
+ if __name__ == '__main__':
+-    ep_t3(); videos(); print('ok')
++    if '--1161' in sys.argv: videos_1161(); print('ok 1.16.1'); sys.exit(0)
++    ep_t3(); videos(); videos_1161(); print('ok')
+diff --git a/checks/ll/fixtures/k116/vid/v-cungsang.mp4 b/checks/ll/fixtures/k116/vid/v-cungsang.mp4
+new file mode 100644
+index 0000000000000000000000000000000000000000..e7997e0c1557dd97627ac06a920e3ea81bcc5b61
+GIT binary patch
+literal 19264
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/checks/ll/fixtures/k116/vid/v-ngaydem.mp4 b/checks/ll/fixtures/k116/vid/v-ngaydem.mp4
+new file mode 100644
+index 0000000000000000000000000000000000000000..a471d869e2d36efd8d53ae587af9d670e3a2c1bf
+GIT binary patch
+literal 37750
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/checks/ll/k2check.py b/checks/ll/k2check.py
+index beef1d8c..e5f1624d 100644
+--- a/checks/ll/k2check.py
++++ b/checks/ll/k2check.py
+@@ -190,11 +190,12 @@ def main():
+     if V16:
+         LAT = dict(LAT, **{'K-LAI-2': 'LAI: công bố AI (§12.1)', 'K-LAI-3V': 'LAI: nghi vấn còn ghi của vân (1.16)'})
+         LAN = dict(LAN, **{'K-LAI-2': 'cờ ai_* mọi khung · shot khai khớp log · thẻ phương pháp nói AI · mô tả "AI use = Yes" · KHÔNG nhãn trên hình',
+-                           'K-LAI-3V': 'tệp vân dùng không còn nghi vấn chưa xử lý (Cảnh báo)'})
++                           'K-LAI-3V': 'tệp vân dùng không còn nghi vấn chưa xử lý (Chặn ở G2 · Cảnh báo ở animatic — K116-D5)'})
+     if not q_lai.ap_dung(E): bao('K-LAI-1…6', 'Khung neo LAI', lambda: dict(ok=True, loi=[], val='tập không có khối lai: / shot AI', ket_qua='KHÔNG ÁP'))
+     else:
+         try: LA = (q_lai.check116 if V16 else q_lai.check)(E, TL, ep_dir, logs)
+         except Exception as e: LA = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in LAT}
++        if V16 and 'K-LAI-3V' in LA: LA['K-LAI-3V'] = dict(LA['K-LAI-3V'], cong='animatic' if E.get('animatic') else 'G2')   # K116-D5
+         for k in LAT: bao(k, LAT[k], lambda k=k: LA[k], LAN[k])
+ 
+     def o2():
+@@ -223,11 +224,11 @@ def main():
+     K6T = {'SACH-1': 'Khung sạch §12.1 + TL-4', 'CHUONG-1': 'Thẻ chương §13.3', 'PP-1': 'Thẻ phương pháp (D6)', 'TL-1': 'Xương sống timelapse §13.6',
+            'TL-2': 'Lướt thấp §13.6', 'TL-3': 'Không shot trống §13.6', 'NHIP-NGHIA': 'Nhịp → vật mang nghĩa §13.2', 'XEM-CAM': 'Cổng XEM CÂM §13.4',
+            'PC-1': 'Thước phục chế §12.3'}
+-    K6N = {'SACH-1': 'chỉ bộ đếm · chip nơi ≤ 3 s · thẻ chương · thẻ phương pháp; không tấm số/trích, không tư liệu đứng riêng (phủ ≤ 3 s)',
++    K6N = {'SACH-1': 'chỉ bộ đếm · chip nơi ≤ 3 s · thẻ chương · thẻ phương pháp · bản đồ ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ (K116-D3); không tấm số/trích, không tư liệu đứng riêng (phủ ≤ 3 s)',
+            'CHUONG-1': '≤ 8/tập · "năm — ≤ 6 từ" · ≤ 3 s · không trong móc · trung tính', 'PP-1': '2 thẻ × 7–9 s, cuối phim · nguồn/ước tính/AI · ≤ 3 từ/s',
+-           'TL-1': 'góc cao + thời gian chạy ≥ 75 % · ≤ 5 cắt/phút (đặc tả + video) · trôi ≤ 2 %/s · 6–8 điểm máy (hiệu chỉnh sau V7-PILOT)',
++           'TL-1': 'góc cao + thời gian chạy ≥ 75 % · ≤ 5 cắt/phút (video: đổi cấu trúc; đối chiếu đặc tả ±0,5 s) · trôi ≤ 2 %/s · 6–8 điểm máy (hiệu chỉnh sau V7-PILOT)',
+            'TL-2': 'lướt thấp ≤ 10 % · có vai, phố/người (hiệu chỉnh sau V7-PILOT)', 'TL-3': 'mỗi shot 3D: thời gian chạy hoặc biến cố · trống ≤ 60 % (hiệu chỉnh sau V7-PILOT)',
+-           'NHIP-NGHIA': '≥ 90 % nhịp chính', 'XEM-CAM': '8 câu · 3 AI + chủ dự án · tắt tiếng · ≥ 6/8 mỗi người', 'PC-1': 'Δ cạnh mới so bicubic ≤ 1,0 điểm % · PSNR ≥ bicubic'}
++           'NHIP-NGHIA': '≥ 90 % nhịp chính', 'XEM-CAM': '8 câu · 3 AI + chủ dự án · tắt tiếng · chủ dự án ≥ 6/8 VÀ TB AI ≥ 6/8 (K116-D2)', 'PC-1': 'Δ cạnh mới so bicubic ≤ 1,0 điểm % · PSNR ≥ bicubic'}
+     if not V16: bao('1.16', 'Luật T3 (SACH-1…PC-1)', lambda: dict(ok=True, loi=[], val='tập trước T3: giữ hành vi 1.15', ket_qua='KHÔNG ÁP'))
+     else:
+         vid = g('tl16-video') or mv
+diff --git a/checks/ll/q_k116.py b/checks/ll/q_k116.py
+index 1e2835bf..517ef72f 100644
+--- a/checks/ll/q_k116.py
++++ b/checks/ll/q_k116.py
+@@ -1,5 +1,6 @@
+ #!/opt/cine/bin/python
+-"""Luật kênh 2 bản 1.16.0 (phiên K-1.16, 19/10/2026) — CHỈ cho tập kênh 2 từ T3; tập cũ giữ đúng hành vi 1.15.
++"""Luật kênh 2 bản 1.16.1 (phiên K-1.16, 19/10/2026; K-1.16.1 cùng ngày: thước cắt cấu trúc + duyệt K116-D1…D9) — CHỈ cho tập kênh 2 từ T3; tập cũ
++giữ đúng hành vi 1.15.
+ Căn cứ: Kinh thánh kênh 2 (docs/BIBLE-KENH2.md) §12.1 (sửa 19/10), §13.2–§13.4, §13.6 TL-1…TL-6, D6; khiếu nại reports/v6/checks-appeal.md
+ và reports/g1b-t3/khieu-nai-K.md (xử lý: reports/k116/K116-BAO-CAO.md). Định nghĩa: checks/ll/RULES-LL.md mục "1.16".
+ 
+@@ -20,22 +21,24 @@ cũ chạy đúng như 1.15 (selftest k114/k115 đối chiếu).
+ Thẻ chương (§13.3): shot/đoạn `p.the_chuong` {s, at, dur} hoặc chữ log vai `the_chuong`. Thẻ phương pháp (D6): đoạn `the_phuong_phap: true`,
+   đoạn id PP / part END, hoặc thẻ tiêu đề "How this film was made"; chữ log vai `the_phuong_phap`.
+ 
+-Hàng (mức đề xuất ở cap112.py; ngưỡng TL "hiệu chỉnh sau V7-PILOT"):
++Hàng (cấp ở cap112.py — chủ dự án duyệt K116-D1…D9 19/10 18:48; ngưỡng TL "hiệu chỉnh sau V7-PILOT"):
+   SACH-1  Khung sạch §12.1 + TL-4: (a) không tấm số/câu trích (p.so, thẻ num/quote/list ngoài thẻ chương/phương pháp); (b) không tư liệu đứng riêng
+           (photo/document/record/footage) — chỉ phủ lên địa hình `p.phu_dia_hinh` ≤ 3 s; (c) log chữ: không vai/chữ bị cấm hiện (alpha > 0);
+-          (d) chip nơi (vai where) mỗi lần ≤ 3 s; (e) chữ bản đồ khác (diem, chu_giai, inset, tag, index, card) — Cảnh báo, chờ chủ dự án;
++          (d) chip nơi (vai where) mỗi lần ≤ 3 s; (e) chữ bản đồ (K116-D3, Chặn từ 1.16.1): nhãn địa danh (diem, inset, tag) ≤ 2/shot,
++          hiện trong ≤ 3 s; chú giải chữ (chu_giai) và chữ khác (index, card, vai lạ) là lỗi;
+           (f) mọi shot `p.sach: true`.
+   CHUONG-1 Thẻ chương §13.3: (a) ≤ 8/tập; (b) "năm — cụm ≤ 6 từ"; (c) ≤ 3 s; (d) không trong móc mở đầu (chương 0 / part CH0 / t < moc_s);
+           (e) lời trung tính (không captur*/liberat*/conquer*/seiz*); (f) log: góc dưới trái + mờ vào/ra — Cảnh báo.
+   PP-1    Thẻ phương pháp D6: (a) đúng 2 thẻ; (b) mỗi thẻ 7–9 s (≈ 8 s); (c) liền nhau, kết ở cuối phim; (d) nói đủ nguồn/bản đồ, chỗ ước tính, AI;
+           (e) tốc độ đọc ≤ 3 từ/s — Cảnh báo.
+   TL-1    §13.6 TL-1: (a) góc cao có thời gian chạy ≥ 75 % thân phim (trừ thẻ phương pháp); (b) số shot đặc tả = cận trên số cắt (chỉ báo); (c) cắt/phút
+-          đo trên video (chênh lệch histogram + điểm ảnh) ≤ 5; (d) góc cao trôi ≤ 2 % khung/s (tịnh tiến phase correlation + phóng LK, trung vị shot); (e) 6–8 điểm máy cao; (f) mỗi điểm máy
++          đo trên video ≤ 5 (1.16.1: cắt = đổi CẤU TRÚC — tương quan gradient sau cân bằng histogram + bù tịnh tiến, bỏ dải chữ dưới; đối chiếu ranh shot
++          đặc tả ±0,5 s, báo cả hai số); (d) góc cao trôi ≤ 2 % khung/s (tịnh tiến phase correlation + phóng LK, trung vị shot); (e) 6–8 điểm máy cao; (f) mỗi điểm máy
+           ≥ 2 năm khác nhau.
+   TL-2    §13.6 TL-2: (a) lướt thấp ≤ 10 %; (b) mỗi shot lướt thấp có `vai` và là phố (noi thanh_pho) hoặc khoảnh khắc người (`nguoi: true`).
+   TL-3    §13.6 TL-3: (a) shot 3D có thời gian chạy hoặc biến cố thấy được; (b) "trống": trong_pct > 60 % mà không có thời gian chạy; (c) ghi `bac`.
+   NHIP-NGHIA §13.2: nhịp chính có ≥ 1 vật mang nghĩa hợp lệ ≥ 90 %.
+-  XEM-CAM  §13.4: kết quả chấm có đủ (8 câu, 3 AI + chủ dự án, tắt tiếng) và mỗi người chấm ≥ 6/8. K KHÔNG tự chấm.
++  XEM-CAM  §13.4: kết quả chấm có đủ (8 câu, 3 AI + chủ dự án, tắt tiếng); đạt = chủ dự án ≥ 6/8 VÀ trung bình người chấm AI ≥ 6/8 (K116-D2). K KHÔNG tự chấm.
+   PC-1    §12.3 phục chế (khiếu nại A-G1B-6): cạnh mới so với MỐC BICUBIC cùng ô: Δ ≤ 1,0 điểm % và PSNR ≥ bicubic; ảnh dùng phải đạt.
+ Thay cho luật cũ ở tập từ T3 (khiếu nại chấp nhận): K-LAI-2 (k_lai2), NC-H5 (nch5), BD-3 (bd3); ML1 đọc lời khoá (cau_tu_loi_khoa).
+ Trong ±5 % quanh ngưỡng: nêu tên.
+@@ -53,10 +56,14 @@ TL_THAP_PCT, TRONG_PCT = 10.0, 60.0                        # TL-2; TL-3 "trống
+ NHIP_PCT = 90.0                                            # §13.2
+ XC_CAU, XC_AI, XC_DAT = 8, 3, 6                            # §13.4
+ PC_DELTA = 1.0                                             # PC-1 (tạm, hiệu chuẩn trên ≥ 10 ảnh)
+-CUT_HIST, CUT_PX, CUT_PX2, CUT_K = 0.20, 12.0, 20.0, 3.0    # thước cắt (hiệu chuẩn trên animatic T3, báo cáo K-1.16 §3.4): xem cuts_video
++CUT_Y = (0.06, 0.70)                                       # thước cắt 1.16.1: vùng đo — bỏ dải chữ dưới (phụ đề nung, thẻ chương, bộ đếm) và mép trên
++CUT_S, CUT_DS, CUT_W, CUT_TOL = 0.30, 0.40, 0.5, 0.5       # cắt: tương quan cấu trúc < 0,30 VÀ thấp hơn trung vị ±0,5 s ≥ 0,40; đối chiếu đặc tả ±0,5 s
++CUT_GRID, CUT_DARK, CUT_SHIFT = (4, 3), 2.0, 0.04          # ô 4×3 · khung tối/phẳng (σ xám < 2/255) bỏ qua · bù tịnh tiến ≤ 4 % bề ngang
+ LBL_X0, LBL_Y0 = 0.10, 0.66
+ CROP_Y = (0.10, 0.68)                                      # vùng đo chuyển động máy (theo chiều cao khung)
+ VAT_LOAI = {'co_chu_quyen', 'dem_nam', 'ranh_dong', 'mui_ten', 'su_kien', 'the_chuong'}
++MAP_LABEL_ROLES, MAP_LABEL_N, MAP_LABEL_S = {'diem', 'inset', 'tag'}, 2, 3.0   # K116-D3 (duyệt 19/10 18:48): bản đồ phủ địa hình ≤ 2 nhãn địa danh, hiện trong ≤ 3 s
++LEGEND_ROLES = {'chu_giai'}                                # K116-D3: KHÔNG chú giải chữ — phe bằng màu + cờ
+ BANNED_ROLES = {'src', 'src_ngan', 'ai_label', 'ghost_src', 'inset_src', 'index_src', 'method', 'bien_gioi', 'so', 'trich', 'trich_dich'}
+ OK_ROLES = {'year', 'clock', 'calendar', 'where', 'the_chuong', 'the_phuong_phap'}
+ BANNED_TXT = re.compile(r'approx\. borders|estimated infill|ruins: estimated|illustrativ|ai-assisted|surface detail|^source:|^sources?:|^map:', re.I)
+@@ -212,10 +219,13 @@ def sach1(E, TL, TX=None, step=12):
+             if not ov: M['b'].append(f'(b) {w}: tư liệu đứng riêng ({z["ty"]}, {z["t1"] - z["t0"]:.1f} s) — TL-4: chỉ phủ lên địa hình ≤ {DOC_S:g} s')
+             elif dur <= 0 or dur > DOC_S + 1e-6: M['b'].append(f'(b) {w}: tư liệu phủ địa hình {dur:.2f} s (cần 0 < dur ≤ {DOC_S:g} s)')
+         if not P.get('sach'): M['f'].append(f'(f) {w}: shot không bật lọc khung sạch (p.sach)')
+-    th, nv, chip = [], 0, []
++    th, nv, chip, nl = [], 0, [], []
+     if TX is None: th.append('(c) không có log chữ (--logs k2.js) — không đo được chữ thực hiện trên hình; (d) chip nơi chưa đo')
+     else:
+-        by_role = {}
++        by_role = {}; nhan = {}   # nhan: shot → {chữ: [khung]} (nhãn địa danh K116-D3)
++        def shot_of(f):
++            t = f / FPS
++            return next((f"{z['seg']}/{z['i']}" for z in S if z['t0'] - 1e-6 <= t < z['t1']), '?')
+         for f, it in TX.items():
+             for x in it:
+                 if not _vis(x): continue
+@@ -225,20 +235,25 @@ def sach1(E, TL, TX=None, step=12):
+                     if ro == 'where': by_role.setdefault(s_, []).append(f)
+                     continue
+                 if ro in BANNED_ROLES or BANNED_TXT.search(s_): by_role.setdefault(('BAN', ro), []).append((f, s_))
++                elif ro in MAP_LABEL_ROLES: nhan.setdefault(shot_of(f), {}).setdefault(s_, []).append(f)
+                 else: by_role.setdefault(('KHAC', ro), []).append((f, s_))
+         for k, v in by_role.items():
+             if isinstance(k, tuple):
+                 f0, s_ = min(v)
+-                (M['c'] if k[0] == 'BAN' else M['e']).append(f"({'c' if k[0] == 'BAN' else 'e'}) vai {k[1] or '—'}: {len(v)} mẫu hiện, đầu tiên {mmss(f0 / FPS)} {s_!r}"
+-                                                               + ('' if k[0] == 'BAN' else ' — chữ ngoài danh sách §12.1, chờ chủ dự án quyết'))
++                why = '' if k[0] == 'BAN' else (' — chú giải chữ (K116-D3: phe bằng màu + cờ)' if k[1] in LEGEND_ROLES else ' — chữ ngoài danh sách §12.1 + K116-D3')
++                (M['c'] if k[0] == 'BAN' else M['e']).append(f"({'c' if k[0] == 'BAN' else 'e'}) vai {k[1] or '—'}: {len(v)} mẫu hiện, đầu tiên {mmss(f0 / FPS)} {s_!r}" + why)
+             else:
+                 for f0, f1 in _runs(v, step):
+                     d = _run_s(f0, f1, step); chip.append(d)
+                     if d > CHIP_S + step / FPS / 2: M['d'].append(f'(d) chip nơi {k!r} @{mmss(f0 / FPS)}: {d:.2f} s > {CHIP_S:g} s')
++        for sh, L in sorted(nhan.items()):   # K116-D3: ≤ 2 nhãn địa danh mỗi shot, hiện trong ≤ 3 s (từ lúc nhãn đầu hiện tới lúc nhãn cuối tắt)
++            fs = sorted(f for v in L.values() for f in v); d = _run_s(fs[0], fs[-1], step); nl.append(d)
++            if len(L) > MAP_LABEL_N: M['e'].append(f"(e) shot {sh} @{mmss(fs[0] / FPS)}: {len(L)} nhãn địa danh > {MAP_LABEL_N} ({', '.join(repr(x) for x in list(L)[:4])})")
++            if d > MAP_LABEL_S + step / FPS / 2: M['e'].append(f"(e) shot {sh} @{mmss(fs[0] / FPS)}: nhãn địa danh hiện {d:.2f} s > {MAP_LABEL_S:g} s")
+     loi = sum(M.values(), [])
+-    near = sat('chip nơi dài nhất s', round(max(chip), 2), CHIP_S) if chip else []
++    near = (sat('chip nơi dài nhất s', round(max(chip), 2), CHIP_S) if chip else []) + (sat('nhãn địa danh dài nhất s', round(max(nl), 2), MAP_LABEL_S) if nl else [])
+     return r(loi=loi, thieu=th, muc=M, sat_nguong=near,
+-             val=f"{len(S)} shot · tấm số/trích {len(M['a'])} · tư liệu đứng riêng {len(M['b'])} · " + (f"log chữ {nv} mục hiện · cấm {len(M['c'])} · chip {len(chip)} lần, dài nhất {max(chip or [0]):.2f} s · chữ khác {len(M['e'])}" if TX is not None else 'không log chữ'))
++             val=f"{len(S)} shot · tấm số/trích {len(M['a'])} · tư liệu đứng riêng {len(M['b'])} · " + (f"log chữ {nv} mục hiện · cấm {len(M['c'])} · chip {len(chip)} lần, dài nhất {max(chip or [0]):.2f} s · nhãn địa danh {len(nl)} shot, dài nhất {max(nl or [0]):.2f} s · lỗi chữ bản đồ/khác {len(M['e'])}" if TX is not None else 'không log chữ'))
+ 
+ 
+ # ------------------------------------------------------------------ thẻ chương
+@@ -376,24 +391,74 @@ def video_gray(mp4, w=320, h=180):
+     return np.frombuffer(raw, np.uint8).reshape(-1, h, w), fps
+ 
+ 
+-def cuts_video(F, fps):
+-    """cắt = khung i (bỏ 0,5 s đầu) mà so với khung trước: [chênh lệch histogram xám (L1/2, 32 bin) ≥ CUT_HIST VÀ lệch điểm ảnh TB ≥ CUT_PX]
+-    HOẶC [lệch điểm ảnh ≥ CUT_PX2 VÀ ≥ CUT_K × trung vị lệch của ±6 khung quanh]; và là cực đại cục bộ lệch điểm ảnh ±3 khung; cách cắt trước > 3 khung.
+-    Đổi năm cùng góc máy (cảnh tl) thường KHÔNG thành cắt — đúng ý TL-1 (đó là thời gian chạy). → [giây]"""
++def _cau_truc(f):
++    """khung xám → (ảnh cân bằng histogram, biên độ gradient Sobel, σ xám thô) trên vùng CUT_Y. Cân bằng histogram bỏ độ sáng/tương phản toàn khung
++    (ngày–đêm, chớp đèn, khói mỏng) trước khi lấy cấu trúc."""
++    import cv2, numpy as np
++    h = f.shape[0]; c = f[int(CUT_Y[0] * h):int(CUT_Y[1] * h)]
++    e = cv2.equalizeHist(np.ascontiguousarray(c)); b = cv2.GaussianBlur(e, (0, 0), 1.2).astype(np.float32)
++    return e.astype(np.float32), np.hypot(cv2.Sobel(b, cv2.CV_32F, 1, 0), cv2.Sobel(b, cv2.CV_32F, 0, 1)), float(c.std())
++
++
++def tuong_quan_cau_truc(A, B):
++    """tương quan cấu trúc của hai khung đã qua _cau_truc: bù tịnh tiến (phase correlation trên ảnh cân bằng, ≤ CUT_SHIFT bề ngang), rồi hệ số
++    tương quan Pearson của bản đồ gradient trên từng ô lưới CUT_GRID; trả trung vị các ô có cấu trúc (σ > 0). Cùng góc máy đổi sáng/màu → cao;
++    đổi cảnh → ≈ 0. → [-1, 1]"""
++    import cv2, numpy as np
++    (ea, ga, _), (eb, gb, _) = A, B
++    (dx, dy), _ = cv2.phaseCorrelate(ea, eb); H, W = ga.shape; lim = CUT_SHIFT * W
++    dx, dy = (int(round(dx)), int(round(dy))) if abs(dx) <= lim and abs(dy) <= lim else (0, 0)
++    a = ga[max(0, -dy):H - max(0, dy), max(0, -dx):W - max(0, dx)]; b = gb[max(0, dy):H - max(0, -dy), max(0, dx):W - max(0, -dx)]
++    nx, ny = CUT_GRID; th, tw = a.shape[0] // ny, a.shape[1] // nx
++    ta = a[:th * ny, :tw * nx].reshape(ny, th, nx, tw).transpose(0, 2, 1, 3).reshape(nx * ny, -1)
++    tb = b[:th * ny, :tw * nx].reshape(ny, th, nx, tw).transpose(0, 2, 1, 3).reshape(nx * ny, -1)
++    ta = ta - ta.mean(axis=1, keepdims=True); tb = tb - tb.mean(axis=1, keepdims=True)
++    sa, sb = np.sqrt((ta * ta).sum(axis=1)), np.sqrt((tb * tb).sum(axis=1)); ok = (sa > 1e-3) & (sb > 1e-3)
++    if not ok.any(): return 1.0
++    return float(np.median((ta[ok] * tb[ok]).sum(axis=1) / (sa[ok] * sb[ok])))
++
++
++def chuoi_cau_truc(F):
++    """→ mảng s[i] = tương quan cấu trúc khung i với khung sáng gần nhất trước nó (nan: khung tối/phẳng σ < CUT_DARK, hoặc khung 0)"""
++    import numpy as np
++    s = np.full(len(F), np.nan); prev = None
++    for i, f in enumerate(F):
++        P = _cau_truc(f)
++        if P[2] < CUT_DARK: continue
++        if prev is not None: s[i] = tuong_quan_cau_truc(prev, P)
++        prev = P
++    return s
++
++
++def cuts_video(F, fps, S=None):
++    """cắt (1.16.1, thay thước histogram + điểm ảnh của 1.16.0) = khung i (bỏ 0,5 s đầu) mà đổi CẤU TRÚC so với khung sáng trước:
++    s[i] = tương_quan_cấu_trúc < CUT_S VÀ trung vị s trong ±CUT_W s (trừ i±1) − s[i] ≥ CUT_DS; là cực tiểu ±2 khung; cách cắt trước > 2 khung.
++    Đo trên vùng y CUT_Y (bỏ phụ đề/chữ dưới), sau cân bằng histogram (bỏ độ sáng/màu toàn khung) và bù tịnh tiến. Đổi ngày–đêm, chớp đèn, khói,
++    nhà mọc dần cùng góc máy KHÔNG là cắt; cắt cứng giữa hai cảnh cùng độ sáng LÀ cắt. Hiệu chuẩn có đáp án: reports/k1161/K1161-BAO-CAO.md §3. → [giây]"""
+     import numpy as np
+     n = len(F)
+     if n < 2: return []
+-    Hs = np.stack([np.bincount((f >> 3).ravel(), minlength=32) for f in F]).astype(np.float64); Hs /= Hs.sum(axis=1, keepdims=True)
+-    dh = np.r_[0, 0.5 * np.abs(np.diff(Hs, axis=0)).sum(axis=1)]
+-    dp = np.r_[0, np.abs(np.diff(F.astype(np.int16), axis=0)).mean(axis=(1, 2))]
+-    out = []
++    s = chuoi_cau_truc(F) if S is None else S
++    w = max(2, int(round(CUT_W * fps))); out = []
+     for i in range(max(1, int(0.5 * fps)), n):
+-        nb = np.r_[dp[max(1, i - 6):i], dp[i + 1:i + 7]]; med = float(np.median(nb)) if len(nb) else 0.0
+-        c = (dh[i] >= CUT_HIST and dp[i] >= CUT_PX) or (dp[i] >= CUT_PX2 and dp[i] >= CUT_K * max(med, 1.0))
+-        if c and dp[i] >= dp[max(1, i - 3):i + 4].max() - 1e-9 and (not out or i - out[-1] > 3): out.append(i)
++        if np.isnan(s[i]) or s[i] >= CUT_S: continue
++        nb = np.r_[s[max(1, i - w):max(1, i - 1)], s[i + 2:i + w + 1]]; nb = nb[~np.isnan(nb)]
++        med = float(np.median(nb)) if len(nb) else 1.0
++        loc = s[max(1, i - 2):i + 3]; loc = loc[~np.isnan(loc)]
++        if med - s[i] >= CUT_DS and s[i] <= loc.min() + 1e-9 and (not out or i - out[-1] > 2): out.append(i)
+     return [i / fps for i in out]
+ 
+ 
++def doi_chieu_cat(cv, cs, tol=CUT_TOL):
++    """ghép một-một cắt video cv với ranh shot đặc tả cs (lệch ≤ tol s, gần nhất trước) → (số khớp, [cắt chỉ ở video], [ranh chỉ ở đặc tả])"""
++    used, miss = set(), []
++    for t in cs:
++        c = [j for j, x in enumerate(cv) if j not in used and abs(x - t) <= tol]
++        if c: used.add(min(c, key=lambda j: abs(cv[j] - t)))
++        else: miss.append(t)
++    return len(used), [x for j, x in enumerate(cv) if j not in used], miss
++
++
+ def zoom_lk(a, b):
+     """tỉ lệ phóng b so với a: phép tương tự (tịnh tiến + xoay + phóng) ước từ dòng quang học Lucas–Kanade trên ≤ 200 điểm góc, RANSAC 1,5 px.
+     (Thử log-polar phase correlation — Fourier–Mellin — trên video tổng hợp: sai cả chiều phóng; nên phóng đo bằng LK, tịnh tiến vẫn bằng phase
+@@ -454,12 +519,13 @@ def tl1(E, TL, LS=None, why=None, video=None, VF=None):
+             if not TL_DIEM[0] <= len(nd) <= TL_DIEM[1]: M['e'].append(f'(e) {len(nd)} điểm máy cao (cần {TL_DIEM[0]}–{TL_DIEM[1]})')
+             for k in nd:
+                 if len(dm[k]) < 2: M['f'].append(f'(f) điểm máy {k}: chỉ ở năm {"/".join(sorted(dm[k]))} — phải quay lại ở năm khác')
+-    vt = ''
++    vt = ''; cvn = None
+     if VF is not None or video:
+         try:
+             F, fps = VF if VF is not None else video_gray(video)
+             cv = cuts_video(F, fps); Tv = len(F) / fps; Tvb = max(1e-6, Tv - PPd); cpm_v = len([c for c in cv if c < Tv - PPd]) / (Tvb / 60)
+-            if cpm_v > TL_CUT_MIN: M['c'].append(f'(c) video: {len(cv)} cắt đo / {Tvb / 60:.2f} phút = {cpm_v:.2f} cắt/phút > {TL_CUT_MIN:g}')
++            nk, chi_v, chi_s = doi_chieu_cat(cv, cuts_s); cvn = dict(n=len(cv), khop=nk, chi_video=len(chi_v), chi_dac_ta=len(chi_s))   # 1.16.1: đối chiếu ranh shot đặc tả (±CUT_TOL s), báo cả hai số
++            if cpm_v > TL_CUT_MIN: M['c'].append(f'(c) video: {len(cv)} cắt đo / {Tvb / 60:.2f} phút = {cpm_v:.2f} cắt/phút > {TL_CUT_MIN:g} (đặc tả {len(cuts_s)} ranh = {cpm_s:.2f}/phút; khớp ±{CUT_TOL:g} s {nk})')
+             near += sat('cắt/phút (video)', round(cpm_v, 2), TL_CUT_MIN); dr = []
+             for x, a, b in D:
+                 if goc_of(x, E) == 'cao':
+@@ -474,11 +540,13 @@ def tl1(E, TL, LS=None, why=None, video=None, VF=None):
+                     if z['ty'] in ('scene3d', 'timelapse'):
+                         v, n = drift_video(F, fps, z['t0'], z['t1'], cv)
+                         if v is not None: d3.append(v)
+-            vt = (f' · video {len(cv)} cắt = {cpm_v:.2f}/phút' + (f' · trôi góc cao trung vị {statistics.median(dr):.2f} %/s ({len(dr)} shot)' if dr else '')
++            vt = (f' · video {len(cv)} cắt = {cpm_v:.2f}/phút · đặc tả {len(cuts_s)} ranh = {cpm_s:.2f}/phút · khớp ±{CUT_TOL:g} s {nk}'
++                  + f' (chỉ video {len(chi_v)}' + (f': {", ".join(mmss(x) for x in chi_v[:6])}{"…" if len(chi_v) > 6 else ""}' if chi_v else '')
++                  + f'; chỉ đặc tả {len(chi_s)} — cùng góc máy đổi năm/giờ hoặc chưa cắt)' + (f' · trôi góc cao trung vị {statistics.median(dr):.2f} %/s ({len(dr)} shot)' if dr else '')
+                   + (f' · (tham khảo, chưa có goc) trôi máy shot 3D: trung vị {statistics.median(d3):.2f} %/s, ≤ {TL_DRIFT:g} %/s ở {sum(v <= TL_DRIFT for v in d3)}/{len(d3)} shot' if d3 else ''))
+         except Exception as e: th.append(f'(c) không đo được video: {e}')
+     else: th.append(f'(c)(d) không có video (master/--tl16-video) — cắt/phút và trôi máy chưa đo (đặc tả: cận trên {cpm_s:.2f} cắt/phút)')
+-    return r(loi=sum(M.values(), []), thieu=th, muc=M, sat_nguong=near, cat_dac_ta=len(cuts_s),
++    return r(loi=sum(M.values(), []), thieu=th, muc=M, sat_nguong=near, cat_dac_ta=len(cuts_s), cat_video=cvn,
+              val=f'thân phim {Tb:.1f} s · góc cao + tl {cao:.1f} s ({100 * cao / Tb if Tb else 0:.1f} %) · đặc tả ≤ {cpm_s:.2f} cắt/phút (cận trên)' + vt + ' · ngưỡng hiệu chỉnh sau V7-PILOT')
+ 
+ 
+@@ -544,21 +612,25 @@ def xem_cam(XC=None, why=None, base='.'):
+     NC = XC.get('nguoi_cham') or []; ai = {str(x.get('id')) for x in NC if x.get('vai') == 'ai'}; cd = [x for x in NC if x.get('vai') == 'chu_du_an']
+     if len(ai) < XC_AI: loi.append(f'(b) {len(ai)} người chấm AI < {XC_AI}')
+     if not cd: loi.append('(b) không có kết quả chủ dự án xem tắt tiếng')
+-    sc = []
++    sc, sai = [], []   # K116-D2 (duyệt 19/10 18:48): đạt = chủ dự án ≥ 6/8 VÀ trung bình người chấm AI ≥ 6/8 (không còn "mỗi người ≥ 6/8")
+     for x in NC:
+         d, t = x.get('dung'), x.get('tong', XC_CAU)
+         if not isinstance(d, (int, float)): th.append(f"(c) {x.get('id')}: không có số câu đúng"); continue
+         sc.append((str(x.get('id')), d, t))
+         if t != XC_CAU: loi.append(f"(c) {x.get('id')}: chấm trên {t} câu ≠ {XC_CAU}")
+-        if d < XC_DAT: loi.append(f"(c) {x.get('id')} ({x.get('vai')}): {d}/{t} < {XC_DAT}/{XC_CAU}")
++        if x.get('vai') == 'chu_du_an' and d < XC_DAT: loi.append(f"(c) {x.get('id')} (chủ dự án): {d}/{t} < {XC_DAT}/{XC_CAU}")
++        if x.get('vai') == 'ai': sai.append(d)
++    tb_ai = sum(sai) / len(sai) if sai else None
++    if tb_ai is not None and tb_ai < XC_DAT - 1e-9: loi.append(f"(c) trung bình {len(sai)} người chấm AI {tb_ai:.2f}/{XC_CAU} < {XC_DAT}/{XC_CAU}")
+     if EMAIL.search(json.dumps(XC, ensure_ascii=False)): loi.append('(d) tệp kết quả chứa email (che email)')
+     vp = XC.get('video')
+     if vp and XC.get('video_sha256') and os.path.exists(_p(base, vp)):
+         import hashlib
+         h = hashlib.sha256(open(_p(base, vp), 'rb').read()).hexdigest()
+         if h != XC['video_sha256']: loi.append(f'(e) SHA animatic {h[:12]}… ≠ video_sha256 đã chấm {XC["video_sha256"][:12]}… — chấm trên bản khác')
+-    near = sum((sat(f'{i} câu đúng', d, XC_DAT) for i, d, _ in sc), [])
+-    return r(loi=loi, thieu=th, sat_nguong=near, val=f"{len(q)} câu · AI {len(ai)} · chủ dự án {len(cd)} · " + ', '.join(f'{i} {d}/{t}' for i, d, t in sc))
++    near = sum((sat(f'{i} câu đúng', d, XC_DAT) for i, d, _ in sc if i in {str(x.get('id')) for x in cd}), []) + (sat('TB AI câu đúng', round(tb_ai, 2), XC_DAT) if tb_ai is not None else [])
++    return r(loi=loi, thieu=th, sat_nguong=near, val=f"{len(q)} câu · AI {len(ai)} · chủ dự án {len(cd)} · " + ', '.join(f'{i} {d}/{t}' for i, d, t in sc)
++             + (f' · TB AI {tb_ai:.2f}/{XC_CAU}' if tb_ai is not None else ''))
+ 
+ 
+ # ------------------------------------------------------------------ PC-1 thước phục chế (§12.3; khiếu nại A-G1B-6)
+diff --git a/checks/ll/selftest_k116.py b/checks/ll/selftest_k116.py
+index 45c85e76..8b8abf7d 100644
+--- a/checks/ll/selftest_k116.py
++++ b/checks/ll/selftest_k116.py
+@@ -1,8 +1,8 @@
+ #!/opt/cine/bin/python
+-"""Tự kiểm luật 1.16 (phiên K, 19/10/2026): luật mới cho tập kênh 2 từ T3 (SACH-1, CHUONG-1, PP-1, TL-1/2/3, NHIP-NGHIA, XEM-CAM, PC-1) và các
++"""Tự kiểm luật 1.16 (phiên K, 19/10/2026; 1.16.1: thước cắt cấu trúc, K116-D2/D3/D5): luật mới cho tập kênh 2 từ T3 (SACH-1, CHUONG-1, PP-1, TL-1/2/3, NHIP-NGHIA, XEM-CAM, PC-1) và các
+ khiếu nại chấp nhận (K-LAI-2/3/4/5/6/B + K-LAI-3V nhánh vân, NC-H5 (b), BD-3, Q26b theo vùng, Q37 miễn khung neo, A* khi không lời/animatic,
+ ML1 đọc lời khoá). Mỗi luật ≥ 1 ca ĐẠT + ≥ 1 ca TRƯỢT. Không gọi mạng/API. Dữ liệu:
+-  fixtures/k116/ep-t3/  tập T3 giả (make_fixtures.py)        fixtures/k116/vid/  video tổng hợp 320×180 (cắt, lia, phóng)
++  fixtures/k116/ep-t3/  tập T3 giả (make_fixtures.py)        fixtures/k116/vid/  video tổng hợp 320×180 (cắt, lia, phóng; 1.16.1: ngày–đêm cùng góc, cắt cùng sáng)
+   fixtures/k116/v6/     bản SAO THẬT: log khung + log chữ đoạn thử V6 (reports/v6/doan-thu/lai), sổ PT3 vân (reports/pt3/ai)
+   fixtures/k116/g1b/    bản SAO THẬT: kiem.json kiểm có đáp án phục chế G1b (reports/g1b-t3/phuc-che)
+   fixtures/k115/ep-lai/ tập cũ (không khung_sach) — kiểm cổng 1.16 không bật
+@@ -110,9 +110,23 @@ case('SACH-1', 'log: "approx. borders" hiện dưới vai khác → (c) (bắt t
+ TX = copy.deepcopy(TX0)
+ for g in sorted(TX)[2:10]: TX[g].append(dict(s='Gibraltar', role='where', alpha=1.0))
+ case('SACH-1', 'chip nơi 4,0 s > 3 s → (d)', bad(K6.sach1(E0, mk_tl(E0), TX, ST0), 'd'), True)
+-TX = copy.deepcopy(TX0); TX[f].append(dict(s='Algeciras', role='diem', alpha=1.0)); rr = K6.sach1(E0, mk_tl(E0), TX, ST0)
+-case('SACH-1', 'nhãn điểm bản đồ (vai diem) → (e), cấp chỉ Cảnh báo', bad(rr, 'e') + cap112.cap('SACH-1', rr)[1], True)
+-case('cap', 'SACH-1 chỉ có (e) → không có lỗi Chặn', cap112.cap('SACH-1', rr)[1], False)
++# K116-D3 (duyệt 19/10 18:48, 1.16.1): bản đồ phủ địa hình ≤ 2 nhãn địa danh trong ≤ 3 s; không chú giải chữ → (e) Chặn
++TX = copy.deepcopy(TX0)
++for g in sorted(TX)[2:8]: TX[g] += [dict(s='Algeciras', role='diem', alpha=1.0), dict(s='Gibraltar', role='inset', alpha=1.0)]
++rr = K6.sach1(E0, mk_tl(E0), TX, ST0)
++case('SACH-1', f"K116-D3: 2 nhãn địa danh (diem + inset) hiện 3,0 s (sát ngưỡng) → sạch (e) — {rr['val']}", bad(rr, 'e'), False)
++TX = copy.deepcopy(TX0)
++for g in sorted(TX)[2:4]: TX[g] += [dict(s=x, role='diem', alpha=1.0) for x in ('Algeciras', 'Gibraltar', 'Tarifa')]
++rr = K6.sach1(E0, mk_tl(E0), TX, ST0)
++case('SACH-1', 'K116-D3: 3 nhãn địa danh cùng shot → (e)', bad(rr, 'e'), True)
++case('cap', 'SACH-1 (e) là Chặn (K116-D3)', cap112.cap('SACH-1', rr)[1], True)
++TX = copy.deepcopy(TX0)
++for g in sorted(TX)[2:10]: TX[g].append(dict(s='Algeciras', role='tag', alpha=1.0))
++case('SACH-1', 'K116-D3: nhãn địa danh hiện 4,0 s > 3 s → (e)', bad(K6.sach1(E0, mk_tl(E0), TX, ST0), 'e'), True)
++TX = copy.deepcopy(TX0); TX[f].append(dict(s='Spain', role='chu_giai', alpha=1.0))
++case('SACH-1', 'K116-D3: chú giải chữ (vai chu_giai) → (e) (phe bằng màu + cờ)', bad(K6.sach1(E0, mk_tl(E0), TX, ST0), 'e'), True)
++TX = copy.deepcopy(TX0); TX[f].append(dict(s='≈ 4,200', role='index', alpha=1.0))
++case('SACH-1', 'K116-D3: chữ ngoài danh sách (vai index) → (e)', bad(K6.sach1(E0, mk_tl(E0), TX, ST0), 'e'), True)
+ E = ep(); shot(E, 'C07')['p'].pop('sach')
+ case('SACH-1', 'shot không bật p.sach → (f)', bad(K6.sach1(E, mk_tl(E), TX0, ST0), 'f'), True)
+ case('SACH-1', 'không có log chữ → THIẾU (c) (Chặn)', thieu(K6.sach1(E0, mk_tl(E0), None)) + cap112.cap('SACH-1', K6.sach1(E0, mk_tl(E0), None))[1], True)
+@@ -187,6 +201,23 @@ VC = K6.video_gray(os.path.join(D, 'vid', 'v-cat.mp4')); rc = K6.tl1(EV, mk_tl(E
+ case('TL-1', 'video v-cat: 11 cắt / 0,6 phút = 18,3 > 5 → (c)', bad(rc, 'c'), True)
+ case('TL-1', f"thước cắt: v-ok đúng 2 cắt ở 12 s, 24 s · v-cat đúng 11 cắt", [] if [round(x) for x in K6.cuts_video(*VF)] == [12, 24] and len(K6.cuts_video(*VC)) == 11 else ['lệch'], False)
+ case('cap', 'TL-1 toàn Cảnh báo (hiệu chỉnh sau V7-PILOT)', cap112.cap('TL-1', rc)[1], False)
++# 1.16.1 thước cắt cấu trúc (đổi cấu trúc, không phải đổi độ sáng/màu toàn khung; bỏ dải phụ đề)
++VN = K6.video_gray(os.path.join(D, 'vid', 'v-ngaydem.mp4')); cn = K6.cuts_video(*VN)
++case('TL-1', 'thước cắt 1.16.1: timelapse MỘT góc máy đổi ngày–đêm nhanh + đèn bật + chớp 2 khung + khói + phụ đề nung đổi chữ → 0 cắt',
++     [f'{len(cn)} cắt: {cn}'] if cn else [], False)
++VS = K6.video_gray(os.path.join(D, 'vid', 'v-cungsang.mp4')); cs = K6.cuts_video(*VS)
++case('TL-1', 'thước cắt 1.16.1: cắt cứng giữa hai cảnh cùng histogram độ sáng (3,0 s) → đúng 1 cắt', [] if len(cs) == 1 and abs(cs[0] - 3.0) <= 0.1 else [f'{cs}'], False)
++case('TL-1', 'thước cắt 1.16.1: v-cungsang chỉ lấy 3 s trước cắt (khung 0–35) → 0 cắt (chứng: phát hiện đến từ đổi cảnh)',
++     K6.cuts_video(VS[0][:36], VS[1]), False)
++nk, cv_, cs_ = K6.doi_chieu_cat([12.02, 24.4, 30.0], [12.0, 24.0, 18.0])
++case('TL-1', 'đối chiếu ranh đặc tả ±0,5 s: video [12,02; 24,4; 30] ↔ đặc tả [12; 18; 24] → 2 khớp, chỉ video 30, chỉ đặc tả 18',
++     [] if (nk, cv_, cs_) == (2, [30.0], [18.0]) else [f'{(nk, cv_, cs_)}'], False)
++case('TL-1', 'đối chiếu: lệch 0,6 s > 0,5 s → không khớp', [] if K6.doi_chieu_cat([12.6], [12.0])[0] == 0 else ['khớp'], False)
++case('TL-1', 'TL-1 báo cả hai số (video + đặc tả + khớp)', [] if 'đặc tả' in rv['val'] and 'khớp ±0.5 s' in rv['val'] and (rv.get('cat_video') or {}).get('khop') == 2 else [rv['val'][-160:]], False)
++EN = dict(id='nd', khung_sach=True, segments=[dict(id='N0', dur=8.0, beats=[dict(t=0, k='cut')], shots=[dict(tpl='plate', at=0, type='scene3d', p=dict(sach=True, hero='h'))])])
++rn = K6.tl1(EN, mk_tl(EN), None, 'không log', None, VN)
++case('TL-1', 'TL-1 (c) trên v-ngaydem: 0 cắt/phút → sạch (c)', bad(rn, 'c'), False)
++
+ r0 = K6.tl2(E0, mk_tl(E0), LS0)
+ case('TL-2', f"lướt thấp 1 shot 8 s, có vai, phố — {r0['val']}", bad(r0), False)
+ L = copy.deepcopy(LS0); [x.update(goc='thap', vai='crowd at the quay', noi='thanh_pho') for x in L[:3]]
+@@ -231,7 +262,13 @@ case('NHIP-NGHIA', 'không có tệp bảng nhịp → THIẾU', thieu(K6.nhip_n
+ XC0 = json.load(open(E0['xem_cam']))
+ r0 = K6.xem_cam(XC0, None, EP)
+ case('XEM-CAM', f"8 câu, 3 AI + chủ dự án, tắt tiếng, thấp nhất 6/8 — {r0['val']}", bad(r0), False)
+-for nm, fn, m in (('một AI 5/8 → (c)', lambda X: X['nguoi_cham'][1].update(dung=5), 'c'), ('chỉ 2 người chấm AI → (b)', lambda X: X['nguoi_cham'].pop(0), 'b'),
++# K116-D2 (duyệt 19/10 18:48): đạt = chủ dự án ≥ 6/8 VÀ trung bình người chấm AI ≥ 6/8
++X = copy.deepcopy(XC0); X['nguoi_cham'][1].update(dung=5); rr = K6.xem_cam(X, None, EP)
++case('XEM-CAM', f"K116-D2: một AI 5/8 nhưng TB AI 6,67 ≥ 6 → sạch — {rr['val']}", bad(rr), False)
++X = copy.deepcopy(XC0); X['nguoi_cham'][0].update(dung=6); X['nguoi_cham'][2].update(dung=6)
++case('XEM-CAM', 'K116-D2: TB AI đúng 6,00 (sát ngưỡng) → sạch', bad(K6.xem_cam(X, None, EP)), False)
++for nm, fn, m in (('K116-D2: TB AI 5,67 < 6 (AI 5, 6, 6) → (c)', lambda X: [X['nguoi_cham'][i].update(dung=d) for i, d in ((0, 5), (1, 6), (2, 6))], 'c'),
++                  ('K116-D2: chủ dự án 5/8 (TB AI 7) → (c)', lambda X: X['nguoi_cham'][3].update(dung=5), 'c'), ('chỉ 2 người chấm AI → (b)', lambda X: X['nguoi_cham'].pop(0), 'b'),
+                   ('không có chủ dự án → (b)', lambda X: X['nguoi_cham'].pop(3), 'b'), ('không tắt tiếng → (a)', lambda X: X.update(tat_tieng=False), 'a'),
+                   ('7 câu hỏi → (a)', lambda X: X['cau_hoi'].pop(), 'a'), ('có email → (d)', lambda X: X['nguoi_cham'][3].update(id='abc@example.com'), 'd')):
+     X = copy.deepcopy(XC0); fn(X); case('XEM-CAM', nm, bad(K6.xem_cam(X, None, EP), m), True)
+@@ -281,7 +318,8 @@ case('K-LAI-3', '"dùng nếu …" + dieu_kien_dat: true → sạch', bad(LA.che
+ K3 = copy.deepcopy(KV); K3['tep'][0]['nghi_van'] = ['rong chân tường có thể quá cao']
+ E = ep(lai=dict(E0['lai'], kiem_du_kien_van=tmpf('kv3.json', K3))); rr = LA.check116(E, mk_tl(E), EP, None)
+ case('K-LAI-3V', 'vân dùng còn ghi nghi vấn → K-LAI-3V (Cảnh báo); K-LAI-3 vẫn sạch', bad(rr['K-LAI-3V']) + ([] if not bad(rr['K-LAI-3']) else ['K-LAI-3 bẩn']), True)
+-case('cap', 'K-LAI-3V Cảnh báo', cap112.cap('K-LAI-3V', rr['K-LAI-3V'])[1], False)
++case('cap', 'K-LAI-3V ở animatic → Cảnh báo (K116-D5)', cap112.cap('K-LAI-3V', dict(rr['K-LAI-3V'], cong='animatic'))[1], False)
++case('cap', 'K-LAI-3V ở cổng G2 (bản phát hành) → Chặn (K116-D5)', cap112.cap('K-LAI-3V', dict(rr['K-LAI-3V'], cong='G2'))[1], True)
+ G = [json.loads(l) for l in open(os.path.join(EP, 'lai', 'goi-api-van.jsonl'))]; G[0]['input'].pop('mask_frac')
+ E = ep(lai=dict(E0['lai'], goi_api_van=tmpf('gv.jsonl', G, jsonl=True)))
+ case('K-LAI-6', 'vân: không có % mặt nạ (không mask_frac, không mask: null) → lỗi', bad(LA.check116(E, mk_tl(E), EP, None)['K-LAI-6']), True)
+diff --git a/scripts/common/golden.py b/scripts/common/golden.py
+index 2672a1d1..1e36e7a7 100755
+--- a/scripts/common/golden.py
++++ b/scripts/common/golden.py
+@@ -179,7 +179,7 @@ def run_case(name, c, out):
+     jp = os.path.join(jd, f'{sid}_f{f:05d}.jpg')
+     if r.returncode or not os.path.exists(jp): raise RuntimeError('render.js lỗi: ' + r.stderr[-600:])
+     new = Image.open(jp).convert('RGB'); new.save(os.path.join(W, 'moi.png'))
+-    rp, rdesc = ref_frame(c, gframe, W, log)
++    rp, rdesc = (lambda v6: (v6, f'checks/golden/tham_chieu/{name}.png (khung vàng V6, khoá trong checks/LOCK; K116-D7)') if os.path.exists(v6) else ref_frame(c, gframe, W, log))(os.path.join(REPO, 'checks', 'golden', 'tham_chieu', name + '.png'))   # K116-D7: ca chưa có tham chiếu V6 (k2v4) giữ nguồn cũ
+     m = compare(new, Image.open(rp).convert('RGB'), W)
+     return dict(ca=name, doan=sid, khung_trong_doan=f, khung_toan_tap=gframe, giay=round(gframe / FPS, 3), canh_3d={os.path.basename(k): v for k, v in done.items()},
+                 tham_chieu=rdesc, spp=c['spp'], **m, giay_dung_3d=round(hero_s, 1), giay_tong=round(time.time() - t0, 1), ghi_chu=notes)
