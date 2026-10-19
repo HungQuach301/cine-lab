@@ -270,7 +270,7 @@
     ]
    }
   },
-  "chon": false
+  "chon": true
  },
  {
   "chuong": "01",
@@ -307,7 +307,7 @@
     ]
    }
   },
-  "chon": false
+  "chon": true
  },
  {
   "chuong": "01",
@@ -343,6 +343,133 @@
     "asr": "So in 1730, Philip the fifth ordered a stone line across the Isthmus, out of gun range, to cut Gibraltar off by land.",
     "so_sai": [],
     "ten_sai": [],
+    "so": [
+     1730.0
+    ],
+    "ten": [
+     "Fifth",
+     "Gibraltar",
+     "Philip",
+     "isthmus"
+    ]
+   }
+  },
+  "chon": true
+ },
+ {
+  "chuong": "01",
+  "shot": "1i",
+  "i": 0,
+  "khoa": "The treaty names the town, castle and port, not the sandy isthmus to the north.",
+  "gui": "The treaty names the town, castle and port, not the sandy iss-mus to the north.",
+  "alias_thu": [
+   "iss-muss",
+   "iss-mus"
+  ],
+  "seed": 19102026,
+  "tep": "/var/tmp/cine-out/kl42/raw/d795117edcc113f6.mp3",
+  "bd": 0.0,
+  "kt": 5.666,
+  "ky_tu": 79,
+  "nghe": {
+   "medium.en": {
+    "asr": "The treaty names the town, castle and port, not the sandy isthmus to the north.",
+    "so_sai": [],
+    "ten_sai": [],
+    "so": [],
+    "ten": [
+     "isthmus"
+    ]
+   },
+   "small.en": {
+    "asr": "The treaty names the town, castle and port, not the sandy Isthmus to the north.",
+    "so_sai": [],
+    "ten_sai": [],
+    "so": [],
+    "ten": [
+     "isthmus"
+    ]
+   }
+  },
+  "chon": false
+ },
+ {
+  "chuong": "01",
+  "shot": "1i",
+  "i": 1,
+  "khoa": "Spain says the isthmus was never ceded.",
+  "gui": "Spain says the iss-mus was never ceded.",
+  "alias_thu": [
+   "iss-muss",
+   "iss-mus"
+  ],
+  "seed": 19102026,
+  "tep": "/var/tmp/cine-out/kl42/raw/9ab557d7d9e9668f.mp3",
+  "bd": 0.0,
+  "kt": 2.972,
+  "ky_tu": 39,
+  "nghe": {
+   "medium.en": {
+    "asr": "Spain says the isthmus was never seeded.",
+    "so_sai": [],
+    "ten_sai": [],
+    "so": [],
+    "ten": [
+     "isthmus"
+    ]
+   },
+   "small.en": {
+    "asr": "Spain says the Ismás was never ceded.",
+    "so_sai": [],
+    "ten_sai": [
+     "isthmus"
+    ],
+    "so": [],
+    "ten": [
+     "isthmus"
+    ]
+   }
+  },
+  "chon": false
+ },
+ {
+  "chuong": "01",
+  "shot": "1k",
+  "i": 0,
+  "khoa": "So in 1730, Philip the Fifth ordered a stone line across the isthmus, out of gun range, to cut Gibraltar off by land.",
+  "gui": "So in seventeen thirty, Philip the Fifth ordered a stone line across the iss-mus, out of gun range, to cut Gibraltar off by land.",
+  "alias_thu": [
+   "iss-muss",
+   "iss-mus"
+  ],
+  "seed": 19102026,
+  "tep": "/var/tmp/cine-out/kl42/raw/5ef0df5215a0397c.mp3",
+  "bd": 0.0,
+  "kt": 8.731,
+  "ky_tu": 129,
+  "nghe": {
+   "medium.en": {
+    "asr": "So in 1730, Philip the fifth ordered a stone line across the ESS moose out of gun range to cut Gibraltar off by land.",
+    "so_sai": [],
+    "ten_sai": [
+     "isthmus"
+    ],
+    "so": [
+     1730.0
+    ],
+    "ten": [
+     "Fifth",
+     "Gibraltar",
+     "Philip",
+     "isthmus"
+    ]
+   },
+   "small.en": {
+    "asr": "So in 1730, Philip the fifth ordered a stone line across the ESS moose out of gun range to cut Gibraltar off by land.",
+    "so_sai": [],
+    "ten_sai": [
+     "isthmus"
+    ],
     "so": [
      1730.0
     ],

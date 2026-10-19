@@ -3,9 +3,10 @@
 Theo TỪNG CÂU (mốc từ moc.json, cửa sổ ±0,4 s quanh câu theo dấu thời gian từ của ASR):
  - số/năm: mọi giá trị trong câu khoá (asr.nums_of) phải nghe ra (kiem_lib.num_ok);
  - tên: mục từ điển có trong câu (khớp mờ ≥ 0,75 với chữ viết hoặc alias) + từ viết hoa giữa câu (khớp mờ ≥ 0,75);
- ĐÚNG = cả hai cách nghe; NGHI = một cách; SAI = không cách nào. Thêm tỷ lệ từ đúng toàn chương + chỗ lệch.
+ ĐÚNG = cả hai cách nghe; NGHI = một cách; SAI = không cách nào. Câu chưa ĐÚNG được nghe lại TÁCH RIÊNG (±0,3 s);
+ mỗi cách nghe tính đạt nếu đạt ở cửa sổ cả chương hoặc ở câu tách (ghi cả hai: muc_ca_chuong, muc). Thêm tỷ lệ từ đúng toàn chương + chỗ lệch.
 kiem_tap.py [chương…] → kiem-tap.json (gộp các chương đã kiểm)."""
-import difflib, json, re, sys, unicodedata
+import difflib, json, re, subprocess, sys, unicodedata
 import kl_lib as K
 sys.path.insert(0, str(K.R / 'reports/casting-giong')); import kiem_lib as KL   # noqa: E402
 import asr as A   # noqa: E402
@@ -80,11 +81,24 @@ if __name__ == '__main__':
                 for k, v in muc:
                     bad = [v in kq[n][f'{k}_sai'] for n in (n0, n1)]
                     tt[f'{k}:{v:g}' if k == 'so' else f'{k}:{v}'] = 'SAI' if all(bad) else ('NGHI' if any(bad) else 'DUNG')
-                rc['cau'].append(dict(shot=d['shot'], i=i, khoa=c['khoa'], bd=c['bd'], kt=c['kt'], muc=tt, nghe={n: cua_so(res[n], c['bd'], c['kt']) for n, _ in KL.NGHE}))
+                row = dict(shot=d['shot'], i=i, khoa=c['khoa'], bd=c['bd'], kt=c['kt'], muc=tt, nghe={n: cua_so(res[n], c['bd'], c['kt']) for n, _ in KL.NGHE})
+                if any(v != 'DUNG' for v in tt.values()):   # nghe lại câu TÁCH RIÊNG (±0,3 s) — ASR cả chương đổi theo ngữ cảnh dù âm thanh câu không đổi
+                    clip = str(K.OUT / 'asr' / f"cau-{cid[:2]}-{d['shot']}-{i}.wav")
+                    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', wav, '-ss', f"{max(0, c['bd'] - 0.3):.3f}", '-to', f"{c['kt'] + 0.3:.3f}", clip], check=True)
+                    kc = {}
+                    for n, b in KL.NGHE:
+                        h = chuan(' '.join(x['w'].strip() for x in asr_cache(clip, n, b))); kc[n] = dict(asr=h, **kiem_cau(c['khoa'], h))
+                    tt2 = {}
+                    for k, v in muc:
+                        key = f'{k}:{v:g}' if k == 'so' else f'{k}:{v}'
+                        bad = [v in kq[n][f'{k}_sai'] and v in kc[n][f'{k}_sai'] for n in (n0, n1)]   # đạt ở cả chương HOẶC câu tách
+                        tt2[key] = 'SAI' if all(bad) else ('NGHI' if any(bad) else 'DUNG')
+                    row.update(muc_ca_chuong=tt, muc=tt2, nghe_cau_tach={n: v['asr'] for n, v in kc.items()})
+                rc['cau'].append(row)
         allm = [s for c in rc['cau'] for s in c['muc'].values()]
         rc['tong'] = dict(muc=len(allm), dung=allm.count('DUNG'), nghi=allm.count('NGHI'), sai=allm.count('SAI'))
         R['chuong'][cid] = rc; json.dump(R, open(P, 'w'), ensure_ascii=False, indent=1)
         print(cid, rc['tong'], {n: v['tu_dung'] for n, v in rc['nghe'].items()}, flush=True)
         for c in rc['cau']:
-            bad = {k: v for k, v in c['muc'].items() if v != 'DUNG'}
-            if bad: print('  ', c['shot'], c['i'], bad, '|', c['nghe'], flush=True)
+            bad = {k: v for k, v in c.get('muc_ca_chuong', c['muc']).items() if v != 'DUNG'}
+            if bad: print('  ', c['shot'], c['i'], 'cả chương', bad, '→ sau câu tách', {k: c['muc'][k] for k in bad}, '|', c.get('nghe_cau_tach', c['nghe']), flush=True)
