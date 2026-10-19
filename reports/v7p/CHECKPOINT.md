@@ -1,16 +1,6 @@
-# V7-PILOT — CHECKPOINT (nhánh thật: `ccr-f96ee5b5-2ec2i5` — harness buộc; lệnh yêu cầu `v7-pilot`; gốc origin/ccr-6189ede9-lpjwe0 @b9cff40e)
+# V7-PILOT — CHECKPOINT (nhánh thật: `ccr-f96ee5b5-2ec2i5`; bản sao `v7-pilot`)
 
-## Xong
-- Bộ đệm cảnh tl dựng lại trong container mới (`/var/tmp/cine-out/k2tl-cache`, 1,1 GB, fetch KHỚP SHA V5b-1) — `/var/tmp/cine-out/v7p/cache.sh`.
-- Bộ máy timelapse `design/k2v/tl/tl7.js` + cảnh `scenes/t3tl.js`; đêm (page/water/city), đất lấn vịnh + đường băng mọc dần (terrain/heroes, cờ uRecl).
-- Nội dung eo đất có nguồn: `scripts/k2tl/v7p_eo_dat.py` → `design/k2v/tl/data/eo-dat-v7.json` (trại Faden 1783 ↔ Drinkwater 1786, công sự, Línea, 14 vây, cờ, hàng rào).
-- Điểm máy `design/k2v/tl/data/diem-may-v7.json`; đặc tả bản thử `channel-k2/k2c-t3-01/v7p/mk_ep_v7p.py` (8 shot, 119,1 s).
-
-## Đang dở
-- Dựng bản thử: `bash scripts/k2tl/v7p_dung.sh` (log `/var/tmp/cine-out/v7p/dung.log`).
-
-## Tệp ngoài git
-| Đường dẫn | Tái tạo |
-|---|---|
-| /var/tmp/cine-out/k2tl-cache | `/var/tmp/cine-out/v7p/cache.sh` (= bảng G1b CHECKPOINT; cần `git fetch origin v5a main`) |
-| /var/tmp/cine-out/k2c-t3-v7p, /var/tmp/cine-out/hero/k2c-t3-v7p-* | `bash scripts/k2tl/v7p_dung.sh` |
+## CUỐI (≈ 10:30 UTC 19/10) — DỪNG chờ chủ dự án
+- Xong việc 1–7; báo cáo `reports/v7p/V7P-BAO-CAO.md`.
+- Ngoài git: master `/var/tmp/cine-out/k2c-t3-v7p/k2c-t3-v7p-v1-master.mp4` (3d24da96…) · bản ray 540p `…/k2c-t3-v7p-540p-ray.mp4` (980a5fe5…) · cảnh 540p `/var/tmp/cine-out/hero/k2c-t3-v7p-*` · khung 1080p `/var/tmp/cine-out/v7p/p1080`.
+- Tái tạo: `bash scripts/k2tl/v7p_cache.sh` (bộ đệm, cần `git fetch origin v5a main`) → `bash scripts/k2tl/v7p_dung.sh`.
