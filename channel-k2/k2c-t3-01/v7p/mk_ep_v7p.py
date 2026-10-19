@@ -78,7 +78,7 @@ def shots():
               dict(t=6.8, at='1779-06-21 11:00', sun='real', lab='d'), dict(t=8.0, at='1779-06-21 12:00', sun=12.0, lab='d'), dict(t=12.4, at='1779-07-08 12:00', sun=12.0, lab='d'), dict(t=22.5, at='1779-10-28 12:00', sun=12.0, lab='d')],
         lives=[dict(era=1782, wY=dict(on=1700, off0=dy('1779-06-21 11:00'), off1=dy('1779-06-21 11:30')), walkers=[dict(line='ISTH', n=90, width=6, colors=CIV, free=False)], lines=dict(ISTH=ISTH)),
                dict(era=1782, wY=dict(on=1700), birds=dict(c=[-900, 1800], r=260, h=70, n=10))],
-        units=[dict(at=[e, n], heading=200, rows=6, cols=28, side='es', day=[dy('1779-07-20 12:00') + i * 0.02, 1783.2], seed=40 + i) for i, (e, n) in enumerate([(-1750, 2550), (-1600, 2680), (-1450, 2800), (-1820, 2860), (-1650, 3000), (-1500, 3120)])]
+        units=[dict(at=[e, n], heading=200, rows=6, cols=28, side='es', day=[dy('1779-07-20 12:00') + i * 0.02, 1783.2], seed=40 + i) for i, (e, n) in enumerate([(-1430, 3150), (-1300, 3050), (-1200, 2950), (-1380, 2900), (-1250, 2800), (-1150, 2700)])]
               + [dict(at=[e, 1130], heading=180, rows=3, cols=14, side='es', day=[1779.0, 1783.2], seed=70 + i) for i, e in enumerate([-300, 150, 500])]),
         ghi='khối quân trước trại: số lượng ≈ 1 000 người hiện (minh hoạ quy mô; S048 ≈ 14 000 trong trại) — vị trí khối ước tính cạnh dãy trại Faden'))
     # C2 · E · 2c — từ Algeciras nhìn sang: hải đội TBN ra phong toả từ 16/7/1779; thuyền tiếp tế từ châu Phi bị chặn quay lại
