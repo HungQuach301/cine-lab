@@ -2,14 +2,14 @@
 <lexicon version="1.0" xmlns="http://www.w3.org/2005/01/pronunciation-lexicon" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
   alphabet="ipa" xml:lang="en-GB">
-  <!-- K2C-T3-01 Gibraltar · giọng G1 (Voice Design) · eleven_multilingual_v2 (chỉ alias). Sinh bằng khoa-loi/lam_loi_khoa.py từ lời khoá 18/10/2026; sửa alias Đ3 (chữ thường) bằng reports/giong-chot/sua_pls.py 19/10/2026. Tên tệp giữ "eric" để không đổi đường dẫn đã khoá. -->
+  <!-- K2C-T3-01 Gibraltar · giọng G1 (Voice Design) · eleven_multilingual_v2 (chỉ alias). Sinh bằng khoa-loi/lam_loi_khoa.py từ lời khoá v4.2 19/10/2026; alias Đ3 (reports/giong-chot/sua_pls.py) + GC-C chữ thường hết (reports/kl42/sua_pls_gcc.py) + GC-C′ isthmus (reports/kl42/sua_pls_isthmus.py, chờ duyệt) 19/10/2026. Tên tệp giữ "eric" để không đổi đường dẫn đã khoá. -->
   <lexeme>
     <grapheme>La Línea de la Concepción</grapheme>
-    <alias>la lee-nay-ah deh la Kon-sep-SYON</alias>
+    <alias>la lee-nay-ah deh la kon-sep-syon</alias>
   </lexeme>
   <lexeme>
     <grapheme>Diego de Salinas</grapheme>
-    <alias>dee-AY-go deh sah-LEE-nahs</alias>
+    <alias>dee-ay-go deh sah-lee-nahs</alias>
   </lexeme>
   <lexeme>
     <grapheme>18 October 2026</grapheme>
@@ -21,7 +21,7 @@
   </lexeme>
   <lexeme>
     <grapheme>Duc de Crillon</grapheme>
-    <alias>Dook duh Kree-YOHN</alias>
+    <alias>dook duh kree-yohn</alias>
   </lexeme>
   <lexeme>
     <grapheme>fait accompli</grapheme>
@@ -33,11 +33,11 @@
   </lexeme>
   <lexeme>
     <grapheme>San Roque</grapheme>
-    <alias>San ROH-keh</alias>
+    <alias>san roh-keh</alias>
   </lexeme>
   <lexeme>
     <grapheme>Algeciras</grapheme>
-    <alias>Al-heh-SEE-rahs</alias>
+    <alias>al-heh-see-rahs</alias>
   </lexeme>
   <lexeme>
     <grapheme>La Línea</grapheme>
@@ -45,11 +45,11 @@
   </lexeme>
   <lexeme>
     <grapheme>Tangier</grapheme>
-    <alias>tan-JEER</alias>
+    <alias>tan-jeer</alias>
   </lexeme>
   <lexeme>
     <grapheme>Utrecht</grapheme>
-    <alias>YOO-trekt</alias>
+    <alias>yoo-trekt</alias>
   </lexeme>
   <lexeme>
     <grapheme>d'Arçon</grapheme>
@@ -61,7 +61,7 @@
   </lexeme>
   <lexeme>
     <grapheme>isthmus</grapheme>
-    <alias>ISS-muss</alias>
+    <alias>issmus</alias>
   </lexeme>
   <lexeme>
     <grapheme>Eliott</grapheme>
@@ -73,7 +73,7 @@
   </lexeme>
   <lexeme>
     <grapheme>Cádiz</grapheme>
-    <alias>KAH-deeth</alias>
+    <alias>kah-deeth</alias>
   </lexeme>
   <lexeme>
     <grapheme>Rooke</grapheme>
