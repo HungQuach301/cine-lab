@@ -7,7 +7,7 @@
    "neutral": 8,
    "ai_look": 6,
    "small_legible": 8,
-   "note": "Burning ships at night under the Rock; atmospheric, big text, clearly the 1704 siege."
+   "note": "Burning ships before the Rock, the 1704 siege. Big text, atmospheric, a bit dark."
   },
   {
    "id": "X02",
@@ -16,16 +16,16 @@
    "neutral": 8,
    "ai_look": 6,
    "small_legible": 7,
-   "note": "Similar to X01 but darker and fuzzier; the Rock is less distinct."
+   "note": "Same scene, Rock is larger but flames are small and murky."
   },
   {
    "id": "X03",
-   "click": 6,
+   "click": 7,
    "clear": 7,
    "neutral": 8,
    "ai_look": 4,
-   "small_legible": 6,
-   "note": "Split of past and a real photo of the Rock; 1782 Great Siege nod."
+   "small_legible": 7,
+   "note": "Then-and-now split with a real photo of the Rock. 1782 refers to the Great Siege."
   },
   {
    "id": "X04",
@@ -34,25 +34,25 @@
    "neutral": 8,
    "ai_look": 6,
    "small_legible": 7,
-   "note": "Dark and murky; GIBRALTAR text is smaller and the fires are weaker."
+   "note": "Dark, low contrast. The Rock and fires are hard to make out."
   },
   {
    "id": "X05",
    "click": 7,
-   "clear": 8,
+   "clear": 7,
    "neutral": 8,
    "ai_look": 4,
    "small_legible": 7,
-   "note": "Real Rock photo beside burning ships; before and after works, bright half helps."
+   "note": "Split with a bright photo of the Rock and a town. Good contrast, but the town looks Spanish."
   },
   {
    "id": "X06",
-   "click": 7,
+   "click": 8,
    "clear": 8,
    "neutral": 9,
    "ai_look": 5,
    "small_legible": 8,
-   "note": "Bright 3D map view of Rock and airfield; 'Contested Places' is fair."
+   "note": "Bright aerial view of the Rock, runway and harbour. Very recognisable, but looks like a game map."
   },
   {
    "id": "X07",
@@ -61,16 +61,16 @@
    "neutral": 8,
    "ai_look": 6,
    "small_legible": 6,
-   "note": "Night split with lit town; very dark, and the text is small."
+   "note": "Night split, 1782 to 2026. Moody, but the text is small and the image murky."
   },
   {
    "id": "X08",
-   "click": 7,
+   "click": 6,
    "clear": 7,
    "neutral": 8,
    "ai_look": 6,
-   "small_legible": 7,
-   "note": "Dramatic fires against the modern lit town; strong then-and-now contrast."
+   "small_legible": 8,
+   "note": "Bold burning ships against the lit modern harbour. Strong time contrast, looks CGI."
   },
   {
    "id": "X09",
@@ -79,7 +79,7 @@
    "neutral": 8,
    "ai_look": 6,
    "small_legible": 6,
-   "note": "Murky and flat; small title, little to hold the eye."
+   "note": "Very dark, tiny fires, small title. Weakest of the burning-ships set."
   },
   {
    "id": "X10",
@@ -88,12 +88,12 @@
    "neutral": 8,
    "ai_look": 6,
    "small_legible": 7,
-   "note": "Aerial lit town and burning ships; busy but it reads as then and now."
+   "note": "Ships and lit harbour split, fairly clear. 1782 fits the Great Siege."
   }
  ],
  "top3": [
-  "X05",
   "X06",
-  "X08"
+  "X03",
+  "X05"
  ]
 }

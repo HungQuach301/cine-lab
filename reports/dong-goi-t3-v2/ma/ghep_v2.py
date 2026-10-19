@@ -68,8 +68,8 @@ im = grad_bottom(diag(render("N12", NIGHT), photo("a3d5740d.jpg", 0.0, 1.0, 0.10
 im = grad_bottom(diag(render("N2r", NIGHT), photo("1cc4493e.jpg", 0.0, 1.0, 0.02))); chu(im, "V5", "1782 → TODAY", "M"); save(im, "V5"); C["V5"] = "[E] dựng N2r ↔ ảnh 1cc4493e · chữ M"
 # V6 ĐỐI CHỨNG dựng thuần V7B (N12, chỉ chỉnh tông toàn khung) — chữ S
 im = grad_bottom(render("N12", NIGHT)); chu(im, "V6", "1704 → 2026", "S"); save(im, "V6"); C["V6"] = "dựng thuần V7B N12 · chữ S"
-# V7 [F] chia chéo: F2 cận 1782 ↔ F4 điểm D 2026 (đường băng có đèn) — chữ M
-im = grad_bottom(diag(ai("F2-N2r", CO["F2-N2r"]), ai("F4-D2026"))); chu(im, "V7", "1782 → 2026", "M"); save(im, "V7"); C["V7"] = "[F] F2 ↔ F4 (D, đường băng) · chữ M"
+# V7 [F] chia chéo: F2 cận 1782 ↔ điểm D 2026 đêm DỰNG THUẦN V7B (đường băng có đèn) — chữ M. F4 (AI của khung D) bị LOẠI: AI thêm chi tiết kiến trúc (§11.3)
+im = grad_bottom(diag(ai("F2-N2r", CO["F2-N2r"]), render("D2026n", NIGHT))); chu(im, "V7", "1782 → 2026", "M"); save(im, "V7"); C["V7"] = "[F] F2 ↔ dựng V7B D 2026 (đường băng) · chữ M"
 # V8 = V1 với chữ M (thử cỡ chữ cùng ảnh)
 im = grad_bottom(ai("F1-N12", CO["F1-N12"])); chu(im, "V8", "1704 → 2026", "M"); save(im, "V8"); C["V8"] = "[F] F1-N12 · chữ M (cặp thử cỡ với V1)"
 (O / "do-chu.json").write_text(json.dumps(DO, indent=1, ensure_ascii=False)); (O / "mo-ta.json").write_text(json.dumps(C, indent=1, ensure_ascii=False)); print(json.dumps(DO, ensure_ascii=False)[:800])
