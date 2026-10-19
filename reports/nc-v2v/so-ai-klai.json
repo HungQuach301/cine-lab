@@ -1,0 +1,1335 @@
+{
+ "nguon_gia": "ai.google.dev/gemini-api/docs/pricing (đọc 19/10/2026): vào $1,50/1M token (văn bản/ảnh/video), ra $17,50/1M token video, $9/1M token văn bản + suy nghĩ; 5 792 token/giây video 720p",
+ "tong_usd_uoc": 16.9993,
+ "so_lenh": 21,
+ "thanh_cong": 16,
+ "lenh": [
+  {
+   "tag": "thu-co-che",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": null,
+   "date_utc": "2026-10-19T17:10:18+00:00",
+   "prompt": "Change only the materials and lighting so this looks like real documentary footage filmed with a real camera. Keep every object, its position, its count, the camera motion and the timing exactly the same. Single continuous shot, no cuts. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "thu.mp4",
+     "sha256": "6659e25e4782548751e730e80b82a58ea085b8af1088676a6ec64070c8379d02",
+     "bytes": 2877655
+    }
+   ],
+   "http": 502,
+   "loi": {
+    "raw": "upstream request failed"
+   },
+   "output": null,
+   "usage": null,
+   "usd": 0.0,
+   "mask": null,
+   "c2pa": false,
+   "c2pa_chi_tiet": null,
+   "synthid": null,
+   "wall_s": 30.3,
+   "id": null
+  },
+  {
+   "tag": "thu-co-che",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:11:25+00:00",
+   "prompt": "Change only the materials and lighting so this looks like real documentary footage filmed with a real camera. Keep every object, its position, its count, the camera motion and the timing exactly the same. Single continuous shot, no cuts. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "thu.mp4",
+     "sha256": "6659e25e4782548751e730e80b82a58ea085b8af1088676a6ec64070c8379d02",
+     "bytes": 2877655
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "thu-ra.mp4",
+    "sha256": "e1b4e398b3f8cf2b46375325d5e03820c933080deda70dd9561bfc5b031a4fb3",
+    "bytes": 2330825
+   },
+   "usage": {
+    "total_tokens": 45978,
+    "total_input_tokens": 22397,
+    "input_tokens_by_modality": [
+     {
+      "modality": "text",
+      "tokens": 53
+     },
+     {
+      "modality": "video",
+      "tokens": 22344
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 23168,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 23168
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 413
+   },
+   "usd": 0.4428,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "edited",
+     "opened"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 52.5,
+   "id": "v1_ChdDVV9XYXZ6X05jVGJ5dE1QeE9iQXNBbxIXQ1VfV2F2el9OY1RieXRNUHhPYkFzQW8"
+  },
+  {
+   "tag": "c2-c-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:36:09+00:00",
+   "prompt": "Turn this 3D render into photorealistic aerial documentary footage shot on a cinema camera: real weathered limestone and stone walls, real sea water with natural reflections and waves, natural dry Mediterranean vegetation, real atmospheric haze and depth, real cloth for flags and sails, subtle film grain. Keep the layout and number of the buildings, ships and flags, and keep the camera path and timing. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c2-720.mp4",
+     "sha256": "243f492a4bf7f2e927ac129e4a7d593e1ced3b9a793f9bab9a4aceb35a57b395",
+     "bytes": 25403819
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c2-c-720p.mp4",
+    "sha256": "75c5634ea0ab1c550a2a2620c2156fc83d15262baff859af3a9047dfeff219b6",
+    "bytes": 5475808
+   },
+   "usage": {
+    "total_tokens": 114330,
+    "total_input_tokens": 55954,
+    "input_tokens_by_modality": [
+     {
+      "modality": "text",
+      "tokens": 94
+     },
+     {
+      "modality": "video",
+      "tokens": 55860
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 57920,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 456
+   },
+   "usd": 1.1016,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "edited",
+     "opened"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 92.2,
+   "id": "v1_ChdzbFRXYXFLWEZjVGJ5dE1QeE9iQXNBbxIXc2xUV2FxS1hGY1RieXRNUHhPYkFzQW8"
+  },
+  {
+   "tag": "c2-a-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:36:11+00:00",
+   "prompt": "Change only the surface materials and the lighting of this video so it looks like real documentary footage filmed with a real camera. Keep every object, its position, its size, its count and its colours exactly the same, including every ship, flag, building and fire. Keep the camera motion and the timing exactly the same. Do not add or remove anything. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c2-720.mp4",
+     "sha256": "243f492a4bf7f2e927ac129e4a7d593e1ced3b9a793f9bab9a4aceb35a57b395",
+     "bytes": 25403819
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c2-a-720p.mp4",
+    "sha256": "881b586fbafbb76f29421f2743dac50474ee22c1771690cdb1a2b67c5ee31e6f",
+    "bytes": 4434729
+   },
+   "usage": {
+    "total_tokens": 114221,
+    "total_input_tokens": 55948,
+    "input_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 55860
+     },
+     {
+      "modality": "text",
+      "tokens": 88
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 57920,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 353
+   },
+   "usd": 1.1007,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "edited",
+     "opened"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 94.3,
+   "id": "v1_ChdzbFRXYXFEb0U1Nkd5dE1QeHFDVHFRdxIXc2xUV2FxRG9FNTZHeXRNUHhxQ1RxUXc"
+  },
+  {
+   "tag": "c2-b-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:36:48+00:00",
+   "prompt": "[# Sources <VIDEO_0>@Video1] [# References <IMAGE_REF_0>@Image1] Change only the surface materials and the lighting of the video so it looks like real documentary footage filmed with a real camera. Use <IMAGE_REF_0> only as a reference for what real limestone, sand, low Mediterranean scrub and bay water look like; do not copy its content or layout into the video. Keep every object, its position, its size, its count and its colours exactly the same, including every ship, flag, building and fire. Keep the camera motion and the timing exactly the same. Do not add or remove anything. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c2-720.mp4",
+     "sha256": "243f492a4bf7f2e927ac129e4a7d593e1ced3b9a793f9bab9a4aceb35a57b395",
+     "bytes": 25403819
+    },
+    {
+     "file": "bang-vat-lieu.jpg",
+     "sha256": "84228e4417321ded5600b403d8c65523b5b1a1a5ff4a3334f77191b3cc4bda05",
+     "bytes": 208861
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c2-b-720p.mp4",
+    "sha256": "7cb36003184a13b660fc9055489aca7d0ae59c20b6adb64109de07c5fa48a79a",
+    "bytes": 4700717
+   },
+   "usage": {
+    "total_tokens": 115506,
+    "total_input_tokens": 57112,
+    "input_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 55860
+     },
+     {
+      "modality": "text",
+      "tokens": 152
+     },
+     {
+      "modality": "image",
+      "tokens": 1100
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 57920,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 474
+   },
+   "usd": 1.1035,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "created",
+     "edited"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 131.0,
+   "id": "v1_ChdzVlRXYXFEZ0VPTHIxc2dQLWJPVC1BSRIXc1ZUV2FxRGdFT0xyMXNnUC1iT1QtQUk"
+  },
+  {
+   "tag": "c1-c-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:41:06+00:00",
+   "prompt": "Turn this 3D render into photorealistic aerial documentary footage shot on a cinema camera: real weathered limestone and stone walls, real sea water with natural reflections and waves, natural dry Mediterranean vegetation, real atmospheric haze and depth, real cloth for flags and sails, subtle film grain. Keep the layout and number of the buildings, ships and flags, and keep the camera path and timing. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c1-720.mp4",
+     "sha256": "a1f49d126462f003d389fbd090d2046c2bc4ac4289fe70ab5549d271c9468fe0",
+     "bytes": 15595424
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c1-c-720p.mp4",
+    "sha256": "13c8d724d4572eaa7344a61167d96c4fae7df66f7c4f7bd510c708af715ffd90",
+    "bytes": 5871840
+   },
+   "usage": {
+    "total_tokens": 115792,
+    "total_input_tokens": 55954,
+    "input_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 55860
+     },
+     {
+      "modality": "text",
+      "tokens": 94
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 59396,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 442
+   },
+   "usd": 1.1148,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "edited",
+     "opened"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 93.3,
+   "id": "v1_ChcyRlhXYXRPRkNPMzZ5dE1Qa01EQThBOBIXMkZYV2F0T0ZDTzM2eXRNUGtNREE4QTg"
+  },
+  {
+   "tag": "c1-b-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:41:07+00:00",
+   "prompt": "[# Sources <VIDEO_0>@Video1] [# References <IMAGE_REF_0>@Image1] Change only the surface materials and the lighting of the video so it looks like real documentary footage filmed with a real camera. Use <IMAGE_REF_0> only as a reference for what real limestone, sand, low Mediterranean scrub and bay water look like; do not copy its content or layout into the video. Keep every object, its position, its size, its count and its colours exactly the same, including every ship, flag, building and fire. Keep the camera motion and the timing exactly the same. Do not add or remove anything. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c1-720.mp4",
+     "sha256": "a1f49d126462f003d389fbd090d2046c2bc4ac4289fe70ab5549d271c9468fe0",
+     "bytes": 15595424
+    },
+    {
+     "file": "bang-vat-lieu.jpg",
+     "sha256": "84228e4417321ded5600b403d8c65523b5b1a1a5ff4a3334f77191b3cc4bda05",
+     "bytes": 208861
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c1-b-720p.mp4",
+    "sha256": "89c81382f0dcffe6efac40f6f83a0e2abe1b78be781e808b8eabe1ada5505ed6",
+    "bytes": 4885987
+   },
+   "usage": {
+    "total_tokens": 116860,
+    "total_input_tokens": 57112,
+    "input_tokens_by_modality": [
+     {
+      "modality": "image",
+      "tokens": 1100
+     },
+     {
+      "modality": "text",
+      "tokens": 152
+     },
+     {
+      "modality": "video",
+      "tokens": 55860
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 59179,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 569
+   },
+   "usd": 1.1157,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "created",
+     "edited"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 94.7,
+   "id": "v1_ChcyRlhXYXIzckVZXzl5dE1QdXBYRnlRbxIXMkZYV2FyM3JFWV85eXRNUHVwWEZ5UW8"
+  },
+  {
+   "tag": "c1-a-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:41:08+00:00",
+   "prompt": "Change only the surface materials and the lighting of this video so it looks like real documentary footage filmed with a real camera. Keep every object, its position, its size, its count and its colours exactly the same, including every ship, flag, building and fire. Keep the camera motion and the timing exactly the same. Do not add or remove anything. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c1-720.mp4",
+     "sha256": "a1f49d126462f003d389fbd090d2046c2bc4ac4289fe70ab5549d271c9468fe0",
+     "bytes": 15595424
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c1-a-720p.mp4",
+    "sha256": "6696c26284ae1587a2e8d8dd55fbb0c91bf8b8a75daca90cef287f14097f054c",
+    "bytes": 4526297
+   },
+   "usage": {
+    "total_tokens": 114506,
+    "total_input_tokens": 55948,
+    "input_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 55860
+     },
+     {
+      "modality": "text",
+      "tokens": 88
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 57920,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 638
+   },
+   "usd": 1.1033,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "edited",
+     "opened"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 94.7,
+   "id": "v1_ChcyRlhXYXZtTkUtTHIxc2dQLWJPVC1BSRIXMkZYV2F2bU5FLUxyMXNnUC1iT1QtQUk"
+  },
+  {
+   "tag": "c3-b-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:47:34+00:00",
+   "prompt": "[# Sources <VIDEO_0>@Video1] [# References <IMAGE_REF_0>@Image1] Change only the surface materials and the lighting of the video so it looks like real documentary footage filmed with a real camera. Use <IMAGE_REF_0> only as a reference for what real limestone, sand, low Mediterranean scrub and bay water look like; do not copy its content or layout into the video. Keep every object, its position, its size, its count and its colours exactly the same, including every ship, flag, building and fire. Keep the camera motion and the timing exactly the same. Do not add or remove anything. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c3-720.mp4",
+     "sha256": "6c9d9515807cd411acbc92e6be5dd798c9efb4215e4fca7d56523f0cc6b4ebd3",
+     "bytes": 26273429
+    },
+    {
+     "file": "bang-vat-lieu.jpg",
+     "sha256": "84228e4417321ded5600b403d8c65523b5b1a1a5ff4a3334f77191b3cc4bda05",
+     "bytes": 208861
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c3-b-720p.mp4",
+    "sha256": "7369f91fc844d4ae884dacef9c7809e2874e773bccbf67fbea25409907912158",
+    "bytes": 5854488
+   },
+   "usage": {
+    "total_tokens": 115447,
+    "total_input_tokens": 57112,
+    "input_tokens_by_modality": [
+     {
+      "modality": "image",
+      "tokens": 1100
+     },
+     {
+      "modality": "text",
+      "tokens": 152
+     },
+     {
+      "modality": "video",
+      "tokens": 55860
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 57920,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 415
+   },
+   "usd": 1.103,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "created",
+     "edited"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 91.5,
+   "id": "v1_ChdYMWZXYXZuZ0c5TGR5dE1QMHY3SzZBNBIXWDFmV2F2bmdHOUxkeXRNUDB2N0s2QTQ"
+  },
+  {
+   "tag": "c3-a-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:47:38+00:00",
+   "prompt": "Change only the surface materials and the lighting of this video so it looks like real documentary footage filmed with a real camera. Keep every object, its position, its size, its count and its colours exactly the same, including every ship, flag, building and fire. Keep the camera motion and the timing exactly the same. Do not add or remove anything. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c3-720.mp4",
+     "sha256": "6c9d9515807cd411acbc92e6be5dd798c9efb4215e4fca7d56523f0cc6b4ebd3",
+     "bytes": 26273429
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c3-a-720p.mp4",
+    "sha256": "931a250266a38c62089d5de8b43f9c9c68d06ccff4f40341fcecf69e24f5c31f",
+    "bytes": 6686174
+   },
+   "usage": {
+    "total_tokens": 114208,
+    "total_input_tokens": 55948,
+    "input_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 55860
+     },
+     {
+      "modality": "text",
+      "tokens": 88
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 57920,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 340
+   },
+   "usd": 1.1006,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "edited",
+     "opened"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 95.2,
+   "id": "v1_ChdZRmZXYXNuYkQtVGN5dE1QcFk3eHlRbxIXWUZmV2FzbmJELVRjeXRNUHBZN3h5UW8"
+  },
+  {
+   "tag": "c3-c-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:47:48+00:00",
+   "prompt": "Turn this 3D render into photorealistic aerial documentary footage shot on a cinema camera: real weathered limestone and stone walls, real sea water with natural reflections and waves, natural dry Mediterranean vegetation, real atmospheric haze and depth, real cloth for flags and sails, subtle film grain. Keep the layout and number of the buildings, ships and flags, and keep the camera path and timing. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c3-720.mp4",
+     "sha256": "6c9d9515807cd411acbc92e6be5dd798c9efb4215e4fca7d56523f0cc6b4ebd3",
+     "bytes": 26273429
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c3-c-720p.mp4",
+    "sha256": "8d7ced3bfa6c299b643061f295a7b88ecd601118e1b475f85eca4d642bb9fa0f",
+    "bytes": 6160197
+   },
+   "usage": {
+    "total_tokens": 114300,
+    "total_input_tokens": 55954,
+    "input_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 55860
+     },
+     {
+      "modality": "text",
+      "tokens": 94
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 57920,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 426
+   },
+   "usd": 1.1014,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "edited",
+     "opened"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 105.6,
+   "id": "v1_ChdaVmZXYXVxbEQ2Ymd5dE1QX0pUb2lBdxIXWlZmV2F1cWxENmJneXRNUF9KVG9pQXc"
+  },
+  {
+   "tag": "c4B-b-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:59:33+00:00",
+   "prompt": "[# Sources <VIDEO_0>@Video1] [# References <IMAGE_REF_0>@Image1] Change only the surface materials and the lighting of the video so it looks like real documentary footage filmed with a real camera. Use <IMAGE_REF_0> only as a reference for what real limestone, sand, low Mediterranean scrub and bay water look like; do not copy its content or layout into the video. Keep every object, its position, its size, its count and its colours exactly the same, including every ship, flag, building and fire. Keep the camera motion and the timing exactly the same. Do not add or remove anything. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c4B-720.mp4",
+     "sha256": "e68a343bf1da976fded47e09310234f37cdc86b9a281f0f51a4fc7c7b2631fe2",
+     "bytes": 19029945
+    },
+    {
+     "file": "bang-vat-lieu.jpg",
+     "sha256": "84228e4417321ded5600b403d8c65523b5b1a1a5ff4a3334f77191b3cc4bda05",
+     "bytes": 208861
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c4B-b-720p.mp4",
+    "sha256": "a2d3e9b363a5d2bbc1d26fdbafa56a988f6bc52c4dfc5f3845beb5ffb006880c",
+    "bytes": 3686916
+   },
+   "usage": {
+    "total_tokens": 115411,
+    "total_input_tokens": 57112,
+    "input_tokens_by_modality": [
+     {
+      "modality": "image",
+      "tokens": 1100
+     },
+     {
+      "modality": "text",
+      "tokens": 152
+     },
+     {
+      "modality": "video",
+      "tokens": 55860
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 57920,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 379
+   },
+   "usd": 1.1027,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "created",
+     "edited"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 82.3,
+   "id": "v1_ChdOMXJXYW9iZkF0R295dE1QdHNXbTRBWRIXTjFyV2FvYmZBdEdveXRNUHRzV200QVk"
+  },
+  {
+   "tag": "c4A-b-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:59:34+00:00",
+   "prompt": "[# Sources <VIDEO_0>@Video1] [# References <IMAGE_REF_0>@Image1] Change only the surface materials and the lighting of the video so it looks like real documentary footage filmed with a real camera. Use <IMAGE_REF_0> only as a reference for what real limestone, sand, low Mediterranean scrub and bay water look like; do not copy its content or layout into the video. Keep every object, its position, its size, its count and its colours exactly the same, including every ship, flag, building and fire. Keep the camera motion and the timing exactly the same. Do not add or remove anything. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c4A-720.mp4",
+     "sha256": "80a1272e59e080bed7635c868e188f4febcdbc4540d38c48a1586d1deb56d214",
+     "bytes": 19588499
+    },
+    {
+     "file": "bang-vat-lieu.jpg",
+     "sha256": "84228e4417321ded5600b403d8c65523b5b1a1a5ff4a3334f77191b3cc4bda05",
+     "bytes": 208861
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c4A-b-720p.mp4",
+    "sha256": "5c863b7320437b2364872b96fc90058b175f803421e32e3d2f3f2786758a5fd4",
+    "bytes": 5599300
+   },
+   "usage": {
+    "total_tokens": 115434,
+    "total_input_tokens": 57112,
+    "input_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 55860
+     },
+     {
+      "modality": "text",
+      "tokens": 152
+     },
+     {
+      "modality": "image",
+      "tokens": 1100
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 57920,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 402
+   },
+   "usd": 1.1029,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "created",
+     "edited"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 83.4,
+   "id": "v1_ChdObHJXYXFxR0xKYml5dE1QajZMUDBRWRIXTmxyV2FxcUdMSmJpeXRNUGo2TFAwUVk"
+  },
+  {
+   "tag": "c4A-a-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:59:36+00:00",
+   "prompt": "Change only the surface materials and the lighting of this video so it looks like real documentary footage filmed with a real camera. Keep every object, its position, its size, its count and its colours exactly the same, including every ship, flag, building and fire. Keep the camera motion and the timing exactly the same. Do not add or remove anything. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c4A-720.mp4",
+     "sha256": "80a1272e59e080bed7635c868e188f4febcdbc4540d38c48a1586d1deb56d214",
+     "bytes": 19588499
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c4A-a-720p.mp4",
+    "sha256": "f4242526b52d9fa1ad6b409b389c6157325b26a7c29fe9a6c1a03172a158aa20",
+    "bytes": 5207794
+   },
+   "usage": {
+    "total_tokens": 114362,
+    "total_input_tokens": 55948,
+    "input_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 55860
+     },
+     {
+      "modality": "text",
+      "tokens": 88
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 57920,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 494
+   },
+   "usd": 1.102,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "edited",
+     "opened"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 86.0,
+   "id": "v1_ChdOMXJXYXU3cERjZXJ5dE1QOUpqSjBBSRIXTjFyV2F1N3BEY2VyeXRNUDlKakowQUk"
+  },
+  {
+   "tag": "c4B-c-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:59:37+00:00",
+   "prompt": "Turn this 3D render into photorealistic aerial documentary footage shot on a cinema camera: real weathered limestone and stone walls, real sea water with natural reflections and waves, natural dry Mediterranean vegetation, real atmospheric haze and depth, real cloth for flags and sails, subtle film grain. Keep the layout and number of the buildings, ships and flags, and keep the camera path and timing. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c4B-720.mp4",
+     "sha256": "e68a343bf1da976fded47e09310234f37cdc86b9a281f0f51a4fc7c7b2631fe2",
+     "bytes": 19029945
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c4B-c-720p.mp4",
+    "sha256": "746b8de2b6fa6a5a1647e3a31c1cb18b339f20b2aadf67f4fa3e8261a55f3ae0",
+    "bytes": 6314513
+   },
+   "usage": {
+    "total_tokens": 114243,
+    "total_input_tokens": 55954,
+    "input_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 55860
+     },
+     {
+      "modality": "text",
+      "tokens": 94
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 57920,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 369
+   },
+   "usd": 1.1009,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "edited",
+     "opened"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 87.0,
+   "id": "v1_ChdObHJXYXRTY0k4bTJ1TVlQc2RxUHlBdxIXTmxyV2F0U2NJOG0ydU1ZUHNkcVB5QXc"
+  },
+  {
+   "tag": "c4B-a-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:59:49+00:00",
+   "prompt": "Change only the surface materials and the lighting of this video so it looks like real documentary footage filmed with a real camera. Keep every object, its position, its size, its count and its colours exactly the same, including every ship, flag, building and fire. Keep the camera motion and the timing exactly the same. Do not add or remove anything. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c4B-720.mp4",
+     "sha256": "e68a343bf1da976fded47e09310234f37cdc86b9a281f0f51a4fc7c7b2631fe2",
+     "bytes": 19029945
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c4B-a-720p.mp4",
+    "sha256": "4763c9902e82a2933620b5e051ceb3c51237695e08a8619d41ac6c8535c28a22",
+    "bytes": 6455406
+   },
+   "usage": {
+    "total_tokens": 114333,
+    "total_input_tokens": 55948,
+    "input_tokens_by_modality": [
+     {
+      "modality": "text",
+      "tokens": 88
+     },
+     {
+      "modality": "video",
+      "tokens": 55860
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 57920,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 465
+   },
+   "usd": 1.1017,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "edited",
+     "opened"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 99.0,
+   "id": "v1_ChdObHJXYXE2V0lhcjB5dE1Qb1pQV2tRdxIXTmxyV2FxNldJYXIweXRNUG9aUFdrUXc"
+  },
+  {
+   "tag": "c4A-c-720p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": "gemini-omni-1.1-flash",
+   "date_utc": "2026-10-19T17:59:49+00:00",
+   "prompt": "Turn this 3D render into photorealistic aerial documentary footage shot on a cinema camera: real weathered limestone and stone walls, real sea water with natural reflections and waves, natural dry Mediterranean vegetation, real atmospheric haze and depth, real cloth for flags and sails, subtle film grain. Keep the layout and number of the buildings, ships and flags, and keep the camera path and timing. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c4A-720.mp4",
+     "sha256": "80a1272e59e080bed7635c868e188f4febcdbc4540d38c48a1586d1deb56d214",
+     "bytes": 19588499
+    }
+   ],
+   "http": 200,
+   "loi": null,
+   "output": {
+    "file": "c4A-c-720p.mp4",
+    "sha256": "b446cd4b4fff51ca265fdc241ec156b7ddd6c7546568fc5d484b899657889e2d",
+    "bytes": 6050697
+   },
+   "usage": {
+    "total_tokens": 114333,
+    "total_input_tokens": 55954,
+    "input_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 55860
+     },
+     {
+      "modality": "text",
+      "tokens": 94
+     }
+    ],
+    "total_cached_tokens": 0,
+    "total_output_tokens": 57920,
+    "output_tokens_by_modality": [
+     {
+      "modality": "video",
+      "tokens": 57920
+     }
+    ],
+    "total_tool_use_tokens": 0,
+    "total_thought_tokens": 459
+   },
+   "usd": 1.1017,
+   "mask": {
+    "pct_duoc_sua": 100.0,
+    "ghi_chu": "Omni sửa TOÀN KHUNG (không có mặt nạ vùng)"
+   },
+   "c2pa": true,
+   "c2pa_chi_tiet": {
+    "co": true,
+    "digitalSourceType": [
+     "trainedAlgorithmicMedia"
+    ],
+    "hanh_dong": [
+     "edited",
+     "opened"
+    ],
+    "synthid_trong_manifest": true,
+    "ky_boi": "Google C2PA Media Services"
+   },
+   "synthid": true,
+   "wall_s": 99.2,
+   "id": "v1_ChdOVnJXYXFlTUhjMkZ5dE1QaUlYOXdBdxIXTlZyV2FxZU1IYzJGeXRNUGlJWDl3QXc"
+  },
+  {
+   "tag": "c1-b-1080p",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": null,
+   "date_utc": "2026-10-19T18:20:20+00:00",
+   "prompt": "[# Sources <VIDEO_0>@Video1] [# References <IMAGE_REF_0>@Image1] Change only the surface materials and the lighting of the video so it looks like real documentary footage filmed with a real camera. Use <IMAGE_REF_0> only as a reference for what real limestone, sand, low Mediterranean scrub and bay water look like; do not copy its content or layout into the video. Keep every object, its position, its size, its count and its colours exactly the same, including every ship, flag, building and fire. Keep the camera motion and the timing exactly the same. Do not add or remove anything. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "1080p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c1-1080in.mp4",
+     "sha256": "7cf07e79f4a1bc2cfbb01fa2d7ee798efbdda1e92673281412d0884d405eaed5",
+     "bytes": 17269284
+    },
+    {
+     "file": "bang-vat-lieu.jpg",
+     "sha256": "84228e4417321ded5600b403d8c65523b5b1a1a5ff4a3334f77191b3cc4bda05",
+     "bytes": 208861
+    }
+   ],
+   "http": 402,
+   "loi": [
+    {
+     "error": {
+      "code": 402,
+      "message": "Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ",
+      "status": "RESOURCE_EXHAUSTED"
+     }
+    }
+   ],
+   "output": null,
+   "usage": null,
+   "usd": 0.0,
+   "mask": null,
+   "c2pa": false,
+   "c2pa_chi_tiet": null,
+   "synthid": null,
+   "wall_s": 3.1,
+   "id": null
+  },
+  {
+   "tag": "c2-a-720p-lap2",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": null,
+   "date_utc": "2026-10-19T18:20:21+00:00",
+   "prompt": "Change only the surface materials and the lighting of this video so it looks like real documentary footage filmed with a real camera. Keep every object, its position, its size, its count and its colours exactly the same, including every ship, flag, building and fire. Keep the camera motion and the timing exactly the same. Do not add or remove anything. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": null,
+   "task": null,
+   "input": [
+    {
+     "file": "c2-720.mp4",
+     "sha256": "243f492a4bf7f2e927ac129e4a7d593e1ced3b9a793f9bab9a4aceb35a57b395",
+     "bytes": 25403819
+    }
+   ],
+   "http": 402,
+   "loi": [
+    {
+     "error": {
+      "code": 402,
+      "message": "Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ",
+      "status": "RESOURCE_EXHAUSTED"
+     }
+    }
+   ],
+   "output": null,
+   "usage": null,
+   "usd": 0.0,
+   "mask": null,
+   "c2pa": false,
+   "c2pa_chi_tiet": null,
+   "synthid": null,
+   "wall_s": 4.4,
+   "id": null
+  },
+  {
+   "tag": "c4A-b-720p-noidai",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": null,
+   "date_utc": "2026-10-19T18:20:29+00:00",
+   "prompt": "Extend this video by 10 seconds. The same continuous shot simply continues: same place, same slow camera drift, same light and look. Keep every existing object, ship, flag and building as it is and do not add new ones. No cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": "v1_ChdObHJXYXFxR0xKYml5dE1QajZMUDBRWRIXTmxyV2FxcUdMSmJpeXRNUGo2TFAwUVk",
+   "task": "extend",
+   "input": [],
+   "http": 402,
+   "loi": [
+    {
+     "error": {
+      "code": 402,
+      "message": "Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ",
+      "status": "RESOURCE_EXHAUSTED"
+     }
+    }
+   ],
+   "output": null,
+   "usage": null,
+   "usd": 0.0,
+   "mask": null,
+   "c2pa": false,
+   "c2pa_chi_tiet": null,
+   "synthid": null,
+   "wall_s": 0.4,
+   "id": null
+  },
+  {
+   "tag": "c4B-b-720p-daluot",
+   "model_req": "gemini-omni-1.1-flash",
+   "model_resp": null,
+   "date_utc": "2026-10-19T18:20:31+00:00",
+   "prompt": "[# Sources <VIDEO_0>@Video1] [# References <IMAGE_REF_0>@Image1] This video is the next 10 seconds of the same continuous shot as the previous video. Apply exactly the same look, materials, colours and lighting as your previous result so that the two parts join seamlessly. Use <IMAGE_REF_0> only as a reference for real limestone, sand, low Mediterranean scrub and bay water; do not copy its content. Keep every object, its position, its size, its count and its colours exactly the same, including every ship, flag, tent and building. Keep the camera motion and the timing exactly the same. Do not add or remove anything. Single continuous shot, no cuts, no text. No dialogue, no music.",
+   "res": "720p",
+   "prev": "v1_ChdObHJXYXFxR0xKYml5dE1QajZMUDBRWRIXTmxyV2FxcUdMSmJpeXRNUGo2TFAwUVk",
+   "task": null,
+   "input": [
+    {
+     "file": "c4B-720.mp4",
+     "sha256": "e68a343bf1da976fded47e09310234f37cdc86b9a281f0f51a4fc7c7b2631fe2",
+     "bytes": 19029945
+    },
+    {
+     "file": "bang-vat-lieu.jpg",
+     "sha256": "84228e4417321ded5600b403d8c65523b5b1a1a5ff4a3334f77191b3cc4bda05",
+     "bytes": 208861
+    }
+   ],
+   "http": 402,
+   "loi": [
+    {
+     "error": {
+      "code": 402,
+      "message": "Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ",
+      "status": "RESOURCE_EXHAUSTED"
+     }
+    }
+   ],
+   "output": null,
+   "usage": null,
+   "usd": 0.0,
+   "mask": null,
+   "c2pa": false,
+   "c2pa_chi_tiet": null,
+   "synthid": null,
+   "wall_s": 2.7,
+   "id": null
+  }
+ ]
+}

@@ -3,16 +3,16 @@
 
   do_v2v.py --src <nguồn.mp4> --out <ra.mp4> --id <thư mục mặt nạ id/*.png, 640×360, đánh số theo khung nguồn> --f0 <khung đầu của mặt nạ> --json <ra.json>
 
-Căn khung: mỗi khung, ECC affine (cv2.findTransformECC) ảnh xám ra → nguồn (khởi đầu đơn vị, thu 1/2), rồi đo trên ảnh ra đã nắn.
+Căn khung: mỗi khung, ECC affine trên độ lớn gradient ra → nguồn (thu 1/2), loại nghiệm phi lý, chọn đơn vị/ECC theo NCC gradient; đo trên ảnh ra đã nắn.
 (i)  GIỮ DỮ KIỆN — cạnh Canny (ngưỡng theo trung vị, cùng tham số cho nguồn và ra) trong vùng từng loại của mặt nạ ID (nở 2 px):
        F1 cạnh (dung sai 2 px) = 2PR/(P+R), IoU cạnh = |nở(Es) ∩ nở(Eo)| / |nở(Es) ∪ nở(Eo)| trong vùng;
-       đếm vật: thành phần liên thông của tàu / cờ / pin nổi (≥ AMIN px); vật GIỮ khi hồi cạnh trong hộp ≥ 0,5 VÀ ΔE76 trung bình (Lab) ≤ 20;
+       đếm vật: thành phần liên thông của tàu / cờ / pin nổi (≥ AMIN px); vật GIỮ khi hồi cạnh trong hộp ≥ 0,5 (cờ: thêm ΔE76 TB ≤ 25 vì màu cờ là dữ kiện);
        LỬA MỚI: % khung là điểm cam–vàng sáng cách mọi lửa/pin nổi/điểm cam sáng của nguồn > 6 px, số cụm ≥ 6 px;
        cạnh MỚI trong vùng TRỐNG (trời / nước / đất, cách vật ≥ 6 px): % diện tích vùng có cạnh ra cách mọi cạnh nguồn > 3 px; cụm cạnh mới ≥ 40 px (nở 3) = "vật lạ".
-(ii) NHẤP NHÁY — vùng tĩnh = điểm có |nguồn_t − nguồn_t−1| < 2/255 (xám) ở cả hai khung kề; so TB |ra_t − ra_t−1| với TB |nguồn_t − nguồn_t−1| trên vùng đó.
+(ii) NHẤP NHÁY — ảnh xám thu 160×90 (khối 4×4, triệt nhiễu nén); vùng tĩnh = điểm có |nguồn_t − nguồn_t−1| < 0,5/255; so TB |ra_t − ra_t−1| với nguồn trên vùng đó (kèm bản đối chứng không AI).
 (iv) bão hoà trung vị HSV / colorfulness Hasler–Süsstrunk / chi tiết |Laplace| — đúng công thức scripts/k2tl/measure_look.py (V5b-1b, dùng ở V6), vùng giữa 15–85 %.
 (v)  THỜI GIAN / MÁY — luồng quang học Farnebäck toàn khung (trung vị dx, dy mỗi cặp khung) nguồn ↔ ra: RMS sai khác (px/khung), tương quan;
-     lệch thời gian = độ dời k ∈ [−12, 12] khung làm cực tiểu sai khác ảnh xám (thu 1/4) giữa ra_t và nguồn_{t+k}, trung vị theo t.
+     lệch thời gian = độ dời k ∈ [−12, 12] khung làm cực đại NCC độ lớn gradient (thu 1/4) giữa ra_t đã căn và nguồn_{t+k}, trung vị theo t (kèm độ nhọn đỉnh: gần 0 = không xác định).
 """
 import argparse, glob, json, os, sys
 import cv2, numpy as np
@@ -53,13 +53,27 @@ def look(bgr):
     return sat, col, det
 
 
+def _gm(bgr, w, h):
+    g = cv2.GaussianBlur(cv2.cvtColor(cv2.resize(bgr, (w, h), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY).astype(np.float32), (0, 0), 1.2)
+    m = cv2.magnitude(cv2.Sobel(g, cv2.CV_32F, 1, 0), cv2.Sobel(g, cv2.CV_32F, 0, 1)); return m / (m.mean() + 1e-6)
+
+
+def _ncc(a, b):
+    a = a - a.mean(); b = b - b.mean(); return float((a * b).sum() / (np.linalg.norm(a) * np.linalg.norm(b) + 1e-6))
+
+
 def align(src, out):
-    gs = cv2.cvtColor(cv2.resize(src, (W // 2, H // 2)), cv2.COLOR_BGR2GRAY).astype(np.float32)
-    go = cv2.cvtColor(cv2.resize(out, (W // 2, H // 2)), cv2.COLOR_BGR2GRAY).astype(np.float32)
-    M = np.eye(2, 3, dtype=np.float32)
-    try: _, M = cv2.findTransformECC(gs, go, M, cv2.MOTION_AFFINE, (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 60, 1e-5), None, 5)
-    except cv2.error: M = np.eye(2, 3, dtype=np.float32)
-    M2 = M.copy(); M2[:, 2] *= 2
+    """căn ra → nguồn: ECC affine trên ĐỘ LỚN GRADIENT (ít nhạy với đổi sáng/màu của Omni), thu 1/2; loại nghiệm phi lý
+    (tỉ lệ ngoài 0,85–1,18, cắt xiên > 0,08, dịch > 80 px @640) rồi chọn giữa đơn vị và ECC theo NCC gradient sau nắn."""
+    w, h = W // 2, H // 2; gs, go = _gm(src, w, h), _gm(out, w, h); M = np.eye(2, 3, dtype=np.float32); best = (np.eye(2, 3, dtype=np.float32), _ncc(gs, go))
+    try:
+        _, M = cv2.findTransformECC(gs, go, M, cv2.MOTION_AFFINE, (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 80, 1e-5), None, 5)
+        sx, sy, sh = np.hypot(M[0, 0], M[1, 0]), np.hypot(M[0, 1], M[1, 1]), abs(M[0, 1] + M[1, 0])
+        if 0.85 < sx < 1.18 and 0.85 < sy < 1.18 and sh < 0.08 and np.hypot(M[0, 2], M[1, 2]) * 2 < 80:
+            sc = _ncc(gs, cv2.warpAffine(go, M, (w, h), flags=cv2.INTER_LINEAR + cv2.WARP_INVERSE_MAP, borderMode=cv2.BORDER_REPLICATE))
+            if sc > best[1]: best = (M, sc)
+    except cv2.error: pass
+    M2 = best[0].copy(); M2[:, 2] *= 2
     return cv2.warpAffine(out, M2, (W, H), flags=cv2.INTER_LINEAR + cv2.WARP_INVERSE_MAP, borderMode=cv2.BORDER_REPLICATE), M2
 
 
@@ -96,7 +110,7 @@ def main():
                 if st[j, 4] < amin: continue
                 x, y, w, h = st[j, :4]; pad = 2; X0, Y0, X1, Y1 = max(0, x - pad), max(0, y - pad), min(W, x + w + pad), min(H, y + h + pad)
                 es = Es[Y0:Y1, X0:X1].sum(); rec = (Es & Do)[Y0:Y1, X0:X1].sum() / es if es else 1.0; de = float(dE[cc == j].mean())
-                objs[c][0] += 1; objs[c][1] += int(rec >= 0.5 and de <= 20)
+                objs[c][0] += 1; objs[c][1] += int(rec >= 0.5 and (c != 'co' or de <= 25))   # cờ: màu mang dữ kiện → thêm ΔE ≤ 25; tàu/pin nổi: chỉ hình (ánh sáng được phép đổi)
         objm = np.isin(L, [LOP.index(c) for c in ('nha', 'tau', 'co', 'pin', 'lua', 'nguoi', 'khac')]).astype(np.uint8)
         far = cv2.dilate(objm, np.ones((13, 13), np.uint8)) == 0
         newE = Eo & ~(cv2.dilate(Es.astype(np.uint8), np.ones((7, 7), np.uint8)) > 0)
@@ -117,18 +131,23 @@ def main():
     fl_s, fl_o, fs_, fo_ = [], [], [], []
     G = lambda im: cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
     gS = [G(x).astype(np.float32) for x in S[:n]]; gO = [G(x).astype(np.float32) for x in O[:n]]
+    lo = lambda g: cv2.resize(g, (160, 90), interpolation=cv2.INTER_AREA)   # thu 160×90: trung bình khối 4×4 → triệt nhiễu nén, giữ nhấp nháy mảng
+    lS, lO = [lo(x) for x in gS], [lo(x) for x in gO]
     for t in range(1, n):
-        ds, do = np.abs(gS[t] - gS[t - 1]), np.abs(gO[t] - gO[t - 1]); st = ds < 2
-        if st.sum() > 1000: fl_s.append(float(ds[st].mean())); fl_o.append(float(do[st].mean()))
+        ds, do = np.abs(lS[t] - lS[t - 1]), np.abs(lO[t] - lO[t - 1]); st = ds < 0.5
+        if st.sum() > 500: fl_s.append(float(ds[st].mean())); fl_o.append(float(do[st].mean()))
         if t % 2 == 0:
             a1 = cv2.calcOpticalFlowFarneback(gS[t - 1].astype(np.uint8), gS[t].astype(np.uint8), None, 0.5, 3, 21, 3, 5, 1.1, 0)
             a2 = cv2.calcOpticalFlowFarneback(gO[t - 1].astype(np.uint8), gO[t].astype(np.uint8), None, 0.5, 3, 21, 3, 5, 1.1, 0)
             fs_.append(np.median(a1.reshape(-1, 2), 0)); fo_.append(np.median(a2.reshape(-1, 2), 0))
     fs_, fo_ = np.array(fs_), np.array(fo_)
-    q = lambda im: cv2.resize(im, (W // 4, H // 4), interpolation=cv2.INTER_AREA)
-    qS, qO = [q(x) for x in gS], [q(x) for x in gO]; lag = []
+    # lệch thời gian: ra_t nắn theo căn ECC của chính khung t, so tương quan chuẩn hoá (NCC) độ lớn gradient (thu 1/4) với nguồn_{t+k}, k ∈ [−12, 12]
+    def gm(g):
+        g = cv2.resize(g, (W // 4, H // 4), interpolation=cv2.INTER_AREA); m = cv2.magnitude(cv2.Sobel(g, cv2.CV_32F, 1, 0), cv2.Sobel(g, cv2.CV_32F, 0, 1)); m -= m.mean(); return m / (np.linalg.norm(m) + 1e-6)
+    gmS = [gm(x) for x in gS]; lag, peak = [], []
     for t in range(12, n - 12, 6):
-        e = [float(np.abs(qO[t] - qS[t + k]).mean()) for k in range(-12, 13)]; lag.append(int(np.argmin(e)) - 12)
+        o, _ = align(S[t], O[t]); go = gm(cv2.cvtColor(o, cv2.COLOR_BGR2GRAY).astype(np.float32))
+        e = [float((go * gmS[t + k]).sum()) for k in range(-12, 13)]; lag.append(int(np.argmax(e)) - 12); peak.append(max(e) - float(np.median(e)))
     corr = lambda x, y: float(np.corrcoef(x, y)[0, 1]) if len(x) > 2 and np.std(x) > 1e-6 and np.std(y) > 1e-6 else None
     md = lambda v: float(np.nanmedian(v)) if len(v) else None
     R = dict(label=a.label, src=a.src, out=a.out, n_src=len(S), n_out=len(O), step=a.step,
@@ -141,7 +160,7 @@ def main():
              look=dict(nguon=dict(zip(('sat_med', 'colorful', 'detail'), [round(float(np.median([x[i] for x in looks_s])), 3) for i in range(3)])), ra=dict(zip(('sat_med', 'colorful', 'detail'), [round(float(np.median([x[i] for x in looks_o])), 3) for i in range(3)]))),
              may=dict(luong_nguon_tb=np.round(fs_.mean(0), 3).tolist() if len(fs_) else None, luong_ra_tb=np.round(fo_.mean(0), 3).tolist() if len(fo_) else None,
                       rms_px_khung=round(float(np.sqrt(((fs_ - fo_) ** 2).sum(1).mean())), 3) if len(fs_) else None, corr_dx=corr(fs_[:, 0], fo_[:, 0]) if len(fs_) else None, corr_dy=corr(fs_[:, 1], fo_[:, 1]) if len(fs_) else None,
-                      lech_khung_trung_vi=float(np.median(lag)) if lag else None, lech_khung_max=int(np.max(np.abs(lag))) if lag else None,
+                      lech_khung_trung_vi=float(np.median(lag)) if lag else None, lech_khung_max=int(np.max(np.abs(lag))) if lag else None, lech_do_nhon=round(float(np.median(peak)), 4) if peak else None,
                       can_khung_dich_tb_px=round(float(np.mean([np.hypot(m[2], m[5]) for m in aff])), 2) if aff else None, can_khung_ti_le_tb=round(float(np.mean([np.hypot(m[0], m[3]) for m in aff])), 4) if aff else None))
     json.dump(R, open(a.json, 'w'), ensure_ascii=False, indent=1); print(json.dumps(R, ensure_ascii=False))
 

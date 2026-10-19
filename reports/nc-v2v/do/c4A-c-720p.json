@@ -1,0 +1,122 @@
+{
+ "label": "c4A-c-720p",
+ "src": "/var/tmp/cine-out/v2v/src/c4A-720.mp4",
+ "out": "/var/tmp/cine-out/v2v/ra/c4A-c-720p.mp4",
+ "n_src": 240,
+ "n_out": 240,
+ "step": 2,
+ "giu": {
+  "tau": {
+   "f1_canh": 0.325,
+   "iou_canh": 0.189,
+   "dE76": 49.1,
+   "px_tb": 40,
+   "n": 120
+  },
+  "nha": {
+   "f1_canh": 0.916,
+   "iou_canh": 0.855,
+   "dE76": 28.5,
+   "px_tb": 8912,
+   "n": 120
+  },
+  "dat": {
+   "f1_canh": 0.542,
+   "iou_canh": 0.366,
+   "dE76": 47.7,
+   "px_tb": 169956,
+   "n": 120
+  },
+  "nuoc": {
+   "f1_canh": 0.622,
+   "iou_canh": 0.42,
+   "dE76": 36.4,
+   "px_tb": 30027,
+   "n": 120
+  },
+  "troi": {
+   "f1_canh": 0.441,
+   "iou_canh": 0.283,
+   "dE76": 23.6,
+   "px_tb": 21460,
+   "n": 120
+  }
+ },
+ "dem": {
+  "tau": {
+   "truoc": 0,
+   "giu": 0,
+   "ti_le": null
+  },
+  "co": {
+   "truoc": 0,
+   "giu": 0,
+   "ti_le": null
+  },
+  "pin": {
+   "truoc": 0,
+   "giu": 0,
+   "ti_le": null
+  }
+ },
+ "canh_moi_pct": {
+  "troi": {
+   "tb": 0.2,
+   "p90": 0.44,
+   "max": 0.84
+  },
+  "nuoc": {
+   "tb": 6.19,
+   "p90": 9.13,
+   "max": 9.5
+  },
+  "dat": {
+   "tb": 14.67,
+   "p90": 15.58,
+   "max": 15.73
+  }
+ },
+ "vat_la_tb": 76.72,
+ "vat_la_max": 93,
+ "lua_moi": {
+  "pct_tb": 1.969,
+  "pct_max": 3.063,
+  "cum_tb": 94.0,
+  "cum_max": 137
+ },
+ "nhap_nhay": {
+  "nguon": 0.213,
+  "ra": 1.133,
+  "ti_so": 5.31
+ },
+ "look": {
+  "nguon": {
+   "sat_med": 0.561,
+   "colorful": 92.842,
+   "detail": 20.346
+  },
+  "ra": {
+   "sat_med": 0.29,
+   "colorful": 35.128,
+   "detail": 24.395
+  }
+ },
+ "may": {
+  "luong_nguon_tb": [
+   -0.010999999940395355,
+   0.009999999776482582
+  ],
+  "luong_ra_tb": [
+   -0.0010000000474974513,
+   0.0949999988079071
+  ],
+  "rms_px_khung": 0.087,
+  "corr_dx": 0.17371375180394,
+  "corr_dy": 0.41526323396823106,
+  "lech_khung_trung_vi": 8.5,
+  "lech_khung_max": 12,
+  "lech_do_nhon": 0.0011,
+  "can_khung_dich_tb_px": 5.93,
+  "can_khung_ti_le_tb": 1.027
+ }
+}

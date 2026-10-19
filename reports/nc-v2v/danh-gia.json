@@ -1,0 +1,590 @@
+[
+ {
+  "clip": "c1",
+  "bien_the": "a",
+  "t1": {
+   "tau": [
+    0.854,
+    0.881
+   ],
+   "co": [
+    0.066,
+    0.07
+   ],
+   "pin": [
+    0.824,
+    0.881
+   ]
+  },
+  "f1_nha": 0.831,
+  "f1_tau": 0.892,
+  "canh_moi": {
+   "nuoc": 1.17,
+   "dat": 10.03
+  },
+  "lua_max": 7.483,
+  "lua_san": 1.002,
+  "nhap_nhay_tren_dc": 2.79,
+  "dich": 3.93,
+  "ti_le": 1.0006,
+  "lech_khung": -4.0,
+  "chi_tiet": [
+   17.186,
+   14.09
+  ],
+  "bao_hoa": [
+   0.665,
+   0.369
+  ],
+  "truot": [
+   "T1 tau",
+   "T1 co",
+   "T1 pin",
+   "T2 nhà",
+   "T3 dat",
+   "T4 lửa",
+   "T5 nhấp nháy",
+   "T6 thời gian"
+  ],
+  "dat": false
+ },
+ {
+  "clip": "c1",
+  "bien_the": "b",
+  "t1": {
+   "tau": [
+    0.748,
+    0.772
+   ],
+   "co": [
+    0.307,
+    0.324
+   ],
+   "pin": [
+    0.901,
+    0.963
+   ]
+  },
+  "f1_nha": 0.879,
+  "f1_tau": 0.811,
+  "canh_moi": {
+   "nuoc": 1.79,
+   "dat": 12.8
+  },
+  "lua_max": 4.799,
+  "lua_san": 1.002,
+  "nhap_nhay_tren_dc": 1.92,
+  "dich": 0.67,
+  "ti_le": 1.0004,
+  "lech_khung": 0.0,
+  "chi_tiet": [
+   17.186,
+   11.526
+  ],
+  "bao_hoa": [
+   0.665,
+   0.361
+  ],
+  "truot": [
+   "T1 tau",
+   "T1 co",
+   "T2 tàu",
+   "T3 dat",
+   "T4 lửa",
+   "T5 nhấp nháy"
+  ],
+  "dat": false
+ },
+ {
+  "clip": "c1",
+  "bien_the": "c",
+  "t1": {
+   "tau": [
+    0.626,
+    0.646
+   ],
+   "co": [
+    0.141,
+    0.15
+   ],
+   "pin": [
+    0.445,
+    0.476
+   ]
+  },
+  "f1_nha": 0.826,
+  "f1_tau": 0.746,
+  "canh_moi": {
+   "nuoc": 1.47,
+   "dat": 12.63
+  },
+  "lua_max": 7.809,
+  "lua_san": 1.002,
+  "nhap_nhay_tren_dc": 3.96,
+  "dich": 4.37,
+  "ti_le": 1.0,
+  "lech_khung": -3.5,
+  "chi_tiet": [
+   17.186,
+   15.132
+  ],
+  "bao_hoa": [
+   0.665,
+   0.349
+  ],
+  "truot": [
+   "T1 tau",
+   "T1 co",
+   "T1 pin",
+   "T2 nhà",
+   "T2 tàu",
+   "T3 dat",
+   "T4 lửa",
+   "T5 nhấp nháy",
+   "T6 thời gian"
+  ],
+  "dat": false
+ },
+ {
+  "clip": "c2",
+  "bien_the": "a",
+  "t1": {
+   "tau": [
+    1.0,
+    1.019
+   ]
+  },
+  "f1_nha": 0.958,
+  "f1_tau": 0.979,
+  "canh_moi": {
+   "troi": 0.43,
+   "nuoc": 0.2,
+   "dat": 2.59
+  },
+  "lua_max": 0.032,
+  "lua_san": 0.063,
+  "nhap_nhay_tren_dc": 0.53,
+  "dich": 1.04,
+  "ti_le": 0.9947,
+  "lech_khung": null,
+  "chi_tiet": [
+   47.451,
+   12.459
+  ],
+  "bao_hoa": [
+   0.337,
+   0.122
+  ],
+  "truot": [],
+  "dat": true
+ },
+ {
+  "clip": "c2",
+  "bien_the": "b",
+  "t1": {
+   "tau": [
+    1.0,
+    1.019
+   ]
+  },
+  "f1_nha": 0.979,
+  "f1_tau": 0.979,
+  "canh_moi": {
+   "troi": 0.52,
+   "nuoc": 0.31,
+   "dat": 7.58
+  },
+  "lua_max": 0.005,
+  "lua_san": 0.063,
+  "nhap_nhay_tren_dc": 0.53,
+  "dich": 1.29,
+  "ti_le": 1.0,
+  "lech_khung": null,
+  "chi_tiet": [
+   47.451,
+   19.255
+  ],
+  "bao_hoa": [
+   0.337,
+   0.153
+  ],
+  "truot": [
+   "T3 dat"
+  ],
+  "dat": false
+ },
+ {
+  "clip": "c2",
+  "bien_the": "c",
+  "t1": {
+   "tau": [
+    0.65,
+    0.662
+   ]
+  },
+  "f1_nha": 0.975,
+  "f1_tau": 0.852,
+  "canh_moi": {
+   "troi": 0.01,
+   "nuoc": 0.72,
+   "dat": 5.97
+  },
+  "lua_max": 0.02,
+  "lua_san": 0.063,
+  "nhap_nhay_tren_dc": 0.76,
+  "dich": 5.63,
+  "ti_le": 1.0078,
+  "lech_khung": null,
+  "chi_tiet": [
+   47.451,
+   17.956
+  ],
+  "bao_hoa": [
+   0.337,
+   0.176
+  ],
+  "truot": [
+   "T1 tau",
+   "T3 dat"
+  ],
+  "dat": false
+ },
+ {
+  "clip": "c3",
+  "bien_the": "a",
+  "t1": {
+   "tau": [
+    0.961,
+    0.97
+   ],
+   "co": [
+    0.074,
+    0.08
+   ]
+  },
+  "f1_nha": 0.0,
+  "f1_tau": 0.833,
+  "canh_moi": {
+   "troi": 2.58,
+   "nuoc": 3.25,
+   "dat": 1.15
+  },
+  "lua_max": 0.122,
+  "lua_san": 1.302,
+  "nhap_nhay_tren_dc": 4.38,
+  "dich": 11.79,
+  "ti_le": 0.9904,
+  "lech_khung": 0.0,
+  "chi_tiet": [
+   23.434,
+   10.205
+  ],
+  "bao_hoa": [
+   0.349,
+   0.075
+  ],
+  "truot": [
+   "T1 co",
+   "T2 nhà",
+   "T2 tàu",
+   "T5 nhấp nháy"
+  ],
+  "dat": false
+ },
+ {
+  "clip": "c3",
+  "bien_the": "b",
+  "t1": {
+   "tau": [
+    0.993,
+    1.002
+   ],
+   "co": [
+    0.612,
+    0.665
+   ]
+  },
+  "f1_nha": 0.911,
+  "f1_tau": 0.905,
+  "canh_moi": {
+   "troi": 0.77,
+   "nuoc": 3.31,
+   "dat": 6.57
+  },
+  "lua_max": 0.006,
+  "lua_san": 1.302,
+  "nhap_nhay_tren_dc": 1.99,
+  "dich": 8.33,
+  "ti_le": 0.9982,
+  "lech_khung": 0.0,
+  "chi_tiet": [
+   23.434,
+   10.137
+  ],
+  "bao_hoa": [
+   0.349,
+   0.075
+  ],
+  "truot": [
+   "T1 co",
+   "T3 dat",
+   "T5 nhấp nháy"
+  ],
+  "dat": false
+ },
+ {
+  "clip": "c3",
+  "bien_the": "c",
+  "t1": {
+   "tau": [
+    0.923,
+    0.932
+   ],
+   "co": [
+    0.063,
+    0.069
+   ]
+  },
+  "f1_nha": 0.934,
+  "f1_tau": 0.8,
+  "canh_moi": {
+   "troi": 3.28,
+   "nuoc": 5.28,
+   "dat": 5.33
+  },
+  "lua_max": 0.248,
+  "lua_san": 1.302,
+  "nhap_nhay_tren_dc": 4.21,
+  "dich": 9.76,
+  "ti_le": 0.9987,
+  "lech_khung": -1.0,
+  "chi_tiet": [
+   23.434,
+   11.877
+  ],
+  "bao_hoa": [
+   0.349,
+   0.09
+  ],
+  "truot": [
+   "T1 co",
+   "T2 tàu",
+   "T3 nuoc",
+   "T3 dat",
+   "T5 nhấp nháy"
+  ],
+  "dat": false
+ },
+ {
+  "clip": "c4A",
+  "bien_the": "a",
+  "t1": {},
+  "f1_nha": 0.989,
+  "f1_tau": 0.979,
+  "canh_moi": {
+   "troi": 0.0,
+   "nuoc": 2.2,
+   "dat": 13.13
+  },
+  "lua_max": 0.064,
+  "lua_san": 0.05,
+  "nhap_nhay_tren_dc": 0.91,
+  "dich": 0.0,
+  "ti_le": 1.0,
+  "lech_khung": null,
+  "chi_tiet": [
+   20.346,
+   21.358
+  ],
+  "bao_hoa": [
+   0.561,
+   0.408
+  ],
+  "truot": [
+   "T3 dat",
+   "T4 lửa"
+  ],
+  "dat": false
+ },
+ {
+  "clip": "c4A",
+  "bien_the": "b",
+  "t1": {},
+  "f1_nha": 0.895,
+  "f1_tau": 1.0,
+  "canh_moi": {
+   "troi": 0.73,
+   "nuoc": 1.14,
+   "dat": 9.41
+  },
+  "lua_max": 0.0,
+  "lua_san": 0.05,
+  "nhap_nhay_tren_dc": 0.72,
+  "dich": 0.0,
+  "ti_le": 1.0,
+  "lech_khung": null,
+  "chi_tiet": [
+   20.346,
+   29.686
+  ],
+  "bao_hoa": [
+   0.561,
+   0.271
+  ],
+  "truot": [
+   "T3 dat"
+  ],
+  "dat": false
+ },
+ {
+  "clip": "c4A",
+  "bien_the": "c",
+  "t1": {},
+  "f1_nha": 0.916,
+  "f1_tau": 0.325,
+  "canh_moi": {
+   "troi": 0.2,
+   "nuoc": 6.19,
+   "dat": 14.67
+  },
+  "lua_max": 3.063,
+  "lua_san": 0.05,
+  "nhap_nhay_tren_dc": 2.98,
+  "dich": 5.93,
+  "ti_le": 1.027,
+  "lech_khung": null,
+  "chi_tiet": [
+   20.346,
+   24.395
+  ],
+  "bao_hoa": [
+   0.561,
+   0.29
+  ],
+  "truot": [
+   "T2 tàu",
+   "T3 nuoc",
+   "T3 dat",
+   "T4 lửa",
+   "T5 nhấp nháy"
+  ],
+  "dat": false
+ },
+ {
+  "clip": "c4B",
+  "bien_the": "a",
+  "t1": {
+   "co": [
+    0.037,
+    0.058
+   ]
+  },
+  "f1_nha": 0.674,
+  "f1_tau": 0.987,
+  "canh_moi": {
+   "troi": 3.96,
+   "nuoc": 3.32,
+   "dat": 10.97
+  },
+  "lua_max": 0.233,
+  "lua_san": 0.05,
+  "nhap_nhay_tren_dc": 1.68,
+  "dich": 0.17,
+  "ti_le": 0.9999,
+  "lech_khung": null,
+  "chi_tiet": [
+   19.857,
+   25.941
+  ],
+  "bao_hoa": [
+   0.573,
+   0.396
+  ],
+  "truot": [
+   "T1 co",
+   "T2 nhà",
+   "T3 dat",
+   "T4 lửa",
+   "T5 nhấp nháy"
+  ],
+  "dat": false
+ },
+ {
+  "clip": "c4B",
+  "bien_the": "b",
+  "t1": {
+   "co": [
+    0.418,
+    0.651
+   ]
+  },
+  "f1_nha": 0.728,
+  "f1_tau": 0.782,
+  "canh_moi": {
+   "troi": 0.27,
+   "nuoc": 0.53,
+   "dat": 3.66
+  },
+  "lua_max": 0.788,
+  "lua_san": 0.05,
+  "nhap_nhay_tren_dc": 1.19,
+  "dich": 4.48,
+  "ti_le": 1.0006,
+  "lech_khung": null,
+  "chi_tiet": [
+   19.857,
+   11.459
+  ],
+  "bao_hoa": [
+   0.573,
+   0.259
+  ],
+  "truot": [
+   "T1 co",
+   "T2 nhà",
+   "T2 tàu",
+   "T4 lửa"
+  ],
+  "dat": false
+ },
+ {
+  "clip": "c4B",
+  "bien_the": "c",
+  "t1": {
+   "co": [
+    0.265,
+    0.413
+   ]
+  },
+  "f1_nha": 0.66,
+  "f1_tau": 0.845,
+  "canh_moi": {
+   "troi": 1.74,
+   "nuoc": 4.8,
+   "dat": 15.47
+  },
+  "lua_max": 8.197,
+  "lua_san": 0.05,
+  "nhap_nhay_tren_dc": 2.06,
+  "dich": 1.17,
+  "ti_le": 0.9956,
+  "lech_khung": null,
+  "chi_tiet": [
+   19.857,
+   30.291
+  ],
+  "bao_hoa": [
+   0.573,
+   0.404
+  ],
+  "truot": [
+   "T1 co",
+   "T2 nhà",
+   "T2 tàu",
+   "T3 dat",
+   "T4 lửa",
+   "T5 nhấp nháy"
+  ],
+  "dat": false
+ }
+]

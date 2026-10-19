@@ -1,0 +1,121 @@
+{
+ "label": "identity",
+ "src": "/var/tmp/cine-out/v2v/src/c2-720.mp4",
+ "out": "/var/tmp/cine-out/v2v/src/c2-720.mp4",
+ "n_src": 240,
+ "n_out": 240,
+ "step": 6,
+ "giu": {
+  "tau": {
+   "f1_canh": 1.0,
+   "iou_canh": 1.0,
+   "dE76": 0.0,
+   "px_tb": 303,
+   "n": 11
+  },
+  "nha": {
+   "f1_canh": 1.0,
+   "iou_canh": 1.0,
+   "dE76": 0.0,
+   "px_tb": 40459,
+   "n": 11
+  },
+  "dat": {
+   "f1_canh": 1.0,
+   "iou_canh": 1.0,
+   "dE76": 0.0,
+   "px_tb": 70705,
+   "n": 11
+  },
+  "nuoc": {
+   "f1_canh": 1.0,
+   "iou_canh": 1.0,
+   "dE76": 0.0,
+   "px_tb": 41592,
+   "n": 11
+  },
+  "troi": {
+   "f1_canh": 1.0,
+   "iou_canh": 1.0,
+   "dE76": 0.0,
+   "px_tb": 50012,
+   "n": 11
+  }
+ },
+ "dem": {
+  "tau": {
+   "truoc": 44,
+   "giu": 44,
+   "ti_le": 1.0
+  },
+  "co": {
+   "truoc": 0,
+   "giu": 0,
+   "ti_le": null
+  },
+  "pin": {
+   "truoc": 0,
+   "giu": 0,
+   "ti_le": null
+  }
+ },
+ "canh_moi_pct": {
+  "troi": {
+   "tb": 0.0,
+   "p90": 0.0,
+   "max": 0.0
+  },
+  "nuoc": {
+   "tb": 0.0,
+   "p90": 0.0,
+   "max": 0.0
+  },
+  "dat": {
+   "tb": 0.0,
+   "p90": 0.0,
+   "max": 0.0
+  }
+ },
+ "vat_la_tb": 0.0,
+ "vat_la_max": 0,
+ "lua_moi": {
+  "pct_tb": 0.0,
+  "pct_max": 0.0,
+  "cum_tb": 0.0,
+  "cum_max": 0
+ },
+ "nhap_nhay": {
+  "nguon": 0.558,
+  "ra": 0.558,
+  "ti_so": 1.0
+ },
+ "look": {
+  "nguon": {
+   "sat_med": 0.337,
+   "colorful": 71.05,
+   "detail": 47.697
+  },
+  "ra": {
+   "sat_med": 0.337,
+   "colorful": 71.05,
+   "detail": 47.697
+  }
+ },
+ "may": {
+  "luong_nguon_tb": [
+   -0.007000000216066837,
+   0.012000000104308128
+  ],
+  "luong_ra_tb": [
+   -0.007000000216066837,
+   0.012000000104308128
+  ],
+  "rms_px_khung": 0.0,
+  "corr_dx": 0.9999999999999999,
+  "corr_dy": 0.9999999999999998,
+  "lech_khung_trung_vi": 0.0,
+  "lech_khung_max": 0,
+  "can_khung_dich_tb_px": 0.0,
+  "can_khung_ti_le_tb": 1.0
+ }
+}
