@@ -88,7 +88,7 @@ def main():
             if not f.exists(): node(o, '--maskonly', str(f), '--only', ','.join(map(str, fr)))
             if not g.exists(): node(o, '--classmask', str(g), '--only', ','.join(map(str, fr)))
             for r in json.loads(f.read_text()) if f.exists() else []:
-                rows.append(dict(shot=L['shot'], f=r['f'], t=round(L['t0'] + r['f'] / 24, 2), dat_phang_tu_nhien_pct=r.get('flat_nat_pct'), nuoc_pct=r.get('water_pct'), troi_pct=r.get('sky_pct'), noi_dung_pct=r.get('content_pct')))
+                rows.append(dict(shot=L['shot'], f=r['f'], t=round(L['t0'] + r['f'] / 24, 2), dat_phang_tu_nhien_pct=r.get('flat_nat_pct'), nuoc_pct=r.get('water_pct'), troi_pct=r.get('sky_pct'), noi_dung_pct=r.get('content_pct'), vung_pho_pct=r.get('fabric_pct')))
             for r in json.loads(g.read_text()) if g.exists() else []:
                 kh.append(dict(shot=L['shot'], nhom=KHOI.get(L['shot'], 'khac'), f=r['f'], t=round(L['t0'] + r['f'] / 24, 2), xay=r['xay'], trai=r['trai'], quan=r['quan'], tong=r['tong'],
                                sau_can_cau=not (L['shot'] == 'C3' and r['f'] / 24 < 7.6)))
@@ -101,6 +101,11 @@ def main():
             by.setdefault(r['shot'], []).append(r['tong'])
         res['khoi'] = dict(dinh_nghia='% diện tích khung có khối xây dựng/trại/quân (page.js classMask, 480×270, cây/tàu không che khuất) — 1 khung/2 s; muc_tieu ≥ 40 % ở shot vây hãm (C1) và toàn cảnh (H2, C3 sau cần cẩu, C5)',
                            theo_shot={k: dict(tb=round(sum(v) / len(v), 1), min=min(v), max=max(v), n=len(v), duoi_40=sum(1 for x in v if x < 40)) for k, v in by.items()}, chi_tiet=kh)
+        fb = {}
+        for r in rows:
+            if KHOI.get(r['shot']) and not (r['shot'] == 'C3' and (r['t'] - next(L['t0'] for L in LOG if L['shot'] == 'C3')) < 7.6): fb.setdefault(r['shot'], []).append(r['vung_pho_pct'] or 0)
+        res['khoi']['vung_pho_trai_theo_shot'] = {k: dict(tb=round(sum(v) / len(v), 1), min=min(v), max=max(v)) for k, v in fb.items()}
+        res['khoi']['ghi_vung'] = 'vùng phố/trại = fabric_pct của mặt nạ nội dung (hình học nội dung + nền phố của năm đó: sân, phố, quảng trường) — gồm cả cây/tàu; số tham khảo bên cạnh số khối'
     (OUT / f'do-v7b-{V}.json').write_text(json.dumps(res, ensure_ascii=False, indent=1) + '\n'); print(json.dumps({k: v for k, v in res.items() if k not in ('shots', 'khung_trong', 'khoi')}, ensure_ascii=False))
     if 'khoi' in res: print('khối', json.dumps(res['khoi']['theo_shot'], ensure_ascii=False)); print('khung trống', res['khung_trong']['so_khung_trong'], '/', res['khung_trong']['mau'], 'max', res['khung_trong']['dat_phang_max'])
 

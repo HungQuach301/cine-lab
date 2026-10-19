@@ -1,0 +1,1504 @@
+{
+ "bien_the_c1": "b",
+ "tong_s": 118.458,
+ "so_shot": 8,
+ "cat_phut": 4.05,
+ "shot_tb_s": 14.81,
+ "goc_cao": {
+  "dinh_nghia": "AGL ≥ 120 m HOẶC nhìn xuống ≥ 15° (đề xuất V7B §3), mỗi 6 khung",
+  "pct_dinh_nghia": 100.0,
+  "pct_agl120": 77.3,
+  "pct_nhin_xuong15": 40.2,
+  "pct_theo_vai_khong_tinh_luot_thap": 96.7
+ },
+ "luot_thap_theo_vai": {
+  "giay": 3.9,
+  "pct": 3.3
+ },
+ "khung_neo_pct": 0.0,
+ "tam_chu": {
+  "tam_so": 0,
+  "tam_tu_lieu": 0,
+  "cau_trich": 0,
+  "the_chuong": [
+   {
+    "shot": "C1",
+    "loai": "thẻ chương",
+    "s": "1779 — The Great Siege",
+    "giay": 3.0
+   }
+  ],
+  "giay_co_tam_chu": 3.0,
+  "ghi": "bộ đếm năm/ngày (chữ chính) không tính; Faden 1783 phủ ≤ 3 s ở C1-b là tư liệu phủ khớp địa hình (TL-4), không phải tấm"
+ },
+ "shots": [
+  {
+   "shot": "H1",
+   "diem": "D",
+   "dur": 12.0,
+   "agl_m": [
+    242.5,
+    246.9
+   ],
+   "nhin_xuong_do": [
+    12.4,
+    12.6
+   ],
+   "drift_pct_s": 0.22,
+   "year_rate_max_tho": 0,
+   "buoc_nam": 0,
+   "nam_s_lien_tuc_max": 0.0002
+  },
+  {
+   "shot": "H2",
+   "diem": "K",
+   "dur": 21.0,
+   "agl_m": [
+    84.6,
+    84.8
+   ],
+   "nhin_xuong_do": [
+    26.9,
+    26.9
+   ],
+   "drift_pct_s": 0.03,
+   "year_rate_max_tho": 17215.18,
+   "buoc_nam": 15,
+   "nam_s_lien_tuc_max": 0.0142
+  },
+  {
+   "shot": "H3",
+   "diem": "D",
+   "dur": 10.8333,
+   "agl_m": [
+    242.5,
+    246.9
+   ],
+   "nhin_xuong_do": [
+    12.4,
+    12.6
+   ],
+   "drift_pct_s": 0.25,
+   "year_rate_max_tho": 1000.46,
+   "buoc_nam": 3,
+   "nam_s_lien_tuc_max": 1.8766
+  },
+  {
+   "shot": "C1",
+   "diem": "A",
+   "dur": 22.5,
+   "agl_m": [
+    149.4,
+    152.3
+   ],
+   "nhin_xuong_do": [
+    4.1,
+    4.1
+   ],
+   "drift_pct_s": 0.06,
+   "year_rate_max_tho": 0.03,
+   "buoc_nam": 0,
+   "nam_s_lien_tuc_max": 0.0335
+  },
+  {
+   "shot": "C2",
+   "diem": "E",
+   "dur": 12.0,
+   "agl_m": [
+    168,
+    170
+   ],
+   "nhin_xuong_do": [
+    0.2,
+    0.2
+   ],
+   "drift_pct_s": 0.09,
+   "year_rate_max_tho": 0.06,
+   "buoc_nam": 0,
+   "nam_s_lien_tuc_max": 0.0614
+  },
+  {
+   "shot": "C3",
+   "diem": "Ca",
+   "dur": 14.125,
+   "agl_m": [
+    5.8,
+    210.6
+   ],
+   "nhin_xuong_do": [
+    17.0,
+    61.2
+   ],
+   "drift_pct_s": 207.69,
+   "year_rate_max_tho": 0,
+   "buoc_nam": 0,
+   "nam_s_lien_tuc_max": 0.0012
+  },
+  {
+   "shot": "C4",
+   "diem": "Bb",
+   "dur": 13.5,
+   "agl_m": [
+    246.1,
+    250
+   ],
+   "nhin_xuong_do": [
+    5.7,
+    5.8
+   ],
+   "drift_pct_s": 0.17,
+   "year_rate_max_tho": 0.38,
+   "buoc_nam": 0,
+   "nam_s_lien_tuc_max": 0.3814
+  },
+  {
+   "shot": "C5",
+   "diem": "Cc",
+   "dur": 12.5,
+   "agl_m": [
+    226.8,
+    229.1
+   ],
+   "nhin_xuong_do": [
+    23.2,
+    23.5
+   ],
+   "drift_pct_s": 0.1,
+   "year_rate_max_tho": 0,
+   "buoc_nam": 0,
+   "nam_s_lien_tuc_max": 0.002
+  }
+ ],
+ "pin_noi_giay_phim": {
+  "hien": 23.83,
+  "vao_vi_tri": 25.33,
+  "khai_hoa": 25.46,
+  "chay": 26.96
+ },
+ "khung_trong": {
+  "dinh_nghia": "đất tự nhiên phẳng không vật thể > 60 % diện tích khung (mặt nạ nội dung render.js, lượt riêng)",
+  "mau": 60,
+  "so_khung_trong": 0,
+  "dat_phang_max": 44.8,
+  "chi_tiet": [
+   {
+    "shot": "H1",
+    "f": 12,
+    "t": 0.5,
+    "dat_phang_tu_nhien_pct": 0.7,
+    "nuoc_pct": 14.5,
+    "troi_pct": 21.9,
+    "noi_dung_pct": 29.5,
+    "vung_pho_pct": 61.1
+   },
+   {
+    "shot": "H1",
+    "f": 60,
+    "t": 2.5,
+    "dat_phang_tu_nhien_pct": 0.7,
+    "nuoc_pct": 14.7,
+    "troi_pct": 21.5,
+    "noi_dung_pct": 29.6,
+    "vung_pho_pct": 61.2
+   },
+   {
+    "shot": "H1",
+    "f": 108,
+    "t": 4.5,
+    "dat_phang_tu_nhien_pct": 0.7,
+    "nuoc_pct": 14.6,
+    "troi_pct": 21.5,
+    "noi_dung_pct": 29.7,
+    "vung_pho_pct": 61.3
+   },
+   {
+    "shot": "H1",
+    "f": 156,
+    "t": 6.5,
+    "dat_phang_tu_nhien_pct": 0.7,
+    "nuoc_pct": 14.4,
+    "troi_pct": 21.5,
+    "noi_dung_pct": 29.7,
+    "vung_pho_pct": 61.5
+   },
+   {
+    "shot": "H1",
+    "f": 204,
+    "t": 8.5,
+    "dat_phang_tu_nhien_pct": 0.7,
+    "nuoc_pct": 14.3,
+    "troi_pct": 21.4,
+    "noi_dung_pct": 29.6,
+    "vung_pho_pct": 61.6
+   },
+   {
+    "shot": "H1",
+    "f": 252,
+    "t": 10.5,
+    "dat_phang_tu_nhien_pct": 0.8,
+    "nuoc_pct": 14.2,
+    "troi_pct": 21.4,
+    "noi_dung_pct": 29.5,
+    "vung_pho_pct": 61.8
+   },
+   {
+    "shot": "H2",
+    "f": 12,
+    "t": 12.5,
+    "dat_phang_tu_nhien_pct": 0,
+    "nuoc_pct": 16.6,
+    "troi_pct": 0,
+    "noi_dung_pct": 63.6,
+    "vung_pho_pct": 83.3
+   },
+   {
+    "shot": "H2",
+    "f": 60,
+    "t": 14.5,
+    "dat_phang_tu_nhien_pct": 0,
+    "nuoc_pct": 16.6,
+    "troi_pct": 0,
+    "noi_dung_pct": 63.7,
+    "vung_pho_pct": 83.3
+   },
+   {
+    "shot": "H2",
+    "f": 108,
+    "t": 16.5,
+    "dat_phang_tu_nhien_pct": 0.9,
+    "nuoc_pct": 35.8,
+    "troi_pct": 0,
+    "noi_dung_pct": 32.8,
+    "vung_pho_pct": 45.4
+   },
+   {
+    "shot": "H2",
+    "f": 156,
+    "t": 18.5,
+    "dat_phang_tu_nhien_pct": 0.8,
+    "nuoc_pct": 35.8,
+    "troi_pct": 0,
+    "noi_dung_pct": 32.8,
+    "vung_pho_pct": 45.4
+   },
+   {
+    "shot": "H2",
+    "f": 204,
+    "t": 20.5,
+    "dat_phang_tu_nhien_pct": 0.8,
+    "nuoc_pct": 35.5,
+    "troi_pct": 0,
+    "noi_dung_pct": 33.1,
+    "vung_pho_pct": 45.8
+   },
+   {
+    "shot": "H2",
+    "f": 252,
+    "t": 22.5,
+    "dat_phang_tu_nhien_pct": 0.8,
+    "nuoc_pct": 35.6,
+    "troi_pct": 0,
+    "noi_dung_pct": 33,
+    "vung_pho_pct": 45.6
+   },
+   {
+    "shot": "H2",
+    "f": 300,
+    "t": 24.5,
+    "dat_phang_tu_nhien_pct": 7.1,
+    "nuoc_pct": 35.6,
+    "troi_pct": 0,
+    "noi_dung_pct": 27.1,
+    "vung_pho_pct": 38.9
+   },
+   {
+    "shot": "H2",
+    "f": 348,
+    "t": 26.5,
+    "dat_phang_tu_nhien_pct": 7.1,
+    "nuoc_pct": 35.6,
+    "troi_pct": 0,
+    "noi_dung_pct": 27.2,
+    "vung_pho_pct": 39.1
+   },
+   {
+    "shot": "H2",
+    "f": 396,
+    "t": 28.5,
+    "dat_phang_tu_nhien_pct": 7.1,
+    "nuoc_pct": 35.6,
+    "troi_pct": 0,
+    "noi_dung_pct": 27.2,
+    "vung_pho_pct": 39.1
+   },
+   {
+    "shot": "H2",
+    "f": 444,
+    "t": 30.5,
+    "dat_phang_tu_nhien_pct": 7.1,
+    "nuoc_pct": 35.5,
+    "troi_pct": 0,
+    "noi_dung_pct": 27.3,
+    "vung_pho_pct": 39.1
+   },
+   {
+    "shot": "H2",
+    "f": 492,
+    "t": 32.5,
+    "dat_phang_tu_nhien_pct": 7.1,
+    "nuoc_pct": 35.5,
+    "troi_pct": 0,
+    "noi_dung_pct": 27.3,
+    "vung_pho_pct": 39.2
+   },
+   {
+    "shot": "H3",
+    "f": 12,
+    "t": 33.5,
+    "dat_phang_tu_nhien_pct": 44.8,
+    "nuoc_pct": 20.8,
+    "troi_pct": 21.9,
+    "noi_dung_pct": 2.6,
+    "vung_pho_pct": 7.3
+   },
+   {
+    "shot": "H3",
+    "f": 60,
+    "t": 35.5,
+    "dat_phang_tu_nhien_pct": 38.7,
+    "nuoc_pct": 20.6,
+    "troi_pct": 21.5,
+    "noi_dung_pct": 7.9,
+    "vung_pho_pct": 14
+   },
+   {
+    "shot": "H3",
+    "f": 108,
+    "t": 37.5,
+    "dat_phang_tu_nhien_pct": 38.5,
+    "nuoc_pct": 20.5,
+    "troi_pct": 21.5,
+    "noi_dung_pct": 8.8,
+    "vung_pho_pct": 14.3
+   },
+   {
+    "shot": "H3",
+    "f": 156,
+    "t": 39.5,
+    "dat_phang_tu_nhien_pct": 0.7,
+    "nuoc_pct": 14.4,
+    "troi_pct": 21.4,
+    "noi_dung_pct": 29.6,
+    "vung_pho_pct": 61.5
+   },
+   {
+    "shot": "H3",
+    "f": 204,
+    "t": 41.5,
+    "dat_phang_tu_nhien_pct": 0.8,
+    "nuoc_pct": 14.2,
+    "troi_pct": 21.4,
+    "noi_dung_pct": 29.5,
+    "vung_pho_pct": 61.7
+   },
+   {
+    "shot": "H3",
+    "f": 252,
+    "t": 43.5,
+    "dat_phang_tu_nhien_pct": 0.8,
+    "nuoc_pct": 14.4,
+    "troi_pct": 21.1,
+    "noi_dung_pct": 29.4,
+    "vung_pho_pct": 61.8
+   },
+   {
+    "shot": "C1",
+    "f": 12,
+    "t": 44.33,
+    "dat_phang_tu_nhien_pct": 25.2,
+    "nuoc_pct": 9,
+    "troi_pct": 40.8,
+    "noi_dung_pct": 0.1,
+    "vung_pho_pct": 0.2
+   },
+   {
+    "shot": "C1",
+    "f": 60,
+    "t": 46.33,
+    "dat_phang_tu_nhien_pct": 25.5,
+    "nuoc_pct": 9,
+    "troi_pct": 40.8,
+    "noi_dung_pct": 0.1,
+    "vung_pho_pct": 0.2
+   },
+   {
+    "shot": "C1",
+    "f": 108,
+    "t": 48.33,
+    "dat_phang_tu_nhien_pct": 25.7,
+    "nuoc_pct": 9,
+    "troi_pct": 40.8,
+    "noi_dung_pct": 0.1,
+    "vung_pho_pct": 0.2
+   },
+   {
+    "shot": "C1",
+    "f": 156,
+    "t": 50.33,
+    "dat_phang_tu_nhien_pct": 26,
+    "nuoc_pct": 9,
+    "troi_pct": 40.8,
+    "noi_dung_pct": 0.1,
+    "vung_pho_pct": 0.2
+   },
+   {
+    "shot": "C1",
+    "f": 204,
+    "t": 52.33,
+    "dat_phang_tu_nhien_pct": 23,
+    "nuoc_pct": 9,
+    "troi_pct": 40.8,
+    "noi_dung_pct": 8.7,
+    "vung_pho_pct": 8.8
+   },
+   {
+    "shot": "C1",
+    "f": 252,
+    "t": 54.33,
+    "dat_phang_tu_nhien_pct": 23.2,
+    "nuoc_pct": 9,
+    "troi_pct": 40.8,
+    "noi_dung_pct": 8.9,
+    "vung_pho_pct": 8.9
+   },
+   {
+    "shot": "C1",
+    "f": 300,
+    "t": 56.33,
+    "dat_phang_tu_nhien_pct": 23.4,
+    "nuoc_pct": 9,
+    "troi_pct": 40.8,
+    "noi_dung_pct": 9,
+    "vung_pho_pct": 9
+   },
+   {
+    "shot": "C1",
+    "f": 348,
+    "t": 58.33,
+    "dat_phang_tu_nhien_pct": 23.6,
+    "nuoc_pct": 8.9,
+    "troi_pct": 40.8,
+    "noi_dung_pct": 9.1,
+    "vung_pho_pct": 9.1
+   },
+   {
+    "shot": "C1",
+    "f": 396,
+    "t": 60.33,
+    "dat_phang_tu_nhien_pct": 23.8,
+    "nuoc_pct": 8.9,
+    "troi_pct": 40.8,
+    "noi_dung_pct": 9.2,
+    "vung_pho_pct": 9.3
+   },
+   {
+    "shot": "C1",
+    "f": 444,
+    "t": 62.33,
+    "dat_phang_tu_nhien_pct": 23.9,
+    "nuoc_pct": 8.9,
+    "troi_pct": 40.8,
+    "noi_dung_pct": 9.3,
+    "vung_pho_pct": 9.4
+   },
+   {
+    "shot": "C1",
+    "f": 492,
+    "t": 64.33,
+    "dat_phang_tu_nhien_pct": 24.2,
+    "nuoc_pct": 8.9,
+    "troi_pct": 40.8,
+    "noi_dung_pct": 9.4,
+    "vung_pho_pct": 9.5
+   },
+   {
+    "shot": "C2",
+    "f": 12,
+    "t": 66.83,
+    "dat_phang_tu_nhien_pct": 0.8,
+    "nuoc_pct": 46.2,
+    "troi_pct": 47.2,
+    "noi_dung_pct": 1.1,
+    "vung_pho_pct": 1.4
+   },
+   {
+    "shot": "C2",
+    "f": 60,
+    "t": 68.83,
+    "dat_phang_tu_nhien_pct": 0.8,
+    "nuoc_pct": 46.2,
+    "troi_pct": 47.2,
+    "noi_dung_pct": 1.2,
+    "vung_pho_pct": 1.4
+   },
+   {
+    "shot": "C2",
+    "f": 108,
+    "t": 70.83,
+    "dat_phang_tu_nhien_pct": 0.8,
+    "nuoc_pct": 46.9,
+    "troi_pct": 47.2,
+    "noi_dung_pct": 0.4,
+    "vung_pho_pct": 0.7
+   },
+   {
+    "shot": "C2",
+    "f": 156,
+    "t": 72.83,
+    "dat_phang_tu_nhien_pct": 0.8,
+    "nuoc_pct": 46.9,
+    "troi_pct": 47.2,
+    "noi_dung_pct": 0.4,
+    "vung_pho_pct": 0.7
+   },
+   {
+    "shot": "C2",
+    "f": 204,
+    "t": 74.83,
+    "dat_phang_tu_nhien_pct": 0.8,
+    "nuoc_pct": 46.9,
+    "troi_pct": 47.2,
+    "noi_dung_pct": 0.4,
+    "vung_pho_pct": 0.7
+   },
+   {
+    "shot": "C2",
+    "f": 252,
+    "t": 76.83,
+    "dat_phang_tu_nhien_pct": 0.8,
+    "nuoc_pct": 46.9,
+    "troi_pct": 47.1,
+    "noi_dung_pct": 0.4,
+    "vung_pho_pct": 0.7
+   },
+   {
+    "shot": "C3",
+    "f": 12,
+    "t": 78.83,
+    "dat_phang_tu_nhien_pct": 0,
+    "nuoc_pct": 0,
+    "troi_pct": 0,
+    "noi_dung_pct": 22.4,
+    "vung_pho_pct": 28
+   },
+   {
+    "shot": "C3",
+    "f": 60,
+    "t": 80.83,
+    "dat_phang_tu_nhien_pct": 0,
+    "nuoc_pct": 0,
+    "troi_pct": 0,
+    "noi_dung_pct": 0,
+    "vung_pho_pct": 0
+   },
+   {
+    "shot": "C3",
+    "f": 108,
+    "t": 82.83,
+    "dat_phang_tu_nhien_pct": 1.6,
+    "nuoc_pct": 11.4,
+    "troi_pct": 0,
+    "noi_dung_pct": 40.2,
+    "vung_pho_pct": 57.5
+   },
+   {
+    "shot": "C3",
+    "f": 156,
+    "t": 84.83,
+    "dat_phang_tu_nhien_pct": 5.4,
+    "nuoc_pct": 39.2,
+    "troi_pct": 11.1,
+    "noi_dung_pct": 24.5,
+    "vung_pho_pct": 35.1
+   },
+   {
+    "shot": "C3",
+    "f": 204,
+    "t": 86.83,
+    "dat_phang_tu_nhien_pct": 6.8,
+    "nuoc_pct": 40.2,
+    "troi_pct": 18.5,
+    "noi_dung_pct": 17.8,
+    "vung_pho_pct": 25.3
+   },
+   {
+    "shot": "C3",
+    "f": 252,
+    "t": 88.83,
+    "dat_phang_tu_nhien_pct": 6.8,
+    "nuoc_pct": 40.4,
+    "troi_pct": 18.9,
+    "noi_dung_pct": 17.4,
+    "vung_pho_pct": 24.9
+   },
+   {
+    "shot": "C3",
+    "f": 300,
+    "t": 90.83,
+    "dat_phang_tu_nhien_pct": 6.3,
+    "nuoc_pct": 40.9,
+    "troi_pct": 17.4,
+    "noi_dung_pct": 18.8,
+    "vung_pho_pct": 26.8
+   },
+   {
+    "shot": "C4",
+    "f": 12,
+    "t": 92.96,
+    "dat_phang_tu_nhien_pct": 3.1,
+    "nuoc_pct": 49.3,
+    "troi_pct": 33.9,
+    "noi_dung_pct": 3,
+    "vung_pho_pct": 3.8
+   },
+   {
+    "shot": "C4",
+    "f": 60,
+    "t": 94.96,
+    "dat_phang_tu_nhien_pct": 3.1,
+    "nuoc_pct": 47.9,
+    "troi_pct": 33.9,
+    "noi_dung_pct": 4.3,
+    "vung_pho_pct": 5.1
+   },
+   {
+    "shot": "C4",
+    "f": 108,
+    "t": 96.96,
+    "dat_phang_tu_nhien_pct": 3.1,
+    "nuoc_pct": 47.9,
+    "troi_pct": 33.9,
+    "noi_dung_pct": 4.3,
+    "vung_pho_pct": 5.1
+   },
+   {
+    "shot": "C4",
+    "f": 156,
+    "t": 98.96,
+    "dat_phang_tu_nhien_pct": 3.1,
+    "nuoc_pct": 49.4,
+    "troi_pct": 33.8,
+    "noi_dung_pct": 2.9,
+    "vung_pho_pct": 3.7
+   },
+   {
+    "shot": "C4",
+    "f": 204,
+    "t": 100.96,
+    "dat_phang_tu_nhien_pct": 3.1,
+    "nuoc_pct": 49.3,
+    "troi_pct": 33.8,
+    "noi_dung_pct": 3,
+    "vung_pho_pct": 3.8
+   },
+   {
+    "shot": "C4",
+    "f": 252,
+    "t": 102.96,
+    "dat_phang_tu_nhien_pct": 3.1,
+    "nuoc_pct": 49.3,
+    "troi_pct": 33.8,
+    "noi_dung_pct": 3,
+    "vung_pho_pct": 3.9
+   },
+   {
+    "shot": "C4",
+    "f": 300,
+    "t": 104.96,
+    "dat_phang_tu_nhien_pct": 3.1,
+    "nuoc_pct": 49.3,
+    "troi_pct": 33.7,
+    "noi_dung_pct": 3,
+    "vung_pho_pct": 3.9
+   },
+   {
+    "shot": "C5",
+    "f": 12,
+    "t": 106.46,
+    "dat_phang_tu_nhien_pct": 7.9,
+    "nuoc_pct": 39.3,
+    "troi_pct": 5.9,
+    "noi_dung_pct": 16.8,
+    "vung_pho_pct": 22.4
+   },
+   {
+    "shot": "C5",
+    "f": 60,
+    "t": 108.46,
+    "dat_phang_tu_nhien_pct": 8,
+    "nuoc_pct": 39.2,
+    "troi_pct": 5.9,
+    "noi_dung_pct": 16.9,
+    "vung_pho_pct": 22.5
+   },
+   {
+    "shot": "C5",
+    "f": 108,
+    "t": 110.46,
+    "dat_phang_tu_nhien_pct": 8,
+    "nuoc_pct": 39.1,
+    "troi_pct": 5.9,
+    "noi_dung_pct": 16.9,
+    "vung_pho_pct": 22.6
+   },
+   {
+    "shot": "C5",
+    "f": 156,
+    "t": 112.46,
+    "dat_phang_tu_nhien_pct": 8,
+    "nuoc_pct": 39.5,
+    "troi_pct": 5.6,
+    "noi_dung_pct": 17,
+    "vung_pho_pct": 22.7
+   },
+   {
+    "shot": "C5",
+    "f": 204,
+    "t": 114.46,
+    "dat_phang_tu_nhien_pct": 8,
+    "nuoc_pct": 39.5,
+    "troi_pct": 5.6,
+    "noi_dung_pct": 17.1,
+    "vung_pho_pct": 22.8
+   },
+   {
+    "shot": "C5",
+    "f": 252,
+    "t": 116.46,
+    "dat_phang_tu_nhien_pct": 8,
+    "nuoc_pct": 39.5,
+    "troi_pct": 5.6,
+    "noi_dung_pct": 17.1,
+    "vung_pho_pct": 22.9
+   }
+  ]
+ },
+ "khoi": {
+  "dinh_nghia": "% diện tích khung có khối xây dựng/trại/quân (page.js classMask, 480×270, cây/tàu không che khuất) — 1 khung/2 s; muc_tieu ≥ 40 % ở shot vây hãm (C1) và toàn cảnh (H2, C3 sau cần cẩu, C5)",
+  "theo_shot": {
+   "H2": {
+    "tb": 30.9,
+    "min": 20.34,
+    "max": 60.96,
+    "n": 11,
+    "duoi_40": 9
+   },
+   "C1": {
+    "tb": 5.8,
+    "min": 0.1,
+    "max": 9.39,
+    "n": 11,
+    "duoi_40": 11
+   },
+   "C3": {
+    "tb": 15.0,
+    "min": 14.47,
+    "max": 15.68,
+    "n": 3,
+    "duoi_40": 3
+   },
+   "C5": {
+    "tb": 14.5,
+    "min": 14.38,
+    "max": 14.55,
+    "n": 6,
+    "duoi_40": 6
+   }
+  },
+  "chi_tiet": [
+   {
+    "shot": "H1",
+    "nhom": "khac",
+    "f": 12,
+    "t": 0.5,
+    "xay": 20.33,
+    "trai": 0,
+    "quan": 0,
+    "tong": 20.33,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H1",
+    "nhom": "khac",
+    "f": 60,
+    "t": 2.5,
+    "xay": 20.55,
+    "trai": 0,
+    "quan": 0,
+    "tong": 20.55,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H1",
+    "nhom": "khac",
+    "f": 108,
+    "t": 4.5,
+    "xay": 20.67,
+    "trai": 0,
+    "quan": 0,
+    "tong": 20.67,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H1",
+    "nhom": "khac",
+    "f": 156,
+    "t": 6.5,
+    "xay": 20.82,
+    "trai": 0,
+    "quan": 0,
+    "tong": 20.82,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H1",
+    "nhom": "khac",
+    "f": 204,
+    "t": 8.5,
+    "xay": 20.92,
+    "trai": 0,
+    "quan": 0,
+    "tong": 20.92,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H1",
+    "nhom": "khac",
+    "f": 252,
+    "t": 10.5,
+    "xay": 21.09,
+    "trai": 0,
+    "quan": 0,
+    "tong": 21.09,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H2",
+    "nhom": "toan_canh",
+    "f": 12,
+    "t": 12.5,
+    "xay": 60.9,
+    "trai": 0,
+    "quan": 0,
+    "tong": 60.9,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H2",
+    "nhom": "toan_canh",
+    "f": 60,
+    "t": 14.5,
+    "xay": 60.96,
+    "trai": 0,
+    "quan": 0,
+    "tong": 60.96,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H2",
+    "nhom": "toan_canh",
+    "f": 108,
+    "t": 16.5,
+    "xay": 28.99,
+    "trai": 0,
+    "quan": 0,
+    "tong": 28.99,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H2",
+    "nhom": "toan_canh",
+    "f": 156,
+    "t": 18.5,
+    "xay": 29.02,
+    "trai": 0,
+    "quan": 0,
+    "tong": 29.02,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H2",
+    "nhom": "toan_canh",
+    "f": 204,
+    "t": 20.5,
+    "xay": 29.06,
+    "trai": 0,
+    "quan": 0,
+    "tong": 29.06,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H2",
+    "nhom": "toan_canh",
+    "f": 252,
+    "t": 22.5,
+    "xay": 29.08,
+    "trai": 0,
+    "quan": 0,
+    "tong": 29.08,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H2",
+    "nhom": "toan_canh",
+    "f": 300,
+    "t": 24.5,
+    "xay": 20.34,
+    "trai": 0,
+    "quan": 0,
+    "tong": 20.34,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H2",
+    "nhom": "toan_canh",
+    "f": 348,
+    "t": 26.5,
+    "xay": 20.34,
+    "trai": 0,
+    "quan": 0,
+    "tong": 20.34,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H2",
+    "nhom": "toan_canh",
+    "f": 396,
+    "t": 28.5,
+    "xay": 20.35,
+    "trai": 0,
+    "quan": 0,
+    "tong": 20.35,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H2",
+    "nhom": "toan_canh",
+    "f": 444,
+    "t": 30.5,
+    "xay": 20.39,
+    "trai": 0,
+    "quan": 0,
+    "tong": 20.39,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H2",
+    "nhom": "toan_canh",
+    "f": 492,
+    "t": 32.5,
+    "xay": 20.41,
+    "trai": 0,
+    "quan": 0,
+    "tong": 20.41,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H3",
+    "nhom": "khac",
+    "f": 12,
+    "t": 33.5,
+    "xay": 1.67,
+    "trai": 0,
+    "quan": 0,
+    "tong": 1.67,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H3",
+    "nhom": "khac",
+    "f": 60,
+    "t": 35.5,
+    "xay": 6.95,
+    "trai": 0,
+    "quan": 0,
+    "tong": 6.95,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H3",
+    "nhom": "khac",
+    "f": 108,
+    "t": 37.5,
+    "xay": 7.86,
+    "trai": 0,
+    "quan": 0,
+    "tong": 7.86,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H3",
+    "nhom": "khac",
+    "f": 156,
+    "t": 39.5,
+    "xay": 20.85,
+    "trai": 0,
+    "quan": 0,
+    "tong": 20.85,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H3",
+    "nhom": "khac",
+    "f": 204,
+    "t": 41.5,
+    "xay": 21.01,
+    "trai": 0,
+    "quan": 0,
+    "tong": 21.01,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "H3",
+    "nhom": "khac",
+    "f": 252,
+    "t": 43.5,
+    "xay": 21.19,
+    "trai": 0,
+    "quan": 0,
+    "tong": 21.19,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C1",
+    "nhom": "vay_ham",
+    "f": 12,
+    "t": 44.33,
+    "xay": 0.1,
+    "trai": 0,
+    "quan": 0,
+    "tong": 0.1,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C1",
+    "nhom": "vay_ham",
+    "f": 60,
+    "t": 46.33,
+    "xay": 0.1,
+    "trai": 0,
+    "quan": 0,
+    "tong": 0.1,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C1",
+    "nhom": "vay_ham",
+    "f": 108,
+    "t": 48.33,
+    "xay": 0.1,
+    "trai": 0,
+    "quan": 0,
+    "tong": 0.1,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C1",
+    "nhom": "vay_ham",
+    "f": 156,
+    "t": 50.33,
+    "xay": 0.1,
+    "trai": 0,
+    "quan": 0,
+    "tong": 0.1,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C1",
+    "nhom": "vay_ham",
+    "f": 204,
+    "t": 52.33,
+    "xay": 0.1,
+    "trai": 8.57,
+    "quan": 0,
+    "tong": 8.67,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C1",
+    "nhom": "vay_ham",
+    "f": 252,
+    "t": 54.33,
+    "xay": 0.1,
+    "trai": 8.71,
+    "quan": 0,
+    "tong": 8.81,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C1",
+    "nhom": "vay_ham",
+    "f": 300,
+    "t": 56.33,
+    "xay": 0.11,
+    "trai": 8.82,
+    "quan": 0,
+    "tong": 8.93,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C1",
+    "nhom": "vay_ham",
+    "f": 348,
+    "t": 58.33,
+    "xay": 0.11,
+    "trai": 8.93,
+    "quan": 0,
+    "tong": 9.04,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C1",
+    "nhom": "vay_ham",
+    "f": 396,
+    "t": 60.33,
+    "xay": 0.11,
+    "trai": 9.05,
+    "quan": 0.01,
+    "tong": 9.17,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C1",
+    "nhom": "vay_ham",
+    "f": 444,
+    "t": 62.33,
+    "xay": 0.12,
+    "trai": 9.15,
+    "quan": 0.01,
+    "tong": 9.29,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C1",
+    "nhom": "vay_ham",
+    "f": 492,
+    "t": 64.33,
+    "xay": 0.13,
+    "trai": 9.25,
+    "quan": 0.02,
+    "tong": 9.39,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C2",
+    "nhom": "khac",
+    "f": 12,
+    "t": 66.83,
+    "xay": 0.1,
+    "trai": 0,
+    "quan": 0,
+    "tong": 0.1,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C2",
+    "nhom": "khac",
+    "f": 60,
+    "t": 68.83,
+    "xay": 0.11,
+    "trai": 0,
+    "quan": 0,
+    "tong": 0.11,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C2",
+    "nhom": "khac",
+    "f": 108,
+    "t": 70.83,
+    "xay": 0.11,
+    "trai": 0,
+    "quan": 0,
+    "tong": 0.11,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C2",
+    "nhom": "khac",
+    "f": 156,
+    "t": 72.83,
+    "xay": 0.11,
+    "trai": 0,
+    "quan": 0,
+    "tong": 0.11,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C2",
+    "nhom": "khac",
+    "f": 204,
+    "t": 74.83,
+    "xay": 0.11,
+    "trai": 0,
+    "quan": 0,
+    "tong": 0.11,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C2",
+    "nhom": "khac",
+    "f": 252,
+    "t": 76.83,
+    "xay": 0.12,
+    "trai": 0,
+    "quan": 0,
+    "tong": 0.12,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C3",
+    "nhom": "toan_canh",
+    "f": 12,
+    "t": 78.83,
+    "xay": 21.27,
+    "trai": 0,
+    "quan": 1.07,
+    "tong": 22.33,
+    "sau_can_cau": false
+   },
+   {
+    "shot": "C3",
+    "nhom": "toan_canh",
+    "f": 60,
+    "t": 80.83,
+    "xay": 0,
+    "trai": 0,
+    "quan": 0,
+    "tong": 0,
+    "sau_can_cau": false
+   },
+   {
+    "shot": "C3",
+    "nhom": "toan_canh",
+    "f": 108,
+    "t": 82.83,
+    "xay": 37.15,
+    "trai": 0,
+    "quan": 0.14,
+    "tong": 37.28,
+    "sau_can_cau": false
+   },
+   {
+    "shot": "C3",
+    "nhom": "toan_canh",
+    "f": 156,
+    "t": 84.83,
+    "xay": 20.63,
+    "trai": 0.14,
+    "quan": 0.01,
+    "tong": 20.78,
+    "sau_can_cau": false
+   },
+   {
+    "shot": "C3",
+    "nhom": "toan_canh",
+    "f": 204,
+    "t": 86.83,
+    "xay": 14.66,
+    "trai": 0.1,
+    "quan": 0.01,
+    "tong": 14.77,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C3",
+    "nhom": "toan_canh",
+    "f": 252,
+    "t": 88.83,
+    "xay": 14.36,
+    "trai": 0.1,
+    "quan": 0.01,
+    "tong": 14.47,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C3",
+    "nhom": "toan_canh",
+    "f": 300,
+    "t": 90.83,
+    "xay": 15.54,
+    "trai": 0.13,
+    "quan": 0.01,
+    "tong": 15.68,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C4",
+    "nhom": "khac",
+    "f": 12,
+    "t": 92.96,
+    "xay": 1.66,
+    "trai": 0,
+    "quan": 0,
+    "tong": 1.66,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C4",
+    "nhom": "khac",
+    "f": 60,
+    "t": 94.96,
+    "xay": 1.65,
+    "trai": 0,
+    "quan": 0,
+    "tong": 1.65,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C4",
+    "nhom": "khac",
+    "f": 108,
+    "t": 96.96,
+    "xay": 1.69,
+    "trai": 0,
+    "quan": 0,
+    "tong": 1.69,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C4",
+    "nhom": "khac",
+    "f": 156,
+    "t": 98.96,
+    "xay": 1.69,
+    "trai": 0,
+    "quan": 0,
+    "tong": 1.69,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C4",
+    "nhom": "khac",
+    "f": 204,
+    "t": 100.96,
+    "xay": 1.75,
+    "trai": 0,
+    "quan": 0,
+    "tong": 1.75,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C4",
+    "nhom": "khac",
+    "f": 252,
+    "t": 102.96,
+    "xay": 1.75,
+    "trai": 0,
+    "quan": 0,
+    "tong": 1.75,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C4",
+    "nhom": "khac",
+    "f": 300,
+    "t": 104.96,
+    "xay": 1.78,
+    "trai": 0,
+    "quan": 0,
+    "tong": 1.78,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C5",
+    "nhom": "toan_canh",
+    "f": 12,
+    "t": 106.46,
+    "xay": 14.26,
+    "trai": 0.11,
+    "quan": 0,
+    "tong": 14.38,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C5",
+    "nhom": "toan_canh",
+    "f": 60,
+    "t": 108.46,
+    "xay": 14.29,
+    "trai": 0.1,
+    "quan": 0,
+    "tong": 14.39,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C5",
+    "nhom": "toan_canh",
+    "f": 108,
+    "t": 110.46,
+    "xay": 14.32,
+    "trai": 0.1,
+    "quan": 0,
+    "tong": 14.43,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C5",
+    "nhom": "toan_canh",
+    "f": 156,
+    "t": 112.46,
+    "xay": 14.36,
+    "trai": 0.11,
+    "quan": 0,
+    "tong": 14.47,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C5",
+    "nhom": "toan_canh",
+    "f": 204,
+    "t": 114.46,
+    "xay": 14.39,
+    "trai": 0.11,
+    "quan": 0,
+    "tong": 14.5,
+    "sau_can_cau": true
+   },
+   {
+    "shot": "C5",
+    "nhom": "toan_canh",
+    "f": 252,
+    "t": 116.46,
+    "xay": 14.46,
+    "trai": 0.1,
+    "quan": 0,
+    "tong": 14.55,
+    "sau_can_cau": true
+   }
+  ],
+  "vung_pho_trai_theo_shot": {
+   "H2": {
+    "tb": 49.5,
+    "min": 38.9,
+    "max": 83.3
+   },
+   "C1": {
+    "tb": 5.9,
+    "min": 0.2,
+    "max": 9.5
+   },
+   "C3": {
+    "tb": 25.7,
+    "min": 24.9,
+    "max": 26.8
+   },
+   "C5": {
+    "tb": 22.7,
+    "min": 22.4,
+    "max": 22.9
+   }
+  },
+  "ghi_vung": "vùng phố/trại = fabric_pct của mặt nạ nội dung (hình học nội dung + nền phố của năm đó: sân, phố, quảng trường) — gồm cả cây/tàu; số tham khảo bên cạnh số khối"
+ }
+}

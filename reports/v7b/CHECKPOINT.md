@@ -11,3 +11,7 @@
 ## Lượt 2 (≈ 12:30 UTC 19/10)
 - Lượt 1 C1-a dựng xong 12:20 (render 50 phút + ghép 4 phút). Master lượt 1 SHA `98c604b4…` (ngoài git). Tự rà chuỗi khung: (1) C1 trại chỉ hiện 7 s cuối (đường thời gian V7P), (2) C3 cận người tối dần lúc hoàng hôn, (3) viền phe quá mờ (C2 không thấy) → sửa cả ba.
 - Đang dựng lượt 2: C1-a toàn bản rồi C1-b (chỉ C1 dựng lại cảnh 3D).
+
+## CUỐI (≈ 15:20 UTC 19/10) — DỪNG chờ chủ dự án
+- Lượt 3–5: C1 bỏ nhịp đêm; H3 bước năm (§10.3); C1-b dựng; lượt 5 C3 cận về lâu đài + C4 gần Old Mole (biến thể a).
+- Báo cáo `reports/v7b/V7B-BAO-CAO.md`. Xem câm bản cuối: P đọc 14/24 (TRƯỢT 18). Ngoài git: master/540p ở `/var/tmp/cine-out/k2c-t3-v7b-{a,b}/` (SHA §10).
