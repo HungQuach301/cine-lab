@@ -38,6 +38,7 @@ for s in ('1.00', '1.03', '1.06'):
 keo = f'{L.OUT}/moc-1.00-keo-1.03.wav'
 ff('-i', IDX['moc-1.00']['tep'], '-af', 'aformat=channel_layouts=mono,rubberband=tempo=1.03:pitch=1:transients=smooth:detector=soft:phase=laminar:window=standard:smoothing=on:formant=preserved:pitchq=quality:channels=together', '-c:a', 'pcm_f32le', keo)
 tom['toc-do/G1-moc-speed-1.00-A-keo-x1.03.mp3'] = xuat(keo, f'{G.H}/toc-do/G1-moc-speed-1.00-A-keo-x1.03.mp3')
+tom['phat-am/G1-bang-41-muc.mp3'] = xuat(IDX['bang']['tep'], f'{G.H}/phat-am/G1-bang-41-muc.mp3')   # để tai người: Cádiz, La Línea, isthmus…
 KM = f'{G.H}/khoa-model.json'
 if os.path.exists(KM): ab = [json.load(open(KM))['G'][x]['ban'] for x in 'XY']   # giữ gán X/Y đã sinh
 else: ab = ['pin-v2', 'pin-v4']; j = secrets.randbelow(2); ab = ab if j == 0 else ab[::-1]

@@ -474,6 +474,141 @@
      }
     }
    }
+  },
+  "mocb-1.00": {
+   "model": "eleven_multilingual_v2",
+   "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "speed": 1.0
+   },
+   "giay_tep": 27.85,
+   "giay_loi": 27.4,
+   "tu_viet": 60,
+   "tu_giay": 2.19,
+   "f0": {
+    "trung_vi": 91.7,
+    "p10": 57.8,
+    "p90": 118.9
+   },
+   "nghe": {
+    "medium.en": {
+     "asr": "midnight at the Gibraltar frontier. To walk in from Spain you cross an airport runway. Since July 2026 this gate has had no routine checks. The rock sits at the western gate of the Mediterranean. Historians on both sides count 14 sieges of it, between 1309 and 1783. This is why everyone fought over it, told from both sides records.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1309": 1.0,
+      "1783": 1.0,
+      "2026": 1.0
+     }
+    },
+    "small.en": {
+     "asr": "Midnight at the Gibraltar frontier. To walk in from Spain you cross an airport runway. Since July 2026, this gate has had no routine checks. The rock sits at the western gate of the Mediterranean. Historians on both sides count 14 sieges of it. Between 1309 and 1783. This is why everyone fought over it, told from both sides' records.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1309": 1.0,
+      "1783": 1.0,
+      "2026": 1.0
+     }
+    }
+   }
+  },
+  "mocb-1.03": {
+   "model": "eleven_multilingual_v2",
+   "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "speed": 1.03
+   },
+   "giay_tep": 27.59,
+   "giay_loi": 27.16,
+   "tu_viet": 60,
+   "tu_giay": 2.209,
+   "f0": {
+    "trung_vi": 82.2,
+    "p10": 59.1,
+    "p90": 105.9
+   },
+   "nghe": {
+    "medium.en": {
+     "asr": "Midnight at the Gibraltar frontier. To walk in from Spain you cross an airport runway. Since July 2026 this gate has had no routine checks. The rock sits at the western gate of the Mediterranean. Historians on both sides count 14 sieges of it, between 1309 and 1783. This is why everyone fought over it, told from both sides' records.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1309": 1.0,
+      "1783": 1.0,
+      "2026": 1.0
+     }
+    },
+    "small.en": {
+     "asr": "Midnight at the Gibraltar frontier. To walk in from Spain, you cross an airport runway. Since July, 2026, this gate has had no routine checks. The rock sits at the western gate of the Mediterranean. Historians on both sides count 14 sieges of it, between 1309 and 1783. This is why everyone fought over it, told from both sides' records.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1309": 1.0,
+      "1783": 1.0,
+      "2026": 1.0
+     }
+    }
+   }
+  },
+  "mocb-1.06": {
+   "model": "eleven_multilingual_v2",
+   "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "speed": 1.06
+   },
+   "giay_tep": 27.06,
+   "giay_loi": 26.74,
+   "tu_viet": 60,
+   "tu_giay": 2.244,
+   "f0": {
+    "trung_vi": 80.8,
+    "p10": 58.8,
+    "p90": 110.3
+   },
+   "nghe": {
+    "medium.en": {
+     "asr": "midnight at the Gibraltar frontier. To walk in from Spain you cross an airport runway. Since July 2026 this gate has had no routine checks. The rock sits at the western gate of the Mediterranean. Historians on both sides count 14 sieges of it, between 1309 and 1783. This is why everyone fought over it, told from both sides records.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1309": 1.0,
+      "1783": 1.0,
+      "2026": 1.0
+     }
+    },
+    "small.en": {
+     "asr": "midnight at the Gibraltar frontier. To walk in from Spain, you cross an airport runway. Since July 2026, this gate has had no routine checks. The rock sits at the western gate of the Mediterranean. Historians on both sides count 14 sieges of it, between 1309 and 1783. This is why everyone fought over it, told from both sides' records.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_thieu": [],
+     "ten_thieu": [],
+     "muc_sai": [],
+     "diem": {
+      "1309": 1.0,
+      "1783": 1.0,
+      "2026": 1.0
+     }
+    }
+   }
   }
  },
  "phat_am_47": {
