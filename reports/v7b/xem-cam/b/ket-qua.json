@@ -1,0 +1,155 @@
+{
+ "may": "claude-sonnet-5-5 (claude -p, chỉ Read)",
+ "thang": "0/1/2 mỗi câu × 3 người = tối đa 6",
+ "theo_cau": {
+  "Q1": 0,
+  "Q2": 5,
+  "Q3": 6,
+  "Q4": 6
+ },
+ "tong": 17,
+ "toi_da": 24,
+ "clarity_tb": 2.0,
+ "nguoi": {
+  "R1": {
+   "diem": {
+    "Q1": 0,
+    "Q2": 1,
+    "Q3": 2,
+    "Q4": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "Not sure. Nothing on screen names or shows who holds the Rock. No flags, banners or faction labels are readable. Soldiers and ships are tiny and have no identifying marks.",
+    "Q2": "A 'Great Siege' in 1779. A caption at frame 23 reads '1779 — The Great Siege' with the date 21 Jun 1779. After that, the camera looks at the Rock from across the land and the sea while dates tick forward.",
+    "Q3": "Not sure. The pictures never show hunger directly. The most I can infer is that the Rock is cut off, with ships ringing the bay and a long date count (1779 to 1781). I see no food, shortage or starving people.",
+    "Q4": "Not sure. Small groups of ships appear in the bay in 1779 and 1780 (frames 34, 48), and a group of ships sits offshore in April 1781. I can't tell whether they are relief ships or enemy ships. Nothing shows a rescue."
+   },
+   "lac": [
+    {
+     "frame": 1,
+     "why": "The video opens on a modern night skyline with timestamps in 2026, with no explanation."
+    },
+    {
+     "frame": 8,
+     "why": "Fires and smoke appear under bare years (1316, 1411, 1704), with no story or context."
+    },
+    {
+     "frame": 12,
+     "why": "A bombardment scene dated Sep 1782 comes before the 1779 start, so the order is confusing."
+    },
+    {
+     "frame": 17,
+     "why": "Jumps to 1939–1943 and 2026 with no explanation of how it relates to the siege."
+    },
+    {
+     "frame": 22,
+     "why": "A flat empty landscape with a distant rock and only dates changing, so no story is visible."
+    },
+    {
+     "frame": 34,
+     "why": "Ships appear and then vanish, with no way to tell friend from enemy."
+    },
+    {
+     "frame": 40,
+     "why": "Tiny people on a field, 14 Jan 1780, with no context for who they are or what they are doing."
+    },
+    {
+     "frame": 55,
+     "why": "Rows of red ships and a burning town in April 1781, with no explanation of who is attacking or defending."
+    }
+   ]
+  },
+  "R2": {
+   "diem": {
+    "Q1": 0,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "Not sure. No flags, uniforms or captions identify who holds the town. The pictures only show a walled town on the rock, a fleet of ships (some with red-tinted hulls) blockading it from the bay, and the town being bombarded.",
+    "Q2": "A caption in frame 23 reads '1779 — The Great Siege'. The pictures show a siege that starts then: ships gather around the rock, and the land side is watched from the open plain.",
+    "Q3": "Not sure. The pictures suggest the town is cut off, because ships surround the bay for many months in 1779-1781 and there is a long gap between dates. I see no food, empty markets or people starving. Frames 40-41 show small figures on grassland, but I can't tell why they are there.",
+    "Q4": "Not sure. Frames 48-52 (Jan-Oct 1780) show groups of ships arriving in the bay, which could be a relief fleet, but nothing in the pictures confirms that. Frames 53-59 (Apr 1781) show a line of ships firing on and burning the town, so these look like attackers rather than rescuers."
+   },
+   "lac": [
+    {
+     "frame": 1,
+     "why": "The video opens with a modern night view and 2026 clips, and then jumps back to 1316, 1411 and 1704 with no explanation."
+    },
+    {
+     "frame": 12,
+     "why": "The scene jumps to a 1782 bombardment and then to 1939-1943 and 2026 (frames 17-21) with no link to the 1779 story."
+    },
+    {
+     "frame": 22,
+     "why": "The 1779 story starts on an empty plain with no people or flags, so I can't tell who is who."
+    },
+    {
+     "frame": 31,
+     "why": "The sandy close-up has no context, and the dates jump around (Sep 1779, then Jul 1779 in frame 34)."
+    },
+    {
+     "frame": 40,
+     "why": "Tiny figures on grass in Jan 1780 have no explanation, so I can't tell who they are or what they are doing."
+    },
+    {
+     "frame": 48,
+     "why": "Many ships arrive, but I can't tell whether they are friend or foe, or whether they bring help."
+    },
+    {
+     "frame": 58,
+     "why": "A night scene with fires and no clear cause or outcome. The video ends without any resolution."
+    }
+   ]
+  },
+  "R3": {
+   "diem": {
+    "Q1": 0,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "Not sure. The pictures never show a flag, uniform or caption that names the holder. People are seen on the land near the town, and red-hulled ships sit offshore. There is no visible sign of who is inside or outside the walls.",
+    "Q2": "A \"1779 — The Great Siege\" caption appears at frame 23 (21 Jun 1779). It is followed by a quiet landscape with the rock in the distance, then ships gathering around the rock. So the siege, a blockade or attack on the rock, begins in 1779.",
+    "Q3": "Not sure. The pictures suggest the town is cut off by sea and land: ships surround the bay and the land approach is empty or blocked. But frames 40-41 show only tiny figures on the grass, and no food shortage, empty stores or starving people are shown.",
+    "Q4": "Ships appear to come to the town. Small ship groups sail into the bay in Jan 1780 (frames 47-48) and Feb 1780 (frame 49), possibly a relief fleet. Frames 53-58 show a line of red ships bombarding the town in Apr 1781. The pictures do not clearly show a rescuer, so I am only partly sure."
+   },
+   "lac": [
+    {
+     "frame": 1,
+     "why": "Opens with a modern night view and 2026 dates, then jumps through 1316, 1411, 1704 and 1782 with no explanation of why."
+    },
+    {
+     "frame": 17,
+     "why": "Jumps to 1939-1943 and 2026 with no link to the story."
+    },
+    {
+     "frame": 22,
+     "why": "Abrupt jump to 1779 with an empty landscape and no actors."
+    },
+    {
+     "frame": 30,
+     "why": "Dates go backwards (12 Sep after 29 Aug is fine, but the frames are static) and nothing happens for many frames."
+    },
+    {
+     "frame": 40,
+     "why": "Tiny people on a field with no clear meaning; I cannot tell who they are or what they are doing."
+    },
+    {
+     "frame": 47,
+     "why": "Ships arrive but I cannot tell whose they are or whether they help or attack."
+    },
+    {
+     "frame": 58,
+     "why": "Night fire and ships; it is unclear who is firing on whom."
+    }
+   ]
+  }
+ },
+ "chi_phi_usd": 0.4422
+}

@@ -30,7 +30,7 @@ CAMS = {
     'A2': dict(p0=[-1200, 215, 3560], l0=[-1300, 0, 2900], p1=[-1196, 214, 3530], fov=44),   # trên đất ≈ 45 m → AGL ≈ 170 m, nhìn xuống ≈ 18°, giữa dãy E5 và E6/E7                # MỚI (D3-a): 150 m trên đất, sát dãy trại E5–E7, nhìn nam dọc dãy trại tới Rock
     'A': dict(p0=DM['A']['bien_the']['a']['p0'], l0=DM['A']['bien_the']['a']['l0'], p1=DM['A']['bien_the']['a']['p1'], fov=44),   # V7P A (D3-b: + Faden phủ)
     'E': dict(p0=DM['E']['bien_the']['a']['p0'], l0=DM['E']['bien_the']['a']['l0'], p1=DM['E']['bien_the']['a']['p1'], fov=30),
-    'Bb': dict(p0=DM['B']['bien_the']['b']['p0'], l0=DM['B']['bien_the']['b']['l0'], p1=DM['B']['bien_the']['b']['p1'], fov=40),
+    'Bb': dict(p0=[-930, 175, -230], l0=[-900, 0, -1050], p1=[-924, 174, -236], fov=52),   # lượt 5: gần Old Mole (≈ 450 m) — thuyền chở hàng từ đoàn tiếp viện vào bến
     'Cc': dict(p0=[-150, 330, -1950], l0=[-560, 0, -1300], p1=[-158, 329, -1940], fov=52),                # MỚI: trên South Bastion/Charles V nhìn dọc phố về bắc (phố chiếm khung)
     'Ca': dict(p0=[-170, 300, -1700], l0=[-760, 0, -920], fov=50),
 }
@@ -103,14 +103,14 @@ def shots():
     o = dict(V7P.shots()[4]['opt']); fl = [dict(f) for f in o['fleets']]; fl[0].update(phe='es', soai=0); fl[1].update(phe='es', soai=0); o['fleets'] = fl
     S.append(dict(id='C2', lines=['2c'], diem='E', vai='co-che', noi='bien', opt=o, ghi='như V7P + cờ hải quân TBN trên hải đội (soái hạm Barceló: cờ đỉnh cột) + viền vàng; thuyền châu Phi không cờ (chưa có nguồn cờ)'))
     # C3 · Ca (cần cẩu từ cận người) · 2d + 2e — ĐÓI CÓ HÌNH: người hái rau dại cúi trên sườn (S052) → lên cao: phố, Line Wall cờ Anh, hải đội phong toả cờ TBN
-    o = dict(V7P.shots()[5]['opt']); o.update(co=co_line_wall() + co_lau_dai(), treeBox=[-200, -1500, 0, -1250]); fl = [dict(f) for f in o['fleets']]; fl[0].update(phe='es', soai=0); o['fleets'] = fl
-    import random as _r; _g = _r.Random(1780); FOR = [(-150 + 80 * _g.random(), -1380 + 90 * _g.random(), _g.random() * 360) for _ in range(34)]   # 34 cặp người rải trên sườn trên phố (tất định)
+    o = dict(V7P.shots()[5]['opt']); o.update(co=co_line_wall() + co_lau_dai(), treeBox=[-200, -1160, 0, -880]); fl = [dict(f) for f in o['fleets']]; fl[0].update(phe='es', soai=0); o['fleets'] = fl
+    import random as _r; _g = _r.Random(1780); FOR = [(-125 + 70 * _g.random(), -1070 + 100 * _g.random(), _g.random() * 360) for _ in range(34)]   # lượt 5: rải giữa máy cận và lâu đài   # 34 cặp người rải trên sườn trên phố (tất định)
     o['units'] = o['units'] + [dict(at=[e, n], heading=hd, rows=1, cols=2, sx=2.4, side=None, uni='woman' if i % 2 else 'civ', kind='woman' if i % 2 else 'civ', crew=True, lean=0.45, leanFrac=0.8, day=[1779, 1784], seed=500 + i, rim=False)
-                               for i, (e, n, hd) in enumerate(FOR)]   # ≈ 68 người hái rau dại, phần lớn cúi (S052 bậc 2; vị trí/số người minh hoạ); nửa nữ (dân thường)
+                               for i, (e, n, hd) in enumerate(FOR)] + [dict(at=[-112, -905], heading=180, rows=2, cols=8, side='gb', day=[1779, 1784], seed=611, rim=False)]   # toán lính gác dưới lâu đài (áo đỏ — vị trí minh hoạ)   # ≈ 68 người hái rau dại, phần lớn cúi (S052 bậc 2; vị trí/số người minh hoạ); nửa nữ (dân thường)
     o['time'] = [dict(t=0, at='1780-01-14 10:00', sun='real', lab='d'), dict(t=3.9, at='1780-01-14 12:00', sun='real', lab='d'), dict(t=7.6, at='1780-01-14 15:00', sun='real', lab='d'),
                  dict(t=8.4, at='1780-01-14 15:30', sun=15.0, lab='d'), dict(t=14.125, at='1780-01-16 15:30', sun=15.0, lab='d')]   # V7B: cận người ban ngày (V7P: tối dần lúc hoàng hôn)
     d3 = dur_of(['2d', '2e'])
-    C3cam = [dict(t=0, p=[-70, 140, -1395], l=[-124, 99, -1336], fov=24), dict(t=3.9, p=[-72, 141, -1393], l=[-124, 99, -1336], fov=24),   # cận người hái rau (≈ 30 m; lướt thấp ≈ 4 s)
+    C3cam = [dict(t=0, p=[-60, 142, -1112], l=[-122, 100, -860], fov=30), dict(t=3.9, p=[-62, 143, -1110], l=[-122, 100, -860], fov=30),   # lượt 5: cận người hái rau, nền là lâu đài + cờ Union (≈ 290 m)   # cận người hái rau (≈ 30 m; lướt thấp ≈ 4 s)
              dict(t=7.6, p=[-170, 300, -1700], l=[-760, 0, -920], fov=50), dict(t=d3, p=[-185, 298, -1690], l=[-760, 0, -920], fov=50)]   # cần cẩu lên điểm C (Ca)
     S.append(dict(id='C3', lines=['2d', '2e'], diem='Ca', vai='co-che', noi='thanh_pho', opt=o, cam=C3cam, luot_thap=[0, 3.9],
                   ghi='cận ≈ 30 m người hái rau dại cúi trên sườn (S052 bậc 2; vị trí/số người minh hoạ) 0–3,9 s (lướt thấp, vai khoảnh khắc người) → cần cẩu 3,9–7,6 s → điểm C'))
@@ -119,7 +119,10 @@ def shots():
     fl[0].update(phe='gb'); fl[1].update(phe='gb', soai=4); fl[2].update(phe='gb', co=False); fl[3].update(phe='es', soai=0)   # tàu Đan Mạch: không cờ (chỉ viền — trung lập chưa có màu: dùng 'gb' vì cập cảng Anh? KHÔNG — xem dưới)
     fl[2].pop('phe')   # tàu Đan Mạch trung lập: không cờ, không viền (chưa có nguồn mẫu cờ thương thuyền Đan Mạch 1780 trong phiên)
     o['fleets'] = fl; o['co'] = co_line_wall()
-    o['casks'] = dict(at=OM, wY=dict(on=dy('1780-01-20 12:00'), full=dy('1780-01-30 12:00')), n=180)   # thùng hàng tiếp tế trên Old Mole (S054: đoàn mang lương thực; số/vị trí minh hoạ bậc 5)
+    o['casks'] = dict(at=OM, wY=dict(on=dy('1780-01-20 12:00'), full=dy('1780-01-30 12:00')), n=360)
+    o['lives'] = o['lives'] + [dict(era=1782, wY=dict(on=dy('1780-01-19 18:00'), off0=dy('1780-02-13 12:00')), boats=[dict(pts=[[-1450 + 40 * k, -1200 - 30 * k], [-1000, -900], [-620, -660]], len=11, speed=4.0, s0=0.2 * k) for k in range(5)])]   # lượt 5: thuyền chở hàng từ đoàn Rodney vào Old Mole (minh hoạ)
+    o['units'] = [dict(at=[OM[0] + dx, OM[1] + dn], heading=hd, rows=2, cols=6, sx=1.6, side=None, uni='civ', kind='civ', crew=True, day=[dy('1780-01-20 00:00'), dy('1780-02-15 00:00')], seed=700 + i, rim=False)
+                  for i, (dx, dn, hd) in enumerate([(-10, 12, 180), (14, 10, 200), (-20, -12, 90), (24, -8, 270), (0, 22, 160)])] + [dict(at=[OM[0] + 30, OM[1] + 30], heading=200, rows=3, cols=10, side='gb', day=[dy('1780-01-20 00:00'), dy('1780-02-15 00:00')], seed=720, rim=False)]   # người bốc hàng + lính áo đỏ ở bến   # thùng hàng tiếp tế trên Old Mole (S054: đoàn mang lương thực; số/vị trí minh hoạ bậc 5)
     S.append(dict(id='C4', lines=['SM2', '2f'], diem='Bb', vai='co-che', noi='bien', opt=o, ghi='đoàn Rodney cờ Red Ensign + viền đỏ; hải đội TBN cờ trắng + viền vàng; thùng hàng ở Old Mole (minh hoạ); cờ Union trên Line Wall'))
     # C5 · Cc · 2g — 12/4/1781: đoàn Darby (Red Ensign) thả neo 10:45, pháo TBN bắn vào phố, dân chạy nam, cháy đêm 13→14/4
     o = dict(V7P.shots()[7]['opt']); fl = [dict(f) for f in o['fleets']]; fl[0].update(phe='gb'); fl[1].update(phe='gb', soai=3); o['fleets'] = fl; o['co'] = co_line_wall() + co_lau_dai()
