@@ -47,6 +47,7 @@ const rss = (pid) => { try { const o = execSync('ps -e -o pid=,ppid=,rss=').toSt
   const OV = JSON.parse(arg('override', '[]'));   // [{year, cam:{p,l,fov}, spp, noText}] theo thứ tự --only
   const MEAS = +arg('measure', 24), log = { renderer: info.renderer, gl: GL, info, cfg, frames: [] }, t0 = Date.now(), mem = [];
   for (const f of frames) {
+    if (arg('classmask')) { log.frames.push(Object.assign({ f }, await page.evaluate((f) => window.classMask(f), f))); continue; }   // V7B: tỉ lệ khối xây dựng/trại/quân (page.js classMask)
     if (arg('maskonly')) { const r = Object.assign({ f }, await page.evaluate(async ([f, ov, png]) => window.contentMask(f, ov, png), [f, OV[frames.indexOf(f)] || OV[0] || null, !!arg('maskpng')]));
       if (r.png_b64) { fs.mkdirSync(arg('maskpng'), { recursive: true }); fs.writeFileSync(path.join(arg('maskpng'), String(f).padStart(5, '0') + '.png'), Buffer.from(r.png_b64, 'base64')); }   // V5b-2a: --maskpng <thư mục>
       delete r.png_b64; log.frames.push(r); continue; }   // V5b-1b: đo mặt nạ nội dung ở LƯỢT RIÊNG (xen với dựng hình làm hỏng trạng thái bóng/terrain — lỗi phát hiện 16/10)
@@ -56,6 +57,7 @@ const rss = (pid) => { try { const o = execSync('ps -e -o pid=,ppid=,rss=').toSt
     if ((frames.indexOf(f)) % 24 === 0) { const m = rssAll(); mem.push(m); console.error(`[tl ${GL}] ${f} ${((Date.now() - t0) / 1000 / (frames.indexOf(f) + 1)).toFixed(2)} s/khung · gl ${r.gl_ms} ms · spp ${r.spp} · chữ ${r.budget.pct}% · rss ${m} MB`); }
     if (OUT && frames.indexOf(f) % 48 === 0) fs.writeFileSync(path.join(OUT, 'log.json'), JSON.stringify(log));
   }
+  if (arg('classmask')) { fs.writeFileSync(arg('classmask'), JSON.stringify(tagRows(log.frames))); console.log(JSON.stringify(log.frames.map((r) => [r.f, r.xay, r.trai, r.quan, r.tong]))); await browser.close(); return; }
   if (arg('maskonly')) { fs.writeFileSync(arg('maskonly'), JSON.stringify(tagRows(log.frames))); console.log(JSON.stringify(log.frames.map((r) => [r.f, r.content_pct, r.content_center_pct, r.fabric_pct, r.hero_pct]))); await browser.close(); return; }
   log.s_per_frame = +((Date.now() - t0) / 1000 / frames.length).toFixed(3); log.rss_mb_max = Math.max(...mem.filter(Boolean), 0); log.wall_s = (Date.now() - t0) / 1000;
   if (OUT) fs.writeFileSync(path.join(OUT, 'log.json'), JSON.stringify(log));

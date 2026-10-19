@@ -180,9 +180,9 @@ export function makeSet(kit, ctx, { kind = 'civ', n, lodPx = 22 } = {}) {
     setGait(i, g, f) { st[i].v[1] = g; if (f) st[i].v[2] = f; },
     // đặt người i: vị trí ENU [e, y, n], hướng (rad, từ Đông ngược chiều kim đồng hồ), hiện/ẩn, cỡ — gọi begin() trước, end() sau
     begin() { used = [0, 0]; },
-    put(i, e, y, n_, hd, show = true, k = 1) { if (!show) return; const cam = ctx.cam, d = cam ? Math.hypot(e - cam.position.x, y - cam.position.y, -n_ - cam.position.z) : 0;
+    put(i, e, y, n_, hd, show = true, k = 1, lean = 0) {   /* V7B: lean (rad) = cúi về phía trước quanh trục phải (người hái rau dại, S052) */ if (!show) return; const cam = ctx.cam, d = cam ? Math.hypot(e - cam.position.x, y - cam.position.y, -n_ - cam.position.z) : 0;
       const px = cam ? 1.75 * k * (ctx.H || 1080) / (2 * Math.tan(cam.fov * Math.PI / 360) * Math.max(d, 1)) : 99, l = px < lodPx ? 1 : 0, M = meshes[l], j = used[l]++;
-      v.set(e, y, -n_); q.setFromAxisAngle(Y, hd); sc.set(k, k * (0.96 + 0.08 * ((i * 0.618) % 1)), k); m4.compose(v, q, sc); M.setMatrixAt(j, m4);
+      v.set(e, y, -n_); q.setFromAxisAngle(Y, hd); if (lean) q.multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), -lean)); sc.set(k, k * (0.96 + 0.08 * ((i * 0.618) % 1)) * (lean ? 0.9 : 1), k); m4.compose(v, q, sc); M.setMatrixAt(j, m4);
       const s = st[i], g = M.geometry.attributes; g.aV.setXYZW(j, ...s.v); g.aC0.setXYZ(j, ...s.c0); g.aC1.setXYZ(j, ...s.c1); g.aC2.setXYZ(j, ...s.c2); g.aC3.setXYZ(j, ...s.c3); g.aSk.setXYZ(j, ...s.sk);
       return px; },
     end() { for (let l = 0; l < 2; l++) { const M = meshes[l]; M.count = used[l]; M.instanceMatrix.needsUpdate = true; for (const k of ['aV', 'aC0', 'aC1', 'aC2', 'aC3', 'aSk']) M.geometry.attributes[k].needsUpdate = true; } return used[0] + used[1]; },

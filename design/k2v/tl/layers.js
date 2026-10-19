@@ -292,7 +292,7 @@ function unitsV6(specs, ctx) {
     if (sp.face != null) face = (90 - sp.face) * Math.PI / 180;
     const rows = sp.rows || 3, cols = sp.cols || 24, R = rng(sp.seed || 7), small = rows * cols <= 4 || sp.crew, uni = uniOf(sp), kind = sp.kind || (small ? 'civ' : 'order'), key = kind + '|' + uni;
     const G = groups[key] || (groups[key] = { kind, uni, n: 0, items: [] }); const acc = Math.floor(R() * 5);
-    const add = (x, z, fc, k, extra = {}) => { const it = { sp, E, N, hd, x, z, face: fc, bface: face, k, idx: G.n++, R: rng((sp.seed || 7) * 131 + G.n), acc, gait: 0, ...extra }; G.items.push(it); slots.push(it); };
+    const add = (x, z, fc, k, extra = {}) => { const it = { sp, E, N, hd, x, z, face: fc, bface: face, k, idx: G.n++, R: rng((sp.seed || 7) * 131 + G.n), acc, gait: 0, lean: sp.lean && R() < (sp.leanFrac ?? 0.7) ? sp.lean * (0.6 + 0.8 * R()) : 0, ...extra };   /* V7B: sp.lean = người cúi (hái rau dại) */ G.items.push(it); slots.push(it); };
     for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) add((c - (cols - 1) / 2) * 0.9 * (sp.sx || 1) + (R() - 0.5) * 0.3 * (sp.sx || 1), (r - (rows - 1) / 2) * 1.3 * (sp.sz || 1) + (R() - 0.5) * 0.25 * (sp.sz || 1), face + (R() - 0.5) * (small ? 1.6 : 0.16), 0.95 + 0.1 * R());
     if (!small && rows >= 3 && cols >= 3) { const key2 = 'civ|' + uni, G2 = groups[key2] || (groups[key2] = { kind: 'civ', uni, n: 0, items: [] });   // sĩ quan trước khối
       const fz = (rows - 1) / 2 * 1.3 + 3.2, it = { sp, E, N, hd, x: (R() - 0.5) * cols * 0.4, z: 0, face: face + Math.PI, bface: face, k: 1.02, idx: G2.n++, R: rng((sp.seed || 7) * 977), acc, gait: 0, front: fz }; G2.items.push(it); slots.push(it); }
@@ -314,7 +314,7 @@ function unitsV6(specs, ctx) {
         let mv = 0, back = false; if (s.sp.march) { const L = s.sp.march.dist, v = s.sp.march.speed || 1.1, ph = ((t * v + (s.sp.march.phase || 0) * L) % (2 * L) + 2 * L) % (2 * L); back = ph > L; mv = back ? 2 * L - ph : ph; }
         const e = E + lx * s.x + fx * (dz + mv), n = N + ly * s.x + fy * (dz + mv);
         if (s.sp.march) s.S.setGait(s.idx, 1, (s.sp.march.speed || 1.1) / 1.45);
-        if (g > 0) { s.S.put(s.idx, e, s.sp.y != null ? s.sp.y : Math.max(ctx.terr.hAt(e, n), 0.4) - 0.03, n, s.face + (back ? Math.PI : 0), true, s.k * Math.min(1, g * 2)); shown++; }
+        if (g > 0) { s.S.put(s.idx, e, s.sp.y != null ? s.sp.y : Math.max(ctx.terr.hAt(e, n), 0.4) - 0.03, n, s.face + (back ? Math.PI : 0), true, s.k * Math.min(1, g * 2), s.lean || 0); shown++; }
       }
       for (const S of sets) S.end();
       stat = { don_vi: specs.length, nguoi: slots.length, an_vi_khoi: hidUnits.size, hien: shown, v6: true, lod: sets.map((S) => S.stat()) }; return stat; } };

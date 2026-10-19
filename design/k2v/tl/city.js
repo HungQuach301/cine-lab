@@ -49,7 +49,7 @@ export function styleOf(y, gy, h, reg, ar, R, pd) {
   return { sty, rf, gh };
 }
 
-export function makeCity(B, U, { lod = true, hid = 0, ghostDesat = 0.22 } = {}) {   // V5b-2b: hid > 0 = id hero của cả lớp (kênh B mặt nạ, hero_pct)
+export function makeCity(B, U, { lod = true, hid = 0, ghostDesat = 0.22, near = 1400, winFar = 1500 } = {}) {   // V7B: near (m, ô LOD0 có cửa sổ) + winFar (m, chi tiết cửa sổ tắt dần) chỉnh được theo cảnh   // V5b-2b: hid > 0 = id hero của cả lớp (kênh B mặt nạ, hero_pct)
   const tiles = new Map(); const R = rng(17); const stats = { sty: [0, 0, 0, 0, 0, 0, 0], roof: {} , balc: 0 };
   const tri = (r) => THREE.ShapeUtils.triangulateShape(r.map(([x, y]) => new THREE.Vector2(x, y)), []);
   const add = (key) => { if (!tiles.has(key)) tiles.set(key, { L: [{ a: [] }, { a: [] }], c: null, n: 0 }); return tiles.get(key); };
@@ -57,19 +57,21 @@ export function makeCity(B, U, { lod = true, hid = 0, ghostDesat = 0.22 } = {}) 
   const B2 = []; let nSplit = 0;
   for (const b of B) { const ar = Math.abs(signedArea(b[6]));
     if (b[5] === 1 && ar > 320 && b[6].length >= 3) { const ps = parcels(b[6], R); nSplit++;
-      for (const p of ps) { const old = b[1] > 0, dh = old ? (Math.floor(R() * 3) - 1) * 3.0 : 0; B2.push([b[0], b[1], Math.max(4, b[2] + dh), b[3], b[4], b[5], p, b[7]]); } }
+      for (const p of ps) { const old = b[1] > 0, dh = old ? (Math.floor(R() * 3) - 1) * 3.0 : 0; B2.push([b[0], b[1], Math.max(4, b[2] + dh), b[3], b[4], b[5], p, b[7], b[8]]); } }   // V7B: giữ phần tử 8 (màu có nguồn)
     else B2.push(b); }
   stats.split = nSplit; stats.parcels = B2.length;
   for (const b of B2) {
     const [y, gy, h, base, rf0, reg, ring, pd] = b; if (ring.length < 3) continue;
     let cx = 0, cn = 0; for (const p of ring) { cx += p[0]; cn += p[1]; } cx /= ring.length; cn /= ring.length;
     const T = add(Math.floor(cx / TILE) + ',' + Math.floor(cn / TILE)); T.n++;
-    const ar = Math.abs(signedArea(ring)), S = styleOf(y, gy, h, reg, ar, R, pd);
-    let rfK = S.rf; if (rf0 && (rfK === 'flat' || rfK === 'parapet') && ar < 250) rfK = 'hipr';   // dữ liệu gói cảnh: nhà thấp cũ → mái dốc
-    const P = PAL[S.sty]; let wc = P[Math.floor(R() * P.length)].map((v) => v * (0.93 + 0.1 * R()));
+    const ar = Math.abs(signedArea(ring)), S = styleOf(y, gy, h, reg, ar, R, pd), MC = b[8];   // V7B: MC = {w, r, s, ngoi} — màu tường/mái + kiểu theo nguồn (scripts/k2tl/v7b_mau_nha.py)
+    if (MC && MC.s != null) S.sty = MC.s;
+    let rfK = S.rf; if (MC) { if (MC.ngoi && !(rfK === 'gable' || rfK === 'hipr' || rfK === 'pyr') && ar < 700 && h <= 16) rfK = R() < 0.6 ? 'hipr' : 'gable'; if (!MC.ngoi && (rfK === 'gable' || rfK === 'hipr' || rfK === 'pyr')) rfK = R() < 0.5 ? 'parapet' : 'terrace'; } if (rf0 && (rfK === 'flat' || rfK === 'parapet') && ar < 250) rfK = 'hipr';   // dữ liệu gói cảnh: nhà thấp cũ → mái dốc
+    const P = PAL[S.sty]; let wc = P[Math.floor(R() * P.length)].map((v) => v * (0.93 + 0.1 * R())); if (MC && MC.w) wc = MC.w.map((v) => Math.min(1, v * (0.96 + 0.06 * R())));
     if (S.uoc) wc = [wc[0] * 0.95 + 0.03, wc[1] * 0.97 + 0.03, wc[2] * 1.0 + 0.04].map((v) => Math.min(1, v));   // lấp ước tính: vữa ngả xám-lam nhẹ (khác tông, không trong suốt)
     const pitchedK = rfK === 'gable' || rfK === 'hipr' || rfK === 'pyr';
-    const rc = (pitchedK ? (pd === 0 || pd === 3 ? TILE_1782 : TILE_C)[Math.floor(R() * (pd === 0 || pd === 3 ? TILE_1782.length : 4))] : FLAT_C[Math.floor(R() * 4)]).map((v) => v * (0.9 + 0.15 * R()));
+    let rc = (pitchedK ? (pd === 0 || pd === 3 ? TILE_1782 : TILE_C)[Math.floor(R() * (pd === 0 || pd === 3 ? TILE_1782.length : 4))] : FLAT_C[Math.floor(R() * 4)]).map((v) => v * (0.9 + 0.15 * R()));
+    if (MC && MC.r) rc = MC.r.map((v) => Math.min(1, v * (0.95 + 0.08 * R())));
     const dur = reg === 1 ? 1.5 : 4.0, seed = R();
     stats.sty[S.sty]++;
     for (let l = 0; l < 2; l++) {
@@ -93,7 +95,7 @@ export function makeCity(B, U, { lod = true, hid = 0, ghostDesat = 0.22 } = {}) 
   const mkMat = (lodLevel, depth) => {
     const m = depth ? new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking }) : U.lambert ? new THREE.MeshLambertMaterial({ vertexColors: true }) : new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.88, metalness: 0 }); m.userData.v6n = true;   /* V6: có lượt pháp tuyến (uMask 2) */
     if (!depth && lodLevel === 0) m.side = THREE.DoubleSide;
-    m.customProgramCacheKey = () => 'tl-city-' + lodLevel + (depth ? '-d' : '') + '-h' + hid + '-g' + ghostDesat;   // tường chắn mái / lan can thấy cả mặt trong
+    m.customProgramCacheKey = () => 'tl-city-' + lodLevel + (depth ? '-d' : '') + '-h' + hid + '-g' + ghostDesat + '-w' + winFar;   // tường chắn mái / lan can thấy cả mặt trong
     m.onBeforeCompile = (sh) => {
       Object.assign(sh.uniforms, { uYear: U.uYear, uDim: U.uDim, uSample: U.uSample, uMask: U.uMask, uGhostDesat: { value: ghostDesat }, uWinNight: U.uWinNight || { value: 0 } });
       sh.vertexShader = sh.vertexShader.replace('#include <common>', `#include <common>
@@ -144,7 +146,7 @@ export function makeCity(B, U, { lod = true, hid = 0, ghostDesat = 0.22 } = {}) 
           vec3 wcol = mix(glass, shc * louv, hasSh * shutC);
           // chớp mở: hai cánh hai bên khung
           float shOpen = hasSh * (1.0 - shutC) * step(1.0, fl) * inb * step(vLY, top - 0.3) * step(wb.z, f.y) * step(f.y, wb.w) * (step(wb.x - 0.17, f.x) * step(f.x, wb.x - 0.05) + step(wb.y + 0.05, f.x) * step(f.x, wb.y + 0.17));
-          float k = (1.0 - aa) * (1.0 - smoothstep(650.0, 1500.0, dd));
+          float k = (1.0 - aa) * (1.0 - smoothstep(${(winFar * 0.43).toFixed(1)}, ${winFar.toFixed(1)}, dd));
           vec3 c = base;
           c *= 1.0 - 0.05 * step(fract(vLY / fh), 0.04) * step(1.0, fl);   // gờ tầng
           c = mix(c, base * 0.62, (1.0 - step(0.85, vLY)) * 0.55 * k);   // chân tường (đế)
@@ -195,7 +197,7 @@ export function makeCity(B, U, { lod = true, hid = 0, ghostDesat = 0.22 } = {}) 
     }
   }
   // chọn LOD theo khoảng cách máy (mặt bằng) tới tâm ô
-  const near = 1400, far = 5200; let stat = { lod0: 0, lod1: 0, off: 0 };
+  const far = Math.max(5200, near * 2); let stat = { lod0: 0, lod1: 0, off: 0 };
   function update(cam) { stat = { lod0: 0, lod1: 0, off: 0 };
     for (const T of tiles.values()) { const d = Math.hypot(cam.position.x - T.c.x, cam.position.z - T.c.z) - Math.max(0, cam.position.y * 0.2);
       const l = !lod ? 0 : d < near ? 0 : d < far ? 1 : 2; T.m[0].visible = l === 0; T.m[1].visible = l === 1; stat[['lod0', 'lod1', 'off'][l]]++; } }
