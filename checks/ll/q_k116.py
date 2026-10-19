@@ -1,5 +1,6 @@
 #!/opt/cine/bin/python
-"""Luật kênh 2 bản 1.16.0 (phiên K-1.16, 19/10/2026) — CHỈ cho tập kênh 2 từ T3; tập cũ giữ đúng hành vi 1.15.
+"""Luật kênh 2 bản 1.16.1 (phiên K-1.16, 19/10/2026; K-1.16.1 cùng ngày: thước cắt cấu trúc + duyệt K116-D1…D9) — CHỈ cho tập kênh 2 từ T3; tập cũ
+giữ đúng hành vi 1.15.
 Căn cứ: Kinh thánh kênh 2 (docs/BIBLE-KENH2.md) §12.1 (sửa 19/10), §13.2–§13.4, §13.6 TL-1…TL-6, D6; khiếu nại reports/v6/checks-appeal.md
 và reports/g1b-t3/khieu-nai-K.md (xử lý: reports/k116/K116-BAO-CAO.md). Định nghĩa: checks/ll/RULES-LL.md mục "1.16".
 
@@ -20,22 +21,24 @@ cũ chạy đúng như 1.15 (selftest k114/k115 đối chiếu).
 Thẻ chương (§13.3): shot/đoạn `p.the_chuong` {s, at, dur} hoặc chữ log vai `the_chuong`. Thẻ phương pháp (D6): đoạn `the_phuong_phap: true`,
   đoạn id PP / part END, hoặc thẻ tiêu đề "How this film was made"; chữ log vai `the_phuong_phap`.
 
-Hàng (mức đề xuất ở cap112.py; ngưỡng TL "hiệu chỉnh sau V7-PILOT"):
+Hàng (cấp ở cap112.py — chủ dự án duyệt K116-D1…D9 19/10 18:48; ngưỡng TL "hiệu chỉnh sau V7-PILOT"):
   SACH-1  Khung sạch §12.1 + TL-4: (a) không tấm số/câu trích (p.so, thẻ num/quote/list ngoài thẻ chương/phương pháp); (b) không tư liệu đứng riêng
           (photo/document/record/footage) — chỉ phủ lên địa hình `p.phu_dia_hinh` ≤ 3 s; (c) log chữ: không vai/chữ bị cấm hiện (alpha > 0);
-          (d) chip nơi (vai where) mỗi lần ≤ 3 s; (e) chữ bản đồ khác (diem, chu_giai, inset, tag, index, card) — Cảnh báo, chờ chủ dự án;
+          (d) chip nơi (vai where) mỗi lần ≤ 3 s; (e) chữ bản đồ (K116-D3, Chặn từ 1.16.1): nhãn địa danh (diem, inset, tag) ≤ 2/shot,
+          hiện trong ≤ 3 s; chú giải chữ (chu_giai) và chữ khác (index, card, vai lạ) là lỗi;
           (f) mọi shot `p.sach: true`.
   CHUONG-1 Thẻ chương §13.3: (a) ≤ 8/tập; (b) "năm — cụm ≤ 6 từ"; (c) ≤ 3 s; (d) không trong móc mở đầu (chương 0 / part CH0 / t < moc_s);
           (e) lời trung tính (không captur*/liberat*/conquer*/seiz*); (f) log: góc dưới trái + mờ vào/ra — Cảnh báo.
   PP-1    Thẻ phương pháp D6: (a) đúng 2 thẻ; (b) mỗi thẻ 7–9 s (≈ 8 s); (c) liền nhau, kết ở cuối phim; (d) nói đủ nguồn/bản đồ, chỗ ước tính, AI;
           (e) tốc độ đọc ≤ 3 từ/s — Cảnh báo.
   TL-1    §13.6 TL-1: (a) góc cao có thời gian chạy ≥ 75 % thân phim (trừ thẻ phương pháp); (b) số shot đặc tả = cận trên số cắt (chỉ báo); (c) cắt/phút
-          đo trên video (chênh lệch histogram + điểm ảnh) ≤ 5; (d) góc cao trôi ≤ 2 % khung/s (tịnh tiến phase correlation + phóng LK, trung vị shot); (e) 6–8 điểm máy cao; (f) mỗi điểm máy
+          đo trên video ≤ 5 (1.16.1: cắt = đổi CẤU TRÚC — tương quan gradient sau cân bằng histogram + bù tịnh tiến, bỏ dải chữ dưới; đối chiếu ranh shot
+          đặc tả ±0,5 s, báo cả hai số); (d) góc cao trôi ≤ 2 % khung/s (tịnh tiến phase correlation + phóng LK, trung vị shot); (e) 6–8 điểm máy cao; (f) mỗi điểm máy
           ≥ 2 năm khác nhau.
   TL-2    §13.6 TL-2: (a) lướt thấp ≤ 10 %; (b) mỗi shot lướt thấp có `vai` và là phố (noi thanh_pho) hoặc khoảnh khắc người (`nguoi: true`).
   TL-3    §13.6 TL-3: (a) shot 3D có thời gian chạy hoặc biến cố thấy được; (b) "trống": trong_pct > 60 % mà không có thời gian chạy; (c) ghi `bac`.
   NHIP-NGHIA §13.2: nhịp chính có ≥ 1 vật mang nghĩa hợp lệ ≥ 90 %.
-  XEM-CAM  §13.4: kết quả chấm có đủ (8 câu, 3 AI + chủ dự án, tắt tiếng) và mỗi người chấm ≥ 6/8. K KHÔNG tự chấm.
+  XEM-CAM  §13.4: kết quả chấm có đủ (8 câu, 3 AI + chủ dự án, tắt tiếng); đạt = chủ dự án ≥ 6/8 VÀ trung bình người chấm AI ≥ 6/8 (K116-D2). K KHÔNG tự chấm.
   PC-1    §12.3 phục chế (khiếu nại A-G1B-6): cạnh mới so với MỐC BICUBIC cùng ô: Δ ≤ 1,0 điểm % và PSNR ≥ bicubic; ảnh dùng phải đạt.
 Thay cho luật cũ ở tập từ T3 (khiếu nại chấp nhận): K-LAI-2 (k_lai2), NC-H5 (nch5), BD-3 (bd3); ML1 đọc lời khoá (cau_tu_loi_khoa).
 Trong ±5 % quanh ngưỡng: nêu tên.
@@ -53,10 +56,14 @@ TL_THAP_PCT, TRONG_PCT = 10.0, 60.0                        # TL-2; TL-3 "trống
 NHIP_PCT = 90.0                                            # §13.2
 XC_CAU, XC_AI, XC_DAT = 8, 3, 6                            # §13.4
 PC_DELTA = 1.0                                             # PC-1 (tạm, hiệu chuẩn trên ≥ 10 ảnh)
-CUT_HIST, CUT_PX, CUT_PX2, CUT_K = 0.20, 12.0, 20.0, 3.0    # thước cắt (hiệu chuẩn trên animatic T3, báo cáo K-1.16 §3.4): xem cuts_video
+CUT_Y = (0.06, 0.70)                                       # thước cắt 1.16.1: vùng đo — bỏ dải chữ dưới (phụ đề nung, thẻ chương, bộ đếm) và mép trên
+CUT_S, CUT_DS, CUT_W, CUT_TOL = 0.30, 0.40, 0.5, 0.5       # cắt: tương quan cấu trúc < 0,30 VÀ thấp hơn trung vị ±0,5 s ≥ 0,40; đối chiếu đặc tả ±0,5 s
+CUT_GRID, CUT_DARK, CUT_SHIFT = (4, 3), 2.0, 0.04          # ô 4×3 · khung tối/phẳng (σ xám < 2/255) bỏ qua · bù tịnh tiến ≤ 4 % bề ngang
 LBL_X0, LBL_Y0 = 0.10, 0.66
 CROP_Y = (0.10, 0.68)                                      # vùng đo chuyển động máy (theo chiều cao khung)
 VAT_LOAI = {'co_chu_quyen', 'dem_nam', 'ranh_dong', 'mui_ten', 'su_kien', 'the_chuong'}
+MAP_LABEL_ROLES, MAP_LABEL_N, MAP_LABEL_S = {'diem', 'inset', 'tag'}, 2, 3.0   # K116-D3 (duyệt 19/10 18:48): bản đồ phủ địa hình ≤ 2 nhãn địa danh, hiện trong ≤ 3 s
+LEGEND_ROLES = {'chu_giai'}                                # K116-D3: KHÔNG chú giải chữ — phe bằng màu + cờ
 BANNED_ROLES = {'src', 'src_ngan', 'ai_label', 'ghost_src', 'inset_src', 'index_src', 'method', 'bien_gioi', 'so', 'trich', 'trich_dich'}
 OK_ROLES = {'year', 'clock', 'calendar', 'where', 'the_chuong', 'the_phuong_phap'}
 BANNED_TXT = re.compile(r'approx\. borders|estimated infill|ruins: estimated|illustrativ|ai-assisted|surface detail|^source:|^sources?:|^map:', re.I)
@@ -212,10 +219,13 @@ def sach1(E, TL, TX=None, step=12):
             if not ov: M['b'].append(f'(b) {w}: tư liệu đứng riêng ({z["ty"]}, {z["t1"] - z["t0"]:.1f} s) — TL-4: chỉ phủ lên địa hình ≤ {DOC_S:g} s')
             elif dur <= 0 or dur > DOC_S + 1e-6: M['b'].append(f'(b) {w}: tư liệu phủ địa hình {dur:.2f} s (cần 0 < dur ≤ {DOC_S:g} s)')
         if not P.get('sach'): M['f'].append(f'(f) {w}: shot không bật lọc khung sạch (p.sach)')
-    th, nv, chip = [], 0, []
+    th, nv, chip, nl = [], 0, [], []
     if TX is None: th.append('(c) không có log chữ (--logs k2.js) — không đo được chữ thực hiện trên hình; (d) chip nơi chưa đo')
     else:
-        by_role = {}
+        by_role = {}; nhan = {}   # nhan: shot → {chữ: [khung]} (nhãn địa danh K116-D3)
+        def shot_of(f):
+            t = f / FPS
+            return next((f"{z['seg']}/{z['i']}" for z in S if z['t0'] - 1e-6 <= t < z['t1']), '?')
         for f, it in TX.items():
             for x in it:
                 if not _vis(x): continue
@@ -225,20 +235,25 @@ def sach1(E, TL, TX=None, step=12):
                     if ro == 'where': by_role.setdefault(s_, []).append(f)
                     continue
                 if ro in BANNED_ROLES or BANNED_TXT.search(s_): by_role.setdefault(('BAN', ro), []).append((f, s_))
+                elif ro in MAP_LABEL_ROLES: nhan.setdefault(shot_of(f), {}).setdefault(s_, []).append(f)
                 else: by_role.setdefault(('KHAC', ro), []).append((f, s_))
         for k, v in by_role.items():
             if isinstance(k, tuple):
                 f0, s_ = min(v)
-                (M['c'] if k[0] == 'BAN' else M['e']).append(f"({'c' if k[0] == 'BAN' else 'e'}) vai {k[1] or '—'}: {len(v)} mẫu hiện, đầu tiên {mmss(f0 / FPS)} {s_!r}"
-                                                               + ('' if k[0] == 'BAN' else ' — chữ ngoài danh sách §12.1, chờ chủ dự án quyết'))
+                why = '' if k[0] == 'BAN' else (' — chú giải chữ (K116-D3: phe bằng màu + cờ)' if k[1] in LEGEND_ROLES else ' — chữ ngoài danh sách §12.1 + K116-D3')
+                (M['c'] if k[0] == 'BAN' else M['e']).append(f"({'c' if k[0] == 'BAN' else 'e'}) vai {k[1] or '—'}: {len(v)} mẫu hiện, đầu tiên {mmss(f0 / FPS)} {s_!r}" + why)
             else:
                 for f0, f1 in _runs(v, step):
                     d = _run_s(f0, f1, step); chip.append(d)
                     if d > CHIP_S + step / FPS / 2: M['d'].append(f'(d) chip nơi {k!r} @{mmss(f0 / FPS)}: {d:.2f} s > {CHIP_S:g} s')
+        for sh, L in sorted(nhan.items()):   # K116-D3: ≤ 2 nhãn địa danh mỗi shot, hiện trong ≤ 3 s (từ lúc nhãn đầu hiện tới lúc nhãn cuối tắt)
+            fs = sorted(f for v in L.values() for f in v); d = _run_s(fs[0], fs[-1], step); nl.append(d)
+            if len(L) > MAP_LABEL_N: M['e'].append(f"(e) shot {sh} @{mmss(fs[0] / FPS)}: {len(L)} nhãn địa danh > {MAP_LABEL_N} ({', '.join(repr(x) for x in list(L)[:4])})")
+            if d > MAP_LABEL_S + step / FPS / 2: M['e'].append(f"(e) shot {sh} @{mmss(fs[0] / FPS)}: nhãn địa danh hiện {d:.2f} s > {MAP_LABEL_S:g} s")
     loi = sum(M.values(), [])
-    near = sat('chip nơi dài nhất s', round(max(chip), 2), CHIP_S) if chip else []
+    near = (sat('chip nơi dài nhất s', round(max(chip), 2), CHIP_S) if chip else []) + (sat('nhãn địa danh dài nhất s', round(max(nl), 2), MAP_LABEL_S) if nl else [])
     return r(loi=loi, thieu=th, muc=M, sat_nguong=near,
-             val=f"{len(S)} shot · tấm số/trích {len(M['a'])} · tư liệu đứng riêng {len(M['b'])} · " + (f"log chữ {nv} mục hiện · cấm {len(M['c'])} · chip {len(chip)} lần, dài nhất {max(chip or [0]):.2f} s · chữ khác {len(M['e'])}" if TX is not None else 'không log chữ'))
+             val=f"{len(S)} shot · tấm số/trích {len(M['a'])} · tư liệu đứng riêng {len(M['b'])} · " + (f"log chữ {nv} mục hiện · cấm {len(M['c'])} · chip {len(chip)} lần, dài nhất {max(chip or [0]):.2f} s · nhãn địa danh {len(nl)} shot, dài nhất {max(nl or [0]):.2f} s · lỗi chữ bản đồ/khác {len(M['e'])}" if TX is not None else 'không log chữ'))
 
 
 # ------------------------------------------------------------------ thẻ chương
@@ -376,22 +391,72 @@ def video_gray(mp4, w=320, h=180):
     return np.frombuffer(raw, np.uint8).reshape(-1, h, w), fps
 
 
-def cuts_video(F, fps):
-    """cắt = khung i (bỏ 0,5 s đầu) mà so với khung trước: [chênh lệch histogram xám (L1/2, 32 bin) ≥ CUT_HIST VÀ lệch điểm ảnh TB ≥ CUT_PX]
-    HOẶC [lệch điểm ảnh ≥ CUT_PX2 VÀ ≥ CUT_K × trung vị lệch của ±6 khung quanh]; và là cực đại cục bộ lệch điểm ảnh ±3 khung; cách cắt trước > 3 khung.
-    Đổi năm cùng góc máy (cảnh tl) thường KHÔNG thành cắt — đúng ý TL-1 (đó là thời gian chạy). → [giây]"""
+def _cau_truc(f):
+    """khung xám → (ảnh cân bằng histogram, biên độ gradient Sobel, σ xám thô) trên vùng CUT_Y. Cân bằng histogram bỏ độ sáng/tương phản toàn khung
+    (ngày–đêm, chớp đèn, khói mỏng) trước khi lấy cấu trúc."""
+    import cv2, numpy as np
+    h = f.shape[0]; c = f[int(CUT_Y[0] * h):int(CUT_Y[1] * h)]
+    e = cv2.equalizeHist(np.ascontiguousarray(c)); b = cv2.GaussianBlur(e, (0, 0), 1.2).astype(np.float32)
+    return e.astype(np.float32), np.hypot(cv2.Sobel(b, cv2.CV_32F, 1, 0), cv2.Sobel(b, cv2.CV_32F, 0, 1)), float(c.std())
+
+
+def tuong_quan_cau_truc(A, B):
+    """tương quan cấu trúc của hai khung đã qua _cau_truc: bù tịnh tiến (phase correlation trên ảnh cân bằng, ≤ CUT_SHIFT bề ngang), rồi hệ số
+    tương quan Pearson của bản đồ gradient trên từng ô lưới CUT_GRID; trả trung vị các ô có cấu trúc (σ > 0). Cùng góc máy đổi sáng/màu → cao;
+    đổi cảnh → ≈ 0. → [-1, 1]"""
+    import cv2, numpy as np
+    (ea, ga, _), (eb, gb, _) = A, B
+    (dx, dy), _ = cv2.phaseCorrelate(ea, eb); H, W = ga.shape; lim = CUT_SHIFT * W
+    dx, dy = (int(round(dx)), int(round(dy))) if abs(dx) <= lim and abs(dy) <= lim else (0, 0)
+    a = ga[max(0, -dy):H - max(0, dy), max(0, -dx):W - max(0, dx)]; b = gb[max(0, dy):H - max(0, -dy), max(0, dx):W - max(0, -dx)]
+    nx, ny = CUT_GRID; th, tw = a.shape[0] // ny, a.shape[1] // nx
+    ta = a[:th * ny, :tw * nx].reshape(ny, th, nx, tw).transpose(0, 2, 1, 3).reshape(nx * ny, -1)
+    tb = b[:th * ny, :tw * nx].reshape(ny, th, nx, tw).transpose(0, 2, 1, 3).reshape(nx * ny, -1)
+    ta = ta - ta.mean(axis=1, keepdims=True); tb = tb - tb.mean(axis=1, keepdims=True)
+    sa, sb = np.sqrt((ta * ta).sum(axis=1)), np.sqrt((tb * tb).sum(axis=1)); ok = (sa > 1e-3) & (sb > 1e-3)
+    if not ok.any(): return 1.0
+    return float(np.median((ta[ok] * tb[ok]).sum(axis=1) / (sa[ok] * sb[ok])))
+
+
+def chuoi_cau_truc(F):
+    """→ mảng s[i] = tương quan cấu trúc khung i với khung sáng gần nhất trước nó (nan: khung tối/phẳng σ < CUT_DARK, hoặc khung 0)"""
+    import numpy as np
+    s = np.full(len(F), np.nan); prev = None
+    for i, f in enumerate(F):
+        P = _cau_truc(f)
+        if P[2] < CUT_DARK: continue
+        if prev is not None: s[i] = tuong_quan_cau_truc(prev, P)
+        prev = P
+    return s
+
+
+def cuts_video(F, fps, S=None):
+    """cắt (1.16.1, thay thước histogram + điểm ảnh của 1.16.0) = khung i (bỏ 0,5 s đầu) mà đổi CẤU TRÚC so với khung sáng trước:
+    s[i] = tương_quan_cấu_trúc < CUT_S VÀ trung vị s trong ±CUT_W s (trừ i±1) − s[i] ≥ CUT_DS; là cực tiểu ±2 khung; cách cắt trước > 2 khung.
+    Đo trên vùng y CUT_Y (bỏ phụ đề/chữ dưới), sau cân bằng histogram (bỏ độ sáng/màu toàn khung) và bù tịnh tiến. Đổi ngày–đêm, chớp đèn, khói,
+    nhà mọc dần cùng góc máy KHÔNG là cắt; cắt cứng giữa hai cảnh cùng độ sáng LÀ cắt. Hiệu chuẩn có đáp án: reports/k1161/K1161-BAO-CAO.md §3. → [giây]"""
     import numpy as np
     n = len(F)
     if n < 2: return []
-    Hs = np.stack([np.bincount((f >> 3).ravel(), minlength=32) for f in F]).astype(np.float64); Hs /= Hs.sum(axis=1, keepdims=True)
-    dh = np.r_[0, 0.5 * np.abs(np.diff(Hs, axis=0)).sum(axis=1)]
-    dp = np.r_[0, np.abs(np.diff(F.astype(np.int16), axis=0)).mean(axis=(1, 2))]
-    out = []
+    s = chuoi_cau_truc(F) if S is None else S
+    w = max(2, int(round(CUT_W * fps))); out = []
     for i in range(max(1, int(0.5 * fps)), n):
-        nb = np.r_[dp[max(1, i - 6):i], dp[i + 1:i + 7]]; med = float(np.median(nb)) if len(nb) else 0.0
-        c = (dh[i] >= CUT_HIST and dp[i] >= CUT_PX) or (dp[i] >= CUT_PX2 and dp[i] >= CUT_K * max(med, 1.0))
-        if c and dp[i] >= dp[max(1, i - 3):i + 4].max() - 1e-9 and (not out or i - out[-1] > 3): out.append(i)
+        if np.isnan(s[i]) or s[i] >= CUT_S: continue
+        nb = np.r_[s[max(1, i - w):max(1, i - 1)], s[i + 2:i + w + 1]]; nb = nb[~np.isnan(nb)]
+        med = float(np.median(nb)) if len(nb) else 1.0
+        loc = s[max(1, i - 2):i + 3]; loc = loc[~np.isnan(loc)]
+        if med - s[i] >= CUT_DS and s[i] <= loc.min() + 1e-9 and (not out or i - out[-1] > 2): out.append(i)
     return [i / fps for i in out]
+
+
+def doi_chieu_cat(cv, cs, tol=CUT_TOL):
+    """ghép một-một cắt video cv với ranh shot đặc tả cs (lệch ≤ tol s, gần nhất trước) → (số khớp, [cắt chỉ ở video], [ranh chỉ ở đặc tả])"""
+    used, miss = set(), []
+    for t in cs:
+        c = [j for j, x in enumerate(cv) if j not in used and abs(x - t) <= tol]
+        if c: used.add(min(c, key=lambda j: abs(cv[j] - t)))
+        else: miss.append(t)
+    return len(used), [x for j, x in enumerate(cv) if j not in used], miss
 
 
 def zoom_lk(a, b):
@@ -454,12 +519,13 @@ def tl1(E, TL, LS=None, why=None, video=None, VF=None):
             if not TL_DIEM[0] <= len(nd) <= TL_DIEM[1]: M['e'].append(f'(e) {len(nd)} điểm máy cao (cần {TL_DIEM[0]}–{TL_DIEM[1]})')
             for k in nd:
                 if len(dm[k]) < 2: M['f'].append(f'(f) điểm máy {k}: chỉ ở năm {"/".join(sorted(dm[k]))} — phải quay lại ở năm khác')
-    vt = ''
+    vt = ''; cvn = None
     if VF is not None or video:
         try:
             F, fps = VF if VF is not None else video_gray(video)
             cv = cuts_video(F, fps); Tv = len(F) / fps; Tvb = max(1e-6, Tv - PPd); cpm_v = len([c for c in cv if c < Tv - PPd]) / (Tvb / 60)
-            if cpm_v > TL_CUT_MIN: M['c'].append(f'(c) video: {len(cv)} cắt đo / {Tvb / 60:.2f} phút = {cpm_v:.2f} cắt/phút > {TL_CUT_MIN:g}')
+            nk, chi_v, chi_s = doi_chieu_cat(cv, cuts_s); cvn = dict(n=len(cv), khop=nk, chi_video=len(chi_v), chi_dac_ta=len(chi_s))   # 1.16.1: đối chiếu ranh shot đặc tả (±CUT_TOL s), báo cả hai số
+            if cpm_v > TL_CUT_MIN: M['c'].append(f'(c) video: {len(cv)} cắt đo / {Tvb / 60:.2f} phút = {cpm_v:.2f} cắt/phút > {TL_CUT_MIN:g} (đặc tả {len(cuts_s)} ranh = {cpm_s:.2f}/phút; khớp ±{CUT_TOL:g} s {nk})')
             near += sat('cắt/phút (video)', round(cpm_v, 2), TL_CUT_MIN); dr = []
             for x, a, b in D:
                 if goc_of(x, E) == 'cao':
@@ -474,11 +540,13 @@ def tl1(E, TL, LS=None, why=None, video=None, VF=None):
                     if z['ty'] in ('scene3d', 'timelapse'):
                         v, n = drift_video(F, fps, z['t0'], z['t1'], cv)
                         if v is not None: d3.append(v)
-            vt = (f' · video {len(cv)} cắt = {cpm_v:.2f}/phút' + (f' · trôi góc cao trung vị {statistics.median(dr):.2f} %/s ({len(dr)} shot)' if dr else '')
+            vt = (f' · video {len(cv)} cắt = {cpm_v:.2f}/phút · đặc tả {len(cuts_s)} ranh = {cpm_s:.2f}/phút · khớp ±{CUT_TOL:g} s {nk}'
+                  + f' (chỉ video {len(chi_v)}' + (f': {", ".join(mmss(x) for x in chi_v[:6])}{"…" if len(chi_v) > 6 else ""}' if chi_v else '')
+                  + f'; chỉ đặc tả {len(chi_s)} — cùng góc máy đổi năm/giờ hoặc chưa cắt)' + (f' · trôi góc cao trung vị {statistics.median(dr):.2f} %/s ({len(dr)} shot)' if dr else '')
                   + (f' · (tham khảo, chưa có goc) trôi máy shot 3D: trung vị {statistics.median(d3):.2f} %/s, ≤ {TL_DRIFT:g} %/s ở {sum(v <= TL_DRIFT for v in d3)}/{len(d3)} shot' if d3 else ''))
         except Exception as e: th.append(f'(c) không đo được video: {e}')
     else: th.append(f'(c)(d) không có video (master/--tl16-video) — cắt/phút và trôi máy chưa đo (đặc tả: cận trên {cpm_s:.2f} cắt/phút)')
-    return r(loi=sum(M.values(), []), thieu=th, muc=M, sat_nguong=near, cat_dac_ta=len(cuts_s),
+    return r(loi=sum(M.values(), []), thieu=th, muc=M, sat_nguong=near, cat_dac_ta=len(cuts_s), cat_video=cvn,
              val=f'thân phim {Tb:.1f} s · góc cao + tl {cao:.1f} s ({100 * cao / Tb if Tb else 0:.1f} %) · đặc tả ≤ {cpm_s:.2f} cắt/phút (cận trên)' + vt + ' · ngưỡng hiệu chỉnh sau V7-PILOT')
 
 
@@ -544,21 +612,25 @@ def xem_cam(XC=None, why=None, base='.'):
     NC = XC.get('nguoi_cham') or []; ai = {str(x.get('id')) for x in NC if x.get('vai') == 'ai'}; cd = [x for x in NC if x.get('vai') == 'chu_du_an']
     if len(ai) < XC_AI: loi.append(f'(b) {len(ai)} người chấm AI < {XC_AI}')
     if not cd: loi.append('(b) không có kết quả chủ dự án xem tắt tiếng')
-    sc = []
+    sc, sai = [], []   # K116-D2 (duyệt 19/10 18:48): đạt = chủ dự án ≥ 6/8 VÀ trung bình người chấm AI ≥ 6/8 (không còn "mỗi người ≥ 6/8")
     for x in NC:
         d, t = x.get('dung'), x.get('tong', XC_CAU)
         if not isinstance(d, (int, float)): th.append(f"(c) {x.get('id')}: không có số câu đúng"); continue
         sc.append((str(x.get('id')), d, t))
         if t != XC_CAU: loi.append(f"(c) {x.get('id')}: chấm trên {t} câu ≠ {XC_CAU}")
-        if d < XC_DAT: loi.append(f"(c) {x.get('id')} ({x.get('vai')}): {d}/{t} < {XC_DAT}/{XC_CAU}")
+        if x.get('vai') == 'chu_du_an' and d < XC_DAT: loi.append(f"(c) {x.get('id')} (chủ dự án): {d}/{t} < {XC_DAT}/{XC_CAU}")
+        if x.get('vai') == 'ai': sai.append(d)
+    tb_ai = sum(sai) / len(sai) if sai else None
+    if tb_ai is not None and tb_ai < XC_DAT - 1e-9: loi.append(f"(c) trung bình {len(sai)} người chấm AI {tb_ai:.2f}/{XC_CAU} < {XC_DAT}/{XC_CAU}")
     if EMAIL.search(json.dumps(XC, ensure_ascii=False)): loi.append('(d) tệp kết quả chứa email (che email)')
     vp = XC.get('video')
     if vp and XC.get('video_sha256') and os.path.exists(_p(base, vp)):
         import hashlib
         h = hashlib.sha256(open(_p(base, vp), 'rb').read()).hexdigest()
         if h != XC['video_sha256']: loi.append(f'(e) SHA animatic {h[:12]}… ≠ video_sha256 đã chấm {XC["video_sha256"][:12]}… — chấm trên bản khác')
-    near = sum((sat(f'{i} câu đúng', d, XC_DAT) for i, d, _ in sc), [])
-    return r(loi=loi, thieu=th, sat_nguong=near, val=f"{len(q)} câu · AI {len(ai)} · chủ dự án {len(cd)} · " + ', '.join(f'{i} {d}/{t}' for i, d, t in sc))
+    near = sum((sat(f'{i} câu đúng', d, XC_DAT) for i, d, _ in sc if i in {str(x.get('id')) for x in cd}), []) + (sat('TB AI câu đúng', round(tb_ai, 2), XC_DAT) if tb_ai is not None else [])
+    return r(loi=loi, thieu=th, sat_nguong=near, val=f"{len(q)} câu · AI {len(ai)} · chủ dự án {len(cd)} · " + ', '.join(f'{i} {d}/{t}' for i, d, t in sc)
+             + (f' · TB AI {tb_ai:.2f}/{XC_CAU}' if tb_ai is not None else ''))
 
 
 # ------------------------------------------------------------------ PC-1 thước phục chế (§12.3; khiếu nại A-G1B-6)

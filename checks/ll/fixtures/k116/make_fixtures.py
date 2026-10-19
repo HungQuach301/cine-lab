@@ -5,7 +5,7 @@
   vid/        v-ok.mp4 (3 shot × 12 s: máy cố định trôi 1 %/s · lia 6 %/s · đẩy máy 3 %/s phóng) · v-cat.mp4 (12 shot × 3 s), 320×180, 12 khung/s
 Bản sao THẬT: v6/ (log khung + log chữ đoạn thử V6, sổ PT3 vân King's Bastion) · g1b/ (kiem.json phục chế G1b) — chép bằng tay, ghi nguồn ở README.
 """
-import json, os, subprocess
+import sys, json, os, subprocess
 
 import cv2
 import numpy as np
@@ -139,5 +139,49 @@ def videos():
     write(os.path.join(d, 'v-cat.mp4'), fr)
 
 
+def _canh(seed, W=1280, H=720):
+    """cảnh có cấu trúc (trời trơn trên 35 %, địa hình có vân + khối nhà) — giống khung timelapse góc cao"""
+    rng = np.random.default_rng(seed); im = texture(seed, W, H).copy(); hz = int(0.35 * H)
+    im[:hz] = np.linspace(200, 150, hz)[:, None]
+    for _ in range(40):
+        x, y, w, h = int(rng.integers(0, W - 60)), int(rng.integers(hz, H - 60)), int(rng.integers(20, 60)), int(rng.integers(15, 50))
+        im[y:y + h, x:x + w] = float(rng.integers(60, 230))
+    return np.clip(im, 0, 255).astype(np.float32)
+
+
+def _phu_de(f, k):
+    """phụ đề nung ở dải dưới (y 84–94 %), đổi chữ mỗi lượt k"""
+    h, w = f.shape; cv2.rectangle(f, (40, int(0.84 * h)), (w - 40, int(0.94 * h)), 20, -1)
+    cv2.putText(f, ['In 1782, ten floating batteries', 'came to break it.', 'The townspeople fled south.', 'That morning, the guns'][k % 4], (48, int(0.92 * h)), 0, 0.35, 235, 1)
+    return f
+
+
+def videos_1161():
+    """K-1.16.1 (thước cắt cấu trúc): v-ngaydem.mp4 = MỘT góc máy (lia 0,5 %/s) 8 s: ngày → hoàng hôn nhanh → đêm có đèn bật → bình minh, một chớp sáng 2 khung,
+    khói trôi, phụ đề nung đổi chữ mỗi 1,5 s → KHÔNG cắt nào. v-cungsang.mp4 = cắt cứng ở 3,0 s giữa hai cảnh khác nhau đã khớp histogram (cùng độ sáng) → 1 cắt."""
+    d = os.path.join(D, 'vid'); rng = np.random.default_rng(7); n = 8 * FPS
+    base = _canh(31); lamps = [(int(rng.integers(0, 1280)), int(rng.integers(260, 700))) for _ in range(60)]
+    fr = []
+    for i in range(n):
+        t = i / FPS
+        k = 1.0 if t < 1 else (1.0 - 0.88 * (t - 1) / 1.5 if t < 2.5 else (0.12 if t < 5.5 else min(1.0, 0.12 + 0.88 * (t - 5.5) / 1.0)))
+        im = base * k
+        if 0.12 <= k < 0.5:
+            for j, (x, y) in enumerate(lamps):
+                if (j * 7 + i) % 5: cv2.circle(im, (x, y), 4, 250, -1)
+        if 6.5 <= t < 6.5 + 2 / FPS: im = im * 1.8
+        sm = np.zeros_like(im); cv2.circle(sm, (int(200 + 90 * t), 420), 260, 1.0, -1); sm = cv2.GaussianBlur(sm, (0, 0), 90)
+        im = im * (1 - 0.45 * sm) + 170 * 0.45 * sm
+        M = np.float32([[1, 0, -0.005 * 640 * t], [0, 1, 0]])
+        im = cv2.warpAffine(np.clip(im, 0, 255).astype(np.float32), M, (1280, 720), borderMode=cv2.BORDER_REFLECT)[180:540, 320:960]
+        fr.append(_phu_de(cv2.resize(im, (320, 180), interpolation=cv2.INTER_AREA).astype(np.uint8), int(t / 1.5)))
+    write(os.path.join(d, 'v-ngaydem.mp4'), fr)
+    A, B = _canh(41), _canh(42)
+    B = np.interp(B, np.sort(B.ravel())[np.linspace(0, B.size - 1, 256).astype(int)], np.sort(A.ravel())[np.linspace(0, A.size - 1, 256).astype(int)]).astype(np.float32)   # khớp histogram B → A
+    fr = shot_frames(A, 3 * FPS, tx_pct_s=0.5) + shot_frames(B, 3 * FPS, tx_pct_s=0.5)
+    write(os.path.join(d, 'v-cungsang.mp4'), fr)
+
+
 if __name__ == '__main__':
-    ep_t3(); videos(); print('ok')
+    if '--1161' in sys.argv: videos_1161(); print('ok 1.16.1'); sys.exit(0)
+    ep_t3(); videos(); videos_1161(); print('ok')

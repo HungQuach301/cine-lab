@@ -179,7 +179,7 @@ def run_case(name, c, out):
     jp = os.path.join(jd, f'{sid}_f{f:05d}.jpg')
     if r.returncode or not os.path.exists(jp): raise RuntimeError('render.js lỗi: ' + r.stderr[-600:])
     new = Image.open(jp).convert('RGB'); new.save(os.path.join(W, 'moi.png'))
-    rp, rdesc = ref_frame(c, gframe, W, log)
+    rp, rdesc = (lambda v6: (v6, f'checks/golden/tham_chieu/{name}.png (khung vàng V6, khoá trong checks/LOCK; K116-D7)') if os.path.exists(v6) else ref_frame(c, gframe, W, log))(os.path.join(REPO, 'checks', 'golden', 'tham_chieu', name + '.png'))   # K116-D7: ca chưa có tham chiếu V6 (k2v4) giữ nguồn cũ
     m = compare(new, Image.open(rp).convert('RGB'), W)
     return dict(ca=name, doan=sid, khung_trong_doan=f, khung_toan_tap=gframe, giay=round(gframe / FPS, 3), canh_3d={os.path.basename(k): v for k, v in done.items()},
                 tham_chieu=rdesc, spp=c['spp'], **m, giay_dung_3d=round(hero_s, 1), giay_tong=round(time.time() - t0, 1), ghi_chu=notes)

@@ -1,8 +1,8 @@
 #!/opt/cine/bin/python
-"""Tự kiểm luật 1.16 (phiên K, 19/10/2026): luật mới cho tập kênh 2 từ T3 (SACH-1, CHUONG-1, PP-1, TL-1/2/3, NHIP-NGHIA, XEM-CAM, PC-1) và các
+"""Tự kiểm luật 1.16 (phiên K, 19/10/2026; 1.16.1: thước cắt cấu trúc, K116-D2/D3/D5): luật mới cho tập kênh 2 từ T3 (SACH-1, CHUONG-1, PP-1, TL-1/2/3, NHIP-NGHIA, XEM-CAM, PC-1) và các
 khiếu nại chấp nhận (K-LAI-2/3/4/5/6/B + K-LAI-3V nhánh vân, NC-H5 (b), BD-3, Q26b theo vùng, Q37 miễn khung neo, A* khi không lời/animatic,
 ML1 đọc lời khoá). Mỗi luật ≥ 1 ca ĐẠT + ≥ 1 ca TRƯỢT. Không gọi mạng/API. Dữ liệu:
-  fixtures/k116/ep-t3/  tập T3 giả (make_fixtures.py)        fixtures/k116/vid/  video tổng hợp 320×180 (cắt, lia, phóng)
+  fixtures/k116/ep-t3/  tập T3 giả (make_fixtures.py)        fixtures/k116/vid/  video tổng hợp 320×180 (cắt, lia, phóng; 1.16.1: ngày–đêm cùng góc, cắt cùng sáng)
   fixtures/k116/v6/     bản SAO THẬT: log khung + log chữ đoạn thử V6 (reports/v6/doan-thu/lai), sổ PT3 vân (reports/pt3/ai)
   fixtures/k116/g1b/    bản SAO THẬT: kiem.json kiểm có đáp án phục chế G1b (reports/g1b-t3/phuc-che)
   fixtures/k115/ep-lai/ tập cũ (không khung_sach) — kiểm cổng 1.16 không bật
@@ -110,9 +110,23 @@ case('SACH-1', 'log: "approx. borders" hiện dưới vai khác → (c) (bắt t
 TX = copy.deepcopy(TX0)
 for g in sorted(TX)[2:10]: TX[g].append(dict(s='Gibraltar', role='where', alpha=1.0))
 case('SACH-1', 'chip nơi 4,0 s > 3 s → (d)', bad(K6.sach1(E0, mk_tl(E0), TX, ST0), 'd'), True)
-TX = copy.deepcopy(TX0); TX[f].append(dict(s='Algeciras', role='diem', alpha=1.0)); rr = K6.sach1(E0, mk_tl(E0), TX, ST0)
-case('SACH-1', 'nhãn điểm bản đồ (vai diem) → (e), cấp chỉ Cảnh báo', bad(rr, 'e') + cap112.cap('SACH-1', rr)[1], True)
-case('cap', 'SACH-1 chỉ có (e) → không có lỗi Chặn', cap112.cap('SACH-1', rr)[1], False)
+# K116-D3 (duyệt 19/10 18:48, 1.16.1): bản đồ phủ địa hình ≤ 2 nhãn địa danh trong ≤ 3 s; không chú giải chữ → (e) Chặn
+TX = copy.deepcopy(TX0)
+for g in sorted(TX)[2:8]: TX[g] += [dict(s='Algeciras', role='diem', alpha=1.0), dict(s='Gibraltar', role='inset', alpha=1.0)]
+rr = K6.sach1(E0, mk_tl(E0), TX, ST0)
+case('SACH-1', f"K116-D3: 2 nhãn địa danh (diem + inset) hiện 3,0 s (sát ngưỡng) → sạch (e) — {rr['val']}", bad(rr, 'e'), False)
+TX = copy.deepcopy(TX0)
+for g in sorted(TX)[2:4]: TX[g] += [dict(s=x, role='diem', alpha=1.0) for x in ('Algeciras', 'Gibraltar', 'Tarifa')]
+rr = K6.sach1(E0, mk_tl(E0), TX, ST0)
+case('SACH-1', 'K116-D3: 3 nhãn địa danh cùng shot → (e)', bad(rr, 'e'), True)
+case('cap', 'SACH-1 (e) là Chặn (K116-D3)', cap112.cap('SACH-1', rr)[1], True)
+TX = copy.deepcopy(TX0)
+for g in sorted(TX)[2:10]: TX[g].append(dict(s='Algeciras', role='tag', alpha=1.0))
+case('SACH-1', 'K116-D3: nhãn địa danh hiện 4,0 s > 3 s → (e)', bad(K6.sach1(E0, mk_tl(E0), TX, ST0), 'e'), True)
+TX = copy.deepcopy(TX0); TX[f].append(dict(s='Spain', role='chu_giai', alpha=1.0))
+case('SACH-1', 'K116-D3: chú giải chữ (vai chu_giai) → (e) (phe bằng màu + cờ)', bad(K6.sach1(E0, mk_tl(E0), TX, ST0), 'e'), True)
+TX = copy.deepcopy(TX0); TX[f].append(dict(s='≈ 4,200', role='index', alpha=1.0))
+case('SACH-1', 'K116-D3: chữ ngoài danh sách (vai index) → (e)', bad(K6.sach1(E0, mk_tl(E0), TX, ST0), 'e'), True)
 E = ep(); shot(E, 'C07')['p'].pop('sach')
 case('SACH-1', 'shot không bật p.sach → (f)', bad(K6.sach1(E, mk_tl(E), TX0, ST0), 'f'), True)
 case('SACH-1', 'không có log chữ → THIẾU (c) (Chặn)', thieu(K6.sach1(E0, mk_tl(E0), None)) + cap112.cap('SACH-1', K6.sach1(E0, mk_tl(E0), None))[1], True)
@@ -187,6 +201,23 @@ VC = K6.video_gray(os.path.join(D, 'vid', 'v-cat.mp4')); rc = K6.tl1(EV, mk_tl(E
 case('TL-1', 'video v-cat: 11 cắt / 0,6 phút = 18,3 > 5 → (c)', bad(rc, 'c'), True)
 case('TL-1', f"thước cắt: v-ok đúng 2 cắt ở 12 s, 24 s · v-cat đúng 11 cắt", [] if [round(x) for x in K6.cuts_video(*VF)] == [12, 24] and len(K6.cuts_video(*VC)) == 11 else ['lệch'], False)
 case('cap', 'TL-1 toàn Cảnh báo (hiệu chỉnh sau V7-PILOT)', cap112.cap('TL-1', rc)[1], False)
+# 1.16.1 thước cắt cấu trúc (đổi cấu trúc, không phải đổi độ sáng/màu toàn khung; bỏ dải phụ đề)
+VN = K6.video_gray(os.path.join(D, 'vid', 'v-ngaydem.mp4')); cn = K6.cuts_video(*VN)
+case('TL-1', 'thước cắt 1.16.1: timelapse MỘT góc máy đổi ngày–đêm nhanh + đèn bật + chớp 2 khung + khói + phụ đề nung đổi chữ → 0 cắt',
+     [f'{len(cn)} cắt: {cn}'] if cn else [], False)
+VS = K6.video_gray(os.path.join(D, 'vid', 'v-cungsang.mp4')); cs = K6.cuts_video(*VS)
+case('TL-1', 'thước cắt 1.16.1: cắt cứng giữa hai cảnh cùng histogram độ sáng (3,0 s) → đúng 1 cắt', [] if len(cs) == 1 and abs(cs[0] - 3.0) <= 0.1 else [f'{cs}'], False)
+case('TL-1', 'thước cắt 1.16.1: v-cungsang chỉ lấy 3 s trước cắt (khung 0–35) → 0 cắt (chứng: phát hiện đến từ đổi cảnh)',
+     K6.cuts_video(VS[0][:36], VS[1]), False)
+nk, cv_, cs_ = K6.doi_chieu_cat([12.02, 24.4, 30.0], [12.0, 24.0, 18.0])
+case('TL-1', 'đối chiếu ranh đặc tả ±0,5 s: video [12,02; 24,4; 30] ↔ đặc tả [12; 18; 24] → 2 khớp, chỉ video 30, chỉ đặc tả 18',
+     [] if (nk, cv_, cs_) == (2, [30.0], [18.0]) else [f'{(nk, cv_, cs_)}'], False)
+case('TL-1', 'đối chiếu: lệch 0,6 s > 0,5 s → không khớp', [] if K6.doi_chieu_cat([12.6], [12.0])[0] == 0 else ['khớp'], False)
+case('TL-1', 'TL-1 báo cả hai số (video + đặc tả + khớp)', [] if 'đặc tả' in rv['val'] and 'khớp ±0.5 s' in rv['val'] and (rv.get('cat_video') or {}).get('khop') == 2 else [rv['val'][-160:]], False)
+EN = dict(id='nd', khung_sach=True, segments=[dict(id='N0', dur=8.0, beats=[dict(t=0, k='cut')], shots=[dict(tpl='plate', at=0, type='scene3d', p=dict(sach=True, hero='h'))])])
+rn = K6.tl1(EN, mk_tl(EN), None, 'không log', None, VN)
+case('TL-1', 'TL-1 (c) trên v-ngaydem: 0 cắt/phút → sạch (c)', bad(rn, 'c'), False)
+
 r0 = K6.tl2(E0, mk_tl(E0), LS0)
 case('TL-2', f"lướt thấp 1 shot 8 s, có vai, phố — {r0['val']}", bad(r0), False)
 L = copy.deepcopy(LS0); [x.update(goc='thap', vai='crowd at the quay', noi='thanh_pho') for x in L[:3]]
@@ -231,7 +262,13 @@ case('NHIP-NGHIA', 'không có tệp bảng nhịp → THIẾU', thieu(K6.nhip_n
 XC0 = json.load(open(E0['xem_cam']))
 r0 = K6.xem_cam(XC0, None, EP)
 case('XEM-CAM', f"8 câu, 3 AI + chủ dự án, tắt tiếng, thấp nhất 6/8 — {r0['val']}", bad(r0), False)
-for nm, fn, m in (('một AI 5/8 → (c)', lambda X: X['nguoi_cham'][1].update(dung=5), 'c'), ('chỉ 2 người chấm AI → (b)', lambda X: X['nguoi_cham'].pop(0), 'b'),
+# K116-D2 (duyệt 19/10 18:48): đạt = chủ dự án ≥ 6/8 VÀ trung bình người chấm AI ≥ 6/8
+X = copy.deepcopy(XC0); X['nguoi_cham'][1].update(dung=5); rr = K6.xem_cam(X, None, EP)
+case('XEM-CAM', f"K116-D2: một AI 5/8 nhưng TB AI 6,67 ≥ 6 → sạch — {rr['val']}", bad(rr), False)
+X = copy.deepcopy(XC0); X['nguoi_cham'][0].update(dung=6); X['nguoi_cham'][2].update(dung=6)
+case('XEM-CAM', 'K116-D2: TB AI đúng 6,00 (sát ngưỡng) → sạch', bad(K6.xem_cam(X, None, EP)), False)
+for nm, fn, m in (('K116-D2: TB AI 5,67 < 6 (AI 5, 6, 6) → (c)', lambda X: [X['nguoi_cham'][i].update(dung=d) for i, d in ((0, 5), (1, 6), (2, 6))], 'c'),
+                  ('K116-D2: chủ dự án 5/8 (TB AI 7) → (c)', lambda X: X['nguoi_cham'][3].update(dung=5), 'c'), ('chỉ 2 người chấm AI → (b)', lambda X: X['nguoi_cham'].pop(0), 'b'),
                   ('không có chủ dự án → (b)', lambda X: X['nguoi_cham'].pop(3), 'b'), ('không tắt tiếng → (a)', lambda X: X.update(tat_tieng=False), 'a'),
                   ('7 câu hỏi → (a)', lambda X: X['cau_hoi'].pop(), 'a'), ('có email → (d)', lambda X: X['nguoi_cham'][3].update(id='abc@example.com'), 'd')):
     X = copy.deepcopy(XC0); fn(X); case('XEM-CAM', nm, bad(K6.xem_cam(X, None, EP), m), True)
@@ -281,7 +318,8 @@ case('K-LAI-3', '"dùng nếu …" + dieu_kien_dat: true → sạch', bad(LA.che
 K3 = copy.deepcopy(KV); K3['tep'][0]['nghi_van'] = ['rong chân tường có thể quá cao']
 E = ep(lai=dict(E0['lai'], kiem_du_kien_van=tmpf('kv3.json', K3))); rr = LA.check116(E, mk_tl(E), EP, None)
 case('K-LAI-3V', 'vân dùng còn ghi nghi vấn → K-LAI-3V (Cảnh báo); K-LAI-3 vẫn sạch', bad(rr['K-LAI-3V']) + ([] if not bad(rr['K-LAI-3']) else ['K-LAI-3 bẩn']), True)
-case('cap', 'K-LAI-3V Cảnh báo', cap112.cap('K-LAI-3V', rr['K-LAI-3V'])[1], False)
+case('cap', 'K-LAI-3V ở animatic → Cảnh báo (K116-D5)', cap112.cap('K-LAI-3V', dict(rr['K-LAI-3V'], cong='animatic'))[1], False)
+case('cap', 'K-LAI-3V ở cổng G2 (bản phát hành) → Chặn (K116-D5)', cap112.cap('K-LAI-3V', dict(rr['K-LAI-3V'], cong='G2'))[1], True)
 G = [json.loads(l) for l in open(os.path.join(EP, 'lai', 'goi-api-van.jsonl'))]; G[0]['input'].pop('mask_frac')
 E = ep(lai=dict(E0['lai'], goi_api_van=tmpf('gv.jsonl', G, jsonl=True)))
 case('K-LAI-6', 'vân: không có % mặt nạ (không mask_frac, không mask: null) → lỗi', bad(LA.check116(E, mk_tl(E), EP, None)['K-LAI-6']), True)

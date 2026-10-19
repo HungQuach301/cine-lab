@@ -190,11 +190,12 @@ def main():
     if V16:
         LAT = dict(LAT, **{'K-LAI-2': 'LAI: công bố AI (§12.1)', 'K-LAI-3V': 'LAI: nghi vấn còn ghi của vân (1.16)'})
         LAN = dict(LAN, **{'K-LAI-2': 'cờ ai_* mọi khung · shot khai khớp log · thẻ phương pháp nói AI · mô tả "AI use = Yes" · KHÔNG nhãn trên hình',
-                           'K-LAI-3V': 'tệp vân dùng không còn nghi vấn chưa xử lý (Cảnh báo)'})
+                           'K-LAI-3V': 'tệp vân dùng không còn nghi vấn chưa xử lý (Chặn ở G2 · Cảnh báo ở animatic — K116-D5)'})
     if not q_lai.ap_dung(E): bao('K-LAI-1…6', 'Khung neo LAI', lambda: dict(ok=True, loi=[], val='tập không có khối lai: / shot AI', ket_qua='KHÔNG ÁP'))
     else:
         try: LA = (q_lai.check116 if V16 else q_lai.check)(E, TL, ep_dir, logs)
         except Exception as e: LA = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in LAT}
+        if V16 and 'K-LAI-3V' in LA: LA['K-LAI-3V'] = dict(LA['K-LAI-3V'], cong='animatic' if E.get('animatic') else 'G2')   # K116-D5
         for k in LAT: bao(k, LAT[k], lambda k=k: LA[k], LAN[k])
 
     def o2():
@@ -223,11 +224,11 @@ def main():
     K6T = {'SACH-1': 'Khung sạch §12.1 + TL-4', 'CHUONG-1': 'Thẻ chương §13.3', 'PP-1': 'Thẻ phương pháp (D6)', 'TL-1': 'Xương sống timelapse §13.6',
            'TL-2': 'Lướt thấp §13.6', 'TL-3': 'Không shot trống §13.6', 'NHIP-NGHIA': 'Nhịp → vật mang nghĩa §13.2', 'XEM-CAM': 'Cổng XEM CÂM §13.4',
            'PC-1': 'Thước phục chế §12.3'}
-    K6N = {'SACH-1': 'chỉ bộ đếm · chip nơi ≤ 3 s · thẻ chương · thẻ phương pháp; không tấm số/trích, không tư liệu đứng riêng (phủ ≤ 3 s)',
+    K6N = {'SACH-1': 'chỉ bộ đếm · chip nơi ≤ 3 s · thẻ chương · thẻ phương pháp · bản đồ ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ (K116-D3); không tấm số/trích, không tư liệu đứng riêng (phủ ≤ 3 s)',
            'CHUONG-1': '≤ 8/tập · "năm — ≤ 6 từ" · ≤ 3 s · không trong móc · trung tính', 'PP-1': '2 thẻ × 7–9 s, cuối phim · nguồn/ước tính/AI · ≤ 3 từ/s',
-           'TL-1': 'góc cao + thời gian chạy ≥ 75 % · ≤ 5 cắt/phút (đặc tả + video) · trôi ≤ 2 %/s · 6–8 điểm máy (hiệu chỉnh sau V7-PILOT)',
+           'TL-1': 'góc cao + thời gian chạy ≥ 75 % · ≤ 5 cắt/phút (video: đổi cấu trúc; đối chiếu đặc tả ±0,5 s) · trôi ≤ 2 %/s · 6–8 điểm máy (hiệu chỉnh sau V7-PILOT)',
            'TL-2': 'lướt thấp ≤ 10 % · có vai, phố/người (hiệu chỉnh sau V7-PILOT)', 'TL-3': 'mỗi shot 3D: thời gian chạy hoặc biến cố · trống ≤ 60 % (hiệu chỉnh sau V7-PILOT)',
-           'NHIP-NGHIA': '≥ 90 % nhịp chính', 'XEM-CAM': '8 câu · 3 AI + chủ dự án · tắt tiếng · ≥ 6/8 mỗi người', 'PC-1': 'Δ cạnh mới so bicubic ≤ 1,0 điểm % · PSNR ≥ bicubic'}
+           'NHIP-NGHIA': '≥ 90 % nhịp chính', 'XEM-CAM': '8 câu · 3 AI + chủ dự án · tắt tiếng · chủ dự án ≥ 6/8 VÀ TB AI ≥ 6/8 (K116-D2)', 'PC-1': 'Δ cạnh mới so bicubic ≤ 1,0 điểm % · PSNR ≥ bicubic'}
     if not V16: bao('1.16', 'Luật T3 (SACH-1…PC-1)', lambda: dict(ok=True, loi=[], val='tập trước T3: giữ hành vi 1.15', ket_qua='KHÔNG ÁP'))
     else:
         vid = g('tl16-video') or mv
