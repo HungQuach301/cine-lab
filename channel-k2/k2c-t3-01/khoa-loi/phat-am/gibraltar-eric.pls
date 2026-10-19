@@ -2,10 +2,10 @@
 <lexicon version="1.0" xmlns="http://www.w3.org/2005/01/pronunciation-lexicon" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
   alphabet="ipa" xml:lang="en-GB">
-  <!-- K2C-T3-01 Gibraltar · giọng Eric · eleven_multilingual_v2 (chỉ alias). Sinh bằng khoa-loi/lam_loi_khoa.py từ lời khoá 18/10/2026. -->
+  <!-- K2C-T3-01 Gibraltar · giọng G1 (Voice Design) · eleven_multilingual_v2 (chỉ alias). Sinh bằng khoa-loi/lam_loi_khoa.py từ lời khoá 18/10/2026; sửa alias Đ3 (chữ thường) bằng reports/giong-chot/sua_pls.py 19/10/2026. Tên tệp giữ "eric" để không đổi đường dẫn đã khoá. -->
   <lexeme>
     <grapheme>La Línea de la Concepción</grapheme>
-    <alias>La LEE-neh-ah deh la Kon-sep-SYON</alias>
+    <alias>la lee-nay-ah deh la Kon-sep-SYON</alias>
   </lexeme>
   <lexeme>
     <grapheme>Diego de Salinas</grapheme>
@@ -25,11 +25,11 @@
   </lexeme>
   <lexeme>
     <grapheme>fait accompli</grapheme>
-    <alias>fayt a-kom-PLEE</alias>
+    <alias>fet ah-kom-plee</alias>
   </lexeme>
   <lexeme>
     <grapheme>La Línea's</grapheme>
-    <alias>La LEE-neh-ah's</alias>
+    <alias>la lee-nay-ah's</alias>
   </lexeme>
   <lexeme>
     <grapheme>San Roque</grapheme>
@@ -41,7 +41,7 @@
   </lexeme>
   <lexeme>
     <grapheme>La Línea</grapheme>
-    <alias>La LEE-neh-ah</alias>
+    <alias>la lee-nay-ah</alias>
   </lexeme>
   <lexeme>
     <grapheme>Tangier</grapheme>
@@ -53,11 +53,11 @@
   </lexeme>
   <lexeme>
     <grapheme>d'Arçon</grapheme>
-    <alias>dar-SOHN</alias>
+    <alias>dar-sohn</alias>
   </lexeme>
   <lexeme>
     <grapheme>Montero</grapheme>
-    <alias>mon-TEH-roh</alias>
+    <alias>mon-tair-oh</alias>
   </lexeme>
   <lexeme>
     <grapheme>isthmus</grapheme>
@@ -65,7 +65,7 @@
   </lexeme>
   <lexeme>
     <grapheme>Eliott</grapheme>
-    <alias>EL-ee-ut</alias>
+    <alias>Elliot</alias>
   </lexeme>
   <lexeme>
     <grapheme>Ince's</grapheme>
