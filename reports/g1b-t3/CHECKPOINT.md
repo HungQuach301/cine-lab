@@ -24,3 +24,7 @@
 ## Dừng phiên (worker khởi động lại)
 - Tiến trình dựng chết ≈ 19:40 UTC (máy khởi động lại; phát hiện 22:22). /var/tmp còn nguyên: 10 cảnh đã xong giữ nguyên (stamp), 2 cảnh dở dựng tiếp `--resume`. Chạy lại 22:23 UTC cùng lệnh. Không mất tệp.
 - SM1–SM3 xong (phiên con, commit 0deffd63); người + phục chế xong (phiên con, commit d9c496c0).
+
+## CUỐI (≈ 04:40 UTC 19/10) — DỪNG chờ chủ dự án
+- Xong mọi bước 0–8; báo cáo `reports/g1b-t3/G1B-BAO-CAO.md`.
+- Ngoài git: master `/var/tmp/cine-out/k2c-t3-g1b/k2c-t3-g1b-v1-master.mp4` (688 MB, e186dbb2…) · bản ray 540p `…/k2c-t3-g1b-animatic-540p-ray.mp4` (216 MB, 2b8ed11f…) · cảnh đinh 540p `/var/tmp/cine-out/hero/k2c-t3-g1b-*` · đo 1080p `/var/tmp/cine-out/g1b/bench1080` · O2 `/var/tmp/cine-out/g1b/o2`. Tái tạo: `bash scripts/k2tl/g1b_animatic.sh` (sau khi dựng bộ đệm như bảng trên + bộ đệm SM theo log-SM*.json khoá `dung`).

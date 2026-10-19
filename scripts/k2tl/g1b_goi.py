@@ -46,6 +46,6 @@ plan = dict(tran_gio=A.tran, he_so_may_cham=A.k_cham, tran_hieu_dung_gio=round(c
 Path(A.out).write_text(json.dumps(plan, ensure_ascii=False, indent=1) + '\n')
 if A.md:
     L = [f'| Gói | Giờ (máy đo) | Giờ (máy chậm ×{A.k_cham}) | Cảnh |', '|---|---|---|---|']
-    for g in plan['goi']: L.append(f"| {g['id']} | {g['gio_may_do']} | {g['gio_may_cham']} | " + ', '.join(c['canh'][4:] + (f"[{c['dai'][0]}–{c['dai'][1]}]" if c['dai'] else '') for c in g['canh']) + ' |')
+    for g in plan['goi']: L.append(f"| {g['id']} | {g['gio_may_do']} | {g['gio_may_cham']} | " + ', '.join((c['canh'][4:] if c['canh'].startswith('g1b_') else c['canh']) + (f"[{c['dai'][0]}–{c['dai'][1]}]" if c['dai'] else '') for c in g['canh']) + ' |')
     Path(A.md).write_text('\n'.join(L) + '\n')
 print(f"tổng {tong:.1f} h (1 tiến trình) · trần hiệu dụng {cap:.1f} h · {N} gói · thiếu số đo: {len(miss)}")
