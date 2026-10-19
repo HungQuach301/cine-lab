@@ -7,3 +7,7 @@
 - Eevee chạy được trong container (llvmpipe/EGL, có cảnh báo EGL_BAD_MATCH) — cảnh rỗng 34 s (biên dịch shader).
 - Lỗi đã gặp: lọc dị hướng (anisotropy 8) trên sampler2DArray ở llvmpipe → khối đen NaN dọc mép lớp phủ → tắt (aniso 1).
 - Đang chạy: thử nướng Cycles mốc 1782 (hộp phố 2 × 3 km, 2 m/texel, 32 spp).
+
+## Lượt 2 (≈ 17:50 UTC 19/10)
+- Nướng b1782 xong: hộp E −3000…1000, N −3000…3500, 3 m/texel (1333 × 2167), 24 spp, 4 lượt (trời 481 s, nảy nắng 267 s, nắng thẳng 327 s, lửa 395 s) = **1 481 s** (máy có tải song song). Đang nướng b2026.
+- Cảnh Blender đứng riêng chạy cả Cycles và **Eevee** (llvmpipe, 480×270 8 mẫu 110 s có tải). Cú lặn: đường máy `design/pt/cpu/dive-opt.json`, đang dựng phần A (khung 0–227, 336–479).

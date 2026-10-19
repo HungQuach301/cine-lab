@@ -25,6 +25,9 @@ const GLM = require(path.join(SCR, 'gl.js')), { gl: GL, flags: GLFLAGS } = GLM.p
   const cfg = { W: 640, H: 360, scene: arg('scene'), pack: '/cache/scene/gib/pack/', lut: '/cache/lut/k2-a-thep-lanh.cube', lutMode: 1, look: {}, photo: '/cache/loc/ng_crop.jpg', tech: JSON.parse(arg('tech', '{"spp":1}')), lutK: 1, opt: JSON.parse(arg('opt', '{}')) };
   const info = await page.evaluate(async (c) => await window.setup(c), cfg); await GLM.assertRenderer(GL, info.renderer, browser);
   await page.evaluate(async (f) => { await window.renderFrame(f, false, { noText: true }); }, F);   // áp trạng thái khung (năm, lớp hiện/ẩn)
+  if (arg('campath')) {   // đường máy + trạng thái MỖI khung (cho cách B dựng cùng máy): [{f, p, l, fov, year, night, sun}]
+    const keys = await page.evaluate((n) => { const { SC } = globalThis.NC, out = []; for (let f = 0; f < n; f++) { const st = SC.state(f / SC.fps); out.push({ f, p: st.cam.p, l: st.cam.l, fov: st.cam.fov, year: st.year, night: st.night, sun: st.sun, clock: st.clock && st.clock.s }); } return out; }, +arg('n', 480));
+    fs.writeFileSync(arg('campath'), JSON.stringify({ keys })); console.log(JSON.stringify({ khung: keys.length })); await browser.close(); return; }
   const t0 = Date.now(), nx = Math.ceil((box[2] - box[0]) / res / TILE), ny = Math.ceil((box[3] - box[1]) / res / TILE), tiles = [];
   for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) {
     const e0 = box[0] + i * TILE * res, n1 = box[3] - j * TILE * res, w = Math.min(TILE, Math.round((box[2] - e0) / res)), h = Math.min(TILE, Math.round((n1 - box[1]) / res));

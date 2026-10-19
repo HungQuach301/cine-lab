@@ -75,7 +75,7 @@ const G_GROUND = `
     vec2 q1 = p / s1, q2 = ncRot * p / s2 + 0.37; mat2 r2 = ncRot * ncRot;
     vec3 t1 = ncT(L1, q1, ncDX / s1, ncDY / s1), t2 = ncT(L2, q2, ncRot * ncDX / s2, ncRot * ncDY / s2), t3 = ncT1(L1, r2 * p / (s1 * 3.7) + 0.71, r2 * ncDX / (s1 * 3.7), r2 * ncDY / (s1 * 3.7));
     vec3 t = t1 * mix(vec3(1.0), t3, 0.55) * mix(vec3(1.0), t2, 0.55);
-    t = clamp(t, vec3(0.15), vec3(2.6));
+    t = clamp(mix(vec3(1.0), t, 0.8), vec3(0.15), vec3(2.6));
     float lt = dot(t, vec3(0.299, 0.587, 0.114));
     ncNP = (ncN(L1, q1, ncDX / s1, ncDY / s1) * 0.8 + ncN(L2, q2, ncRot * ncDX / s2, ncRot * ncDY / s2) * 0.6) * (1.0 - smoothstep(1800.0, 3200.0, dd));
     vec3 outc = pc * mix(vec3(lt), t, kc);

@@ -19,7 +19,7 @@ export async function makeBake(ctx, P) {
     uni.uNcSkyK.value = skyK;
     // nảy nắng: tỉ lệ theo cường độ nắng hiện tại (đêm → 0) và lệch hướng nắng so lượt nướng (cos góc)
     const s = ctx.sun, d = ctx.sunDir, b = M.sun_dir ? new THREE.Vector3(...M.sun_dir) : d, cosA = Math.max(0, d.dot(b));
-    uni.uNcSunC.value.copy(s.color).multiplyScalar(s.intensity * bncK * 4.0 * (M.g_scale || 0.25) * cosA * (1 - (st.night || 0)));
+    uni.uNcSunC.value.copy(s.color).multiplyScalar(s.intensity * bncK * (M.g_scale || 0.25) / Math.PI * cosA * (1 - (st.night || 0)));
     if (fire && st.year >= fire.wY[0] && st.year <= fire.wY[1]) { const u = (st.year - fire.wY[0]) / (fire.wY[1] - fire.wY[0]);
       uni.uNcFireK.value = (fire.k ?? 1.0) * Math.min(1, u * 8) * Math.min(1, (1 - u) * 4) * (0.85 + 0.15 * Math.sin((st.year * 1e5) % 6.283)); } else uni.uNcFireK.value = 0; } };
 }

@@ -149,8 +149,8 @@ def mat_inst(kind, base=(0.12, 0.16, 0.07)):   # bụi/cây: màu bản sao (thu
     m['kind'] = kind; return m
 
 MATS = {}
-def mat(kind, inst=False):
-    key = kind + ('_i' if inst else '')
+def mat(kind, inst=False, hasC=True):
+    key = kind + ('_i' if inst else '') + ('' if hasC else '_0')
     if key in MATS: return MATS[key]
     if kind == 'dia_hinh': m = mat_ground()
     elif kind == 'nha': m = mat_city()
@@ -159,6 +159,13 @@ def mat(kind, inst=False):
     elif kind == 'nguoi': m = mat_vc(kind, None, rough=0.8, base=(0.4, 0.3, 0.25))
     elif kind == 'co': m = mat_vc(kind, None, rough=0.7, base=(0.6, 0.6, 0.6))
     else: m = mat_vc(kind + ('_i' if inst else ''), None, rough=0.8, base=(0.45, 0.42, 0.38))
+    if not hasC:   # không có màu đỉnh: bỏ nút thuộc tính 'col' (Cycles trả alpha 1, màu 0 → đen)
+        for n in list(m.node_tree.nodes):
+            if n.type == 'ATTRIBUTE' and n.attribute_name == 'col':
+                for l in list(n.outputs['Alpha'].links): l.to_socket.node.inputs['Factor'].default_value = 0.0 if 'Factor' in l.to_socket.node.inputs else 0
+                for l in list(n.outputs['Alpha'].links) + list(n.outputs['Color'].links): m.node_tree.links.remove(l)
+                m.node_tree.nodes.remove(n)
+        m.name = m.name + '_0'
     MATS[key] = m; return m
 
 # ---------------------------------------------------------------- hình học (cùng phép đổi trục với scripts/k2tl/cy6.py)
@@ -186,7 +193,7 @@ for k, o in enumerate(M['objs']):
     if kind == 'khac' and o['name'] and 'Sprite' in o['name']: continue
     P = load(o['buf']['P']); I = load(o['buf']['I']) if 'I' in o['buf'] else None; C = load(o['buf']['C']) if 'C' in o['buf'] else None
     me = mesh_from(P, I, f"o{k}_{kind}", C, smooth=kind in ('dia_hinh', 'cay', 'bui'))
-    inst = 'M' in o['buf']; me.materials.append(mat(kind, inst))
+    inst = 'M' in o['buf']; me.materials.append(mat(kind, inst, C is not None or kind == 'dia_hinh' or (inst and kind in ('cay', 'bui'))))
     if inst:
         base = bpy.data.objects.new(f"goc{k}", me); base_col.objects.link(base)
         Mx = load(o['buf']['M']).reshape(-1, 16); IC = load(o['buf']['IC']).reshape(-1, 3) if 'IC' in o['buf'] else None
@@ -245,20 +252,21 @@ wld = bpy.data.worlds.new('w'); sc.world = wld; wld.use_nodes = True; wnt = wld.
 bg = wnt.nodes.new('ShaderNodeBackground'); wo = wnt.nodes.new('ShaderNodeOutputWorld'); wnt.links.new(bg.outputs[0], wo.inputs[0])
 SKYNODE = None
 def sky_day():
-    global SKYNODE
-    st = wnt.nodes.new('ShaderNodeTexSky'); types = [e.identifier for e in st.bl_rna.properties['sky_type'].enum_items]
-    st.sky_type = 'MULTIPLE_SCATTERING' if 'MULTIPLE_SCATTERING' in types else ('NISHITA' if 'NISHITA' in types else types[0])
-    for nm, v in (('sun_elevation', math.radians(max(sun_el, 0.5))), ('sun_rotation', math.atan2(sd.x, sd.y) * -1 + math.pi / 2), ('altitude', 50.0), ('air_density', 1.0), ('aerosol_density', 1.6), ('ozone_density', 1.0), ('sun_disc', True), ('sun_intensity', 1.0)):
-        if hasattr(st, nm): setattr(st, nm, v)
-    wnt.links.new(st.outputs[0], bg.inputs['Color']); SKYNODE = st
-    bg.inputs['Strength'].default_value = SKY_K * 0.0   # đặt sau khi chọn đơn vị phơi sáng
-    return st, types
+    """trời gradient như k2v (water.js skyCol: chân trời sáng ngả xám-lam → thiên đỉnh lam) — tia máy/tia bóng thấy trời SÁNG (như k2v vẽ trời),
+    tia khuếch tán nhận trời DỊU khớp ánh trời bán cầu k2v (bức xạ mặt phẳng ≈ hemiI × màu trời) → cùng tỉ lệ nắng/trời với cách A."""
+    L = wnt.links; tc = wnt.nodes.new('ShaderNodeTexCoord'); sx = wnt.nodes.new('ShaderNodeSeparateXYZ'); L.new(tc.outputs['Generated'], sx.inputs[0])
+    cl = wnt.nodes.new('ShaderNodeClamp'); L.new(sx.outputs['Z'], cl.inputs['Value']); pw = wnt.nodes.new('ShaderNodeMath'); pw.operation = 'POWER'; pw.inputs[1].default_value = 0.5; L.new(cl.outputs[0], pw.inputs[0])
+    vis = wnt.nodes.new('ShaderNodeMix'); vis.data_type = 'RGBA'; L.new(pw.outputs[0], vis.inputs['Factor']); vis.inputs[6].default_value = (*HAZE_C, 1); vis.inputs[7].default_value = (0.20, 0.40, 0.78, 1)
+    hm = M['hemi']; k = hm['intensity'] * 1.15
+    dif = wnt.nodes.new('ShaderNodeMix'); dif.data_type = 'RGBA'; L.new(cl.outputs[0], dif.inputs['Factor'])
+    dif.inputs[6].default_value = (*[c * k for c in hm['sky']], 1); dif.inputs[7].default_value = (*[c * k * 0.85 for c in hm['sky']], 1)
+    lp = wnt.nodes.new('ShaderNodeLightPath'); mx = wnt.nodes.new('ShaderNodeMath'); mx.operation = 'MAXIMUM'; L.new(lp.outputs['Is Camera Ray'], mx.inputs[0]); L.new(lp.outputs['Is Glossy Ray'], mx.inputs[1])
+    sel = wnt.nodes.new('ShaderNodeMix'); sel.data_type = 'RGBA'; L.new(mx.outputs[0], sel.inputs['Factor']); L.new(dif.outputs[2], sel.inputs[6]); L.new(vis.outputs[2], sel.inputs[7])
+    L.new(sel.outputs[2], bg.inputs['Color']); bg.inputs['Strength'].default_value = 1.0
 def sky_night():
-    bg.inputs['Color'].default_value = (0.012, 0.018, 0.035, 1); bg.inputs['Strength'].default_value = 1.0
-# thang phơi sáng: three dùng nắng ≈ sunI 3,3 (đơn vị tuỳ ý); ở đây nắng sl.energy = Su.intensity (W/m² Blender) và trời Sky Texture × hệ số khớp độ sáng
+    bg.inputs['Color'].default_value = (0.010, 0.015, 0.030, 1); bg.inputs['Strength'].default_value = 1.0
 if NIGHT < 0.5:
-    sky_day(); sl.energy = Su['intensity'] * 1.0; sl.color = Su['color'][:3]
-    bg.inputs['Strength'].default_value = float(opt.get('--skyk', 0.32)) * Su['intensity'] / 3.3
+    sky_day(); sl.energy = Su['intensity']; sl.color = Su['color'][:3]
 else:
     sky_night(); sl.energy = Su['intensity']; sl.color = Su['color'][:3]
 for m in list(bpy.data.materials):
@@ -273,14 +281,36 @@ def add_fires():
     nt.links.new(nz.outputs['Fac'], cr.inputs['Fac']); nt.links.new(cr.outputs['Color'], em.inputs['Color']); em.inputs['Strength'].default_value = 60.0; nt.links.new(em.outputs[0], out.inputs['Surface'])
     for f in FIRES:
         e, n = f['at']; z = f.get('z', 3.0); s = f.get('size', 30) / 30.0
-        bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=2, radius=1, location=(e, n, z + 5 * s)); fo = bpy.context.active_object; fo.scale = (14 * s, 6 * s, 9 * s); fo.data.materials.append(fm); fo.name = 'lua'
+        for j, (dx, dy, k) in enumerate(((0, 0, 1.0), (-11, 3, 0.7), (10, -4, 0.75))):   # 3 ngọn lửa trên boong pin nổi (dài ≈ 45 m)
+            bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=2, radius=1, location=(e + dx * s, n + dy * s, z + 4 * s * k)); fo = bpy.context.active_object; fo.scale = (5 * s * k, 3 * s * k, 7 * s * k); fo.data.materials.append(fm); fo.name = 'lua'
+            if j: FIRE_OBJ.append((fo, None, f))
         li = bpy.data.lights.new('lua', 'POINT'); li.energy = f.get('W', 2.5e6) * s; li.color = (1.0, 0.45, 0.14); li.shadow_soft_size = 8 * s
         lo = bpy.data.objects.new('lua', li); lo.location = (e, n, z + 12 * s); sc.collection.objects.link(lo); FIRE_OBJ.append((fo, lo, f))
 if FIRES: add_fires()
+SMOKE = []
+def add_smoke():
+    """cột khói THỂ TÍCH (Principled Volume, mật độ nhiễu 4D theo thời gian, nghiêng theo gió) trên mỗi đám cháy — thử chi phí thể tích ở Cycles CPU."""
+    vm = bpy.data.materials.new('m_khoi'); vm.use_nodes = True; nt = vm.node_tree; nt.nodes.clear(); out = N(nt, 'ShaderNodeOutputMaterial'); pv = N(nt, 'ShaderNodeVolumePrincipled'); L = nt.links
+    tc = N(nt, 'ShaderNodeTexCoord'); nz = N(nt, 'ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = 2.2; nz.inputs['Detail'].default_value = 4
+    if hasattr(nz, 'noise_dimensions'): nz.noise_dimensions = '4D'
+    L.new(tc.outputs['Generated'], nz.inputs['Vector']); cr = N(nt, 'ShaderNodeMapRange'); cr.inputs['From Min'].default_value = 0.45; cr.inputs['From Max'].default_value = 0.75; L.new(nz.outputs['Fac'], cr.inputs['Value'])
+    sx = N(nt, 'ShaderNodeSeparateXYZ'); L.new(tc.outputs['Generated'], sx.inputs[0]); fall = N(nt, 'ShaderNodeMapRange'); fall.inputs['From Min'].default_value = 0.0; fall.inputs['From Max'].default_value = 1.0; fall.inputs['To Min'].default_value = 1.0; fall.inputs['To Max'].default_value = 0.15; L.new(sx.outputs['Z'], fall.inputs['Value'])
+    # mép: hình trụ mềm theo khoảng cách tới trục (x, y quanh 0,5)
+    vx = N(nt, 'ShaderNodeVectorMath', operation='SUBTRACT'); vx.inputs[1].default_value = (0.5, 0.5, 0); L.new(tc.outputs['Generated'], vx.inputs[0]); m2 = N(nt, 'ShaderNodeVectorMath', operation='MULTIPLY'); m2.inputs[1].default_value = (1, 1, 0); L.new(vx.outputs[0], m2.inputs[0])
+    ln = N(nt, 'ShaderNodeVectorMath', operation='LENGTH'); L.new(m2.outputs[0], ln.inputs[0]); edge = N(nt, 'ShaderNodeMapRange'); edge.inputs['From Min'].default_value = 0.5; edge.inputs['From Max'].default_value = 0.25; L.new(ln.outputs['Value'], edge.inputs['Value'])
+    d1 = N(nt, 'ShaderNodeMath', operation='MULTIPLY'); L.new(cr.outputs['Result'], d1.inputs[0]); L.new(fall.outputs['Result'], d1.inputs[1]); d2 = N(nt, 'ShaderNodeMath', operation='MULTIPLY'); L.new(d1.outputs[0], d2.inputs[0]); L.new(edge.outputs['Result'], d2.inputs[1])
+    d3 = N(nt, 'ShaderNodeMath', operation='MULTIPLY'); d3.inputs[1].default_value = float(opt.get('--smoked', 0.025)); L.new(d2.outputs[0], d3.inputs[0]); L.new(d3.outputs[0], pv.inputs['Density'])
+    pv.inputs['Color'].default_value = (0.07, 0.065, 0.06, 1); pv.inputs['Anisotropy'].default_value = 0.3; L.new(pv.outputs[0], out.inputs['Volume']); SMOKE.append(nz)
+    for f in FIRES:
+        e, n = f['at']; s_ = f.get('size', 30) / 30.0
+        bpy.ops.mesh.primitive_cube_add(size=1, location=(e - 40 * s_, n + 10 * s_, 110 * s_)); so_ = bpy.context.active_object; so_.scale = (110 * s_, 110 * s_, 240 * s_); so_.rotation_euler = (0, math.radians(-14), 0)
+        so_.data.materials.append(vm); so_.name = 'khoi'
+if '--smoke' in opt and FIRES: add_smoke()
 
 def cycles(spp, denoise=True, bounces=(4, 3, 2)):
     sc.render.engine = 'CYCLES'; cy = sc.cycles; cy.device = 'CPU'; cy.samples = spp; cy.use_denoising = denoise; cy.denoiser = 'OPENIMAGEDENOISE'
-    cy.max_bounces, cy.diffuse_bounces, cy.glossy_bounces = bounces[0], bounces[1], bounces[2]; cy.transmission_bounces = 2; cy.transparent_max_bounces = 4
+    cy.max_bounces, cy.diffuse_bounces, cy.glossy_bounces = bounces[0], bounces[1], bounces[2]; cy.transmission_bounces = 2; cy.transparent_max_bounces = 4; cy.volume_bounces = 0
+    if hasattr(cy, 'volume_step_rate'): cy.volume_step_rate = float(opt.get('--vstep', 4.0))
     cy.use_adaptive_sampling = True; cy.adaptive_threshold = 0.02; sc.render.threads_mode = 'FIXED'; sc.render.threads = TH
     if hasattr(cy, 'denoising_input_passes'): cy.denoising_input_passes = 'RGB_ALBEDO_NORMAL'
     sc.render.use_persistent_data = '--persist' in opt
@@ -313,9 +343,10 @@ if JOB in ('cycles', 'eevee'):
             p = mathutils.Vector((k['p'][0], k['p'][2], k['p'][1])); l = mathutils.Vector((k['l'][0], k['l'][2], k['l'][1]))
             cob.location = p; cob.rotation_euler = (l - p).to_track_quat('-Z', 'Y').to_euler(); cam.angle_y = math.radians(k.get('fov', 40))
             t = k['f'] / 24.0
-            for w in WN:
+            for w in list(WN) + SMOKE:
                 if 'W' in w.inputs: w.inputs['W'].default_value = t * 0.15
             for fo, lo_, f in FIRE_OBJ:   # nhấp nháy lửa tất định
+                if lo_ is None: continue
                 ff = 0.8 + 0.2 * math.sin(t * 7.1 + f['at'][0] * 0.01) * math.sin(t * 3.3 + f['at'][1] * 0.013); lo_.data.energy = f.get('W', 2.5e6) * (f.get('size', 30) / 30) * ff
             sc.render.filepath = os.path.join(OUT, f"{k['f']:05d}.exr")
         else: sc.render.filepath = OUT
@@ -329,6 +360,15 @@ elif JOB == 'nuong':
     """nướng: R trời, G nảy nắng, (B lửa) vào ảnh phẳng hộp box; mỗi lượt một ảnh float rồi gộp."""
     box = [float(x) for x in opt['--box'].split(',')]; br = float(opt.get('--bres', 2.0)); BW = int(round((box[2] - box[0]) / br)); BH = int(round((box[3] - box[1]) / br))
     spp = int(opt.get('--spp', 64)); cycles(spp, denoise=False, bounces=(3, 3, 0))
+    # bỏ phần VÁY chồng mép của mỗi ô 1 km (terrain.js chunk(): mở rộng ±1 bước) — không thì mép ô bị ô kề che → đường xám lưới 1 km trong ảnh nướng
+    import bmesh
+    for ob in TERR:
+        co = np.zeros(len(ob.data.vertices) * 3, np.float32); ob.data.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
+        ex = co[:, 0].max() - co[:, 0].min()
+        if ex > 1100: continue   # lưới ngoài/toàn vùng: giữ
+        cx, cy = co[:, 0].mean(), co[:, 1].mean(); e0 = -3000 + math.floor((cx + 3000) / 1000) * 1000; n0 = -5500 + math.floor((cy + 5500) / 1000) * 1000
+        bm = bmesh.new(); bm.from_mesh(ob.data); dl = [f for f in bm.faces if not (e0 <= f.calc_center_median().x <= e0 + 1000 and n0 <= f.calc_center_median().y <= n0 + 1000)]
+        bmesh.ops.delete(bm, geom=dl, context='FACES'); bm.to_mesh(ob.data); bm.free()
     # UV phẳng cho mọi ô địa hình
     for ob in TERR:
         me = ob.data; uv = me.uv_layers.new(name='bake'); co = np.zeros(len(me.vertices) * 3, np.float32); me.vertices.foreach_get('co', co); co = co.reshape(-1, 3)
@@ -356,7 +396,9 @@ elif JOB == 'nuong':
     bg2 = wnt.nodes.new('ShaderNodeBackground'); wo2 = wnt.nodes.new('ShaderNodeOutputWorld'); L = wnt.links
     L.new(tc.outputs['Generated'], sx.inputs[0]); L.new(sx.outputs['Z'], gt.inputs[0]); L.new(gt.outputs[0], mu.inputs[0]); L.new(mu.outputs[0], bg2.inputs['Strength']); L.new(bg2.outputs[0], wo2.inputs[0]); bg2.inputs['Color'].default_value = (1, 1, 1, 1)
     sl.energy = 0
-    for fo, lo_, f in FIRE_OBJ: fo.hide_render = True; lo_.hide_render = True
+    for fo, lo_, f in FIRE_OBJ:
+        fo.hide_render = True
+        if lo_: lo_.hide_render = True
     bake('sky', {'DIRECT', 'INDIRECT'})
     # (2) NẮNG: chỉ nảy (gián tiếp) + trực tiếp làm mốc chuẩn hoá; trời đen
     bg2.inputs['Color'].default_value = (0, 0, 0, 1); sl.energy = 1.0; sl.color = (1, 1, 1)
@@ -364,7 +406,8 @@ elif JOB == 'nuong':
     # (3) LỬA (nếu có): đèn điểm lửa, không nắng/trời
     if FIRE_OBJ:
         sl.energy = 0
-        for fo, lo_, f in FIRE_OBJ: lo_.hide_render = False
+        for fo, lo_, f in FIRE_OBJ:
+            if lo_: lo_.hide_render = False
         bake('fire', {'DIRECT', 'INDIRECT'})
     sky = res['sky'][0]; kS = float(np.percentile(sky, 99.5)) or 1.0
     dirf = res['sun_dir'][0]; kD = float(np.percentile(dirf, 99.5)) or 1.0   # mặt phẳng trống: I·cos(zenith)·c
