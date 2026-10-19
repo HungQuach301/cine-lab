@@ -16,7 +16,7 @@ loi-khoa.txt:      giữ SHA 0fdc72ce…                            | 0fdc72ce81
 lock.py:           chỉ gọi với --verify                         | đúng; mọi lần KHỚP 1.15.0 f4fa0349…
 Chi phí:           Claude/OpenAI/ElevenLabs/YouTube 0           | $0 · $0 · 0 ký tự · 0 đơn vị; không gọi API, không WebFetch
 Giờ máy:           mốc theo dõi 2 h                             | ≈ 0,4 h thời gian thực; chưa vượt
-Preflight:         --staged mỗi commit; --range trước khi đẩy   | --staged ĐẠT ở cả 4 commit P; --range: xem §5 (1 mục báo nhầm P4 có sẵn từ G1b)
+Preflight:         --staged mỗi commit; --range trước khi đẩy   | --staged ĐẠT ở cả 4 commit P soạn tay; 2 commit merge tạo thẳng bằng `git merge` (không qua --staged) → kiểm bằng --range ngay sau merge (a) và lần cuối; --range: xem §5 (1 mục báo nhầm P4 có sẵn từ G1b)
 Email:             che; không vào header/URL/payload/UA          | 0 email trong diff P; không có yêu cầu mạng nào mang email
 Dừng hỏi:          không dừng giữa chừng                         | đúng
 ```
