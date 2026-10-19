@@ -15,6 +15,29 @@ V = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] in 'ab' else 'a'
 E = yaml.safe_load((EPD / f'episode-v7b-{V}.yaml').read_text()); LOG = json.loads((EPD / f'log-shot-v7b-{V}.json').read_text())
 env = dict(os.environ, K2TL_CACHE=os.environ.get('K2TL_CACHE', '/var/tmp/cine-out/k2tl-cache')); TMP = Path('/var/tmp/cine-out/v7b/do'); TMP.mkdir(parents=True, exist_ok=True)
 KHOI = {'H2': 'toan_canh', 'C1': 'vay_ham', 'C3': 'toan_canh', 'C5': 'toan_canh'}   # shot thuộc nhóm "vây hãm / toàn cảnh" của việc 3 (C3: phần sau cần cẩu)
+from datetime import datetime
+def dyr(a):
+    if isinstance(a, (int, float)): return float(a)
+    d = datetime.strptime(a, '%Y-%m-%d %H:%M'); y0 = datetime(d.year, 1, 1); y1 = datetime(d.year + 1, 1, 1); return d.year + (d - y0).total_seconds() / (y1 - y0).total_seconds()
+def tl_py(keys):
+    K = [(k['t'], dyr(k['at']), bool(k.get('hold'))) for k in keys]; N = len(K); d = [(K[i + 1][1] - K[i][1]) / (K[i + 1][0] - K[i][0]) for i in range(N - 1)]; m = []
+    for i in range(N):
+        if K[i][2]: m.append(0.0)
+        elif i == 0: m.append(d[0])
+        elif i == N - 1: m.append(d[-1])
+        else: a, b = d[i - 1], d[i]; m.append(0.0 if a * b <= 0 else 2 / (1 / a + 1 / b))
+    for i in range(N - 1):
+        if d[i] == 0: m[i] = m[i + 1] = 0.0; continue
+        a, b = m[i] / d[i], m[i + 1] / d[i]; q = a * a + b * b
+        if q > 9: tt = 3 / q ** 0.5; m[i] = tt * a * d[i]; m[i + 1] = tt * b * d[i]
+    def f(t):
+        if t <= K[0][0]: return K[0][1]
+        if t >= K[-1][0]: return K[-1][1]
+        i = 0
+        while i < N - 2 and t > K[i + 1][0]: i += 1
+        h = K[i + 1][0] - K[i][0]; u = (t - K[i][0]) / h; u2, u3 = u * u, u * u * u
+        return (2 * u3 - 3 * u2 + 1) * K[i][1] + (u3 - 2 * u2 + u) * h * m[i] + (-2 * u3 + 3 * u2) * K[i + 1][1] + (u3 - u2) * h * m[i + 1]
+    return f
 def key(s): return f"v7b_{s}" + (V if s == 'C1' else '')
 def node(o, *a):
     return subprocess.run(['node', str(ROOT / 'scripts/k2tl/render.js'), '--scene', 't3tl', '--pack', 'gib', '--w', '960', '--h', '540', '--opt', json.dumps(o, separators=(',', ':')), *a], env=env, capture_output=True, text=True)
@@ -36,11 +59,12 @@ def main():
         Y = None
         shots.append(dict(shot=L['shot'], diem=L['diem_may'], dur=L['dur'], agl_m=[min(r['agl'] for r in rows), max(r['agl'] for r in rows)], nhin_xuong_do=[min(r['pitch'] for r in rows), max(r['pitch'] for r in rows)],
                           drift_pct_s=sh.get('drift_pct_s'), year_rate_max_tho=sh.get('year_rate_max'), _rows=rows))
-    # năm/s chính xác từng khung: dùng đường cong của cảnh qua --campath (mỗi 6 khung) không đủ cho bước → tính lại từ mốc time (tl7 Hermite) bằng node một lần mỗi shot
-    for s in shots:
-        o = E['heroes'][key(s['shot'])]['opt']; js = f"""import('{ROOT}/design/k2v/tl/tl7.js').then(m=>{{const TL=m.timeline({json.dumps(o['time'])},{{tz:{json.dumps(o.get('tz'))}}});const N=Math.round({o['dur']}*24);let mx=0,st=0,y0=TL.year(0);const ys=[];for(let f=0;f<=N;f++)ys.push(TL.year(f/24));
-          for(let f=1;f<=N;f++){{const d=Math.abs(ys[f]-ys[f-1]);if(d>0.5)st++;else mx=Math.max(mx,d*24);}}console.log(JSON.stringify({{buoc:st,lien_tuc_max:mx}}));}})"""
-        r = subprocess.run(['node', '--input-type=module', '-e', js], capture_output=True, text=True); s.update(json.loads(r.stdout or '{}'))
+    # năm/s chính xác từng khung: đường cong tl7.timeline dựng lại bằng Python (cùng Hermite Fritsch–Carlson, mốc hold → tiếp tuyến 0); năm thập phân theo lịch (lệch < 1 giờ so tl7)
+    for s_ in shots:
+        o = E['heroes'][key(s_['shot'])]['opt']; TL = tl_py(o['time']); N = int(round(o['dur'] * 24)); ys = [TL(f / 24) for f in range(N + 1)]
+        d = [abs(ys[f] - ys[f - 1]) for f in range(1, N + 1)]; st = [i for i in range(len(d)) if d[i] > 0.2 and (i == 0 or d[i - 1] < 0.01) and (i == len(d) - 1 or d[i + 1] < 0.01)]   # BƯỚC = nhảy trong 1 khung, khung trước/sau đứng
+        s_['buoc_nam'] = len(st); s_['nam_s_lien_tuc_max'] = round(max([d[i] * 24 for i in range(len(d)) if i not in st] or [0]), 4)
+        s_['_TL'] = TL
     chu = [dict(shot=L['shot'], loai='thẻ chương', s=L['chuong'], giay=3.0) for L in LOG if L.get('chuong')]
     low_s = sum((L['luot_thap'][1] - L['luot_thap'][0]) for L in LOG if L['luot_thap'])
     res = dict(bien_the_c1=V, tong_s=round(T, 3), so_shot=n, cat_phut=round(n / (T / 60), 2), shot_tb_s=round(T / n, 2),
@@ -48,13 +72,15 @@ def main():
                             pct_nhin_xuong15=round(100 * nf['pitch'] / nf['tong'], 1), pct_theo_vai_khong_tinh_luot_thap=round(100 * (T - low_s) / T, 1)),
                luot_thap_theo_vai=dict(giay=round(low_s, 2), pct=round(100 * low_s / T, 1)), khung_neo_pct=0.0,
                tam_chu=dict(tam_so=0, tam_tu_lieu=0, cau_trich=0, the_chuong=chu, giay_co_tam_chu=round(sum(c['giay'] for c in chu), 1), ghi='bộ đếm năm/ngày (chữ chính) không tính; Faden 1783 phủ ≤ 3 s ở C1-b là tư liệu phủ khớp địa hình (TL-4), không phải tấm'),
-               shots=[{k: v for k, v in s.items() if k != '_rows'} for s in shots])
-    # pin nổi: theo log H2 (đường cong) — giây phim = giây cảnh + t0 shot
-    h2 = next(L for L in LOG if L['shot'] == 'H2'); o = E['heroes'][key('H2')]['opt']
-    js = f"""import('{ROOT}/design/k2v/tl/tl7.js').then(m=>{{const TL=m.timeline({json.dumps(o['time'])});const f=(y)=>{{for(let t=0;t<={o['dur']};t+=1/24)if(TL.year(t)>=y&&TL.year(t)<1783)return +t.toFixed(3);return null}};
-      const jd=(s)=>m.yearOfJD(m.jdOfKey(s));console.log(JSON.stringify({{hien:f(jd('1782-09-13 06:45')),vao_vi_tri:f(jd('1782-09-13 09:30')),khai_hoa:f(jd('1782-09-13 09:45')),chay:f(jd('1782-09-13 15:30'))}}))}})"""
-    r = subprocess.run(['node', '--input-type=module', '-e', js], capture_output=True, text=True); pn = json.loads(r.stdout or '{}')
-    res['pin_noi_giay_phim'] = {k: (round(v + h2['t0'], 2) if v is not None else None) for k, v in pn.items()}
+               shots=[])
+    # pin nổi: giây phim đầu tiên đường cong H2 đạt mốc (H2 bắt đầu ở 12,0 s phim)
+    h2 = next(L for L in LOG if L['shot'] == 'H2'); TL = next(x for x in shots if x['shot'] == 'H2')['_TL']
+    def first(y):
+        for f in range(int(round(h2['dur'] * 24)) + 1):
+            if 1782 < TL(f / 24) < 1783 and TL(f / 24) >= y: return round(h2['t0'] + f / 24, 2)
+    res['pin_noi_giay_phim'] = dict(hien=first(dyr('1782-09-13 06:45')), vao_vi_tri=first(dyr('1782-09-13 09:30')), khai_hoa=first(dyr('1782-09-13 09:45')), chay=first(dyr('1782-09-13 15:30')))
+    for x in shots: x.pop('_TL', None)
+    res['shots'] = [{k: v for k, v in x.items() if k != '_rows'} for x in shots]
     if '--mask' in sys.argv:
         rows, kh = [], []
         for L in LOG:

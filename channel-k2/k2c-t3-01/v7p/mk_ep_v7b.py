@@ -85,12 +85,16 @@ def shots():
             'Phố trước 1704: lớp tái dựng 1705 làm đại diện (bậc 5). Đồn trú 9/1782: King\'s Lines 50 + Main Guard 37 (danh-sach-9-1782, Spilsbury 7/9/1782; vị trí minh hoạ)'))
     # H3 · D · 0g + 0h — đường băng mọc qua đường rồi lấn vịnh → 2026; nhà 2026 có vật liệu (khung hero)
     o = V7P.shots()[2]['opt']; o.update(bfile=BF, cityOpt=CITY)
+    F = lambda n: round(n / 24, 6)   # V7B lượt 3: §10.3 (D2 không miễn) — V7P chạy 1943,6 → 2026 trong 3 s (≈ 28 năm/s); nay BƯỚC NĂM đều 1943 → 1969 → 1985 → 2026 (giữ 12 khung/bước), đoạn liên tục ≤ 1 năm/s
+    o['time'] = [dict(t=0, at=1938.6, sun=11.0, lab='y'), dict(t=F(82), at=1941.4, sun=11.0, lab='y'), dict(t=F(120), at=1943.6, sun=11.0, lab='y', hold=True),
+                 dict(t=F(121), at=1969.45, sun=11.0, lab='y', hold=True), dict(t=F(132), at=1969.454, sun=11.0, lab='y', hold=True), dict(t=F(133), at=1985.1, sun=11.0, lab='y', hold=True),
+                 dict(t=F(144), at=1985.104, sun=11.0, lab='y', hold=True), dict(t=F(145), at=2026.79, sun=10.5, lab='y', hold=True), dict(t=10.8333, at=2026.792, sun=10.6, lab='y')]
     S.append(dict(id='H3', lines=['0g', '0h'], diem='D', vai='buoc-ngoat', noi='eo_dat', opt=o, ghi='như V7P; nhà 2026 có vật liệu; máy D thấp/gần hơn'))
     # C1 · A2 (a) hoặc A (b) · 2a + 2b — 20/6 → 28/10/1779: trại TBN dựng lên, khối quân, cờ trung đoàn Borgoña trên dãy trại
     c1 = V7P.shots()[3]; o = dict(c1['opt']); o['units'] = o['units'] + [dict(at=[e, n], heading=hd, rows=6, cols=28, side='es', day=[dy('1779-08-10 12:00') + i * 0.015, 1783.2], seed=90 + i) for i, (e, n, hd) in enumerate([(-1200, 3300, 250), (-1220, 3150, 250), (-1360, 3550, 80), (-1350, 3400, 80), (-1050, 3050, 250), (-1180, 3000, 250)])]; o.update(campFlags=True, hideCampTrees=True)   # cây bụi 2026 (NDVI) trong dải trại + 60 m ẩn: đất trại đã giẫm/phát quang (bậc 5)
     for u in o['units']: u['rim'] = True
-    o['time'] = [dict(t=0, at='1779-06-20 14:00', sun='real', lab='d'), dict(t=2.2, at='1779-06-20 20:40', sun='real', lab='d'), dict(t=3.0, at='1779-06-21 06:40', sun='real', lab='d'),
-                 dict(t=4.6, at='1779-06-21 11:00', sun='real', lab='d'), dict(t=5.6, at='1779-06-21 12:00', sun=12.0, lab='d'), dict(t=8.0, at='1779-07-13 12:00', sun=12.0, lab='d'), dict(t=22.5, at='1779-10-28 12:00', sun=12.0, lab='d')]   # V7B: trại mọc từ 8 s (13/7) thay vì 15 s
+    o['time'] = [dict(t=0, at='1779-06-20 14:00', sun=14.0, lab='d'), dict(t=3.0, at='1779-06-21 10:00', sun=14.0, lab='d'),   # lượt 3: bỏ nhịp đêm 0,8 s (trùng thẻ chương)
+                 dict(t=4.6, at='1779-06-21 11:00', sun=12.0, lab='d'), dict(t=5.6, at='1779-06-21 12:00', sun=12.0, lab='d'), dict(t=8.0, at='1779-07-13 12:00', sun=12.0, lab='d'), dict(t=22.5, at='1779-10-28 12:00', sun=12.0, lab='d')]   # V7B: trại mọc từ 8 s (13/7) thay vì 15 s
     d = dur_of(['2a', '2b']); fad_t = NH['2b']['cau'][1]['bd_phim'] - NH['2a']['bd_phim']   # "…facing the Rock…" — câu 2 của 2b
     if C1V == 'b': o['faden'] = dict(t=[round(fad_t + 0.1, 2), round(fad_t + 3.1, 2)], fade=0.45, op=0.9)
     S.append(dict(id='C1', lines=['2a', '2b'], diem='A2' if C1V == 'a' else 'A', vai='co-che', noi='eo_dat', chuong='1779 — The Great Siege', opt=o,

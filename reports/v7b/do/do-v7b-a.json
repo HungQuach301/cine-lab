@@ -1,0 +1,178 @@
+{
+ "bien_the_c1": "a",
+ "tong_s": 118.458,
+ "so_shot": 8,
+ "cat_phut": 4.05,
+ "shot_tb_s": 14.81,
+ "goc_cao": {
+  "dinh_nghia": "AGL ≥ 120 m HOẶC nhìn xuống ≥ 15° (đề xuất V7B §3), mỗi 6 khung",
+  "pct_dinh_nghia": 100.0,
+  "pct_agl120": 77.3,
+  "pct_nhin_xuong15": 59.2,
+  "pct_theo_vai_khong_tinh_luot_thap": 96.7
+ },
+ "luot_thap_theo_vai": {
+  "giay": 3.9,
+  "pct": 3.3
+ },
+ "khung_neo_pct": 0.0,
+ "tam_chu": {
+  "tam_so": 0,
+  "tam_tu_lieu": 0,
+  "cau_trich": 0,
+  "the_chuong": [
+   {
+    "shot": "C1",
+    "loai": "thẻ chương",
+    "s": "1779 — The Great Siege",
+    "giay": 3.0
+   }
+  ],
+  "giay_co_tam_chu": 3.0,
+  "ghi": "bộ đếm năm/ngày (chữ chính) không tính; Faden 1783 phủ ≤ 3 s ở C1-b là tư liệu phủ khớp địa hình (TL-4), không phải tấm"
+ },
+ "shots": [
+  {
+   "shot": "H1",
+   "diem": "D",
+   "dur": 12.0,
+   "agl_m": [
+    242.5,
+    246.9
+   ],
+   "nhin_xuong_do": [
+    12.4,
+    12.6
+   ],
+   "drift_pct_s": 0.22,
+   "year_rate_max_tho": 0,
+   "buoc_nam": 0,
+   "nam_s_lien_tuc_max": 0.0002
+  },
+  {
+   "shot": "H2",
+   "diem": "K",
+   "dur": 21.0,
+   "agl_m": [
+    84.6,
+    84.8
+   ],
+   "nhin_xuong_do": [
+    26.9,
+    26.9
+   ],
+   "drift_pct_s": 0.03,
+   "year_rate_max_tho": 17215.18,
+   "buoc_nam": 15,
+   "nam_s_lien_tuc_max": 0.0142
+  },
+  {
+   "shot": "H3",
+   "diem": "D",
+   "dur": 10.8333,
+   "agl_m": [
+    242.5,
+    246.9
+   ],
+   "nhin_xuong_do": [
+    12.4,
+    12.6
+   ],
+   "drift_pct_s": 0.25,
+   "year_rate_max_tho": 41.11,
+   "buoc_nam": 3,
+   "nam_s_lien_tuc_max": 1.8766
+  },
+  {
+   "shot": "C1",
+   "diem": "A2",
+   "dur": 22.5,
+   "agl_m": [
+    188.1,
+    189.2
+   ],
+   "nhin_xuong_do": [
+    17.9,
+    18.5
+   ],
+   "drift_pct_s": 0.2,
+   "year_rate_max_tho": 0.03,
+   "buoc_nam": 0,
+   "nam_s_lien_tuc_max": 0.0335
+  },
+  {
+   "shot": "C2",
+   "diem": "E",
+   "dur": 12.0,
+   "agl_m": [
+    168,
+    170
+   ],
+   "nhin_xuong_do": [
+    0.2,
+    0.2
+   ],
+   "drift_pct_s": 0.09,
+   "year_rate_max_tho": 0.06,
+   "buoc_nam": 0,
+   "nam_s_lien_tuc_max": 0.0614
+  },
+  {
+   "shot": "C3",
+   "diem": "Ca",
+   "dur": 14.125,
+   "agl_m": [
+    5.8,
+    210.6
+   ],
+   "nhin_xuong_do": [
+    17.0,
+    61.2
+   ],
+   "drift_pct_s": 207.69,
+   "year_rate_max_tho": 0,
+   "buoc_nam": 0,
+   "nam_s_lien_tuc_max": 0.0012
+  },
+  {
+   "shot": "C4",
+   "diem": "Bb",
+   "dur": 13.5,
+   "agl_m": [
+    246.1,
+    250
+   ],
+   "nhin_xuong_do": [
+    5.7,
+    5.8
+   ],
+   "drift_pct_s": 0.17,
+   "year_rate_max_tho": 0.38,
+   "buoc_nam": 0,
+   "nam_s_lien_tuc_max": 0.3814
+  },
+  {
+   "shot": "C5",
+   "diem": "Cc",
+   "dur": 12.5,
+   "agl_m": [
+    226.8,
+    229.1
+   ],
+   "nhin_xuong_do": [
+    23.2,
+    23.5
+   ],
+   "drift_pct_s": 0.1,
+   "year_rate_max_tho": 0,
+   "buoc_nam": 0,
+   "nam_s_lien_tuc_max": 0.002
+  }
+ ],
+ "pin_noi_giay_phim": {
+  "hien": 23.83,
+  "vao_vi_tri": 25.33,
+  "khai_hoa": 25.46,
+  "chay": 26.96
+ }
+}
