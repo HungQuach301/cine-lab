@@ -1,11 +1,11 @@
 """NC-CPU · GHÉP CÚ LẶN 20 s (480 khung 24 fps): A (three.js + nướng) cho đoạn cao, B (Cycles CPU, chỉnh màu k2v) cho đoạn lướt thấp đêm,
 hoà chéo theo trọng số smoothstep ở hai mối nối. Ra PNG chuỗi → ffmpeg (ngoài tệp này).
-  /opt/cine/bin/python nc_ghep_lan.py <thư mục A0 (khung 0–228)> <thư mục A336> <thư mục B png> <ra> --x1 216,228 --x2 336,348"""
+  /opt/cine/bin/python nc_ghep_lan.py <các thư mục A, phân cách dấu phẩy> <thư mục B png> <ra> --x1 216,228 --x2 300,312"""
 import sys, os, cv2, numpy as np
-A0, A1, B, OUT = sys.argv[1:5]; a = sys.argv[5:]
+AD, B, OUT = sys.argv[1].split(','), sys.argv[2], sys.argv[3]; a = sys.argv[4:]
 x1 = [int(v) for v in a[a.index('--x1') + 1].split(',')]; x2 = [int(v) for v in a[a.index('--x2') + 1].split(',')]
 os.makedirs(OUT, exist_ok=True); src = {}
-def A(f): p = os.path.join(A0 if f <= 228 else A1, f'{f:05d}.jpg'); return cv2.imread(p)
+def A(f): return cv2.imread([os.path.join(d, f'{f:05d}.jpg') for d in AD if os.path.exists(os.path.join(d, f'{f:05d}.jpg'))][0])
 def Bf(f): return cv2.imread(os.path.join(B, f'{f:05d}.png'))
 ss = lambda u: u * u * (3 - 2 * u)
 for f in range(480):

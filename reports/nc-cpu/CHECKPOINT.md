@@ -20,3 +20,7 @@
 ## Lượt 4 (≈ 20:05 UTC 19/10)
 - Báo cáo nháp `NC-CPU-BAO-CAO.md` (§0–§9, còn ô [..] chờ số cú lặn B, B đẹp, đo lại Eevee/chuỗi A). Cú lặn B: 29/97 khung (khung 216–312), ≈ 130–145 s/khung.
 - Lỗi vận hành: một tiến trình `chain.sh` cũ (nohup) chạy chồng lượt Eevee + cú lặn B (18:27–19:22) → số Eevee 6 khung và khung lặn 216–227 có tải chồng; sẽ đo lại Eevee khi máy rảnh.
+
+## CUỐI (≈ 23:25 UTC 19/10) — DỪNG chờ chủ dự án
+- Cú lặn ghép xong: `reports/nc-cpu/lan/nc-lan-xem.mp4` (4,39 MB) + master ngoài git (SHA trong báo cáo §0). B đẹp 2 khung, Eevee đo lại, chuỗi t3tl ↔ ncA (+36 %).
+- Báo cáo hoàn chỉnh `reports/nc-cpu/NC-CPU-BAO-CAO.md`.
