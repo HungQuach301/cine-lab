@@ -7835,8 +7835,12 @@ segments:
       where_moi: true
       hero: g1b_0a_0
       frame0: 0
+      cau: Midnight at the Gibraltar frontier.
+      city: true
     type: scene3d
     ai_texture: false
+    cau: Midnight at the Gibraltar frontier.
+    vung: cong-bien-gioi
 - id: 0b
   part: CH0
   chuong: '0'
@@ -7857,8 +7861,11 @@ segments:
       where_moi: true
       hero: g1b_0b_0
       frame0: 0
+      cau: Since July 2026, this gate has had no routine checks.
     type: scene3d
     ai_texture: false
+    cau: Since July 2026, this gate has had no routine checks.
+    vung: eo-dat
 - id: 0c
   part: CH0
   chuong: '0'
@@ -7878,7 +7885,12 @@ segments:
       hero: g1b_0c
       frame0: 0
       photo: rijks_RP-P-OB-83.395_kaart_1704.jpg
+      cau: The Rock sits at the western gate of the Mediterranean.
+      ly_do: 'Định vị: cửa Địa Trung Hải, hai lục địa — "the key of the Mediterranean" theo cả nguồn Anh lẫn TBN'
     type: photo
+    cau: The Rock sits at the western gate of the Mediterranean.
+    vung: eo-bien
+    ly_do: 'Định vị: cửa Địa Trung Hải, hai lục địa — "the key of the Mediterranean" theo cả nguồn Anh lẫn TBN'
 - id: 0d
   part: CH0
   chuong: '0'
@@ -7914,7 +7926,10 @@ segments:
         role: src_ngan
         x: left
         y: bottom
+      cau: Historians on both sides count fourteen sieges of it, between 1309 and 1783.
     type: card
+    cau: Historians on both sides count fourteen sieges of it, between 1309 and 1783.
+    vung: the
 - id: 0e
   part: CH0
   chuong: '0'
@@ -7953,8 +7968,12 @@ segments:
         dur: 3.0
       hero: g1b_0e_0
       frame0: 0
+      cau: This is why everyone fought over it, told from both sides' records.
+      city: true
     type: scene3d
     ai_texture: false
+    cau: This is why everyone fought over it, told from both sides' records.
+    vung: pho-co
   - tpl: plate
     at: 1.375
     noi: thanh_pho
@@ -7963,8 +7982,13 @@ segments:
       where_moi: true
       hero: g1b_0e_1
       frame0: 0
+      cau: This is why everyone fought over it, told from both sides' records.
+      city: true
+      ghost: ghost-1943
     type: scene3d
     ai_texture: false
+    cau: This is why everyone fought over it, told from both sides' records.
+    vung: pho-co
   - tpl: plate
     at: 2.75
     noi: thanh_pho
@@ -7973,8 +7997,13 @@ segments:
       where_moi: true
       hero: g1b_0e_2
       frame0: 0
+      cau: This is why everyone fought over it, told from both sides' records.
+      city: true
+      ghost: ghost-1782
     type: scene3d
     ai_texture: false
+    cau: This is why everyone fought over it, told from both sides' records.
+    vung: pho-co
   - tpl: plate
     at: 4.125
     noi: thanh_pho
@@ -7983,8 +8012,13 @@ segments:
       where_moi: true
       hero: g1b_0e_3
       frame0: 0
+      cau: This is why everyone fought over it, told from both sides' records.
+      city: true
+      ghost: ghost-1704
     type: scene3d
     ai_texture: false
+    cau: This is why everyone fought over it, told from both sides' records.
+    vung: pho-co
 - id: 0f
   part: CH0
   chuong: '0'
@@ -8004,7 +8038,12 @@ segments:
       hero: g1b_0f
       frame0: 0
       photo: rijks_RP-P-OB-19.249_destruction_floating_batteries_1782.jpg
+      cau: In 1782, ten floating batteries came to break it.
+      ly_do: 'Nháy hứa: pin nổi trước thành luỹ'
     type: photo
+    cau: In 1782, ten floating batteries came to break it.
+    vung: tranh-1782
+    ly_do: 'Nháy hứa: pin nổi trước thành luỹ'
 - id: 0g
   part: CH0
   chuong: '0'
@@ -8025,8 +8064,11 @@ segments:
       where_moi: true
       hero: g1b_0g_0
       frame0: 0
+      cau: In 1941, a runway was laid across the only road to Spain.
     type: scene3d
     ai_texture: false
+    cau: In 1941, a runway was laid across the only road to Spain.
+    vung: giao-lo-1941
 - id: 0h
   part: CH0
   chuong: '0'
@@ -8047,8 +8089,11 @@ segments:
       where_moi: true
       hero: g1b_0h_0
       frame0: 0
+      cau: So why, today, is the fight over it about paperwork and payrolls?
     type: scene3d
     ai_texture: false
+    cau: So why, today, is the fight over it about paperwork and payrolls?
+    vung: vach-bac
 - id: SM1
   part: CH1
   chuong: '1'
@@ -8167,6 +8212,12 @@ segments:
         c: '#b03a2e'
         px: 32
       kind: ''
+      cau: Austria, England and the Dutch backed a rival for Spain's crown;
+    cau: Austria, England and the Dutch backed a rival for Spain's crown;
+    vung: tay-au
+    nghieng: 30
+    be_ngang_km: 2500
+    chi_toi: 1a
 - id: 1a
   part: CH1
   chuong: '1'
@@ -8187,8 +8238,11 @@ segments:
       where_moi: true
       hero: g1b_1a_0
       frame0: 0
+      cau: That summer, their fleet sailed into the Bay of Gibraltar.
     type: scene3d
     ai_texture: false
+    cau: That summer, their fleet sailed into the Bay of Gibraltar.
+    vung: vinh
 - id: 1b
   part: CH1
   chuong: '1'
@@ -8211,7 +8265,12 @@ segments:
       hero: g1b_1b
       frame0: 0
       photo: rooke_rijks_33529.jpg
+      cau: Its commanders, Admiral George Rooke and Prince George of Hesse-Darmstadt, fought for the rival claimant, "Charles the Third."
+      ly_do: 'Nhân vật: Rooke + Hesse-Darmstadt — nhân danh ứng viên Habsburg (hai nguồn)'
     type: photo
+    cau: Its commanders, Admiral George Rooke and Prince George of Hesse-Darmstadt, fought for the rival claimant, "Charles the Third."
+    vung: chan-dung
+    ly_do: 'Nhân vật: Rooke + Hesse-Darmstadt — nhân danh ứng viên Habsburg (hai nguồn)'
 - id: 1c
   part: CH1
   chuong: '1'
@@ -8243,7 +8302,12 @@ segments:
       hero: g1b_1c
       frame0: 0
       photo: rijks_RP-P-OB-83.400_exact_plan_1705.jpg
+      cau: 'This plan, printed in 1705, shows the prize: a walled town that historians on both sides would call the key of the Mediterranean.'
+      ly_do: 'Trở ngại: tường + vách; phố trong tường theo bản in 1705'
     type: photo
+    cau: 'This plan, printed in 1705, shows the prize: a walled town that historians on both sides would call the key of the Mediterranean.'
+    vung: bd-1705
+    ly_do: 'Trở ngại: tường + vách; phố trong tường theo bản in 1705'
 - id: 1d
   part: CH1
   chuong: '1'
@@ -8279,8 +8343,13 @@ segments:
         dur: 3.0
       hero: g1b_1d_0
       frame0: 0
+      cau: Inside, Governor Diego de Salinas had barely a hundred soldiers, by a Spanish count.
+      city: true
+      ghost: ghost-1704
     type: scene3d
     ai_texture: false
+    cau: Inside, Governor Diego de Salinas had barely a hundred soldiers, by a Spanish count.
+    vung: pho-co
 - id: 1e
   part: CH1
   chuong: '1'
@@ -8311,8 +8380,13 @@ segments:
         dur: 3.0
       hero: g1b_1e_0
       frame0: 0
+      cau: On the fourth of August 1704, by the new calendar, Gibraltar surrendered.
+      city: true
+      ghost: ghost-1704
     type: scene3d
     ai_texture: false
+    cau: On the fourth of August 1704, by the new calendar, Gibraltar surrendered.
+    vung: old-mole
 - id: 1f
   part: CH1
   chuong: '1'
@@ -8347,7 +8421,10 @@ segments:
           at: 0.3
         - s: up to 500 — British accounts, incl. armed townsmen
           at: 1.6
+      cau: British accounts put the defenders at up to five hundred, counting armed townsmen.
     type: card
+    cau: British accounts put the defenders at up to five hundred, counting armed townsmen.
+    vung: the
 - id: 1g
   part: CH1
   chuong: '1'
@@ -8383,8 +8460,11 @@ segments:
         dur: 3.0
       hero: g1b_1g_0
       frame0: 0
+      cau: Townspeople could stay if they swore loyalty to "Charles the Third." By a British account, almost all left; by a Spanish one, the largest group settled a league north-east, at San Roque.
     type: scene3d
     ai_texture: false
+    cau: Townspeople could stay if they swore loyalty to "Charles the Third." By a British account, almost all left; by a Spanish one, the largest group settled a league north-east, at San Roque.
+    vung: eo-dat
 - id: 1h
   part: CH1
   chuong: '1'
@@ -8421,7 +8501,12 @@ segments:
         role: src_ngan
         x: left
         y: bottom
+      cau: In 1713, the Treaty of Utrecht gave it to the British Crown "for ever," but "without any territorial jurisdiction, and without any open communication by land." If Britain ever gave it up, Spain
+        would have first refusal.
     type: card
+    cau: In 1713, the Treaty of Utrecht gave it to the British Crown "for ever," but "without any territorial jurisdiction, and without any open communication by land." If Britain ever gave it up, Spain
+      would have first refusal.
+    vung: van-ban-utrecht
 - id: 1i
   part: CH1
   chuong: '1'
@@ -8446,8 +8531,11 @@ segments:
       sach: true
       hero: g1b_1i_0
       frame0: 0
+      cau: The treaty names the town, castle and port, not the sandy isthmus to the north.
     type: scene3d
     ai_texture: false
+    cau: The treaty names the town, castle and port, not the sandy isthmus to the north.
+    vung: eo-dat
 - id: 1j
   part: CH1
   chuong: '1'
@@ -8469,8 +8557,11 @@ segments:
       sach: true
       hero: g1b_1j_0
       frame0: 0
+      cau: Within weeks, Spain and France besieged it, into 1705.
     type: scene3d
     ai_texture: false
+    cau: Within weeks, Spain and France besieged it, into 1705.
+    vung: eo-dat
 - id: 1k
   part: CH1
   chuong: '1'
@@ -8504,8 +8595,11 @@ segments:
         dur: 3.0
       hero: g1b_1k_0
       frame0: 0
+      cau: So in 1730, Philip the Fifth ordered a stone line across the isthmus, out of gun range, to cut Gibraltar off by land.
     type: scene3d
     ai_texture: false
+    cau: So in 1730, Philip the Fifth ordered a stone line across the isthmus, out of gun range, to cut Gibraltar off by land.
+    vung: eo-dat
 - id: 2a
   part: CH2
   chuong: '2'
@@ -8530,8 +8624,11 @@ segments:
       sach: true
       hero: g1b_2a_0
       frame0: 0
+      cau: 'Half a century later came a different question: can you starve a rock?'
     type: scene3d
     ai_texture: false
+    cau: 'Half a century later came a different question: can you starve a rock?'
+    vung: eo-dat
 - id: 2b
   part: CH2
   chuong: '2'
@@ -8563,7 +8660,12 @@ segments:
       hero: g1b_2b
       frame0: 0
       photo: yale_2046612_faden_1783_spanish_works.jpg
+      cau: Spain had joined France in its war with Britain.
+      ly_do: 'Hồ sơ thật: vịnh, chiến tuyến, hai thành phố đối diện'
     type: photo
+    cau: Spain had joined France in its war with Britain.
+    vung: bd-faden-1781
+    ly_do: 'Hồ sơ thật: vịnh, chiến tuyến, hai thành phố đối diện'
 - id: 2c
   part: CH2
   chuong: '2'
@@ -8596,8 +8698,11 @@ segments:
         dur: 3.0
       hero: g1b_2c_0
       frame0: 0
+      cau: At sea, from mid-July, a Spanish squadron sealed the port.
     type: scene3d
     ai_texture: false
+    cau: At sea, from mid-July, a Spanish squadron sealed the port.
+    vung: vinh
 - id: 2d
   part: CH2
   chuong: '2'
@@ -8642,7 +8747,10 @@ segments:
         role: src_ngan
         x: left
         y: bottom
+      cau: By January 1780, thistles, dandelions and wild leeks were daily food for many; an egg cost sixpence.
     type: card
+    cau: By January 1780, thistles, dandelions and wild leeks were daily food for many; an egg cost sixpence.
+    vung: the
 - id: 2e
   part: CH2
   chuong: '2'
@@ -8665,7 +8773,12 @@ segments:
       hero: g1b_2e
       frame0: 0
       photo: rijks_RP-P-OB-53.323_eliott_portrait_1784.jpg
+      cau: The governor, General Eliott, could hold the walls.
+      ly_do: 'Nhân vật: thống đốc giữ thành'
     type: photo
+    cau: The governor, General Eliott, could hold the walls.
+    vung: chan-dung
+    ly_do: 'Nhân vật: thống đốc giữ thành'
 - id: SM2
   part: CH2
   chuong: '2'
@@ -8765,6 +8878,12 @@ segments:
         px: 34
         spx: 30
       kind: ''
+      cau: 'To break the blockade, Britain sent three relief fleets: 1780, 1781, 1782.'
+    cau: 'To break the blockade, Britain sent three relief fleets: 1780, 1781, 1782.'
+    vung: iberia-eo-bien
+    nghieng: 29
+    be_ngang_km: 1500
+    chi_toi: 2f
 - id: 2f
   part: CH2
   chuong: '2'
@@ -8783,8 +8902,11 @@ segments:
       sach: true
       hero: g1b_2f_0
       frame0: 0
+      cau: Scurvy spread, until a Danish ship of lemons was brought in, garrison diaries record.
     type: scene3d
     ai_texture: false
+    cau: Scurvy spread, until a Danish ship of lemons was brought in, garrison diaries record.
+    vung: eo-bien
 - id: 2g
   part: CH2
   chuong: '2'
@@ -8811,8 +8933,13 @@ segments:
       where_moi: true
       hero: g1b_2g_0
       frame0: 0
+      cau: On the twelfth of April 1781, the second relief convoy dropped anchor, and Spain's batteries opened fire on the town.
+      city: true
+      ghost: ghost-1782
     type: scene3d
     ai_texture: false
+    cau: On the twelfth of April 1781, the second relief convoy dropped anchor, and Spain's batteries opened fire on the town.
+    vung: pho-co
 - id: 2h
   part: CH2
   chuong: '2'
@@ -8835,7 +8962,12 @@ segments:
       hero: g1b_2h
       frame0: 0
       photo: ia_historyoflatesie00drin_leaf373_drinkwater1786_plan_batteries_13sep1782.jpg
+      cau: Two days later, soldiers broke into the merchants' stores.
+      ly_do: 'Hồ sơ thật: phố sau bắn phá (không cảnh cướp bóc có người)'
     type: photo
+    cau: Two days later, soldiers broke into the merchants' stores.
+    vung: ban-khac-pho
+    ly_do: 'Hồ sơ thật: phố sau bắn phá (không cảnh cướp bóc có người)'
 - id: 2i
   part: CH2
   chuong: '2'
@@ -8880,7 +9012,10 @@ segments:
         role: src_ngan
         x: left
         y: bottom
+      cau: By British tallies, the two sides fired over four hundred and sixty thousand rounds.
     type: card
+    cau: By British tallies, the two sides fired over four hundred and sixty thousand rounds.
+    vung: the
 - id: KA1782
   part: CH2
   chuong: '2'
@@ -8901,9 +9036,15 @@ segments:
       where_moi: true
       hero: g1b_KA1782
       frame0: 0
+      cau: By September 1782, the garrison counted about seven and a half thousand men.
+      city: true
+      ly_do: khán giả đứng TRONG phố đang bị vây ngay trước cao trào; nối PT2 đã thắng chấm mù 22/24
     type: scene3d
     khung_neo: true
     ai_image: true
+    cau: By September 1782, the garrison counted about seven and a half thousand men.
+    vung: neo-hem-k09
+    ly_do: khán giả đứng TRONG phố đang bị vây ngay trước cao trào; nối PT2 đã thắng chấm mù 22/24
 - id: 2j
   part: CH2
   chuong: '2'
@@ -8928,8 +9069,13 @@ segments:
       sach: true
       hero: g1b_2j_0
       frame0: 0
+      cau: 'The garrison turned to heat: cannonballs heated red-hot, so that whatever they hit caught fire.'
+      city: true
+      ghost: ghost-1782
     type: scene3d
     ai_texture: false
+    cau: 'The garrison turned to heat: cannonballs heated red-hot, so that whatever they hit caught fire.'
+    vung: king-bastion
 - id: 2k
   part: CH2
   chuong: '2'
@@ -8961,7 +9107,12 @@ segments:
       hero: g1b_2k
       frame0: 0
       photo: ia_historyoflatesie00drin_leaf87_drinkwater1786_plan_bay.jpg
+      cau: 'Four days later, the French and Spanish fleets gathered in the bay: forty-seven ships of the line by the British count, fifty by the Spanish.'
+      ly_do: 'Hồ sơ thật: thế trận — 47 tàu chiến tuyến, 33 000–40 000 quân (hai nguồn)'
     type: photo
+    cau: 'Four days later, the French and Spanish fleets gathered in the bay: forty-seven ships of the line by the British count, fifty by the Spanish.'
+    vung: bd-13-9-1782
+    ly_do: 'Hồ sơ thật: thế trận — 47 tàu chiến tuyến, 33 000–40 000 quân (hai nguồn)'
 - id: 2l
   part: CH2
   chuong: '2'
@@ -8993,7 +9144,12 @@ segments:
       hero: g1b_2l
       frame0: 0
       photo: met_10547.jpg
+      cau: 'Their answer to red-hot shot: ten floating batteries, designed by the French engineer d''Arçon.'
+      ly_do: d'Arçon và pin nổi; ông đã xin thử với đạn đỏ trước (nguồn Pháp)
     type: photo
+    cau: 'Their answer to red-hot shot: ten floating batteries, designed by the French engineer d''Arçon.'
+    vung: tranh-1782
+    ly_do: d'Arçon và pin nổi; ông đã xin thử với đạn đỏ trước (nguồn Pháp)
 - id: 2m
   part: CH2
   chuong: '2'
@@ -9038,8 +9194,11 @@ segments:
         dur: 3.0
       hero: g1b_2m_0
       frame0: 0
+      cau: The thirteenth of September 1782.
     type: scene3d
     ai_texture: true
+    cau: The thirteenth of September 1782.
+    vung: vinh
   - tpl: plate
     at: 14.0
     noi: bien
@@ -9049,8 +9208,11 @@ segments:
       where_moi: true
       hero: g1b_2m_1
       frame0: 0
+      cau: The thirteenth of September 1782.
     type: scene3d
     ai_texture: false
+    cau: The thirteenth of September 1782.
+    vung: vinh
 - id: 2n
   part: CH2
   chuong: '2'
@@ -9100,7 +9262,10 @@ segments:
         role: src_ngan
         x: left
         y: bottom
+      cau: Over two thousand attackers were lost, by a British estimate that includes prisoners, and by a Spanish one; the British rescued three hundred and fifty-seven.
     type: card
+    cau: Over two thousand attackers were lost, by a British estimate that includes prisoners, and by a Spanish one; the British rescued three hundred and fifty-seven.
+    vung: the
 - id: 2o
   part: CH2
   chuong: '2'
@@ -9127,8 +9292,11 @@ segments:
       where_moi: true
       hero: g1b_2o_0
       frame0: 0
+      cau: Before the attack, all summer, the garrison had been digging through the north face.
     type: scene3d
     ai_texture: false
+    cau: Before the attack, all summer, the garrison had been digging through the north face.
+    vung: vach-bac
 - id: 2p
   part: CH2
   chuong: '2'
@@ -9160,7 +9328,12 @@ segments:
       hero: g1b_2p
       frame0: 0
       photo: rijks_RP-F-2001-7-257-1_rock_from_fort_san_felipe_1860.jpg
+      cau: In July they blasted a hole for air.
+      ly_do: 'Then/now: lỗ châu mai vẫn còn'
     type: photo
+    cau: In July they blasted a hole for air.
+    vung: ham-hom-nay
+    ly_do: 'Then/now: lỗ châu mai vẫn còn'
 - id: 2q
   part: CH2
   chuong: '2'
@@ -9184,8 +9357,11 @@ segments:
       where_moi: true
       hero: g1b_2q_0
       frame0: 0
+      cau: The blockade never forced a surrender.
     type: scene3d
     ai_texture: false
+    cau: The blockade never forced a surrender.
+    vung: eo-dat
 - id: 2r
   part: CH2
   chuong: '2'
@@ -9222,7 +9398,10 @@ segments:
         q: Spain recovers Minorca and the Floridas; Gibraltar stays British.
         by: Peace of Versailles, 3 September 1783
         at: 0.3
+      cau: Spanish historian Montero put losses near two thousand defenders and, from all causes, six thousand besiegers.
     type: card
+    cau: Spanish historian Montero put losses near two thousand defenders and, from all causes, six thousand besiegers.
+    vung: van-ban-1783
 - id: 3a
   part: CH3
   chuong: '3'
@@ -9244,8 +9423,11 @@ segments:
       sach: true
       hero: g1b_3a_0
       frame0: 0
+      cau: 'Which leaves a question the treaty never answered: where does the Rock end?'
     type: scene3d
     ai_texture: false
+    cau: 'Which leaves a question the treaty never answered: where does the Rock end?'
+    vung: eo-dat
 - id: 3b
   part: CH3
   chuong: '3'
@@ -9276,8 +9458,11 @@ segments:
         dur: 3.0
       hero: g1b_3b_0
       frame0: 0
+      cau: Around 1810, with Napoleon's armies heading for the Strait, Spain and Britain were allies.
     type: scene3d
     ai_texture: false
+    cau: Around 1810, with Napoleon's armies heading for the Strait, Spain and Britain were allies.
+    vung: eo-dat
 - id: 3c
   part: CH3
   chuong: '3'
@@ -9309,7 +9494,12 @@ segments:
       hero: g1b_3c
       frame0: 0
       photo: ia_historyofgibralt00saye_leaf500_sayer1865_plan_rock_town_territory.jpg
+      cau: After that, the edge kept moving.
+      ly_do: 'Hồ sơ thật: "Neutral Ground" trên bản đồ đương thời'
     type: photo
+    cau: After that, the edge kept moving.
+    vung: bd-eo-dat-tk19
+    ly_do: 'Hồ sơ thật: "Neutral Ground" trên bản đồ đương thời'
 - id: 3d
   part: CH3
   chuong: '3'
@@ -9333,8 +9523,12 @@ segments:
       where_moi: true
       hero: g1b_3d_0
       frame0: 0
+      cau: On the Spanish side, a town grew up behind the old line.
+      city: true
     type: scene3d
     ai_texture: false
+    cau: On the Spanish side, a town grew up behind the old line.
+    vung: la-linea
 - id: KC1910
   part: CH3
   chuong: '3'
@@ -9353,8 +9547,12 @@ segments:
       sach: true
       hero: g1b_KC1910_0
       frame0: 0
+      cau: Remember this street in La Línea.
+      city: true
     type: scene3d
     ai_texture: false
+    cau: Remember this street in La Línea.
+    vung: neo-la-linea
 - id: 3e
   part: CH3
   chuong: '3'
@@ -9374,7 +9572,12 @@ segments:
       hero: g1b_3e
       frame0: 0
       photo: loc_2025710366_neutral_ground.jpg
+      cau: 'This was the gap between them: a strip of neutral ground between two towns.'
+      ly_do: 'Hồ sơ thật: khoảng giữa c.1900'
     type: photo
+    cau: 'This was the gap between them: a strip of neutral ground between two towns.'
+    vung: anh-neutral-ground
+    ly_do: 'Hồ sơ thật: khoảng giữa c.1900'
 - id: 3f
   part: CH3
   chuong: '3'
@@ -9410,8 +9613,12 @@ segments:
         dur: 3.0
       hero: g1b_3f_0
       frame0: 0
+      cau: In 1908, Britain told Spain, "as an act of courtesy," that it would fence the edge of the neutral ground.
+      city: true
     type: scene3d
     ai_texture: false
+    cau: In 1908, Britain told Spain, "as an act of courtesy," that it would fence the edge of the neutral ground.
+    vung: north-front
 - id: 3g
   part: CH3
   chuong: '3'
@@ -9431,7 +9638,12 @@ segments:
       hero: g1b_3g
       frame0: 0
       photo: loc_2020680546_northtown1905.jpg
+      cau: 'Behind the fence: a garrison camp, gardens, rifle ranges, a racecourse.'
+      ly_do: 'Hồ sơ thật: phố bắc đầu thế kỷ 20'
     type: photo
+    cau: 'Behind the fence: a garrison camp, gardens, rifle ranges, a racecourse.'
+    vung: anh-north-town
+    ly_do: 'Hồ sơ thật: phố bắc đầu thế kỷ 20'
 - id: 3h
   part: CH3
   chuong: '3'
@@ -9455,8 +9667,11 @@ segments:
       where_moi: true
       hero: g1b_3h_0
       frame0: 0
+      cau: And from 1934, a grass airstrip was built there.
     type: scene3d
     ai_texture: false
+    cau: And from 1934, a grass airstrip was built there.
+    vung: eo-dat
 - id: 4a
   part: CH4
   chuong: '4'
@@ -9479,7 +9694,12 @@ segments:
       hero: g1b_4a
       frame0: 0
       photo: nara_204918839_342-FH_000761.jpg
+      cau: Why build an airfield on disputed ground?
+      ly_do: 'Câu hỏi: vì sao xây sân bay trên đất tranh chấp?'
     type: photo
+    cau: Why build an airfield on disputed ground?
+    vung: anh-1941
+    ly_do: 'Câu hỏi: vì sao xây sân bay trên đất tranh chấp?'
 - id: 4b
   part: CH4
   chuong: '4'
@@ -9521,8 +9741,11 @@ segments:
         dur: 3.0
       hero: g1b_4b_0
       frame0: 216
+      cau: That November, Spain's foreign minister called the strip a fait accompli, like the Rock itself, while insisting its use breached Spanish territory.
     type: scene3d
     ai_texture: false
+    cau: That November, Spain's foreign minister called the strip a fait accompli, like the Rock itself, while insisting its use breached Spanish territory.
+    vung: giao-lo-1941
 - id: 4c
   part: CH4
   chuong: '4'
@@ -9544,8 +9767,11 @@ segments:
       sach: true
       hero: g1b_4c_0
       frame0: 0
+      cau: Then Britain pushed it out into the bay, with stone blasted from the north face and rubble from new tunnels.
     type: scene3d
     ai_texture: false
+    cau: Then Britain pushed it out into the bay, with stone blasted from the north face and rubble from new tunnels.
+    vung: vinh-tay
 - id: 4d
   part: CH4
   chuong: '4'
@@ -9569,8 +9795,11 @@ segments:
       where_moi: true
       hero: g1b_4d_0
       frame0: 0
+      cau: Inside the Rock, those tunnels held a road about a mile long, a hospital and a power station, dug by British and Canadian tunnellers.
     type: scene3d
     ai_texture: false
+    cau: Inside the Rock, those tunnels held a road about a mile long, a hospital and a power station, dug by British and Canadian tunnellers.
+    vung: ham-wwii
 - id: 4e
   part: CH4
   chuong: '4'
@@ -9606,7 +9835,10 @@ segments:
         role: src_ngan
         x: left
         y: bottom
+      cau: Gibraltar counts about fifty-five kilometres of tunnels from every era, more than its roads above ground.
     type: card
+    cau: Gibraltar counts about fifty-five kilometres of tunnels from every era, more than its roads above ground.
+    vung: the
 - id: 4f
   part: CH4
   chuong: '4'
@@ -9629,7 +9861,12 @@ segments:
       hero: g1b_4f
       frame0: 0
       photo: pu_ams_m981_gibraltar_1943.jpg
+      cau: This 1943 US Army map shows the town house by house, and the runway reaching into the bay.
+      ly_do: 'Hồ sơ thật: bình đồ quân sự 1943'
     type: photo
+    cau: This 1943 US Army map shows the town house by house, and the runway reaching into the bay.
+    vung: bd-ams-1943
+    ly_do: 'Hồ sơ thật: bình đồ quân sự 1943'
 - id: SM3
   part: CH4
   chuong: '4'
@@ -9724,6 +9961,12 @@ segments:
         c: '#d9cfb4'
         px: 30
       kind: ''
+      cau: 'May 1940:'
+    cau: 'May 1940:'
+    vung: tay-au-bac-phi
+    nghieng: 20
+    be_ngang_km: 2500
+    chi_toi: 4g
   - tpl: plate
     type: strategic
     at: 4.6
@@ -9771,6 +10014,12 @@ segments:
         px: 32
         spx: 30
       kind: ''
+      cau: 'May 1940:'
+    cau: 'May 1940:'
+    vung: tay-au-bac-phi
+    nghieng: 20
+    be_ngang_km: 2500
+    chi_toi: 4g
 - id: 4g
   part: CH4
   chuong: '4'
@@ -9791,8 +10040,11 @@ segments:
       where_moi: true
       hero: g1b_4g_0
       frame0: 0
+      claim: S114
     type: scene3d
     ai_texture: false
+    claim: S114
+    vung: vinh
 - id: KB1943
   part: CH4
   chuong: '4'
@@ -9811,9 +10063,15 @@ segments:
       sach: true
       hero: g1b_KB1943
       frame0: 0
+      claim: S114
+      city: true
+      ly_do: 'tấm im lặng #1: kể bằng khoảng trống; khung PT2 đã có'
     type: scene3d
     khung_neo: true
     ai_image: true
+    claim: S114
+    vung: neo-commercial-sq
+    ly_do: 'tấm im lặng #1: kể bằng khoảng trống; khung PT2 đã có'
 - id: 4h
   part: CH4
   chuong: '4'
@@ -9850,7 +10108,10 @@ segments:
         q: «una porción usurpada del territorio nacional» — "a usurped portion of the national territory"
         by: Spanish government, 4 Mar 1939 (Marquina Barrio, 1981)
         at: 0.3
+      cau: For the rest of the war, a Spanish scholar found, Spain protested what it called breaches of Spanish waters; no complaint over the airstrip is on record.
     type: card
+    cau: For the rest of the war, a Spanish scholar found, Spain protested what it called breaches of Spanish waters; no complaint over the airstrip is on record.
+    vung: van-ban-tbn
 - id: 4i
   part: CH4
   chuong: '4'
@@ -9877,8 +10138,11 @@ segments:
       where_moi: true
       hero: g1b_4i_0
       frame0: 0
+      cau: On the night of the seventh of November 1942, by Gibraltar's official record, at least six hundred and fifty aircraft lined the runway.
     type: scene3d
     ai_texture: false
+    cau: On the night of the seventh of November 1942, by Gibraltar's official record, at least six hundred and fifty aircraft lined the runway.
+    vung: eo-dat
 - id: 5a
   part: CH5
   chuong: '5'
@@ -9905,8 +10169,12 @@ segments:
       where_moi: true
       hero: g1b_5a_0
       frame0: 0
+      cau: After the war, the argument returned to the gate.
+      city: true
     type: scene3d
     ai_texture: false
+    cau: After the war, the argument returned to the gate.
+    vung: cong-bien-gioi
 - id: 5b
   part: CH5
   chuong: '5'
@@ -9942,7 +10210,10 @@ segments:
         role: src_ngan
         x: left
         y: bottom
+      cau: Britain counted some four thousand six hundred Spanish day workers cut off.
     type: card
+    cau: Britain counted some four thousand six hundred Spanish day workers cut off.
+    vung: the
 - id: KB2026
   part: CH5
   chuong: '5'
@@ -9961,8 +10232,12 @@ segments:
       sach: true
       hero: g1b_KB2026_0
       frame0: 0
+      cau: The same square, today.
+      city: true
     type: scene3d
     ai_texture: false
+    cau: The same square, today.
+    vung: neo-commercial-sq
 - id: 5c
   part: CH5
   chuong: '5'
@@ -9984,8 +10259,12 @@ segments:
       sach: true
       hero: g1b_5c_0
       frame0: 0
+      cau: The UK government puts the daily crossers higher, at about fifteen thousand.
+      city: true
     type: scene3d
     ai_texture: false
+    cau: The UK government puts the daily crossers higher, at about fifteen thousand.
+    vung: duong-bang-2026
 - id: 5d
   part: CH5
   chuong: '5'
@@ -10006,8 +10285,12 @@ segments:
       where_moi: true
       hero: g1b_5d_0
       frame0: 0
+      cau: And on the other side of the gate.
+      city: true
     type: scene3d
     ai_texture: false
+    cau: And on the other side of the gate.
+    vung: la-linea
 - id: KC2026
   part: CH5
   chuong: '5'
@@ -10026,8 +10309,12 @@ segments:
       sach: true
       hero: g1b_KC2026_0
       frame0: 0
+      cau: Remember this street?
+      city: true
     type: scene3d
     ai_texture: false
+    cau: Remember this street?
+    vung: neo-la-linea
 - id: 5e
   part: CH5
   chuong: '5'
@@ -10063,7 +10350,10 @@ segments:
         role: src_ngan
         x: left
         y: bottom
+      cau: Here's the twist.
     type: card
+    cau: Here's the twist.
+    vung: the
 - id: 5f
   part: CH5
   chuong: '5'
@@ -10090,8 +10380,11 @@ segments:
       where_moi: true
       hero: g1b_5f_0
       frame0: 0
+      cau: That spreads output over the thirty-eight thousand who live there, and leaves out the people in Spain who hold fourteen thousand of its jobs.
     type: scene3d
     ai_texture: false
+    cau: That spreads output over the thirty-eight thousand who live there, and leaves out the people in Spain who hold fourteen thousand of its jobs.
+    vung: eo-dat
 - id: 5g
   part: CH5
   chuong: '5'
@@ -10128,7 +10421,10 @@ segments:
         role: src_ngan
         x: left
         y: bottom
+      cau: In July 2026, Britain and the EU signed a treaty; the next day, routine checks here ended.
     type: card
+    cau: In July 2026, Britain and the EU signed a treaty; the next day, routine checks here ended.
+    vung: van-ban-2026
 - id: 5h
   part: CH5
   chuong: '5'
@@ -10155,8 +10451,12 @@ segments:
       where_moi: true
       hero: g1b_5h_0
       frame0: 0
+      cau: It says it changes neither side's position on sovereignty.
+      city: true
     type: scene3d
     ai_texture: false
+    cau: It says it changes neither side's position on sovereignty.
+    vung: cong-bien-gioi
 - id: 5i
   part: CH5
   chuong: '5'
@@ -10196,7 +10496,10 @@ segments:
           at: 1.7
         - s: 14 Dec 2026 — European Parliament vote indicated
           at: 3.0999999999999996
+      cau: As of 18 October 2026, the treaty is in force only provisionally, pending a European Parliament vote indicated for the fourteenth of December.
     type: card
+    cau: As of 18 October 2026, the treaty is in force only provisionally, pending a European Parliament vote indicated for the fourteenth of December.
+    vung: the
 - id: 5j
   part: CH5
   chuong: '5'
@@ -10229,8 +10532,11 @@ segments:
       where_moi: true
       hero: g1b_5j_0
       frame0: 0
+      cau: So why did everyone fight over this place?
     type: scene3d
     ai_texture: false
+    cau: So why did everyone fight over this place?
+    vung: eo-dat
   - tpl: plate
     at: 3.7
     noi: eo_dat
@@ -10239,8 +10545,11 @@ segments:
       where_moi: true
       hero: g1b_5j_1
       frame0: 0
+      cau: So why did everyone fight over this place?
     type: scene3d
     ai_texture: false
+    cau: So why did everyone fight over this place?
+    vung: eo-dat
   - tpl: plate
     at: 7.4
     noi: eo_dat
@@ -10249,8 +10558,11 @@ segments:
       where_moi: true
       hero: g1b_5j_2
       frame0: 0
+      cau: So why did everyone fight over this place?
     type: scene3d
     ai_texture: false
+    cau: So why did everyone fight over this place?
+    vung: eo-dat
   - tpl: plate
     at: 11.1
     noi: eo_dat
@@ -10259,8 +10571,11 @@ segments:
       where_moi: true
       hero: g1b_5j_3
       frame0: 0
+      cau: So why did everyone fight over this place?
     type: scene3d
     ai_texture: false
+    cau: So why did everyone fight over this place?
+    vung: eo-dat
   - tpl: plate
     at: 14.8
     noi: eo_dat
@@ -10269,8 +10584,11 @@ segments:
       where_moi: true
       hero: g1b_5j_4
       frame0: 0
+      cau: So why did everyone fight over this place?
     type: scene3d
     ai_texture: false
+    cau: So why did everyone fight over this place?
+    vung: eo-dat
 - id: KA2026
   part: CH5
   chuong: '5'
@@ -10291,8 +10609,12 @@ segments:
       where_moi: true
       hero: g1b_KA2026_0
       frame0: 0
+      claim: C08
+      city: true
     type: scene3d
     ai_texture: false
+    claim: C08
+    vung: neo-hem-k09
 - id: 5k
   part: CH5
   chuong: '5'
@@ -10322,8 +10644,12 @@ segments:
       where_moi: true
       hero: g1b_5k_0
       frame0: 0
+      cau: In 1730, Spain ordered a line to cut the Rock off by land.
+      city: true
     type: scene3d
     ai_texture: false
+    cau: In 1730, Spain ordered a line to cut the Rock off by land.
+    vung: cong-bien-gioi
 - id: PP
   part: END
   chuong: '5'

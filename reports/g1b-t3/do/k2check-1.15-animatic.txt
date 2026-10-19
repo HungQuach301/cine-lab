@@ -18,7 +18,7 @@
 | Q26b-K2 | Đa dạng loại cảnh + vùng | **ĐẠT** | Chặn (c), (d), (e) (như Q26b) · Cảnh báo (a), (b) — lỗi Chặn 0, Cảnh báo 0 | loại: 3d 64.7 %, anh 16.7 %, the_so 15.6 %, khac 3.0 % · 37 vùng, lớn nhất eo-dat 22.4 % · nửa sau 22 vùng · không vùng 0.7 % | ≥ 3 loại/nửa · loại ≤ 70 % · vùng ≤ 25 %, ≤ 90 s, nửa sau ≥ 3 | nửa đầu đúng 3 loại cảnh (bằng ngưỡng); nửa sau đúng 3 loại cảnh (bằng ngưỡng) |
 | Q33-K2 | Lặp cảnh (vùng, góc) + pHash L/ΔE | **TRƯỢT** | Chặn (như Q33) — lỗi Chặn 6, Cảnh báo 0 | 70 khoá (vùng, góc) · 70 lần xuất hiện · nhiều nhất photo/print · g1b_2k 4 · 6 khoá > 2 · pHash L θ=16 + ΔE ≤ 10, thêm 30 lần lặp không khai, miễn 12 | ≤ 2 lần (miễn: khác chương + khác năm/lớp) | photo/print · g1b_1c: đúng 2 lần; photo/print · g1b_2e: đúng 2 lần; photo/print · g1b_4a: đúng 2 lần; tl/t3s · g1b_5j_1: đúng 2 lần; tl/t3s · g1b_5j_3: đúng 2 lần |
 | Q32b-K2 | Trần clip/ảnh | **ĐẠT** | Chặn (như Q32b) — lỗi Chặn 0, Cảnh báo 0 | 15 clip/ảnh · ia_historyoflatesie00drin_leaf87_drinkwater1786_plan_bay.jpg 12.0 s/12 s; met_10547.jpg 12.0 s/12 s; rijks_RP-P-OB-83.400_exact_plan_1705.jpg 10.5 s/12 s; yale_2046612_faden_1783_spanish_works.jpg 10.5 s/12 s | footage ≤ 8 s · ảnh có máy/chú thích đổi ≤ 12 s · ảnh tĩnh ≤ 8 s | ia_historyoflatesie00drin_leaf87_drinkwater1786_plan_bay.jpg s 12.0 (ngưỡng 12.0); met_10547.jpg s 12.0 (ngưỡng 12.0) |
-| NC-H1 | Thành phố có nhà | **TRƯỢT** | Chặn (a), (b) (đúng lỗi chủ dự án nêu ở T2) — lỗi Chặn 3, Cảnh báo 0 | 27 shot thành phố (236.0 s; khai 27, suy 0) · có lớp nhà khai 24 · không lớp nhà 3 · không đo fabric 24 | fabric trung vị ≥ 25 % · không khung < 15 % (trừ ≤ 3 s cuối reveal) |  |
+| NC-H1 | Thành phố có nhà | **TRƯỢT** | Chặn (a), (b) (đúng lỗi chủ dự án nêu ở T2) — lỗi Chặn 1, Cảnh báo 0 | 27 shot thành phố (236.0 s; khai 27, suy 0) · có lớp nhà khai 26 · không lớp nhà 1 · không đo fabric 26 | fabric trung vị ≥ 25 % · không khung < 15 % (trừ ≤ 3 s cuối reveal) |  |
 | NC-H2 | Địa cầu | **ĐẠT** | Chặn (a), (b) — lỗi Chặn 0, Cảnh báo 0 | 0 lần · 0.0 s (0.0 % phim) · map/globe 0.0 s · bản đồ nổi tầm cao 0.0 s · dài nhất 0 s · loại strategic hợp lệ 4 shot (22.0 s) khỏi NC-H2/H3 | AGL > 50 km: ≤ 1 lần/tập · ≤ 3 s/lần |  |
 | NC-H3 | Tầm mặc định | **ĐẠT** | Cảnh báo — lỗi Chặn 0, Cảnh báo 0 | 3D địa lý 277.8 s · AGL ≤ 60 km 100.0 % · ≤ 3 km 99.0 % · có thành phố: có · loại strategic hợp lệ 4 shot (22.0 s) khỏi NC-H2/H3 | AGL ≤ 60 km ≥ 70 % 3D · có thành phố: AGL ≤ 3 km ≥ 40 % |  |
 | NC-H4 | Nơi có tên | **ĐẠT** | Chặn — lỗi Chặn 0, Cảnh báo 0 | 4 shot bản đồ · chip nơi 0 · nhãn địa danh 4 · thiếu 0 (nguồn: đặc tả, không log chữ) | mọi shot bản đồ: chip nơi hoặc nhãn địa danh |  |
@@ -290,8 +290,6 @@
 - relief/map · sm3b: 3 lần (sm1 0:44.5, sm3a 8:36.2, 8:40.9) > 2
 - tl/t3s · g1b_5j_2: 3 lần (g1b_5j_1 11:18.4, 11:22.1, g1b_5j_3 11:25.8) > 2
 ### NC-H1
-- (a) KA1782/0 g1b_KA1782 @4:14.2 (khai noi: thanh_pho): cảnh footage/lai không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
-- (a) KB1943/0 g1b_KB1943 @8:49.8 (khai noi: thanh_pho): cảnh footage/lai không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
 - (a) PP/0 g1b_5k_0 @12:01.2 (khai noi: thanh_pho): cảnh tl/t3s không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
 ### Q33 (1.13)
 - photo/print · g1b_2k: 4 lần (4:34.8 + pHash: g1b_1c 1:04.0, g1b_4a 7:34.8, g1b_4f 8:27.2) > 2

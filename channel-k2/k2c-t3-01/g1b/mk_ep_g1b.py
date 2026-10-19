@@ -321,6 +321,22 @@ def main():
             for it in ((pp.get('card') or {}).get('items') or []): seg['beats'].append(dict(t=round(it['at'], 3), k='the', s=str(it.get('s', ''))[:30]))
         seg['beats'] = sorted({round(b['t'], 2): b for b in seg['beats'] if b['t'] < d - 0.2}.values(), key=lambda b: b['t'])
         L['bien_co'] = [b['t'] for b in seg['beats']]; gaps = [b - a for a, b in zip(L['bien_co'], L['bien_co'][1:] + [d])]; L['khoang_max_s'] = round(max(gaps), 2)
+        # khai cho bộ kiểm (đúng nội dung đã dựng, không thêm phần tử): ML1 cau/claim · Q26b-K2 vung · NC-H1 lớp nhà (city/ghost) · FT1 lý do tư liệu · BD-1(e) strategic
+        cau0 = sents[0] if sents else None
+        nxt = TR[TR.index(s) + 1]['id'] if TR.index(s) + 1 < len(TR) else None
+        for sh2 in seg['shots']:
+            pp = sh2.setdefault('p', {})
+            if cau0: sh2['cau'] = pp['cau'] = cau0
+            elif s.get('claims'): sh2['claim'] = pp['claim'] = s['claims'][0]
+            sh2['vung'] = s.get('vung')
+            hz = heroes.get(pp.get('hero')) or {}
+            if s.get('noi') == 'thanh_pho' and str(hz.get('hero', '')).startswith('tl/'):
+                pp['city'] = True; tw = (hz.get('opt') or {}).get('town')
+                if tw: pp['ghost'] = {'1782': 'ghost-1782', '1704': 'ghost-1704', '1943': 'ghost-1943'}[tw]
+            if sid in LAI: pp['city'] = True
+            if sh2.get('type') in ('photo', 'footage') or sid in LAI: sh2['ly_do'] = pp['ly_do'] = (s.get('mo_ta') or s['loai'])[:160]
+            if sh2.get('type') == 'strategic':
+                cam = (hz.get('opt') or {}).get('cam') or [{}]; sh2.setdefault('nghieng', max(c.get('tilt', 0) for c in cam)); sh2.setdefault('be_ngang_km', s.get('khung_rong_km')); sh2.setdefault('chi_toi', nxt)
         log.append(L); segs.append(seg); t_abs += d
     # thẻ phương pháp cuối (4,5 s) — "How this film was made" (§12.1 b)
     TP = EP / 'phat-hanh/the-phuong-phap.json'

@@ -17,6 +17,6 @@ has ghep && bash $REPO/scripts/k2/build.sh $EPY ghep
 if has ray; then M=$O/k2c-t3-g1b-v1-master.mp4; R=$O/k2c-t3-g1b-animatic-540p-ray.mp4; mkdir -p $REPO/reports/g1b-t3/animatic
   ffmpeg -v error -y -i $M -vf "subtitles=$EPD/ray-loi.srt:force_style='FontName=DejaVu Sans,FontSize=15,PrimaryColour=&H00FFFFFF,OutlineColour=&H80000000,BorderStyle=3,Outline=1,Shadow=0,MarginV=28'" \
     -c:v libx264 -preset slow -b:v 2300k -maxrate 3000k -bufsize 6000k -c:a aac -b:a 96k -movflags +faststart $R
-  ffmpeg -v error -y -i $R -vf "scale=480:270:flags=lanczos,fps=12" -c:v libx264 -preset veryslow -crf 36 -c:a aac -b:a 24k -ac 1 -movflags +faststart $REPO/reports/g1b-t3/animatic/animatic-270p-xem.mp4
+  ffmpeg -v error -y -i $R -vf "scale=480:270:flags=lanczos,fps=12" -c:v libx264 -preset veryslow -crf 41 -c:a aac -b:a 24k -ac 1 -movflags +faststart $REPO/reports/g1b-t3/animatic/animatic-270p-xem.mp4
   sha256sum $M $R $REPO/reports/g1b-t3/animatic/animatic-270p-xem.mp4 | tee $O/SHA256-animatic.txt
   ls -la $REPO/reports/g1b-t3/animatic/animatic-270p-xem.mp4; fi
