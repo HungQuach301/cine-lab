@@ -53,15 +53,19 @@ def stype(sh, spec=None):
     return sh.get('type') or (sh.get('p') or {}).get('type') or spec.get('type') or (spec.get('p') or {}).get('type')
 
 
-def label(sh, heroes, spec=None):
-    """→ {bối cảnh: trọng số} của một shot ({} = trung tính); spec = shot cùng vị trí trong đặc tả (kênh 2, để đọc `type`)"""
+def label(sh, heroes, spec=None, v116=False):
+    """→ {bối cảnh: trọng số} của một shot ({} = trung tính); spec = shot cùng vị trí trong đặc tả (kênh 2, để đọc `type`)
+    v116 (1.16, khiếu nại A-G1B-4, chỉ tập từ T3): cảnh mô-đun tl/* dựng nhiều nơi → bối cảnh = "tl/<mô-đun> · <vung>" (vung của shot đặc tả)"""
     p = sh.get('p') or {}; t = sh['tpl']; ty = stype(sh, spec)
     hn = lambda k: (heroes.get(k) or {}).get('hero') or k
     if p.get('card') or t in CARD_TPL or ty == 'card': return {THE: 1.0}   # 1.10.1: thẻ/đồ hoạ phẳng (K2 p.card trên nền mờ; LL thẻ giấy) = MỘT bối cảnh "the"
     if t == 'footage' or p.get('clip') or ty == 'footage':                 # 1.10.0 (Q32f): footage nguồn ngoài là bối cảnh theo NỘI DUNG HÌNH (`p.setting`)
         return {hn(str(p['setting']).strip()) if str(p.get('setting') or '').strip() else 'ft/(chưa khai)': 1.0}
     if ty in K2_NEUTRAL: return {}                        # 1.10.2: kênh 2 bản đồ / ảnh tư liệu / ảnh chụp báo → trung tính
-    if t == 'plate' and p.get('hero'): return {hn(p['hero']): 1.0}
+    if t == 'plate' and p.get('hero'):
+        h = hn(p['hero']); vg = (spec or {}).get('vung') or ((spec or {}).get('p') or {}).get('vung') or p.get('vung')
+        if v116 and str(h).startswith('tl/') and vg: return {f'{h} · {vg}': 1.0}
+        return {h: 1.0}
     if t == 'diptych':
         hs = [hn(x['hero']) for x in (p.get('left'), p.get('right')) if isinstance(x, dict) and x.get('hero')]
         out = {}
@@ -71,7 +75,7 @@ def label(sh, heroes, spec=None):
     return {}
 
 
-def shots(TL, E=None):
+def shots(TL, E=None, v116=False):
     """→ [(t0, t1, {bối cảnh: trọng số}, mẫu)] theo thời gian tuyệt đối (chỉ phim chính, không Shorts); E = đặc tả (kênh 2) nếu có"""
     H = TL.get('heroes') or {}; out = []
     SP = {s['id']: s.get('shots') or [] for s in (E or {}).get('segments') or [] if isinstance(s, dict) and 'id' in s}
@@ -79,7 +83,7 @@ def shots(TL, E=None):
         sp = SP.get(s.get('id'), [])
         for i, sh in enumerate(s['shots']):
             a, b = s['t0'] + sh['t0'], s['t0'] + sh['t1']
-            if b > a: out.append((round(a, 3), round(b, 3), label(sh, H, sp[i] if i < len(sp) else None), sh['tpl']))
+            if b > a: out.append((round(a, 3), round(b, 3), label(sh, H, sp[i] if i < len(sp) else None, v116), sh['tpl']))
     return out
 
 
@@ -103,8 +107,8 @@ def runs(S, x):
 def mmss(t): return f'{int(t // 60)}:{t % 60:04.1f}'
 
 
-def q26b(TL, E=None):
-    S = shots(TL, E); T = float(TL['tong_s']); half = T / 2
+def q26b(TL, E=None, v116=False):
+    S = shots(TL, E, v116); T = float(TL['tong_s']); half = T / 2
     tot, sec = {}, {}
     for a, b, L, _ in S:
         for x, w in L.items():

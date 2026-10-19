@@ -393,6 +393,98 @@ def klaib(L, base):
              bao_hoa={os.path.basename(f): v for f, v in zip(fs, S)})
 
 
+# ------------------------------------------------------------------ 1.16 (khiếu nại A-V6-1): nhánh vân bề mặt `ai_texture` (HC7)
+def _is_van_ledger(KD): return isinstance(KD, dict) and isinstance(KD.get('tep'), list) and not KD.get('khung_neo')
+
+
+def _van_used(KD):
+    return [t for t in KD.get('tep') or [] if isinstance(t, dict) and str(t.get('ket_luan') or '').strip().lower().startswith('dùng')]
+
+
+def klai3v(KD, G, DY):
+    """K-LAI-3 cho vân (§11.3 "kiểm dữ kiện từng tấm/vân … 0 lỗi chắc mới dùng, ngoại lệ phải chủ dự án duyệt"): sổ dạng PT3 {quy_tac, tep: [{tep, anh,
+    ket_luan, loi_chac, nghi_van, …}]}. (a) có tệp vân được dùng, mỗi tệp có trong sổ goi-api; (b) loi_chac rỗng; (d) kết luận có điều kiện
+    ("dùng nếu …") phải ghi `dieu_kien_dat: true` (không có → THIẾU), ngoại lệ có duyệt; (e) không lấy chấm mù làm bằng chứng.
+    Nghi vấn còn ghi của tệp dùng → hàng K-LAI-3V (Cảnh báo; chờ chủ dự án quyết có nâng lên Chặn như tấm C không)."""
+    if KD is None: return r(thieu=['không có sổ kiểm dữ kiện vân (lai.kiem_du_kien_van / lai.kiem_du_kien dạng `tep`)'], val='—'), r(val='—', ket_qua='KHÔNG ÁP')
+    loi, th, nv = [], [], []; U = _van_used(KD); Gf = {str(g.get('file')) for g in G or [] if g.get('file')}
+    if not U: loi.append('(a) sổ vân không có tệp nào kết luận "dùng"')
+    for t in U:
+        fn = os.path.basename(str(t.get('tep') or ''))
+        if G is not None and fn not in Gf: loi.append(f'(a) vân {fn}: không có trong sổ goi-api')
+        if t.get('loi_chac'): loi.append(f"(b) vân {fn}: {len(t['loi_chac'])} lỗi chắc mà vẫn dùng")
+        if re.match(r'^dùng\s+(nếu|khi)', str(t.get('ket_luan')).strip(), re.I) and t.get('dieu_kien_dat') is not True:
+            th.append(f'(d) vân {fn}: kết luận có điều kiện ({str(t.get("ket_luan"))[:40]!r}) chưa ghi dieu_kien_dat: true')
+        for e in t.get('ngoai_le_cho_duyet') or []:
+            ok, why = _duyet(e, fn, t, DY)
+            if not ok: loi.append(f'(d) vân {fn}: ngoại lệ {e} chưa có duyệt của chủ dự án ({why})')
+        if t.get('nghi_van'): nv.append(f"(n) vân {fn}: {len(t['nghi_van'])} nghi vấn còn ghi ({str(t['nghi_van'][0])[:50]})")
+    q = str(KD.get('quy_tac') or '') + ' ' + ' '.join(str(t.get('bang_chung') or '') for t in U)
+    if re.search(r'kiem-mu|blind', ' '.join(str(t.get('bang_chung') or '') for t in U), re.I): loi.append('(e) bằng chứng trỏ tới chấm mù')
+    elif re.search(r'chấm mù|blind', q, re.I) and not re.search(r'(không|KHÔNG|not)\s+(dùng|dựa|use)[^.;]*(chấm mù|blind)', q): loi.append('(e) quy_tac dùng chấm mù')
+    th = sorted(set(th)); thd = th[:3] + ([f'… {len(th) - 3} tệp nữa'] if len(th) > 3 else [])
+    return (r(loi=loi, thieu=thd, val=f'vân: {len(U)} tệp dùng / {len(KD.get("tep") or [])} trong sổ · lỗi chắc {sum(len(t.get("loi_chac") or []) for t in U)} · có điều kiện chưa xác nhận {len(th)}'),
+            r(loi=nv, val=f'{len(nv)}/{len(U)} tệp vân dùng còn ghi nghi vấn'))
+
+
+def klai6v(G):
+    """K-LAI-6 cho vân: như K-LAI-6, nhận `input.mask_frac` (sổ PT3) thay cho `mask.pct_duoc_sua`; lệnh không mặt nạ khai `mask: null`."""
+    if G is None: return r(thieu=['không có sổ goi-api của vân'], val='—')
+    G2 = []
+    for g in G:
+        g = dict(g)
+        if _get(g, 'mask.pct_duoc_sua') is None:
+            mf = _get(g, 'input.mask_frac')
+            if mf is not None: g['mask'] = dict(g.get('mask') or {}, pct_duoc_sua=round(100 * float(mf), 2))
+            elif 'mask' in g and g['mask'] is None: g['mask'] = {'pct_duoc_sua': 'không mặt nạ'}
+        G2.append(g)
+    x = klai6(G2); return dict(x, val='vân: ' + x['val'])
+
+
+def _merge(a, b, tag_a, tag_b):
+    if a is None: return b
+    if b is None: return a
+    return r(loi=[f'[{tag_a}] {x}' for x in a['loi']] + [f'[{tag_b}] {x}' for x in b['loi']], thieu=[f'[{tag_a}] {x}' for x in a['thieu']] + [f'[{tag_b}] {x}' for x in b['thieu']],
+             val=f"{tag_a}: {a['val']} · {tag_b}: {b['val']}", sat_nguong=(a.get('sat_nguong') or []) + (b.get('sat_nguong') or []))
+
+
+def check116(E, TL=None, ep_dir='.', logs=None):
+    """1.16 (CHỈ tập từ T3): K-LAI-2 theo §12.1 (q_k116.k_lai2); tách tấm C (`ai_image`) và vân (`ai_texture`): K-LAI-4, K-LAI-5, K-LAI-B chỉ áp
+    khi có khung ai_image; K-LAI-3/6 áp cho từng sổ (tấm C: lai.kiem_du_kien/goi_api dạng khung_neo; vân: lai.kiem_du_kien_van/goi_api_van, hoặc sổ
+    dạng `tep` của PT3); thêm K-LAI-3V (nghi vấn vân, Cảnh báo)."""
+    from checks.ll import q_k116
+    if not ap_dung(E): return {k: na('tập không có khối lai: và không shot nào khai ai_image/ai_texture') for k in ROWS + ('K-LAI-3V',)}
+    L = E.get('lai') or {}; base = ep_dir
+    if not L: return {k: r(thieu=[f"shot khai AI ({', '.join(shot_ai(E)[:4])}) nhưng episode.yaml không có khối lai:"], val='—') for k in ROWS + ('K-LAI-3V',)}
+    F = frames(L, base); T, src = tong_s(E, TL, L)
+    if T is None and F: T, src = len(F) / FPS, 'số khung log'
+    TX, W, H, txs = text_map(L, base, TL, logs)
+
+    def opt(k):
+        try: return _load(_p(base, L[k])) if L.get(k) else None
+        except Exception as e: return e
+    KD, G, DY, KV, GV = opt('kiem_du_kien'), opt('goi_api'), opt('duyet'), opt('kiem_du_kien_van'), opt('goi_api_van')
+    err = [f'không đọc được lai.{k}: {v}' for k, v in (('kiem_du_kien', KD), ('goi_api', G), ('duyet', DY), ('kiem_du_kien_van', KV), ('goi_api_van', GV)) if isinstance(v, Exception)]
+    KD, G, DY, KV, GV = [None if isinstance(x, Exception) else x for x in (KD, G, DY, KV, GV)]
+    if isinstance(DY, dict): DY = DY.get('duyet') or DY.get('ngoai_le') or []
+    if KV is None and _is_van_ledger(KD): KV, GV, KD, G = KD, G, None, None
+    if F is not None: img, tex = any(x.get('ai_image') for x in F), any(x.get('ai_texture') for x in F)
+    else:
+        sp = [sh for s in E.get('segments') or [] for sh in s.get('shots') or []]
+        img = any(sh.get('ai_image') or (sh.get('p') or {}).get('ai_image') for sh in sp); tex = any(sh.get('ai_texture') or (sh.get('p') or {}).get('ai_texture') for sh in sp)
+    chi_van = 'chỉ có vân bề mặt ai_texture (không tấm C): không có khung A / tấm dùng / khung đêm để so (1.16, khiếu nại A-V6-1)'
+    k3c = klai3(KD, G, DY, L.get('kiem_du_kien')) if img else None
+    k3v, k3n = klai3v(KV, GV, DY) if tex else (None, na('không có khung ai_texture'))
+    out = {'K-LAI-1': klai1(F, T, src), 'K-LAI-2': q_k116.k_lai2(E, TL, F, TX, base), 'K-LAI-3': _merge(k3c, k3v, 'tấm C', 'vân') or na('không có khung AI'),
+           'K-LAI-4': klai4(L, base) if img else na(chi_van), 'K-LAI-5': klai5(KD, G, base, L) if img else na(chi_van),
+           'K-LAI-6': _merge(klai6(G) if img else None, klai6v(GV) if tex else None, 'tấm C', 'vân') or na('không có khung AI'),
+           'K-LAI-B': klaib(L, base) if img else na(chi_van), 'K-LAI-3V': k3n}
+    if err:
+        for k in ('K-LAI-3', 'K-LAI-5', 'K-LAI-6'):
+            if out[k].get('ket_qua') != 'KHÔNG ÁP': out[k] = dict(out[k], thieu=out[k]['thieu'] + err, ok=False, ket_qua=out[k]['ket_qua'] or 'THIẾU')
+    return out
+
+
 # ------------------------------------------------------------------
 def check(E, TL=None, ep_dir='.', logs=None):
     if not ap_dung(E): return {k: na('tập không có khối lai: và không shot nào khai ai_image/ai_texture') for k in ROWS}
