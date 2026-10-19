@@ -1,5 +1,5 @@
 #!/opt/cine/bin/python
-"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) (phiên K, 17–18/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
+"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) + 1.16 (SACH-1…PC-1, K-LAI-3V; chỉ tập từ T3) (phiên K, 17–19/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
 HH1) và các luật 1.12.1 (chủ dự án duyệt 16–17/10: HH2, HH3, MM1–MM4, JJ1–JJ2, KK1). Mặc định `k2check.py` vẫn CHỈ BÁO (ghi cấp cạnh kết quả);
 `--cap` áp cấp vào mã thoát: hàng có lỗi thuộc phần Chặn → TRƯỢT, chỉ có lỗi phần Cảnh báo → CẢNH BÁO (không tính vào mã thoát).
 
@@ -60,6 +60,17 @@ CAP = {
     'O2': ('Cảnh báo (lưới lọc thứ hai — không thay kiểm nguồn)', set(), {'*'}),
     'BC2': ('Cảnh báo (tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}), 'BC3': ('Cảnh báo (tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}),
     'BC4': ('Cảnh báo (chỉ báo; tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}),
+    # 1.16 (CHỈ tập từ T3; mức đề xuất chờ chủ dự án duyệt — reports/k116/K116-BAO-CAO.md §3)
+    'SACH-1': ('Chặn (a)–(d), (f) · Cảnh báo (e) chữ bản đồ ngoài danh sách §12.1 (chờ quyết)', set('abcdf'), set('e')),
+    'CHUONG-1': ('Chặn (a)–(e) · Cảnh báo (f) vị trí/mờ', set('abcde'), set('f')),
+    'PP-1': ('Chặn (a)–(d) · Cảnh báo (e) tốc độ đọc', set('abcd'), set('e')),
+    'TL-1': ('Cảnh báo (mục tiêu §13.6; hiệu chỉnh sau V7-PILOT)', set(), {'*'}),
+    'TL-2': ('Cảnh báo (hiệu chỉnh sau V7-PILOT)', set(), {'*'}),
+    'TL-3': ('Cảnh báo (hiệu chỉnh sau V7-PILOT)', set(), {'*'}),
+    'NHIP-NGHIA': ('Chặn (§13.2)', {'*'}, set()),
+    'XEM-CAM': ('Chặn (§13.4 bắt buộc từ T3)', {'*'}, set()),
+    'PC-1': ('Cảnh báo (thước tạm; hiệu chuẩn trên ≥ 10 ảnh)', set(), {'*'}),
+    'K-LAI-3V': ('Cảnh báo (nghi vấn vân; chờ quyết có Chặn như tấm C)', set(), {'*'}),
 }
 _M = re.compile(r'^\((\w)\)')
 

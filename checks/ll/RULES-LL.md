@@ -69,6 +69,53 @@ Một lệnh: `k2check.py <episode.yaml> … [--root <gốc repo có vo/*.align.
 **Khai `mach`** (gốc episode.yaml hoặc tệp `--khai`): `tom_tat: {tu: "<đầu câu>", den: "<đầu câu>"}`, `luan_diem_chinh: [{claim: C22, cau: "<đầu câu>"}]` (mẫu: `fixtures/k112/t2-mach.yaml`).
 **Đề xuất cho phiên V (ngoài vùng K):** mặt nạ `render.js --maskonly` ghi thêm `hero_pct` và chạy MỌI khung (BC1, TL-Q1c); log chữ mỗi khung có `role` thẻ ảnh; log lệch đầu đường dẫn ảnh neo (TL-Q4b).
 
+## 1.16 — khung sạch §12.1 (sửa 19/10) + TL-4, thẻ chương §13.3, thẻ phương pháp D6, ngữ pháp timelapse §13.6, nhịp → vật mang nghĩa §13.2, cổng XEM CÂM §13.4, phục chế §12.3; khiếu nại V6/G1b — 19/10, CHỈ BÁO
+**Chỉ tập kênh 2 từ T3**: bật khi episode.yaml khai `khung_sach: true` (đặc tả T3 đã có) hoặc `kenh2_tu_t3: true`. Tập không khai → mọi luật chạy đúng như 1.15
+(một hàng gộp "1.16 KHÔNG ÁP"). Mã: `checks/ll/q_k116.py` (`q_k116.py <episode.yaml> --tl … [--video …] [--logs …] [--log-shot …]`); `k2check.py` tự gọi
+(video: `--tl16-video <tệp>` hoặc master). Cấp đề xuất ở cap112.py, chờ chủ dự án duyệt.
+
+**Khai mới (gốc episode.yaml, đường dẫn tương đối thư mục tập):**
+| Khoá | Nội dung |
+|---|---|
+| `log_shot` | log shot JSON (mẫu: `channel-k2/k2c-t3-01/g1b/log-shot.json`) — mỗi mục `shot` (id đoạn) + **`goc`**: `cao` (góc cao/toàn cảnh) · `thap` (lướt thấp) · `neo` (khung neo tầm mắt) · `phang` (thẻ/ảnh/bản đồ phẳng; tự suy cho đoạn chỉ có card/photo/strategic); **`tl`**: true khi trong shot thời gian chạy (nhà mọc/cháy/sập, công trình có ngày đầu/cuối, tàu, ngày–đêm, khói); **`vai`**: vai truyện (bắt buộc với `goc: thap`); `noi`; `nguoi: true` (khoảnh khắc người); **`trong_pct`**: % diện tích đồng cỏ/khoảng trống không vật thể (TB shot); `su_kien`: [{t, k, s}] biến cố thấy được; `diem_may`: id điểm máy cao; `moc`; `bac`; `nguon`; `ai_image`/`ai_texture` |
+| `nhip_vat` | bảng nhịp §13.2 JSON `{nhip: [{id, chinh: true, cau, vat: [{loai, shot}]}]}`; `loai` ∈ co_chu_quyen · dem_nam · ranh_dong · mui_ten · su_kien · the_chuong (đề xuất tên tệp `nhip-vat.json`) |
+| `xem_cam` | kết quả cổng XEM CÂM §13.4 JSON `{tat_tieng: true, cau_hoi: [8 câu], nguoi_cham: [{id, vai: ai\|chu_du_an, dung, tong: 8, ngay}], video?, video_sha256?}` (đề xuất tên `xem-cam.json`). K KHÔNG tự chấm |
+| `phat_hanh.mo_ta` | mô tả YouTube + bình luận ghim (`phat-hanh/nguon-mo-ta.md`): "AI use = Yes", nguồn ghost, nguồn ranh |
+| `phuc_che` | `{kiem: kiem.json (kiểm có đáp án, định dạng phuc_che.py của G1b), dung: [{anh, cong_cu}]}` |
+| `loi_khoa`, `claims_md` | ML1 khi chưa có căn chữ lời (animatic): câu lấy từ lời khoá; claims C…/S… lấy từ tệp này |
+| `nam_khung` | `[{shot, nam_dem, nam_max: {lớp: năm}}]` cho NC-H5 (a) cấp tập |
+| `ghost` | `{<id ghost>: {nguon}}` (không có thì lấy `nguon` của log shot dùng ghost) |
+| `log_chu` | log chữ dạng bo-tl `[{f (khung phim), items: [{s, role, cap\|px1080, box, alpha}]}]` khi không dùng `--logs` k2.js |
+Thẻ chương: `p.the_chuong: {s: "1704 — The Rock changes hands", at, dur}` (hoặc chữ log vai `the_chuong`). Thẻ phương pháp: đoạn `the_phuong_phap: true`
+(id `PP`/part `END`/tiêu đề "How this film was made" cũng nhận). Tư liệu chỉ được dùng dạng phủ: `p.phu_dia_hinh: {img, dur ≤ 3}`. Khung neo / tấm im lặng
+(miễn Q37 (c)): shot khai `khung_neo: true` (hoặc `neo: true`) / `im_lang: true`.
+
+| Mã | Đo | Ngưỡng | Cấp đề xuất |
+|---|---|---|---|
+| **SACH-1** | (a) p.so, tấm num/quote/list ngoài thẻ chương/PP · (b) photo/document/record/footage đứng riêng · (c) log chữ: vai cấm (src, src_ngan, ai_label, ghost_src, inset_src, index_src, method, bien_gioi, so, trich, trich_dich) hay chữ "approx. borders / estimated infill / Ruins: estimated / illustrative / AI-assisted / Source:" có alpha > 0 · (d) chip `where` mỗi lần · (e) chữ khác (diem, chu_giai, inset, tag, index, card) · (f) shot không `p.sach` | 0 · 0 (phủ ≤ **3 s**) · 0 · ≤ **3 s** · liệt kê · 0 | Chặn (a)–(d), (f) · Cảnh báo (e) |
+| **CHUONG-1** | thẻ chương | ≤ **8**/tập · "năm — ≤ **6** từ" · ≤ **3 s** · không trong chương 0/CH0/`moc_s` · không captur*/liberat*/conquer*/seiz* · (f) log: góc dưới trái, mờ vào/ra | Chặn (a)–(e) · Cảnh báo (f) |
+| **PP-1** | thẻ phương pháp (D6) | đúng **2** thẻ · mỗi thẻ **7–9 s** (≈ 8) · liền nhau, kết ≤ 0,5 s trước cuối · nói nguồn/bản đồ, ước tính, AI · (e) ≤ **3 từ/s** | Chặn (a)–(d) · Cảnh báo (e) |
+| **TL-1** | (a) Σ shot `goc: cao` + `tl: true` / thân phim (trừ thẻ PP) · (b) số shot đặc tả (cận trên, chỉ báo) · (c) cắt/phút trên video: cắt = [chênh lệch histogram xám 32 bin ≥ 0,20 VÀ lệch điểm ảnh TB ≥ 12/255] hoặc [lệch ≥ 20/255 VÀ ≥ 3× trung vị ±6 khung], cực đại cục bộ · (d) chuyển động máy shot góc cao: tịnh tiến (phase correlation, bước 0,25 s, vùng y 10–68 %) + phóng (LK) quy ra % bề ngang/s, trung vị cửa sổ 1 s · (e)(f) `diem_may` | ≥ **75 %** · — · ≤ **5**/phút · ≤ **2 %/s** · **6–8** điểm, mỗi điểm ≥ 2 năm | Cảnh báo — **hiệu chỉnh sau V7-PILOT** |
+| **TL-2** | Σ `goc: thap` / thân phim · mỗi shot thấp có `vai` và (`noi: thanh_pho` hoặc `nguoi: true`) | ≤ **10 %** | Cảnh báo — hiệu chỉnh sau V7-PILOT |
+| **TL-3** | shot 3D (cao/thap/neo): `tl` hoặc `su_kien` · "trống": `trong_pct` > **60 %** mà không `tl` · có `bac` | 0 vi phạm | Cảnh báo — hiệu chỉnh sau V7-PILOT |
+| **NHIP-NGHIA** | nhịp chính có ≥ 1 vật hợp lệ (loại đúng, shot có thật, the_chuong có thẻ) | ≥ **90 %** | Chặn |
+| **XEM-CAM** | tệp kết quả: 8 câu · ≥ 3 AI + chủ dự án · tắt tiếng · không email · SHA video khớp (nếu khai) | mỗi người chấm ≥ **6/8** | Chặn |
+| **PC-1** | kiểm có đáp án: Δ cạnh mới = công cụ − **bicubic cùng ô**; PSNR công cụ − bicubic | Δ ≤ **1,0** điểm % · ΔPSNR ≥ 0 cho mọi ảnh dùng | Cảnh báo (thước tạm) |
+
+**Thay luật cũ ở tập từ T3 (khiếu nại chấp nhận — `reports/k116/K116-BAO-CAO.md` §2):**
+- **K-LAI-2** (§12.1): (a) log khung có cờ `ai_image`/`ai_texture` true/false ở mọi khung · (b) đoạn có khung AI phải khai AI ở đặc tả hoặc log shot · (c) thẻ PP nói "AI" · (d) mô tả có "AI use = Yes" · (e) nhãn "Surface detail AI-assisted" KHÔNG hiện trên hình. Bỏ đo cỡ/vị trí nhãn.
+- **K-LAI nhánh vân** (`ai_texture`, HC7): K-LAI-4, K-LAI-5, K-LAI-B chỉ áp khi có khung `ai_image` (tấm C). Sổ vân: `lai.kiem_du_kien_van` + `lai.goi_api_van` (hoặc sổ dạng `tep` của PT3 đặt ở `kiem_du_kien`). K-LAI-3 vân: (a) có tệp "dùng", có trong goi-api · (b) `loi_chac` rỗng · (d) kết luận "dùng nếu …" cần `dieu_kien_dat: true`, ngoại lệ có duyệt · (e) không chấm mù. K-LAI-6 vân nhận `input.mask_frac` (hoặc `mask: null` khi không mặt nạ). Hàng mới **K-LAI-3V** (Cảnh báo): tệp vân dùng còn ghi `nghi_van`.
+- **NC-H5**: nhận bộ đếm của cảnh `tl/*` (opt.year/counter) hoặc `p.counter`; (a) đọc `nam_khung` (thiếu → THIẾU); (b) mỗi ghost có nguồn và nguồn có trong mô tả — không đòi nhãn trên hình.
+- **BD-3**: (a) manifest lớp ranh có `nam` + `nguon` · (b) nguồn ranh có trong mô tả · (c) nhãn "approx. borders" hiện trên hình là LỖI (§12.1).
+- **Q26b**: cảnh mô-đun `tl/*` tính bối cảnh theo `tl/<mô-đun> · <vung>` của shot đặc tả.
+- **Q37 / Q37 (1.13) / NHIP-K2 (c)**: khoảng nằm trọn trong shot `khung_neo`/`neo`/`im_lang` ≤ **10 s** được miễn; shot miễn > 10 s hoặc > **2** tấm im lặng → (c). TB (b), khung tĩnh (d) giữ nguyên.
+- **A1–A13**: `animatic: true` → CHỈ BÁO; không lời (timeline không `speech`, không `--vo`) → A4, A8, A9, A10, A13 KHÔNG ÁP; A1–A3, A5–A7, A11, A12 vẫn áp.
+- **ML1**: chưa có căn chữ lời → câu từ `loi_khoa`; `claims_md` khai được.
+
+**Tên trường (trả lời G1b, không đổi luật):** ML1 đọc `cau` = **≥ 12 ký tự đầu của câu, nguyên văn** (khớp đúng một câu của lời: căn chữ `vo/*.align.json`, từ 1.16 cả `loi_khoa`) hoặc `claim: <id>` có trong `claims.md` cạnh đặc tả (từ 1.16: `claims_md`); đặt ở shot (cùng cấp `tpl`) hoặc trong `p`. FT1 đọc **`ly_do_hinh`** ∈ `bang_chung` · `con_nguoi` · `quy_mo` · `khoanh_khac` (không phải `ly_do`).
+
+**Khung vàng V6** (`checks/golden/`): tham chiếu mới dựng bằng trình dựng V6 (`tham_chieu/<ca>.png`, SHA trong `GOLDEN-V6.json`, khoá trong LOCK). Sau `scripts/common/golden.py run --out <ra>`, chạy `checks/golden/so_golden.py <ra>`.
+
 ## 1.15 — khung neo LAI (PT2 Q-PT2-2; chủ dự án duyệt P2-2, P2-3), máy soi lỗi thời đại (O2), bố cục (I3), biến cố cảnh tl (I8) — 18/10, CHỈ BÁO
 Mã: `checks/ll/q_lai.py` (K-LAI-1…6, K-LAI-B; `q_lai.py <episode.yaml> [--tl …] [--logs …]`), `checks/ll/q_thoi_dai.py` (O2; `--video … --nam …` hoặc `--anh …`),
 `checks/ll/q_bocuc.py` (BC2–BC4; `q_bocuc.py <bo-tl.json>`), `q_nhip.py` (Q37 + `--bo-tl`), `q_tl.py` (TL-Q1 mốc dừng giờ). `k2check.py` thêm hàng CHỈ BÁO
@@ -237,6 +284,8 @@ Không có tệp khoá giải mã Q27: thứ tự trộn suy ra từ SHA video, 
 Ngưỡng của Q12–Q22 giữ nguyên như P đề xuất ở lô 3–5; ngưỡng Q26–Q31 giữ nguyên như chủ dự án định (CHUAN-KENH §11.2), K chỉ định nghĩa cách đo. Q1–Q6 và Q8–Q11 vẫn là luật làm việc của P (xem checks-appeal mục 8; chưa khoá ở bản này).
 
 ## Tự kiểm
+**1.16:** `/opt/cine/bin/python checks/ll/selftest_k116.py` — ≥ 1 ca đạt + ≥ 1 ca trượt cho SACH-1, CHUONG-1, PP-1, TL-1/2/3 (gồm video tổng hợp `fixtures/k116/vid/`), NHIP-NGHIA, XEM-CAM, PC-1, K-LAI 1.16 (nhánh vân, cả SAO dữ liệu thật V6/PT3 `fixtures/k116/v6/`), NC-H5, BD-3, Q26b, Q37, A*, ML1, cổng 1.16 và cấp (fixture `fixtures/k116/ep-t3/` sinh bằng `make_fixtures.py`; `g1b/kiem.json` SAO thật); không gọi mạng/API. Số ca: `reports/k116/K116-BAO-CAO.md`.
+
 **1.15:** `/opt/cine/bin/python checks/ll/selftest_k115.py` — ≥ 1 ca đạt + ≥ 1 ca trượt cho K-LAI-1…6, K-LAI-B, O2, BC2–BC4, Q37 + TL-Q1 (I8) và cấp (fixture `fixtures/k115/`: ep-lai, bc tổng hợp từ `make_fixtures.py`; SAO dữ liệu thật PT2 `pt2/`, đoạn thử V5b-2b `v5b2b/`; O2 đọc `o2/cache.json` = trả lời thật claude-sonnet-5-5 lượt 18/10, không gọi mạng; `--api` gọi lại có chi phí). Số ca: `reports/K-1.15-BAO-CAO.md`.
 
 **1.14:** `/opt/cine/bin/python checks/ll/selftest_k114.py` — ≥ 1 ca đạt + ≥ 1 ca trượt cho định nghĩa strategic, NC-H1/H2/H3 loại strategic (cả trên T2 L5 thật), BD-1…BD-8, K-R1…K-R9, mục khai G1-R và cấp (fixture tổng hợp `fixtures/k114/ep-bd/`, `fixtures/k114/ep-dok/` sinh bằng `make_fixtures.py`; Natural Earth `data/`); không gọi mạng/API. Số ca: `reports/K-1.14-BAO-CAO.md`.

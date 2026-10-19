@@ -1,0 +1,59 @@
+{
+ "phien": "K-1.16",
+ "ngay_utc": "2026-10-19T10:04:08Z",
+ "ly_do": "P10C-5: chụp lại tham chiếu theo trình dựng V6 (Kinh thánh §12.5). Tham chiếu cũ = khung master LFS dựng trước V6; lệch là thay đổi có chủ đích của V6 (bóng 8192², SSAO 2 tầng, chỉnh màu V6) và dòng nguồn 38 px hai dòng của bộ công cụ hiện hành (t1), không phải hồi quy.",
+ "trinh_dung": {
+  "repo_head": "4e1e37d6d4d1b35a97d2a3c76e1d079d27ff5dbf",
+  "cong_cu": "scripts/common/golden.py run --only steel,ll08,t1 (prep → hero.js → render.js, llvmpipe)"
+ },
+ "ca": {
+  "steel": {
+   "doan": "01",
+   "khung_trong_doan": 48,
+   "khung_toan_tap": 395,
+   "spp": 4,
+   "cu": {
+    "tham_chieu": "LFS release-k2g-ep01-v1:k2g-ep01-v1-master.mp4 (oid 28e4d1137828) khung 395",
+    "sha256_khung_trich": "03202ae23e32bc0d21f2c786d3b35d5aa51f5c8f7ba50a257c88611750967283",
+    "ssim": 0.9449,
+    "phash": 0,
+    "mad": 2.08,
+    "o_lech": 0,
+    "ket_qua": "KHỚP"
+   },
+   "sha256_moi": "eb731fd47a9001c29d321d64c4281a9ce3bf983bacaeeed47eab79fc03b78a4f"
+  },
+  "ll08": {
+   "doan": "03",
+   "khung_trong_doan": 48,
+   "khung_toan_tap": 2102,
+   "spp": 4,
+   "cu": {
+    "tham_chieu": "LFS release-ll-ep08-v1:ll-ep08-v1-master.mp4 (oid d22d7d6e640d) khung 2102",
+    "sha256_khung_trich": "d14988c7982a6f6b8b053f1051ff0e1ff756c303ca6ce7dcf896ecc36be21e41",
+    "ssim": 0.9307,
+    "phash": 0,
+    "mad": 2.25,
+    "o_lech": 0,
+    "ket_qua": "KHỚP"
+   },
+   "sha256_moi": "4eaafa5bf5da7efb56be41418f555e3854061defeb3faf834ab27d16e690f2c8"
+  },
+  "t1": {
+   "doan": "00",
+   "khung_trong_doan": 48,
+   "khung_toan_tap": 48,
+   "spp": 4,
+   "cu": {
+    "tham_chieu": "LFS release-k2c-t1-06-v1:k2c-t1-06-v1-master.mp4 (oid 4f2d280bc649) khung 48",
+    "sha256_khung_trich": "4861487d6fc04ff1873c1eee647444ee3e9996504c15e2191744aaea6e9d6c67",
+    "ssim": 0.9082,
+    "phash": 0,
+    "mad": 4.51,
+    "o_lech": 22,
+    "ket_qua": "LỆCH CỤC BỘ"
+   },
+   "sha256_moi": "30b71b7bb8ec47f4cf75c3524a82bf79134de2817fe523c97ecdecc56fd25ecf"
+  }
+ }
+}

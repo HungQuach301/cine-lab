@@ -1,0 +1,481 @@
+id: k116-t3
+title: K-1.16 fixture T3
+channel: k2
+khung_sach: true
+out: /var/tmp/k116-fx
+heroes:
+  h_C00:
+    hero: tl/fx
+    opt:
+      year: 1704
+      counter:
+        s: '1704'
+      ghost: null
+    dur: 10.0
+  h_C01:
+    hero: tl/fx
+    opt:
+      year: 1704
+      counter:
+        s: '1704'
+      ghost: null
+    dur: 10.0
+  h_C02:
+    hero: tl/fx
+    opt:
+      year: 1704
+      counter:
+        s: '1704'
+      ghost: null
+    dur: 10.0
+  h_C03:
+    hero: tl/fx
+    opt:
+      year: 1704
+      counter:
+        s: '1704'
+      ghost: null
+    dur: 10.0
+  h_KA:
+    hero: tl/fx
+    opt:
+      year: 1782
+      counter:
+        s: '1782'
+      ghost: null
+    dur: 8.0
+  h_C04:
+    hero: tl/fx
+    opt:
+      year: 1704
+      counter:
+        s: '1704'
+      ghost: null
+    dur: 10.0
+  h_C05:
+    hero: tl/fx
+    opt:
+      year: 1704
+      counter:
+        s: '1704'
+      ghost: null
+    dur: 10.0
+  h_C06:
+    hero: tl/fx
+    opt:
+      year: 1782
+      counter:
+        s: '1782'
+      ghost: ghost-1782
+    dur: 10.0
+  h_C07:
+    hero: tl/fx
+    opt:
+      year: 1782
+      counter:
+        s: '1782'
+      ghost: null
+    dur: 10.0
+  h_LT:
+    hero: tl/fx
+    opt:
+      year: 1782
+      counter:
+        s: '1782'
+      ghost: null
+    dur: 8.0
+  h_C08:
+    hero: tl/fx
+    opt:
+      year: 1782
+      counter:
+        s: '1782'
+      ghost: null
+    dur: 10.0
+  h_C09:
+    hero: tl/fx
+    opt:
+      year: 1782
+      counter:
+        s: '1782'
+      ghost: null
+    dur: 10.0
+  h_IL:
+    hero: tl/fx
+    opt:
+      year: 1782
+      counter:
+        s: '1782'
+      ghost: null
+    dur: 9.0
+  h_C10:
+    hero: tl/fx
+    opt:
+      year: 1782
+      counter:
+        s: '1782'
+      ghost: null
+    dur: 10.0
+  h_C11:
+    hero: tl/fx
+    opt:
+      year: 1782
+      counter:
+        s: '1782'
+      ghost: null
+    dur: 10.0
+segments:
+- id: C00
+  part: CH0
+  chuong: '0'
+  dur: 10.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C00
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: eo
+    noi: eo_dat
+    p:
+      sach: true
+      hero: h_C00
+      frame0: 0
+- id: C01
+  part: CH1
+  chuong: '1'
+  dur: 10.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C01
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: pho
+    noi: thanh_pho
+    cau: The Rock changes hands in 1704 after a short fight.
+    p:
+      sach: true
+      hero: h_C01
+      frame0: 0
+      lop:
+      - RANH1704
+- id: C02
+  part: CH1
+  chuong: '1'
+  dur: 10.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C02
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: vinh
+    noi: eo_dat
+    p:
+      sach: true
+      hero: h_C02
+      frame0: 0
+- id: C03
+  part: CH1
+  chuong: '1'
+  dur: 10.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C03
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: nui
+    noi: eo_dat
+    p:
+      sach: true
+      hero: h_C03
+      frame0: 0
+- id: KA
+  part: CH2
+  chuong: '2'
+  dur: 8.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: KA
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: pho-hep
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: h_KA
+      frame0: 0
+    khung_neo: true
+- id: C04
+  part: CH2
+  chuong: '2'
+  dur: 10.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C04
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: cang
+    noi: eo_dat
+    p:
+      sach: true
+      hero: h_C04
+      frame0: 0
+      the_chuong:
+        s: 1704 — The Rock changes hands
+        at: 0.5
+        dur: 2.5
+- id: C05
+  part: CH2
+  chuong: '2'
+  dur: 10.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C05
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: bo
+    noi: eo_dat
+    p:
+      sach: true
+      hero: h_C05
+      frame0: 0
+- id: C06
+  part: CH2
+  chuong: '2'
+  dur: 10.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C06
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: eo
+    noi: eo_dat
+    p:
+      sach: true
+      hero: h_C06
+      frame0: 0
+      ghost: ghost-1782
+- id: C07
+  part: CH2
+  chuong: '2'
+  dur: 10.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C07
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: pho
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: h_C07
+      frame0: 0
+- id: LT
+  part: CH3
+  chuong: '3'
+  dur: 8.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: LT
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: pho
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: h_LT
+      frame0: 0
+- id: C08
+  part: CH3
+  chuong: '3'
+  dur: 10.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C08
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: vinh
+    noi: eo_dat
+    p:
+      sach: true
+      hero: h_C08
+      frame0: 0
+      the_chuong:
+        s: 1779 — The Great Siege begins
+        at: 0.5
+        dur: 3.0
+- id: C09
+  part: CH3
+  chuong: '3'
+  dur: 10.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C09
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: nui
+    noi: eo_dat
+    p:
+      sach: true
+      hero: h_C09
+      frame0: 0
+- id: IL
+  part: CH3
+  chuong: '3'
+  dur: 9.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: IL
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: vinh
+    noi: eo_dat
+    p:
+      sach: true
+      hero: h_IL
+      frame0: 0
+    im_lang: true
+- id: C10
+  part: CH3
+  chuong: '3'
+  dur: 10.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C10
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: cang
+    noi: eo_dat
+    p:
+      sach: true
+      hero: h_C10
+      frame0: 0
+- id: C11
+  part: CH3
+  chuong: '3'
+  dur: 10.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C11
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    vung: bo
+    noi: eo_dat
+    p:
+      sach: true
+      hero: h_C11
+      frame0: 0
+- id: PP1
+  part: END
+  chuong: '5'
+  dur: 8.0
+  the_phuong_phap: true
+  beats:
+  - t: 0.0
+    k: cut
+    s: PP
+  shots:
+  - tpl: plate
+    at: 0
+    type: card
+    p:
+      sach: true
+      hero: h_C11
+      the_phuong_phap: true
+      card:
+        type: list
+        title: How this film was made
+        items:
+        - s: 'Built from British and Spanish records and maps: Drinkwater 1786, Montero
+            1860.'
+        - s: Every source is in the description.
+- id: PP2
+  part: END
+  chuong: '5'
+  dur: 8.0
+  the_phuong_phap: true
+  beats:
+  - t: 0.0
+    k: cut
+    s: PP
+  shots:
+  - tpl: plate
+    at: 0
+    type: card
+    p:
+      sach: true
+      hero: h_C11
+      the_phuong_phap: true
+      card:
+        type: list
+        title: What is estimated
+        items:
+        - s: 'Estimated: building heights and coastline. AI retouched two street frames;
+            no facts.'
+log_shot: log-shot.json
+nhip_vat: nhip-vat.json
+xem_cam: xem-cam.json
+phat_hanh:
+  mo_ta: mo-ta.md
+loi_khoa: loi-khoa.txt
+claims_md: claims.md
+nam_khung: nam-khung.json
+log_chu: log-chu.json
+ghost:
+  ghost-1782:
+    nguon: Spilsbury plan 1782 + OSM
+phuc_che:
+  kiem: ../g1b/kiem.json
+  dung:
+  - anh: 342-FH_000757.jpg
+    cong_cu: swin2sr_x2
+lai:
+  log_khung: lai/log-khung.jsonl
+  kiem_du_kien_van: lai/kiem-van.json
+  goi_api_van: lai/goi-api-van.jsonl
+ban_do:
+  lop: lop.json
