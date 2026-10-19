@@ -29,6 +29,7 @@ const v2vMatFlag = (o) => { const ms = Array.isArray(o.material) ? o.material : 
 function v2vCls(o) {
   if (o.isMesh && v2vMatFlag(o)) return 'co';
   for (let p = o; p; p = p.parent) { const fn = p.userData && p.userData.v2vFn; if (!fn) continue; for (const [c, names] of V2V_RULES) if (names.some((n) => fn.includes(n))) return c; }
+  const f0 = o.userData && o.userData.v2vFn; if (f0 && f0[0] === 'setup') return 'datvat';   // thêm thẳng trong page.js setup (roads.mesh: mạng đường OSM) = mặt đất
   return 'khac';
 }
 let v2vRT = null;

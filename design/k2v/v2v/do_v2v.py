@@ -7,6 +7,7 @@ Căn khung: mỗi khung, ECC affine (cv2.findTransformECC) ảnh xám ra → ngu
 (i)  GIỮ DỮ KIỆN — cạnh Canny (ngưỡng theo trung vị, cùng tham số cho nguồn và ra) trong vùng từng loại của mặt nạ ID (nở 2 px):
        F1 cạnh (dung sai 2 px) = 2PR/(P+R), IoU cạnh = |nở(Es) ∩ nở(Eo)| / |nở(Es) ∪ nở(Eo)| trong vùng;
        đếm vật: thành phần liên thông của tàu / cờ / pin nổi (≥ AMIN px); vật GIỮ khi hồi cạnh trong hộp ≥ 0,5 VÀ ΔE76 trung bình (Lab) ≤ 20;
+       LỬA MỚI: % khung là điểm cam–vàng sáng cách mọi lửa/pin nổi/điểm cam sáng của nguồn > 6 px, số cụm ≥ 6 px;
        cạnh MỚI trong vùng TRỐNG (trời / nước / đất, cách vật ≥ 6 px): % diện tích vùng có cạnh ra cách mọi cạnh nguồn > 3 px; cụm cạnh mới ≥ 40 px (nở 3) = "vật lạ".
 (ii) NHẤP NHÁY — vùng tĩnh = điểm có |nguồn_t − nguồn_t−1| < 2/255 (xám) ở cả hai khung kề; so TB |ra_t − ra_t−1| với TB |nguồn_t − nguồn_t−1| trên vùng đó.
 (iv) bão hoà trung vị HSV / colorfulness Hasler–Süsstrunk / chi tiết |Laplace| — đúng công thức scripts/k2tl/measure_look.py (V5b-1b, dùng ở V6), vùng giữa 15–85 %.
@@ -71,7 +72,7 @@ def main():
     idx = {int(os.path.basename(p)[:5]): p for p in ids}
     K3 = np.ones((3, 3), np.uint8); K5 = np.ones((5, 5), np.uint8)
     per, objs, empty, A = {c: [] for c in ('tau', 'co', 'pin', 'nha', 'lua', 'dat', 'nuoc', 'troi')}, {c: [0, 0] for c in AMIN}, {c: [] for c in ('troi', 'nuoc', 'dat')}, []
-    blobs, aff, looks_s, looks_o = [], [], [], []
+    blobs, aff, looks_s, looks_o, fires = [], [], [], [], []
     for t in range(0, n, a.step):
         p = idx.get(a.f0 + t)
         if p is None: continue
@@ -105,6 +106,12 @@ def main():
             empty[c].append((float((newE & R).sum() / R.sum() * 100), int(R.sum())))
         NB = cv2.dilate((newE & far & np.isin(L, [0, 1, 2])).astype(np.uint8), K3)
         k, _, st, _ = cv2.connectedComponentsWithStats(NB, connectivity=8); blobs.append(int((st[1:, 4] >= 40).sum()) if k > 1 else 0)
+        # LỬA/NGUỒN SÁNG MỚI: điểm cam–vàng sáng (HSV: H 5–40°, S ≥ 0,45, V ≥ 0,63) trên đầu ra, cách vùng lửa/pin nổi/lửa-sáng của NGUỒN > 6 px
+        hs, ho = cv2.cvtColor(s, cv2.COLOR_BGR2HSV), cv2.cvtColor(o, cv2.COLOR_BGR2HSV)
+        fire = lambda h: (h[..., 0] >= 3) & (h[..., 0] <= 20) & (h[..., 1] >= 115) & (h[..., 2] >= 160)
+        srcF = cv2.dilate((fire(hs) | np.isin(L, [LOP.index('lua'), LOP.index('pin')])).astype(np.uint8), np.ones((13, 13), np.uint8)) > 0
+        nf = fire(ho) & ~srcF; k, _, st, _ = cv2.connectedComponentsWithStats(nf.astype(np.uint8), connectivity=8)
+        fires.append((float(nf.mean() * 100), int((st[1:, 4] >= 6).sum()) if k > 1 else 0))
         looks_s.append(look(s)); looks_o.append(look(o))
     # (ii) nhấp nháy + (v) luồng quang học
     fl_s, fl_o, fs_, fo_ = [], [], [], []
@@ -129,6 +136,7 @@ def main():
              dem=dict({c: dict(truoc=v[0], giu=v[1], ti_le=round(v[1] / v[0], 3) if v[0] else None) for c, v in objs.items()}),
              canh_moi_pct=dict({c: dict(tb=round(float(np.mean([x[0] for x in v])), 2), p90=round(float(np.percentile([x[0] for x in v], 90)), 2), max=round(float(np.max([x[0] for x in v])), 2)) for c, v in empty.items() if v}),
              vat_la_tb=round(float(np.mean(blobs)), 2) if blobs else None, vat_la_max=int(max(blobs)) if blobs else None,
+             lua_moi=dict(pct_tb=round(float(np.mean([x[0] for x in fires])), 3), pct_max=round(float(np.max([x[0] for x in fires])), 3), cum_tb=round(float(np.mean([x[1] for x in fires])), 2), cum_max=int(max(x[1] for x in fires))) if fires else None,
              nhap_nhay=dict(nguon=round(float(np.mean(fl_s)), 3) if fl_s else None, ra=round(float(np.mean(fl_o)), 3) if fl_o else None, ti_so=round(float(np.mean(fl_o) / max(1e-3, np.mean(fl_s))), 2) if fl_s else None),
              look=dict(nguon=dict(zip(('sat_med', 'colorful', 'detail'), [round(float(np.median([x[i] for x in looks_s])), 3) for i in range(3)])), ra=dict(zip(('sat_med', 'colorful', 'detail'), [round(float(np.median([x[i] for x in looks_o])), 3) for i in range(3)]))),
              may=dict(luong_nguon_tb=np.round(fs_.mean(0), 3).tolist() if len(fs_) else None, luong_ra_tb=np.round(fo_.mean(0), 3).tolist() if len(fo_) else None,
