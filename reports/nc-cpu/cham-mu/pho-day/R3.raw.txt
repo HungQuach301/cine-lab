@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 7, "realism": 7, "detail": 6, "toy_like": 3, "ai_look": 4, "flags": [], "note": "Best atmosphere. Water has believable colour variation and shallows, and the haze and soft light give depth. Roofs have natural weathered tones and the terrain looks organic. The town is a bit sparse and the ships are tiny."},
+"B": {"craft": 5, "realism": 4, "detail": 5, "toy_like": 5, "ai_look": 5, "flags": ["noisy"], "note": "Water is an oversaturated, noisy blue texture that looks like a game shader. Buildings are more boxy and the ground is a flat tan. The horizon is darker and harsher. More game-like than A."},
+"C": {"craft": 6, "realism": 5, "detail": 7, "toy_like": 5, "ai_look": 5, "flags": ["washed_out"], "note": "Denser town with more buildings, but the saturated red roofs and white-blue walls look like game pieces. The water is a flat dark navy gradient with no surface texture. The sky is hazy and washed out. Terrain is smoother."},
+"D": {"craft": 6, "realism": 5, "detail": 7, "toy_like": 6, "ai_look": 5, "flags": ["washed_out", "cluttered"], "note": "Almost the same as C, with extra dark shadow blocks and noise on the buildings that look like scattered game pieces. The water is the same flat navy. The hills have a faint grid-like texture pattern."},
+"rank": ["A", "C", "D", "B"],
+"why": "A is the only version where water, light and haze read as a real place, while C and D have a denser town but toy-like roofs and flat water, and B's noisy, oversaturated water and boxy buildings look like a game.",
+"top_fix_for_best": "Make the town denser and more varied, with more buildings filling the sparse right and centre. Add visible harbour activity such as larger ships, wakes, quay figures and smoke. Keep A's water and haze."}
+```

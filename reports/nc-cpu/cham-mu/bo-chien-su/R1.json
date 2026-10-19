@@ -1,0 +1,57 @@
+{
+ "A": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Smoke plumes, a muzzle flash and a flag give the battle action and drama. The water has sparkle. The ground is a flat beige or grey wash, and the buildings still look like orange blocks."
+ },
+ "B": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 7,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "flat_slide_look"
+  ],
+  "note": "Clean and readable, but there is no sign of battle. The ships sit in a neat row, and the pale speckled ground and pastel blocks look like a map or game board."
+ },
+ "C": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Same smoke and flash as A, but the ground is cleaner and warmer. The earth tones and the contrast with the blue sea are better. Buildings are still simple blocks."
+ },
+ "D": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 7,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "confusing"
+  ],
+  "note": "Like B, with some black block buildings that read as odd artefacts. There is no action, and the scene reads as a static model."
+ },
+ "rank": [
+  "C",
+  "A",
+  "B",
+  "D"
+ ],
+ "why": "C and A show an actual bombardment, with smoke, fire and flag, which gives the shot a narrative, and C has the cleaner and more natural ground. B and D are static, with toy-like blocks and a speckled, map-like ground.",
+ "top_fix_for_best": "Replace the flat, untextured roofs and walls in C with weathered, varied materials. Add small figures such as troops and gun crews, return fire and splashes around the ships, and thicker foreground smoke with depth-of-field to break the model-diorama look."
+}

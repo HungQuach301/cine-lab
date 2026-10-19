@@ -45,7 +45,7 @@ def haze_wrap(m, emit_k=1.0):
     nt = m.node_tree; out = [n for n in nt.nodes if n.type == 'OUTPUT_MATERIAL'][0]; src = out.inputs['Surface'].links[0].from_socket
     cd = N(nt, 'ShaderNodeCameraData'); mu = N(nt, 'ShaderNodeMath', operation='MULTIPLY'); mu.inputs[1].default_value = -HAZE_S
     ex = N(nt, 'ShaderNodeMath', operation='EXPONENT'); sub = N(nt, 'ShaderNodeMath', operation='SUBTRACT'); sub.inputs[0].default_value = 1.0
-    em = N(nt, 'ShaderNodeEmission'); k = (1 - NIGHT) + NIGHT * 0.06; em.inputs['Color'].default_value = (*[c * k for c in HAZE_C], 1); em.inputs['Strength'].default_value = SKY_K * emit_k
+    em = N(nt, 'ShaderNodeEmission'); k = 1 - NIGHT; em.inputs['Color'].default_value = (*[c * k + cn * NIGHT for c, cn in zip(HAZE_C, (0.035, 0.05, 0.09))], 1); em.inputs['Strength'].default_value = SKY_K * emit_k
     mx = N(nt, 'ShaderNodeMixShader'); L = nt.links
     L.new(cd.outputs['View Distance'], mu.inputs[0]); L.new(mu.outputs[0], ex.inputs[0]); L.new(ex.outputs[0], sub.inputs[1]); L.new(sub.outputs[0], mx.inputs['Fac'])
     L.new(src, mx.inputs[1]); L.new(em.outputs[0], mx.inputs[2]); L.new(mx.outputs[0], out.inputs['Surface'])
@@ -264,7 +264,16 @@ def sky_day():
     sel = wnt.nodes.new('ShaderNodeMix'); sel.data_type = 'RGBA'; L.new(mx.outputs[0], sel.inputs['Factor']); L.new(dif.outputs[2], sel.inputs[6]); L.new(vis.outputs[2], sel.inputs[7])
     L.new(sel.outputs[2], bg.inputs['Color']); bg.inputs['Strength'].default_value = 1.0
 def sky_night():
-    bg.inputs['Color'].default_value = (0.010, 0.015, 0.030, 1); bg.inputs['Strength'].default_value = 1.0
+    """trời đêm như k2v (water.js skyCol, uNight = 1): thiên đỉnh (0,018; 0,030; 0,070), chân trời + (0,06; 0,075; 0,11)·(1 − h)⁴ — tia máy/bóng thấy trời này;
+    tia khuếch tán: ánh trời đêm bán cầu k2v (hemiI × màu trời đêm)."""
+    L = wnt.links; tc = wnt.nodes.new('ShaderNodeTexCoord'); sx = wnt.nodes.new('ShaderNodeSeparateXYZ'); L.new(tc.outputs['Generated'], sx.inputs[0])
+    cl = wnt.nodes.new('ShaderNodeClamp'); L.new(sx.outputs['Z'], cl.inputs['Value']); om = wnt.nodes.new('ShaderNodeMath'); om.operation = 'SUBTRACT'; om.inputs[0].default_value = 1.0; L.new(cl.outputs[0], om.inputs[1])
+    p4 = wnt.nodes.new('ShaderNodeMath'); p4.operation = 'POWER'; p4.inputs[1].default_value = 4.0; L.new(om.outputs[0], p4.inputs[0])
+    vis = wnt.nodes.new('ShaderNodeMix'); vis.data_type = 'RGBA'; L.new(p4.outputs[0], vis.inputs['Factor']); vis.inputs[6].default_value = (0.018, 0.030, 0.070, 1); vis.inputs[7].default_value = (0.078, 0.105, 0.180, 1)
+    hm = M['hemi']; k = hm['intensity']; dif = wnt.nodes.new('ShaderNodeRGB'); dif.outputs[0].default_value = (*[c * k for c in hm['sky']], 1)
+    lp = wnt.nodes.new('ShaderNodeLightPath'); mx = wnt.nodes.new('ShaderNodeMath'); mx.operation = 'MAXIMUM'; L.new(lp.outputs['Is Camera Ray'], mx.inputs[0]); L.new(lp.outputs['Is Glossy Ray'], mx.inputs[1])
+    sel = wnt.nodes.new('ShaderNodeMix'); sel.data_type = 'RGBA'; L.new(mx.outputs[0], sel.inputs['Factor']); L.new(dif.outputs[0], sel.inputs[6]); L.new(vis.outputs[2], sel.inputs[7])
+    L.new(sel.outputs[2], bg.inputs['Color']); bg.inputs['Strength'].default_value = 1.0
 if NIGHT < 0.5:
     sky_day(); sl.energy = Su['intensity']; sl.color = Su['color'][:3]
 else:
@@ -299,8 +308,8 @@ def add_smoke():
     vx = N(nt, 'ShaderNodeVectorMath', operation='SUBTRACT'); vx.inputs[1].default_value = (0.5, 0.5, 0); L.new(tc.outputs['Generated'], vx.inputs[0]); m2 = N(nt, 'ShaderNodeVectorMath', operation='MULTIPLY'); m2.inputs[1].default_value = (1, 1, 0); L.new(vx.outputs[0], m2.inputs[0])
     ln = N(nt, 'ShaderNodeVectorMath', operation='LENGTH'); L.new(m2.outputs[0], ln.inputs[0]); edge = N(nt, 'ShaderNodeMapRange'); edge.inputs['From Min'].default_value = 0.5; edge.inputs['From Max'].default_value = 0.25; L.new(ln.outputs['Value'], edge.inputs['Value'])
     d1 = N(nt, 'ShaderNodeMath', operation='MULTIPLY'); L.new(cr.outputs['Result'], d1.inputs[0]); L.new(fall.outputs['Result'], d1.inputs[1]); d2 = N(nt, 'ShaderNodeMath', operation='MULTIPLY'); L.new(d1.outputs[0], d2.inputs[0]); L.new(edge.outputs['Result'], d2.inputs[1])
-    d3 = N(nt, 'ShaderNodeMath', operation='MULTIPLY'); d3.inputs[1].default_value = float(opt.get('--smoked', 0.025)); L.new(d2.outputs[0], d3.inputs[0]); L.new(d3.outputs[0], pv.inputs['Density'])
-    pv.inputs['Color'].default_value = (0.07, 0.065, 0.06, 1); pv.inputs['Anisotropy'].default_value = 0.3; L.new(pv.outputs[0], out.inputs['Volume']); SMOKE.append(nz)
+    d3 = N(nt, 'ShaderNodeMath', operation='MULTIPLY'); d3.inputs[1].default_value = float(opt.get('--smoked', 0.04)); L.new(d2.outputs[0], d3.inputs[0]); L.new(d3.outputs[0], pv.inputs['Density'])
+    pv.inputs['Color'].default_value = (0.035, 0.032, 0.03, 1); pv.inputs['Anisotropy'].default_value = 0.3; L.new(pv.outputs[0], out.inputs['Volume']); SMOKE.append(nz)
     for f in FIRES:
         e, n = f['at']; s_ = f.get('size', 30) / 30.0
         bpy.ops.mesh.primitive_cube_add(size=1, location=(e - 40 * s_, n + 10 * s_, 110 * s_)); so_ = bpy.context.active_object; so_.scale = (110 * s_, 110 * s_, 240 * s_); so_.rotation_euler = (0, math.radians(-14), 0)

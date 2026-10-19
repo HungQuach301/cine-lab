@@ -11,3 +11,8 @@
 ## Lượt 2 (≈ 17:50 UTC 19/10)
 - Nướng b1782 xong: hộp E −3000…1000, N −3000…3500, 3 m/texel (1333 × 2167), 24 spp, 4 lượt (trời 481 s, nảy nắng 267 s, nắng thẳng 327 s, lửa 395 s) = **1 481 s** (máy có tải song song). Đang nướng b2026.
 - Cảnh Blender đứng riêng chạy cả Cycles và **Eevee** (llvmpipe, 480×270 8 mẫu 110 s có tải). Cú lặn: đường máy `design/pt/cpu/dive-opt.json`, đang dựng phần A (khung 0–227, 336–479).
+
+## Lượt 3 (≈ 18:50 UTC 19/10)
+- 6 khung cổng 1080p: A (`khung/A`), B nhanh 16 spp (`khung/B-nhanh`), C Eevee 32 mẫu (`khung/C`), V7B (bản sao JPG `khung/V7B`). Tờ so `to-so-khung.jpg`.
+- Chấm mù 640×360 (3 vai × 6 loại, $1,10): hạng 1 — A 11, V7B 3, B 2, C 2.
+- Đang dựng: cú lặn phần B (khung 216–348, Cycles 12 spp 1080p, lửa + khói thể tích), rồi B đẹp 128 spp 6 khung.

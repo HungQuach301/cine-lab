@@ -1,0 +1,58 @@
+{
+ "A": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Smoke plumes from the battery line and a muzzle-flash glow give the shot action and make it read as a battle. Water is richer. Buildings are still extruded orange blocks, and the ground is a flat tan or green colour field."
+ },
+ "B": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 7,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "unreadable_scale"
+  ],
+  "note": "Clean but static. There is no smoke or action, so the battle isn't visible. Red roofs are saturated and look like game pieces. Ships are tiny dark specks."
+ },
+ "C": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Near-identical to A, with smoke, flash and a flag on the fort. Ground is smoother and flatter, with less texture variation than A. Slightly more washed-out and flat on the left."
+ },
+ "D": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 7,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "confusing"
+  ],
+  "note": "Like B but with odd black or dark box buildings in the town that look like rendering errors. No battle action. Ships are tiny."
+ },
+ "rank": [
+  "A",
+  "C",
+  "B",
+  "D"
+ ],
+ "why": "A and C show the bombardment with smoke and muzzle flash, while B and D are static with tiny ships, and D adds odd black blocks.",
+ "top_fix_for_best": "Replace the flat extruded block buildings and plain ground with textured walls, varied roof tones and roads. Enlarge and add detail to the floating batteries so the attack reads clearly, and keep the smoke."
+}
