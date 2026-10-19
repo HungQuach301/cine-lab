@@ -1,0 +1,120 @@
+{
+ "key": {
+  "L0-R1": {
+   "order": [
+    "frame_58.jpg",
+    "frame_40.jpg",
+    "frame_88.jpg",
+    "frame_57.jpg",
+    "frame_23.jpg",
+    "frame_77.jpg"
+   ],
+   "map": {
+    "frame_58.jpg": "P5_sau",
+    "frame_40.jpg": "neo1943",
+    "frame_88.jpg": "P4_sau",
+    "frame_57.jpg": "neo1782",
+    "frame_23.jpg": "P5_truoc",
+    "frame_77.jpg": "P4_truoc"
+   }
+  },
+  "L0-R2": {
+   "order": [
+    "frame_68.jpg",
+    "frame_62.jpg",
+    "frame_46.jpg",
+    "frame_95.jpg",
+    "frame_30.jpg",
+    "frame_25.jpg"
+   ],
+   "map": {
+    "frame_68.jpg": "P4_truoc",
+    "frame_62.jpg": "P5_sau",
+    "frame_46.jpg": "neo1782",
+    "frame_95.jpg": "P4_sau",
+    "frame_30.jpg": "neo1943",
+    "frame_25.jpg": "P5_truoc"
+   }
+  },
+  "L0-R3": {
+   "order": [
+    "frame_88.jpg",
+    "frame_36.jpg",
+    "frame_80.jpg",
+    "frame_14.jpg",
+    "frame_24.jpg",
+    "frame_15.jpg"
+   ],
+   "map": {
+    "frame_88.jpg": "P4_sau",
+    "frame_36.jpg": "P5_sau",
+    "frame_80.jpg": "neo1782",
+    "frame_14.jpg": "P4_truoc",
+    "frame_24.jpg": "P5_truoc",
+    "frame_15.jpg": "neo1943"
+   }
+  },
+  "L1-R1": {
+   "order": [
+    "frame_79.jpg",
+    "frame_48.jpg",
+    "frame_25.jpg",
+    "frame_67.jpg",
+    "frame_96.jpg",
+    "frame_49.jpg"
+   ],
+   "map": {
+    "frame_79.jpg": "P5_truoc",
+    "frame_48.jpg": "neo1943",
+    "frame_25.jpg": "P4_truoc",
+    "frame_67.jpg": "P4_sau",
+    "frame_96.jpg": "P5_sau",
+    "frame_49.jpg": "neo1782"
+   }
+  },
+  "L1-R2": {
+   "order": [
+    "frame_75.jpg",
+    "frame_20.jpg",
+    "frame_90.jpg",
+    "frame_19.jpg",
+    "frame_66.jpg",
+    "frame_13.jpg"
+   ],
+   "map": {
+    "frame_75.jpg": "P4_truoc",
+    "frame_20.jpg": "P5_truoc",
+    "frame_90.jpg": "neo1782",
+    "frame_19.jpg": "P4_sau",
+    "frame_66.jpg": "P5_sau",
+    "frame_13.jpg": "neo1943"
+   }
+  },
+  "L1-R3": {
+   "order": [
+    "frame_23.jpg",
+    "frame_59.jpg",
+    "frame_51.jpg",
+    "frame_24.jpg",
+    "frame_84.jpg",
+    "frame_55.jpg"
+   ],
+   "map": {
+    "frame_23.jpg": "P5_truoc",
+    "frame_59.jpg": "P4_sau",
+    "frame_51.jpg": "P4_truoc",
+    "frame_24.jpg": "P5_sau",
+    "frame_84.jpg": "neo1943",
+    "frame_55.jpg": "neo1782"
+   }
+  }
+ },
+ "src": {
+  "neo1782": "reports/v6/khung-neo/khung/1782-trua-LAI-notext.jpg",
+  "neo1943": "reports/v6/khung-neo/khung/1943-trua-LAI-notext.jpg",
+  "P4_truoc": "/var/tmp/cine-out/g1b/nguoi/truoc-4/00192.jpg",
+  "P4_sau": "/var/tmp/cine-out/g1b/nguoi/sau-4/00192.jpg",
+  "P5_truoc": "/var/tmp/cine-out/g1b/nguoi/truoc-5/00072.jpg",
+  "P5_sau": "/var/tmp/cine-out/g1b/nguoi/sau-5/00072.jpg"
+ }
+}

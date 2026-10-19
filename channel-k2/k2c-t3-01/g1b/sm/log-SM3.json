@@ -1,0 +1,827 @@
+{
+ "shot": "SM3",
+ "dur": 8.0,
+ "tao_boi": "scripts/k2/hist/g1b_sm.py",
+ "khung_sach": "§12.1 (CHU-1 = A) — p.sach: true",
+ "nguon_ranh": [
+  {
+   "id": "sm3-1941",
+   "nam": 1941,
+   "ngay": "1940-05 → 1942-11 (Tangier 1940-06-14 T022; chia nước Pháp hiện từ bộ đếm 'Jul–Oct 1940')",
+   "nguon": "Cliopatria (Seshat)",
+   "giay_phep": "CC-BY-4.0",
+   "doi_chieu": "OpenHistoricalMap",
+   "giay_phep_doi_chieu": "CC0",
+   "km_px": 1.302,
+   "lech_tb_px": 2.77,
+   "kieu_mep": "lien",
+   "ghi_cong": "Borders: Cliopatria v0.2.1 (Seshat Global History Databank), CC BY 4.0, changed (clipped to Natural Earth land; occupied/unoccupied France split clipped with Natural Earth France; Tangier by claim T022); cross-checked with OpenHistoricalMap contributors (CC0; includes data © IGN/CNIG, CC BY 4.0). Coast/land: Natural Earth (PD). Relief: ETOPO 2022 (NOAA NCEI, CC0).",
+   "chinh_tay": [
+    "Tangier: 'International Zone' → 'Spanish-occupied since June 1940' (T022) — đổi màu (gạch vàng) đúng 1940-06-14",
+    "Pháp chia hai (T026): vùng Đức chiếm = 'Nazi Germany' (Cliopatria) ∩ nước Pháp chính quốc (NE 1:10m, chỉ để cắt) → xám-nâu GẠCH, không màu/biểu tượng chế độ; trước bộ đếm 'Jul–Oct 1940' cả nước một màu Pháp (chưa có claim ngày đình chiến 22/6/1940 — đề xuất claim T027)",
+    "Tây Ban Nha giữ vàng đất + nhãn 'Spain (non-belligerent)' (T021, E5); Ma-rốc thuộc TBN (phần châu Phi của 'Francoist Spain') pha 85 %",
+    "Đổi tên: Francoist Spain → Spain; Estado Novo → Portugal; Kingdom of Great Britain → Britain; French Africa → French Morocco / Algeria (nhãn, T023)"
+   ],
+   "features": [
+    {
+     "id": "britain",
+     "ten": "Britain",
+     "faction_id": "britain",
+     "fill": "#b03a2e",
+     "ve": "dac",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [],
+     "doi_chu": []
+    },
+    {
+     "id": "ireland",
+     "ten": "Ireland",
+     "faction_id": "neutral",
+     "fill": "#a89f8a",
+     "ve": "dac",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [],
+     "doi_chu": []
+    },
+    {
+     "id": "tangier",
+     "ten": "Tangier",
+     "faction_id": "neutral",
+     "fill": "#a89f8a",
+     "ve": "dac",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [
+      "T022"
+     ],
+     "doi_chu": [
+      {
+       "ngay": "1940-06-14",
+       "faction_id": "spain",
+       "fill": "#c9a227",
+       "ve": "gach",
+       "claims": [
+        "T022"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "spmorocco",
+     "ten": "Spanish Morocco",
+     "faction_id": "spain",
+     "fill": "#cda93a",
+     "ve": "pha",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [],
+     "doi_chu": []
+    },
+    {
+     "id": "spain",
+     "ten": "Spain (non-belligerent)",
+     "faction_id": "spain",
+     "fill": "#c9a227",
+     "ve": "dac",
+     "kieu_mep": "lien",
+     "lech": {
+      "tb_km": 3.61,
+      "max_km": 6.2,
+      "n_diem": 9,
+      "lech_tb_px": 2.77,
+      "lech_max_px": 4.8,
+      "dt_lech_pct": 6.0
+     },
+     "claims": [
+      "T021"
+     ],
+     "doi_chu": []
+    },
+    {
+     "id": "portugal",
+     "ten": "Portugal",
+     "faction_id": "neutral",
+     "fill": "#a89f8a",
+     "ve": "dac",
+     "kieu_mep": "lien",
+     "lech": {
+      "tb_km": 3.04,
+      "max_km": 6.98,
+      "n_diem": 9,
+      "lech_tb_px": 2.33,
+      "lech_max_px": 5.4,
+      "dt_lech_pct": 10.1
+     },
+     "claims": [],
+     "doi_chu": []
+    },
+    {
+     "id": "france_occ",
+     "ten": "German-occupied France",
+     "faction_id": "france",
+     "fill": "#2e5c8a",
+     "ve": "dac",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [
+      "T026"
+     ],
+     "doi_chu": [
+      {
+       "ngay": "1940-07-01",
+       "faction_id": "occupied",
+       "fill": "#a89f8a",
+       "ve": "gach",
+       "claims": [
+        "T026"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "vichy",
+     "ten": "Vichy France",
+     "faction_id": "france",
+     "fill": "#2e5c8a",
+     "ve": "dac",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [
+      "T026"
+     ],
+     "doi_chu": []
+    },
+    {
+     "id": "frafrica",
+     "ten": "French Morocco · Algeria",
+     "faction_id": "france",
+     "fill": "#4a6e8f",
+     "ve": "pha",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [
+      "T023"
+     ],
+     "doi_chu": []
+    },
+    {
+     "id": "others",
+     "ten": "Other neutral states",
+     "faction_id": "neutral",
+     "fill": "#a89f8a",
+     "ve": "dac",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [],
+     "doi_chu": []
+    }
+   ],
+   "diem": [
+    {
+     "id": "gibraltar",
+     "ten": "Gibraltar — Allied HQ",
+     "ll": [
+      -5.353,
+      36.14
+     ],
+     "faction_id": "britain",
+     "fill": "#b03a2e",
+     "doi_chu": [],
+     "claims": [
+      "T024",
+      "S122"
+     ],
+     "ly_do": "≈ 6 km ở khung 2 500 km (≈ 1,3 km/px) → ≈ 4 px: ĐIỂM (B5)"
+    }
+   ],
+   "nhan_cu_tren_hinh_da_bo": "approx. borders c. 1941 — Cliopatria (Seshat)"
+  }
+ ],
+ "nguon_tuyen": {
+  "tep": "channel-k2/k2c-t3-01/tuyen/routes.geojson",
+  "claims_md": "channel-k2/k2c-t3-01/tuyen/claims-tuyen.md",
+  "tuyen": [
+   {
+    "id": "R1940-EV-CASA",
+    "ten": "Civilian evacuation to French Morocco",
+    "ngay": "1940-05-22/1940-06-24",
+    "mode": "sea",
+    "claims": [
+     "S114",
+     "S115"
+    ],
+    "doan_approx": [
+     {
+      "tu": "gibraltar",
+      "den": "casablanca",
+      "approx": true,
+      "so_diem_dieu_khien": 6
+     }
+    ],
+    "vao_tu_mep": false,
+    "ra_mep": false,
+    "kiem_dat_goc": {
+     "tuyen": "R1940-EV-CASA",
+     "mode": "sea",
+     "dai_km": 365.4,
+     "cat_dat_km": 0.0,
+     "gan_bo_nhat_km": 2.69,
+     "dat": true
+    },
+    "so_diem_ve": 39
+   },
+   {
+    "id": "R1940-EV-LON",
+    "ten": "Civilian evacuation to London",
+    "ngay": "1940-07/1940-08-20",
+    "mode": "sea",
+    "claims": [
+     "S114",
+     "S116",
+     "S117"
+    ],
+    "doan_approx": [
+     {
+      "tu": "gibraltar",
+      "den": "thames",
+      "approx": true,
+      "so_diem_dieu_khien": 14
+     }
+    ],
+    "vao_tu_mep": false,
+    "ra_mep": false,
+    "kiem_dat_goc": {
+     "tuyen": "R1940-EV-LON",
+     "mode": "sea",
+     "dai_km": 2488.7,
+     "cat_dat_km": 0.0,
+     "gan_bo_nhat_km": 3.03,
+     "dat": true
+    },
+    "so_diem_ve": 267
+   },
+   {
+    "id": "R1940-EV-MAD",
+    "ten": "Civilian evacuation to Madeira",
+    "ngay": "1940-07/1940-08",
+    "mode": "sea",
+    "claims": [
+     "S117",
+     "S120"
+    ],
+    "doan_approx": [
+     {
+      "tu": "gibraltar",
+      "den": "funchal",
+      "approx": true,
+      "so_diem_dieu_khien": 7
+     }
+    ],
+    "vao_tu_mep": false,
+    "ra_mep": false,
+    "kiem_dat_goc": {
+     "tuyen": "R1940-EV-MAD",
+     "mode": "sea",
+     "dai_km": 1150.2,
+     "cat_dat_km": 0.0,
+     "gan_bo_nhat_km": 3.03,
+     "dat": true
+    },
+    "so_diem_ve": 122
+   },
+   {
+    "id": "R1940-EV-JAM",
+    "ten": "Civilian evacuation to Jamaica",
+    "ngay": "1940-10-09 (Neuralia) / 1940-10-31 (Thysville)",
+    "mode": "sea",
+    "claims": [
+     "S118"
+    ],
+    "doan_approx": [
+     {
+      "tu": "gibraltar",
+      "den": "e_west_jamaica",
+      "approx": true,
+      "so_diem_dieu_khien": 4
+     }
+    ],
+    "vao_tu_mep": false,
+    "ra_mep": true,
+    "kiem_dat_goc": {
+     "tuyen": "R1940-EV-JAM",
+     "mode": "sea",
+     "dai_km": 1396.2,
+     "cat_dat_km": 0.0,
+     "gan_bo_nhat_km": 3.03,
+     "dat": true
+    },
+    "so_diem_ve": 148
+   },
+   {
+    "id": "R1942-AIR-ORAN",
+    "ten": "Twelfth Air Force Spitfires, Gibraltar → Tafaraoui",
+    "ngay": "1942-11-08",
+    "mode": "air",
+    "claims": [
+     "S122",
+     "S123",
+     "T024"
+    ],
+    "doan_approx": [
+     {
+      "tu": "gibraltar",
+      "den": "tafraoui",
+      "approx": true,
+      "so_diem_dieu_khien": 0
+     }
+    ],
+    "vao_tu_mep": false,
+    "ra_mep": false,
+    "kiem_dat_goc": {
+     "tuyen": "R1942-AIR-ORAN",
+     "mode": "air",
+     "dai_km": 444.7,
+     "cat_dat_km": null,
+     "gan_bo_nhat_km": null,
+     "dat": "không áp (đường không)"
+    },
+    "so_diem_ve": 38
+   },
+   {
+    "id": "R1942-SEA-WEST",
+    "ten": "Torch landings, French Morocco",
+    "ngay": "1942-11-08",
+    "mode": "sea",
+    "claims": [
+     "T023",
+     "T025"
+    ],
+    "doan_approx": [
+     {
+      "tu": "e_west_morocco",
+      "den": "mohammedia",
+      "approx": true,
+      "so_diem_dieu_khien": 1
+     }
+    ],
+    "vao_tu_mep": true,
+    "ra_mep": false,
+    "kiem_dat_goc": {
+     "tuyen": "R1942-SEA-WEST",
+     "mode": "sea",
+     "dai_km": 1095.9,
+     "cat_dat_km": 0.0,
+     "gan_bo_nhat_km": 1.19,
+     "dat": true
+    },
+    "so_diem_ve": 115
+   },
+   {
+    "id": "R1942-SEA-ORAN",
+    "ten": "Torch landings, Oran",
+    "ngay": "1942-11-08",
+    "mode": "sea",
+    "claims": [
+     "T023",
+     "T025"
+    ],
+    "doan_approx": [
+     {
+      "tu": "e_west_strait",
+      "den": "oran",
+      "approx": true,
+      "so_diem_dieu_khien": 7
+     }
+    ],
+    "vao_tu_mep": true,
+    "ra_mep": false,
+    "kiem_dat_goc": {
+     "tuyen": "R1942-SEA-ORAN",
+     "mode": "sea",
+     "dai_km": 1691.0,
+     "cat_dat_km": 0.0,
+     "gan_bo_nhat_km": 3.1,
+     "dat": true
+    },
+    "so_diem_ve": 180
+   },
+   {
+    "id": "R1942-SEA-ALG",
+    "ten": "Torch landings, Algiers",
+    "ngay": "1942-11-08",
+    "mode": "sea",
+    "claims": [
+     "T023",
+     "T025"
+    ],
+    "doan_approx": [
+     {
+      "tu": "e_west_strait",
+      "den": "algiers",
+      "approx": true,
+      "so_diem_dieu_khien": 8
+     }
+    ],
+    "vao_tu_mep": true,
+    "ra_mep": false,
+    "kiem_dat_goc": {
+     "tuyen": "R1942-SEA-ALG",
+     "mode": "sea",
+     "dai_km": 2040.1,
+     "cat_dat_km": 0.0,
+     "gan_bo_nhat_km": 4.02,
+     "dat": true
+    },
+    "so_diem_ve": 215
+   }
+  ]
+ },
+ "nen": {
+  "dem": "ETOPO 2022 15 arc-second surface (NOAA NCEI, CC0-1.0, DOI 10.25921/fd45-gt74)",
+  "bo_bien": "Natural Earth 1:10m (PD)"
+ },
+ "bac_can_cu": [
+  {
+   "phan_tu": "ranh giới chính thể",
+   "bac": 1,
+   "can_cu": "Cliopatria v0.2.1 (tổng hợp bản đồ lịch sử, tầm châu lục) đối chiếu OpenHistoricalMap; lệch đo trong lop-ranh.json"
+  },
+  {
+   "phan_tu": "màu phe / liên minh",
+   "bac": 2,
+   "can_cu": "claim văn bản (T004/T005 SM1; T006… SM2; T021–T026 SM3) — màu không lấy từ nguồn ranh"
+  },
+  {
+   "phan_tu": "điểm mốc tuyến (cảng, ngày)",
+   "bac": 2,
+   "can_cu": "claims-tuyen.md (trích nguyên văn, ≥ 2 nguồn khi XÁC MINH)"
+  },
+  {
+   "phan_tu": "đường đi giữa hai điểm mốc",
+   "bac": 5,
+   "can_cu": "điểm điều khiển ven bờ (routes.geojson doan[].approx = true), kiểm không cắt đất NE 1:10m — \"route approx.\" chỉ ghi ở log/mô tả"
+  },
+  {
+   "phan_tu": "địa hình nền",
+   "bac": 1,
+   "can_cu": "ETOPO 2022 15″ (NOAA NCEI, CC0) + bờ Natural Earth 1:10m (PD) — địa hình hiện đại, không phải bờ biển lịch sử"
+  }
+ ],
+ "chu_da_bo_khoi_hinh": [
+  "p.bnote \"approx. borders c. YYYY — <nguồn>\" (§11.1 cũ → §12.1: chuyển sang mô tả/bình luận ghim/thẻ \"How this film was made\")",
+  "sub \"route approx.\" ở nhãn đoàn/tuyến (§12.1)",
+  "mọi dòng nguồn \"Map: …\"/\"Borders: …\"/\"Relief: …\" (§12.1)",
+  "p.tags (k2.js sach lọc bỏ thẻ không phải số/câu trích) → nhãn tuyến/đoàn đặt ở p.places (nhãn địa danh/điểm, được giữ)"
+ ],
+ "ban_do": {
+  "nghieng": [
+   20,
+   20
+  ],
+  "be_ngang_km": [
+   2700,
+   2450
+  ],
+  "dong": [
+   {
+    "loai": "route",
+    "t": [
+     0.2,
+     4.2
+    ]
+   },
+   {
+    "loai": "route",
+    "t": [
+     4.8999999999999995,
+     6.8
+    ]
+   },
+   {
+    "loai": "camera",
+    "t": [
+     0.0,
+     8.0
+    ]
+   }
+  ],
+  "chu_giai": [
+   [
+    "Evacuated civilians",
+    "Spain (non-belligerent)",
+    "France: Vichy / occupied (hatched)"
+   ],
+   [
+    "Allied landings (Torch)",
+    "Vichy France",
+    "German-occupied (hatched)"
+   ]
+  ],
+  "chi_toi": "Bay of Gibraltar 1940 (4g)",
+  "lop": "sm3-1941",
+  "nam": 1941,
+  "tuyen": [
+   "R1940-EV-CASA",
+   "R1940-EV-LON",
+   "R1940-EV-MAD",
+   "R1940-EV-JAM",
+   "R1942-AIR-ORAN",
+   "R1942-SEA-WEST",
+   "R1942-SEA-ORAN",
+   "R1942-SEA-ALG"
+  ],
+  "claims": [
+   "T021",
+   "T022",
+   "T023",
+   "T024",
+   "T026",
+   "S114",
+   "S115",
+   "S117",
+   "S118",
+   "S120",
+   "S122"
+  ]
+ },
+ "soi": {
+  "tuyen_bien": [
+   {
+    "id": "R1940-EV-CASA",
+    "shot": "a",
+    "dai_km": 365.1,
+    "min_bo_km": 2.71,
+    "cat_dat_km_ngoai_cang": 0,
+    "cat_dat_km_trong_dem_cang": 4.0,
+    "w_px_1080": 6.5,
+    "nua_net_km": [
+     4.7,
+     4.7
+    ],
+    "km_net_cham_bo": 5.0,
+    "dat": "ĐẠT"
+   },
+   {
+    "id": "R1940-EV-LON",
+    "shot": "a",
+    "dai_km": 2488.0,
+    "min_bo_km": 3.46,
+    "cat_dat_km_ngoai_cang": 0,
+    "cat_dat_km_trong_dem_cang": 2.0,
+    "w_px_1080": 6.5,
+    "nua_net_km": [
+     4.7,
+     4.7
+    ],
+    "km_net_cham_bo": 1.5,
+    "dat": "ĐẠT"
+   },
+   {
+    "id": "R1940-EV-MAD",
+    "shot": "a",
+    "dai_km": 1149.2,
+    "min_bo_km": 2.74,
+    "cat_dat_km_ngoai_cang": 0,
+    "cat_dat_km_trong_dem_cang": 3.5,
+    "w_px_1080": 6.5,
+    "nua_net_km": [
+     4.7,
+     4.7
+    ],
+    "km_net_cham_bo": 7.0,
+    "dat": "ĐẠT"
+   },
+   {
+    "id": "R1940-EV-JAM",
+    "shot": "a",
+    "dai_km": 1396.0,
+    "min_bo_km": 2.97,
+    "cat_dat_km_ngoai_cang": 0,
+    "cat_dat_km_trong_dem_cang": 2.0,
+    "w_px_1080": 6.5,
+    "nua_net_km": [
+     4.7,
+     4.7
+    ],
+    "km_net_cham_bo": 2.0,
+    "dat": "ĐẠT"
+   },
+   {
+    "id": "R1942-SEA-WEST",
+    "shot": "b",
+    "dai_km": 1095.8,
+    "min_bo_km": 1.68,
+    "cat_dat_km_ngoai_cang": 0,
+    "cat_dat_km_trong_dem_cang": 4.0,
+    "w_px_1080": 6.0,
+    "nua_net_km": [
+     4.18,
+     4.18
+    ],
+    "km_net_cham_bo": 3.0,
+    "dat": "ĐẠT"
+   },
+   {
+    "id": "R1942-SEA-ORAN",
+    "shot": "b",
+    "dai_km": 1690.5,
+    "min_bo_km": 3.08,
+    "cat_dat_km_ngoai_cang": 0,
+    "cat_dat_km_trong_dem_cang": 2.0,
+    "w_px_1080": 6.0,
+    "nua_net_km": [
+     4.18,
+     4.18
+    ],
+    "km_net_cham_bo": 4.0,
+    "dat": "ĐẠT"
+   },
+   {
+    "id": "R1942-SEA-ALG",
+    "shot": "b",
+    "dai_km": 2038.3,
+    "min_bo_km": 4.54,
+    "cat_dat_km_ngoai_cang": 0,
+    "cat_dat_km_trong_dem_cang": 1.0,
+    "w_px_1080": 6.0,
+    "nua_net_km": [
+     4.18,
+     4.18
+    ],
+    "km_net_cham_bo": 0,
+    "dat": "ĐẠT"
+   }
+  ],
+  "tuyen_cat_dat": "ĐẠT",
+  "chu_giai_so_muc": [
+   3,
+   3
+  ],
+  "chu_giai": "ĐẠT",
+  "co_chu_nho_nhat_px1080": {
+   "vai": "place:to Casablanca",
+   "px": 30,
+   "px540": 15.0,
+   "dat": "ĐẠT"
+  },
+  "may": [
+   {
+    "dist_dau": 2700,
+    "dist_cuoi": 2560,
+    "dich_lon": 0.0
+   },
+   {
+    "dist_dau": 2600,
+    "dist_cuoi": 2450,
+    "dich_lon": 0.2
+   }
+  ],
+  "chuyen_dong": {
+   "khung": 192,
+   "nguong_xam": 0.15,
+   "bat_dau_s": 0.042,
+   "phu_pct": 100.0,
+   "hieu_tb": 1.164,
+   "hieu_min": 0.655
+  },
+  "chu_tren_hinh": {
+   "tep": "sm3.mkv.log.json",
+   "so_khung_mau": 16,
+   "chu": {
+    "Evacuated civilians": {
+     "vai": "chu_giai",
+     "cap_min": 24.7,
+     "n": 9
+    },
+    "Spain (non-belligerent)": {
+     "vai": "chu_giai",
+     "cap_min": 24.7,
+     "n": 9
+    },
+    "France: Vichy / occupied (hatched)": {
+     "vai": "chu_giai",
+     "cap_min": 24.7,
+     "n": 9
+    },
+    "May 1940": {
+     "vai": "year",
+     "cap_min": 52.3,
+     "n": 3
+    },
+    "Gibraltar": {
+     "vai": "diem",
+     "cap_min": 23.3,
+     "n": 9
+    },
+    "to Casablanca": {
+     "vai": null,
+     "cap_min": 21.8,
+     "n": 1
+    },
+    "12–14 Jun 1940": {
+     "vai": "year",
+     "cap_min": 52.3,
+     "n": 2
+    },
+    "Spain": {
+     "vai": null,
+     "cap_min": 24.7,
+     "n": 5
+    },
+    "non-belligerent · 12 Jun 1940": {
+     "vai": null,
+     "cap_min": 21.8,
+     "n": 5
+    },
+    "Tangier": {
+     "vai": null,
+     "cap_min": 21.8,
+     "n": 5
+    },
+    "occupied by Spain · 14 Jun": {
+     "vai": null,
+     "cap_min": 21.8,
+     "n": 5
+    },
+    "Jul–Oct 1940": {
+     "vai": "year",
+     "cap_min": 52.3,
+     "n": 4
+    },
+    "to London": {
+     "vai": null,
+     "cap_min": 21.8,
+     "n": 2
+    },
+    "to Madeira & Jamaica": {
+     "vai": null,
+     "cap_min": 21.8,
+     "n": 2
+    },
+    "Allied landings (Torch)": {
+     "vai": "chu_giai",
+     "cap_min": 24.7,
+     "n": 6
+    },
+    "Vichy France": {
+     "vai": "chu_giai",
+     "cap_min": 24.7,
+     "n": 6
+    },
+    "German-occupied (hatched)": {
+     "vai": "chu_giai",
+     "cap_min": 24.7,
+     "n": 6
+    },
+    "8 Nov 1942": {
+     "vai": "year",
+     "cap_min": 52.3,
+     "n": 6
+    },
+    "Gibraltar · Allied HQ": {
+     "vai": "diem",
+     "cap_min": 23.3,
+     "n": 6
+    },
+    "aircraft to Oran": {
+     "vai": null,
+     "cap_min": 21.8,
+     "n": 3
+    },
+    "Allied landings": {
+     "vai": null,
+     "cap_min": 23.3,
+     "n": 2
+    },
+    "Casablanca · Oran · Algiers": {
+     "vai": null,
+     "cap_min": 21.8,
+     "n": 2
+    }
+   },
+   "cap_min_px1080": 21.8,
+   "chu_cam": [],
+   "vai_cam": []
+  },
+  "chu_nguon_tren_hinh": "ĐẠT",
+  "chuyen_dong_dat": "ĐẠT"
+ },
+ "dung": {
+  "bo_dem_ngoai_git": [
+   "mkdir -p /var/tmp/cine-out/g1b/sm/pylib && /opt/cine/bin/python -m pip install --target /var/tmp/cine-out/g1b/sm/pylib pyproj   # pyproj không có trong /opt/cine",
+   "/opt/cine/bin/python scripts/k2/hist/bd_raw_prep.py   # NE 1:10m land + minor islands → /var/tmp/cine-out/bd/raw; fr-metro.geojson → /var/tmp/cine-out/bd",
+   "curl -L -A 'CineLab-research (+https://github.com/HungQuach301/cine-lab)' -o /var/tmp/cine-out/bd/raw/clio/cliopatria-v0.2.1.zip https://zenodo.org/api/records/23128623/files/Seshat-Global-History-Databank/cliopatria-v0.2.1.zip/content  # md5 caeecf41…; trong đó cliopatria.geojson.zip SHA-256 e10a4e42… (khớp NC-BD) → unzip → cliopatria_polities_only_v021.geojson SHA-256 fc6f0d1e…",
+   "ETOPO 2022 15\" 15 ô N30/N45/N60 × W045/W030/W015/E000/E015 → /var/tmp/cine-out/bd/raw/etopo15s_<ô>.tif (relief_build.py tự tải nếu thiếu)",
+   "export ETOPO_DIR=/var/tmp/cine-out/bd/raw K2V_CACHE=/var/tmp/cine-out/k2v-cache",
+   "relief_build.py build --name sm1 --bbox -34,27,26,60 --ppd 120 --mesh 5 --dem etopo --admin none",
+   "relief_build.py build --name sm2 --bbox -18,30,10,47 --ppd 240 --mesh 8 --dem etopo --admin none",
+   "relief_build.py build --name sm3 --bbox -36,22,22,60 --ppd 120 --mesh 5 --dem etopo --admin none",
+   "PYTHONPATH=/var/tmp/cine-out/g1b/sm/pylib hist_borders.py scripts/k2/hist/lop-sm1-1704.json --out $K2V_CACHE/hist/sm1-1704 (tương tự design/k2v/hist/sm2-1782.json → sm2-1782, sm3-1941.json → sm3-1941)"
+  ],
+  "dung_shot": "bash scripts/k2/hist/g1b_sm_render.sh   # sinh yaml + prep + cảnh đinh (hero.js, nice 10, 1 tiến trình) + build.sh render + video thử",
+  "tu_soi": "PYTHONPATH=/var/tmp/cine-out/g1b/sm/pylib /opt/cine/bin/python scripts/k2/hist/g1b_soi.py",
+  "ghi_chu_thoi_diem_p": "mốc thời gian trong p (lớp chữ k2.js) tính theo giây của ĐOẠN; shot đặt ở at ≠ 0 trong đoạn phải cộng at (g1b_sm.shift_p). Cảnh đinh (heroes.opt) tính theo giây của shot."
+ }
+}

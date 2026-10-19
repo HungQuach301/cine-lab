@@ -21,6 +21,12 @@ export const UNIFORMS = {
   fr_inf: { coat: ['#e6e1d5', '#e0dbcf'], small: ['#e6e1d5'], legs: ['#2a2622'], acc: ['#2e5c8a', '#6b1e2b', '#c9a227'], hat: '#1c1916', hair: ['#e2dccf', '#3b2c22'] },
   civ: { coat: ['#5e4a38', '#6b5a48', '#45392f', '#7a6a52', '#3c4a5c', '#8a7a62'], small: ['#c8bca4', '#a8977a', '#d9d0bc', '#7a6a52'], legs: ['#d9d2c0', '#5b4a3a', '#3a3029'], acc: ['#e8e2d2', '#b8402f', '#d9d0bc'], hat: '#2a231d', hair: ['#3b2c22', '#2a2019', '#5a4632', '#8a7a62'] },
   woman: { coat: ['#7a5a48', '#5e4a58', '#4a5a6a', '#8a6a4a', '#3c3a34'], small: ['#6b5040', '#4e4a5a', '#7a6a52', '#5a4632', '#8a7a62'], legs: ['#3a3029'], acc: ['#e8e2d2', '#d9d0bc', '#c8b48a'], hat: '#e8e2d2', hair: ['#3b2c22', '#2a2019', '#5a4632'] },
+  // G1b T3 (18/10): trang phục THỜI KỲ SAU (không tricorn, quần dài) — mod = dân thường 1985–2026 (áo sơ mi/áo khoác/áo phông, quần jean/kaki), modw = nữ 2026 (quần/váy, không mũ),
+  //  m1910 = dân thường c.1900–1930 (com-lê sẫm, mũ lưỡi trai dẹt — ảnh LoC 2025710366, 2020680546), k43 = đồn trú 1940–45 (battledress kaki, mũ calô — RIGHTS-V6/KHUNG-NEO-V6 §2)
+  mod: { coat: ['#3c4a5c', '#e8e4da', '#7a2f2a', '#2f5d7a', '#5e5a52', '#c9a227', '#2a2a2e', '#8a9aa8'], small: ['#e8e4da', '#3c4a5c'], legs: ['#2f3d5c', '#3a4a6a', '#c8b89a', '#2a2a2e', '#5e5a52'], acc: ['#2a2a2e', '#e8e4da'], hat: '#2a2019', hair: ['#2a2019', '#3b2c22', '#6b5040', '#9a9088'] },
+  modw: { coat: ['#a8392c', '#e8e4da', '#2f5d7a', '#c9a227', '#5e4a58', '#3c4a5c', '#d8c8b8'], small: ['#e8e4da', '#3c4a5c'], legs: ['#2f3d5c', '#2a2a2e', '#7a6a52', '#c8b89a'], acc: ['#e8e4da'], hat: '#2a2019', hair: ['#2a2019', '#3b2c22', '#6b5040', '#b8946a'] },
+  m1910: { coat: ['#2e2a28', '#3a3430', '#45392f', '#2b2f38', '#5a4a3a'], small: ['#e3dccb', '#d9d1bd'], legs: ['#2e2a28', '#3a3430', '#45392f'], acc: ['#e3dccb'], hat: '#2e2a28', hair: ['#2a2019', '#3b2c22'] },
+  k43: { coat: ['#6b6a4a', '#716e4e', '#666448', '#7a7656'], small: ['#6b6a4a'], legs: ['#6b6a4a', '#716e4e'], acc: ['#8a8466'], hat: '#4a4a36', hair: ['#2a2019', '#3b2c22'] },
   sailor: { coat: ['#2b3552', '#3a4560', '#262f49'], small: ['#e3dccb', '#c8bca4'], legs: ['#d9d2c0'], acc: ['#e3dccb', '#b8402f'], hat: '#1c1916', hair: ['#3b2c22', '#2a2019'] },
 };
 const SKIN = ['#c9a08a', '#b89078', '#a88068', '#d4b09c', '#9c7a62'];   // tông da dịu (ACES + vibrance đẩy cam)
@@ -77,24 +83,30 @@ function bodyMesh(kind, lod) {
     b.prism({ x: 0.03, z: z + o, y0: 0.87, y1: 1.14, rx0: 0.04, rz0: 0.04, rx1: 0.048, rz1: 0.048, n: lod ? 4 : 6, dx1: -0.03, part: 0, sw });   // cẳng tay (hơi ra trước)
     if (!lod) b.prism({ x: 0.03, z: z + o, y0: 0.88, y1: 0.95, rx0: 0.052, rz0: 0.052, n: 6, part: 3, sw });   // cổ tay áo (viền)
     b.box(0.035, 0.82, z + o, 0.06, 0.09, 0.045, 4, sw); };
-  const legs = kind !== 'woman';
-  if (legs) for (const side of [1, -1]) { const z = 0.095 * side, sw = side > 0 ? 1 : 2, sl = side > 0 ? 6 : 7;
+  const MOD = kind === 'mod' || kind === 'm1910' || kind === 'k43', MODW = kind === 'modw', legs = kind !== 'woman' && !MODW;
+  if (MOD || MODW) for (const side of [1, -1]) { const z = 0.095 * side, sw = side > 0 ? 1 : 2, sl = side > 0 ? 6 : 7;   // quần dài: một ống từ cổ chân tới hông (part 2 = màu quần)
+    b.box(0.045, 0.035, z, 0.26, 0.07, 0.1, 6, sl); b.prism({ x: 0, z, y0: 0.06, y1: 0.5, rx0: 0.056, rz0: 0.054, rx1: 0.068, rz1: 0.064, n: lod ? 4 : 6, part: 2, sw: sl });
+    b.prism({ x: 0, z, y0: 0.48, y1: 0.97, rx0: 0.07, rz0: 0.068, rx1: 0.088, rz1: 0.086, n: lod ? 4 : 6, part: 2, sw }); }
+  else if (legs) for (const side of [1, -1]) { const z = 0.095 * side, sw = side > 0 ? 1 : 2, sl = side > 0 ? 6 : 7;
     b.box(0.045, 0.035, z, 0.25, 0.07, 0.1, 6, sl);   // giày
     b.prism({ x: 0, z, y0: 0.06, y1: 0.5, rx0: 0.052, rz0: 0.05, rx1: 0.066, rz1: 0.062, n: lod ? 4 : 6, part: 2, sw: sl });   // ống chân (ghệt/bít tất)
     b.prism({ x: 0, z, y0: 0.48, y1: 0.95, rx0: 0.07, rz0: 0.068, rx1: 0.09, rz1: 0.088, n: lod ? 4 : 6, part: 1, sw }); }   // đùi (quần ống túm)
-  else { b.prism({ y0: 0.02, y1: 0.98, rx0: 0.26, rz0: 0.27, rx1: 0.15, rz1: 0.14, n: lod ? 6 : 10, part: 1, sw: 0 }); for (const side of [1, -1]) b.box(0.12, 0.03, 0.08 * side, 0.12, 0.06, 0.08, 6, 0); }
+  if (kind === 'woman') { b.prism({ y0: 0.02, y1: 0.98, rx0: 0.26, rz0: 0.27, rx1: 0.15, rz1: 0.14, n: lod ? 6 : 10, part: 1, sw: 0 }); for (const side of [1, -1]) b.box(0.12, 0.03, 0.08 * side, 0.12, 0.06, 0.08, 6, 0); }
   // thân + áo khoác: thân ellip; vạt sau mở trước (cung 50°–310° quanh +X là trước → mở ở phía trước)
   b.prism({ y0: 0.93, y1: 1.44, rx0: 0.12, rz0: 0.165, rx1: 0.13, rz1: 0.205, n: lod ? 6 : 10, part: kind === 'woman' ? 0 : 0, sw: 0 });
-  if (legs && !lod && kind !== 'sailor') b.prism({ y0: 0.52, y1: 0.98, rx0: 0.2, rz0: 0.24, rx1: 0.135, rz1: 0.175, n: 9, a0: 0.75, a1: Math.PI * 2 - 0.75, cap0: false, cap1: false, part: 0, sw: 0 });   // vạt áo
-  if (legs && lod && kind !== 'sailor') b.prism({ y0: 0.6, y1: 0.98, rx0: 0.17, rz0: 0.21, rx1: 0.135, rz1: 0.175, n: 6, part: 0, sw: 0 });
+  if (legs && !MOD && !lod && kind !== 'sailor') b.prism({ y0: 0.52, y1: 0.98, rx0: 0.2, rz0: 0.24, rx1: 0.135, rz1: 0.175, n: 9, a0: 0.75, a1: Math.PI * 2 - 0.75, cap0: false, cap1: false, part: 0, sw: 0 });   // vạt áo
+  if (legs && !MOD && lod && kind !== 'sailor') b.prism({ y0: 0.6, y1: 0.98, rx0: 0.17, rz0: 0.21, rx1: 0.135, rz1: 0.175, n: 6, part: 0, sw: 0 });
   if (!lod) { b.box(0.118, 1.15, 0, 0.03, 0.42, 0.15, kind === 'woman' ? 3 : 1, 0);   // gi-lê lộ trước / yếm khăn
     if (kind === 'order' || kind === 'march') { b.box(0.0, 1.17, 0, 0.27, 0.05, 0.045, 3, 0, 0, 0.82); b.box(0.0, 1.17, 0, 0.27, 0.05, 0.045, 3, 0, 0, -0.82); b.box(-0.02, 1.0, -0.17, 0.16, 0.13, 0.07, 3, 0); }   // dây đeo chéo + hộp đạn (trái-sau)
     if (kind === 'woman') b.prism({ y0: 1.3, y1: 1.46, rx0: 0.15, rz0: 0.22, rx1: 0.12, rz1: 0.2, n: 10, part: 3, sw: 0 }); }   // khăn choàng vai
   for (const s of [1, -1]) arm(s);
   b.prism({ y0: 1.43, y1: 1.53, rx0: 0.05, rz0: 0.05, n: lod ? 4 : 6, part: 4, sw: 5 });   // cổ
   b.sphere(0.012, 1.615, 0, 0.098, 1.18, 4, 5, lod ? 6 : 9, lod ? 4 : 6);   // đầu
-  if (!lod) { b.sphere(-0.03, 1.64, 0, 0.096, 1.12, 9, 5, 8, 4); if (kind !== 'woman') b.box(-0.11, 1.53, 0, 0.04, 0.12, 0.04, 9, 5); }   // tóc + đuôi tóc buộc
-  if (kind === 'woman') b.prism({ x: -0.02, y0: 1.62, y1: 1.74, rx0: 0.115, rz0: 0.11, rx1: 0.09, rz1: 0.085, n: 8, part: 3, sw: 5 });   // mũ vải (mob cap, màu phụ: vải trắng)
+  if (!lod) { b.sphere(-0.03, 1.64, 0, 0.096, 1.12, 9, 5, 8, 4); if (kind !== 'woman' && !MOD && !MODW) b.box(-0.11, 1.53, 0, 0.04, 0.12, 0.04, 9, 5); }   // tóc + đuôi tóc buộc (thời kỳ sau: tóc ngắn, không đuôi)
+  if (kind === 'mod' || MODW) { /* không mũ */ }
+  else if (kind === 'm1910') { b.prism({ y0: 1.68, y1: 1.74, rx0: 0.108, rz0: 0.104, rx1: 0.112, rz1: 0.108, n: lod ? 5 : 9, part: 5, sw: 5 }); b.box(0.1, 1.69, 0, 0.09, 0.015, 0.16, 5, 5); }   // mũ lưỡi trai dẹt
+  else if (kind === 'k43') { b.prism({ y0: 1.69, y1: 1.75, rx0: 0.09, rz0: 0.045, rx1: 0.075, rz1: 0.02, n: lod ? 4 : 6, part: 5, sw: 5 }); }   // mũ calô
+  else if (kind === 'woman') b.prism({ x: -0.02, y0: 1.62, y1: 1.74, rx0: 0.115, rz0: 0.11, rx1: 0.09, rz1: 0.085, n: 8, part: 3, sw: 5 });   // mũ vải (mob cap, màu phụ: vải trắng)
   else if (kind === 'sailor') { b.prism({ y0: 1.69, y1: 1.79, rx0: 0.1, rz0: 0.095, rx1: 0.095, rz1: 0.09, n: 10, part: 5, sw: 5 }); b.prism({ y0: 1.69, y1: 1.705, rx0: 0.16, rz0: 0.155, n: 12, part: 5, sw: 5 }); }
   else if (lod) { b.prism({ y0: 1.69, y1: 1.77, rx0: 0.15, rz0: 0.15, rx1: 0.1, rz1: 0.1, n: 3, part: 5, sw: 5 }); }
   else tricorn(b, 1.685, 5);
@@ -143,7 +155,7 @@ function patch(sh, U, depth) {
   }
 }
 export function makeKit(ctx) {
-  const U = ctx.U, kinds = ['order', 'march', 'civ', 'woman', 'sailor'], G = {};
+  const U = ctx.U, kinds = ['order', 'march', 'civ', 'woman', 'sailor', 'mod', 'modw', 'm1910', 'k43'], G = {};
   for (const k of kinds) G[k] = [bodyMesh(k, false), bodyMesh(k, true)];
   const mat = () => { const m = new THREE.MeshLambertMaterial({ color: 0xffffff }); m.onBeforeCompile = (sh) => patch(sh, U, false); m.customProgramCacheKey = () => 'ppl6'; maskify(m, U, 1); return m; };
   const dmat = () => { const m = new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking }); m.onBeforeCompile = (sh) => patch(sh, U, true); m.customProgramCacheKey = () => 'ppl6d'; return m; };
@@ -185,7 +197,11 @@ export function uniOf(sp) {
 }
 const ORD = { gb_inf: 'gb_inf', gb_art: 'gb_art', es_inf: 'es_inf', fr_inf: 'fr_inf' };
 // người đi bộ / đám đông: màu áo cũ → (kiểu lưới, bảng): đỏ → lính Anh không súng (đi lại trong phố), lam → pháo binh, còn lại dân thường (20 % nữ khi cho phép)
-export function walkerLook(col, R, women = true) { const c = (col || '').toLowerCase();
+export function walkerLook(col, R, women = true, era = 1782) { const c = (col || '').toLowerCase();
+  // G1b: thời kỳ sau — 1940–45 đồn trú kaki (màu ô liu) / dân thường; 1850–1939 com-lê + mũ dẹt; ≥ 1946 hiện đại (nữ khi cho phép)
+  if (era >= 1939 && era < 1946) return ['#6b6a4a', '#7a7656', '#716e4e'].includes(c) ? ['k43', 'k43'] : ['#2f3d5c'].includes(c) ? ['sailor', 'sailor'] : ['m1910', 'm1910'];
+  if (era >= 1850 && era < 1939) return ['m1910', 'm1910'];   // nữ c.1900 (váy dài + mũ) chưa có lưới — chỉ nam (ghi báo cáo)
+  if (era >= 1946) return women && R() < 0.45 ? ['modw', 'modw'] : ['mod', 'mod'];
   if (['#b03a2e', '#a8402e', '#a8392c', '#9b2a22', '#b8402f'].includes(c)) return ['civ', 'gb_inf'];
   if (['#2f3d5c', '#3b4a66', '#3b4a5c', '#262f49'].includes(c)) return ['civ', 'gb_art'];
   return women && R() < 0.2 ? ['woman', 'woman'] : ['civ', 'civ']; }

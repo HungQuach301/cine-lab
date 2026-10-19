@@ -1,0 +1,484 @@
+{
+ "shot": "SM1",
+ "dur": 6.5,
+ "tao_boi": "scripts/k2/hist/g1b_sm.py",
+ "khung_sach": "§12.1 (CHU-1 = A) — p.sach: true",
+ "nguon_ranh": [
+  {
+   "id": "sm1-1704",
+   "nam": 1704,
+   "ngay": "1704-02 → 1704-08 (N.S.); Gibraltar đổi phe 1704-08-01 N.S. = 21/7 O.S. (S012) — ĐIỂM, đổi màu ở lớp 2D",
+   "nguon": "Cliopatria (Seshat)",
+   "giay_phep": "CC-BY-4.0",
+   "doi_chieu": "OpenHistoricalMap",
+   "giay_phep_doi_chieu": "CC0 (một số đường CC BY 4.0 CNIG/IGN)",
+   "km_px": 1.354,
+   "lech_tb_px": 17.77,
+   "kieu_mep": "mem",
+   "ghi_cong": "Borders: Cliopatria v0.2.1 (Seshat Global History Databank), CC BY 4.0, changed (clipped to Natural Earth land, simplified; 'Pro-Habsburg Spain' merged into Spain; alliance colouring from claims T004/T005); cross-checked with OpenHistoricalMap contributors (CC0; includes data © Instituto Geográfico Nacional (CNIG), CC BY 4.0). Coast/land: Natural Earth (public domain). Relief: ETOPO 2022 (NOAA NCEI, CC0).",
+   "chinh_tay": [
+    "GỘP 'Pro-Habsburg Spain' (Cliopatria 1702–1705, sai thời điểm — NC-BD bẫy d; Catalonia nổi dậy 1705) vào 'Spain (Philip V)'; không tô phe trong lòng Tây Ban Nha (ranh-gioi.json chinh_tay 1)",
+    "'Kingdom of Spain' của Cliopatria gồm Hà Lan thuộc TBN, Milan, Naples, Sardinia, Sicily (dưới Philip V năm 1704) + 'Spanish Empire' (Ceuta, Oran, Canarias) → cùng màu TBN; không có claim riêng ngoài T004 — theo nguồn ranh",
+    "Đại Liên minh (T004: England, the Emperor (Austria), the Dutch) + Bồ Đào Nha (T005, 5/1703): England đặc đỏ; Dutch Republic, Habsburg Monarchy, Portugal = đỏ pha 85 % giấy + gạch 45° (ranh-gioi.json phương án A). Cliopatria/OHM không mang liên minh — tô theo claim",
+    "Các nước KHÔNG có claim phe trong khung (Bavaria — thực tế theo Pháp 1704 —, các tiểu quốc Thánh chế, Phổ, Savoy, Thuỵ Sĩ, Ý, Đan Mạch–Na Uy, Ottoman…): KHÔNG TÔ (giữ nền giấy) — không gán phe khi không có claim",
+    "Ma-rốc (Morocco) xám 'không tham chiến' như ranh-gioi.json; không thêm mục chú giải",
+    "Gibraltar = ĐIỂM (< 8 px ở khung 2 600 km); màu TBN tới 1704-08-01 N.S., đỏ Đại Liên minh từ đó (S012) — vẽ bằng hai mục p.points nối nhau (k2.js), không phải polygon"
+   ],
+   "features": [
+    {
+     "id": "england",
+     "ten": "England",
+     "faction_id": "britain",
+     "fill": "#b03a2e",
+     "ve": "dac",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [
+      "T004"
+     ],
+     "doi_chu": []
+    },
+    {
+     "id": "dutch",
+     "ten": "Dutch Republic",
+     "faction_id": "britain",
+     "fill": "#ba5446",
+     "ve": "gach",
+     "kieu_mep": "mem",
+     "lech": {
+      "tb_km": 10.36,
+      "max_km": 20.29,
+      "n_diem": 5,
+      "lech_tb_px": 7.65,
+      "lech_max_px": 15.0,
+      "dt_lech_pct": 16.3
+     },
+     "claims": [
+      "T004"
+     ],
+     "doi_chu": []
+    },
+    {
+     "id": "portugal",
+     "ten": "Portugal (allied from 1703)",
+     "faction_id": "britain",
+     "fill": "#ba5446",
+     "ve": "gach",
+     "kieu_mep": "lien",
+     "lech": {
+      "tb_km": 4.11,
+      "max_km": 7.48,
+      "n_diem": 9,
+      "lech_tb_px": 3.03,
+      "lech_max_px": 5.5,
+      "dt_lech_pct": 11.3
+     },
+     "claims": [
+      "T005"
+     ],
+     "doi_chu": []
+    },
+    {
+     "id": "austria",
+     "ten": "Austria (Habsburg Monarchy)",
+     "faction_id": "britain",
+     "fill": "#ba5446",
+     "ve": "gach",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [
+      "T004"
+     ],
+     "doi_chu": []
+    },
+    {
+     "id": "france",
+     "ten": "France",
+     "faction_id": "france",
+     "fill": "#2e5c8a",
+     "ve": "dac",
+     "kieu_mep": "mem",
+     "lech": {
+      "tb_km": 24.07,
+      "max_km": 83.85,
+      "n_diem": 7,
+      "lech_tb_px": 17.77,
+      "lech_max_px": 61.9,
+      "dt_lech_pct": 7.4
+     },
+     "claims": [
+      "T004"
+     ],
+     "doi_chu": []
+    },
+    {
+     "id": "spain",
+     "ten": "Spain (Philip V)",
+     "faction_id": "spain",
+     "fill": "#c9a227",
+     "ve": "dac",
+     "kieu_mep": "mem",
+     "lech": {
+      "tb_km": 10.89,
+      "max_km": 91.2,
+      "n_diem": 17,
+      "lech_tb_px": 8.04,
+      "lech_max_px": 67.4,
+      "dt_lech_pct": 6.8
+     },
+     "claims": [
+      "T004",
+      "S012"
+     ],
+     "doi_chu": []
+    },
+    {
+     "id": "morocco",
+     "ten": "Morocco",
+     "faction_id": "neutral",
+     "fill": "#a89f8a",
+     "ve": "dac",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [],
+     "doi_chu": []
+    }
+   ],
+   "diem": [
+    {
+     "id": "gibraltar",
+     "ten": "Gibraltar",
+     "ll": [
+      -5.353,
+      36.14
+     ],
+     "faction_id": "spain",
+     "fill": "#c9a227",
+     "doi_chu": [
+      {
+       "ngay": "1704-08-01",
+       "faction_id": "britain",
+       "fill": "#b03a2e",
+       "claims": [
+        "S012",
+        "S013"
+       ]
+      }
+     ],
+     "claims": [
+      "S012",
+      "S013"
+     ],
+     "ly_do": "≈ 6 km ở khung 2 600 km (≈ 1,35 km/px) → < 5 px: ĐIỂM (B5)"
+    }
+   ],
+   "nhan_cu_tren_hinh_da_bo": "approx. borders c. 1704 — Cliopatria (Seshat)"
+  }
+ ],
+ "nguon_tuyen": {
+  "tep": "channel-k2/k2c-t3-01/tuyen/routes.geojson",
+  "claims_md": "channel-k2/k2c-t3-01/tuyen/claims-tuyen.md",
+  "tuyen": [
+   {
+    "id": "R1704-LIS",
+    "ten": "Anglo-Dutch fleet with \"Charles III\" to Lisbon",
+    "ngay": "1704-02-12/1704-02-25 (O.S.)",
+    "mode": "sea",
+    "claims": [
+     "T001"
+    ],
+    "doan_approx": [
+     {
+      "tu": "st_helens",
+      "den": "lisbon",
+      "approx": true,
+      "so_diem_dieu_khien": 9
+     }
+    ],
+    "vao_tu_mep": false,
+    "ra_mep": false,
+    "kiem_dat_goc": {
+     "tuyen": "R1704-LIS",
+     "mode": "sea",
+     "dai_km": 1697.5,
+     "cat_dat_km": 0.0,
+     "gan_bo_nhat_km": 0.23,
+     "dat": true
+    },
+    "so_diem_ve": 184
+   },
+   {
+    "id": "R1704-GIB",
+    "ten": "Rooke's fleet: Algarve → off Tetuan → Bay of Gibraltar",
+    "ngay": "1704-06-16/1704-07-21 (O.S.) = 1704-08-01 (N.S.)",
+    "mode": "sea",
+    "claims": [
+     "S012",
+     "T002",
+     "T003"
+    ],
+    "doan_approx": [
+     {
+      "tu": "off_lagos",
+      "den": "off_tetuan",
+      "approx": true,
+      "so_diem_dieu_khien": 6
+     },
+     {
+      "tu": "off_tetuan",
+      "den": "gib_bay",
+      "approx": true,
+      "so_diem_dieu_khien": 3
+     }
+    ],
+    "vao_tu_mep": false,
+    "ra_mep": false,
+    "kiem_dat_goc": {
+     "tuyen": "R1704-GIB",
+     "mode": "sea",
+     "dai_km": 443.7,
+     "cat_dat_km": 0.0,
+     "gan_bo_nhat_km": 2.21,
+     "dat": true
+    },
+    "so_diem_ve": 90
+   }
+  ]
+ },
+ "nen": {
+  "dem": "ETOPO 2022 15 arc-second surface (NOAA NCEI, CC0-1.0, DOI 10.25921/fd45-gt74)",
+  "bo_bien": "Natural Earth 1:10m (PD)"
+ },
+ "bac_can_cu": [
+  {
+   "phan_tu": "ranh giới chính thể",
+   "bac": 1,
+   "can_cu": "Cliopatria v0.2.1 (tổng hợp bản đồ lịch sử, tầm châu lục) đối chiếu OpenHistoricalMap; lệch đo trong lop-ranh.json"
+  },
+  {
+   "phan_tu": "màu phe / liên minh",
+   "bac": 2,
+   "can_cu": "claim văn bản (T004/T005 SM1; T006… SM2; T021–T026 SM3) — màu không lấy từ nguồn ranh"
+  },
+  {
+   "phan_tu": "điểm mốc tuyến (cảng, ngày)",
+   "bac": 2,
+   "can_cu": "claims-tuyen.md (trích nguyên văn, ≥ 2 nguồn khi XÁC MINH)"
+  },
+  {
+   "phan_tu": "đường đi giữa hai điểm mốc",
+   "bac": 5,
+   "can_cu": "điểm điều khiển ven bờ (routes.geojson doan[].approx = true), kiểm không cắt đất NE 1:10m — \"route approx.\" chỉ ghi ở log/mô tả"
+  },
+  {
+   "phan_tu": "địa hình nền",
+   "bac": 1,
+   "can_cu": "ETOPO 2022 15″ (NOAA NCEI, CC0) + bờ Natural Earth 1:10m (PD) — địa hình hiện đại, không phải bờ biển lịch sử"
+  }
+ ],
+ "chu_da_bo_khoi_hinh": [
+  "p.bnote \"approx. borders c. YYYY — <nguồn>\" (§11.1 cũ → §12.1: chuyển sang mô tả/bình luận ghim/thẻ \"How this film was made\")",
+  "sub \"route approx.\" ở nhãn đoàn/tuyến (§12.1)",
+  "mọi dòng nguồn \"Map: …\"/\"Borders: …\"/\"Relief: …\" (§12.1)",
+  "p.tags (k2.js sach lọc bỏ thẻ không phải số/câu trích) → nhãn tuyến/đoàn đặt ở p.places (nhãn địa danh/điểm, được giữ)"
+ ],
+ "ban_do": {
+  "nghieng": [
+   22,
+   30
+  ],
+  "be_ngang_km": [
+   2700,
+   330
+  ],
+  "dong": [
+   {
+    "loai": "route",
+    "t": [
+     0.8,
+     4.4
+    ]
+   },
+   {
+    "loai": "camera",
+    "t": [
+     0.0,
+     6.5
+    ]
+   }
+  ],
+  "chu_giai": [
+   "Grand Alliance (England & allies)",
+   "France",
+   "Spain (Philip V)"
+  ],
+  "chi_toi": "Bay of Gibraltar (1a, 3D vịnh 1704)",
+  "lop": "sm1-1704",
+  "nam": 1704,
+  "tuyen": [
+   "R1704-LIS",
+   "R1704-GIB"
+  ],
+  "claims": [
+   "T001",
+   "T002",
+   "T003",
+   "T004",
+   "T005",
+   "S012",
+   "S013"
+  ]
+ },
+ "soi": {
+  "tuyen_bien": [
+   {
+    "id": "R1704-LIS",
+    "shot": "SM1",
+    "dai_km": 1695.0,
+    "min_bo_km": 0.69,
+    "cat_dat_km_ngoai_cang": 0,
+    "cat_dat_km_trong_dem_cang": 4.0,
+    "w_px_1080": 4.5,
+    "nua_net_km": [
+     3.25,
+     3.25
+    ],
+    "km_net_cham_bo": 19.5,
+    "dat": "ĐẠT"
+   },
+   {
+    "id": "R1704-GIB",
+    "shot": "SM1",
+    "dai_km": 443.3,
+    "min_bo_km": 2.21,
+    "cat_dat_km_ngoai_cang": 0,
+    "cat_dat_km_trong_dem_cang": 0,
+    "w_px_1080": 6.5,
+    "nua_net_km": [
+     4.7,
+     2.35
+    ],
+    "km_net_cham_bo": 0.5,
+    "dat": "ĐẠT"
+   }
+  ],
+  "tuyen_cat_dat": "ĐẠT",
+  "chu_giai_so_muc": [
+   3
+  ],
+  "chu_giai": "ĐẠT",
+  "co_chu_nho_nhat_px1080": {
+   "vai": "place:Portugal",
+   "px": 30,
+   "px540": 15.0,
+   "dat": "ĐẠT"
+  },
+  "may": [
+   {
+    "dist_dau": 2700,
+    "dist_cuoi": 330,
+    "dich_lon": 2.79
+   }
+  ],
+  "chuyen_dong": {
+   "khung": 156,
+   "nguong_xam": 0.15,
+   "bat_dau_s": 0.042,
+   "phu_pct": 100.0,
+   "hieu_tb": 2.521,
+   "hieu_min": 1.198
+  },
+  "chu_tren_hinh": {
+   "tep": "sm1.mkv.log.json",
+   "so_khung_mau": 13,
+   "chu": {
+    "Grand Alliance (England & allies)": {
+     "vai": "chu_giai",
+     "cap_min": 24.7,
+     "n": 12
+    },
+    "France": {
+     "vai": "chu_giai",
+     "cap_min": 24.7,
+     "n": 16
+    },
+    "Spain (Philip V)": {
+     "vai": "chu_giai",
+     "cap_min": 24.7,
+     "n": 12
+    },
+    "Feb 1704": {
+     "vai": "year",
+     "cap_min": 52.3,
+     "n": 3
+    },
+    "England": {
+     "vai": null,
+     "cap_min": 24.7,
+     "n": 3
+    },
+    "Dutch Republic": {
+     "vai": null,
+     "cap_min": 23.3,
+     "n": 3
+    },
+    "Austria": {
+     "vai": null,
+     "cap_min": 23.3,
+     "n": 3
+    },
+    "Spain": {
+     "vai": null,
+     "cap_min": 24.7,
+     "n": 6
+    },
+    "Gibraltar": {
+     "vai": "diem",
+     "cap_min": 23.3,
+     "n": 9
+    },
+    "Portugal": {
+     "vai": null,
+     "cap_min": 21.8,
+     "n": 4
+    },
+    "Jun 1704": {
+     "vai": "year",
+     "cap_min": 0,
+     "n": 5
+    },
+    "Anglo-Dutch fleet": {
+     "vai": null,
+     "cap_min": 23.3,
+     "n": 3
+    },
+    "21 July (O.S.) / 1 Aug (N.S.) 1704": {
+     "vai": "year",
+     "cap_min": 52.3,
+     "n": 4
+    }
+   },
+   "cap_min_px1080": 0,
+   "chu_cam": [],
+   "vai_cam": []
+  },
+  "chu_nguon_tren_hinh": "ĐẠT",
+  "chuyen_dong_dat": "ĐẠT"
+ },
+ "dung": {
+  "bo_dem_ngoai_git": [
+   "mkdir -p /var/tmp/cine-out/g1b/sm/pylib && /opt/cine/bin/python -m pip install --target /var/tmp/cine-out/g1b/sm/pylib pyproj   # pyproj không có trong /opt/cine",
+   "/opt/cine/bin/python scripts/k2/hist/bd_raw_prep.py   # NE 1:10m land + minor islands → /var/tmp/cine-out/bd/raw; fr-metro.geojson → /var/tmp/cine-out/bd",
+   "curl -L -A 'CineLab-research (+https://github.com/HungQuach301/cine-lab)' -o /var/tmp/cine-out/bd/raw/clio/cliopatria-v0.2.1.zip https://zenodo.org/api/records/23128623/files/Seshat-Global-History-Databank/cliopatria-v0.2.1.zip/content  # md5 caeecf41…; trong đó cliopatria.geojson.zip SHA-256 e10a4e42… (khớp NC-BD) → unzip → cliopatria_polities_only_v021.geojson SHA-256 fc6f0d1e…",
+   "ETOPO 2022 15\" 15 ô N30/N45/N60 × W045/W030/W015/E000/E015 → /var/tmp/cine-out/bd/raw/etopo15s_<ô>.tif (relief_build.py tự tải nếu thiếu)",
+   "export ETOPO_DIR=/var/tmp/cine-out/bd/raw K2V_CACHE=/var/tmp/cine-out/k2v-cache",
+   "relief_build.py build --name sm1 --bbox -34,27,26,60 --ppd 120 --mesh 5 --dem etopo --admin none",
+   "relief_build.py build --name sm2 --bbox -18,30,10,47 --ppd 240 --mesh 8 --dem etopo --admin none",
+   "relief_build.py build --name sm3 --bbox -36,22,22,60 --ppd 120 --mesh 5 --dem etopo --admin none",
+   "PYTHONPATH=/var/tmp/cine-out/g1b/sm/pylib hist_borders.py scripts/k2/hist/lop-sm1-1704.json --out $K2V_CACHE/hist/sm1-1704 (tương tự design/k2v/hist/sm2-1782.json → sm2-1782, sm3-1941.json → sm3-1941)"
+  ],
+  "dung_shot": "bash scripts/k2/hist/g1b_sm_render.sh   # sinh yaml + prep + cảnh đinh (hero.js, nice 10, 1 tiến trình) + build.sh render + video thử",
+  "tu_soi": "PYTHONPATH=/var/tmp/cine-out/g1b/sm/pylib /opt/cine/bin/python scripts/k2/hist/g1b_soi.py",
+  "ghi_chu_thoi_diem_p": "mốc thời gian trong p (lớp chữ k2.js) tính theo giây của ĐOẠN; shot đặt ở at ≠ 0 trong đoạn phải cộng at (g1b_sm.shift_p). Cảnh đinh (heroes.opt) tính theo giây của shot."
+ }
+}

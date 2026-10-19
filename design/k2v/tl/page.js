@@ -21,7 +21,7 @@ let C, R, pipe, scene, cam, SC, ctx, outScene, quadCam, txt, rec, HERO = false, 
 // V5b-2b (V5B2A §8.2): trang dựng được gọi từ scripts/k2/hero.js ('tl/<cảnh>', opt = {pack, lut, lutMode, vib, look, photo, tech, layers, …}) —
 //  chế độ HERO: khung KHÔNG chữ (window.finalize → RGB), lớp chữ ghi lại bằng record.js vào anchorsAt()._tl để scripts/k2/lib/k2.js vẽ; frameMeta() mỗi khung (AGL, SPP, pha).
 function heroCfg(c) { const o = c.opt || {}; return { W: c.W, H: c.H, hero: c.hero, scene: c.hero.split('/')[1], opt: o, pack: `/cache/scene/${o.pack || 'gib'}/pack/`, lut: '/cache/lut/' + (o.lut || 'k2-a-thep-lanh') + '.cube',
-  lutMode: o.lutMode ?? 1, vib: o.vib, look: o.look || {}, photo: o.photo === undefined ? '/cache/loc/ng_crop.jpg' : o.photo, tech: o.tech || {}, lutK: o.lutK ?? 1 }; }
+  lutMode: o.lutMode ?? 1, vib: o.vib, exposure: o.exposure, look: o.look || {}, photo: o.photo === undefined ? '/cache/loc/ng_crop.jpg' : o.photo, tech: o.tech || {}, lutK: o.lutK ?? 1 }; }
 window.setup = async (cfg) => {
   if (cfg.hero) { HERO = true; cfg = heroCfg(cfg); }
   C = cfg; const T = Object.assign({ lod: true, ao: true, shadowCache: true, spp: 'adaptive', shadowRes: 4096, city: true, trees: true, baked: false, lambert: true } /* baked: nhiễu nướng sẵn (chống lặp ô) — đo lại 16/10 không nhanh hơn nhiễu thủ tục → tắt mặc định */, cfg.tech || {}); C.tech = T;

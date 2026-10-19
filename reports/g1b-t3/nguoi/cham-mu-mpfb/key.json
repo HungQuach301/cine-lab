@@ -1,0 +1,38 @@
+{
+ "key": {
+  "L0-R1": {
+   "order": [
+    "frame_86.jpg",
+    "frame_12.jpg"
+   ],
+   "map": {
+    "frame_86.jpg": "mpfb_gan",
+    "frame_12.jpg": "peoplejs_gan_sau"
+   }
+  },
+  "L0-R2": {
+   "order": [
+    "frame_89.jpg",
+    "frame_65.jpg"
+   ],
+   "map": {
+    "frame_89.jpg": "peoplejs_gan_sau",
+    "frame_65.jpg": "mpfb_gan"
+   }
+  },
+  "L0-R3": {
+   "order": [
+    "frame_88.jpg",
+    "frame_80.jpg"
+   ],
+   "map": {
+    "frame_88.jpg": "peoplejs_gan_sau",
+    "frame_80.jpg": "mpfb_gan"
+   }
+  }
+ },
+ "src": {
+  "mpfb_gan": "/var/tmp/cine-out/g1b/nguoi/mpfb-gan.jpg",
+  "peoplejs_gan_sau": "/var/tmp/cine-out/g1b/nguoi/lab-sau.jpg"
+ }
+}

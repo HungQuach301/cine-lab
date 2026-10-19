@@ -35,7 +35,7 @@ export function life(spec, ctx) {
       return Object.values(by).map((G) => { const S = makeSet(kit, ctx, { kind: G.kind, n: G.L.length, lodPx: 22 }); G.L.forEach((p, i) => { p.i = i; p.S = S; S.look(i, G.uni, p.R, { gait: p.gait, freq: p.freq }); }); group.add(S.group); return S; }); };
     for (const w of [].concat(spec.walkers || [])) {
       const C = cum(w.pts), n = w.n || 30, cols = w.colors || ['#b8402f', '#6b5a48', '#d8d0bc', '#3b4a5c'];
-      const P = [...Array(n).keys()].map((k) => { const sp = (1.1 + 0.4 * R()) * (R() < 0.5 ? 1 : -1), [kind, uni] = walkerLook(cols[Math.floor(R() * cols.length)], R, w.women !== false); return { s: R() * C[C.length - 1], sp, lat: (R() - 0.5) * (w.width || 5), kind, uni, R: rng((spec.seed || 404) * 7 + k), gait: 1, freq: Math.abs(sp) / 1.45 }; });
+      const P = [...Array(n).keys()].map((k) => { const sp = (1.1 + 0.4 * R()) * (R() < 0.5 ? 1 : -1), [kind, uni] = walkerLook(cols[Math.floor(R() * cols.length)], R, w.women !== false, spec.era ?? 1782); return { s: R() * C[C.length - 1], sp, lat: (R() - 0.5) * (w.width || 5), kind, uni, R: rng((spec.seed || 404) * 7 + k), gait: 1, freq: Math.abs(sp) / 1.45 }; });
       const sets = mkSets(P); let shown = 0;
       parts.push({ kind: 'nguoi', n, update(t, zones) { shown = 0; const cp = ctx.cam ? ctx.cam.position : null; for (const S of sets) S.begin();
         for (const p of P) { const [e0, n0, hd] = along(w.pts, C, p.s + p.sp * t), nn = [-Math.sin(hd), Math.cos(hd)], e = e0 + nn[0] * p.lat, n_ = n0 + nn[1] * p.lat;
@@ -46,7 +46,7 @@ export function life(spec, ctx) {
     for (const cw of [].concat(spec.crowds || [])) {
       const C = cum(cw.pts), L = C[C.length - 1], cols = cw.colors || ['#b03a2e', '#e7e0cf', '#5e4a38'], M = [];
       for (let g = 0; g < (cw.groups || 8); g++) { const s0 = (g + R() * 0.6) / (cw.groups || 8) * L, sz = Math.round((cw.size || [12, 40])[0] + R() * ((cw.size || [12, 40])[1] - (cw.size || [12, 40])[0])), sp = (cw.speed || 0.6) * (R() < 0.5 ? 1 : -1) * (0.6 + 0.6 * R());
-        const rad = Math.sqrt(sz) * 0.55; for (let k = 0; k < sz; k++) { const a = R() * 6.283, rr = Math.sqrt(R()) * rad, [kind, uni] = walkerLook(cols[Math.floor(R() * cols.length)], R, cw.women !== false), stand = R() < 0.3;
+        const rad = Math.sqrt(sz) * 0.55; for (let k = 0; k < sz; k++) { const a = R() * 6.283, rr = Math.sqrt(R()) * rad, [kind, uni] = walkerLook(cols[Math.floor(R() * cols.length)], R, cw.women !== false, spec.era ?? 1782), stand = R() < 0.3;
           M.push({ g, s0, sp, dx: Math.cos(a) * rr * 1.6, dy: Math.sin(a) * rr * 0.8, kind, uni, ph: R() * 6.28, R: rng((spec.seed || 404) * 13 + M.length), gait: stand ? 0 : 1, freq: Math.abs(sp) / 1.2 + 0.2 }); } }
       const sets = mkSets(M);
       parts.push({ kind: 'dam_dong', n: M.length, update(t, zones) { let shown = 0; for (const S of sets) S.begin();
