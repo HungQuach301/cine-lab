@@ -78,9 +78,10 @@ export async function build(ctx) {
   const SMK = [].concat(o.smoke || []);
   if (o.sieges) { const H = await ctx.loadJSON(`${ctx.base}heroes.json`), tw = H.tower.p[0];
     for (const s of D.vay_ham.danh_sach) for (const tc of crossings(TL, s.nam, DUR).filter((x) => TL.year(x + 0.02) > TL.year(x - 0.02))) SMK.push(   // chỉ khi thời gian chạy XUÔI
-      { at: [tw[0] - 40, 95, tw[1] - 60], t: [tc - 0.05, tc + 1.5], n: 16, size: 70, rise: 120, drift: [-3, 1], period: 0.45, seed: 300 + s.stt, alpha: 0.9, fire: 0.5 },
-      { at: [-470, 14, -1300], t: [tc, tc + 1.4], n: 14, size: 80, rise: 110, drift: [-3, 1], period: 0.42, seed: 330 + s.stt, alpha: 0.85 },
-      { at: [-430, 10, -1000], t: [tc + 0.1, tc + 1.4], n: 12, size: 64, rise: 90, drift: [-3, 1], period: 0.4, seed: 360 + s.stt, alpha: 0.8 });
+      { at: [tw[0] - 40, 95, tw[1] - 60], t: [tc - 0.05, tc + 1.6], n: 18, size: 130, rise: 200, drift: [-3, 1], period: 0.45, seed: 300 + s.stt, alpha: 0.9, fire: 0.5 },
+      { at: [-470, 14, -1300], t: [tc, tc + 1.5], n: 16, size: 150, rise: 180, drift: [-3, 1], period: 0.42, seed: 330 + s.stt, alpha: 0.85 },
+      { at: [-430, 10, -1000], t: [tc + 0.1, tc + 1.5], n: 14, size: 120, rise: 160, drift: [-3, 1], period: 0.4, seed: 360 + s.stt, alpha: 0.8 },
+      { at: [-650, 10, -1250], t: [tc + 0.05, tc + 1.4], n: 12, size: 110, rise: 140, drift: [-3, 1], period: 0.38, seed: 390 + s.stt, alpha: 0.8, fire: 0.6 });   // V7P lượt 2: nhịp lớn hơn (lượt 1: khói nhỏ, khó đọc ở 2,2 km)
     log.lop.push({ lop: 'nhip_vay_ham', so: D.vay_ham.danh_sach.length, nguon: D.vay_ham.nguon, bac: 'thời điểm: bậc 2; vị trí khói: minh hoạ' }); }
   // khói theo năm (wY) → đổi sang giây cảnh tại các điểm đường cong đi qua
   //  (mọi khoảng giây mà năm nằm trong cửa sổ — đường cong tua ngược có thể đi qua cùng một năm nhiều lần; khoảng < 0,25 s bỏ: chạy qua quá nhanh, khói không kịp hiện)
@@ -104,7 +105,7 @@ export async function build(ctx) {
     const rw = H.runway.p, hw = H.runway.w / 2 + 1.5, R = []; for (let i = 0; i < rw.length - 1; i++) { const a = rw[i], b = rw[i + 1], l = Math.hypot(b[0] - a[0], b[1] - a[1]); for (let s = 0; s < l; s += 58) { const u = s / l, e = a[0] + (b[0] - a[0]) * u, n = a[1] + (b[1] - a[1]) * u; R.push([e, n + hw], [e, n - hw]); } }
     if (o.lamps) { specs.push({ pts: R, kind: 'rw', w: { on: 1955 }, gain: 0.9 });
       for (const th of H.thresholds) for (let k = -4; k <= 4; k++) specs.push({ pts: [[th[th.length - 1][0], th[th.length - 1][1] + k * 5]], kind: 'th', w: { on: 1955 } }); } else specs.length = 0;
-    for (const f of o.fires || []) specs.push({ pts: [f.at], kind: 'fire', size: f.size || 40, w: f.wY ? { on: f.wY[0], off0: f.wY[1] } : null });
+    for (const f of o.fires || []) specs.push({ pts: [f.at], kind: 'fire', size: (f.size || 40) * 3,   /* quầng lửa đọc được ở 1–2 km */ w: f.wY ? { on: f.wY[0], off0: f.wY[1] } : null });
     LMP = lamps(specs, ctx); scene.add(LMP.group); log.lop.push({ lop: 'den_dem', n: LMP.n, nguon: 'đèn đường dọc đường OSM 2026 (cách 30–38 m) · đèn mép đường băng ICAO Annex 14 (≤ 60 m) · lửa: theo cảnh', bac: 'đèn đường: bậc 5 (kiểu đèn minh hoạ; cần ảnh 2020s đối chiếu) · đèn đường băng: bậc 3 (chuẩn ICAO)' }); }
   ctx.maskHide = [].concat(SM ? [SM.group] : [], LIVES.flatMap((x) => (x.LF.smokeGroup ? [x.LF.smokeGroup] : [])), LMP ? [LMP.group] : []);
   // ---------- máy: điểm cố định / trôi chậm (keys tuyệt đối [E, cao, N]) ----------

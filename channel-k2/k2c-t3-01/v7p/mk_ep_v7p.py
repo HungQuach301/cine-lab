@@ -38,7 +38,7 @@ def battery_fleets():
     t0, t1, tb, te = dy('1782-09-13 06:45'), dy('1782-09-13 09:30'), dy('1782-09-13 15:30'), dy('1782-09-14 15:00')
     move = dict(list=[dict(s, path=[[t0, s['at'][0] - 900, s['at'][1] + 1300], [t1, s['at'][0], s['at'][1]]]) for s in L], heading=BATT_AX, wY=[t0 - 0.0001, tb])
     burn = dict(list=L, heading=BATT_AX, wY=[tb, te], burning=True)
-    smoke = [dict(at=[s['at'][0] + 10, 8, s['at'][1]], wY=[tb + i * 0.00004, te], n=18, size=60, rise=110, drift=[-2.0, 0.6], period=0.5, seed=60 + i, alpha=0.9, dark=True) for i, s in enumerate(L)]
+    smoke = [dict(at=[s['at'][0] + 10, 8, s['at'][1]], wY=[tb + i * 0.00004, te], n=18, size=60, rise=110, drift=[-2.0, 0.6], period=0.5, seed=60 + i, alpha=0.9, dark=True, fire=0.8) for i, s in enumerate(L)]
     fire = [dict(at=s['at'], wY=[tb + 0.00006 + i * 0.00003, te], size=34) for i, s in enumerate(L)]
     guns = [dict(at=[s['at'][0] + 20, 10, s['at'][1]], wY=[dy('1782-09-13 09:45'), tb], n=14, size=46, rise=40, drift=[-3.0, 1.0], period=0.25, seed=80 + i, alpha=0.8) for i, s in enumerate(L)]
     return [move, burn], smoke + guns, fire

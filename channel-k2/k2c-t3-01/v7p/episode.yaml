@@ -406,6 +406,7 @@ heroes:
         seed: 60
         alpha: 0.9
         dark: true
+        fire: 0.8
       - at:
         - -1488.194819470432
         - 8
@@ -423,6 +424,7 @@ heroes:
         seed: 61
         alpha: 0.9
         dark: true
+        fire: 0.8
       - at:
         - -1468.7105853360229
         - 8
@@ -440,6 +442,7 @@ heroes:
         seed: 62
         alpha: 0.9
         dark: true
+        fire: 0.8
       - at:
         - -1449.2263512016136
         - 8
@@ -457,6 +460,7 @@ heroes:
         seed: 63
         alpha: 0.9
         dark: true
+        fire: 0.8
       - at:
         - -1429.7421170672046
         - 8
@@ -474,6 +478,7 @@ heroes:
         seed: 64
         alpha: 0.9
         dark: true
+        fire: 0.8
       - at:
         - -1410.2578829327954
         - 8
@@ -491,6 +496,7 @@ heroes:
         seed: 65
         alpha: 0.9
         dark: true
+        fire: 0.8
       - at:
         - -1390.7736487983864
         - 8
@@ -508,6 +514,7 @@ heroes:
         seed: 66
         alpha: 0.9
         dark: true
+        fire: 0.8
       - at:
         - -1371.2894146639771
         - 8
@@ -525,6 +532,7 @@ heroes:
         seed: 67
         alpha: 0.9
         dark: true
+        fire: 0.8
       - at:
         - -1351.805180529568
         - 8
@@ -542,6 +550,7 @@ heroes:
         seed: 68
         alpha: 0.9
         dark: true
+        fire: 0.8
       - at:
         - -1332.320946395159
         - 8
@@ -559,6 +568,7 @@ heroes:
         seed: 69
         alpha: 0.9
         dark: true
+        fire: 0.8
       - at:
         - -1497.679053604841
         - 10
@@ -1085,21 +1095,21 @@ heroes:
       cam:
       - t: 0
         p:
-        - -1900
-        - 115
-        - 4150
+        - -1300
+        - 135
+        - 4300
         l: &id016
-        - -1350
+        - -650
         - 0
         - 0
-        fov: 42
+        fov: 44
       - t: 22.5
         p:
-        - -1895
-        - 113
-        - 4100
+        - -1297
+        - 133
+        - 4255
         l: *id016
-        fov: 42
+        fov: 44
     dur: 22.5
   v7p_C2:
     hero: tl/t3tl

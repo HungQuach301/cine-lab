@@ -104,13 +104,13 @@ export function lamps(specs, ctx) {
   const COL = { pho: [1.0, 0.82, 0.58], rw: [0.95, 0.97, 1.0], th: [0.55, 1.0, 0.6], fire: [1.0, 0.55, 0.22] };
   for (const sp of specs || []) {
     const pts = sp.pts, n = pts.length, kind = sp.kind || 'pho', col = COL[kind], sz = sp.size || (kind === 'pho' ? 5 : kind === 'fire' ? 40 : 3.2);
-    const geo = new THREE.BufferGeometry(), P = new Float32Array(n * 3); pts.forEach(([e, nn, h], i) => { P[i * 3] = e; P[i * 3 + 1] = hAt(e, nn) + (h ?? (kind === 'pho' ? 7.5 : kind === 'fire' ? sz * 0.35 : 0.6)); P[i * 3 + 2] = -nn; });
+    const geo = new THREE.BufferGeometry(), P = new Float32Array(n * 3); pts.forEach(([e, nn, h], i) => { P[i * 3] = e; P[i * 3 + 1] = hAt(e, nn) + (h ?? (kind === 'pho' ? 7.5 : kind === 'fire' ? sz * 0.15 : 0.6)); P[i * 3 + 2] = -nn; });
     geo.setAttribute('position', new THREE.BufferAttribute(P, 3));
     const m = new THREE.PointsMaterial({ map: kind === 'rw' || kind === 'th' ? T.cool : T.warm, color: new THREE.Color(...col), size: sz, sizeAttenuation: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, fog: false, opacity: 0 });
     const pt = new THREE.Points(geo, m); pt.renderOrder = 7; pt.frustumCulled = false; group.add(pt);
     // vệt sáng mặt đất (đèn đường): đĩa cộng sáng bán kính 11 m dưới mỗi đèn
     let pool = null;
-    if (kind === 'pho' || kind === 'fire') { const r = kind === 'fire' ? sz * 1.4 : 7.5, pg = new THREE.PlaneGeometry(2 * r, 2 * r).rotateX(-Math.PI / 2), pm = new THREE.MeshBasicMaterial({ map: T.warm, color: new THREE.Color(...col).multiplyScalar(kind === 'fire' ? 0.5 : 0.16), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, fog: false, opacity: 0, polygonOffset: true, polygonOffsetFactor: -6, polygonOffsetUnits: -6 });
+    if (kind === 'pho' || kind === 'fire') { const r = kind === 'fire' ? Math.min(45, sz * 0.4) : 7.5, pg = new THREE.PlaneGeometry(2 * r, 2 * r).rotateX(-Math.PI / 2), pm = new THREE.MeshBasicMaterial({ map: T.warm, color: new THREE.Color(...col).multiplyScalar(kind === 'fire' ? 0.5 : 0.16), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, fog: false, opacity: 0, polygonOffset: true, polygonOffsetFactor: -6, polygonOffsetUnits: -6 });
       pool = new THREE.InstancedMesh(pg, pm, n); const m4 = new THREE.Matrix4(); pts.forEach(([e, nn], i) => { m4.makeTranslation(e, hAt(e, nn) + 0.35, -nn); pool.setMatrixAt(i, m4); }); pool.renderOrder = 6; pool.frustumCulled = false; group.add(pool); }
     list.push({ sp, pt, m, pool });
   }
