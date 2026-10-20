@@ -22,3 +22,7 @@
 - Pod 4 tắt sớm trước khi kéo khung 242–255 (dựng lại trên pod 6, xong); `theo_pod.sh` nay kiểm đủ dải khung trước khi tắt.
 - Pod 3: hết VRAM 32 GB ở khung 442 (rò dữ liệu cụm khói khi dựng lại từng khung với `--persist`), sau đó Blender rơi về CPU của pod (GPU 0 %) → khung 444–467 dựng bằng CPU ≈ 220 s/khung. Sửa: xoá dữ liệu cụm khói cũ; `--needgpu` dừng thay vì rơi âm thầm về CPU. `pod_dive.sh`: lỗi số học đoạn cuối (468–479 chưa dựng) đã sửa.
 - Pod 7: dựng 442–443, 468–479 (+ 444–445 để đối chứng GPU ↔ CPU-pod).
+
+## CUỐI (≈ 07:30 UTC 20/10) — DỪNG chờ chủ dự án
+- Cú lặn 480/480 khung Cycles GPU; bản xem `reports/nc-gpu/lan/ncg-lan-xem.mp4` (4,25 MB) + master ngoài git (SHA trong báo cáo). Dựng lại 36 khung để lửa sáng dần theo uNight (pod 8).
+- Không còn pod nào chạy; RunPod thật $10,98 (số dư $14,02). Báo cáo hoàn chỉnh `reports/nc-gpu/NC-GPU-BAO-CAO.md`.
