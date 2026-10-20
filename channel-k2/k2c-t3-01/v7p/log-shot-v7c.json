@@ -78,6 +78,26 @@
     "cau": "Since July 2026, this gate has had no routine checks."
    }
   ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "den_dem",
+    "s": "đèn phố + đèn đường băng 2026 đêm"
+   },
+   {
+    "t": 3.4,
+    "k": "nguoi",
+    "s": "người đi bộ qua đường băng vào Gibraltar"
+   },
+   {
+    "t": 11.0,
+    "k": "ngay_dem",
+    "s": "bình minh"
+   }
+  ],
+  "moc": "2026-10-18 23:52",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
   "chuong": null,
   "ghi": "máy D7 (mép nam La Línea, AGL ≈ 400, nhìn xuống ≈ 28°): cổng + đường băng + phố hai phía",
   "tieu_diem": [
@@ -139,9 +159,9 @@
      -1000
     ],
     "l": [
-     -700,
+     -760,
      0,
-     -1050
+     -1045
     ],
     "fov": 44
    },
@@ -153,9 +173,9 @@
      -1002
     ],
     "l": [
-     -705,
+     -765,
      0,
-     -1050
+     -1045
     ],
     "fov": 44
    }
@@ -319,6 +339,11 @@
     "toi": 1333.15
    },
    {
+    "t": 4.75,
+    "tu": 1333.154,
+    "toi": 1333.55
+   },
+   {
     "t": 5.2083,
     "tu": 1333.554,
     "toi": 1350.0
@@ -354,6 +379,11 @@
     "toi": 1704.591
    },
    {
+    "t": 10.4583,
+    "tu": 1704.592,
+    "toi": 1705.0
+   },
+   {
     "t": 10.9167,
     "tu": 1705.004,
     "toi": 1727.5
@@ -369,7 +399,7 @@
     "toi": 1782.699
    }
   ],
-  "tl_buoc_n": 13,
+  "tl_buoc_n": 15,
   "cau": [
    {
     "dong": "0c",
@@ -387,6 +417,36 @@
     "cau": "This is why everyone fought over it, told from both sides' records."
    }
   ],
+  "su_kien": [
+   {
+    "t": 3.4,
+    "k": "buoc_nam",
+    "s": "bộ đếm bước qua 14 lần vây (1309 → 1506)"
+   },
+   {
+    "t": 8.6,
+    "k": "co",
+    "s": "4/8/1704: Borgoña hạ, Union kéo trên Tower of Homage"
+   },
+   {
+    "t": 11.8,
+    "k": "tau",
+    "s": "10 pin nổi vào vị trí"
+   },
+   {
+    "t": 13.5,
+    "k": "lua",
+    "s": "pin nổi khai hoả"
+   },
+   {
+    "t": 15.0,
+    "k": "lua",
+    "s": "pin nổi bốc cháy"
+   }
+  ],
+  "moc": "2026-10-19 15:10",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
   "chuong": null,
   "ghi": "máy K2 trên sườn Rock cao hơn K (AGL ≈ 200, nhìn xuống ≈ 35°): phố + lâu đài phủ khung, hàng pin nổi ở dải trên; cùng thời gian/cờ/đồn trú như V7B",
   "tieu_diem": [
@@ -467,6 +527,21 @@
     "cau": "In 1782, ten floating batteries came to break it."
    }
   ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "lua",
+    "s": "pin nổi cháy, nhìn từ vịnh (góc thumbnail)"
+   },
+   {
+    "t": 1.6,
+    "k": "ngay_dem",
+    "s": "đêm 13→14/9/1782: lửa phản chiếu"
+   }
+  ],
+  "moc": "1782-09-13 17:55",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
   "chuong": null,
   "ghi": "góc máy thumbnail X01/X08 (reports/dong-goi-t3-v2 §1, N2r: [−1950, 25, −1150] → [−600, 180, −1600], fov 46): lướt thấp 25 m, vai: khoảnh khắc biến cố (pin nổi cháy) — hứa của thumbnail có trong phim",
   "tieu_diem": [
@@ -595,10 +670,30 @@
     "cau": "So why, today, is the fight over it about paperwork and payrolls?"
    }
   ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "xay",
+    "s": "đường băng mọc qua đường 1939–41"
+   },
+   {
+    "t": 5.0,
+    "k": "buoc_nam",
+    "s": "bước năm 1943 → 1969 → 1985 → 2026"
+   },
+   {
+    "t": 6.1,
+    "k": "xay",
+    "s": "phố 2026"
+   }
+  ],
+  "moc": 1938.6,
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
   "chuong": null,
   "ghi": "máy D7h: trên biên giới nhìn nam qua đường băng vào phố Gibraltar 2026",
   "tieu_diem": [
-   "duong_bang"
+   "cho_cat"
   ],
   "luot_thap": false,
   "khung_neo": false,
@@ -702,6 +797,26 @@
     "cau": "By October, British intelligence put the Spanish army facing the Rock at up to fourteen thousand."
    }
   ],
+  "su_kien": [
+   {
+    "t": 0.4,
+    "k": "the_chuong",
+    "s": "1779 — The Great Siege"
+   },
+   {
+    "t": 8.0,
+    "k": "xay",
+    "s": "trại TBN dựng theo hàng lối (13/7 → 28/10/1779)"
+   },
+   {
+    "t": 9.0,
+    "k": "nguoi",
+    "s": "ngựa kỵ binh, người đi giữa dãy lều, khói bếp"
+   }
+  ],
+  "moc": "1779-06-20 14:00",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
   "chuong": "1779 — The Great Siege",
   "ghi": "máy A3 phía nam dãy E5–E7 nhìn bắc dọc dãy lều (Rock sau lưng ở các khung mở)",
   "tieu_diem": [
@@ -786,6 +901,26 @@
     "cau": "Based at Algeciras, its boats were there to cut off the food reaching the Rock from Africa."
    }
   ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "tau",
+    "s": "hải đội TBN vào hàng chặn (16/7/1779)"
+   },
+   {
+    "t": 6.5,
+    "k": "tau",
+    "s": "thuyền châu Phi tới sát hàng chặn"
+   },
+   {
+    "t": 9.0,
+    "k": "tau",
+    "s": "thuyền châu Phi quay về nam"
+   }
+  ],
+  "moc": "1779-07-12 16:00",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
   "chuong": null,
   "ghi": "máy E2 ≤ 1,5 km từ chỗ thuyền châu Phi gặp hàng chặn",
   "tieu_diem": [
@@ -912,6 +1047,26 @@
     "cau": "The food had to come by sea."
    }
   ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "nguoi",
+    "s": "người cúi hái rau dại (S052), cờ Union trên lâu đài"
+   },
+   {
+    "t": 4.5,
+    "k": "may",
+    "s": "cần cẩu lên phố"
+   },
+   {
+    "t": 8.0,
+    "k": "tau",
+    "s": "hải đội phong toả trong vịnh"
+   }
+  ],
+  "moc": "1780-01-14 10:00",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
   "chuong": null,
   "ghi": "cận 20–30 m người hái rau dại cúi (S052) 0–4,5 s, nền Tower of Homage + cờ Union cách ≈ 150 m → cần cẩu → Ca2 trên phố nhìn Line Wall + vịnh",
   "tieu_diem": [
@@ -1069,6 +1224,26 @@
     "cau": "Scurvy spread, until a Danish ship of lemons was brought in, garrison diaries record."
    }
   ],
+  "su_kien": [
+   {
+    "t": 1.8,
+    "k": "tau",
+    "s": "đoàn Rodney vào vịnh (cờ Red Ensign)"
+   },
+   {
+    "t": 3.0,
+    "k": "nguoi",
+    "s": "thuyền cập Old Mole, người khiêng thùng, đống thùng lớn dần"
+   },
+   {
+    "t": 9.6,
+    "k": "tau",
+    "s": "tàu chanh Đan Mạch vào cảng 10/1780"
+   }
+  ],
+  "moc": "1780-01-16 12:00",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
   "chuong": null,
   "ghi": "đoàn Rodney vào vịnh (máy cao) → cận Old Mole ≈ 95 m (3–7 s): thuyền cập bến, người khiêng thùng, đống thùng lớn dần (S054; số/vị trí bậc 5) → lên Bm2: tàu chanh Đan Mạch",
   "tieu_diem": [
@@ -1194,6 +1369,31 @@
     "cau": "The townspeople fled south."
    }
   ],
+  "su_kien": [
+   {
+    "t": 3.6,
+    "k": "tau",
+    "s": "đoàn Darby thả neo xong"
+   },
+   {
+    "t": 5.8,
+    "k": "lua",
+    "s": "pháo TBN bắn vào phố (sau neo 2,2 s)"
+   },
+   {
+    "t": 8.0,
+    "k": "lua",
+    "s": "phố cháy đêm 13→14/4/1781"
+   },
+   {
+    "t": 10.0,
+    "k": "nguoi",
+    "s": "dân chạy về nam"
+   }
+  ],
+  "moc": "1781-04-12 09:20",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
   "chuong": null,
   "ghi": "đoàn Darby thả neo xong 3,6 s; pháo bắn vào phố từ 5,8 s (cách 2,2 s); máy Cc2",
   "tieu_diem": [

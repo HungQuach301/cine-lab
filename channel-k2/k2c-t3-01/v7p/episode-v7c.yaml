@@ -12,6 +12,9 @@ music:
 sources: {}
 numbers: {}
 khung_sach: true
+log_shot: log-shot-v7c.json
+nhip_vat: nhip-vat-v7c.json
+xem_cam: xem-cam-v7c.json
 heroes:
   v7c_H1:
     hero: tl/t3tl
@@ -990,9 +993,9 @@ heroes:
         - 420
         - -1000
         l:
-        - -700
+        - -760
         - 0
-        - -1050
+        - -1045
         fov: 44
       - t: 16.0
         p:
@@ -1000,9 +1003,9 @@ heroes:
         - 419
         - -1002
         l:
-        - -705
+        - -765
         - 0
-        - -1050
+        - -1045
         fov: 44
       loai: vinh
       td:
@@ -1869,7 +1872,7 @@ heroes:
         fov: 40
       loai: pho
       td:
-      - - duong_bang
+      - - cho_cat
         - null
     dur: 10.8333
   v7c_C1:

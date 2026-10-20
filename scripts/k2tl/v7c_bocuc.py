@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]; OUT = ROOT / 'reports/v7c/do'
 TD = json.loads((ROOT / 'design/k2v/v7c/tieu-diem.json').read_text())['vat']
 # V7B: tiêu điểm + loại shot (đặc tả V7B không khai — gán theo vai truyện của câu lời)
-V7B_TD = {'H1': [('bien_gioi', None)], 'H2': [('lau_dai', [0, 10.5]), ('pin_noi', [10.5, 21])], 'H3': [('duong_bang', None)], 'C1': [('trai', None)], 'C2': [('chan_thuyen', None)],
+V7B_TD = {'H1': [('bien_gioi', None)], 'H2': [('lau_dai', [0, 10.5]), ('pin_noi', [10.5, 21])], 'H3': [('cho_cat', None)], 'C1': [('trai', None)], 'C2': [('chan_thuyen', None)],
           'C3': [('hai_rau', [0, 3.9]), ('line_wall', [3.9, 99])], 'C4': [('old_mole', None)], 'C5': [('doan_darby', [0, 4.0]), ('pho_bi_ban', [4.0, 99])]}
 V7B_LOAI = {'H1': 'pho', 'H2': 'vinh', 'H3': 'pho', 'C1': 'trai', 'C2': 'vinh', 'C3': 'pho', 'C4': 'vinh', 'C5': 'vinh'}
 NGUONG = {'pho': 50.0, 'vinh': 40.0, 'trai': 40.0}

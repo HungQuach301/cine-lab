@@ -28,7 +28,7 @@ def K(t, p, l, fov): return dict(t=round(t, 4), p=p, l=l, fov=fov)
 # ---------------- ĐIỂM MÁY V7C (soạn theo số đo — reports/v7c/V7C-BAO-CAO.md §2; thử ứng viên: reports/v7c/do/thu-may/) ----------------
 CAM = {
   'H1':  [K(0, [420, 360, 700], [40, 0, 180], 36), K(12.0, [412, 356, 690], [40, 0, 178], 36)],
-  'H2':  [K(0, [60, 420, -1000], [-330, 0, -900], 40), K(10.5, [58, 420, -1000], [-340, 0, -905], 40), K(13.5, [40, 420, -1000], [-700, 0, -1050], 44), K(16.0, [36, 419, -1002], [-705, 0, -1050], 44)],
+  'H2':  [K(0, [60, 420, -1000], [-330, 0, -900], 40), K(10.5, [58, 420, -1000], [-340, 0, -905], 40), K(13.5, [40, 420, -1000], [-760, 0, -1045], 44), K(16.0, [36, 419, -1002], [-765, 0, -1045], 44)],
   'H2T': [K(0, [-1950, 25, -1150], [-600, 180, -1600], 46), K(5.0, [-1928, 25, -1158], [-600, 180, -1600], 46)],
   'H3':  [K(0, [-150, 380, 560], [-200, 0, -200], 40), K(10.8333, [-154, 374, 548], [-200, 0, -205], 40)],
   'C1':  [K(0, [-1150, 170, 2780], [-1220, 0, 2990], 22), K(22.5, [-1153, 172, 2770], [-1222, 0, 2992], 23)],
@@ -71,7 +71,7 @@ def shots():
                   ghi='góc máy thumbnail X01/X08 (reports/dong-goi-t3-v2 §1, N2r: [−1950, 25, −1150] → [−600, 180, −1600], fov 46): lướt thấp 25 m, vai: khoảnh khắc biến cố (pin nổi cháy) — hứa của thumbnail có trong phim'))
     # H3 · 1938,6 → 1943,6 đường băng cắt đường → bước năm 1969 → 1985 → 2026: khung hero 2026 (mặt tiền, cây, xe, đèn)
     o = copy.deepcopy(B['H3']['opt']); o.update(pho2026=dict(box=[-1200, -900, 600, 900]), nc=nc('1940', '2026'), rimPhe=['es'])
-    S.append(dict(id='H3', lines=['0g', '0h'], diem='D7h', vai='buoc-ngoat', noi='eo_dat', loai='pho', opt=o, td=[('duong_bang', None)], ghi='máy D7h: trên biên giới nhìn nam qua đường băng vào phố Gibraltar 2026'))
+    S.append(dict(id='H3', lines=['0g', '0h'], diem='D7h', vai='buoc-ngoat', noi='eo_dat', loai='pho', opt=o, td=[('cho_cat', None)], ghi='máy D7h: trên biên giới nhìn nam qua đường băng vào phố Gibraltar 2026'))
     # C1 · 20/6 → 28/10/1779: Línea + trại TBN dựng lên — dãy trại phủ khung, ngựa kỵ binh, khói bếp, người đi giữa dãy
     o = copy.deepcopy(B['C1']['opt']); o.update(nc=nc('1779'), rimPhe=['es'], campRows=True)
     o['ngua'] = [dict(at=[-1205, 2960], heading=88, n=240, w=dict(on=1779.55, full=1779.78, off0=1783.17, off1=1783.3)), dict(at=[-1390, 3300], heading=80, n=240, w=dict(on=1779.56, full=1779.79, off0=1783.17, off1=1783.3)),
@@ -117,11 +117,29 @@ def shots():
     for s in S: s['cam'] = fill_h(s['id'], copy.deepcopy(CAM[s['id']]))
     return S
 
+# biến cố thấy được mỗi shot (K116-D9 su_kien: t = giây trong shot, k = loại, s = mô tả) — đối chiếu khung đã dựng
+SU_KIEN = {
+  'H1': [dict(t=0.0, k='den_dem', s='đèn phố + đèn đường băng 2026 đêm'), dict(t=3.4, k='nguoi', s='người đi bộ qua đường băng vào Gibraltar'), dict(t=11.0, k='ngay_dem', s='bình minh')],
+  'H2': [dict(t=3.4, k='buoc_nam', s='bộ đếm bước qua 14 lần vây (1309 → 1506)'), dict(t=8.6, k='co', s='4/8/1704: Borgoña hạ, Union kéo trên Tower of Homage'), dict(t=11.8, k='tau', s='10 pin nổi vào vị trí'),
+         dict(t=13.5, k='lua', s='pin nổi khai hoả'), dict(t=15.0, k='lua', s='pin nổi bốc cháy')],
+  'H2T': [dict(t=0.0, k='lua', s='pin nổi cháy, nhìn từ vịnh (góc thumbnail)'), dict(t=1.6, k='ngay_dem', s='đêm 13→14/9/1782: lửa phản chiếu')],
+  'H3': [dict(t=0.0, k='xay', s='đường băng mọc qua đường 1939–41'), dict(t=5.0, k='buoc_nam', s='bước năm 1943 → 1969 → 1985 → 2026'), dict(t=6.1, k='xay', s='phố 2026')],
+  'C1': [dict(t=0.4, k='the_chuong', s='1779 — The Great Siege'), dict(t=8.0, k='xay', s='trại TBN dựng theo hàng lối (13/7 → 28/10/1779)'), dict(t=9.0, k='nguoi', s='ngựa kỵ binh, người đi giữa dãy lều, khói bếp')],
+  'C2': [dict(t=0.5, k='tau', s='hải đội TBN vào hàng chặn (16/7/1779)'), dict(t=6.5, k='tau', s='thuyền châu Phi tới sát hàng chặn'), dict(t=9.0, k='tau', s='thuyền châu Phi quay về nam')],
+  'C3': [dict(t=0.0, k='nguoi', s='người cúi hái rau dại (S052), cờ Union trên lâu đài'), dict(t=4.5, k='may', s='cần cẩu lên phố'), dict(t=8.0, k='tau', s='hải đội phong toả trong vịnh')],
+  'C4': [dict(t=1.8, k='tau', s='đoàn Rodney vào vịnh (cờ Red Ensign)'), dict(t=3.0, k='nguoi', s='thuyền cập Old Mole, người khiêng thùng, đống thùng lớn dần'), dict(t=9.6, k='tau', s='tàu chanh Đan Mạch vào cảng 10/1780')],
+  'C5': [dict(t=3.6, k='tau', s='đoàn Darby thả neo xong'), dict(t=5.8, k='lua', s='pháo TBN bắn vào phố (sau neo 2,2 s)'), dict(t=8.0, k='lua', s='phố cháy đêm 13→14/4/1781'), dict(t=10.0, k='nguoi', s='dân chạy về nam')],
+}
+# nhịp chính → vật mang nghĩa (§13.2, K116-D9 nhip_vat)
+NHIP = [('0a', [('su_kien', 'H1')]), ('0b', [('su_kien', 'H1')]), ('0c', [('dem_nam', 'H2')]), ('0d', [('dem_nam', 'H2'), ('su_kien', 'H2')]), ('0e', [('co_chu_quyen', 'H2')]),
+        ('0f', [('su_kien', 'H2T')]), ('0g', [('su_kien', 'H3'), ('dem_nam', 'H3')]), ('0h', [('dem_nam', 'H3')]), ('2a', [('the_chuong', 'C1')]), ('2b', [('su_kien', 'C1'), ('co_chu_quyen', 'C1')]),
+        ('2c', [('su_kien', 'C2')]), ('2d', [('su_kien', 'C3')]), ('2e', [('co_chu_quyen', 'C3')]), ('SM2', [('su_kien', 'C4')]), ('2f', [('su_kien', 'C4')]), ('2g', [('su_kien', 'C5')])]
+
 def tl_buoc(o, dur):
-    """bước năm (V7B-D2): mọi cặp khoá thời gian liền nhau mà năm nhảy > 1 năm trong ≤ 1 khung → một bước (mốc + giây trong shot)"""
+    """bước năm (V7B-D2): mọi cặp khoá thời gian liền nhau mà năm nhảy > 0,1 năm trong ≤ 1 khung (giữ 0 khung năm trung gian) → một bước (mốc + giây trong shot)"""
     out = []; tk = o['time']; yr = lambda k: dy(k['at']) if isinstance(k['at'], str) else float(k['at'])
     for a, b in zip(tk, tk[1:]):
-        if b['t'] - a['t'] <= 1 / 24 + 1e-6 and abs(yr(b) - yr(a)) > 1.0: out.append(dict(t=round(b['t'], 4), tu=round(yr(a), 3), toi=round(yr(b), 3)))
+        if b["t"] - a["t"] <= 1 / 24 + 1e-6 and abs(yr(b) - yr(a)) > 0.1: out.append(dict(t=round(b['t'], 4), tu=round(yr(a), 3), toi=round(yr(b), 3)))
     return out
 
 def main():
@@ -148,11 +166,11 @@ def main():
         tb = tl_buoc(o, d)
         log.append(dict(shot=sh['id'], dong_loi=sh['lines'], goc=sh.get('goc', 'cao'), tl=True, vai=sh['vai'], noi=sh['noi'], nguoi=sh['id'] in ('C3',), diem_may=sh['diem'], cam=o['cam'], loai=sh['loai'],
                         dur=d, t0=round(t_abs, 3), t1=round(t_abs + d, 3), thoi_gian=[dict(t=k['t'], at=k['at']) for k in o['time']], tl_buoc=tb, tl_buoc_n=len(tb),
-                        cau=[dict(dong=x['dong'], t=round(x['bd'] - t_abs, 3), cau=x['cau']) for x in L], chuong=sh.get('chuong'), ghi=sh.get('ghi'), tieu_diem=[k for k, _ in sh['td']],
+                        cau=[dict(dong=x['dong'], t=round(x['bd'] - t_abs, 3), cau=x['cau']) for x in L], su_kien=SU_KIEN.get(sh['id'], []), moc=o['time'][0]['at'], bac='xem tieu_diem/ghi + meta lop của cảnh', nguon='reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py', chuong=sh.get('chuong'), ghi=sh.get('ghi'), tieu_diem=[k for k, _ in sh['td']],
                         luot_thap=sh.get('luot_thap') or False, khung_neo=False, ai_image=False, ai_texture=False, nc=bool(o.get('nc'))))
         t_abs += d
     E = dict(id='k2c-t3-v7c', title='Why Gibraltar Was Besieged 14 Times — V7C pilot (layout + density, path A, 540p, G1 v4.2 narration)', brand='MOVING PARTS', channel='k2', out=OUT,
-             music=[dict(file='assets/k2/music/Tyrant.mp3', **{'from': 'H1'}, ss=2.55, gain_db=-6)], sources={}, numbers={}, khung_sach=True, heroes=heroes, segments=segs)
+             music=[dict(file='assets/k2/music/Tyrant.mp3', **{'from': 'H1'}, ss=2.55, gain_db=-6)], sources={}, numbers={}, khung_sach=True, log_shot='log-shot-v7c.json', nhip_vat='nhip-vat-v7c.json', xem_cam='xem-cam-v7c.json', heroes=heroes, segments=segs)
     hdr = '# TỆP SINH TỰ ĐỘNG bởi v7p/mk_ep_v7c.py (lời khoá v4.2 SHA 51d1c773…, nhịp reports/kl42/nhip-that.json B). Đừng sửa tay.\n'
     (HERE / 'episode-v7c.yaml').write_text(hdr + yaml.safe_dump(E, allow_unicode=True, sort_keys=False, width=200))
     def ts(x): h, r = divmod(x, 3600); m, s2 = divmod(r, 60); return f'{int(h):02d}:{int(m):02d}:{s2:06.3f}'.replace('.', ',')
@@ -160,6 +178,10 @@ def main():
     (HERE / 'v7c-loi.json').write_text(json.dumps(dict(ghi='đặt stem G1 v4.2 (KL42) theo nhịp B (như V7B)', tong_s=round(t_abs, 3), dong=loi), ensure_ascii=False, indent=1) + '\n')
     (HERE / 'log-shot-v7c.json').write_text(json.dumps(log, ensure_ascii=False, indent=1) + '\n')
     (HERE / 'cut-plan-v7c.json').write_text(json.dumps(cut) + '\n')
+    cau1 = {}
+    for sh in log:
+        for x in sh['cau']: cau1.setdefault(x['dong'], x['cau'])   # câu ĐẦU của mỗi dòng lời
+    (HERE / 'nhip-vat-v7c.json').write_text(json.dumps(dict(nhip=[dict(id=d, chinh=True, cau=cau1[d][:40], vat=[dict(loai=l, shot=sh) for l, sh in v]) for d, v in NHIP if d in cau1]), ensure_ascii=False, indent=1) + '\n')
     nb = sum(x['tl_buoc_n'] for x in log)
     print(f'{len(segs)} shot · {t_abs:.3f} s · {len(srt)} câu · {len(segs) / (t_abs / 60):.2f} cắt/phút (shot) · {(len(segs) + nb) / (t_abs / 60):.2f} nếu tính {nb} bước năm · TB {t_abs / len(segs):.1f} s/shot')
 
