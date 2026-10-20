@@ -4,8 +4,18 @@
  "clip": {
   "c2": "Clear late-morning daylight, 2026. The town of La Línea de la Concepción with low apartment blocks, terracotta tile roofs and flat roofs, streets, an airport runway on the flat sandy isthmus, the bay with calm blue sea water, and the limestone Rock of Gibraltar with green Mediterranean scrub.",
   "c4": "Daylight, 1779. A flat sandy isthmus with dry grass, rows of military tents and earthworks of a siege camp, the calm sea on both sides, and the limestone Rock of Gibraltar in the distance.",
-  "c1": "Night, 1782. The bay at night under moonlight, burning floating batteries on the water with bright fire and smoke exactly where the control shows them, a fortified old town with a few dim lamps, dark sea and the limestone Rock."
+  "c1": "Night, 1782. The bay at night under moonlight, burning floating batteries on the water with bright fire and smoke exactly where the control shows them, a fortified old town with a few dim lamps, dark sea and the limestone Rock.",
+  "bcs": "Daylight, 1782. Floating batteries firing at a fortified old town from the bay, white gun smoke drifting over the water exactly where the control shows it, a bastioned limestone fortress, houses with terracotta tile roofs, the sea."
  },
  "neg": "new buildings, extra ships, boats, airplanes, cars, stadium, crowds, soldiers, people, campfires, explosions, fire, smoke, flags, text, watermark, logo, subtitles, cartoon, CGI, 3D render, video game, toy, miniature, oversaturated, blurry, distorted, flicker",
- "neg_c1": "new buildings, extra ships, boats, airplanes, stadium, crowds, soldiers, campfires, extra fires in the streets, explosions in the town, flags, text, watermark, logo, subtitles, cartoon, CGI, 3D render, video game, toy, miniature, oversaturated, blurry, distorted, flicker"
+ "neg_c1": "new buildings, extra ships, boats, airplanes, stadium, crowds, soldiers, campfires, extra fires in the streets, explosions in the town, flags, text, watermark, logo, subtitles, cartoon, CGI, 3D render, video game, toy, miniature, oversaturated, blurry, distorted, flicker",
+ "_map": {
+  "c1": "c1",
+  "c2": "c2",
+  "c4B": "c4",
+  "c4A": "c4",
+  "g-hero": "c2",
+  "g-vay-ham": "c4",
+  "g-bo-chien-su": "bcs"
+ }
 }
