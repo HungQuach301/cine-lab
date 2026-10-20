@@ -12,6 +12,8 @@ music:
 sources: {}
 numbers: {}
 khung_sach: true
+loi_khoa: ../loi-khoa.txt
+claims_md: ../claims-vay-ham.md
 log_shot: log-shot-v7c.json
 nhip_vat: nhip-vat-v7c.json
 xem_cam: xem-cam-v7c.json
@@ -81,6 +83,13 @@ heroes:
         - -200
         - 900
         - 1500
+      nc:
+        bakes:
+        - &id013
+          dir: b2026
+          wY:
+          - 1960
+          - 2030
       rimPhe:
       - es
       dur: 12.0
@@ -957,6 +966,24 @@ heroes:
           r: 220
           h: 60
           n: 10
+      nc:
+        bakes:
+        - *id013
+        - &id027
+          dir: b1779
+          wY:
+          - 1300
+          - 1781.278
+        - &id025
+          dir: b1782
+          wY:
+          - 1782.5
+          - 1783.0
+          fire:
+            wY:
+            - 1782.70046
+            - 1782.703082
+            k: 1.5
       rimPhe:
       - es
       dur: 16.0
@@ -1049,70 +1076,70 @@ heroes:
         - 600
         - 800
       fires:
-      - at: &id014
+      - at: &id015
         - -1517.679053604841
         - -706.1311166928107
         wY:
         - 1782.70046
         - 1782.703082
         size: 34
-      - at: &id015
+      - at: &id016
         - -1498.194819470432
         - -844.7686463166306
         wY:
         - 1782.70049
         - 1782.703082
         size: 34
-      - at: &id016
+      - at: &id017
         - -1478.7105853360229
         - -983.4061759404503
         wY:
         - 1782.70052
         - 1782.703082
         size: 34
-      - at: &id017
+      - at: &id018
         - -1459.2263512016136
         - -1122.04370556427
         wY:
         - 1782.70055
         - 1782.703082
         size: 34
-      - at: &id018
+      - at: &id019
         - -1439.7421170672046
         - -1260.68123518809
         wY:
         - 1782.70058
         - 1782.703082
         size: 34
-      - at: &id019
+      - at: &id020
         - -1420.2578829327954
         - -1399.31876481191
         wY:
         - 1782.70061
         - 1782.703082
         size: 34
-      - at: &id020
+      - at: &id021
         - -1400.7736487983864
         - -1537.95629443573
         wY:
         - 1782.70064
         - 1782.703082
         size: 34
-      - at: &id021
+      - at: &id022
         - -1381.2894146639771
         - -1676.5938240595497
         wY:
         - 1782.70067
         - 1782.703082
         size: 34
-      - at: &id022
+      - at: &id023
         - -1361.805180529568
         - -1815.2313536833694
         wY:
         - 1782.7007
         - 1782.703082
         size: 34
-      - at: &id023
+      - at: &id024
         - -1342.320946395159
         - -1953.8688833071892
         wY:
@@ -1145,7 +1172,7 @@ heroes:
           - 0
         - - 1704.591872
           - 1
-      - at: &id013
+      - at: &id014
         - -600
         - -1268
         kind: union1707
@@ -1163,7 +1190,7 @@ heroes:
         w: 6
         'on': 1704.591644
         toward: 110
-      - at: *id013
+      - at: *id014
         kind: burgundy
         scale: 1.5
         pole: 12
@@ -1187,7 +1214,7 @@ heroes:
       recl: false
       fleets:
       - list:
-        - at: *id014
+        - at: *id015
           kind: battery
           path:
           - - 1782.699401
@@ -1196,7 +1223,7 @@ heroes:
           - - 1782.699715
             - -1517.679053604841
             - -706.1311166928107
-        - at: *id015
+        - at: *id016
           kind: battery
           path:
           - - 1782.699401
@@ -1205,7 +1232,7 @@ heroes:
           - - 1782.699715
             - -1498.194819470432
             - -844.7686463166306
-        - at: *id016
+        - at: *id017
           kind: battery
           path:
           - - 1782.699401
@@ -1214,7 +1241,7 @@ heroes:
           - - 1782.699715
             - -1478.7105853360229
             - -983.4061759404503
-        - at: *id017
+        - at: *id018
           kind: battery
           path:
           - - 1782.699401
@@ -1223,7 +1250,7 @@ heroes:
           - - 1782.699715
             - -1459.2263512016136
             - -1122.04370556427
-        - at: *id018
+        - at: *id019
           kind: battery
           path:
           - - 1782.699401
@@ -1232,7 +1259,7 @@ heroes:
           - - 1782.699715
             - -1439.7421170672046
             - -1260.68123518809
-        - at: *id019
+        - at: *id020
           kind: battery
           path:
           - - 1782.699401
@@ -1241,7 +1268,7 @@ heroes:
           - - 1782.699715
             - -1420.2578829327954
             - -1399.31876481191
-        - at: *id020
+        - at: *id021
           kind: battery
           path:
           - - 1782.699401
@@ -1250,7 +1277,7 @@ heroes:
           - - 1782.699715
             - -1400.7736487983864
             - -1537.95629443573
-        - at: *id021
+        - at: *id022
           kind: battery
           path:
           - - 1782.699401
@@ -1259,7 +1286,7 @@ heroes:
           - - 1782.699715
             - -1381.2894146639771
             - -1676.5938240595497
-        - at: *id022
+        - at: *id023
           kind: battery
           path:
           - - 1782.699401
@@ -1268,7 +1295,7 @@ heroes:
           - - 1782.699715
             - -1361.805180529568
             - -1815.2313536833694
-        - at: *id023
+        - at: *id024
           kind: battery
           path:
           - - 1782.699401
@@ -1284,8 +1311,6 @@ heroes:
         phe: es
         coScale: 1.5
       - list:
-        - at: *id014
-          kind: battery
         - at: *id015
           kind: battery
         - at: *id016
@@ -1303,6 +1328,8 @@ heroes:
         - at: *id022
           kind: battery
         - at: *id023
+          kind: battery
+        - at: *id024
           kind: battery
         heading: 172
         wY:
@@ -1679,7 +1706,7 @@ heroes:
         seed: 89
         alpha: 0.8
       units:
-      - at: *id013
+      - at: *id014
         heading: 270
         rows: 3
         cols: 17
@@ -1723,6 +1750,9 @@ heroes:
           r: 220
           h: 60
           n: 10
+      nc:
+        bakes:
+        - *id025
       rimPhe:
       - es
       dur: 5.0
@@ -1828,7 +1858,7 @@ heroes:
           n: 200
           width: 6
           women: true
-          colors: &id024
+          colors: &id026
           - '#3d4a5a'
           - '#e7e0cf'
           - '#7a2f2a'
@@ -1842,7 +1872,7 @@ heroes:
           - 4
           - 12
           speed: 1.3
-          colors: *id024
+          colors: *id026
         birds:
           c:
           - 0
@@ -1860,6 +1890,13 @@ heroes:
         - -900
         - 600
         - 900
+      nc:
+        bakes:
+        - dir: b1940
+          wY:
+          - 1900
+          - 1960
+        - *id013
       rimPhe:
       - es
       dur: 10.8333
@@ -2178,6 +2215,9 @@ heroes:
         rim: true
       campFlags: true
       hideCampTrees: true
+      nc:
+        bakes:
+        - *id027
       rimPhe:
       - es
       campRows: true
@@ -2777,6 +2817,9 @@ heroes:
           r: 300
           h: 60
           n: 12
+      nc:
+        bakes:
+        - *id027
       rimPhe:
       - es
       dur: 12.0
@@ -3540,7 +3583,7 @@ heroes:
         seed: 533
         rim: false
       co:
-      - at: &id025
+      - at: &id028
         - -600
         - -1268
         kind: union1707
@@ -3558,7 +3601,7 @@ heroes:
         w: 6
         'on': 1704.591644
         toward: 110
-      - at: *id025
+      - at: *id028
         kind: burgundy
         scale: 1.5
         pole: 12
@@ -3592,6 +3635,9 @@ heroes:
       - -1160
       - 0
       - -880
+      nc:
+        bakes:
+        - *id027
       rimPhe:
       - es
       dur: 14.125
@@ -3893,7 +3939,7 @@ heroes:
           - '#3d4a5a'
         seed: 1780
       co:
-      - at: &id026
+      - at: &id029
         - -600
         - -1268
         kind: union1707
@@ -3911,7 +3957,7 @@ heroes:
         w: 6
         'on': 1704.591644
         toward: 110
-      - at: *id026
+      - at: *id029
         kind: burgundy
         scale: 1.5
         pole: 12
@@ -4020,6 +4066,9 @@ heroes:
         - 1780.122951
         seed: 720
         rim: false
+      nc:
+        bakes:
+        - *id027
       rimPhe:
       - es
       dur: 13.5
@@ -4394,7 +4443,7 @@ heroes:
         - line: MAIN
           n: 110
           width: 4
-          colors: &id027
+          colors: &id030
           - '#e7e0cf'
           - '#5e4a38'
           - '#3d4a5a'
@@ -4424,7 +4473,7 @@ heroes:
         - line: SOUTH
           n: 160
           width: 10
-          colors: *id027
+          colors: *id030
           free: false
         lines:
           SOUTH:
@@ -4447,7 +4496,7 @@ heroes:
           h: 90
           n: 10
       co:
-      - at: &id028
+      - at: &id031
         - -600
         - -1268
         kind: union1707
@@ -4465,7 +4514,7 @@ heroes:
         w: 6
         'on': 1704.591644
         toward: 110
-      - at: *id028
+      - at: *id031
         kind: burgundy
         scale: 1.5
         pole: 12
@@ -4494,6 +4543,13 @@ heroes:
           - 0
         - - 1704.591872
           - 1
+      nc:
+        bakes:
+        - *id027
+        - dir: b1781r
+          wY:
+          - 1781.278
+          - 1782.5
       rimPhe:
       - es
       dur: 12.5
@@ -4711,6 +4767,10 @@ segments:
       frame0: 0
       tl: true
       chuong:
+        s: 1779 — The Great Siege
+        at: 0.4
+        dur: 3.0
+      the_chuong:
         s: 1779 — The Great Siege
         at: 0.4
         dur: 3.0
