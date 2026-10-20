@@ -11,3 +11,14 @@ channel-k2/*/v5b1-thu/**/*-1080p.mp4
 channel-k2/*/v5b1-thu/*-1080p.mp4
 # P2-1710 (17/10/2026, ZZ4 chủ dự án duyệt): bản 1080p V5b-1 khi đẩy LFS PHẢI đổi tên thành `gib20-1080p.mp4` (gạch nối, khớp mẫu trên).
 # KHÔNG thêm mẫu gạch dưới `*_1080p.mp4`; tệp `gib20_1080p.mp4` không được đẩy dưới tên đó.
+# P-2010b (20/10/2026, chủ dự án duyệt trong lệnh P-2010b việc 1 và 3; Kinh thánh §14.6 "master âm thanh phát hành PHẢI vào LFS kèm SHA"):
+# master giọng T3 (WAV + FLAC) + nguồn tải từ lịch sử ElevenLabs; 8 bản nhạc Scott Buckley T3 (K2-MUS-6…13). Danh mục + SHA: SHA256SUMS trong từng thư mục.
+channel-k2/k2c-t3-01/am-thanh/master/*
+assets/k2/music/sb_intervention_nomelody.mp3
+assets/k2/music/sb_signaltonoise_nomelody.mp3
+assets/k2/music/Katabasis_I.mp3
+assets/k2/music/Juggernaut.mp3
+assets/k2/music/sb_neverdying.mp3
+assets/k2/music/sb_undertow.mp3
+assets/k2/music/Echoes.mp3
+assets/k2/music/sb_hiraeth.mp3
