@@ -1,0 +1,2 @@
+export K2TL_CACHE=/var/tmp/cine-out/k2tl-cache NC_DESIGN=/tmp/claude-0/-home-user-cine-lab/4a602fe8-8b10-5848-98cb-b4e3f5ebccf3/scratchpad/v7b/design NC_SCRIPTS=/tmp/claude-0/-home-user-cine-lab/4a602fe8-8b10-5848-98cb-b4e3f5ebccf3/scratchpad/v7b/scripts/k2tl
+S=/tmp/claude-0/-home-user-cine-lab/4a602fe8-8b10-5848-98cb-b4e3f5ebccf3/scratchpad; CPU=/home/user/cine-lab/design/pt/cpu; GPU=/home/user/cine-lab/design/pt/gpu; O=/var/tmp/cine-out/nc; G=/var/tmp/cine-out/ncg

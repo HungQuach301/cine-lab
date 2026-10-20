@@ -1,0 +1,537 @@
+{
+ "vay-ham": {
+  "nguoi": 3,
+  "A": {
+   "craft": 5.0,
+   "realism": 5.0,
+   "detail": 4.0,
+   "toy_like": 5.0,
+   "ai_look": 4.0,
+   "flags": [
+    "flat_slide_look",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Cleanest and most saturated. Grass has believable mottling and the tree clumps are dense. The camps are flat tan rectangles with tiny dark tent specks. The sea is a flat blue field, and the rock is small and far away.",
+    "Best-looking terrain: richer green vegetation, dark tree clusters and a deep blue sea with natural contrast. The camps are flat tan rectangles with tiny dark specks, so they read as plots and not tents or troops. The fortified rock is small and distant. Little sense of siege.",
+    "Cleanest and sharpest frame. The grass is textured and the sea and rock read well. The camps are flat tan rectangles with tiny dark tent dots, so they look like painted strips. There is no sign of troops, lines or fortifications."
+   ],
+   "hang1": 2
+  },
+  "V7B": {
+   "craft": 4.33,
+   "realism": 4.33,
+   "detail": 4.33,
+   "toy_like": 5.33,
+   "ai_look": 4.0,
+   "flags": [
+    "flat_slide_look",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "The ground is blotchy, with pale patches that look like a texture error. Trees are sparse dots. The camps are still tan slabs with specks, and the sea is a flat blue band.",
+    "The yellow-olive ground is more saturated and flatter. Patchy green texture and sparse tree dots look like a map overlay. The camps are bright flat yellow slabs with scattered specks. The sea is vivid but graphic. Lighting is uniform.",
+    "Similar to A, with patchier ground and scattered trees that add some variety. The camps are still flat strips with specks. The ground colour is a bit saturated and yellow-green. It has a little more detail than A but is no more readable."
+   ],
+   "hang1": 1
+  },
+  "C": {
+   "craft": 4.33,
+   "realism": 4.33,
+   "detail": 4.67,
+   "toy_like": 6.67,
+   "ai_look": 4.67,
+   "flags": [
+    "noisy",
+    "toy_look",
+    "unreadable_scale",
+    "washed_out"
+   ],
+   "note": [
+    "The haze gives some atmospheric depth, and the distant rock and ships read well. The foreground is smeared by a heavy blur. The camps are grids of grey cubes that look like game pieces.",
+    "Atmospheric haze adds depth and the rock is more recognisable. Large grey cube tents on sand look like game pieces. The foreground has a smeared, blurry texture that reads as a rendering artifact. Washed-out colour.",
+    "Haze flattens the colour, and the foreground is smeared by blur. The camp tents are uniform grey cubes in a grid, which looks like game pieces. The distant rock and ships read slightly better because of the haze."
+   ],
+   "hang1": 0
+  },
+  "B": {
+   "craft": 4.33,
+   "realism": 4.33,
+   "detail": 4.67,
+   "toy_like": 6.67,
+   "ai_look": 4.67,
+   "flags": [
+    "confusing",
+    "noisy",
+    "toy_look",
+    "unreadable_scale",
+    "washed_out"
+   ],
+   "note": [
+    "Same as C, plus a dark diagonal road or line through the field and faint grid lines across the terrain. The line adds some narrative but looks like a stray artifact. The cube grid and foreground blur are the same as C.",
+    "Same as C, plus a diagonal dark road or line and faint grid lines across the field. These add some context but look like stray geometry. The cube camps and blurry foreground are unchanged. It is slightly more cluttered and confusing than C.",
+    "Same as C, with an added diagonal dark road or line across the terrain and fine lines across the plain. These look like stray artefacts and don't read as siege works. The blurred foreground and cube tents are unchanged."
+   ],
+   "hang1": 0
+  },
+  "why": [
+   "A has the cleanest, most natural ground and colour with no blur or blotchy artifacts, though all four share flat tan camps and a flat sea. C and D add haze but also a smeared foreground and cube-grid troops, and B has the weakest ground texture.",
+   "A has the most natural colour, vegetation and water contrast with the fewest artifacts, but all four share the same toy-like, flat-plot camps. C and D gain haze and depth but suffer from a smeared foreground and cube tents, and B is the flattest and most map-like.",
+   "A and B are sharp and colourful, with believable terrain and sea. C and D add haze and a smeared foreground and show the camps as grey cube grids. D also has confusing stray lines."
+  ],
+  "sua_ban_tot": [
+   "Replace the tan slabs and specks with real camp structures: rows of tents with shadows, fences, earthworks, smoke from fires, and troop columns. Add wave texture and sun glints to the sea, and pull the camera lower and closer so the camps and the rock read at scale.",
+   "Replace the flat tan rectangles and speck dots in A with real camp geometry: rows of tents with shadows, dirt paths, smoke from campfires, trenches and earthworks, and troop columns, with a lower, closer camera angle, golden-hour raking light and atmospheric haze toward the rock.",
+   "Replace the flat tan camp rectangles and speck tents in B with real camp structures. That means tents with varied sizes and shadows, trenches, earthworks and gun batteries facing the rock, with smoke or campfires. Lower the camera for scale, and add a hazy atmosphere without blurring the foreground."
+  ]
+ },
+ "cang": {
+  "nguoi": 3,
+  "V7B": {
+   "craft": 5.0,
+   "realism": 4.33,
+   "detail": 4.33,
+   "toy_like": 5.67,
+   "ai_look": 5.0,
+   "flags": [
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Saturated cartoon-blue water with a sparkly noise pattern. Ships are tiny and sit in pink halos, like game markers. The town is a muddy brown blob. Bright and clear, but it looks like a game.",
+    "The saturated cyan water has a repeating tile pattern and looks like a game ocean. The ships are tiny, and the pink halos around them look like debug markers. The sky is pleasant, but the empty water takes up too much of the frame.",
+    "Saturated game-like blue water with a repeating tile pattern. Ships have pink halo markers that look like game pieces. The hill is decent, but the empty sea fills most of the frame."
+   ],
+   "hang1": 0
+  },
+  "B": {
+   "craft": 7.33,
+   "realism": 7.33,
+   "detail": 6.0,
+   "toy_like": 2.67,
+   "ai_look": 3.67,
+   "flags": [
+    "unreadable_scale",
+    "washed_out"
+   ],
+   "note": [
+    "Hazy atmosphere, deep realistic ocean with fine ripples, and a red-roofed town with rocky, vegetated terrain. Looks like a real aerial view. Ships are very small and pale. The sky is a bit empty and washed.",
+    "The most cinematic and believable of the four, with deep navy water, atmospheric haze, a textured rocky hill and red-roofed town. The ships are small, pale and indistinct. The sky is a bit flat and hazy, and the water is empty.",
+    "Atmospheric haze, darker believable sea, and a rocky hill with red roofs that reads as a real place. Ships are tiny and pale. Most of the frame is empty water, and the sky is flat."
+   ],
+   "hang1": 2
+  },
+  "C": {
+   "craft": 7.0,
+   "realism": 7.33,
+   "detail": 6.0,
+   "toy_like": 2.67,
+   "ai_look": 3.67,
+   "flags": [
+    "unreadable_scale",
+    "washed_out"
+   ],
+   "note": [
+    "Nearly identical to B. The ships are slightly fainter and the haze slightly heavier, so the convoy reads a little less well. Same strong realism.",
+    "Almost identical to B. The ships are a touch softer and the haze slightly heavier. It has the same realistic tone and the same low-contrast, empty-sea problem.",
+    "Almost identical to B, with a slightly clearer town and a less heavy haze. The convoy is still tiny and low-contrast."
+   ],
+   "hang1": 1
+  },
+  "A": {
+   "craft": 6.0,
+   "realism": 5.33,
+   "detail": 5.33,
+   "toy_like": 4.67,
+   "ai_look": 4.67,
+   "flags": [
+    "noisy",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "More natural water than A, with wake streaks and foam patches. Still the pink halos around the ships, a saturated blue sky and a muddy town. Better than A, but it keeps the game-marker look.",
+    "The sky and water are richer than in A, and the wake streaks and a visible horizon add some life. The pink halos under the ships still look like game markers. The water is somewhat noisy and the colours are saturated.",
+    "Better sky and sea foam than A, and a more natural water tone. The pink halos around the ships still look like game markers, and the town is hazy and flat."
+   ],
+   "hang1": 0
+  },
+  "why": [
+   "B and C look like real atmospheric aerial shots with a believable town and sea. A and D have cartoon-saturated water and pink ship halos that look like game pieces.",
+   "B and C have the most believable atmosphere, water and terrain, with a natural palette and haze that gives depth. D and A are more saturated, with game-like water and halo markers around the ships.",
+   "B and C look like a real, hazy Mediterranean harbour. A and D have saturated game-like water and pink-ringed ship markers, so they look like toys."
+  ],
+  "sua_ban_tot": [
+   "Make the convoy bigger and darker so it reads against the haze. Move the camera closer or lower, or enlarge the ships. Add white sails and wakes, and some smoke or a foreground ship, so the scale and the 'relief convoy' subject read at phone size.",
+   "Make the ships bigger and easier to read: add sail detail, wakes, gun smoke and warm rim light, with a foreground hero ship or closer camera, and add some contrast and sky interest to break up the flat haze.",
+   "Make the convoy the subject: move the camera closer or lower, or enlarge and add contrast to the ships (darker hulls, white sails, wakes, gun smoke). Crop out the empty foreground water. Add a warmer sky with cloud and sun-side light so the frame is less washed out."
+  ]
+ },
+ "pho-day": {
+  "nguoi": 3,
+  "A": {
+   "craft": 7.0,
+   "realism": 7.0,
+   "detail": 6.0,
+   "toy_like": 3.0,
+   "ai_look": 4.0,
+   "flags": [],
+   "note": [
+    "Best atmosphere. Water has natural colour variation, with shallows and wave streaks. Warm, muted terracotta roofs and soft haze make it look like a believable aerial photo. The town is a bit sparse at the edges, and the ships are tiny.",
+    "Best overall. The water has believable colour variation, shallows and wave streaks. Roofs are muted and weathered, and the grass and terrain have natural variation. The town edge is fairly sparse, with some blocky scattered houses on the right. The ships are tiny but credible.",
+    "Best atmosphere. Water has believable colour variation and shallows, and the haze and soft light give depth. Roofs have natural weathered tones and the terrain looks organic. The town is a bit sparse and the ships are tiny."
+   ],
+   "hang1": 3
+  },
+  "V7B": {
+   "craft": 5.0,
+   "realism": 4.0,
+   "detail": 5.0,
+   "toy_like": 5.33,
+   "ai_look": 4.33,
+   "flags": [
+    "flat_slide_look",
+    "noisy",
+    "toy_look"
+   ],
+   "note": [
+    "Water is saturated electric blue with a noisy, flat pattern. The town is blocky and the ground is a bare tan patch. Roofs look like game pieces. It reads as a generic 3D-engine render.",
+    "The water is a saturated, noisy blue texture that looks like a game shader. The buildings are boxy and tan. The ground is a flat bare yellow-green. The horizon is dark and hard-edged.",
+    "Water is an oversaturated, noisy blue texture that looks like a game shader. Buildings are more boxy and the ground is a flat tan. The horizon is darker and harsher. More game-like than A."
+   ],
+   "hang1": 0
+  },
+  "C": {
+   "craft": 6.0,
+   "realism": 5.0,
+   "detail": 7.0,
+   "toy_like": 5.33,
+   "ai_look": 5.0,
+   "flags": [
+    "cluttered",
+    "toy_look",
+    "washed_out"
+   ],
+   "note": [
+    "Dense, rich town with hazy depth and good scale. The water is a flat dark navy gradient with no texture. Roofs are saturated red and the streets are chalky white, so it looks like a miniature. Crisp building blocks.",
+    "The town is denser and the layout is more readable. The red roofs are uniformly saturated and the walls are white or pale blue, so they look like miniature game pieces. The water is a flat dark navy with no surface detail. The haze flattens the contrast.",
+    "Denser town with more buildings, but the saturated red roofs and white-blue walls look like game pieces. The water is a flat dark navy gradient with no surface texture. The sky is hazy and washed out. Terrain is smoother."
+   ],
+   "hang1": 0
+  },
+  "B": {
+   "craft": 6.0,
+   "realism": 5.0,
+   "detail": 7.0,
+   "toy_like": 5.67,
+   "ai_look": 5.0,
+   "flags": [
+    "cluttered",
+    "toy_look",
+    "washed_out"
+   ],
+   "note": [
+    "Nearly the same as C, with extra dark shadow blocks and trees in the fields. It adds some detail but also visual noise. The water is still flat navy. The red roofs against white streets still look like a toy model.",
+    "Nearly identical to C. It adds dark shadow boxes and some noise in the foliage that read as artifacts. The roofs are still too bright and uniform, and the water is flat.",
+    "Almost the same as C, with extra dark shadow blocks and noise on the buildings that look like scattered game pieces. The water is the same flat navy. The hills have a faint grid-like texture pattern."
+   ],
+   "hang1": 0
+  },
+  "why": [
+   "A is the only frame where water, land and atmosphere look like a real place rather than saturated game-engine colour fields.",
+   "A is the only version with natural water, grounded colour and weathered materials. C and D have more buildings but look like a toy model with flat water, and B has a noisy, flat look.",
+   "A is the only version where water, light and haze read as a real place, while C and D have a denser town but toy-like roofs and flat water, and B's noisy, oversaturated water and boxy buildings look like a game."
+  ],
+  "sua_ban_tot": [
+   "Add more building density and variation out to the town edges. Add tiny people, carts, chimney smoke and harbour activity. Make the ships larger and give them wakes. Keep A's water and haze.",
+   "Increase the density and variety of the town (more buildings with varied, desaturated roof tones, chimneys and smoke), and add visible detail along the harbour, such as people, boats, a quay and a ship wake. Then add a little more atmospheric depth, such as softer haze and cast shadows.",
+   "Make the town denser and more varied, with more buildings filling the sparse right and centre. Add visible harbour activity such as larger ships, wakes, quay figures and smoke. Keep A's water and haze."
+  ]
+ },
+ "hero": {
+  "nguoi": 3,
+  "A": {
+   "craft": 7.0,
+   "realism": 6.0,
+   "detail": 7.0,
+   "toy_like": 4.67,
+   "ai_look": 3.67,
+   "flags": [
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Rich blue sky and sea, with a rocky, textured mountain and a warm, cohesive town. The foreground is plain grey tarmac with blocky white buildings. It looks like a game map.",
+    "Strong blue sky, warm sun, saturated sea and a rocky, shaded mountain. The airport apron and the white blocks in the foreground read as flat untextured grey.",
+    "Saturated blue sky and sea, rocky textured mountain with a clear silhouette, dense town with terracotta roofs. Foreground white blocks and the flat grey runway look like a maquette. The pitch has a visible pattern. Strongest depth and contrast."
+   ],
+   "hang1": 3
+  },
+  "C": {
+   "craft": 5.0,
+   "realism": 4.0,
+   "detail": 6.0,
+   "toy_like": 5.33,
+   "ai_look": 4.67,
+   "flags": [
+    "flat_slide_look",
+    "noisy",
+    "toy_look",
+    "washed_out"
+   ],
+   "note": [
+    "Hazy and faded. The rock is smeared and blurry with a pale blue-white texture. The sea is flat. The red roofs add some life, but the contrast is low.",
+    "Hazy, low-contrast and pale. The mountain is smeared and blurry with a snow-like texture. The orange roofs pop, but the whole frame looks like a flat map.",
+    "Hazy, desaturated look that lowers contrast. The mountain is a blurry white and green smear that looks like a low-res texture. Orange roofs pop against the bleached ground. The sea is flat. Atmospheric but muddy."
+   ],
+   "hang1": 0
+  },
+  "V7B": {
+   "craft": 7.0,
+   "realism": 6.0,
+   "detail": 7.0,
+   "toy_like": 4.67,
+   "ai_look": 3.67,
+   "flags": [
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Nearly the same as A. The distant headland is dark green with a hard edge and a mirror-like reflection. That is a small sticker-like flaw. The rest is strong colour and contrast.",
+    "Almost identical to A. The distant headland is dark green, which adds depth but looks slightly odd, and the sea is slightly more saturated. The foreground is still flat grey.",
+    "Nearly the same as A, with good colour and mountain texture. The distant headland is dark, close and hard-edged, so it looks pasted on and breaks the atmospheric depth. The blue sea is a bit more uniform."
+   ],
+   "hang1": 0
+  },
+  "B": {
+   "craft": 5.0,
+   "realism": 4.0,
+   "detail": 6.0,
+   "toy_like": 5.33,
+   "ai_look": 4.67,
+   "flags": [
+    "flat_slide_look",
+    "noisy",
+    "toy_look",
+    "washed_out"
+   ],
+   "note": [
+    "Very similar to B, with the same haze and blurred mountain. The sea looks flat and the sky is empty. It is the least punchy of the four.",
+    "Same as B, with a hazy grey-white sky and a smeared mountain. It has a little less roof colour than B and is the flattest of the four.",
+    "Same hazy treatment as B, with even less colour in the sea and sky. The mountain texture is blurry. The foreground is bleached and the white blocks are toy-like. It has the weakest contrast and the least sense of place."
+   ],
+   "hang1": 0
+  },
+  "why": [
+   "A and C have saturated colour, depth and a more textured mountain and sea. B and D are hazy and blurry and look washed out, with a smeared rock.",
+   "A and C have real sky, contrast, shaded rock and saturated sea, so they look cinematic. B and D are washed out and the mountain texture is muddy.",
+   "A and C have strong colour, contrast and a readable rock-city-runway layout, while B and D are washed out with a smeared mountain texture; A edges C because its distant headland sits naturally in the haze."
+  ],
+  "sua_ban_tot": [
+   "Add real surface texture and people-scale detail to the empty grey tarmac and blocky white foreground buildings. For example, add aircraft, vehicles, runway markings, window and roof variation, and shadows. Also give the sea soft wave highlights and a few ships with wakes to cut the game-map look.",
+   "Add texture and variation to the foreground airport apron and the white building blocks. Use asphalt and concrete detail, roof variation and ambient-occlusion shadows. Then add a few aircraft, vehicles or people so the scale reads clearly.",
+   "Break up the flat grey runway and the white foreground blocks with texture, weathering, markings, vehicles and shadows. Add light haze, so the scene stops looking like a maquette. Add small detail such as aircraft, ships with wakes and people."
+  ]
+ },
+ "toan-canh": {
+  "nguoi": 3,
+  "V7B": {
+   "craft": 4.0,
+   "realism": 3.0,
+   "detail": 4.0,
+   "toy_like": 6.67,
+   "ai_look": 4.0,
+   "flags": [
+    "flat_slide_look",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Saturated flat blue water and flat olive ground. Ships sit on bright magenta discs that read as game markers. Buildings are tiny orange blocks. Looks like a map or game.",
+    "Saturated flat blue water and flat green ground. Ships sit on pink or magenta discs that look like game tokens. The town is a patch of orange blocks with little texture.",
+    "Saturated flat-blue water, magenta discs under the ships look like game markers, and the ground is a flat colour field. The camera is higher and flatter, so it reads like a map. The town is a mass of orange roof blocks."
+   ],
+   "hang1": 0
+  },
+  "C": {
+   "craft": 6.33,
+   "realism": 6.33,
+   "detail": 5.67,
+   "toy_like": 3.67,
+   "ai_look": 3.67,
+   "flags": [
+    "cluttered",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Natural deep-blue water with a horizon gradient, atmospheric haze and textured scrub terrain. Ships look like small ships. Red roofs are a bit uniform and saturated, but the frame is believable and cinematic.",
+    "Hazy atmosphere, a natural deep-blue water gradient, and textured scrub terrain. The roofs are a saturated red that is a bit uniform. Ships are tiny but sit cleanly on the water.",
+    "Hazy atmosphere, a natural water gradient and textured scrub give good depth. The red roofs are oversaturated and uniform. The ships are tiny and sit on clean water with no wakes."
+   ],
+   "hang1": 1
+  },
+  "A": {
+   "craft": 6.67,
+   "realism": 5.67,
+   "detail": 6.33,
+   "toy_like": 4.33,
+   "ai_look": 3.67,
+   "flags": [
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Better water with foam and wake, and better terrain than A. The magenta discs under the ships still look like toy bases. Muted orange roofs are more natural, but the harbour shoreline has odd cutout shapes.",
+    "Best overall. Roof tones are muted and varied, which suits the period. The water has wake, foam and shallows, and the haze adds depth. The ships are on magenta halos that still look a bit gamey. The shoreline cutout at lower left looks odd.",
+    "The best water, with wakes, foam and shallows, and the roofs are more muted and varied, so the town looks believable. The magenta discs under the ships are a leftover marker look. The shoreline has some odd cut-out shapes at lower left."
+   ],
+   "hang1": 2
+  },
+  "B": {
+   "craft": 4.33,
+   "realism": 5.0,
+   "detail": 5.0,
+   "toy_like": 4.0,
+   "ai_look": 4.67,
+   "flags": [
+    "broken_render",
+    "cluttered",
+    "noisy"
+   ],
+   "note": [
+    "Same look as B, but black rectangular shadow or geometry artifacts are scattered across the town and a dark band crosses the hillside. These read as render errors and distract.",
+    "This is B with black artifacts: black shadow slivers and blocks scattered through the town, and a dark diagonal band across the hillside. The terrain also shows dark streaks, so the frame looks glitched.",
+    "It looks like B but with black shadow or rendering artifacts scattered across the town. There are dark streaks on the hill at right and the ships have dark underside patches. The glitches break the image."
+   ],
+   "hang1": 0
+  },
+  "why": [
+   "B has the most natural water, haze and terrain texture, with no toy markers and no render glitches; A looks like a game map and D has visible black artifacts.",
+   "C has the most believable colour, water and atmosphere with no render errors. B is close but flatter. A reads as a toy diorama, and D has visible black-shadow glitches.",
+   "C has the most convincing water, a muted palette and a believable town, and its only real flaw is the marker discs under the ships. B is clean but less detailed, D has visible black artifacts, and A is a flat, toy-like map view."
+  ],
+  "sua_ban_tot": [
+   "Vary the roof colours and building heights so the town reads as organic and not repeated red blocks. Add smoke, small figures and wakes to the fleet, and soften the saturated red.",
+   "Remove the magenta halos under the ships and give them wakes and shadows that match the water. Then add smoke, people and small boats in the harbour so the town reads at human scale.",
+   "Remove the magenta discs under the ships and give each ship a soft wake and a natural shadow. Then clean up the odd cut-out shoreline shapes at lower left and break up the uniform roof colour with weathering and varied tones."
+  ]
+ },
+ "bo-chien-su": {
+  "nguoi": 3,
+  "A": {
+   "craft": 6.0,
+   "realism": 5.0,
+   "detail": 6.0,
+   "toy_like": 6.0,
+   "ai_look": 3.67,
+   "flags": [
+    "toy_look"
+   ],
+   "note": [
+    "Smoke plumes, a muzzle flash and a flag give the battle action and drama. The water has sparkle. The ground is a flat beige or grey wash, and the buildings still look like orange blocks.",
+    "Smoke plumes, the muzzle-flash glow and a flag show active battle, and the water has sparkle and texture. The buildings are still extruded blocks, and the smoke is a soft translucent blob. The ground is a bit noisy and flat. Of the four, this one best reads as a battle.",
+    "Smoke plumes from the battery line and a muzzle-flash glow give the shot action and make it read as a battle. Water is richer. Buildings are still extruded orange blocks, and the ground is a flat tan or green colour field."
+   ],
+   "hang1": 1
+  },
+  "C": {
+   "craft": 5.0,
+   "realism": 4.0,
+   "detail": 5.0,
+   "toy_like": 7.0,
+   "ai_look": 3.67,
+   "flags": [
+    "flat_slide_look",
+    "toy_look",
+    "unreadable_scale",
+    "washed_out"
+   ],
+   "note": [
+    "Clean and readable, but there is no sign of battle. The ships sit in a neat row, and the pale speckled ground and pastel blocks look like a map or game board.",
+    "Calm, bright and clean, with no smoke or action, so the battle story is missing. The ships are tiny, and the ground is a speckled white noise texture. The orange-roofed block buildings look like game pieces, and the water is a flat gradient.",
+    "Clean but static. There is no smoke or action, so the battle isn't visible. Red roofs are saturated and look like game pieces. Ships are tiny dark specks."
+   ],
+   "hang1": 0
+  },
+  "V7B": {
+   "craft": 6.33,
+   "realism": 5.33,
+   "detail": 6.0,
+   "toy_like": 5.67,
+   "ai_look": 3.67,
+   "flags": [
+    "toy_look"
+   ],
+   "note": [
+    "Same smoke and flash as A, but the ground is cleaner and warmer. The earth tones and the contrast with the blue sea are better. Buildings are still simple blocks.",
+    "Same battle content as A. The ground is smoother and more muted, with less noisy streaking, so the town reads a little cleaner. It is slightly cleaner than A, but the buildings are still blocks and the smoke is vague.",
+    "Near-identical to A, with smoke, flash and a flag on the fort. Ground is smoother and flatter, with less texture variation than A. Slightly more washed-out and flat on the left."
+   ],
+   "hang1": 2
+  },
+  "B": {
+   "craft": 5.0,
+   "realism": 4.0,
+   "detail": 5.0,
+   "toy_like": 7.0,
+   "ai_look": 3.67,
+   "flags": [
+    "confusing",
+    "flat_slide_look",
+    "toy_look",
+    "washed_out"
+   ],
+   "note": [
+    "Like B, with some black block buildings that read as odd artefacts. There is no action, and the scene reads as a static model.",
+    "Like B but with odd black building blocks that read as render glitches. There is no smoke or action, the ground is washed-out noise, and the ships are tiny.",
+    "Like B but with odd black or dark box buildings in the town that look like rendering errors. No battle action. Ships are tiny."
+   ],
+   "hang1": 0
+  },
+  "why": [
+   "C and A show an actual bombardment, with smoke, fire and flag, which gives the shot a narrative, and C has the cleaner and more natural ground. B and D are static, with toy-like blocks and a speckled, map-like ground.",
+   "C and A are the only versions that show an attack, with smoke, a muzzle flash and a flag, and C has the cleaner ground. B and D are static, washed-out and toy-like, and D adds odd black blocks.",
+   "A and C show the bombardment with smoke and muzzle flash, while B and D are static with tiny ships, and D adds odd black blocks."
+  ],
+  "sua_ban_tot": [
+   "Replace the flat, untextured roofs and walls in C with weathered, varied materials. Add small figures such as troops and gun crews, return fire and splashes around the ships, and thicker foreground smoke with depth-of-field to break the model-diorama look.",
+   "Replace the extruded block buildings and the soft smoke blobs with textured, varied roofs and walls, and with volumetric billowing smoke carrying visible cannon flashes and splashes. Add tiny troops and ship detail such as sails, hulls and broadside fire so the scale reads as a real battle.",
+   "Replace the flat extruded block buildings and plain ground with textured walls, varied roof tones and roads. Enlarge and add detail to the floating batteries so the attack reads clearly, and keep the smoke."
+  ]
+ },
+ "tb_A": {
+  "craft": 6.28,
+  "realism": 5.67,
+  "detail": 5.78,
+  "toy_like": 4.61,
+  "ai_look": 3.95,
+  "hang1": 11
+ },
+ "tb_B": {
+  "craft": 5.33,
+  "realism": 4.94,
+  "detail": 5.61,
+  "toy_like": 5.22,
+  "ai_look": 4.39,
+  "hang1": 2
+ },
+ "tb_C": {
+  "craft": 5.61,
+  "realism": 5.17,
+  "detail": 5.72,
+  "toy_like": 5.11,
+  "ai_look": 4.23,
+  "hang1": 2
+ },
+ "tb_V7B": {
+  "craft": 5.28,
+  "realism": 4.5,
+  "detail": 5.11,
+  "toy_like": 5.56,
+  "ai_look": 4.11,
+  "hang1": 3
+ },
+ "chi_phi": 1.1
+}

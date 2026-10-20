@@ -1,0 +1,45 @@
+{
+ "A": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 7,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "unreadable_scale"
+  ],
+  "note": "The water is a saturated flat-blue field with no depth or reflection. The ships sit on glowing magenta discs that look like game tokens. The terrain is flat yellow-green and the sky is clean but generic. The town is readable, but the roofs are uniform orange blocks."
+ },
+ "B": {
+  "craft": 5,
+  "realism": 5,
+  "detail": 4,
+  "toy_like": 5,
+  "ai_look": 3,
+  "flags": [
+   "flat_slide_look",
+   "cluttered"
+  ],
+  "note": "This has the most natural, muted palette, with atmospheric haze on the distant hills and darker water. The magenta discs are gone, so the ships read as small hulls. The saturated red roofs are noisy and look like a texture pattern. The water is still plain with no wake or foam. The right hillside has some shading and vegetation, and a faint straight line across the field reads as an artefact."
+ },
+ "C": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 4,
+  "ai_look": 3,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "This is the richest frame. The water has varied tone, foam, wakes and a shallow-water edge. The sky and hills have haze. The roofs are less saturated and more varied. The ships still have magenta halos, which cheapen them. The shoreline foam on the left has a slightly stencilled look."
+ },
+ "rank": [
+  "C",
+  "B",
+  "A"
+ ],
+ "why": "C has the most believable water, atmosphere and tonal variation, while A's flat blue water and glowing ship markers look like a game map and B is calmer but plain and noisy.",
+ "top_fix_for_best": "Remove the magenta halos under the ships and give them proper hulls, masts, sails and wakes with soft contact shadows. Then add smoke plumes and small troop or ship detail so the fleet reads as a real fleet."
+}

@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 7, "realism": 7, "detail": 6, "toy_like": 3, "ai_look": 4, "flags": [], "note": "Best overall. The water has believable colour variation, shallows and wave streaks. Roofs are muted and weathered, and the grass and terrain have natural variation. The town edge is fairly sparse, with some blocky scattered houses on the right. The ships are tiny but credible."},
+ "B": {"craft": 5, "realism": 4, "detail": 5, "toy_like": 5, "ai_look": 4, "flags": ["flat_slide_look", "noisy"], "note": "The water is a saturated, noisy blue texture that looks like a game shader. The buildings are boxy and tan. The ground is a flat bare yellow-green. The horizon is dark and hard-edged."},
+ "C": {"craft": 6, "realism": 5, "detail": 7, "toy_like": 6, "ai_look": 5, "flags": ["toy_look", "washed_out"], "note": "The town is denser and the layout is more readable. The red roofs are uniformly saturated and the walls are white or pale blue, so they look like miniature game pieces. The water is a flat dark navy with no surface detail. The haze flattens the contrast."},
+ "D": {"craft": 6, "realism": 5, "detail": 7, "toy_like": 6, "ai_look": 5, "flags": ["toy_look", "washed_out"], "note": "Nearly identical to C. It adds dark shadow boxes and some noise in the foliage that read as artifacts. The roofs are still too bright and uniform, and the water is flat."},
+ "rank": ["A", "C", "D", "B"],
+ "why": "A is the only version with natural water, grounded colour and weathered materials. C and D have more buildings but look like a toy model with flat water, and B has a noisy, flat look.",
+ "top_fix_for_best": "Increase the density and variety of the town (more buildings with varied, desaturated roof tones, chimneys and smoke), and add visible detail along the harbour, such as people, boats, a quay and a ship wake. Then add a little more atmospheric depth, such as softer haze and cast shadows."}
+```

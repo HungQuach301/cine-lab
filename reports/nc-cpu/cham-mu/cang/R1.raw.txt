@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 5, "realism": 4, "detail": 5, "toy_like": 6, "ai_look": 6, "flags": ["toy_look", "unreadable_scale"], "note": "Saturated cartoon-blue water with a sparkly noise pattern. Ships are tiny and sit in pink halos, like game markers. The town is a muddy brown blob. Bright and clear, but it looks like a game."},
+ "B": {"craft": 8, "realism": 8, "detail": 7, "toy_like": 2, "ai_look": 4, "flags": ["unreadable_scale"], "note": "Hazy atmosphere, deep realistic ocean with fine ripples, and a red-roofed town with rocky, vegetated terrain. Looks like a real aerial view. Ships are very small and pale. The sky is a bit empty and washed."},
+ "C": {"craft": 7, "realism": 8, "detail": 7, "toy_like": 2, "ai_look": 4, "flags": ["unreadable_scale", "washed_out"], "note": "Nearly identical to B. The ships are slightly fainter and the haze slightly heavier, so the convoy reads a little less well. Same strong realism."},
+ "D": {"craft": 6, "realism": 5, "detail": 6, "toy_like": 5, "ai_look": 5, "flags": ["toy_look", "noisy"], "note": "More natural water than A, with wake streaks and foam patches. Still the pink halos around the ships, a saturated blue sky and a muddy town. Better than A, but it keeps the game-marker look."},
+ "rank": ["B", "C", "D", "A"],
+ "why": "B and C look like real atmospheric aerial shots with a believable town and sea. A and D have cartoon-saturated water and pink ship halos that look like game pieces.",
+ "top_fix_for_best": "Make the convoy bigger and darker so it reads against the haze. Move the camera closer or lower, or enlarge the ships. Add white sails and wakes, and some smoke or a foreground ship, so the scale and the 'relief convoy' subject read at phone size."}
+```
