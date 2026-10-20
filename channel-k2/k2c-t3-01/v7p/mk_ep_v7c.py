@@ -99,8 +99,8 @@ def shots():
     o = copy.deepcopy(B['C3']['opt']); o.update(nc=nc('1779'), rimPhe=['es'])
     g = random.Random(1780); FOR = [(-126 + 16 * g.random(), -973 + 13 * g.random(), g.random() * 360) for _ in range(6)] + [(-138 + 40 * g.random(), -968 + 18 * g.random(), g.random() * 360) for _ in range(8)] + [(-150 + 45 * g.random(), -950 + 44 * g.random(), g.random() * 360) for _ in range(20)]   # 14 cặp trong 12–35 m trước máy, 20 cặp xa hơn (tới chân lâu đài)
     o['units'] = [u for u in o['units'] if u.get('side') == 'gb' or u.get('uni') not in ('woman', 'civ')]
-    o['units'] = [dict(at=[e, n], heading=hd, rows=1, cols=2, sx=2.4, side=None, uni='woman' if i % 2 else 'civ', kind='woman' if i % 2 else 'civ', crew=True, lean=0.7 if i < 6 else 0.45, leanFrac=1.0 if i < 6 else 0.8, day=[1779, 1784], seed=500 + i, rim=False)
-                  for i, (e, n, hd) in enumerate(FOR)]   # 6 cặp gần nhất (12–25 m trước máy) cúi sâu 40° (xem câm nháp: 'không thấy đói') + [u for u in o['units'] if u.get('side') == 'gb']
+    o['units'] = [dict(at=[e, n], heading=hd, rows=1, cols=2, sx=2.4, side=None, uni='woman' if i % 2 else 'civ', kind='woman' if i % 2 else 'civ', crew=True, lean=0.5 if i < 6 else 0.45, leanFrac=1.0 if i < 6 else 0.8, day=[1779, 1784], seed=500 + i, rim=False)
+                  for i, (e, n, hd) in enumerate(FOR)]   # 6 cặp gần nhất (12–25 m trước máy) cúi 29° (40°: 2/3 người chấm 640 đọc thành 'ngã lăn') (xem câm nháp: 'không thấy đói') + [u for u in o['units'] if u.get('side') == 'gb']
     o['time'] = [dict(t=0, at='1780-01-14 10:00', sun='real', lab='d'), dict(t=4.5, at='1780-01-14 12:00', sun='real', lab='d'), dict(t=7.6, at='1780-01-14 15:00', sun='real', lab='d'),
                  dict(t=8.4, at='1780-01-14 15:30', sun=15.0, lab='d'), dict(t=14.125, at='1780-01-16 15:30', sun=15.0, lab='d')]
     S.append(dict(id='C3', lines=['2d', '2e'], diem='Ca2', vai='co-che', noi='thanh_pho', loai='pho', opt=o, td=[('hai_rau', [0, 4.5]), ('line_wall', [4.5, 99])], luot_thap=[0, 4.5],
