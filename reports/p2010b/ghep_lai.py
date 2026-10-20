@@ -17,6 +17,8 @@ os.environ['KL_OUT'] = str(PO / 'kl'); sys.path.insert(0, str(R / 'reports/kl42'
 import kl_lib as K  # noqa: E402
 import thu  # noqa: E402
 import ghep as G  # noqa: E402
+import functools  # noqa: E402
+_giai_ma = functools.lru_cache(maxsize=None)(G.mono); G.mono = lambda p: _giai_ma(p).copy()   # giải mã mỗi tệp một lần (chỉ tăng tốc, cùng kết quả)
 SR = G.SR; LS = PO / 'lich-su'; ST = PO / 'stem'; ST.mkdir(parents=True, exist_ok=True)
 KT = json.loads((R / 'reports/kl42/kiem-tap.json').read_text())['chuong']
 NT = json.loads((R / 'reports/kl42/nhip-that.json').read_text())
@@ -40,15 +42,13 @@ def tre(x, t0, t, n=2.5, w=int(0.6 * SR)):
 
 
 flat = lambda dd: [c for d in dd for c in d['cau']]
+# (c) câu cũ 1i#0 nối liền câu thay 1i#1 (khoảng ngừng gốc 0,08 s) nên độ trễ (b) không phân biệt được độ dài cũ của nó: đo riêng bằng do_khe.py —
+#     70 ms âm của bản thu chương ở 95,561 s (khoảng ngừng gốc sau câu cũ) nằm ở 94,875 s chương trong bản xem gốc (tương quan 1,0) → câu cũ kết thúc 95,306 s
+#     (mốc trước ghép), tức độ dài cũ 95,306 − 89,733 = 5,573 s. Giá trị ban đầu; vòng (b) vẫn chỉnh tiếp nếu lệch.
+DUR0 = {('1i', 0): 5.573}
 THAY = [dict(t, tep=str(LS / f"01-thay-{t['shot']}-{t['i']}.mp3")) for t in json.loads((R / 'reports/kl42/thay.json').read_text())]
-# thử nghiệm (P-2010b, ghi trong báo cáo): CAT_1I0 = số mẫu giữ của tệp câu thay 1i#0 (bản gốc nghi ngắn hơn bản lịch sử); DUR0 = độ dài câu cũ 1i#0 ban đầu
-if os.environ.get('CAT_1I0'):
-    t = [t for t in THAY if t['chon'] and t['shot'] == '1i' and t['i'] == 0][0]; yy = G.mono(t['tep'])[:int(os.environ['CAT_1I0'])]
-    t['tep'] = str(PO / f"thay-1i0-cat{os.environ['CAT_1I0']}.wav"); G.lib.write(t['tep'], yy[:, None], codec='pcm_f32le')
-CHI = os.environ.get('CHI_CHUONG')
 G.THAY = THAY; out = dict(ghi=__doc__.splitlines()[0], chuong=[]); full = np.zeros(0, np.float32); M = dict(chuong=[], gap_chuong=G.GAP_CH, sr=SR)
 for cid, ss in K.doan_v42():
-    if CHI and cid[:2] != CHI: continue
     P = thu.phan(ss); cau_kl = KT[cid]['cau']; t0 = T0[cid]; k = 0; tgt_p = []; rep = dict(chuong=cid, t0_stem=t0, phan=[])
     for i, p in enumerate(P):   # mốc chương (sau ghép) của từng phần, theo đúng cách tách phần/câu của thu.py
         doan = []
@@ -73,7 +73,7 @@ for cid, ss in K.doan_v42():
     for i in range(1, len(tgt_p)):   # ước đầu cho (a): đo vị trí phần 2 bằng độ trễ mẫu so với phần 1, với r0 giả định rồi sửa
         r0[i] = tgt_p[i][2] + 0.08
     TH = [(t['shot'], t['i'], t['kt'] - t['bd']) for t in THAY if t['chon'] and t['chuong'] == cid[:2]]
-    idx = {(c['shot'], c['i']): j for j, c in enumerate(cau_kl)}; dur_cu = {(s_, i_): (float(os.environ['DUR0']) if (s_, i_) == ('1i', 0) and os.environ.get('DUR0') else d_) for s_, i_, d_ in TH}; vong = []
+    idx = {(c['shot'], c['i']): j for j, c in enumerate(cau_kl)}; dur_cu = {(s_, i_): DUR0.get((s_, i_), d_) for s_, i_, d_ in TH}; vong = []
     rec = dung_rec(r0); tgt = [(c['bd'], c['kt']) for c in cau_kl]
     for ngoai in range(10):
         ALL = lambda: sum([flat(q['doan']) for q in rec['phan']], [])
@@ -101,7 +101,6 @@ for cid, ss in K.doan_v42():
     rep.update(vong_can=vong, lap_ngoai=ngoai + 1, lech_moc_max=round(err, 4), giay=round(len(x) / SR, 3), ngung_noi=round(g, 3),
                r0_phan2=[round(v, 4) for v in r0[1:]], dur_cu={f'{a}#{b}': v for (a, b), v in dur_cu.items()},
                phan=[dict(tep=Path(t).name, off=round(o, 5), giay_trim=round(n / SR, 3)) for t, _, o, n in tgt_p])
-    json.dump(rec, open(ST / f'rec-{cid[:2]}.json', 'w'), ensure_ascii=False, indent=1)
     G.lib.write(str(ST / f'{cid[:2]}.wav'), x[:, None]); ts = len(full) / SR + (G.GAP_CH if len(full) else 0.0)
     full = np.concatenate([full, np.zeros(int(round((ts - len(full) / SR) * SR)), np.float32), x])
     M['chuong'].append(dict(chuong=cid, bd_stem=round(ts, 3), giay=round(len(x) / SR, 3), ngung_noi=round(g, 3), so_phan=len(tgt_p),

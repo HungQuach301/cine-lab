@@ -2,6 +2,35 @@
  "ghi": "P-2010b · việc 1 bước 3: ghép lại stem lời KL42 từ audio lịch sử ElevenLabs bằng CHÍNH reports/kl42/ghep.py (chuong(), ghep_cau(), cùng hằng số).",
  "chuong": [
   {
+   "chuong": "00 HOOK",
+   "t0_stem": 0.0,
+   "phan": [
+    {
+     "tep": "00-HOOK-p0.mp3",
+     "off": 0.0,
+     "giay_trim": 42.678
+    }
+   ],
+   "vong_can": [
+    {
+     "tre_phan1": [
+      95.49,
+      0.9993
+     ],
+     "phan": [],
+     "thay": []
+    }
+   ],
+   "lap_ngoai": 1,
+   "lech_moc_max": 0.0,
+   "giay": 42.678,
+   "ngung_noi": 0.928,
+   "r0_phan2": [],
+   "dur_cu": {},
+   "bd_stem": 0.0,
+   "lech_t0_stem": 0.0
+  },
+  {
    "chuong": "01 ROCK",
    "t0_stem": 44.678,
    "phan": [
@@ -26,36 +55,36 @@
         0.9946
        ],
        "tre_sau": [
-        111.5,
+        109.5,
         0.9929
        ],
-       "lech_mau": 2.01,
+       "lech_mau": 0.01,
        "dur_cu": 5.573
       },
       {
        "cau": "1i#1",
        "tre_trong": [
-        111.5,
+        109.5,
         0.9921
        ],
        "tre_sau": [
-        17967.5,
+        17917.5,
         0.9979
        ],
-       "lech_mau": 17856.0,
+       "lech_mau": 17808.0,
        "dur_cu": 3.297
       },
       {
        "cau": "1k#0",
        "tre_trong": [
-        111.5,
+        109.5,
         0.9972
        ],
        "tre_sau": [
-        -992.51,
+        -1042.51,
         0.9954
        ],
-       "lech_mau": -1104.01,
+       "lech_mau": -1152.01,
        "dur_cu": 8.266
       }
      ]
@@ -74,37 +103,37 @@
         0.9946
        ],
        "tre_sau": [
-        111.5,
+        109.5,
         0.9929
        ],
-       "lech_mau": 2.01,
+       "lech_mau": 0.01,
        "dur_cu": 5.573
       },
       {
        "cau": "1i#1",
        "tre_trong": [
-        111.5,
+        109.5,
         0.9921
        ],
        "tre_sau": [
-        111.49,
+        109.49,
         0.9967
        ],
        "lech_mau": -0.01,
-       "dur_cu": 2.925
+       "dur_cu": 2.926
       },
       {
        "cau": "1k#0",
        "tre_trong": [
-        111.5,
+        109.5,
         0.9972
        ],
        "tre_sau": [
-        -17744.51,
+        -17698.51,
         0.9947
        ],
-       "lech_mau": -17856.01,
-       "dur_cu": 8.289
+       "lech_mau": -17808.01,
+       "dur_cu": 8.29
       }
      ]
     },
@@ -122,369 +151,33 @@
         0.9946
        ],
        "tre_sau": [
-        111.5,
+        109.5,
         0.9929
        ],
-       "lech_mau": 2.01,
+       "lech_mau": 0.01,
        "dur_cu": 5.573
       },
       {
        "cau": "1i#1",
        "tre_trong": [
-        111.5,
+        109.5,
         0.9921
        ],
        "tre_sau": [
-        111.49,
-        0.9967
-       ],
-       "lech_mau": -0.01,
-       "dur_cu": 2.925
-      },
-      {
-       "cau": "1k#0",
-       "tre_trong": [
-        111.5,
-        0.9972
-       ],
-       "tre_sau": [
-        111.49,
-        0.9955
-       ],
-       "lech_mau": -0.01,
-       "dur_cu": 8.661
-      }
-     ]
-    },
-    {
-     "tre_phan1": [
-      109.51,
-      0.9954
-     ],
-     "phan": [],
-     "thay": [
-      {
-       "cau": "1i#0",
-       "tre_trong": [
         109.49,
-        0.9946
-       ],
-       "tre_sau": [
-        111.5,
-        0.9929
-       ],
-       "lech_mau": 2.01,
-       "dur_cu": 5.573
-      },
-      {
-       "cau": "1i#1",
-       "tre_trong": [
-        111.5,
-        0.9921
-       ],
-       "tre_sau": [
-        111.49,
         0.9967
        ],
        "lech_mau": -0.01,
-       "dur_cu": 2.925
+       "dur_cu": 2.926
       },
       {
        "cau": "1k#0",
        "tre_trong": [
-        111.5,
+        109.5,
         0.9972
        ],
        "tre_sau": [
-        111.49,
-        0.9955
-       ],
-       "lech_mau": -0.01,
-       "dur_cu": 8.661
-      }
-     ]
-    },
-    {
-     "tre_phan1": [
-      109.51,
-      0.9954
-     ],
-     "phan": [],
-     "thay": [
-      {
-       "cau": "1i#0",
-       "tre_trong": [
         109.49,
-        0.9946
-       ],
-       "tre_sau": [
-        111.5,
-        0.9929
-       ],
-       "lech_mau": 2.01,
-       "dur_cu": 5.573
-      },
-      {
-       "cau": "1i#1",
-       "tre_trong": [
-        111.5,
-        0.9921
-       ],
-       "tre_sau": [
-        111.49,
-        0.9967
-       ],
-       "lech_mau": -0.01,
-       "dur_cu": 2.925
-      },
-      {
-       "cau": "1k#0",
-       "tre_trong": [
-        111.5,
-        0.9972
-       ],
-       "tre_sau": [
-        111.49,
-        0.9955
-       ],
-       "lech_mau": -0.01,
-       "dur_cu": 8.661
-      }
-     ]
-    },
-    {
-     "tre_phan1": [
-      109.51,
-      0.9954
-     ],
-     "phan": [],
-     "thay": [
-      {
-       "cau": "1i#0",
-       "tre_trong": [
-        109.49,
-        0.9946
-       ],
-       "tre_sau": [
-        111.5,
-        0.9929
-       ],
-       "lech_mau": 2.01,
-       "dur_cu": 5.573
-      },
-      {
-       "cau": "1i#1",
-       "tre_trong": [
-        111.5,
-        0.9921
-       ],
-       "tre_sau": [
-        111.49,
-        0.9967
-       ],
-       "lech_mau": -0.01,
-       "dur_cu": 2.925
-      },
-      {
-       "cau": "1k#0",
-       "tre_trong": [
-        111.5,
-        0.9972
-       ],
-       "tre_sau": [
-        111.49,
-        0.9955
-       ],
-       "lech_mau": -0.01,
-       "dur_cu": 8.661
-      }
-     ]
-    },
-    {
-     "tre_phan1": [
-      109.51,
-      0.9954
-     ],
-     "phan": [],
-     "thay": [
-      {
-       "cau": "1i#0",
-       "tre_trong": [
-        109.49,
-        0.9946
-       ],
-       "tre_sau": [
-        111.5,
-        0.9929
-       ],
-       "lech_mau": 2.01,
-       "dur_cu": 5.573
-      },
-      {
-       "cau": "1i#1",
-       "tre_trong": [
-        111.5,
-        0.9921
-       ],
-       "tre_sau": [
-        111.49,
-        0.9967
-       ],
-       "lech_mau": -0.01,
-       "dur_cu": 2.925
-      },
-      {
-       "cau": "1k#0",
-       "tre_trong": [
-        111.5,
-        0.9972
-       ],
-       "tre_sau": [
-        111.49,
-        0.9955
-       ],
-       "lech_mau": -0.01,
-       "dur_cu": 8.661
-      }
-     ]
-    },
-    {
-     "tre_phan1": [
-      109.51,
-      0.9954
-     ],
-     "phan": [],
-     "thay": [
-      {
-       "cau": "1i#0",
-       "tre_trong": [
-        109.49,
-        0.9946
-       ],
-       "tre_sau": [
-        111.5,
-        0.9929
-       ],
-       "lech_mau": 2.01,
-       "dur_cu": 5.573
-      },
-      {
-       "cau": "1i#1",
-       "tre_trong": [
-        111.5,
-        0.9921
-       ],
-       "tre_sau": [
-        111.49,
-        0.9967
-       ],
-       "lech_mau": -0.01,
-       "dur_cu": 2.925
-      },
-      {
-       "cau": "1k#0",
-       "tre_trong": [
-        111.5,
-        0.9972
-       ],
-       "tre_sau": [
-        111.49,
-        0.9955
-       ],
-       "lech_mau": -0.01,
-       "dur_cu": 8.661
-      }
-     ]
-    },
-    {
-     "tre_phan1": [
-      109.51,
-      0.9954
-     ],
-     "phan": [],
-     "thay": [
-      {
-       "cau": "1i#0",
-       "tre_trong": [
-        109.49,
-        0.9946
-       ],
-       "tre_sau": [
-        111.5,
-        0.9929
-       ],
-       "lech_mau": 2.01,
-       "dur_cu": 5.573
-      },
-      {
-       "cau": "1i#1",
-       "tre_trong": [
-        111.5,
-        0.9921
-       ],
-       "tre_sau": [
-        111.49,
-        0.9967
-       ],
-       "lech_mau": -0.01,
-       "dur_cu": 2.925
-      },
-      {
-       "cau": "1k#0",
-       "tre_trong": [
-        111.5,
-        0.9972
-       ],
-       "tre_sau": [
-        111.49,
-        0.9955
-       ],
-       "lech_mau": -0.01,
-       "dur_cu": 8.661
-      }
-     ]
-    },
-    {
-     "tre_phan1": [
-      109.51,
-      0.9954
-     ],
-     "phan": [],
-     "thay": [
-      {
-       "cau": "1i#0",
-       "tre_trong": [
-        109.49,
-        0.9946
-       ],
-       "tre_sau": [
-        111.5,
-        0.9929
-       ],
-       "lech_mau": 2.01,
-       "dur_cu": 5.573
-      },
-      {
-       "cau": "1i#1",
-       "tre_trong": [
-        111.5,
-        0.9921
-       ],
-       "tre_sau": [
-        111.49,
-        0.9967
-       ],
-       "lech_mau": -0.01,
-       "dur_cu": 2.925
-      },
-      {
-       "cau": "1k#0",
-       "tre_trong": [
-        111.5,
-        0.9972
-       ],
-       "tre_sau": [
-        111.49,
         0.9955
        ],
        "lech_mau": -0.01,
@@ -493,23 +186,227 @@
      ]
     }
    ],
-   "lap_ngoai": 10,
+   "lap_ngoai": 3,
    "lech_moc_max": 0.0,
    "giay": 128.09,
    "ngung_noi": 0.674,
    "r0_phan2": [],
    "dur_cu": {
     "1i#0": 5.573,
-    "1i#1": 2.925,
+    "1i#1": 2.926,
     "1k#0": 8.661
    },
-   "bd_stem": 0.0,
-   "lech_t0_stem": -44.678
+   "bd_stem": 44.678,
+   "lech_t0_stem": 0.0
+  },
+  {
+   "chuong": "02 SIEGE",
+   "t0_stem": 174.768,
+   "phan": [
+    {
+     "tep": "02-SIEGE-p0.mp3",
+     "off": 0.03262,
+     "giay_trim": 129.72
+    },
+    {
+     "tep": "02-SIEGE-p1.mp3",
+     "off": 0.0,
+     "giay_trim": 86.564
+    }
+   ],
+   "vong_can": [
+    {
+     "tre_phan1": [
+      117.5,
+      0.9898
+     ],
+     "phan": [
+      {
+       "phan": 1,
+       "tre": [
+        3957.5,
+        0.9966
+       ],
+       "lech_mau": 3840.0,
+       "r0": 0.08
+      }
+     ],
+     "thay": []
+    },
+    {
+     "tre_phan1": [
+      117.5,
+      0.9898
+     ],
+     "phan": [
+      {
+       "phan": 1,
+       "tre": [
+        117.5,
+        0.9963
+       ],
+       "lech_mau": 0.0,
+       "r0": 0.0
+      }
+     ],
+     "thay": []
+    }
+   ],
+   "lap_ngoai": 2,
+   "lech_moc_max": 0.0,
+   "giay": 217.143,
+   "ngung_noi": 0.859,
+   "r0_phan2": [
+    0.0
+   ],
+   "dur_cu": {},
+   "bd_stem": 174.768,
+   "lech_t0_stem": 0.0
+  },
+  {
+   "chuong": "03 NEUTRAL",
+   "t0_stem": 393.912,
+   "phan": [
+    {
+     "tep": "03-NEUTRAL-p0.mp3",
+     "off": 0.0,
+     "giay_trim": 79.737
+    }
+   ],
+   "vong_can": [
+    {
+     "tre_phan1": [
+      87.5,
+      0.9947
+     ],
+     "phan": [],
+     "thay": []
+    }
+   ],
+   "lap_ngoai": 1,
+   "lech_moc_max": 0.0,
+   "giay": 79.737,
+   "ngung_noi": 0.923,
+   "r0_phan2": [],
+   "dur_cu": {},
+   "bd_stem": 393.912,
+   "lech_t0_stem": -0.0
+  },
+  {
+   "chuong": "04 RUNWAY",
+   "t0_stem": 475.649,
+   "phan": [
+    {
+     "tep": "04-RUNWAY-p0.mp3",
+     "off": 0.0,
+     "giay_trim": 105.094
+    }
+   ],
+   "vong_can": [
+    {
+     "tre_phan1": [
+      103.5,
+      0.9953
+     ],
+     "phan": [],
+     "thay": []
+    }
+   ],
+   "lap_ngoai": 1,
+   "lech_moc_max": 0.0,
+   "giay": 105.094,
+   "ngung_noi": 0.981,
+   "r0_phan2": [],
+   "dur_cu": {},
+   "bd_stem": 475.649,
+   "lech_t0_stem": 0.0
+  },
+  {
+   "chuong": "05 GATE",
+   "t0_stem": 582.743,
+   "phan": [
+    {
+     "tep": "05-GATE-p0.mp3",
+     "off": 0.0,
+     "giay_trim": 130.635
+    },
+    {
+     "tep": "05-GATE-p1.mp3",
+     "off": 0.0,
+     "giay_trim": 19.365
+    }
+   ],
+   "vong_can": [
+    {
+     "tre_phan1": [
+      80.5,
+      0.9974
+     ],
+     "phan": [
+      {
+       "phan": 1,
+       "tre": [
+        3920.49,
+        0.9943
+       ],
+       "lech_mau": 3839.99,
+       "r0": 0.08
+      }
+     ],
+     "thay": []
+    },
+    {
+     "tre_phan1": [
+      80.5,
+      0.9974
+     ],
+     "phan": [
+      {
+       "phan": 1,
+       "tre": [
+        80.5,
+        0.9935
+       ],
+       "lech_mau": 0.0,
+       "r0": 0.0
+      }
+     ],
+     "thay": []
+    },
+    {
+     "tre_phan1": [
+      80.5,
+      0.9974
+     ],
+     "phan": [
+      {
+       "phan": 1,
+       "tre": [
+        80.5,
+        0.9935
+       ],
+       "lech_mau": 0.0,
+       "r0": 0.0
+      }
+     ],
+     "thay": []
+    }
+   ],
+   "lap_ngoai": 3,
+   "lech_moc_max": 0.0,
+   "giay": 150.789,
+   "ngung_noi": 0.789,
+   "r0_phan2": [
+    0.0
+   ],
+   "dur_cu": {},
+   "bd_stem": 582.743,
+   "lech_t0_stem": -0.0
   }
  ],
- "giay_stem": 128.09,
+ "giay_stem": 733.532,
  "giay_stem_kl42": 733.532,
- "lech_s": -605.442,
- "stem_sha256": "38236bccd383c09029d69fc8c55cdb944e5986b85118d6486a0b356f6c64e3d8",
+ "lech_s": 0.0,
+ "stem_sha256": "79ac35890190d62d6d87f0d31310ef1850ff2bd4efd264e8d9388a2d4f94ef21",
  "stem_sha256_kl42": "79ac35890190d62d6d87f0d31310ef1850ff2bd4efd264e8d9388a2d4f94ef21"
 }
