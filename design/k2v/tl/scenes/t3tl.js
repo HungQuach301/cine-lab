@@ -21,7 +21,20 @@ export const V6 = { sunK: 1.1, hemiK: 1.2, grade: [1.0, 0.35, 0.6], wave: 1.8 };
 export const META = { cau: 'v7p', vai: 'co-che', nam: null };
 const RZ_T = 1781.278;   // 12/4/1781 10:45 — pháo TBN bắn vào phố (S062); phố 'THE RUINS' (Drinkwater 1786) từ đây
 
+// V7C (việc 1, NC-D1): CÁCH A đóng gói thành tuỳ chọn cảnh opt.nc — không khai (hoặc nc: false / nc.off) → đúng đường V7B (up.js KHÔNG nạp: nó thay fog_fragment toàn cục);
+//  khai opt.nc = { bake | bakes: [{dir, wY: [năm đầu, năm cuối], fire?}], bushes, water, haze, tex, … } → bọc như design/k2v/tl/nc/ncA.js (NC-CPU) — cùng thứ tự preBuild → cảnh → postBuild.
 export async function build(ctx) {
+  const P = ctx.opt && ctx.opt.nc;
+  if (!P || P.off) return buildCore(ctx);
+  const { preBuild, postBuild } = await import('../nc/up.js');
+  const pre = await preBuild(ctx, P), SC = await buildCore(ctx), post = await postBuild(ctx, SC, P, pre), apply0 = SC.apply;
+  SC.apply = (st, t) => { apply0(st, t); post.update(st, t); };
+  SC.meta = Object.assign({}, SC.meta, { nc: post.meta });
+  globalThis.NC = { ctx, SC, post };
+  return SC;
+}
+
+export async function buildCore(ctx) {
   const { THREE, terr, scene } = ctx, o = ctx.opt || {}, fps = 24, DUR = o.dur, hAt = (e, n) => Math.max(0, terr.hAt(e, n));
   if (!(DUR > 0)) throw new Error('t3tl: thiếu opt.dur');
   const TL = timeline(o.time, { tz: o.tz ?? null }), Y0 = Math.min(...[0, DUR / 2, DUR].map(TL.year)), Ymin = (() => { let m = 1e9, M = -1e9; for (let t = 0; t <= DUR; t += 0.05) { const y = TL.year(t); m = Math.min(m, y); M = Math.max(M, y); } return [m, M]; })();
@@ -70,7 +83,7 @@ export async function build(ctx) {
   const CFL = []; if (o.campFlags && inR(1779.5, 1783.3)) for (const t of D.trai) { const a = t.pts[0], b = t.pts[t.pts.length - 1], d = Math.hypot(b[0] - a[0], b[1] - a[1]), k = Math.max(1, Math.round(d / 380));   // V7B: cờ trung đoàn (Cruz de Borgoña) dọc mỗi dãy trại TBN, ≈ 380 m một cờ; trại Pháp cờ trắng
     for (let i = 0; i <= k; i++) { const u = i / k, at = [a[0] + (b[0] - a[0]) * u - (b[1] - a[1]) / d * 50, a[1] + (b[1] - a[1]) * u + (b[0] - a[0]) / d * 50]; const G = flags([{ at, pole: 10, w: 4.0, scale: 1.5, kind: t.side === 'fr' ? 'fr_white' : 'burgundy', toward: 110, phase: i * 0.9 }], ctx); scene.add(G.group); CFL.push({ G, t }); } }
   if (CFL.length) log.lop.push({ lop: 'co_trai', n: CFL.length, nguon: 'cờ trung đoàn bộ binh TBN mang Cruz de Borgoña (thế kỷ 18) — bậc 3 mẫu; vị trí/số cờ minh hoạ (bậc 5); cỡ 4 × 2 m × 1,5', bac: 'bậc 3–5' });
-  if (o.camps !== false && inR(1779.5, 1783.3)) { CAMP = camps(D.trai, ctx); scene.add(CAMP.group);   // 35 % lều theo cửa sổ 1779 (≈ 14 000 quân), phần còn lại theo cửa sổ 1782 (≈ 40 000)
+  if (o.camps !== false && inR(1779.5, 1783.3)) { CAMP = camps(D.trai, ctx, o.campRows ? { hangLoi: true } : {}); scene.add(CAMP.group);   // 35 % lều theo cửa sổ 1779 (≈ 14 000 quân), phần còn lại theo cửa sổ 1782 (≈ 40 000)
     log.lop.push({ lop: 'trai', so_leu: CAMP.n, nguon: D.trai[0].nguon, bac: D.trai[0].bac }); }
   // ---------- hàng rào 1909 ----------
   let FEN = null; if (o.fence !== false && lines.border && inR(1908.9, 2027)) { FEN = fence(lines.border, ctx, { w: D.hang_rao_1909.w }); scene.add(FEN.group); log.lop.push({ lop: 'hang_rao_1909', nguon: D.hang_rao_1909.nguon, bac: D.hang_rao_1909.bac }); }
@@ -101,7 +114,7 @@ export async function build(ctx) {
   const SM = smk.length ? smoke(smk.map((s) => Object.assign({ zone: 'path' }, s)), ctx) : null; if (SM) scene.add(SM.group);
   // ---------- tàu / hạm đội theo năm (path theo năm thập phân) ----------
   const FLEETS = [], SF = [], RIM = []; for (const f of o.fleets || []) { const S = f.list || lineFormation(f); const F = makeFleet(ctx.U, S.map((s, i) => Object.assign({ heading: f.heading ?? 0, t: f.wY, v6: true, side: -1, burning: !!f.burning, flag: f.soai != null && i === f.soai }, s, f.path ? { path: f.path.map(([y, de, dn]) => [y, s.at[0] + de, s.at[1] + dn]) } : {}))); F.group.traverse((m) => { if (m.isMesh) ctx.maskify(m.material, ctx.U, 1); }); scene.add(F.group); FLEETS.push(F);
-    if (f.phe) { if (f.co !== false) SF.push(shipFlags(F, f.phe, ctx, { scale: f.coScale ?? 1.5 })); F.list.forEach((x, i) => RIM.push({ phe: f.phe, a: x.sp.kind === 'line' || x.sp.kind === 'battery' ? 60 : 46, b: x.sp.kind === 'line' || x.sp.kind === 'battery' ? 32 : 26, y0: 0.8, pos: () => (x.g.visible ? [x.g.position.x, -x.g.position.z, x.g.rotation.y] : null) })); } }
+    if (f.phe) { if (f.co !== false) SF.push(shipFlags(F, f.phe, ctx, { scale: f.coScale ?? 1.5 })); if (!o.rimPhe || o.rimPhe.includes(f.phe)) F.list.forEach((x, i) => RIM.push({ phe: f.phe, a: x.sp.kind === 'line' || x.sp.kind === 'battery' ? 60 : 46, b: x.sp.kind === 'line' || x.sp.kind === 'battery' ? 32 : 26, y0: 0.8, pos: () => (x.g.visible ? [x.g.position.x, -x.g.position.z, x.g.rotation.y] : null) })); } }
   if (SF.length) log.lop.push({ lop: 'co_tau', n: SF.reduce((a, x) => a + x.n, 0), scale: SF[0].scale, co_m: [SF[0].w, SF[0].h], nguon: 'Red Ensign 1707–1800 (Order in Council 21/7/1707) · cờ hải quân TBN trắng + huy hiệu 1701–1785 (FOTW es1701/es1785) · Pháp: cờ trắng', bac: 'mẫu bậc 3; cỡ ≈ 8 × 4 m bậc 4; phe của từng đoàn theo nguồn sự kiện (S054/S055/S062/S065)' });
   ctx.ships.group.visible = o.ships !== false;
   // ---------- lớp sống theo cửa sổ năm ----------
@@ -110,12 +123,15 @@ export async function build(ctx) {
     const LF = life({ era: L0.era, seed: L0.seed || 1704, walkers: (L0.walkers || []).map(fix), crowds: (L0.crowds || []).map(fix), birds: L0.birds, boats: L0.boats, chimney: L0.chimney && recs.length ? { at: chimneysFrom(recs, L0.chimney), drift: [-1.4, 0.4] } : undefined }, ctx);
     scene.add(LF.group); LIVES.push({ LF, wY: L0.wY, speed: L0.speed || 1 }); }
   const TR = o.units && o.units.length ? units(o.units, ctx) : null; if (TR) scene.add(TR.group);
+  let NG = null; if (o.ngua && inR(1779.5, 1783.3)) { const { horseLines } = await import('../ngua.js'); NG = horseLines(o.ngua, ctx); scene.add(NG.group);   /* V7C (việc 2d): ngựa kỵ binh trại 1779 (S048 "12 squadrons of horse") */
+    log.lop.push({ lop: 'ngua_trai', n: NG.n, nguon: 'S048 Drinkwater 1786: 10/1779 quân TBN có 12 squadrons of horse', bac: 'số: bậc 2 (+ cỡ đội ≈ 120 bậc 5); vị trí hàng ngựa: bậc 5; hình: bậc 4–5' }); }
+  let ST = null; if (o.pho2026 && inR(1990, 2027)) { const { streetLife } = await import('../duong2026.js'); ST = await streetLife(ctx, o.pho2026); log.lop.push(ST.log); }   /* V7C (việc 2e): cây/đèn/xe đỗ phố 2026 */
   let CSK = null; if (o.casks) { const c = o.casks, R0 = rng(1780), g = new THREE.CylinderGeometry(0.42, 0.42, 1.0, 8).rotateZ(Math.PI / 2), m = new THREE.MeshLambertMaterial({ color: 0x7a5534 }); ctx.maskify(m, ctx.U, 1);   // V7B: thùng tiếp tế chất trên Old Mole (S054 — đoàn mang lương thực; số/vị trí minh hoạ bậc 5)
     const im = new THREE.InstancedMesh(g, m, c.n), m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), Yx = new THREE.Vector3(0, 1, 0), P = []; im.castShadow = im.receiveShadow = true;
     for (let i = 0; i < c.n; i++) { const row = Math.floor(i / 30), col = i % 30, lay = Math.floor(row / 3); P.push({ e: c.at[0] + (col - 15) * 1.1 + (R0() - 0.5) * 0.2, n: c.at[1] + (row % 3 - 1) * 1.0 + Math.floor(row / 3) * 0.0 + (lay ? 0.5 : 0), y: lay * 0.82, k: R0() }); }
     scene.add(im); CSK = { im, P, update(Y) { const k = win(Y, c.wY); P.forEach((x, i) => { const on = x.k < k; m4.compose(new THREE.Vector3(x.e, Math.max(terr.hAt(x.e, x.n), 0.5) + 0.42 + x.y, -x.n), q.setFromAxisAngle(Yx, 0.1), new THREE.Vector3(on ? 1 : 0, on ? 1 : 0, on ? 1 : 0)); im.setMatrixAt(i, m4); }); im.instanceMatrix.needsUpdate = true; } };
     log.lop.push({ lop: 'thung_tiep_te', n: c.n, nguon: 'S054 (đoàn Rodney mang lương thực)', bac: 'số/vị trí/hình: minh hoạ (bậc 5)' }); }
-  if (o.units) for (const u of o.units) if (u.side && u.rim !== false && u.at) { const rows = u.rows || 3, cols = u.cols || 24; RIM.push({ phe: u.side, at: u.at, a: cols * 0.9 * (u.sx || 1) / 2 + 6, b: rows * 1.3 * (u.sz || 1) / 2 + 6, rot: (90 - (u.heading || 0)) * Math.PI / 180 + Math.PI / 2, on: () => { const d = u.day || [-1e9, 1e9]; return CUR.Y >= d[0] && CUR.Y <= d[1]; } }); }
+  if (o.units) for (const u of o.units) if (u.side && u.rim !== false && u.at && (!o.rimPhe || o.rimPhe.includes(u.side))) {   /* V7C (V7B-D4): opt.rimPhe = ['es'] → bỏ viền quanh tàu/quân Anh */ const rows = u.rows || 3, cols = u.cols || 24; RIM.push({ phe: u.side, at: u.at, a: cols * 0.9 * (u.sx || 1) / 2 + 6, b: rows * 1.3 * (u.sz || 1) / 2 + 6, rot: (90 - (u.heading || 0)) * Math.PI / 180 + Math.PI / 2, on: () => { const d = u.day || [-1e9, 1e9]; return CUR.Y >= d[0] && CUR.Y <= d[1]; } }); }
   const CUR = { Y: 0 }; const RM = RIM.length ? rims(RIM, ctx) : null; if (RM) { scene.add(RM.group); log.lop.push({ lop: 'vien_phe', n: RM.n, mau: 'BIBLE §11.1 (Anh #b03a2e, TBN #c9a227, Pháp #2e5c8a)', khi: 'máy > 1 km (mờ dần 800 → 1 200 m)', bac: 'dấu kiểu bản đồ (không phải vật trong cảnh)' }); }
   let FAD = null; if (o.faden) { FAD = await phaseMaps([{ url: `${ctx.base}layers/faden1783-v7b.png`, box: (await ctx.loadJSON(`${ctx.base}layers/faden1783-v7b.json`)).box, years: { on: -1e9 }, step: 25, lift: 1.5, opacity: o.faden.op ?? 0.88 }], ctx); scene.add(FAD.group);
     log.lop.push({ lop: 'faden1783_phu', t: o.faden.t, nguon: 'Faden 1783 (Yale 2046612, PD) nắn bằng 3 GCP (RMS 12,5 m trong vùng; ≤ 250 m ngoài) — scripts/k2tl/v7b_faden.py', bac: 'bậc 1 (tư liệu phủ khớp địa hình, TL-4)' }); }
@@ -163,6 +179,8 @@ export async function build(ctx) {
     const z = SM ? (SM.update(T), SM.zones(T)) : [];
     for (const L of LIVES) { const k = win(Y, L.wY); L.LF.group.visible = k > 0.5; if (k > 0.5) L.LF.update(T * L.speed, z); }
     if (TR) TR.update(Y, z, T);
+    if (NG) NG.update(Y);
+    if (ST) ST.update(Y);
     if (CSK) CSK.update(Y);
     if (LMP) LMP.update(st.night || 0, Y, T);
     if (RM) { for (const F of FLEETS) F.update(Y); RM.update(ctx.cam.position); } }

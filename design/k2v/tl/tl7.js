@@ -62,7 +62,7 @@ export function crossings(tl, Y, T, fps = 24) { const out = []; let p = tl.year(
 // ---------- 3. trại lều ----------
 //  spec: {pts: [[E,N],[E,N]…] (trục dãy trại), rows (số hàng lều song song), gap (m giữa lều dọc hàng), rowGap (m giữa hàng), w: {on, full, off0, off1}, w2 + frac (phần lều theo cửa sổ thứ hai), color, seed, side}
 //  Lều = lều mái chữ A vải lanh (cao 2,1 m, dài 3 m, rộng 2,4 m) — hình theo bản khắc/tranh vây hãm (Drinkwater 1786 'View of the Spanish batteries', Copley) bậc 4; số lều theo quân số bậc 2.
-export function camps(specs, ctx) {
+export function camps(specs, ctx, opt = {}) {   // V7C (việc 2d): opt.hangLoi — lều mọc theo HÀNG LỐI từ đầu dãy (phần đã dựng kín hàng, như dải trại Faden 1783) thay vì rải ngẫu nhiên khắp dãy; dải đất giẫm dài theo phần đã dựng
   const hAt = (e, n) => Math.max(ctx.terr.hAt(e, n), 0.3), group = new THREE.Group(), all = [];
   const g = new THREE.BufferGeometry(), L = 3.0, Wd = 2.4, Hh = 2.1;
   const P = [-L / 2, 0, -Wd / 2, L / 2, 0, -Wd / 2, L / 2, Hh, 0, -L / 2, 0, -Wd / 2, L / 2, Hh, 0, -L / 2, Hh, 0,  -L / 2, 0, Wd / 2, -L / 2, Hh, 0, L / 2, Hh, 0, -L / 2, 0, Wd / 2, L / 2, Hh, 0, L / 2, 0, Wd / 2,
@@ -73,7 +73,7 @@ export function camps(specs, ctx) {
     const len = C[C.length - 1];
     for (let s = 0; s < len; s += gap) { let i = 1; while (i < sp.pts.length - 1 && C[i] < s) i++; const a = sp.pts[i - 1], b = sp.pts[i], u = (s - C[i - 1]) / ((C[i] - C[i - 1]) || 1), dx = b[0] - a[0], dn = b[1] - a[1], l = Math.hypot(dx, dn) || 1;
       for (let r = 0; r < rows; r++) { const o = (r - (rows - 1) / 2) * rg + (r >= rows / 2 ? 2.5 : 0), e = a[0] + dx * u - dn / l * o + (R() - 0.5) * 0.6, n = a[1] + dn * u + dx / l * o + (R() - 0.5) * 0.6;
-        if (ctx.terr.hAt(e, n) < 0.5) continue; all.push({ sp, e, n, hd: Math.atan2(dn, dx) + Math.PI / 2 + (R() - 0.5) * 0.06, s: s / len, k: 0.9 + 0.2 * R(), j: R() }); } } }
+        if (ctx.terr.hAt(e, n) < 0.5) continue; all.push({ sp, e, n, hd: Math.atan2(dn, dx) + Math.PI / 2 + (R() - 0.5) * 0.06, s: s / len, k: 0.9 + 0.2 * R(), j: opt.hangLoi ? Math.min(0.999, s / len + 0.004 * R()) : R() }); } } }
   // nền trại: dải đất giẫm (đất trơ, nhạt) dưới mỗi dãy — đọc được từ xa như dải trại trên bản đồ; hiện theo k của dãy (vật nền phụ, bậc 5)
   const grounds = []; for (const sp of specs || []) { const a = sp.pts[0], b = sp.pts[sp.pts.length - 1], dx = b[0] - a[0], dn = b[1] - a[1], l = Math.hypot(dx, dn) || 1, wd = (sp.rows || 3) * (sp.rowGap || 5.5) + 12, nx = -dn / l * wd / 2, nn = dx / l * wd / 2;
     const P = [], N = 24; for (let i = 0; i <= N; i++) for (const sg of [-1, 1]) { const e = a[0] + dx * i / N - dx / l * 6 + nx * sg, n = a[1] + dn * i / N - dn / l * 6 + nn * sg; P.push(e, hAt(e, n) + 0.3, -n); }
@@ -89,7 +89,8 @@ export function camps(specs, ctx) {
   const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), v = new THREE.Vector3(), sc = new THREE.Vector3(), Y = new THREE.Vector3(0, 1, 0);
   let shown = 0;
   return { group, n: all.length, stat: () => ({ leu: all.length, hien: shown }),
-    update(year) { shown = 0; for (const g of grounds) { const k = Math.min(1, kOf(g.sp, year) * 2.2); g.gm.opacity = 0.8 * k; g.gmesh.visible = k > 0.01; }
+    update(year) { shown = 0; for (const g of grounds) { if (opt.hangLoi) { const kk = kOf(g.sp, year); g.gm.opacity = 0.8 * Math.min(1, kk * 12); g.gmesh.visible = kk > 0.005; g.gmesh.geometry.setDrawRange(0, 6 * Math.max(1, Math.ceil(24 * Math.min(1, kk + 0.02)))); continue; }
+      const k = Math.min(1, kOf(g.sp, year) * 2.2); g.gm.opacity = 0.8 * k; g.gmesh.visible = k > 0.01; }
       for (const { im, Q } of meshes) { Q.forEach((p, i) => { const k = kOf(p.sp, year), on = p.j < k;   // lều mọc ngẫu nhiên tất định theo k (trại dựng dần), rút cùng thứ tự
         v.set(p.e, hAt(p.e, p.n) - 0.05, -p.n); q.setFromAxisAngle(Y, p.hd); const s = on ? p.k : 0; sc.set(s, s, s); m4.compose(v, q, sc); im.setMatrixAt(i, m4); shown += on ? 1 : 0; }); im.instanceMatrix.needsUpdate = true; } } };
 }
