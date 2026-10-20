@@ -4,9 +4,9 @@ Nhánh thật: `ccr-c8d3a06d-uhtkar` (harness buộc; nhánh cục bộ `p-2010`
 
 | Việc | Trạng thái |
 |---|---|
-| 1. Merge 5 nhánh | XONG — 0 xung đột (`merge.log`); lock KHỚP 1.16.1; selftest k116 144/144, k115 105/105, k114 126/126; LOI-KHOA 3/3 OK; preflight --range ĐẠT |
-| 2. Kinh thánh §14 | chưa |
-| 3. Sổ | chưa |
-| 4. Tra nguồn thực vật | chưa |
-| 5. Giọng master | chưa |
-| 6. Kiểm cuối + main | chưa |
+| 1. Merge 5 nhánh | XONG — 0 xung đột; lock KHỚP 1.16.1; selftest 144/105/126; LOI-KHOA 3/3 |
+| 2. Kinh thánh §14 | XONG — 5014eb8e → 9e7492a5 (`04bc3207`) |
+| 3. Sổ | XONG (`5a5139a3`) |
+| 4. Tra nguồn thực vật | XONG — `THUC-VAT-1782.md` |
+| 5. Giọng master | XONG (không lấy được: 401 thiếu speech_history_read) |
+| 6. Kiểm cuối + main | ĐANG LÀM — golden steel/t1 KHỚP, chờ ll08/k2v4; báo cáo nháp `P2010-BAO-CAO.md` (còn chỗ GOLDEN_/MAIN_/GIO_) |
