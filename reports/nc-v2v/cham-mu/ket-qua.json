@@ -1,0 +1,2016 @@
+{
+ "phieu": {
+  "c1a": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Y has realistic smoke, buildings and ships; X is a game-like render."
+    },
+    "R2": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Natural lighting, textured buildings, and volumetric smoke replace flat, game-like geometry."
+    },
+    "R3": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 3
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Y has natural smoke, lighting and texture; X is a flat CG village render."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 5
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Y shows clear ships, flag and natural smoke; X is flat low-poly."
+    },
+    "R2": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "Buildings, water, and smoke have substantially more believable texture and lighting."
+    },
+    "R3": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Y shows readable ships and a flag with believable detail; X is CG."
+    }
+   }
+  },
+  "c1b": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X has photographic fires and dusk lighting; Y is a plastic game render."
+    },
+    "R2": {
+     "omni": {
+      "real": 3,
+      "detail": 3,
+      "ailook": 4,
+      "read": 2
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Reflections and atmospheric smoke feel more photographic despite conspicuously repeated fires."
+    },
+    "R3": {
+     "omni": {
+      "real": 2,
+      "detail": 3,
+      "ailook": 3,
+      "read": 2
+     },
+     "nguon": {
+      "real": 3,
+      "detail": 3,
+      "ailook": 4,
+      "read": 2
+     },
+     "chon_omni": false,
+     "why": "Y has more natural smoke and fire lighting; X looks like a game render."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X has believable fire, smoke and water glints; Y is a toy-like model."
+    },
+    "R2": {
+     "omni": {
+      "real": 3,
+      "detail": 3,
+      "ailook": 4,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "More convincing water, shadows, and surface textures soften the obvious rendered appearance."
+    },
+    "R3": {
+     "omni": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 2
+     },
+     "nguon": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 2
+     },
+     "chon_omni": false,
+     "why": "Y has richer town detail and smoke; X is clearly CG."
+    }
+   }
+  },
+  "c1c": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X ships and flags read clearly and look photographic."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 5
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Textured sails, natural coastal light, and convincing water look much more photographic."
+    },
+    "R3": {
+     "omni": {
+      "real": 3,
+      "detail": 3,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X shows sailing ships and red flags clearly; Y is a CG village."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 3,
+      "read": 5
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X has detailed ships, sea and haze; Y is crude CG."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 5
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "Detailed rigging, stonework, and natural lighting contrast with flat polygonal terrain."
+    },
+    "R3": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X has readable flags and fortress detail; Y is a flat CG render."
+    }
+   }
+  },
+  "c2a": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "X looks like a real aerial photo; Y is a game render."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 2
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Atmospheric haze and restrained colors resemble aerial photography rather than a game map."
+    },
+    "R3": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 2
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X has photographic haze, texture and lighting; Y is a game-style render."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "X has natural rock, haze and ships; Y has fake colours and textures."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Realistic mountain shading, water reflections, and distant haze create convincing aerial depth."
+    },
+    "R3": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 2
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 3,
+      "ailook": 4,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X has realistic detail and smoke; Y looks like a CG model."
+    }
+   }
+  },
+  "c2b": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "X has a natural aerial look; Y is a glossy synthetic render."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 2
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Muted light and detailed rock faces look substantially more natural than saturated polygonal scenery."
+    },
+    "R3": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 2
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X looks like aerial camera footage; Y is clearly a rendered model."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "X looks photographic; Y has a neon-green mountain and toy buildings."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Natural coastal haze and finely textured urban surfaces provide a more photographic impression."
+    },
+    "R3": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 2
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 3,
+      "ailook": 4,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X has natural haze, lighting and traffic; Y has plasticky CG surfaces."
+    }
+   }
+  },
+  "c2c": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "X has a real-looking cargo ship, harbour and haze."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Natural colors, convincing terrain, and atmospheric depth make the harbor feel filmed."
+    },
+    "R3": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 3
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X looks like real aerial footage with visible flags; Y is CG."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "X has realistic ships, flags and cars; Y is a game render."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 2,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Detailed harbor structures, textured rock, and restrained reflections resemble real aerial footage."
+    },
+    "R3": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 3
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 3,
+      "ailook": 4,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X has natural lighting and readable flags; Y is a rendered scene."
+    }
+   }
+  },
+  "c3a": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 3,
+      "read": 5
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "X has real-looking rigged ships and water; Y is a block-like model."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 5
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 4
+     },
+     "chon_omni": true,
+     "why": "Weathered sails, complex hulls, and softer water reflections look far more believable."
+    },
+    "R3": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "X has believable rigging, sails and readable red ensigns; Y is CG."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 4,
+      "detail": 5,
+      "ailook": 3,
+      "read": 5
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "X has detailed rigging, flags and reflections; Y is crude CG."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 5
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 4
+     },
+     "chon_omni": true,
+     "why": "Rich rigging and fabric detail replace bare geometric ships and artificial blue water."
+    },
+    "R3": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 3,
+      "ailook": 4,
+      "read": 4
+     },
+     "chon_omni": true,
+     "why": "X has natural water and sail detail; Y has CG water and hulls."
+    }
+   }
+  },
+  "c3b": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 3,
+      "detail": 3,
+      "ailook": 3,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "Y has calm natural water and haze; X is a game render."
+    },
+    "R2": {
+     "omni": {
+      "real": 3,
+      "detail": 3,
+      "ailook": 4,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 4
+     },
+     "chon_omni": true,
+     "why": "Natural light and coastal textures improve realism, though ships remain conspicuously simplified."
+    },
+    "R3": {
+     "omni": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 3
+     },
+     "nguon": {
+      "real": 3,
+      "detail": 3,
+      "ailook": 3,
+      "read": 3
+     },
+     "chon_omni": false,
+     "why": "X has real-looking coast and water; Y's hulls look like toys."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "Y has natural lighting and reflections; the masts look a bit odd."
+    },
+    "R2": {
+     "omni": {
+      "real": 3,
+      "detail": 3,
+      "ailook": 4,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 4
+     },
+     "chon_omni": true,
+     "why": "Subdued water and realistic shoreline improve credibility despite rigid, minimally detailed vessels."
+    },
+    "R3": {
+     "omni": {
+      "real": 2,
+      "detail": 3,
+      "ailook": 4,
+      "read": 4
+     },
+     "nguon": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 3
+     },
+     "chon_omni": false,
+     "why": "X has natural coastline and lighting; Y is a CG model scene."
+    }
+   }
+  },
+  "c3c": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "Y shows lifelike ships and sea; X is toy-like CG."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 5
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 4
+     },
+     "chon_omni": true,
+     "why": "Textured sails, intricate ships, and natural lighting resemble a filmed historical reconstruction."
+    },
+    "R3": {
+     "omni": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 3
+     },
+     "nguon": {
+      "real": 3,
+      "detail": 3,
+      "ailook": 3,
+      "read": 3
+     },
+     "chon_omni": false,
+     "why": "X has natural coast and water; Y is a rendered ship model."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 4,
+      "detail": 5,
+      "ailook": 3,
+      "read": 5
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "Y has convincing ships, sails and flags; X is a low-poly game scene."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 5
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 4
+     },
+     "chon_omni": true,
+     "why": "Detailed wooden hulls and weathered canvas provide convincing material richness and depth."
+    },
+    "R3": {
+     "omni": {
+      "real": 2,
+      "detail": 3,
+      "ailook": 4,
+      "read": 4
+     },
+     "nguon": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 3,
+      "read": 3
+     },
+     "chon_omni": false,
+     "why": "X has close, believable sails and flag; Y is CG."
+    }
+   }
+  },
+  "c4Aa": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 3,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "X looks like real drone footage; Y is flat CG terrain."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 2
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "Uneven terrain, natural shadows, and atmospheric distance replace flat, sparsely textured ground."
+    },
+    "R3": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 1
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "X has natural grassland and coast; Y is a flat CG terrain."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 3,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 3
+     },
+     "chon_omni": true,
+     "why": "X has natural terrain and tiny ships; Y has smooth plastic ground."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Rock, grass, and coastal haze show believable texture absent from the flat synthetic landscape."
+    },
+    "R3": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 4,
+      "read": 2
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X has richer terrain, though its painterly sheen suggests AI; Y is CG."
+    }
+   }
+  },
+  "c4Ab": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 3
+     },
+     "nguon": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 3
+     },
+     "chon_omni": false,
+     "why": "X looks like a real aerial photo of rocky coast."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 2
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "Realistic sand, rock formations, and muted coastal colors create a more photographic landscape."
+    },
+    "R3": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 1
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "Y has natural sand, dunes and coastline; X is a flat CG terrain."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 3
+     },
+     "nguon": {
+      "real": 5,
+      "detail": 5,
+      "ailook": 2,
+      "read": 3
+     },
+     "chon_omni": false,
+     "why": "X has convincing rock, scrub and haze; Y is a synthetic game-style render."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 2
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Fine rock fractures and irregular vegetation look substantially more natural than flat terrain patches."
+    },
+    "R3": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 2
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "Y has photographic dune texture and haze; X is clearly CG."
+    }
+   }
+  },
+  "c4Ac": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X has believable ships and terrain; Y is a plain CG scene."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "Detailed cliffs, dry vegetation, and sunlit water convincingly resemble photographed coastal scenery."
+    },
+    "R3": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 4,
+      "read": 3
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "X has detailed coastal village and ships; Y is CG terrain, though X's houses look AI-ish."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X has natural cliff, scrub, ships and flags; Y is flat CG."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Natural stone textures, intricate vegetation, and atmospheric lighting give much stronger photographic realism."
+    },
+    "R3": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 4,
+      "read": 3
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "X shows readable sailing ships and flags; Y is flat CG terrain."
+    }
+   }
+  },
+  "c4Ba": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 4,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X shows troops, fires and ships; Y is empty CG."
+    },
+    "R2": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 3
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "Recognizable troops, textured terrain, and dimensional lighting outperform abstract blocks on flat ground."
+    },
+    "R3": {
+     "omni": {
+      "real": 2,
+      "detail": 3,
+      "ailook": 4,
+      "read": 2
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "Both look synthetic; X has more detail, with ships visible on the coast."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 4,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X has detailed troops and ships but looks slightly AI; Y is a game-like render."
+    },
+    "R2": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Detailed soldiers and natural grass improve realism, although repeated formations and fires remain synthetic."
+    },
+    "R3": {
+     "omni": {
+      "real": 2,
+      "detail": 3,
+      "ailook": 5,
+      "read": 3
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "Both look synthetic; X has more detail and visible ships, though obviously AI."
+    }
+   }
+  },
+  "c4Bb": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "nguon": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 2
+     },
+     "chon_omni": false,
+     "why": "X looks like real drone footage of a beach."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 3,
+      "ailook": 2,
+      "read": 1
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "Hazy coastal light and irregular sandy vegetation look far more like real aerial footage."
+    },
+    "R3": {
+     "omni": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 1
+     },
+     "nguon": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 1
+     },
+     "chon_omni": false,
+     "why": "X has believable sand, dunes and sea; Y is a flat CG render."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "nguon": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 3
+     },
+     "chon_omni": false,
+     "why": "X has natural dunes, shoreline and haze; Y has plastic terrain."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 2
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Muted atmosphere, textured sand, and irregular shrubs replace conspicuously flat, game-like scenery."
+    },
+    "R3": {
+     "omni": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 1
+     },
+     "nguon": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 1
+     },
+     "chon_omni": false,
+     "why": "X looks like real drone footage of dunes; Y is CG."
+    }
+   }
+  },
+  "c4Bc": {
+   "320": {
+    "R1": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 3,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X has believable stone houses and ships with flags."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 4
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "Weathered stone cottages and detailed coastal vegetation feel convincingly tangible and naturally lit."
+    },
+    "R3": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 4,
+      "read": 3
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "X shows detailed stone houses and sailing ships; Y is flat CG terrain."
+    }
+   },
+   "640": {
+    "R1": {
+     "omni": {
+      "real": 3,
+      "detail": 5,
+      "ailook": 3,
+      "read": 5
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "X has rich village and ship detail and clear flags; Y is crude CG."
+    },
+    "R2": {
+     "omni": {
+      "real": 4,
+      "detail": 4,
+      "ailook": 2,
+      "read": 5
+     },
+     "nguon": {
+      "real": 1,
+      "detail": 1,
+      "ailook": 5,
+      "read": 2
+     },
+     "chon_omni": true,
+     "why": "Detailed masonry, tiled roofs, and natural vegetation provide far more believable photographic texture."
+    },
+    "R3": {
+     "omni": {
+      "real": 3,
+      "detail": 4,
+      "ailook": 4,
+      "read": 3
+     },
+     "nguon": {
+      "real": 2,
+      "detail": 2,
+      "ailook": 4,
+      "read": 1
+     },
+     "chon_omni": true,
+     "why": "X shows readable ships and flags on a detailed coast; Y is CG."
+    }
+   }
+  }
+ },
+ "tb": {
+  "c1a": {
+   "320": {
+    "omni": {
+     "real": 3.33,
+     "detail": 4.0,
+     "ailook": 2.67,
+     "read": 3.33
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 1.33,
+     "ailook": 4.67,
+     "read": 2.0
+    },
+    "chon_omni": "3/3"
+   },
+   "640": {
+    "omni": {
+     "real": 3.0,
+     "detail": 4.0,
+     "ailook": 3.0,
+     "read": 4.33
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 1.67,
+     "ailook": 4.67,
+     "read": 2.33
+    },
+    "chon_omni": "3/3"
+   }
+  },
+  "c1b": {
+   "320": {
+    "omni": {
+     "real": 2.67,
+     "detail": 3.33,
+     "ailook": 3.33,
+     "read": 2.33
+    },
+    "nguon": {
+     "real": 1.67,
+     "detail": 1.67,
+     "ailook": 4.67,
+     "read": 2.0
+    },
+    "chon_omni": "2/3"
+   },
+   "640": {
+    "omni": {
+     "real": 2.67,
+     "detail": 3.0,
+     "ailook": 3.67,
+     "read": 3.0
+    },
+    "nguon": {
+     "real": 1.67,
+     "detail": 2.33,
+     "ailook": 4.33,
+     "read": 2.33
+    },
+    "chon_omni": "2/3"
+   }
+  },
+  "c1c": {
+   "320": {
+    "omni": {
+     "real": 3.33,
+     "detail": 3.67,
+     "ailook": 2.67,
+     "read": 4.33
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 1.33,
+     "ailook": 4.67,
+     "read": 2.0
+    },
+    "chon_omni": "3/3"
+   },
+   "640": {
+    "omni": {
+     "real": 3.67,
+     "detail": 4.0,
+     "ailook": 2.67,
+     "read": 4.67
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 1.67,
+     "ailook": 4.67,
+     "read": 2.33
+    },
+    "chon_omni": "3/3"
+   }
+  },
+  "c2a": {
+   "320": {
+    "omni": {
+     "real": 4.0,
+     "detail": 4.0,
+     "ailook": 2.0,
+     "read": 2.33
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 2.0,
+     "ailook": 4.67,
+     "read": 2.33
+    },
+    "chon_omni": "3/3"
+   },
+   "640": {
+    "omni": {
+     "real": 3.67,
+     "detail": 4.0,
+     "ailook": 2.33,
+     "read": 2.67
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 2.33,
+     "ailook": 4.67,
+     "read": 2.33
+    },
+    "chon_omni": "3/3"
+   }
+  },
+  "c2b": {
+   "320": {
+    "omni": {
+     "real": 4.0,
+     "detail": 4.0,
+     "ailook": 2.0,
+     "read": 2.33
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 2.0,
+     "ailook": 4.67,
+     "read": 2.33
+    },
+    "chon_omni": "3/3"
+   },
+   "640": {
+    "omni": {
+     "real": 4.0,
+     "detail": 4.0,
+     "ailook": 2.0,
+     "read": 2.67
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 2.33,
+     "ailook": 4.67,
+     "read": 2.33
+    },
+    "chon_omni": "3/3"
+   }
+  },
+  "c2c": {
+   "320": {
+    "omni": {
+     "real": 4.0,
+     "detail": 4.0,
+     "ailook": 2.0,
+     "read": 3.0
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 2.0,
+     "ailook": 4.67,
+     "read": 2.33
+    },
+    "chon_omni": "3/3"
+   },
+   "640": {
+    "omni": {
+     "real": 4.0,
+     "detail": 4.0,
+     "ailook": 2.0,
+     "read": 3.67
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 2.33,
+     "ailook": 4.67,
+     "read": 2.33
+    },
+    "chon_omni": "3/3"
+   }
+  },
+  "c3a": {
+   "320": {
+    "omni": {
+     "real": 3.67,
+     "detail": 4.0,
+     "ailook": 2.67,
+     "read": 4.67
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 1.33,
+     "ailook": 4.67,
+     "read": 3.33
+    },
+    "chon_omni": "3/3"
+   },
+   "640": {
+    "omni": {
+     "real": 3.67,
+     "detail": 4.33,
+     "ailook": 2.67,
+     "read": 4.67
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 1.67,
+     "ailook": 4.67,
+     "read": 3.67
+    },
+    "chon_omni": "3/3"
+   }
+  },
+  "c3b": {
+   "320": {
+    "omni": {
+     "real": 2.67,
+     "detail": 2.67,
+     "ailook": 3.67,
+     "read": 3.33
+    },
+    "nguon": {
+     "real": 1.67,
+     "detail": 1.67,
+     "ailook": 4.33,
+     "read": 3.33
+    },
+    "chon_omni": "2/3"
+   },
+   "640": {
+    "omni": {
+     "real": 2.67,
+     "detail": 3.33,
+     "ailook": 3.67,
+     "read": 4.0
+    },
+    "nguon": {
+     "real": 1.67,
+     "detail": 2.0,
+     "ailook": 4.33,
+     "read": 3.33
+    },
+    "chon_omni": "2/3"
+   }
+  },
+  "c3c": {
+   "320": {
+    "omni": {
+     "real": 3.33,
+     "detail": 3.33,
+     "ailook": 3.0,
+     "read": 4.0
+    },
+    "nguon": {
+     "real": 1.67,
+     "detail": 1.67,
+     "ailook": 4.33,
+     "read": 3.33
+    },
+    "chon_omni": "2/3"
+   },
+   "640": {
+    "omni": {
+     "real": 3.33,
+     "detail": 4.0,
+     "ailook": 3.0,
+     "read": 4.67
+    },
+    "nguon": {
+     "real": 2.0,
+     "detail": 2.0,
+     "ailook": 4.33,
+     "read": 3.33
+    },
+    "chon_omni": "2/3"
+   }
+  },
+  "c4Aa": {
+   "320": {
+    "omni": {
+     "real": 3.67,
+     "detail": 4.0,
+     "ailook": 2.67,
+     "read": 2.0
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 1.33,
+     "ailook": 4.67,
+     "read": 1.67
+    },
+    "chon_omni": "3/3"
+   },
+   "640": {
+    "omni": {
+     "real": 3.67,
+     "detail": 4.0,
+     "ailook": 3.0,
+     "read": 2.67
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 1.33,
+     "ailook": 4.67,
+     "read": 2.33
+    },
+    "chon_omni": "3/3"
+   }
+  },
+  "c4Ab": {
+   "320": {
+    "omni": {
+     "real": 3.0,
+     "detail": 3.0,
+     "ailook": 3.0,
+     "read": 2.0
+    },
+    "nguon": {
+     "real": 2.33,
+     "detail": 2.33,
+     "ailook": 3.67,
+     "read": 1.67
+    },
+    "chon_omni": "2/3"
+   },
+   "640": {
+    "omni": {
+     "real": 3.0,
+     "detail": 3.0,
+     "ailook": 3.0,
+     "read": 2.33
+    },
+    "nguon": {
+     "real": 2.67,
+     "detail": 2.67,
+     "ailook": 3.67,
+     "read": 2.0
+    },
+    "chon_omni": "2/3"
+   }
+  },
+  "c4Ac": {
+   "320": {
+    "omni": {
+     "real": 3.33,
+     "detail": 4.0,
+     "ailook": 3.0,
+     "read": 3.67
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 1.33,
+     "ailook": 4.67,
+     "read": 1.33
+    },
+    "chon_omni": "3/3"
+   },
+   "640": {
+    "omni": {
+     "real": 3.67,
+     "detail": 4.0,
+     "ailook": 3.0,
+     "read": 3.67
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 1.33,
+     "ailook": 4.67,
+     "read": 1.67
+    },
+    "chon_omni": "3/3"
+   }
+  },
+  "c4Ba": {
+   "320": {
+    "omni": {
+     "real": 2.67,
+     "detail": 3.67,
+     "ailook": 3.67,
+     "read": 2.67
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 1.33,
+     "ailook": 4.67,
+     "read": 1.33
+    },
+    "chon_omni": "3/3"
+   },
+   "640": {
+    "omni": {
+     "real": 2.67,
+     "detail": 3.67,
+     "ailook": 4.0,
+     "read": 3.67
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 1.33,
+     "ailook": 4.67,
+     "read": 1.67
+    },
+    "chon_omni": "3/3"
+   }
+  },
+  "c4Bb": {
+   "320": {
+    "omni": {
+     "real": 2.33,
+     "detail": 2.0,
+     "ailook": 3.67,
+     "read": 1.33
+    },
+    "nguon": {
+     "real": 3.0,
+     "detail": 3.0,
+     "ailook": 3.0,
+     "read": 1.33
+    },
+    "chon_omni": "1/3"
+   },
+   "640": {
+    "omni": {
+     "real": 2.33,
+     "detail": 2.33,
+     "ailook": 3.67,
+     "read": 1.67
+    },
+    "nguon": {
+     "real": 3.0,
+     "detail": 3.0,
+     "ailook": 3.0,
+     "read": 2.0
+    },
+    "chon_omni": "1/3"
+   }
+  },
+  "c4Bc": {
+   "320": {
+    "omni": {
+     "real": 3.33,
+     "detail": 4.0,
+     "ailook": 3.0,
+     "read": 3.67
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 1.33,
+     "ailook": 4.67,
+     "read": 1.33
+    },
+    "chon_omni": "3/3"
+   },
+   "640": {
+    "omni": {
+     "real": 3.33,
+     "detail": 4.33,
+     "ailook": 3.0,
+     "read": 4.33
+    },
+    "nguon": {
+     "real": 1.33,
+     "detail": 1.33,
+     "ailook": 4.67,
+     "read": 1.67
+    },
+    "chon_omni": "3/3"
+   }
+  }
+ }
+}
