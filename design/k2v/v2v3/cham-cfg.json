@@ -1,0 +1,17 @@
+{"sets": [
+ {"id": "cong-hero", "kind": "a hero shot of a modern city on a famous rock with an airport, 2026",
+  "ban": {"V7B": "/var/tmp/cine-out/v2v3/cham/V7B-hero.jpg", "A_NCCPU": "/var/tmp/cine-out/v2v3/cham/A-hero.jpg", "CyclesGPU": "/var/tmp/cine-out/v2v3/cham/GPU-hero.jpg", "V2V3_B2": "/var/tmp/cine-out/v2v3/vid/g-hero-B2/khung/00008.png"}},
+ {"id": "cong-vay-ham", "kind": "a siege scene: the besiegers' camps and lines on the isthmus in front of a fortified rock, 1779",
+  "ban": {"V7B": "/var/tmp/cine-out/v2v3/cham/V7B-vay-ham.jpg", "A_NCCPU": "/var/tmp/cine-out/v2v3/cham/A-vay-ham.jpg", "CyclesGPU": "/var/tmp/cine-out/v2v3/cham/GPU-vay-ham.jpg", "V2V3_B2": "/var/tmp/cine-out/v2v3/vid/g-vay-ham-B2/khung/00008.png"}},
+ {"id": "cong-bo-chien-su", "kind": "a shore-and-battle scene: floating gun batteries attacking a fortified town from the sea, 1782",
+  "ban": {"V7B": "/var/tmp/cine-out/v2v3/cham/V7B-bo-chien-su.jpg", "A_NCCPU": "/var/tmp/cine-out/v2v3/cham/A-bo-chien-su.jpg", "CyclesGPU": "/var/tmp/cine-out/v2v3/cham/GPU-bo-chien-su.jpg", "V2V3_B2": "/var/tmp/cine-out/v2v3/vid/g-bo-chien-su-B2/khung/00008.png"}},
+ {"id": "clip-c2", "kind": "a hero shot of a modern city on a famous rock with an airport, 2026",
+  "ban": {"V7B": "/var/tmp/cine-out/v2v3/ctrl/c2/src/00040.png", "V2V3_A": "/var/tmp/cine-out/v2v3/vid/c2-A/khung/00040.png", "V2V3_B2": "/var/tmp/cine-out/v2v3/vid/c2-B2/khung/00040.png",
+          "Omni_a": {"640": "/home/user/cine-lab/reports/nc-v2v/cham-mu/anh/c2a-640-X.jpg", "320": "/home/user/cine-lab/reports/nc-v2v/cham-mu/anh/c2a-320-X.jpg"}}},
+ {"id": "clip-c4B", "kind": "a siege scene: the besiegers' camps and lines on the isthmus in front of a fortified rock, 1779",
+  "ban": {"V7B": "/var/tmp/cine-out/v2v3/ctrl/c4B/src/00040.png", "V2V3_A": "/var/tmp/cine-out/v2v3/vid/c4B-A/khung/00040.png", "V2V3_B2": "/var/tmp/cine-out/v2v3/vid/c4B-B2/khung/00040.png",
+          "Omni_a": {"640": "/home/user/cine-lab/reports/nc-v2v/cham-mu/anh/c4Ba-640-X.jpg", "320": "/home/user/cine-lab/reports/nc-v2v/cham-mu/anh/c4Ba-320-X.jpg"}}},
+ {"id": "clip-c1", "kind": "a shore-and-battle scene at dusk: burning floating gun batteries in a bay in front of a fortified town, 1782",
+  "ban": {"V7B": "/var/tmp/cine-out/v2v3/ctrl/c1/src/00040.png", "V2V3_A": "/var/tmp/cine-out/v2v3/vid/c1-A/khung/00040.png", "V2V3_B2": "/var/tmp/cine-out/v2v3/vid/c1-B2/khung/00040.png",
+          "Omni_a": {"640": "/home/user/cine-lab/reports/nc-v2v/cham-mu/anh/c1a-640-Y.jpg", "320": "/home/user/cine-lab/reports/nc-v2v/cham-mu/anh/c1a-320-Y.jpg"}}}
+]}

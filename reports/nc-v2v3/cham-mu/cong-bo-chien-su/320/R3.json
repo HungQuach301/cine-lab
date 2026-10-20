@@ -1,0 +1,57 @@
+{
+ "A": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "washed_out",
+   "unreadable_scale"
+  ],
+  "note": "Hazy, flat sea. The big orange blast is a flat glow with no structure. The town reads as a model, and the ships are tiny dots."
+ },
+ "B": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [
+   "unreadable_scale"
+  ],
+  "note": "The sea is clearer, with some wave texture. Several smoke puffs give depth and the fortress is readable. The ships are still tiny, and the terrain is a bit flat."
+ },
+ "C": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 5,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "washed_out",
+   "flat_slide_look",
+   "toy_look"
+  ],
+  "note": "Everything is tinted beige, so the sea, land and sky merge. Contrast is low and it looks like a tabletop diorama."
+ },
+ "D": {
+  "craft": 6,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [
+   "unreadable_scale"
+  ],
+  "note": "Best colour separation, with blue sea, green land and some terrain variation. The smoke plumes and fortress read well. The ships are still tiny, and the town is uniform."
+ },
+ "rank": [
+  "D",
+  "B",
+  "A",
+  "C"
+ ],
+ "why": "D and B have the clearest sea, land and smoke separation and the most depth. A is hazy with a flat glare, and C is washed out in beige.",
+ "top_fix_for_best": "Make the gun batteries larger and closer, with visible hull detail, gun flashes and smoke trails toward the town. Then add texture variation to the roofs and streets, and put small figures and debris at the fortress wall so the scale reads."
+}

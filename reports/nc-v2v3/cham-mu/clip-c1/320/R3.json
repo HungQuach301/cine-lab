@@ -1,0 +1,60 @@
+{
+ "A": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Readable layout. The water is a flat blue texture with a rippled pattern, and the town is low-poly blocks on a brown colour field. The batteries are tiny, with thin smoke wisps. It doesn't look like dusk, and the town is much brighter than the water."
+ },
+ "B": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "toy_look",
+   "noisy",
+   "flat_slide_look"
+  ],
+  "note": "Same geometry as A with a darker, more dramatic grade. It has crushed blacks, a blue-flat sky/water, and a noisy, posterised look. The mood is slightly better, but the ground detail is muddier."
+ },
+ "C": {
+  "craft": 2,
+  "realism": 2,
+  "detail": 2,
+  "toy_like": 3,
+  "ai_look": 5,
+  "flags": [
+   "empty_frame",
+   "confusing",
+   "noisy"
+  ],
+  "note": "Almost entirely black. The town and terrain are invisible, and only faint glows from the batteries and one small fire are visible. It is unusable on a small screen."
+ },
+ "D": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 8,
+  "toy_like": 3,
+  "ai_look": 4,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Elevated view with dense terracotta rooftops, walls, gardens and trees. Big volumetric smoke plumes, ships with white sails and wave foam on the water. The scale and depth are the best here. The smoke is a bit cartoonish and blobby, and the lighting is daytime rather than dusk."
+ },
+ "rank": [
+  "D",
+  "A",
+  "B",
+  "C"
+ ],
+ "why": "D is the only frame with believable town density, volumetric smoke, ships and depth. A and B are flat low-poly layouts with tiny batteries, and C is almost completely black.",
+ "top_fix_for_best": "Grade D toward real dusk with warm firelight on the rooftops and walls, a darker sky and water, and orange glow under the smoke. Make the smoke plumes less blobby and more varied, and add a few visible burning batteries at the waterline so the 1782 subject is clear."
+}

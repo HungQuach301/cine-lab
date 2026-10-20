@@ -1,0 +1,50 @@
+{
+ "A": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [],
+  "note": "Strong rock with real texture and rich blue-sky lighting. The airport apron is a bit bare and grey, and the foreground is slightly miniature-looking, but the frame is clear and cinematic."
+ },
+ "B": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [],
+  "note": "Almost the same as A. The extra far headland adds depth, and the water is a more saturated blue, which is slightly more game-like. The rock and foreground are the same."
+ },
+ "C": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "washed_out",
+   "flat_slide_look",
+   "toy_look"
+  ],
+  "note": "Hazy, desaturated look. The rock is flatter and the foreground is beige with no texture. The buildings look like placed blocks, and there is less definition overall."
+ },
+ "D": {
+  "craft": 7,
+  "realism": 7,
+  "detail": 8,
+  "toy_like": 3,
+  "ai_look": 4,
+  "flags": [],
+  "note": "Most natural, hazy atmosphere with a believable horizon. The rock has the best vegetation and rock texture. Foreground buildings have varied roof colours. The green patch at left reads slightly checkered/artificial, and the foreground is a little busy."
+ },
+ "rank": [
+  "D",
+  "A",
+  "B",
+  "C"
+ ],
+ "why": "D has the most natural atmosphere, the richest terrain and rock texture, and the most varied foreground buildings, while C is washed out and flat, and A and B are nearly identical but a little more saturated and game-like.",
+ "top_fix_for_best": "Remove the checkered look of the green patch at left by using irregular field and grass textures. Add ground texture, markings, and a few aircraft or vehicles on the airport apron so the foreground reads as a real airport at human scale."
+}

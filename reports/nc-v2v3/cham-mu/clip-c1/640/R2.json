@@ -1,0 +1,62 @@
+{
+ "A": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 7,
+  "ai_look": 3,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "unreadable_scale"
+  ],
+  "note": "Saturated blue water with a repeating sparkle texture and a tiny line of identical burning batteries. The town is made of untextured orange boxes on a flat brown ground. The flag and walls read like a game map, and the ground has no vegetation or terrain variation."
+ },
+ "B": {
+  "craft": 3,
+  "realism": 2,
+  "detail": 3,
+  "toy_like": 7,
+  "ai_look": 3,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "noisy",
+   "unreadable_scale"
+  ],
+  "note": "This is the same geometry as A with a heavy dark grade and a blue rim-light halo along the shore. The water is a flat colour field and the land is muddy brown. The grade adds some mood but also crushed blacks and artefacts, and the result looks cheaper than A."
+ },
+ "C": {
+  "craft": 2,
+  "realism": 2,
+  "detail": 1,
+  "toy_like": 4,
+  "ai_look": 2,
+  "flags": [
+   "broken_render",
+   "washed_out",
+   "confusing",
+   "unreadable_scale"
+  ],
+  "note": "Almost black. Only the faint burning batteries and one flag flame are visible. The town and fort are unreadable, so the shot fails as a dusk battle scene and is effectively an empty frame."
+ },
+ "D": {
+  "craft": 8,
+  "realism": 8,
+  "detail": 9,
+  "toy_like": 1,
+  "ai_look": 6,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Reads as a real Mediterranean coastal town. It has textured terracotta roofs, varied buildings, gardens, roads, a stone fort with a Union flag, and a fleet of tall ships in the bay. The smoke plumes are volumetric and convincing. It is bright daylight, not dusk, and there are no burning floating batteries, so it does not match the brief. The smoke is slightly over-bloated and the ships a bit uniform, which gives it a mild AI look."
+ },
+ "rank": [
+  "D",
+  "A",
+  "B",
+  "C"
+ ],
+ "why": "D is the only frame with believable materials, architecture, atmosphere and scale. A and B are toy-like colour-block maps, with B darker and murkier than A, and C is too dark to read.",
+ "top_fix_for_best": "Regrade D to dusk: warm low-angle light, an orange glow on the water and smoke, and visible burning floating batteries (flames and dark hulls) in place of the daytime ships. Also break up the repeated smoke blobs, vary the ship sizes and spacing, and add depth haze toward the horizon."
+}

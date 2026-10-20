@@ -1,0 +1,61 @@
+{
+ "A": {
+  "craft": 7,
+  "realism": 7,
+  "detail": 8,
+  "toy_like": 4,
+  "ai_look": 5,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Richest frame. Troop blocks, campfires with smoke, ships in the bay, trees and rocks, and warm light with real depth. The troops are a bit uniform and game-like. The rock is small and far away, and it doesn't read as a fortress."
+ },
+ "B": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 3,
+  "toy_like": 1,
+  "ai_look": 4,
+  "flags": [
+   "empty_frame",
+   "washed_out",
+   "unreadable_scale"
+  ],
+  "note": "Photographic, hazy, desert-like ground, but the frame is almost empty. Faint camp marks on the sand are the only content. No troops, no fort, no siege story. It looks like barren terrain."
+ },
+ "C": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 4,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Green plain with grid-like camp patches that read as map tiles or fields. Clumps of dots stand in for troops. Smooth, flat ground, with no clear fortress or ships."
+ },
+ "D": {
+  "craft": 3,
+  "realism": 2,
+  "detail": 3,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "washed_out",
+   "unreadable_scale"
+  ],
+  "note": "Similar to C but flatter and paler. The ground is a flat colour field with grid camp rectangles, and the troops are specks. It looks like an unfinished game prototype."
+ },
+ "rank": [
+  "A",
+  "C",
+  "B",
+  "D"
+ ],
+ "why": "A is the only frame with a readable siege (troops, fires, smoke, ships, vegetation, lighting); the others are mostly empty or flat terrain.",
+ "top_fix_for_best": "Move the camera closer to the fortified rock so it dominates the frame, then add varied troop poses, tents, trenches and earthworks, and cannon smoke over the lines."
+}

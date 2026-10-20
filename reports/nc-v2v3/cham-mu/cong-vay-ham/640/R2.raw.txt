@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 6, "realism": 6, "detail": 5, "toy_like": 5, "ai_look": 4, "flags": ["flat_slide_look"], "note": "Best terrain: varied vegetation, a dark tree cluster, a track, atmospheric haze on the rock and sea. The camps are flat tan rectangles with grid dots, so they look like painted decals, not tents or troops."},
+"B": {"craft": 5, "realism": 5, "detail": 4, "toy_like": 5, "ai_look": 4, "flags": ["flat_slide_look", "toy_look"], "note": "Brighter and more saturated, with a clean blue sea. Terrain is smoother and less varied than A. The camps are the same flat decal rectangles, and the ships and sea read slightly cartoonish."},
+"C": {"craft": 5, "realism": 4, "detail": 4, "toy_like": 6, "ai_look": 5, "flags": ["flat_slide_look", "toy_look", "unreadable_scale"], "note": "The land is a flat yellow-green colour field with patchy grass and tiny scattered tree dots. The saturated sea looks gamey and the camps look pasted on."},
+"D": {"craft": 4, "realism": 3, "detail": 4, "toy_like": 6, "ai_look": 5, "flags": ["flat_slide_look", "washed_out", "toy_look", "unreadable_scale"], "note": "The ground is a monotone yellow-olive blanket that looks like felt, with little vegetation. The camp rectangles blend into it, the rock is a flat brown mound, and the sea is pale."}, 
+"rank": ["A", "B", "C", "D"],
+"why": "A has the most believable terrain, with varied vegetation, haze and depth, while D's monotone yellow ground reads as a flat colour field. All four share the same decal-like camp rectangles.",
+"top_fix_for_best": "Replace the flat tan camp rectangles and grid dots with real geometry: rows of tents with shadows, palisades, trenches and earthworks, plus smoke from camp fires. Add shadow-casting troop clusters and gun batteries, and break up the straight edges and the uniform grass texture."}
+```

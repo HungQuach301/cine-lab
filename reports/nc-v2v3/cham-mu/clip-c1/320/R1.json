@@ -1,0 +1,61 @@
+{
+ "A": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Bright blue water and flat brown ground with blocky buildings. The burning batteries are tiny, and the 'dusk' reads as daylight. Little atmosphere or smoke."
+ },
+ "B": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "noisy",
+   "unreadable_scale"
+  ],
+  "note": "Same scene as A, darker and more contrasty, with a vignette and some grain. The mood is slightly closer to dusk, but the ground is still flat colour fields and the ships are tiny."
+ },
+ "C": {
+  "craft": 2,
+  "realism": 2,
+  "detail": 1,
+  "toy_like": 2,
+  "ai_look": 4,
+  "flags": [
+   "broken_render",
+   "unreadable_scale",
+   "confusing"
+  ],
+  "note": "Almost black. Only faint glows from the ships and one light on the right are visible. The town and terrain can't be seen, so it fails as a readable shot."
+ },
+ "D": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 8,
+  "toy_like": 2,
+  "ai_look": 4,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "High-angle view over a dense town with varied terracotta roofs, walls, gardens and the bay. Big billowing smoke plumes and many ships in the water give it depth and scale. The lighting is daylight, not dusk, and the smoke looks somewhat puffy and CG."
+ },
+ "rank": [
+  "D",
+  "A",
+  "B",
+  "C"
+ ],
+ "why": "D is the only frame with believable density, textured architecture, real smoke volume and readable scale. A and B look like flat game-map terrain, and C is nearly black.",
+ "top_fix_for_best": "Grade D for dusk: warm orange firelight on the smoke and rooftops, a darker sky and water with fire reflections, and slightly smaller, more wispy smoke columns. That would also keep the burning batteries as the focal point."
+}

@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 6, "realism": 5, "detail": 5, "toy_like": 6, "ai_look": 4, "flags": ["washed_out", "toy_look"], "note": "Hazy atmosphere and a large glowing orange blast give some mood. The blast is oversized and blurry, and it hides the fortress and wall detail. The water is a flat dark blue. The grass has some texture, but the town still looks like blocks."},
+"B": {"craft": 7, "realism": 6, "detail": 6, "toy_like": 5, "ai_look": 3, "flags": ["toy_look"], "note": "The water has sparkle and wave texture. The smoke puffs are distinct and the muzzle flash is a believable size. The walls and fort read clearly and the grass has texture. Ships are tiny and the town is still blocky."},
+"C": {"craft": 4, "realism": 3, "detail": 4, "toy_like": 7, "ai_look": 5, "flags": ["flat_slide_look", "washed_out", "toy_look", "unreadable_scale"], "note": "The ground is a flat tan/mustard colour field, so land and sea lose contrast. There is no vegetation. The smoke is a pale smear. It looks like a cardboard model."},
+"D": {"craft": 7, "realism": 6, "detail": 6, "toy_like": 5, "ai_look": 3, "flags": ["toy_look"], "note": "Close to B. The sea is slightly more varied, with foam at the shore and a cloud-reflecting sheen. The grass is texture-rich. The smoke is the same as B, and the town is still blocky."}, 
+"rank": ["D", "B", "A", "C"],
+"why": "D and B have the most believable water, vegetation and readable smoke and fire, A is hazy with an overblown blast, and C has flat tan ground that makes the scene look like a model.",
+"top_fix_for_best": "Break up the uniform town blocks. Add roof and wall colour variation, chimneys, streets and trees, and put visible troops and ships with sails and hull detail at the shoreline. Add subtle depth haze and a warmer, lower sun for contrast."}
+```

@@ -1,0 +1,54 @@
+{
+ "A": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Strong rock with textured green and grey slopes, vivid water, and a dense city that reads clearly. Saturated colour. Buildings are slightly game-like. The grey tarmac foreground is flat and bland."
+ },
+ "B": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Nearly identical to A. The distant headland is a dark green, hard-edged wedge with a mirror reflection that looks pasted in. Slightly less atmospheric depth than A."
+ },
+ "C": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "washed_out",
+   "flat_slide_look",
+   "toy_look"
+  ],
+  "note": "Beige or sand-coloured ground and a flat blue-grey sky. The rock has lost its definition and looks like smooth clay. The runway is hard to read against the ground. Water is flat and dull. Looks like an unfinished render."
+ },
+ "D": {
+  "craft": 8,
+  "realism": 7,
+  "detail": 8,
+  "toy_like": 3,
+  "ai_look": 3,
+  "flags": [],
+  "note": "Best atmospheric haze and depth. The rock has natural, desaturated texture. Terracotta roofs add variety. Water is calmer and more believable, and the coastline is soft. The foreground tarmac is still flat, and the sky is a little hazy and pale."
+ },
+ "rank": [
+  "D",
+  "A",
+  "B",
+  "C"
+ ],
+ "why": "D has the most believable atmosphere, a more natural rock and the most varied detail, while C is washed out, flat and clay-like.",
+ "top_fix_for_best": "Break up the flat grey foreground tarmac and apron. Add surface texture, wear, markings, vehicles and aircraft, and some shadow or ambient occlusion. This would also make the airport's scale clear."
+}

@@ -1,0 +1,64 @@
+{
+ "A": {
+  "craft": 7,
+  "realism": 7,
+  "detail": 8,
+  "toy_like": 3,
+  "ai_look": 6,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Reads as a real siege scene. It has ships, troop blocks in formation, red flags, campfires with smoke, scattered trees, rocks and a lit coastline. Troops are tiny and a little uniform, and the grass is a bit smooth. The rock is not clearly fortified, and the lines don't read clearly as camps on an isthmus. The look is painterly, close to AI-generated."
+ },
+ "B": {
+  "craft": 4,
+  "realism": 5,
+  "detail": 3,
+  "toy_like": 1,
+  "ai_look": 5,
+  "flags": [
+   "washed_out",
+   "empty_frame",
+   "confusing",
+   "unreadable_scale"
+  ],
+  "note": "Terrain looks like a real photographed hillside, but the whole frame is an orange-brown colour cast. Only faint rectangular camp outlines and rubble patches are visible. There are no readable troops, ships, smoke or fortifications, so the frame is mostly empty. It is atmospheric but gives the viewer nothing to read."
+ },
+ "C": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 3,
+  "toy_like": 5,
+  "ai_look": 3,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "unreadable_scale",
+   "empty_frame"
+  ],
+  "note": "Procedural, game-like terrain. The camp rectangles are flat yellow patches with tiny box tents, and the trees are dots. The sea is clean but flat, and the ships are specks. It reads as a low-poly map or prototype, not a real place."
+ },
+ "D": {
+  "craft": 3,
+  "realism": 2,
+  "detail": 3,
+  "toy_like": 5,
+  "ai_look": 3,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "washed_out",
+   "unreadable_scale",
+   "empty_frame"
+  ],
+  "note": "Same scene as C but with a flat olive-yellow colour field, little shading and less vegetation contrast. It looks like a bare terrain mockup, the least readable of the four."
+ },
+ "rank": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "why": "A is the only frame that tells the siege story, with ships, formed troops, fires and smoke on believable terrain. B has more convincing ground texture than C or D but is empty and washed out, and C and D are flat procedural game-style terrain.",
+ "top_fix_for_best": "Add scale and fortification cues: make the rock a clearly walled fortress with batteries, and add trenches, tents and gun emplacements along the isthmus lines. Bring the troops up to hero-size figures in the foreground. Break up the uniform grass with varied ground texture and layered smoke haze for depth."
+}

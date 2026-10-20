@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 8, "realism": 8, "detail": 8, "toy_like": 2, "ai_look": 4, "flags": [], "note": "Most photographic. The rock has believable rocky texture and scrub. The sea is hazy and rippled, and the airport and town have a natural muted palette. Atmospheric depth and a good camera angle."},
+"B": {"craft": 6, "realism": 5, "detail": 6, "toy_like": 5, "ai_look": 5, "flags": ["toy_look"], "note": "Saturated, game-like colours. The rock is a smooth green blob, the water is flat bright blue, and the airport is a flat grey slab. The town buildings look like game pieces."},
+"C": {"craft": 7, "realism": 6, "detail": 7, "toy_like": 4, "ai_look": 5, "flags": [], "note": "Better than B, with more rock texture and a richer town. Still very saturated and a bit stylised, and the sea is flat blue. Lively and readable."},
+"D": {"craft": 4, "realism": 4, "detail": 4, "toy_like": 6, "ai_look": 5, "flags": ["washed_out", "flat_slide_look", "toy_look"], "note": "The ground is a flat tan colour field with no texture. The rock is a dark silhouette, the buildings are sparse blocks and the sky is hazy. It looks empty and unfinished."},
+"rank": ["A", "C", "B", "D"],
+"why": "A is the only one where the rock, sea, ground and buildings read as a real place with atmosphere. B and C look like saturated game renders, and D is a washed-out flat colour field.",
+"top_fix_for_best": "Add life and scale to A's foreground: aircraft on the apron, vehicles and ships with wakes, and warmer low-angle light with long shadows. The mid-ground runway and fields are still a bit plain, so give them more texture."}
+```

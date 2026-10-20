@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 6, "realism": 6, "detail": 5, "toy_like": 4, "ai_look": 4, "flags": ["unreadable_scale"], "note": "Hazy atmosphere, a believable rock and a varied textured landscape with dark vegetation clumps. The camps are flat tan rectangles with regular dot grids, so they read as markers, not tents or troops. The distant ships are tiny."},
+ "B": {"craft": 6, "realism": 5, "detail": 4, "toy_like": 4, "ai_look": 4, "flags": ["unreadable_scale"], "note": "Cleaner, bluer and more saturated than A, with similar terrain. Water and sky look pleasant but a bit game-like. The camps are the same flat grids, and the removed fortification line leaves less detail."},
+ "C": {"craft": 5, "realism": 4, "detail": 4, "toy_like": 6, "ai_look": 4, "flags": ["flat_slide_look", "toy_look", "unreadable_scale"], "note": "Terrain is a flat yellow-green colour field with patchy decals, and the trees look like scattered dots. Water is saturated blue. Camps are flat rectangles with little troop detail."},
+ "D": {"craft": 4, "realism": 3, "detail": 4, "toy_like": 6, "ai_look": 5, "flags": ["flat_slide_look", "washed_out", "toy_look", "unreadable_scale"], "note": "Ground is a nearly uniform mustard-yellow slab, so the scene reads as flat and washed out. The rock and ships are fine, the camps have slightly more structure and green edging, and the overall colour is unnatural."},
+ "rank": ["A", "B", "C", "D"],
+ "why": "A has the most varied, atmospheric and believable terrain, while D's uniform yellow ground looks flat and untextured, and all four show the camps as abstract tan rectangles.",
+ "top_fix_for_best": "Replace the flat tan camp rectangles and dot grids with actual tent rows, palisades or trenches, campfire smoke and small troop groups. Add some trodden-ground texture around them so the besiegers' lines read at phone size."}
+```

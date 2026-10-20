@@ -1,0 +1,62 @@
+{
+ "A": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "unreadable_scale"
+  ],
+  "note": "Best colour and depth of the four: green grass, dark tree clusters, a bright sea and a clear rock silhouette. The camps are flat tan rectangles with regular dot grids, so they read as a diagram. The rock is small and soft."
+ },
+ "B": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "washed_out",
+   "unreadable_scale"
+  ],
+  "note": "Very close to A, but the haze is stronger and the grass is paler. That gives a bit more atmosphere and a bit less contrast. The camps are still flat dotted rectangles and the rock is still small."
+ },
+ "C": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "unreadable_scale",
+   "washed_out"
+  ],
+  "note": "The ground is yellower and flatter. The sea is more saturated and the scattered tiny figures add a little life. The camp rectangles are still uniform and diagrammatic, and the trees are sparse."
+ },
+ "D": {
+  "craft": 3,
+  "realism": 3,
+  "detail": 3,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "washed_out",
+   "unreadable_scale",
+   "empty_frame"
+  ],
+  "note": "The ground is an almost monochrome sand-yellow field. Vegetation is minimal and the camps are pale rectangles that barely stand out. The rock is a dark, low-detail lump. Of the four, this has the flattest, most empty look."
+ },
+ "rank": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "why": "A has the richest colour separation, vegetation and depth, which makes the rock, sea, camps and woods easy to tell apart. D is washed out and nearly empty.",
+ "top_fix_for_best": "Replace the flat tan camp rectangles and uniform dot grids with textured, irregular camp elements. These would be tents, earthwork lines with shadows, trenches, smoke and small troop groups. Also add a lower sun angle for long shadows, and enlarge or push the fortified rock closer so it reads as the subject."
+}

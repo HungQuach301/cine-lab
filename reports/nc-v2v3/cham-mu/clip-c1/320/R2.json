@@ -1,0 +1,62 @@
+{
+ "A": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Readable dusk layout with a row of burning batteries. The water is a repeating pattern and the town is flat terracotta blocks on a brown colour field. The batteries are tiny and the smoke is only wisps. There is no sense of fortification or scale."
+ },
+ "B": {
+  "craft": 3,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "noisy",
+   "unreadable_scale"
+  ],
+  "note": "Same scene as A, but the heavy vignette and crushed blacks make it darker and muddier. The water is a flat blue gradient and the ground is murky. It has no advantage over A."
+ },
+ "C": {
+  "craft": 1,
+  "realism": 1,
+  "detail": 1,
+  "toy_like": 3,
+  "ai_look": 3,
+  "flags": [
+   "broken_render",
+   "empty_frame",
+   "confusing",
+   "noisy"
+  ],
+  "note": "Almost fully black. Only faint flame specks and one light are visible. The town and sea cannot be read, so the shot is unusable."
+ },
+ "D": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 3,
+  "ai_look": 4,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Aerial view of a dense town with varied roofs, walls, gardens and a coastal fortification. Large volumetric smoke plumes, white-sailed ships and textured water. It has a clear sense of place and scale. The smoke is a little blobby and cloned, and the bright daylight palette does not read as dusk."
+ },
+ "rank": [
+  "D",
+  "A",
+  "B",
+  "C"
+ ],
+ "why": "D is the only frame with believable town architecture, volumetric smoke, textured water and ships. A and B are flat colour-field blocks, and C is essentially black.",
+ "top_fix_for_best": "Re-grade D to true dusk: warm low sun, orange fire glow on the water and walls, and a darker sky. Break up the repeated smoke blobs into layered drifting plumes with fire at their base. Add burning hulls with visible masts and rigging, and cannon-flash and splash effects at the fortress."
+}

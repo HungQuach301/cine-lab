@@ -1,0 +1,62 @@
+{
+ "A": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "unreadable_scale"
+  ],
+  "note": "Best colour and depth of the four. The green terrain has some variation and the tree clumps are dark and defined. The rock reads well and the sea has a clear horizon. The camps are flat tan rectangles with dotted tents and no real structure. The fortress and ships are tiny, and the empty foreground looks like a map texture."
+ },
+ "B": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 3,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "washed_out",
+   "unreadable_scale"
+  ],
+  "note": "Close to A but paler and hazier, with less contrast and a softer rock. The camps are the same flat tan rectangles with tent dots. The terrain is a uniform green-yellow field. The atmosphere is a little nicer, but overall it has less punch than A."
+ },
+ "C": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "washed_out",
+   "toy_look"
+  ],
+  "note": "The ground is mostly a yellow-beige colour field with a few green patches. The scattered dark dots (trees or troops) are noisy and read like game pieces. The camps are flat decals. The sea and rock are fine."
+ },
+ "D": {
+  "craft": 3,
+  "realism": 2,
+  "detail": 3,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "washed_out",
+   "empty_frame",
+   "toy_look"
+  ],
+  "note": "The ground is an almost untextured sand-yellow plane, so it looks like a desert or a blank colour field. The camps are flat grids with no volume. There is almost no vegetation or life, and the rock is dark and flat. This is the weakest version."
+ },
+ "rank": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "why": "A has the richest ground colour and variation, the best contrast and the most believable landscape, while D's ground is a flat, untextured yellow plane.",
+ "top_fix_for_best": "Give the camps real 3D volume: tents with shadows, palisades, earthworks and trenches, smoke from campfires and tracks between them. Add ground textures and grass with a low-sun raking light. Make the besiegers' lines and the fortress larger in frame, for example with a lower camera or a tighter shot."
+}

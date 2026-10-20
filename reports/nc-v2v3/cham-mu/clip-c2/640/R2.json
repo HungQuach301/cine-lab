@@ -1,0 +1,55 @@
+{
+ "A": {
+  "craft": 8,
+  "realism": 8,
+  "detail": 8,
+  "toy_like": 2,
+  "ai_look": 4,
+  "flags": [],
+  "note": "Most photoreal. The rock has believable cliff texture, scrub and haze. The water, runway, stadium and roofs read as a real place. Fire and smoke plumes add narrative. Slightly soft and generic in the foreground."
+ },
+ "B": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "toy_look",
+   "flat_slide_look"
+  ],
+  "note": "The saturated blue water and smooth green rock read as a game or SimCity render. The big foreground terminal is a white blob with smeared texture, and the apron is a large flat grey area. Dense city mid-ground is decent."
+ },
+ "C": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 7,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Better than B: the rock has cliff faces and paths, and there are clouds and wave texture. Still a stylised low-poly look, with oversaturated water and a smeared white terminal roof. Foreground is flat."
+ },
+ "D": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 4,
+  "ai_look": 6,
+  "flags": [
+   "washed_out",
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "Orange-beige wash covers the ground, with a monochrome sandy palette and low contrast. Buildings are clay-like blocks. The mood is atmospheric but muddy, and the rock is a dark silhouette with little texture."
+ },
+ "rank": [
+  "A",
+  "C",
+  "B",
+  "D"
+ ],
+ "why": "A is the only frame where the ground, water, rock and buildings read as real surfaces under believable light, while B and C look like stylised game renders and D is a washed-out clay-coloured field.",
+ "top_fix_for_best": "Replace the soft, generic foreground (the terminal and apron) with sharper, properly textured buildings, tarmac markings and a few aircraft, vehicles and people, and add a stronger golden-hour key light with long shadows on the rock face to lift the contrast and make it cinematic."
+}

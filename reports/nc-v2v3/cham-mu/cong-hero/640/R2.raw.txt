@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 6, "realism": 5, "detail": 6, "toy_like": 5, "ai_look": 3, "flags": ["toy_look"], "note": "Best-balanced frame. The rock has rocky texture and grass, and the water is saturated and clean. The sky is attractive. The foreground is still flat grey with white block buildings, and the horizon is vague."},
+"B": {"craft": 6, "realism": 5, "detail": 6, "toy_like": 5, "ai_look": 3, "flags": ["toy_look"], "note": "Nearly identical to A. The dark green headland on the right is a heavy, pasted-on landmass with a hard edge. It adds some depth but reads as a cutout. The water is slightly more uniform."},
+"C": {"craft": 4, "realism": 3, "detail": 4, "toy_like": 6, "ai_look": 4, "flags": ["washed_out", "flat_slide_look", "toy_look"], "note": "Washed out. The beige ground and pale haze flatten everything. The rock has lost its texture and looks like smooth clay. The sky is an empty gradient and the water is dull."},
+"D": {"craft": 7, "realism": 6, "detail": 7, "toy_like": 4, "ai_look": 3, "flags": ["toy_look"], "note": "Best atmosphere, with aerial perspective and a hazy horizon that gives depth. The rock has the most believable texture. Red-roofed buildings are more varied and the colour is more natural. The sky is plain and the foreground is still flat tarmac with white block buildings."}, 
+"rank": ["D", "A", "B", "C"],
+"why": "D has the most convincing depth, haze and varied roofs, plus the best rock texture, while C is washed-out clay and A and B are the same frame apart from the pasted-on headland in B.",
+"top_fix_for_best": "Replace the flat grey foreground tarmac and uniform white block buildings with textured ground (markings, wear, grass edges) and varied roof colours and heights. Add a few cloud shadows and a warm directional light with long shadows on the rock to break up the flat, blank foreground."}
+```

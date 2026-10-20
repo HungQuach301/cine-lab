@@ -1,0 +1,52 @@
+{
+ "A": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 3,
+  "ai_look": 4,
+  "flags": [],
+  "note": "Best-balanced frame. Rock is richly textured with green vegetation and a believable cliff face. The sea has good colour and depth, and the apron and airport foreground read plausibly. The sky is a little plain, and the town is a dense but uniform grid."
+ },
+ "B": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 3,
+  "ai_look": 4,
+  "flags": [],
+  "note": "Almost the same as A, with a more saturated blue sea and a distant headland that adds depth. The sky and atmosphere are slightly cleaner. The foreground apron is bland, and the rock is a bit more uniformly green."
+ },
+ "C": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "washed_out",
+   "flat_slide_look",
+   "toy_look"
+  ],
+  "note": "Hazy, desaturated look with a beige foreground. The foreground blocks look like game pieces. The rock is flatter, with less vegetation and contrast. Atmospheric depth is good, but the image lacks punch."
+ },
+ "D": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 4,
+  "ai_look": 5,
+  "flags": [
+   "noisy"
+  ],
+  "note": "Warm, hazy light with a textured rock and some red-roof accents. The vegetation and field patches look blotchy and Minecraft-like. Hard, saturated colour patches in the foreground (orange and red) look like game pieces. Atmosphere is softer, but the sea is duller."
+ },
+ "rank": [
+  "B",
+  "A",
+  "D",
+  "C"
+ ],
+ "why": "B and A share the strongest rock, vegetation and sea, with B slightly ahead on colour separation and a distant headland for depth. D is more atmospheric but blotchy. C is washed out and flat.",
+ "top_fix_for_best": "Break up the bland grey apron and the uniform town grid. Add airport detail (parked aircraft, runway markings, taxiway lights, vehicles) and varied roof colours and heights. Then add a soft low-angle sun with long shadows and a bit of haze on the rock to give the frame cinematic depth."
+}

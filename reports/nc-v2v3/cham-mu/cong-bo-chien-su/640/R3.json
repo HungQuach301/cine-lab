@@ -1,0 +1,58 @@
+{
+ "A": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "washed_out"
+  ],
+  "note": "Moody, hazy atmosphere with convincing grassy terrain and sea. The big orange fireball is a blown-out blob that covers the town and hides the battle action. The town buildings are still clean block shapes."
+ },
+ "B": {
+  "craft": 7,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 3,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Clear, readable layout. The blue sea sparkles, the ships fire puffs of smoke, and the fort carries a flag. The smoke is soft and believable and the muzzle flash is small. The buildings are still low-poly boxes, and the ground is a smooth, flat tan."
+ },
+ "C": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 5,
+  "toy_like": 7,
+  "ai_look": 5,
+  "flags": [
+   "washed_out",
+   "flat_slide_look",
+   "toy_look",
+   "confusing"
+  ],
+  "note": "The land is one flat mustard-tan colour field with no vegetation. The sea is a plain gradient with no ripples. A white haze patch looks pasted on, and the ships are clearer but toy-like. It is the weakest of the four."
+ },
+ "D": {
+  "craft": 8,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 5,
+  "ai_look": 3,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "The best surface realism: grass is textured, the sea has foam and wave detail along the coast, and the light is good. Ships, smoke puffs and the muzzle flash read well. The buildings are still clean blocks and the town's ground is a bit flat, but the colour is more natural and varied than in B."
+ },
+ "rank": [
+  "D",
+  "B",
+  "A",
+  "C"
+ ],
+ "why": "D has the most believable terrain, water and lighting while keeping the action readable. C is flat and washed out, and A's giant fireball hides the scene.",
+ "top_fix_for_best": "Break up the box-like town: add weathered roof colour variation, chimneys, streets and small figures or carts, plus smoke rising from the town and a darker, textured ground around it. Add a few visible cannon flashes and splashes near the ships to show the scale of the bombardment."
+}

@@ -1,0 +1,55 @@
+{
+ "A": {
+  "craft": 7,
+  "realism": 7,
+  "detail": 7,
+  "toy_like": 3,
+  "ai_look": 4,
+  "flags": [],
+  "note": "Most natural of the four. Muted, hazy atmosphere. Rock has believable rocky texture and scrub. Grass and runway read as real surfaces, and the water is subtle. The foreground terminal and housing have decent density. Slightly desaturated and low-res, but it is the closest to a real aerial photo."
+ },
+ "B": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Saturated and punchy, but the rock is a smooth green blob. Water is flat saturated blue. Foreground tarmac is a large empty beige slab. Buildings are small and clean, close to a game or SimCity look. The colour is appealing, but it reads as stylised."
+ },
+ "C": {
+  "craft": 6,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Better rock shading and cloud variety than B. Town has more depth. Colour is still over-saturated, and the water is flat cyan. Foreground is the same empty apron. Sits between A and B."
+ },
+ "D": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "washed_out",
+   "flat_slide_look",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Dominated by a flat beige colour field of sand or ground. The rock is a dark silhouette with little texture. The airport is poorly readable and the buildings are sparse, blocky and pale. Washed-out haze and empty foreground. Weakest."
+ },
+ "rank": [
+  "A",
+  "C",
+  "B",
+  "D"
+ ],
+ "why": "A has the most believable materials, haze and surface texture, while B and C are glossy and game-like and D is a washed-out beige field with little readable detail.",
+ "top_fix_for_best": "Raise resolution and add micro-detail in the foreground: textured tarmac with markings and wear, parked aircraft and vehicles, and a rock face with strata and shadow. Add a little warm directional light, so the frame reads as cinematic rather than flatly hazy."
+}

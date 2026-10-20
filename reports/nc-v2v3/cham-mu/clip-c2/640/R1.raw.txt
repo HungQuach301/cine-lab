@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 8, "realism": 8, "detail": 8, "toy_like": 2, "ai_look": 4, "flags": [], "note": "Most photoreal. The rock has real rock texture and the sea has believable water. The runway, stadium, harbour and small smoke plumes read as a real place. Light is soft and natural. The foreground is slightly flat and tidy."},
+ "B": {"craft": 6, "realism": 4, "detail": 6, "toy_like": 6, "ai_look": 5, "flags": ["toy_look"], "note": "Saturated, game-like colours. The rock is a smooth green-brown blob and the water is a flat saturated blue. The foreground terminal is a white blocky mass. It looks like a city-builder game but is readable and colourful."},
+ "C": {"craft": 6, "realism": 4, "detail": 6, "toy_like": 6, "ai_look": 5, "flags": ["toy_look"], "note": "Very close to B. It has slightly better rock texture, cliffs and trails, and nicer clouds. The water is still stylised and the buildings are still blocky and low-poly. It is a little more polished than B."},
+ "D": {"craft": 4, "realism": 3, "detail": 4, "toy_like": 6, "ai_look": 6, "flags": ["washed_out", "flat_slide_look", "toy_look", "confusing"], "note": "Orange-beige haze covers everything. The ground is a flat sand field, the buildings are melted clay-like blocks, and the rock is dark and flat. The mood is dull and unclear, with no contrast."},
+ "rank": ["A", "C", "B", "D"],
+ "why": "A is the only frame that reads as a real place, with natural textures, believable water and lighting. B and C look like a stylised city-builder game, and D is washed out and muddy.",
+ "top_fix_for_best": "Add life and scale to the foreground: aircraft on the apron, vehicles, and varied building roofs and weathering. Also add some stronger directional light and shadow to give the frame more depth and drama."}
+```

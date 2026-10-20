@@ -1,0 +1,56 @@
+{
+ "A": {
+  "craft": 7,
+  "realism": 7,
+  "detail": 7,
+  "toy_like": 3,
+  "ai_look": 4,
+  "flags": [
+   "washed_out"
+  ],
+  "note": "Most natural frame. The rock has believable rocky texture and the haze and water look right. The grass, runway and dense town read as a real place. The foreground terminal area is slightly busy, and the light is a bit flat and hazy."
+ },
+ "B": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Saturated colours and a rich blue sea give it punch. The rock is smooth and green like a game asset. The foreground is a flat grey plane with small block buildings, and the island across the water is a flat slab."
+ },
+ "C": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Almost the same as B, with slightly better rock shading and a more textured foreground. The saturated palette and the grey tarmac plane still give a toy and game-asset look."
+ },
+ "D": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 7,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "washed_out",
+   "toy_look"
+  ],
+  "note": "The ground is a flat beige colour field. The rock is a dark smooth blob. The buildings are sparse low-detail blocks, and the haze is heavy. It looks the least like a real place, with no clear airport or runway."
+ },
+ "rank": [
+  "A",
+  "C",
+  "B",
+  "D"
+ ],
+ "why": "A has the most believable rock, vegetation, water and urban density, while D's flat beige ground and sparse blocks look like untextured colour fields.",
+ "top_fix_for_best": "Add texture and variation to the foreground terminal and apron: weathered tarmac, runway markings, parked aircraft, vehicles and shadows. Add stronger directional sunlight, which will lift contrast and remove the washed-out haze."
+}

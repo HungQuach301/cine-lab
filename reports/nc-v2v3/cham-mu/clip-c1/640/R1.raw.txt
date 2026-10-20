@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 5, "realism": 3, "detail": 5, "toy_like": 7, "ai_look": 4, "flags": ["toy_look", "flat_slide_look"], "note": "Saturated blue water with a flat noisy texture. The ground is flat brown and the buildings are orange blocks. The burning batteries in a row are readable and the smoke is dark and stylised. It's recognisably a game-engine scene and not dusk."},
+"B": {"craft": 5, "realism": 3, "detail": 5, "toy_like": 7, "ai_look": 3, "flags": ["toy_look", "flat_slide_look", "noisy"], "note": "Same geometry as A with a darker, moodier blue and teal grade. The rim glow on the coast helps and the fires pop a bit more. The ground is still untextured brown and the blocky buildings are still toy-like. Closer to dusk than A, but the grading is crunchy."},
+"C": {"craft": 2, "realism": 2, "detail": 2, "toy_like": 4, "ai_look": 3, "flags": ["washed_out", "unreadable_scale", "confusing", "empty_frame"], "note": "Nearly black. The town is invisible and only faint fires, pale smoke and a single flag flame show. Too dark to read on a phone or a TV."},
+"D": {"craft": 8, "realism": 8, "detail": 9, "toy_like": 1, "ai_look": 5, "flags": ["cluttered"], "note": "Photoreal aerial view with textured terracotta roofs, gardens, tall billowing smoke and a fleet of tall ships. The fort and Union flag are clear. It is daylight and not dusk, and the smoke is oversized and cloud-like. Ships are tiny and some fine details are mushy and AI-looking, but it reads as a real place."},
+"rank": ["D", "B", "A", "C"],
+"why": "D is the only one that reads as a real place, with textured materials, believable scale and varied detail. A and B are blocky toy-like game scenes, and C is almost entirely black.",
+"top_fix_for_best": "Grade D toward dusk with warm orange fire glow on the smoke and water and a cooler, darker sky. Cut the smoke volume so the burning batteries and the fleet read clearly, and sharpen the ships' rigging and the wall edges."}
+```

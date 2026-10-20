@@ -1,0 +1,51 @@
+{
+ "A": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 3,
+  "ai_look": 4,
+  "flags": [],
+  "note": "Rich, saturated colour with a convincing rock, dense town and vivid sea. The airport apron is empty. The foreground blocks look slightly game-like."
+ },
+ "B": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 3,
+  "ai_look": 4,
+  "flags": [],
+  "note": "Nearly identical to A. The far headland with its dark green slope adds depth and a horizon anchor. Colour is slightly cooler, and the foreground is the same empty tarmac with plain blocks."
+ },
+ "C": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "washed_out",
+   "flat_slide_look"
+  ],
+  "note": "Hazy beige and blue grade flattens everything. The foreground ground is a flat tan field. The rock is dull, and the buildings read as plain blocks."
+ },
+ "D": {
+  "craft": 6,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 4,
+  "ai_look": 5,
+  "flags": [
+   "washed_out"
+  ],
+  "note": "More natural atmosphere and a softer haze give a realistic mood. The rock has some texture. The foreground has orange-roofed blocks and a lemon-yellow patch that look game-like, and the sea is paler."
+ },
+ "rank": [
+  "B",
+  "A",
+  "D",
+  "C"
+ ],
+ "why": "B and A have the strongest colour, depth and town density, and B's far headland adds the best sense of place. D is more atmospheric but patchy and hazy, and C is washed out and flat.",
+ "top_fix_for_best": "Texture the foreground airport apron with runway markings, parked aircraft and a terminal. Add atmospheric haze between the rock and the town, and replace the plain foreground blocks with detailed buildings, so the shot reads as a real 2026 airport and not an empty grey field."
+}

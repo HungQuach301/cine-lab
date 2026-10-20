@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 5, "realism": 5, "detail": 5, "toy_like": 4, "ai_look": 4, "flags": ["washed_out", "unreadable_scale"], "note": "Hazy water, large orange blast glow, and green terrain. Some depth, but the ships are tiny and the sea is flat and pale. The explosion blob looks like a flat sprite."},
+ "B": {"craft": 6, "realism": 6, "detail": 6, "toy_like": 4, "ai_look": 4, "flags": ["unreadable_scale"], "note": "Best water, with a blue sheen and visible ripples. Smoke puffs are layered and the town has good terracotta contrast. Ships are still tiny, and the green and ochre terrain is a bit flat."},
+ "C": {"craft": 4, "realism": 4, "detail": 5, "toy_like": 5, "ai_look": 5, "flags": ["washed_out", "flat_slide_look", "unreadable_scale"], "note": "The whole frame is sepia-tinted. Ground and buildings blend into one colour field, and the fog is heavy. The town reads as a model diorama."},
+ "D": {"craft": 6, "realism": 6, "detail": 6, "toy_like": 4, "ai_look": 4, "flags": ["unreadable_scale"], "note": "Similar to B but with a slightly darker, moodier sea and better contrast. The terrain has more texture and the smoke is layered. Ships are tiny and the buildings look like uniform blocks."},
+ "rank": ["D", "B", "A", "C"],
+ "why": "D and B have the best water, contrast and layered smoke, while A is washed out with a sprite-like blast and C loses all colour separation to a sepia haze.",
+ "top_fix_for_best": "Bring the gun batteries much closer to camera and enlarge them, with visible hulls, gun ports, muzzle flashes and wake. Then break up the uniform building blocks and ground with varied roof heights, texture, and walls, trees or troops, so the scale reads."}
+```

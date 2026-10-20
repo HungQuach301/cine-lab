@@ -1,0 +1,57 @@
+{
+ "A": {
+  "craft": 6,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Best terrain: atmospheric haze, varied green scrub and tree clumps, a believable distant Rock. The camp rectangles are flat orange slabs dotted with tiny box tents, which reads as a game-board layout. Ships are a few tiny specks."
+ },
+ "B": {
+  "craft": 5,
+  "realism": 5,
+  "detail": 5,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Saturated blue water and cleaner colour, but less haze and depth than A. The terrain is a bit flatter and the camp slabs are just as artificial. The ships are specks."
+ },
+ "C": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "toy_look"
+  ],
+  "note": "Large flat yellow-green fields and patchy green decals. The tree clumps are sparse and read as scattered dots. The sea is vivid but the whole frame looks like a game terrain. The camps are plain slabs."
+ },
+ "D": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "washed_out",
+   "toy_look"
+  ],
+  "note": "The ground is a monochrome mustard-yellow colour field with little texture, and the vegetation is nearly gone. The camps look like pale grids, so the frame reads as a flat map and the colour is washed out."
+ },
+ "rank": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "why": "A has the richest, most natural terrain and atmosphere, while D collapses into a flat yellow colour field. All four share the same artificial slab-and-box camps.",
+ "top_fix_for_best": "Replace the flat orange camp rectangles and uniform box tents with textured trampled earth. Add trench and rampart lines, varied tent shapes, campfire smoke and tiny figures, and add dust haze and cast shadows so the camps sit in the terrain."
+}

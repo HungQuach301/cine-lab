@@ -1,0 +1,62 @@
+{
+ "A": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "unreadable_scale"
+  ],
+  "note": "Best of the set. Green grass has some variation, a visible road, dark tree clumps, and the Rock reads as a landmass. The camps are flat tan rectangles with dotted tents, so they look like a texture. Crisp and reasonably colourful, but still map-like."
+ },
+ "B": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 3,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "washed_out",
+   "unreadable_scale"
+  ],
+  "note": "Similar to A but hazier and less contrasty. The ground is a flatter yellow-green, the road is gone, and the sea has a pale haze. The camps look like pasted rectangles. Softer and less defined than A."
+ },
+ "C": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Bluer sea and a darker headland add some depth. The ground is mostly flat yellow with sparse speckled trees and mottled green patches. Camp rectangles are still flat. The tiny scattered dots read like game-piece scatter."
+ },
+ "D": {
+  "craft": 3,
+  "realism": 2,
+  "detail": 3,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "washed_out",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "The ground is an almost uniform yellow-beige field with faint blotches. The camps are pale flat rectangles that barely separate from the terrain. Vegetation is minimal. Looks like an untextured colour field, and the sea is flat blue."
+ },
+ "rank": [
+  "A",
+  "B",
+  "C",
+  "D"
+ ],
+ "why": "A has the most terrain variation, contrast and readable features (road, tree clumps, defined camps), while D collapses into a flat beige colour field.",
+ "top_fix_for_best": "Give the camps real 3D content: tents with shadows, palisades, earthworks, smoke from fires and tiny figures. Break up the flat grass with texture variation, ridges and trenches, and use lower-angle, warmer directional light so the scale of the besieging lines reads."
+}

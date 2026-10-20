@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 5, "realism": 5, "detail": 5, "toy_like": 5, "ai_look": 5, "flags": ["washed_out", "unreadable_scale"], "note": "Hazy, flat grey-blue sea. The orange explosion glow is a bright blob that hides the middle of the town. The town reads as a tabletop model with dense tiled roofs. The ships are tiny and sit in a row."},
+"B": {"craft": 6, "realism": 6, "detail": 6, "toy_like": 5, "ai_look": 5, "flags": ["unreadable_scale"], "note": "Sea has visible wave texture and sparkle, and several smoke puffs sit above the ships. The fort and pier are clearer. Green grass and sandy ground give some colour variety. The scale still looks like a diorama, and the ships are tiny specks."},
+"C": {"craft": 4, "realism": 3, "detail": 5, "toy_like": 6, "ai_look": 6, "flags": ["washed_out", "flat_slide_look", "toy_look"], "note": "The whole frame is a sepia, beige wash. The sea has lost its blue and the land is one flat tan field. The buildings look like cardboard blocks. Fog and haze flatten the depth."},
+"D": {"craft": 7, "realism": 6, "detail": 6, "toy_like": 4, "ai_look": 5, "flags": ["unreadable_scale"], "note": "Best colour contrast: blue sea with highlights, green terrain with some texture, warm roofs. The smoke plumes and blast glow are readable. The depth is better than in the others. The ships are still very small, and the town still looks like a model."}, 
+"rank": ["D","B","A","C"],
+"why": "D has the most believable colour separation and atmosphere, with textured water, varied land and readable smoke. C is washed out into flat beige and looks the most like a toy.",
+"top_fix_for_best": "Enlarge the ships and add cannon flashes and splash plumes in the water. Break up the roof grid with streets, trees and walls. Add small figures and smoke on the fortifications to give scale and human detail."}
+```

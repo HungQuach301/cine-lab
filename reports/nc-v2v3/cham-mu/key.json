@@ -1,0 +1,101 @@
+{
+ "cong-hero": {
+  "kind": "a hero shot of a modern city on a famous rock with an airport, 2026",
+  "nhan": {
+   "A_NCCPU": "A",
+   "V7B": "B",
+   "V2V3_B2": "C",
+   "CyclesGPU": "D"
+  },
+  "tep": {
+   "V7B": "/var/tmp/cine-out/v2v3/cham/V7B-hero.jpg",
+   "A_NCCPU": "/var/tmp/cine-out/v2v3/cham/A-hero.jpg",
+   "CyclesGPU": "/var/tmp/cine-out/v2v3/cham/GPU-hero.jpg",
+   "V2V3_B2": "/var/tmp/cine-out/v2v3/vid/g-hero-B2/khung/00008.png"
+  }
+ },
+ "cong-vay-ham": {
+  "kind": "a siege scene: the besiegers' camps and lines on the isthmus in front of a fortified rock, 1779",
+  "nhan": {
+   "CyclesGPU": "A",
+   "A_NCCPU": "B",
+   "V7B": "C",
+   "V2V3_B2": "D"
+  },
+  "tep": {
+   "V7B": "/var/tmp/cine-out/v2v3/cham/V7B-vay-ham.jpg",
+   "A_NCCPU": "/var/tmp/cine-out/v2v3/cham/A-vay-ham.jpg",
+   "CyclesGPU": "/var/tmp/cine-out/v2v3/cham/GPU-vay-ham.jpg",
+   "V2V3_B2": "/var/tmp/cine-out/v2v3/vid/g-vay-ham-B2/khung/00008.png"
+  }
+ },
+ "cong-bo-chien-su": {
+  "kind": "a shore-and-battle scene: floating gun batteries attacking a fortified town from the sea, 1782",
+  "nhan": {
+   "CyclesGPU": "A",
+   "V7B": "B",
+   "V2V3_B2": "C",
+   "A_NCCPU": "D"
+  },
+  "tep": {
+   "V7B": "/var/tmp/cine-out/v2v3/cham/V7B-bo-chien-su.jpg",
+   "A_NCCPU": "/var/tmp/cine-out/v2v3/cham/A-bo-chien-su.jpg",
+   "CyclesGPU": "/var/tmp/cine-out/v2v3/cham/GPU-bo-chien-su.jpg",
+   "V2V3_B2": "/var/tmp/cine-out/v2v3/vid/g-bo-chien-su-B2/khung/00008.png"
+  }
+ },
+ "clip-c2": {
+  "kind": "a hero shot of a modern city on a famous rock with an airport, 2026",
+  "nhan": {
+   "Omni_a": "A",
+   "V2V3_B2": "B",
+   "V7B": "C",
+   "V2V3_A": "D"
+  },
+  "tep": {
+   "V7B": "/var/tmp/cine-out/v2v3/ctrl/c2/src/00040.png",
+   "V2V3_A": "/var/tmp/cine-out/v2v3/vid/c2-A/khung/00040.png",
+   "V2V3_B2": "/var/tmp/cine-out/v2v3/vid/c2-B2/khung/00040.png",
+   "Omni_a": {
+    "640": "/home/user/cine-lab/reports/nc-v2v/cham-mu/anh/c2a-640-X.jpg",
+    "320": "/home/user/cine-lab/reports/nc-v2v/cham-mu/anh/c2a-320-X.jpg"
+   }
+  }
+ },
+ "clip-c4B": {
+  "kind": "a siege scene: the besiegers' camps and lines on the isthmus in front of a fortified rock, 1779",
+  "nhan": {
+   "Omni_a": "A",
+   "V2V3_A": "B",
+   "V7B": "C",
+   "V2V3_B2": "D"
+  },
+  "tep": {
+   "V7B": "/var/tmp/cine-out/v2v3/ctrl/c4B/src/00040.png",
+   "V2V3_A": "/var/tmp/cine-out/v2v3/vid/c4B-A/khung/00040.png",
+   "V2V3_B2": "/var/tmp/cine-out/v2v3/vid/c4B-B2/khung/00040.png",
+   "Omni_a": {
+    "640": "/home/user/cine-lab/reports/nc-v2v/cham-mu/anh/c4Ba-640-X.jpg",
+    "320": "/home/user/cine-lab/reports/nc-v2v/cham-mu/anh/c4Ba-320-X.jpg"
+   }
+  }
+ },
+ "clip-c1": {
+  "kind": "a shore-and-battle scene at dusk: burning floating gun batteries in a bay in front of a fortified town, 1782",
+  "nhan": {
+   "V7B": "A",
+   "V2V3_B2": "B",
+   "V2V3_A": "C",
+   "Omni_a": "D"
+  },
+  "tep": {
+   "V7B": "/var/tmp/cine-out/v2v3/ctrl/c1/src/00040.png",
+   "V2V3_A": "/var/tmp/cine-out/v2v3/vid/c1-A/khung/00040.png",
+   "V2V3_B2": "/var/tmp/cine-out/v2v3/vid/c1-B2/khung/00040.png",
+   "Omni_a": {
+    "640": "/home/user/cine-lab/reports/nc-v2v/cham-mu/anh/c1a-640-Y.jpg",
+    "320": "/home/user/cine-lab/reports/nc-v2v/cham-mu/anh/c1a-320-Y.jpg"
+   }
+  }
+ }
+}

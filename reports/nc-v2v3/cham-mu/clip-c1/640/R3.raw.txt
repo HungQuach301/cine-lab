@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 5, "realism": 3, "detail": 4, "toy_like": 7, "ai_look": 4, "flags": ["toy_look", "flat_slide_look", "unreadable_scale"], "note": "Dusk palette with burning batteries in a row is readable. The water is a saturated blue texture. The land is flat brown with block-like houses. The batteries are tiny and evenly spaced like game pieces."},
+ "B": {"craft": 4, "realism": 3, "detail": 4, "toy_like": 7, "ai_look": 4, "flags": ["toy_look", "noisy", "unreadable_scale", "flat_slide_look"], "note": "Same geometry as A but darker, with a heavy blue and orange grade and a crunchy rim-light edge. It looks more like a filter than lighting. The land is muddy and the batteries are tiny."},
+ "C": {"craft": 2, "realism": 2, "detail": 2, "toy_like": 4, "ai_look": 3, "flags": ["empty_frame", "unreadable_scale", "confusing"], "note": "Almost black. Only a few fire glows and a flag flame can be seen. The town, fort and bay cannot be made out, so it would be unreadable on a phone."},
+ "D": {"craft": 8, "realism": 8, "detail": 8, "toy_like": 2, "ai_look": 6, "flags": [], "note": "Photoreal aerial view with textured terracotta town, fields, fort, a Union flag, sailing ships and billowing smoke. It is daytime, not dusk, and the ships look like a fleet rather than burning batteries. The smoke clouds are a little puffy and generic."},
+ "rank": ["D", "A", "B", "C"],
+ "why": "D is the only frame with believable materials, scale and readable detail. A and B are toy-like block models, and C is too dark to read.",
+ "top_fix_for_best": "Regrade D to dusk with a warm low sun and orange fire glow on the water. Turn the sailing ships into burning floating batteries with visible flames, and make the smoke darker and more directional so it matches the 1782 siege."}
+```

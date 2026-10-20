@@ -1,0 +1,54 @@
+{
+ "A": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Saturated blue sky and sea, with a clear rock and a readable airstrip. The colours are punchy, but it looks like a game map. The foreground is bare grey tarmac with a few white block buildings."
+ },
+ "B": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Almost the same as A. The dark green far headland adds some depth and a horizon. The water is a flat saturated blue, and the foreground is still empty and blocky."
+ },
+ "C": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 5,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "washed_out",
+   "flat_slide_look",
+   "toy_look"
+  ],
+  "note": "The ground is a beige or tan colour field with no texture. The sky is a flat gradient. The rock is smooth and soft, and the sea is dull. The colour is the weakest of the four."
+ },
+ "D": {
+  "craft": 8,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 3,
+  "ai_look": 3,
+  "flags": [],
+  "note": "Hazy atmospheric perspective and a soft, natural palette. The rock is more rugged and has more mass. The terracotta roofs add variety, and the sea is a believable deep blue. It reads most like a real place. The foreground tarmac is still plain."
+ },
+ "rank": [
+  "D",
+  "B",
+  "A",
+  "C"
+ ],
+ "why": "D has the most natural lighting, haze and depth, with rugged rock and varied roofs, so it looks least like a toy. C is the weakest because its ground is flat beige and the colour is washed out.",
+ "top_fix_for_best": "Texture and populate the empty foreground tarmac and plaza. Add runway markings, aircraft, vehicles, shadows and weathering, and add subtle ocean wave detail and ship wakes. That would remove the last flat, game-map look."
+}
