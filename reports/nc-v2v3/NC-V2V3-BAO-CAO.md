@@ -2,7 +2,7 @@ Nhánh thật: `nc-v2v3` (tạo mới từ `origin/nc-v2v` @2c1d1e12 theo lệnh
 
 # NC-V2V3 — Thử AI video→video BÁM CẤU TRÚC (Wan2.2-VACE-Fun, GPU thuê) điều khiển bằng độ sâu + cạnh + mặt nạ của chính cảnh ta: BÁO CÁO
 
-> Phiên nghiên cứu, 20/10/2026 ≈ 10:00–17:30 UTC. CHỈ đo và báo; không đổi đường ống. Mọi số là số đo thật trong phiên (tệp ở `reports/nc-v2v3/`), trừ chỗ ghi **(ước)**. Không chứa email hay khoá. Khoá RunPod do proxy gắn; mã không đọc/in/ghi khoá; không khoá nào lên pod (trọng số tải ẩn danh từ Hugging Face). User-Agent mọi lệnh của ta: `CineLab-research (+https://github.com/HungQuach301/cine-lab)`. KHÔNG gọi Omni/Gemini.
+> Phiên nghiên cứu, 20/10/2026 ≈ 10:00–15:50 UTC. CHỈ đo và báo; không đổi đường ống. Mọi số là số đo thật trong phiên (tệp ở `reports/nc-v2v3/`), trừ chỗ ghi **(ước)**. Không chứa email hay khoá. Khoá RunPod do proxy gắn; mã không đọc/in/ghi khoá; không khoá nào lên pod (trọng số tải ẩn danh từ Hugging Face). User-Agent mọi lệnh của ta: `CineLab-research (+https://github.com/HungQuach301/cine-lab)`. KHÔNG gọi Omni/Gemini.
 
 ## §0. Tóm tắt (đọc 2 phút)
 
@@ -10,14 +10,14 @@ Nhánh thật: `nc-v2v3` (tạo mới từ `origin/nc-v2v` @2c1d1e12 theo lệnh
 
 | Việc | Kết quả đo |
 |---|---|
-| 0. Mô hình | **Chính: Wan2.2-VACE-Fun-A14B** (alibaba-pai, Apache-2.0), bản fp8 đóng gói của Comfy-Org (Apache-2.0), ComfyUI v0.42.1 trên **1 × RTX 5090 32 GB** (RunPod SECURE $1,19/h). 4 tệp trọng số 41,7 GB, SHA-256 khớp LFS 4/4, tải 68 s. **Loại**: LoRA "Ditto sim2real" cho VACE (CC BY-NC-SA 4.0 — cấm thương mại). **Phụ LTX-2.x: không chạy** (còn ≈ $3,9 dùng được trên sàn $2,5 < điều kiện $4; giấy phép ghi ở §1). |
+| 0. Mô hình | **Chính: Wan2.2-VACE-Fun-A14B** (alibaba-pai, Apache-2.0), bản fp8 đóng gói của Comfy-Org (Apache-2.0), ComfyUI v0.42.1 trên **1 × RTX 5090 32 GB** (RunPod SECURE $1,19/h). 4 tệp trọng số 41,7 GB, SHA-256 khớp LFS 4/4, tải 68 s. **Loại**: LoRA "Ditto sim2real" cho VACE (CC BY-NC-SA 4.0 — cấm thương mại). **Phụ LTX-2.x: không chạy** (chủ dự án 22:30 chuyển sang Cosmos; giấy phép LTX ghi ở §1). **Cosmos-Transfer2.5-2B (chỉ đạo 22:30): không cài được, bỏ, 0 phút pod** — trọng số `nvidia/Cosmos-Transfer2.5-2B` bị *gated* (tải ẩn danh HTTP 401; cần tài khoản HF chấp nhận NVIDIA Open Model License + token trên pod, trái luật phiên), không có bản sao công khai chính thức; bộ lọc an toàn kèm theo cần `meta-llama/Llama-Guard-3-8B` (cũng 401). |
 | 1. Nguồn + điều khiển (CPU) | Máy V7B @317dcf5 (cùng `clips.py` NC-V2V, opt khớp 100 %): 3 cửa sổ **81 khung 1280×720 24 fps (3,4 s)** quanh khung 120 của c2 / c4B / c1 + 3 cửa sổ 17 khung tại 3 điểm cổng NC-CPU/NC-GPU + c4 đủ 481 khung (20 s) cho chế độ C. Mỗi khung: màu (đúng vòng `hero.js`), **độ sâu từ bộ đệm z của renderer** (log 16 bit), mặt nạ ID (idmask.js NC-V2V nguyên văn), lượt "mái phố" riêng. Giữ **24 fps 1:1 với nguồn** (mô hình học 16 fps → chuyển động tự sinh như sóng/khói nhanh ×1,5); **độ dài hạ còn 81 khung/lượt** (giới hạn huấn luyện Wan). |
-| 2. Gọi mô hình | **11 lượt 81 khung + 9 lượt cổng 17 khung + 7 cửa sổ chế độ C.** A (độ sâu + cạnh toàn khung), B (A + mặt nạ inpaint, ghép lại điểm ảnh nguồn viền ≤ 3 px), **B2 (thêm sau khi B biến đất thành biển: B + khởi từ khung nguồn, khử nhiễu 0,6)**, B2d50 (khử nhiễu 0,5). GPU thuần: A/B **19,7 s/khung**, B2 **12,0 s/khung**, B2d50 10,0 s/khung (720p, 20 bước, hạt 20102026). |
+| 2. Gọi mô hình | **10 lượt 81 khung + 8 lượt cổng 17 khung + 2/7 cửa sổ chế độ C.** A (độ sâu + cạnh toàn khung), B (A + mặt nạ inpaint, ghép lại điểm ảnh nguồn viền ≤ 3 px), **B2 (thêm sau khi B biến đất thành biển: B + khởi từ khung nguồn, khử nhiễu 0,6)**, B2d50 (khử nhiễu 0,5). GPU thuần: A/B **19,7 s/khung**, B2 **12,0 s/khung**, B2d50 10,0 s/khung (720p, 20 bước, hạt 20102026). |
 | 3. Đo (bộ đo NC-V2V T1–T6 y nguyên + đối chứng không AI + T7 đốm sáng bền ≥ 1 s + T8 vật mới bền + T9 đổi loại vùng) | **Máy cho qua 1/10** (c2-B2d50). **P đọc: 0/10 đạt.** A và B **đổi loại vùng** ở 6/6 lượt (biển → cát ở c2/c1, eo đất → biển ở c4B-B, xoá trại ở c4B-A, ngày → đêm ở c1-A). B2 giữ bố cục nhưng **xoá vật mang dữ kiện nằm trong lớp "đất"**: dải đê lấn biển (c2-B2; c2-B2d50 cắt rời đê khỏi bờ), cụm cây thành vòng rỗng + xoá lối mòn (c4B-B2), xoá bãi cạn trên vịnh (c1-B2). **T3 "cạnh mới" ≈ 0 ở mọi lượt** dù AI bịa/xoá cả vùng → phép đo cũ không bắt được lỗi kiểu này; T9 mới bắt được. |
-| (C) Nối c4A + c4B 20 s | Xem §5 (7 cửa sổ B2 nối tiếp, 9 khung ngữ cảnh). |
+| (C) Nối c4A + c4B 20 s | **Dừng theo lệnh chủ dự án sau 2/7 cửa sổ** (6,4 s, B2 nối tiếp 9 khung ngữ cảnh): đường nối **3,55 × nền** (thấy được; Omni 28–65 ×). §5. |
 | 4. Chấm mù (3 vai Sonnet 5.5, giao thức NC-GPU, 640 + 320) | **Cổng:** Cycles GPU hạng nhất 6/9, A (NC-CPU) 3/9, V7B 0/9, **V2V3-B2 0/9, hạng TB 4,0/4 (cuối ở mọi cổng, mọi cỡ)**; độ thật GPU 5,89 · A 5,55 · V7B 5,00 · **V2V3-B2 3,11**. **Clip:** Omni-a (có vật bịa) hạng nhất 9/9, độ thật 7,67; V7B 3,44; **V2V3-B2 3,11**; V2V3-A 3,56. Lời phê: "washed out", "flat colour field", "game-like". |
 | 5. Ước cả tập 745 s | ≈ 300 cửa sổ × 973 s ≈ **81 h GPU ≈ $97 (720p, 1 lượt, ước)**; tỉ lệ đạt đo được **0/10** → cận trên 95 % ≈ 30 % → **≥ 3,3 lượt/cửa sổ ≈ ≥ $320 và không chắc hội tụ**; + ≈ 30 h CPU dựng nguồn/điều khiển; + ≈ 10 h P đọc tờ so. Trượt §12.2 (10/10), §12.3, K-LAI-5 (đêm c1-B2: 1,7 % điểm > 1,5 × A + 2/255, ngưỡng 0,5 %). |
-| GPU bật/tắt + tiền | 2 pod RTX 5090 SECURE, **≈ 6,6 h**, RunPod **$… thật** (số dư $14,02 → $…). Xem §7. |
+| GPU bật/tắt + tiền | 2 pod RTX 5090 SECURE, **5,01 h**, RunPod **$6,05 thật** (số dư $14,02 → $7,97). Mọi pod đã xoá, `GET /pods` = `[]`. §7. |
 | Chi phí khác | Claude chấm mù **$2,046** (mốc $8). OpenAI $0 · Gemini $0 · ElevenLabs $0. CPU ≈ **2,6 h** đồng hồ (mốc 8 h). |
 
 **Xem nhanh:** `clip/luoi-c2.mp4`, `luoi-c4B.mp4`, `luoi-c1.mp4` (lưới 3 × 2: nguồn | A | B / B2 | B2 khử nhiễu 0,5 hoặc vùng AI vẽ | Omni-a cùng khung) · `to-so/to-so-c4B-B.png` (eo đất thành biển) · `to-so/to-so-c2-B2.png` (xoá đê) · `to-so/zoom-*.jpg`.
@@ -104,11 +104,33 @@ Lý do thêm B2: sau c4B-B (AI biến cả eo đất thành biển) và c1-B (bi
 
 **Bảng biến thể × số đo** (`danh-gia.md` / `danh-gia.json`; số thô `do/*.json`):
 
-DANH_GIA_BANG
+| Clip-chế độ | T1 giữ tàu / cờ / pin (÷ đc) | T2 F1 nhà · tàu | T3 cạnh mới trời · nước · đất % | T4 lửa mới max % (sàn) | T5 nhấp nháy ÷ đc | T6 dịch px · tỉ lệ · lệch khung | T7 đốm sáng bền (lửa) · đc | T8 vật mới bền | T9 đất→nước · nước→đất % | Chi tiết nguồn → ra | Bão hoà nguồn → ra | Máy | P đọc | Kết luận |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| c2-A | tau 0.20 (0.20) | 0.86 · 0.424 | troi 0.0 · nuoc 0.0 · dat 0.0 | 9.352 (0.050) | 0.81 | 1.26 · 1.0043 · kxđ | 0 (0) · 1 | 0 | 0.45 · 43.72 | 47.4 → 8.7 | 0.34 → 0.36 | LOẠI: T1 tau, T2 tàu, T4 lửa, T9 đổi loại vùng | LOẠI: đường bờ dời: vịnh nước giữa–phải khung thành bãi cát, biển lùi sang phải; đê chắn sóng/cầu tàu bên phải biến mất; mọi toà nhà mất màu có nguồn (S2/OSM) thành khối cát như phế tích; bãi cỏ/sân xanh thành cát; thêm mảng đỏ (sân/mái đỏ) ở dưới–giữa và phải không có trong nguồn; tàu xa gần như mất (máy: giữ 20 %) | LOẠI |
+| c2-B | tau 1.00 (1.00) | 0.996 · 0.989 | troi 0.0 · nuoc 0.04 · dat 0.16 | 0.278 (0.050) | 1.04 | 0.0 · 1.0 · kxđ | 6 (0) · 1 | 1 | 1.03 · 19.35 | 47.4 → 37.3 | 0.34 → 0.33 | LOẠI: T4 lửa, T7 đốm sáng bền, T8 vật mới bền, T9 đổi loại vùng | LOẠI: vịnh giữa khung (giữa đê chắn sóng và phố) bị vẽ thành bãi cát, đường bờ dời sang phải (máy: nước→đất 19,4 %); đê/cầu tàu bên phải mất; bãi cỏ và sân xanh thành cát; Rock mất thảm thực vật xanh thành đá nâu tím; viền lam sáng quanh tàu và mép nhà (ghép vùng giữ); mái phố được vẽ lại nhưng giữ khối | LOẠI |
+| c2-B2 | tau 1.00 (1.00) | 0.996 · 0.998 | troi 0.0 · nuoc 0.0 · dat 0.0 | 0.016 (0.050) | 1.51 | 0.11 · 1.0004 · kxđ | 2 (1) · 1 | 0 | 1.5 · 1.91 | 47.4 → 34.3 | 0.34 → 0.33 | LOẠI: T5 nhấp nháy, T7 đốm sáng bền | LOẠI: giữ đúng đường bờ, vịnh, Rock, bãi cỏ, phố và tàu; NHƯNG XOÁ dải đê/đường băng lấn biển màu xám chạy từ đầu đường băng ra giữa vịnh (lớp ID 'đất', nằm trong vùng AI được vẽ) — dữ kiện công trình đổi; xoá vệt sáng phản chiếu trên vịnh xa; mép vùng giữ quanh tàu còn viền lam nhẹ | LOẠI |
+| c2-B2d50 | tau 1.00 (1.00) | 0.996 · 1.0 | troi 0.0 · nuoc 0.0 · dat 0.0 | 0.014 (0.050) | 1.47 | 0.17 · 1.0003 · kxđ | 0 (0) · 1 | 0 | 1.09 · 1.7 | 47.4 → 34.4 | 0.34 → 0.33 | qua | LOẠI: khử nhiễu 0,5: giữ bờ, vịnh, Rock, bãi cỏ, phố, tàu và PHẦN LỚN dải đê lấn biển; nhưng đoạn gốc đê nối với bờ (≈ 1/4 chiều dài) bị XOÁ → đê thành dải nổi rời khỏi bờ (dữ kiện công trình đổi); vệt phản chiếu xa trên vịnh bị xoá; mặt nước/đá ít 'thật' hơn B2 0,6 | LOẠI |
+| c4B-A | co 0.00 (0.00) | 0.559 · 0.0 | troi 0.0 · nuoc 1.14 · dat 0.06 | 47.061 (0.050) | 1.27 | 0.0 · 1.0 · kxđ | 9 (8) · 0 | 2 | 0.0 · 99.57 | 20.3 → 15.4 | 0.57 → 0.65 | LOẠI: T1 co, T2 nhà, T2 tàu, T4 lửa, T7 đốm sáng bền, T8 vật mới bền, T9 đổi loại vùng | LOẠI: XOÁ hai dãy trại (lều chỉ còn vệt mờ), xoá tàu ngoài khơi, xoá cây và mảng cỏ xanh → sa mạc nâu cam đồng màu; THÊM một đống đá/phế tích ở giữa–phải không có trong nguồn; biển xám mất màu (máy: nước→đất 99,6 % theo màu); toàn khung 'lửa mới' theo màu cam (dương tính giả T4 do màu cát, nhưng vẫn là đổi màu dữ kiện) | LOẠI |
+| c4B-B | co 1.00 (1.86) | 0.939 · 0.992 | troi 0.0 · nuoc 0.99 · dat 0.04 | 0.058 (0.050) | 1.28 | 0.0 · 1.0 · kxđ | 6 (1) · 0 | 2 | 26.35 · 15.2 | 20.3 → 13.1 | 0.57 → 0.51 | LOẠI: T4 lửa, T7 đốm sáng bền, T8 vật mới bền, T9 đổi loại vùng | LOẠI: eo đất cát giữa khung bị vẽ thành BIỂN/đầm nước xanh (dữ kiện địa lý đổi), chỉ còn hai dải trại (vùng giữ) như đảo; viền 'hộp' sáng quanh tàu xa và cờ trại (ghép vùng giữ lộ nền biển nguồn); thêm cồn cát/bãi rời trên mặt nước | LOẠI |
+| c4B-B2 | co 1.00 (1.86) | 0.984 · 1.0 | troi 0.0 · nuoc 0.0 · dat 0.01 | 0.063 (0.050) | 1.43 | 0.02 · 0.9999 · kxđ | 1 (0) · 0 | 0 | 0.07 · 3.12 | 20.3 → 15.0 | 0.57 → 0.59 | LOẠI: T4 lửa, T9 đổi loại vùng | LOẠI: giữ đúng bờ biển, eo đất, Rock, hai dãy trại và tàu xa (không đổi loại vùng); NHƯNG cụm cây (lớp đất/thực vật, vùng AI vẽ) biến thành các VÒNG RỖNG như bóng ma, lối mòn trắng uốn cong bị XOÁ, mảng cỏ xanh nhạt hẳn; vệt xanh sáng chạy dọc mép vùng giữ của dãy trại (đường ghép); cả khung mờ sương, chi tiết 20,3 → thấp hơn | LOẠI |
+| c1-A | tau 0.60 (0.60) · co 0.04 (0.04) · pin 1.00 (1.00) | 0.074 · 0.901 | nuoc 0.04 · dat 0.0 | 0.008 (1.446) | 0.83 | 0.25 · 1.0002 · 1.5 | 3 (0) · 0 | 0 | 2.4 · 49.25 | 27.1 → 1.8 | 0.75 → 0.40 | LOẠI: T1 tau, T1 co, T2 nhà, T6 thời gian, T7 đốm sáng bền, T9 đổi loại vùng | LOẠI: ĐỔI THỜI ĐIỂM: khung đầu cửa sổ là ban ngày (nắng chiều) nhưng đầu ra tối đen như đêm từ khung 0 (lệnh 'Night, 1782' — lỗi lệnh của phiên, đã sửa cho c1-B2); phố mất mái ngói đỏ thành khối xám; cờ Union bên phải thành một ĐỐM LỬA sáng (bịa lửa, mất cờ); khói pin nổi đen thành khói trắng nhạt; công sự gần như mất trong bóng tối | LOẠI |
+| c1-B | tau 1.00 (1.00) · co 0.99 (1.03) · pin 1.00 (1.00) | 0.99 · 0.997 | nuoc 0.0 · dat 0.02 | 15.749 (1.446) | 2.74 | 0.19 · 1.0001 · -3.0 | 1 (1) · 0 | 0 | 0.22 · 96.88 | 27.1 → 9.5 | 0.75 → 0.47 | LOẠI: T4 lửa, T5 nhấp nháy, T6 thời gian, T7 đốm sáng bền, T9 đổi loại vùng | LOẠI: cả mặt vịnh (vùng nước) bị vẽ thành bãi cát/sa mạc vàng ở khung ngày, nâu sẫm khi chiều (máy: nước→đất 96,9 %); viền lam sáng quanh mọi tàu/pin nổi và mép công sự (ghép vùng giữ lộ nước nguồn); đồng cỏ xanh trong thành thành cát; ở khung đêm lửa pin nổi giữ (vùng giữ) nhưng mặt nước không còn phản chiếu | LOẠI |
+| c1-B2 | tau 1.00 (1.00) · co 1.00 (1.04) · pin 1.00 (1.00) | 0.994 · 0.998 | nuoc 0.06 · dat 0.01 | 2.095 (1.446) | 1.05 | 0.08 · 0.9998 · -1.0 | 1 (1) · 0 | 0 | 0.48 · 1.09 | 27.1 → 18.6 | 0.75 → 0.65 | LOẠI: T4 lửa, T7 đốm sáng bền | LOẠI: lệnh đã sửa ('chiều → đêm'): giữ đúng chuyển ngày → đêm, pin nổi + lửa + khói (vùng giữ), phố, công sự, cầu tàu; NHƯNG XOÁ bãi cạn/đảo cát nhỏ trên mặt vịnh bên phải cầu tàu (lớp đất, vùng AI vẽ) và mép bãi phía phải; thêm bóng tối hình nêm cạnh cầu tàu; viền lam sáng bao quanh cầu tàu (đường ghép); sóng nước mất vân, mặt nước phẳng như kính | LOẠI |
 
 **P đọc tờ so** (`to-so/to-so-<clip>-<chế độ>.png`: 3 hàng thời điểm + hàng cạnh mới đỏ / lửa mới vàng; phóng to `to-so/zoom-*.jpg`) — mọi vật bịa/dữ kiện đổi thấy được:
 
-P_DOC_BANG
+| Lượt | P đọc (mọi vật bịa / dữ kiện đổi thấy được) | P |
+|---|---|---|
+| c2-A | đường bờ dời: vịnh nước giữa–phải khung thành bãi cát, biển lùi sang phải; đê chắn sóng/cầu tàu bên phải biến mất; mọi toà nhà mất màu có nguồn (S2/OSM) thành khối cát như phế tích; bãi cỏ/sân xanh thành cát; thêm mảng đỏ (sân/mái đỏ) ở dưới–giữa và phải không có trong nguồn; tàu xa gần như mất (máy: giữ 20 %) | LOẠI |
+| c4B-B | eo đất cát giữa khung bị vẽ thành BIỂN/đầm nước xanh (dữ kiện địa lý đổi), chỉ còn hai dải trại (vùng giữ) như đảo; viền 'hộp' sáng quanh tàu xa và cờ trại (ghép vùng giữ lộ nền biển nguồn); thêm cồn cát/bãi rời trên mặt nước | LOẠI |
+| c1-B | cả mặt vịnh (vùng nước) bị vẽ thành bãi cát/sa mạc vàng ở khung ngày, nâu sẫm khi chiều (máy: nước→đất 96,9 %); viền lam sáng quanh mọi tàu/pin nổi và mép công sự (ghép vùng giữ lộ nước nguồn); đồng cỏ xanh trong thành thành cát; ở khung đêm lửa pin nổi giữ (vùng giữ) nhưng mặt nước không còn phản chiếu | LOẠI |
+| c2-B | vịnh giữa khung (giữa đê chắn sóng và phố) bị vẽ thành bãi cát, đường bờ dời sang phải (máy: nước→đất 19,4 %); đê/cầu tàu bên phải mất; bãi cỏ và sân xanh thành cát; Rock mất thảm thực vật xanh thành đá nâu tím; viền lam sáng quanh tàu và mép nhà (ghép vùng giữ); mái phố được vẽ lại nhưng giữ khối | LOẠI |
+| c4B-A | XOÁ hai dãy trại (lều chỉ còn vệt mờ), xoá tàu ngoài khơi, xoá cây và mảng cỏ xanh → sa mạc nâu cam đồng màu; THÊM một đống đá/phế tích ở giữa–phải không có trong nguồn; biển xám mất màu (máy: nước→đất 99,6 % theo màu); toàn khung 'lửa mới' theo màu cam (dương tính giả T4 do màu cát, nhưng vẫn là đổi màu dữ kiện) | LOẠI |
+| c2-B2 | giữ đúng đường bờ, vịnh, Rock, bãi cỏ, phố và tàu; NHƯNG XOÁ dải đê/đường băng lấn biển màu xám chạy từ đầu đường băng ra giữa vịnh (lớp ID 'đất', nằm trong vùng AI được vẽ) — dữ kiện công trình đổi; xoá vệt sáng phản chiếu trên vịnh xa; mép vùng giữ quanh tàu còn viền lam nhẹ | LOẠI |
+| c1-A | ĐỔI THỜI ĐIỂM: khung đầu cửa sổ là ban ngày (nắng chiều) nhưng đầu ra tối đen như đêm từ khung 0 (lệnh 'Night, 1782' — lỗi lệnh của phiên, đã sửa cho c1-B2); phố mất mái ngói đỏ thành khối xám; cờ Union bên phải thành một ĐỐM LỬA sáng (bịa lửa, mất cờ); khói pin nổi đen thành khói trắng nhạt; công sự gần như mất trong bóng tối | LOẠI |
+| c4B-B2 | giữ đúng bờ biển, eo đất, Rock, hai dãy trại và tàu xa (không đổi loại vùng); NHƯNG cụm cây (lớp đất/thực vật, vùng AI vẽ) biến thành các VÒNG RỖNG như bóng ma, lối mòn trắng uốn cong bị XOÁ, mảng cỏ xanh nhạt hẳn; vệt xanh sáng chạy dọc mép vùng giữ của dãy trại (đường ghép); cả khung mờ sương, chi tiết 20,3 → thấp hơn | LOẠI |
+| c2-B2d50 | khử nhiễu 0,5: giữ bờ, vịnh, Rock, bãi cỏ, phố, tàu và PHẦN LỚN dải đê lấn biển; nhưng đoạn gốc đê nối với bờ (≈ 1/4 chiều dài) bị XOÁ → đê thành dải nổi rời khỏi bờ (dữ kiện công trình đổi); vệt phản chiếu xa trên vịnh bị xoá; mặt nước/đá ít 'thật' hơn B2 0,6 | LOẠI |
+| c1-B2 | lệnh đã sửa ('chiều → đêm'): giữ đúng chuyển ngày → đêm, pin nổi + lửa + khói (vùng giữ), phố, công sự, cầu tàu; NHƯNG XOÁ bãi cạn/đảo cát nhỏ trên mặt vịnh bên phải cầu tàu (lớp đất, vùng AI vẽ) và mép bãi phía phải; thêm bóng tối hình nêm cạnh cầu tàu; viền lam sáng bao quanh cầu tàu (đường ghép); sóng nước mất vân, mặt nước phẳng như kính | LOẠI |
 
 **Đọc kết quả:**
 1. **A (toàn khung) và B (mặt nạ, khởi từ nhiễu) đổi ngữ nghĩa vùng ở 6/6 lượt.** Độ sâu + cạnh chỉ giữ *hình*; mặt đất phẳng và mặt nước phẳng có cùng độ sâu, cùng "không cạnh" → mô hình tự chọn cát hay nước theo lệnh và thói quen ảnh. T9: c4B-B đất→nước **26,4 %**, c1-B nước→đất **96,9 %**, c4B-A **99,6 %**.
@@ -120,7 +142,20 @@ P_DOC_BANG
 
 ## §5. Chế độ C — nối c4A + c4B thành 20 s (`noi_c3.py`, `noi3.py`)
 
-CHE_DO_C
+**DỪNG theo lệnh chủ dự án 20/10 22:30 (giờ chủ dự án) sau 2/7 cửa sổ** — không chờ hết 20 s. Đã có: khung 0–152 (6,4 s) của c4 = cửa sổ w0 (0–80) + w1 (72–152, 9 khung đầu là NGỮ CẢNH = khung đã ra của w0, mặt nạ 0, cũng là khung khởi), chuẩn hoá độ sâu cố định cho cả 20 s, chế độ B2. Hai cửa sổ ra đủ 81/81 khung, đã kéo về trước khi dừng pod. 5 cửa sổ còn lại và cổng `g-bo-chien-su-A` bị huỷ khỏi hàng đợi (không chạy).
+
+| Số đo (`do/noi-c4C-B2.json`, 640×360, ΔE76) | Giá trị |
+|---|---|
+| ΔE tại biên khung 80 → 81 (đầu phần mới của w1) | **3,21** |
+| ΔE nguồn cùng chỗ | 1,20 |
+| Nền: trung vị ΔE khung kề trong cửa sổ · p95 | 0,905 · 1,33 |
+| **Tỉ số nối ÷ nền** | **3,55** (> 3 → nối thấy được theo quy ước NC-V2V; Omni NC-V2V 28–65) |
+| Bước nhảy chi tiết sau/trước | 0,975 |
+| Ngữ cảnh 9 khung bị vẽ lại? | 0,000 (ghép giữ nguyên ngữ cảnh) |
+
+- Nối tiếp bằng ngữ cảnh giảm bước nhảy ≈ 10–18 lần so với Omni sửa riêng từng đoạn, nhưng **vẫn thấy được** (3,55 × nền, ≈ 2,7 × khi trừ phần chuyển động nguồn 1,20/0,905). Một đường nối mỗi 3 s (cửa sổ 81 khung) ⇒ ≈ 250 đường nối/tập.
+- Clip xem: `clip/c4C-B2-0-152-noi81.mp4` (960×540, 0,8 MB; nối ở giây 3,4).
+- Không có số đo cho đường nối giây 10 (c4A ↔ c4B) vì dừng trước cửa sổ w3.
 
 ## §6. Chấm mù (bước 4) — `cham3.py`, `cham-mu/`
 
@@ -153,7 +188,18 @@ CHE_DO_C
 
 ## §7. Giờ GPU bật/tắt + tiền thật (`gio-gpu.jsonl`)
 
-GIO_GPU
+Sổ nguyên văn `gio-gpu.jsonl` (UTC). Giá đọc qua API (GraphQL `gpuTypes`) 20/10 ≈ 10:20: RTX 5090 SECURE $1,19 (kho Low), COMMUNITY $0,69 (hết kho); RTX PRO 4500 32 GB $0,72 (Medium); L40S $1,09; A40 $0,59 (Ampere, không fp8). Chọn 5090 vì nhanh nhất trên 32 GB.
+
+| Nhãn | Pod | Bật → tắt | Giờ | Giá × giờ | Số dư trước → sau | Việc |
+|---|---|---|---|---|---|---|
+| v1 | `ezts7n6h2htm8y` | 10:23:26 → 10:37:26 | 0,233 h | $0,278 | 14,016 → 13,788 | cài (184 s), thử 17 khung (7,3 s/bước); tắt để khỏi chờ nguồn CPU |
+| v2 | `zktbumbgeuej8t` | 10:49:02 → 15:35:40 | 4,777 h | $5,685 | 13,733 → 7,966 | 10 lượt 81 khung, 8 lượt cổng 17 khung, chế độ C 2 cửa sổ |
+| **Tổng** | 2 pod RTX 5090 SECURE, một pod tại một thời điểm | | **5,01 h** | **$5,96** | **14,016 → 7,966 = $6,05 thật** | |
+
+- Mọi pod đã XOÁ (HTTP 204); `GET rest.runpod.io/v1/pods` → `[]`, `currentSpendPerHr` 0 (15:36 UTC).
+- Trạng thái pod ghi đĩa (`/var/tmp/cine-out/v2v3/pod.json`), kiểm đủ khung (`keo3.py`, SHA từng tệp) trước khi tắt (NG-D6).
+- Sau khi tắt, số dư đọc lại 15:37 UTC = **$22,966** = 7,966 + 15,000 → **có khoản nạp $15 vào tài khoản** (không do phiên này; đề nghị chủ dự án xác nhận).
+- Lãng phí do vận hành: pod v2 chờ nguồn CPU ≈ 10 phút đầu và các job xếp hàng song song làm thứ tự ưu tiên xen kẽ (không tốn thêm giờ GPU).
 
 ## §8. Ước cả tập 745 s (bước 5) — mọi số **(ước)** từ số đo phiên này
 
@@ -163,7 +209,7 @@ GIO_GPU
 | Giờ GPU 1 lượt (B2, 720p) | 300 × 973 s (đo) | **≈ 81 h ≈ $97** ở $1,19/h (RTX 5090) |
 | 1080p | token × 2,25, chú ý ≈ bậc 2 → ≈ × 2,5–3 (chưa đo) | **≈ 200–240 h ≈ $240–290** |
 | Tỉ lệ làm lại thật | P đọc 0/10 đạt (máy 1/10). Quy tắc ba: cận trên 95 % tỉ lệ đạt ≈ 3/10 = 30 % | **≥ 3,3 lượt/cửa sổ ⇒ ≥ 270 h, ≥ $320 (720p)**, và vì lỗi mang tính cơ chế (vùng AI vẽ được = vùng có thể xoá dữ kiện) **không có cơ sở để tin sẽ hội tụ** |
-| Đường nối | xem §5 | DUONG_NOI_UOC |
+| Đường nối | xem §5 | nối tiếp có ngữ cảnh: **3,55 × nền mỗi 3,4 s** (đo 1 biên) ⇒ ≈ 250 đường nối thấy được/tập; phải hoà/che hoặc cửa sổ dài hơn (chưa đo) |
 | CPU nguồn + điều khiển | dung3.js ≈ 12 s/khung/làn × 17 880 / 2 làn | **≈ 30 h CPU** (mức nháp spp 1; nguồn sản xuất V6 vẫn phải dựng vì AI cần nguồn của ta) |
 | Người đọc tờ so | 300 cửa sổ × ≈ 2 phút | **≈ 10 h P/tập** (máy không đủ — §4 điểm 3) |
 | Công sức đưa vào G0 (sau A/Cycles) | đã có: độ sâu từ renderer, mặt nạ ID + mái, điều khiển, ComfyUI/pod, ghép K-LAI-4, cửa sổ nối, bộ đo T7–T9. Còn: gắn vào `episode.yaml` theo shot, lớp bảo vệ "đất công trình" (đê/đường/cây), xử lý viền ghép, lưu cảnh trên Network Volume | **≈ 2–3 phiên** + 10 h P/tập lặp lại |
@@ -178,7 +224,7 @@ GIO_GPU
 
 | Khoản | Mốc / chặn | Thật |
 |---|---|---|
-| RunPod GPU | chặn cứng $12 (sàn số dư $2,5) | CHI_PHI_RUNPOD |
+| RunPod GPU | chặn cứng $12 (sàn số dư $2,5) | **$6,05 thật** (số dư 14,016 → 7,966; 5,01 h; giá × giờ $5,96) — dưới chặn $12; không chạm sàn $2,5 |
 | Claude (chấm mù 36 lượt `claude -p` Sonnet 5.5) | mốc $8 · chặn > $25 | **$2,046** (`cham-mu/cost.jsonl`). Token phiên chính không đo được từ trong container. |
 | OpenAI | $2 | **$0** (chấm mù theo giao thức NC-GPU, chỉ Claude) |
 | Gemini / ElevenLabs / YouTube | 0 | 0 / 0 / 0 |
@@ -194,7 +240,7 @@ GIO_GPU
 | c4B-B2 | T5 | 1,43 | −4,7 % (qua sát) |
 | c2-A | T2 F1 nhà | 0,860 | +1,2 % trên 0,85 |
 | c1-B2 | T6 lệch khung | −1,0 | đúng mép \|k\| ≤ 1 |
-| RunPod | tiền thật so chặn $12 | RUNPOD_PM5 | — |
+| RunPod | tiền thật so chặn $12 | $6,05 / $12 (−50 %) | — |
 
 - Dải T6 tỉ lệ 0,97–1,03 hẹp: mọi giá trị ≈ 1,00 đều trong ±5 % của cả hai mép (như NC-V2V); không nêu từng dòng.
 - Không chỉ số nào ở trên làm đổi kết luận: mọi lượt nêu tên đều bị P loại vì dữ kiện đổi.
@@ -207,14 +253,14 @@ GIO_GPU
 | **V2V3-D1** | **Không dùng video→video AI trên hình** (cả loại bám cấu trúc, mô hình mở); giữ §12.3; **đóng hướng V2V** (NC-V2V + NC-V2V3) | Giữ §12.2; không $100–320+/tập; không 10 h đọc tờ so/tập; không nhãn AI toàn phim | Mất hy vọng "ảnh thật kiểu Omni" bằng AI | Đường chính vẫn là A + Cycles GPU (NG-D1/G0) | Đối thủ dùng AI vẫn "thật" hơn → bù bằng NG-D5 (khói/lửa thể tích, nướng GPU, vân) |
 | V2V3-D2 | Đưa **T9 "đổi loại vùng"** + **phép "vật bị xoá"** (hồi cạnh nguồn trong lớp đất/công trình đất) vào bộ đo cho mọi bước AI sinh điểm ảnh (bổ sung V2V-D4) | Bắt được lỗi mà T3 bỏ sót (eo đất → biển, T3 = 0) | Phiên K phải duyệt luật mới | `checks/` (phiên K) | Vẫn cần P đọc tờ so |
 | V2V3-D3 | Giữ `depth.js` (độ sâu từ chính renderer) + lượt mái phố làm **công cụ nội bộ** (tạo bản đồ độ sâu đúng cho sương khí quyển/DOF hậu kỳ của A, so look) | Có sẵn, đúng vật lý, không AI | Thêm ≈ 1,5 s/khung | A/Cycles hậu kỳ | — |
-| V2V3-D4 | Nếu chủ dự án vẫn muốn thử: chỉ thử **LTX-2.x IC-LoRA** (Layout-To-Render/Union) với **ngân sách mới ≥ $8** và cùng bộ đo T1–T9 + P đọc | Đóng nốt câu hỏi "mô hình khác" | Cơ chế lỗi (vùng AI vẽ được = vùng có thể xoá dữ kiện) không phụ thuộc mô hình → khó đổi kết luận | Chỉ nghiên cứu | Tốn tiền cho câu hỏi gần như đã có đáp án |
+| V2V3-D4 | Nếu chủ dự án vẫn muốn thử mô hình khác: **Cosmos-Transfer2.5-2B** cần chủ dự án tự chấp nhận NVIDIA Open Model License trên tài khoản HF và cấp token đọc *riêng cho pod* (phải đổi luật "không khoá lên pod") — hoặc **LTX-2.x IC-LoRA** (không gated); ngân sách ≥ $8, cùng bộ đo T1–T9 + P đọc | Đóng nốt câu hỏi "mô hình khác" | Cơ chế lỗi (vùng AI vẽ được = vùng có thể xoá dữ kiện) không phụ thuộc mô hình → khó đổi kết luận | Chỉ nghiên cứu | Tốn tiền cho câu hỏi gần như đã có đáp án |
 | V2V3-D5 | Ghi BAI-HOC (phiên P): (a) độ sâu không mang ngữ nghĩa vùng — inpaint theo độ sâu biến đất ↔ nước; (b) máy qua mà P loại lần thứ 2 (NC-V2V c2-a, NC-V2V3 c2-B2d50) → không bao giờ nhận AI chỉ bằng máy; (c) khi lượt phụ ẩn/hiện vật: đọc trạng thái TRƯỚC khi ẩn; (d) `pgrep/pkill`/`grep` trên danh sách tiến trình khớp cả lệnh của chính mình (gặp lại 2 lần, BÀI HỌC #24); (e) tải lên pod theo tar (16 MB/s) thay vì từng PNG (0,2–0,7 MB/s) | Tránh lặp lỗi | — | `reports/m3/BAI-HOC-LL.md` | — |
 
 ## §12. Việc chờ chủ dự án
 
 1. **Xem** `reports/nc-v2v3/clip/luoi-c4B.mp4`, `luoi-c2.mp4`, `luoi-c1.mp4` và `to-so/to-so-c4B-B.png`, `to-so/to-so-c2-B2.png`, `to-so/zoom-c2-B2-de.jpg`.
 2. **Quyết V2V3-D1…D5.** Đề xuất chính: **D1** (không dùng, đóng hướng V2V) + D2 (bộ đo) + D5 (bài học).
-3. **RunPod:** số dư còn SO_DU_CUOI; mọi pod đã XOÁ. Nạp thêm chỉ khi duyệt G0 (NG-D1) hoặc D4.
+3. **Cosmos-Transfer2.5-2B:** không cài được vì trọng số gated (401) — nếu muốn thử, quyết D4 (chấp nhận giấy phép NVIDIA trên HF + cho phép token đọc trên pod). **RunPod:** số dư còn $22,97 (gồm khoản nạp $15 lúc ≈ 15:37 UTC); mọi pod đã XOÁ. Nạp thêm chỉ khi duyệt G0 (NG-D1) hoặc D4.
 4. **Phiên P:** ghi RIGHTS phần công cụ (Wan2.2-VACE-Fun Apache-2.0, ComfyUI GPL-3.0 công cụ, không lên hình vì D1), BAI-HOC theo D5, AUTHORSHIP: không có quyết định sáng tạo mới lên hình. **Phiên K:** xem D2.
 
 ## Tệp

@@ -139,6 +139,48 @@
   "dat": false
  },
  {
+  "clip": "c2",
+  "che_do": "B2d50",
+  "t1": {
+   "tau": [
+    1.0,
+    1.0
+   ]
+  },
+  "f1_nha": 0.996,
+  "f1_tau": 1.0,
+  "canh_moi": {
+   "troi": 0.0,
+   "nuoc": 0.0,
+   "dat": 0.0
+  },
+  "lua_max": 0.014,
+  "lua_san": 0.05,
+  "nhap_nhay_tren_dc": 1.47,
+  "dich": 0.17,
+  "ti_le": 1.0003,
+  "lech_khung": null,
+  "dom_sang_ben": 0,
+  "dom_sang_ben_lua": 0,
+  "dom_sang_ben_dc": 1,
+  "vat_moi_ben": 0,
+  "dat_thanh_nuoc": 1.09,
+  "nuoc_thanh_dat": 1.7,
+  "chi_tiet": [
+   47.41,
+   34.368
+  ],
+  "bao_hoa": [
+   0.337,
+   0.333
+  ],
+  "truot_may": [],
+  "may_dat": true,
+  "p_doc": "khử nhiễu 0,5: giữ bờ, vịnh, Rock, bãi cỏ, phố, tàu và PHẦN LỚN dải đê lấn biển; nhưng đoạn gốc đê nối với bờ (≈ 1/4 chiều dài) bị XOÁ → đê thành dải nổi rời khỏi bờ (dữ kiện công trình đổi); vệt phản chiếu xa trên vịnh bị xoá; mặt nước/đá ít 'thật' hơn B2 0,6",
+  "p_dat": false,
+  "dat": false
+ },
+ {
   "clip": "c4B",
   "che_do": "A",
   "t1": {
@@ -388,6 +430,58 @@
   ],
   "may_dat": false,
   "p_doc": "cả mặt vịnh (vùng nước) bị vẽ thành bãi cát/sa mạc vàng ở khung ngày, nâu sẫm khi chiều (máy: nước→đất 96,9 %); viền lam sáng quanh mọi tàu/pin nổi và mép công sự (ghép vùng giữ lộ nước nguồn); đồng cỏ xanh trong thành thành cát; ở khung đêm lửa pin nổi giữ (vùng giữ) nhưng mặt nước không còn phản chiếu",
+  "p_dat": false,
+  "dat": false
+ },
+ {
+  "clip": "c1",
+  "che_do": "B2",
+  "t1": {
+   "tau": [
+    1.0,
+    1.0
+   ],
+   "co": [
+    0.998,
+    1.038
+   ],
+   "pin": [
+    1.0,
+    1.0
+   ]
+  },
+  "f1_nha": 0.994,
+  "f1_tau": 0.998,
+  "canh_moi": {
+   "nuoc": 0.06,
+   "dat": 0.01
+  },
+  "lua_max": 2.095,
+  "lua_san": 1.446,
+  "nhap_nhay_tren_dc": 1.05,
+  "dich": 0.08,
+  "ti_le": 0.9998,
+  "lech_khung": -1.0,
+  "dom_sang_ben": 1,
+  "dom_sang_ben_lua": 1,
+  "dom_sang_ben_dc": 0,
+  "vat_moi_ben": 0,
+  "dat_thanh_nuoc": 0.48,
+  "nuoc_thanh_dat": 1.09,
+  "chi_tiet": [
+   27.071,
+   18.622
+  ],
+  "bao_hoa": [
+   0.749,
+   0.647
+  ],
+  "truot_may": [
+   "T4 lửa",
+   "T7 đốm sáng bền"
+  ],
+  "may_dat": false,
+  "p_doc": "lệnh đã sửa ('chiều → đêm'): giữ đúng chuyển ngày → đêm, pin nổi + lửa + khói (vùng giữ), phố, công sự, cầu tàu; NHƯNG XOÁ bãi cạn/đảo cát nhỏ trên mặt vịnh bên phải cầu tàu (lớp đất, vùng AI vẽ) và mép bãi phía phải; thêm bóng tối hình nêm cạnh cầu tàu; viền lam sáng bao quanh cầu tàu (đường ghép); sóng nước mất vân, mặt nước phẳng như kính",
   "p_dat": false,
   "dat": false
  }
