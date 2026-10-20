@@ -31,16 +31,17 @@ CAM = {
   'H2':  [K(0, [60, 420, -1000], [-330, 0, -900], 40), K(10.48, [58, 420, -1000], [-340, 0, -905], 40), K(10.5, [58, 420, -1000], [-340, 0, -905], 40), K(13.5, [40, 420, -1000], [-760, 0, -1045], 44), K(13.52, [40, 420, -1000], [-760, 0, -1045], 44), K(16.0, [36, 419, -1002], [-765, 0, -1045], 44)],
   'H2T': [K(0, [-1950, 25, -1150], [-600, 180, -1600], 46), K(5.0, [-1928, 25, -1158], [-600, 180, -1600], 46)],   # = N2r của X01/X08 (reports/dong-goi-t3-v2 §1)
   'H3':  [K(0, [-150, 380, 560], [-200, 0, -200], 40), K(10.8333, [-154, 374, 548], [-200, 0, -205], 40)],
-  'C1':  [K(0, [-1250, 330, 3500], [-1150, 60, 1500], 34), K(7.48, [-1250, 328, 3490], [-1150, 60, 1500], 34), K(7.5, [-1250, 328, 3490], [-1150, 60, 1500], 34),   # mở: dải trại + eo đất + Rock (xem câm nháp: 5 khung đồng trống bị 3/3 nêu)
-          K(10.0, [-1250, 190, 3250], [-1220, 0, 2960], 24), K(10.02, [-1250, 190, 3250], [-1220, 0, 2960], 24), K(22.5, [-1248, 192, 3262], [-1220, 0, 2962], 24)],
+  'C1':  [K(0, [-1250, 330, 3500], [-1150, 60, 1500], 34), K(7.48, [-1250, 328, 3490], [-1150, 60, 1500], 34), K(7.5, [-1250, 328, 3490], [-1150, 60, 1500], 34),   # mở: dải trại + eo đất + Rock
+          K(8.9, [-1200, 330, 3060], [-1212, 0, 3010], 30), K(10.4, [-1150, 170, 2780], [-1220, 0, 2990], 22), K(10.42, [-1150, 170, 2780], [-1220, 0, 2990], 22), K(22.5, [-1153, 172, 2770], [-1222, 0, 2992], 23)],   # bay qua trên trại → U1 nhìn bắc: mặt lều được nắng (nhìn nam/tây lều ngược sáng — thử E1–E3)
   'C2':  [K(0, [-4440, 250, -3180], [-3300, 0, -2700], 30), K(12.0, [-4425, 250, -3172], [-3300, 0, -2700], 30)],   # sau hàng chặn, nhìn về Rock: tàu chặn tiền cảnh, thuyền châu Phi quay đầu, Rock + phố nền
-  'C3':  [K(0, [-118, None, -985], [-133, 84, -835], 44), K(4.48, [-117, None, -983], [-133, 84, -835], 44), K(4.5, [-117, None, -983], [-133, 84, -835], 44),   # khoá giữ 0,02 s: Hermite không vọt (lượt 1: máy chui xuống đất 3 s)
+  'C3':  [K(0, [-118, None, -985], [-133, 94, -835], 38), K(4.48, [-117, None, -984], [-133, 94, -835], 38), K(4.5, [-117, None, -984], [-133, 94, -835], 38),   # khoá giữ 0,02 s: Hermite không vọt (lượt 1: máy chui xuống đất 3 s)
           K(7.4, [-200, 300, -1400], [-600, 0, -1100], 42), K(7.42, [-200, 300, -1400], [-600, 0, -1100], 42), K(14.125, [-206, 298, -1394], [-600, 0, -1100], 42)],
-  'C4':  [K(0, [-700, 260, -450], [-1100, 0, -1050], 46), K(1.8, [-702, 258, -452], [-1095, 0, -1045], 46), K(3.0, [-603, 53, -678], [-566, 1, -643], 40), K(3.02, [-603, 53, -678], [-566, 1, -643], 40),
-          K(6.98, [-601, 53, -676], [-566, 1, -643], 40), K(7.0, [-601, 53, -676], [-566, 1, -643], 40), K(8.4, [-560, 120, -470], [-570, 0, -720], 48), K(8.42, [-560, 120, -470], [-570, 0, -720], 48), K(13.5, [-556, 119, -474], [-570, 0, -722], 48)],
+  'C4':  [K(0, [-700, 260, -450], [-1100, 0, -1050], 46), K(1.8, [-702, 258, -452], [-1095, 0, -1045], 46), K(3.0, [-603, 53, -678], [-566, 1, -643], 28), K(3.02, [-603, 53, -678], [-566, 1, -643], 28),
+          K(6.98, [-601, 53, -676], [-566, 1, -643], 28), K(7.0, [-601, 53, -676], [-566, 1, -643], 28),   # tiêu cự hẹp 28: đống thùng + người khiêng to hơn ở 320×180 (xem câm cuối lượt 1: Q4 mơ hồ ở 320)
+          K(8.4, [-560, 120, -470], [-570, 0, -720], 48), K(8.42, [-560, 120, -470], [-570, 0, -720], 48), K(13.5, [-556, 119, -474], [-570, 0, -722], 48)],
   'C5':  [K(0, [-250, 300, -1700], [-700, 0, -1250], 44), K(4.48, [-246, 300, -1698], [-698, 0, -1249], 44), K(4.5, [-246, 300, -1698], [-698, 0, -1249], 44), K(6.5, [-110, 378, -1652], [-605, 0, -1202], 44), K(6.52, [-110, 378, -1652], [-605, 0, -1202], 44), K(12.5, [-104, 376, -1648], [-602, 0, -1200], 44)],
 }
-AGL_OFF = {'C3': 12}   # p[1] = None → cao = mặt đất + AGL (đọc lúc dựng: ctx không có ở đây → điền bằng độ cao đo trước, xem fill_h)
+AGL_OFF = {'C3': 4}   # p[1] = None → cao = mặt đất + AGL (đọc lúc dựng: ctx không có ở đây → điền bằng độ cao đo trước, xem fill_h)
 
 _H = {}
 def hAt(e, n):   # cao độ mặt đất từ gói cảnh (terrain.f32 của $K2TL_CACHE/scene/gib/pack — cùng lưới với terrain.js; nội suy song tuyến)
@@ -76,7 +77,7 @@ def shots():
     S.append(dict(id='H3', lines=['0g', '0h'], diem='D7h', vai='buoc-ngoat', noi='eo_dat', loai='pho', opt=o, td=[('cho_cat', None)], ghi='máy D7h: trên biên giới nhìn nam qua đường băng vào phố Gibraltar 2026'))
     # C1 · 20/6 → 28/10/1779: Línea + trại TBN dựng lên — dãy trại phủ khung, ngựa kỵ binh, khói bếp, người đi giữa dãy
     o = copy.deepcopy(B['C1']['opt']); o.update(nc=nc('1779'), rimPhe=['es'], campRows=True)
-    for k in o['time']: k['sun'] = 15.5   # nắng tây-nam cố định (máy nhìn nam: lều không ngược sáng); giờ trong ngày không mang dữ kiện (bộ đếm dạng ngày)
+    # giữ giờ nắng V7B (14 → 12 h): máy U1 nhìn bắc thấy mặt lều được nắng trưa (thử 15:30: lều tối ở 1080p)
     o['ngua'] = [dict(at=[-1205, 2960], heading=88, n=240, w=dict(on=1779.55, full=1779.78, off0=1783.17, off1=1783.3)), dict(at=[-1390, 3300], heading=80, n=240, w=dict(on=1779.56, full=1779.79, off0=1783.17, off1=1783.3)),
                  dict(at=[-1060, 2930], heading=88, n=240, w=dict(on=1779.57, full=1779.8, off0=1783.17, off1=1783.3))]
     R = random.Random(1779); SM = []
@@ -96,10 +97,10 @@ def shots():
     S.append(dict(id='C2', lines=['2c'], diem='E2', vai='co-che', noi='bien', loai='vinh', opt=o, td=[('chan_thuyen_v7c', None)], ghi='máy E2 ≤ 1,5 km từ chỗ thuyền châu Phi gặp hàng chặn'))
     # C3 · ĐÓI: cận ≤ 30 m người cúi hái rau ≥ 4 s, nền lâu đài + cờ Union ≤ 150 m (≥ 4 % bề ngang, ≥ 4 s) → cần cẩu lên: phố, Line Wall cờ, hải đội phong toả
     o = copy.deepcopy(B['C3']['opt']); o.update(nc=nc('1779'), rimPhe=['es'])
-    g = random.Random(1780); FOR = [(-128 + 20 * g.random(), -961 + 18 * g.random(), g.random() * 360) for _ in range(6)] + [(-138 + 40 * g.random(), -968 + 18 * g.random(), g.random() * 360) for _ in range(8)] + [(-150 + 45 * g.random(), -950 + 44 * g.random(), g.random() * 360) for _ in range(20)]   # 14 cặp trong 12–35 m trước máy, 20 cặp xa hơn (tới chân lâu đài)
+    g = random.Random(1780); FOR = [(-126 + 16 * g.random(), -973 + 13 * g.random(), g.random() * 360) for _ in range(6)] + [(-138 + 40 * g.random(), -968 + 18 * g.random(), g.random() * 360) for _ in range(8)] + [(-150 + 45 * g.random(), -950 + 44 * g.random(), g.random() * 360) for _ in range(20)]   # 14 cặp trong 12–35 m trước máy, 20 cặp xa hơn (tới chân lâu đài)
     o['units'] = [u for u in o['units'] if u.get('side') == 'gb' or u.get('uni') not in ('woman', 'civ')]
     o['units'] = [dict(at=[e, n], heading=hd, rows=1, cols=2, sx=2.4, side=None, uni='woman' if i % 2 else 'civ', kind='woman' if i % 2 else 'civ', crew=True, lean=0.7 if i < 6 else 0.45, leanFrac=1.0 if i < 6 else 0.8, day=[1779, 1784], seed=500 + i, rim=False)
-                  for i, (e, n, hd) in enumerate(FOR)]   # 6 cặp gần nhất (24–44 m trước máy) cúi sâu 40° (xem câm nháp: 'không thấy đói') + [u for u in o['units'] if u.get('side') == 'gb']
+                  for i, (e, n, hd) in enumerate(FOR)]   # 6 cặp gần nhất (12–25 m trước máy) cúi sâu 40° (xem câm nháp: 'không thấy đói') + [u for u in o['units'] if u.get('side') == 'gb']
     o['time'] = [dict(t=0, at='1780-01-14 10:00', sun='real', lab='d'), dict(t=4.5, at='1780-01-14 12:00', sun='real', lab='d'), dict(t=7.6, at='1780-01-14 15:00', sun='real', lab='d'),
                  dict(t=8.4, at='1780-01-14 15:30', sun=15.0, lab='d'), dict(t=14.125, at='1780-01-16 15:30', sun=15.0, lab='d')]
     S.append(dict(id='C3', lines=['2d', '2e'], diem='Ca2', vai='co-che', noi='thanh_pho', loai='pho', opt=o, td=[('hai_rau', [0, 4.5]), ('line_wall', [4.5, 99])], luot_thap=[0, 4.5],

@@ -107,14 +107,7 @@
   "khung_neo": false,
   "ai_image": false,
   "ai_texture": false,
-  "nc": true,
-  "trong_pct": 13.1,
-  "trong_ca_nuoc_pct": 21.9,
-  "noi_dung_pct": 78.1,
-  "tieu_diem_dat_pct": 100,
-  "cao_khung_pct": 100,
-  "thap_khung_pct": 0,
-  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/H1.json"
+  "nc": true
  },
  {
   "shot": "H2",
@@ -492,14 +485,7 @@
   "khung_neo": false,
   "ai_image": false,
   "ai_texture": false,
-  "nc": true,
-  "trong_pct": 18.0,
-  "trong_ca_nuoc_pct": 41.6,
-  "noi_dung_pct": 58.3,
-  "tieu_diem_dat_pct": 81,
-  "cao_khung_pct": 100,
-  "thap_khung_pct": 0,
-  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/H2.json"
+  "nc": true
  },
  {
   "shot": "H2T",
@@ -596,14 +582,7 @@
   "khung_neo": false,
   "ai_image": false,
   "ai_texture": false,
-  "nc": true,
-  "trong_pct": 6.9,
-  "trong_ca_nuoc_pct": 39.2,
-  "noi_dung_pct": 6.5,
-  "tieu_diem_dat_pct": 0,
-  "cao_khung_pct": 0,
-  "thap_khung_pct": 100,
-  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/H2T.json"
+  "nc": true
  },
  {
   "shot": "H3",
@@ -748,14 +727,7 @@
   "khung_neo": false,
   "ai_image": false,
   "ai_texture": false,
-  "nc": true,
-  "trong_pct": 23.8,
-  "trong_ca_nuoc_pct": 50.2,
-  "noi_dung_pct": 46.9,
-  "tieu_diem_dat_pct": 0,
-  "cao_khung_pct": 100,
-  "thap_khung_pct": 0,
-  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/H3.json"
+  "nc": true
  },
  {
   "shot": "C1",
@@ -813,46 +785,60 @@
     "fov": 34
    },
    {
-    "t": 10.0,
+    "t": 8.9,
     "p": [
-     -1250,
-     190,
-     3250
+     -1200,
+     330,
+     3060
     ],
     "l": [
-     -1220,
+     -1212,
      0,
-     2960
+     3010
     ],
-    "fov": 24
+    "fov": 30
    },
    {
-    "t": 10.02,
+    "t": 10.4,
     "p": [
-     -1250,
-     190,
-     3250
+     -1150,
+     170,
+     2780
     ],
     "l": [
      -1220,
      0,
-     2960
+     2990
     ],
-    "fov": 24
+    "fov": 22
+   },
+   {
+    "t": 10.42,
+    "p": [
+     -1150,
+     170,
+     2780
+    ],
+    "l": [
+     -1220,
+     0,
+     2990
+    ],
+    "fov": 22
    },
    {
     "t": 22.5,
     "p": [
-     -1248,
-     192,
-     3262
+     -1153,
+     172,
+     2770
     ],
     "l": [
-     -1220,
+     -1222,
      0,
-     2962
+     2992
     ],
-    "fov": 24
+    "fov": 23
    }
   ],
   "loai": "trai",
@@ -938,14 +924,7 @@
   "khung_neo": false,
   "ai_image": false,
   "ai_texture": false,
-  "nc": true,
-  "trong_pct": 62.2,
-  "trong_ca_nuoc_pct": 73.3,
-  "noi_dung_pct": 15.4,
-  "tieu_diem_dat_pct": 56,
-  "cao_khung_pct": 100,
-  "thap_khung_pct": 0,
-  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/C1.json"
+  "nc": true
  },
  {
   "shot": "C2",
@@ -1049,14 +1028,7 @@
   "khung_neo": false,
   "ai_image": false,
   "ai_texture": false,
-  "nc": true,
-  "trong_pct": 6.9,
-  "trong_ca_nuoc_pct": 85.9,
-  "noi_dung_pct": 1.4,
-  "tieu_diem_dat_pct": 0,
-  "cao_khung_pct": 100,
-  "thap_khung_pct": 0,
-  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/C2.json"
+  "nc": true
  },
  {
   "shot": "C3",
@@ -1075,43 +1047,43 @@
     "t": 0,
     "p": [
      -118,
-     101.3,
+     93.3,
      -985
     ],
     "l": [
      -133,
-     84,
+     94,
      -835
     ],
-    "fov": 44
+    "fov": 38
    },
    {
     "t": 4.48,
     "p": [
      -117,
-     101.6,
-     -983
+     93.6,
+     -984
     ],
     "l": [
      -133,
-     84,
+     94,
      -835
     ],
-    "fov": 44
+    "fov": 38
    },
    {
     "t": 4.5,
     "p": [
      -117,
-     101.6,
-     -983
+     93.6,
+     -984
     ],
     "l": [
      -133,
-     84,
+     94,
      -835
     ],
-    "fov": 44
+    "fov": 38
    },
    {
     "t": 7.4,
@@ -1234,14 +1206,7 @@
   "khung_neo": false,
   "ai_image": false,
   "ai_texture": false,
-  "nc": true,
-  "trong_pct": 22.6,
-  "trong_ca_nuoc_pct": 52.7,
-  "noi_dung_pct": 36.9,
-  "tieu_diem_dat_pct": 83,
-  "cao_khung_pct": 66,
-  "thap_khung_pct": 38,
-  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/C3.json"
+  "nc": true
  },
  {
   "shot": "C4",
@@ -1296,7 +1261,7 @@
      1,
      -643
     ],
-    "fov": 40
+    "fov": 28
    },
    {
     "t": 3.02,
@@ -1310,7 +1275,7 @@
      1,
      -643
     ],
-    "fov": 40
+    "fov": 28
    },
    {
     "t": 6.98,
@@ -1324,7 +1289,7 @@
      1,
      -643
     ],
-    "fov": 40
+    "fov": 28
    },
    {
     "t": 7.0,
@@ -1338,7 +1303,7 @@
      1,
      -643
     ],
-    "fov": 40
+    "fov": 28
    },
    {
     "t": 8.4,
@@ -1457,14 +1422,7 @@
   "khung_neo": false,
   "ai_image": false,
   "ai_texture": false,
-  "nc": true,
-  "trong_pct": 11.7,
-  "trong_ca_nuoc_pct": 49.2,
-  "noi_dung_pct": 49.4,
-  "tieu_diem_dat_pct": 52,
-  "cao_khung_pct": 100,
-  "thap_khung_pct": 7,
-  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/C4.json"
+  "nc": true
  },
  {
   "shot": "C5",
@@ -1642,13 +1600,6 @@
   "khung_neo": false,
   "ai_image": false,
   "ai_texture": false,
-  "nc": true,
-  "trong_pct": 9.3,
-  "trong_ca_nuoc_pct": 62.5,
-  "noi_dung_pct": 37.5,
-  "tieu_diem_dat_pct": 52,
-  "cao_khung_pct": 100,
-  "thap_khung_pct": 0,
-  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/C5.json"
+  "nc": true
  }
 ]

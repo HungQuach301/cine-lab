@@ -1,0 +1,135 @@
+# Luật kênh 2 (checks 1.16.1) — k2c-t3-v7c — TRƯỢT
+
+| Mục | Kiểm | Kết quả | Cấp (1.12.1) | Giá trị | Ngưỡng | Sát ngưỡng (±5 %) |
+|---|---|---|---|---|---|---|
+| Q26b | Đa dạng bối cảnh (1.16: cảnh tl/* theo vùng) | **ĐẠT** |  | 9 bối cảnh · lớn nhất tl/t3tl · A3 19.0 % · liên tục dài nhất tl/t3tl · A3 22.5 s · nửa sau 5 · trung tính 0.0 % | ≤ 25 % · ≤ 90 s · nửa sau ≥ 3 |  |
+| Q32 | Footage/ảnh nguồn ngoài | **ĐẠT** |  | không dùng footage ngoài | ≤ 40 % · footage ≤ 20 % · ≤ 8 s/clip · < 720p trong khung ≤ 1,5× |  |
+| Q33 | Lặp cảnh | **ĐẠT** |  | 9 góc máy · 9 lần xuất hiện · nhiều nhất tl/t3tl · v7c_C1 1 lần · 0 góc > 2 · pHash xám toàn khung θ=14, thêm 0 lần lặp không khai | ≤ 2 lần |  |
+| Q34 | Loại shot | **ĐẠT** |  | 9/9 shot có type · scene3d 100.0 % · số neo 3D 100 %, chỉ card 0 % (0 số) · địa danh 0 · nhân vật 0 | type · map ±6 s · photo ±6 s · số neo 3D ≥ 60 % · document ≤ 3 s · record ≤ 12 s + dòng tô + nguồn |  |
+| Q35 | Nhãn loại số (D5) | **ĐẠT** |  | mô hình đặc tả · 18 khung xét · ACTUAL nhiều nhất 0/khung · lỗi a 0 · b 0 · c 0 · d 0 | ACTUAL ≤ 1/khung · ESTIMATE bắt buộc · số có năm rõ không cần ACTUAL |  |
+| Q36 | Chữ trên màn hình | **ĐẠT** |  | 0 dòng nguồn · dài nhất 0 ký tự · không có log (cỡ chữ THIẾU) · lỗi a 0 · b 0 · thiếu 0 | nguồn ≥ 38 px, 1 dòng, ≤ 70 ký tự · Facts as of chỉ với luật hiệu lực (+ 1 lần trong câu miễn trừ 0:00–0:15) |  |
+| Q37 | Nhịp thị giác (1.16: miễn khung neo/im lặng ≤ 10 s) | **TRƯỢT** |  | 118.5 s · biến cố khai 23 (gộp 23) · TB 5.15 s · dài nhất 9.8 s · khung tĩnh (khung liền < 0.6/255) dài nhất 0.12 s (từ 0:43.7) · miễn khung neo/im lặng (1.16): 0 khoảng, dài nhất trước miễn 9.8 s | TB ≤ 3,5 s · dài nhất ≤ 6 s · khung tĩnh ≤ 6 s |  |
+| A1–A13 | Âm thanh (tập cũ — chỉ báo) | **CHỈ BÁO** |  | CHỈ BÁO · A1 -14.0 LUFS · A2 -3.1 dBTP · A5 0 đoạn · A7 0 · A4 KHÔNG ÁP (không có lời — 1.16) · A8 KHÔNG ÁP (không có lời — 1.16) | docs/AUDIO-THUOC-DO.md | A1 I = -14.0 LUFS (ngưỡng -15 / -13.8) |
+| ML1 | Mạch truyện | **ĐẠT** | Chặn (b), (c) · Cảnh báo (a) ở T3 (Chặn từ T4) — lỗi Chặn 0, Cảnh báo 0 | 9/9 shot gắn (0 suy từ mốc @từ) · timelapse 118.5 s, trôi 0.0 % | mỗi shot gắn câu/claim · timelapse trôi ≤ 15 % |  |
+| ML2 | Lời lặp ý | **ĐẠT** | Chặn có giải trình (người quyết; không vào mã thoát tự động) — lỗi Chặn 0, Cảnh báo 0 | 0 câu · 0 cặp ứng viên (chấm 0) · 0 lặp ý · không khai tóm tắt | n-gram/IDF + chấm ngữ nghĩa ghim mô hình; ngoài tóm tắt cuối |  |
+| ML3 | Lời mời đăng ký | **ĐẠT** | Chặn — lỗi Chặn 0, Cảnh báo 0 | 0 câu mời: không có · 0 luận điểm chính khai | 60 s cuối hoặc ±5 s ranh chương · không trong 20 s trước luận điểm chính |  |
+| FT1 | Chỉ báo footage/ảnh | **ĐẠT** | Cảnh báo (20 % footage đã Chặn ở Q32 b2) — lỗi Chặn 0, Cảnh báo 0 | 0 shot footage/ảnh · tính 0.0 s = 0.0 % (miễn ảnh nhỏ 0.0 s) · khai lý do: 0/0 | ≤ 20 % (trần) · mỗi shot có lý do · ảnh ≤ 1/3 khung ≤ 6 s không tính |  |
+| NHIP-K2 | Nhịp kênh 2 (Q14–Q18 không áp → Q37) | **TRƯỢT** | Chặn (như Q37) — lỗi Chặn 14, Cảnh báo 0 | Q37: 118.5 s · biến cố khai 23 (gộp 23) · TB 5.15 s · dài nhất 9.8 s · khung tĩnh (khung liền < 0.6/255) dài nhất 0.12 s (từ 0:43.7) · miễn khung neo/im lặng (1.16): 0 khoảng, dài nhất trước miễn 9.8 s | TB ≤ 3,5 s · dài nhất ≤ 6 s |  |
+| Q26b-K2 | Đa dạng loại cảnh + vùng | **CẢNH BÁO** | Chặn (c), (d), (e) (như Q26b) · Cảnh báo (a), (b) — lỗi Chặn 0, Cảnh báo 3 | loại: 3d 100.0 % · 9 vùng, lớn nhất A3 19.0 % · nửa sau 5 vùng · không vùng 0.0 % | ≥ 3 loại/nửa · loại ≤ 70 % · vùng ≤ 25 %, ≤ 90 s, nửa sau ≥ 3 |  |
+| Q33-K2 | Lặp cảnh (vùng, góc) + pHash L/ΔE | **ĐẠT** | Chặn (như Q33) — lỗi Chặn 0, Cảnh báo 0 | 9 khoá (vùng, góc) · 9 lần xuất hiện · nhiều nhất tl/t3tl · v7c_C1 1 · 0 khoá > 2 · pHash L θ=16 + ΔE ≤ 10, thêm 0 lần lặp không khai, miễn 0 | ≤ 2 lần (miễn: khác chương + khác năm/lớp) |  |
+| Q32b-K2 | Trần clip/ảnh | **ĐẠT** | Chặn (như Q32b) — lỗi Chặn 0, Cảnh báo 0 | 0 clip/ảnh ·  | footage ≤ 8 s · ảnh có máy/chú thích đổi ≤ 12 s · ảnh tĩnh ≤ 8 s |  |
+| NC-H1 | Thành phố có nhà | **TRƯỢT** | Chặn (a), (b) (đúng lỗi chủ dự án nêu ở T2) — lỗi Chặn 4, Cảnh báo 0 | 4 shot thành phố (47.6 s; khai 4, suy 0) · có lớp nhà khai 0 · không lớp nhà 4 · không đo fabric 0 | fabric trung vị ≥ 25 % · không khung < 15 % (trừ ≤ 3 s cuối reveal) |  |
+| NC-H2 | Địa cầu | **ĐẠT** | Chặn (a), (b) — lỗi Chặn 0, Cảnh báo 0 | 0 lần · 0.0 s (0.0 % phim) · map/globe 0.0 s · bản đồ nổi tầm cao 0.0 s · dài nhất 0 s | AGL > 50 km: ≤ 1 lần/tập · ≤ 3 s/lần |  |
+| NC-H3 | Tầm mặc định | **ĐẠT** | Cảnh báo — lỗi Chặn 0, Cảnh báo 0 | 3D địa lý 61.8 s · AGL ≤ 60 km 100.0 % · ≤ 3 km 100.0 % · có thành phố: có | AGL ≤ 60 km ≥ 70 % 3D · có thành phố: AGL ≤ 3 km ≥ 40 % |  |
+| NC-H4 | Nơi có tên | **ĐẠT** | Chặn — lỗi Chặn 0, Cảnh báo 0 | 0 shot bản đồ · chip nơi 0 · nhãn địa danh 0 · thiếu 0 (nguồn: đặc tả, không log chữ) | mọi shot bản đồ: chip nơi hoặc nhãn địa danh |  |
+| NC-H5 | Đúng thời kỳ | **ĐẠT** | Chặn (a) · Cảnh báo (b) — lỗi Chặn 0, Cảnh báo 0 | tập không có bộ đếm năm (cảnh tl/* có opt.year/counter, hoặc p.counter) | năm xây ≤ bộ đếm (nam_khung) · ghost có nguồn + nguồn trong mô tả (§12.1: không nhãn trên hình) |  |
+| Q7/Q8-K2 | Nhãn/loại số nhận estimate (khiếu nại TT5 i) | **ĐẠT** | Chặn (thay Q7/Q8 cho kênh 2, như Q35) — lỗi Chặn 0, Cảnh báo 0 | Q7 nhận ESTIMATE: 0 lỗi (không log: chỉ kiểm kind khai) · Q8 loại số: 0 lỗi | kind ∈ actual/projection/estimate (kênh 2) · đủ nhãn, không thừa nhãn |  |
+| Q33 (1.13) | Lặp cảnh — pHash bỏ lớp chữ cố định | **ĐẠT** | Chặn (thay Q33 cho kênh 2) — lỗi Chặn 0, Cảnh báo 0 | 9 góc máy · 9 lần xuất hiện · nhiều nhất tl/t3tl · v7c_C1 1 lần · 0 góc > 2 · pHash L vùng nội dung (bỏ lớp chữ cố định) θ=16, thêm 0 lần lặp không khai | ≤ 2 lần · pHash L vùng nội dung y 18–72 %, θ 16 |  |
+| Q36 (1.13) | Chữ — câu miễn trừ nhận theo chữ | **ĐẠT** | Chặn (thay Q36 cho kênh 2) — lỗi Chặn 0, Cảnh báo 0 | 0 dòng nguồn · dài nhất 0 ký tự · không có log (cỡ chữ THIẾU) · lỗi a 0 · b 0 · thiếu 0 | "This video explains… Facts as of" 1 lần trong 0:00–0:15 không đòi nguồn luật |  |
+| Q37 (1.13) | Nhịp — khung tĩnh theo khung neo | **TRƯỢT** | Chặn (thay Q37 cho kênh 2) — lỗi Chặn 14, Cảnh báo 0 | 118.5 s · biến cố khai 23 (gộp 23) · TB 5.15 s · dài nhất 9.8 s · khung tĩnh (neo, < 2.0/255) dài nhất 3.5 s (từ 0:47.5) · miễn khung neo/im lặng (1.16): 0 khoảng, dài nhất trước miễn 9.8 s | khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s |  |
+| BD-1…BD-8 | Bản đồ chiến lược / inset / ranh | **ĐẠT** | — — lỗi Chặn 0, Cảnh báo 0 | không có shot strategic, lớp ranh, tuyến hay inset |  |  |
+| K-R1…K-R9 | ĐỎ-K | **ĐẠT** | — — lỗi Chặn 0, Cảnh báo 0 | tập không khai rui_ro: do-k |  |  |
+| K-LAI-1…6 | Khung neo LAI | **ĐẠT** | — — lỗi Chặn 0, Cảnh báo 0 | tập không có khối lai: / shot AI |  |  |
+| O2 | Máy soi lỗi thời đại (lưới lọc thứ hai) | **CẢNH BÁO** | Cảnh báo (lưới lọc thứ hai — không thay kiểm nguồn) — lỗi Chặn 0, Cảnh báo 1 | — | 1 khung/5 s + khung neo · cờ/quân phục/tàu/đèn/xe/vật hiện đại/chữ/kiến trúc theo năm · không thay kiểm nguồn |  |
+| SACH-1 | Khung sạch §12.1 + TL-4 | **TRƯỢT** | Chặn (a)–(f) (K116-D1; (e) chữ bản đồ Chặn theo K116-D3: ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ) — lỗi Chặn 1, Cảnh báo 0 | 9 shot · tấm số/trích 0 · tư liệu đứng riêng 0 · không log chữ | chỉ bộ đếm · chip nơi ≤ 3 s · thẻ chương · thẻ phương pháp · bản đồ ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ (K116-D3); không tấm số/trích, không tư liệu đứng riêng (phủ ≤ 3 s) |  |
+| CHUONG-1 | Thẻ chương §13.3 | **ĐẠT** | Chặn (a)–(e) · Cảnh báo (f) vị trí/mờ (K116-D1) — lỗi Chặn 0, Cảnh báo 0 | 1 thẻ (đặc tả) · dài nhất 3.00 s · 0:44.2 1779 — The Great Siege | ≤ 8/tập · "năm — ≤ 6 từ" · ≤ 3 s · không trong móc · trung tính | thẻ '1779 — The Great Sie' s 3.0 (ngưỡng 3.0) |
+| PP-1 | Thẻ phương pháp (D6) | **TRƯỢT** | Chặn (a)–(d) · Cảnh báo (e) tốc độ đọc ≤ 3 từ/s (K116-D1, D8: ≈ 8 s = 7–9 s) — lỗi Chặn 1, Cảnh báo 0 | 0 thẻ | 2 thẻ × 7–9 s, cuối phim · nguồn/ước tính/AI · ≤ 3 từ/s |  |
+| TL-1 | Xương sống timelapse §13.6 | **CẢNH BÁO** | Cảnh báo (K116-D1; mục tiêu §13.6, hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 9 | thân phim 118.5 s · góc cao + tl 113.5 s (95.8 %) · đặc tả ≤ 4.05 cắt/phút (cận trên) · video 15 cắt = 7.60/phút · đặc tả 8 ranh = 4.05/phút · khớp ±0.5 s 8 (chỉ video 7: 0:15.4, 0:23.4, 0:23.8, 0:53.8, 1:23.0, 1:35.2…; chỉ đặc tả 0 — cùng góc máy đổi năm/giờ hoặc chưa cắt) · trôi góc cao trung vị 0.14 %/s (8 shot) · ngưỡng hiệu chỉnh sau V7-PILOT | góc cao + thời gian chạy ≥ 75 % · ≤ 5 cắt/phút (video: đổi cấu trúc; đối chiếu đặc tả ±0,5 s) · trôi ≤ 2 %/s · 6–8 điểm máy (hiệu chỉnh sau V7-PILOT) |  |
+| TL-2 | Lướt thấp §13.6 | **ĐẠT** | Cảnh báo (K116-D1; hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 0 | lướt thấp 1 shot · 5.0 s = 4.2 % · ngưỡng hiệu chỉnh sau V7-PILOT | lướt thấp ≤ 10 % · có vai, phố/người (hiệu chỉnh sau V7-PILOT) |  |
+| TL-3 | Không shot trống §13.6 | **ĐẠT** | Cảnh báo (K116-D1; hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 0 | 9 shot 3D · không đổi 0 · trống 0 · thiếu trong_pct 0 | mỗi shot 3D: thời gian chạy hoặc biến cố · trống ≤ 60 % (hiệu chỉnh sau V7-PILOT) | shot C1 trống % 62.2 (ngưỡng 60.0) |
+| NHIP-NGHIA | Nhịp → vật mang nghĩa §13.2 | **ĐẠT** | Chặn (K116-D1; §13.2) — lỗi Chặn 0, Cảnh báo 0 | 16/16 nhịp chính có vật mang nghĩa = 100.0 % | ≥ 90 % nhịp chính |  |
+| XEM-CAM | Cổng XEM CÂM §13.4 | **TRƯỢT** | Chặn (K116-D1, D2; §13.4 bắt buộc từ T3) — lỗi Chặn 1, Cảnh báo 0 | — | 8 câu · 3 AI + chủ dự án · tắt tiếng · chủ dự án ≥ 6/8 VÀ TB AI ≥ 6/8 (K116-D2) |  |
+| PC-1 | Thước phục chế §12.3 | **ĐẠT** | Cảnh báo (K116-D1; thước tạm, hiệu chuẩn trên ≥ 10 ảnh) — lỗi Chặn 0, Cảnh báo 0 | tập không khai phuc_che: (không dùng ảnh phục chế) | Δ cạnh mới so bicubic ≤ 1,0 điểm % · PSNR ≥ bicubic |  |
+| LOCK | checks/ khớp LOCK (1.16.1) | **ĐẠT** |  | KHỚP |  |  |
+
+## Âm thanh A1–A13
+| Mục | Kiểm | Loại | Kết quả | Giá trị | Ngưỡng |
+|---|---|---|---|---|---|
+| A1 | Loudness tích hợp (master sau AAC) | chặn | ĐẠT | -14.0 LUFS | -15.0 … -13.8 |
+| A2 | Đỉnh thật sau AAC | chặn | ĐẠT | -3.1 dBTP | ≤ -1.0 |
+| A3 | Biên độ loudness LRA | báo | ĐẠT | 4.1 LU | 2–8 (báo) |
+| A4 | Lời trên nhạc (SMR) | chặn | — | KHÔNG ÁP (không có lời — 1.16) | p10 ≥ 15 · min ≥ 12 |
+| A5 | Lặng bất thường ≥ 1 s (< −50 LUFS tức thời) | chặn | ĐẠT | 0 đoạn | 0 |
+| A6 | Tỉ lệ lặng | báo | ĐẠT | 0.00 % | báo |
+| A7 | Chạm trần (≥ 3 mẫu |x| ≥ 0,999) | chặn | ĐẠT | 0 | 0 |
+| A8 | Chồng lời | chặn | — | KHÔNG ÁP (không có lời — 1.16) | 0 |
+| A9 | ASR hai cách nghe | chặn | — | KHÔNG ÁP (không có lời — 1.16) | 100 % đoạn |
+| A10 | Quãng không lời > 8 s không khai khoảnh khắc nhạc | báo | — | KHÔNG ÁP (không có lời — 1.16) | > 8 s (báo) |
+| A11 | Giao nhạc | chặn | — | không đo (mix.json không phải chuỗi mới) | ≤ 1 ô nhịp · không lặp |
+| A12 | Loudnorm tuyến tính | chặn | — | không đo (mix.json không phải chuỗi mới) | linear |
+| A13 | Đồng bộ tiếng | báo | — | KHÔNG ÁP (không có lời — 1.16) | ≤ 5 ms (báo) |
+
+## Chi tiết lỗi
+### Q37
+- (a) H1 3.41s loi "To walk in from Spain, you c": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H1 6.67s loi "Since July 2026, this gate h": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H2 3.23s loi "Historians on both sides cou": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H3 5.67s loi "So why, today, is the fight ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 6.38s loi "On the twenty-first of June ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 12.47s loi "Spain had joined France in i": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 16.05s loi "By October, British intellig": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C2 4.95s loi "Based at Algeciras, its boat": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C3 8.19s loi "The governor, General Eliott": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C3 11.14s loi "The food had to come by sea.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C4 7.99s loi "Scurvy spread, until a Danis": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C5 10.07s loi "The townspeople fled south.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (b) khoảng biến cố trung bình 5.15 s > 3.5 s
+- (c) khoảng dài nhất 9.8 s > 6.0 s (từ C5 106.23s (loi))
+### NHIP-K2
+- (a) H1 3.41s loi "To walk in from Spain, you c": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H1 6.67s loi "Since July 2026, this gate h": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H2 3.23s loi "Historians on both sides cou": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H3 5.67s loi "So why, today, is the fight ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 6.38s loi "On the twenty-first of June ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 12.47s loi "Spain had joined France in i": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 16.05s loi "By October, British intellig": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C2 4.95s loi "Based at Algeciras, its boat": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C3 8.19s loi "The governor, General Eliott": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C3 11.14s loi "The food had to come by sea.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C4 7.99s loi "Scurvy spread, until a Danis": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C5 10.07s loi "The townspeople fled south.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (b) khoảng biến cố trung bình 5.15 s > 3.5 s
+- (c) khoảng dài nhất 9.8 s > 6.0 s (từ C5 106.23s (loi))
+### Q26b-K2
+- (a) nửa đầu: 1 loại cảnh ≥ 3 s (3d) < 3
+- (a) nửa sau: 1 loại cảnh ≥ 3 s (3d) < 3
+- (b) loại 3d chiếm 100.0 % > 70 %
+### NC-H1
+- (a) H2/0 v7c_H2 @0:12.0 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) H2T/0 v7c_H2T @0:28.0 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) C3/0 v7c_C3 @1:18.3 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) C5/0 v7c_C5 @1:46.0 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+### Q37 (1.13)
+- (a) H1 3.41s loi "To walk in from Spain, you c": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H1 6.67s loi "Since July 2026, this gate h": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H2 3.23s loi "Historians on both sides cou": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H3 5.67s loi "So why, today, is the fight ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 6.38s loi "On the twenty-first of June ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 12.47s loi "Spain had joined France in i": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 16.05s loi "By October, British intellig": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C2 4.95s loi "Based at Algeciras, its boat": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C3 8.19s loi "The governor, General Eliott": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C3 11.14s loi "The food had to come by sea.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C4 7.99s loi "Scurvy spread, until a Danis": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C5 10.07s loi "The townspeople fled south.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (b) khoảng biến cố trung bình 5.15 s > 3.5 s
+- (c) khoảng dài nhất 9.8 s > 6.0 s (từ C5 106.23s (loi))
+### O2
+- chưa soi: khai khối o2: {nam | nam_theo} và chạy --o2 <master> --o2-api (Claude API, có chi phí)
+### SACH-1
+- (c) không có log chữ (--logs k2.js) — không đo được chữ thực hiện trên hình; (d) chip nơi chưa đo
+### PP-1
+- (a) không có thẻ phương pháp cuối phim (cần 2 thẻ × ≈ 8 s — D6)
+### TL-1
+- (c) video: 15 cắt đo / 1.97 phút = 7.60 cắt/phút > 5 (đặc tả 8 ranh = 4.05/phút; khớp ±0.5 s 8)
+- (f) điểm máy D7: chỉ ở năm 2026-10-18 23:52 — phải quay lại ở năm khác
+- (f) điểm máy K2: chỉ ở năm 2026-10-19 15:10 — phải quay lại ở năm khác
+- (f) điểm máy D7h: chỉ ở năm 1938.6 — phải quay lại ở năm khác
+- (f) điểm máy A3: chỉ ở năm 1779-06-20 14:00 — phải quay lại ở năm khác
+- (f) điểm máy E2: chỉ ở năm 1779-07-12 16:00 — phải quay lại ở năm khác
+- (f) điểm máy Ca2: chỉ ở năm 1780-01-14 10:00 — phải quay lại ở năm khác
+- (f) điểm máy Bm: chỉ ở năm 1780-01-16 12:00 — phải quay lại ở năm khác
+- (f) điểm máy Cc2: chỉ ở năm 1781-04-12 09:20 — phải quay lại ở năm khác
+### XEM-CAM
+- không đọc được xem_cam (xem-cam-v7c.json): [Errno 2] No such file or directory: '/home/user/cine-lab/channel-k2/k2c-t3-01/v7p/xem-cam-v7c.json' — cổng XEM CÂM bắt buộc từ T3 (§13.4); K không tự chấm
+
