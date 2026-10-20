@@ -7,7 +7,7 @@ ap = argparse.ArgumentParser(); ap.add_argument('clip'); ap.add_argument('mode')
 for k, d in [('n', 81), ('seed', 20102026), ('steps', 20), ('split', -1), ('w', 1280), ('h', 720)]: ap.add_argument('--' + k, type=int, default=d)
 for k, d in [('sd', 1.0), ('sc', 1.0), ('cfg', 3.5), ('shift', 8.0)]: ap.add_argument('--' + k, type=float, default=d)
 ap.add_argument('--denoise', type=float, default=0.6)
-a = ap.parse_args(); P = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'prompts3.json'))); pk = P['_map'][a.clip]; ck = a.clip[:2]
+a = ap.parse_args(); P = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'prompts3.json'))); pk = P['_map'].get(a.clip) or P['_map'][a.clip.split('/')[0]]; ck = a.clip[:2]
 C = f'/w/ctrl/{a.clip}'
 ctrl = ([{'dir': f'{C}/depth', 'strength': a.sd}, {'dir': f'{C}/canny', 'strength': a.sc}] if a.mode == 'A' else   # B và B2 cùng điều khiển; B2 thêm khởi từ nguồn
         [{'dir': f'{C}/bdepth', 'mask_dir': f'{C}/mask', 'strength': a.sd}, {'dir': f'{C}/bcanny', 'mask_dir': f'{C}/mask', 'strength': a.sc}])

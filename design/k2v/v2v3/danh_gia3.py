@@ -12,7 +12,7 @@ rows = []; md = ['| Clip-chế độ | T1 giữ tàu / cờ / pin (÷ đc) | T2 
 for c in ['c2', 'c4B', 'c1']:
     if not (D / f'{c}-dc.json').exists(): continue
     dc = json.load(open(D / f'{c}-dc.json')); dct = json.load(open(D / f'{c}-dc-them.json'))
-    for v in ('A', 'B', 'B2'):
+    for v in ('A', 'B', 'B2', 'B2d50'):
         if not (D / f'{c}-{v}.json').exists(): continue
         R = json.load(open(D / f'{c}-{v}.json')); X = json.load(open(D / f'{c}-{v}-them.json')); g, dm, m = R['giu'], R['dem'], R['may']; fails = []; t1 = {}
         for k in ('tau', 'co', 'pin'):

@@ -1,5 +1,35 @@
 {
  "_doc": "P đọc tờ so (to-so/*.png) + khung 0/40/80 từng biến thể; ghi MỌI vật bịa / dữ kiện đổi thấy được. dat = true chỉ khi không thấy vật bịa nào.",
- "c2-A": {"dat": false, "thay": "đường bờ dời: vịnh nước giữa–phải khung thành bãi cát, biển lùi sang phải; đê chắn sóng/cầu tàu bên phải biến mất; mọi toà nhà mất màu có nguồn (S2/OSM) thành khối cát như phế tích; bãi cỏ/sân xanh thành cát; thêm mảng đỏ (sân/mái đỏ) ở dưới–giữa và phải không có trong nguồn; tàu xa gần như mất (máy: giữ 20 %)"},
- "c4B-B": {"dat": false, "thay": "eo đất cát giữa khung bị vẽ thành BIỂN/đầm nước xanh (dữ kiện địa lý đổi), chỉ còn hai dải trại (vùng giữ) như đảo; viền 'hộp' sáng quanh tàu xa và cờ trại (ghép vùng giữ lộ nền biển nguồn); thêm cồn cát/bãi rời trên mặt nước"}
+ "c2-A": {
+  "dat": false,
+  "thay": "đường bờ dời: vịnh nước giữa–phải khung thành bãi cát, biển lùi sang phải; đê chắn sóng/cầu tàu bên phải biến mất; mọi toà nhà mất màu có nguồn (S2/OSM) thành khối cát như phế tích; bãi cỏ/sân xanh thành cát; thêm mảng đỏ (sân/mái đỏ) ở dưới–giữa và phải không có trong nguồn; tàu xa gần như mất (máy: giữ 20 %)"
+ },
+ "c4B-B": {
+  "dat": false,
+  "thay": "eo đất cát giữa khung bị vẽ thành BIỂN/đầm nước xanh (dữ kiện địa lý đổi), chỉ còn hai dải trại (vùng giữ) như đảo; viền 'hộp' sáng quanh tàu xa và cờ trại (ghép vùng giữ lộ nền biển nguồn); thêm cồn cát/bãi rời trên mặt nước"
+ },
+ "c1-B": {
+  "dat": false,
+  "thay": "cả mặt vịnh (vùng nước) bị vẽ thành bãi cát/sa mạc vàng ở khung ngày, nâu sẫm khi chiều (máy: nước→đất 96,9 %); viền lam sáng quanh mọi tàu/pin nổi và mép công sự (ghép vùng giữ lộ nước nguồn); đồng cỏ xanh trong thành thành cát; ở khung đêm lửa pin nổi giữ (vùng giữ) nhưng mặt nước không còn phản chiếu"
+ },
+ "c2-B": {
+  "dat": false,
+  "thay": "vịnh giữa khung (giữa đê chắn sóng và phố) bị vẽ thành bãi cát, đường bờ dời sang phải (máy: nước→đất 19,4 %); đê/cầu tàu bên phải mất; bãi cỏ và sân xanh thành cát; Rock mất thảm thực vật xanh thành đá nâu tím; viền lam sáng quanh tàu và mép nhà (ghép vùng giữ); mái phố được vẽ lại nhưng giữ khối"
+ },
+ "c4B-A": {
+  "dat": false,
+  "thay": "XOÁ hai dãy trại (lều chỉ còn vệt mờ), xoá tàu ngoài khơi, xoá cây và mảng cỏ xanh → sa mạc nâu cam đồng màu; THÊM một đống đá/phế tích ở giữa–phải không có trong nguồn; biển xám mất màu (máy: nước→đất 99,6 % theo màu); toàn khung 'lửa mới' theo màu cam (dương tính giả T4 do màu cát, nhưng vẫn là đổi màu dữ kiện)"
+ },
+ "c2-B2": {
+  "dat": false,
+  "thay": "giữ đúng đường bờ, vịnh, Rock, bãi cỏ, phố và tàu; NHƯNG XOÁ dải đê/đường băng lấn biển màu xám chạy từ đầu đường băng ra giữa vịnh (lớp ID 'đất', nằm trong vùng AI được vẽ) — dữ kiện công trình đổi; xoá vệt sáng phản chiếu trên vịnh xa; mép vùng giữ quanh tàu còn viền lam nhẹ"
+ },
+ "c1-A": {
+  "dat": false,
+  "thay": "ĐỔI THỜI ĐIỂM: khung đầu cửa sổ là ban ngày (nắng chiều) nhưng đầu ra tối đen như đêm từ khung 0 (lệnh 'Night, 1782' — lỗi lệnh của phiên, đã sửa cho c1-B2); phố mất mái ngói đỏ thành khối xám; cờ Union bên phải thành một ĐỐM LỬA sáng (bịa lửa, mất cờ); khói pin nổi đen thành khói trắng nhạt; công sự gần như mất trong bóng tối"
+ },
+ "c4B-B2": {
+  "dat": false,
+  "thay": "giữ đúng bờ biển, eo đất, Rock, hai dãy trại và tàu xa (không đổi loại vùng); NHƯNG cụm cây (lớp đất/thực vật, vùng AI vẽ) biến thành các VÒNG RỖNG như bóng ma, lối mòn trắng uốn cong bị XOÁ, mảng cỏ xanh nhạt hẳn; vệt xanh sáng chạy dọc mép vùng giữ của dãy trại (đường ghép); cả khung mờ sương, chi tiết 20,3 → thấp hơn"
+ }
 }

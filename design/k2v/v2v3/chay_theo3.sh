@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # theo3.sh: theo dõi /w/jobs/xong.jsonl trên pod; job nào xong thì xử lý (xu_ly3.sh) một lần; ghi /var/tmp/cine-out/v2v3/theo3.log
-cd /home/user/cine-lab; L=/var/tmp/cine-out/v2v3/theo3.log; D=/var/tmp/cine-out/v2v3/da_xu_ly; touch $D
-JOBS="c1-B g-hero-B c2-B c4B-A c2-B2 c1-A g-hero-A c4B-B2 g-vay-ham-B g-vay-ham-A c1-B2 g-bo-chien-su-B g-bo-chien-su-A $*"
+cd /home/user/cine-lab; L=${THEO_LOG:-/var/tmp/cine-out/v2v3/theo3.log}; D=/var/tmp/cine-out/v2v3/da_xu_ly; touch $D
+JOBS=${CHI_JOBS:-"c1-B g-hero-B c2-B c4B-A c2-B2 c1-A g-hero-A c4B-B2 g-vay-ham-B g-vay-ham-A c1-B2 g-bo-chien-su-B g-bo-chien-su-A $*"}
 while true; do
   X=$(/opt/cine/bin/python design/k2v/v2v3/pod3.py run 'cat /w/jobs/xong.jsonl' --cho 2>/dev/null)
   left=0

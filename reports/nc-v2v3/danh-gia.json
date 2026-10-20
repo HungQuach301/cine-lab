@@ -1,0 +1,394 @@
+[
+ {
+  "clip": "c2",
+  "che_do": "A",
+  "t1": {
+   "tau": [
+    0.195,
+    0.195
+   ]
+  },
+  "f1_nha": 0.86,
+  "f1_tau": 0.424,
+  "canh_moi": {
+   "troi": 0.0,
+   "nuoc": 0.0,
+   "dat": 0.0
+  },
+  "lua_max": 9.352,
+  "lua_san": 0.05,
+  "nhap_nhay_tren_dc": 0.81,
+  "dich": 1.26,
+  "ti_le": 1.0043,
+  "lech_khung": null,
+  "dom_sang_ben": 0,
+  "dom_sang_ben_lua": 0,
+  "dom_sang_ben_dc": 1,
+  "vat_moi_ben": 0,
+  "dat_thanh_nuoc": 0.45,
+  "nuoc_thanh_dat": 43.72,
+  "chi_tiet": [
+   47.41,
+   8.717
+  ],
+  "bao_hoa": [
+   0.337,
+   0.365
+  ],
+  "truot_may": [
+   "T1 tau",
+   "T2 tàu",
+   "T4 lửa",
+   "T9 đổi loại vùng"
+  ],
+  "may_dat": false,
+  "p_doc": "đường bờ dời: vịnh nước giữa–phải khung thành bãi cát, biển lùi sang phải; đê chắn sóng/cầu tàu bên phải biến mất; mọi toà nhà mất màu có nguồn (S2/OSM) thành khối cát như phế tích; bãi cỏ/sân xanh thành cát; thêm mảng đỏ (sân/mái đỏ) ở dưới–giữa và phải không có trong nguồn; tàu xa gần như mất (máy: giữ 20 %)",
+  "p_dat": false,
+  "dat": false
+ },
+ {
+  "clip": "c2",
+  "che_do": "B",
+  "t1": {
+   "tau": [
+    1.0,
+    1.0
+   ]
+  },
+  "f1_nha": 0.996,
+  "f1_tau": 0.989,
+  "canh_moi": {
+   "troi": 0.0,
+   "nuoc": 0.04,
+   "dat": 0.16
+  },
+  "lua_max": 0.278,
+  "lua_san": 0.05,
+  "nhap_nhay_tren_dc": 1.04,
+  "dich": 0.0,
+  "ti_le": 1.0,
+  "lech_khung": null,
+  "dom_sang_ben": 6,
+  "dom_sang_ben_lua": 0,
+  "dom_sang_ben_dc": 1,
+  "vat_moi_ben": 1,
+  "dat_thanh_nuoc": 1.03,
+  "nuoc_thanh_dat": 19.35,
+  "chi_tiet": [
+   47.41,
+   37.312
+  ],
+  "bao_hoa": [
+   0.337,
+   0.329
+  ],
+  "truot_may": [
+   "T4 lửa",
+   "T7 đốm sáng bền",
+   "T8 vật mới bền",
+   "T9 đổi loại vùng"
+  ],
+  "may_dat": false,
+  "p_doc": "vịnh giữa khung (giữa đê chắn sóng và phố) bị vẽ thành bãi cát, đường bờ dời sang phải (máy: nước→đất 19,4 %); đê/cầu tàu bên phải mất; bãi cỏ và sân xanh thành cát; Rock mất thảm thực vật xanh thành đá nâu tím; viền lam sáng quanh tàu và mép nhà (ghép vùng giữ); mái phố được vẽ lại nhưng giữ khối",
+  "p_dat": false,
+  "dat": false
+ },
+ {
+  "clip": "c2",
+  "che_do": "B2",
+  "t1": {
+   "tau": [
+    1.0,
+    1.0
+   ]
+  },
+  "f1_nha": 0.996,
+  "f1_tau": 0.998,
+  "canh_moi": {
+   "troi": 0.0,
+   "nuoc": 0.0,
+   "dat": 0.0
+  },
+  "lua_max": 0.016,
+  "lua_san": 0.05,
+  "nhap_nhay_tren_dc": 1.51,
+  "dich": 0.11,
+  "ti_le": 1.0004,
+  "lech_khung": null,
+  "dom_sang_ben": 2,
+  "dom_sang_ben_lua": 1,
+  "dom_sang_ben_dc": 1,
+  "vat_moi_ben": 0,
+  "dat_thanh_nuoc": 1.5,
+  "nuoc_thanh_dat": 1.91,
+  "chi_tiet": [
+   47.41,
+   34.312
+  ],
+  "bao_hoa": [
+   0.337,
+   0.333
+  ],
+  "truot_may": [
+   "T5 nhấp nháy",
+   "T7 đốm sáng bền"
+  ],
+  "may_dat": false,
+  "p_doc": "giữ đúng đường bờ, vịnh, Rock, bãi cỏ, phố và tàu; NHƯNG XOÁ dải đê/đường băng lấn biển màu xám chạy từ đầu đường băng ra giữa vịnh (lớp ID 'đất', nằm trong vùng AI được vẽ) — dữ kiện công trình đổi; xoá vệt sáng phản chiếu trên vịnh xa; mép vùng giữ quanh tàu còn viền lam nhẹ",
+  "p_dat": false,
+  "dat": false
+ },
+ {
+  "clip": "c4B",
+  "che_do": "A",
+  "t1": {
+   "co": [
+    0.0,
+    0.0
+   ]
+  },
+  "f1_nha": 0.559,
+  "f1_tau": 0.0,
+  "canh_moi": {
+   "troi": 0.0,
+   "nuoc": 1.14,
+   "dat": 0.06
+  },
+  "lua_max": 47.061,
+  "lua_san": 0.05,
+  "nhap_nhay_tren_dc": 1.27,
+  "dich": 0.0,
+  "ti_le": 1.0,
+  "lech_khung": null,
+  "dom_sang_ben": 9,
+  "dom_sang_ben_lua": 8,
+  "dom_sang_ben_dc": 0,
+  "vat_moi_ben": 2,
+  "dat_thanh_nuoc": 0.0,
+  "nuoc_thanh_dat": 99.57,
+  "chi_tiet": [
+   20.305,
+   15.402
+  ],
+  "bao_hoa": [
+   0.573,
+   0.647
+  ],
+  "truot_may": [
+   "T1 co",
+   "T2 nhà",
+   "T2 tàu",
+   "T4 lửa",
+   "T7 đốm sáng bền",
+   "T8 vật mới bền",
+   "T9 đổi loại vùng"
+  ],
+  "may_dat": false,
+  "p_doc": "XOÁ hai dãy trại (lều chỉ còn vệt mờ), xoá tàu ngoài khơi, xoá cây và mảng cỏ xanh → sa mạc nâu cam đồng màu; THÊM một đống đá/phế tích ở giữa–phải không có trong nguồn; biển xám mất màu (máy: nước→đất 99,6 % theo màu); toàn khung 'lửa mới' theo màu cam (dương tính giả T4 do màu cát, nhưng vẫn là đổi màu dữ kiện)",
+  "p_dat": false,
+  "dat": false
+ },
+ {
+  "clip": "c4B",
+  "che_do": "B",
+  "t1": {
+   "co": [
+    1.0,
+    1.861
+   ]
+  },
+  "f1_nha": 0.939,
+  "f1_tau": 0.992,
+  "canh_moi": {
+   "troi": 0.0,
+   "nuoc": 0.99,
+   "dat": 0.04
+  },
+  "lua_max": 0.058,
+  "lua_san": 0.05,
+  "nhap_nhay_tren_dc": 1.28,
+  "dich": 0.0,
+  "ti_le": 1.0,
+  "lech_khung": null,
+  "dom_sang_ben": 6,
+  "dom_sang_ben_lua": 1,
+  "dom_sang_ben_dc": 0,
+  "vat_moi_ben": 2,
+  "dat_thanh_nuoc": 26.35,
+  "nuoc_thanh_dat": 15.2,
+  "chi_tiet": [
+   20.305,
+   13.069
+  ],
+  "bao_hoa": [
+   0.573,
+   0.51
+  ],
+  "truot_may": [
+   "T4 lửa",
+   "T7 đốm sáng bền",
+   "T8 vật mới bền",
+   "T9 đổi loại vùng"
+  ],
+  "may_dat": false,
+  "p_doc": "eo đất cát giữa khung bị vẽ thành BIỂN/đầm nước xanh (dữ kiện địa lý đổi), chỉ còn hai dải trại (vùng giữ) như đảo; viền 'hộp' sáng quanh tàu xa và cờ trại (ghép vùng giữ lộ nền biển nguồn); thêm cồn cát/bãi rời trên mặt nước",
+  "p_dat": false,
+  "dat": false
+ },
+ {
+  "clip": "c4B",
+  "che_do": "B2",
+  "t1": {
+   "co": [
+    1.0,
+    1.861
+   ]
+  },
+  "f1_nha": 0.984,
+  "f1_tau": 1.0,
+  "canh_moi": {
+   "troi": 0.0,
+   "nuoc": 0.0,
+   "dat": 0.01
+  },
+  "lua_max": 0.063,
+  "lua_san": 0.05,
+  "nhap_nhay_tren_dc": 1.43,
+  "dich": 0.02,
+  "ti_le": 0.9999,
+  "lech_khung": null,
+  "dom_sang_ben": 1,
+  "dom_sang_ben_lua": 0,
+  "dom_sang_ben_dc": 0,
+  "vat_moi_ben": 0,
+  "dat_thanh_nuoc": 0.07,
+  "nuoc_thanh_dat": 3.12,
+  "chi_tiet": [
+   20.305,
+   15.043
+  ],
+  "bao_hoa": [
+   0.573,
+   0.588
+  ],
+  "truot_may": [
+   "T4 lửa",
+   "T9 đổi loại vùng"
+  ],
+  "may_dat": false,
+  "p_doc": "giữ đúng bờ biển, eo đất, Rock, hai dãy trại và tàu xa (không đổi loại vùng); NHƯNG cụm cây (lớp đất/thực vật, vùng AI vẽ) biến thành các VÒNG RỖNG như bóng ma, lối mòn trắng uốn cong bị XOÁ, mảng cỏ xanh nhạt hẳn; vệt xanh sáng chạy dọc mép vùng giữ của dãy trại (đường ghép); cả khung mờ sương, chi tiết 20,3 → thấp hơn",
+  "p_dat": false,
+  "dat": false
+ },
+ {
+  "clip": "c1",
+  "che_do": "A",
+  "t1": {
+   "tau": [
+    0.604,
+    0.604
+   ],
+   "co": [
+    0.039,
+    0.041
+   ],
+   "pin": [
+    1.0,
+    1.0
+   ]
+  },
+  "f1_nha": 0.074,
+  "f1_tau": 0.901,
+  "canh_moi": {
+   "nuoc": 0.04,
+   "dat": 0.0
+  },
+  "lua_max": 0.008,
+  "lua_san": 1.446,
+  "nhap_nhay_tren_dc": 0.83,
+  "dich": 0.25,
+  "ti_le": 1.0002,
+  "lech_khung": 1.5,
+  "dom_sang_ben": 3,
+  "dom_sang_ben_lua": 0,
+  "dom_sang_ben_dc": 0,
+  "vat_moi_ben": 0,
+  "dat_thanh_nuoc": 2.4,
+  "nuoc_thanh_dat": 49.25,
+  "chi_tiet": [
+   27.071,
+   1.832
+  ],
+  "bao_hoa": [
+   0.749,
+   0.4
+  ],
+  "truot_may": [
+   "T1 tau",
+   "T1 co",
+   "T2 nhà",
+   "T6 thời gian",
+   "T7 đốm sáng bền",
+   "T9 đổi loại vùng"
+  ],
+  "may_dat": false,
+  "p_doc": "ĐỔI THỜI ĐIỂM: khung đầu cửa sổ là ban ngày (nắng chiều) nhưng đầu ra tối đen như đêm từ khung 0 (lệnh 'Night, 1782' — lỗi lệnh của phiên, đã sửa cho c1-B2); phố mất mái ngói đỏ thành khối xám; cờ Union bên phải thành một ĐỐM LỬA sáng (bịa lửa, mất cờ); khói pin nổi đen thành khói trắng nhạt; công sự gần như mất trong bóng tối",
+  "p_dat": false,
+  "dat": false
+ },
+ {
+  "clip": "c1",
+  "che_do": "B",
+  "t1": {
+   "tau": [
+    1.0,
+    1.0
+   ],
+   "co": [
+    0.991,
+    1.032
+   ],
+   "pin": [
+    1.0,
+    1.0
+   ]
+  },
+  "f1_nha": 0.99,
+  "f1_tau": 0.997,
+  "canh_moi": {
+   "nuoc": 0.0,
+   "dat": 0.02
+  },
+  "lua_max": 15.749,
+  "lua_san": 1.446,
+  "nhap_nhay_tren_dc": 2.74,
+  "dich": 0.19,
+  "ti_le": 1.0001,
+  "lech_khung": -3.0,
+  "dom_sang_ben": 1,
+  "dom_sang_ben_lua": 1,
+  "dom_sang_ben_dc": 0,
+  "vat_moi_ben": 0,
+  "dat_thanh_nuoc": 0.22,
+  "nuoc_thanh_dat": 96.88,
+  "chi_tiet": [
+   27.071,
+   9.472
+  ],
+  "bao_hoa": [
+   0.749,
+   0.471
+  ],
+  "truot_may": [
+   "T4 lửa",
+   "T5 nhấp nháy",
+   "T6 thời gian",
+   "T7 đốm sáng bền",
+   "T9 đổi loại vùng"
+  ],
+  "may_dat": false,
+  "p_doc": "cả mặt vịnh (vùng nước) bị vẽ thành bãi cát/sa mạc vàng ở khung ngày, nâu sẫm khi chiều (máy: nước→đất 96,9 %); viền lam sáng quanh mọi tàu/pin nổi và mép công sự (ghép vùng giữ lộ nước nguồn); đồng cỏ xanh trong thành thành cát; ở khung đêm lửa pin nổi giữ (vùng giữ) nhưng mặt nước không còn phản chiếu",
+  "p_dat": false,
+  "dat": false
+ }
+]

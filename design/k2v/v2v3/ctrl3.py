@@ -37,11 +37,12 @@ def normals_up(z, fr):
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('src'); ap.add_argument('out'); ap.add_argument('--s', type=int, default=80); ap.add_argument('--n', type=int, default=81)
     ap.add_argument('--f0', type=int, default=0, help='chỉ số khung đầu của thư mục dung3 (vd c1: 264)')
+    ap.add_argument('--disp', default='', help='lo,hi cố định (chế độ C: cùng chuẩn hoá cho mọi cửa sổ, tránh nhảy độ sáng bản đồ độ sâu ở đường nối)')
     a = ap.parse_args(); mp = os.path.join(a.src, 'meta3.json'); meta = {r['f']: r for r in json.load(open(mp if os.path.exists(mp) else mp + '.part'))['frames']}
     for d in ('depth', 'canny', 'mask', 'bdepth', 'bcanny', 'alpha', 'src'): os.makedirs(os.path.join(a.out, d), exist_ok=True)
     F = [a.f0 + a.s + i for i in range(a.n)]; nm = lambda f, e: f'{f:05d}{e}'
     Z = [dec_depth(os.path.join(a.src, 'depth', nm(f, '.png'))) for f in F]
-    disp = np.concatenate([(1 / z)[~s] for z, s in Z]); lo, hi = np.percentile(disp, 1), np.percentile(disp, 99)
+    disp = np.concatenate([(1 / z)[~s] for z, s in Z]); lo, hi = (np.percentile(disp, 1), np.percentile(disp, 99)) if not a.disp else map(float, a.disp.split(','))
     rows = []; K2 = np.ones((5, 5), np.uint8)
     for i, (f, (z, sky)) in enumerate(zip(F, Z)):
         rgb = cv2.imread(os.path.join(a.src, 'rgb', nm(f, '.jpg')), cv2.IMREAD_COLOR); h, w = rgb.shape[:2]

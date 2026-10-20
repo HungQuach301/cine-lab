@@ -1,0 +1,129 @@
+{
+ "label": "c4B-dc",
+ "src": "/var/tmp/cine-out/v2v3/vid/c4B-nguon.mp4",
+ "out": "/var/tmp/cine-out/v2v3/vid/c4B-nguon-dc.mp4",
+ "n_src": 81,
+ "n_out": 81,
+ "step": 2,
+ "giu": {
+  "tau": {
+   "f1_canh": 1.0,
+   "iou_canh": 0.996,
+   "dE76": 16.0,
+   "px_tb": 41,
+   "n": 41
+  },
+  "co": {
+   "f1_canh": 0.833,
+   "iou_canh": 0.616,
+   "dE76": 22.0,
+   "px_tb": 65,
+   "n": 39
+  },
+  "nha": {
+   "f1_canh": 0.911,
+   "iou_canh": 0.791,
+   "dE76": 9.3,
+   "px_tb": 43445,
+   "n": 41
+  },
+  "dat": {
+   "f1_canh": 0.968,
+   "iou_canh": 0.896,
+   "dE76": 9.0,
+   "px_tb": 136512,
+   "n": 41
+  },
+  "nuoc": {
+   "f1_canh": 0.934,
+   "iou_canh": 0.84,
+   "dE76": 6.7,
+   "px_tb": 30287,
+   "n": 41
+  },
+  "troi": {
+   "f1_canh": 1.0,
+   "iou_canh": 0.984,
+   "dE76": 4.9,
+   "px_tb": 19990,
+   "n": 41
+  }
+ },
+ "dem": {
+  "tau": {
+   "truoc": 0,
+   "giu": 0,
+   "ti_le": null
+  },
+  "co": {
+   "truoc": 147,
+   "giu": 79,
+   "ti_le": 0.537
+  },
+  "pin": {
+   "truoc": 0,
+   "giu": 0,
+   "ti_le": null
+  }
+ },
+ "canh_moi_pct": {
+  "troi": {
+   "tb": 0.0,
+   "p90": 0.0,
+   "max": 0.0
+  },
+  "nuoc": {
+   "tb": 0.0,
+   "p90": 0.0,
+   "max": 0.01
+  },
+  "dat": {
+   "tb": 0.0,
+   "p90": 0.01,
+   "max": 0.01
+  }
+ },
+ "vat_la_tb": 0.02,
+ "vat_la_max": 1,
+ "lua_moi": {
+  "pct_tb": 0.001,
+  "pct_max": 0.003,
+  "cum_tb": 0.0,
+  "cum_max": 0
+ },
+ "nhap_nhay": {
+  "nguon": 0.202,
+  "ra": 0.303,
+  "ti_so": 1.5
+ },
+ "look": {
+  "nguon": {
+   "sat_med": 0.573,
+   "colorful": 92.895,
+   "detail": 20.305
+  },
+  "ra": {
+   "sat_med": 0.627,
+   "colorful": 106.169,
+   "detail": 9.778
+  }
+ },
+ "may": {
+  "luong_nguon_tb": [
+   -0.010999999940395355,
+   0.010999999940395355
+  ],
+  "luong_ra_tb": [
+   -0.0,
+   0.004000000189989805
+  ],
+  "rms_px_khung": 0.013,
+  "corr_dx": 0.21632541240039824,
+  "corr_dy": 0.18973369336388848,
+  "lech_khung_trung_vi": 0.0,
+  "lech_khung_max": 2,
+  "lech_do_nhon": 0.0019,
+  "can_khung_dich_tb_px": 10.27,
+  "can_khung_ti_le_tb": 1.0203
+ }
+}
