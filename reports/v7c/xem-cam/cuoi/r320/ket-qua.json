@@ -1,0 +1,180 @@
+{
+ "may": "claude-sonnet-5-5 (claude -p, chỉ Read)",
+ "muc": "r320",
+ "thang": "0/1/2 mỗi câu × 3 người = tối đa 6/câu",
+ "theo_cau": {
+  "Q1": 6,
+  "Q2": 6,
+  "Q3": 6,
+  "Q4": 6
+ },
+ "tong": 24,
+ "toi_da": 24,
+ "clarity_tb": 2.0,
+ "nguoi": {
+  "R1": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "The British. A Union Jack flies on the tower of the fortified town on the hillside in frames 40-41 (Jan 1780). The pictures don't show who the besiegers are, though the camps on the plain suggest a second force.",
+    "Q2": "The Great Siege. The caption \"1779 — The Great Siege\" appears at frame 23, and armies then build camps on the plain beside the rock.",
+    "Q3": "Not clearly shown. The pictures hint at a blockade, because ships ring the bay and sit offshore and there are long gaps with no friendly ships arriving. No food, famine or starving people are shown, so the hunger cause is not sure.",
+    "Q4": "A fleet of many ships. A big group of sailing ships approaches the town from the sea in Jan 1780 (frame 47) and in Apr 1781 (frames 53-56). These look like relief fleets, but the pictures don't show them unloading supplies. Frames 13-16, with burning ships in Sept 1782, may show the besiegers' ships being destroyed."
+   },
+   "lac": [
+    {
+     "frame": 1,
+     "why": "Opens on a modern night city view with changing dates and no explanation"
+    },
+    {
+     "frame": 8,
+     "why": "Jumps through 1316, 1411 and 1704 with smoke and no context"
+    },
+    {
+     "frame": 13,
+     "why": "1782 burning ships appear before the 1779 story begins, so the order is confusing"
+    },
+    {
+     "frame": 17,
+     "why": "Jumps to 1939-2026 views, so the timeline is unclear"
+    },
+    {
+     "frame": 27,
+     "why": "Rectangles with dots on grass are not explained; it's unclear they are armies or camps"
+    },
+    {
+     "frame": 34,
+     "why": "Sea and ships appear with no explanation of whose ships they are or why they matter"
+    },
+    {
+     "frame": 43,
+     "why": "Many frames of sea and town with no visible cause of hunger"
+    },
+    {
+     "frame": 48,
+     "why": "People and a wagon on a bastion with no clear meaning"
+    },
+    {
+     "frame": 57,
+     "why": "Dark frames and glowing orange lights with no explanation"
+    }
+   ]
+  },
+  "R2": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "Britain. A Union Jack flies over the castle tower on the Rock in frames 40-41 (Jan 1780), and the town stays fortified through the siege. The pictures don't show how it got there.",
+    "Q2": "'The Great Siege'. The caption '1779 — The Great Siege' appears at frame 23 (21 Jun 1779). Camps of many tiny soldiers or tents then grow on the land beside the Rock, and ships gather in the bay. So a long siege of the Rock by a land and sea force begins.",
+    "Q3": "Not sure. The pictures never show food, empty stores or starving people. The siege seems to cut the town off: enemy camps on land and ships blockading the bay. People in the town are only hinted at as short of supplies (small figures on the slope and in the streets), so I can't say for certain.",
+    "Q4": "A fleet of many ships sails in from the sea. It appears around 18 Jan 1780 (frame 47) and again on 12 Apr 1781 (frames 53-56), arriving at the town's harbour and walls. I read these as relief or supply ships, but nothing on screen says so."
+   },
+   "lac": [
+    {
+     "frame": 1,
+     "why": "The video opens on a night view of a modern town (2026) and no caption explains why."
+    },
+    {
+     "frame": 8,
+     "why": "Dates jump 1316, 1411, 1704 and 1782 with smoke and fire, and there's no explanation of who is fighting."
+    },
+    {
+     "frame": 13,
+     "why": "A line of burning ships off the coast on 13 Sep 1782 comes before the 1779 start and is out of order."
+    },
+    {
+     "frame": 17,
+     "why": "The video jumps to 1939-2026 views with an airstrip, which doesn't fit the siege story."
+    },
+    {
+     "frame": 27,
+     "why": "Grids of tiny figures on a field with no labels; I can't tell who they are or what they are doing."
+    },
+    {
+     "frame": 34,
+     "why": "A sea view with a lone ship and no clue who the ships belong to."
+    },
+    {
+     "frame": 43,
+     "why": "Many near-identical shots of the town and sea (14-16 Jan 1780) show no clear action or cause."
+    },
+    {
+     "frame": 49,
+     "why": "Close-ups of a bastion with a red object and small people are unclear."
+    },
+    {
+     "frame": 57,
+     "why": "Dark night frames with only glowing orange dots; I can't tell what is happening or who is attacking."
+    }
+   ]
+  },
+  "R3": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "The British. A Union Jack flies over the fortified tower on the rock (frames 40-41, Jan 1780). The pictures never show who the besiegers are.",
+    "Q2": "'1779 — The Great Siege', a caption in frame 23 (21 Jun 1779). It is a siege of the Rock: soldiers and cannons are massed on the land side (frames 27-33), and ships gather in the bay (frames 34-39).",
+    "Q3": "Not sure. The pictures suggest the town is blockaded by land and sea, since enemy ships sit in the bay and troops are camped on the plain. No frame shows food shortage or starving people.",
+    "Q4": "Ships arrive on the water around the town (frame 47, 18 Jan 1780, and frames 53-56, Apr 1781). They look like a relief fleet, and a ship also arrives at the harbour in frame 52. Nothing shows what is on board or whose ships they are. In frames 57-59 there is night fire and a burst on the town, so the Apr 1781 ships may be firing on it instead."
+   },
+   "lac": [
+    {
+     "frame": 1,
+     "why": "Opens on a night view of a modern town with 2026 dates, unrelated to the siege story."
+    },
+    {
+     "frame": 8,
+     "why": "Quick date jumps (1316, 1411, 1704) with smoke, and no explanation of what is happening."
+    },
+    {
+     "frame": 12,
+     "why": "1782 bombardment with smoke and burning ships, but who is attacking whom is unclear."
+    },
+    {
+     "frame": 17,
+     "why": "Jumps to 1939-1943 and 2026 with no connection to the 1779 story."
+    },
+    {
+     "frame": 27,
+     "why": "Grids of tiny units on the plain; it is not clear that these are armies or camps."
+    },
+    {
+     "frame": 34,
+     "why": "Ships in the bay with no sign of who they are or what they are doing."
+    },
+    {
+     "frame": 42,
+     "why": "Town views with no visible hunger, so the cause of any hunger is never shown."
+    },
+    {
+     "frame": 48,
+     "why": "Close view of a bastion with a small figure and an object (looks like a cannon being moved) and no clear meaning."
+    },
+    {
+     "frame": 53,
+     "why": "A fleet of ships near the town, but it is unclear whether they are rescuers or attackers."
+    },
+    {
+     "frame": 58,
+     "why": "Night fires near the town, with no clear cause or result."
+    }
+   ]
+  }
+ },
+ "chi_phi_usd_luy_ke": 0.889
+}
