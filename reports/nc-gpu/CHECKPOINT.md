@@ -17,3 +17,8 @@
 ## Lượt 3 (≈ 03:25 UTC 20/10)
 - Container của phiên khởi động lại ≈ 03:15 (không do phiên): dữ liệu `/var/tmp/cine-out/ncg` còn nguyên; pod 3/4 tiếp tục dựng phía RunPod; pod 5 (vừa bật, chưa có dữ liệu) được nạp lại. Bộ theo dõi mới `design/pt/gpu/chay/theo_pod.sh` (kéo ảnh, dừng theo khung, tắt pod).
 - Chia cú lặn: pod 3 336–479, pod 4 93–255, pod 5 256–335; khung 0–92 đã về.
+
+## Lượt 4 (≈ 06:00 UTC 20/10)
+- Pod 4 tắt sớm trước khi kéo khung 242–255 (dựng lại trên pod 6, xong); `theo_pod.sh` nay kiểm đủ dải khung trước khi tắt.
+- Pod 3: hết VRAM 32 GB ở khung 442 (rò dữ liệu cụm khói khi dựng lại từng khung với `--persist`), sau đó Blender rơi về CPU của pod (GPU 0 %) → khung 444–467 dựng bằng CPU ≈ 220 s/khung. Sửa: xoá dữ liệu cụm khói cũ; `--needgpu` dừng thay vì rơi âm thầm về CPU. `pod_dive.sh`: lỗi số học đoạn cuối (468–479 chưa dựng) đã sửa.
+- Pod 7: dựng 442–443, 468–479 (+ 444–445 để đối chứng GPU ↔ CPU-pod).

@@ -39,6 +39,7 @@ def _gpu_prefs():
         except Exception as e: print('NC-GPU-DEV lỗi', t, repr(e), flush=True)
     return 'CPU'
 _DEV = _gpu_prefs()
+if '--needgpu' in sys.argv and _DEV == 'CPU': print('NC-GPU-DEV KHÔNG CÓ GPU — dừng (không dựng âm thầm bằng CPU)', flush=True); sys.exit(9)   # lượt 1: pod 3 sau hết VRAM rơi về CPU, 24 khung × 220 s
 sc = bpy.context.scene
 S = mathutils.Matrix(((1, 0, 0, 0), (0, 0, -1, 0), (0, 1, 0, 0), (0, 0, 0, 1)))   # three (x E, y cao, z −N) → Blender (x E, y N, z cao)
 def load(i):
@@ -552,7 +553,9 @@ if JOB in ('cycles', 'eevee'):
             sc.frame_set(k['f']); DOF_L[0] = mathutils.Vector((k['l'][0], k['l'][2], k['l'][1]))
             if FXDIR and os.path.exists(os.path.join(FXDIR, f"{k['f']:05d}.json")):   # khói/lửa + ánh sáng k2v của ĐÚNG khung này
                 fj = os.path.join(FXDIR, f"{k['f']:05d}.json"); set_light(json.load(open(fj)))
-                for ob in FX: bpy.data.objects.remove(ob)
+                for ob in FX:   # xoá cả dữ liệu (lưới sao chép, đèn) — lượt 1 chỉ xoá vật → rò bộ nhớ, hết VRAM 32 GB ở khung 442 (--persist)
+                    d_ = ob.data; bpy.data.objects.remove(ob)
+                    if d_ is not None and d_.users == 0: (bpy.data.meshes if isinstance(d_, bpy.types.Mesh) else bpy.data.lights).remove(d_)
                 FX.clear()
                 if '--fx' in opt: add_fx(fj)
             t = k['f'] / 24.0
