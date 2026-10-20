@@ -1,0 +1,39 @@
+Lần 1 — 2026-10-20T15:40:18Z — hf_hub_download (ẩn danh, không token) nvidia/Cosmos-Transfer2.5-2B general/depth/0f214f66-ae98-43cf-ab25-d65d09a7e68f_ema_bf16.pt (repo @ce8440327c632d8313c3bde69db13b627ba5cae1, gated=auto):
+GatedRepoError: 401 Client Error. (Request ID: Root=1-6ad78b6e-3bb3b4a71748d06c79a43659;10345191-8167-4906-9beb-649ae1355acf)
+
+Cannot access gated repo for url https://huggingface.co/nvidia/Cosmos-Transfer2.5-2B/resolve/main/general/depth/0f214f66-ae98-43cf-ab25-d65d09a7e68f_ema_bf16.pt.
+Access to model nvidia/Cosmos-Transfer2.5-2B is restricted. You must have access to it and be authenticated to access it. Please log in.
+
+Lần 2 — bản sao cộng đồng không gated: API HF circulus/Cosmos-Transfer2.5-2B-bnb-int4 (+ README):
+6c16f9308d9e255a4af67f0698df182abd85c5de 2026-08-10T03:40:44.000Z gated= False None None
+  .gitattributes 0.0
+  controlnet/config.json 0.0
+  controlnet/diffusion_pytorch_model.safetensors 0.24
+  model_index.json 0.0
+  scheduler/scheduler_config.json 0.0
+  text_encoder/config.json 0.0
+  text_encoder/generation_config.json 0.0
+  text_encoder/model.safetensors 5.9
+  tokenizer/chat_template.jinja 0.0
+  tokenizer/tokenizer.json 0.01
+  tokenizer/tokenizer_config.json 0.0
+  transformer/config.json 0.0
+  transformer/diffusion_pytorch_model.safetensors 1.25
+  vae/config.json 0.0
+  vae/diffusion_pytorch_model.safetensors 0.25
+Entry not found
+Tài liệu chính thức nvidia-cosmos/cosmos-transfer2.5 @2ff49d0717af02057ae79bc75c00fbff9da1b4e7 (07/06/2026):
+## Downloading Checkpoints
+
+1. Get a [Hugging Face Access Token](https://huggingface.co/settings/tokens) with `Read` permission
+2. Install [Hugging Face CLI](https://huggingface.co/docs/huggingface_hub/en/guides/cli): `uv tool install -U "huggingface_hub[cli]"`
+3. Login: `hf auth login`
+4. Accept the [NVIDIA Open Model License Agreement](https://huggingface.co/nvidia/Cosmos-Guardrail1).
+
+Checkpoints are automatically downloaded during inference and post-training. To modify the checkpoint cache location, set the [`HF_HOME`](https://huggingface.co/docs/huggingface_hub/en/package_reference/environment_variables#hfhome) environment variable.
+The following table shows the GPU memory requirements for different Cosmos-Transfer2.5 models for single-GPU inference:
+
+| Model | Required GPU VRAM |
+|-------|-------------------|
+| Cosmos-Transfer2.5-2B | 65.4 GB |
+
