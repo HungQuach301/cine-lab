@@ -2,16 +2,17 @@
 """NC-V2V3 · áp NGƯỠNG LOẠI — T1–T6 Y NGUYÊN design/k2v/v2v/danh_gia.py (NC-V2V; so với bản đối chứng KHÔNG AI cùng cửa sổ) + 2 ngưỡng thêm ghi TRƯỚC khi đọc kết quả chế độ B:
   T7 đốm sáng mới bền ≥ 1 s: số vệt ≤ max(1, đối chứng) VÀ 0 vệt màu lửa
   T8 vật mới bền ≥ 1 s trong vùng trống (thành phần liên thông cạnh mới ≥ 40 px nối qua khung): 0
-  ĐẠT = qua T1–T8 VÀ P đọc tờ so không thấy vật bịa (cột 'P' điền tay trong p_doc.json).
+  T9 đổi loại vùng (thêm sau khi P thấy c4B-B biến eo đất thành biển; ghi TRƯỚC khi đọc B2/A còn lại): đất→nước và nước→đất mỗi chiều ≤ max(2 %, đối chứng + 2 điểm) (đối chứng ngày 0–1 %; c1 ĐÊM đối chứng đất→nước 7,4 % vì đất đêm ngả lam — sửa giới hạn theo đối chứng TRƯỚC khi có kết quả c1)
+  ĐẠT = qua T1–T9 VÀ P đọc tờ so không thấy vật bịa (cột 'P' điền tay trong p_doc.json).
   danh_gia3.py <thư mục do/> <ra.json> <ra.md> [p_doc.json]"""
 import json, sys, os
 from pathlib import Path
 D = Path(sys.argv[1]); PD = json.load(open(sys.argv[4])) if len(sys.argv) > 4 and os.path.exists(sys.argv[4]) else {}
-rows = []; md = ['| Clip-chế độ | T1 giữ tàu / cờ / pin (÷ đc) | T2 F1 nhà · tàu | T3 cạnh mới trời · nước · đất % | T4 lửa mới max % (sàn) | T5 nhấp nháy ÷ đc | T6 dịch px · tỉ lệ · lệch khung | T7 đốm sáng bền (lửa) · đc | T8 vật mới bền | Chi tiết nguồn → ra | Bão hoà nguồn → ra | Máy | P đọc | Kết luận |', '|' + '---|' * 14]
+rows = []; md = ['| Clip-chế độ | T1 giữ tàu / cờ / pin (÷ đc) | T2 F1 nhà · tàu | T3 cạnh mới trời · nước · đất % | T4 lửa mới max % (sàn) | T5 nhấp nháy ÷ đc | T6 dịch px · tỉ lệ · lệch khung | T7 đốm sáng bền (lửa) · đc | T8 vật mới bền | T9 đất→nước · nước→đất % | Chi tiết nguồn → ra | Bão hoà nguồn → ra | Máy | P đọc | Kết luận |', '|' + '---|' * 15]
 for c in ['c2', 'c4B', 'c1']:
     if not (D / f'{c}-dc.json').exists(): continue
     dc = json.load(open(D / f'{c}-dc.json')); dct = json.load(open(D / f'{c}-dc-them.json'))
-    for v in 'AB':
+    for v in ('A', 'B', 'B2'):
         if not (D / f'{c}-{v}.json').exists(): continue
         R = json.load(open(D / f'{c}-{v}.json')); X = json.load(open(D / f'{c}-{v}-them.json')); g, dm, m = R['giu'], R['dem'], R['may']; fails = []; t1 = {}
         for k in ('tau', 'co', 'pin'):
@@ -35,12 +36,15 @@ for c in ['c2', 'c4B', 'c1']:
         if b7 > max(1, b70) or b7l > 0: fails.append('T7 đốm sáng bền')
         b8 = X['vat_moi_vung_trong']['ben_1s']
         if b8 > 0: fails.append('T8 vật mới bền')
+        dl = X.get('doi_loai_vung', {}); d2n, n2d = dl.get('dat_thanh_nuoc_pct'), dl.get('nuoc_thanh_dat_pct')
+        dl0 = dct.get('doi_loai_vung', {})
+        if (d2n or 0) > max(2, (dl0.get('dat_thanh_nuoc_pct') or 0) + 2) or (n2d or 0) > max(2, (dl0.get('nuoc_thanh_dat_pct') or 0) + 2): fails.append('T9 đổi loại vùng')
         p = PD.get(f'{c}-{v}', {}); pok = p.get('dat'); may = not fails
         dat = may and pok is True
         rows.append(dict(clip=c, che_do=v, t1=t1, f1_nha=f_nha, f1_tau=f_tau, canh_moi=cm, lua_max=lua, lua_san=round(thr, 3), nhap_nhay_tren_dc=round(nn, 2), dich=m['can_khung_dich_tb_px'], ti_le=m['can_khung_ti_le_tb'], lech_khung=lag,
-                         dom_sang_ben=b7, dom_sang_ben_lua=b7l, dom_sang_ben_dc=b70, vat_moi_ben=b8, chi_tiet=(R['look']['nguon']['detail'], R['look']['ra']['detail']), bao_hoa=(R['look']['nguon']['sat_med'], R['look']['ra']['sat_med']),
+                         dom_sang_ben=b7, dom_sang_ben_lua=b7l, dom_sang_ben_dc=b70, vat_moi_ben=b8, dat_thanh_nuoc=d2n, nuoc_thanh_dat=n2d, chi_tiet=(R['look']['nguon']['detail'], R['look']['ra']['detail']), bao_hoa=(R['look']['nguon']['sat_med'], R['look']['ra']['sat_med']),
                          truot_may=fails, may_dat=may, p_doc=p.get('thay', None), p_dat=pok, dat=dat))
         t1s = ' · '.join(f"{k} {a[0]:.2f} ({a[1]:.2f})" for k, a in t1.items()) or '—'
-        md.append(f"| {c}-{v} | {t1s} | {f_nha if f_nha is not None else '—'} · {f_tau if f_tau is not None else '—'} | {' · '.join(f'{k} {x}' for k, x in cm.items())} | {lua} ({thr:.3f}) | {nn:.2f} | {m['can_khung_dich_tb_px']} · {m['can_khung_ti_le_tb']} · {lag if lag is not None else 'kxđ'} | {b7} ({b7l}) · {b70} | {b8} | {R['look']['nguon']['detail']:.1f} → {R['look']['ra']['detail']:.1f} | {R['look']['nguon']['sat_med']:.2f} → {R['look']['ra']['sat_med']:.2f} | {'qua' if may else 'LOẠI: ' + ', '.join(fails)} | {'—' if pok is None else ('không thấy vật bịa' if pok else 'LOẠI: ' + p.get('thay', ''))} | {'**ĐẠT**' if dat else 'LOẠI'} |")
+        md.append(f"| {c}-{v} | {t1s} | {f_nha if f_nha is not None else '—'} · {f_tau if f_tau is not None else '—'} | {' · '.join(f'{k} {x}' for k, x in cm.items())} | {lua} ({thr:.3f}) | {nn:.2f} | {m['can_khung_dich_tb_px']} · {m['can_khung_ti_le_tb']} · {lag if lag is not None else 'kxđ'} | {b7} ({b7l}) · {b70} | {b8} | {d2n} · {n2d} | {R['look']['nguon']['detail']:.1f} → {R['look']['ra']['detail']:.1f} | {R['look']['nguon']['sat_med']:.2f} → {R['look']['ra']['sat_med']:.2f} | {'qua' if may else 'LOẠI: ' + ', '.join(fails)} | {'—' if pok is None else ('không thấy vật bịa' if pok else 'LOẠI: ' + p.get('thay', ''))} | {'**ĐẠT**' if dat else 'LOẠI'} |")
 json.dump(rows, open(sys.argv[2], 'w'), ensure_ascii=False, indent=1); Path(sys.argv[3]).write_text('\n'.join(md) + '\n')
 print(sum(r['dat'] for r in rows), '/', len(rows), 'đạt'); print('\n'.join(md))

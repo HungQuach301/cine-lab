@@ -2,7 +2,7 @@
 Chỉ thư viện chuẩn. Một lượt = một cửa sổ ≤ 81 khung (giới hạn huấn luyện của Wan); nối 10 s ở bước khác (noi_cua_so).
   python3 wf_vace.py <job.json>
 job.json: {"w":1280,"h":720,"n":81,"start":0,"seed":..,"steps":20,"split":10,"cfg":3.5,"shift":8.0,"sampler":"euler","sched":"simple",
-           "pos":"…","neg":"…","ctrl":[{"dir":"/w/…/depth","strength":1.0,"mask_dir":null|"/w/…/m"}, …], "out":"/w/ra/<nhãn>"}
+           "pos":"…","neg":"…", ["init_dir":"/w/ctrl/<clip>/src", "denoise":0.6,]"ctrl":[{"dir":"/w/…/depth","strength":1.0,"mask_dir":null|"/w/…/m"}, …], "out":"/w/ra/<nhãn>"}
 Điều khiển nhiều lớp: mỗi lớp một nút WanVaceToVideo nối tiếp (ComfyUI gắn thêm vace_frames/vace_mask/vace_strength, append=True).
 Mặt nạ: trắng (1) = AI vẽ; đen (0) = giữ điểm ảnh ở khung điều khiển (WanVaceToVideo: inactive = ctrl·(1−m), reactive = ctrl·m)."""
 import json, sys, time, urllib.request
@@ -31,10 +31,13 @@ def graph(j):
             inp['control_masks'] = [f'm{i}', 1]
         g[f'v{i}'] = {'class_type': 'WanVaceToVideo', 'inputs': inp}; p, n = [f'v{i}', 0], [f'v{i}', 1]
     lat = [f'v{len(j["ctrl"]) - 1}', 2]
-    S, sp = j.get('steps', 20), j.get('split', 10)
+    S, sp = j.get('steps', 20), j.get('split', 10); s0 = 0
+    if j.get('init_dir'):   # B2: khởi từ khung NGUỒN (VAE mã hoá) + nhiễu tới bước s0 = round(S·(1 − denoise)) — giữ màu/ngữ nghĩa vùng (đất vẫn là đất), AI chỉ thêm bề mặt
+        g['ini'] = {'class_type': 'V2V3LoadFrames', 'inputs': {'dir': j['init_dir'], 'start': j.get('start', 0), 'count': j['n']}}
+        g['enc'] = {'class_type': 'VAEEncode', 'inputs': {'pixels': ['ini', 0], 'vae': ['vae', 0]}}; lat = ['enc', 0]; s0 = int(round(S * (1 - j.get('denoise', 1.0))))
     g['k1'] = {'class_type': 'KSamplerAdvanced', 'inputs': {'model': ['mhi', 0], 'add_noise': 'enable', 'noise_seed': j['seed'], 'steps': S, 'cfg': j.get('cfg', 3.5),
                'sampler_name': j.get('sampler', 'euler'), 'scheduler': j.get('sched', 'simple'), 'positive': p, 'negative': n, 'latent_image': lat,
-               'start_at_step': 0, 'end_at_step': sp, 'return_with_leftover_noise': 'enable'}}
+               'start_at_step': s0, 'end_at_step': sp, 'return_with_leftover_noise': 'enable'}}
     g['k2'] = {'class_type': 'KSamplerAdvanced', 'inputs': {'model': ['mlo', 0], 'add_noise': 'disable', 'noise_seed': j['seed'], 'steps': S, 'cfg': j.get('cfg', 3.5),
                'sampler_name': j.get('sampler', 'euler'), 'scheduler': j.get('sched', 'simple'), 'positive': p, 'negative': n, 'latent_image': ['k1', 0],
                'start_at_step': sp, 'end_at_step': 10000, 'return_with_leftover_noise': 'disable'}}
