@@ -12,7 +12,7 @@
 |---|---|---|---|---|---|
 | **CHÍNH** | **Gibraltar: 14 Sieges in 3D \| Timelapse 1309–2026** | 48 | (c) do việc 0 đề xuất | **8,33** (3/3 người chấm xếp số 1) | ‹0d› "fourteen sieges … between 1309 and 1783"; tua ngược 1309 → 2026 ở H2 (V7) |
 | THỬ 2 | Gibraltar \| 700 Years in 3D: 14 Sieges and a Runway | 51 | (b) series §11.2 | 7,42 | ‹0d› + ‹0g› "a runway was laid across the only road to Spain"; 1309 → 2026 = 717 năm |
-| THỬ 3 | Why Gibraltar Was Besieged 14 Times | 35 | (a) §2 "Why" | 7,42 | ‹0d› (dữ kiện); câu "why" không có nguyên văn trong móc |
+| THỬ 3 | Gibraltar: <lời hứa> \| 3D Timelapse (khuôn §14.5; tên làm việc cũ đã bỏ 20/10 22:34) | ≤ 60 | (c) §14.5 | 7,42 (điểm của tên cũ) | ‹0d› (dữ kiện); câu "why" không có nguyên văn trong móc |
 | Dự phòng | Gibraltar Under Siege: 1309 → 1783 \| 3D Timelapse | 49 | (c) | 7,83 | ‹0d›; trùng ý với CHÍNH nên không đưa vào bộ thử |
 
 - Ba tiêu đề trong bộ thử đại diện cho ba khuôn (c), (b), (a). Vì vậy kết quả Test & Compare trả lời luôn câu hỏi "khuôn nào thắng".
@@ -41,7 +41,7 @@
 - Việc này cần sửa Kinh thánh §2, §3 và §11.2.
 
 ### 1.4 Nếu không duyệt V7 (không còn timelapse là xương sống)
-Bỏ "3D Timelapse" khỏi tiêu đề và dùng **"Why Gibraltar Was Besieged 14 Times"** làm CHÍNH. Lời hứa định dạng phải đúng với phim thật.
+(Sửa 20/10 22:34: tên làm việc cũ đã bỏ; mọi tiêu đề theo khuôn Kinh thánh §14.5 `<Nơi>: <lời hứa> | 3D Timelapse`, ≤ 60 ký tự, dữ kiện đúng lời khoá.) Lời hứa định dạng phải đúng với phim thật.
 
 ## 2. Thumbnail
 

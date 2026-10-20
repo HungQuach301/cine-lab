@@ -1,0 +1,87 @@
+{
+ "nguon_tho": {
+  "tep": "/var/tmp/cine-out/p2010b/stem/T3-loi-tho.wav",
+  "sha256": "d65d75f1085e313c7f26895f4b15a916d18c1ad9f097473f0580a3e679e33372",
+  "I": -19.0,
+  "LRA": 3.8,
+  "TP": -1.7,
+  "LRA_low": -21.9,
+  "LRA_high": -18.1
+ },
+ "vong": [
+  {
+   "gain_db": 5.0,
+   "I": -14.3,
+   "LRA": 3.8,
+   "TP": -1.5,
+   "LRA_low": -17.2,
+   "LRA_high": -13.4
+  },
+  {
+   "gain_db": 5.3,
+   "I": -14.1,
+   "LRA": 3.8,
+   "TP": -1.5,
+   "LRA_low": -16.9,
+   "LRA_high": -13.1
+  }
+ ],
+ "master": {
+  "wav": "/var/tmp/cine-out/p2010b/master/T3-loi-G1-v42-14LUFS.wav",
+  "wav_sha256": "785c9b4c76c88bc9baf40eda8b2ac898daba93222bdd2f7932018b44fb6d18f2",
+  "flac": "/var/tmp/cine-out/p2010b/master/T3-loi-G1-v42-14LUFS.flac",
+  "flac_sha256": "ae286fd667bea8be3e9add03ea97e9d59a87be507189f11c9ec9b9ee977a1500",
+  "giay": 733.532,
+  "giay_flac": 733.532,
+  "byte_wav": 105628732,
+  "byte_flac": 64026270,
+  "gain_db": 5.3,
+  "I": -14.1,
+  "LRA": 3.8,
+  "TP": -1.5,
+  "LRA_low": -16.9,
+  "LRA_high": -13.1
+ },
+ "kl42": {
+  "stem_tho": {
+   "tep": "/var/tmp/cine-out/kl42/stem/T3-loi-tho.wav",
+   "sha256": "79ac35890190d62d6d87f0d31310ef1850ff2bd4efd264e8d9388a2d4f94ef21",
+   "I": -19.0,
+   "LRA": 3.8,
+   "TP": -1.7,
+   "LRA_low": -21.9,
+   "LRA_high": -18.1
+  },
+  "master": {
+   "wav": "/var/tmp/cine-out/kl42/xuat/T3-loi-G1-v42-14LUFS.wav",
+   "wav_sha256": "ba50fba75aa956731226f7269adbffb6728853d6d2a7fc95b4eefba8e13b586d",
+   "flac": "/var/tmp/cine-out/kl42/xuat/T3-loi-G1-v42-14LUFS.flac",
+   "flac_sha256": "852b9e419b40d16657f3280dfb03ef7c422c50434fa63db57c2ace8e5b29b7de",
+   "giay": 733.532,
+   "gain_db": 5.3,
+   "I": -14.1,
+   "LRA": 3.8,
+   "TP": -1.5,
+   "LRA_low": -16.9,
+   "LRA_high": -13.1
+  },
+  "vong": [
+   {
+    "gain_db": 5.0,
+    "I": -14.3,
+    "LRA": 3.8,
+    "TP": -1.5,
+    "LRA_low": -17.2,
+    "LRA_high": -13.4
+   },
+   {
+    "gain_db": 5.3,
+    "I": -14.1,
+    "LRA": 3.8,
+    "TP": -1.5,
+    "LRA_low": -16.9,
+    "LRA_high": -13.1
+   }
+  ]
+ }
+}

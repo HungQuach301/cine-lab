@@ -1,4 +1,4 @@
-# KINH THÁNH KÊNH 2 — Moving Parts (chủ dự án duyệt 13/10/2026 22:49; bổ sung 14/10/2026 10:41, 18:08, 20:45, 22:11, 15/10/2026, 16–17/10/2026 — §10 và 17–18/10/2026 — §11; bổ sung 18/10/2026 tối — §12; §13 + sửa 19/10; §14 + sửa 20/10)
+# KINH THÁNH KÊNH 2 — Moving Parts (chủ dự án duyệt 13/10/2026 22:49; bổ sung 14/10/2026 10:41, 18:08, 20:45, 22:11, 15/10/2026, 16–17/10/2026 — §10 và 17–18/10/2026 — §11; bổ sung 18/10/2026 tối — §12; §13 + sửa 19/10; §14 + sửa 20/10, 20/10 22:34)
 
 Nguồn hình thành: phân tích đối thủ "Fortune of Nations Animated" (lời + 14 khung, 13/10) và "GoDocs" (video Suez 11:00 đo bằng máy, 14/10) + định hướng nâng cấp nhà máy (Bảng trạng thái) + Teardown số liệu 15/10 (channel-k2/TEARDOWN-FON.md) + NC-LS / NC-LS2 (17/10). Nguyên tắc: học CÔNG THỨC, không sao chép sản phẩm (không dùng câu chữ, hình, thumbnail, nhận diện, danh sách đề tài của đối thủ; lời/video của đối thủ không đưa vào repo).
 
@@ -114,7 +114,7 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - Bối cảnh giáo dục nằm trong hình và tiếng của chính video.
 - Thumbnail: không vũ khí chĩa vào người, không lửa có người, không biểu tượng cực đoan/tôn giáo, không cờ làm điểm nhấn.
 - Tranh lưu trữ: crop bỏ người chết/hấp hối làm tiêu điểm.
-- Mô tả ghi minh bạch: *"Narration: synthetic voice. Visuals: 3D reconstructions built from the cited sources and registers; on two street frames, surface detail is AI-assisted — layout, landmarks and flags come from the sources. Historical images: public domain / CC0, credited."* (§11.3)
+- Mô tả ghi minh bạch (viết lại theo N1/N2 §14.1; chủ dự án duyệt 20/10 22:34): *"Narration: synthetic voice. Visuals: 3D reconstructions built from the cited sources and registers. In some shots AI repaints background surfaces only (terrain, water, sky, vegetation, textures); buildings, street layout, flags, ships, people, lights, text, dates and numbers come from the sources and are never AI-generated. Segments labelled "Illustration" are fully AI-generated and carry no location facts. Historical images: public domain / CC0 / CC BY, credited."* (§11.3, §14.1)
 - Mỗi tập khác nhau thật về nội dung chính (tránh "inauthentic content").
 
 ### 10.7 Mức rủi ro ĐỎ-K (XX1, YY1–YY6, 17/10)
@@ -150,10 +150,10 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 
 ### 11.3 AI trên hình — có rào chắn dữ kiện (HC1–HC9 18/10 06:26–07:10; N1–N4 06:51; P2-1…P2-5 08:43; J1, J5)
 - GIÁ TRỊ KHÔNG ĐÁNH ĐỔI: mọi mốc/dữ kiện có nguồn, người xem tra được (mô tả, bình luận ghim, thẻ phương pháp — §12.1); bố cục, công trình mốc, cờ, tàu, quân phục, đèn lấy từ nguồn và không đổi hình giữa các tấm; câu chuyện "tại sao" + cơ chế; minh bạch cách làm. "No AI imagery" là tuyên ngôn cũ, đã thay (N1).
-- Được dùng: (a) tấm C khung neo phố hẹp — MỘT tấm ban ngày cho mỗi khung neo × mốc, sửa ảnh có mặt nạ (chỉ tường/mái/mặt đất/đồ nền), KHÔNG người/cờ/chữ/biển hiệu/tàu/nguồn sáng mới/khối kiến trúc mới; (b) vân AI "nướng" lên mặt tiền cho cảnh bay cận (một bộ vân/toà × mốc, albedo phẳng không bóng nướng) và tấm chiếu cho cảnh điểm nhấn trong cung máy ±20–25° (HC7–HC8, sau PT3); (c) thumbnail AI-sửa từ render của mình, giữ lớp dữ kiện (N2); (d) minh hoạ lời nhân chứng kiểu bản khắc/tranh thời kỳ, nhãn "illustration" — chỉ sau khi thử (N3). (chữ trên hình: theo §12.1)
+- Được dùng — VÍ DỤ của N1 (§14.1), không còn là danh sách đóng (sửa 20/10 22:34): (a) tấm C khung neo phố hẹp — MỘT tấm ban ngày cho mỗi khung neo × mốc, sửa ảnh có mặt nạ (chỉ tường/mái/mặt đất/đồ nền), KHÔNG người/cờ/chữ/biển hiệu/tàu/nguồn sáng mới/khối kiến trúc mới; (b) vân AI "nướng" lên mặt tiền cho cảnh bay cận (một bộ vân/toà × mốc, albedo phẳng không bóng nướng) và tấm chiếu cho cảnh điểm nhấn trong cung máy ±20–25° (HC7–HC8, sau PT3); (c) thumbnail AI-sửa từ render của mình, giữ lớp dữ kiện (N2); (d) minh hoạ lời nhân chứng kiểu bản khắc/tranh thời kỳ, nhãn "illustration" — chỉ sau khi thử (N3). (chữ trên hình: theo §12.1)
 - Rào chắn bắt buộc: ghép lại điểm ảnh A cho mọi vật mang dữ kiện (vùng bảo vệ sai khác < 1/255); lớp sống (người, khói, xe) do mình dựng, đặt trên; đêm làm từ các lượt chiếu sáng A, không sinh ảnh đêm, đêm không sáng hơn 1,5× A; kiểm dữ kiện từng tấm/vân trên kết quả ghép thật — 0 lỗi chắc mới dùng, ngoại lệ phải chủ dự án duyệt; chi tiết kiến trúc AI tự thêm (công-xon, gờ chạm, cửa) = không chấp nhận; sổ AI ghi mọi lệnh gọi (model, prompt nguyên văn, % mặt nạ, chi phí, C2PA).
 - Nhãn + công bố: khung có ảnh/vân AI mang dòng "Surface detail AI-assisted · layout, landmarks & flags from sources" ≥ 38 px góc dưới trái suốt shot; bật khai báo nội dung AI trên YouTube; mô tả theo §10.6. (chữ trên hình: theo §12.1)
-- Trần: thời lượng khung `ai_image`/`ai_texture` ≤ 20 % tập; khung lai bão hoà trung vị ≤ 0,40 và chỉnh màu riêng; màu sơn mặt tiền do AI đổi chỉ tạm chấp nhận tới khi có nguồn màu.
+- Trần: thời lượng khung `ai_image`/`ai_texture` ≤ 20 % tập; khung lai theo chuẩn chung §14.4 (bão hoà trung vị ≥ 0,40; sửa 20/10 22:34); màu sơn mặt tiền do AI đổi chỉ tạm chấp nhận tới khi có nguồn màu.
 - KHÔNG: AI sinh, xoá hoặc đổi LỚP DỮ KIỆN (§14.1) ở mọi loại cảnh; khung AI (ảnh hay video) chưa qua cổng kiểm §14.1 (e) — nhấp nháy, trôi hình, vật bịa; AI cho bản đồ chiến lược; ước độ sâu bằng AI; (sửa 20/10: AI video và cảnh bay trên không tầm cao được dùng cho LỚP NỀN theo N1/N2 — §14.1); vân vật liệu AI kiểu "B" (thua vân CC0 ở chấm mù).
 - Đo khán giả từ T3: bình luận chê AI ≤ 2 % (mẫu 100); vượt → giảm tỷ lệ khung AI tập sau.
 - Chấm mù bằng mô hình KHÔNG thay kiểm dữ kiện (người chấm không bắt được cờ sai và gán nhầm lỗi cho bản đúng).
@@ -200,7 +200,7 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - Vật nền phụ (chậu cây, mái che, đồ phơi, thùng, bao, ghế, giỏ, dụng cụ): được đặt không cần nguồn riêng nếu kiểu dáng/vật liệu đúng thời kỳ, không trái hoàn cảnh có nguồn, không vật hiện đại, không chữ, mật độ vừa phải, qua soi lỗi thời đại; ghi danh sách + lý do trong báo cáo phiên.
 
 ### 12.5 Dựng và vận hành (V6-1…V6-7, 23:15; chi phí 12:57)
-- Mức dựng T3: bản SẢN XUẤT V6 (llvmpipe: bóng đổ khít khung, SSAO hai tầng, chỉnh màu V6, người có khớp, khói giả thể tích); render song song nhiều phiên chia theo shot (ngoại lệ EE2-A) để mỗi phiên ≤ 12 h đồng hồ. Cycles chỉ cho khung tĩnh, poster, thumbnail (sửa 20/10: và cú lặn/cận cảnh đêm có lửa dựng trọn bằng Cycles GPU — §14.2). Nướng GI bằng Cycles (mức C) nghiên cứu sau T3.
+- Mức dựng T3: bản SẢN XUẤT V6 (llvmpipe: bóng đổ khít khung, SSAO hai tầng, chỉnh màu V6, người có khớp, khói giả thể tích); render song song nhiều phiên chia theo shot (ngoại lệ EE2-A) để mỗi phiên ≤ 12 h đồng hồ. Cycles chỉ cho khung tĩnh, poster, thumbnail (sửa 20/10: và cú lặn/cận cảnh đêm có lửa dựng trọn bằng Cycles GPU — §14.2; chủ dự án xác nhận 20/10 22:34). Nướng GI bằng Cycles (mức C) nghiên cứu sau T3.
 - Phế tích 1782 giữ đúng nguồn; mỗi tập có ≥ 1 cảnh phố dày còn nguyên ở một mốc khác.
 - Người: mục tiêu toy_like ≤ 4; không chặn phát hành T3.
 - Video trong git ≤ 5 MB (preflight); bản lớn hơn để ngoài git, ghi SHA-256; master phát hành qua LFS.
@@ -236,7 +236,7 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - (c) N2: thêm tối đa 20 % thời lượng tập là "minh hoạ" toàn khung AI cho khoảnh khắc không mang dữ kiện vị trí (móc mở đầu, cú lặn, chuyển cảnh); dữ kiện của đoạn đó kể bằng lời/bản đồ/chú thích; nhãn "Illustration" trên hình suốt đoạn (ngoại lệ của §12.1).
 - (d) Tổng khung có AI (N1 + N2) ≤ 20 % thời lượng ở T3; mở rộng theo lộ trình M1–M4 (g) khi cổng đạt.
 - (e) CỔNG KIỂM BẮT BUỘC cho mọi khung AI: bộ đo bịa NC-V2V (T1–T6; thêm T7–T9 của NC-V2V3 khi nhánh đó được duyệt; thêm phép "đốm sáng mới bền ≥ 1 s") có đối chứng không AI + người đọc tờ so; chấm mù KHÔNG thay kiểm dữ kiện; sổ AI ghi mọi lệnh gọi (model, prompt nguyên văn, % mặt nạ, chi phí, C2PA/SynthID). Phiên K biến bộ đo thành công cụ trong `checks/` (V2V-D4).
-- (f) Công bố: bật khai báo nội dung AI trên YouTube; mô tả §10.6 viết lại theo N1/N2 (câu hiện hành ở §10.6 giữ tới khi chủ dự án duyệt bản viết lại); giữ đo bình luận chê AI ≤ 2 % (§11.3).
+- (f) Công bố: bật khai báo nội dung AI trên YouTube; mô tả §10.6 viết lại theo N1/N2 (đã viết lại, chủ dự án duyệt 20/10 22:34); giữ đo bình luận chê AI ≤ 2 % (§11.3).
 - (g) Lộ trình: M1 luật + bố cục (không AI) → M2 thumbnail + móc mở đầu 30 s + cú lặn (≈ $5–15/tập) → M3 shot hero ≤ 20 % (≈ $15–80/tập) → M4 nền N1 cả tập (≈ $110–330/tập, chủ dự án duyệt chi). Mỗi mốc qua cổng: 0 vật bịa; chấm mù thắng bản không AI; không nhấp nháy/đường nối lộ; M3: làm lại ≤ 3 lượt/đoạn. Công cụ chọn theo kết quả NC-V2V3: Cosmos-Transfer nếu đạt, không thì Gemini Omni có ghép mặt nạ.
 
 ### 14.2 Đường dựng G0 (NC-D1, NG-D1, NG-D3)
@@ -254,6 +254,7 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - Giữ bão hoà trung vị ≥ 0,40 (§11.4; NG-D4).
 - Ảnh Omni chỉ là ĐÍCH LOOK đo bằng số (sương, phối cảnh khí quyển), không chép hình (V2V-D2).
 - Mật độ bụi trước 1900 = 0,45 × hiện nay là bậc 5 TẠM (NC-D5); kết quả tra nguồn: `reports/p2010/P2010-BAO-CAO.md` §4.
+- Thực vật mốc 9/1782 — hai ràng buộc có nguồn (chủ dự án duyệt 20/10 22:34; nguồn `reports/p2010/THUC-VAT-1782.md`, trích khớp nguyên văn tệp có SHA; hướng: bậc 2; hệ số 0,45 giữ TẠM bậc 5): (a) sườn Rock gần trơ, cây/bụi chủ yếu là cọ lùn (palmetto), không phải cây gỗ — Drinkwater 1786 tr. 49: *"The appearance of the rock is barren and forbidding ; as few trees or (hrubs, excepting palmettos, are to be feen on the face of the hill"*; Ancell 1784 tr. 40: *"Our barren rock yields but little"*; (b) tông khô cuối mùa khô (cỏ úa, bụi cọ khô; đợt tấn công lớn 13/9/1782) — Drinkwater 1786 tr. 50: *"nothing offers to the eye but fharp uncouth rocks, and dried palmetto bufhes."*
 
 ### 14.5 Đóng gói
 - Khuôn tiêu đề series (c) "<Nơi>: <lời hứa> | 3D Timelapse", ≤ 60 ký tự; mọi dữ kiện trong tiêu đề phải đúng lời khoá (cấm kiểu "14 Sieges in 3D" khi chỉ dựng 2 cuộc).

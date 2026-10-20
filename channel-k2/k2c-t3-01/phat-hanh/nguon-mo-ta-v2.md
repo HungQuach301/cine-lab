@@ -18,7 +18,7 @@
 2. **Chương:** timestamp để `‹--:--›`, **điền sau khi dựng xong**. Chương đầu phải là `0:00`, có ≥ 3 chương, mỗi chương ≥ 10 giây. Tên chương lấy từ lời v4.2.
 3. **Dòng 1 theo tiêu đề đã chốt** (Kinh thánh §5: câu hỏi tiêu đề + một sự thật):
    - Nếu chốt tiêu đề CHÍNH hoặc THỬ 2: giữ dòng 1 như bản dưới ("Fourteen sieges between 1309 and 1783…").
-   - Nếu chốt THỬ 3 ("Why Gibraltar Was Besieged 14 Times"): thay dòng 1 bằng *"Why was one small rock besieged fourteen times, between 1309 and 1783? Today you walk in from Spain across an airport runway."* Mô tả sẽ tăng thêm khoảng 40 ký tự, vẫn dưới 5 000.
+   - Nếu chốt THỬ 3 (nay theo khuôn §14.5 "Gibraltar: <lời hứa> | 3D Timelapse"; tên làm việc cũ đã bỏ 20/10 22:34): dòng 1 viết lại theo lời hứa đã chốt; bản cũ để tham khảo: *"Why was one small rock besieged fourteen times, between 1309 and 1783? Today you walk in from Spain across an airport runway."* Mô tả sẽ tăng thêm khoảng 40 ký tự, vẫn dưới 5 000.
 4. **TL-4: số và câu trích chuyển từ hình sang mô tả.** Mọi thẻ `[TRÊN HÌNH]` của script v4.2 mang số hoặc câu trích nay nằm ở hai khối "QUOTED IN THE FILM" và "NUMBERS, AND WHO COUNTED":
    - Montero, Sayer, Gómez Nadal, Marquina Barrio;
    - số đạn Drinkwater;

@@ -1,4 +1,4 @@
-# K2C-T3-01 "Why Gibraltar Was Besieged 14 Times": mô tả YouTube, bình luận ghim, danh mục nguồn (chờ chủ dự án duyệt ở G2)
+# K2C-T3-01 "Gibraltar: <lời hứa> | 3D Timelapse" (khuôn Kinh thánh §14.5; tên làm việc cũ đã bỏ 20/10 22:34): mô tả YouTube, bình luận ghim, danh mục nguồn (chờ chủ dự án duyệt ở G2)
 
 > Phiên con G1b T3, 18/10/2026.
 > - **Căn cứ:** lời khoá `script-v4.1-KHOA.md`; claims (`claims-vay-ham.json`, `tienky/claims.json`, `tuyen/claims-tuyen.json`, `g1/claims-g1.json`); `vay-ham/tai-san-vay-ham.json` và `licenses/`; RIGHTS.md (các dòng P1810*, P1810B*, P1810C*); `reports/v6/V6-BAO-CAO.md`, `RIGHTS-V6.md`, `KHUNG-NEO-V6.md`; `design/k2v/tl/layers.js` (chú thích); `tuyen/TUYEN-BAO-CAO.md`; `reports/P-1810c-BAO-CAO.md` §4; Kinh thánh §10.6, §11.3, §12.
