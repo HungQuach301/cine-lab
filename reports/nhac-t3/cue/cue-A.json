@@ -1,0 +1,138 @@
+{
+ "phuong_an": "A — chỉ thư viện có sẵn (K2-MUS-1…5)",
+ "phim_s": 761.0,
+ "ghi": "745,0 s phương án B + 2 thẻ phương pháp × 8 s (D6) = 761 s (giả định, chờ P xác nhận)",
+ "cue": [
+  {
+   "id": "A1",
+   "tep": "assets/k2/music/Half-Mystery.mp3",
+   "vao_bai": 0.0,
+   "phim_vao": 0.0,
+   "phim_ra": 43.83,
+   "xf_vao": 0.3,
+   "xf_ra": 2.0,
+   "muc": "mid",
+   "nhom": "A1",
+   "doan": "móc 0a–0h",
+   "ghi": "motif chủ đề kênh (K2-MUS-1: mở/đóng vòng)"
+  },
+  {
+   "id": "A2",
+   "tep": "assets/k2/music/Tyrant.mp3",
+   "vao_bai": 0.0,
+   "phim_vao": 43.83,
+   "phim_ra": 173.08,
+   "xf_vao": 2.0,
+   "xf_ra": 2.0,
+   "muc": "mid",
+   "nhom": "A2",
+   "doan": "ch1 ROCK 1704–1730",
+   "ghi": ""
+  },
+  {
+   "id": "A3",
+   "tep": "assets/k2/music/Lightless-Dawn.mp3",
+   "vao_bai": 0.0,
+   "phim_vao": 173.08,
+   "phim_ra": 354.96,
+   "xf_vao": 2.0,
+   "xf_ra": 2.0,
+   "muc": "mid",
+   "nhom": "A3",
+   "doan": "ch2 SIEGE 2a–2n (phong toả → đói → cháy → pin nổi)",
+   "ghi": "bài có dốc lên ở 165–175 s bài (≈ phim 338–348, 2m)"
+  },
+  {
+   "id": "A4",
+   "tep": "assets/k2/music/Sincerely.mp3",
+   "vao_bai": 0.0,
+   "phim_vao": 354.96,
+   "phim_ra": 471.62,
+   "xf_vao": 2.0,
+   "xf_ra": 2.0,
+   "muc": "mid",
+   "nhom": "A4",
+   "doan": "ch2 2q–2r + ch3 NEUTRAL",
+   "ghi": ""
+  },
+  {
+   "id": "A5",
+   "tep": "assets/k2/music/Tyrant.mp3",
+   "vao_bai": 130.0,
+   "phim_vao": 471.62,
+   "phim_ra": 549.8,
+   "xf_vao": 2.0,
+   "xf_ra": 1.5,
+   "muc": "mid",
+   "nhom": "A5",
+   "doan": "ch4 RUNWAY 4a–SM3",
+   "ghi": "đoạn bài khác A2 (130–208 s), không lặp"
+  },
+  {
+   "id": "A6",
+   "tep": "assets/k2/music/Lightless-Dawn.mp3",
+   "vao_bai": 328.0,
+   "phim_vao": 549.8,
+   "phim_ra": 585.83,
+   "xf_vao": 1.5,
+   "xf_ra": 2.0,
+   "muc": "mid",
+   "nhom": "A6",
+   "doan": "KB1943 im lặng + 4h–4i",
+   "ghi": "đoạn bài 328–364 s (không trùng A3)",
+   "tang": [
+    [
+     549.85,
+     558.6,
+     4.0
+    ]
+   ]
+  },
+  {
+   "id": "A7",
+   "tep": "assets/k2/music/Beauty-Flow.mp3",
+   "vao_bai": 0.0,
+   "phim_vao": 585.83,
+   "phim_ra": 697.54,
+   "xf_vao": 2.0,
+   "xf_ra": 2.0,
+   "muc": "mid",
+   "nhom": "A7",
+   "doan": "ch5 GATE 5a–5i (cổng, lương, giấy tờ)",
+   "ghi": ""
+  },
+  {
+   "id": "A8",
+   "tep": "assets/k2/music/Sincerely.mp3",
+   "vao_bai": 120.0,
+   "phim_vao": 697.54,
+   "phim_ra": 725.0,
+   "xf_vao": 2.0,
+   "xf_ra": 1.5,
+   "muc": "mid",
+   "nhom": "A8",
+   "doan": "5j tổng kết + KA2026 im lặng",
+   "ghi": "đoạn 120–147 s (không trùng A4)",
+   "tang": [
+    [
+     716.6,
+     725.0,
+     4.5
+    ]
+   ]
+  },
+  {
+   "id": "A9",
+   "tep": "assets/k2/music/Half-Mystery.mp3",
+   "vao_bai": 44.0,
+   "phim_vao": 725.0,
+   "phim_ra": 761.0,
+   "xf_vao": 1.5,
+   "xf_ra": 4.0,
+   "muc": "mid",
+   "nhom": "A9",
+   "doan": "5k kết (quay về hình mở) + thẻ phương pháp",
+   "ghi": "motif đóng vòng; đoạn 44–80 s (không trùng A1)"
+  }
+ ]
+}
