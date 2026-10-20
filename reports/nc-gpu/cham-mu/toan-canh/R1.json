@@ -1,0 +1,43 @@
+{
+ "A": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 5,
+  "toy_like": 7,
+  "ai_look": 6,
+  "flags": [
+   "toy_look",
+   "flat_slide_look"
+  ],
+  "note": "The water is a saturated flat blue with no depth or reflection. The ships sit on magenta/pink discs that look like game markers. The grass is a uniform yellow-green. The buildings are orange blocks. It reads as a map or board game."
+ },
+ "B": {
+  "craft": 6,
+  "realism": 6,
+  "detail": 5,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look"
+  ],
+  "note": "The muted palette and atmospheric haze are the most believable of the three, and the water has a natural deep tone. The ships are small and read as real. The water is still plain and featureless. The red roofs are overly saturated and stand out as blocks. A dark line crosses the terrain at upper right."
+ },
+ "C": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "This has the best lighting and sky, and the water has wake streaks, foam and varied shallows, which give depth. The terracotta roofs and the fortification walls are the most natural. The ships still sit on pink halos, and the odd bright-edged shoreline inlet at lower left looks artificial."
+ },
+ "rank": [
+  "C",
+  "B",
+  "A"
+ ],
+ "why": "C has the most natural water, atmosphere and roof colour, and B is the most restrained but flatter, while A's saturated flat water, magenta ship discs and orange blocks make it look like a game map.",
+ "top_fix_for_best": "Remove the pink halos under the fleet and give the ships proper hulls, sails and wakes. Fix the artificial lower-left inlet edge. Add smoke, figures and troop columns on the walls and streets so the town reads as lived-in rather than as roof blocks."
+}

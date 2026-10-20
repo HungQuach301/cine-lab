@@ -1,0 +1,49 @@
+{
+ "A": {
+  "craft": 6,
+  "realism": 6,
+  "detail": 5,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "toy_look"
+  ],
+  "note": "Best atmosphere: hazy distance, believable grass texture, and dark tree clumps with some depth. The camp rectangles are flat tan slabs with tiny box tents in a grid, and they read as game pieces. The ships are tiny specks."
+ },
+ "B": {
+  "camp_placeholder": null,
+  "craft": 5,
+  "realism": 5,
+  "detail": 4,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "washed_out"
+  ],
+  "note": "Same scene with a brighter, more saturated sea and sky and a clean look. The haze is gone, so it feels flatter. The grass is slightly less textured, and the camp slabs are just as artificial."
+ },
+ "C": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "washed_out",
+   "noisy"
+  ],
+  "note": "The terrain is flat, saturated yellow-green, with patchy light-green blotches that look like a texture splat. The trees are sparse black dots and the island is greener and cartoonish. The camp slabs read as obvious tan rectangles."
+ },
+ "rank": [
+  "A",
+  "B",
+  "C"
+ ],
+ "why": "A has the most convincing atmosphere and ground texture and the densest, most natural vegetation, while C's flat saturated terrain and blotchy patches look the most game-like.",
+ "top_fix_for_best": "Replace the flat tan camp rectangles and grid of box tents with irregular camps: trenches, earthworks and fascine batteries, scattered tents of varied size, campfire smoke, tracks and troop clusters. Then add a foreground element (a gun battery or soldiers) so the scale reads."
+}

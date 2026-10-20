@@ -1,0 +1,44 @@
+{
+ "A": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "washed_out"
+  ],
+  "note": "Clear layout with legible ships and town. The sea is a saturated flat blue with a repeating ripple pattern. The ground is a flat green and beige colour field. The smoke puffs look like soft cotton. The fortress is clean and block-like."
+ },
+ "B": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 3,
+  "ai_look": 4,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Best mood. The hazy, desaturated sea and distant ships give atmospheric depth. The grass has some texture, and the red roofs and warm light read as a cohesive golden-hour scene. The big orange blast blob is a blurry glow with no clear source. The haze hides the ships, so the naval attack is hard to read."
+ },
+ "C": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "washed_out"
+  ],
+  "note": "Almost the same as A, with a slightly softer sea and a smaller muzzle flash. The ships are readable. The ground is still flat and the buildings are toy-like."
+ },
+ "rank": [
+  "B",
+  "C",
+  "A"
+ ],
+ "why": "B has the most atmospheric depth, the most natural colour and the least toy-like surfaces, though its haze and blast glow hide the ships; A and C are crisper but read as flat colour fields and toy blocks.",
+ "top_fix_for_best": "Shrink and sharpen the orange blast into a clearly sourced cannon flash with dark smoke. Reduce the haze so the line of floating batteries and their gunfire stays readable. Add texture and shading to the beige ground and the town rooftops."
+}

@@ -25,6 +25,8 @@ while i < len(a):
 T0 = time.time()
 TEX = opt.get('--tex', '/w/tex'); DEV = opt.get('--gpudev', 'OPTIX'); YEAR = float(opt.get('--year', 1782)); TH = int(opt.get('--threads', 4)); NIGHT = float(opt.get('--night', 0))
 HAZE_S, HAZE_C = float(opt.get('--haze', 1 / 16000)), tuple(float(x) for x in opt.get('--hazec', '0.66,0.74,0.84').split(',')); HAZE_K = float(opt.get('--hazek', 1.0))
+# ánh trời khuếch tán: three.js (V7B) irradiance = hemi·I; Cycles: irradiance mặt phẳng = π·L → L = hemi·I/π khớp k2v (SKYDIF = 1/1,15π ≈ 0,277). NC-CPU dùng 1,0 (trời mạnh ≈ 3,6×)
+SKYDIF = float(opt.get('--skydif', 0.277))
 M = json.load(open(os.path.join(D, 'manifest.json')))
 bpy.ops.wm.read_factory_settings(use_empty=True)
 def _gpu_prefs():
@@ -284,7 +286,8 @@ for k, o in enumerate(M['objs']):
     me = mesh_from(P, I, f"o{k}_{kind}", C, smooth=kind in ('dia_hinh', 'cay', 'bui'), UV=UV)
     inst = 'M' in o['buf']; mc = o.get('mc')
     if o.get('map') and UV is not None: me.materials.append(mat_flag(kind, o['map'], k)); stat['co_anh'] = stat.get('co_anh', 0) + 1
-    elif C is None and mc and kind != 'dia_hinh' and not (inst and kind in ('cay', 'bui')): me.materials.append(mat_const(kind, mc, o.get('mo', 1.0))); stat['mau_vl'] = stat.get('mau_vl', 0) + 1
+    elif C is None and mc and min(mc[:3]) < 0.97 and kind != 'dia_hinh' and not (inst and kind in ('cay', 'bui')):   # mc trắng = màu nằm trong shader k2v → giữ vật liệu NC-CPU
+        me.materials.append(mat_const(kind, mc, o.get('mo', 1.0))); stat['mau_vl'] = stat.get('mau_vl', 0) + 1
     else: me.materials.append(mat(kind, inst, C is not None or kind == 'dia_hinh' or (inst and kind in ('cay', 'bui'))))
     if inst:
         base = bpy.data.objects.new(f"goc{k}", me); base_col.objects.link(base)
@@ -352,12 +355,17 @@ cam = bpy.data.cameras.new('cam'); cob = bpy.data.objects.new('cam', cam); sc.co
 q = C['quat']; m3 = mathutils.Quaternion((q[3], q[0], q[1], q[2])).to_matrix().to_4x4(); m3.translation = mathutils.Vector(C['pos']); cob.matrix_world = S @ m3
 cam.sensor_fit = 'VERTICAL'; cam.angle_y = math.radians(C['fov']); cam.clip_start = max(1.0, C['near']); cam.clip_end = 90000
 RES = opt.get('--res'); W, H = (C['W'], C['H']) if not RES else map(int, RES.split('x')); sc.render.resolution_x, sc.render.resolution_y = W, H; sc.render.resolution_percentage = 100
+DOF_L = [None]   # cú lặn: điểm nhìn của đường máy (k['l']) → lấy nét đúng chủ thể, không vào mặt nước sát máy
 def set_dof():
     """DOF nhẹ: lấy nét vào điểm tia giữa khung chạm cảnh; f/--fstop (mặc định 4) trên cảm biến 36 mm — rõ ở cận cảnh/lướt thấp, gần như không thấy ở góc cao"""
     if '--dof' not in opt: return None
+    if DOF_L[0] is not None:
+        dist = (DOF_L[0] - cob.matrix_world.translation).length; cam.dof.use_dof = True; cam.dof.focus_distance = dist; cam.dof.aperture_fstop = float(opt.get('--fstop', 5.6)); cam.sensor_width = 36.0; return dist
+    for ob in FX: ob.hide_viewport = True
     bpy.context.view_layer.update(); mw = cob.matrix_world; o_ = mw.translation; d_ = (mw.to_3x3() @ mathutils.Vector((0, 0, -1))).normalized()
     hit, loc, *_ = sc.ray_cast(bpy.context.view_layer.depsgraph, o_, d_, distance=20000)
     dist = (loc - o_).length if hit else 2000.0
+    for ob in FX: ob.hide_viewport = False
     cam.dof.use_dof = True; cam.dof.focus_distance = dist; cam.dof.aperture_fstop = float(opt.get('--fstop', 4.0)); cam.sensor_width = 36.0; return dist
 sl = bpy.data.lights.new('sun', 'SUN'); sl.angle = math.radians(0.53)
 so = bpy.data.objects.new('sun', sl); sc.collection.objects.link(so); so.rotation_euler = sd.to_track_quat('Z', 'Y').to_euler()
@@ -370,7 +378,7 @@ def sky_day():
     L = wnt.links; tc = wnt.nodes.new('ShaderNodeTexCoord'); sx = wnt.nodes.new('ShaderNodeSeparateXYZ'); L.new(tc.outputs['Generated'], sx.inputs[0])
     cl = wnt.nodes.new('ShaderNodeClamp'); L.new(sx.outputs['Z'], cl.inputs['Value']); pw = wnt.nodes.new('ShaderNodeMath'); pw.operation = 'POWER'; pw.inputs[1].default_value = 0.5; L.new(cl.outputs[0], pw.inputs[0])
     vis = wnt.nodes.new('ShaderNodeMix'); vis.data_type = 'RGBA'; L.new(pw.outputs[0], vis.inputs['Factor']); vis.inputs[6].default_value = (*HAZE_C, 1); vis.inputs[7].default_value = (0.20, 0.40, 0.78, 1)
-    hm = M['hemi']; k = hm['intensity'] * 1.15
+    hm = M['hemi']; k = hm['intensity'] * 1.15 * SKYDIF
     dif = wnt.nodes.new('ShaderNodeMix'); dif.data_type = 'RGBA'; L.new(cl.outputs[0], dif.inputs['Factor'])
     dif.inputs[6].default_value = (*[c * k for c in hm['sky']], 1); dif.inputs[7].default_value = (*[c * k * 0.85 for c in hm['sky']], 1)
     lp = wnt.nodes.new('ShaderNodeLightPath'); mx = wnt.nodes.new('ShaderNodeMath'); mx.operation = 'MAXIMUM'; L.new(lp.outputs['Is Camera Ray'], mx.inputs[0]); L.new(lp.outputs['Is Glossy Ray'], mx.inputs[1])
@@ -383,7 +391,7 @@ def sky_night():
     cl = wnt.nodes.new('ShaderNodeClamp'); L.new(sx.outputs['Z'], cl.inputs['Value']); om = wnt.nodes.new('ShaderNodeMath'); om.operation = 'SUBTRACT'; om.inputs[0].default_value = 1.0; L.new(cl.outputs[0], om.inputs[1])
     p4 = wnt.nodes.new('ShaderNodeMath'); p4.operation = 'POWER'; p4.inputs[1].default_value = 4.0; L.new(om.outputs[0], p4.inputs[0])
     vis = wnt.nodes.new('ShaderNodeMix'); vis.data_type = 'RGBA'; L.new(p4.outputs[0], vis.inputs['Factor']); vis.inputs[6].default_value = (0.018, 0.030, 0.070, 1); vis.inputs[7].default_value = (0.078, 0.105, 0.180, 1)
-    hm = M['hemi']; k = hm['intensity']; dif = wnt.nodes.new('ShaderNodeRGB'); dif.outputs[0].default_value = (*[c * k for c in hm['sky']], 1)
+    hm = M['hemi']; k = hm['intensity'] * SKYDIF; dif = wnt.nodes.new('ShaderNodeRGB'); dif.outputs[0].default_value = (*[c * k for c in hm['sky']], 1)
     lp = wnt.nodes.new('ShaderNodeLightPath'); mx = wnt.nodes.new('ShaderNodeMath'); mx.operation = 'MAXIMUM'; L.new(lp.outputs['Is Camera Ray'], mx.inputs[0]); L.new(lp.outputs['Is Glossy Ray'], mx.inputs[1])
     sel = wnt.nodes.new('ShaderNodeMix'); sel.data_type = 'RGBA'; L.new(mx.outputs[0], sel.inputs['Factor']); L.new(dif.outputs[0], sel.inputs[6]); L.new(vis.outputs[2], sel.inputs[7])
     return sel.outputs[2], dif
@@ -399,9 +407,9 @@ for m in list(bpy.data.materials):
 def set_light(st):
     """ánh sáng của MỘT khung k2v (gpu_export.js --lightfx): nắng/trăng (hướng, màu, cường độ), ánh trời bán cầu, uNight → trời + màu sương"""
     d = (S @ mathutils.Vector((*st['sun']['dir'], 0)).to_4d()).to_3d().normalized(); so.rotation_euler = d.to_track_quat('Z', 'Y').to_euler()
-    sl.energy = st['sun']['intensity']; sl.color = st['sun']['color'][:3]; hm = st['hemi']; k = hm['intensity'] * 1.15
+    sl.energy = st['sun']['intensity']; sl.color = st['sun']['color'][:3]; hm = st['hemi']; k = hm['intensity'] * 1.15 * SKYDIF
     DIF_D.inputs[6].default_value = (*[c * k for c in hm['sky']], 1); DIF_D.inputs[7].default_value = (*[c * k * 0.85 for c in hm['sky']], 1)
-    DIF_N.outputs[0].default_value = (*[c * hm['intensity'] for c in hm['sky']], 1)
+    DIF_N.outputs[0].default_value = (*[c * hm['intensity'] * SKYDIF for c in hm['sky']], 1)
     nk = float(st.get('night') or 0); NKN.outputs[0].default_value = nk
     for em in HAZE_EM: em.inputs['Color'].default_value = (*[c * (1 - nk) + cn * nk for c, cn in zip(HAZE_C, (0.035, 0.05, 0.09))], 1)
 
@@ -449,34 +457,45 @@ def add_fx(fp=None):
     fp = fp or os.path.join(D, 'fx.json')
     if not os.path.exists(fp): return
     puffs = json.load(open(fp))['puffs']
-    def vmat(name, fire):
-        vm = bpy.data.materials.new(name); vm.use_nodes = True; nt = vm.node_tree; nt.nodes.clear(); out = N(nt, 'ShaderNodeOutputMaterial'); pv = N(nt, 'ShaderNodeVolumePrincipled'); L = nt.links
-        tc = N(nt, 'ShaderNodeTexCoord'); nz = N(nt, 'ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = 2.6; nz.inputs['Detail'].default_value = 6; nz.inputs['Roughness'].default_value = 0.6
+    def vmat(name, fire, absorb=False):
+        # absorb: khói đen muội (loại 2, albedo ≈ 0,08) = thể tích CHỈ HẤP THỤ — tán xạ gần như không thấy mà giá tán xạ (lấy mẫu đèn từng bước) rất cao (cú lặn đêm: > 10 phút/khung)
+        vm = bpy.data.materials.new(name); vm.use_nodes = True; nt = vm.node_tree; nt.nodes.clear(); out = N(nt, 'ShaderNodeOutputMaterial'); L = nt.links
+        pv = N(nt, 'ShaderNodeVolumeAbsorption' if absorb else 'ShaderNodeVolumePrincipled')
+        tc = N(nt, 'ShaderNodeTexCoord'); nz = N(nt, 'ShaderNodeTexNoise'); nz.inputs['Scale'].default_value = 1.5; nz.inputs['Detail'].default_value = 3; nz.inputs['Roughness'].default_value = 0.5
         sd = attr(nt, 'sd', 'OBJECT'); off = N(nt, 'ShaderNodeVectorMath', operation='ADD'); L.new(tc.outputs['Object'], off.inputs[0]); L.new(sd.outputs['Fac'], off.inputs[1]); L.new(off.outputs[0], nz.inputs['Vector'])
         r = N(nt, 'ShaderNodeVectorMath', operation='LENGTH'); L.new(tc.outputs['Object'], r.inputs[0])
         fall = N(nt, 'ShaderNodeMapRange'); fall.inputs['From Min'].default_value = 1.0; fall.inputs['From Max'].default_value = 0.35; L.new(r.outputs['Value'], fall.inputs['Value'])
-        sh = N(nt, 'ShaderNodeMapRange'); sh.inputs['From Min'].default_value = 0.38; sh.inputs['From Max'].default_value = 0.68; L.new(nz.outputs['Fac'], sh.inputs['Value'])
+        sh = N(nt, 'ShaderNodeMapRange'); sh.inputs['From Min'].default_value = 0.30; sh.inputs['From Max'].default_value = 0.62; L.new(nz.outputs['Fac'], sh.inputs['Value'])
         d1 = N(nt, 'ShaderNodeMath', operation='MULTIPLY'); L.new(fall.outputs['Result'], d1.inputs[0]); L.new(sh.outputs['Result'], d1.inputs[1])
         dk = attr(nt, 'dk', 'OBJECT'); d2 = N(nt, 'ShaderNodeMath', operation='MULTIPLY'); L.new(d1.outputs[0], d2.inputs[0]); L.new(dk.outputs['Fac'], d2.inputs[1]); L.new(d2.outputs[0], pv.inputs['Density'])
-        cc = attr(nt, 'cc', 'OBJECT'); L.new(cc.outputs['Color'], pv.inputs['Color']); pv.inputs['Anisotropy'].default_value = 0.35
+        cc = attr(nt, 'cc', 'OBJECT')
+        if absorb: iv = N(nt, 'ShaderNodeInvert'); L.new(cc.outputs['Color'], iv.inputs['Color']); L.new(iv.outputs['Color'], pv.inputs['Color'])   # hấp thụ màu (1 − albedo) → muội nâu-đen
+        else: L.new(cc.outputs['Color'], pv.inputs['Color']); pv.inputs['Anisotropy'].default_value = 0.35
         if fire:
-            pv.inputs['Emission Color'].default_value = (1.0, 0.42, 0.08, 1); em = N(nt, 'ShaderNodeMath', operation='MULTIPLY'); em.inputs[1].default_value = float(opt.get('--fireem', 40.0))
-            L.new(d1.outputs[0], em.inputs[0]); L.new(em.outputs[0], pv.inputs['Emission Strength'])
+            # phát xạ theo CHIỀU DÀI: cường độ/m = fe = FIREEM/cỡ → độ chói qua cả cụm ≈ FIREEM (k2v lõi lửa HDR 1,2–3,4)
+            pv.inputs['Emission Color'].default_value = (1.0, 0.42, 0.08, 1); fe = attr(nt, 'fe', 'OBJECT'); em = N(nt, 'ShaderNodeMath', operation='MULTIPLY')
+            sz_ = N(nt, 'ShaderNodeSeparateXYZ'); L.new(tc.outputs['Object'], sz_.inputs[0]); vg = N(nt, 'ShaderNodeMapRange'); vg.inputs['From Min'].default_value = -1.0; vg.inputs['From Max'].default_value = 1.0
+            vg.inputs['To Min'].default_value = 1.4; vg.inputs['To Max'].default_value = 0.1; L.new(sz_.outputs['Z'], vg.inputs['Value'])   # chân ngọn sáng, đỉnh tắt dần
+            e0 = N(nt, 'ShaderNodeMath', operation='MULTIPLY'); L.new(d1.outputs[0], e0.inputs[0]); L.new(vg.outputs['Result'], e0.inputs[1])
+            L.new(e0.outputs[0], em.inputs[0]); L.new(fe.outputs['Fac'], em.inputs[1]); L.new(em.outputs[0], pv.inputs['Emission Strength'])
+            rp = N(nt, 'ShaderNodeValToRGB'); rp.color_ramp.elements[0].color = (0.9, 0.18, 0.02, 1); rp.color_ramp.elements[1].color = (1.0, 0.75, 0.32, 1); L.new(e0.outputs[0], rp.inputs['Fac']); L.new(rp.outputs['Color'], pv.inputs['Emission Color'])
         L.new(pv.outputs[0], out.inputs['Volume']); return vm
     if not FXMAT:
-        FXMAT['s'], FXMAT['f'] = vmat('m_fx_khoi', False), vmat('m_fx_lua', True)
+        FXMAT['s'], FXMAT['f'], FXMAT['d'] = vmat('m_fx_khoi', False), vmat('m_fx_lua', True), vmat('m_fx_muoi', False, absorb=True)
         bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=3, radius=1, location=(0, 0, -9999)); base_s = bpy.context.active_object; FXMAT['me'] = base_s.data; bpy.data.objects.remove(base_s)
     ms, mf, base_me = FXMAT['s'], FXMAT['f'], FXMAT['me']
     nf = 0
     for i, (x, y, z_n, sz, a, age, kd, sdv) in enumerate(puffs):
         if a < 0.01: continue
         kd = int(round(kd)); fire = kd == 1; ob = bpy.data.objects.new(f'fx{i}', base_me.copy()); col.objects.link(ob)
-        ob.location = (x, z_n, y); r = sz * 0.5; ob.scale = (r, r, r * 0.9); ob.data.materials.append(mf if fire else ms)
-        ob['sd'] = sdv * 13.7; ob['dk'] = -math.log(1 - min(0.95, 0.9 * a)) / max(1.0, sz) * (1.8 if fire else 2.2)
-        ob['cc'] = (0.9, 0.55, 0.3) if fire else ((0.08, 0.065, 0.055) if kd == 2 else (0.62 + 0.15 * (1 - age), 0.61 + 0.15 * (1 - age), 0.6 + 0.14 * (1 - age)))
+        ob.location = (x, z_n, y); r = sz * 0.5; ob.scale = (r * 0.6, r * 0.6, r * 1.35) if fire else (r, r, r * 0.9);   # lửa: ngọn đứng (k2v: lõi + lưỡi lửa)
+        ob.data.materials.append(mf if fire else (FXMAT['d'] if (kd == 2 and '--soot-absorb' in opt) else ms))
+        ob['sd'] = sdv * 13.7; ob['fe'] = float(opt.get('--fireem', 2.5)) / max(1.0, sz); ob['dk'] = -math.log(1 - min(0.95, 0.9 * a)) / max(1.0, sz) * (1.8 if fire else 1.3)
+        ob['cc'] = (0.9, 0.55, 0.3) if fire else ((0.13, 0.11, 0.095) if kd == 2 else (0.80 + 0.1 * (1 - age), 0.79 + 0.1 * (1 - age), 0.77 + 0.1 * (1 - age)))
         ob.visible_shadow = True; FX.append(ob)
         if fire:
-            li = bpy.data.lights.new(f'lua_fx{i}', 'POINT'); li.energy = float(opt.get('--firew', 2200.0)) * sz * sz * a; li.color = (1.0, 0.48, 0.16); li.shadow_soft_size = sz * 0.3
+            li = bpy.data.lights.new(f'lua_fx{i}', 'POINT'); li.energy = float(opt.get('--firew', 20.0 if NIGHT < 0.5 else 400.0)) * sz * sz * a;   # ≈ 4π·E·(1,5·cỡ)²: E ≈ 1,5 (≈ 40 % nắng) ở 1,5 cỡ ban ngày; đêm ×10
+            li.color = (1.0, 0.48, 0.16); li.shadow_soft_size = sz * 0.3
             lo = bpy.data.objects.new(f'lua_fx{i}', li); lo.location = (x, z_n, y); sc.collection.objects.link(lo); nf += 1; FX.append(lo)
     stat['fx_cum'] = len(FX); stat['fx_lua'] = nf
 if '--fx' in opt: add_fx()
@@ -487,6 +506,7 @@ def cycles(spp, denoise=True, bounces=(4, 3, 2)):
     cy.max_bounces, cy.diffuse_bounces, cy.glossy_bounces = bounces[0], bounces[1], bounces[2]; cy.transmission_bounces = 4; cy.transparent_max_bounces = 8; cy.volume_bounces = int(opt.get('--vbounce', 2))
     cy.sample_clamp_indirect = float(opt.get('--clampi', 10.0)); cy.caustics_reflective = False; cy.caustics_refractive = False
     if hasattr(cy, 'volume_step_rate'): cy.volume_step_rate = float(opt.get('--vstep', 4.0))
+    if '--vbiased' in opt and hasattr(cy, 'volume_biased'): cy.volume_biased = True; cy.volume_max_steps = int(opt.get('--vmax', 256))   # ray-marching cũ (nhanh, chệch nhẹ) thay null-scattering mặc định 5.x
     cy.use_adaptive_sampling = True; cy.adaptive_threshold = 0.02; sc.render.threads_mode = 'FIXED'; sc.render.threads = TH
     if hasattr(cy, 'denoising_input_passes'): cy.denoising_input_passes = 'RGB_ALBEDO_NORMAL'
     sc.render.use_persistent_data = '--persist' in opt
@@ -524,12 +544,12 @@ if JOB in ('cycles', 'eevee'):
         if cob.animation_data and cob.animation_data.action:
             for fc in getattr(cob.animation_data.action, 'fcurves', []): 
                 for kp in fc.keyframe_points: kp.interpolation = 'LINEAR'
-    if '--mb' in opt: sc.render.use_motion_blur = True; sc.render.motion_blur_shutter = float(opt.get('--shutter', 0.5)); sc.cycles.motion_blur_position = 'CENTER'
+    if '--mb' in opt: sc.render.use_motion_blur = True; sc.render.motion_blur_shutter = float(opt.get('--shutter', 0.5)); sc.render.motion_blur_position = 'CENTER' if hasattr(sc.render, 'motion_blur_position') else None
     FXDIR = opt.get('--fxdir')
     times = []
     for k in frames:
         if k is not None:
-            sc.frame_set(k['f'])
+            sc.frame_set(k['f']); DOF_L[0] = mathutils.Vector((k['l'][0], k['l'][2], k['l'][1]))
             if FXDIR and os.path.exists(os.path.join(FXDIR, f"{k['f']:05d}.json")):   # khói/lửa + ánh sáng k2v của ĐÚNG khung này
                 fj = os.path.join(FXDIR, f"{k['f']:05d}.json"); set_light(json.load(open(fj)))
                 for ob in FX: bpy.data.objects.remove(ob)

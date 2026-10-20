@@ -1,0 +1,50 @@
+{
+ "A": {
+  "craft": 5,
+  "realism": 5,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "flat_slide_look"
+  ],
+  "note": "Best terrain of the three: dense dark tree clumps, grass texture variation, a road, and hazy atmosphere that gives depth. The camps are flat tan rectangles with scattered tiny box tents, which read as game-board zones. There are no fortifications or visible troops, and the rock is small and far away."
+ },
+ "B": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 3,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "unreadable_scale",
+   "empty_frame"
+  ],
+  "note": "Same layout as A with a brighter, flatter sky and sea, so less atmospheric depth. The terrain is more uniform and the road is gone. The camp rectangles are the same flat tan pads with tiny dots, and the scene feels emptier."
+ },
+ "C": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 3,
+  "toy_like": 7,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "washed_out",
+   "unreadable_scale"
+  ],
+  "note": "The ground is a flat, saturated yellow-green with blotchy, patchy green decals, and the trees are sparse tiny dots. The sea is a cleaner blue and there is a tree-covered headland, but the ground looks like a game-engine default. The camp pads are as artificial as in the other two."
+ },
+ "rank": [
+  "A",
+  "B",
+  "C"
+ ],
+ "why": "A has the richest vegetation and atmospheric haze, so it reads most like a real landscape, though all three share the same flat tan camp rectangles and tiny box tents.",
+ "top_fix_for_best": "Replace the flat tan camp pads with trampled-earth ground textures and add real structures: trenches, earthen batteries and gabions, rows of tents with camp smoke, and troops and wagons at a readable scale. Add a fortified rock with walls and a visible silhouette, and bring the camera lower and closer to the foreground so the scale reads."
+}

@@ -1,0 +1,45 @@
+{
+ "A": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "toy_look",
+   "washed_out",
+   "unreadable_scale"
+  ],
+  "note": "Top-down, saturated, high-key look. The water is a bright blue pattern with no depth. Ground and fort walls are flat beige. The buildings are clean orange blocks. Smoke puffs are soft and read as cotton wool, and the ships are tiny. The muzzle flash is a plain orange blob. The framing is clear but looks like a map or game view."
+ },
+ "B": {
+  "craft": 6,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [
+   "unreadable_scale"
+  ],
+  "note": "The lower camera angle and haze give the best sense of depth and atmosphere. The grass is textured and the water is calmer and darker. The roofs have varied shading. The big glowing flash blob is the weakest element. The ships are pushed far away and are hard to read. The sandy ground is still fairly flat."
+ },
+ "C": {
+  "craft": 5,
+  "realism": 5,
+  "detail": 5,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "toy_look",
+   "noisy"
+  ],
+  "note": "Same composition as A but with a more natural flash and better sea colour. The water texture is busy and noisy. The fort and houses are still clean toy-like blocks. The smoke is lumpy and soft. The camera is high and flat. It's slightly better than A."
+ },
+ "rank": [
+  "B",
+  "C",
+  "A"
+ ],
+ "why": "B has the most convincing depth, atmosphere and textured terrain, with a lower perspective that makes the scene feel like a place. A and C use a flat high angle that makes the town look like a game map.",
+ "top_fix_for_best": "Replace the glowing orange flash blob with a proper volumetric muzzle blast and smoke column that casts light on nearby roofs. Bring the gun-battery ships closer and larger in frame, with visible hulls, rigging and individual gun smoke. Add texture and variation to the sandy ground, such as streets, rubble and shadows."
+}

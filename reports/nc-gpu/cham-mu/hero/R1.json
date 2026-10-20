@@ -1,0 +1,44 @@
+{
+ "A": {
+  "craft": 5,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "washed_out",
+   "flat_slide_look"
+  ],
+  "note": "Hazy, pale sky and a flat horizon. The rock and the city read fine, but the lighting is dull and there's little depth. The runway is a plain grey slab and the water is the one saturated area."
+ },
+ "B": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Blue sky with clouds adds depth and warmth. Colours are richer and the rock is better lit. Buildings are still blocky, and the white-roofed blocks in front look like game pieces. The far-away dark towers on the left edge look odd."
+ },
+ "C": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "noisy"
+  ],
+  "note": "Similar to B. It has the most saturated, contrasty sky. The dark green far landmass with a hard reflection looks pasted on, and the oversaturation looks a bit game-like."
+ },
+ "rank": [
+  "B",
+  "C",
+  "A"
+ ],
+ "why": "B has the most natural sky, colour and depth without the overly dark pasted-on landmass in C or the hazy dullness of A.",
+ "top_fix_for_best": "Break up the large flat grey airfield and the pale block buildings. Add texture, markings and weathering to the tarmac, vary the roof colours and heights, and add atmospheric haze and soft shadows to the foreground so it stops reading as a game-style model."
+}
