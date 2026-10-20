@@ -143,15 +143,60 @@ Lời giám khảo đáng giữ: vây hãm — "A [=GPU] has the most convincing
 
 ## §7 Ước cả tập 745 s — 3 đường
 
-⟨UOC⟩
+Một tập = 745 s × 24 = **17 880 khung**. Đơn vị: RTX 5090 SECURE $1,19/h (giá đọc 20/10). Số s/khung đều là **số đo phiên này** (§3, §4); chỗ là ước có ghi (ước).
+
+**Số đo dùng để ước (RTX 5090, 1080p, OIDN):**
+
+| Loại khung | s/khung đo | Nguồn |
+|---|---|---|
+| Ngày trời trong, ít thể tích | **12,8** (64 spp + MB; 9,6–19,1) · 10,9–11,7 (khung cổng) | cú lặn 0–131; vây hãm, cảng, hero |
+| Ngày có khói/lửa thể tích | **17,3** (13–28, thể tích biased) · 22–36 (khung cổng, thể tích không chệch) · 125 (bờ + chiến sự, 362 cụm, không chệch) | cú lặn 408–479; phố dày, toàn cảnh, chiến sự |
+| Đêm có lửa + khói (pin nổi cháy) | **59,1** (32 spp; 26–89) · 108–126 (64 spp, 2 khung thử) | cú lặn 168–407 |
+| Nạp cảnh mỗi đoạn (khởi động Blender + dựng cảnh + BVH + ảnh nền) | ≈ 40–60 s / đoạn 6–12 khung → **≈ 5 s/khung** | cú lặn 51 đoạn |
+| 256 ↔ 64 spp | ×1,04–1,17 (trời trong) · ×2,1 (nhiều thể tích) | §3 |
+| Chuẩn bị trên CPU cho đường Cycles | xuất hình học ≈ 35–50 s / mốc 6–12 khung + trạng thái ánh sáng/khói ≈ 3–6 s/khung → **≈ 9 s/khung CPU** | §4 |
+
+**Phân bổ cảnh giả định (trung tâm):** 60 % ngày trời trong · 25 % ngày có khói/lửa · 15 % đêm có lửa (V7B: pin nổi cháy 27 s / 118 s = 23 % của bản thử). Sai số ±30 % theo phân bổ.
+
+| Đường | Nội dung | GPU h/tập | Tiền GPU/tập | CPU h/tập | Phiên Claude* | Giờ đồng hồ** |
+|---|---|---|---|---|---|---|
+| **G0** | A (three.js + nướng) trên CPU cho ≈ 80 % (14 300 khung) + **cú lặn/cận đêm ≈ 20 % (3 580 khung) Cycles GPU** như cú lặn này | **≈ 44 h** (3 580 × (39,1 + 5) s; 39,1 = TB dựng GPU đo được của 429 khung cú lặn) | **≈ $52** | A ≈ 54 h + nướng ≈ 4 h (NC-CPU §6) + chuẩn bị ≈ 9 h | **≈ 9** (A 6 + nướng 1 + GPU 1–2, chạy song song) | **≈ 11–12 h** (4 pod) |
+| **G1** | toàn tập Cycles GPU 64 spp (đêm 64 spp), thể tích biased, không MB | **≈ 177 h** (35,7 s/khung) — đêm 32 spp: ≈ 136 h | **≈ $211** (đêm 32 spp: ≈ $162) | ≈ 45 h chuẩn bị | **≈ 9** (GPU 4 × 4 pod + CPU 5) | ≈ 11 h nếu 16 pod cùng lúc; ≈ 44 h với 4 pod |
+| **G2** | toàn tập 256 spp + motion blur + thể tích | **≈ 313 h** (63 s/khung; đêm 256 spp là (ước) ×2,1 của 64 spp) | **≈ $373** | ≈ 45 h | **≈ 12** (GPU 7 × 4 pod + CPU 5) | ≈ 20 h với 16 pod; ≈ 78 h với 4 pod |
+
+\* Một phiên Claude điều phối được ≥ 3 pod song song (phiên này: 3 pod cùng lúc, 7 pod tổng) trong ≤ 12 h đồng hồ; một phiên CPU ≤ 10 h máy (như NC-CPU). Chưa tính phiên chuẩn bị đường ống (§8).
+\** Giới hạn bởi kho GPU: RTX 5090 SECURE "Low", PRO 4500 không có máy lúc thử, COMMUNITY không có kho (§1). 16 pod cùng lúc **chưa được kiểm**.
+
+So NC-CPU (cùng tập): G0 thay phần B CPU (≈ 100–132 h CPU, 10–14 phiên) bằng ≈ 44 h GPU ($52, 1–2 phiên); A giữ nguyên. Chi phí thật của cú lặn 20 s trong phiên này cao hơn số ước vì sự cố (§10): 10,2 h pod cho 480 khung, trong đó ≈ 2,6 h là lãng phí do lỗi.
 
 ## §8 Đường ống: công sức đưa G0/G1/G2 vào T3 và các tập sau
 
-⟨ONG⟩
+| Hạng mục | Hiện có (phiên này) | Việc còn | Công sức (phiên) | Dùng cho |
+|---|---|---|---|---|
+| Cầu nối đặc tả shot → máy/timeline Blender | `nc_topo.js --campath` (máy + năm + đêm + nắng mỗi khung từ chính k2v) → `gpu_blend.py --anim` khung hoá máy (motion blur); `gpu_export.js --lightfx` (nắng/trăng/trời/khói/lửa mỗi khung) | gói thành một lệnh theo `episode.yaml` (shot → đoạn → mốc xuất), kiểm khớp khung k2v ↔ Blender (chồng cạnh) | 1 | G0, G1, G2 |
+| Vật có ngày (tl7: nhà mọc/sập, công sự theo năm, đất lấn biển) | xuất lại hình học theo **mốc 6–12 khung** (51 mốc cho 20 s; khử trùng lặp SHA: 2 569 MB → 116 MB) | G1/G2: ghi thuộc tính năm/thời lượng theo đỉnh (như `cityY` của export6) và tính trong Geometry Nodes theo khung → không cần xuất lại, không giật bậc | 2–3 | G1, G2 (G0 chỉ cú lặn: giữ cách mốc) |
+| Đám đông / cờ / tàu động | tàu, người, cờ đứng yên trong mỗi mốc → **chuyển động theo bậc 0,25–0,5 s** (G0 cú lặn: tàu trôi chậm, P không thấy giật ở bản xem; chưa đo bằng máy) | xuất ma trận bản sao theo khung (tàu, người), cờ bay bằng Geometry Nodes, khói/lửa đã theo khung | 2 | G1, G2 (G0 nếu cú lặn có quân/tàu chạy nhanh) |
+| Lưu cảnh / bộ nhớ đệm | tar cảnh 1,26 GB + tar cú lặn CAS 126 MB, tải mỗi pod 1–2 phút (pod chậm: 10 phút) | Network Volume RunPod (một lần tải, mọi pod gắn vào) hoặc ảnh pod có sẵn Blender + vân | 0,5 | mọi đường |
+| Nướng (lightmap A) | NC-CPU `nc_blend.py nuong` trên CPU 25–32 phút/mốc | chạy trên GPU (×11–34) → ≈ 1–3 phút/mốc | 0,5 | G0 |
+| Vận hành pod | `pod.py` (bật/tắt/sổ), `pod_srv.py`, `theo_pod.sh` (kéo dần, kiểm đủ dải trước khi tắt), `--needgpu`, xoá dữ liệu cụm khói (rò VRAM) | dựng lại khung thiếu tự động; giới hạn tiền theo phiên trong `pod.py` | 0,5 | mọi đường |
+| Chỉnh màu | `nc_grade.js` của NC-CPU (k2v gradeHDR) | lô 24/6 khung làm Node thoát ngẫu nhiên → đang chạy 1 khung/lần (4–5 s); sửa cho lô | 0,3 | mọi đường |
+| **Tổng** | | | **G0 ≈ 2–2,5 · G1/G2 ≈ 7–8** | |
+
+**Rủi ro:**
+1. **Lệch previs three.js ↔ final Cycles:** cùng hình học/máy, nhưng ánh sáng khác hẳn (GI, sương, ánh trời) → chấm mù khác nhau theo cảnh (GPU thắng vây hãm, chiến sự; thua cảng, phố, hero, toàn cảnh). Duyệt cổng phải xem bản Cycles, không duyệt previs.
+2. **VRAM với 14 440 toà 2026:** khung hero 2026 (8,6 triệu tam giác + 0,46 triệu bụi) dùng ≈ 3,3 GB; cú lặn đêm (360 cụm thể tích) ≈ 8,8 GB → còn dư trên 32 GB. Hết VRAM duy nhất gặp là do **rò dữ liệu của tôi** (đã sửa), không do cảnh.
+3. **Truyền tệp:** 18–22 MB/s ở 6/7 pod, **2,0 MB/s** ở 1 pod (1,26 GB mất 10,5 phút). Proxy HTTPS RunPod đôi khi trả rỗng (1 lần) → `pod.py` cần thử lại kiểm SHA.
+4. **Hàng chờ GPU:** kho "Low"; 1/2 loại muốn dùng không có máy; chưa thử >3 pod cùng lúc.
+5. **Rơi về CPU âm thầm:** sau lỗi CUDA, Blender trên pod 3 tiếp tục dựng bằng CPU (×13 chậm) mà không báo → nay `--needgpu` dừng ngay.
+6. **Container phiên khởi động lại** (≈ 03:15): pod vẫn chạy phía RunPod → phải có sổ trạng thái ngoài bộ nhớ phiên (đã có: `/var/tmp/cine-out/ncg/pod*.json` + sổ git).
 
 ## §9 Chỉ số trong ±5 % quanh ngưỡng (luật cứng)
 
-⟨NGUONG⟩
+- **Bão hoà trung vị 6 khung Cycles GPU: 0,403** so ngưỡng ≥ 0,40 (BIBLE §11.4) → **+0,75 %, trong ±5 %**. Có được nhờ sửa ánh trời (khớp three.js), **không thêm phần tử nào**; nhưng đạt "sát nút" — chỉ 3/6 khung ≥ 0,40.
+- **Bão hoà khung cảng (GPU): 0,380** → **−5,0 %**, ở mép ±5 %.
+- Khác (ngoài ±5 %): vây hãm 0,447 (+11,8 %), toàn cảnh 0,427 (+6,8 %), phố dày 0,341 (−14,8 %), hero 0,184 (−54 %); toy_like TB GPU 4,17 (+4,25 % so mục tiêu ≤ 4 — **trong ±5 %**, chưa đạt); bản xem cú lặn ⟨MB⟩ so 5 MB; tiền GPU thật $10,28 so mốc theo dõi $12 (−14 %).
+- Của Omni (để biết): bão hoà c4-a 0,396 (−1 % so 0,40).
+- Không thêm phần tử nào để vượt ngưỡng: bụi ×3 là bản sao quanh bụi đã có nguồn lớp phủ (không rải chỗ mới); khói/lửa đúng cụm k2v.
 
 ## §10 Chi phí thật
 
