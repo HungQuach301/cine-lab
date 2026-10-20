@@ -13,7 +13,7 @@ KHÔNG sửa:         checks/, design/, scripts/, loi-khoa.txt      | đúng ngo
 lock.py:           chỉ --verify                                  | đúng; mọi lần KHỚP 1.16.1 a3c39873…
 Vùng V7C:          design/k2v/**, scripts/k2*, v7p/**, reports/v7c/** | không chạm ngoài merge
 Chi phí:           Claude/OpenAI/YouTube 0; ElevenLabs chỉ đọc   | $0 · $0 · 0 đơn vị; ElevenLabs 0 ký tự (bộ đếm 141 009 = số cuối KL42)
-Giờ máy:           mốc theo dõi 2 h                              | GIO_MAY (§8)
+Giờ máy:           mốc theo dõi 2 h                              | ≈ 0,7 h thời gian thực (§8)
 Preflight:         --staged mỗi commit; --range trước khi đẩy    | --staged ĐẠT 4/4 commit soạn tay; 5 commit merge kiểm bằng --range ngay sau merge: ĐẠT; --range cuối: §6
 Email:             che; không vào header/URL/payload/UA           | 0 email trong diff; UA "CineLab-research (+https://github.com/HungQuach301/cine-lab)" ở mọi yêu cầu mạng
 Dừng hỏi:          không dừng giữa chừng                          | đúng
@@ -28,8 +28,8 @@ Dừng hỏi:          không dừng giữa chừng                          | �
 | Sổ | RIGHTS **+39 dòng** (mọi dòng có giấy phép nguyên văn, kiểm bằng máy) · AUTHORSHIP **+6** · COST-LEDGER **+10** (72 dòng, mọi dòng 20 cột) · Đ5 → **ĐÃ GỬI 19/10 16:57** · BAI-HOC **#111–#117** · HANG-DOI mục 20/10 (§3) |
 | Thực vật 1782 | Tải lại 5 nguồn djvu, **SHA khớp đăng ký 5/5**; 15 đoạn, **22/22 trích khớp nguyên văn**. Kết luận: **1782 THƯA HƠN hiện nay** — hướng **bậc 2** (Drinkwater, Ancell, Spilsbury); giá trị 0,45 vẫn **bậc 5 tạm** (§4) |
 | Giọng master | **KHÔNG lấy được**: khoá ElevenLabs thiếu quyền `speech_history_read` (HTTP 401); master KL42 ngoài git đã mất. 0 ký tự. Thiếu cả 8 phần chương + 3 câu thu lại; thu lại ước **10 128 ký tự gửi ≈ 4 460 trên bộ đếm** — KHÔNG thu (§5) |
-| Kiểm cuối | GOLDEN_TOMTAT (§6) |
-| main | `3176ad1b` → **MAIN_SAU** (fast-forward, không force) (§7) |
+| Kiểm cuối | lock **KHỚP** 1.16.1 · k116/k115/k114 144/105/126 · golden steel, t1, ll08 **KHỚP** (SSIM 1,0); k2v4 LỖI (cache ngoài git) · preflight `--range` **ĐẠT** (732 tệp) · 0 email (§6) |
+| main | `3176ad1b` → **commit cuối của nhánh** (chính commit chứa tệp này, "… DỪNG chờ chủ dự án") (fast-forward, không force) (§7) |
 
 ## 1. Merge
 SHA đầu nhánh khớp lệnh 5/5: `origin/ccr-ef2b66f0-9639kq` = `317dcf51`, `origin/nhac-t3` = `af4208ed`, `origin/dong-goi-t3-v2` = `76abba56` (chứa `7b983213` dong-goi-t3), `origin/nc-v2v` = `2c1d1e12`, `origin/claude/eloquent-dijkstra-kemr8j` = `4fe45ec3` (chứa `718dec9e` nc-cpu). Nhật ký: `reports/p2010/merge.log`.
@@ -125,17 +125,26 @@ Không ghi: **DG3V2-AI** (3 ảnh gpt-image của ĐÓNG-GÓI v2) — ngoài dan
 - **Cách lấy lại 0 ký tự (đề xuất):** chủ dự án bật quyền **History → Read** (`speech_history_read`) cho khoá API ElevenLabs của môi trường; khi đó tải audio lịch sử (định dạng gốc MP3 44,1 kHz 192 kb/s, bản tốt nhất có vì gói Creator không có PCM), đối chiếu từng phần với `reports/kl42/` và ghép lại bằng `reports/kl42/ghep.py` (cần căn mốc lại vì lịch sử không trả alignment).
 
 ## 6. Kiểm cuối
-GOLDEN_BANG
+| Kiểm | Kết quả |
+|---|---|
+| `python3 -I checks/lock.py --verify` | **KHỚP** 1.16.1 `a3c39873…2d2b` (sau merge, sau mỗi commit qua preflight, trước và sau cập nhật main) |
+| selftest (P chỉ chạy) | k116 **144/144** · k115 **105/105** · k114 **126/126** |
+| `LOI-KHOA.sha256` | **3/3 OK**; `loi-khoa.txt` `51d1c773…` không đổi |
+| golden (`scripts/common/golden.py run`, sau `npm ci` ở `design/cong3/shared` và `design/k2v` theo gợi ý `verify.sh` — chỉ cài `node_modules`, không đổi tệp theo dõi) | steel **KHỚP** SSIM **1,0** (pHash 0/64, MAD 0,0, 0/144 ô, 64,5 s) · t1 **KHỚP** SSIM **1,0** (49,7 s) · ll08 **KHỚP** SSIM **1,0** (118,7 s) · k2v4 **LỖI**: thiếu `/cache/relief/erie/meta.json` (cache địa hình ngoài git; K-1.16.1 cũng chỉ chạy 3 ca, k2v4 chưa có tham chiếu V6). Số đo: `reports/p2010/golden.json`. Lần chạy đầu (trước `npm ci`) lỗi cả 4 ca vì thiếu three.js; 4 tệp `page-*.html` tạm do lần đó sinh ra đã xoá |
+| preflight `--range 3176ad1b..HEAD` | **732 tệp — ĐẠT** (không cần trượt mục ngoại lệ nào: video V5b-2d `338cef97…`, `mpfb2-LICENSE.txt` không bị báo) |
+| Email | 0 địa chỉ email trong diff P-2010; 0 lần xuất hiện email chủ dự án trong toàn diff `3176ad1b..HEAD` |
 
 ## 7. main
-MAIN_BANG
+- Trước: `main` = `origin/main` = **`3176ad1b`**; kiểm `git merge-base --is-ancestor 3176ad1b HEAD` = đúng (main cũ là tổ tiên).
+- `git checkout main && git merge --ff-only p-2010` → `main` = **commit cuối của nhánh `p-2010` (= `ccr-c8d3a06d-uhtkar`)**, tức commit chứa tệp này (fast-forward, không commit merge mới).
+- `lock.py --verify` trên main: **KHỚP** 1.16.1. `git push origin main`: đẩy ngay sau commit này; container không cài hook pre-commit/pre-push nên **không dùng `--no-verify`** (preflight chạy tay, §6). Không force.
 
 ## 8. Chỉ số trong ±5 % quanh ngưỡng (và vượt mốc)
 | Chỉ số | Số đo | Ngưỡng/mốc | Lệch |
 |---|---|---|---|
 | YouTube Data API — ĐÓNG-GÓI v1 | 1 947 đơn vị | mốc 2 000 | **−2,65 %** |
 | Bão hoà trung vị Cycles sau `--skydif` (NG-D2) | 0,403 | ≥ 0,40 (§11.4/§14.4) | **+0,75 %** (sát nút) |
-| Giờ máy P-2010 | GIO_MAY | mốc 2 h | GIO_LECH |
+| Giờ máy P-2010 | ≈ 0,7 h | mốc 2 h | −65 % (ngoài ±5 %) |
 | Ngoài ±5 % nhưng vượt mốc: Gemini NC-V2V-2 $17,00 / mốc $15 (+13 %). RunPod NC-GPU $10,98 / mốc $12 (−8,5 %, dưới mốc). | | | |
 
 Không thêm phần tử nào để vượt ngưỡng.

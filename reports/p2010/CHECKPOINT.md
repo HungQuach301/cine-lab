@@ -9,4 +9,4 @@ Nhánh thật: `ccr-c8d3a06d-uhtkar` (harness buộc; nhánh cục bộ `p-2010`
 | 3. Sổ | XONG (`5a5139a3`) |
 | 4. Tra nguồn thực vật | XONG — `THUC-VAT-1782.md` |
 | 5. Giọng master | XONG (không lấy được: 401 thiếu speech_history_read) |
-| 6. Kiểm cuối + main | ĐANG LÀM — golden steel/t1 KHỚP, chờ ll08/k2v4; báo cáo nháp `P2010-BAO-CAO.md` (còn chỗ GOLDEN_/MAIN_/GIO_) |
+| 6. Kiểm cuối + main | XONG — golden 3 KHỚP + k2v4 LỖI (cache ngoài git); preflight --range ĐẠT; main fast-forward |
