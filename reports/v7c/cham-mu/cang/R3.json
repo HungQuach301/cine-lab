@@ -1,0 +1,46 @@
+{
+ "A": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "confusing",
+   "unreadable_scale",
+   "toy_look"
+  ],
+  "note": "This is not the harbour shot. It is a top-down view of a fortress bastion with cannons, a pile of barrels and tiny troops. The sand-coloured walls and ground are flat, and the blue shadow is harsh. No ships or port are visible, so it misses the brief. The troops are tiny and the barrels look like a game prop."
+ },
+ "B": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [
+   "unreadable_scale"
+  ],
+  "note": "This matches the brief. It shows a convoy arriving at a fortified town, with a hazy horizon, a darker and more natural sea, and good depth and atmosphere. The ships are tiny and have pink halos or markers that look like game UI. The town and pier are blocky. The terrain reads reasonably well."
+ },
+ "C": {
+  "craft": 5,
+  "realism": 5,
+  "detail": 5,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "washed_out",
+   "noisy",
+   "toy_look"
+  ],
+  "note": "This is the same scene as B but the water is oversaturated cyan with a busy sparkle texture. The horizon is a hard line with no haze, so it looks like a game. The ship markers are the same pink halos. The look is flatter and more cartoonish than B."
+ },
+ "rank": [
+  "B",
+  "C",
+  "A"
+ ],
+ "why": "B is the only version that clearly delivers the harbour convoy shot with believable atmosphere and a natural sea, while C has garish noisy water and a hard horizon, and A shows a different scene (a fortress bastion with no ships).",
+ "top_fix_for_best": "Remove the pink halos around the ships and bring the fleet closer or larger, with visible hull, sail and flag detail and wakes. Then add smoke, boats or people to the harbour and pier so the town reads as lived in rather than as blocky models."
+}

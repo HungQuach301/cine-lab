@@ -1,0 +1,45 @@
+{
+ "A": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Readable aerial of the town, fortress and shore. Warm light, with smoke plumes and a muzzle flash. The town ground is a textured stony tan. The buildings are uniform orange blocks that look like game pieces. The ships are tiny specks, so it's hard to see what is attacking."
+ },
+ "B": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 7,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "unreadable_scale"
+  ],
+  "note": "Same composition as A. The town ground is a flat smooth beige with little texture. The grass looks like a flat colour field. The model has a little more water texture and an island, but it is cleaner and flatter overall. The buildings look like toys."
+ },
+ "C": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 4,
+  "toy_like": 4,
+  "ai_look": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Moody night scene. A row of burning floating batteries sits in front of a dark hill, with fire glow reflected in the water. It is atmospheric and dramatic, but there is no fortified town and no sign of an attack. It is a different shot type from A and B. The ships are tiny glowing shapes. The hill is a dark mass with little readable detail."
+ },
+ "rank": [
+  "C",
+  "A",
+  "B"
+ ],
+ "why": "C has the strongest mood and light, with credible water and fire reflections, but it doesn't show the town being attacked. A is the best of the two matching daytime frames: it has more ground texture and a more complete layout than B, which looks flat and toy-like.",
+ "top_fix_for_best": "Add the fortified town and shore guns to C, or push the camera in so the batteries read as large ships with visible hulls, masts and gun ports. Add muzzle flashes and shot splashes toward the walls, and make the hill detail readable with rim light or moonlight."
+}
