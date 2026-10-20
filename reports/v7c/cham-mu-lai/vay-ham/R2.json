@@ -1,0 +1,62 @@
+{
+ "A": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 3,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame",
+   "unreadable_scale"
+  ],
+  "note": "Shows the rock, sea and ships, but the camps are flat tan rectangles with tiny dotted tents laid on a plain green plane. The trees are sparse black dots. It reads as a map overlay, not a place."
+ },
+ "B": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 3,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame",
+   "unreadable_scale"
+  ],
+  "note": "Nearly the same as A. The tree clusters are a little denser and the sea is a bit cleaner. The camp rectangles still look pasted on, and the shot is empty of troops and activity."
+ },
+ "C": {
+  "craft": 3,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 8,
+  "ai_look": 6,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "confusing",
+   "unreadable_scale"
+  ],
+  "note": "Top-down view of rigid grids of identical white tent cubes on tan slabs. The trench line is the only convincing element. There is no sense of the rock or the siege, and it looks like a board game."
+ },
+ "D": {
+  "craft": 6,
+  "realism": 6,
+  "detail": 5,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "Best terrain: rolling hills, scrub texture, distant haze and trench lines give real depth. The camps are still flat tan rectangles with a tent grid. There is no rock, no sea, and no troops or smoke."
+ },
+ "rank": [
+  "D",
+  "B",
+  "A",
+  "C"
+ ],
+ "why": "D has the most believable terrain, lighting and depth. A and B show the rock and sea but have flat camp slabs, and C is a toy-like grid with no context.",
+ "top_fix_for_best": "Replace the flat tan camp slabs and uniform tent grid in D with trampled-earth ground decals. Vary the tents in size, rotation and spacing, and add campfire smoke, figures, horse lines and cannon batteries along the trenches. Also add the rock or sea in the background to anchor the siege."
+}

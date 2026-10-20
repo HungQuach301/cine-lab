@@ -26,7 +26,7 @@
 | Q7/Q8-K2 | Nhãn/loại số nhận estimate (khiếu nại TT5 i) | **ĐẠT** | Chặn (thay Q7/Q8 cho kênh 2, như Q35) — lỗi Chặn 0, Cảnh báo 0 | Q7 nhận ESTIMATE: 0 lỗi (không log: chỉ kiểm kind khai) · Q8 loại số: 0 lỗi | kind ∈ actual/projection/estimate (kênh 2) · đủ nhãn, không thừa nhãn |  |
 | Q33 (1.13) | Lặp cảnh — pHash bỏ lớp chữ cố định | **ĐẠT** | Chặn (thay Q33 cho kênh 2) — lỗi Chặn 0, Cảnh báo 0 | 9 góc máy · 9 lần xuất hiện · nhiều nhất tl/t3tl · v7c_C1 1 lần · 0 góc > 2 · pHash L vùng nội dung (bỏ lớp chữ cố định) θ=16, thêm 0 lần lặp không khai | ≤ 2 lần · pHash L vùng nội dung y 18–72 %, θ 16 |  |
 | Q36 (1.13) | Chữ — câu miễn trừ nhận theo chữ | **ĐẠT** | Chặn (thay Q36 cho kênh 2) — lỗi Chặn 0, Cảnh báo 0 | 0 dòng nguồn · dài nhất 0 ký tự · không có log (cỡ chữ THIẾU) · lỗi a 0 · b 0 · thiếu 0 | "This video explains… Facts as of" 1 lần trong 0:00–0:15 không đòi nguồn luật |  |
-| Q37 (1.13) | Nhịp — khung tĩnh theo khung neo | **TRƯỢT** | Chặn (thay Q37 cho kênh 2) — lỗi Chặn 14, Cảnh báo 0 | 118.5 s · biến cố khai 23 (gộp 23) · TB 5.15 s · dài nhất 9.8 s · khung tĩnh (neo, < 2.0/255) dài nhất 3.5 s (từ 0:47.5) · miễn khung neo/im lặng (1.16): 0 khoảng, dài nhất trước miễn 9.8 s | khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s |  |
+| Q37 (1.13) | Nhịp — khung tĩnh theo khung neo | **TRƯỢT** | Chặn (thay Q37 cho kênh 2) — lỗi Chặn 14, Cảnh báo 0 | 118.5 s · biến cố khai 23 (gộp 23) · TB 5.15 s · dài nhất 9.8 s · khung tĩnh (neo, < 2.0/255) dài nhất 2.88 s (từ 0:48.5) · miễn khung neo/im lặng (1.16): 0 khoảng, dài nhất trước miễn 9.8 s | khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s |  |
 | BD-1…BD-8 | Bản đồ chiến lược / inset / ranh | **ĐẠT** | — — lỗi Chặn 0, Cảnh báo 0 | không có shot strategic, lớp ranh, tuyến hay inset |  |  |
 | K-R1…K-R9 | ĐỎ-K | **ĐẠT** | — — lỗi Chặn 0, Cảnh báo 0 | tập không khai rui_ro: do-k |  |  |
 | K-LAI-1…6 | Khung neo LAI | **ĐẠT** | — — lỗi Chặn 0, Cảnh báo 0 | tập không có khối lai: / shot AI |  |  |
@@ -34,11 +34,11 @@
 | SACH-1 | Khung sạch §12.1 + TL-4 | **TRƯỢT** | Chặn (a)–(f) (K116-D1; (e) chữ bản đồ Chặn theo K116-D3: ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ) — lỗi Chặn 1, Cảnh báo 0 | 9 shot · tấm số/trích 0 · tư liệu đứng riêng 0 · không log chữ | chỉ bộ đếm · chip nơi ≤ 3 s · thẻ chương · thẻ phương pháp · bản đồ ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ (K116-D3); không tấm số/trích, không tư liệu đứng riêng (phủ ≤ 3 s) |  |
 | CHUONG-1 | Thẻ chương §13.3 | **ĐẠT** | Chặn (a)–(e) · Cảnh báo (f) vị trí/mờ (K116-D1) — lỗi Chặn 0, Cảnh báo 0 | 1 thẻ (đặc tả) · dài nhất 3.00 s · 0:44.2 1779 — The Great Siege | ≤ 8/tập · "năm — ≤ 6 từ" · ≤ 3 s · không trong móc · trung tính | thẻ '1779 — The Great Sie' s 3.0 (ngưỡng 3.0) |
 | PP-1 | Thẻ phương pháp (D6) | **TRƯỢT** | Chặn (a)–(d) · Cảnh báo (e) tốc độ đọc ≤ 3 từ/s (K116-D1, D8: ≈ 8 s = 7–9 s) — lỗi Chặn 1, Cảnh báo 0 | 0 thẻ | 2 thẻ × 7–9 s, cuối phim · nguồn/ước tính/AI · ≤ 3 từ/s |  |
-| TL-1 | Xương sống timelapse §13.6 | **CẢNH BÁO** | Cảnh báo (K116-D1; mục tiêu §13.6, hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 9 | thân phim 118.5 s · góc cao + tl 113.5 s (95.8 %) · đặc tả ≤ 4.05 cắt/phút (cận trên) · video 15 cắt = 7.60/phút · đặc tả 8 ranh = 4.05/phút · khớp ±0.5 s 8 (chỉ video 7: 0:15.4, 0:23.4, 0:23.8, 0:53.8, 1:23.0, 1:35.2…; chỉ đặc tả 0 — cùng góc máy đổi năm/giờ hoặc chưa cắt) · trôi góc cao trung vị 0.14 %/s (8 shot) · ngưỡng hiệu chỉnh sau V7-PILOT | góc cao + thời gian chạy ≥ 75 % · ≤ 5 cắt/phút (video: đổi cấu trúc; đối chiếu đặc tả ±0,5 s) · trôi ≤ 2 %/s · 6–8 điểm máy (hiệu chỉnh sau V7-PILOT) |  |
+| TL-1 | Xương sống timelapse §13.6 | **CẢNH BÁO** | Cảnh báo (K116-D1; mục tiêu §13.6, hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 9 | thân phim 118.5 s · góc cao + tl 113.5 s (95.8 %) · đặc tả ≤ 4.05 cắt/phút (cận trên) · video 14 cắt = 7.09/phút · đặc tả 8 ranh = 4.05/phút · khớp ±0.5 s 8 (chỉ video 6: 0:15.4, 0:23.4, 0:23.8, 1:22.9, 1:23.2, 1:35.4; chỉ đặc tả 0 — cùng góc máy đổi năm/giờ hoặc chưa cắt) · trôi góc cao trung vị 0.14 %/s (8 shot) · ngưỡng hiệu chỉnh sau V7-PILOT | góc cao + thời gian chạy ≥ 75 % · ≤ 5 cắt/phút (video: đổi cấu trúc; đối chiếu đặc tả ±0,5 s) · trôi ≤ 2 %/s · 6–8 điểm máy (hiệu chỉnh sau V7-PILOT) |  |
 | TL-2 | Lướt thấp §13.6 | **ĐẠT** | Cảnh báo (K116-D1; hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 0 | lướt thấp 1 shot · 5.0 s = 4.2 % · ngưỡng hiệu chỉnh sau V7-PILOT | lướt thấp ≤ 10 % · có vai, phố/người (hiệu chỉnh sau V7-PILOT) |  |
-| TL-3 | Không shot trống §13.6 | **ĐẠT** | Cảnh báo (K116-D1; hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 0 | 9 shot 3D · không đổi 0 · trống 0 · thiếu trong_pct 0 | mỗi shot 3D: thời gian chạy hoặc biến cố · trống ≤ 60 % (hiệu chỉnh sau V7-PILOT) | shot C1 trống % 62.2 (ngưỡng 60.0) |
+| TL-3 | Không shot trống §13.6 | **ĐẠT** | Cảnh báo (K116-D1; hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 0 | 9 shot 3D · không đổi 0 · trống 0 · thiếu trong_pct 0 | mỗi shot 3D: thời gian chạy hoặc biến cố · trống ≤ 60 % (hiệu chỉnh sau V7-PILOT) |  |
 | NHIP-NGHIA | Nhịp → vật mang nghĩa §13.2 | **ĐẠT** | Chặn (K116-D1; §13.2) — lỗi Chặn 0, Cảnh báo 0 | 16/16 nhịp chính có vật mang nghĩa = 100.0 % | ≥ 90 % nhịp chính |  |
-| XEM-CAM | Cổng XEM CÂM §13.4 | **TRƯỢT** | Chặn (K116-D1, D2; §13.4 bắt buộc từ T3) — lỗi Chặn 1, Cảnh báo 0 | — | 8 câu · 3 AI + chủ dự án · tắt tiếng · chủ dự án ≥ 6/8 VÀ TB AI ≥ 6/8 (K116-D2) |  |
+| XEM-CAM | Cổng XEM CÂM §13.4 | **TRƯỢT** | Chặn (K116-D1, D2; §13.4 bắt buộc từ T3) — lỗi Chặn 1, Cảnh báo 0 | 8 câu · AI 3 · chủ dự án 0 · R1 6/8, R2 6/8, R3 6/8 · TB AI 6.00/8 | 8 câu · 3 AI + chủ dự án · tắt tiếng · chủ dự án ≥ 6/8 VÀ TB AI ≥ 6/8 (K116-D2) | TB AI câu đúng 6.0 (ngưỡng 6) |
 | PC-1 | Thước phục chế §12.3 | **ĐẠT** | Cảnh báo (K116-D1; thước tạm, hiệu chuẩn trên ≥ 10 ảnh) — lỗi Chặn 0, Cảnh báo 0 | tập không khai phuc_che: (không dùng ảnh phục chế) | Δ cạnh mới so bicubic ≤ 1,0 điểm % · PSNR ≥ bicubic |  |
 | LOCK | checks/ khớp LOCK (1.16.1) | **ĐẠT** |  | KHỚP |  |  |
 
@@ -121,7 +121,7 @@
 ### PP-1
 - (a) không có thẻ phương pháp cuối phim (cần 2 thẻ × ≈ 8 s — D6)
 ### TL-1
-- (c) video: 15 cắt đo / 1.97 phút = 7.60 cắt/phút > 5 (đặc tả 8 ranh = 4.05/phút; khớp ±0.5 s 8)
+- (c) video: 14 cắt đo / 1.97 phút = 7.09 cắt/phút > 5 (đặc tả 8 ranh = 4.05/phút; khớp ±0.5 s 8)
 - (f) điểm máy D7: chỉ ở năm 2026-10-18 23:52 — phải quay lại ở năm khác
 - (f) điểm máy K2: chỉ ở năm 2026-10-19 15:10 — phải quay lại ở năm khác
 - (f) điểm máy D7h: chỉ ở năm 1938.6 — phải quay lại ở năm khác
@@ -131,5 +131,5 @@
 - (f) điểm máy Bm: chỉ ở năm 1780-01-16 12:00 — phải quay lại ở năm khác
 - (f) điểm máy Cc2: chỉ ở năm 1781-04-12 09:20 — phải quay lại ở năm khác
 ### XEM-CAM
-- không đọc được xem_cam (xem-cam-v7c.json): [Errno 2] No such file or directory: '/home/user/cine-lab/channel-k2/k2c-t3-01/v7p/xem-cam-v7c.json' — cổng XEM CÂM bắt buộc từ T3 (§13.4); K không tự chấm
+- (b) không có kết quả chủ dự án xem tắt tiếng
 

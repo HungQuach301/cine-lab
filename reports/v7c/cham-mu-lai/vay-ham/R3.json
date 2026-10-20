@@ -1,0 +1,60 @@
+{
+ "A": {
+  "craft": 5,
+  "realism": 5,
+  "detail": 4,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "unreadable_scale"
+  ],
+  "note": "Clean sea and rock, but the camps are flat tan rectangles with tiny box tents. The terrain is a smooth colour field with sparse tree dots, and the dark tree clusters look pasted on. There is no sign of a siege or of the besiegers' lines. The rock is small and far away."
+ },
+ "B": {
+  "craft": 6,
+  "realism": 6,
+  "detail": 4,
+  "toy_like": 4,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "unreadable_scale"
+  ],
+  "note": "Same layout as A. The grass texture is better, the tree clumps look more natural, and the lighting is softer and more cohesive. The camps are still flat tan slabs with tiny dots. There are no troops, lines or siege activity, and the tiny ships are the only life."
+ },
+ "C": {
+  "craft": 3,
+  "realism": 3,
+  "detail": 3,
+  "toy_like": 8,
+  "ai_look": 6,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "confusing",
+   "unreadable_scale"
+  ],
+  "note": "Top-down view of tan rectangles covered in a regular grid of white cubes that look like game pieces or dominoes. The one trench line is the only interesting element. It has no context, no rock and no horizon, so it doesn't read as a siege."
+ },
+ "D": {
+  "craft": 7,
+  "realism": 7,
+  "detail": 5,
+  "toy_like": 4,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "unreadable_scale"
+  ],
+  "note": "Best terrain and atmosphere: layered hills, scrub vegetation, haze and depth. The camps are still flat tan pads with a regular grid of tiny boxes that look like a texture, and the trench lines are thin. The fortress and sea are not shown, so the siege isn't readable."
+ },
+ "rank": [
+  "D",
+  "B",
+  "A",
+  "C"
+ ],
+ "why": "D has the most convincing terrain, depth and atmosphere, and B beats A on softer, more natural vegetation. C is a top-down grid of cubes that reads as toy game pieces and loses the siege context.",
+ "top_fix_for_best": "Replace the flat tan camp pads and regular box grids with irregular, textured camps: varied tents, smoke, figures, fences, earthworks and trenches. Then reframe so the fortified rock sits in the background behind the lines, so the viewer can see what is being besieged."
+}
