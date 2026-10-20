@@ -17,6 +17,12 @@
 >
 > Cả hai phép đo đều chỉ đọc chữ.
 
+## CẬP NHẬT 20/10/2026 (phiên P-2010: T3, lộ trình G0/M1–M4) — bổ sung, không thay
+| Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 20/10 (P-2010) |
+|---|---|---|---|---|
+| T3 | K2C-T3-01 | **Gibraltar — khung vây hãm** (tiêu đề theo khuôn (c) "<Nơi>: <lời hứa> \| 3D Timelapse" ≤ 60 ký tự, mọi dữ kiện đúng lời khoá — Kinh thánh §14.5; tên làm việc cũ "…Besieged 14 Times" phải đối chiếu lại) | VÀNG | Đã merge vào `main`: V7B, NHẠC-T3, ĐÓNG-GÓI v1+v2, NC-V2V, NC-CPU + NC-GPU. **Thứ tự kế tiếp:** (1) **T3 → M1** = luật + bố cục, không AI — **phiên V7C** (bố cục, đang chạy); (2) **M2** = thumbnail + móc mở đầu 30 s + cú lặn có AI theo N1/N2 (≈ $5–15/tập), qua cổng §14.1 (e)/(g); (3) **dựng cả tập theo G0** (Kinh thánh §14.2: A three.js + nướng cho phần cao; cú lặn/cận đêm có lửa 10–20 % thời lượng dựng trọn bằng Cycles GPU thuê). Nhạc = B (trừ KA2026 = A, §14.6). Giọng G1: thư Đ5 **đã gửi 19/10 16:57**, chờ trả lời; **master giọng KL42 chưa có nơi lưu bền** (P-2010 §5) |
+| Phiên K | — | **Việc phiên K (V2V-D4):** biến bộ đo bịa NC-V2V (mặt nạ ID theo hàm dựng, F1 cạnh theo loại, đối chứng không AI, tờ so cạnh mới/lửa mới, thêm "đốm sáng mới bền ≥ 1 s"; T7–T9 khi NC-V2V3 được duyệt) thành công cụ kiểm trong `checks/` cho mọi khung AI (cổng bắt buộc Kinh thánh §14.1 (e)) | — | chờ giao phiên K; phải xong trước M2 |
+
 ## CẬP NHẬT 19/10/2026 (phiên P-1910: T3) — bổ sung, không thay
 | Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 19/10 (P-1910) |
 |---|---|---|---|---|
