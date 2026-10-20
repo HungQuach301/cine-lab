@@ -156,7 +156,7 @@ def main():
         if OD: OD.mkdir(parents=True, exist_ok=True); (OD / f'{key}.json').write_text(json.dumps(o))
         heroes[key] = dict(hero='tl/t3tl', opt=o, dur=d)
         p = dict(sach=True, hero=key, frame0=0, tl=True)
-        if sh.get('chuong'): p['chuong'] = dict(s=sh['chuong'], at=0.4, dur=3.0)
+        if sh.get('chuong'): p['chuong'] = dict(s=sh['chuong'], at=0.4, dur=3.0); p['the_chuong'] = dict(s=sh['chuong'], at=0.4, dur=3.0)   # the_chuong: tên khoá CHUONG-1/NHIP-NGHIA đọc (RULES 1.16)
         L = lines_of(sh['lines'])
         for x in L: srt.append((x['bd'], x['kt'], x['cau']))
         for i in sh['lines']:
@@ -173,7 +173,7 @@ def main():
                         luot_thap=sh.get('luot_thap') or False, khung_neo=False, ai_image=False, ai_texture=False, nc=bool(o.get('nc'))))
         t_abs += d
     E = dict(id='k2c-t3-v7c', title='Why Gibraltar Was Besieged 14 Times — V7C pilot (layout + density, path A, 540p, G1 v4.2 narration)', brand='MOVING PARTS', channel='k2', out=OUT,
-             music=[dict(file='assets/k2/music/Tyrant.mp3', **{'from': 'H1'}, ss=2.55, gain_db=-6)], sources={}, numbers={}, khung_sach=True, log_shot='log-shot-v7c.json', nhip_vat='nhip-vat-v7c.json', xem_cam='xem-cam-v7c.json', heroes=heroes, segments=segs)
+             music=[dict(file='assets/k2/music/Tyrant.mp3', **{'from': 'H1'}, ss=2.55, gain_db=-6)], sources={}, numbers={}, khung_sach=True, loi_khoa='../loi-khoa.txt', claims_md='../claims-vay-ham.md', log_shot='log-shot-v7c.json', nhip_vat='nhip-vat-v7c.json', xem_cam='xem-cam-v7c.json', heroes=heroes, segments=segs)
     hdr = '# TỆP SINH TỰ ĐỘNG bởi v7p/mk_ep_v7c.py (lời khoá v4.2 SHA 51d1c773…, nhịp reports/kl42/nhip-that.json B). Đừng sửa tay.\n'
     (HERE / 'episode-v7c.yaml').write_text(hdr + yaml.safe_dump(E, allow_unicode=True, sort_keys=False, width=200))
     def ts(x): h, r = divmod(x, 3600); m, s2 = divmod(r, 60); return f'{int(h):02d}:{int(m):02d}:{s2:06.3f}'.replace('.', ',')
