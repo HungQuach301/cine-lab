@@ -1,4 +1,4 @@
-# KINH THÁNH KÊNH 2 — Moving Parts (chủ dự án duyệt 13/10/2026 22:49; bổ sung 14/10/2026 10:41, 18:08, 20:45, 22:11, 15/10/2026, 16–17/10/2026 — §10 và 17–18/10/2026 — §11; bổ sung 18/10/2026 tối — §12; §13 + sửa 19/10)
+# KINH THÁNH KÊNH 2 — Moving Parts (chủ dự án duyệt 13/10/2026 22:49; bổ sung 14/10/2026 10:41, 18:08, 20:45, 22:11, 15/10/2026, 16–17/10/2026 — §10 và 17–18/10/2026 — §11; bổ sung 18/10/2026 tối — §12; §13 + sửa 19/10; §14 + sửa 20/10)
 
 Nguồn hình thành: phân tích đối thủ "Fortune of Nations Animated" (lời + 14 khung, 13/10) và "GoDocs" (video Suez 11:00 đo bằng máy, 14/10) + định hướng nâng cấp nhà máy (Bảng trạng thái) + Teardown số liệu 15/10 (channel-k2/TEARDOWN-FON.md) + NC-LS / NC-LS2 (17/10). Nguyên tắc: học CÔNG THỨC, không sao chép sản phẩm (không dùng câu chữ, hình, thumbnail, nhận diện, danh sách đề tài của đối thủ; lời/video của đối thủ không đưa vào repo).
 
@@ -154,7 +154,7 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - Rào chắn bắt buộc: ghép lại điểm ảnh A cho mọi vật mang dữ kiện (vùng bảo vệ sai khác < 1/255); lớp sống (người, khói, xe) do mình dựng, đặt trên; đêm làm từ các lượt chiếu sáng A, không sinh ảnh đêm, đêm không sáng hơn 1,5× A; kiểm dữ kiện từng tấm/vân trên kết quả ghép thật — 0 lỗi chắc mới dùng, ngoại lệ phải chủ dự án duyệt; chi tiết kiến trúc AI tự thêm (công-xon, gờ chạm, cửa) = không chấp nhận; sổ AI ghi mọi lệnh gọi (model, prompt nguyên văn, % mặt nạ, chi phí, C2PA).
 - Nhãn + công bố: khung có ảnh/vân AI mang dòng "Surface detail AI-assisted · layout, landmarks & flags from sources" ≥ 38 px góc dưới trái suốt shot; bật khai báo nội dung AI trên YouTube; mô tả theo §10.6. (chữ trên hình: theo §12.1)
 - Trần: thời lượng khung `ai_image`/`ai_texture` ≤ 20 % tập; khung lai bão hoà trung vị ≤ 0,40 và chỉnh màu riêng; màu sơn mặt tiền do AI đổi chỉ tạm chấp nhận tới khi có nguồn màu.
-- KHÔNG: AI video sinh từng khung (nhấp nháy, trôi hình; API video OpenAI ngừng 24/9/2026); AI cho cảnh bay trên không tầm cao, bản đồ chiến lược; ước độ sâu bằng AI; vân vật liệu AI kiểu "B" (thua vân CC0 ở chấm mù).
+- KHÔNG: AI sinh, xoá hoặc đổi LỚP DỮ KIỆN (§14.1) ở mọi loại cảnh; khung AI (ảnh hay video) chưa qua cổng kiểm §14.1 (e) — nhấp nháy, trôi hình, vật bịa; AI cho bản đồ chiến lược; ước độ sâu bằng AI; (sửa 20/10: AI video và cảnh bay trên không tầm cao được dùng cho LỚP NỀN theo N1/N2 — §14.1); vân vật liệu AI kiểu "B" (thua vân CC0 ở chấm mù).
 - Đo khán giả từ T3: bình luận chê AI ≤ 2 % (mẫu 100); vượt → giảm tỷ lệ khung AI tập sau.
 - Chấm mù bằng mô hình KHÔNG thay kiểm dữ kiện (người chấm không bắt được cờ sai và gán nhầm lỗi cho bản đúng).
 
@@ -184,7 +184,7 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 ### 12.2 Tái dựng có căn cứ — 5 bậc (AI-A; NCAI-2; NCAI-3 = B, 20:57–20:59)
 - Mọi phần tử nhìn thấy trong cảnh dựng (công trình, phố, vật, người, trang phục, động tác, mật độ người) mang một bậc căn cứ trong bảng shot: (1) bản đồ/sơ đồ đo đạc thời đó → bố cục, vị trí; (2) văn bản thời đó (nhật ký, sổ quân, điều lệnh) → hoạt động, mật độ người, động tác; (3) công trình/hiện vật còn lại, bảo tàng mở dữ liệu (CC0/PD) → hình khối, vật liệu, trang phục; (4) tranh/bản khắc thời đó → không khí, màu, chỉ sau đối chiếu chéo ≥ 2 tác phẩm; (5) tương đồng cùng vùng + thời kỳ → chỉ vật nền phụ. Không có căn cứ → không dựng; kể bằng bản đồ/tài liệu/lời.
 - Vị trí chỉ lấy từ bậc 1; văn bản (bậc 2) không tự cho vị trí. Trang phục đám đông lấy từ bậc 3–4.
-- AI chỉ được TÌM, ĐỌC, ĐỐI CHIẾU, PHỤC CHẾ, LÀM SỐNG cái đã có nguồn; không sinh dữ kiện (vị trí, công trình, cờ, quân phục, ngày, số). Phép thử: bỏ AI ra mà dữ kiện trên hình đổi → không được dùng.
+- Với LỚP DỮ KIỆN (§14.1): AI chỉ được TÌM, ĐỌC, ĐỐI CHIẾU, PHỤC CHẾ, LÀM SỐNG cái đã có nguồn; không sinh dữ kiện (vị trí, công trình, cờ, quân phục, ngày, số). Phép thử áp cho lớp dữ kiện: bỏ AI ra mà lớp dữ kiện trên hình đổi → không được dùng. LỚP NỀN: AI được vẽ lại theo N1/N2 (§14.1, sửa 20/10).
 - Đề tài trước ~1850 (cổng mềm B): bắt buộc bậc 1 + ít nhất 1 trong bậc 2–4; "mức tư liệu" là trục điểm /5 trong thước /25 (thay "dữ liệu timelapse"), không phải cổng chặn.
 
 ### 12.3 AI ngoài hình mở rộng (NCAI-1, NCAI-4, AI-T3; AI-5 bỏ 20:30)
@@ -192,7 +192,7 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - Thử có điều kiện: âm thanh môi trường AI (chấm mù bằng tai so Freesound CC0; mỗi tiếng ghi RIGHTS).
 - Chuyển động người: dữ liệu bắt chuyển động giấy phép mở (ví dụ CMU, 100STYLE CC BY, Quaternius CC0 — kiểm giấy phép nguyên văn) cho đi/đứng/khiêng; động tác quân sự theo sách điều lệnh PD của thời kỳ; chưa lấy chuyển động từ footage khi chưa gắn năm cho từng đoạn.
 - Phục chế (khử nhiễu, làm nét ≤ ×2) CHỈ cho ảnh chụp, kiểm có đáp án (thu nhỏ → phục chế → so gốc) trước khi dùng công cụ mới; KHÔNG cho bản khắc/tranh (thêm nét giả — NC-AI §3.2); trọng số phải cho phép thương mại (loại CodeFormer, SUPIR, GFPGAN, Depth Pro, Depth Anything V2 Base/Large).
-- KHÔNG: ước độ sâu/2,5D bằng AI (kể cả ảnh lưu trữ); tô màu khi không có nguồn màu; video AI.
+- KHÔNG: ước độ sâu/2,5D bằng AI (kể cả ảnh lưu trữ); tô màu khi không có nguồn màu; video AI ngoài N1/N2 (§14.1, sửa 20/10).
 - T3: dùng AI đọc nguồn (danh sách 9/1782), lớp kiểm, phục chế chỉ ảnh chụp 1940s. Từ T4: lời nhân chứng đọc bằng giọng tổng hợp, âm thanh AI, minh hoạ kiểu bản khắc (N3).
 
 ### 12.4 Vật trên hình — hai tầng (Q-PT4-3 sửa 12:55)
@@ -200,7 +200,7 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - Vật nền phụ (chậu cây, mái che, đồ phơi, thùng, bao, ghế, giỏ, dụng cụ): được đặt không cần nguồn riêng nếu kiểu dáng/vật liệu đúng thời kỳ, không trái hoàn cảnh có nguồn, không vật hiện đại, không chữ, mật độ vừa phải, qua soi lỗi thời đại; ghi danh sách + lý do trong báo cáo phiên.
 
 ### 12.5 Dựng và vận hành (V6-1…V6-7, 23:15; chi phí 12:57)
-- Mức dựng T3: bản SẢN XUẤT V6 (llvmpipe: bóng đổ khít khung, SSAO hai tầng, chỉnh màu V6, người có khớp, khói giả thể tích); render song song nhiều phiên chia theo shot (ngoại lệ EE2-A) để mỗi phiên ≤ 12 h đồng hồ. Cycles chỉ cho khung tĩnh, poster, thumbnail. Nướng GI bằng Cycles (mức C) nghiên cứu sau T3.
+- Mức dựng T3: bản SẢN XUẤT V6 (llvmpipe: bóng đổ khít khung, SSAO hai tầng, chỉnh màu V6, người có khớp, khói giả thể tích); render song song nhiều phiên chia theo shot (ngoại lệ EE2-A) để mỗi phiên ≤ 12 h đồng hồ. Cycles chỉ cho khung tĩnh, poster, thumbnail (sửa 20/10: và cú lặn/cận cảnh đêm có lửa dựng trọn bằng Cycles GPU — §14.2). Nướng GI bằng Cycles (mức C) nghiên cứu sau T3.
 - Phế tích 1782 giữ đúng nguồn; mỗi tập có ≥ 1 cảnh phố dày còn nguyên ở một mốc khác.
 - Người: mục tiêu toy_like ≤ 4; không chặn phát hành T3.
 - Video trong git ≤ 5 MB (preflight); bản lớn hơn để ngoài git, ghi SHA-256; master phát hành qua LFS.
@@ -227,3 +227,40 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - TL-4 Không tấm tư liệu và tấm số/câu trích đứng riêng; tư liệu chỉ phủ khớp lên địa hình rồi tan vào cảnh ≤ 3 s; số liệu và câu trích do lời + phụ đề CC mang.
 - TL-5 Mở đầu là timelapse từ giây 0, dài theo lời móc; khoảnh khắc giá trị nhất xuất hiện trong 30 s đầu.
 - TL-6 Thẻ chương theo §13.3.
+
+## 14. Bổ sung 19–20/10/2026 (chủ dự án duyệt; nới luật AI tới N2 20/10 21:15, duyệt tất cả khuyến nghị 20/10 21:22)
+
+### 14.1 Luật AI mới N1/N2 (thay các câu trái ngược ở §11.3, §12.2, §12.3 — sửa 20/10)
+- (a) Hai lớp. LỚP DỮ KIỆN = công trình, phố (bố cục), cờ, tàu, pin nổi, lửa, khói trận, người/quân, đèn, chữ, ngày, số — phải có nguồn (5 bậc §12.2); AI không được sinh, xoá hay đổi. LỚP NỀN = đất, nước, trời, mây, thảm thực vật, vân tường/mái/mặt đất, sương, ánh sáng — AI được vẽ lại ở mọi loại cảnh, kể cả bay cao và VIDEO.
+- (b) N1 "nền tự do, dữ kiện khoá": mọi vùng lớp dữ kiện ghép lại điểm ảnh nguồn theo mặt nạ ID (sai khác < 1/255 trong vùng bảo vệ, viền mềm ≤ 3 px); cấm vật thuộc lớp dữ kiện xuất hiện mới ở vùng trống; cấm đổi loại vùng (đất ↔ nước).
+- (c) N2: thêm tối đa 20 % thời lượng tập là "minh hoạ" toàn khung AI cho khoảnh khắc không mang dữ kiện vị trí (móc mở đầu, cú lặn, chuyển cảnh); dữ kiện của đoạn đó kể bằng lời/bản đồ/chú thích; nhãn "Illustration" trên hình suốt đoạn (ngoại lệ của §12.1).
+- (d) Tổng khung có AI (N1 + N2) ≤ 20 % thời lượng ở T3; mở rộng theo lộ trình M1–M4 (g) khi cổng đạt.
+- (e) CỔNG KIỂM BẮT BUỘC cho mọi khung AI: bộ đo bịa NC-V2V (T1–T6; thêm T7–T9 của NC-V2V3 khi nhánh đó được duyệt; thêm phép "đốm sáng mới bền ≥ 1 s") có đối chứng không AI + người đọc tờ so; chấm mù KHÔNG thay kiểm dữ kiện; sổ AI ghi mọi lệnh gọi (model, prompt nguyên văn, % mặt nạ, chi phí, C2PA/SynthID). Phiên K biến bộ đo thành công cụ trong `checks/` (V2V-D4).
+- (f) Công bố: bật khai báo nội dung AI trên YouTube; mô tả §10.6 viết lại theo N1/N2 (câu hiện hành ở §10.6 giữ tới khi chủ dự án duyệt bản viết lại); giữ đo bình luận chê AI ≤ 2 % (§11.3).
+- (g) Lộ trình: M1 luật + bố cục (không AI) → M2 thumbnail + móc mở đầu 30 s + cú lặn (≈ $5–15/tập) → M3 shot hero ≤ 20 % (≈ $15–80/tập) → M4 nền N1 cả tập (≈ $110–330/tập, chủ dự án duyệt chi). Mỗi mốc qua cổng: 0 vật bịa; chấm mù thắng bản không AI; không nhấp nháy/đường nối lộ; M3: làm lại ≤ 3 lượt/đoạn. Công cụ chọn theo kết quả NC-V2V3: Cosmos-Transfer nếu đạt, không thì Gemini Omni có ghép mặt nạ.
+
+### 14.2 Đường dựng G0 (NC-D1, NG-D1, NG-D3)
+- Phần cao dựng bằng cách A: three.js + nướng Cycles theo mốc + vân CC0 theo lớp phủ + bụi + nước mới + sương e^(−σd).
+- Cú lặn/cận cảnh đêm có lửa (10–20 % thời lượng) dựng TRỌN bằng Cycles GPU thuê (RunPod); không ghép A↔B trong một cú máy. Chưa chuyển cả tập sang Cycles (NG-D3).
+- Bỏ Eevee/llvmpipe (NC-D3). Cycles: 16 spp + OIDN đủ cho cảnh cao ban ngày (NC-D4); ánh trời khuếch tán `--skydif` = 1/1,15π, sương chỉ trên tia máy (NG-D2).
+- Sau T3: đưa sprite khói/lửa thể tích dựng sẵn + nướng lightmap trên GPU vào A (NG-D5).
+
+### 14.3 Cú lặn (GPU-3, duyệt 19/10 22:58) — bổ sung §13.6
+- Một cú liền: cao timelapse → hạ lướt phố/mặt nước → ngược lên cao; thời gian chạy tiếp suốt cú.
+- Phần thấp trong cú lặn không tính vào trần lướt thấp TL-2 10 %.
+- Mỗi cú lặn phải có vai truyện ghi trong bảng shot.
+
+### 14.4 Look
+- Giữ bão hoà trung vị ≥ 0,40 (§11.4; NG-D4).
+- Ảnh Omni chỉ là ĐÍCH LOOK đo bằng số (sương, phối cảnh khí quyển), không chép hình (V2V-D2).
+- Mật độ bụi trước 1900 = 0,45 × hiện nay là bậc 5 TẠM (NC-D5); kết quả tra nguồn: `reports/p2010/P2010-BAO-CAO.md` §4.
+
+### 14.5 Đóng gói
+- Khuôn tiêu đề series (c) "<Nơi>: <lời hứa> | 3D Timelapse", ≤ 60 ký tự; mọi dữ kiện trong tiêu đề phải đúng lời khoá (cấm kiểu "14 Sieges in 3D" khi chỉ dựng 2 cuộc).
+- Thumbnail do phiên dựng làm từ render của ta (DG-1), được AI tăng cường theo N1; góc máy thumbnail PHẢI có trong phim.
+- Test & Compare là "tính năng nâng cao", không đòi YPP.
+
+### 14.6 Âm thanh
+- Nhạc T3 = phương án B (Scott Buckley, CC BY 4.0), trừ tấm im lặng KA2026 = phương án A.
+- Chỉ nhạc miễn phí có giấy phép rõ; không phát tán bản nhạc riêng (soundtrack).
+- Master âm thanh phát hành (giọng, nhạc, stem) PHẢI vào LFS kèm SHA.
