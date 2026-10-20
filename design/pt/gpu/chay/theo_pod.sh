@@ -9,7 +9,7 @@ keo() { for f in $($P ls out/dive 2>/dev/null | python3 -c "import json,sys;prin
 while true; do
   if [ -n "$STOP" ] && $P run "test -s /w/out/dive/$(printf %05d $STOP).exr && echo CO-TEP" --cho 2>/dev/null | grep -qx CO-TEP; then
     $P run 'for p in $(ps -eo pid,args | grep -E "pod_dive.sh|blender/blender" | grep -v grep | grep -v "ps -eo" | awk "{print \$1}"); do [ $p != $$ ] && kill $p; done; echo POD-DIVE-XONG >> /w/'$LOG --cho > /dev/null; sleep 5; fi
-  xong=$($P run "grep -c POD-DIVE-XONG /w/$LOG" --cho 2>/dev/null | sed -n 2p); keo; echo "$(date -u +%H:%M) $(ls $G/dive-exr/*.exr | wc -l) xong=$xong"
+  xong=$($P run "grep -c ${XONGM:-POD-DIVE-XONG} /w/$LOG" --cho 2>/dev/null | sed -n 2p); keo; echo "$(date -u +%H:%M) $(ls $G/dive-exr/*.exr | wc -l) xong=$xong"
   if [ "$xong" != "" ] && [ "$xong" -ge 1 ] 2>/dev/null; then for k in 1 2 3 4 5; do keo; thieu > /dev/null || break; sleep 20; done
     if thieu; then echo "CON THIEU khung — KHÔNG tắt pod"; sleep 180; continue; fi
     $P get $LOG $G/dive-exr/$PFX-$LOG > /dev/null 2>&1; $P tat; echo TAT-XONG; break; fi
