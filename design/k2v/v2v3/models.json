@@ -1,0 +1,7 @@
+{"doc_doc": "Trọng số tải trên pod từ Hugging Face công khai. rev = SHA commit repo đọc qua API 20/10/2026; sha256 = LFS oid (API ?blobs=true). Giấy phép nguyên văn: reports/nc-v2v3/giay-phep/.",
+ "files": [
+  {"repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged", "rev": "ee6f4a40737a995bf5818954cfce6d59443b0f04", "path": "split_files/diffusion_models/wan2.2_fun_vace_high_noise_14B_fp8_scaled.safetensors", "dst": "diffusion_models", "sha256": "23130f30207f6c8697a5bead113ddc9904cfbb5e8fa51a550df3cee4d21fb54c"},
+  {"repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged", "rev": "ee6f4a40737a995bf5818954cfce6d59443b0f04", "path": "split_files/diffusion_models/wan2.2_fun_vace_low_noise_14B_fp8_scaled.safetensors", "dst": "diffusion_models", "sha256": "ca55a5cc543e28576edbd2079f8c1de05f71cd9e85bf96fab635f55663dbcb69"},
+  {"repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged", "rev": "ee6f4a40737a995bf5818954cfce6d59443b0f04", "path": "split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors", "dst": "text_encoders", "sha256": "c3355d30191f1f066b26d93fba017ae9809dce6c627dda5f6a66eaa651204f68"},
+  {"repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged", "rev": "ee6f4a40737a995bf5818954cfce6d59443b0f04", "path": "split_files/vae/wan_2.1_vae.safetensors", "dst": "vae", "sha256": "2fc39d31359a4b0a64f55876d8ff7fa8d780956ae2cb13463b0223e15148976b"}
+ ]}
