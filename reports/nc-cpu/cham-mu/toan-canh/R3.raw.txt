@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 4, "realism": 3, "detail": 4, "toy_like": 6, "ai_look": 5, "flags": ["flat_slide_look", "toy_look", "unreadable_scale"], "note": "Saturated flat-blue water, magenta discs under the ships look like game markers, and the ground is a flat colour field. The camera is higher and flatter, so it reads like a map. The town is a mass of orange roof blocks."},
+"B": {"craft": 6, "realism": 6, "detail": 6, "toy_like": 4, "ai_look": 4, "flags": ["cluttered"], "note": "Hazy atmosphere, a natural water gradient and textured scrub give good depth. The red roofs are oversaturated and uniform. The ships are tiny and sit on clean water with no wakes."},
+"C": {"craft": 7, "realism": 6, "detail": 7, "toy_like": 4, "ai_look": 4, "flags": ["toy_look"], "note": "The best water, with wakes, foam and shallows, and the roofs are more muted and varied, so the town looks believable. The magenta discs under the ships are a leftover marker look. The shoreline has some odd cut-out shapes at lower left."},
+"D": {"craft": 4, "realism": 5, "detail": 5, "toy_like": 4, "ai_look": 5, "flags": ["broken_render", "noisy"], "note": "It looks like B but with black shadow or rendering artifacts scattered across the town. There are dark streaks on the hill at right and the ships have dark underside patches. The glitches break the image."}, 
+"rank": ["C","B","D","A"],
+"why": "C has the most convincing water, a muted palette and a believable town, and its only real flaw is the marker discs under the ships. B is clean but less detailed, D has visible black artifacts, and A is a flat, toy-like map view.",
+"top_fix_for_best": "Remove the magenta discs under the ships and give each ship a soft wake and a natural shadow. Then clean up the odd cut-out shoreline shapes at lower left and break up the uniform roof colour with weathering and varied tones."}
+```

@@ -1,0 +1,46 @@
+{
+ "A": {
+  "craft": 6,
+  "realism": 6,
+  "detail": 5,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "unreadable_scale"
+  ],
+  "note": "Best sky, haze and horizon. Water is a convincing deep blue with a sun glint, though the ripple pattern is a bit uniform. Red or pink halos under some ships look like game markers and are the biggest flaw. Ships are tiny and clustered in the top right. Town and hills read fairly well."
+ },
+ "B": {
+  "craft": 5,
+  "realism": 6,
+  "detail": 4,
+  "toy_like": 3,
+  "ai_look": 3,
+  "flags": [
+   "washed_out",
+   "flat_slide_look",
+   "unreadable_scale"
+  ],
+  "note": "Most natural and least game-like, with no halos and soft reflections under the ships. The haze and overcast look is washed out, the sky is blank and the water is dark and flat. Mood is subdued and the ships are tiny. Realistic but dull."
+ },
+ "C": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "toy_look",
+   "noisy",
+   "unreadable_scale"
+  ],
+  "note": "Water is oversaturated cyan with a noisy white sparkle pattern, which looks like a game or stock-footage shader. Pink halos around the ships make them look like game pieces. Colours are garish, and the town and hills are the same as in the other two frames."
+ },
+ "rank": [
+  "A",
+  "B",
+  "C"
+ ],
+ "why": "A has the most cinematic sky, atmosphere and water, B is the most natural but flat, and C has garish, noisy water with the same marker halos as A.",
+ "top_fix_for_best": "Remove the red/pink halos around the ships and replace them with real wakes, bow waves and soft shadows. Then enlarge the convoy and move it closer to the camera so the ships read as 18th-century ships of the line, and add smoke, flags and people on the quay."
+}

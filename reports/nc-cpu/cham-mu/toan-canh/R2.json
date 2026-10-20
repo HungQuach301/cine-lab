@@ -1,0 +1,58 @@
+{
+ "A": {
+  "craft": 4,
+  "realism": 3,
+  "detail": 4,
+  "toy_like": 7,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Saturated flat blue water and flat green ground. Ships sit on pink or magenta discs that look like game tokens. The town is a patch of orange blocks with little texture."
+ },
+ "B": {
+  "craft": 6,
+  "realism": 6,
+  "detail": 5,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [
+   "unreadable_scale"
+  ],
+  "note": "Hazy atmosphere, a natural deep-blue water gradient, and textured scrub terrain. The roofs are a saturated red that is a bit uniform. Ships are tiny but sit cleanly on the water."
+ },
+ "C": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [
+   "unreadable_scale"
+  ],
+  "note": "Best overall. Roof tones are muted and varied, which suits the period. The water has wake, foam and shallows, and the haze adds depth. The ships are on magenta halos that still look a bit gamey. The shoreline cutout at lower left looks odd."
+ },
+ "D": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "broken_render",
+   "noisy",
+   "cluttered"
+  ],
+  "note": "This is B with black artifacts: black shadow slivers and blocks scattered through the town, and a dark diagonal band across the hillside. The terrain also shows dark streaks, so the frame looks glitched."
+ },
+ "rank": [
+  "C",
+  "B",
+  "A",
+  "D"
+ ],
+ "why": "C has the most believable colour, water and atmosphere with no render errors. B is close but flatter. A reads as a toy diorama, and D has visible black-shadow glitches.",
+ "top_fix_for_best": "Remove the magenta halos under the ships and give them wakes and shadows that match the water. Then add smoke, people and small boats in the harbour so the town reads at human scale."
+}

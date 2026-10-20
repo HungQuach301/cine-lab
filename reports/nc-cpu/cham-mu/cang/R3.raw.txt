@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 5, "realism": 4, "detail": 4, "toy_like": 6, "ai_look": 5, "flags": ["toy_look", "unreadable_scale"], "note": "Saturated game-like blue water with a repeating tile pattern. Ships have pink halo markers that look like game pieces. The hill is decent, but the empty sea fills most of the frame."},
+ "B": {"craft": 7, "realism": 7, "detail": 6, "toy_like": 3, "ai_look": 4, "flags": ["unreadable_scale", "washed_out"], "note": "Atmospheric haze, darker believable sea, and a rocky hill with red roofs that reads as a real place. Ships are tiny and pale. Most of the frame is empty water, and the sky is flat."},
+ "C": {"craft": 7, "realism": 7, "detail": 6, "toy_like": 3, "ai_look": 4, "flags": ["unreadable_scale", "washed_out"], "note": "Almost identical to B, with a slightly clearer town and a less heavy haze. The convoy is still tiny and low-contrast."},
+ "D": {"craft": 6, "realism": 5, "detail": 5, "toy_like": 5, "ai_look": 5, "flags": ["toy_look", "unreadable_scale"], "note": "Better sky and sea foam than A, and a more natural water tone. The pink halos around the ships still look like game markers, and the town is hazy and flat."}, 
+ "rank": ["C", "B", "D", "A"],
+ "why": "B and C look like a real, hazy Mediterranean harbour. A and D have saturated game-like water and pink-ringed ship markers, so they look like toys.",
+ "top_fix_for_best": "Make the convoy the subject: move the camera closer or lower, or enlarge and add contrast to the ships (darker hulls, white sails, wakes, gun smoke). Crop out the empty foreground water. Add a warmer sky with cloud and sun-side light so the frame is less washed out."}
+```

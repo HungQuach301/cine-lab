@@ -1,0 +1,56 @@
+{
+ "A": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Rich blue sky and sea, with a rocky, textured mountain and a warm, cohesive town. The foreground is plain grey tarmac with blocky white buildings. It looks like a game map."
+ },
+ "B": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "washed_out",
+   "toy_look"
+  ],
+  "note": "Hazy and faded. The rock is smeared and blurry with a pale blue-white texture. The sea is flat. The red roofs add some life, but the contrast is low."
+ },
+ "C": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Nearly the same as A. The distant headland is dark green with a hard edge and a mirror-like reflection. That is a small sticker-like flaw. The rest is strong colour and contrast."
+ },
+ "D": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "washed_out",
+   "toy_look"
+  ],
+  "note": "Very similar to B, with the same haze and blurred mountain. The sea looks flat and the sky is empty. It is the least punchy of the four."
+ },
+ "rank": [
+  "A",
+  "C",
+  "B",
+  "D"
+ ],
+ "why": "A and C have saturated colour, depth and a more textured mountain and sea. B and D are hazy and blurry and look washed out, with a smeared rock.",
+ "top_fix_for_best": "Add real surface texture and people-scale detail to the empty grey tarmac and blocky white foreground buildings. For example, add aircraft, vehicles, runway markings, window and roof variation, and shadows. Also give the sea soft wave highlights and a few ships with wakes to cut the game-map look."
+}

@@ -1,0 +1,45 @@
+{
+ "A": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "washed_out"
+  ],
+  "note": "Bright saturated sea, readable ship line with smoke puffs and a clear fort. The ground is flat, smooth and sandy, and the buildings are clean blocks like game pieces. The smoke clouds look like sprites."
+ },
+ "B": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [
+   "washed_out",
+   "confusing"
+  ],
+  "note": "Moodier, hazier atmosphere, grassy ground with some texture, and a more natural sea. The large orange explosion glow is blobby and hides the middle of the frame. The distant ships fade into the haze and are hard to read."
+ },
+ "C": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "flat_slide_look"
+  ],
+  "note": "Nearly the same as A with a flatter sea and slightly less smoke. The buildings are still cubic and toy-like, and the terrain is smooth. The small explosion keeps the frame readable but unremarkable."
+ },
+ "rank": [
+  "B",
+  "A",
+  "C"
+ ],
+ "why": "B has the most atmospheric depth, the least toy-like feel and the best ground texture, despite its overblown explosion glow. A and C are bright but flat, with block-like buildings.",
+ "top_fix_for_best": "Shrink and soften the central explosion glow so it doesn't hide the town. Add real ship silhouettes with visible gun-flash and smoke trails. Give the buildings roof and wall texture and variation, and add small figures or defenders on the walls to set scale."
+}

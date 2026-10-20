@@ -1,0 +1,58 @@
+{
+ "A": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Saturated blue sky and sea, rocky textured mountain with a clear silhouette, dense town with terracotta roofs. Foreground white blocks and the flat grey runway look like a maquette. The pitch has a visible pattern. Strongest depth and contrast."
+ },
+ "B": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "washed_out",
+   "toy_look",
+   "noisy"
+  ],
+  "note": "Hazy, desaturated look that lowers contrast. The mountain is a blurry white and green smear that looks like a low-res texture. Orange roofs pop against the bleached ground. The sea is flat. Atmospheric but muddy."
+ },
+ "C": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 7,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Nearly the same as A, with good colour and mountain texture. The distant headland is dark, close and hard-edged, so it looks pasted on and breaks the atmospheric depth. The blue sea is a bit more uniform."
+ },
+ "D": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "washed_out",
+   "toy_look",
+   "noisy"
+  ],
+  "note": "Same hazy treatment as B, with even less colour in the sea and sky. The mountain texture is blurry. The foreground is bleached and the white blocks are toy-like. It has the weakest contrast and the least sense of place."
+ },
+ "rank": [
+  "A",
+  "C",
+  "B",
+  "D"
+ ],
+ "why": "A and C have strong colour, contrast and a readable rock-city-runway layout, while B and D are washed out with a smeared mountain texture; A edges C because its distant headland sits naturally in the haze.",
+ "top_fix_for_best": "Break up the flat grey runway and the white foreground blocks with texture, weathering, markings, vehicles and shadows. Add light haze, so the scene stops looking like a maquette. Add small detail such as aircraft, ships with wakes and people."
+}

@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 5, "realism": 5, "detail": 4, "toy_like": 5, "ai_look": 4, "flags": ["unreadable_scale"], "note": "Cleanest and most saturated. Grass has believable mottling and the tree clumps are dense. The camps are flat tan rectangles with tiny dark tent specks. The sea is a flat blue field, and the rock is small and far away."},
+ "B": {"craft": 4, "realism": 4, "detail": 4, "toy_like": 5, "ai_look": 4, "flags": ["flat_slide_look", "unreadable_scale"], "note": "The ground is blotchy, with pale patches that look like a texture error. Trees are sparse dots. The camps are still tan slabs with specks, and the sea is a flat blue band."},
+ "C": {"craft": 5, "realism": 5, "detail": 5, "toy_like": 6, "ai_look": 4, "flags": ["toy_look", "washed_out", "noisy"], "note": "The haze gives some atmospheric depth, and the distant rock and ships read well. The foreground is smeared by a heavy blur. The camps are grids of grey cubes that look like game pieces."},
+ "D": {"craft": 5, "realism": 5, "detail": 5, "toy_like": 6, "ai_look": 4, "flags": ["toy_look", "washed_out", "noisy", "confusing"], "note": "Same as C, plus a dark diagonal road or line through the field and faint grid lines across the terrain. The line adds some narrative but looks like a stray artifact. The cube grid and foreground blur are the same as C."}, 
+ "rank": ["A", "C", "D", "B"],
+ "why": "A has the cleanest, most natural ground and colour with no blur or blotchy artifacts, though all four share flat tan camps and a flat sea. C and D add haze but also a smeared foreground and cube-grid troops, and B has the weakest ground texture.",
+ "top_fix_for_best": "Replace the tan slabs and specks with real camp structures: rows of tents with shadows, fences, earthworks, smoke from fires, and troop columns. Add wave texture and sun glints to the sea, and pull the camera lower and closer so the camps and the rock read at scale."}
+```

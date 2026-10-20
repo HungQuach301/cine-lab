@@ -1,0 +1,62 @@
+{
+ "A": {
+  "craft": 5,
+  "realism": 5,
+  "detail": 4,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "unreadable_scale",
+   "toy_look"
+  ],
+  "note": "Best-looking terrain: richer green vegetation, dark tree clusters and a deep blue sea with natural contrast. The camps are flat tan rectangles with tiny dark specks, so they read as plots and not tents or troops. The fortified rock is small and distant. Little sense of siege."
+ },
+ "B": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "The yellow-olive ground is more saturated and flatter. Patchy green texture and sparse tree dots look like a map overlay. The camps are bright flat yellow slabs with scattered specks. The sea is vivid but graphic. Lighting is uniform."
+ },
+ "C": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 7,
+  "ai_look": 5,
+  "flags": [
+   "toy_look",
+   "washed_out",
+   "noisy"
+  ],
+  "note": "Atmospheric haze adds depth and the rock is more recognisable. Large grey cube tents on sand look like game pieces. The foreground has a smeared, blurry texture that reads as a rendering artifact. Washed-out colour."
+ },
+ "D": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 7,
+  "ai_look": 5,
+  "flags": [
+   "toy_look",
+   "washed_out",
+   "noisy",
+   "confusing"
+  ],
+  "note": "Same as C, plus a diagonal dark road or line and faint grid lines across the field. These add some context but look like stray geometry. The cube camps and blurry foreground are unchanged. It is slightly more cluttered and confusing than C."
+ },
+ "rank": [
+  "A",
+  "C",
+  "D",
+  "B"
+ ],
+ "why": "A has the most natural colour, vegetation and water contrast with the fewest artifacts, but all four share the same toy-like, flat-plot camps. C and D gain haze and depth but suffer from a smeared foreground and cube tents, and B is the flattest and most map-like.",
+ "top_fix_for_best": "Replace the flat tan rectangles and speck dots in A with real camp geometry: rows of tents with shadows, dirt paths, smoke from campfires, trenches and earthworks, and troop columns, with a lower, closer camera angle, golden-hour raking light and atmospheric haze toward the rock."
+}

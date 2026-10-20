@@ -1,0 +1,41 @@
+{
+ "A": {
+  "craft": 5,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "washed_out",
+   "flat_slide_look"
+  ],
+  "note": "Hazy pale sky and a milky horizon. The rock and city read clearly, but the lighting is flat and the colour is weak. The foreground is a large empty grey apron, and the foreground buildings are untextured white blocks."
+ },
+ "B": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [],
+  "note": "Saturated blue sky with clouds, richer water and stronger depth. The warm tones on the rock and buildings add some cinematic feel. The foreground still has blocky white buildings and a lot of empty tarmac, and the two black slab towers by the rock look odd."
+ },
+ "C": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 5,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Closest to B in grading, with a similar sky and water. The distant headland is dark green and oversaturated, so it looks pasted on, with a hard reflection edge. The ground is slightly more contrasty, and the runway markings look game-like."
+ },
+ "rank": [
+  "B",
+  "C",
+  "A"
+ ],
+ "why": "B has the most natural, balanced sky, water and colour grade; C is almost as good but its dark headland looks artificial, and A is hazy and washed out.",
+ "top_fix_for_best": "Replace the untextured white foreground blocks and the empty grey apron with textured buildings, vehicles, aircraft and ground wear. Add warm directional light with long shadows, and remove or retexture the black slab towers beside the rock."
+}

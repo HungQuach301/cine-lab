@@ -1,0 +1,58 @@
+{
+ "A": {
+  "craft": 5,
+  "realism": 5,
+  "detail": 4,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "The saturated cyan water has a repeating tile pattern and looks like a game ocean. The ships are tiny, and the pink halos around them look like debug markers. The sky is pleasant, but the empty water takes up too much of the frame."
+ },
+ "B": {
+  "craft": 7,
+  "realism": 7,
+  "detail": 5,
+  "toy_like": 3,
+  "ai_look": 3,
+  "flags": [
+   "washed_out",
+   "unreadable_scale"
+  ],
+  "note": "The most cinematic and believable of the four, with deep navy water, atmospheric haze, a textured rocky hill and red-roofed town. The ships are small, pale and indistinct. The sky is a bit flat and hazy, and the water is empty."
+ },
+ "C": {
+  "craft": 7,
+  "realism": 7,
+  "detail": 5,
+  "toy_like": 3,
+  "ai_look": 3,
+  "flags": [
+   "washed_out",
+   "unreadable_scale"
+  ],
+  "note": "Almost identical to B. The ships are a touch softer and the haze slightly heavier. It has the same realistic tone and the same low-contrast, empty-sea problem."
+ },
+ "D": {
+  "craft": 6,
+  "realism": 6,
+  "detail": 5,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "The sky and water are richer than in A, and the wake streaks and a visible horizon add some life. The pink halos under the ships still look like game markers. The water is somewhat noisy and the colours are saturated."
+ },
+ "rank": [
+  "B",
+  "C",
+  "D",
+  "A"
+ ],
+ "why": "B and C have the most believable atmosphere, water and terrain, with a natural palette and haze that gives depth. D and A are more saturated, with game-like water and halo markers around the ships.",
+ "top_fix_for_best": "Make the ships bigger and easier to read: add sail detail, wakes, gun smoke and warm rim light, with a foreground hero ship or closer camera, and add some contrast and sky interest to break up the flat haze."
+}

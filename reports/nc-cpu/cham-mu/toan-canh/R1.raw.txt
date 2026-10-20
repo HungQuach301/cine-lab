@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 4, "realism": 3, "detail": 4, "toy_like": 7, "ai_look": 3, "flags": ["toy_look", "flat_slide_look"], "note": "Saturated flat blue water and flat olive ground. Ships sit on bright magenta discs that read as game markers. Buildings are tiny orange blocks. Looks like a map or game."},
+ "B": {"craft": 7, "realism": 7, "detail": 6, "toy_like": 3, "ai_look": 3, "flags": [], "note": "Natural deep-blue water with a horizon gradient, atmospheric haze and textured scrub terrain. Ships look like small ships. Red roofs are a bit uniform and saturated, but the frame is believable and cinematic."},
+ "C": {"craft": 6, "realism": 5, "detail": 6, "toy_like": 5, "ai_look": 3, "flags": ["toy_look"], "note": "Better water with foam and wake, and better terrain than A. The magenta discs under the ships still look like toy bases. Muted orange roofs are more natural, but the harbour shoreline has odd cutout shapes."},
+ "D": {"craft": 5, "realism": 6, "detail": 6, "toy_like": 3, "ai_look": 4, "flags": ["broken_render"], "note": "Same look as B, but black rectangular shadow or geometry artifacts are scattered across the town and a dark band crosses the hillside. These read as render errors and distract."},
+ "rank": ["B", "C", "D", "A"],
+ "why": "B has the most natural water, haze and terrain texture, with no toy markers and no render glitches; A looks like a game map and D has visible black artifacts.",
+ "top_fix_for_best": "Vary the roof colours and building heights so the town reads as organic and not repeated red blocks. Add smoke, small figures and wakes to the fleet, and soften the saturated red."}
+```

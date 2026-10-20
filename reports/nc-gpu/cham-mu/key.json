@@ -1,0 +1,80 @@
+{
+ "vay-ham": {
+  "kind": "a siege scene: the besiegers' camps and lines on the isthmus in front of a fortified rock, 1779",
+  "nhan": {
+   "gpu": "A",
+   "A": "B",
+   "V7B": "C"
+  },
+  "tep": {
+   "gpu": "reports/nc-gpu/khung/gpu-256/cong-vay-ham.jpg",
+   "A": "reports/nc-cpu/khung/A/cong-vay-ham.jpg",
+   "V7B": "reports/nc-cpu/khung/V7B/cong-vay-ham.jpg"
+  }
+ },
+ "cang": {
+  "kind": "a harbour scene: a relief convoy of 18th-century sailing ships arriving at a fortified port town, 1780",
+  "nhan": {
+   "A": "A",
+   "gpu": "B",
+   "V7B": "C"
+  },
+  "tep": {
+   "gpu": "reports/nc-gpu/khung/gpu-256/cong-cang.jpg",
+   "A": "reports/nc-cpu/khung/A/cong-cang.jpg",
+   "V7B": "reports/nc-cpu/khung/V7B/cong-cang.jpg"
+  }
+ },
+ "pho-day": {
+  "kind": "a dense old-town scene of an 18th-century fortified port town seen from above, 1780",
+  "nhan": {
+   "V7B": "A",
+   "A": "B",
+   "gpu": "C"
+  },
+  "tep": {
+   "gpu": "reports/nc-gpu/khung/gpu-256/cong-pho-day.jpg",
+   "A": "reports/nc-cpu/khung/A/cong-pho-day.jpg",
+   "V7B": "reports/nc-cpu/khung/V7B/cong-pho-day.jpg"
+  }
+ },
+ "hero": {
+  "kind": "a hero shot of a modern city on a famous rock with an airport, 2026",
+  "nhan": {
+   "gpu": "A",
+   "A": "B",
+   "V7B": "C"
+  },
+  "tep": {
+   "gpu": "reports/nc-gpu/khung/gpu-256/cong-hero.jpg",
+   "A": "reports/nc-cpu/khung/A/cong-hero.jpg",
+   "V7B": "reports/nc-cpu/khung/V7B/cong-hero.jpg"
+  }
+ },
+ "toan-canh": {
+  "kind": "a panorama of an 18th-century fortified town along a bay with a fleet, 1781",
+  "nhan": {
+   "V7B": "A",
+   "gpu": "B",
+   "A": "C"
+  },
+  "tep": {
+   "gpu": "reports/nc-gpu/khung/gpu-256/cong-toan-canh.jpg",
+   "A": "reports/nc-cpu/khung/A/cong-toan-canh.jpg",
+   "V7B": "reports/nc-cpu/khung/V7B/cong-toan-canh.jpg"
+  }
+ },
+ "bo-chien-su": {
+  "kind": "a shore-and-battle scene: floating gun batteries attacking a fortified town from the sea, 1782",
+  "nhan": {
+   "V7B": "A",
+   "gpu": "B",
+   "A": "C"
+  },
+  "tep": {
+   "gpu": "reports/nc-gpu/khung/gpu-256/cong-bo-chien-su.jpg",
+   "A": "reports/nc-cpu/khung/A/cong-bo-chien-su.jpg",
+   "V7B": "reports/nc-cpu/khung/V7B/cong-bo-chien-su.jpg"
+  }
+ }
+}

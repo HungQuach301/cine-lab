@@ -1,0 +1,8 @@
+```json
+{"A": {"craft": 6, "realism": 6, "detail": 5, "toy_like": 4, "ai_look": 4, "flags": ["unreadable_scale"], "note": "Best balance. The deep blue water has a believable wave texture and the sky is natural, with a clear horizon line. The terrain is decent. The ships are tiny and sit on pink or red halo patches that look like rendering artefacts. The town is a blurry brown mass. The pier is a flat, plain slab."},
+"B": {"craft": 5, "realism": 6, "detail": 4, "toy_like": 3, "ai_look": 3, "flags": ["washed_out", "empty_frame", "unreadable_scale"], "note": "The most atmospheric of the three, with hazy depth and a calm sea that reads as real. The sky is a blank pale gradient, though, and the sea is a large dark, flat area. The ships are tiny, with no wakes or smoke. The town is smeared and low-contrast. It looks flat and a bit dull. The ship halos are less visible here than in A and C."},
+"C": {"craft": 4, "realism": 4, "detail": 4, "toy_like": 5, "ai_look": 5, "flags": ["noisy", "toy_look", "unreadable_scale"], "note": "The water is oversaturated cyan with a busy, noisy sparkle pattern that looks like a game or stock ocean. The colours are garish. The pink halos around the ships are very visible. It reads as a game render."},
+"rank": ["A", "B", "C"],
+"why": "A has the most convincing water, sky and colour balance with the fewest distracting flaws. B is atmospheric but empty and washed out. C's neon, noisy water makes it look like a game.",
+"top_fix_for_best": "Remove the pink halo or decal patches under the ships and replace them with proper wakes and bow waves. Then add scale and detail to the foreground: larger hero ships in the near water, a sharper town with distinct roofs, walls and people on the pier, and smoke or flags for life."}
+```
