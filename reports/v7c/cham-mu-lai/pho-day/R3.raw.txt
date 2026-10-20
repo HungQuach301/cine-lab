@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 8, "realism": 7, "detail": 6, "toy_like": 3, "ai_look": 3, "flags": [], "note": "Best atmosphere: hazy distant hills, believable water gradient with foam and soft light, convincing fortified shoreline. Streets between buildings are a little flat and the ships are tiny."},
+"B": {"craft": 5, "realism": 4, "detail": 5, "toy_like": 6, "ai_look": 4, "flags": ["toy_look", "noisy", "unreadable_scale"], "note": "Close, high camera. The ground has a noisy white-line pattern that looks like a texture error. The buildings are chunky blocks and the walls are simple. No horizon, so little sense of place."},
+"C": {"craft": 6, "realism": 5, "detail": 6, "toy_like": 5, "ai_look": 4, "flags": ["toy_look"], "note": "Water is saturated, flat swimming-pool blue, and the wide frame is clean. The terrain looks flat and the buildings are boxy. The horizon is crisp but less atmospheric than in A."},
+"D": {"craft": 7, "realism": 6, "detail": 6, "toy_like": 3, "ai_look": 3, "flags": ["washed_out"], "note": "Good haze and depth, and the rendering is natural-looking. The grassy slope in the foreground is a bit bare and the ground is pale and flat. Overall it is less sharp and saturated than A."},
+"rank": ["A", "D", "C", "B"],
+"why": "A has the most convincing atmosphere, water and materials, with the least toy-like feel. B has a noisy ground texture and chunky blocks, and C's water is a flat saturated blue.",
+"top_fix_for_best": "Break up the pale, flat ground between the buildings with street texture, shadows, courtyards, gardens and smoke. Add more and larger ships and a few tiny moving figures on the walls and quays, so the scale and a sense of life read on a small screen."}
+```

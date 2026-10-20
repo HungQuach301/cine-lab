@@ -1,0 +1,284 @@
+{
+ "vay-ham": {
+  "nguoi": 3,
+  "V7B": {
+   "craft": 4.33,
+   "realism": 4.33,
+   "detail": 3.33,
+   "toy_like": 5.33,
+   "ai_look": 5.0,
+   "flags": [
+    "empty_frame",
+    "flat_slide_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Flat green plain with two tan rectangles of tiny tent dots and a few tree specks. The fortified rock is a small, distant blob and the ships are tiny dots. The sea and sky are pleasant, but the ground is a flat colour field and the camps look pasted on.",
+    "Shows the rock, sea and ships, but the camps are flat tan rectangles with tiny dotted tents laid on a plain green plane. The trees are sparse black dots. It reads as a map overlay, not a place.",
+    "Clean sea and rock, but the camps are flat tan rectangles with tiny box tents. The terrain is a smooth colour field with sparse tree dots, and the dark tree clusters look pasted on. There is no sign of a siege or of the besiegers' lines. The rock is small and far away."
+   ],
+   "hang1": 0
+  },
+  "A-NC-CPU": {
+   "craft": 5.0,
+   "realism": 5.0,
+   "detail": 3.33,
+   "toy_like": 4.67,
+   "ai_look": 4.67,
+   "flags": [
+    "empty_frame",
+    "flat_slide_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Same layout as A. The ground has more grass texture and the tree clusters are denser and more natural, so it reads a little more like a real place. The camps are still flat tan slabs with dot tents, and the rock and ships are still far away.",
+    "Nearly the same as A. The tree clusters are a little denser and the sea is a bit cleaner. The camp rectangles still look pasted on, and the shot is empty of troops and activity.",
+    "Same layout as A. The grass texture is better, the tree clumps look more natural, and the lighting is softer and more cohesive. The camps are still flat tan slabs with tiny dots. There are no troops, lines or siege activity, and the tiny ships are the only life."
+   ],
+   "hang1": 0
+  },
+  "V7C": {
+   "craft": 3.0,
+   "realism": 3.0,
+   "detail": 3.67,
+   "toy_like": 8.0,
+   "ai_look": 6.0,
+   "flags": [
+    "confusing",
+    "flat_slide_look",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Close top-down view. The tents are identical white blocks laid out in a perfect grid on flat tan rectangles, which looks like a board game. The trench line is the one believable element. There is no horizon, no fortress and no sense of place.",
+    "Top-down view of rigid grids of identical white tent cubes on tan slabs. The trench line is the only convincing element. There is no sense of the rock or the siege, and it looks like a board game.",
+    "Top-down view of tan rectangles covered in a regular grid of white cubes that look like game pieces or dominoes. The one trench line is the only interesting element. It has no context, no rock and no horizon, so it doesn't read as a siege."
+   ],
+   "hang1": 0
+  },
+  "V7C-lai": {
+   "craft": 6.33,
+   "realism": 6.33,
+   "detail": 4.67,
+   "toy_like": 4.33,
+   "ai_look": 4.67,
+   "flags": [
+    "empty_frame",
+    "flat_slide_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Best terrain: a textured hillside with scrub, a natural horizon and atmospheric depth. The camps are still pale gridded rectangles that look pasted on. No fortress or sea is visible, so the siege context is missing.",
+    "Best terrain: rolling hills, scrub texture, distant haze and trench lines give real depth. The camps are still flat tan rectangles with a tent grid. There is no rock, no sea, and no troops or smoke.",
+    "Best terrain and atmosphere: layered hills, scrub vegetation, haze and depth. The camps are still flat tan pads with a regular grid of tiny boxes that look like a texture, and the trench lines are thin. The fortress and sea are not shown, so the siege isn't readable."
+   ],
+   "hang1": 3
+  },
+  "why": [
+   "D has the most convincing terrain, lighting and depth, and B has better vegetation than A, while C's toy-like grid of identical blocks reads worst.",
+   "D has the most believable terrain, lighting and depth. A and B show the rock and sea but have flat camp slabs, and C is a toy-like grid with no context.",
+   "D has the most convincing terrain, depth and atmosphere, and B beats A on softer, more natural vegetation. C is a top-down grid of cubes that reads as toy game pieces and loses the siege context."
+  ],
+  "sua_ban_tot": [
+   "Replace the flat grid camp rectangles in D with irregular clusters of tents at varied sizes and rotations. Add cook-fire smoke, tracks and trampled ground, and tiny figures and wagons. Also put the fortified rock or the sea in frame so the siege reads.",
+   "Replace the flat tan camp slabs and uniform tent grid in D with trampled-earth ground decals. Vary the tents in size, rotation and spacing, and add campfire smoke, figures, horse lines and cannon batteries along the trenches. Also add the rock or sea in the background to anchor the siege.",
+   "Replace the flat tan camp pads and regular box grids with irregular, textured camps: varied tents, smoke, figures, fences, earthworks and trenches. Then reframe so the fortified rock sits in the background behind the lines, so the viewer can see what is being besieged."
+  ]
+ },
+ "cang": {
+  "nguoi": 3,
+  "V7C": {
+   "craft": 3.67,
+   "realism": 3.33,
+   "detail": 3.33,
+   "toy_like": 6.0,
+   "ai_look": 4.0,
+   "flags": [
+    "confusing",
+    "flat_slide_look",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "This is not a harbour or ships shot. It is a top-down view of fortress walls with cannons and a heap of red barrels or logs. The sand and stone textures are OK, but the walls read as flat colour planes. The tiny troops are a similar size to the barrels, so scale is unclear. It does not match the shot type.",
+    "This isn't a harbour. It's a close-up of a fortress wall and bastion with a pile of orange barrels or cannon, and a few tiny troops on beige ground. There are no ships, so the shot type doesn't match. The surfaces are flat sandy colour fields. The shadow is the only strong element. The troops are tiny and generic.",
+    "This is not a harbour or a convoy. It is a top-down view of a fortress wall with cannons and a stack of red barrels. The sand and stone surfaces are flat and smeared. The tiny blue-grey soldiers look like game pieces. There are no ships and no sea, so it misses the shot type."
+   ],
+   "hang1": 0
+  },
+  "V7B": {
+   "craft": 5.67,
+   "realism": 4.67,
+   "detail": 4.67,
+   "toy_like": 5.33,
+   "ai_look": 4.33,
+   "flags": [
+    "noisy",
+    "toy_look",
+    "unreadable_scale",
+    "washed_out"
+   ],
+   "note": [
+    "The composition is clear, with a hill, town and convoy. The water is a saturated, uniform cyan-blue with a noisy sparkle pattern. The ships sit on pink or red base rings that look like game-piece markers. The pier is a plain brown slab. The sky is bright and clean.",
+    "The composition is clear, with the town on the left, the pier at the bottom left and the convoy at the top right. The water is a saturated, uniform cyan-blue with a glittery tile pattern and looks like a game ocean. Each ship sits in a red or pink halo marker that reads as game UI. The ships are tiny, and the town is a cluster of brown blocks. The hills are fairly nice.",
+    "The composition is clear and the town, hill and convoy all read. The water is saturated and uniformly blue, with a repeating sparkle pattern. The ships are tiny and carry pink or red halo markers that look like game icons. The pier is a flat, untextured plank block."
+   ],
+   "hang1": 0
+  },
+  "V7C-lai": {
+   "craft": 7.67,
+   "realism": 6.67,
+   "detail": 6.67,
+   "toy_like": 3.0,
+   "ai_look": 3.0,
+   "flags": [
+    "noisy",
+    "unreadable_scale"
+   ],
+   "note": [
+    "This is the most natural of the four. The deeper, varied water has foam streaks and a soft horizon haze. The town has visible roofs, walls and a green shoreline, and the hillside has texture. The convoy is small but reads as ships without markers. The odd floating white slivers on the water look like small boats or debris and could confuse a viewer. The town still has a clay-model feel.",
+    "This is the best frame. The camera is lower and closer, which gives a diagonal depth composition. The town has terracotta roofs, fortification walls, green grass and a beach edge. The ships have no markers and the water has some variation, plus a hazy horizon and mountain. Flaws: the water has a repeating tiled ripple pattern, there are odd white floating slivers on the water (they look like debris or rendering glitches), and the ships are small and distant.",
+    "This is the most cinematic of the four. The hazy horizon and softer light give atmosphere. The dense town has terracotta roofs, walls and a green foreshore. Water has depth variation and foam streaks. Small white foam streaks or boats in the foreground are odd, and the convoy is tiny and distant."
+   ],
+   "hang1": 3
+  },
+  "A-NC-CPU": {
+   "craft": 6.33,
+   "realism": 5.67,
+   "detail": 5.33,
+   "toy_like": 4.33,
+   "ai_look": 4.0,
+   "flags": [
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "The water is deeper and more natural than in B, and the lighting and haze are better. The pink base rings under the ships are still there and read as game markers. The pier is plain and blocky, and the town is small and flat.",
+    "This has the same layout as B but with better, deeper water colour and a hazy horizon, so it's more atmospheric. The red halos around the ships are still there and read as markers or wakes. The pier is a flat wooden slab. The town is small and distant, and the ships are tiny.",
+    "This is the same layout as B, with richer and darker water and a better horizon haze. The red halo markers under the ships still look like game pieces, and the pier is still a flat plank block. It is a mild improvement on B."
+   ],
+   "hang1": 0
+  },
+  "why": [
+   "C has the most believable water, atmosphere and town, and its ships have no marker rings, while A shows the wrong subject and B has toy-like rings and noisy water.",
+   "C has the best depth, readable fortified town, believable colour and no ship markers, while A isn't a harbour shot at all and is just flat beige walls.",
+   "C has the best atmosphere, the most believable town and terrain, and no game-style ship markers, while A is a close-up of a fortress wall that doesn't match the harbour-convoy brief."
+  ],
+  "sua_ban_tot": [
+   "Replace the floating white slivers with properly scaled ships or boats with visible wakes, and make the convoy larger and more detailed in the mid-ground. Add smoke and chimney haze and darker roof and wall variation to the town so it stops reading as a clay model.",
+   "Remove the floating white slivers and the tiled ripple pattern by using a multi-scale, normal-mapped ocean with foam and wakes. Then bring the camera closer to a hero ship group at larger scale, with sails, hull detail, gun smoke and wakes, plus small figures and boats on the quay to give the scene scale.",
+   "Enlarge the convoy and put it in the mid-ground, with readable hulls and sails, wakes and some smoke. Remove or explain the odd white streaks in the foreground water, and add harbour life such as boats, quay figures and smoke from the town."
+  ]
+ },
+ "pho-day": {
+  "nguoi": 3,
+  "A-NC-CPU": {
+   "craft": 7.67,
+   "realism": 7.33,
+   "detail": 6.33,
+   "toy_like": 2.67,
+   "ai_look": 3.0,
+   "flags": [],
+   "note": [
+    "Best atmosphere: hazy distant horizon, soft water with believable shallows, natural grass and terrain, cohesive warm roofs against cool sea. The town is slightly sparse and the ships are tiny.",
+    "Best atmosphere: hazy distant hills, believable water gradient with soft shoreline foam, painterly grass and terrain. Wall and building materials look convincing. Town is slightly sparse and uniform, and the ships are tiny.",
+    "Best atmosphere: hazy distant hills, believable water gradient with foam and soft light, convincing fortified shoreline. Streets between buildings are a little flat and the ships are tiny."
+   ],
+   "hang1": 3
+  },
+  "V7C": {
+   "craft": 5.0,
+   "realism": 4.0,
+   "detail": 5.0,
+   "toy_like": 6.0,
+   "ai_look": 4.33,
+   "flags": [
+    "noisy",
+    "toy_look",
+    "unreadable_scale",
+    "washed_out"
+   ],
+   "note": [
+    "Tight top-down crop with no sky or horizon. The ground has a harsh cracked or netted texture pattern. Buildings are blocky extrusions with fake-looking shadows, and the water is flat saturated blue with white foam blobs.",
+    "Closest, steepest camera. The street ground has a noisy, high-frequency white pattern that reads as a bad texture or moire. Buildings are blocky extrusions with hard shadows, and the walls look like game assets. No sky or horizon, so little depth or atmosphere.",
+    "Close, high camera. The ground has a noisy white-line pattern that looks like a texture error. The buildings are chunky blocks and the walls are simple. No horizon, so little sense of place."
+   ],
+   "hang1": 0
+  },
+  "V7B": {
+   "craft": 6.0,
+   "realism": 5.0,
+   "detail": 6.0,
+   "toy_like": 5.0,
+   "ai_look": 4.0,
+   "flags": [
+    "toy_look"
+   ],
+   "note": [
+    "Same framing as A but the water is over-saturated electric blue and the horizon is dark and hard. Buildings look like clean blocks, and the streets are bare beige patches.",
+    "Good wide framing with sky and horizon. The water is oversaturated cobalt with a repetitive ripple texture, and the dark horizon band is flat. Buildings are a bit boxy, and the greens and streets are cleaner and more plain than A.",
+    "Water is saturated, flat swimming-pool blue, and the wide frame is clean. The terrain looks flat and the buildings are boxy. The horizon is crisp but less atmospheric than in A."
+   ],
+   "hang1": 0
+  },
+  "V7C-lai": {
+   "craft": 7.0,
+   "realism": 6.33,
+   "detail": 6.0,
+   "toy_like": 3.33,
+   "ai_look": 3.33,
+   "flags": [
+    "washed_out"
+   ],
+   "note": [
+    "Good hazy depth and sun glint on the water. The town is a little sparse and the ground between buildings is a washed-out pale grid. Terrain is nicely scaled.",
+    "Nice hazy atmosphere and a lower, more cinematic angle with a good sense of scale. Water has sun glitter. Street and ground texture is a little noisy and washed, and the buildings are sparse and small with some blockiness.",
+    "Good haze and depth, and the rendering is natural-looking. The grassy slope in the foreground is a bit bare and the ground is pale and flat. Overall it is less sharp and saturated than A."
+   ],
+   "hang1": 0
+  },
+  "why": [
+   "A has the most natural atmosphere, water and terrain and the least toy-like town, while B's blocky buildings and noisy cracked ground look like a game prototype.",
+   "A has the most natural colour, atmospheric depth and material believability, while B's noisy ground texture, blocky buildings and lack of horizon make it look the most like a game asset.",
+   "A has the most convincing atmosphere, water and materials, with the least toy-like feel. B has a noisy ground texture and chunky blocks, and C's water is a flat saturated blue."
+  ],
+  "sua_ban_tot": [
+   "Add street-level life and texture to the town: dense people, carts, smoke from chimneys, varied roof weathering and courtyard greenery. Make the ships larger with visible wakes, so the port reads as lived-in and the scale is clear.",
+   "Add density and variety to the town (more varied rooflines, chimneys, courtyard trees, smoke wisps, people and carts along the quay), enlarge and detail the ships with wakes and sails, and add soft volumetric haze and cast shadows across the roofs to give richer depth.",
+   "Break up the pale, flat ground between the buildings with street texture, shadows, courtyards, gardens and smoke. Add more and larger ships and a few tiny moving figures on the walls and quays, so the scale and a sense of life read on a small screen."
+  ]
+ },
+ "tb_A-NC-CPU": {
+  "craft": 6.33,
+  "realism": 6.0,
+  "detail": 5.0,
+  "toy_like": 3.89,
+  "ai_look": 3.89,
+  "hang1": 3
+ },
+ "tb_V7B": {
+  "craft": 5.33,
+  "realism": 4.67,
+  "detail": 4.67,
+  "toy_like": 5.22,
+  "ai_look": 4.44,
+  "hang1": 0
+ },
+ "tb_V7C": {
+  "craft": 3.89,
+  "realism": 3.44,
+  "detail": 4.0,
+  "toy_like": 6.67,
+  "ai_look": 4.78,
+  "hang1": 0
+ },
+ "tb_V7C-lai": {
+  "craft": 7.0,
+  "realism": 6.44,
+  "detail": 5.78,
+  "toy_like": 3.55,
+  "ai_look": 3.67,
+  "hang1": 6
+ },
+ "chi_phi": 0.55
+}
