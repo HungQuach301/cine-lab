@@ -1,0 +1,200 @@
+[
+  {
+    "timestamp": "2026-10-20T00:17:47.453761+00:00",
+    "blender_version": {
+      "version": "5.2.0 LTS",
+      "build_date": "2026-07-14",
+      "build_time": "01:32:04",
+      "build_commit_date": "2026-07-13",
+      "build_commit_time": "15:20",
+      "build_hash": "fbe6228777e7",
+      "label": "5.2.0",
+      "checksum": "96f6c181a30f4950607839dc84d42a354b250d8a0231b098b59b7bc69c351c48"
+    },
+    "benchmark_launcher": {
+      "label": "3.3.0",
+      "checksum": "c52cd088936d7cd8fac9b72f0d14055744e5d4ddd40f85ba299892350c494515"
+    },
+    "benchmark_script": {
+      "label": "3.1.2",
+      "checksum": "2881a9f160a24ccd4282e43b861bd727e33562a4a230401343b590d10e890272"
+    },
+    "scene": {
+      "label": "monster",
+      "checksum": "8ff812a02f720433de1403dab447be9541eecca71cc919224a7790d017c1b2ce"
+    },
+    "system_info": {
+      "bitness": "64bit",
+      "machine": "x86_64",
+      "system": "Linux",
+      "dist_name": "Debian GNU/Linux",
+      "dist_version": "12",
+      "devices": [
+        {
+          "type": "CPU",
+          "name": "INTEL XEON GOLD 6530"
+        },
+        {
+          "type": "OPTIX",
+          "name": "NVIDIA GeForce RTX 5090",
+          "is_display": false
+        }
+      ],
+      "num_cpu_sockets": 2,
+      "num_cpu_cores": 64,
+      "num_cpu_threads": 128
+    },
+    "device_info": {
+      "device_type": "OPTIX",
+      "compute_devices": [
+        {
+          "type": "OPTIX",
+          "name": "NVIDIA GeForce RTX 5090",
+          "is_display": false
+        }
+      ],
+      "num_cpu_threads": 128
+    },
+    "stats": {
+      "device_peak_memory": 2122,
+      "number_of_samples": 3668,
+      "time_for_samples": 30.091212,
+      "samples_per_minute": 7313.763234262548,
+      "total_render_time": 32.0425,
+      "render_time_no_sync": 30.0915,
+      "time_limit": 30
+    }
+  },
+  {
+    "timestamp": "2026-10-20T00:18:40.564400+00:00",
+    "blender_version": {
+      "version": "5.2.0 LTS",
+      "build_date": "2026-07-14",
+      "build_time": "01:32:04",
+      "build_commit_date": "2026-07-13",
+      "build_commit_time": "15:20",
+      "build_hash": "fbe6228777e7",
+      "label": "5.2.0",
+      "checksum": "96f6c181a30f4950607839dc84d42a354b250d8a0231b098b59b7bc69c351c48"
+    },
+    "benchmark_launcher": {
+      "label": "3.3.0",
+      "checksum": "c52cd088936d7cd8fac9b72f0d14055744e5d4ddd40f85ba299892350c494515"
+    },
+    "benchmark_script": {
+      "label": "3.1.2",
+      "checksum": "2881a9f160a24ccd4282e43b861bd727e33562a4a230401343b590d10e890272"
+    },
+    "scene": {
+      "label": "junkshop",
+      "checksum": "f5515a21a1337b908212d8d76733530df83014464a24c585ab7b96000da0cdce"
+    },
+    "system_info": {
+      "bitness": "64bit",
+      "machine": "x86_64",
+      "system": "Linux",
+      "dist_name": "Debian GNU/Linux",
+      "dist_version": "12",
+      "devices": [
+        {
+          "type": "CPU",
+          "name": "INTEL XEON GOLD 6530"
+        },
+        {
+          "type": "OPTIX",
+          "name": "NVIDIA GeForce RTX 5090",
+          "is_display": false
+        }
+      ],
+      "num_cpu_sockets": 2,
+      "num_cpu_cores": 64,
+      "num_cpu_threads": 128
+    },
+    "device_info": {
+      "device_type": "OPTIX",
+      "compute_devices": [
+        {
+          "type": "OPTIX",
+          "name": "NVIDIA GeForce RTX 5090",
+          "is_display": false
+        }
+      ],
+      "num_cpu_threads": 128
+    },
+    "stats": {
+      "device_peak_memory": 5630,
+      "number_of_samples": 3073,
+      "time_for_samples": 34.765001,
+      "samples_per_minute": 5303.60979998246,
+      "total_render_time": 40.8743,
+      "render_time_no_sync": 34.7654,
+      "time_limit": 30
+    }
+  },
+  {
+    "timestamp": "2026-10-20T00:19:17.263307+00:00",
+    "blender_version": {
+      "version": "5.2.0 LTS",
+      "build_date": "2026-07-14",
+      "build_time": "01:32:04",
+      "build_commit_date": "2026-07-13",
+      "build_commit_time": "15:20",
+      "build_hash": "fbe6228777e7",
+      "label": "5.2.0",
+      "checksum": "96f6c181a30f4950607839dc84d42a354b250d8a0231b098b59b7bc69c351c48"
+    },
+    "benchmark_launcher": {
+      "label": "3.3.0",
+      "checksum": "c52cd088936d7cd8fac9b72f0d14055744e5d4ddd40f85ba299892350c494515"
+    },
+    "benchmark_script": {
+      "label": "3.1.2",
+      "checksum": "2881a9f160a24ccd4282e43b861bd727e33562a4a230401343b590d10e890272"
+    },
+    "scene": {
+      "label": "classroom",
+      "checksum": "936f0a528f03eba291c67ea87743a0ebde58938fb87471b262721b89b46b875d"
+    },
+    "system_info": {
+      "bitness": "64bit",
+      "machine": "x86_64",
+      "system": "Linux",
+      "dist_name": "Debian GNU/Linux",
+      "dist_version": "12",
+      "devices": [
+        {
+          "type": "CPU",
+          "name": "INTEL XEON GOLD 6530"
+        },
+        {
+          "type": "OPTIX",
+          "name": "NVIDIA GeForce RTX 5090",
+          "is_display": false
+        }
+      ],
+      "num_cpu_sockets": 2,
+      "num_cpu_cores": 64,
+      "num_cpu_threads": 128
+    },
+    "device_info": {
+      "device_type": "OPTIX",
+      "compute_devices": [
+        {
+          "type": "OPTIX",
+          "name": "NVIDIA GeForce RTX 5090",
+          "is_display": false
+        }
+      ],
+      "num_cpu_threads": 128
+    },
+    "stats": {
+      "device_peak_memory": 2219,
+      "number_of_samples": 2066,
+      "time_for_samples": 30.703593,
+      "samples_per_minute": 4037.3125060640295,
+      "total_render_time": 31.822,
+      "render_time_no_sync": 30.7039,
+      "time_limit": 30
+    }
+  }
+]
