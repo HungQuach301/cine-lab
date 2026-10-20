@@ -13,3 +13,7 @@
 - Chấm mù 640×360 (3 vai Sonnet 5.5, $1,04): A 12/18 hạng nhất, Cycles GPU 6, V7B 0.
 - Cú lặn 480 khung đang dựng trên 2 pod RTX 5090 (khung 93–335, 336–479); khung 0–92 đã về. Lỗi vận hành: bộ canh chia việc khớp nhầm câu lỗi `ls` → tắt pod 2 ở khung 92 (không mất khung nào; đã sửa phép kiểm).
 - PRO 4500: "There are no instances currently available" (00:48 UTC). Pod 3 nhận tệp chỉ 2,0 MB/s (pod 1, 2, 4: 20–22 MB/s).
+
+## Lượt 3 (≈ 03:25 UTC 20/10)
+- Container của phiên khởi động lại ≈ 03:15 (không do phiên): dữ liệu `/var/tmp/cine-out/ncg` còn nguyên; pod 3/4 tiếp tục dựng phía RunPod; pod 5 (vừa bật, chưa có dữ liệu) được nạp lại. Bộ theo dõi mới `design/pt/gpu/chay/theo_pod.sh` (kéo ảnh, dừng theo khung, tắt pod).
+- Chia cú lặn: pod 3 336–479, pod 4 93–255, pod 5 256–335; khung 0–92 đã về.
