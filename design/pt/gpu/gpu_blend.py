@@ -411,7 +411,7 @@ def set_light(st):
     sl.energy = st['sun']['intensity']; sl.color = st['sun']['color'][:3]; hm = st['hemi']; k = hm['intensity'] * 1.15 * SKYDIF
     DIF_D.inputs[6].default_value = (*[c * k for c in hm['sky']], 1); DIF_D.inputs[7].default_value = (*[c * k * 0.85 for c in hm['sky']], 1)
     DIF_N.outputs[0].default_value = (*[c * hm['intensity'] * SKYDIF for c in hm['sky']], 1)
-    nk = float(st.get('night') or 0); NKN.outputs[0].default_value = nk
+    nk = float(st.get('night') or 0); NKN.outputs[0].default_value = nk; NK_NOW[0] = nk
     for em in HAZE_EM: em.inputs['Color'].default_value = (*[c * (1 - nk) + cn * nk for c, cn in zip(HAZE_C, (0.035, 0.05, 0.09))], 1)
 
 # ---------------------------------------------------------------- lửa (pin nổi cháy) : đèn điểm + ngọn lửa phát xạ
@@ -450,6 +450,7 @@ def add_smoke():
 if '--smoke' in opt and FIRES: add_smoke()
 
 FX = []
+NK_NOW = [1.0 if NIGHT >= 0.5 else 0.0]
 FXMAT = {}
 def add_fx(fp=None):
     """khói/lửa của k2v ở khung này (fx.json, smokeV6: [E, cao, N, cỡ, alpha, tuổi, loại, hạt]) → mỗi cụm một cầu THỂ TÍCH:
@@ -495,7 +496,7 @@ def add_fx(fp=None):
         ob['cc'] = (0.9, 0.55, 0.3) if fire else ((0.13, 0.11, 0.095) if kd == 2 else (0.80 + 0.1 * (1 - age), 0.79 + 0.1 * (1 - age), 0.77 + 0.1 * (1 - age)))
         ob.visible_shadow = True; FX.append(ob)
         if fire:
-            li = bpy.data.lights.new(f'lua_fx{i}', 'POINT'); li.energy = float(opt.get('--firew', 20.0 if NIGHT < 0.5 else 400.0)) * sz * sz * a;   # ≈ 4π·E·(1,5·cỡ)²: E ≈ 1,5 (≈ 40 % nắng) ở 1,5 cỡ ban ngày; đêm ×10
+            li = bpy.data.lights.new(f'lua_fx{i}', 'POINT'); li.energy = (float(opt['--firew']) if '--firew' in opt else 20.0 + 380.0 * NK_NOW[0]) * sz * sz * a;   # ngày 20 → đêm 400 theo uNight TỪNG khung (lượt 1 chọn theo đầu đoạn → lửa bật sáng ở khung 168)   # ≈ 4π·E·(1,5·cỡ)²: E ≈ 1,5 (≈ 40 % nắng) ở 1,5 cỡ ban ngày; đêm ×10
             li.color = (1.0, 0.48, 0.16); li.shadow_soft_size = sz * 0.3
             lo = bpy.data.objects.new(f'lua_fx{i}', li); lo.location = (x, z_n, y); sc.collection.objects.link(lo); nf += 1; FX.append(lo)
     stat['fx_cum'] = len(FX); stat['fx_lua'] = nf
