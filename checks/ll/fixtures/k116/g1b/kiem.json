@@ -1,0 +1,203 @@
+{
+ "342-FH_000757.jpg": {
+  "sha256": "c3b81b1904a4fbbf55e9f858a5b9d2c645f382e864ca8dafa2e821fd228cb47e",
+  "px": [
+   4532,
+   3532
+  ],
+  "o": [
+   [
+    1552,
+    2535
+   ],
+   [
+    2951,
+    2122
+   ],
+   [
+    3453,
+    91
+   ],
+   [
+    3095,
+    1368
+   ],
+   [
+    2678,
+    2091
+   ],
+   [
+    74,
+    2615
+   ],
+   [
+    9,
+    1397
+   ],
+   [
+    3896,
+    2794
+   ]
+  ],
+  "cong_cu": {
+   "realesrgan_x2plus": {
+    "psnr": 32.6,
+    "ssim": 0.917,
+    "canh_moi_pt": 50.09,
+    "canh_moi_max_o_pt": 98.16,
+    "dat": false,
+    "s_moi_o": 5.67
+   },
+   "swin2sr_x2": {
+    "psnr": 48.1,
+    "ssim": 0.9881,
+    "canh_moi_pt": 3.72,
+    "canh_moi_max_o_pt": 19.81,
+    "dat": true,
+    "s_moi_o": 46.44
+   },
+   "bicubic": {
+    "psnr": 47.68,
+    "ssim": 0.9877,
+    "canh_moi_pt": 3.95,
+    "canh_moi_max_o_pt": 16.74,
+    "dat": null,
+    "s_moi_o": 0.0
+   }
+  }
+ },
+ "342-FH_000759.jpg": {
+  "sha256": "f5812d275dd70f5fc17474d435e124a8722ebd14cec7467c4e296ec3a051a5e6",
+  "px": [
+   4512,
+   3516
+  ],
+  "o": [
+   [
+    3498,
+    2085
+   ],
+   [
+    1544,
+    2521
+   ],
+   [
+    2936,
+    2111
+   ],
+   [
+    3436,
+    91
+   ],
+   [
+    3079,
+    1361
+   ],
+   [
+    2665,
+    2080
+   ],
+   [
+    74,
+    2601
+   ],
+   [
+    9,
+    1389
+   ]
+  ],
+  "cong_cu": {
+   "realesrgan_x2plus": {
+    "psnr": 33.77,
+    "ssim": 0.9288,
+    "canh_moi_pt": 50.66,
+    "canh_moi_max_o_pt": 75.29,
+    "dat": false,
+    "s_moi_o": 20.42
+   },
+   "swin2sr_x2": {
+    "psnr": 48.32,
+    "ssim": 0.9878,
+    "canh_moi_pt": 8.64,
+    "canh_moi_max_o_pt": 24.23,
+    "dat": false,
+    "s_moi_o": 69.43
+   },
+   "bicubic": {
+    "psnr": 48.05,
+    "ssim": 0.9876,
+    "canh_moi_pt": 6.4,
+    "canh_moi_max_o_pt": 19.02,
+    "dat": null,
+    "s_moi_o": 0.0
+   }
+  }
+ },
+ "342-FH_000761.jpg": {
+  "sha256": "cc2ab128a513301c0c99e7d9e82319e3e9524720f2bb13288a6326b5932c2a40",
+  "px": [
+   4504,
+   3502
+  ],
+  "o": [
+   [
+    3491,
+    2075
+   ],
+   [
+    1541,
+    2510
+   ],
+   [
+    135,
+    1744
+   ],
+   [
+    2930,
+    2101
+   ],
+   [
+    3429,
+    91
+   ],
+   [
+    2659,
+    2070
+   ],
+   [
+    74,
+    2589
+   ],
+   [
+    9,
+    1383
+   ]
+  ],
+  "cong_cu": {
+   "realesrgan_x2plus": {
+    "psnr": 28.7,
+    "ssim": 0.8775,
+    "canh_moi_pt": 49.06,
+    "canh_moi_max_o_pt": 75.63,
+    "dat": false,
+    "s_moi_o": 16.04
+   },
+   "swin2sr_x2": {
+    "psnr": 48.13,
+    "ssim": 0.9904,
+    "canh_moi_pt": 6.34,
+    "canh_moi_max_o_pt": 11.81,
+    "dat": false,
+    "s_moi_o": 60.99
+   },
+   "bicubic": {
+    "psnr": 47.42,
+    "ssim": 0.9898,
+    "canh_moi_pt": 5.21,
+    "canh_moi_max_o_pt": 15.67,
+    "dat": null,
+    "s_moi_o": 0.0
+   }
+  }
+ }
+}

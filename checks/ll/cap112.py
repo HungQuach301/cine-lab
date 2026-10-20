@@ -1,5 +1,5 @@
 #!/opt/cine/bin/python
-"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) (phiên K, 17–18/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
+"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) + 1.16 (SACH-1…PC-1, K-LAI-3V; chỉ tập từ T3; chủ dự án duyệt K116-D1…D9 19/10 18:48 → 1.16.1) (phiên K, 17–19/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
 HH1) và các luật 1.12.1 (chủ dự án duyệt 16–17/10: HH2, HH3, MM1–MM4, JJ1–JJ2, KK1). Mặc định `k2check.py` vẫn CHỈ BÁO (ghi cấp cạnh kết quả);
 `--cap` áp cấp vào mã thoát: hàng có lỗi thuộc phần Chặn → TRƯỢT, chỉ có lỗi phần Cảnh báo → CẢNH BÁO (không tính vào mã thoát).
 
@@ -60,6 +60,17 @@ CAP = {
     'O2': ('Cảnh báo (lưới lọc thứ hai — không thay kiểm nguồn)', set(), {'*'}),
     'BC2': ('Cảnh báo (tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}), 'BC3': ('Cảnh báo (tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}),
     'BC4': ('Cảnh báo (chỉ báo; tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}),
+    # 1.16 (CHỈ tập từ T3) — chủ dự án DUYỆT K116-D1 19/10/2026 18:48 (mức như bảng §3 reports/k116/K116-BAO-CAO.md) + D2/D3/D5 (1.16.1)
+    'SACH-1': ('Chặn (a)–(f) (K116-D1; (e) chữ bản đồ Chặn theo K116-D3: ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ)', set('abcdef'), set()),
+    'CHUONG-1': ('Chặn (a)–(e) · Cảnh báo (f) vị trí/mờ (K116-D1)', set('abcde'), set('f')),
+    'PP-1': ('Chặn (a)–(d) · Cảnh báo (e) tốc độ đọc ≤ 3 từ/s (K116-D1, D8: ≈ 8 s = 7–9 s)', set('abcd'), set('e')),
+    'TL-1': ('Cảnh báo (K116-D1; mục tiêu §13.6, hiệu chỉnh sau V7-PILOT)', set(), {'*'}),
+    'TL-2': ('Cảnh báo (K116-D1; hiệu chỉnh sau V7-PILOT)', set(), {'*'}),
+    'TL-3': ('Cảnh báo (K116-D1; hiệu chỉnh sau V7-PILOT)', set(), {'*'}),
+    'NHIP-NGHIA': ('Chặn (K116-D1; §13.2)', {'*'}, set()),
+    'XEM-CAM': ('Chặn (K116-D1, D2; §13.4 bắt buộc từ T3)', {'*'}, set()),
+    'PC-1': ('Cảnh báo (K116-D1; thước tạm, hiệu chuẩn trên ≥ 10 ảnh)', set(), {'*'}),
+    'K-LAI-3V': ('Chặn ở cổng G2 (bản phát hành) · Cảnh báo ở animatic (K116-D5)', {'*'}, set()),
 }
 _M = re.compile(r'^\((\w)\)')
 
@@ -83,6 +94,7 @@ def cap(ma, r):
     if ma == 'KHOP1':
         ch = [x for x in loi + th if (_muc(x) or '*') in 'abd*' or (_muc(x) == 'c' and r.get('doi_trinh_dung'))]
         return mo, ch, [x for x in loi if x not in ch]
+    if ma == 'K-LAI-3V' and r.get('cong') == 'animatic': return mo, [], loi + th   # K116-D5: animatic (`animatic: true`) chỉ Cảnh báo
     if '*' in CH: return mo, loi + th, []
     if '*' in CB: return mo, [], loi + th
     ch = [x for x in loi + th if _muc(x, M) in CH]

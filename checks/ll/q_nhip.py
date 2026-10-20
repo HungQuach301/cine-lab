@@ -267,9 +267,31 @@ def stats(ev, total):
     return dict(n=len(ev), gop=len(U), tb=round(total / len(U), 2), dai_nhat=round(g, 2), dai_nhat_tu=f'{U[i][1]} {U[i][0]:.2f}s ({U[i][2]})')
 
 
-def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None):
+MIEN_MAX, IM_LANG_N = 10.0, 2   # 1.16 (khiếu nại A-G1B-5; Kinh thánh §11.2): khung neo giữ 6–10 s; 1–2 tấm im lặng 8–10 s/tập
+
+
+def gaps_mien(ev, total, mien):
+    """1.16: khoảng dài nhất (c) bỏ các khoảng nằm trọn trong một shot miễn [(a, b, loại, tên)] và ≤ MIEN_MAX → (dài nhất, từ, [khoảng miễn])"""
+    ev = sorted(ev); U = []
+    for e in ev:
+        if not U or e[0] - U[-1][0] >= MERGE: U.append(e)
+    if not U: return None, '', []
+    G = [(a[0], b[0], a) for a, b in zip(U, U[1:])] + [(U[-1][0], total, U[-1])]
+    keep, ex = [], []
+    for a, b, e in G:
+        m = next((m for m in mien if m[0] - 0.05 <= a and b <= m[1] + 0.05), None)
+        if m and b - a <= MIEN_MAX + 1e-6: ex.append((round(b - a, 2), round(a, 2), m[2], m[3]))
+        else: keep.append((b - a, e))
+    if not keep: return 0.0, '', ex
+    g, e = max(keep, key=lambda z: z[0])
+    return round(g, 2), f'{e[1]} {e[0]:.2f}s ({e[2]})', ex
+
+
+def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None):
     """v113=True: (d) khung tĩnh theo khung neo (1.13) — CHỈ BÁO (k2check hàng "Q37 (1.13)") tới khi chủ dự án duyệt; mặc định thước 1.11.0.
-    tl = [(bộ timelapse, thư mục)] (1.15, I8): cộng biến cố đo trong cảnh tl vào (b), (c)."""
+    tl = [(bộ timelapse, thư mục)] (1.15, I8): cộng biến cố đo trong cảnh tl vào (b), (c).
+    mien = [(t0, t1 tuyệt đối, 'khung_neo'|'im_lang', tên)] (1.16, CHỈ tập từ T3 — khiếu nại A-G1B-5): (c) bỏ khoảng nằm trọn trong shot khung neo /
+    tấm im lặng khi ≤ 10 s (Kinh thánh §11.2); shot miễn > 10 s → (c); > 2 tấm im lặng/tập → (c). TB (b) và khung tĩnh (d) giữ nguyên."""
     V = view(E, TL); bad, ev, mk, t_abs, nob = [], [], [], 0.0, []
     for sid, dur, HZ, shots, B in V:
         T = spec_times(HZ, shots, dur); mk += [(t_abs + x, sid, 'mốc', '') for x in T if x < dur]
@@ -288,6 +310,13 @@ def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None):
     S = stats(ev, t_abs) if ev else None; M = stats(mk, t_abs); near = []
     if S:
         if S['tb'] > MEAN_MAX: bad.append(f"(b) khoảng biến cố trung bình {S['tb']} s > {MEAN_MAX} s")
+        if mien is not None:
+            g_, tu_, ex_ = gaps_mien(ev, t_abs, mien)
+            S = dict(S, dai_nhat_goc=S['dai_nhat'], dai_nhat=g_, dai_nhat_tu=tu_, mien=ex_)
+            for a_, b_, k_, n_ in mien:
+                if b_ - a_ > MIEN_MAX + 1e-6: bad.append(f"(c) shot {k_} {n_} dài {b_ - a_:.2f} s > {MIEN_MAX:g} s (miễn chỉ tới {MIEN_MAX:g} s)")
+            nil = sorted({n_ for a_, b_, k_, n_ in mien if k_ == 'im_lang'})
+            if len(nil) > IM_LANG_N: bad.append(f"(c) {len(nil)} tấm im lặng khai miễn > {IM_LANG_N}/tập ({', '.join(nil[:6])})")
         if S['dai_nhat'] > GAP_MAX: bad.append(f"(c) khoảng dài nhất {S['dai_nhat']} s > {GAP_MAX} s (từ {S['dai_nhat_tu']})")
         near += [f"TB {S['tb']} s (ngưỡng {MEAN_MAX})"] if abs(S['tb'] - MEAN_MAX) <= 0.05 * MEAN_MAX else []
         near += [f"khoảng dài nhất {S['dai_nhat']} s (ngưỡng {GAP_MAX})"] if abs(S['dai_nhat'] - GAP_MAX) <= 0.05 * GAP_MAX else []
@@ -304,6 +333,7 @@ def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None):
               + (f" · trôi chậm (thước cũ > {STATIC_MAX:g} s, không tĩnh): {len(troi)} quãng, dài nhất {max(troi)[0]} s từ {int(max(troi)[1] // 60)}:{max(troi)[1] % 60:04.1f}" if troi else '')
               if st else ' · khung tĩnh: không đo (không có master)')
            + (f" · tham khảo mốc đặc tả: TB {M['tb']} s, dài nhất {M['dai_nhat']} s ({M['dai_nhat_tu']})" if M and not S else '')
+           + (f" · miễn khung neo/im lặng (1.16): {len(S.get('mien') or [])} khoảng, dài nhất trước miễn {S.get('dai_nhat_goc')} s" if S and mien is not None else '')
            + (f" · biến cố cảnh tl (đo, I8): {len(TE)} (" + ', '.join(f'{k[3:]} {sum(1 for x in TE if x[2] == k)}' for k in sorted({x[2] for x in TE})) + ')' if TE else ''))
     return dict(ok=not bad, loi=bad, val=val, note='; '.join(bad[:5]), sat_nguong=near, bien_co=S, moc_dac_ta=M, khung_tinh=st, khung_tinh_cu=st_cu,
                 troi_cham=troi, tong_s=round(t_abs, 2), bien_co_tl=TE)

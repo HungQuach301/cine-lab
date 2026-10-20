@@ -1,4 +1,4 @@
-# Last Lamplighters — luật kênh khoá, bản LL v3 (phiên K, 07/10/2026; LL v2 06/10/2026; 1.10.0 12/10/2026, Q32 áp cả kênh 2; 1.10.1 12/10/2026: Q26b "the", Q33, Q34; 1.10.2 13/10/2026: Q26b đọc kênh 2, Q34c cột bản đồ; **1.11.0 15/10/2026: luật kênh 2 đợt 15/10 — âm thanh A1–A13, Q35 nhãn số, Q36 chữ, Q37 nhịp thị giác, Q32 DVIDS/giấy phép/20 %/< 720p, Q34d năm, Q14–Q18 không áp kênh 2**; **1.11.1 15/10/2026: Q34(e) loại `record` văn bản gốc, Q36(b) câu miễn trừ, D5 duyệt**; **1.12.0 16/10/2026: ML1–ML3 mạch truyện/lời, FT1 footage, BC1 bố cục, MAU1 màu, KHOP1 đổi trình dựng, TL-Q1…Q6 timelapse — CHỈ BÁO**; **1.12.1 17/10/2026: Q35 "≈" bộ đếm timelapse (HH3), TL-Q2 AGL theo loại tuyến (HH2), TL-Q1(c) tương phản cục bộ (MM3), TL-Q7 năm/s theo pha (MM2), TL-Q8 nội dung bay thấp (MM1), TL-Q9 tiết chế máy (JJ1/KK1), KHOP1 khai khung vàng (MM4), Q34 type timelapse; cấp Chặn/Cảnh báo ghi cạnh kết quả, `--cap` áp cấp**; **1.12.2 17/10/2026: biến thể kênh 2 NHIP-K2 (Q14–Q18 → Q37), Q26b-K2 (loại cảnh + vùng; bản đồ không còn trung tính), Q33-K2 (khoá vùng + pHash L/ΔE vùng nội dung), Q32b-K2 (ảnh có máy/chú thích ≤ 12 s) — CHỈ BÁO cạnh luật cũ, chờ duyệt**; **1.13 17/10/2026: NC-H1…NC-H5 luật hình nơi chốn (NC-LS §6), Q7/Q8-K2 estimate, Q33/Q36/Q37 (1.13) theo khiếu nại T2 G2 §13–§14 — CHỈ BÁO, chờ duyệt**; **1.14 17/10/2026: BD-1…BD-8 bản đồ chiến lược `strategic`/inset/ranh lịch sử (B1–B8), NC-H2/H3 loại strategic, K-R1…K-R9 ĐỎ-K (YY5) — CHỈ BÁO**; **1.15 18/10/2026: K-LAI-1…6 + K-LAI-B khung neo LAI (P2-2, P2-3), O2 máy soi lỗi thời đại (O-AI, lưới lọc thứ hai), BC2–BC4 bố cục (I3), Q37/TL-Q1 nhận biến cố cảnh tl và mốc dừng giờ (I8) — CHỈ BÁO**)
+# Last Lamplighters — luật kênh khoá, bản LL v3 (phiên K, 07/10/2026; LL v2 06/10/2026; 1.10.0 12/10/2026, Q32 áp cả kênh 2; 1.10.1 12/10/2026: Q26b "the", Q33, Q34; 1.10.2 13/10/2026: Q26b đọc kênh 2, Q34c cột bản đồ; **1.11.0 15/10/2026: luật kênh 2 đợt 15/10 — âm thanh A1–A13, Q35 nhãn số, Q36 chữ, Q37 nhịp thị giác, Q32 DVIDS/giấy phép/20 %/< 720p, Q34d năm, Q14–Q18 không áp kênh 2**; **1.11.1 15/10/2026: Q34(e) loại `record` văn bản gốc, Q36(b) câu miễn trừ, D5 duyệt**; **1.12.0 16/10/2026: ML1–ML3 mạch truyện/lời, FT1 footage, BC1 bố cục, MAU1 màu, KHOP1 đổi trình dựng, TL-Q1…Q6 timelapse — CHỈ BÁO**; **1.12.1 17/10/2026: Q35 "≈" bộ đếm timelapse (HH3), TL-Q2 AGL theo loại tuyến (HH2), TL-Q1(c) tương phản cục bộ (MM3), TL-Q7 năm/s theo pha (MM2), TL-Q8 nội dung bay thấp (MM1), TL-Q9 tiết chế máy (JJ1/KK1), KHOP1 khai khung vàng (MM4), Q34 type timelapse; cấp Chặn/Cảnh báo ghi cạnh kết quả, `--cap` áp cấp**; **1.12.2 17/10/2026: biến thể kênh 2 NHIP-K2 (Q14–Q18 → Q37), Q26b-K2 (loại cảnh + vùng; bản đồ không còn trung tính), Q33-K2 (khoá vùng + pHash L/ΔE vùng nội dung), Q32b-K2 (ảnh có máy/chú thích ≤ 12 s) — CHỈ BÁO cạnh luật cũ, chờ duyệt**; **1.13 17/10/2026: NC-H1…NC-H5 luật hình nơi chốn (NC-LS §6), Q7/Q8-K2 estimate, Q33/Q36/Q37 (1.13) theo khiếu nại T2 G2 §13–§14 — CHỈ BÁO, chờ duyệt**; **1.14 17/10/2026: BD-1…BD-8 bản đồ chiến lược `strategic`/inset/ranh lịch sử (B1–B8), NC-H2/H3 loại strategic, K-R1…K-R9 ĐỎ-K (YY5) — CHỈ BÁO**; **1.15 18/10/2026: K-LAI-1…6 + K-LAI-B khung neo LAI (P2-2, P2-3), O2 máy soi lỗi thời đại (O-AI, lưới lọc thứ hai), BC2–BC4 bố cục (I3), Q37/TL-Q1 nhận biến cố cảnh tl và mốc dừng giờ (I8) — CHỈ BÁO**; **1.16 19/10/2026: luật T3 (SACH-1…PC-1, K-LAI-3V) + khiếu nại V6/G1b**; **1.16.1 19/10/2026: thước cắt cấu trúc (TL-1 (c)), chủ dự án duyệt K116-D1…D9 (18:48)**)
 
 LL v2: chủ dự án duyệt 06/10/2026. LL v3 (Q26–Q31, sửa Q14, Q16): chủ dự án duyệt 07/10/2026, kèm phán quyết Q-L27 = B, Q-L30 = B, Q-L31 = A có điều kiện, Q-L6v2 = B. **Q26–Q31 áp từ tập 7**; tập 6 v2 phát hành theo luật làm việc của P. **Bản 1.8.0 (K, 09/10/2026, sau tập 7):** sửa Q27, Q31; thêm Q26b (áp từ tập 8, không áp ngược tập 7). **1.8.1:** sửa quãng liên tục Q26b theo chủ dự án. **1.9.0 (K, 11/10/2026, chủ dự án duyệt hướng sửa):** Q28f bộ chuyển chữ→số (khiếu nại P 09/10); Q27 chấm theo manifest của lần chấm (khiếu nại P 10/10); người chấm mù Q27, Q31, G1 qua **Claude API** thay subagent. **1.9.1 (chủ dự án duyệt 1.9.0 và chọn Q27 = phương án A + đặt lại mốc, 11/10/2026):** Q27 chấm kèm mốc tập 8 bản phát hành. **1.10.0 (K, 12/10/2026; chủ dự án 12/10 cho phép footage/ảnh nguồn ngoài, ưu tiên miễn phí):** thêm **Q32** footage nguồn ngoài, áp **mọi tập LL và kênh 2** (`channel-k2/<tập>/`); footage tính là bối cảnh trong Q26b, cảnh toàn khung trong Q16, hình vật chất trong Q29. Chi tiết, mẫu sổ và nguyên văn giấy phép Pexels/Pixabay: `checks/ll/FOOTAGE.md`. **1.10.1 (chủ dự án duyệt 1.10.0 và giao sửa sau khi xem Steel, 12/10/2026):** Q26b tính thẻ/đồ hoạ phẳng là một bối cảnh riêng `the` (LL + kênh 2); thêm **Q33** lặp cảnh (LL từ tập 9, kênh 2 từ K2 tập 2) và **Q34** loại shot (kênh 2 từ K2 tập 2); Q34d cộng photo/document/footage vào trần 40 % của Q32. Đo hồi tố trên Steel không chặn. **1.10.2 (chủ dự án duyệt 13/10/2026; không đổi ngưỡng):** Q26b đọc định dạng kênh 2 (vshot/episode): CLI nhận `episode.yaml [--tl]` như Q33/Q34/Q32 (lỗi P 13/10: đưa `.yaml` cho CLI chỉ nhận timeline → JSONDecodeError), `type` đọc từ shot timeline hoặc đặc tả, `map`/`photo`/`document` là bản đồ / ảnh tư liệu → trung tính, `card` → `the`, `footage` → như footage; Q34(c) chấp nhận khiếu nại V 12/10: số bám đỉnh cột 3D của bản đồ tính là hiện bằng 3D (điều kiện ở dòng Q34). Áp cho mọi tập dựng bằng `scripts/ll/`, chạy qua `bash scripts/ll/qc.sh <episode.yaml>`.
 
@@ -68,6 +68,89 @@ Một lệnh: `k2check.py <episode.yaml> … [--root <gốc repo có vo/*.align.
 **Bộ timelapse** (`q_tl.py`, `k2check.py --bo-tl`): một JSON nêu `campath`, `mat_bang` ("x-z" three.js | "xz"), `ngan_sach` (mỗi khung: pct, center_unanchored_pct, cards), `log_chu` (render-log.json frames: text[{s, role, px1080, ratio}]), `tuyen`, `reveal`, `anh`, `then_now`, `ket`, `nhan_sang`, `nam_toa` — định nghĩa trường ở đầu `q_tl.py` (phiên xưởng đọc bảng này; mẫu đầy đủ: `fixtures/k112/tl-ams30/bo-tl.json`, `fixtures/k112/tl-gib20/bo-tl.json`).
 **Khai `mach`** (gốc episode.yaml hoặc tệp `--khai`): `tom_tat: {tu: "<đầu câu>", den: "<đầu câu>"}`, `luan_diem_chinh: [{claim: C22, cau: "<đầu câu>"}]` (mẫu: `fixtures/k112/t2-mach.yaml`).
 **Đề xuất cho phiên V (ngoài vùng K):** mặt nạ `render.js --maskonly` ghi thêm `hero_pct` và chạy MỌI khung (BC1, TL-Q1c); log chữ mỗi khung có `role` thẻ ảnh; log lệch đầu đường dẫn ảnh neo (TL-Q4b).
+
+## 1.16.1 — thước cắt cấu trúc + duyệt K116-D1…D9 (chủ dự án 19/10/2026 18:48) — 19/10
+Căn cứ: `reports/k1161/K1161-BAO-CAO.md`. Chỉ tập kênh 2 từ T3 (cổng 1.16 như dưới); tập cũ không đổi.
+
+**Thước cắt TL-1 (c) (thay thước histogram + điểm ảnh của 1.16.0 — báo nhầm 26 cắt = 13,1/phút trên bản thử V7P 8 shot/119 s):**
+- Đo trên khung xám 320×180, vùng y **6–70 %** (bỏ dải chữ dưới: phụ đề nung, thẻ chương, bộ đếm; bỏ mép trên).
+- Mỗi khung: cân bằng histogram (bỏ độ sáng/tương phản toàn khung), làm mờ σ 1,2, biên độ gradient Sobel. Khung tối/phẳng (σ xám < 2/255, fade) bỏ qua; so khung sáng sau với khung sáng trước.
+- `s[i]` = tương quan cấu trúc khung i với khung sáng trước: bù tịnh tiến (phase correlation, ≤ 4 % bề ngang), hệ số tương quan Pearson của bản đồ gradient trên lưới **4×3** ô, lấy **trung vị** các ô có cấu trúc.
+- **Cắt** = `s[i]` < **0,30** VÀ trung vị `s` trong ±**0,5 s** (trừ i±1) − `s[i]` ≥ **0,40**; cực tiểu ±2 khung; cách cắt trước > 2 khung; bỏ 0,5 s đầu.
+- Đổi ngày–đêm, chớp đèn, khói, nhà mọc theo năm **cùng góc máy** KHÔNG là cắt; cắt cứng giữa hai cảnh **cùng độ sáng** LÀ cắt (selftest k116).
+- Có đặc tả: đối chiếu một-một cắt video ↔ ranh shot đặc tả (đầu shot + beats `cut`), lệch ≤ **0,5 s**; TL-1 báo **cả hai số** (cắt/phút video, cắt/phút đặc tả, số khớp, chỉ video, chỉ đặc tả). Video quyết (c).
+- Kiểm có đáp án (ranh shot từ đặc tả; G1b bỏ 9 ranh "liền máy" cùng góc đổi năm): **V7P P 1,000 / R 1,000; G1b P 0,983 / R 1,000** (1.16.0: 0,269 / 1,000 và 0,920 / 0,896).
+
+**Duyệt K116 (chủ dự án 19/10/2026 18:48, theo khuyến nghị điều phối):**
+| Mã | Nội dung | Trong mã |
+|---|---|---|
+| K116-D1 | Mức 1.16 như bảng §3 báo cáo K116 (Chặn: SACH-1, CHUONG-1 (a)–(e), PP-1 (a)–(d), NHIP-NGHIA, XEM-CAM; Cảnh báo: TL-1/2/3 tới khi hiệu chỉnh sau V7-PILOT, PC-1, CHUONG-1 (f), PP-1 (e)) và các thay đổi khiếu nại §2 | `cap112.py` (mặc định `k2check` vẫn ghi cấp cạnh kết quả; `--cap` áp vào mã thoát, như mọi luật đã duyệt) |
+| K116-D2 | XEM-CAM đạt = **chủ dự án ≥ 6/8 VÀ trung bình người chấm AI ≥ 6/8** (thay "mỗi người ≥ 6/8") | `q_k116.xem_cam` |
+| K116-D3 | Chữ bản đồ: bản đồ phủ địa hình được **tối đa 2 nhãn địa danh** (vai `diem`, `inset`, `tag`), hiện trong **≤ 3 s** mỗi shot (từ nhãn đầu hiện tới nhãn cuối tắt); **KHÔNG chú giải chữ** (`chu_giai` — phe bằng màu + cờ); chữ khác ngoài danh sách §12.1 (`index`, `card`, vai lạ) là lỗi → **SACH-1 (e) Chặn** | `q_k116.sach1`, `cap112.py` |
+| K116-D4 | Duyệt hướng thước **biến cố trên video** cho Q37 (đổi nội dung trong cửa sổ máy cố định, không nhận biến cố tự khai). **Chỉ kế hoạch**: làm sau khi có dữ liệu V7B | chưa có mã |
+| K116-D5 | K-LAI-3V **Chặn ở cổng G2** (bản phát hành), **Cảnh báo ở animatic** (`animatic: true`) | `cap112.py` + `k2check.py` (`cong`) |
+| K116-D6 | Đo phóng bằng **LK** (tịnh tiến vẫn phase correlation) — giữ như 1.16.0 | `q_k116.zoom_lk` |
+| K116-D7 | `scripts/common/golden.py` so với `checks/golden/tham_chieu/<ca>.png` (khung vàng V6, khoá trong LOCK); ca chưa có tham chiếu V6 (k2v4) giữ nguồn cũ | 1 dòng `golden.py` |
+| K116-D8 | "≈ 8 s" = **7–9 s**; tốc độ đọc ≤ **3 từ/s** là Cảnh báo — giữ như 1.16.0 | `q_k116.pp1` |
+| K116-D9 | Danh sách trường phiên dựng phải xuất (dưới); K không sửa trình dựng | — |
+
+**Trường phiên dựng xuất (K116-D9) — để mọi hàng 1.16 đo được, hết THIẾU:**
+1. `log_shot` mỗi shot: `goc` (cao · thap · neo · phang), `tl` (bool), `vai` (bắt buộc với `thap`), `trong_pct`, `su_kien` [{t, k, s}], `diem_may`, `moc`, `noi`, `nguoi`, `bac`, `nguon`, `ai_image`/`ai_texture`.
+2. `nhip_vat` (`nhip-vat.json`): `{nhip: [{id, chinh, cau, vat: [{loai, shot}]}]}`.
+3. `xem_cam` (`xem-cam.json`): 8 câu, người chấm {id, vai ai|chu_du_an, dung, tong: 8, ngay}, `tat_tieng: true`, `video` + `video_sha256` của bản đã chấm; không email.
+4. `nam_khung` `[{shot, nam_dem, nam_max: {lớp: năm}}]` (NC-H5 (a)).
+5. Log chữ k2.js của lượt kiểm (`--logs`) hoặc `log_chu` — có `role`, `s`, `alpha`, `px1080|cap`, `box` (SACH-1 (c)(d)(e), CHUONG-1 (f), PP-1).
+6. Đặc tả: `khung_neo: true` cho MỌI shot khung neo, `im_lang: true` cho tấm im lặng (miễn Q37 (c)); `animatic: true` cho bản animatic.
+7. `phat_hanh.mo_ta`: mô tả + bình luận ghim có "AI use = Yes", nguồn ghost, nguồn ranh.
+8. Khối `lai:` có sổ vân (`kiem_du_kien_van`, `goi_api_van`) + `dieu_kien_dat` cho kết luận "dùng nếu …".
+9. Video cho TL-1: master hoặc `--tl16-video` (≥ 270p; 12 hoặc 24 khung/s đều đo được).
+
+## 1.16 — khung sạch §12.1 (sửa 19/10) + TL-4, thẻ chương §13.3, thẻ phương pháp D6, ngữ pháp timelapse §13.6, nhịp → vật mang nghĩa §13.2, cổng XEM CÂM §13.4, phục chế §12.3; khiếu nại V6/G1b — 19/10, CHỈ BÁO
+**Chỉ tập kênh 2 từ T3**: bật khi episode.yaml khai `khung_sach: true` (đặc tả T3 đã có) hoặc `kenh2_tu_t3: true`. Tập không khai → mọi luật chạy đúng như 1.15
+(một hàng gộp "1.16 KHÔNG ÁP"). Mã: `checks/ll/q_k116.py` (`q_k116.py <episode.yaml> --tl … [--video …] [--logs …] [--log-shot …]`); `k2check.py` tự gọi
+(video: `--tl16-video <tệp>` hoặc master). Cấp ở cap112.py — chủ dự án duyệt K116-D1 19/10 18:48 (mục 1.16.1).
+
+**Khai mới (gốc episode.yaml, đường dẫn tương đối thư mục tập):**
+| Khoá | Nội dung |
+|---|---|
+| `log_shot` | log shot JSON (mẫu: `channel-k2/k2c-t3-01/g1b/log-shot.json`) — mỗi mục `shot` (id đoạn) + **`goc`**: `cao` (góc cao/toàn cảnh) · `thap` (lướt thấp) · `neo` (khung neo tầm mắt) · `phang` (thẻ/ảnh/bản đồ phẳng; tự suy cho đoạn chỉ có card/photo/strategic); **`tl`**: true khi trong shot thời gian chạy (nhà mọc/cháy/sập, công trình có ngày đầu/cuối, tàu, ngày–đêm, khói); **`vai`**: vai truyện (bắt buộc với `goc: thap`); `noi`; `nguoi: true` (khoảnh khắc người); **`trong_pct`**: % diện tích đồng cỏ/khoảng trống không vật thể (TB shot); `su_kien`: [{t, k, s}] biến cố thấy được; `diem_may`: id điểm máy cao; `moc`; `bac`; `nguon`; `ai_image`/`ai_texture` |
+| `nhip_vat` | bảng nhịp §13.2 JSON `{nhip: [{id, chinh: true, cau, vat: [{loai, shot}]}]}`; `loai` ∈ co_chu_quyen · dem_nam · ranh_dong · mui_ten · su_kien · the_chuong (đề xuất tên tệp `nhip-vat.json`) |
+| `xem_cam` | kết quả cổng XEM CÂM §13.4 JSON `{tat_tieng: true, cau_hoi: [8 câu], nguoi_cham: [{id, vai: ai\|chu_du_an, dung, tong: 8, ngay}], video?, video_sha256?}` (đề xuất tên `xem-cam.json`). K KHÔNG tự chấm |
+| `phat_hanh.mo_ta` | mô tả YouTube + bình luận ghim (`phat-hanh/nguon-mo-ta.md`): "AI use = Yes", nguồn ghost, nguồn ranh |
+| `phuc_che` | `{kiem: kiem.json (kiểm có đáp án, định dạng phuc_che.py của G1b), dung: [{anh, cong_cu}]}` |
+| `loi_khoa`, `claims_md` | ML1 khi chưa có căn chữ lời (animatic): câu lấy từ lời khoá; claims C…/S… lấy từ tệp này |
+| `nam_khung` | `[{shot, nam_dem, nam_max: {lớp: năm}}]` cho NC-H5 (a) cấp tập |
+| `ghost` | `{<id ghost>: {nguon}}` (không có thì lấy `nguon` của log shot dùng ghost) |
+| `log_chu` | log chữ dạng bo-tl `[{f (khung phim), items: [{s, role, cap\|px1080, box, alpha}]}]` khi không dùng `--logs` k2.js |
+Thẻ chương: `p.the_chuong: {s: "1704 — The Rock changes hands", at, dur}` (hoặc chữ log vai `the_chuong`). Thẻ phương pháp: đoạn `the_phuong_phap: true`
+(id `PP`/part `END`/tiêu đề "How this film was made" cũng nhận). Tư liệu chỉ được dùng dạng phủ: `p.phu_dia_hinh: {img, dur ≤ 3}`. Khung neo / tấm im lặng
+(miễn Q37 (c)): shot khai `khung_neo: true` (hoặc `neo: true`) / `im_lang: true`.
+
+| Mã | Đo | Ngưỡng | Cấp (duyệt K116-D1) |
+|---|---|---|---|
+| **SACH-1** | (a) p.so, tấm num/quote/list ngoài thẻ chương/PP · (b) photo/document/record/footage đứng riêng · (c) log chữ: vai cấm (src, src_ngan, ai_label, ghost_src, inset_src, index_src, method, bien_gioi, so, trich, trich_dich) hay chữ "approx. borders / estimated infill / Ruins: estimated / illustrative / AI-assisted / Source:" có alpha > 0 · (d) chip `where` mỗi lần · (e) chữ bản đồ (1.16.1, K116-D3): nhãn địa danh `diem`/`inset`/`tag` mỗi shot; `chu_giai`, `index`, `card`, vai lạ · (f) shot không `p.sach` | 0 · 0 (phủ ≤ **3 s**) · 0 · ≤ **3 s** · ≤ **2** nhãn trong ≤ **3 s**; 0 · 0 | Chặn (a)–(f) (1.16.1) |
+| **CHUONG-1** | thẻ chương | ≤ **8**/tập · "năm — ≤ **6** từ" · ≤ **3 s** · không trong chương 0/CH0/`moc_s` · không captur*/liberat*/conquer*/seiz* · (f) log: góc dưới trái, mờ vào/ra | Chặn (a)–(e) · Cảnh báo (f) |
+| **PP-1** | thẻ phương pháp (D6) | đúng **2** thẻ · mỗi thẻ **7–9 s** (≈ 8) · liền nhau, kết ≤ 0,5 s trước cuối · nói nguồn/bản đồ, ước tính, AI · (e) ≤ **3 từ/s** | Chặn (a)–(d) · Cảnh báo (e) |
+| **TL-1** | (a) Σ shot `goc: cao` + `tl: true` / thân phim (trừ thẻ PP) · (b) số shot đặc tả (cận trên, chỉ báo) · (c) cắt/phút trên video: cắt = đổi CẤU TRÚC (1.16.1, xem mục 1.16.1; thước histogram + điểm ảnh của 1.16.0 đã bỏ), đối chiếu ranh đặc tả ±0,5 s · (d) chuyển động máy shot góc cao: tịnh tiến (phase correlation, bước 0,25 s, vùng y 10–68 %) + phóng (LK) quy ra % bề ngang/s, trung vị cửa sổ 1 s · (e)(f) `diem_may` | ≥ **75 %** · — · ≤ **5**/phút · ≤ **2 %/s** · **6–8** điểm, mỗi điểm ≥ 2 năm | Cảnh báo — **hiệu chỉnh sau V7-PILOT** |
+| **TL-2** | Σ `goc: thap` / thân phim · mỗi shot thấp có `vai` và (`noi: thanh_pho` hoặc `nguoi: true`) | ≤ **10 %** | Cảnh báo — hiệu chỉnh sau V7-PILOT |
+| **TL-3** | shot 3D (cao/thap/neo): `tl` hoặc `su_kien` · "trống": `trong_pct` > **60 %** mà không `tl` · có `bac` | 0 vi phạm | Cảnh báo — hiệu chỉnh sau V7-PILOT |
+| **NHIP-NGHIA** | nhịp chính có ≥ 1 vật hợp lệ (loại đúng, shot có thật, the_chuong có thẻ) | ≥ **90 %** | Chặn |
+| **XEM-CAM** | tệp kết quả: 8 câu · ≥ 3 AI + chủ dự án · tắt tiếng · không email · SHA video khớp (nếu khai) | chủ dự án ≥ **6/8** VÀ trung bình AI ≥ **6/8** (1.16.1, K116-D2) | Chặn |
+| **PC-1** | kiểm có đáp án: Δ cạnh mới = công cụ − **bicubic cùng ô**; PSNR công cụ − bicubic | Δ ≤ **1,0** điểm % · ΔPSNR ≥ 0 cho mọi ảnh dùng | Cảnh báo (thước tạm) |
+
+**Thay luật cũ ở tập từ T3 (khiếu nại chấp nhận — `reports/k116/K116-BAO-CAO.md` §2):**
+- **K-LAI-2** (§12.1): (a) log khung có cờ `ai_image`/`ai_texture` true/false ở mọi khung · (b) đoạn có khung AI phải khai AI ở đặc tả hoặc log shot · (c) thẻ PP nói "AI" · (d) mô tả có "AI use = Yes" · (e) nhãn "Surface detail AI-assisted" KHÔNG hiện trên hình. Bỏ đo cỡ/vị trí nhãn.
+- **K-LAI nhánh vân** (`ai_texture`, HC7): K-LAI-4, K-LAI-5, K-LAI-B chỉ áp khi có khung `ai_image` (tấm C). Sổ vân: `lai.kiem_du_kien_van` + `lai.goi_api_van` (hoặc sổ dạng `tep` của PT3 đặt ở `kiem_du_kien`). K-LAI-3 vân: (a) có tệp "dùng", có trong goi-api · (b) `loi_chac` rỗng · (d) kết luận "dùng nếu …" cần `dieu_kien_dat: true`, ngoại lệ có duyệt · (e) không chấm mù. K-LAI-6 vân nhận `input.mask_frac` (hoặc `mask: null` khi không mặt nạ). Hàng mới **K-LAI-3V**: tệp vân dùng còn ghi `nghi_van` — Chặn ở cổng G2, Cảnh báo ở animatic (1.16.1, K116-D5).
+- **NC-H5**: nhận bộ đếm của cảnh `tl/*` (opt.year/counter) hoặc `p.counter`; (a) đọc `nam_khung` (thiếu → THIẾU); (b) mỗi ghost có nguồn và nguồn có trong mô tả — không đòi nhãn trên hình.
+- **BD-3**: (a) manifest lớp ranh có `nam` + `nguon` · (b) nguồn ranh có trong mô tả · (c) nhãn "approx. borders" hiện trên hình là LỖI (§12.1).
+- **Q26b**: cảnh mô-đun `tl/*` tính bối cảnh theo `tl/<mô-đun> · <vung>` của shot đặc tả.
+- **Q37 / Q37 (1.13) / NHIP-K2 (c)**: khoảng nằm trọn trong shot `khung_neo`/`neo`/`im_lang` ≤ **10 s** được miễn; shot miễn > 10 s hoặc > **2** tấm im lặng → (c). TB (b), khung tĩnh (d) giữ nguyên.
+- **A1–A13**: `animatic: true` → CHỈ BÁO; không lời (timeline không `speech`, không `--vo`) → A4, A8, A9, A10, A13 KHÔNG ÁP; A1–A3, A5–A7, A11, A12 vẫn áp.
+- **ML1**: chưa có căn chữ lời → câu từ `loi_khoa`; `claims_md` khai được.
+
+**Tên trường (trả lời G1b, không đổi luật):** ML1 đọc `cau` = **≥ 12 ký tự đầu của câu, nguyên văn** (khớp đúng một câu của lời: căn chữ `vo/*.align.json`, từ 1.16 cả `loi_khoa`) hoặc `claim: <id>` có trong `claims.md` cạnh đặc tả (từ 1.16: `claims_md`); đặt ở shot (cùng cấp `tpl`) hoặc trong `p`. FT1 đọc **`ly_do_hinh`** ∈ `bang_chung` · `con_nguoi` · `quy_mo` · `khoanh_khac` (không phải `ly_do`).
+
+**Khung vàng V6** (`checks/golden/`): tham chiếu mới dựng bằng trình dựng V6 (`tham_chieu/<ca>.png`, SHA trong `GOLDEN-V6.json`, khoá trong LOCK). Sau `scripts/common/golden.py run --out <ra>`, chạy `checks/golden/so_golden.py <ra>`.
 
 ## 1.15 — khung neo LAI (PT2 Q-PT2-2; chủ dự án duyệt P2-2, P2-3), máy soi lỗi thời đại (O2), bố cục (I3), biến cố cảnh tl (I8) — 18/10, CHỈ BÁO
 Mã: `checks/ll/q_lai.py` (K-LAI-1…6, K-LAI-B; `q_lai.py <episode.yaml> [--tl …] [--logs …]`), `checks/ll/q_thoi_dai.py` (O2; `--video … --nam …` hoặc `--anh …`),
@@ -237,6 +320,10 @@ Không có tệp khoá giải mã Q27: thứ tự trộn suy ra từ SHA video, 
 Ngưỡng của Q12–Q22 giữ nguyên như P đề xuất ở lô 3–5; ngưỡng Q26–Q31 giữ nguyên như chủ dự án định (CHUAN-KENH §11.2), K chỉ định nghĩa cách đo. Q1–Q6 và Q8–Q11 vẫn là luật làm việc của P (xem checks-appeal mục 8; chưa khoá ở bản này).
 
 ## Tự kiểm
+**1.16.1:** `selftest_k116.py` thêm ca thước cắt cấu trúc (video `fixtures/k116/vid/v-ngaydem.mp4` timelapse một góc máy đổi ngày–đêm + đèn + chớp + khói + phụ đề → 0 cắt; `v-cungsang.mp4` cắt cứng hai cảnh cùng histogram → 1 cắt; đối chiếu đặc tả ±0,5 s), K116-D2 (XEM-CAM), K116-D3 (SACH-1 (e)), K116-D5 (K-LAI-3V theo cổng). Số ca: `reports/k1161/K1161-BAO-CAO.md`.
+
+**1.16:** `/opt/cine/bin/python checks/ll/selftest_k116.py` — ≥ 1 ca đạt + ≥ 1 ca trượt cho SACH-1, CHUONG-1, PP-1, TL-1/2/3 (gồm video tổng hợp `fixtures/k116/vid/`), NHIP-NGHIA, XEM-CAM, PC-1, K-LAI 1.16 (nhánh vân, cả SAO dữ liệu thật V6/PT3 `fixtures/k116/v6/`), NC-H5, BD-3, Q26b, Q37, A*, ML1, cổng 1.16 và cấp (fixture `fixtures/k116/ep-t3/` sinh bằng `make_fixtures.py`; `g1b/kiem.json` SAO thật); không gọi mạng/API. Số ca: `reports/k116/K116-BAO-CAO.md`.
+
 **1.15:** `/opt/cine/bin/python checks/ll/selftest_k115.py` — ≥ 1 ca đạt + ≥ 1 ca trượt cho K-LAI-1…6, K-LAI-B, O2, BC2–BC4, Q37 + TL-Q1 (I8) và cấp (fixture `fixtures/k115/`: ep-lai, bc tổng hợp từ `make_fixtures.py`; SAO dữ liệu thật PT2 `pt2/`, đoạn thử V5b-2b `v5b2b/`; O2 đọc `o2/cache.json` = trả lời thật claude-sonnet-5-5 lượt 18/10, không gọi mạng; `--api` gọi lại có chi phí). Số ca: `reports/K-1.15-BAO-CAO.md`.
 
 **1.14:** `/opt/cine/bin/python checks/ll/selftest_k114.py` — ≥ 1 ca đạt + ≥ 1 ca trượt cho định nghĩa strategic, NC-H1/H2/H3 loại strategic (cả trên T2 L5 thật), BD-1…BD-8, K-R1…K-R9, mục khai G1-R và cấp (fixture tổng hợp `fixtures/k114/ep-bd/`, `fixtures/k114/ep-dok/` sinh bằng `make_fixtures.py`; Natural Earth `data/`); không gọi mạng/API. Số ca: `reports/K-1.14-BAO-CAO.md`.

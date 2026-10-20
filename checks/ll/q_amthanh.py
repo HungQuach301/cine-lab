@@ -266,11 +266,18 @@ def chain(MX):
 def near(v, thr): return v is not None and abs(v - thr) <= 0.05 * abs(thr)
 
 
-def check(E, TL, master=None, MX=None, vo=None, bed=None, asr=True, transcripts=None, fdur=None):
-    ap = chain(MX); rows = []; sat = []
+LOI_MUC = ('A4', 'A8', 'A9', 'A10', 'A13')   # 1.16: mục phụ thuộc lời — KHÔNG ÁP khi tập/đoạn không có lời
+
+
+def check(E, TL, master=None, MX=None, vo=None, bed=None, asr=True, transcripts=None, fdur=None, v116=False):
+    """v116 (1.16, CHỈ tập từ T3 — khiếu nại A-V6-2, A-G1B-7): (1) đặc tả `animatic: true` → mọi mục CHỈ BÁO (bản xem nội bộ, nhạc tạm);
+    (2) không có lời (timeline không có `speech`, không có stem --vo) → A4, A8, A9, A10, A13 KHÔNG ÁP; A1–A3, A5–A7, A11, A12 (đo trên master)
+    vẫn áp như cũ (bản không lời §11.2 vẫn là bản phát hành)."""
+    ap = chain(MX) and not (v116 and E.get('animatic')); rows = []; sat = []
+    sp = speech(TL); khong_loi = bool(v116 and not sp and not (vo and os.path.exists(P(vo))))
     def row(ma, ten, ok, gia, nguong, chan=True):
+        if khong_loi and ma in LOI_MUC: ok, gia, chan = None, 'KHÔNG ÁP (không có lời — 1.16)', False
         rows.append(dict(ma=ma, ten=ten, ok=ok, gia_tri=gia, nguong=nguong, chan=chan and ap))
-    sp = speech(TL)
     # A1–A3, A5–A7 trên master
     if master and os.path.exists(P(master)):
         I, LRA, TP = ebur128(master)
@@ -313,7 +320,8 @@ def check(E, TL, master=None, MX=None, vo=None, bed=None, asr=True, transcripts=
     gmax = max([b[0] - a[1] for a, b in zip(G, G[1:])] or [0.0])
     row('A10', 'Quãng không lời > 8 s không khai khoảnh khắc nhạc', not long_, f'dài nhất {gmax:.1f} s · {len(long_)} quãng' + (f' ({", ".join(mmss(a) for a, b in long_[:4])})' if long_ else ''), '> 8 s (báo)', chan=False)
     # A9
-    if asr:
+    if khong_loi: ex = []; row('A9', 'ASR hai cách nghe', None, '', '100 % đoạn')
+    elif asr:
         b9, ex, okc, n = asr_a9(E, TL, transcripts)
         row('A9', 'ASR hai cách nghe (beam 5 + tham lam): số + tên riêng', not b9,
             f'beam 5 {okc[5]}/{n} · tham lam {okc[1]}/{n} đoạn · miễn {len(ex)} câu' + (f' · {"; ".join(b9[:4])}' if b9 else ''), '100 % đoạn, cả hai cách')
@@ -331,7 +339,7 @@ def check(E, TL, master=None, MX=None, vo=None, bed=None, asr=True, transcripts=
     loi = [f"{r['ma']} {r['ten']}: {r['gia_tri']}" for r in rows if r['chan'] and r['ok'] is not True]
     bao = [f"{r['ma']} {r['ten']}: {r['gia_tri']}" for r in rows if not r['chan'] and r['ok'] is False]
     kq = ('ĐẠT' if not loi else 'TRƯỢT') if ap else 'CHỈ BÁO'
-    return dict(ok=not loi, ket_qua=kq, ap_dung=ap, rows=rows, loi=loi, bao=bao, sat_nguong=sat, mien_asr=ex, note='; '.join(loi[:6]),
+    return dict(ok=not loi, ket_qua=kq, ap_dung=ap, khong_loi=khong_loi, rows=rows, loi=loi, bao=bao, sat_nguong=sat, mien_asr=ex, note='; '.join(loi[:6]),
                 val=f"{kq} · " + ' · '.join(f"{r['ma']} {r['gia_tri'].split(' · ')[0]}" for r in rows if r['ma'] in ('A1', 'A2', 'A4', 'A5', 'A7', 'A8')))
 
 
