@@ -1,0 +1,189 @@
+{
+ "may": "claude-sonnet-5-5 (claude -p, chỉ Read)",
+ "thang": "0/1/2 mỗi câu × 3 người = tối đa 6",
+ "theo_cau": {
+  "Q1": 0,
+  "Q2": 6,
+  "Q3": 6,
+  "Q4": 5
+ },
+ "tong": 17,
+ "toi_da": 24,
+ "clarity_tb": 2.0,
+ "nguoi": {
+  "R1": {
+   "diem": {
+    "Q1": 0,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "Not sure. No flags, uniforms or other markers show who holds the Rock. Ships ring the bay and the town sits on the shore, but I can't tell which side is which.",
+    "Q2": "'1779 — The Great Siege', a caption shown at frame 23 (20 Jun 1779). Dated frames then run through 1779, 1780 and 1781. So a siege or blockade begins, with ships gathering around the Rock.",
+    "Q3": "Not sure. The pictures never show food, empty stores or starving people. The best I can infer is that the town is cut off by the siege while ships sit offshore for months, but that is a guess.",
+    "Q4": "Not sure. Groups of sailing ships appear in the bay in Jan–Feb 1780 and Jul 1779. I can't tell whether they are rescuers or besiegers. No clear relief force is shown."
+   },
+   "lac": [
+    {
+     "frame": 1,
+     "why": "The video opens on night views of a modern city with 2026 dates, and I can't tell what the story is about."
+    },
+    {
+     "frame": 9,
+     "why": "The years jump around (1346, 1615, 1731, 1770, 1795) with smoke puffs and no explanation."
+    },
+    {
+     "frame": 17,
+     "why": "The scene jumps to 1939–1957 airfield and modern city views that have nothing to do with the siege."
+    },
+    {
+     "frame": 34,
+     "why": "Ships appear but there are no flags or labels, so I can't tell who is attacking and who is defending."
+    },
+    {
+     "frame": 47,
+     "why": "Many ships fill the bay with no sign of who they are or what they are doing."
+    },
+    {
+     "frame": 58,
+     "why": "Orange glows appear at night on the town, with no clue what caused them."
+    },
+    {
+     "frame": 59,
+     "why": "The town looks damaged, and no hunger or rescue is shown."
+    }
+   ],
+   "diem_p_doc": {
+    "Q1": 0,
+    "Q2": 2,
+    "Q3": 1,
+    "Q4": 0
+   }
+  },
+  "R2": {
+   "diem": {
+    "Q1": 0,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 1
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "Not sure. The pictures never show flags, uniforms or any text that names who holds the Rock. They only show a fortified town below a big rock, with ships around it and in the bay.",
+    "Q2": "A siege. Frame 23 has the caption '1779 — The Great Siege' and the date 20 Jun 1779. After that, the dates run on through 1779 and 1780 while ships gather around the Rock.",
+    "Q3": "Not sure. Ships sit offshore and the town is surrounded, which suggests a blockade that cuts off supplies. The pictures show no food, no starving people and no explanation, so I'm inferring this from the siege caption and the ships.",
+    "Q4": "Ships, apparently a fleet. Ship groups arrive in the bay around frames 47–50 (17 Jan to 4 Feb 1780). The pictures don't show them unloading anything or clearly relieving the town, so I'm not certain they are a rescue force."
+   },
+   "lac": [
+    {
+     "frame": 7,
+     "why": "The frames jump through unrelated years (2026, 1795, 1346, 1615, 1731) with no explanation."
+    },
+    {
+     "frame": 9,
+     "why": "Smoke plumes appear on the rock, but I can't tell what they are or who is firing."
+    },
+    {
+     "frame": 15,
+     "why": "A line of burning ships and then a night scene (Sept 1782). I can't tell whose ships they are or what is happening."
+    },
+    {
+     "frame": 17,
+     "why": "The view switches to an airfield and modern-looking land (1939–2026), which seems unrelated to the siege story."
+    },
+    {
+     "frame": 25,
+     "why": "About 10 frames of an empty plain with the Rock far off and nothing happening, only the dates changing."
+    },
+    {
+     "frame": 34,
+     "why": "Unlabelled ships appear near the Rock, and nothing says whose they are or why they are there."
+    },
+    {
+     "frame": 40,
+     "why": "A new bay and town view with no people, no flags and no sign of hunger or of who is in the town."
+    },
+    {
+     "frame": 48,
+     "why": "Many ships fill the bay, and nothing shows whether they are besiegers or rescuers."
+    },
+    {
+     "frame": 58,
+     "why": "Fire in the town at night (Apr 1781), with no cause shown and no sign of who is attacking."
+    }
+   ],
+   "diem_p_doc": {
+    "Q1": 0,
+    "Q2": 2,
+    "Q3": 1,
+    "Q4": 1
+   }
+  },
+  "R3": {
+   "diem": {
+    "Q1": 0,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "Not sure. The frames never show flags, uniforms or soldiers, so nothing in them says who holds the Rock. The town sits at the foot of the rock, and ships (apparently besiegers) gather in the bay, but I can't tell which side is which.",
+    "Q2": "A siege. Frame 23 (45 s) has the caption '1779 — The Great Siege' and the date 20 Jun 1779. After that, many dated frames show a rock seen from far across a plain, and later ships in the bay.",
+    "Q3": "Not sure. The pictures don't show hunger, food shortages or people at all. All I can see is a long timeline of dates and ships around the bay, which could mean a blockade or siege, but that is an inference.",
+    "Q4": "Ships. A cluster of sailing ships appears in the bay around Jan–Feb 1780 (frames 47–49), and ships arrive in Jul 1779 and again in 1780. I can't tell whether they are a relief fleet or enemy ships, so this is not certain."
+   },
+   "lac": [
+    {
+     "frame": 1,
+     "why": "The opening night shots carry modern dates (2026) and show a modern city, with no link to a siege story."
+    },
+    {
+     "frame": 9,
+     "why": "A fast run of unrelated years (1346, 1615, 1731, 1770) with smoke puffs and no explanation."
+    },
+    {
+     "frame": 15,
+     "why": "Burning ships at night (Sep 1782) with no context on who attacks whom."
+    },
+    {
+     "frame": 17,
+     "why": "A jump to the 1939–1957 airfield, then to 2025–26, breaks the narrative."
+    },
+    {
+     "frame": 25,
+     "why": "Many near-identical frames of a distant rock over a plain, with only the dates changing."
+    },
+    {
+     "frame": 40,
+     "why": "A town view with no people, flags or action, so I can't tell who holds it or why they suffer."
+    },
+    {
+     "frame": 47,
+     "why": "Ships gather in the bay, but nothing marks them as friend or foe."
+    },
+    {
+     "frame": 58,
+     "why": "Fire in the town at night (Apr 1781) with no cause shown."
+    }
+   ],
+   "diem_p_doc": {
+    "Q1": 0,
+    "Q2": 2,
+    "Q3": 1,
+    "Q4": 1
+   }
+  }
+ },
+ "chi_phi_usd": 0.2301,
+ "theo_cau_p_doc": {
+  "Q1": 0,
+  "Q2": 6,
+  "Q3": 3,
+  "Q4": 2
+ },
+ "tong_p_doc": 11,
+ "ghi_p_doc": "Chấm từ khoá cho 17/24 nhưng quá dễ (tính cả câu \"Not sure\" có nhắc \"ships\"). P đọc lại nguyên văn: Q3 cả 3 người chỉ SUY ra phong toả, tự ghi là đoán → 1; Q4 R1 không phân biệt được tàu cứu/tàu địch → 0, R2/R3 \"ships, not certain\" → 1. Điểm dùng trong báo cáo = điểm P đọc lại."
+}

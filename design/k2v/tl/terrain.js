@@ -6,7 +6,11 @@ import { THREE, GLSL_YEAR, GLSL_NOISE, loadF32, tex, noiseTex } from './core.js'
 export const GLSL_LAND = `${GLSL_YEAR}
 // năm có đất: 0 = luôn; 1941 = khai hoang đường băng (đủ 1943, HMGoG 199/2018); mốc khác: nổi trong 1,5 năm trước mốc; 9999 = biển
 float landK(float ly, float y){ if (ly < 1.0) return 1.0; if (ly > 9000.0) return 0.0;
-  if (abs(ly - 1941.0) < 0.5) return clamp((y - 1941.0) / 2.0, 0.0, 1.0); return clamp((y - (ly - 1.5)) / 1.5, 0.0, 1.0); }`;
+  if (abs(ly - 1941.0) < 0.5) return clamp((y - 1941.0) / 2.0, 0.0, 1.0); return clamp((y - (ly - 1.5)) / 1.5, 0.0, 1.0); }
+// V7P (TL-1 timelapse): uRecl = 1 → đất lấn vịnh 1941 mọc DẦN từ bờ vịnh cũ (E ≈ −330) ra tây tới đầu đường băng (E ≈ −1000), cuối 1941 → 7/1943 (S091, S092)
+uniform float uRecl;
+float rwFront(float y){ return mix(-330.0, -1000.0, clamp((y - 1941.9) / 1.6, 0.0, 1.0)); }
+float landKx(float ly, float y, float e){ if (uRecl < 0.5 || abs(ly - 1941.0) > 0.5) return landK(ly, y); return step(1941.9, y) * smoothstep(rwFront(y) - 25.0, rwFront(y) + 25.0, e); }`;
 
 // V5b-2c (lệnh V0 18/10, mục 5): VÁCH BẮC ROCK. Copernicus GLO-30 (30 m) làm mượt vách: đỉnh gói 359 m (thật ≈ 412–426 m), dốc lớn nhất ≈ 54°, nên Rock
 //  nhìn từ bắc thành "đồi tròn phủ cỏ". opt.cliff (cảnh tự khai TERRAIN.cliff): (1) làm sắc vách bắc bằng unsharp DEM trong hộp vách (dốc > 25°, mặt quay bắc;
@@ -44,7 +48,7 @@ export async function makeTerrain(base, M, U, TO = {}) {
   const [tNat, tUrb, tYears, tAO, tCls] = await Promise.all([tex(base + 'ground_nat.jpg'), tex(base + 'ground_urb.jpg'),
     tex(base + 'years.png', { srgb: false, nearest: true }), tex(base + 'ao.png', { srgb: false }), tex(base + 'cls.png', { srgb: false, nearest: true })]);
   const [Gh, Gw] = M.ground_shape;
-  const uni = { uYear: U.uYear, uDim: U.uDim, tNat: { value: tNat }, tUrb: { value: tUrb }, tYears: { value: tYears }, tAO: { value: tAO }, tCls: { value: tCls }, uNearK: { value: U.groundNear ?? 1 },
+  const uni = { uYear: U.uYear, uRecl: U.uRecl || { value: 0 }, uDim: U.uDim, tNat: { value: tNat }, tUrb: { value: tUrb }, tYears: { value: tYears }, tAO: { value: tAO }, tCls: { value: tCls }, uNearK: { value: U.groundNear ?? 1 },
     uExt: { value: new THREE.Vector4(e0 - 5, n0 - 5, Gw * 10, Gh * 10) }, tNoise: { value: noiseTex() }, uBaked: U.uBaked, uAOBox: { value: new THREE.Vector4(...M.ao_box) }, uAOon: U.uAOon, uDetail: { value: 1 },
     tGhostU: { value: new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1) }, uGhostBox: { value: new THREE.Vector4(0, 0, 1, 1) }, uGhostOn: { value: 0 }, uCliff: { value: TO.cliff ? 1 : 0 }, uEarth: { value: 0 } };   // V5b-2b: nền đô thị theo vùng ghost (layers.town1782)
   uni.tGhostU.value.needsUpdate = true;
@@ -55,7 +59,7 @@ export async function makeTerrain(base, M, U, TO = {}) {
       uniform sampler2D tYears; uniform vec4 uExt; uniform float uYear; varying vec3 vWP; varying vec3 vWN; ${GLSL_LAND}`)
       .replace('#include <begin_vertex>', `#include <begin_vertex>
       { vec2 uv = vec2((position.x - uExt.x) / uExt.z, (-position.z - uExt.y) / uExt.w); vec4 yv = textureLod(tYears, uv, 0.0);
-        float k = landK(decYear(yv.ba), uYear); transformed.y = mix(min(transformed.y, -10.0), transformed.y, k); }
+        float k = landKx(decYear(yv.ba), uYear, position.x); transformed.y = mix(min(transformed.y, -10.0), transformed.y, k); }
       vWP = (modelMatrix * vec4(transformed, 1.0)).xyz; vWN = normalize(mat3(modelMatrix) * objectNormal);`);
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
       uniform sampler2D tNat, tUrb, tYears, tAO, tNoise, tCls, tGhostU; uniform vec4 uGhostBox; uniform float uGhostOn, uCliff, uEarth; uniform vec4 uExt, uAOBox; uniform float uYear, uDim, uAOon, uDetail, uBaked, uNearK, uMask; varying vec3 vWP; varying vec3 vWN;

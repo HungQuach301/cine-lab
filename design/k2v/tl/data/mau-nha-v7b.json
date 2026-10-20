@@ -1,0 +1,20 @@
+{
+ "ghi": "V7B việc 4 · bảng màu TƯỜNG nhà hiện đại theo nhóm (dùng bởi scripts/k2tl/v7b_mau_nha.py khi toà không có thẻ OSM building:colour). Màu = cụm SÁNG (mặt tiền được nắng) của k-means trên vùng mặt tiền ảnh (bỏ trời/cây/bóng < 0,27), P đọc lại bằng mắt; bậc 4 (bảng màu vùng, không phải màu từng toà). Mái lấy riêng từ Sentinel-2 2026.",
+ "nguon_anh": [
+  {"id": "a1", "tep": "File:Europort Avenue, Gibraltar.jpg", "giay_phep": "CC BY-SA 2.0", "ngay": "2009-09-09", "dung": "tháp chung cư Glacis/Laguna (vàng cát, kem, đất nung nhạt)"},
+  {"id": "a2", "tep": "File:Gibraltar Harbour 03.jpg", "giay_phep": "CC BY 3.0", "tac_gia": "Oltau", "ngay": "2008-04-25", "dung": "phố nhìn từ Rock: trắng, kem, xám ấm; mái ngói đất nung; mái bằng xám nhạt; Europort trắng + kính xanh"},
+  {"id": "a3", "tep": "File:Moorish Castle from the housing estate below.JPG", "giay_phep": "CC BY 3.0", "tac_gia": "HJ Mitchell", "ngay": "2011-10-26", "dung": "chung cư kem dưới lâu đài"},
+  {"id": "a4", "tep": "File:Rock of Gibraltar Europort Avenue.jpg", "giay_phep": "CC BY-SA 3.0", "ngay": "không ghi", "dung": "dãy nhà sườn tây: kem, vàng nhạt, trắng"}
+ ],
+ "gioi_han": "Ảnh 2008–2011 (ảnh 2020s chưa tải được: Commons trả 429 cho proxy của phiên). La Línea KHÔNG có ảnh trong phiên: dùng bảng vôi trắng Andalucía sẵn có của city.js (bậc 5).",
+ "tuong": {
+  "gib_thap": [{"rgb": [0.89, 0.85, 0.75], "anh": "a1"}, {"rgb": [0.88, 0.76, 0.56], "anh": "a1"}, {"rgb": [0.85, 0.68, 0.50], "anh": "a1"}, {"rgb": [0.92, 0.88, 0.80], "anh": "a3"}],
+  "gib_o": [{"rgb": [0.95, 0.95, 0.94], "anh": "a2"}, {"rgb": [0.87, 0.86, 0.83], "anh": "a2"}, {"rgb": [0.93, 0.88, 0.80], "anh": "a4"}, {"rgb": [0.90, 0.75, 0.63], "anh": "a2"}, {"rgb": [0.94, 0.88, 0.68], "anh": "a4"}, {"rgb": [0.78, 0.76, 0.73], "anh": "a2"}],
+  "gib_moi": [{"rgb": [0.94, 0.94, 0.93], "anh": "a2"}, {"rgb": [0.84, 0.83, 0.80], "anh": "a2"}, {"rgb": [0.88, 0.85, 0.80], "anh": "a2"}],
+  "gib_cong_nghiep": [{"rgb": [0.78, 0.76, 0.73], "anh": "a2"}, {"rgb": [0.68, 0.66, 0.63], "anh": "a2"}, {"rgb": [0.84, 0.83, 0.80], "anh": "a2"}],
+  "ll_o": [{"rgb": [0.96, 0.95, 0.92], "anh": "city.js PAL 1"}, {"rgb": [0.94, 0.90, 0.82], "anh": "city.js PAL 1"}, {"rgb": [0.95, 0.88, 0.70], "anh": "city.js PAL 1"}, {"rgb": [0.90, 0.80, 0.62], "anh": "city.js PAL 1"}],
+  "ll_thap": [{"rgb": [0.92, 0.88, 0.78], "anh": "city.js PAL 3"}, {"rgb": [0.80, 0.62, 0.48], "anh": "city.js PAL 4"}, {"rgb": [0.95, 0.94, 0.91], "anh": "city.js PAL 1"}, {"rgb": [0.88, 0.80, 0.66], "anh": "city.js PAL 3"}],
+  "ll_cong_nghiep": [{"rgb": [0.80, 0.79, 0.76], "anh": "city.js PAL 3"}, {"rgb": [0.70, 0.69, 0.67], "anh": "city.js PAL 4"}]
+ },
+ "kieu": {"gib_thap": 3, "gib_o": 0, "gib_moi": 5, "gib_cong_nghiep": 4, "ll_o": 1, "ll_thap": 3, "ll_cong_nghiep": 4}
+}

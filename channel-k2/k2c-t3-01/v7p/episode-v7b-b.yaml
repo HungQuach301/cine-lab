@@ -1,0 +1,3204 @@
+# TỆP SINH TỰ ĐỘNG bởi v7p/mk_ep_v7b.py (lời khoá v4.2 SHA 51d1c773…, nhịp reports/kl42/nhip-that.json B; C1 biến thể b). Đừng sửa tay.
+id: k2c-t3-v7b
+title: Why Gibraltar Was Besieged 14 Times — V7B pilot (timelapse spine, 540p, G1 v4.2 narration)
+brand: MOVING PARTS
+channel: k2
+out: /var/tmp/cine-out/k2c-t3-v7b-b
+music:
+- file: assets/k2/music/Tyrant.mp3
+  from: H1
+  ss: 2.55
+  gain_db: -6
+sources: {}
+numbers: {}
+khung_sach: true
+heroes:
+  v7b_H1:
+    hero: tl/t3tl
+    opt:
+      tz: 2
+      lamps:
+        box:
+        - -2500
+        - -2500
+        - 2500
+        - 3500
+      night: true
+      time:
+      - t: 0
+        at: 2026-10-18 23:52
+        sun: real
+        lab: dt
+      - t: 6.5
+        at: 2026-10-19 00:14
+        sun: real
+        lab: dt
+      - t: 12.0
+        at: 2026-10-19 08:20
+        sun: real
+        lab: dt
+      lives:
+      - era: 2026
+        wY:
+          'on': 1990
+        walkers:
+        - line: WCA
+          n: 160
+          width: 6
+          women: true
+          colors: &id001
+          - '#3d4a5a'
+          - '#e7e0cf'
+          - '#7a2f2a'
+          - '#2f5d7a'
+          - '#5e4a38'
+          - '#c9a227'
+        crowds:
+        - line: WCA
+          groups: 10
+          size:
+          - 4
+          - 10
+          speed: 1.3
+          colors: *id001
+        birds:
+          c:
+          - 0
+          - 0
+          r: 180
+          h: 50
+          n: 8
+      bfile: buildings-v7b.json
+      cityOpt: &id003
+        near: 2600
+        winFar: 2400
+      dur: 12.0
+      shot: H1
+      cau: diem-D
+      diem: D
+      noi: eo_dat
+      vai: co-che
+      pack: gib
+      cam:
+      - t: 0
+        p: &id016
+        - 380
+        - 250
+        - 760
+        l: &id002
+        - -150
+        - 0
+        - -250
+        fov: 44
+      - t: 12.0
+        p: &id017
+        - 362
+        - 246
+        - 726
+        l: *id002
+        fov: 44
+    dur: 12.0
+  v7b_H2:
+    hero: tl/t3tl
+    opt:
+      sieges: true
+      night: true
+      pre1704town: true
+      lamps:
+        box:
+        - -3000
+        - -2600
+        - 600
+        - 800
+      fires:
+      - at: &id005
+        - -1517.679053604841
+        - -706.1311166928107
+        wY:
+        - 1782.70046
+        - 1782.703082
+        size: 34
+      - at: &id006
+        - -1498.194819470432
+        - -844.7686463166306
+        wY:
+        - 1782.70049
+        - 1782.703082
+        size: 34
+      - at: &id007
+        - -1478.7105853360229
+        - -983.4061759404503
+        wY:
+        - 1782.70052
+        - 1782.703082
+        size: 34
+      - at: &id008
+        - -1459.2263512016136
+        - -1122.04370556427
+        wY:
+        - 1782.70055
+        - 1782.703082
+        size: 34
+      - at: &id009
+        - -1439.7421170672046
+        - -1260.68123518809
+        wY:
+        - 1782.70058
+        - 1782.703082
+        size: 34
+      - at: &id010
+        - -1420.2578829327954
+        - -1399.31876481191
+        wY:
+        - 1782.70061
+        - 1782.703082
+        size: 34
+      - at: &id011
+        - -1400.7736487983864
+        - -1537.95629443573
+        wY:
+        - 1782.70064
+        - 1782.703082
+        size: 34
+      - at: &id012
+        - -1381.2894146639771
+        - -1676.5938240595497
+        wY:
+        - 1782.70067
+        - 1782.703082
+        size: 34
+      - at: &id013
+        - -1361.805180529568
+        - -1815.2313536833694
+        wY:
+        - 1782.7007
+        - 1782.703082
+        size: 34
+      - at: &id014
+        - -1342.320946395159
+        - -1953.8688833071892
+        wY:
+        - 1782.70073
+        - 1782.703082
+        size: 34
+      bfile: buildings-v7b.json
+      cityOpt: *id003
+      co:
+      - at: tower
+        kind: burgundy
+        scale: 1.5
+        pole: 9
+        'on': 1506
+        'off': 1704.591473
+        hoist:
+        - - 1704.591302
+          - 1
+        - - 1704.591473
+          - 0
+      - at: tower
+        kind: union1707
+        scale: 1.5
+        pole: 9
+        'on': 1704.591644
+        hoist:
+        - - 1704.591644
+          - 0
+        - - 1704.591872
+          - 1
+      - at: &id004
+        - -600
+        - -1268
+        kind: union1707
+        scale: 1.5
+        pole: 12
+        w: 6
+        'on': 1704.591644
+        toward: 110
+      - at: &id021
+        - -585
+        - -870
+        kind: union1707
+        scale: 1.5
+        pole: 12
+        w: 6
+        'on': 1704.591644
+        toward: 110
+      - at: *id004
+        kind: burgundy
+        scale: 1.5
+        pole: 12
+        w: 6
+        'on': 1506
+        'off': 1704.591473
+        toward: 110
+      time:
+      - t: 0
+        at: 2026-10-19 15:10
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 3.333333
+        at: 2026-10-19 15:40
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 3.375
+        at: 1309.5
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 3.791667
+        at: 1309.504
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 3.833333
+        at: 1316.0
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 4.25
+        at: 1316.004
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 4.291667
+        at: 1333.15
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 4.708333
+        at: 1333.154
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 4.75
+        at: 1333.55
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 5.166667
+        at: 1333.5539999999999
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 5.208333
+        at: 1350.0
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 5.625
+        at: 1350.004
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 5.666667
+        at: 1411.5
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 6.083333
+        at: 1411.504
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 6.125
+        at: 1436.5
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 6.541667
+        at: 1436.504
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 6.583333
+        at: 1462.5
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 7.0
+        at: 1462.504
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 7.041667
+        at: 1467.0
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 7.458333
+        at: 1467.004
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 7.5
+        at: 1506.5
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 7.916667
+        at: 1506.504
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 7.958333
+        at: 1704-08-04 09:30
+        sun: 11.5
+        lab: d
+        hold: true
+      - t: 10.416667
+        at: 1704-08-04 15:30
+        sun: 13.5
+        lab: d
+        hold: true
+      - t: 10.458333
+        at: 1705.0
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 10.875
+        at: 1705.004
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 10.916667
+        at: 1727.5
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 11.333333
+        at: 1727.504
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 11.375
+        at: 1779.6
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 11.791667
+        at: 1779.6039999999998
+        sun: 15.5
+        lab: y
+        hold: true
+      - t: 11.833333
+        at: 1782-09-13 06:45
+        sun: real
+        lab: dt
+      - t: 13.4
+        at: 1782-09-13 09:40
+        sun: real
+        lab: dt
+      - t: 15.0
+        at: 1782-09-13 15:40
+        sun: real
+        lab: dt
+      - t: 17.6
+        at: 1782-09-13 21:30
+        sun: real
+        lab: dt
+      - t: 21.0
+        at: 1782-09-14 02:30
+        sun: real
+        lab: dt
+      recl: false
+      fleets:
+      - list:
+        - at: *id005
+          kind: battery
+          path:
+          - - 1782.699401
+            - -2417.679053604841
+            - 593.8688833071893
+          - - 1782.699715
+            - -1517.679053604841
+            - -706.1311166928107
+        - at: *id006
+          kind: battery
+          path:
+          - - 1782.699401
+            - -2398.194819470432
+            - 455.23135368336943
+          - - 1782.699715
+            - -1498.194819470432
+            - -844.7686463166306
+        - at: *id007
+          kind: battery
+          path:
+          - - 1782.699401
+            - -2378.7105853360226
+            - 316.59382405954966
+          - - 1782.699715
+            - -1478.7105853360229
+            - -983.4061759404503
+        - at: *id008
+          kind: battery
+          path:
+          - - 1782.699401
+            - -2359.2263512016134
+            - 177.9562944357299
+          - - 1782.699715
+            - -1459.2263512016136
+            - -1122.04370556427
+        - at: *id009
+          kind: battery
+          path:
+          - - 1782.699401
+            - -2339.7421170672046
+            - 39.31876481190989
+          - - 1782.699715
+            - -1439.7421170672046
+            - -1260.68123518809
+        - at: *id010
+          kind: battery
+          path:
+          - - 1782.699401
+            - -2320.2578829327954
+            - -99.31876481190989
+          - - 1782.699715
+            - -1420.2578829327954
+            - -1399.31876481191
+        - at: *id011
+          kind: battery
+          path:
+          - - 1782.699401
+            - -2300.7736487983866
+            - -237.9562944357299
+          - - 1782.699715
+            - -1400.7736487983864
+            - -1537.95629443573
+        - at: *id012
+          kind: battery
+          path:
+          - - 1782.699401
+            - -2281.2894146639774
+            - -376.59382405954966
+          - - 1782.699715
+            - -1381.2894146639771
+            - -1676.5938240595497
+        - at: *id013
+          kind: battery
+          path:
+          - - 1782.699401
+            - -2261.805180529568
+            - -515.2313536833694
+          - - 1782.699715
+            - -1361.805180529568
+            - -1815.2313536833694
+        - at: *id014
+          kind: battery
+          path:
+          - - 1782.699401
+            - -2242.320946395159
+            - -653.8688833071892
+          - - 1782.699715
+            - -1342.320946395159
+            - -1953.8688833071892
+        heading: 172
+        wY:
+        - 1782.699301
+        - 1782.7004
+        phe: es
+        coScale: 1.5
+      - list:
+        - at: *id005
+          kind: battery
+        - at: *id006
+          kind: battery
+        - at: *id007
+          kind: battery
+        - at: *id008
+          kind: battery
+        - at: *id009
+          kind: battery
+        - at: *id010
+          kind: battery
+        - at: *id011
+          kind: battery
+        - at: *id012
+          kind: battery
+        - at: *id013
+          kind: battery
+        - at: *id014
+          kind: battery
+        heading: 172
+        wY:
+        - 1782.7004
+        - 1782.703082
+        burning: true
+        phe: es
+        coScale: 1.5
+      - n: 16
+        center:
+        - -4300
+        - 1300
+        axis: 150
+        spacing: 240
+        kind: line
+        heading: 110
+        wY:
+        - 1782.69726
+        - 1783.1
+        phe: es
+        soai: 8
+      - n: 14
+        center:
+        - -1900
+        - -1650
+        axis: 165
+        spacing: 170
+        kind: line
+        heading: 80
+        wY:
+        - 1704.55
+        - 1704.68
+        phe: gb
+        soai: 7
+      smoke:
+      - at:
+        - -1507.679053604841
+        - 8
+        - -706.1311166928107
+        wY:
+        - 1782.7004
+        - 1782.703082
+        n: 18
+        size: 60
+        rise: 110
+        drift:
+        - -2.0
+        - 0.6
+        period: 0.5
+        seed: 60
+        alpha: 0.9
+        dark: true
+        fire: 0.8
+      - at:
+        - -1488.194819470432
+        - 8
+        - -844.7686463166306
+        wY:
+        - 1782.7004399999998
+        - 1782.703082
+        n: 18
+        size: 60
+        rise: 110
+        drift:
+        - -2.0
+        - 0.6
+        period: 0.5
+        seed: 61
+        alpha: 0.9
+        dark: true
+        fire: 0.8
+      - at:
+        - -1468.7105853360229
+        - 8
+        - -983.4061759404503
+        wY:
+        - 1782.70048
+        - 1782.703082
+        n: 18
+        size: 60
+        rise: 110
+        drift:
+        - -2.0
+        - 0.6
+        period: 0.5
+        seed: 62
+        alpha: 0.9
+        dark: true
+        fire: 0.8
+      - at:
+        - -1449.2263512016136
+        - 8
+        - -1122.04370556427
+        wY:
+        - 1782.7005199999999
+        - 1782.703082
+        n: 18
+        size: 60
+        rise: 110
+        drift:
+        - -2.0
+        - 0.6
+        period: 0.5
+        seed: 63
+        alpha: 0.9
+        dark: true
+        fire: 0.8
+      - at:
+        - -1429.7421170672046
+        - 8
+        - -1260.68123518809
+        wY:
+        - 1782.70056
+        - 1782.703082
+        n: 18
+        size: 60
+        rise: 110
+        drift:
+        - -2.0
+        - 0.6
+        period: 0.5
+        seed: 64
+        alpha: 0.9
+        dark: true
+        fire: 0.8
+      - at:
+        - -1410.2578829327954
+        - 8
+        - -1399.31876481191
+        wY:
+        - 1782.7006
+        - 1782.703082
+        n: 18
+        size: 60
+        rise: 110
+        drift:
+        - -2.0
+        - 0.6
+        period: 0.5
+        seed: 65
+        alpha: 0.9
+        dark: true
+        fire: 0.8
+      - at:
+        - -1390.7736487983864
+        - 8
+        - -1537.95629443573
+        wY:
+        - 1782.70064
+        - 1782.703082
+        n: 18
+        size: 60
+        rise: 110
+        drift:
+        - -2.0
+        - 0.6
+        period: 0.5
+        seed: 66
+        alpha: 0.9
+        dark: true
+        fire: 0.8
+      - at:
+        - -1371.2894146639771
+        - 8
+        - -1676.5938240595497
+        wY:
+        - 1782.70068
+        - 1782.703082
+        n: 18
+        size: 60
+        rise: 110
+        drift:
+        - -2.0
+        - 0.6
+        period: 0.5
+        seed: 67
+        alpha: 0.9
+        dark: true
+        fire: 0.8
+      - at:
+        - -1351.805180529568
+        - 8
+        - -1815.2313536833694
+        wY:
+        - 1782.70072
+        - 1782.703082
+        n: 18
+        size: 60
+        rise: 110
+        drift:
+        - -2.0
+        - 0.6
+        period: 0.5
+        seed: 68
+        alpha: 0.9
+        dark: true
+        fire: 0.8
+      - at:
+        - -1332.320946395159
+        - 8
+        - -1953.8688833071892
+        wY:
+        - 1782.70076
+        - 1782.703082
+        n: 18
+        size: 60
+        rise: 110
+        drift:
+        - -2.0
+        - 0.6
+        period: 0.5
+        seed: 69
+        alpha: 0.9
+        dark: true
+        fire: 0.8
+      - at:
+        - -1497.679053604841
+        - 10
+        - -706.1311166928107
+        wY:
+        - 1782.699743
+        - 1782.7004
+        n: 14
+        size: 46
+        rise: 40
+        drift:
+        - -3.0
+        - 1.0
+        period: 0.25
+        seed: 80
+        alpha: 0.8
+      - at:
+        - -1478.194819470432
+        - 10
+        - -844.7686463166306
+        wY:
+        - 1782.699743
+        - 1782.7004
+        n: 14
+        size: 46
+        rise: 40
+        drift:
+        - -3.0
+        - 1.0
+        period: 0.25
+        seed: 81
+        alpha: 0.8
+      - at:
+        - -1458.7105853360229
+        - 10
+        - -983.4061759404503
+        wY:
+        - 1782.699743
+        - 1782.7004
+        n: 14
+        size: 46
+        rise: 40
+        drift:
+        - -3.0
+        - 1.0
+        period: 0.25
+        seed: 82
+        alpha: 0.8
+      - at:
+        - -1439.2263512016136
+        - 10
+        - -1122.04370556427
+        wY:
+        - 1782.699743
+        - 1782.7004
+        n: 14
+        size: 46
+        rise: 40
+        drift:
+        - -3.0
+        - 1.0
+        period: 0.25
+        seed: 83
+        alpha: 0.8
+      - at:
+        - -1419.7421170672046
+        - 10
+        - -1260.68123518809
+        wY:
+        - 1782.699743
+        - 1782.7004
+        n: 14
+        size: 46
+        rise: 40
+        drift:
+        - -3.0
+        - 1.0
+        period: 0.25
+        seed: 84
+        alpha: 0.8
+      - at:
+        - -1400.2578829327954
+        - 10
+        - -1399.31876481191
+        wY:
+        - 1782.699743
+        - 1782.7004
+        n: 14
+        size: 46
+        rise: 40
+        drift:
+        - -3.0
+        - 1.0
+        period: 0.25
+        seed: 85
+        alpha: 0.8
+      - at:
+        - -1380.7736487983864
+        - 10
+        - -1537.95629443573
+        wY:
+        - 1782.699743
+        - 1782.7004
+        n: 14
+        size: 46
+        rise: 40
+        drift:
+        - -3.0
+        - 1.0
+        period: 0.25
+        seed: 86
+        alpha: 0.8
+      - at:
+        - -1361.2894146639771
+        - 10
+        - -1676.5938240595497
+        wY:
+        - 1782.699743
+        - 1782.7004
+        n: 14
+        size: 46
+        rise: 40
+        drift:
+        - -3.0
+        - 1.0
+        period: 0.25
+        seed: 87
+        alpha: 0.8
+      - at:
+        - -1341.805180529568
+        - 10
+        - -1815.2313536833694
+        wY:
+        - 1782.699743
+        - 1782.7004
+        n: 14
+        size: 46
+        rise: 40
+        drift:
+        - -3.0
+        - 1.0
+        period: 0.25
+        seed: 88
+        alpha: 0.8
+      - at:
+        - -1322.320946395159
+        - 10
+        - -1953.8688833071892
+        wY:
+        - 1782.699743
+        - 1782.7004
+        n: 14
+        size: 46
+        rise: 40
+        drift:
+        - -3.0
+        - 1.0
+        period: 0.25
+        seed: 89
+        alpha: 0.8
+      units:
+      - at: *id004
+        heading: 270
+        rows: 3
+        cols: 17
+        side: gb
+        day:
+        - 1782.682192
+        - 1782.70411
+        seed: 31
+        rim: false
+      - at:
+        - -590
+        - -1080
+        heading: 270
+        rows: 2
+        cols: 19
+        side: gb
+        day:
+        - 1782.682192
+        - 1782.70411
+        seed: 32
+        rim: false
+      lives:
+      - era: 2026
+        wY:
+          'on': 1990
+        boats:
+        - pts:
+          - - -1500
+            - -900
+          - - -1200
+            - -1300
+          - - -900
+            - -1700
+          len: 12
+          speed: 5
+          s0: 0.2
+        birds:
+          c:
+          - -500
+          - -1000
+          r: 220
+          h: 60
+          n: 10
+      dur: 21.0
+      shot: H2
+      cau: diem-K
+      diem: K
+      noi: thanh_pho
+      vai: buoc-ngoat
+      pack: gib
+      cam:
+      - t: 0
+        p:
+        - -20
+        - 215
+        - -935
+        l: &id015
+        - -440
+        - 0
+        - -880
+        fov: 48
+      - t: 21.0
+        p:
+        - -22
+        - 214
+        - -936
+        l: *id015
+        fov: 48
+    dur: 21.0
+  v7b_H3:
+    hero: tl/t3tl
+    opt:
+      tz: null
+      time:
+      - t: 0
+        at: 1938.6
+        sun: 11.0
+        lab: y
+      - t: 3.416667
+        at: 1941.4
+        sun: 11.0
+        lab: y
+      - t: 5.0
+        at: 1943.6
+        sun: 11.0
+        lab: y
+        hold: true
+      - t: 5.041667
+        at: 1969.45
+        sun: 11.0
+        lab: y
+        hold: true
+      - t: 5.5
+        at: 1969.454
+        sun: 11.0
+        lab: y
+        hold: true
+      - t: 5.541667
+        at: 1985.1
+        sun: 11.0
+        lab: y
+        hold: true
+      - t: 6.0
+        at: 1985.104
+        sun: 11.0
+        lab: y
+        hold: true
+      - t: 6.041667
+        at: 2026.79
+        sun: 10.5
+        lab: y
+        hold: true
+      - t: 10.8333
+        at: 2026.792
+        sun: 10.6
+        lab: y
+      lives:
+      - era: 1941
+        wY:
+          'on': 1939.7
+          off0: 1946
+        walkers:
+        - line: WCA
+          n: 40
+          width: 5
+          women: false
+          colors:
+          - '#6b6a4a'
+          - '#7a7656'
+          - '#2f3d5c'
+          - '#e7e0cf'
+      - era: 2026
+        wY:
+          'on': 2020
+        walkers:
+        - line: WCA
+          n: 200
+          width: 6
+          women: true
+          colors: *id001
+        crowds:
+        - line: WCA
+          groups: 12
+          size:
+          - 4
+          - 12
+          speed: 1.3
+          colors: *id001
+        birds:
+          c:
+          - 0
+          - 0
+          r: 200
+          h: 60
+          n: 10
+      bfile: buildings-v7b.json
+      cityOpt: *id003
+      dur: 10.8333
+      shot: H3
+      cau: diem-D
+      diem: D
+      noi: eo_dat
+      vai: buoc-ngoat
+      pack: gib
+      cam:
+      - t: 0
+        p: *id016
+        l: *id002
+        fov: 44
+      - t: 10.8333
+        p: *id017
+        l: *id002
+        fov: 44
+    dur: 10.8333
+  v7b_C1b:
+    hero: tl/t3tl
+    opt:
+      night: true
+      time:
+      - t: 0
+        at: 1779-06-20 14:00
+        sun: 14.0
+        lab: d
+      - t: 3.0
+        at: 1779-06-21 10:00
+        sun: 14.0
+        lab: d
+      - t: 4.6
+        at: 1779-06-21 11:00
+        sun: 12.0
+        lab: d
+      - t: 5.6
+        at: 1779-06-21 12:00
+        sun: 12.0
+        lab: d
+      - t: 8.0
+        at: 1779-07-13 12:00
+        sun: 12.0
+        lab: d
+      - t: 22.5
+        at: 1779-10-28 12:00
+        sun: 12.0
+        lab: d
+      lives:
+      - era: 1782
+        wY:
+          'on': 1700
+          off0: 1779.469749
+          off1: 1779.469806
+        walkers:
+        - line: ISTH
+          n: 90
+          width: 6
+          colors: &id020
+          - '#e7e0cf'
+          - '#5e4a38'
+          - '#3d4a5a'
+          - '#7a5a3a'
+          - '#a89f8a'
+          free: false
+        lines:
+          ISTH:
+          - - -460
+            - -560
+          - - -330
+            - -250
+          - - -200
+            - 50
+          - - -120
+            - 400
+          - - -60
+            - 800
+          - - 0
+            - 1060
+      - era: 1782
+        wY:
+          'on': 1700
+        birds:
+          c:
+          - -900
+          - 1800
+          r: 260
+          h: 70
+          n: 10
+      units:
+      - at:
+        - -1430
+        - 3150
+        heading: 200
+        rows: 6
+        cols: 28
+        side: es
+        day:
+        - 1779.549315
+        - 1783.2
+        seed: 40
+        rim: true
+      - at:
+        - -1300
+        - 3050
+        heading: 200
+        rows: 6
+        cols: 28
+        side: es
+        day:
+        - 1779.569315
+        - 1783.2
+        seed: 41
+        rim: true
+      - at:
+        - -1200
+        - 2950
+        heading: 200
+        rows: 6
+        cols: 28
+        side: es
+        day:
+        - 1779.589315
+        - 1783.2
+        seed: 42
+        rim: true
+      - at:
+        - -1380
+        - 2900
+        heading: 200
+        rows: 6
+        cols: 28
+        side: es
+        day:
+        - 1779.609315
+        - 1783.2
+        seed: 43
+        rim: true
+      - at:
+        - -1250
+        - 2800
+        heading: 200
+        rows: 6
+        cols: 28
+        side: es
+        day:
+        - 1779.629315
+        - 1783.2
+        seed: 44
+        rim: true
+      - at:
+        - -1150
+        - 2700
+        heading: 200
+        rows: 6
+        cols: 28
+        side: es
+        day:
+        - 1779.649315
+        - 1783.2
+        seed: 45
+        rim: true
+      - at:
+        - -300
+        - 1130
+        heading: 180
+        rows: 3
+        cols: 14
+        side: es
+        day:
+        - 1779.0
+        - 1783.2
+        seed: 70
+        rim: true
+      - at:
+        - 150
+        - 1130
+        heading: 180
+        rows: 3
+        cols: 14
+        side: es
+        day:
+        - 1779.0
+        - 1783.2
+        seed: 71
+        rim: true
+      - at:
+        - 500
+        - 1130
+        heading: 180
+        rows: 3
+        cols: 14
+        side: es
+        day:
+        - 1779.0
+        - 1783.2
+        seed: 72
+        rim: true
+      - at:
+        - -1200
+        - 3300
+        heading: 250
+        rows: 6
+        cols: 28
+        side: es
+        day:
+        - 1779.606849
+        - 1783.2
+        seed: 90
+        rim: true
+      - at:
+        - -1220
+        - 3150
+        heading: 250
+        rows: 6
+        cols: 28
+        side: es
+        day:
+        - 1779.621849
+        - 1783.2
+        seed: 91
+        rim: true
+      - at:
+        - -1360
+        - 3550
+        heading: 80
+        rows: 6
+        cols: 28
+        side: es
+        day:
+        - 1779.636849
+        - 1783.2
+        seed: 92
+        rim: true
+      - at:
+        - -1350
+        - 3400
+        heading: 80
+        rows: 6
+        cols: 28
+        side: es
+        day:
+        - 1779.651849
+        - 1783.2
+        seed: 93
+        rim: true
+      - at:
+        - -1050
+        - 3050
+        heading: 250
+        rows: 6
+        cols: 28
+        side: es
+        day:
+        - 1779.666849
+        - 1783.2
+        seed: 94
+        rim: true
+      - at:
+        - -1180
+        - 3000
+        heading: 250
+        rows: 6
+        cols: 28
+        side: es
+        day:
+        - 1779.681849
+        - 1783.2
+        seed: 95
+        rim: true
+      campFlags: true
+      hideCampTrees: true
+      faden:
+        t:
+        - 16.15
+        - 19.15
+        fade: 0.45
+        op: 0.9
+      dur: 22.5
+      shot: C1
+      cau: diem-A
+      diem: A
+      noi: eo_dat
+      vai: co-che
+      pack: gib
+      cam:
+      - t: 0
+        p:
+        - -1600
+        - 205
+        - 4300
+        l: &id018
+        - -1000
+        - 0
+        - 1500
+        fov: 44
+      - t: 22.5
+        p:
+        - -1596
+        - 202
+        - 4250
+        l: *id018
+        fov: 44
+    dur: 22.5
+  v7b_C2:
+    hero: tl/t3tl
+    opt:
+      time:
+      - t: 0
+        at: 1779-07-12 16:00
+        sun: 16.0
+        lab: d
+      - t: 3.0
+        at: 1779-07-16 16:00
+        sun: 16.0
+        lab: d
+      - t: 12.0
+        at: 1779-12-20 15:00
+        sun: 15.0
+        lab: m
+      fleets:
+      - list:
+        - at:
+          - -5450
+          - -2000
+          kind: line
+        - at:
+          - -5300
+          - -2070
+          kind: line
+        - at:
+          - -5150
+          - -2140
+          kind: line
+        - at:
+          - -5000
+          - -2000
+          kind: sail
+        - at:
+          - -4850
+          - -2070
+          kind: sail
+        - at:
+          - -4700
+          - -2140
+          kind: sail
+        - at:
+          - -4550
+          - -2000
+          kind: sail
+        heading: 60
+        wY:
+        - 1779.0
+        - 1779.537671
+        phe: es
+        soai: 0
+      - list:
+        - at:
+          - -3900
+          - -2700
+          kind: line
+        - at:
+          - -3830
+          - -2400
+          kind: line
+        - at:
+          - -3760
+          - -2100
+          kind: line
+        - at:
+          - -3690
+          - -1800
+          kind: sail
+        - at:
+          - -3620
+          - -1500
+          kind: sail
+        - at:
+          - -3550
+          - -1200
+          kind: sail
+        - at:
+          - -3480
+          - -900
+          kind: sail
+        heading: 0
+        wY:
+        - 1779.537671
+        - 1783.1
+        path:
+        - - 1779.537671
+          - -1500
+          - 700
+        - - 1779.565753
+          - 0
+          - 0
+        phe: es
+        soai: 0
+      - list:
+        - at:
+          - -2900
+          - -2500
+          kind: sail
+        - at:
+          - -2640
+          - -2380
+          kind: sail
+        - at:
+          - -2380
+          - -2260
+          kind: sail
+        - at:
+          - -2120
+          - -2140
+          kind: sail
+        heading: 0
+        wY:
+        - 1779.582192
+        - 1780.0
+        path:
+        - - 1779.582192
+          - 0
+          - -3800
+        - - 1779.705479
+          - 0
+          - 0
+        - - 1779.834247
+          - 0
+          - -3800
+      lives:
+      - era: 1782
+        wY:
+          'on': 1700
+        boats:
+        - pts:
+          - - -6200
+            - -2600
+          - - -5000
+            - -3400
+          - - -3800
+            - -3600
+          len: 10
+          speed: 6
+          s0: 0.1
+        - pts:
+          - - -6800
+            - -1900
+          - - -5600
+            - -2800
+          len: 9
+          speed: 5
+          s0: 0.6
+        birds:
+          c:
+          - -7000
+          - -2000
+          r: 300
+          h: 60
+          n: 12
+      dur: 12.0
+      shot: C2
+      cau: diem-E
+      diem: E
+      noi: bien
+      vai: co-che
+      pack: gib
+      cam:
+      - t: 0
+        p:
+        - -6300
+        - 170
+        - -1950
+        l: &id019
+        - -500
+        - 150
+        - -1500
+        fov: 30
+      - t: 12.0
+        p:
+        - -6250
+        - 168
+        - -1938
+        l: *id019
+        fov: 30
+    dur: 12.0
+  v7b_C3:
+    hero: tl/t3tl
+    opt:
+      night: true
+      hideOldTrees: true
+      recl: false
+      time:
+      - t: 0
+        at: 1780-01-14 10:00
+        sun: real
+        lab: d
+      - t: 3.9
+        at: 1780-01-14 12:00
+        sun: real
+        lab: d
+      - t: 7.6
+        at: 1780-01-14 15:00
+        sun: real
+        lab: d
+      - t: 8.4
+        at: 1780-01-14 15:30
+        sun: 15.0
+        lab: d
+      - t: 14.125
+        at: 1780-01-16 15:30
+        sun: 15.0
+        lab: d
+      fleets:
+      - list:
+        - at:
+          - -3600
+          - -2200
+          kind: line
+        - at:
+          - -3180
+          - -1900
+          kind: line
+        - at:
+          - -2760
+          - -2200
+          kind: sail
+        - at:
+          - -2340
+          - -1900
+          kind: sail
+        - at:
+          - -1920
+          - -2200
+          kind: sail
+        heading: 10
+        wY:
+        - 1779.5
+        - 1783.1
+        phe: es
+        soai: 0
+      lives:
+      - era: 1782
+        wY:
+          'on': 1700
+        walkers:
+        - line: SLOPE
+          n: 70
+          width: 14
+          colors: *id020
+          free: false
+        - line: MAIN
+          n: 40
+          width: 4
+          colors:
+          - '#b03a2e'
+          - '#a8402e'
+          - '#b03a2e'
+          - '#e7e0cf'
+          - '#5e4a38'
+        lines:
+          SLOPE:
+          - - -470
+            - -1350
+          - - -400
+            - -1330
+          - - -330
+            - -1290
+          - - -270
+            - -1250
+          - - -210
+            - -1190
+          - - -170
+            - -1120
+          MAIN:
+          - - -430
+            - -1600
+          - - -445
+            - -1400
+          - - -440
+            - -1300
+          - - -432
+            - -1150
+          - - -425
+            - -1000
+          - - -420
+            - -880
+        birds:
+          c:
+          - -500
+          - -1200
+          r: 160
+          h: 60
+          n: 10
+        chimney: 6
+      units:
+      - at:
+        - -560
+        - -1165
+        heading: 270
+        rows: 4
+        cols: 18
+        side: gb
+        day:
+        - 1779
+        - 1784
+        seed: 21
+        march:
+          dist: 26
+          speed: 1.0
+      - at:
+        - -670
+        - -1180
+        heading: 270
+        rows: 2
+        cols: 10
+        side: gb
+        day:
+        - 1779
+        - 1784
+        seed: 22
+      - at:
+        - -108.64641904711365
+        - -1351.4772647899117
+        heading: 167.14451661483173
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 500
+        rim: false
+      - at:
+        - -119.71323627429105
+        - -1363.7172199502106
+        heading: 66.10771224366495
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 501
+        rim: false
+      - at:
+        - -141.1988870630034
+        - -1352.6114979944691
+        heading: 60.06411695337447
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 502
+        rim: false
+      - at:
+        - -119.36714198157503
+        - -1375.423434901884
+        heading: 355.63917425476404
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 503
+        rim: false
+      - at:
+        - -125.29534433218838
+        - -1296.2053623324737
+        heading: 16.031302337555577
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 504
+        rim: false
+      - at:
+        - -111.5464659983091
+        - -1362.532249201711
+        heading: 308.8034135457944
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 505
+        rim: false
+      - at:
+        - -147.91952405820615
+        - -1312.5362639851548
+        heading: 122.36472000265661
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 506
+        rim: false
+      - at:
+        - -126.10663828770015
+        - -1369.1810737750059
+        heading: 355.7427675626586
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 507
+        rim: false
+      - at:
+        - -71.82809039575747
+        - -1345.6337511225468
+        heading: 159.15426603910072
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 508
+        rim: false
+      - at:
+        - -149.84728604531887
+        - -1297.7119537969234
+        heading: 118.53495364745012
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 509
+        rim: false
+      - at:
+        - -98.72353193376607
+        - -1360.0827770614692
+        heading: 355.52573804855126
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 510
+        rim: false
+      - at:
+        - -97.1798518511794
+        - -1325.3574151670678
+        heading: 20.17645477488735
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 511
+        rim: false
+      - at:
+        - -120.50163285255265
+        - -1327.1350424836567
+        heading: 6.13425283766778
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 512
+        rim: false
+      - at:
+        - -82.32902362437899
+        - -1371.2548107007851
+        heading: 346.45747596442067
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 513
+        rim: false
+      - at:
+        - -117.89684820697308
+        - -1377.958825639834
+        heading: 58.3503924008979
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 514
+        rim: false
+      - at:
+        - -72.27130608692102
+        - -1341.923405662732
+        heading: 261.9488403497444
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 515
+        rim: false
+      - at:
+        - -90.52150141379678
+        - -1317.135755260993
+        heading: 253.5162738513764
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 516
+        rim: false
+      - at:
+        - -125.80590921024528
+        - -1314.743704245933
+        heading: 283.88126095801186
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 517
+        rim: false
+      - at:
+        - -136.66028751748803
+        - -1323.563270463908
+        heading: 255.42476866377507
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 518
+        rim: false
+      - at:
+        - -115.24814966276517
+        - -1368.5718691125976
+        heading: 84.21533068068955
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 519
+        rim: false
+      - at:
+        - -74.49729705401309
+        - -1378.0801584571761
+        heading: 256.39540148918064
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 520
+        rim: false
+      - at:
+        - -99.89322385248116
+        - -1291.0790387305674
+        heading: 83.48940890847778
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 521
+        rim: false
+      - at:
+        - -79.97082464416597
+        - -1328.4773510681762
+        heading: 322.135582022968
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 522
+        rim: false
+      - at:
+        - -124.47601822798507
+        - -1354.9217564111993
+        heading: 51.50907885331835
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 523
+        rim: false
+      - at:
+        - -147.03225275404458
+        - -1315.706674498738
+        heading: 188.7724626989377
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 524
+        rim: false
+      - at:
+        - -120.94778552689621
+        - -1342.7502090775274
+        heading: 24.541425820021786
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 525
+        rim: false
+      - at:
+        - -123.37283342936203
+        - -1350.7276773557376
+        heading: 333.30991026136155
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 526
+        rim: false
+      - at:
+        - -85.51357621147918
+        - -1318.6232530630634
+        heading: 208.79528306444575
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 527
+        rim: false
+      - at:
+        - -97.38996542153106
+        - -1348.7548648913553
+        heading: 220.28064120267484
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 528
+        rim: false
+      - at:
+        - -104.40805405432911
+        - -1378.6103907998915
+        heading: 295.14517191270926
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 529
+        rim: false
+      - at:
+        - -71.29383236614301
+        - -1324.3564098040433
+        heading: 59.44112826451481
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 530
+        rim: false
+      - at:
+        - -90.23707558591407
+        - -1351.814343815347
+        heading: 196.40516397227856
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 531
+        rim: false
+      - at:
+        - -77.23720478958855
+        - -1305.0684307638282
+        heading: 51.02186865407043
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: civ
+        kind: civ
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 532
+        rim: false
+      - at:
+        - -114.33830792987524
+        - -1291.0392243869983
+        heading: 229.94191093125957
+        rows: 1
+        cols: 2
+        sx: 2.4
+        side: null
+        uni: woman
+        kind: woman
+        crew: true
+        lean: 0.45
+        leanFrac: 0.8
+        day:
+        - 1779
+        - 1784
+        seed: 533
+        rim: false
+      co:
+      - at: *id004
+        kind: union1707
+        scale: 1.5
+        pole: 12
+        w: 6
+        'on': 1704.591644
+        toward: 110
+      - at: *id021
+        kind: union1707
+        scale: 1.5
+        pole: 12
+        w: 6
+        'on': 1704.591644
+        toward: 110
+      - at: *id004
+        kind: burgundy
+        scale: 1.5
+        pole: 12
+        w: 6
+        'on': 1506
+        'off': 1704.591473
+        toward: 110
+      - at: tower
+        kind: burgundy
+        scale: 1.5
+        pole: 9
+        'on': 1506
+        'off': 1704.591473
+        hoist:
+        - - 1704.591302
+          - 1
+        - - 1704.591473
+          - 0
+      - at: tower
+        kind: union1707
+        scale: 1.5
+        pole: 9
+        'on': 1704.591644
+        hoist:
+        - - 1704.591644
+          - 0
+        - - 1704.591872
+          - 1
+      treeBox:
+      - -200
+      - -1500
+      - 0
+      - -1250
+      dur: 14.125
+      shot: C3
+      cau: diem-Ca
+      diem: Ca
+      noi: thanh_pho
+      vai: co-che
+      pack: gib
+      cam:
+      - t: 0
+        p:
+        - -70
+        - 140
+        - -1395
+        l:
+        - -124
+        - 99
+        - -1336
+        fov: 24
+      - t: 3.9
+        p:
+        - -72
+        - 141
+        - -1393
+        l:
+        - -124
+        - 99
+        - -1336
+        fov: 24
+      - t: 7.6
+        p:
+        - -170
+        - 300
+        - -1700
+        l:
+        - -760
+        - 0
+        - -920
+        fov: 50
+      - t: 14.125
+        p:
+        - -185
+        - 298
+        - -1690
+        l:
+        - -760
+        - 0
+        - -920
+        fov: 50
+    dur: 14.125
+  v7b_C4:
+    hero: tl/t3tl
+    opt:
+      time:
+      - t: 0
+        at: 1780-01-16 12:00
+        sun: 15.0
+        lab: d
+      - t: 2.4
+        at: 1780-01-19 12:00
+        sun: 15.0
+        lab: d
+      - t: 6.0
+        at: 1780-02-20 12:00
+        sun: 15.0
+        lab: m
+      - t: 8.4
+        at: 1780-10-08 12:00
+        sun: 15.0
+        lab: d
+      - t: 11.0
+        at: 1780-10-12 12:00
+        sun: 15.0
+        lab: d
+      - t: 13.5
+        at: 1780-11-30 12:00
+        sun: 15.0
+        lab: m
+      fleets:
+      - n: 12
+        center:
+        - -1500
+        - -1250
+        axis: 170
+        spacing: 150
+        kind: sail
+        heading: 80
+        wY:
+        - 1780.048497
+        - 1780.118852
+        path:
+        - - 1780.048497
+          - -2600
+          - 900
+        - - 1780.05123
+          - 0
+          - 0
+        - - 1780.11612
+          - 0
+          - 0
+        - - 1780.118852
+          - -2600
+          - -1600
+        phe: gb
+      - n: 9
+        center:
+        - -1700
+        - -1500
+        axis: 172
+        spacing: 200
+        kind: line
+        heading: 80
+        wY:
+        - 1780.048497
+        - 1780.118852
+        path:
+        - - 1780.048497
+          - -2600
+          - 900
+        - - 1780.05123
+          - 0
+          - 0
+        - - 1780.11612
+          - 0
+          - 0
+        - - 1780.118852
+          - -2600
+          - -1600
+        phe: gb
+        soai: 4
+      - list:
+        - at:
+          - -760
+          - -980
+          kind: sail
+        heading: 80
+        wY:
+        - 1780.773907
+        - 1781.0
+        path:
+        - - 1780.773907
+          - -2200
+          - -1800
+        - - 1780.778005
+          - 0
+          - 0
+        co: false
+      - list:
+        - at:
+          - -3600
+          - -2200
+          kind: line
+        - at:
+          - -3180
+          - -1900
+          kind: line
+        - at:
+          - -2760
+          - -2200
+          kind: sail
+        - at:
+          - -2340
+          - -1900
+          kind: sail
+        - at:
+          - -1920
+          - -2200
+          kind: sail
+        heading: 10
+        wY:
+        - 1779.5
+        - 1783.1
+        phe: es
+        soai: 0
+      lives:
+      - era: 1782
+        wY:
+          'on': 1700
+        boats:
+        - pts:
+          - - -720
+            - -880
+          - - -760
+            - -1150
+          - - -745
+            - -1450
+          len: 11
+          speed: 3.6
+          s0: 0.4
+        birds:
+          c:
+          - -900
+          - -1200
+          r: 220
+          h: 60
+          n: 10
+      co:
+      - at: *id004
+        kind: union1707
+        scale: 1.5
+        pole: 12
+        w: 6
+        'on': 1704.591644
+        toward: 110
+      - at: *id021
+        kind: union1707
+        scale: 1.5
+        pole: 12
+        w: 6
+        'on': 1704.591644
+        toward: 110
+      - at: *id004
+        kind: burgundy
+        scale: 1.5
+        pole: 12
+        w: 6
+        'on': 1506
+        'off': 1704.591473
+        toward: 110
+      casks:
+        at:
+        - -560
+        - -640
+        wY:
+          'on': 1780.053279
+          full: 1780.080601
+        n: 180
+      dur: 13.5
+      shot: C4
+      cau: diem-Bb
+      diem: Bb
+      noi: bien
+      vai: co-che
+      pack: gib
+      cam:
+      - t: 0
+        p:
+        - -2350
+        - 250
+        - -1950
+        l: &id022
+        - -520
+        - 50
+        - -1150
+        fov: 40
+      - t: 13.5
+        p:
+        - -2300
+        - 246
+        - -1930
+        l: *id022
+        fov: 40
+    dur: 13.5
+  v7b_C5:
+    hero: tl/t3tl
+    opt:
+      night: true
+      hideOldTrees: true
+      recl: false
+      burn:
+        at:
+        - -445
+        - -1265
+        n: 5
+        t0: 1781.282306
+        t1: 1781.283105
+      time:
+      - t: 0
+        at: 1781-04-12 09:20
+        sun: real
+        lab: dt
+      - t: 2.6
+        at: 1781-04-12 10:50
+        sun: real
+        lab: dt
+      - t: 5.0
+        at: 1781-04-12 15:00
+        sun: real
+        lab: dt
+      - t: 7.2
+        at: 1781-04-12 21:00
+        sun: real
+        lab: dt
+      - t: 9.4
+        at: 1781-04-14 02:30
+        sun: real
+        lab: dt
+      - t: 12.5
+        at: 1781-04-14 11:00
+        sun: real
+        lab: dt
+      fleets:
+      - n: 14
+        center:
+        - -1350
+        - -1350
+        axis: 170
+        spacing: 140
+        kind: sail
+        heading: 80
+        wY:
+        - 1781.277397
+        - 1781.305479
+        path:
+        - - 1781.277397
+          - -2400
+          - 600
+        - - 1781.277939
+          - 0
+          - 0
+        phe: gb
+      - n: 8
+        center:
+        - -1800
+        - -1650
+        axis: 172
+        spacing: 210
+        kind: line
+        heading: 80
+        wY:
+        - 1781.277397
+        - 1781.305479
+        path:
+        - - 1781.277397
+          - -2400
+          - 600
+        - - 1781.277939
+          - 0
+          - 0
+        phe: gb
+        soai: 3
+      smoke:
+      - at:
+        - -420
+        - 6
+        - 1090
+        wY:
+        - 1781.277939
+        - 1781.6
+        n: 10
+        size: 46
+        rise: 60
+        drift:
+        - -1.5
+        - -1.0
+        period: 0.35
+        seed: 90
+        alpha: 0.85
+      - at:
+        - -150
+        - 6
+        - 1060
+        wY:
+        - 1781.277939
+        - 1781.6
+        n: 10
+        size: 46
+        rise: 60
+        drift:
+        - -1.5
+        - -1.0
+        period: 0.35
+        seed: 91
+        alpha: 0.85
+      - at:
+        - 120
+        - 6
+        - 1070
+        wY:
+        - 1781.277939
+        - 1781.6
+        n: 10
+        size: 46
+        rise: 60
+        drift:
+        - -1.5
+        - -1.0
+        period: 0.35
+        seed: 92
+        alpha: 0.85
+      - at:
+        - 420
+        - 6
+        - 1100
+        wY:
+        - 1781.277939
+        - 1781.6
+        n: 10
+        size: 46
+        rise: 60
+        drift:
+        - -1.5
+        - -1.0
+        period: 0.35
+        seed: 93
+        alpha: 0.85
+      - at:
+        - -60
+        - 6
+        - 470
+        wY:
+        - 1781.277939
+        - 1781.6
+        n: 10
+        size: 46
+        rise: 60
+        drift:
+        - -1.5
+        - -1.0
+        period: 0.35
+        seed: 94
+        alpha: 0.85
+      - at:
+        - 180
+        - 6
+        - 360
+        wY:
+        - 1781.277939
+        - 1781.6
+        n: 10
+        size: 46
+        rise: 60
+        drift:
+        - -1.5
+        - -1.0
+        period: 0.35
+        seed: 95
+        alpha: 0.85
+      - at:
+        - -470
+        - 14
+        - -1420
+        wY:
+        - 1781.277949
+        - 1781.6
+        n: 8
+        size: 30
+        rise: 55
+        drift:
+        - -2.0
+        - 0.8
+        period: 0.4
+        seed: 120
+        alpha: 0.8
+      - at:
+        - -420
+        - 14
+        - -1250
+        wY:
+        - 1781.277989
+        - 1781.6
+        n: 8
+        size: 30
+        rise: 55
+        drift:
+        - -2.0
+        - 0.8
+        period: 0.4
+        seed: 121
+        alpha: 0.8
+      - at:
+        - -450
+        - 14
+        - -1080
+        wY:
+        - 1781.278029
+        - 1781.6
+        n: 8
+        size: 30
+        rise: 55
+        drift:
+        - -2.0
+        - 0.8
+        period: 0.4
+        seed: 122
+        alpha: 0.8
+      - at:
+        - -380
+        - 14
+        - -1500
+        wY:
+        - 1781.278069
+        - 1781.6
+        n: 8
+        size: 30
+        rise: 55
+        drift:
+        - -2.0
+        - 0.8
+        period: 0.4
+        seed: 123
+        alpha: 0.8
+      - at:
+        - -500
+        - 14
+        - -1180
+        wY:
+        - 1781.278109
+        - 1781.6
+        n: 8
+        size: 30
+        rise: 55
+        drift:
+        - -2.0
+        - 0.8
+        period: 0.4
+        seed: 124
+        alpha: 0.8
+      lives:
+      - era: 1782
+        wY:
+          'on': 1700
+          off0: 1781.277939
+          off1: 1781.277968
+        walkers:
+        - line: MAIN
+          n: 110
+          width: 4
+          colors: *id020
+        lines:
+          MAIN:
+          - - -430
+            - -1600
+          - - -445
+            - -1400
+          - - -440
+            - -1300
+          - - -432
+            - -1150
+          - - -425
+            - -1000
+          - - -420
+            - -880
+        chimney: 14
+      - era: 1782
+        wY:
+          'on': 1781.277939
+          off0: 1781.281507
+          off1: 1781.281621
+        walkers:
+        - line: SOUTH
+          n: 160
+          width: 10
+          colors: *id020
+          free: false
+        lines:
+          SOUTH:
+          - - -430
+            - -1820
+          - - -330
+            - -2150
+          - - -250
+            - -2500
+          - - -150
+            - -2850
+      - era: 1782
+        wY:
+          'on': 1700
+        birds:
+          c:
+          - -430
+          - -1300
+          r: 200
+          h: 90
+          n: 10
+      co:
+      - at: *id004
+        kind: union1707
+        scale: 1.5
+        pole: 12
+        w: 6
+        'on': 1704.591644
+        toward: 110
+      - at: *id021
+        kind: union1707
+        scale: 1.5
+        pole: 12
+        w: 6
+        'on': 1704.591644
+        toward: 110
+      - at: *id004
+        kind: burgundy
+        scale: 1.5
+        pole: 12
+        w: 6
+        'on': 1506
+        'off': 1704.591473
+        toward: 110
+      - at: tower
+        kind: burgundy
+        scale: 1.5
+        pole: 9
+        'on': 1506
+        'off': 1704.591473
+        hoist:
+        - - 1704.591302
+          - 1
+        - - 1704.591473
+          - 0
+      - at: tower
+        kind: union1707
+        scale: 1.5
+        pole: 9
+        'on': 1704.591644
+        hoist:
+        - - 1704.591644
+          - 0
+        - - 1704.591872
+          - 1
+      dur: 12.5
+      shot: C5
+      cau: diem-Cc
+      diem: Cc
+      noi: thanh_pho
+      vai: buoc-ngoat
+      pack: gib
+      cam:
+      - t: 0
+        p:
+        - -150
+        - 330
+        - -1950
+        l: &id023
+        - -560
+        - 0
+        - -1300
+        fov: 52
+      - t: 12.5
+        p:
+        - -158
+        - 329
+        - -1940
+        l: *id023
+        fov: 52
+    dur: 12.5
+segments:
+- id: H1
+  part: CH0
+  chuong: '0'
+  dur: 12.0
+  fadeIn: 6
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1
+  - t: 3.41
+    k: loi
+    s: To walk in from Spain, you c
+  - t: 6.67
+    k: loi
+    s: Since July 2026, this gate h
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    noi: eo_dat
+    p:
+      sach: true
+      hero: v7b_H1
+      frame0: 0
+      tl: true
+    cau: Midnight at the Gibraltar frontier.
+    vung: D
+    ai_texture: false
+- id: H2
+  part: CH0
+  chuong: '0'
+  dur: 21.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2
+  - t: 3.23
+    k: loi
+    s: Historians on both sides cou
+  - t: 10.51
+    k: loi
+    s: 'This is why everyone fought '
+  - t: 16.0
+    k: loi
+    s: In 1782, ten floating batter
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: v7b_H2
+      frame0: 0
+      tl: true
+    cau: The Rock sits at the western gate of the Mediterranean.
+    vung: K
+    ai_texture: false
+- id: H3
+  part: CH0
+  chuong: '0'
+  dur: 10.8333
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: H3
+  - t: 5.67
+    k: loi
+    s: 'So why, today, is the fight '
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    noi: eo_dat
+    p:
+      sach: true
+      hero: v7b_H3
+      frame0: 0
+      tl: true
+    cau: In 1941, a runway was laid across the only road to Spain.
+    vung: D
+    ai_texture: false
+- id: C1
+  part: CH2
+  chuong: '2'
+  dur: 22.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C1
+  - t: 6.38
+    k: loi
+    s: 'On the twenty-first of June '
+  - t: 12.47
+    k: loi
+    s: Spain had joined France in i
+  - t: 16.05
+    k: loi
+    s: By October, British intellig
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    noi: eo_dat
+    p:
+      sach: true
+      hero: v7b_C1b
+      frame0: 0
+      tl: true
+      chuong:
+        s: 1779 — The Great Siege
+        at: 0.4
+        dur: 3.0
+    cau: 'Half a century later came a different question: can you starve a rock?'
+    vung: A
+    ai_texture: false
+- id: C2
+  part: CH2
+  chuong: '2'
+  dur: 12.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C2
+  - t: 4.95
+    k: loi
+    s: Based at Algeciras, its boat
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    noi: bien
+    p:
+      sach: true
+      hero: v7b_C2
+      frame0: 0
+      tl: true
+    cau: At sea, from mid-July, a Spanish squadron sealed the port.
+    vung: E
+    ai_texture: false
+- id: C3
+  part: CH2
+  chuong: '2'
+  dur: 14.125
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C3
+  - t: 8.19
+    k: loi
+    s: The governor, General Eliott
+  - t: 11.14
+    k: loi
+    s: The food had to come by sea.
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: v7b_C3
+      frame0: 0
+      tl: true
+    cau: By January 1780, thistles, dandelions and wild leeks were daily food for many; an egg cost sixpence.
+    vung: Ca
+    ai_texture: false
+- id: C4
+  part: CH2
+  chuong: '2'
+  dur: 13.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: C4
+  - t: 7.99
+    k: loi
+    s: Scurvy spread, until a Danis
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    noi: bien
+    p:
+      sach: true
+      hero: v7b_C4
+      frame0: 0
+      tl: true
+    cau: 'To break the blockade, Britain sent three relief fleets: 1780, 1781, 1782.'
+    vung: Bb
+    ai_texture: false
+- id: C5
+  part: CH2
+  chuong: '2'
+  dur: 12.5
+  fadeIn: 0
+  fadeOut: 10
+  beats:
+  - t: 0.0
+    k: cut
+    s: C5
+  - t: 0.27
+    k: loi
+    s: On the twelfth of April 1781
+  - t: 10.07
+    k: loi
+    s: The townspeople fled south.
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: v7b_C5
+      frame0: 0
+      tl: true
+    cau: On the twelfth of April 1781, the second relief convoy dropped anchor, and Spain's batteries opened fire on the town.
+    vung: Cc
+    ai_texture: false

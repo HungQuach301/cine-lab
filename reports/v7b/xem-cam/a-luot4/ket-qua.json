@@ -1,0 +1,159 @@
+{
+ "may": "claude-sonnet-5-5 (claude -p, chỉ Read)",
+ "thang": "0/1/2 mỗi câu × 3 người = tối đa 6",
+ "theo_cau": {
+  "Q1": 0,
+  "Q2": 6,
+  "Q3": 6,
+  "Q4": 6
+ },
+ "tong": 18,
+ "toi_da": 24,
+ "clarity_tb": 2.0,
+ "nguoi": {
+  "R1": {
+   "diem": {
+    "Q1": 0,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "Not sure. The pictures show no flags, banners or captions saying who holds the Rock. There are some ships with red/pink sails and some with white sails, but I can't tell who they belong to.",
+    "Q2": "The 'Great Siege'. A caption reads '1779 — The Great Siege' at frame 23, and what looks like a besieging camp and trenches appear on the plain outside the town.",
+    "Q3": "Not sure. Ships appear to surround the town (a blockade, maybe) and there is bombardment, but no frame shows hunger, food shortage or starving people. At most, the ships ringing the bay might suggest the town is cut off.",
+    "Q4": "Not sure. Several groups of ships arrive in the bay at frames 34, 47–52 and 53–55. I can't tell whether they are a relief fleet or enemy ships. Frames 53–59 show red-sailed ships firing on the town, which looks more like an attack than a rescue."
+   },
+   "lac": [
+    {
+     "frame": 1,
+     "why": "Opens with night views of the modern Rock and shifting dates (2026), with no explanation."
+    },
+    {
+     "frame": 8,
+     "why": "Fast jumps between years (1316, 1411, 1704, 1782) with explosions and no context."
+    },
+    {
+     "frame": 14,
+     "why": "A 1782 night bombardment appears before the 1779 siege starts, which breaks the chronology."
+    },
+    {
+     "frame": 17,
+     "why": "A sudden jump to 1939–2026 shows the airstrip and modern town with no story link."
+    },
+    {
+     "frame": 34,
+     "why": "The fleets are unidentified, with no flags or text, so friend and enemy can't be told apart."
+    },
+    {
+     "frame": 40,
+     "why": "A close-up of tiny people on a field with no caption, so I can't tell who they are or why they matter."
+    },
+    {
+     "frame": 47,
+     "why": "Many ships come and go over months with no labels, so I can't tell whether this is a blockade or a rescue."
+    },
+    {
+     "frame": 53,
+     "why": "Red ships bombard the town with no explanation, and I see no hunger or relief shown anywhere."
+    }
+   ]
+  },
+  "R2": {
+   "diem": {
+    "Q1": 0,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "Not sure. No flags or labels show who holds the town. The pictures show a fortified town on the rock being attacked and besieged (1779–1781), but not which side holds it.",
+    "Q2": "A caption at frame 23 reads '1779 — The Great Siege', so a siege of the town begins in 1779. Frames 24–33 show land around the rock filling up with small figures and camp-like rectangles, and ships appear at sea (frames 34–36).",
+    "Q3": "Not sure. The pictures never show empty food stores or starving people. The town is surrounded by land and sea for a long time (1779–1781), with ships blocking the bay, so a blockade cutting off supplies is possible, but the pictures don't state this.",
+    "Q4": "Not sure. Small groups of ships sail into the bay (frames 34, 47–52), but nothing shows they are relief ships. Later a line of red-sailed ships fires on the town (frames 55–59), which looks like an attack rather than a rescue."
+   },
+   "lac": [
+    {
+     "frame": 1,
+     "why": "Opens on a modern night view with date stamps and no explanation of why."
+    },
+    {
+     "frame": 8,
+     "why": "Quick jumps between 1316, 1411, 1704 and 1782 with explosions, and no sign of who is fighting whom."
+    },
+    {
+     "frame": 17,
+     "why": "Jumps to 1939–1943 and 2026 (an airfield appears) with no link to the story."
+    },
+    {
+     "frame": 22,
+     "why": "The view switches to empty fields and the rock far away; unclear what this is."
+    },
+    {
+     "frame": 34,
+     "why": "A distant island view with ships and no labels; unclear who the ships belong to."
+    },
+    {
+     "frame": 40,
+     "why": "Small figures walking in a field and near a building, with no explanation."
+    },
+    {
+     "frame": 48,
+     "why": "Ships of different colours in the bay, but nothing says which side is which or whether they bring help."
+    },
+    {
+     "frame": 55,
+     "why": "Red ships fire on the town, but it is unclear who they are or whether the siege ends."
+    }
+   ]
+  },
+  "R3": {
+   "diem": {
+    "Q1": 0,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "Not sure. No flags or uniforms are legible. The town on the rock is shown under attack from ships and cannon fire, but the pictures do not show who holds it. The people shown at frames 40-41 are not identified either.",
+    "Q2": "The Great Siege. The caption \"1779 — The Great Siege\" appears at frame 23, and from then on the field shows camps/trenches being built with ships gathering at sea.",
+    "Q3": "Not sure. The pictures never show food, empty stores or starving people. The only hint is a fleet of ships blockading the bay, with the town cut off by land camps and ships. That implies a blockade, but the pictures do not show it clearly.",
+    "Q4": "Ships. In frames 34-35 and 48-52 small ships sail toward the rock and bay, and in frames 53-59 a line of ships (reddish sails) lines up in the bay. I can't tell whether they are a relief fleet or attackers; they are probably the relief fleet, but the pictures don't confirm it."
+   },
+   "lac": [
+    {
+     "frame": 8,
+     "why": "Quick jumps between years (1316, 1411, 1704) with no explanation of who is fighting whom."
+    },
+    {
+     "frame": 12,
+     "why": "1782 bombardment appears before the 1779 siege, so the order is confusing."
+    },
+    {
+     "frame": 17,
+     "why": "Jump to 1939-2026 modern views (airport) with no story link."
+    },
+    {
+     "frame": 34,
+     "why": "Ships near the rock, but it's unclear whose they are or what they do."
+    },
+    {
+     "frame": 40,
+     "why": "Tiny figures on a field with no clear meaning or side."
+    },
+    {
+     "frame": 48,
+     "why": "Many ships appear in the bay; allegiance is unreadable."
+    },
+    {
+     "frame": 55,
+     "why": "Ships lined up and firing; can't tell attackers from rescuers, and hunger is never shown."
+    }
+   ]
+  }
+ },
+ "chi_phi_usd": 0.2345
+}

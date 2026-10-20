@@ -40,7 +40,7 @@ window.setup = async (cfg) => {
   if (mod.GRADE) { if (mod.GRADE.vib != null && cfg.vib == null) LU.uVib.value = mod.GRADE.vib; if (mod.GRADE.exposure != null && pipe.setExposure) pipe.setExposure(mod.GRADE.exposure); }   // V5b-2c (I5): vibrance riêng cảnh (opt.vib của shot vẫn thắng)
   const sunEl = 31 * Math.PI / 180, sunAz = 238 * Math.PI / 180;   // nắng chiều hướng tây-nam (nổi mặt tây Rock, vách bắc vào bóng)
   const sunDir = new THREE.Vector3(Math.sin(sunAz) * Math.cos(sunEl), Math.sin(sunEl), -Math.cos(sunAz) * Math.cos(sunEl)).normalize();
-  const U = { uMask: { value: 0 }, uYear: { value: 1700 }, uDim: { value: 0 }, uSample: { value: 0 }, uT: { value: 0 }, uAOon: { value: T.ao ? 1 : 0 }, uBaked: { value: T.baked ? 1 : 0 }, lambert: T.lambert, terrainLod: T.terrainLod, treeDetail: T.treeDetail, groundNear: T.groundNear ?? 1, sunDir };
+  const U = { uMask: { value: 0 }, uYear: { value: 1700 }, uNight: { value: 0 }, uWinNight: { value: 0 }, uRecl: { value: 0 },   /* V7P: đêm (0..1), cửa sổ sáng đêm (≥ 1900), đất lấn biển + đường băng mọc dần (tl7.js) */ uDim: { value: 0 }, uSample: { value: 0 }, uT: { value: 0 }, uAOon: { value: T.ao ? 1 : 0 }, uBaked: { value: T.baked ? 1 : 0 }, lambert: T.lambert, terrainLod: T.terrainLod, treeDetail: T.treeDetail, groundNear: T.groundNear ?? 1, sunDir };
   // V5b-1b: sương CHỈ ở xa, ngả xanh (cùng màu chân trời trời mới), mật độ thấp hơn → cận/trung cảnh trong; nắng thấp có hướng mạnh hơn,
   // ánh trời xanh làm bóng ngả lạnh (tương phản ấm–lạnh), bóng sắc hơn (bán kính PCF 3 → 1,5).
   const L = Object.assign({ fogC: [0.60, 0.74, 0.90], fogD: 0.0000175, hemiSky: '#9cbcf0', hemiGnd: '#7a6648', hemiI: 0.62, sunC: '#ffe3b8', sunI: 3.3, shR: 1.5 }, cfg.look || {}, mod.LOOK || {}); C.look = L;   /* V5b-2c: cảnh khai LOOK (ánh sáng riêng) */
@@ -51,13 +51,13 @@ window.setup = async (cfg) => {
   scene.add(sun, sun.target);
   const terr = await makeTerrain(base, M, U, Object.assign({}, mod.TERRAIN || {}, (cfg.opt && cfg.opt.terrain) || {})); scene.add(terr.group);
   const ws = makeWaterSky(U, scene.fog, L.skyHor, V6 ? { wave: V6.wave ?? 1.6 } : null);   /* ctx.ws: mặt nạ nội dung ẩn nước/trời */ scene.add(ws.water, ws.sky);
-  let B = T.city ? await loadJSON(base + 'buildings.json') : [];
+  let B = T.city ? await loadJSON(base + ((cfg.opt && cfg.opt.bfile) || 'buildings.json')) : [];   /* V7B: opt.bfile = 'buildings-v7b.json' (màu/kiểu nhà 2026 có nguồn) */
   if (T.copies > 1) { const B0 = B; B = []; for (let k = 0; k < T.copies; k++) for (const b of B0) B.push(k ? [b[0], b[1], b[2], b[3], b[4], b[5], b[6].map(([e, n]) => [e + ((k % 4) - 1.5) * 3000, n + 4500 + Math.floor(k / 4) * 3500])] : b); }   /* thử tải: nhân bản toà (đo trần toà/cảnh) */
   // V5b-2b (M9): opt.cut = [lớp footprint] → bỏ toà của gói nằm trong các vòng đó (vd. công sự King's Bastion dựng riêng: không để nhà tái dựng mọc trên mặt sàn pháo)
   if (cfg.opt && cfg.opt.cut) { const inside = (p, r) => { let c = false; for (let i = 0, j = r.length - 1; i < r.length; j = i++) if ((r[i][1] > p[1]) !== (r[j][1] > p[1]) && p[0] < (r[j][0] - r[i][0]) * (p[1] - r[i][1]) / (r[j][1] - r[i][1]) + r[i][0]) c = !c; return c; };
     const rings = []; for (const f of cfg.opt.cut) rings.push(...(await loadJSON(`${base}layers/${f}.json`)).records.map((r) => r[6]));
     const n0 = B.length; B = B.filter((b) => { const cx = b[6].reduce((a, q) => a + q[0], 0) / b[6].length, cn = b[6].reduce((a, q) => a + q[1], 0) / b[6].length; return !rings.some((r) => inside([cx, cn], r)); }); stats.cut = n0 - B.length; }
-  const city = makeCity(B, U, { lod: T.lod }); scene.add(city.group);
+  const city = makeCity(B, U, Object.assign({ lod: T.lod }, cfg.opt && cfg.opt.cityOpt ? cfg.opt.cityOpt : {}));   /* V7B: cityOpt {near, winFar} */ scene.add(city.group);
   const roads = makeRoads(await loadJSON(base + 'roads.json'), terr.hAt, U); scene.add(roads.mesh);
   const trees = T.trees ? makeTrees(new Float32Array(await (await fetch(base + 'trees.f32')).arrayBuffer()), terr.hAt, U, { lod: T.lod }) : null; if (trees) scene.add(trees.group);
   const LINES = await loadJSON(base + 'lines.json'); const heroes = makeHeroes(await loadJSON(base + 'heroes.json'), terr.hAt, U, terr, LINES); scene.add(heroes.group);
@@ -102,7 +102,15 @@ function fitShadow(st) {   // hộp bóng bám điểm nhìn; cỡ theo khoảng
 function applySun(st) { if (!st.sun) return; const d = sunDirENU(st.sun); if (Math.abs(d[0] - ctx.sunDir.x) + Math.abs(d[1] - ctx.sunDir.y) + Math.abs(d[2] - ctx.sunDir.z) > 1e-6) { ctx.sunDir.set(...d).normalize(); shadowKey = null; }
   // V5b-2c (F1 chu kỳ ngày): nắng thấp → yếu + ngả cam, ánh trời giảm (chỉ khi cảnh khai st.dayCycle; cảnh cũ giữ ánh sáng cố định)
   if (st.dayCycle) { const el = st.sun.el, k = Math.max(0, Math.min(1, (el + 2) / 14)), w = Math.max(0, Math.min(1, (18 - el) / 18));
-    ctx.sun.intensity = C.look.sunI * (0.15 + 0.85 * k); ctx.sun.color.set(C.look.sunC).lerp(new THREE.Color('#ff9a52'), 0.75 * w * w); ctx.hemi.intensity = C.look.hemiI * (0.35 + 0.65 * k); } }
+    ctx.sun.intensity = C.look.sunI * (0.15 + 0.85 * k); ctx.sun.color.set(C.look.sunC).lerp(new THREE.Color('#ff9a52'), 0.75 * w * w); ctx.hemi.intensity = C.look.hemiI * (0.35 + 0.65 * k); }
+  // V7P (TL-5, D1): ĐÊM — cảnh khai st.night (0..1, theo độ cao mặt trời). Ánh trăng/ánh trời đêm từ hướng cố định (không sinh ảnh đêm; một lượt chiếu sáng thủ tục),
+  //  trời + nước tối dần (water.js uNight), sương ngả lam đậm; đèn (tl7.lamps) và cửa sổ sáng (city.js uWinNight) do cảnh bật. Đêm không sáng hơn ngày (§11.3: ≤ 1,5× A).
+  const nk = st.night || 0; ctx.U.uNight.value = nk; ctx.U.uWinNight.value = st.winNight ?? 0;
+  if (!C._fog0) C._fog0 = ctx.scene.fog.color.clone(); ctx.scene.fog.color.copy(C._fog0).lerp(new THREE.Color(0.035, 0.05, 0.09), nk);
+  if (nk > 0) { const md = sunDirENU(st.moon || { el: 38, az: 215 }); if (st.sun.el < -1) { if (Math.abs(md[0] - ctx.sunDir.x) + Math.abs(md[1] - ctx.sunDir.y) + Math.abs(md[2] - ctx.sunDir.z) > 1e-6) { ctx.sunDir.set(...md).normalize(); shadowKey = null; } }
+    ctx.sun.intensity = ctx.sun.intensity * (1 - nk) + C.look.sunI * 0.13 * nk; ctx.sun.color.lerp(new THREE.Color('#9db2d6'), nk);
+    ctx.hemi.intensity = ctx.hemi.intensity * (1 - nk) + C.look.hemiI * 0.30 * nk; ctx.hemi.color.set(C.look.hemiSky).lerp(new THREE.Color('#33466e'), nk); ctx.hemi.groundColor.set(C.look.hemiGnd).lerp(new THREE.Color('#15181f'), nk); }
+  else if (st.night != null) { ctx.hemi.color.set(C.look.hemiSky); ctx.hemi.groundColor.set(C.look.hemiGnd); } }
 window.renderFrame = async (f, measure, ov) => {
   const t = f / SC.fps, st = Object.assign(SC.state(t), ov || {}); const U = ctx.U;   // ov: ghi đè trạng thái (khung kiểm: năm/máy cố định)
   applySun(st); last = { f, t, st };
@@ -165,6 +173,19 @@ window.contentMask = (f, ov, png) => {
   return { empty_pct: +((nWater + nFlat) / (w * h) * 100).toFixed(1), water_pct: +(nWater / (w * h) * 100).toFixed(1), flat_nat_pct: +(nFlat / (w * h) * 100).toFixed(1), sky_pct: +(nSky / (w * h) * 100).toFixed(1), dat_doc_pct: +(nRock / (w * h) * 100).toFixed(1), suon_pct: +(nSlope / (w * h) * 100).toFixed(1), co_trong_pct: +(nFlat / (w * h) * 100).toFixed(1), nuoc_pct: +(nWater / (w * h) * 100).toFixed(1), troi_pct: +(nSky / (w * h) * 100).toFixed(1),   /* V6 (K-1.15 §8b): tên trường cho BC2 */ bo_pct: +(100 - (nWater + nSky) / (w * h) * 100).toFixed(1),   /* V5b-2d: bờ = mọi thứ trừ nước + trời */ content_pct: +(n / (w * h) * 100).toFixed(1), content_center_pct: +(nc / tc * 100).toFixed(1), fabric_pct: +(nf / (w * h) * 100).toFixed(1), ghost_pct: +(ng / (w * h) * 100).toFixed(2), noi: st.noi || null, nam_khung: SC.namKhung ? SC.namKhung(st) : null,
     hero_id: st.hero || 'all', hero_pct: st.hero ? by[st.hero] : P(nh), hero_pct_by_id: by, phase: st.phase || null, preset: st.preset || null, year: +st.year.toFixed(2), png_b64 };
 };
+// V7B (việc 3): TỈ LỆ DIỆN TÍCH khối xây dựng / trại / quân trong khung — lượt mặt nạ riêng: chỉ giữ địa hình (che khuất) + lớp được hỏi; mọi vật nội dung khác (cây, tàu, đường, người dân, khói) ẩn.
+//  Ghi chú phương pháp: cây/tàu bị ẩn nên không che khuất lớp được hỏi (đo hơi cao hơn mắt thấy ở chỗ cây che). Trại = lều + dải đất giẫm của dãy trại (vùng chiếm của trại trên bản đồ Faden).
+window.classMask = (f) => { if (!SC.lopKhoi) return null; const t = f / SC.fps, st = SC.state(t), U = ctx.U; U.uYear.value = st.year; U.uDim.value = 0; U.uT.value = t;
+  applyCam(cam, st.cam); ctx.terr.update(cam); ctx.city.update(cam); if (ctx.trees) ctx.trees.update(cam); ctx.ships.update(st.year); SC.apply && SC.apply(st, t);
+  const L = SC.lopKhoi(), w = Math.round(C.W / 2), h = Math.round(C.H / 2); if (!maskRT) maskRT = new THREE.WebGLRenderTarget(w, h);
+  const all = []; scene.traverse((o) => { if ((o.isMesh || o.isSprite || o.isPoints || o.isInstancedMesh) && o.visible) all.push(o); });
+  const terrSet = new Set(); ctx.terr.group.traverse((o) => terrSet.add(o));
+  const count = (groups) => { const keep = new Set(terrSet); for (const g of groups) g.traverse((o) => keep.add(o)); const hid = all.filter((o) => !keep.has(o)); for (const o of hid) o.visible = false;
+    U.uMask.value = 1; ctx.ws.water.visible = ctx.ws.sky.visible = false; const sm = R.shadowMap.enabled; R.shadowMap.enabled = false; const cc = R.getClearColor(new THREE.Color()), ca = R.getClearAlpha(); R.setClearColor(0x000000, 1);
+    R.setRenderTarget(maskRT); R.clear(); R.render(scene, cam); const px = new Uint8Array(w * h * 4); R.readRenderTargetPixels(maskRT, 0, 0, w, h, px); R.setRenderTarget(null);
+    U.uMask.value = 0; ctx.ws.water.visible = ctx.ws.sky.visible = true; R.shadowMap.enabled = sm; R.setClearColor(cc, ca); for (const o of hid) o.visible = true;
+    let n = 0; for (let i = 0; i < w * h; i++) n += px[i * 4] > 128 && px[i * 4 + 1] < 90 ? 1 : 0; return +(n / (w * h) * 100).toFixed(2); };
+  const r = { xay: count(L.xay), trai: count(L.trai), quan: count(L.quan) }; r.tong = count([].concat(L.xay, L.trai, L.quan)); r.year = +st.year.toFixed(3); return r; };
 window.camLog = () => SC.camLog();
 // V6 bước 7 (bản TỐT NHẤT, scripts/k2tl/export6.js): xuất cảnh + các lượt + chỉnh màu ảnh HDR ghép bằng chính đường ống này
 let EXP = null;

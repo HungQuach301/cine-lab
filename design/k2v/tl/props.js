@@ -11,9 +11,24 @@
 import { THREE, rng, maskify } from './core.js';
 import { makeCity } from './city.js';
 
-function flagTex(kind) {
+// V7B (việc 2, nguồn mẫu cờ: reports/v7b/V7B-BAO-CAO.md §2): thêm 'red_ensign1707' (Red Ensign 1707–1800: nền đỏ, góc cờ Great Union 1707 — Order in Council 21/7/1707),
+//  'es_naval1701' (cờ hải quân TBN 1701–1785: nền TRẮNG + huy hiệu hoàng gia Bourbon, thay bằng đỏ–vàng ngày 28/5/1785 vì dễ lẫn cờ trắng các nước Bourbon — FOTW es1701/es1785),
+//  'fr_white' (hải quân Pháp thời Louis XVI: cờ trắng trơn). Huy hiệu vẽ giản lược (khiên + vương miện) — đọc ở 1–2 km chỉ còn một đốm màu giữa nền trắng.
+function unionCanton(g, x, y, W, H) {
+  g.fillStyle = '#1f3a7a'; g.fillRect(x, y, W, H); g.save(); g.beginPath(); g.rect(x, y, W, H); g.clip();
+  g.strokeStyle = '#f4f1ea'; g.lineWidth = H * 0.2; g.beginPath(); g.moveTo(x, y); g.lineTo(x + W, y + H); g.moveTo(x + W, y); g.lineTo(x, y + H); g.stroke();
+  g.fillStyle = '#f4f1ea'; g.fillRect(x + W / 2 - H * 0.17, y, H * 0.34, H); g.fillRect(x, y + H / 2 - H * 0.17, W, H * 0.34);
+  g.fillStyle = '#c8202f'; g.fillRect(x + W / 2 - H * 0.1, y, H * 0.2, H); g.fillRect(x, y + H / 2 - H * 0.1, W, H * 0.2); g.restore();
+}
+export function flagTex(kind) {
   const W = 192, H = 96, cv = document.createElement('canvas'); cv.width = W; cv.height = H; const g = cv.getContext('2d');
-  if (kind === 'union1707') {
+  if (kind === 'red_ensign1707') { g.fillStyle = '#b8222c'; g.fillRect(0, 0, W, H); unionCanton(g, 0, 0, W / 2, H / 2); }
+  else if (kind === 'fr_white') { g.fillStyle = '#f5f3ec'; g.fillRect(0, 0, W, H); }
+  else if (kind === 'es_naval1701') { g.fillStyle = '#f5f3ec'; g.fillRect(0, 0, W, H); const cx = W * 0.42, cy = H * 0.54, sw = H * 0.30, sh = H * 0.36;   // khiên Bourbon giản lược: 4 ô Castilla (đỏ)/León (trắng-tím) + ô giữa lam + vương miện vàng
+    g.fillStyle = '#b8232b'; g.fillRect(cx - sw, cy - sh, sw, sh); g.fillRect(cx, cy, sw, sh); g.fillStyle = '#e9e2d0'; g.fillRect(cx, cy - sh, sw, sh); g.fillRect(cx - sw, cy, sw, sh);
+    g.fillStyle = '#7a3b6a'; g.fillRect(cx + sw * 0.35, cy - sh * 0.7, sw * 0.3, sh * 0.4); g.fillRect(cx - sw * 0.65, cy + sh * 0.3, sw * 0.3, sh * 0.4); g.fillStyle = '#d2a530'; g.fillRect(cx - sw * 0.65, cy - sh * 0.7, sw * 0.3, sh * 0.4); g.fillRect(cx + sw * 0.35, cy + sh * 0.3, sw * 0.3, sh * 0.4);
+    g.fillStyle = '#2e4f9a'; g.beginPath(); g.ellipse(cx, cy, sw * 0.32, sh * 0.32, 0, 0, 6.283); g.fill(); g.fillStyle = '#d2a530'; g.fillRect(cx - sw * 0.8, cy - sh * 1.45, sw * 1.6, sh * 0.38); }
+  else if (kind === 'union1707') {
     g.fillStyle = '#1f3a7a'; g.fillRect(0, 0, W, H);
     g.strokeStyle = '#f4f1ea'; g.lineWidth = H * 0.2; g.beginPath(); g.moveTo(0, 0); g.lineTo(W, H); g.moveTo(W, 0); g.lineTo(0, H); g.stroke();   // chéo St Andrew
     g.fillStyle = '#f4f1ea'; g.fillRect(W / 2 - H * 0.17, 0, H * 0.34, H); g.fillRect(0, H / 2 - H * 0.17, W, H * 0.34);   // viền trắng
@@ -28,10 +43,10 @@ function flagTex(kind) {
 
 // specs: [{at:[E, N], base (cốt chân, mặc định DTM), pole (m), w, kind, phase}]
 export function flags(specs, ctx) {
-  const group = new THREE.Group(), U = { uT: { value: 0 } }, tex = {};
+  const group = new THREE.Group(), U = { uT: { value: 0 } }, tex = {}, cloths = [];
   const poleM = new THREE.MeshLambertMaterial({ color: 0x5b4632 }); maskify(poleM, ctx.U, 1);
   for (const sp of specs || []) {
-    const pole = sp.pole || 12, w = sp.w || 4.2, h = w / 2, base = sp.base ?? Math.max(0.3, ctx.terr.hAt(sp.at[0], sp.at[1]));
+    const sc = Math.min(1.5, sp.scale || 1), pole = (sp.pole || 12) * Math.max(1, sc * 0.85), w = (sp.w || 4.2) * sc, h = w / 2, base = sp.base ?? Math.max(0.3, ctx.terr.hAt(sp.at[0], sp.at[1]));
     const p = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.14, pole, 6).translate(0, pole / 2, 0), poleM); p.position.set(sp.at[0], base, -sp.at[1]); p.castShadow = true; group.add(p);
     const k = sp.kind || 'union1707'; tex[k] = tex[k] || flagTex(k);
     const m = new THREE.MeshLambertMaterial({ map: tex[k], side: THREE.DoubleSide });
@@ -42,9 +57,10 @@ export function flags(specs, ctx) {
     m.customProgramCacheKey = () => 'tl-flag-' + w.toFixed(2) + (ctx.v6 ? '-v6' : '');
     maskify(m, ctx.U, 1);   // V6: SAU onBeforeCompile (trước đây hook cờ ghi đè hook mặt nạ → cờ không vào mặt nạ nội dung / lượt pháp tuyến / lượt albedo)
     const cl = new THREE.Mesh(new THREE.PlaneGeometry(w, h, 12, 2).translate(w / 2, -h / 2, 0), m); cl.position.set(sp.at[0], base + pole - 0.1, -sp.at[1]);
-    cl.rotation.y = (90 - (sp.toward ?? 135)) * Math.PI / 180; group.add(cl);   // toward: hướng gió thổi tới (độ, 0 = Bắc) — cờ bay theo gió
+    cl.rotation.y = (90 - (sp.toward ?? 135)) * Math.PI / 180; group.add(cl); cloths.push({ cl, top: base + pole - 0.1, low: base + Math.min(2.5, pole * 0.2) + h });   // toward: hướng gió thổi tới (độ, 0 = Bắc) — cờ bay theo gió
   }
-  return { group, n: (specs || []).length, update(t) { U.uT.value = t; } };
+  // V7B: hoist 0..1 = vị trí lá cờ trên cột (0 = hạ sát chân, 1 = đỉnh) — khoảnh khắc đổi chủ: hạ cờ cũ rồi kéo cờ mới
+  return { group, n: (specs || []).length, update(t, hoist = 1) { U.uT.value = t; for (const c of cloths) c.cl.position.y = c.low + (c.top - c.low) * Math.max(0, Math.min(1, hoist)); } };
 }
 
 function pip(p, r) { let c = false; for (let i = 0, j = r.length - 1; i < r.length; j = i++) if ((r[i][1] > p[1]) !== (r[j][1] > p[1]) && p[0] < (r[j][0] - r[i][0]) * (p[1] - r[i][1]) / (r[j][1] - r[i][1]) + r[i][0]) c = !c; return c; }

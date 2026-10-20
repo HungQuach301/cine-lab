@@ -1,0 +1,218 @@
+{
+ "ghi": "V7-PILOT · ĐIỂM MÁY CAO CỐ ĐỊNH (TL-1). Toạ độ ENU (m) gốc gói gib (giao đường băng × Winston Churchill Ave, lon −5.3487 lat 36.1513); p = vị trí máy [E, cao TUYỆT ĐỐI, N]; l = điểm nhìn; fov dọc (°). Biến thể = cùng chỗ đứng, hướng/khung khác. Trôi p0→p1 tuyến tính cả shot (≤ 2 % khung/s, đo bằng tl7.driftPct). Bản thử dùng A, B, C, D, E; F, G, H dành cho các chương khác (reports/v7p/diem-may.md).",
+ "diem": [
+  {
+   "id": "A",
+   "ten": "Bắc — đồi Campamento/San Roque nhìn Rock + eo đất + La Línea",
+   "bien_the": {
+    "a": {
+     "p0": [
+      -1600,
+      205,
+      4300
+     ],
+     "l0": [
+      -1000,
+      0,
+      1500
+     ],
+     "p1": [
+      -1596,
+      202,
+      4250
+     ],
+     "fov": 44
+    }
+   }
+  },
+  {
+   "id": "B",
+   "ten": "Vịnh — trên mặt nước tây-bắc phố, nhìn phố + Old Mole + Line Wall + Rock",
+   "bien_the": {
+    "a": {
+     "p0": [
+      -2500,
+      300,
+      -500
+     ],
+     "l0": [
+      -450,
+      60,
+      -1300
+     ],
+     "p1": [
+      -2430,
+      292,
+      -545
+     ],
+     "fov": 40
+    },
+    "b": {
+     "p0": [
+      -2350,
+      250,
+      -1950
+     ],
+     "l0": [
+      -520,
+      50,
+      -1150
+     ],
+     "p1": [
+      -2300,
+      246,
+      -1930
+     ],
+     "fov": 40
+    }
+   }
+  },
+  {
+   "id": "C",
+   "ten": "Trên phố — sườn tây trên Grand Parade / King's Bastion",
+   "bien_the": {
+    "a": {
+     "p0": [
+      -170,
+      300,
+      -1700
+     ],
+     "l0": [
+      -760,
+      0,
+      -920
+     ],
+     "p1": [
+      -185,
+      298,
+      -1690
+     ],
+     "fov": 50
+    },
+    "b": {
+     "p0": [
+      -200,
+      310,
+      -1760
+     ],
+     "l0": [
+      -520,
+      0,
+      -520
+     ],
+     "p1": [
+      -212,
+      308,
+      -1745
+     ],
+     "fov": 52
+    }
+   }
+  },
+  {
+   "id": "D",
+   "ten": "Cổng biên giới + đường băng — trên mép nam La Línea nhìn nam",
+   "bien_the": {
+    "a": {
+     "p0": [
+      450,
+      320,
+      950
+     ],
+     "l0": [
+      -100,
+      0,
+      -180
+     ],
+     "p1": [
+      420,
+      312,
+      890
+     ],
+     "fov": 44
+    }
+   }
+  },
+  {
+   "id": "E",
+   "ten": "Phía Algeciras — trên vịnh 2,8 km ngoài bờ Algeciras nhìn sang Rock (tele)",
+   "bien_the": {
+    "a": {
+     "p0": [
+      -6300,
+      170,
+      -1950
+     ],
+     "l0": [
+      -500,
+      150,
+      -1500
+     ],
+     "p1": [
+      -6250,
+      168,
+      -1938
+     ],
+     "fov": 30
+    }
+   }
+  },
+  {
+   "id": "F",
+   "ten": "Đông — trên biển ngoài Catalan Bay nhìn vách đông + eo đất phía Địa Trung Hải (chương 4: đất lấy đá vách bắc/đường hầm)",
+   "bien_the": {
+    "a": {
+     "p0": [
+      1900,
+      260,
+      -900
+     ],
+     "l0": [
+      100,
+      120,
+      -700
+     ],
+     "fov": 40
+    }
+   }
+  },
+  {
+   "id": "G",
+   "ten": "Đỉnh Rock (O'Hara/Signal Hill) nhìn bắc xuống phố bắc + đường băng + eo đất + La Línea",
+   "bien_the": {
+    "a": {
+     "p0": [
+      -60,
+      520,
+      -1900
+     ],
+     "l0": [
+      -50,
+      0,
+      600
+     ],
+     "fov": 46
+    }
+   }
+  },
+  {
+   "id": "H",
+   "ten": "La Línea — trên phố trung tâm nhìn nam về cổng + Rock (chương 3, 5)",
+   "bien_the": {
+    "a": {
+     "p0": [
+      250,
+      160,
+      2300
+     ],
+     "l0": [
+      0,
+      40,
+      300
+     ],
+     "fov": 42
+    }
+   }
+  }
+ ]
+}
