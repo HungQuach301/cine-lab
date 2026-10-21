@@ -136,7 +136,7 @@ def shots():
     add('C3', ['2d', '2e'], 'Ca2-lai', 'chat', 'co-che', 'thanh_pho', 'pho', o, cam, v['td'], V7C.SU_KIEN['C3'],
         'cận 20–30 m người hái rau dại (S052) + cờ Union (khung chặt có vai) → cần cẩu lên khung lai ≈ 16° (phố + Line Wall + hải đội phong toả)', luot_thap=[0, 4.5])
     v = V['C4']; o = copy.deepcopy(v['opt']); D = d(['SM2', '2f']); cam = copy.deepcopy(V7C.CAM['C4'])
-    for i in (2, 3, 4, 5): cam[i] = K(cam[i]['t'], [-640, 30, -700], [-566, 2, -643], 34)   # cận Old Mole xiên ≈ 17° (V7C 45° nhìn xuống — LOOK-4)
+    for i in (2, 3, 4, 5): cam[i] = K(cam[i]['t'], [-625, 28, -705], [-556, 2, -650], 34)   # cận Old Mole xiên ≈ 17° (V7C 45° nhìn xuống — LOOK-4)
     cam[6] = K(8.4, [-1450, 260, -350], [-650, 20, -1050], 44); cam[7] = K(8.42, [-1450, 260, -350], [-650, 20, -1050], 44); cam[8] = K(D, [-1440, 258, -360], [-650, 20, -1052], 44)
     add('C4', ['SM2', '2f'], 'Bm → B-lai', 'lai', 'co-che', 'bien', 'vinh', o, cam, v['td'], V7C.SU_KIEN['C4'],
         'LOOK-4 sửa (V7C giây 100): Bm2 nhìn thẳng xuống → khung lai từ vịnh nhìn Old Mole + phố + Rock ≈ 13°; cận Old Mole dỡ hàng 3–7 s giữ (vai: tiếp tế)')
