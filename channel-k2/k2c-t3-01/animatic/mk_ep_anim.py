@@ -385,7 +385,7 @@ def shots():
              lives=[dict(era=2026, wY=dict(on=2020), walkers=[dict(line='WCA', n=220, width=6, women=True, colors=MOD)], crowds=[dict(line='WCA', groups=10, size=[4, 10], speed=1.3, colors=MOD)])],
              pho2026=dict(box=[-700, -200, 900, 1500]))
     # ANIM-V2 (hết "bản đồ trò chơi"): khung lai THẤP có chân trời (45–55 m, nhìn xuống ≈ 6–8°), cây/đèn/xe phố 2026 (duong2026), 2 góc: cổng + dòng người · dọc hàng rào (gỡ cũ, dựng mới)
-    cam, ct = cuts(D, [dict(t1=round(tf, 3), p0=[330, 55, 760], l0=[100, 5, 300], dp=(-20, 0, -6), fov=40), dict(p0=[560, 45, 600], l0=[0, 3, 470], dp=(-25, 0, -5), fov=40)])
+    cam, ct = cuts(D, [dict(t1=round(tf, 3), p0=[40, 40, -150], l0=[70, 0, 350], dp=(8, 0, 10), fov=40), dict(p0=[-120, 35, 150], l0=[150, 2, 500], dp=(10, 0, 6), fov=42)])   # soát dựng: góc cũ có bãi cỏ công viên chiếm nửa khung → nhìn bắc từ đường băng qua cổng
     add('N5.4', ['5g', '5h', '5i'], 'D-cong-thap → F-hang-rao', 'lai', 'buoc-ngoat', 'eo_dat', 'eo', o, cam, [('hang_rao', None)],
         [dict(t=0.5, k='nguoi', s='7/2026: kiểm tra thường lệ dừng — người qua cổng không xếp hàng'), dict(t=round(tf + 1, 2), k='pha', s='hàng rào cũ gỡ từng đoạn'), dict(t=round(tf + 3, 2), k='xay', s='hàng rào mới lùi vài mét')],
         'hàng rào cũ gỡ (lời 5h, bậc 2) + hàng mới lệch 6 m (ƯỚC TÍNH bậc 5 — chờ nguồn vị trí); khoảng mở ≈ 150 m chưa dựng; thẻ 5i bỏ (lời mang ngày); ANIM-V2: máy thấp có chân trời + phố 2026 có cây/đèn/xe (bậc 5 vật nền phụ)', cat=ct)
