@@ -1,0 +1,330 @@
+Q27: 3/3 người chấm hợp lệ · chi phí $0.0310
+Q27: 0/3 người chấm hợp lệ · chi phí $0.0010 · LỖI: R1: lỗi API: Credit balance is too low; không có modelUsage; R2: lỗi API: Credit balance is too low; không có modelUsage; R3: lỗi API: Credit balance is too low; không có modelUsage
+Q27: 0/3 người chấm hợp lệ · chi phí $0.0310 · LỖI: R1: mô hình khác claude-sonnet-5-5: ['claude-haiku-5-5']; không có claude-sonnet-5-5 trong modelUsage; R2: mô hình khác claude-sonnet-5-5: ['claude-haiku-5-5']; không có claude-sonnet-5-5 trong modelUsage; R3: mô hình khác claude-sonnet-5-5: ['claude-haiku-5-5']; không có claude-sonnet-5-5 trong modelUsage
+Q27: 0/3 người chấm hợp lệ · chi phí $0.0310 · LỖI: R1: không đọc đủ tệp đề bài nêu: thiếu 1 (F60.jpg…); R2: không đọc đủ tệp đề bài nêu: thiếu 1 (F60.jpg…); R3: không đọc đủ tệp đề bài nêu: thiếu 1 (F60.jpg…)
+Q27: 3/3 người chấm hợp lệ · chi phí $0.0310
+Q27: 3/3 người chấm hợp lệ · chi phí $0.0310
+Q27: 3/3 người chấm hợp lệ · chi phí $0.0310
+Q27: 0/3 người chấm hợp lệ · chi phí $0.0610 · LỖI: R1: trả lời không đọc được (không phải JSON); R2: trả lời không đọc được (không phải JSON); R3: trả lời không đọc được (không phải JSON)
+Q27: 3/3 người chấm hợp lệ · chi phí $0.0410
+Q27: 3/3 người chấm hợp lệ · chi phí $0.0310
+ĐÚNG  Q7      bắt lỗi  tập 2 S2: −5,3 % dự báo hiện nhãn ACTUAL (log)
+ĐÚNG  Q7      bắt lỗi  tập 2 S2: đặc tả khai kind=actual cho nums dự báo
+ĐÚNG  Q7      sạch     tập 2 S2 bản G3: nhãn PROJECTION
+ĐÚNG  Q7      sạch     tập 02 G3: đặc tả
+ĐÚNG  Q7      sạch     tập 03 G3: đặc tả
+ĐÚNG  Q7      sạch     tập 04 G3: đặc tả
+ĐÚNG  Q7      sạch     tập 05 G3: đặc tả
+ĐÚNG  Q12     bắt lỗi  tập 2 T1: hộp "…OPERATORS." vượt mép phải (1292 > 1216)
+ĐÚNG  Q12     bắt lỗi  tập 2 T1: không có .boxes.json (dựng tay như bản lỗi)
+ĐÚNG  Q12     sạch     tập 02 G3: T1, T2
+ĐÚNG  Q12     sạch     tập 03 G3: T1, T2
+ĐÚNG  Q12     sạch     tập 04 G3: T1, T2
+ĐÚNG  Q12     sạch     tập 05 G3: T1, T2
+ĐÚNG  Q13     sạch     tập 02 G3: tiêu đề, thumbnail, mô tả, Shorts
+ĐÚNG  Q13     sạch     tập 03 G3: tiêu đề, thumbnail, mô tả, Shorts
+ĐÚNG  Q13     sạch     tập 04 G3: tiêu đề, thumbnail, mô tả, Shorts
+ĐÚNG  Q13     sạch     tập 05 G3: tiêu đề, thumbnail, mô tả, Shorts
+ĐÚNG  Q13     bắt lỗi  tiêu đề nêu −9 % (dự báo) không có dấu hiệu dự báo
+ĐÚNG  Q13     bắt lỗi  tiêu đề +9 % sai dấu (số thật −9 %)
+ĐÚNG  Q13     sạch     tiêu đề số thật truy được
+ĐÚNG  Q13     sạch     tập 3: "135k" truy về 135,000
+ĐÚNG  Q13     bắt lỗi  tập 3: "150k" không có trong numbers
+ĐÚNG  Q14–18  bắt lỗi  tập 03: Q14✗; Q15✗; Q16✗; Q17✗; Q18✗
+ĐÚNG  Q14–18  sạch     tập 04: Q14✓; Q15✓; Q16✓; Q17✓; Q18✓
+ĐÚNG  Q14–18  sạch     tập 05: Q14✓; Q15✓; Q16✓; Q17✓; Q18✓
+ĐÚNG  Q19     sạch     tập 5 G3: 4 dòng RIGHTS, 16,5 %
+ĐÚNG  Q19     bắt lỗi  tập 5: shot archive trỏ rid không có trong RIGHTS
+ĐÚNG  Q19     bắt lỗi  tập 5: shot archive thiếu dòng ghi nguồn trên hình
+ĐÚNG  Q19     sạch     URL giả .gov (loc.gov.evil.com) không qua danh sách trắng
+ĐÚNG  Q20     bắt lỗi  chú thích giao vùng isotype khai trong log
+ĐÚNG  Q20     bắt lỗi  cờ hit của render
+ĐÚNG  Q20     bắt lỗi  tập ≥ 6: đoạn isotype không ghi zones
+ĐÚNG  Q20     sạch     chú thích dưới vùng hình
+ĐÚNG  Q21     sạch     tập 5 G3: 0 lỗi
+ĐÚNG  Q21     bắt lỗi  tập 5 đoạn 00: "1966…" dưới dòng nguồn OOH (bản G2)
+ĐÚNG  Q21     bắt lỗi  tập 5: capsrc (P ghi) bỏ trống nguồn nhưng đặc tả khai src B1468 → K vẫn đòi
+ĐÚNG  Q22     bắt lỗi  tập 5 S1: "Source: BLS, Occupational Outlook…" hộp −338…1418 trên khung 1080
+ĐÚNG  Q22     bắt lỗi  tập 5 đoạn 07 (16:9): dòng nguồn ghép tràn mép phải
+ĐÚNG  Q22     sạch     Shorts gọn (short9) trong lề 8 px
+ĐÚNG  Q23     bắt lỗi  tập 3 v1 thẻ so sánh −13%/+87%
+ĐÚNG  Q23     bắt lỗi  câu "+87 % … while tellers −13 %"
+ĐÚNG  Q23     sạch     câu 2025 → 2035 (điểm gốc + dự báo, cùng nguồn)
+ĐÚNG  Q23     bắt lỗi  tập 3: 65 nghìn (phân loại 1960) + 253 nghìn (1970) không ghi cơ sở
+ĐÚNG  Q23     sạch     tập 3: cùng cặp số, ghi rõ từng cơ sở
+ĐÚNG  Q23     sạch     tập 03 G3: lời, thẻ, chú thích, bề mặt phát hành
+ĐÚNG  Q23     sạch     tập 05 G3: lời, thẻ, chú thích, bề mặt phát hành
+ĐÚNG  Q23     bắt lỗi  tập 4 G3 (trước luật): chỉ hook S1 "134,000 to 3.9 million" bị bắt
+ĐÚNG  Q23     bắt lỗi  tập 2 G3 (trước luật): thẻ so sánh 11 −16,1 % (1930–40) ↔ −5,3 % (2025–35) bị bắt
+ĐÚNG  Q24     sạch     tập 3 G3: "135,000 (1970 classification)"
+ĐÚNG  Q24     bắt lỗi  tập 3: 135,000 gắn nhãn "1960 classification"
+ĐÚNG  Q25     bắt lỗi  tập 2 đoạn 06: hiện “63%” khi đếm tới 50–80 %
+ĐÚNG  Q25     sạch     tập 2 đoạn 06: hiện thẳng “50–80% fewer”
+ĐÚNG  Q14     sạch     tập 6 v2: tựa (text + lamp) ở 19,8 s
+ĐÚNG  Q14     sạch     đề nghị P: tựa chồng lên cảnh đinh (plate + title), timeline
+ĐÚNG  Q14     bắt lỗi  plate khai title nhưng log render không có chữ tựa
+ĐÚNG  Q14     sạch     plate + title, log render có chữ tựa trong khoảng shot
+ĐÚNG  Q14     bắt lỗi  plate không khai title: không còn tựa
+ĐÚNG  Q16     sạch     tập 6 v2: 5 mẫu toàn khung mới không tính thẻ giấy (7.2 % (trần 40 %))
+ĐÚNG  Q16     bắt lỗi  tập 6 v2 nếu các cảnh đó là thẻ giấy: vượt trần 40 %
+ĐÚNG  Q26     sạch     tập 1 (chuẩn gốc, không timeline): khung nhìn 64 (≥ 40) · lớn nhất 11.9 % (≤ 20 %) · cảnh liền cùng bố cục 2 (≤ 2, từ 2:01.5) · 38 cảnh (dò trên hình)
+ĐÚNG  Q26     bắt lỗi  tập 6 v1 (khung lặp 46 % theo P): khung nhìn 19 (≥ 40) · lớn nhất 43.3 % (≤ 20 %) · cảnh liền cùng bố cục 2 (≤ 2, từ 6:27.3 10/desk) · 31 cảnh (timeline)
+ĐÚNG  Q26     sạch     tập 6 v2 (ranh giới timeline): khung nhìn 70 (≥ 40) · lớn nhất 5.5 % (≤ 20 %) · cảnh liền cùng bố cục 2 (≤ 2, từ 4:00.8 07/plate:wall_back) · 60 cảnh (timeline)
+ĐÚNG  Q26     sạch     tập 6 v2 (ranh giới dò trên hình): khung nhìn 70 (≥ 40) · lớn nhất 5.5 % (≤ 20 %) · cảnh liền cùng bố cục 2 (≤ 2, từ 4:22.2) · 48 cảnh (dò trên hình)
+ĐÚNG  Q26     bắt lỗi  tập 6 v2 + ba cảnh liền cùng một hình (cắt nhảy): chuỗi 3
+ĐÚNG  Q26     bắt lỗi  cùng hình, cảnh giữa tối đi 4 lần: vẫn là cùng bố cục (chuẩn hoá sáng/tương phản), chuỗi 3
+ĐÚNG  Q26     sạch     liên kết đầy đủ: mọi cặp trong một khung nhìn chênh < 12/255
+ĐÚNG  Q28     bắt lỗi  tập 6 v2: 4 cue · cảnh đinh có âm thanh nghề 31/33 · lặng trước số neo [0.76, 0.69, 0.69, 0.7] s · mix.json -14.0 LUFS / -1.6 dBTP · ASR: không chạy
+ĐÚNG  Q28     sạch     tập 6 v2 + âm thanh nghề cho 2 shot diptych
+ĐÚNG  Q28     bắt lỗi  kết bằng cue hồi 3 thay nhạc hiệu kênh
+ĐÚNG  Q28     bắt lỗi  cue hồi 2 dài hơn bài nhạc (phải lặp vòng)
+ĐÚNG  Q28     bắt lỗi  dùng lại 90 s cùng đoạn bài hồi 2
+ĐÚNG  Q28     bắt lỗi  số neo có cụm say không có trong lời (P cũ bỏ qua im lặng)
+ĐÚNG  Q28     bắt lỗi  đoạn 04 dùng lời chưa chèn lặng trước "eighty-six thousand"
+ĐÚNG  Q28     sạch     lặng trước số neo đo trên âm thật: 4 lần đọc (gồm "seventeen percent" lần 2 ở đoạn 09)
+ĐÚNG  Q29     sạch     tập 6 v2: 59/59 danh từ chính và lần đọc số neo có hình vật chất ≥ 0.5 s trong ±1 s
+ĐÚNG  Q29     bắt lỗi  đoạn 04 chỉ còn thẻ số: "eighty-six thousand" không có hình vật chất
+ĐÚNG  Q29     bắt lỗi  đoạn có lời không khai danh từ chính
+ĐÚNG  Q30     bắt lỗi  tập 6 v2: 3 chuyển hồi · tông đo (b*): hồi 1 26.1, hồi 2 9.5, hồi 3 7.9, hồi 4 18.2
+ĐÚNG  Q30     sạch     tập 6 v2 nếu hồi 3 lạnh thật (h 258°, C 9) và case_line khai đèn
+ĐÚNG  Q30     sạch     Q-L30 B: tập 6 v2 thật, case_line khai đèn (hồi 3 b* 7,9 thấp nhất)
+ĐÚNG  Q30     bắt lỗi  chuyển hồi 01→02: hai phía khai khác nhau (cut / match)
+ĐÚNG  Q30     bắt lỗi  J-cut 01→02 bỏ tiếng máy vào trước điểm cắt
+ĐÚNG  Q30     bắt lỗi  shot đầu hồi 2 là cảnh đinh không có đèn
+ĐÚNG  Q30     bắt lỗi  Q-L30 B: hồi 2 (b* 7,0) lạnh hơn hồi 3 (7,9)
+ĐÚNG  Q30     bắt lỗi  Q-L30 B: hồi 3 bằng hồi 2 (không lạnh NHẤT)
+ĐÚNG  Q30     bắt lỗi  Q-L30 B: hồi 3 không có cảnh toàn khung để đo
+ĐÚNG  Q30     sạch     Q-L30 B: hồi 3 b* 9,2 so với 9,5 được nêu là sát ngưỡng ±5 %
+ĐÚNG  Q27     bắt lỗi  tập 6 v2, bản 10 + 10 (trước Q-L27): tập mới 4.83 · tập 1 5.58 · chênh -0.74 (SE 0.27) (R1 4.77/5.53, R2 4.90/5.50, R3 4.83/5.70)
+ĐÚNG  Q27     bắt lỗi  tập 6 v1, bản 10 + 10 (trước Q-L27): tập mới 3.84 · tập 1 5.48 · chênh -1.63 (SE 0.27) (R1 3.90/5.53, R2 3.83/5.40, R3 3.80/5.50)
+ĐÚNG  Q27     sạch     Q-L27 B: bộ tập 6 v2 có 30 + 30 khung, mỗi tầng 1/30 thời lượng một khung
+ĐÚNG  Q27     sạch     Q-L27 B: thứ tự trộn tất định theo SHA video (dựng lại ra cùng bộ)
+ĐÚNG  Q27     bắt lỗi  tập 6 v2, bản 30 + 30 (đề bài F01–F60, 3 Sonnet thật): tập mới 4.98 · tập 1 5.13 · chênh -0.15 (SE 0.27) · SÁT NGƯỠNG (R1 4.92/5.08, R2 5.20/5.21, R3 4.82/5.10)
+ĐÚNG  Q27     bắt lỗi  tập 6 v1, bản 30 + 30 (đề bài F01–F60, 3 Sonnet thật): tập mới 4.34 · tập 1 4.92 · chênh -0.58 (SE 0.27) (R1 4.21/4.63, R2 4.43/5.10, R3 4.37/5.02)
+ĐÚNG  Q27     bắt lỗi  tập 6 v2 (10 + 10) nếu mọi khung tập mới +1 điểm: chênh +0,25 sát ngưỡng, không có PLAN tập sau → TRƯỢT
+ĐÚNG  Q27     bắt lỗi  một người chấm bỏ sót khung
+ĐÚNG  Q27     bắt lỗi  chỉ 2 người chấm
+ĐÚNG  Q31     bắt lỗi  tập 6 v2 (đề bài khoá, 3 Sonnet thật): vòng 1 · điểm liền mạch [7, 6, 7] · đồng thuận ≥ 2/3: 8 điểm, đứt mạch 7
+ĐÚNG  Q31     sạch     chỉ còn điểm "chán" đồng thuận: không chặn
+ĐÚNG  Q31     sạch     một người nêu đứt mạch T05: chưa đủ 2/3
+ĐÚNG  Q31     bắt lỗi  hai người nêu cùng chỗ (T05 và R05.1, cách 0,2 s)
+ĐÚNG  Q31     bắt lỗi  vòng 2, tập 6 v2: chỉ chặn 3/3 (T03, T05, T10) → vòng 2 · điểm liền mạch [7, 6, 7] · đồng thuận ≥ 2/3: 8 điểm, đứt mạch 7 (3/3: 3, 2/3 có giải trình 0/4)
+ĐÚNG  Q31     bắt lỗi  vòng 1: điểm 2/3 (T01, T07) chặn
+ĐÚNG  Q31     bắt lỗi  vòng 2: điểm 2/3 chưa giải trình → chặn
+ĐÚNG  Q31     bắt lỗi  vòng 2: T07 giải trình quá ngắn (< 20 ký tự) → chặn
+ĐÚNG  Q31     sạch     vòng 2: mọi điểm 2/3 có giải trình (theo T## hoặc m:ss.s)
+ĐÚNG  Q31     sạch     lịch sử vòng: chỉ đếm vòng chấm đủ 3 người (1 đủ, 1 dở → vòng hiện tại = 2)
+ĐÚNG  Q31     bắt lỗi  R2 dùng đề bài đã sửa (SHA khác bản khoá)
+ĐÚNG  Q27     sạch     đề bài Q27 nêu đủ 60 ảnh F01–F60
+ĐÚNG  Q27/31  sạch     đề bài khoá: 6 tệp, mỗi tệp có {DIR} và yêu cầu chỉ trả JSON
+ĐÚNG  Q27     sạch     suy lại bộ new/ref từ hạt giống khớp bộ đã lưu (tập 6 v1, 30 + 30)
+ĐÚNG  Q27     sạch     suy lại bộ new/ref từ hạt giống khớp bộ đã lưu (tập 6 v2, 30 + 30)
+ĐÚNG  Q27     sạch     SE khoá = SE đo lại trên 6 lần chấm thật (0.273; từng lần 0.23, 0.27, 0.28, 0.33, 0.23, 0.28) → 0.27
+ĐÚNG  Q27     sạch     tập 7 chính thức đọc lại đúng số G2 (5,68 / 5,64): tập mới 5.68 · tập 1 5.64 · chênh +0.04 (SE 0.27) · SÁT NGƯỠNG (R1 5.92/5.90, R2 5.62/5.39, R3 5.49/5.63)
+ĐÚNG  Q27     bắt lỗi  tập 7 chính thức: chênh +0,04 trong ±SE → SÁT NGƯỠNG; không có PLAN tập sau → TRƯỢT
+ĐÚNG  Q27     bắt lỗi  tập 7 chính thức với PLAN tập 8 lúc khoá 1.8.1 (f115e8b, chưa có mục "Cải thiện hình") → TRƯỢT
+ĐÚNG  Q27     sạch     tập 7 chính thức + PLAN tập sau có mục "Cải thiện hình" → ĐẠT, ghi SÁT NGƯỠNG
+ĐÚNG  Q27     bắt lỗi  PLAN tập sau có tiêu đề "Cải thiện hình" nhưng mục rỗng → TRƯỢT
+ĐÚNG  Q27     bắt lỗi  PLAN tập sau không có mục "Cải thiện hình" → TRƯỢT
+ĐÚNG  Q27     sạch     tập 7 nếu mọi khung tập mới +1: chênh > SE → ĐẠT rõ, không cần PLAN (tập mới 6.68 · tập 1 5.64 · chênh +1.04 (SE …)
+ĐÚNG  Q27     sạch     tập 7 nháp 4b (chênh −0,10, trong SE): luật mới ĐẠT sát ngưỡng (tập mới 5.14 · tập 1 5.24 · chênh -0.09 (SE 0.…)
+ĐÚNG  Q27     sạch     tập 6 v2 (30 + 30, chênh −0,15) + PLAN có mục: ĐẠT sát ngưỡng
+ĐÚNG  Q27     bắt lỗi  tập 6 v1 (chênh −0,58 < −SE) → TRƯỢT dù PLAN có mục
+ĐÚNG  Q27     bắt lỗi  tập 7 nháp lần 4: R1 thiếu F59, F60 → bộ chấm không hợp lệ
+ĐÚNG  Q27     bắt lỗi  bản nháp không chấm: bản xem 1280×720 tập 6 v2 bị nhận là nháp
+ĐÚNG  Q27     sạch     đối chứng tập 1 = master m23 1920×1080 (SHA M2-3-MASTER-SHORTS.md), một tệp
+ĐÚNG  Q31     sạch     dấu vân: sửa thời điểm, máy quay, ánh sáng cảnh đinh (lượt nội thất) → không đổi
+ĐÚNG  Q31     bắt lỗi  dấu vân: đổi cảnh đinh một shot (đoạn 13) → cấu trúc khác
+ĐÚNG  Q31     bắt lỗi  dấu vân: bỏ một shot ảnh tư liệu → cấu trúc khác
+ĐÚNG  Q31     bắt lỗi  dấu vân: đổi một chữ lời đoạn 05 → lời khác
+ĐÚNG  Q31     sạch     4 vòng nháp + bản cuối cùng lời, cùng cấu trúc → vòng 5 (sổ 4 vòng nháp chuyển sang bản cuối (cùng lời, cùng cấu trúc))
+ĐÚNG  Q31     sạch     bản cuối đổi cấu trúc → đếm lại vòng 1 (bản cuối đếm lại từ vòng 1 (cấu trúc khác so với nháp cuối đã chấm, vòng 4))
+ĐÚNG  Q31     sạch     bản cuối đổi lời → đếm lại vòng 1
+ĐÚNG  Q31     sạch     sổ nháp bản luật cũ (không dấu vân, như tập 7) → bản cuối vòng 1
+ĐÚNG  Q31     sạch     nháp đổi cấu trúc giữa các vòng nháp vẫn đếm tiếp; so với NHÁP CUỐI đã chấm → vòng 5
+ĐÚNG  Q31     sạch     bản cuối → bản cuối (dựng lại sau vòng bản cuối): đếm tiếp
+ĐÚNG  Q31     sạch     nháp → bản cuối đổi (đếm lại 1) → bản cuối vòng 2 → vòng 3
+ĐÚNG  Q31     sạch     tập 7 vòng 5 thật (sổ nháp chuyển hợp lệ): vòng 5 · điểm liền mạch [7, 7, 7] · đồng thuận ≥ 2/3: 6 điểm, đứt mạch 3 (3/3: 0, 2/3 có giải trình 3/3)
+ĐÚNG  Q31     bắt lỗi  tập 7 bản cuối nếu đếm lại vòng 1: T05, T09, T15 (2/3) chặn
+ĐÚNG  Q31     sạch     sổ vòng nguyên vẹn
+ĐÚNG  Q31     bắt lỗi  sổ vòng: manifest vòng 2 bị sửa
+ĐÚNG  Q31     bắt lỗi  sổ vòng: xoá q31-lich-su/
+ĐÚNG  Q31     sạch     --tu-nhap: chép 3 vòng nháp sang sổ bản cuối (vong-01, vong-02, vong-03), chạy lại không chép trùng, nguồn còn nguyên
+ĐÚNG  Q26b    bắt lỗi  tập 7 bản cuối: 7 bối cảnh · lớn nhất ep07/tower 29.1 % · liên tục dài nhất ep07/tower 139.1 s · nửa sau 5 · trung tính 10.8 %
+ĐÚNG  Q26b    bắt lỗi  Ca 5 — tập 7: phòng tính toán 0:51–2:56 có ảnh tư liệu, isotype chen giữa → một quãng 104,3 s (trừ 20,7 s trung tính) > 90 s
+ĐÚNG  Q26b    sạch     tập 7: ep07/pool 25,0 % được nêu sát ngưỡng
+ĐÚNG  Q26b    sạch     tập 6 v2: 11 bối cảnh · lớn nhất ep06/drafts 17.3 % · liên tục dài nhất ep06/drafts 27.1 s · nửa sau 7 · trung tính 11.4 %
+ĐÚNG  Q26b    sạch     nhãn: mọi góc máy của một cảnh đinh là một bối cảnh (tower_in, tower_code, tower_floor)
+ĐÚNG  Q26b    sạch     nhãn: diptych hai nửa khác cảnh mỗi nửa 1/2, cùng cảnh cả shot; ảnh tư liệu trung tính; thẻ trích dẫn = "the" (1.10.1)
+ĐÚNG  Q26b    sạch     tập 7 (1.8.1): thẻ trích dẫn 11,9 s ở 5:51 không dứt quãng văn phòng; quãng 5:28.8–7:59.8 = 139,1 s (trừ 11,9 s trung tính)
+ĐÚNG  Q26b    sạch     tập 7 (1.8.1) nếu thay thẻ trích dẫn bằng cảnh văn phòng cùng thời lượng: quãng = cả 150,9 s ([150.9, '5:28.8', '7:59.8', 0.0])
+ĐÚNG  Q26b    sạch     Ca 1 — thẻ trích dẫn 12 s chen giữa hai đoạn cùng bối cảnh: một quãng, 100 s (không tính 12 s thẻ) → [100.0, 1]
+ĐÚNG  Q26b    sạch     Ca 2 — bối cảnh khác 5 s chen giữa: vẫn liền, 105 s → [105.0, 1]
+ĐÚNG  Q26b    sạch     Ca 3 — bối cảnh khác 8 s chen giữa: dứt quãng (2 quãng, dài nhất 50 s) → [50.0, 2]
+ĐÚNG  Q26b    sạch     Ca 4 — hai bối cảnh khác 4 s + 4 s (cộng dồn 8 s): dứt quãng → [50.0, 2]
+ĐÚNG  Q26b    sạch     thẻ trung tính không cộng vào bộ đếm: khác 4 s + thẻ 6 s + khác 3,9 s → vẫn liền, 102,9 s → [102.9, 1]
+ĐÚNG  Q26b    sạch     diptych có X ở một nửa đặt bộ đếm về 0: khác 5 s + diptych + khác 5 s → vẫn liền, 102 s → [102.0, 1]
+ĐÚNG  Q26b    bắt lỗi  quãng 100 s qua thẻ 12 s bị bắt (> 90 s)
+ĐÚNG  Q26b    bắt lỗi  tập 6 v2 nếu nửa sau chỉ còn tường bản nháp: 10 bối cảnh · lớn nhất ep06/drafts 32.3 % · liên tục dài nhất ep06/drafts 156.1 s · nửa sau 1 · trung tính 7.0 %
+ĐÚNG  Q26b    bắt lỗi  chớp 2 bối cảnh 1,5 s ở nửa sau để đủ số: không tính (< 3 s mỗi bối cảnh)
+ĐÚNG  Q26b    bắt lỗi  tập 6 v2 nếu cả đoạn 06–08 (114 s) dùng tường bản nháp: liên tục > 90 s
+ĐÚNG  Q28f    sạch     tập 8 đoạn 06: lời khoá vs ASR thật của K → ĐẠT
+ĐÚNG  Q28f    sạch     tập 8 đoạn 13: lời khoá vs ASR thật của K → ĐẠT
+ĐÚNG  Q28f    sạch     đoạn 06: ASR thật viết "some $20 million" = lời "some twenty million dollars" (1.8.1: "thiếu 20000000.0")
+ĐÚNG  Q28f    sạch     đoạn 13: ASR thật viết "3.5%" = lời "three and a half percent" (1.8.1: "thiếu 3.0")
+ĐÚNG  Q28f    bắt lỗi  không nới: "two million" ≠ "twenty million" → TRƯỢT
+ĐÚNG  Q28f    bắt lỗi  không nới: "twenty million" ≠ "two million" → TRƯỢT
+ĐÚNG  Q28f    bắt lỗi  không nới: "three and a half percent" ≠ "3%" → TRƯỢT
+ĐÚNG  Q28f    bắt lỗi  không nới: "3%" ≠ "three and a half percent" → TRƯỢT
+ĐÚNG  Q28f    bắt lỗi  không nới: "$20 million" ≠ "2 million" → TRƯỢT
+ĐÚNG  Q28f    sạch     đọc đúng: năm đọc chữ + số liền sau: 1966 và 12, không ghép
+ĐÚNG  Q28f    sạch     đọc đúng: lời viết năm bằng chữ, ASR viết số
+ĐÚNG  Q28f    sạch     đọc đúng: ngày thứ tự sau tên tháng = 7
+ĐÚNG  Q28f    sạch     đọc đúng: "First" đứng riêng không là số
+ĐÚNG  Q28f    sạch     đọc đúng: 262
+ĐÚNG  Q28f    sạch     đọc đúng: 1500
+ĐÚNG  Q28f    sạch     đọc đúng: 74 000
+ĐÚNG  Q28f    sạch     đọc đúng: 2,5 triệu
+ĐÚNG  Q28f    sạch     bộ đọc cũ ghép "nineteen sixty six twelve" thành 97 (lỗi P báo); bộ mới: {12, 1966}
+ĐÚNG  Q28f    sạch     ngày thứ tự ngoài tên tháng không đọc ("the seventh day")
+ĐÚNG  Q28f    sạch     ep06v2: ASR thật, bộ mới → ĐẠT (bộ cũ 1.8.1: ĐẠT)
+ĐÚNG  Q28f    sạch     ep07: ASR thật, bộ mới → ĐẠT (bộ cũ 1.8.1: ĐẠT)
+ĐÚNG  Q28f    sạch     ep08: ASR thật, bộ mới → ĐẠT (bộ cũ 1.8.1: {'06': ['20000000.0'], '13': ['3.0']})
+ĐÚNG  Q27     sạch     tái hiện lỗi 1.8.1: gán khung theo SHA master phát hành d22d7d6e… → tập mới 5.23 · tập 1 5.34 · chênh -0.11 (số sai P báo: −0,11)
+ĐÚNG  Q27     sạch     1.9.0: cùng dữ liệu, gán theo hạt giống manifest → tập mới 5.13 · tập 1 5.44 · chênh -0.31 (= số chính thức −0,31)
+ĐÚNG  Q27     bắt lỗi  master khác manifest: báo "bộ chấm thuộc bản khác" → TRƯỢT, chấm lại
+ĐÚNG  Q27     sạch     master đúng bản trong manifest: không lỗi, cùng phép gán
+ĐÚNG  Q27     bắt lỗi  manifest bị sửa hạt giống (không khớp SHA ghi trong manifest) → lỗi
+ĐÚNG  Q27     sạch     hiệu chuẩn API tập 07 lần 1: tập mới 5.81 · tập 1 5.22 · chênh +0.59 · subagent +0.04 · lệch +0.55 · $0.7645
+ĐÚNG  Q27     sạch     hiệu chuẩn API tập 07 lần 2: tập mới 5.66 · tập 1 5.18 · chênh +0.48 · subagent +0.04 · lệch +0.44 · $0.8478
+ĐÚNG  Q27     sạch     hiệu chuẩn API tập 08 lần 1: tập mới 5.25 · tập 1 5.40 · chênh -0.15 · subagent -0.31 · lệch +0.16 · $0.7628
+ĐÚNG  Q27     sạch     hiệu chuẩn API tập 08 lần 2: tập mới 5.30 · tập 1 5.28 · chênh +0.02 · subagent -0.31 · lệch +0.34 · $0.7651
+ĐÚNG  Q27     sạch     SE đo trên 4 lần chấm API = 0.321 (subagent, 6 lần: 0,273; khoá: 0.27)
+ĐÚNG  API     sạch     mô hình ghim claude-sonnet-5-5 (không để mặc định)
+ĐÚNG  API     bắt lỗi  modelUsage có mô hình khác (haiku) → lỗi
+ĐÚNG  API     bắt lỗi  modelUsage rỗng → lỗi
+ĐÚNG  API     sạch     trả lời JSON trong rào ``` đọc được; chữ thường → không
+ĐÚNG  API     bắt lỗi  thiếu CONSOLE_API_KEY → dừng (fail closed)
+ĐÚNG  API     sạch     chấm giả đủ 3 người: R1–R3.json + `cham` trong manifest (mô hình, chi phí $0.031)
+ĐÚNG  API     bắt lỗi  chấm lại cùng bộ (đã có R*.json) → từ chối
+ĐÚNG  API     bắt lỗi  hết credit → TRƯỢT có lý do, không có R*.json
+ĐÚNG  API     bắt lỗi  chạy mô hình khác MODEL → không nhận trả lời
+ĐÚNG  API     bắt lỗi  người chấm không đọc đủ 60 ảnh → không nhận trả lời
+ĐÚNG  API     sạch     JSON trong rào ``` vẫn nhận
+ĐÚNG  Q27     sạch     mốc tập 8 hợp lệ (bộ giả, 3 người): tập 8 5.00 · tập 1 5.00 · chênh +0.00
+ĐÚNG  Q27     bắt lỗi  thiếu bộ mốc tập 8 → lỗi
+ĐÚNG  Q27     bắt lỗi  bộ mốc dựng từ video khác tập 8 bản phát hành → lỗi "bộ chấm thuộc bản khác"
+ĐÚNG  Q27     sạch     kèm mốc: ngưỡng vẫn trên tập mới − tập 1 (ĐẠT, sát ngưỡng) · tập mới 5.25 · tập 1 5.40 · chênh -0.15 (SE 0.27) · SÁT NGƯỠNG
+ĐÚNG  Q27     bắt lỗi  kèm mốc: bộ mốc lỗi → TRƯỢT dù chênh chính đạt
+ĐÚNG  Q27     sạch     mốc = tập 8 bản phát hành (release-ll-ep08-v1, d22d7d6e…)
+ĐÚNG  API     bắt lỗi  trả hai khối JSON (tự sửa giữa chừng) cả 2 lần gọi → không nhận, TRƯỢT có lý do
+ĐÚNG  API     sạch     trả lời không đọc được ở lần 1 → gọi lại 1 lần, ghi cả 2 lần (số lần mỗi người: [2, 1, 1])
+ĐÚNG  API     sạch     khoá không bao giờ ghi ra tệp (trả lời, bản chép, manifest)
+ĐÚNG  API     bắt lỗi  trả lời kiểu subagent cũ (model "sonnet", không qua API) → không nhận
+ĐÚNG  API     bắt lỗi  bộ chấm subagent tập 8 (không có bản ghi `cham`) → TRƯỢT "chưa chấm qua Claude API"
+ĐÚNG  Q32     sạch     tập giả 4 clip LoC/Wikimedia/Pexels/Pixabay đủ sổ, SHA, ghi công: ĐẠT · 4 đoạn footage · 4 clip · sổ 4 dòng · nguồn ngoài phim 10.8 % (footage 15.4 s + tư liệu/ảnh/báo 51.5 s) · clip dài nhất 4.69 s
+ĐÚNG  Q32a    bắt lỗi  đoạn footage PX-01 không có dòng sổ
+ĐÚNG  Q32a    bắt lỗi  SHA-256 file đã dùng ≠ sổ (file bị thay sau khi ghi sổ)
+ĐÚNG  Q32a    bắt lỗi  không thấy file đã dùng → không kiểm được SHA
+ĐÚNG  Q32a    bắt lỗi  timecode_dung lệch EDL 1 s
+ĐÚNG  Q32a    bắt lỗi  giấy phép CC BY-NC 4.0 (NC bị cấm)
+ĐÚNG  Q32a    bắt lỗi  nguồn ngoài danh sách (shutterstock) → cần chủ dự án duyệt
+ĐÚNG  Q32a    bắt lỗi  Wikimedia trỏ trang danh mục, không phải trang File: (không kiểm được giấy phép từng file)
+ĐÚNG  Q32a    bắt lỗi  giấy phép không hợp nguồn (Pixabay License cho clip Pexels)
+ĐÚNG  Q32a    bắt lỗi  ngày tải không phải ISO 8601 UTC (12/10/2026)
+ĐÚNG  Q32a    sạch     timecode nhiều đoạn "a-b;c-d" và SMPTE hh:mm:ss:ff đọc đúng
+ĐÚNG  Q32b    sạch     LOC-01 hai shot kề nhau 3,34 + 3,59 = 6,93 s: một lần liên tục, ĐẠT (≤ 8 s)
+ĐÚNG  Q32b    bắt lỗi  LOC-01 ba shot kề nhau = 11,62 s liên tục > 8 s
+ĐÚNG  Q32b    bắt lỗi  mọi plate cắt thành clip ≤ 7 s (clip riêng) + tư liệu: nguồn ngoài phim 86.2 % (footage 481.0 s + tư liệu/ảnh/báo 51.5 s) > 40 %
+ĐÚNG  Q32b    sạch     clip 7,9 s: ĐẠT nhưng nêu tên sát ngưỡng (clip LOC-01 7.90 s (ngưỡng 8 s))
+ĐÚNG  Q32c    sạch     CC BY-SA: mô tả có nguyên văn câu ghi công (khác xuống dòng/hoa thường vẫn nhận)
+ĐÚNG  Q32c    bắt lỗi  CC BY-SA: mô tả thiếu câu ghi công
+ĐÚNG  Q32c    bắt lỗi  CC BY-SA: yeu_cau_ghi_cong trống
+ĐÚNG  Q32c    bắt lỗi  CC BY-SA: không có tệp mô tả YouTube
+ĐÚNG  Q32d    sạch     Pexels người nhận diện được, lời và chữ trung tính
+ĐÚNG  Q32d    bắt lỗi  Pexels người nhận diện được + chú thích "went bankrupt" (bad light)
+ĐÚNG  Q32d    sạch     cùng chú thích nhưng mặt đã làm mờ (không còn nhận diện được)
+ĐÚNG  Q32d    bắt lỗi  Pixabay logo rõ nét (giấy phép cấm dùng thương mại)
+ĐÚNG  Q32d    sạch     Pixabay logo đã làm mờ
+ĐÚNG  Q32d    bắt lỗi  logo rõ nét trong khung lời thật có từ tiêu cực (clip PX-02 @7:59.79: logo rõ nét cạnh lời/chữ tiêu cực: layoffs)
+ĐÚNG  Q32e    sạch     repo chỉ có sổ CSV và mã: ĐẠT
+ĐÚNG  Q32e    bắt lỗi  clip commit vào channel-k2/k2x-ep01/footage/PX-01.mp4
+ĐÚNG  Q32e    bắt lỗi  clip LoC commit dưới tên khác (assets/k2/x.bin): bắt theo SHA của sổ
+ĐÚNG  Q32e    bắt lỗi  SHA sổ truyền trực tiếp (sổ chưa commit)
+ĐÚNG  Q32e    sạch     repo cine-lab hiện tại (main): không có media footage nguồn ngoài
+ĐÚNG  Q32f    bắt lỗi  đoạn footage không khai p.setting
+ĐÚNG  Q32f    sạch     Q26b gán nhãn footage theo p.setting: ['ep07/airfield', 'ft/langley-room', 'ft/modern-office', 'ft/server-room']
+ĐÚNG  Q32f    sạch     LOC-01 (3,34 s) khai cùng nơi với cảnh đinh air_hook → cộng vào bối cảnh đó: 15.3 % → 15.9 % (+0.54 %)
+ĐÚNG  Q32f    bắt lỗi  footage cùng nội dung "ft/steel-mill" phủ mọi plate → Q26b TRƯỢT (> 25 %, > 90 s)
+ĐÚNG  Q32f    sạch     tương thích: footage là cảnh toàn khung (Q16) và hình vật chất (Q29)
+ĐÚNG  Q26b    sạch     kênh 2: shot có p.card trên nền cảnh a = bối cảnh "the", không phải A
+ĐÚNG  Q26b    sạch     thẻ 60/240 s = 25,0 %: ĐẠT, nêu sát ngưỡng (the 25.0 % (ngưỡng 25 %))
+ĐÚNG  Q26b    bắt lỗi  thẻ 80/260 s = 30,8 % > 25 % (luật cũ: tính theo nền a, b → đạt)
+ĐÚNG  Q26b    bắt lỗi  thẻ liên tục 110 s (xen cảnh 5 s + 5 s, mỗi lần < 8 s) > 90 s: [110.0, '0:00.0', '1:50.0', 0.0]
+ĐÚNG  Q26b    sạch     thẻ "the" vẫn không làm dứt quãng của bối cảnh khác (giữ 1.8.1): một quãng 100 s → [100.0, 1]
+ĐÚNG  Q26b    bắt lỗi  nửa sau B, C + thẻ 60 s: "the" không được đếm vào (c), chỉ 2 bối cảnh → {'the': 60.0, 'B': 45.0, 'C': 30.0}
+ĐÚNG  Q26b    sạch     tập 6 v2 (1.10.1, thẻ giấy LL = the): 11 bối cảnh · lớn nhất ep06/drafts 17.3 % · liên tục dài nhất ep06/drafts 27.1 s · nửa sau 7 · trung tính 11.4 %
+ĐÚNG  Q26b    sạch     tập 7 bản cuối (1.10.1): vẫn TRƯỢT văn phòng 29,1 % / 139,1 s như 1.8.1, the 2.9 %
+ĐÚNG  Q33     sạch     pHash: cùng khung = 0 bit, hai mẫu khác nhau = 30 bit (> θ 14)
+ĐÚNG  Q33     bắt lỗi  cùng cảnh + góc khai 3 lần, hình giống → 3 góc máy · 5 lần xuất hiện · nhiều nhất scene/x · x_a 3 lần · 1 góc > 2 · pHash xám toàn khung θ=14, thêm 0 lần lặp không khai
+ĐÚNG  Q33     sạch     2 lần: ĐẠT, nêu bằng ngưỡng (scene/x · x_a: đúng 2 lần)
+ĐÚNG  Q33     bắt lỗi  khai cùng góc 3 lần, hình khác: pHash KHÔNG hạ số khai → TRƯỢT ({'khai': 3, 'phash_them': 0, 'tong': 3, 'luc': '0:00.0, 0:04.0, 0:08.0'})
+ĐÚNG  Q33     bắt lỗi  khai 3 góc khác nhau của cùng bộ cảnh nhưng hình giống hệt: pHash nối → 3 lần → TRƯỢT
+ĐÚNG  Q33     sạch     khai 3 góc khác nhau, hình khác nhau → ĐẠT
+ĐÚNG  Q33     bắt lỗi  không có master: dùng số lần khai (3) → TRƯỢT
+ĐÚNG  Q33     sạch     hai shot liền nhau cùng góc là MỘT lần → 2 lần, ĐẠT ({'khai': 2, 'phash_them': 0, 'tong': 2, 'luc': '0:00.0, 0:06.0'})
+ĐÚNG  Q33     sạch     lần thứ 3 là thẻ trên nền cảnh mờ (p.card): không tính, thuộc "the" của Q26b
+ĐÚNG  Q33     sạch     đặc tả khai camera_id khác ở lần 2 → mỗi góc ≤ 2 lần
+ĐÚNG  Q33     bắt lỗi  LL tập 7 bản cuối (đo tham khảo, Q33 áp từ tập 9; không có master trong repo → số khai)
+ĐÚNG  Q34     sạch     đặc tả đủ type, địa danh có map, nhân vật có ảnh, số neo 2/3 3D: ĐẠT · 67/67 shot có type · scene3d 80.5 % · map 1.2 % · photo 3.1 % · card 15.1 % · số neo 3D 67 %, chỉ card 33 % (3 số) · địa danh 1 · nhân vật 1
+ĐÚNG  Q34     bắt lỗi  shot thiếu type
+ĐÚNG  Q34     bắt lỗi  type ngoài danh sách ("broll")
+ĐÚNG  Q34     bắt lỗi  đặc tả và timeline lệch số shot
+ĐÚNG  Q34a    sạch     địa danh Virginia (1:09.6) có shot map lúc 1:10 (trong ±6 s)
+ĐÚNG  Q34a    bắt lỗi  không còn shot map quanh "Virginia"
+ĐÚNG  Q34a    bắt lỗi  địa danh "California" (3:26.1) không có map
+ĐÚNG  Q34a    bắt lỗi  địa danh không có trong lời ("Ohio")
+ĐÚNG  Q34b    sạch     nhân vật có ảnh hợp lệ (LOC-8d03493) và shot photo đúng ảnh lúc 3:35 (lời 3:34.0)
+ĐÚNG  Q34b    bắt lỗi  shot photo quanh lần nhắc đầu là ảnh khác
+ĐÚNG  Q34b    bắt lỗi  nhân vật có ảnh hợp lệ nhưng không có shot photo
+ĐÚNG  Q34b    sạch     không có ảnh hợp lệ, ghi lý do
+ĐÚNG  Q34b    bắt lỗi  không có ảnh hợp lệ, không ghi lý do
+ĐÚNG  Q34c    sạch     số neo 3D 2/3 = 67 % ≥ 60 %, chỉ card 1/3 = 33 % ≤ 40 %
+ĐÚNG  Q34c    bắt lỗi  số neo 3D 1/3 = 33 % < 60 %; chỉ card 2/3 > 40 %
+ĐÚNG  Q34c    bắt lỗi  số neo không hiện trên hình tính là không 3D
+ĐÚNG  Q34d    sạch     document 2,5 s có tên báo + ngày
+ĐÚNG  Q34d    bắt lỗi  document 4 s > 3 s
+ĐÚNG  Q34d    bắt lỗi  document thiếu ngày
+ĐÚNG  Q34d    bắt lỗi  photo khai trong đặc tả cộng vào trần 40 % của Q32: clip dài nhất 0.00 s
+ĐÚNG  Q34d    sạch     đặc tả mặc định (1 photo + tư liệu tập 7): Q32b ĐẠT
+ĐÚNG  Steel   sạch     timeline dựng lại = master: 24723 khung, 1030.125 s
+ĐÚNG  Q26b    bắt lỗi  Steel 1.10.1: TRƯỢT · 9 bối cảnh · lớn nhất the 45.0 % · liên tục dài nhất the 60.2 s · nửa sau 7 · trung tính 0.0 %
+ĐÚNG  Q26b    sạch     Steel nếu thẻ tính theo cảnh nền (cách đếm 1.10.0): ĐẠT · 8 bối cảnh · lớn nhất k2g01/valley 20.8 % · liên tục dài nhất k2g01/north 84.0 s · nửa sau 7 · trung tính 0.0 % — đúng lỗi chủ dự án chỉ ra
+ĐÚNG  Q33     sạch     θ tự hiệu chuẩn trên Steel = 14 (= THETA 14); khác bộ cảnh ≤ θ 0.29%, cùng bộ khác góc 1.34%, khai cùng góc ≤ θ 36%
+ĐÚNG  Q33     sạch     Steel: lần xuất hiện dựng từ fixture khớp timeline (50 lần, cùng thứ tự)
+ĐÚNG  Q33     bắt lỗi  Steel: TRƯỢT · 33 góc máy · 50 lần xuất hiện · nhiều nhất k2g01/port · p_eu 5 lần · 4 góc > 2 · pHash xám toàn khung θ=14, thêm 3 lần lặp không khai
+ĐÚNG  Q33     sạch     Steel: pHash nối c_draw 1:47.9 ↔ c_own (cùng góc bản đồ, kiểm bằng mắt) — lặp không khai
+ĐÚNG  Q33     sạch     Steel: θ = 16 sẽ nối nhầm v_rail↔v_coke, v_bf↔v_night (kiểm bằng mắt: góc khác) → θ = 14 không nối
+ĐÚNG  Q34     bắt lỗi  Steel nghiêm (đặc tả chưa khai type): TRƯỢT, 90/90 shot thiếu type
+ĐÚNG  Q34c    bắt lỗi  Steel suy loại (p.card → card, còn lại scene3d): scene3d 55.0 % · card 45.0 % · số neo 3D 42 %, chỉ card 58 % (31 số) · địa danh 0 · nhân vật 0
+ĐÚNG  Q26b    sạch     CLI nhận episode.yaml + --tl như q_types/q_scene/q_footage (lỗi P 13/10: JSONDecodeError khi đưa .yaml) → mã 1, "Q26b TRƯỢT · 3 bối cảnh · lớn nhất k2c106/corner 57.4 % · li"
+ĐÚNG  Q26b    sạch     CLI đặc tả không có <out>/timeline.json: báo rõ tệp thiếu và cách chỉ --tl, không traceback
+ĐÚNG  Q26b    sạch     CLI timeline.json như cũ (qc.py, FOOTAGE.md) vẫn chạy
+ĐÚNG  Q26b    sạch     kênh 2 type map/photo/document = bản đồ / ảnh tư liệu → trung tính (RULES-LL): B 1 bối cảnh · lớn nhất k2c106/tiers 28.6 % · liên tục dài nhất k2c106/tiers 7.8 s · nửa sau 1 · trung tính 71.4 %
+ĐÚNG  Q26b    sạch     timeline không ghi type: đọc type từ đặc tả (đoạn, thứ tự) → cùng kết quả
+ĐÚNG  Q26b    sạch     timeline không ghi type, không đưa đặc tả: đọc như 1.10.1 (plate → cảnh đinh) — chứng tỏ cần đặc tả
+ĐÚNG  Q26b    sạch     A (scene3d + chart3d) không đổi so với 1.10.1: {'k2c106/corner': 57.4, 'chart3d/bars': 22.2, 'k2c106/street': 20.4}
+ĐÚNG  Q26b    sạch     C (scene3d) không đổi so với 1.10.1: {'k2c106/bank': 27.1, 'k2c106/ends': 27.1, 'k2c106/stairs': 25.0, 'k2c106/lot': 20.8}
+ĐÚNG  Q26b    sạch     kênh 2 type card (không có p.card) → "the"; type footage không khai p.setting → ft/(chưa khai)
+ĐÚNG  Q26b    sạch     Steel (đặc tả không khai type) với đặc tả = không đặc tả (1.10.1)
+ĐÚNG  Q34c    sạch     map: 2 số bám neo col:* của cột 3D khai trong opt.cols → tính 3D: {'n': 3, 'ba_d': 3, 'card': 0} (trước 1.10.2: 1/3 = 33 % TRƯỢT)
+ĐÚNG  Q34c    bắt lỗi  map: số in chữ ở nhãn địa danh (không bám cột) → không tính 3D: {'n': 3, 'ba_d': 1, 'card': 0}
+ĐÚNG  Q34c    bắt lỗi  map: neo col:* nhưng heroes.opt không khai cột → không tính 3D (không có vật thể 3D)
+ĐÚNG  Q34c    sạch     map: một số bám col:zz không có trong opt.cols → chỉ t50 tính: {'n': 3, 'ba_d': 2, 'card': 0} = 67 %
+ĐÚNG  Q34c    bắt lỗi  shot card có neo col:* (không phải map) → vẫn chỉ card: {'n': 3, 'ba_d': 1, 'card': 2}
+ĐÚNG  Q34c    sạch     G1b (không có cột bản đồ): số neo không đổi A {'n': 2, 'ba_d': 2, 'card': 0} · B {'n': 0, 'ba_d': 0, 'card': 0} · C {'n': 3, 'ba_d': 3, 'card': 0}
+ĐÚNG  Q34c    sạch     shot mẫu A của phiên V (khiếu nại 12/10; t50, eu50 bám col:us, col:eu): {'n': 2, 'ba_d': 2, 'card': 0} — 1.10.1 báo 0/2 = 0 % TRƯỢT
+ĐÚNG  Q34c    bắt lỗi  shot mẫu A của V bỏ opt.cols (số còn nhãn col:* nhưng không có cột 3D) → 0/2 TRƯỢT
+
+selftest LL v3: 317/317 ca đúng kỳ vọng
+exit 0
