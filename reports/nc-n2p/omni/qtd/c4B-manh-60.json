@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c4B-manh-60",
+   "nam": 1779,
+   "noi": "Gibraltar",
+   "sha256": "90a4e9b89a77c310a4d4b83e55496943b55185ece51e2917f430dc4365fee95c",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Long, straight, flat-topped piers and jetties extend into the bay from the town shore. They have regular edges and a yellow capped end. A long breakwater-like quay sits beside the anchored ship.",
+     "ly_do": "The 1779 Gibraltar waterfront had only small old and new moles and short quays. These long engineered piers and breakwaters look like later harbour works. Gibraltar's large harbour works date from the 19th century.",
+     "nam_xuat_hien": 1890,
+     "toa_do_px": [
+      1133,
+      454,
+      1574,
+      497
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.0350376,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 845,
+     "cacheReadInputTokens": 2131,
+     "cacheCreationInputTokens": 10545,
+     "webSearchRequests": 0,
+     "costUSD": 0.0350376,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 142,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.9,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1779,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Long, straight, flat-topped piers and jetties extend into the bay from the town shore. They have regular edges and a yellow capped end. A long breakwater-like quay sits beside the anchored ship.\",\"ly_do\":\"The 1779 Gibraltar waterfront had only small old and new moles and short quays. These long engineered piers and breakwaters look like later harbour works. Gibraltar's large harbour works date from the 19th century.\",\"nam_xuat_hien\":1890,\"toa_do\":[0.59,0.42,0.82,0.46],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.035,
+ "chi_phi_tb": 0.035,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

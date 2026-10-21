@@ -20,3 +20,9 @@
 - O1 lượt 3 (làm lại ảnh trượt lượt 2: bỏ chữ "terraces/plots" đã gợi AI vẽ tường đá); bộ kiểm (ii) sửa: cờ "thời đại sai" không kèm năm → nghi vấn; (iii) thêm T9b (bỏ loé nắng + dải 8 px bờ).
 - Omni: c1, c4B, c2 (vừa/mạnh) đã gọi; Omni đổi máy/địa lý (c4B mạnh dựng hẳn góc máy mới), bịa lửa + nhà ở c1 → ghép lớp (a) không cứu được. Làm lại 1 lượt (lệnh "RESTYLE ONLY") cho c1, c4B đang chạy.
 - Timelapse 12 s máy cố định (2 tấm AI 1/7 và 18/9/1779) đã ghép; đo hoà mờ vs cắt cứng.
+
+## CUỐI (≈ 08:00 UTC 21/10/2026) — DỪNG chờ chủ dự án
+- Báo cáo `reports/NC-N2P-BAO-CAO.md`; luật `reports/nc-n2p/LUAT-N2P-T4.md`.
+- O1: 5/6 ảnh qua bộ kiểm sau ≤ 2 lần làm lại (mặt nạ làm hỏng hình học → gửi KHÔNG mặt nạ); timelapse hoà 0,54 ΔE vs cắt 11,8 ΔE.
+- Omni: 0/8 qua (đổi máy, đất↔nước, bịa lửa/nhà/tàu); nối c4 21,5 × nền sau ghép.
+- Chi phí: OpenAI $5,77 · Gemini $9,92 · Claude $8,37.

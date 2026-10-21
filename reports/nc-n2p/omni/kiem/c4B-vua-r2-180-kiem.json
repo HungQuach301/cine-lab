@@ -1,0 +1,530 @@
+{
+ "tag": "c4B-vua-r2-180",
+ "render": "/var/tmp/n2p/src/c4/rgb/00420.jpg",
+ "ai": "/var/tmp/n2p/omni/khung/c4B-vua-r2-180.png",
+ "ghep": "/var/tmp/n2p/omni/kiem/c4B-vua-r2-180-ghep.png",
+ "sha_ghep": "0913ad4047e5c7a8985f7e637086c23fdc49bb88542fe30483c0dd085ac20522",
+ "nam": "1779",
+ "i_lop_a": {
+  "max_trong_a": 36,
+  "diem_lech_trong_a": 174682,
+  "dien_tich_a_pct": 19.13,
+  "dai20_pct": 13.35,
+  "dai20_cum_dE30": 30,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     478,
+     93,
+     664,
+     133
+    ],
+    "px": 2856
+   },
+   {
+    "hop": [
+     195,
+     119,
+     338,
+     144
+    ],
+    "px": 1898
+   },
+   {
+    "hop": [
+     228,
+     443,
+     274,
+     521
+    ],
+    "px": 1505
+   },
+   {
+    "hop": [
+     825,
+     491,
+     888,
+     560
+    ],
+    "px": 1368
+   },
+   {
+    "hop": [
+     710,
+     370,
+     792,
+     463
+    ],
+    "px": 1198
+   },
+   {
+    "hop": [
+     199,
+     532,
+     244,
+     593
+    ],
+    "px": 1125
+   },
+   {
+    "hop": [
+     223,
+     68,
+     293,
+     90
+    ],
+    "px": 1033
+   },
+   {
+    "hop": [
+     558,
+     325,
+     619,
+     346
+    ],
+    "px": 820
+   },
+   {
+    "hop": [
+     282,
+     62,
+     373,
+     94
+    ],
+    "px": 647
+   },
+   {
+    "hop": [
+     178,
+     624,
+     201,
+     642
+    ],
+    "px": 265
+   },
+   {
+    "hop": [
+     319,
+     342,
+     358,
+     354
+    ],
+    "px": 219
+   },
+   {
+    "hop": [
+     513,
+     371,
+     540,
+     390
+    ],
+    "px": 219
+   },
+   {
+    "hop": [
+     25,
+     113,
+     59,
+     122
+    ],
+    "px": 210
+   },
+   {
+    "hop": [
+     240,
+     413,
+     258,
+     432
+    ],
+    "px": 207
+   },
+   {
+    "hop": [
+     86,
+     113,
+     118,
+     123
+    ],
+    "px": 191
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 6,
+   "dE_trung_vi": 8.96,
+   "dE_p90": 16.95
+  },
+  "khop_mau": false,
+  "dat_ghep": false,
+  "vat_lop_a": [
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Invented sailing vessel with pale sails, nearer the left of the two new foreground ships.",
+    "toa_do": [
+     0.583,
+     0.174,
+     0.618,
+     0.232
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Invented larger sailing vessel with multiple masts, to the right of the other new ship.",
+    "toa_do": [
+     0.635,
+     0.157,
+     0.681,
+     0.233
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Large invented pitched-roof shed or barn beside the right-hand foreground camp, with an open front and visible structural supports.",
+    "toa_do": [
+     0.643,
+     0.675,
+     0.722,
+     0.775
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Small invented low hut with a broad grey pitched roof immediately behind the central foreground camp.",
+    "toa_do": [
+     0.439,
+     0.449,
+     0.486,
+     0.481
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Long invented masonry boundary wall along the left side of the foreground camp, including its projecting or returning lower end.",
+    "toa_do": [
+     0.112,
+     0.486,
+     0.246,
+     0.891
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Short cross-wall or gateway spanning the space beside the long left boundary wall.",
+    "toa_do": [
+     0.151,
+     0.716,
+     0.197,
+     0.746
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Invented diagonal masonry wall along the right edge of the central camp, with a pale raised end beside the tents.",
+    "toa_do": [
+     0.551,
+     0.507,
+     0.62,
+     0.645
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New branching dirt-track network through the middle distance, connecting the added tents and livestock areas.",
+    "toa_do": [
+     0.174,
+     0.31,
+     0.989,
+     0.533
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New or substantially rerouted winding dirt track passing the right-hand shed and continuing toward the lower edge.",
+    "toa_do": [
+     0.756,
+     0.511,
+     0.909,
+     1.0
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New foreground dirt paths outside the lower end of the left enclosure and between the camp plots.",
+    "toa_do": [
+     0.002,
+     0.841,
+     0.433,
+     1.0
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Original faint curving track in the lower-right field is replaced by a differently routed, branching track around the new shed and scrub.",
+    "toa_do": [
+     0.757,
+     0.785,
+     0.877,
+     1.0
+    ],
+    "dai_a": true,
+    "kieu": "BỚT/ĐỔI vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "tau_lon",
+    "mo_ta": "Two large three-masted sailing ships added on the bay",
+    "toa_do": [
+     0.58,
+     0.16,
+     0.68,
+     0.24
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Large wooden barn or shed with a wheel, added at right",
+    "toa_do": [
+     0.64,
+     0.67,
+     0.72,
+     0.78
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Small wooden shed near the top-centre of the plain",
+    "toa_do": [
+     0.44,
+     0.45,
+     0.49,
+     0.48
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_su",
+    "mo_ta": "Stone wall or trench with a ditch along the left edge of the left camp",
+    "toa_do": [
+     0.11,
+     0.48,
+     0.25,
+     0.88
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Long blue-roofed or white building or palisade along the right side of the central camp",
+    "toa_do": [
+     0.55,
+     0.52,
+     0.63,
+     0.64
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Dirt tracks and paths added on the plain",
+    "toa_do": [
+     0.45,
+     0.38,
+     1.0,
+     0.88
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "tau_lon",
+    "mo_ta": "Small ship models in the distant bay became blue-glowing blobs (altered)",
+    "toa_do": [
+     0.38,
+     0.13,
+     0.52,
+     0.16
+    ],
+    "dai_a": true,
+    "kieu": "BỚT/ĐỔI vật lớp (a)"
+   }
+  ],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Invented sailing vessel with pale sails, nearer the left of the two new foreground ships.",
+    "toa_do": [
+     0.583,
+     0.174,
+     0.618,
+     0.232
+    ],
+    "dai_a": false,
+    "ly_do": "A sailing vessel is plausible in 1779, but inventing a ship absent from the ground truth is explicitly forbidden by the supplied N2+ rules.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Invented larger sailing vessel with multiple masts, to the right of the other new ship.",
+    "toa_do": [
+     0.635,
+     0.157,
+     0.681,
+     0.233
+    ],
+    "dai_a": false,
+    "ly_do": "Period-compatible sailing technology, but an invented sailing ship is explicitly prohibited under the supplied N2+ rules.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Large invented pitched-roof shed or barn beside the right-hand foreground camp, with an open front and visible structural supports.",
+    "toa_do": [
+     0.643,
+     0.675,
+     0.722,
+     0.775
+    ],
+    "dai_a": true,
+    "ly_do": "Not demonstrably modern in design, but it is an invented building and architectural structure absent from the ground-truth scene, contrary to N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Small invented low hut with a broad grey pitched roof immediately behind the central foreground camp.",
+    "toa_do": [
+     0.439,
+     0.449,
+     0.486,
+     0.481
+    ],
+    "dai_a": true,
+    "ly_do": "An invented building absent from BEFORE; prohibited reconstruction under N2+, rather than a clearly dated technological anachronism.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Long invented masonry boundary wall along the left side of the foreground camp, including its projecting or returning lower end.",
+    "toa_do": [
+     0.112,
+     0.486,
+     0.246,
+     0.891
+    ],
+    "dai_a": true,
+    "ly_do": "Invented stone construction and architectural geometry are forbidden by the supplied N2+ restrictions; masonry itself is not anachronistic for 1779.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Short cross-wall or gateway spanning the space beside the long left boundary wall.",
+    "toa_do": [
+     0.151,
+     0.716,
+     0.197,
+     0.746
+    ],
+    "dai_a": true,
+    "ly_do": "Invented architectural addition absent from BEFORE, prohibited under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Invented diagonal masonry wall along the right edge of the central camp, with a pale raised end beside the tents.",
+    "toa_do": [
+     0.551,
+     0.507,
+     0.62,
+     0.645
+    ],
+    "dai_a": true,
+    "ly_do": "Invented stone wall and architectural detail, prohibited by N2+ even though such construction could exist in 1779.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "nguoi",
+    "mo_ta": "Small new upright person-like figure on the central path, below and right of the distant central tent.",
+    "toa_do": [
+     0.539,
+     0.412,
+     0.548,
+     0.437
+    ],
+    "dai_a": false,
+    "ly_do": "Appears to be an invented camp occupant; invented troops or camp personnel violate the supplied N2+ restriction. Clothing is too small to date.",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 1.71,
+  "nuoc_thanh_dat_pct": 76.61,
+  "t9b_dat_thanh_nuoc_pct": 1.39,
+  "t9b_nuoc_thanh_dat_pct": 9.49,
+  "dat": false,
+  "mo_hinh_bao": []
+ },
+ "iv_dong_bang": {
+  "ap_dung": false,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

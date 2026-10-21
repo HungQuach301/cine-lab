@@ -1,0 +1,1350 @@
+{
+ "tag": "c4B-manh-180",
+ "truoc": "/var/tmp/n2p/src/c4/rgb/00420.jpg",
+ "sau": "/var/tmp/n2p/omni/kiem/c4B-manh-180-ghep.jpg",
+ "nam": "1779",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.0932,
+    "usage": {
+     "input_tokens": 16167,
+     "input_tokens_details": {
+      "cache_write_tokens": 16164,
+      "cached_tokens": 0
+     },
+     "output_tokens": 6085,
+     "output_tokens_details": {
+      "reasoning_tokens": 182
+     },
+     "total_tokens": 22252
+    }
+   },
+   "secs": 122.3,
+   "json": {
+    "them": [
+     {
+      "loai": "da_dat",
+      "mo_ta": "New, much larger Rock of Gibraltar with sheer western cliffs and a long ridge extending toward the centre; replaces the original mountain geometry.",
+      "toa_do": [
+       0.072,
+       0.094,
+       0.509,
+       0.434
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented and substantially relocated cliff geometry is forbidden under N2+; not a claim that limestone cliffs are chronologically anachronistic.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "New distant mountain range behind the town and harbour.",
+      "toa_do": [
+       0.534,
+       0.323,
+       0.789,
+       0.402
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented geographical relief, prohibited by the N2+ rule against invented cliffs and terrain.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "cong_su",
+      "mo_ta": "Small posts or battlement-like structures newly outlining the summit of the enlarged Rock.",
+      "toa_do": [
+       0.152,
+       0.088,
+       0.192,
+       0.113
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Unsupported added fortification/architectural details under N2+; their precise historical type is unresolved.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.75
+     },
+     {
+      "loai": "cong_su",
+      "mo_ta": "New wall and defensive structures descending diagonally along the Rock's right slope.",
+      "toa_do": [
+       0.386,
+       0.302,
+       0.513,
+       0.384
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented masonry fortifications and architectural details, prohibited under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     },
+     {
+      "loai": "cong_su",
+      "mo_ta": "Long new masonry defensive enclosure at the mountain foot, including projecting towers and a taller rectangular building.",
+      "toa_do": [
+       0.253,
+       0.381,
+       0.449,
+       0.44
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented stone structures, prohibited under N2+, although stylistically compatible with the period.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "New dense town behind the waterfront, including pitched-roof buildings, taller gables and a central steeple-like feature.",
+      "toa_do": [
+       0.447,
+       0.348,
+       0.571,
+       0.422
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented stone buildings and roof/tower details forbidden under N2+; no definite modern construction type is identifiable.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "cong_su",
+      "mo_ta": "New large foreground waterfront fort or walled building compound.",
+      "toa_do": [
+       0.468,
+       0.383,
+       0.621,
+       0.456
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented stone fortification, prohibited under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Tall narrow tower or chimney-like architectural feature on the waterfront compound.",
+      "toa_do": [
+       0.592,
+       0.357,
+       0.605,
+       0.404
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Unsupported added architectural feature under N2+; insufficient evidence to identify it as an industrial smokestack.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Long foreground harbour mole extending right from the waterfront compound, with repeated edge posts and an enlarged end.",
+      "toa_do": [
+       0.599,
+       0.437,
+       0.801,
+       0.461
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented harbour structure prohibited under N2+; the posts are not sufficiently clear to establish modern bollards.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Second, shorter harbour pier behind the foreground mole.",
+      "toa_do": [
+       0.618,
+       0.418,
+       0.752,
+       0.441
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented harbour masonry and architectural detail under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Distant cross-harbour quay or breakwater behind the sailing ships.",
+      "toa_do": [
+       0.623,
+       0.402,
+       0.789,
+       0.427
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented harbour structure under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "New small distant multi-masted sailing ship near the inner harbour.",
+      "toa_do": [
+       0.682,
+       0.354,
+       0.715,
+       0.422
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented sailing ship explicitly forbidden under N2+; no steam or motor propulsion is evident.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "New large multi-masted square-rigged sailing ship in the middle-right harbour.",
+      "toa_do": [
+       0.778,
+       0.313,
+       0.85,
+       0.435
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented sailing ship explicitly forbidden under N2+, though broadly period-compatible.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "New large square-rigged sailing ship nearest the right edge.",
+      "toa_do": [
+       0.839,
+       0.326,
+       0.959,
+       0.476
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented sailing ship explicitly forbidden under N2+, though broadly period-compatible.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "co",
+      "mo_ta": "Small reddish masthead flag on the middle-right sailing ship.",
+      "toa_do": [
+       0.81,
+       0.311,
+       0.818,
+       0.33
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "co",
+      "mo_ta": "Small pale masthead pennant on the middle-right ship's right mast.",
+      "toa_do": [
+       0.83,
+       0.326,
+       0.838,
+       0.346
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.68
+     },
+     {
+      "loai": "co",
+      "mo_ta": "Red-and-pale stern ensign on the nearest right-hand ship; design is too indistinct to identify.",
+      "toa_do": [
+       0.941,
+       0.408,
+       0.96,
+       0.443
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "New tiny single-sailed boat below the harbour ships.",
+      "toa_do": [
+       0.804,
+       0.468,
+       0.815,
+       0.499
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Large new cream ridge tent in the lower-left foreground.",
+      "toa_do": [
+       0.048,
+       0.747,
+       0.158,
+       0.866
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Narrow cream tent or open-front shelter immediately behind the large lower-left tent.",
+      "toa_do": [
+       0.151,
+       0.699,
+       0.2,
+       0.804
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_doi": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "New low cream canvas shelter inside the green opening of the left camp rectangle.",
+      "toa_do": [
+       0.267,
+       0.611,
+       0.323,
+       0.65
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Small pale shelter at the far end of the central aisle, immediately below the left camp's upper flag.",
+      "toa_do": [
+       0.37,
+       0.474,
+       0.4,
+       0.506
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Small pale shelter at the far end of the central aisle nearer the right camp rectangle.",
+      "toa_do": [
+       0.402,
+       0.477,
+       0.422,
+       0.513
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Cream ridge tent along the central aisle, farther from the camera.",
+      "toa_do": [
+       0.387,
+       0.563,
+       0.42,
+       0.618
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Larger cream ridge tent immediately in front of the preceding central-aisle tent.",
+      "toa_do": [
+       0.378,
+       0.596,
+       0.414,
+       0.675
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Small pale tent beside the upper end of the right-hand tent row.",
+      "toa_do": [
+       0.606,
+       0.557,
+       0.63,
+       0.59
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.86
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Small ochre tent with a dark roof behind the right-hand cream tents.",
+      "toa_do": [
+       0.615,
+       0.574,
+       0.668,
+       0.634
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Cream ridge tent immediately in front of the ochre tent.",
+      "toa_do": [
+       0.644,
+       0.598,
+       0.7,
+       0.67
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Next cream ridge tent in the right-hand row, with pale fabric hanging at its front.",
+      "toa_do": [
+       0.669,
+       0.645,
+       0.742,
+       0.739
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Large cream tent in the right foreground behind the coloured laundry.",
+      "toa_do": [
+       0.732,
+       0.688,
+       0.819,
+       0.787
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Small open-sided canvas awning between the two largest right-hand tents.",
+      "toa_do": [
+       0.821,
+       0.694,
+       0.881,
+       0.787
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Large cream ridge tent at the far lower-right edge.",
+      "toa_do": [
+       0.865,
+       0.702,
+       0.975,
+       0.803
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "phoi",
+      "mo_ta": "New washing line with pale, blue and red garments in front of the right foreground tent.",
+      "toa_do": [
+       0.728,
+       0.719,
+       0.831,
+       0.785
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "phoi",
+      "mo_ta": "Additional pale cloths hanging beside the preceding tent farther up the right-hand row.",
+      "toa_do": [
+       0.71,
+       0.713,
+       0.742,
+       0.747
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     },
+     {
+      "loai": "nguoi",
+      "mo_ta": "New standing figure in the right foreground aisle, wearing a pale shirt and dark lower clothing.",
+      "toa_do": [
+       0.711,
+       0.781,
+       0.727,
+       0.849
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented camp personnel prohibited under N2+; clothing is not demonstrably modern.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "nguoi",
+      "mo_ta": "New standing figure beside the central-aisle tent, adjacent to an existing troop formation.",
+      "toa_do": [
+       0.415,
+       0.663,
+       0.428,
+       0.712
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented camp personnel prohibited under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "nguoi",
+      "mo_ta": "New small figure at the right edge of the central aisle beside the existing formation.",
+      "toa_do": [
+       0.439,
+       0.675,
+       0.451,
+       0.711
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented camp personnel prohibited under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.76
+     },
+     {
+      "loai": "nguoi",
+      "mo_ta": "Small distant human figures along the newly invented right shoreline.",
+      "toa_do": [
+       0.668,
+       0.505,
+       0.753,
+       0.553
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented people on a newly fabricated camp shoreline, prohibited under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.73
+     },
+     {
+      "loai": "dong_vat",
+      "mo_ta": "New horse or similar pack animal in the central foreground beside the flag and supply piles.",
+      "toa_do": [
+       0.381,
+       0.841,
+       0.421,
+       0.933
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Barrels, containers and supply objects immediately below the lower-left camp flag.",
+      "toa_do": [
+       0.339,
+       0.853,
+       0.384,
+       0.899
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Large heap of cut timber or firewood in the central aisle above the foreground horse.",
+      "toa_do": [
+       0.424,
+       0.795,
+       0.473,
+       0.856
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Additional timber stacks and rough wooden frames along the central aisle beside and below the horse.",
+      "toa_do": [
+       0.427,
+       0.856,
+       0.488,
+       0.944
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Large foreground pile of logs or split firewood, cropped by the bottom edge.",
+      "toa_do": [
+       0.424,
+       0.943,
+       0.497,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small heap of camp supplies between the central tent and the existing troop formation.",
+      "toa_do": [
+       0.395,
+       0.714,
+       0.43,
+       0.754
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Low wooden rack or bench farther up the central aisle.",
+      "toa_do": [
+       0.374,
+       0.529,
+       0.407,
+       0.559
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.77
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small cluster of barrels or other supplies between the upper tents of the right-hand row.",
+      "toa_do": [
+       0.643,
+       0.655,
+       0.674,
+       0.685
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.86
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Large rectangular stack of timber or bundled poles in the lower-right foreground.",
+      "toa_do": [
+       0.727,
+       0.851,
+       0.903,
+       0.946
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "New exposed shoreline boulders along the left beach.",
+      "toa_do": [
+       0.018,
+       0.602,
+       0.187,
+       0.681
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "New dark rock outcrops immediately behind the two large left foreground tents.",
+      "toa_do": [
+       0.0,
+       0.684,
+       0.161,
+       0.823
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "New large foreground boulders cropped along the bottom-left and bottom-centre edges.",
+      "toa_do": [
+       0.025,
+       0.939,
+       0.346,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "New rocky headland and boulder clusters on the right shoreline.",
+      "toa_do": [
+       0.785,
+       0.554,
+       0.907,
+       0.634
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "New isolated large boulder above the right tent row, beside the retained troop formation.",
+      "toa_do": [
+       0.782,
+       0.609,
+       0.843,
+       0.664
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "New pale boulder cluster immediately behind the lower-right timber stack.",
+      "toa_do": [
+       0.752,
+       0.802,
+       0.866,
+       0.885
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Additional boulder cropped by the bottom edge in the right foreground.",
+      "toa_do": [
+       0.849,
+       0.952,
+       0.916,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "New sandy western beach curving from the mountain foot down the left side of the camp.",
+      "toa_do": [
+       0.0,
+       0.426,
+       0.279,
+       0.719
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Part of a forbidden land/water and coastline reconstruction under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "New sandy eastern beach bordering the invented harbour and right camp edge.",
+      "toa_do": [
+       0.6,
+       0.458,
+       1.0,
+       0.739
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Part of a forbidden land/water and coastline reconstruction under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "New worn dirt camp track across the lower-left foreground and around the large left tents.",
+      "toa_do": [
+       0.0,
+       0.864,
+       0.351,
+       0.998
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.86
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "New dirt access paths through the central aisle and between the right-hand tents.",
+      "toa_do": [
+       0.366,
+       0.502,
+       0.89,
+       0.873
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "da_dat",
+      "mo_ta": "Original low mountain at upper left removed/replaced by a much larger, taller Rock extending far down and right; the original town remains as an incongruous retained patch above it.",
+      "toa_do": [
+       0.029,
+       0.044,
+       0.315,
+       0.188
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Original distant right-hand landmass and its shoreline removed entirely.",
+      "toa_do": [
+       0.736,
+       0.078,
+       1.0,
+       0.139
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Original isolated trees and scrub across the left middle-distance plain removed with the plain.",
+      "toa_do": [
+       0.019,
+       0.355,
+       0.143,
+       0.438
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Original small central-left tree group removed or replaced by the new shoreline and mountain-foot scene.",
+      "toa_do": [
+       0.181,
+       0.445,
+       0.211,
+       0.491
+      ],
+      "do_tin": 0.97
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Original trees and scrub around the former upper-right coast removed.",
+      "toa_do": [
+       0.578,
+       0.259,
+       0.859,
+       0.34
+      ],
+      "do_tin": 0.98
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Original large grove east of the main camp removed; the existing troop formation survives, but the surrounding trees are replaced by tents, rocks and coast.",
+      "toa_do": [
+       0.64,
+       0.519,
+       0.801,
+       0.706
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Original scattered trees on the left foreground slope removed, rather than merely recoloured.",
+      "toa_do": [
+       0.0,
+       0.526,
+       0.143,
+       0.819
+      ],
+      "do_tin": 0.98
+     },
+     {
+      "loai": "vuon",
+      "mo_ta": "Two small rectangular cultivated plots on the middle-left plain removed beneath the new mountain-foot/coastal reconstruction.",
+      "toa_do": [
+       0.185,
+       0.392,
+       0.299,
+       0.442
+      ],
+      "do_tin": 0.94
+     },
+     {
+      "loai": "vuon",
+      "mo_ta": "Small rectangular cultivated patches in the central-right plain removed beneath the invented town and harbour.",
+      "toa_do": [
+       0.525,
+       0.357,
+       0.611,
+       0.389
+      ],
+      "do_tin": 0.88
+     },
+     {
+      "loai": "nguoi",
+      "mo_ta": "Original tiny group of people on the middle-left plain no longer identifiable at its original location.",
+      "toa_do": [
+       0.339,
+       0.398,
+       0.363,
+       0.418
+      ],
+      "do_tin": 0.79
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Original pale curved track in the right foreground removed beneath the new tents, supplies and rock clusters.",
+      "toa_do": [
+       0.747,
+       0.744,
+       0.871,
+       1.0
+      ],
+      "do_tin": 0.97
+     },
+     {
+      "loai": "khac",
+      "mo_ta": "Most of the original upper bay is replaced by sky, distant scenery and the enlarged Rock; the six small original ship silhouettes remain at their old positions and now appear suspended in the sky.",
+      "toa_do": [
+       0.306,
+       0.126,
+       1.0,
+       0.265
+      ],
+      "do_tin": 0.99
+     }
+    ],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "LAND → WATER: the broad left-hand plain and foreground slope become an open western sea, reaching diagonally down toward the left foreground beside the new beach.",
+      "toa_do": [
+       0.0,
+       0.208,
+       0.275,
+       0.687
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "mo_ta": "LAND → WATER: the centre-right and right-hand plain become the new harbour and eastern sea; the retained upper-right camp strip now floats above this replacement scenery.",
+      "toa_do": [
+       0.598,
+       0.258,
+       1.0,
+       0.729
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "mo_ta": "WATER → LAND: part of the original bay is occupied by the greatly enlarged Rock and its eastern ridge.",
+      "toa_do": [
+       0.206,
+       0.164,
+       0.525,
+       0.395
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "mo_ta": "WATER → LAND/STRUCTURE: sections of the original water beyond the old foreground shore are replaced by newly invented mountain-foot town and solid shoreline.",
+      "toa_do": [
+       0.267,
+       0.188,
+       0.653,
+       0.268
+      ],
+      "do_tin": 0.94
+     }
+    ]
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.15058359999999998
+   },
+   "secs": 30.2,
+   "json": {
+    "them": [
+     {
+      "loai": "tau_lon",
+      "mo_ta": "Large three-masted sailing warship with Austrian-style red-white-red ensign, added at right",
+      "toa_do": [
+       0.84,
+       0.33,
+       0.95,
+       0.48
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented sailing ship; the red-white-red flag is not a British, Spanish or French ensign of 1779.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "Second large sailing ship (three masts, yellow sails) in the bay",
+      "toa_do": [
+       0.77,
+       0.32,
+       0.85,
+       0.44
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented sailing ship (NC-V2V c4B-c)",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "Distant ship near the mole",
+      "toa_do": [
+       0.68,
+       0.36,
+       0.72,
+       0.42
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented sailing ship",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Small white sailing boat",
+      "toa_do": [
+       0.8,
+       0.47,
+       0.82,
+       0.5
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Town of Gibraltar with walls, yellow buildings and a bell tower/steeple added at the foot of the Rock",
+      "toa_do": [
+       0.37,
+       0.34,
+       0.64,
+       0.45
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented stone buildings and tower (NC-V2V c4B-c; F4)",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Long stone piers/moles extending into the bay",
+      "toa_do": [
+       0.63,
+       0.42,
+       0.8,
+       0.46
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented harbour structures resembling modern harbour walls",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Large canvas tents, left foreground",
+      "toa_do": [
+       0.05,
+       0.72,
+       0.2,
+       0.85
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented tent camp (invented troops/camp)",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Tent camp on the right beach with several tents",
+      "toa_do": [
+       0.6,
+       0.57,
+       0.97,
+       0.8
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented tent camp",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Tents between the two strips",
+      "toa_do": [
+       0.37,
+       0.47,
+       0.44,
+       0.63
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented tents",
+      "nam_xuat_hien": null,
+      "do_tin": 0.7
+     },
+     {
+      "loai": "phoi",
+      "mo_ta": "Laundry (red and white cloths) hung to dry",
+      "toa_do": [
+       0.71,
+       0.7,
+       0.83,
+       0.77
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "nguoi",
+      "mo_ta": "Standing person in white near the rocks",
+      "toa_do": [
+       0.71,
+       0.78,
+       0.73,
+       0.84
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.7
+     },
+     {
+      "loai": "dong_vat",
+      "mo_ta": "Horses with a cart and a person at the lower centre",
+      "toa_do": [
+       0.36,
+       0.84,
+       0.5,
+       0.93
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Timber and log piles with a palisade or fascine wall at lower right",
+      "toa_do": [
+       0.73,
+       0.84,
+       0.9,
+       0.95
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Wood or timber piles at the bottom centre",
+      "toa_do": [
+       0.41,
+       0.88,
+       0.5,
+       0.99
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.45
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Rock outcrops and boulders along both shores and in the foreground",
+      "toa_do": [
+       0.0,
+       0.65,
+       0.3,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Dense wild scrub and grass vegetation replacing the flat plain",
+      "toa_do": [
+       0.0,
+       0.45,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.4
+     },
+     {
+      "loai": "cong_su",
+      "mo_ta": "Wall/fortification line at the foot of the Rock, with stone ramparts",
+      "toa_do": [
+       0.26,
+       0.42,
+       0.6,
+       0.46
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.4
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "khac",
+      "mo_ta": "The Rock was reshaped into a tall, steep monolith, much larger than in BEFORE (a low hill); the 3D town and wall sprites were left floating in the sky",
+      "toa_do": [
+       0.07,
+       0.05,
+       0.5,
+       0.45
+      ],
+      "do_tin": 0.8
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "The small ship sprites of BEFORE are now blue blobs floating in the sky; the real fleet moved to the lower right",
+      "toa_do": [
+       0.38,
+       0.12,
+       0.52,
+       0.17
+      ],
+      "do_tin": 0.7
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Dark green island on the right horizon removed and replaced by sea and mountains",
+      "toa_do": [
+       0.73,
+       0.07,
+       1.0,
+       0.14
+      ],
+      "do_tin": 0.6
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Most trees and green patches on the plain removed",
+      "toa_do": [
+       0.55,
+       0.52,
+       0.85,
+       0.72
+      ],
+      "do_tin": 0.5
+     }
+    ],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "Flat plain at the top-left turned into sea and beach on the left side (land to water)",
+      "toa_do": [
+       0.0,
+       0.38,
+       0.27,
+       0.7
+      ],
+      "do_tin": 0.8
+     },
+     {
+      "mo_ta": "Plain on the right turned into sea and beach (land to water)",
+      "toa_do": [
+       0.6,
+       0.42,
+       1.0,
+       0.7
+      ],
+      "do_tin": 0.8
+     },
+     {
+      "mo_ta": "Sea on the upper left turned into the Rock and land (water to land)",
+      "toa_do": [
+       0.0,
+       0.1,
+       0.3,
+       0.4
+      ],
+      "do_tin": 0.5
+     }
+    ]
+   }
+  }
+ }
+}

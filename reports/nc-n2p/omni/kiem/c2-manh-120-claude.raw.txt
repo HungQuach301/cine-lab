@@ -1,0 +1,25 @@
+```json
+{"them": [
+{"loai":"khoi","mo_ta":"Large dark smoke column rising from the sea in the bay, with a burning fire at its base","toa_do":[0.62,0.04,0.83,0.29],"thoi_dai_sai":true,"ly_do_thoi_dai":"A smoke column and fire invented on the water. There is no such fire in the 2026 render.","nam_xuat_hien":null,"do_tin":0.9},
+{"loai":"lua_lon","mo_ta":"Orange flames of a burning vessel or object on the water at the base of the smoke","toa_do":[0.62,0.255,0.655,0.285],"thoi_dai_sai":true,"ly_do_thoi_dai":"Fire invented on the water.","nam_xuat_hien":null,"do_tin":0.75},
+{"loai":"thuyen_nho","mo_ta":"Two white sailing yachts or motor boats added in the bay on the right","toa_do":[0.795,0.575,0.89,0.655],"thoi_dai_sai":false,"ly_do_thoi_dai":"Leisure boats are plausible in 2026.","nam_xuat_hien":null,"do_tin":0.8},
+{"loai":"thuyen_nho","mo_ta":"Speedboats with white wakes added on the water at the right edge","toa_do":[0.85,0.5,1.0,0.54],"thoi_dai_sai":false,"ly_do_thoi_dai":"Plausible in 2026.","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"cong_trinh","mo_ta":"Short new mole or breakwater stub added in the water beside the beach","toa_do":[0.72,0.565,0.775,0.595],"thoi_dai_sai":false,"ly_do_thoi_dai":"Invented structure. It is not an anachronism, but it is not in the ground truth.","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"cong_trinh","mo_ta":"Modern building with a terrace and a blue bus-like vehicle added on the green park at left","toa_do":[0.09,0.55,0.2,0.61],"thoi_dai_sai":false,"ly_do_thoi_dai":"An added building that is not in the render. It is not an anachronism for 2026.","nam_xuat_hien":null,"do_tin":0.7},
+{"loai":"cong_trinh","mo_ta":"Small tower or mast structures added on the Rock summit","toa_do":[0.09,0.115,0.2,0.165],"thoi_dai_sai":false,"ly_do_thoi_dai":"Summit masts and towers exist in 2026, but they were not in the render.","nam_xuat_hien":null,"do_tin":0.5},
+{"loai":"cong_trinh","mo_ta":"Modern canopy or kiosk building with a flat roof added at the road junction","toa_do":[0.55,0.815,0.62,0.87],"thoi_dai_sai":false,"ly_do_thoi_dai":"Added building. Plausible in 2026.","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"cong_trinh","mo_ta":"Blue transparent strips or canopies added along the quay and car park","toa_do":[0.82,0.82,0.9,0.9],"thoi_dai_sai":false,"ly_do_thoi_dai":"Added structure. Plausible in 2026.","nam_xuat_hien":null,"do_tin":0.4},
+{"loai":"xe_may","mo_ta":"Cars and vans added on the roads, including a blue car at the bottom left, a van and blue car at the bottom right, and vehicles on the main road","toa_do":[0.14,0.96,0.19,1.0],"thoi_dai_sai":false,"ly_do_thoi_dai":"Plausible in 2026.","nam_xuat_hien":null,"do_tin":0.7},
+{"loai":"xe_may","mo_ta":"Van and blue car at the bottom right of the car park road","toa_do":[0.77,0.92,0.94,0.98],"thoi_dai_sai":false,"ly_do_thoi_dai":"Plausible in 2026.","nam_xuat_hien":null,"do_tin":0.7},
+{"loai":"khac","mo_ta":"Blue patch or pond added at the roundabout, bottom centre-left","toa_do":[0.3,0.81,0.34,0.87],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.35},
+{"loai":"tau_lon","mo_ta":"Extra small ship added on the horizon at the left of the bay","toa_do":[0.43,0.28,0.48,0.3],"thoi_dai_sai":false,"ly_do_thoi_dai":"Small and plausible in 2026.","nam_xuat_hien":null,"do_tin":0.3}
+],
+"bot_doi": [
+{"loai":"khac","mo_ta":"Dark green headland across the bay at the right was replaced by hazy blue mountains and a distant coast, so the landform changed","toa_do":[0.66,0.19,1.0,0.27],"do_tin":0.6},
+{"loai":"cay","mo_ta":"The pale pathways on the green park at left were covered by the added building","toa_do":[0.09,0.55,0.2,0.61],"do_tin":0.3}
+],
+"doi_loai_vung": [
+{"mo_ta":"Water became a small breakwater or land stub in the bay beside the beach","toa_do":[0.72,0.565,0.775,0.595],"do_tin":0.4},
+{"mo_ta":"The water near the horizon at the top left of the bay turned into a hazy coastline and land","toa_do":[0.25,0.23,0.55,0.27],"do_tin":0.3}
+]}
+```

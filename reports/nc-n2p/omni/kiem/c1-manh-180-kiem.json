@@ -1,0 +1,535 @@
+{
+ "tag": "c1-manh-180",
+ "render": "/var/tmp/n2p/src/c1/rgb/00444.jpg",
+ "ai": "/var/tmp/n2p/omni/khung/c1-manh-180.png",
+ "ghep": "/var/tmp/n2p/omni/kiem/c1-manh-180-ghep.png",
+ "sha_ghep": "f3c9c827012cd15be89afc266dd7427f4c5c150ffdf7a6b4e562dff5ffda1b8a",
+ "nam": "1782",
+ "i_lop_a": {
+  "max_trong_a": 41,
+  "diem_lech_trong_a": 353444,
+  "dien_tich_a_pct": 39.3,
+  "dai20_pct": 17.73,
+  "dai20_cum_dE30": 33,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     649,
+     406,
+     875,
+     444
+    ],
+    "px": 3789
+   },
+   {
+    "hop": [
+     709,
+     398,
+     863,
+     425
+    ],
+    "px": 1606
+   },
+   {
+    "hop": [
+     456,
+     244,
+     532,
+     264
+    ],
+    "px": 1097
+   },
+   {
+    "hop": [
+     109,
+     65,
+     160,
+     94
+    ],
+    "px": 847
+   },
+   {
+    "hop": [
+     209,
+     65,
+     259,
+     92
+    ],
+    "px": 706
+   },
+   {
+    "hop": [
+     789,
+     543,
+     841,
+     563
+    ],
+    "px": 700
+   },
+   {
+    "hop": [
+     641,
+     47,
+     687,
+     79
+    ],
+    "px": 688
+   },
+   {
+    "hop": [
+     309,
+     61,
+     359,
+     90
+    ],
+    "px": 590
+   },
+   {
+    "hop": [
+     569,
+     50,
+     615,
+     82
+    ],
+    "px": 580
+   },
+   {
+    "hop": [
+     485,
+     56,
+     531,
+     84
+    ],
+    "px": 558
+   },
+   {
+    "hop": [
+     93,
+     228,
+     127,
+     250
+    ],
+    "px": 544
+   },
+   {
+    "hop": [
+     401,
+     57,
+     443,
+     86
+    ],
+    "px": 533
+   },
+   {
+    "hop": [
+     572,
+     91,
+     592,
+     122
+    ],
+    "px": 472
+   },
+   {
+    "hop": [
+     220,
+     106,
+     248,
+     125
+    ],
+    "px": 444
+   },
+   {
+    "hop": [
+     121,
+     110,
+     151,
+     129
+    ],
+    "px": 416
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 10,
+   "dE_trung_vi": 19.1,
+   "dE_p90": 24.49
+  },
+  "khop_mau": false,
+  "dat_ghep": false,
+  "vat_lop_a": [
+   {
+    "mh": "gpt",
+    "loai": "co",
+    "mo_ta": "New small flag above the seaward tip of the long projecting mole.",
+    "toa_do": [
+     0.791,
+     0.227,
+     0.808,
+     0.271
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "co",
+    "mo_ta": "New small pale pink flag beside the newly invented fire just offshore of the left waterfront bastion.",
+    "toa_do": [
+     0.094,
+     0.302,
+     0.108,
+     0.321
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New fire on the water immediately behind the left waterfront bastion, separate from the original distant row of burning vessels.",
+    "toa_do": [
+     0.071,
+     0.306,
+     0.1,
+     0.349
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New localized yellow-orange flames in the flooded strip behind the central-right defensive wall.",
+    "toa_do": [
+     0.587,
+     0.573,
+     0.622,
+     0.606
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Several tiny, partially cropped vessel silhouettes at the right end of the distant upper-edge flotilla have disappeared.",
+    "toa_do": [
+     0.712,
+     0.0,
+     0.766,
+     0.016
+    ],
+    "dai_a": false,
+    "kieu": "BỚT/ĐỔI vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "lua_lon",
+    "mo_ta": "Large orange fire glow in the inland area (former grass field) behind the town wall, appearing as burning flooded area",
+    "toa_do": [
+     0.5,
+     0.54,
+     0.78,
+     0.68
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "lua_lon",
+    "mo_ta": "Orange fire/glow on the water at the left near the shore",
+    "toa_do": [
+     0.06,
+     0.28,
+     0.11,
+     0.35
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "co",
+    "mo_ta": "Small red/orange flag floating on the sea at right, no ship or pole",
+    "toa_do": [
+     0.78,
+     0.22,
+     0.81,
+     0.24
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   }
+  ],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New fire on the water immediately behind the left waterfront bastion, separate from the original distant row of burning vessels.",
+    "toa_do": [
+     0.071,
+     0.306,
+     0.1,
+     0.349
+    ],
+    "dai_a": true,
+    "ly_do": "Invented fire on the water, explicitly forbidden by the supplied N2+ rules; not a technology-date anachronism.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "khoi",
+    "mo_ta": "New smoke column rising from the added fire behind the left waterfront bastion.",
+    "toa_do": [
+     0.063,
+     0.228,
+     0.11,
+     0.326
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke column on the water, explicitly forbidden by the supplied N2+ rules.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "khoi",
+    "mo_ta": "Large new overlapping brown and black smoke plumes over the water immediately offshore of the central waterfront.",
+    "toa_do": [
+     0.302,
+     0.18,
+     0.431,
+     0.369
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke columns absent from the ground-truth render, explicitly forbidden by the supplied N2+ rules.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New localized yellow-orange flames in the flooded strip behind the central-right defensive wall.",
+    "toa_do": [
+     0.587,
+     0.573,
+     0.622,
+     0.606
+    ],
+    "dai_a": true,
+    "ly_do": "Invented flames in a formerly dry area, explicitly forbidden by the supplied N2+ rules.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "khoi",
+    "mo_ta": "New dark vertical plume immediately left of the projecting coastal battery, above an orange-lit patch.",
+    "toa_do": [
+     0.568,
+     0.302,
+     0.602,
+     0.388
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke column absent from BEFORE, explicitly forbidden by the supplied N2+ rules.",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "khoi",
+    "mo_ta": "Large orange-lit smoke/fire cloud over the water in front of the town, invented",
+    "toa_do": [
+     0.3,
+     0.2,
+     0.43,
+     0.37
+    ],
+    "dai_a": true,
+    "ly_do": "Invented fire/smoke plume on the water",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "lua_lon",
+    "mo_ta": "Large orange fire glow in the inland area (former grass field) behind the town wall, appearing as burning flooded area",
+    "toa_do": [
+     0.5,
+     0.54,
+     0.78,
+     0.68
+    ],
+    "dai_a": true,
+    "ly_do": "Invented fire",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "lua_lon",
+    "mo_ta": "Orange fire/glow on the water at the left near the shore",
+    "toa_do": [
+     0.06,
+     0.28,
+     0.11,
+     0.35
+    ],
+    "dai_a": true,
+    "ly_do": "Invented fire on the water",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "khoi",
+    "mo_ta": "Orange flame glow/reflection columns added above and below the burning rafts",
+    "toa_do": [
+     0.0,
+     0.03,
+     0.55,
+     0.25
+    ],
+    "dai_a": true,
+    "ly_do": "Invented fires and smoke columns on the water",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 56.91,
+  "nuoc_thanh_dat_pct": 7.44,
+  "t9b_dat_thanh_nuoc_pct": 55.87,
+  "t9b_nuoc_thanh_dat_pct": 5.38,
+  "dat": false,
+  "mo_hinh_bao": [
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: the narrow distant land silhouette along the upper edge is erased.",
+    "toa_do": [
+     0.084,
+     0.0,
+     0.322,
+     0.021
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: the extensive lower foreground beneath the town, including ground around the foreground houses and outside the right-hand fort, is flooded. Buildings and walls remain as islands.",
+    "toa_do": [
+     0.0,
+     0.794,
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: the broad coastal ground east/right of the projecting battery becomes sea, substantially moving the coastline inland.",
+    "toa_do": [
+     0.791,
+     0.383,
+     1.0,
+     0.706
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: the formerly dry strip immediately inland of the central projecting coastal battery becomes an orange-reflecting inlet.",
+    "toa_do": [
+     0.555,
+     0.423,
+     0.716,
+     0.523
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: the broad curved strip between the central diagonal defensive wall and the buildings below it becomes a flooded channel.",
+    "toa_do": [
+     0.496,
+     0.542,
+     0.794,
+     0.703
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: ground between the foreground houses and the western side of the right-hand fort becomes a connecting flooded passage.",
+    "toa_do": [
+     0.586,
+     0.743,
+     0.763,
+     0.9
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: the grassy enclosed courtyard immediately left of the flag-bearing foreground tower becomes a blue pool.",
+    "toa_do": [
+     0.74,
+     0.773,
+     0.86,
+     0.874
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Land to water: the whole green grass/hillside foreground at the bottom of the frame turned into sea",
+    "toa_do": [
+     0.0,
+     0.84,
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Land to water: the green field between the town and fort turned into a bay/lake with orange glow",
+    "toa_do": [
+     0.5,
+     0.53,
+     0.8,
+     0.7
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Land to water: the grass around the fort turned into sea, and an interior water pool inside the fort",
+    "toa_do": [
+     0.62,
+     0.55,
+     1.0,
+     0.95
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Land to water: the green land behind the north mole/bastion at upper right turned into sea",
+    "toa_do": [
+     0.55,
+     0.28,
+     1.0,
+     0.55
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Land to water: the grassland at the right edge of the coast, east of the bastion, turned into sea",
+    "toa_do": [
+     0.8,
+     0.38,
+     1.0,
+     0.6
+    ]
+   }
+  ]
+ },
+ "iv_dong_bang": {
+  "ap_dung": false,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

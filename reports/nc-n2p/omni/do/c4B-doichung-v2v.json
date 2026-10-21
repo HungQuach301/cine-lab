@@ -1,0 +1,129 @@
+{
+ "label": "c4B-doichung",
+ "src": "/var/tmp/n2p/omni/c4B-vua-ghep.mp4.nguon.mp4",
+ "out": "/var/tmp/n2p/omni/c4B-doichung-ghep.mp4",
+ "n_src": 240,
+ "n_out": 240,
+ "step": 2,
+ "giu": {
+  "tau": {
+   "f1_canh": 1.0,
+   "iou_canh": 1.0,
+   "dE76": 2.9,
+   "px_tb": 41,
+   "n": 120
+  },
+  "co": {
+   "f1_canh": 1.0,
+   "iou_canh": 0.977,
+   "dE76": 2.3,
+   "px_tb": 57,
+   "n": 78
+  },
+  "nha": {
+   "f1_canh": 0.99,
+   "iou_canh": 0.961,
+   "dE76": 1.3,
+   "px_tb": 43526,
+   "n": 120
+  },
+  "dat": {
+   "f1_canh": 0.99,
+   "iou_canh": 0.958,
+   "dE76": 2.3,
+   "px_tb": 137922,
+   "n": 120
+  },
+  "nuoc": {
+   "f1_canh": 0.974,
+   "iou_canh": 0.913,
+   "dE76": 2.8,
+   "px_tb": 28815,
+   "n": 120
+  },
+  "troi": {
+   "f1_canh": 1.0,
+   "iou_canh": 0.992,
+   "dE76": 1.5,
+   "px_tb": 19977,
+   "n": 120
+  }
+ },
+ "dem": {
+  "tau": {
+   "truoc": 0,
+   "giu": 0,
+   "ti_le": null
+  },
+  "co": {
+   "truoc": 269,
+   "giu": 268,
+   "ti_le": 0.996
+  },
+  "pin": {
+   "truoc": 0,
+   "giu": 0,
+   "ti_le": null
+  }
+ },
+ "canh_moi_pct": {
+  "troi": {
+   "tb": 0.0,
+   "p90": 0.0,
+   "max": 0.0
+  },
+  "nuoc": {
+   "tb": 0.37,
+   "p90": 0.52,
+   "max": 0.69
+  },
+  "dat": {
+   "tb": 0.1,
+   "p90": 0.14,
+   "max": 0.18
+  }
+ },
+ "vat_la_tb": 6.17,
+ "vat_la_max": 12,
+ "lua_moi": {
+  "pct_tb": 0.018,
+  "pct_max": 0.033,
+  "cum_tb": 0.6,
+  "cum_max": 3
+ },
+ "nhap_nhay": {
+  "nguon": 0.215,
+  "ra": 0.44,
+  "ti_so": 2.05
+ },
+ "look": {
+  "nguon": {
+   "sat_med": 0.576,
+   "colorful": 92.682,
+   "detail": 21.299
+  },
+  "ra": {
+   "sat_med": 0.58,
+   "colorful": 93.827,
+   "detail": 21.688
+  }
+ },
+ "may": {
+  "luong_nguon_tb": [
+   -0.008999999612569809,
+   0.010999999940395355
+  ],
+  "luong_ra_tb": [
+   -0.004999999888241291,
+   0.008999999612569809
+  ],
+  "rms_px_khung": 0.005,
+  "corr_dx": 0.7319005702858761,
+  "corr_dy": 0.8138980621113502,
+  "lech_khung_trung_vi": 0.0,
+  "lech_khung_max": 0,
+  "lech_do_nhon": 0.0032,
+  "can_khung_dich_tb_px": 0.0,
+  "can_khung_ti_le_tb": 1.0
+ }
+}

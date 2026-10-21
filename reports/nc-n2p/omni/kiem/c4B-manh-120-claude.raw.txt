@@ -1,0 +1,32 @@
+```json
+{"them":[
+{"loai":"cong_trinh","mo_ta":"Town of Gibraltar with stone houses, a church campanile and a walled waterfront, all invented along the shore","toa_do":[0.26,0.33,0.64,0.46],"thoi_dai_sai":true,"ly_do_thoi_dai":"Stone buildings and a tower invented in the AI edit; not in the render","nam_xuat_hien":null,"do_tin":0.85},
+{"loai":"cong_trinh","mo_ta":"Long wooden or stone piers and moles extending into the bay","toa_do":[0.61,0.42,0.8,0.47],"thoi_dai_sai":true,"ly_do_thoi_dai":"Piers and quays invented","nam_xuat_hien":null,"do_tin":0.75},
+{"loai":"tau_lon","mo_ta":"Large three-masted sailing ship with a red and white flag, right","toa_do":[0.83,0.34,0.95,0.49],"thoi_dai_sai":true,"ly_do_thoi_dai":"Sailing ship invented; the red-white striped ensign is a doubtful flag design","nam_xuat_hien":null,"do_tin":0.9},
+{"loai":"tau_lon","mo_ta":"Second large sailing ship (two or three masts) beside the first","toa_do":[0.77,0.32,0.85,0.44],"thoi_dai_sai":true,"ly_do_thoi_dai":"Sailing ship invented","nam_xuat_hien":null,"do_tin":0.85},
+{"loai":"tau_lon","mo_ta":"Distant ship in the harbour near the pier","toa_do":[0.68,0.37,0.71,0.43],"thoi_dai_sai":true,"ly_do_thoi_dai":"Sailing ship invented","nam_xuat_hien":null,"do_tin":0.7},
+{"loai":"co","mo_ta":"Red and white flag on the stern of the right-hand ship, plus a pennant on the mast of the second ship","toa_do":[0.93,0.42,0.95,0.45],"thoi_dai_sai":true,"ly_do_thoi_dai":"Flag invented; it is red and white, not a verified flag of 1779","nam_xuat_hien":null,"do_tin":0.55},
+{"loai":"thuyen_nho","mo_ta":"Small white sailing boat on the water","toa_do":[0.8,0.47,0.82,0.51],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.5},
+{"loai":"leu","mo_ta":"Large canvas tent at left","toa_do":[0.08,0.74,0.17,0.85],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented camp tent (invented troops and camp)","nam_xuat_hien":null,"do_tin":0.9},
+{"loai":"leu","mo_ta":"Group of tents beside the central strip","toa_do":[0.37,0.57,0.44,0.67],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented tents","nam_xuat_hien":null,"do_tin":0.85},
+{"loai":"leu","mo_ta":"Camp of several tents on the right beach","toa_do":[0.62,0.57,0.94,0.79],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented tents and camp","nam_xuat_hien":null,"do_tin":0.9},
+{"loai":"phoi","mo_ta":"Laundry hung to dry (red, blue, white cloth) between the tents","toa_do":[0.69,0.69,0.8,0.78],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented camp detail","nam_xuat_hien":null,"do_tin":0.8},
+{"loai":"nguoi","mo_ta":"Standing figure in white near the tents","toa_do":[0.7,0.77,0.72,0.83],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented troops or people","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"nguoi","mo_ta":"Figures with horses or a cart near the left strip","toa_do":[0.38,0.82,0.43,0.9],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented figures and animals","nam_xuat_hien":null,"do_tin":0.55},
+{"loai":"do_dac","mo_ta":"Timber and log piles and a palisade or wooden revetment","toa_do":[0.71,0.84,0.87,0.91],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented works and goods","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"cong_su","mo_ta":"Wooden palisade or gabion wall by the right rocks","toa_do":[0.72,0.85,0.87,0.92],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented fortification","nam_xuat_hien":null,"do_tin":0.5},
+{"loai":"da_dat","mo_ta":"Added boulders and rocky outcrops on the beach, headland and foreground","toa_do":[0.0,0.9,0.3,1.0],"thoi_dai_sai":true,"ly_do_thoi_dai":"Rocks invented","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"da_dat","mo_ta":"Massive Rock of Gibraltar with a sheer cliff face, replacing the small hill","toa_do":[0.08,0.1,0.5,0.45],"thoi_dai_sai":true,"ly_do_thoi_dai":"Cliff invented and enlarged from the render","nam_xuat_hien":null,"do_tin":0.8},
+{"loai":"khac","mo_ta":"Distant mountain range across the bay","toa_do":[0.54,0.32,0.8,0.4],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.4}
+],
+"bot_doi":[
+{"loai":"cong_trinh","mo_ta":"Town strip and sea wall in the render were moved into the sky as floating brown artifacts","toa_do":[0.0,0.06,0.3,0.21],"do_tin":0.7},
+{"loai":"thuyen_nho","mo_ta":"Small ships on the water in the render became blue-haloed blobs floating in the sky","toa_do":[0.39,0.13,0.51,0.17],"do_tin":0.7},
+{"loai":"vuon","mo_ta":"Far right island in the render replaced by mountains, with the field strip warped into the sky","toa_do":[0.74,0.07,1.0,0.43],"do_tin":0.5},
+{"loai":"cay","mo_ta":"Green grass and tree patches in the render turned into dune scrub and beach","toa_do":[0.0,0.5,0.25,0.8],"do_tin":0.4}
+],
+"doi_loai_vung":[
+{"mo_ta":"Land (flat meadow) became sea with surf on the left, forming a bay","toa_do":[0.0,0.4,0.27,0.7],"do_tin":0.8},
+{"mo_ta":"Land (meadow and island) became sea and beach on the right, forming the harbour bay","toa_do":[0.6,0.35,1.0,0.72],"do_tin":0.8}
+]}
+```

@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c4B-vua-60",
+   "nam": 1779,
+   "noi": "Gibraltar",
+   "sha256": "b5879a2d4081c611d5e5d00b04d94252ea88ba6d2d0e0503ed0c9aceb575fcbf",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "tau",
+     "mo_ta": "Two small two-masted ships in the bay. They have high, rounded galleon-like hulls and look like 16th–17th century vessels.",
+     "ly_do": "In 1779 the ships off Gibraltar would be frigates, ships of the line, xebecs and gunboats. These hulls and rigs look archaic and don't match 1779 naval vessels.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      758,
+      211,
+      1056,
+      286
+     ],
+     "do_tin": 0.3
+    },
+    {
+     "muc": "co",
+     "mo_ta": "A tiny red-and-white striped flag stands beside the wall between the two fields. I can't make out its design.",
+     "ly_do": "A red-and-white design can't be matched to a flag used at Gibraltar in 1779. The British flag then was the 1707 Union flag, and the Spanish flag was the naval ensign. This is a weak suspicion.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      774,
+      765,
+      810,
+      785
+     ],
+     "do_tin": 0.12
+    }
+   ],
+   "cost_usd": 0.0372976,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1071,
+     "cacheReadInputTokens": 2131,
+     "cacheCreationInputTokens": 10545,
+     "webSearchRequests": 0,
+     "costUSD": 0.0372976,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 227,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 14.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1779,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"tau\",\"mo_ta\":\"Two small two-masted ships in the bay. They have high, rounded galleon-like hulls and look like 16th–17th century vessels.\",\"ly_do\":\"In 1779 the ships off Gibraltar would be frigates, ships of the line, xebecs and gunboats. These hulls and rigs look archaic and don't match 1779 naval vessels.\",\"nam_xuat_hien\":null,\"toa_do\":[0.395,0.195,0.55,0.265],\"do_tin\":0.3},{\"muc\":\"co\",\"mo_ta\":\"A tiny red-and-white striped flag stands beside the wall between the two fields. I can't make out its design.\",\"ly_do\":\"A red-and-white design can't be matched to a flag used at Gibraltar in 1779. The British flag then was the 1707 Union flag, and the Spanish flag was the naval ensign. This is a weak suspicion.\",\"nam_xuat_hien\":null,\"toa_do\":[0.403,0.708,0.422,0.727],\"do_tin\":0.12}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0373,
+ "chi_phi_tb": 0.0373,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}
