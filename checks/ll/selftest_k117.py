@@ -1,5 +1,5 @@
 #!/opt/cine/bin/python
-"""Tự kiểm luật 1.17 (phiên K-1.17, 21/10/2026): N2P-1…6 (N2+, Kinh thánh §15, từ T4), MINH-HOA (§14.1 (c) / §15 M-d), EO-DAT-R1…R3 (§14.7) và các
+"""Tự kiểm luật 1.17 (phiên K-1.17, 21/10/2026): N2P-1…6 (N2+, Kinh thánh §15, từ T4), MINH-HOA (§14.1 (c) / §15 M-d), EO-DAT-R1…R4 (§14.7; ngưỡng §14.7 nguyên văn từ 1.17.1) và các
 khiếu nại animatic T3 chấp nhận (Q33 miễn năm khác — TL-1, ML1 `cau: ""`, NC-H1 lớp nhà tl/* — V7C-D5, SACH-1 nhãn Illustration). Mỗi luật ≥ 1 ca
 ĐẠT + ≥ 1 ca TRƯỢT. Mặc định KHÔNG gọi mạng/API.
 
@@ -227,7 +227,7 @@ case('SACH-1', 'nhãn Illustration trong shot minh hoạ → sạch', bad(K6.sac
 case('SACH-1', 'nhãn Illustration ở shot 3D thường → (e)', bad(K6.sach1(ES, None, TXo, 12, K7._mh_spans(LSm())), 'c', 'e'), True)
 case('SACH-1', '1.16.1 (không truyền shot minh hoạ): nhãn → (e) như cũ', bad(K6.sach1(ES, None, TXs, 12), 'c', 'e'), True)
 
-# ======================================================================== EO-DAT R1–R3
+# ======================================================================== EO-DAT R1–R4 (1.17.1: ngưỡng §14.7 nguyên văn)
 EE = dict(id='t3', khung_sach=True, segments=[dict(id='S1', dur=20, chuong='1'), dict(id='S2', dur=20, chuong='1'), dict(id='S3', dur=20, chuong='2')])
 
 
@@ -235,17 +235,38 @@ def eo(LS): return K7.eo_dat(EE, None, LS)
 
 
 R1ok = [dict(shot='S1', t0=0, dur=20, noi='eo_dat', chu_the_eo_dat=True, chu_the_pct=[[0, 30], [5, 28], [10, 26]], trong_pct=10, so_goc=2, su_kien=[dict(t=5), dict(t=10), dict(t=15)])]
-case('EO-DAT-R1', 'chủ thể trung vị 28 % ≥ 25 % → sạch', bad(eo(R1ok)['EO-DAT-R1']), False)
-case('EO-DAT-R1', 'chủ thể 12 % → (a)', bad(eo([dict(R1ok[0], chu_the_pct=12)])['EO-DAT-R1'], 'a'), True)
+case('EO-DAT-R1', 'chủ thể trung vị 28 % ≥ 20 % → sạch', bad(eo(R1ok)['EO-DAT-R1']), False)
+case('EO-DAT-R1', 'chủ thể 20 % (đúng mức trên) → sạch', bad(eo([dict(R1ok[0], chu_the_pct=20)])['EO-DAT-R1']), False)
+case('EO-DAT-R1', 'chủ thể 12 % < 15 % → (a)', bad(eo([dict(R1ok[0], chu_the_pct=12)])['EO-DAT-R1'], 'a'), True)
+case('EO-DAT-R1', 'chủ thể 14,9 % < 15 % → (a)', bad(eo([dict(R1ok[0], chu_the_pct=14.9)])['EO-DAT-R1'], 'a'), True)
+case('EO-DAT-R1', 'chủ thể 17 % (15–20 %) → (b) Cảnh báo', bad(eo([dict(R1ok[0], chu_the_pct=17)])['EO-DAT-R1'], 'b'), True)
+case('EO-DAT-R1', 'chủ thể 17 % → KHÔNG (a)', bad(eo([dict(R1ok[0], chu_the_pct=17)])['EO-DAT-R1'], 'a'), False)
+case('EO-DAT-R1', 'chủ thể 15 % (đúng mức dưới) → không (a)', bad(eo([dict(R1ok[0], chu_the_pct=15)])['EO-DAT-R1'], 'a'), False)
+case('EO-DAT-R1', 'chủ thể 22 % (1.17.0 tạm 25 % bắt; §14.7 không) → sạch', bad(eo([dict(R1ok[0], chu_the_pct=22)])['EO-DAT-R1']), False)
+mo, ch, cb = cap112.cap('EO-DAT-R1', dict(eo([dict(R1ok[0], chu_the_pct=17)])['EO-DAT-R1'], cong='G2'))
+case('cấp', 'EO-DAT-R1 17 % ở G2 → không Chặn', ch, False)
+case('cấp', 'EO-DAT-R1 17 % ở G2 → có Cảnh báo', cb, True)
+mo, ch, cb = cap112.cap('EO-DAT-R1', dict(eo([dict(R1ok[0], chu_the_pct=12)])['EO-DAT-R1'], cong='G2'))
+case('cấp', 'EO-DAT-R1 12 % ở G2 → Chặn', ch, True)
+mo, ch, cb = cap112.cap('EO-DAT-R1', dict(eo([dict(R1ok[0], chu_the_pct=None)])['EO-DAT-R1'], cong='G2'))
+case('cấp', 'EO-DAT-R1 thiếu chu_the_pct ở G2 → Chặn', ch, True)
 case('EO-DAT-R1', 'cờ chu_the_eo_dat nhưng không chu_the_pct → THIẾU', kq(eo([dict(R1ok[0], chu_the_pct=None)])['EO-DAT-R1'], 'THIẾU'), False)
 case('EO-DAT-R1', 'không shot khai cờ → KHÔNG ÁP', kq(eo([dict(R1ok[0], chu_the_eo_dat=False)])['EO-DAT-R1'], 'KHÔNG ÁP'), False)
+# chương 1 = S1 + S2 = 40 s → trần (b) 10 % = 4 s; chương 2 = S3 = 20 s → 2 s
 R2 = lambda a, b, c: [dict(shot='S1', t0=0, dur=20, noi='eo_dat', trong_pct=a), dict(shot='S2', t0=20, dur=20, noi='eo_dat', trong_pct=b), dict(shot='S3', t0=40, dur=20, noi='eo_dat', trong_pct=c)]
-case('EO-DAT-R2', 'trong_pct theo khung: trống 4 s rồi có vật → sạch', bad(eo(R2([[0, 70], [4, 20]], 10, [[0, 20], [14, 65]]))['EO-DAT-R2']), False)
+case('EO-DAT-R2', 'không khung nào trống → sạch', bad(eo(R2(10, 20, 30))['EO-DAT-R2']), False)
+case('EO-DAT-R2', 'trống 4 s / chương 40 s = 10 % (đúng trần) → sạch', bad(eo(R2([[0, 70], [4, 20]], 10, 10))['EO-DAT-R2']), False)
+case('EO-DAT-R2', 'trong_pct 50 % (không > 50 %) suốt chương → không trống → sạch', bad(eo(R2(50, 50, 50))['EO-DAT-R2']), False)
+case('EO-DAT-R2', 'trong_pct 55 % (> 50 %; 1.17.0 tạm 60 % bỏ qua) suốt 20 s → (a)', bad(eo(R2(10, 55, 10))['EO-DAT-R2'], 'a'), True)
 case('EO-DAT-R2', 'trống 65 % suốt shot 20 s → (a) liên tục > 6 s', bad(eo(R2(10, 65, 10))['EO-DAT-R2'], 'a'), True)
 case('EO-DAT-R2', 'trống nối qua ranh 2 shot: 3 s + 4 s = 7 s → (a)', bad(eo(R2([[0, 10], [17, 70]], [[0, 70], [4, 10]], 10))['EO-DAT-R2'], 'a'), True)
-case('EO-DAT-R2', 'chương 1: trống 2 × 6 s / 40 s = 30 % ≤ 1/3 → sạch (b)', bad(eo(R2([[0, 70], [6, 10]], [[0, 10], [14, 70]], 10))['EO-DAT-R2'], 'b'), False)
-case('EO-DAT-R2', 'chương 1: 3 khúc trống 5 s + 5 s + 5 s / 40 s = 37,5 % > 1/3 → (b)',
-     bad(eo(R2([[0, 70], [5, 10], [10, 70], [15, 10]], [[0, 10], [15, 70]], 10))['EO-DAT-R2'], 'b'), True)
+case('EO-DAT-R2', 'trống liên tục đúng 6 s → không (a)', bad(eo(R2([[0, 70], [6, 10]], 10, 10))['EO-DAT-R2'], 'a'), False)
+case('EO-DAT-R2', 'chương 1: 2 khúc 3 s = 6 s / 40 s = 15 % > 10 % → (b)', bad(eo(R2([[0, 70], [3, 10]], [[0, 10], [17, 70]], 10))['EO-DAT-R2'], 'b'), True)
+case('EO-DAT-R2', 'chương 1: 2 khúc 3 s / 40 s → KHÔNG (a)', bad(eo(R2([[0, 70], [3, 10]], [[0, 10], [17, 70]], 10))['EO-DAT-R2'], 'a'), False)
+case('EO-DAT-R2', 'chương 2 (20 s): trống 3 s = 15 % > 10 % → (b)', bad(eo(R2(10, 10, [[0, 10], [10, 70], [13, 10]]))['EO-DAT-R2'], 'b'), True)
+R2m = [dict(shot='S1', t0=0, dur=20, noi='eo_dat', trong_pct=[[0, 70], [4, 10], [10, 70], [14, 10]]), dict(shot='S2', t0=20, dur=80, noi='thanh_pho')]
+case('EO-DAT-R2', 'mẫu số = thời lượng chương: trống 8 s / chương 100 s = 8 % → sạch (1.17.0: 8/20 eo đất = 40 % bắt)', bad(eo(R2m)['EO-DAT-R2'], 'b'), False)
+case('EO-DAT-R2', 'cùng dữ liệu, bỏ shot phố 80 s → 8/20 = 40 % → (b)', bad(eo(R2m[:1])['EO-DAT-R2'], 'b'), True)
 case('EO-DAT-R2', 'thiếu trong_pct → THIẾU', kq(eo(R2(None, None, None))['EO-DAT-R2'], 'THIẾU'), False)
 R3 = lambda **kw: [dict(dict(shot='S1', t0=0, dur=20, noi='eo_dat', trong_pct=10, so_goc=2, su_kien=[dict(t=5), dict(t=10.5)], tl_buoc=[dict(t=15.5)]), **kw)]
 case('EO-DAT-R3', 'shot 20 s: 2 góc, biến cố 5 · 10,5 · 15,5 s → sạch', bad(eo(R3())['EO-DAT-R3']), False)
@@ -258,6 +279,25 @@ mo, ch, cb = cap112.cap('EO-DAT-R3', dict(eo(R3(so_goc=1))['EO-DAT-R3'], cong='a
 case('cấp', 'EO-DAT ở animatic → Cảnh báo', ch, False)
 mo, ch, cb = cap112.cap('EO-DAT-R3', dict(eo(R3(so_goc=1))['EO-DAT-R3'], cong='G2'))
 case('cấp', 'EO-DAT ở G2 → Chặn', ch, True)
+R4 = lambda **kw: [dict(dict(shot='S1', t0=0, dur=8, loi_khong_vat_eo_dat=True), **kw)]
+for n_ in ('pho', 'lau_dai', 'cang'):
+    case('EO-DAT-R4', f'loi_khong_vat_eo_dat + noi {n_} → sạch', bad(eo(R4(noi=n_))['EO-DAT-R4']), False)
+case('EO-DAT-R4', 'noi thanh_pho (tên log hiện dùng cho phố) → sạch', bad(eo(R4(noi='thanh_pho'))['EO-DAT-R4']), False)
+case('EO-DAT-R4', 'noi eo_dat, không bản đồ → (a)', bad(eo(R4(noi='eo_dat'))['EO-DAT-R4'], 'a'), True)
+case('EO-DAT-R4', 'không khai noi, không bản đồ → (a)', bad(eo(R4())['EO-DAT-R4'], 'a'), True)
+case('EO-DAT-R4', 'noi eo_dat + ban_do_phu 3 s (đúng trần) → sạch', bad(eo(R4(noi='eo_dat', ban_do_phu=3))['EO-DAT-R4']), False)
+case('EO-DAT-R4', 'noi eo_dat + ban_do_phu [1, 3,5] → sạch', bad(eo(R4(noi='eo_dat', ban_do_phu=[1, 3.5]))['EO-DAT-R4']), False)
+case('EO-DAT-R4', 'noi eo_dat + ban_do_phu 3,5 s → (b)', bad(eo(R4(noi='eo_dat', ban_do_phu=3.5))['EO-DAT-R4'], 'b'), True)
+case('EO-DAT-R4', 'ban_do_phu [[0, 2], [4, 8]] (lần 4 s) → (b)', bad(eo(R4(noi='eo_dat', ban_do_phu=[[0, 2], [4, 8]]))['EO-DAT-R4'], 'b'), True)
+case('EO-DAT-R4', 'ban_do_phu {dur: 2} → sạch', bad(eo(R4(noi='eo_dat', ban_do_phu=dict(dur=2)))['EO-DAT-R4']), False)
+case('EO-DAT-R4', 'noi pho nhưng ban_do_phu 5 s → (b) (TL-4 trần riêng)', bad(eo(R4(noi='pho', ban_do_phu=5))['EO-DAT-R4'], 'b'), True)
+case('EO-DAT-R4', 'ban_do_phu: true (không giây) → THIẾU', kq(eo(R4(noi='eo_dat', ban_do_phu=True))['EO-DAT-R4'], 'THIẾU'), False)
+case('EO-DAT-R4', 'không shot khai loi_khong_vat_eo_dat → KHÔNG ÁP', kq(eo([dict(shot='S1', t0=0, dur=8, noi='eo_dat')])['EO-DAT-R4'], 'KHÔNG ÁP'), False)
+case('EO-DAT-R4', 'loi_khong_vat_eo_dat: false → KHÔNG ÁP', kq(eo(R4(loi_khong_vat_eo_dat=False))['EO-DAT-R4'], 'KHÔNG ÁP'), False)
+mo, ch, cb = cap112.cap('EO-DAT-R4', dict(eo(R4(noi='eo_dat'))['EO-DAT-R4'], cong='G2'))
+case('cấp', 'EO-DAT-R4 ở G2 → Chặn', ch, True)
+mo, ch, cb = cap112.cap('EO-DAT-R4', dict(eo(R4(noi='eo_dat'))['EO-DAT-R4'], cong='animatic'))
+case('cấp', 'EO-DAT-R4 ở animatic → không Chặn', ch, False)
 case('1.17 áp dụng', 'tập trước T3 → MINH-HOA/EO-DAT KHÔNG ÁP', sum((kq(v, 'KHÔNG ÁP') for v in K7.check(dict(id='t2')).values()), []), False)
 
 # ======================================================================== khiếu nại animatic T3 chấp nhận

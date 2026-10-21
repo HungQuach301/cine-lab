@@ -1,10 +1,11 @@
 #!/opt/cine/bin/python
-"""Luật kênh 2 bản 1.17.0 (phiên K-1.17, 21/10/2026) — CHỈ tập kênh 2 từ T3 (`khung_sach: true` | `kenh2_tu_t3: true`, như 1.16); tập cũ giữ
+"""Luật kênh 2 bản 1.17.0 (phiên K-1.17, 21/10/2026) + 1.17.1 (phiên K-1.17.1, 21/10/2026: ngưỡng EO-DAT theo Kinh thánh §14.7 nguyên văn, thêm R4) — CHỈ tập kênh 2 từ T3 (`khung_sach: true` | `kenh2_tu_t3: true`, như 1.16); tập cũ giữ
 đúng hành vi 1.16.1 (không thêm hàng). Luật N2+ (T4) ở q_n2p.py. Định nghĩa: checks/ll/RULES-LL.md mục "1.17".
 
 Căn cứ: Kinh thánh kênh 2 §14.1 (c) N2 minh hoạ ≤ 20 %, nhãn "Illustration" suốt đoạn (ngoại lệ §12.1); §15 (T4, M-d); §14.7 R1–R4 eo đất
-và §15 CHƯA có trên nhánh nào của repo lúc làm (21/10/2026 14:40 UTC) → nội dung lấy NGUYÊN theo lệnh K-1.17; ngưỡng R1, R2 do K đề xuất tạm,
-ghi rõ ở từng hằng số, chờ chủ dự án chốt.
+(1.17.0 viết khi §14.7 chưa có trên repo, ngưỡng R1/R2 K đề xuất tạm; 1.17.1 khớp §14.7 nguyên văn — docs/BIBLE-KENH2.md trên main @96b5017c,
+SHA tệp 14ca13aa…: "R1 … chiếm ≥ 15–20 % khung", "R2 Đồng cỏ/cát trống (> 50 % khung) ≤ 6 s liên tục và ≤ 10 % thời lượng mỗi chương",
+"R4 Câu lời không có vật trên eo đất → góc phố/lâu đài/cảng; bản đồ phủ ≤ 3 s (TL-4)").
 
 Hàng (cấp ở cap112.py: Chặn ở cổng G2 · Cảnh báo ở animatic (`animatic: true` trong đặc tả) — như K116-D5; không khai → G2):
   MINH-HOA  shot log `minh_hoa: true` (T3 theo N2, T4 theo M-d): (a) tổng minh hoạ ≤ 20 % thời lượng; (b) nhãn "Illustration" hiện SUỐT đoạn —
@@ -13,14 +14,18 @@ Hàng (cấp ở cap112.py: Chặn ở cổng G2 · Cảnh báo ở animatic (`a
             hai shot 3D (shot liền trước và liền sau có goc cao/thap/neo, không phải minh hoạ/thẻ); (d) máy ≤ 40 m AGL khi log có `agl_m`;
             (e) sổ AI có dòng cho mỗi đoạn: model + lệnh (lenh | prompt | lenh_sha | prompt_sha) + SHA đầu ra (sha_ra | sha_out | sha256) —
             trường log shot `so_ai` (dict hoặc list) hoặc tệp `so_ai:` của episode.yaml (.jsonl/.json, mục có `shot` = id đoạn).
-  EO-DAT-R1 shot log `chu_the_eo_dat: true`: chủ thể chiếm ≥ R1_MIN % khung (trường `chu_the_pct`: số TB shot hoặc [[t, %], …] từ mặt nạ ID;
-            dùng trung vị). Thiếu → THIẾU.
-  EO-DAT-R2 shot eo đất (`noi: eo_dat`), trường `trong_pct` (% cỏ/cát trống; số TB shot, hoặc [[t, %], …] theo khung mẫu — đề xuất trường mới
-            từ mặt nạ ID): (a) giây trống LIÊN TỤC (khung/shot có trong_pct > TRONG_PCT) ≤ R2_GIAY s; (b) mỗi chương: phần thời lượng eo đất
-            trống ≤ R2_CHUONG %. Thiếu trong_pct → THIẾU.
+  EO-DAT-R1 shot log `chu_the_eo_dat: true`: chủ thể chiếm khung (trường `chu_the_pct`: số TB shot hoặc [[t, %], …] từ mặt nạ ID; dùng
+            trung vị): (a) < R1_MIN (15 %) → lỗi (Chặn ở G2); (b) R1_MIN ≤ chủ thể < R1_TOT (15–20 %) → Cảnh báo (vùng "15–20 %" của §14.7).
+            Thiếu → THIẾU (tính như (a)).
+  EO-DAT-R2 shot eo đất (`noi: eo_dat`), trường `trong_pct` (% cỏ/cát không vật; số TB shot, hoặc [[t, %], …] theo khung mẫu — từ mặt nạ ID);
+            "trống" = trong_pct > TRONG_PCT (50 %): (a) giây trống LIÊN TỤC ≤ R2_GIAY (6 s, nối qua ranh shot); (b) mỗi chương: tổng giây
+            trống ≤ R2_CHUONG (10 %) × THỜI LƯỢNG CHƯƠNG (mọi shot log của chương, không chỉ shot eo đất). Thiếu trong_pct → THIẾU.
   EO-DAT-R3 shot eo đất dài > 15 s: (a) ≥ 2 góc máy (trường `so_goc` số nguyên, hoặc `goc_may` danh sách); (b) biến cố thấy được cách nhau
             ≤ 6 s (log `su_kien[].t`, `tl_buoc[].t`, tính cả đầu/cuối shot).
-  R4: lệnh và repo không nêu định nghĩa → CHƯA viết luật (báo cáo K-1.17 §2.3).
+  EO-DAT-R4 (1.17.1) shot log `loi_khong_vat_eo_dat: true` (câu lời nói về eo đất nhưng không có vật để thấy): (a) `noi` ∈ R4_NOI (pho |
+            lau_dai | cang; `thanh_pho` coi là pho — tên log hiện dùng) HOẶC (b) bản đồ phủ `ban_do_phu` ≤ R4_BAN_DO (3 s, TL-4): số giây,
+            [t0, t1], [[t0, t1], …] (xét lần phủ dài nhất) hoặc {dur}. Có `ban_do_phu` > 3 s → lỗi (b) dù noi hợp lệ (TL-4 là trần riêng).
+            Không shot khai → KHÔNG ÁP.
 Sửa luật cũ (khiếu nại 8 hàng Chặn animatic T3 chấp nhận — báo cáo §4), chỉ khi ap_117:
   Q33 / Q33-K2 / Q33 (1.13): lần xuất hiện cùng (cảnh, góc) — khai hay pHash — ở đoạn KHÁC và khoảng năm (log `nam` [y0, y1]) KHÔNG chồng mọi lần
             trước → miễn (Kinh thánh §13.6 TL-1 "mỗi phần phim quay lại cùng điểm máy ở năm khác").
@@ -37,13 +42,15 @@ from checks.ll import q_k116 as K6  # noqa: E402
 MH_MAX, MH_AGL = 20.0, 40.0                       # §14.1 (c) N2 ≤ 20 %; máy ≤ 40 m AGL (lệnh K-1.17)
 NHAN = 'Illustration'
 GOC_3D = {'cao', 'thap', 'neo'}
-R1_MIN = 25.0          # K ĐỀ XUẤT TẠM: chủ thể ≥ 25 % khung (cùng mức NC-H1 fabric trung vị ≥ 25 %) — chờ nguyên văn §14.7
-TRONG_PCT = 60.0       # "trống" = trong_pct > 60 % (TL-3, K116-D1 đã duyệt)
-R2_GIAY = 6.0          # K ĐỀ XUẤT TẠM: trống liên tục ≤ 6 s (cùng trần biến cố 6 s của Q37/R3) — chờ nguyên văn §14.7
-R2_CHUONG = 100.0 / 3  # K ĐỀ XUẤT TẠM: eo đất trống ≤ 1/3 thời lượng eo đất của chương (cùng mức BC2 nước + cỏ trống ≤ 1/3) — chờ §14.7
+R1_MIN, R1_TOT = 15.0, 20.0   # §14.7 R1 "≥ 15–20 % khung": < 15 % lỗi; 15–20 % Cảnh báo (1.17.0 tạm: 25 %)
+TRONG_PCT = 50.0       # §14.7 R2 "Đồng cỏ/cát trống (> 50 % khung)" (1.17.0 tạm: > 60 %)
+R2_GIAY = 6.0          # §14.7 R2 "≤ 6 s liên tục"
+R2_CHUONG = 10.0       # §14.7 R2 "≤ 10 % thời lượng mỗi chương" — mẫu số = thời lượng chương (1.17.0 tạm: 1/3 thời lượng eo đất)
+R4_NOI = {'pho', 'lau_dai', 'cang'}; R4_ALIAS = {'thanh_pho': 'pho'}   # §14.7 R4 "góc phố/lâu đài/cảng"
+R4_BAN_DO = 3.0        # §14.7 R4 "bản đồ phủ ≤ 3 s (TL-4)"
 R3_DAI, R3_GOC, R3_GAP = 15.0, 2, 6.0             # lệnh K-1.17: shot > 15 s → ≥ 2 góc, biến cố ≤ 6 s
 LOP_NHA_KEYS = ('bfile', 'cityOpt', 'pre1704town', 'pho2026', 'lop_nha')
-ROWS = ('MINH-HOA', 'EO-DAT-R1', 'EO-DAT-R2', 'EO-DAT-R3')
+ROWS = ('MINH-HOA', 'EO-DAT-R1', 'EO-DAT-R2', 'EO-DAT-R3', 'EO-DAT-R4')
 LEN = 1e-6
 
 
@@ -143,7 +150,7 @@ def minh_hoa(E, TL, LS, ep_dir='.', TX=None, step=12, why=None):
                                                               f'lỗi kẹp {len(M["c"])} · AGL {len(M["d"])} · sổ AI {len(M["e"])}')
 
 
-# ================================================================ EO-DAT R1–R3
+# ================================================================ EO-DAT R1–R4
 def _chuong(s, Z_seg):
     return str(s.get('chuong') if s.get('chuong') is not None else Z_seg.get(str(s.get('shot')), '?'))
 
@@ -157,17 +164,20 @@ def eo_dat(E, TL, LS, why=None):
     for s, a, b in Z:
         if not s.get('chu_the_eo_dat'): continue
         sid = str(s.get('shot')); v = [x for _, x in _series(s.get('chu_the_pct'))]
-        if not v: th1.append(f'{sid}: chu_the_eo_dat nhưng không có `chu_the_pct` (đo từ mặt nạ ID)'); continue
-        med = statistics.median(v); rows1.append(f'{sid}: chủ thể trung vị {med:.1f} %'); near1 += K6.sat(f'{sid} chủ thể %', round(med, 1), R1_MIN)
+        if not v: th1.append(f'(a) {sid}: chu_the_eo_dat nhưng không có `chu_the_pct` (đo từ mặt nạ ID)'); continue
+        med = statistics.median(v); rows1.append(f'{sid}: chủ thể trung vị {med:.1f} %')
+        near1 += K6.sat(f'{sid} chủ thể %', round(med, 1), R1_MIN) + K6.sat(f'{sid} chủ thể %', round(med, 1), R1_TOT)
         if med < R1_MIN - LEN: L1.append(f'(a) {sid} @{K6.mmss(a)}: chủ thể {med:.1f} % khung < {R1_MIN:g} %')
+        elif med < R1_TOT - LEN: L1.append(f'(b) {sid} @{K6.mmss(a)}: chủ thể {med:.1f} % khung trong vùng {R1_MIN:g}–{R1_TOT:g} % (Cảnh báo)')
     n1 = sum(1 for s in LS if s.get('chu_the_eo_dat'))
-    out['EO-DAT-R1'] = (K6.r(loi=L1, thieu=th1, sat_nguong=near1, val=f'{n1} shot chu_the_eo_dat · ' + ('; '.join(rows1[:6]) or 'chưa đo')) if n1
+    out['EO-DAT-R1'] = (K6.r(loi=L1, thieu=th1, sat_nguong=near1, muc={c_: [x for x in L1 + th1 if x.startswith(f'({c_})')] for c_ in 'ab'}, val=f'{n1} shot chu_the_eo_dat · ' + ('; '.join(rows1[:6]) or 'chưa đo')) if n1
                         else K6.na('không shot khai chu_the_eo_dat'))
     # ---- R2
     eo = [(s, a, b) for s, a, b in Z if str(s.get('noi') or '') == 'eo_dat']
     if not eo: out['EO-DAT-R2'] = K6.na('không shot eo đất (noi: eo_dat)')
     else:
         th2, L2, near2, runs, cur, ch = [], [], [], [], None, {}
+        for s, a, b in Z: ch.setdefault(_chuong(s, SEG), [0.0, 0.0])[0] += b - a   # mẫu số = thời lượng chương (mọi shot log)
         for s, a, b in eo:
             sid = str(s.get('shot')); ser = _series(s.get('trong_pct'))
             if not ser: th2.append(f'{sid}: thiếu `trong_pct`'); continue
@@ -179,7 +189,7 @@ def eo_dat(E, TL, LS, why=None):
                     ivs.append((a + t, a + min(max(t1, t), b - a), v))
             c = ch.setdefault(_chuong(s, SEG), [0.0, 0.0])
             for x0, x1, v in ivs:
-                c[0] += x1 - x0; tr = v > TRONG_PCT
+                tr = v > TRONG_PCT
                 if tr: c[1] += x1 - x0
                 if tr and cur is not None and x0 - cur[1] <= 1 / K6.FPS + LEN: cur[1] = x1; cur[2].add(sid)
                 elif tr: cur = [x0, x1, {sid}]; runs.append(cur)
@@ -190,9 +200,10 @@ def eo_dat(E, TL, LS, why=None):
         near2 += K6.sat('trống liên tục dài nhất s', round(dmax, 2), R2_GIAY)
         rows2 = []
         for k, (tot, tr) in sorted(ch.items()):
-            p = 100 * tr / tot if tot else 0.0; rows2.append(f'ch {k}: {p:.0f} %')
-            if p > R2_CHUONG + LEN: L2.append(f'(b) chương {k}: eo đất trống {tr:.1f}/{tot:.1f} s = {p:.1f} % > {R2_CHUONG:.1f} %')
-            near2 += K6.sat(f'chương {k} trống %', round(p, 2), round(R2_CHUONG, 2))
+            if not tr: continue
+            p = 100 * tr / tot if tot else 0.0; rows2.append(f'ch {k}: {p:.1f} %')
+            if p > R2_CHUONG + LEN: L2.append(f'(b) chương {k}: trống {tr:.1f} s / thời lượng chương {tot:.1f} s = {p:.1f} % > {R2_CHUONG:g} %')
+            near2 += K6.sat(f'chương {k} trống %', round(p, 2), R2_CHUONG)
         out['EO-DAT-R2'] = K6.r(loi=L2, thieu=th2, sat_nguong=near2, muc={c_: [x for x in L2 if x.startswith(f'({c_})')] for c_ in 'ab'},
                                 val=f'{len(eo)} shot eo đất · đo {len(eo) - len(th2)} · trống liên tục dài nhất {dmax:.1f} s · ' + (' · '.join(rows2) or '—'))
     # ---- R3
@@ -211,7 +222,38 @@ def eo_dat(E, TL, LS, why=None):
             if g > R3_GAP + LEN: L3.append(f'(b) {w}: khoảng không biến cố dài nhất {g:.1f} s > {R3_GAP:g} s ({len(ev) - 2} biến cố log)')
         out['EO-DAT-R3'] = K6.r(loi=L3, thieu=th3, muc={c_: [x for x in L3 if x.startswith(f'({c_})')] for c_ in 'ab'},
                                 val=f'{len(dai)}/{len(eo)} shot eo đất > {R3_DAI:g} s · khoảng biến cố dài nhất: ' + ', '.join(rows3[:8]))
+    # ---- R4 (1.17.1)
+    r4 = [(s, a, b) for s, a, b in Z if s.get('loi_khong_vat_eo_dat')]
+    if not r4: out['EO-DAT-R4'] = K6.na('không shot khai loi_khong_vat_eo_dat')
+    else:
+        L4, th4, rows4, near4 = [], [], [], []
+        for s, a, b in r4:
+            sid = str(s.get('shot')); w = f'{sid} @{K6.mmss(a)}'
+            noi = str(s.get('noi') or (s.get('p') or {}).get('noi') or '').strip().lower(); noi = R4_ALIAS.get(noi, noi)
+            bd, why4 = _ban_do(s.get('ban_do_phu'))
+            if why4: th4.append(f'(b) {w}: `ban_do_phu` không đọc được ({why4})'); continue
+            if bd is not None:
+                near4 += K6.sat(f'{sid} bản đồ phủ s', round(bd, 2), R4_BAN_DO)
+                if bd > R4_BAN_DO + LEN: L4.append(f'(b) {w}: bản đồ phủ {bd:.1f} s > {R4_BAN_DO:g} s (TL-4)'); continue
+            if noi in R4_NOI: rows4.append(f'{sid}: noi {noi}')
+            elif bd is not None: rows4.append(f'{sid}: bản đồ phủ {bd:.1f} s')
+            else: L4.append(f"(a) {w}: câu lời không vật trên eo đất nhưng noi '{noi or '—'}' ∉ {{pho, lau_dai, cang}} và không bản đồ phủ")
+        out['EO-DAT-R4'] = K6.r(loi=L4, thieu=th4, sat_nguong=near4, muc={c_: [x for x in L4 + th4 if x.startswith(f'({c_})')] for c_ in 'ab'},
+                                val=f'{len(r4)} shot loi_khong_vat_eo_dat · ' + ('; '.join(rows4[:6]) or '—'))
     return out
+
+
+def _ban_do(v):
+    """`ban_do_phu` → (giây, lỗi): số | [t0, t1] | [[t0, t1], …] | {dur} | {t: [t0, t1]}; None/False → (None, None)"""
+    if v is None or v is False: return None, None
+    if _num(v) is not None: return float(v), None
+    if isinstance(v, dict):
+        if _num(v.get('dur')) is not None: return float(v['dur']), None
+        v = v.get('t')
+    if isinstance(v, (list, tuple)) and len(v) == 2 and all(_num(x) is not None for x in v): v = [v]
+    if isinstance(v, (list, tuple)) and v and all(isinstance(x, (list, tuple)) and len(x) == 2 and all(_num(y) is not None for y in x) for x in v):
+        return max(max(0.0, float(x[1]) - float(x[0])) for x in v), None   # TL-4: MỖI lần phủ ≤ 3 s → lấy lần dài nhất
+    return None, f'kiểu {type(v).__name__}'
 
 
 # ================================================================ sửa luật cũ (chỉ ap_117)

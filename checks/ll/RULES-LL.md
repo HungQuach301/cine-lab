@@ -69,6 +69,9 @@ Một lệnh: `k2check.py <episode.yaml> … [--root <gốc repo có vo/*.align.
 **Khai `mach`** (gốc episode.yaml hoặc tệp `--khai`): `tom_tat: {tu: "<đầu câu>", den: "<đầu câu>"}`, `luan_diem_chinh: [{claim: C22, cau: "<đầu câu>"}]` (mẫu: `fixtures/k112/t2-mach.yaml`).
 **Đề xuất cho phiên V (ngoài vùng K):** mặt nạ `render.js --maskonly` ghi thêm `hero_pct` và chạy MỌI khung (BC1, TL-Q1c); log chữ mỗi khung có `role` thẻ ảnh; log lệch đầu đường dẫn ảnh neo (TL-Q4b).
 
+## 1.17.1 — EO-DAT khớp Kinh thánh §14.7 nguyên văn + EO-DAT-R4 — 21/10, CHỈ BÁO (cấp theo cổng)
+Căn cứ: `reports/k1171/K1171-BAO-CAO.md`; Kinh thánh §14.7 R1–R4 (main @96b5017c). Đổi: R1 25 % → **15 %** (Chặn) + **15–20 %** Cảnh báo; R2 "trống" > 60 % → **> 50 %**, (b) ≤ 1/3 thời lượng eo đất → **≤ 10 % thời lượng chương**; thêm **R4**. Bảng đầy đủ ở mục 1.17.0 bên dưới (đã sửa tại chỗ). Tập trước T3: không đổi.
+
 ## 1.17.0 — N2+ (§15, từ T4), minh hoạ (§14.1 (c) / §15 M-d), eo đất R1–R3 (§14.7), khiếu nại animatic T3 — 21/10, CHỈ BÁO (cấp theo cổng)
 Căn cứ: `reports/k117/K117-BAO-CAO.md`; bộ kiểm NC-N2P (`reports/NC-N2P-BAO-CAO.md` §2, §6.3; mã `reports/nc-n2p/ma/`, nhánh `nc-n2p` @ `9cb001d1`).
 Kinh thánh §14.7 và §15 **chưa có trên repo** khi khoá 1.17.0 → nội dung theo lệnh K-1.17; ngưỡng ghi "K đề xuất tạm" chờ chủ dự án chốt.
@@ -93,12 +96,13 @@ Tập trước T3: KHÔNG thêm hàng nào (k2check T1/T2 giống 1.16.1 trừ h
 (a) tổng ≤ **20 %** thời lượng; (b) nhãn **"Illustration"** suốt đoạn: log chữ (`log_chu`/`--logs`) ở mọi khung mẫu của shot, hoặc trường log shot `nhan_minh_hoa: "Illustration"` (+ `nhan_t: [t0, t1]` giây trong shot, không có = cả shot); không có cả hai → THIẾU (chưa có OCR); (c) kẹp giữa hai shot 3D (shot liền trước + liền sau `goc` cao/thap/neo, không minh hoạ); (d) máy ≤ **40 m AGL** khi log có `agl_m`; (e) sổ AI có dòng cho mỗi đoạn: `model` + lệnh (`lenh`|`prompt`|`lenh_sha`|`prompt_sha`) + SHA đầu ra (`sha_ra`|`sha_out`|`sha256`) — log shot `so_ai` hoặc tệp `so_ai:` (jsonl, mục `shot` = id đoạn).
 SACH-1 (1.17): chữ "Illustration" (vai `minh_hoa` hoặc đúng chữ đó) TRONG shot minh hoạ là hợp lệ (§14.1 (c) ngoại lệ §12.1); ngoài shot minh hoạ vẫn lỗi (e).
 
-**EO-DAT R1–R3 — tập từ T3** (shot log `noi: eo_dat`). Mã `q_k117.eo_dat`. R4: chưa có định nghĩa → chưa có luật.
-| Hàng | Trường log shot | Ngưỡng |
-|---|---|---|
-| **EO-DAT-R1** chủ thể | shot `chu_the_eo_dat: true`: `chu_the_pct` (số TB shot hoặc `[[t, %], …]` từ mặt nạ ID), trung vị | ≥ **25 %** khung (K đề xuất tạm) |
-| **EO-DAT-R2** cỏ/cát trống | `trong_pct` (số TB shot hoặc `[[t, %], …]` theo khung mẫu — đề xuất phiên dựng xuất từ mặt nạ ID); "trống" = > **60 %** (TL-3) | (a) trống liên tục ≤ **6 s** (nối qua ranh shot); (b) mỗi chương: thời lượng eo đất trống ≤ **1/3** thời lượng eo đất (K đề xuất tạm) |
-| **EO-DAT-R3** góc + biến cố | shot eo đất > **15 s**: `so_goc` (số nguyên) hoặc `goc_may` (danh sách); `su_kien[].t`, `tl_buoc[].t` | (a) ≥ **2** góc; (b) khoảng giữa biến cố (tính đầu/cuối shot) ≤ **6 s** |
+**EO-DAT R1–R4 — tập từ T3** (1.17.1: ngưỡng khớp Kinh thánh §14.7 nguyên văn — `docs/BIBLE-KENH2.md` main @96b5017c, SHA tệp `14ca13aa…`; thay ngưỡng K đề xuất tạm của 1.17.0). Mã `q_k117.eo_dat`.
+| Hàng | Trường log shot | Ngưỡng (nguồn §14.7) | Cấp |
+|---|---|---|---|
+| **EO-DAT-R1** chủ thể | shot `chu_the_eo_dat: true`: `chu_the_pct` (số TB shot hoặc `[[t, %], …]` từ mặt nạ ID), trung vị | (a) < **15 %** khung → lỗi; (b) **15–20 %** → Cảnh báo (R1 "≥ 15–20 % khung"); thiếu → THIẾU (tính như (a)) | (a) Chặn ở G2 · (b) Cảnh báo · animatic: Cảnh báo |
+| **EO-DAT-R2** cỏ/cát trống | shot `noi: eo_dat`: `trong_pct` (% cỏ/cát không vật; số TB shot hoặc `[[t, %], …]` theo khung mẫu, từ mặt nạ ID); "trống" = > **50 %** khung | (a) trống liên tục ≤ **6 s** (nối qua ranh shot); (b) mỗi chương: tổng giây trống ≤ **10 % thời lượng chương** (mẫu số = mọi shot log của chương, `chuong` ở log hoặc `segments[].chuong`) | Chặn ở G2 · animatic: Cảnh báo |
+| **EO-DAT-R3** góc + biến cố | shot eo đất > **15 s**: `so_goc` (số nguyên) hoặc `goc_may` (danh sách); `su_kien[].t`, `tl_buoc[].t` | (a) ≥ **2** góc; (b) khoảng giữa biến cố (tính đầu/cuối shot) ≤ **6 s** | Chặn ở G2 · animatic: Cảnh báo |
+| **EO-DAT-R4** câu lời không vật (1.17.1) | shot `loi_khong_vat_eo_dat: true` (câu lời nói về eo đất mà không có vật để thấy); `noi`; `ban_do_phu` (giây \| `[t0, t1]` \| `[[t0, t1], …]` \| `{dur}`) | (a) `noi` ∈ {`pho`, `lau_dai`, `cang`} (`thanh_pho` = `pho`) HOẶC có bản đồ phủ; (b) mỗi lần bản đồ phủ ≤ **3 s** (TL-4) — áp cả khi noi hợp lệ; `ban_do_phu` không có giây → THIẾU. Không shot khai trường → KHÔNG ÁP | Chặn ở G2 · animatic: Cảnh báo |
 
 **Khiếu nại animatic T3 chấp nhận (chỉ tập từ T3):**
 - **Q33 / Q33-K2 / Q33 (1.13)**: lần xuất hiện cùng (cảnh, góc) — khai hay pHash — ở đoạn khác, có khoảng năm (log shot `nam` [y0, y1], hoặc `moc`) KHÔNG chồng mọi lần trước → **miễn** (Kinh thánh §13.6 TL-1 "mỗi phần phim quay lại cùng điểm máy ở năm khác"). Cùng năm / cùng đoạn / không log năm → đếm như cũ.
@@ -357,6 +361,8 @@ Không có tệp khoá giải mã Q27: thứ tự trộn suy ra từ SHA video, 
 Ngưỡng của Q12–Q22 giữ nguyên như P đề xuất ở lô 3–5; ngưỡng Q26–Q31 giữ nguyên như chủ dự án định (CHUAN-KENH §11.2), K chỉ định nghĩa cách đo. Q1–Q6 và Q8–Q11 vẫn là luật làm việc của P (xem checks-appeal mục 8; chưa khoá ở bản này).
 
 ## Tự kiểm
+**1.17.1:** `selftest_k117.py` — EO-DAT-R1 (mức 15 / 20 %, cấp (a) Chặn / (b) Cảnh báo), R2 (> 50 %, liên tục 6 s, 10 % thời lượng chương — có ca mẫu số chương ≠ thời lượng eo đất), R4 (noi pho/lau_dai/cang/thanh_pho, bản đồ phủ 3 s, THIẾU, KHÔNG ÁP, cấp). Số ca: `reports/k1171/K1171-BAO-CAO.md`.
+
 **1.17.0:** `/opt/cine/bin/python checks/ll/selftest_k117.py` — ≥ 1 ca đạt + ≥ 1 ca trượt cho N2P-1…6 (bản SAO THẬT kiểm có đáp án NC-N2P `fixtures/k117/n2p/`: render, khung thử 6 lỗi chèn, mặt nạ ID, trả lời đã lưu của 2 mô hình + q_thoi_dai; video (v) tổng hợp dựng tại chỗ), MINH-HOA, SACH-1 nhãn Illustration, EO-DAT-R1…R3, Q33/Q33-K2 miễn năm khác, ML1 `cau: ""`, NC-H1 lớp nhà tl/*, cấp theo cổng. Không mạng. `--api <thư mục>`: chạy THẬT 2 mô hình + O2 trên khung thử và đối chứng (≈ $0,37).
 
 **1.16.1:** `selftest_k116.py` thêm ca thước cắt cấu trúc (video `fixtures/k116/vid/v-ngaydem.mp4` timelapse một góc máy đổi ngày–đêm + đèn + chớp + khói + phụ đề → 0 cắt; `v-cungsang.mp4` cắt cứng hai cảnh cùng histogram → 1 cắt; đối chiếu đặc tả ±0,5 s), K116-D2 (XEM-CAM), K116-D3 (SACH-1 (e)), K116-D5 (K-LAI-3V theo cổng). Số ca: `reports/k1161/K1161-BAO-CAO.md`.

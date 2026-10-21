@@ -1,5 +1,5 @@
 #!/opt/cine/bin/python
-"""Bộ luật kênh 2 — một lệnh (phiên K, bản 1.11.0, 15/10/2026; 1.12.0, 16/10/2026; 1.12.1, 17/10/2026; 1.13.0, 17/10/2026; 1.14.0, 17/10/2026; 1.15.0, 18/10/2026; 1.17.0, 21/10/2026). Áp cho tập kênh 2 từ K2 tập 3 (T2 chạy checks 1.10.2 đã ghim).
+"""Bộ luật kênh 2 — một lệnh (phiên K, bản 1.11.0, 15/10/2026; 1.12.0, 16/10/2026; 1.12.1, 17/10/2026; 1.13.0, 17/10/2026; 1.14.0, 17/10/2026; 1.15.0, 18/10/2026; 1.17.0, 21/10/2026; 1.17.1, 21/10/2026). Áp cho tập kênh 2 từ K2 tập 3 (T2 chạy checks 1.10.2 đã ghim).
 Phiên xưởng chỉ CHẠY (không đọc mã). Định nghĩa: checks/ll/RULES-LL.md.
 
   k2check.py <episode.yaml> [--tl timeline.json] [--master master.mp4] [--mix mix.json] [--logs <thư mục *.log.json>]
@@ -9,7 +9,7 @@ Phiên xưởng chỉ CHẠY (không đọc mã). Định nghĩa: checks/ll/RULE
              1.12.1: --bo-tl lặp được (mọi bộ timelapse của TẬP → TL-Q9 đếm cú liên hoàn/vertigo cả tập); --cap áp cấp Chặn/Cảnh báo (cap112.py)
              1.15.0: [--o2 <video>|master] [--o2-api] [--o2-ket ra.json]
              1.16.0 (CHỈ tập từ T3: `khung_sach: true` | `kenh2_tu_t3: true`): [--tl16-video <video>] [--log-shot log-shot.json]
-             1.17.0 (tập từ T3: MINH-HOA, EO-DAT-R1…R3; tập từ T4 `kenh2_tu_t4: true` | `n2p:`: N2P-1…6): [--n2p-vision] gọi 2 mô hình nhìn + O2
+             1.17.0 (tập từ T3: MINH-HOA, EO-DAT-R1…R3 (+ R4, ngưỡng §14.7 từ 1.17.1); tập từ T4 `kenh2_tu_t4: true` | `n2p:`: N2P-1…6): [--n2p-vision] gọi 2 mô hình nhìn + O2
              (≈ $0,2–0,3/tấm; mặc định TẮT — chỉ đọc bộ đệm <out>/n2p-vision-cache.json)
 
 Gọi: Q26b bối cảnh · Q32 footage/ảnh nguồn ngoài · Q33 lặp cảnh · Q34 loại shot · Q35 nhãn loại số (D5) · Q36 chữ trên màn hình ·
@@ -241,13 +241,15 @@ def main():
         try: K6 = q_k116.check(E, TL, ep_dir, logs, vid, g('log-shot'))
         except Exception as e: K6 = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in K6T}
         for k in K6T: bao(k, K6T[k], lambda k=k: K6[k], K6N[k])
-    # ---- 1.17: MINH-HOA + EO-DAT R1–R3 (tập từ T3) · N2P-1…6 (tập từ T4) — CHỈ BÁO (cấp ở cap112, áp với --cap); tập trước T3: không thêm hàng
+    # ---- 1.17: MINH-HOA + EO-DAT R1–R4 (tập từ T3; R4 từ 1.17.1) · N2P-1…6 (tập từ T4) — CHỈ BÁO (cấp ở cap112, áp với --cap); tập trước T3: không thêm hàng
     if V16:
-        K7T = {'MINH-HOA': 'Minh hoạ AI §14.1 (c) / §15 M-d', 'EO-DAT-R1': 'Eo đất R1 — chủ thể', 'EO-DAT-R2': 'Eo đất R2 — cỏ/cát trống', 'EO-DAT-R3': 'Eo đất R3 — góc + biến cố'}
+        K7T = {'MINH-HOA': 'Minh hoạ AI §14.1 (c) / §15 M-d', 'EO-DAT-R1': 'Eo đất R1 — chủ thể', 'EO-DAT-R2': 'Eo đất R2 — cỏ/cát trống', 'EO-DAT-R3': 'Eo đất R3 — góc + biến cố',
+               'EO-DAT-R4': 'Eo đất R4 — câu lời không vật'}
         K7N = {'MINH-HOA': '≤ 20 % · nhãn "Illustration" suốt đoạn · kẹp giữa 2 shot 3D · máy ≤ 40 m AGL · sổ AI mỗi đoạn',
-               'EO-DAT-R1': f'chu_the_eo_dat: chủ thể ≥ {q_k117.R1_MIN:g} % khung (K đề xuất tạm)',
-               'EO-DAT-R2': f'trống (> {q_k117.TRONG_PCT:g} %) liên tục ≤ {q_k117.R2_GIAY:g} s · mỗi chương ≤ {q_k117.R2_CHUONG:.0f} % (K đề xuất tạm)',
-               'EO-DAT-R3': 'shot eo đất > 15 s: ≥ 2 góc · biến cố cách ≤ 6 s'}
+               'EO-DAT-R1': f'chu_the_eo_dat: chủ thể ≥ {q_k117.R1_MIN:g} % khung (Chặn) · {q_k117.R1_MIN:g}–{q_k117.R1_TOT:g} % Cảnh báo (§14.7)',
+               'EO-DAT-R2': f'trống (> {q_k117.TRONG_PCT:g} %) liên tục ≤ {q_k117.R2_GIAY:g} s · mỗi chương ≤ {q_k117.R2_CHUONG:g} % thời lượng chương (§14.7)',
+               'EO-DAT-R3': 'shot eo đất > 15 s: ≥ 2 góc · biến cố cách ≤ 6 s',
+               'EO-DAT-R4': f'loi_khong_vat_eo_dat: noi ∈ pho/lau_dai/cang hoặc bản đồ phủ ≤ {q_k117.R4_BAN_DO:g} s (§14.7, TL-4)'}
         try: K7 = q_k117.check(E, TL, ep_dir, logs, g('log-shot'))
         except Exception as e: K7 = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in K7T}
         for k in K7T: bao(k, K7T[k], lambda k=k: K7[k], K7N[k])
