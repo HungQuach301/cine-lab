@@ -1,6 +1,6 @@
 # CHECKPOINT — ANIMATIC-T3 (nhánh thật `ccr-d189108f-6mcz9k`, harness buộc; lệnh gọi `k2c-t3-animatic`)
 
-Cập nhật: 21/10/2026 ≈ 01:40 UTC
+Cập nhật: 21/10/2026 ≈ 04:20 UTC
 
 ## Xong
 - Bước 0: fetch; `origin/main` = `bc7e96d1` (có P-2010b). Nhánh từ V7C `47a0f55a` + `merge --no-ff origin/main` (0 xung đột). `lock.py --verify` KHỚP 1.16.1 `a3c39873…`; `LOI-KHOA.sha256` 3/3 OK.
@@ -14,13 +14,16 @@ Cập nhật: 21/10/2026 ≈ 01:40 UTC
 ## Sự cố
 - 01:17 UTC container khởi động lại (worker restart): đĩa `/var/tmp/cine-out` CÒN, tiến trình mất (nướng b1782 dở, dựng C3 dở, soi 2). Đã chạy lại: nướng bỏ qua b1779 đã xong; C3 dựng tiếp `--resume`.
 
-## Đo sớm (960×540, spp 4, máy đang nướng song song)
-| Shot | Loại | Khung | s/khung (log hero) |
-|---|---|---|---|
-| C2 | lai ngày (vịnh) | 288 | 2,45 (706 s đồng hồ) |
-| C3 | cận phố/người → cẩu | 394 | 3,1–3,6 |
-| H2T | đêm lửa | — | chờ lightmap b1782 |
-Ước thô cả tập 18 264 khung × ≈ 2,8 s ÷ ≈ 1,6 (song song P=2 trên 4 nhân, có nướng chạy cùng) ≈ 8–9 h đồng hồ dựng + ≈ 2,5 h nướng còn lại (chạy chồng). Trong mốc 16 h.
+## Đo sớm (960×540, spp 4, cách A, máy có nướng song song + P=2) — `<out>/heroes-gio.log`
+| Shot | Loại | Khung | Giây đồng hồ | s/khung |
+|---|---|---|---|---|
+| C2 | lai ngày (vịnh) | 288 | 623 | 2,16 |
+| C3 | cận phố/người → cẩu | 339 | 1 167 | 3,44 |
+| H2T | đêm lửa (góc thumbnail) | 120 | 372 | 3,10 |
+| KA1782 | neo phố 1782 | 192 | 699 | 3,64 |
+| C1 | lai vây hãm (dài) | 540 | 2 561 | 4,74 |
+Đợt 1 (10 shot, ≈ 4 300 khung) = 1 h 52 đồng hồ → ≈ 0,64 khung/s. Còn ≈ 14 000 khung → **≈ 6 h** dựng + render đoạn/ghép ≈ 1 h. Giờ máy cả phiên ước ≈ 11–12 h (mốc 16 h).
+Lưu ý: mọi sửa mã `design/k2v/tl/*.js` đổi dấu MỌI cảnh (prep băm cả thư mục) → đã chốt mã trước đợt dựng 02:25; lần dựng 01:36–02:20 (C1–C4) bỏ vì sửa nước LOOK-4.
 
 ## Soi bố cục (3 đợt, tắt cách A, 480×270)
 Đợt 1 bắt: Rock cắt mép (N1.5, N3.1, N4.1, N4.2, N5.1, N5.5, N1.6), người/Línea/hạm đội quá nhỏ (N1.4, N1.6, N2.8, N2.7), đêm tối sớm (N4.5, N5.3 — giờ mặt trời), khung neo tầm mắt chỉ thấy tường (KA, KB), C4 cận Old Mole nhìn xuống 45°, C1 lều thành khối. Đã sửa máy; đợt 2–3 kiểm lại đạt (C1: lều bớt "bàn cờ", chưa hết).
