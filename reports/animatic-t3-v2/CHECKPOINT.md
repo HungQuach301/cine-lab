@@ -3,17 +3,17 @@
 Phiên sửa animatic T3 theo nhận xét chủ dự án 21/10 21:05–21:15 (phương án A + 5 đoạn minh hoạ Omni M1–M5).
 
 <!-- TRANG-THAI -->
-## Trạng thái tự động (21/10/2026 15:18 UTC) — `scripts/k2tl/anim_ckpt.py`
+## Trạng thái tự động (21/10/2026 15:43 UTC) — `scripts/k2tl/anim_ckpt.py`
 
-- Cảnh đinh XONG: **0/0** (0 khung) · CÒN: **0** (0 khung chưa dựng).
-- s/khung TB 12 cảnh gần nhất (mỗi tiến trình, P = 3): 4.00 → ước còn **≈ 0.0 h** dựng cảnh đinh; sau đó: ghép cú lặn → render đoạn → ghép master → LOOK-4 → xuất (≈ 1,5 h).
-- Dòng cuối log vòng: `(chưa chạy vòng dựng)`
+- Cảnh đinh XONG: **0/43** (0 khung) · CÒN: **43** (19970 khung chưa dựng).
+- s/khung TB 12 cảnh gần nhất (mỗi tiến trình, P = 3): 4.00 → ước còn **≈ 7.4 h** dựng cảnh đinh; sau đó: ghép cú lặn → render đoạn → ghép master → LOOK-4 → xuất (≈ 1,5 h).
+- Dòng cuối log vòng: `đang dựng (pid 2450): anim_KA2026`
 - Xong: 
-- Còn: 
+- Còn: C1 (0/595), C2 (0/343), C3 (0/394), C4 (0/379), C5 (0/355), H1 (0/343), H2 (0/439), H2T (0/175), H3 (0/314), KA1782 (0/247), KA2026 (0/247), KB1943 (0/247), KB2026 (0/283), KC1910 (0/223), KC2026 (23/295), N1_1 (0/506), N1_2 (0/698), N1_3 (0/418), N1_4 (0/391), N1_5 (0/754), N1_6 (0/667), N2_10 (0/497), N2_11 (0/718), N2_6 (0/403), N2_7 (0/401), N2_8 (0/631), N2_9 (0/727), N3_1 (0/710), N3_2 (0/259), N3_3 (0/295), N3_4 (0/703), N3_5 (0/278), N4_1 (0/667), N4_2 (0/737), N4_3 (0/252), N4_4 (0/461), N4_5 (0/708), N5_1 (0/626), N5_2 (74/355), N5_3 (110/643), N5_4 (76/811), N5_5 (0/523), N5_6 (0/535)
 
 | Tệp ngoài git | SHA-256 | Tái tạo |
 |---|---|---|
-| `/var/tmp/cine-out/k2c-t3-anim/mix.wav` (tiếng cả tập) | `—` | `anim_mix.py channel-k2/k2c-t3-01/animatic/anim-loi.json <ra.wav>` |
+| `/var/tmp/cine-out/k2c-t3-anim/mix.wav` (tiếng cả tập) | `805432b5c7e92bfb007be9e08a8780c40099502e33703fbafc55360d504c4acd` | `anim_mix.py channel-k2/k2c-t3-01/animatic/anim-loi.json <ra.wav>` |
 | cảnh đinh `/var/tmp/cine-out/hero/k2c-t3-anim-anim_*-d/` | (theo stamp từng cảnh) | `bash scripts/k2/build.sh …/animatic/episode.yaml prep` (K2_DRAFT=1 MW=960, chặn mạng) → `P=3 bash scripts/k2tl/anim_vong.sh …/animatic/episode.yaml` |
 | lightmap 7 mốc `$K2TL_CACHE/nc/bake/b*/` | meta `reports/animatic-t3/do/nuong-*.json` | `bash scripts/k2tl/anim_nuong.sh` |
 <!-- /TRANG-THAI -->
