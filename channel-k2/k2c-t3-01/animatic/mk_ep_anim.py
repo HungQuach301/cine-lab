@@ -126,7 +126,7 @@ def shots():
         'MỐC ĐINH 4/8/1704 — khung chặt có vai (cờ, §LOOK-2): máy cách cờ ≈ 180 m, cờ × 1,5; thẻ "100 / 500" bỏ (lời mang số)')
     D = d(['1g'])
     o = base(time=[dict(t=0, at='1704-08-07 09:00', sun=10.0, lab='d'), dict(t=D, at='1704-08-25 09:00', sun=10.0, lab='d')], co=co_ld() + co_lw(), pre1704town=True, recl=False,
-             lives=[dict(era=1782, wY=dict(on=1704.59, off0=dy('1704-08-21 00:00'), off1=dy('1704-08-25 00:00')), walkers=[dict(line='ISTH', n=1400, width=9, colors=ES1704 + CIV, free=False, dir=1)],
+             lives=[dict(era=1782, wY=dict(on=1704.59, off0=dy('1704-08-22 12:00'), off1=dy('1704-08-26 00:00')), walkers=[dict(line='ISTH', n=1400, width=9, colors=ES1704 + CIV, free=False, dir=1)],
                          crowds=[dict(line='ISTH', groups=24, size=[5, 12], speed=1.0, dir=1, colors=ES1704 + CIV)], lines=dict(ISTH=[[-120, -200], [0, 0], [40, 300], [70, 520], [110, 900], [160, 1400]]))])
     # ANIM-V2 R1: máy hạ thấp sát dòng người (≈ 15 m bên trái máy), dòng người đi VỀ phía máy (bắc), Rock nguyên khối sau lưng họ; M3 (Omni) 3,5 → 11,5 s
     cam, ct = cuts(D, [dict(t1=3.5, p0=[92, round(max(0.0, hAt(92, 700)) + 7, 1), 700], l0=[-110, 25, -600], dp=(0, 0, -4), fov=38),
