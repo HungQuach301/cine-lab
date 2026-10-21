@@ -3,13 +3,13 @@
 Cập nhật: 21/10/2026 ≈ 04:20 UTC
 
 <!-- TRANG-THAI -->
-## Trạng thái tự động (21/10/2026 11:59 UTC) — `scripts/k2tl/anim_ckpt.py`
+## Trạng thái tự động (21/10/2026 12:24 UTC) — `scripts/k2tl/anim_ckpt.py`
 
-- Cảnh đinh XONG: **43/43** (20253 khung) · CÒN: **0** (0 khung chưa dựng).
-- s/khung TB 12 cảnh gần nhất (mỗi tiến trình, P = 3): 5.10 → ước còn **≈ 0.0 h** dựng cảnh đinh; sau đó: ghép cú lặn → render đoạn → ghép master → LOOK-4 → xuất (≈ 1,5 h).
+- Cảnh đinh XONG: **41/43** (19125 khung) · CÒN: **2** (477 khung chưa dựng).
+- s/khung TB 12 cảnh gần nhất (mỗi tiến trình, P = 3): 5.04 → ước còn **≈ 0.2 h** dựng cảnh đinh; sau đó: ghép cú lặn → render đoạn → ghép master → LOOK-4 → xuất (≈ 1,5 h).
 - Dòng cuối log vòng: `10:48 VONG-XONG`
-- Xong: C1, C2, C3, C4, C5, H1, H2, H2T, H3, KA1782, KA2026, KB1943, KB2026, KC1910, KC2026, N1_1, N1_2, N1_3, N1_4, N1_5, N1_6, N2_10, N2_11, N2_6, N2_7, N2_8, N2_9, N3_1, N3_2, N3_3, N3_4, N3_5, N4_1, N4_2, N4_3, N4_4, N4_5, N5_1, N5_2, N5_3, N5_4, N5_5, N5_6
-- Còn: 
+- Xong: C1, C2, C3, C4, C5, H1, H2, H2T, H3, KA1782, KA2026, KB1943, KB2026, KC1910, KC2026, N1_1, N1_2, N1_3, N1_4, N1_5, N1_6, N2_11, N2_6, N2_7, N2_9, N3_1, N3_2, N3_3, N3_4, N3_5, N4_1, N4_2, N4_3, N4_4, N4_5, N5_1, N5_2, N5_3, N5_4, N5_5, N5_6
+- Còn: N2_10 (268/497), N2_8 (383/631)
 
 | Tệp ngoài git | SHA-256 | Tái tạo |
 |---|---|---|
