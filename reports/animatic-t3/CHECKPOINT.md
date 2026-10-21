@@ -3,7 +3,7 @@
 Cập nhật: 21/10/2026 ≈ 04:20 UTC
 
 <!-- TRANG-THAI -->
-## Trạng thái tự động (21/10/2026 11:34 UTC) — `scripts/k2tl/anim_ckpt.py`
+## Trạng thái tự động (21/10/2026 11:59 UTC) — `scripts/k2tl/anim_ckpt.py`
 
 - Cảnh đinh XONG: **43/43** (20253 khung) · CÒN: **0** (0 khung chưa dựng).
 - s/khung TB 12 cảnh gần nhất (mỗi tiến trình, P = 3): 5.10 → ước còn **≈ 0.0 h** dựng cảnh đinh; sau đó: ghép cú lặn → render đoạn → ghép master → LOOK-4 → xuất (≈ 1,5 h).
