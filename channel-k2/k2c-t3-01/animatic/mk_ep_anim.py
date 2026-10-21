@@ -161,9 +161,9 @@ def shots():
     dig = [dict(at=[-40 + 25 * i, 210 + 8 * i, -760 - 10 * i], t=[0.6 + 2.2 * i, 1.6 + 2.2 * i], n=6, size=10, rise=14, drift=[1, 0], period=0.3, seed=1010 + i, alpha=0.6) for i in range(4)] + \
           [dict(at=[30, 225, -790], t=[round(tair + 0.3, 2), round(tair + 4.5, 2)], n=16, size=34, rise=40, drift=[1.5, 0.3], period=0.35, seed=1020, alpha=0.85)]
     o = base(time=[dict(t=0, at='1782-05-25 12:00', sun=15.0, lab='d'), dict(t=tair, at='1782-07-10 12:00', sun=15.0, lab='d'), dict(t=D, at='1782-07-31 12:00', sun=15.0, lab='d')], smoke=dig, co=co_ld(), recl=False)
-    add('N2.10', ['2o', '2p'], 'D-vach', 'chat', 'co-che', 'eo_dat', 'vach', o, hold([180, 250, 420], [-10, 175, -770], 34, D, (-25, 0, 5)), [('vach_bac', None)],
+    add('N2.10', ['2o', '2p'], 'D-vach', 'chat', 'co-che', 'eo_dat', 'vach', o, hold([400, 330, 1000], [-60, 140, -1000], 40, D, (-25, 0, 5)), [('vach_bac', None)],
         [dict(t=0.6, k='xay', s='bụi đào ở vách bắc (đường hầm Ince, từ 25/5/1782)'), dict(t=round(tair + 0.3, 2), k='no', s='7/1782: nổ thủng lỗ thông hơi — khói phụt ra mặt vách')],
-        'GIỮ CHỖ mặt cắt hầm (M11 chưa có): nhìn thẳng vách bắc (khung chặt có vai: vách hầm); bụi/khói đào: thời điểm bậc 2 (lời 2o–2p), vị trí trên vách ƯỚC TÍNH (bậc 5); footage 2p không dùng')
+        'GIỮ CHỖ mặt cắt hầm (M11 chưa có) — soát LOOK-4: lùi máy để cả khối Rock trong khung; nhìn vách bắc (khung chặt có vai: vách hầm); bụi/khói đào: thời điểm bậc 2 (lời 2o–2p), vị trí trên vách ƯỚC TÍNH (bậc 5); footage 2p không dùng')
     D = d(['2j'])
     rh = [dict(at=[e, 6, n], wY=[dy('1782-09-08 07:30') + 0.00012 * i, dy('1782-09-09 06:00')], size=40) for i, (e, n) in enumerate(WORKS82)]
     o = base(time=[dict(t=0, at='1782-09-08 06:30', sun='real', lab='dt'), dict(t=D, at='1782-09-08 21:00', sun='real', lab='dt')], night=True, fires=rh, recl=False, co=co_ld() + co_lw(),
@@ -176,9 +176,9 @@ def shots():
            dict(n=23, center=[-4900, 400], axis=150, spacing=230, kind='line', heading=110, wY=[dy('1782-09-12 08:00'), 1783.1], phe='es', soai=11)]
     bt = [dict(list=[dict(at=[-6300 + 70 * i, -1700 + 60 * i], kind='battery') for i in range(10)], heading=60, wY=[1782.69, 1783.0], phe='es', coScale=1.5)]
     o = base(time=[dict(t=0, at='1782-09-11 07:00', sun=15.0, lab='d'), dict(t=D, at='1782-09-12 18:00', sun=15.0, lab='d')], fleets=big + bt, co=co_ld() + co_lw(), recl=False)
-    add('N2.8', ['2k', '2l'], 'B-cao-lai', 'lai', 'co-che', 'bien', 'vinh', o, hold([-7200, 900, 1800], [-3000, 0, -300], 42, D, (60, -10, -30)), [('ham_doi_lien_quan', None)],
+    add('N2.8', ['2k', '2l'], 'B-cao-lai', 'lai', 'co-che', 'bien', 'vinh', o, hold([-5600, 800, 700], [-2000, 0, -1100], 36, D, (50, -8, -25)), [('ham_doi_lien_quan', None)],
         [dict(t=1.0, k='tau', s='hạm đội Pháp–TBN vào vịnh (47 tàu chiến, số phía Anh)'), dict(t=12.0, k='tau', s='10 pin nổi neo ngoài Algeciras')],
-        '(soi 1–2: hạm đội sau lưng máy / quá nhỏ) từ tây vịnh nhìn đông-nam qua hàng neo tới Rock: hạm đội tiền cảnh, Rock nền giữa; 47 tàu chiến = số phía Anh (lời 2k); vị trí hàng neo minh hoạ (bậc 5, theo Faden 1783 phía Algeciras); pin nổi ở Algeciras 12/9 (S066)')
+        '(soi 1–2 + soát LOOK-4: hạm đội sau lưng máy / khung gần như chỉ còn nước → gần hơn, 36°) từ tây vịnh nhìn đông-nam qua hàng neo tới Rock: hạm đội tiền cảnh, Rock nền giữa; 47 tàu chiến = số phía Anh (lời 2k); vị trí hàng neo minh hoạ (bậc 5, theo Faden 1783 phía Algeciras); pin nổi ở Algeciras 12/9 (S066)')
     D = d(['2m', '2n']); dive_at = round(D - 11.5, 3)
     v = V['H2']; bf = [f for f in v['opt']['fleets'] if any(k.get('kind') == 'battery' for k in (f.get('list') or []))]
     o = base(time=[dict(t=0, at='1782-09-13 06:45', sun='real', lab='dt'), dict(t=dive_at, at='1782-09-13 15:30', sun='real', lab='dt'),   # sau dive_at: đường thời gian của clip cú lặn (dive-opt.json t 5,5 → 17,0) → bộ đếm khung ghép đúng giờ clip
@@ -226,8 +226,8 @@ def shots():
         'hàng rào 1909: tuyến coi trùng ranh OSM 2026 (ƯỚC TÍNH, eo-dat-v7.json); trại lính/vườn/trường bắn/trường đua 3g CHƯA dựng (chưa có nguồn vị trí bậc 1) — giữ chỗ')
     D = d(['3h'])
     o = base(time=[dict(t=0, at=1933.5, sun=14.0, lab='y'), dict(t=D, at=1938.5, sun=14.0, lab='y')], recl=False, co=co_ld(), grassStrip=dict(w=dict(on=1934.0, full=1936.0, off0=1939.8, off1=1940.0)))
-    add('N3.5', ['3h'], 'D2-lai', 'lai', 'co-che', 'eo_dat', 'eo', o, hold([-900, 420, 900], [100, 0, -100], 40, D, (20, -4, -10)), [('dai_co', None)],
-        [dict(t=0.5, k='xay', s='dải cỏ cắt làm đường bay 1934–36')], 'dải cỏ 1934 (lời 3h): năm bậc 2 (lời), vị trí/bề rộng ƯỚC TÍNH (bậc 5) trên trục đường băng hiện nay')
+    add('N3.5', ['3h'], 'D2-lai', 'lai', 'co-che', 'eo_dat', 'eo', o, hold([-900, 420, 900], [0, 0, -700], 40, D, (20, -4, -10)), [('dai_co', None)],
+        [dict(t=0.5, k='xay', s='dải cỏ cắt làm đường bay 1934–36')], 'soát LOOK-4: Rock chạm mép phải → xoay máy; dải cỏ 1934 (lời 3h): năm bậc 2 (lời), vị trí/bề rộng ƯỚC TÍNH (bậc 5) trên trục đường băng hiện nay')
     # ===== CHƯƠNG 4 · ĐƯỜNG BĂNG (471,625 → 585,833) =====
     D = d(['4a', '4b']); t41 = NH['4b']['cau'][1]['bd_phim'] - NH['4a']['bd_phim']
     o = base(time=[dict(t=0, at=1939.2, sun=11.0, lab='m'), dict(t=t41, at=1939.85, sun=11.0, lab='m'), dict(t=D, at=1941.6, sun=11.0, lab='m')], recl=True, co=co_ld(),

@@ -2939,44 +2939,44 @@
    {
     "t": 0,
     "p": [
-     180,
-     250,
-     420
+     400,
+     330,
+     1000
     ],
     "l": [
-     -10,
-     175,
-     -770
+     -60,
+     140,
+     -1000
     ],
-    "fov": 34
+    "fov": 40
    },
    {
     "t": 18.375,
     "p": [
-     155,
-     250,
-     425
+     375,
+     330,
+     1005
     ],
     "l": [
-     -10,
-     175,
-     -770
+     -60,
+     140,
+     -1000
     ],
-    "fov": 34
+    "fov": 40
    }
   ],
   "loai": "vach",
   "nhin_xuong_deg": [
-   3.6,
-   3.6
+   5.3,
+   5.3
   ],
   "agl_m": [
-   248.0,
-   248.0
+   326.0,
+   325.0
   ],
   "fov": [
-   34,
-   34
+   40,
+   40
   ],
   "dur": 18.375,
   "t0": 270.167,
@@ -3043,7 +3043,7 @@
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "GIỮ CHỖ mặt cắt hầm (M11 chưa có): nhìn thẳng vách bắc (khung chặt có vai: vách hầm); bụi/khói đào: thời điểm bậc 2 (lời 2o–2p), vị trí trên vách ƯỚC TÍNH (bậc 5); footage 2p không dùng",
+  "ghi": "GIỮ CHỖ mặt cắt hầm (M11 chưa có) — soát LOOK-4: lùi máy để cả khối Rock trong khung; nhìn vách bắc (khung chặt có vai: vách hầm); bụi/khói đào: thời điểm bậc 2 (lời 2o–2p), vị trí trên vách ƯỚC TÍNH (bậc 5); footage 2p không dùng",
   "tieu_diem": [
    "vach_bac"
   ],
@@ -3187,44 +3187,44 @@
    {
     "t": 0,
     "p": [
-     -7200,
-     900,
-     1800
+     -5600,
+     800,
+     700
     ],
     "l": [
-     -3000,
+     -2000,
      0,
-     -300
+     -1100
     ],
-    "fov": 42
+    "fov": 36
    },
    {
     "t": 24.0,
     "p": [
-     -7140,
-     890,
-     1770
+     -5550,
+     792,
+     675
     ],
     "l": [
-     -3000,
+     -2000,
      0,
-     -300
+     -1100
     ],
-    "fov": 42
+    "fov": 36
    }
   ],
   "loai": "vinh",
   "nhin_xuong_deg": [
-   10.8,
-   10.9
+   11.2,
+   11.3
   ],
   "agl_m": [
-   900.0,
-   890.0
+   800.0,
+   792.0
   ],
   "fov": [
-   42,
-   42
+   36,
+   36
   ],
   "dur": 24.0,
   "t0": 302.958,
@@ -3291,7 +3291,7 @@
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "(soi 1–2: hạm đội sau lưng máy / quá nhỏ) từ tây vịnh nhìn đông-nam qua hàng neo tới Rock: hạm đội tiền cảnh, Rock nền giữa; 47 tàu chiến = số phía Anh (lời 2k); vị trí hàng neo minh hoạ (bậc 5, theo Faden 1783 phía Algeciras); pin nổi ở Algeciras 12/9 (S066)",
+  "ghi": "(soi 1–2 + soát LOOK-4: hạm đội sau lưng máy / khung gần như chỉ còn nước → gần hơn, 36°) từ tây vịnh nhìn đông-nam qua hàng neo tới Rock: hạm đội tiền cảnh, Rock nền giữa; 47 tàu chiến = số phía Anh (lời 2k); vị trí hàng neo minh hoạ (bậc 5, theo Faden 1783 phía Algeciras); pin nổi ở Algeciras 12/9 (S066)",
   "tieu_diem": [
    "ham_doi_lien_quan"
   ],
@@ -4255,9 +4255,9 @@
      900
     ],
     "l": [
-     100,
      0,
-     -100
+     0,
+     -700
     ],
     "fov": 40
    },
@@ -4269,17 +4269,17 @@
      890
     ],
     "l": [
-     100,
      0,
-     -100
+     0,
+     -700
     ],
     "fov": 40
    }
   ],
   "loai": "eo",
   "nhin_xuong_deg": [
-   16.5,
-   16.6
+   12.9,
+   12.9
   ],
   "agl_m": [
    420.0,
@@ -4335,7 +4335,7 @@
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "dải cỏ 1934 (lời 3h): năm bậc 2 (lời), vị trí/bề rộng ƯỚC TÍNH (bậc 5) trên trục đường băng hiện nay",
+  "ghi": "soát LOOK-4: Rock chạm mép phải → xoay máy; dải cỏ 1934 (lời 3h): năm bậc 2 (lời), vị trí/bề rộng ƯỚC TÍNH (bậc 5) trên trục đường băng hiện nay",
   "tieu_diem": [
    "dai_co"
   ],
