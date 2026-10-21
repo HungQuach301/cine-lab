@@ -1,0 +1,1974 @@
+{
+ "tap": [
+  {
+   "tap": "dai_dung_chu_de",
+   "n": 92,
+   "trung_vi_vuot_troi": 3.108,
+   "bool": {
+    "td_co_nam": {
+     "n_co": 23,
+     "n_khong": 69,
+     "tb_log_co": 0.706,
+     "tb_log_khong": 0.463,
+     "trung_vi_co": 7.9,
+     "trung_vi_khong": 2.14,
+     "hieu_log_ci95": [
+      -0.148,
+      0.59
+     ]
+    },
+    "td_dai_nam": {
+     "n_co": 18,
+     "n_khong": 74,
+     "tb_log_co": 0.644,
+     "tb_log_khong": 0.494,
+     "trung_vi_co": 6.39,
+     "trung_vi_khong": 2.35,
+     "hieu_log_ci95": [
+      -0.31,
+      0.541
+     ]
+    },
+    "td_mui_ten": {
+     "n_co": 1,
+     "n_khong": 91,
+     "tb_log_co": 0.968,
+     "tb_log_khong": 0.519,
+     "trung_vi_co": 9.28,
+     "trung_vi_khong": 2.89,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "td_3d": {
+     "n_co": 39,
+     "n_khong": 53,
+     "tb_log_co": 0.424,
+     "tb_log_khong": 0.597,
+     "trung_vi_co": 3.34,
+     "trung_vi_khong": 2.89,
+     "hieu_log_ci95": [
+      -0.462,
+      0.122
+     ]
+    },
+    "td_timelapse": {
+     "n_co": 37,
+     "n_khong": 55,
+     "tb_log_co": 0.419,
+     "tb_log_khong": 0.594,
+     "trung_vi_co": 2.33,
+     "trung_vi_khong": 3.33,
+     "hieu_log_ci95": [
+      -0.478,
+      0.138
+     ]
+    },
+    "td_grow_evolution": {
+     "n_co": 11,
+     "n_khong": 81,
+     "tb_log_co": 0.607,
+     "tb_log_khong": 0.512,
+     "trung_vi_co": 7.95,
+     "trung_vi_khong": 2.52,
+     "hieu_log_ci95": [
+      -0.527,
+      0.581
+     ]
+    },
+    "td_hoi": {
+     "n_co": 10,
+     "n_khong": 82,
+     "tb_log_co": 0.666,
+     "tb_log_khong": 0.506,
+     "trung_vi_co": 2.25,
+     "trung_vi_khong": 3.33,
+     "hieu_log_ci95": [
+      -0.309,
+      0.666
+     ]
+    },
+    "td_noi_3_tu_dau": {
+     "n_co": 58,
+     "n_khong": 34,
+     "tb_log_co": 0.468,
+     "tb_log_khong": 0.619,
+     "trung_vi_co": 2.6,
+     "trung_vi_khong": 3.43,
+     "hieu_log_ci95": [
+      -0.446,
+      0.116
+     ]
+    },
+    "td_xung_dot": {
+     "n_co": 25,
+     "n_khong": 67,
+     "tb_log_co": 0.65,
+     "tb_log_khong": 0.477,
+     "trung_vi_co": 3.53,
+     "trung_vi_khong": 2.36,
+     "hieu_log_ci95": [
+      -0.089,
+      0.444
+     ]
+    },
+    "td_tranh_chu": {
+     "n_co": 8,
+     "n_khong": 84,
+     "tb_log_co": 0.111,
+     "tb_log_khong": 0.563,
+     "trung_vi_co": 1.03,
+     "trung_vi_khong": 3.38,
+     "hieu_log_ci95": [
+      -0.808,
+      -0.095
+     ]
+    },
+    "td_nhan_dinh_dang": {
+     "n_co": 66,
+     "n_khong": 26,
+     "tb_log_co": 0.55,
+     "tb_log_khong": 0.457,
+     "trung_vi_co": 3.47,
+     "trung_vi_khong": 2.44,
+     "hieu_log_ci95": [
+      -0.212,
+      0.389
+     ]
+    },
+    "td_emoji": {
+     "n_co": 0,
+     "n_khong": 92,
+     "tb_log_co": null,
+     "tb_log_khong": 0.524,
+     "trung_vi_co": null,
+     "trung_vi_khong": 3.1,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "anh_aerial_city_fills_frame": {
+     "n_co": 13,
+     "n_khong": 79,
+     "tb_log_co": 0.553,
+     "tb_log_khong": 0.519,
+     "trung_vi_co": 4.68,
+     "trung_vi_khong": 2.89,
+     "hieu_log_ci95": [
+      -0.334,
+      0.402
+     ]
+    },
+    "anh_split_then_now": {
+     "n_co": 4,
+     "n_khong": 88,
+     "tb_log_co": 0.518,
+     "tb_log_khong": 0.524,
+     "trung_vi_co": 4.14,
+     "trung_vi_khong": 2.86,
+     "hieu_log_ci95": [
+      -0.795,
+      0.688
+     ]
+    },
+    "anh_year_band": {
+     "n_co": 44,
+     "n_khong": 48,
+     "tb_log_co": 0.483,
+     "tb_log_khong": 0.561,
+     "trung_vi_co": 3.38,
+     "trung_vi_khong": 2.86,
+     "hieu_log_ci95": [
+      -0.373,
+      0.219
+     ]
+    },
+    "anh_big_place_name": {
+     "n_co": 56,
+     "n_khong": 36,
+     "tb_log_co": 0.493,
+     "tb_log_khong": 0.571,
+     "trung_vi_co": 2.7,
+     "trung_vi_khong": 3.43,
+     "hieu_log_ci95": [
+      -0.361,
+      0.199
+     ]
+    },
+    "anh_night_or_dark": {
+     "n_co": 17,
+     "n_khong": 75,
+     "tb_log_co": 0.717,
+     "tb_log_khong": 0.48,
+     "trung_vi_co": 4.69,
+     "trung_vi_khong": 2.52,
+     "hieu_log_ci95": [
+      -0.158,
+      0.608
+     ]
+    },
+    "anh_fire_or_smoke": {
+     "n_co": 9,
+     "n_khong": 83,
+     "tb_log_co": 0.985,
+     "tb_log_khong": 0.474,
+     "trung_vi_co": 6.45,
+     "trung_vi_khong": 2.52,
+     "hieu_log_ci95": [
+      0.092,
+      0.941
+     ]
+    },
+    "anh_flag_prominent": {
+     "n_co": 8,
+     "n_khong": 84,
+     "tb_log_co": 0.184,
+     "tb_log_khong": 0.556,
+     "trung_vi_co": 1.48,
+     "trung_vi_khong": 3.38,
+     "hieu_log_ci95": [
+      -0.753,
+      0.0
+     ]
+    },
+    "anh_conflict_imagery": {
+     "n_co": 24,
+     "n_khong": 68,
+     "tb_log_co": 0.527,
+     "tb_log_khong": 0.522,
+     "trung_vi_co": 2.86,
+     "trung_vi_khong": 3.33,
+     "hieu_log_ci95": [
+      -0.273,
+      0.295
+     ]
+    },
+    "anh_arrow_or_circle": {
+     "n_co": 48,
+     "n_khong": 44,
+     "tb_log_co": 0.508,
+     "tb_log_khong": 0.541,
+     "trung_vi_co": 3.11,
+     "trung_vi_khong": 3.1,
+     "hieu_log_ci95": [
+      -0.312,
+      0.246
+     ]
+    }
+   },
+   "lien_tuc": {
+    "td_ky_tu": {
+     "n": 92,
+     "spearman": 0.089,
+     "ci95": [
+      -0.124,
+      0.281
+     ],
+     "trung_vi_gia_tri": 50.5
+    },
+    "td_so_tu": {
+     "n": 92,
+     "spearman": 0.13,
+     "ci95": [
+      -0.087,
+      0.326
+     ],
+     "trung_vi_gia_tri": 9.0
+    },
+    "anh_L_mean": {
+     "n": 92,
+     "spearman": -0.186,
+     "ci95": [
+      -0.37,
+      0.021
+     ],
+     "trung_vi_gia_tri": 43.25
+    },
+    "anh_sat_mean": {
+     "n": 92,
+     "spearman": -0.148,
+     "ci95": [
+      -0.329,
+      0.055
+     ],
+     "trung_vi_gia_tri": 0.466
+    },
+    "anh_contrast_rms": {
+     "n": 92,
+     "spearman": 0.03,
+     "ci95": [
+      -0.189,
+      0.244
+     ],
+     "trung_vi_gia_tri": 0.237
+    },
+    "anh_colorfulness": {
+     "n": 92,
+     "spearman": -0.122,
+     "ci95": [
+      -0.329,
+      0.085
+     ],
+     "trung_vi_gia_tri": 55.3
+    },
+    "anh_warm_frac": {
+     "n": 92,
+     "spearman": 0.091,
+     "ci95": [
+      -0.125,
+      0.283
+     ],
+     "trung_vi_gia_tri": 0.159
+    },
+    "anh_night_frac": {
+     "n": 92,
+     "spearman": 0.169,
+     "ci95": [
+      -0.036,
+      0.363
+     ],
+     "trung_vi_gia_tri": 0.233
+    },
+    "anh_text_area": {
+     "n": 92,
+     "spearman": -0.23,
+     "ci95": [
+      -0.4,
+      -0.034
+     ],
+     "trung_vi_gia_tri": 0.138
+    },
+    "anh_text_words": {
+     "n": 92,
+     "spearman": 0.058,
+     "ci95": [
+      -0.166,
+      0.259
+     ],
+     "trung_vi_gia_tri": 4.0
+    },
+    "anh_text_hmax": {
+     "n": 92,
+     "spearman": -0.264,
+     "ci95": [
+      -0.452,
+      -0.067
+     ],
+     "trung_vi_gia_tri": 0.159
+    },
+    "anh_sky_frac": {
+     "n": 92,
+     "spearman": 0.128,
+     "ci95": [
+      -0.088,
+      0.332
+     ],
+     "trung_vi_gia_tri": 0.0
+    },
+    "nguoi_dang_ky": {
+     "n": 92,
+     "spearman": -0.073,
+     "ci95": [
+      -0.255,
+      0.121
+     ],
+     "trung_vi_gia_tri": 74900.0
+    }
+   },
+   "nhom": {
+    "td_mo_bang": {
+     "place": {
+      "n": 31,
+      "trung_vi": 1.84,
+      "tb_log": 0.331,
+      "ci95_tb_log": [
+       0.093,
+       0.588
+      ]
+     },
+     "other": {
+      "n": 30,
+      "trung_vi": 2.46,
+      "tb_log": 0.411,
+      "ci95_tb_log": [
+       0.241,
+       0.588
+      ]
+     },
+     "the": {
+      "n": 12,
+      "trung_vi": 4.52,
+      "tb_log": 0.77,
+      "ci95_tb_log": [
+       0.386,
+       1.147
+      ]
+     },
+     "evolution_of": {
+      "n": 7,
+      "trung_vi": 10.27,
+      "tb_log": 0.692,
+      "ci95_tb_log": [
+       -0.172,
+       1.266
+      ]
+     },
+     "why": {
+      "n": 5,
+      "trung_vi": 2.36,
+      "tb_log": 0.72,
+      "ci95_tb_log": [
+       0.29,
+       1.349
+      ]
+     },
+     "number": {
+      "n": 4,
+      "trung_vi": 12.93,
+      "tb_log": 1.135,
+      "ci95_tb_log": [
+       0.462,
+       1.808
+      ]
+     },
+     "how": {
+      "n": 2,
+      "trung_vi": 7.76,
+      "tb_log": 0.89,
+      "ci95_tb_log": [
+       0.0,
+       1.78
+      ]
+     },
+     "what": {
+      "n": 1,
+      "trung_vi": 35.59,
+      "tb_log": 1.551,
+      "ci95_tb_log": [
+       null,
+       null
+      ]
+     }
+    },
+    "td_loi_hua": {
+     "visual": {
+      "n": 49,
+      "trung_vi": 3.41,
+      "tb_log": 0.5,
+      "ci95_tb_log": [
+       0.286,
+       0.724
+      ]
+     },
+     "story": {
+      "n": 41,
+      "trung_vi": 2.83,
+      "tb_log": 0.535,
+      "ci95_tb_log": [
+       0.363,
+       0.723
+      ]
+     },
+     "both": {
+      "n": 1,
+      "trung_vi": 60.22,
+      "tb_log": 1.78,
+      "ci95_tb_log": [
+       null,
+       null
+      ]
+     },
+     "other": {
+      "n": 1,
+      "trung_vi": 1.0,
+      "tb_log": 0.0,
+      "ci95_tb_log": [
+       null,
+       null
+      ]
+     }
+    },
+    "anh_style": {
+     "3d_render": {
+      "n": 48,
+      "trung_vi": 2.9,
+      "tb_log": 0.484,
+      "ci95_tb_log": [
+       0.26,
+       0.709
+      ]
+     },
+     "photo": {
+      "n": 18,
+      "trung_vi": 4.91,
+      "tb_log": 0.628,
+      "ci95_tb_log": [
+       0.343,
+       0.914
+      ]
+     },
+     "ai_painting": {
+      "n": 11,
+      "trung_vi": 1.85,
+      "tb_log": 0.692,
+      "ci95_tb_log": [
+       0.294,
+       1.102
+      ]
+     },
+     "illustration_2d": {
+      "n": 7,
+      "trung_vi": 3.86,
+      "tb_log": 0.63,
+      "ci95_tb_log": [
+       0.33,
+       0.982
+      ]
+     },
+     "flat_map": {
+      "n": 7,
+      "trung_vi": 1.62,
+      "tb_log": 0.219,
+      "ci95_tb_log": [
+       0.103,
+       0.338
+      ]
+     },
+     "game_screenshot": {
+      "n": 1,
+      "trung_vi": 1.25,
+      "tb_log": 0.098,
+      "ci95_tb_log": [
+       null,
+       null
+      ]
+     }
+    },
+    "anh_focus": {
+     "panorama": {
+      "n": 36,
+      "trung_vi": 4.0,
+      "tb_log": 0.545,
+      "ci95_tb_log": [
+       0.291,
+       0.798
+      ]
+     },
+     "person_face": {
+      "n": 17,
+      "trung_vi": 3.53,
+      "tb_log": 0.636,
+      "ci95_tb_log": [
+       0.328,
+       0.961
+      ]
+     },
+     "text_dominant": {
+      "n": 15,
+      "trung_vi": 3.34,
+      "tb_log": 0.613,
+      "ci95_tb_log": [
+       0.323,
+       0.935
+      ]
+     },
+     "map": {
+      "n": 10,
+      "trung_vi": 1.52,
+      "tb_log": 0.166,
+      "ci95_tb_log": [
+       0.004,
+       0.322
+      ]
+     },
+     "single_object": {
+      "n": 9,
+      "trung_vi": 3.81,
+      "tb_log": 0.519,
+      "ci95_tb_log": [
+       0.034,
+       0.99
+      ]
+     },
+     "split": {
+      "n": 5,
+      "trung_vi": 4.69,
+      "tb_log": 0.444,
+      "ci95_tb_log": [
+       -0.127,
+       1.048
+      ]
+     }
+    },
+    "anh_dominant_palette": {
+     "warm": {
+      "n": 35,
+      "trung_vi": 3.86,
+      "tb_log": 0.638,
+      "ci95_tb_log": [
+       0.455,
+       0.825
+      ]
+     },
+     "mixed": {
+      "n": 31,
+      "trung_vi": 2.08,
+      "tb_log": 0.396,
+      "ci95_tb_log": [
+       0.084,
+       0.702
+      ]
+     },
+     "cool": {
+      "n": 16,
+      "trung_vi": 4.26,
+      "tb_log": 0.664,
+      "ci95_tb_log": [
+       0.319,
+       1.013
+      ]
+     },
+     "neutral": {
+      "n": 10,
+      "trung_vi": 1.32,
+      "tb_log": 0.295,
+      "ci95_tb_log": [
+       0.016,
+       0.596
+      ]
+     }
+    },
+    "lan": {
+     "timelapse_3d": {
+      "n": 41,
+      "trung_vi": 3.34,
+      "tb_log": 0.454,
+      "ci95_tb_log": [
+       0.202,
+       0.703
+      ]
+     },
+     "history_explainer": {
+      "n": 24,
+      "trung_vi": 1.99,
+      "tb_log": 0.473,
+      "ci95_tb_log": [
+       0.229,
+       0.731
+      ]
+     },
+     "battle_siege": {
+      "n": 20,
+      "trung_vi": 3.69,
+      "tb_log": 0.692,
+      "ci95_tb_log": [
+       0.451,
+       0.941
+      ]
+     },
+     "travel_facts": {
+      "n": 7,
+      "trung_vi": 3.33,
+      "tb_log": 0.62,
+      "ci95_tb_log": [
+       0.283,
+       0.993
+      ]
+     }
+    }
+   }
+  },
+  {
+   "tap": "lan_timelapse_3d",
+   "n": 41,
+   "trung_vi_vuot_troi": 3.339,
+   "bool": {
+    "td_co_nam": {
+     "n_co": 15,
+     "n_khong": 26,
+     "tb_log_co": 0.732,
+     "tb_log_khong": 0.294,
+     "trung_vi_co": 8.8,
+     "trung_vi_khong": 1.49,
+     "hieu_log_ci95": [
+      -0.112,
+      0.943
+     ]
+    },
+    "td_dai_nam": {
+     "n_co": 15,
+     "n_khong": 26,
+     "tb_log_co": 0.732,
+     "tb_log_khong": 0.294,
+     "trung_vi_co": 8.8,
+     "trung_vi_khong": 1.49,
+     "hieu_log_ci95": [
+      -0.102,
+      0.945
+     ]
+    },
+    "td_mui_ten": {
+     "n_co": 1,
+     "n_khong": 40,
+     "tb_log_co": 0.968,
+     "tb_log_khong": 0.442,
+     "trung_vi_co": 9.28,
+     "trung_vi_khong": 2.79,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "td_3d": {
+     "n_co": 38,
+     "n_khong": 3,
+     "tb_log_co": 0.397,
+     "tb_log_khong": 1.183,
+     "trung_vi_co": 2.79,
+     "trung_vi_khong": 31.26,
+     "hieu_log_ci95": [
+      -1.87,
+      0.541
+     ]
+    },
+    "td_timelapse": {
+     "n_co": 37,
+     "n_khong": 4,
+     "tb_log_co": 0.419,
+     "tb_log_khong": 0.784,
+     "trung_vi_co": 2.33,
+     "trung_vi_khong": 9.03,
+     "hieu_log_ci95": [
+      -0.957,
+      0.378
+     ]
+    },
+    "td_grow_evolution": {
+     "n_co": 11,
+     "n_khong": 30,
+     "tb_log_co": 0.607,
+     "tb_log_khong": 0.399,
+     "trung_vi_co": 7.95,
+     "trung_vi_khong": 1.99,
+     "hieu_log_ci95": [
+      -0.423,
+      0.76
+     ]
+    },
+    "td_hoi": {
+     "n_co": 1,
+     "n_khong": 40,
+     "tb_log_co": 1.78,
+     "tb_log_khong": 0.421,
+     "trung_vi_co": 60.22,
+     "trung_vi_khong": 2.79,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "td_noi_3_tu_dau": {
+     "n_co": 40,
+     "n_khong": 1,
+     "tb_log_co": 0.471,
+     "tb_log_khong": -0.226,
+     "trung_vi_co": 3.38,
+     "trung_vi_khong": 0.59,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "td_xung_dot": {
+     "n_co": 0,
+     "n_khong": 41,
+     "tb_log_co": null,
+     "tb_log_khong": 0.454,
+     "trung_vi_co": null,
+     "trung_vi_khong": 3.34,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "td_tranh_chu": {
+     "n_co": 0,
+     "n_khong": 41,
+     "tb_log_co": null,
+     "tb_log_khong": 0.454,
+     "trung_vi_co": null,
+     "trung_vi_khong": 3.34,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "td_nhan_dinh_dang": {
+     "n_co": 40,
+     "n_khong": 1,
+     "tb_log_co": 0.471,
+     "tb_log_khong": -0.226,
+     "trung_vi_co": 3.38,
+     "trung_vi_khong": 0.59,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "td_emoji": {
+     "n_co": 0,
+     "n_khong": 41,
+     "tb_log_co": null,
+     "tb_log_khong": 0.454,
+     "trung_vi_co": null,
+     "trung_vi_khong": 3.34,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "anh_aerial_city_fills_frame": {
+     "n_co": 11,
+     "n_khong": 30,
+     "tb_log_co": 0.529,
+     "tb_log_khong": 0.427,
+     "trung_vi_co": 4.68,
+     "trung_vi_khong": 2.79,
+     "hieu_log_ci95": [
+      -0.365,
+      0.606
+     ]
+    },
+    "anh_split_then_now": {
+     "n_co": 4,
+     "n_khong": 37,
+     "tb_log_co": 0.518,
+     "tb_log_khong": 0.448,
+     "trung_vi_co": 4.14,
+     "trung_vi_khong": 2.33,
+     "hieu_log_ci95": [
+      -0.754,
+      0.818
+     ]
+    },
+    "anh_year_band": {
+     "n_co": 40,
+     "n_khong": 1,
+     "tb_log_co": 0.471,
+     "tb_log_khong": -0.226,
+     "trung_vi_co": 3.38,
+     "trung_vi_khong": 0.59,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "anh_big_place_name": {
+     "n_co": 38,
+     "n_khong": 3,
+     "tb_log_co": 0.431,
+     "tb_log_khong": 0.745,
+     "trung_vi_co": 2.79,
+     "trung_vi_khong": 10.27,
+     "hieu_log_ci95": [
+      -1.062,
+      0.64
+     ]
+    },
+    "anh_night_or_dark": {
+     "n_co": 7,
+     "n_khong": 34,
+     "tb_log_co": 0.622,
+     "tb_log_khong": 0.42,
+     "trung_vi_co": 14.15,
+     "trung_vi_khong": 2.79,
+     "hieu_log_ci95": [
+      -0.496,
+      0.845
+     ]
+    },
+    "anh_fire_or_smoke": {
+     "n_co": 1,
+     "n_khong": 40,
+     "tb_log_co": 1.495,
+     "tb_log_khong": 0.428,
+     "trung_vi_co": 31.26,
+     "trung_vi_khong": 2.79,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "anh_flag_prominent": {
+     "n_co": 1,
+     "n_khong": 40,
+     "tb_log_co": 0.968,
+     "tb_log_khong": 0.442,
+     "trung_vi_co": 9.28,
+     "trung_vi_khong": 2.79,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "anh_conflict_imagery": {
+     "n_co": 0,
+     "n_khong": 41,
+     "tb_log_co": null,
+     "tb_log_khong": 0.454,
+     "trung_vi_co": null,
+     "trung_vi_khong": 3.34,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "anh_arrow_or_circle": {
+     "n_co": 36,
+     "n_khong": 5,
+     "tb_log_co": 0.416,
+     "tb_log_khong": 0.732,
+     "trung_vi_co": 2.2,
+     "trung_vi_khong": 7.95,
+     "hieu_log_ci95": [
+      -0.857,
+      0.282
+     ]
+    }
+   },
+   "lien_tuc": {
+    "td_ky_tu": {
+     "n": 41,
+     "spearman": 0.374,
+     "ci95": [
+      0.089,
+      0.62
+     ],
+     "trung_vi_gia_tri": 36
+    },
+    "td_so_tu": {
+     "n": 41,
+     "spearman": 0.439,
+     "ci95": [
+      0.188,
+      0.644
+     ],
+     "trung_vi_gia_tri": 7
+    },
+    "anh_L_mean": {
+     "n": 41,
+     "spearman": -0.187,
+     "ci95": [
+      -0.468,
+      0.144
+     ],
+     "trung_vi_gia_tri": 43.4
+    },
+    "anh_sat_mean": {
+     "n": 41,
+     "spearman": -0.308,
+     "ci95": [
+      -0.546,
+      -0.016
+     ],
+     "trung_vi_gia_tri": 0.513
+    },
+    "anh_contrast_rms": {
+     "n": 41,
+     "spearman": -0.001,
+     "ci95": [
+      -0.311,
+      0.333
+     ],
+     "trung_vi_gia_tri": 0.226
+    },
+    "anh_colorfulness": {
+     "n": 41,
+     "spearman": -0.355,
+     "ci95": [
+      -0.62,
+      -0.044
+     ],
+     "trung_vi_gia_tri": 56.0
+    },
+    "anh_warm_frac": {
+     "n": 41,
+     "spearman": 0.094,
+     "ci95": [
+      -0.22,
+      0.39
+     ],
+     "trung_vi_gia_tri": 0.117
+    },
+    "anh_night_frac": {
+     "n": 41,
+     "spearman": 0.132,
+     "ci95": [
+      -0.194,
+      0.433
+     ],
+     "trung_vi_gia_tri": 0.224
+    },
+    "anh_text_area": {
+     "n": 41,
+     "spearman": -0.26,
+     "ci95": [
+      -0.545,
+      0.05
+     ],
+     "trung_vi_gia_tri": 0.17
+    },
+    "anh_text_words": {
+     "n": 41,
+     "spearman": 0.227,
+     "ci95": [
+      -0.135,
+      0.507
+     ],
+     "trung_vi_gia_tri": 3
+    },
+    "anh_text_hmax": {
+     "n": 41,
+     "spearman": -0.36,
+     "ci95": [
+      -0.615,
+      -0.039
+     ],
+     "trung_vi_gia_tri": 0.175
+    },
+    "anh_sky_frac": {
+     "n": 41,
+     "spearman": 0.11,
+     "ci95": [
+      -0.16,
+      0.442
+     ],
+     "trung_vi_gia_tri": 0.0
+    },
+    "nguoi_dang_ky": {
+     "n": 41,
+     "spearman": -0.068,
+     "ci95": [
+      -0.345,
+      0.238
+     ],
+     "trung_vi_gia_tri": 58800
+    }
+   },
+   "nhom": {
+    "td_mo_bang": {
+     "place": {
+      "n": 26,
+      "trung_vi": 1.88,
+      "tb_log": 0.33,
+      "ci95_tb_log": [
+       0.069,
+       0.615
+      ]
+     },
+     "other": {
+      "n": 7,
+      "trung_vi": 4.38,
+      "tb_log": 0.488,
+      "ci95_tb_log": [
+       -0.041,
+       1.027
+      ]
+     },
+     "evolution_of": {
+      "n": 7,
+      "trung_vi": 10.27,
+      "tb_log": 0.692,
+      "ci95_tb_log": [
+       -0.162,
+       1.256
+      ]
+     },
+     "how": {
+      "n": 1,
+      "trung_vi": 60.22,
+      "tb_log": 1.78,
+      "ci95_tb_log": [
+       null,
+       null
+      ]
+     }
+    },
+    "td_loi_hua": {
+     "visual": {
+      "n": 40,
+      "trung_vi": 2.79,
+      "tb_log": 0.421,
+      "ci95_tb_log": [
+       0.171,
+       0.671
+      ]
+     },
+     "both": {
+      "n": 1,
+      "trung_vi": 60.22,
+      "tb_log": 1.78,
+      "ci95_tb_log": [
+       null,
+       null
+      ]
+     }
+    },
+    "anh_style": {
+     "3d_render": {
+      "n": 38,
+      "trung_vi": 2.79,
+      "tb_log": 0.438,
+      "ci95_tb_log": [
+       0.168,
+       0.697
+      ]
+     },
+     "photo": {
+      "n": 2,
+      "trung_vi": 1.75,
+      "tb_log": 0.242,
+      "ci95_tb_log": [
+       -0.226,
+       0.71
+      ]
+     },
+     "ai_painting": {
+      "n": 1,
+      "trung_vi": 31.26,
+      "tb_log": 1.495,
+      "ci95_tb_log": [
+       null,
+       null
+      ]
+     }
+    },
+    "anh_focus": {
+     "panorama": {
+      "n": 31,
+      "trung_vi": 3.41,
+      "tb_log": 0.537,
+      "ci95_tb_log": [
+       0.231,
+       0.831
+      ]
+     },
+     "single_object": {
+      "n": 5,
+      "trung_vi": 1.0,
+      "tb_log": 0.029,
+      "ci95_tb_log": [
+       -0.432,
+       0.489
+      ]
+     },
+     "split": {
+      "n": 3,
+      "trung_vi": 5.13,
+      "tb_log": 0.515,
+      "ci95_tb_log": [
+       -0.633,
+       1.469
+      ]
+     },
+     "text_dominant": {
+      "n": 1,
+      "trung_vi": 3.34,
+      "tb_log": 0.524,
+      "ci95_tb_log": [
+       null,
+       null
+      ]
+     },
+     "map": {
+      "n": 1,
+      "trung_vi": 0.59,
+      "tb_log": -0.226,
+      "ci95_tb_log": [
+       null,
+       null
+      ]
+     }
+    },
+    "anh_dominant_palette": {
+     "mixed": {
+      "n": 21,
+      "trung_vi": 1.91,
+      "tb_log": 0.22,
+      "ci95_tb_log": [
+       -0.143,
+       0.575
+      ]
+     },
+     "warm": {
+      "n": 12,
+      "trung_vi": 6.1,
+      "tb_log": 0.755,
+      "ci95_tb_log": [
+       0.416,
+       1.078
+      ]
+     },
+     "cool": {
+      "n": 7,
+      "trung_vi": 5.13,
+      "tb_log": 0.739,
+      "ci95_tb_log": [
+       0.19,
+       1.371
+      ]
+     },
+     "neutral": {
+      "n": 1,
+      "trung_vi": 0.59,
+      "tb_log": -0.226,
+      "ci95_tb_log": [
+       null,
+       null
+      ]
+     }
+    },
+    "lan": {
+     "timelapse_3d": {
+      "n": 41,
+      "trung_vi": 3.34,
+      "tb_log": 0.454,
+      "ci95_tb_log": [
+       0.212,
+       0.707
+      ]
+     }
+    }
+   }
+  },
+  {
+   "tap": "lan_lich_su",
+   "n": 51,
+   "trung_vi_vuot_troi": 2.888,
+   "bool": {
+    "td_co_nam": {
+     "n_co": 8,
+     "n_khong": 43,
+     "tb_log_co": 0.656,
+     "tb_log_khong": 0.565,
+     "trung_vi_co": 3.16,
+     "trung_vi_khong": 2.89,
+     "hieu_log_ci95": [
+      -0.348,
+      0.583
+     ]
+    },
+    "td_dai_nam": {
+     "n_co": 3,
+     "n_khong": 48,
+     "tb_log_co": 0.201,
+     "tb_log_khong": 0.603,
+     "trung_vi_co": 1.77,
+     "trung_vi_khong": 3.1,
+     "hieu_log_ci95": [
+      -0.793,
+      -0.044
+     ]
+    },
+    "td_mui_ten": {
+     "n_co": 0,
+     "n_khong": 51,
+     "tb_log_co": null,
+     "tb_log_khong": 0.579,
+     "trung_vi_co": null,
+     "trung_vi_khong": 2.89,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "td_3d": {
+     "n_co": 1,
+     "n_khong": 50,
+     "tb_log_co": 1.465,
+     "tb_log_khong": 0.562,
+     "trung_vi_co": 29.18,
+     "trung_vi_khong": 2.86,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "td_timelapse": {
+     "n_co": 0,
+     "n_khong": 51,
+     "tb_log_co": null,
+     "tb_log_khong": 0.579,
+     "trung_vi_co": null,
+     "trung_vi_khong": 2.89,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "td_grow_evolution": {
+     "n_co": 0,
+     "n_khong": 51,
+     "tb_log_co": null,
+     "tb_log_khong": 0.579,
+     "trung_vi_co": null,
+     "trung_vi_khong": 2.89,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "td_hoi": {
+     "n_co": 9,
+     "n_khong": 42,
+     "tb_log_co": 0.542,
+     "tb_log_khong": 0.587,
+     "trung_vi_co": 2.14,
+     "trung_vi_khong": 3.43,
+     "hieu_log_ci95": [
+      -0.482,
+      0.46
+     ]
+    },
+    "td_noi_3_tu_dau": {
+     "n_co": 18,
+     "n_khong": 33,
+     "tb_log_co": 0.459,
+     "tb_log_khong": 0.645,
+     "trung_vi_co": 1.87,
+     "trung_vi_khong": 3.53,
+     "hieu_log_ci95": [
+      -0.541,
+      0.151
+     ]
+    },
+    "td_xung_dot": {
+     "n_co": 25,
+     "n_khong": 26,
+     "tb_log_co": 0.65,
+     "tb_log_khong": 0.512,
+     "trung_vi_co": 3.53,
+     "trung_vi_khong": 2.25,
+     "hieu_log_ci95": [
+      -0.184,
+      0.465
+     ]
+    },
+    "td_tranh_chu": {
+     "n_co": 8,
+     "n_khong": 43,
+     "tb_log_co": 0.111,
+     "tb_log_khong": 0.666,
+     "trung_vi_co": 1.03,
+     "trung_vi_khong": 3.53,
+     "hieu_log_ci95": [
+      -0.919,
+      -0.194
+     ]
+    },
+    "td_nhan_dinh_dang": {
+     "n_co": 26,
+     "n_khong": 25,
+     "tb_log_co": 0.67,
+     "tb_log_khong": 0.485,
+     "trung_vi_co": 3.87,
+     "trung_vi_khong": 2.52,
+     "hieu_log_ci95": [
+      -0.128,
+      0.509
+     ]
+    },
+    "td_emoji": {
+     "n_co": 0,
+     "n_khong": 51,
+     "tb_log_co": null,
+     "tb_log_khong": 0.579,
+     "trung_vi_co": null,
+     "trung_vi_khong": 2.89,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "anh_aerial_city_fills_frame": {
+     "n_co": 2,
+     "n_khong": 49,
+     "tb_log_co": 0.684,
+     "tb_log_khong": 0.575,
+     "trung_vi_co": 4.83,
+     "trung_vi_khong": 2.89,
+     "hieu_log_ci95": [
+      -0.419,
+      0.628
+     ]
+    },
+    "anh_split_then_now": {
+     "n_co": 0,
+     "n_khong": 51,
+     "tb_log_co": null,
+     "tb_log_khong": 0.579,
+     "trung_vi_co": null,
+     "trung_vi_khong": 2.89,
+     "hieu_log_ci95": [
+      null,
+      null
+     ]
+    },
+    "anh_year_band": {
+     "n_co": 4,
+     "n_khong": 47,
+     "tb_log_co": 0.598,
+     "tb_log_khong": 0.578,
+     "trung_vi_co": 2.5,
+     "trung_vi_khong": 2.89,
+     "hieu_log_ci95": [
+      -0.445,
+      0.628
+     ]
+    },
+    "anh_big_place_name": {
+     "n_co": 18,
+     "n_khong": 33,
+     "tb_log_co": 0.624,
+     "tb_log_khong": 0.555,
+     "trung_vi_co": 2.7,
+     "trung_vi_khong": 3.33,
+     "hieu_log_ci95": [
+      -0.294,
+      0.423
+     ]
+    },
+    "anh_night_or_dark": {
+     "n_co": 10,
+     "n_khong": 41,
+     "tb_log_co": 0.784,
+     "tb_log_khong": 0.529,
+     "trung_vi_co": 4.46,
+     "trung_vi_khong": 2.52,
+     "hieu_log_ci95": [
+      -0.162,
+      0.709
+     ]
+    },
+    "anh_fire_or_smoke": {
+     "n_co": 8,
+     "n_khong": 43,
+     "tb_log_co": 0.921,
+     "tb_log_khong": 0.516,
+     "trung_vi_co": 4.99,
+     "trung_vi_khong": 2.52,
+     "hieu_log_ci95": [
+      -0.032,
+      0.894
+     ]
+    },
+    "anh_flag_prominent": {
+     "n_co": 7,
+     "n_khong": 44,
+     "tb_log_co": 0.072,
+     "tb_log_khong": 0.66,
+     "trung_vi_co": 1.35,
+     "trung_vi_khong": 3.53,
+     "hieu_log_ci95": [
+      -0.956,
+      -0.222
+     ]
+    },
+    "anh_conflict_imagery": {
+     "n_co": 24,
+     "n_khong": 27,
+     "tb_log_co": 0.527,
+     "tb_log_khong": 0.626,
+     "trung_vi_co": 2.86,
+     "trung_vi_khong": 3.33,
+     "hieu_log_ci95": [
+      -0.428,
+      0.243
+     ]
+    },
+    "anh_arrow_or_circle": {
+     "n_co": 12,
+     "n_khong": 39,
+     "tb_log_co": 0.783,
+     "tb_log_khong": 0.517,
+     "trung_vi_co": 4.86,
+     "trung_vi_khong": 2.52,
+     "hieu_log_ci95": [
+      -0.138,
+      0.669
+     ]
+    }
+   },
+   "lien_tuc": {
+    "td_ky_tu": {
+     "n": 51,
+     "spearman": -0.271,
+     "ci95": [
+      -0.509,
+      -0.004
+     ],
+     "trung_vi_gia_tri": 58
+    },
+    "td_so_tu": {
+     "n": 51,
+     "spearman": -0.232,
+     "ci95": [
+      -0.48,
+      0.044
+     ],
+     "trung_vi_gia_tri": 10
+    },
+    "anh_L_mean": {
+     "n": 51,
+     "spearman": -0.172,
+     "ci95": [
+      -0.427,
+      0.113
+     ],
+     "trung_vi_gia_tri": 43.1
+    },
+    "anh_sat_mean": {
+     "n": 51,
+     "spearman": 0.017,
+     "ci95": [
+      -0.273,
+      0.303
+     ],
+     "trung_vi_gia_tri": 0.411
+    },
+    "anh_contrast_rms": {
+     "n": 51,
+     "spearman": 0.099,
+     "ci95": [
+      -0.217,
+      0.372
+     ],
+     "trung_vi_gia_tri": 0.243
+    },
+    "anh_colorfulness": {
+     "n": 51,
+     "spearman": 0.057,
+     "ci95": [
+      -0.237,
+      0.349
+     ],
+     "trung_vi_gia_tri": 54.1
+    },
+    "anh_warm_frac": {
+     "n": 51,
+     "spearman": 0.081,
+     "ci95": [
+      -0.19,
+      0.346
+     ],
+     "trung_vi_gia_tri": 0.183
+    },
+    "anh_night_frac": {
+     "n": 51,
+     "spearman": 0.167,
+     "ci95": [
+      -0.11,
+      0.428
+     ],
+     "trung_vi_gia_tri": 0.275
+    },
+    "anh_text_area": {
+     "n": 51,
+     "spearman": -0.155,
+     "ci95": [
+      -0.404,
+      0.11
+     ],
+     "trung_vi_gia_tri": 0.11
+    },
+    "anh_text_words": {
+     "n": 51,
+     "spearman": -0.037,
+     "ci95": [
+      -0.3,
+      0.24
+     ],
+     "trung_vi_gia_tri": 4
+    },
+    "anh_text_hmax": {
+     "n": 51,
+     "spearman": -0.187,
+     "ci95": [
+      -0.473,
+      0.146
+     ],
+     "trung_vi_gia_tri": 0.124
+    },
+    "anh_sky_frac": {
+     "n": 51,
+     "spearman": 0.022,
+     "ci95": [
+      -0.198,
+      0.354
+     ],
+     "trung_vi_gia_tri": 0.0
+    },
+    "nguoi_dang_ky": {
+     "n": 51,
+     "spearman": -0.134,
+     "ci95": [
+      -0.39,
+      0.16
+     ],
+     "trung_vi_gia_tri": 79700
+    }
+   },
+   "nhom": {
+    "td_mo_bang": {
+     "other": {
+      "n": 23,
+      "trung_vi": 2.13,
+      "tb_log": 0.388,
+      "ci95_tb_log": [
+       0.239,
+       0.537
+      ]
+     },
+     "the": {
+      "n": 12,
+      "trung_vi": 4.52,
+      "tb_log": 0.77,
+      "ci95_tb_log": [
+       0.372,
+       1.138
+      ]
+     },
+     "why": {
+      "n": 5,
+      "trung_vi": 2.36,
+      "tb_log": 0.72,
+      "ci95_tb_log": [
+       0.29,
+       1.325
+      ]
+     },
+     "place": {
+      "n": 5,
+      "trung_vi": 1.35,
+      "tb_log": 0.337,
+      "ci95_tb_log": [
+       -0.154,
+       0.828
+      ]
+     },
+     "number": {
+      "n": 4,
+      "trung_vi": 12.93,
+      "tb_log": 1.135,
+      "ci95_tb_log": [
+       0.462,
+       1.808
+      ]
+     },
+     "how": {
+      "n": 1,
+      "trung_vi": 1.0,
+      "tb_log": 0.0,
+      "ci95_tb_log": [
+       null,
+       null
+      ]
+     },
+     "what": {
+      "n": 1,
+      "trung_vi": 35.59,
+      "tb_log": 1.551,
+      "ci95_tb_log": [
+       null,
+       null
+      ]
+     }
+    },
+    "td_loi_hua": {
+     "story": {
+      "n": 41,
+      "trung_vi": 2.83,
+      "tb_log": 0.535,
+      "ci95_tb_log": [
+       0.364,
+       0.712
+      ]
+     },
+     "visual": {
+      "n": 9,
+      "trung_vi": 7.9,
+      "tb_log": 0.847,
+      "ci95_tb_log": [
+       0.433,
+       1.246
+      ]
+     },
+     "other": {
+      "n": 1,
+      "trung_vi": 1.0,
+      "tb_log": 0.0,
+      "ci95_tb_log": [
+       null,
+       null
+      ]
+     }
+    },
+    "anh_style": {
+     "photo": {
+      "n": 16,
+      "trung_vi": 4.99,
+      "tb_log": 0.676,
+      "ci95_tb_log": [
+       0.373,
+       0.969
+      ]
+     },
+     "ai_painting": {
+      "n": 10,
+      "trung_vi": 1.8,
+      "tb_log": 0.611,
+      "ci95_tb_log": [
+       0.216,
+       1.044
+      ]
+     },
+     "3d_render": {
+      "n": 10,
+      "trung_vi": 2.98,
+      "tb_log": 0.657,
+      "ci95_tb_log": [
+       0.28,
+       1.064
+      ]
+     },
+     "illustration_2d": {
+      "n": 7,
+      "trung_vi": 3.86,
+      "tb_log": 0.63,
+      "ci95_tb_log": [
+       0.331,
+       0.978
+      ]
+     },
+     "flat_map": {
+      "n": 7,
+      "trung_vi": 1.62,
+      "tb_log": 0.219,
+      "ci95_tb_log": [
+       0.101,
+       0.335
+      ]
+     },
+     "game_screenshot": {
+      "n": 1,
+      "trung_vi": 1.25,
+      "tb_log": 0.098,
+      "ci95_tb_log": [
+       null,
+       null
+      ]
+     }
+    },
+    "anh_focus": {
+     "person_face": {
+      "n": 17,
+      "trung_vi": 3.53,
+      "tb_log": 0.636,
+      "ci95_tb_log": [
+       0.313,
+       0.971
+      ]
+     },
+     "text_dominant": {
+      "n": 14,
+      "trung_vi": 3.34,
+      "tb_log": 0.619,
+      "ci95_tb_log": [
+       0.31,
+       0.959
+      ]
+     },
+     "map": {
+      "n": 9,
+      "trung_vi": 1.62,
+      "tb_log": 0.21,
+      "ci95_tb_log": [
+       0.059,
+       0.352
+      ]
+     },
+     "panorama": {
+      "n": 5,
+      "trung_vi": 5.29,
+      "tb_log": 0.596,
+      "ci95_tb_log": [
+       0.349,
+       0.84
+      ]
+     },
+     "single_object": {
+      "n": 4,
+      "trung_vi": 19.36,
+      "tb_log": 1.132,
+      "ci95_tb_log": [
+       0.667,
+       1.508
+      ]
+     },
+     "split": {
+      "n": 2,
+      "trung_vi": 2.17,
+      "tb_log": 0.336,
+      "ci95_tb_log": [
+       0.0,
+       0.671
+      ]
+     }
+    },
+    "anh_dominant_palette": {
+     "warm": {
+      "n": 23,
+      "trung_vi": 3.33,
+      "tb_log": 0.577,
+      "ci95_tb_log": [
+       0.37,
+       0.806
+      ]
+     },
+     "mixed": {
+      "n": 10,
+      "trung_vi": 3.72,
+      "tb_log": 0.764,
+      "ci95_tb_log": [
+       0.318,
+       1.224
+      ]
+     },
+     "cool": {
+      "n": 9,
+      "trung_vi": 3.53,
+      "tb_log": 0.606,
+      "ci95_tb_log": [
+       0.189,
+       0.988
+      ]
+     },
+     "neutral": {
+      "n": 9,
+      "trung_vi": 1.63,
+      "tb_log": 0.353,
+      "ci95_tb_log": [
+       0.077,
+       0.659
+      ]
+     }
+    },
+    "lan": {
+     "history_explainer": {
+      "n": 24,
+      "trung_vi": 1.99,
+      "tb_log": 0.473,
+      "ci95_tb_log": [
+       0.238,
+       0.74
+      ]
+     },
+     "battle_siege": {
+      "n": 20,
+      "trung_vi": 3.69,
+      "tb_log": 0.692,
+      "ci95_tb_log": [
+       0.458,
+       0.951
+      ]
+     },
+     "travel_facts": {
+      "n": 7,
+      "trung_vi": 3.33,
+      "tb_log": 0.62,
+      "ci95_tb_log": [
+       0.274,
+       1.008
+      ]
+     }
+    }
+   }
+  }
+ ],
+ "khoang_trong": {
+  "timelapse_3d": {
+   "n": 54,
+   "loi_hua": {
+    "visual": 53,
+    "story": 0,
+    "both": 1,
+    "other": 0
+   },
+   "tranh_chu": 0,
+   "xung_dot_tieu_de": 0,
+   "anh_dem": 9,
+   "anh_lua_khoi": 2,
+   "anh_xung_dot": 0,
+   "anh_co": 3,
+   "anh_3d": 50,
+   "anh_ban_do_phang": 0,
+   "anh_dai_nam": 52,
+   "anh_ten_noi_lon": 51,
+   "anh_chia_doi": 7,
+   "td_hoi": 1,
+   "td_dai_nam": 24
+  },
+  "lich_su": {
+   "n": 51,
+   "loi_hua": {
+    "visual": 9,
+    "story": 41,
+    "both": 0,
+    "other": 1
+   },
+   "tranh_chu": 8,
+   "xung_dot_tieu_de": 25,
+   "anh_dem": 10,
+   "anh_lua_khoi": 8,
+   "anh_xung_dot": 24,
+   "anh_co": 7,
+   "anh_3d": 10,
+   "anh_ban_do_phang": 7,
+   "anh_dai_nam": 4,
+   "anh_ten_noi_lon": 18,
+   "anh_chia_doi": 0,
+   "td_hoi": 9,
+   "td_dai_nam": 3
+  },
+  "giao_hai_lan": {
+   "n": 7,
+   "video_id": [
+    "dqReWDkEYXY",
+    "NHo6A2u64WM",
+    "_-oPpJ2lVQM",
+    "KtH2yFD7E2I",
+    "4VFCraEo_TE",
+    "p0MmMCJyL9I",
+    "nZGprMwHVOA"
+   ],
+   "diem_vuot_troi": [
+    7.901,
+    29.176,
+    53.506,
+    1.086,
+    1.0,
+    3.532,
+    1.766
+   ]
+  }
+ },
+ "co_mau": {
+  "tong_ket_qua": 122,
+  "dai_gt_180s": 122,
+  "dung_chu_de": 105,
+  "timelapse_3d": 54,
+  "lich_su": 51
+ }
+}

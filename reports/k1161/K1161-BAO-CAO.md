@@ -190,6 +190,6 @@ Trình dựng V6 trên llvmpipe tiếp tục tất định từng điểm ảnh.
    - V6/PT3 ghi kết quả "kiểm trôi" cho 55 tệp vân;
    - T3 sửa 7 lỗi khai ML1 + `ly_do_hinh`;
    - V7-PILOT/V7B xuất trường K116-D9.
-6. **Thư Đ5 ElevenLabs** (quyền dùng giọng G1 cho bản phát hành) vẫn chưa gửi (RIGHTS P1910-G1).
+6. **Thư Đ5 ElevenLabs** (quyền dùng giọng G1 cho bản phát hành) vẫn chưa gửi (RIGHTS P1910-G1). *(Đính chính P-2010, 20/10: ghi nhầm — thư Đ5 ĐÃ GỬI 19/10 16:57; đang chờ ElevenLabs trả lời.)*
 
 **DỪNG — chờ chủ dự án.**

@@ -1,0 +1,220 @@
+{
+"cong_cu": "scripts/audio/master.py",
+"tham_so": {
+"smr": 15.0,
+"duck": -12.0,
+"duck_floor": -30.0,
+"merge_gap": 0.8,
+"attack": 0.25,
+"release": 0.45,
+"sfx_duck_ratio": 0.5,
+"vo_lufs": -17.0,
+"I": -14.0,
+"tp": -1.0,
+"tp_margin": 0.5,
+"fade_in": 0.3,
+"fade_out": 1.5,
+"aac": "256k",
+"vo_chain": "highpass=f=70,deesser=i=0.35:m=0.5:f=0.5:s=o,acompressor=threshold=-24dB:ratio=2.5:attack=5:release=120:knee=6"
+},
+"tong_s": 34.0,
+"loi_LUFS_truoc_chuan": -22.69,
+"duck": {
+"so_khoang": 5,
+"trung_vi_db": -12.0,
+"sau_nhat_db": -13.3,
+"khoang_vuot_co_ban": 1,
+"ds": [
+{
+"t0": 0.0,
+"t1": 2.15,
+"L_loi": -20.8,
+"L_nen_max": -39.6,
+"duck_db": -12.0
+},
+{
+"t0": 3.41,
+"t1": 11.01,
+"L_loi": -20.2,
+"L_nen_max": -30.6,
+"duck_db": -12.0
+},
+{
+"t0": 12.0,
+"t1": 26.68,
+"L_loi": -20.6,
+"L_nen_max": -23.3,
+"duck_db": -13.3
+},
+{
+"t0": 28.0,
+"t1": 31.88,
+"L_loi": -19.5,
+"L_nen_max": -23.8,
+"duck_db": -12.0
+},
+{
+"t0": 33.0,
+"t1": 34.0,
+"L_loi": -18.2,
+"L_nen_max": -24.3,
+"duck_db": -12.0
+}
+]
+},
+"fade": {
+"nen_vao_s": 0.3,
+"nen_ra_s": 1.5,
+"ca_ban_ra_bat_dau_s": 34.3,
+"ca_ban_ra_s": -0.3
+},
+"loudness": [
+{
+"luot1": {
+"I": -17.26,
+"TP": -1.68,
+"LRA": 2.5
+},
+"gain_db": 3.26,
+"bu_db": 0.0,
+"tran_limiter_dbtp": -1.5,
+"luot2": {
+"I": -14.01,
+"TP": -1.5,
+"LRA": 2.4
+},
+"loudnorm": {
+"normalization_type": "linear",
+"output_i": -13.93,
+"output_tp": -1.49,
+"target_offset": -0.07
+},
+"aac": {
+"I": -14.0,
+"TP": -1.5
+},
+"ebur128": {
+"I": -13.9,
+"TP": -1.5
+}
+}
+],
+"dau_ra": {
+"I": -13.9,
+"LRA": 2.6,
+"TP": -1.5,
+"TP_sau_aac": -1.5,
+"lang_pct": 0.0,
+"lang_bat_thuong": 0,
+"cham_tran": 0
+},
+"smr": {
+"cua_so": 18,
+"trung_vi": 24.98,
+"p10": 20.01,
+"min": 19.17,
+"duoi_nguong_pct": 0.0,
+"nguong": 15.0
+},
+"dat": {
+"I": true,
+"TP": true,
+"TP_sau_aac": true,
+"SMR_p10": true,
+"loudnorm_tuyen_tinh": true
+},
+"cua_so_smr": [
+[
+3.4,
+28.35
+],
+[
+4.4,
+25.77
+],
+[
+5.4,
+24.61
+],
+[
+6.4,
+25.07
+],
+[
+7.4,
+26.81
+],
+[
+12.0,
+25.02
+],
+[
+13.0,
+24.86
+],
+[
+14.0,
+24.94
+],
+[
+15.0,
+27.44
+],
+[
+16.0,
+27.44
+],
+[
+17.0,
+26.04
+],
+[
+18.0,
+25.29
+],
+[
+19.0,
+23.94
+],
+[
+20.0,
+23.51
+],
+[
+21.0,
+21.14
+],
+[
+22.0,
+19.96
+],
+[
+23.0,
+19.17
+],
+[
+28.0,
+20.03
+]
+],
+"nen": [
+{
+"id": "B1",
+"phim": [
+0.0,
+34.0
+],
+"bai": [
+0.0,
+34.0
+],
+"gain_db": -8.95
+}
+],
+"phuong_an": "B — có sẵn + bản mới (Scott Buckley CC BY 4.0 + K2-MUS-5)",
+"khoang_phim": [
+0.0,
+34.0
+],
+"duck_co_dinh": false
+}

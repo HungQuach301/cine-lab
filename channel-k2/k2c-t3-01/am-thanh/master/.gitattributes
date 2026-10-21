@@ -1,0 +1,4 @@
+# P-2010b (20/10/2026): master giọng T3 (KL42, G1, lời v4.2) + nguồn tải từ lịch sử ElevenLabs qua LFS — chủ dự án duyệt trong lệnh P-2010b việc 1; Kinh thánh §14.6. SHA: SHA256SUMS.
+*.wav filter=lfs diff=lfs merge=lfs -text
+*.flac filter=lfs diff=lfs merge=lfs -text
+*.mp3 filter=lfs diff=lfs merge=lfs -text

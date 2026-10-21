@@ -1,4 +1,4 @@
-# Đ5 — Thư hỏi ElevenLabs về quyền đối với giọng Voice Design (bản nháp, CHƯA GỬI)
+# Đ5 — Thư hỏi ElevenLabs về quyền đối với giọng Voice Design (ĐÃ GỬI 19/10/2026 16:57 — chủ dự án gửi; P-2010 ghi trạng thái 20/10; chờ trả lời)
 
 > Soạn bởi phiên GIỌNG-CHỐT, 19/10/2026. **Chủ dự án gửi** (phiên này không gửi, không điền email).
 > Gửi tới: kênh hỗ trợ trong tài khoản (Help → Contact support) hoặc địa chỉ pháp lý ElevenLabs nêu trong ToS/trang liên hệ — chủ dự án chọn; phiên này không đoán địa chỉ.
