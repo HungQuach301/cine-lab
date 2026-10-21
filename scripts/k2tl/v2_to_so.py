@@ -8,7 +8,7 @@ import json, subprocess, sys
 from pathlib import Path
 from PIL import Image, ImageDraw
 REPO = Path(__file__).resolve().parents[2]
-XEM = [('01-mo-dau', 0.0), ('02-ch1-rock-1704', 43.833), ('03-ch2a-vay-ham', 173.083), ('04-ch2b-tan-cong-1782', 262.208), ('05-ch3-dat-trung-lap', 382.583),
+XEM = [('01-mo-dau', 0.0), ('02-ch1-rock-1704', 43.833), ('03-ch2a-vay-ham', 173.083), ('04-ch2b-tan-cong-1782', 262.167), ('05-ch3-dat-trung-lap', 382.583),
        ('06-ch4-duong-bang', 471.625), ('07-ch5a-cong', 585.833), ('08-ch5b-ket', 666.083)]
 W, H = 480, 270
 
