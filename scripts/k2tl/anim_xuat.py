@@ -22,12 +22,12 @@ if 'a' in BUOC:
         o = X / f'{k}.mp4'; d = b - a; vb = int((4_700_000 * 8 / d - 64_000) / 1000)
         for p in (1, 2):
             sh(['ffmpeg', '-v', 'error', '-y', '-ss', f'{a:.3f}', '-t', f'{d:.3f}', '-i', M, '-vf', 'scale=640:360:flags=lanczos,fps=24', '-c:v', 'libx264', '-preset', 'slow', '-b:v', f'{vb}k', '-pass', str(p),
-                '-passlogfile', str(OUTX / f'x264-{k}')] + (['-an', '-f', 'mp4', '/dev/null'] if p == 1 else ['-af', 'volume=-1.2dB,alimiter=limit=0.75', '-c:a', 'aac', '-b:a', '64k', '-movflags', '+faststart', str(o)]))
+                '-passlogfile', str(OUTX / f'x264-{k}')] + (['-an', '-f', 'mp4', '/dev/null'] if p == 1 else ['-af', 'volume=-1.2dB,alimiter=limit=0.75:level=disabled', '-c:a', 'aac', '-b:a', '64k', '-movflags', '+faststart', str(o)]))
         print(k, o.stat().st_size, flush=True)
 if 'b' in BUOC:
     srt = EPD / 'phu-de.srt'; o = OUTX / 'k2c-t3-anim-640-phude-KIEM.mp4'
     sh(['ffmpeg', '-v', 'error', '-y', '-i', M, '-vf', f"scale=640:360:flags=lanczos,subtitles={srt}:force_style='FontName=DejaVu Sans,FontSize=15,PrimaryColour=&H00FFFFFF,OutlineColour=&H80000000,BorderStyle=3,Outline=1,Shadow=0,MarginV=28'",
-        '-c:v', 'libx264', '-preset', 'slow', '-crf', '26', '-af', 'volume=-1.2dB,alimiter=limit=0.75', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', str(o)]); print('phude', o)
+        '-c:v', 'libx264', '-preset', 'slow', '-crf', '26', '-af', 'volume=-1.2dB,alimiter=limit=0.75:level=disabled', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', str(o)]); print('phude', o)
 if 'c' in BUOC:
     W, H = 320, 180; per = 6; rows = (len(B) + per - 1) // per; S = Image.new('RGB', (W * per, (H + 22) * rows), (16, 16, 16)); g = ImageDraw.Draw(S)
     try: F = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 13)
