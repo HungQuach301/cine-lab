@@ -3358,14 +3358,6 @@ heroes:
         at: 1779-07-13 12:00
         sun: 12.0
         lab: d
-      - t: 16.0
-        at: 1779-09-15 12:00
-        sun: 12.0
-        lab: d
-      - t: 16.05
-        at: 1779-09-25 12:00
-        sun: 12.0
-        lab: d
       - t: 22.5
         at: 1779-10-28 12:00
         sun: 12.0
@@ -4001,8 +3993,8 @@ heroes:
       campTuNhien: true
       dur: 22.5
       shot: C1
-      cau: diem-L-linea → U-trai-thap → T-trai-bac
-      diem: L-linea → U-trai-thap → T-trai-bac
+      cau: diem-L-linea → T-trai-bac
+      diem: L-linea → T-trai-bac
       noi: eo_dat
       vai: co-che
       pack: gib
@@ -4028,26 +4020,6 @@ heroes:
         - 820
         fov: 42
       - t: 12.0
-        p:
-        - -1180
-        - 38.2
-        - 2850
-        l:
-        - -1290
-        - 14.4
-        - 3150
-        fov: 42
-      - t: 16.03
-        p:
-        - -1186
-        - 38.2
-        - 2860
-        l:
-        - -1290
-        - 14.4
-        - 3150
-        fov: 42
-      - t: 16.05
         p:
         - -1150
         - 96.7
@@ -10403,7 +10375,7 @@ segments:
         at: 0.4
         dur: 3.0
     cau: 'Half a century later came a different question: can you starve a rock?'
-    vung: L-linea → U-trai-thap → T-trai-bac
+    vung: L-linea → T-trai-bac
     ai_texture: false
 - id: C2
   part: CH2

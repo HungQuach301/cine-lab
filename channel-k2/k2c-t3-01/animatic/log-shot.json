@@ -2043,7 +2043,7 @@
   "vai": "co-che",
   "noi": "eo_dat",
   "nguoi": false,
-  "diem_may": "L-linea → U-trai-thap → T-trai-bac",
+  "diem_may": "L-linea → T-trai-bac",
   "cam": [
    {
     "t": 0.0,
@@ -2076,34 +2076,6 @@
    {
     "t": 12.0,
     "p": [
-     -1180,
-     38.2,
-     2850
-    ],
-    "l": [
-     -1290,
-     14.4,
-     3150
-    ],
-    "fov": 42
-   },
-   {
-    "t": 16.03,
-    "p": [
-     -1186,
-     38.2,
-     2860
-    ],
-    "l": [
-     -1290,
-     14.4,
-     3150
-    ],
-    "fov": 42
-   },
-   {
-    "t": 16.05,
-    "p": [
      -1150,
      96.7,
      3550
@@ -2134,22 +2106,16 @@
   "nhin_xuong_deg": [
    5.1,
    5.1,
-   4.3,
-   4.4,
    7.9,
    8.0
   ],
   "agl_m": [
    70.0,
    67.0,
-   30.0,
-   30.0,
    70.0,
    70.0
   ],
   "fov": [
-   42,
-   42,
    42,
    42,
    44,
@@ -2170,14 +2136,6 @@
    {
     "t": 12.0,
     "at": "1779-07-13 12:00"
-   },
-   {
-    "t": 16.0,
-    "at": "1779-09-15 12:00"
-   },
-   {
-    "t": 16.05,
-    "at": "1779-09-25 12:00"
    },
    {
     "t": 22.5,
@@ -2241,7 +2199,7 @@
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": "1779 — The Great Siege",
-  "ghi": "ANIM-V2 R1/R3 (thay LOOK-4 cũ): 3 góc thấp 55–95 m — Línea + đồn (bậc 1) → cận trại dựng dần (eo-dat-v7.json, bậc 1–2; lều tự nhiên, số lều giữ nguyên) → dải trại nhìn nam về Rock",
+  "ghi": "ANIM-V2 R1/R3 (thay LOOK-4 cũ): 2 góc thấp — Línea + đồn (bậc 1) → dải trại mọc dần 13/7 → 28/10/1779 nhìn nam về Rock (eo-dat-v7.json, bậc 1–2; lều tự nhiên, số lều giữ nguyên)",
   "tieu_diem": [
    "trai"
   ],
@@ -2252,8 +2210,7 @@
   "nc": true,
   "lan": null,
   "cat_trong_shot": [
-   12.0,
-   16.05
+   12.0
   ],
   "minh_hoa": []
  },

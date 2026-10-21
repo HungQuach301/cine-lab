@@ -175,13 +175,12 @@ def shots():
     # ANIM-V2 R1/R3: 3 góc — (A) Línea + đồn (tuyến đóng đường bộ 21/6/1779) cận, Rock nền · (B) cận dãy trại dựng lên từ 13/7 (lều, ngựa, khói bếp chiếm tiền cảnh) · (C) toàn dải trại tới 10/1779, Rock nền
     tAc = round(NH['2b']['bd_phim'] - NH['2a']['bd_phim'], 3); tBc = round(NH['2b']['cau'][1]['bd_phim'] - NH['2a']['bd_phim'], 3)
     o['time'] = [dict(t=0, at='1779-06-20 09:00', sun='real', lab='dt'), dict(t=tAc - 0.05, at='1779-06-22 16:00', sun='real', lab='dt'), dict(t=tAc, at='1779-07-13 12:00', sun=12.0, lab='d'),
-                 dict(t=tBc - 0.05, at='1779-09-15 12:00', sun=12.0, lab='d'), dict(t=tBc, at='1779-09-25 12:00', sun=12.0, lab='d'), dict(t=D, at='1779-10-28 12:00', sun=12.0, lab='d')]; o['night'] = True
-    C1cam, ct = cuts(D, [dict(t1=tAc, p0=[-560, 75, 1330], l0=[-120, 15, 820], dp=(15, -2, -10), fov=42), dict(t1=tBc, p0=A(-1180, 30, 2850), l0=A(-1290, 0, 3150), dp=(-6, 0, 10), fov=42),
-                         dict(p0=A(-1150, 70, 3550), l0=A(-1300, 0, 2950), dp=(5, 0, -10), fov=44)])
-    add('C1', ['2a', '2b'], 'L-linea → U-trai-thap → T-trai-bac', 'lai', 'co-che', 'eo_dat', 'trai', o, C1cam, v['td'],
+                 dict(t=D, at='1779-10-28 12:00', sun=12.0, lab='d')]   # soát dựng: góc cận trại (B) không thấy lều ở 7–9/1779 → gộp vào góc dải trại (lều mọc 13/7 → 28/10); o['night'] = True
+    C1cam, ct = cuts(D, [dict(t1=tAc, p0=[-560, 75, 1330], l0=[-120, 15, 820], dp=(15, -2, -10), fov=42), dict(p0=A(-1150, 70, 3550), l0=A(-1300, 0, 2950), dp=(5, 0, -10), fov=44)])
+    add('C1', ['2a', '2b'], 'L-linea → T-trai-bac', 'lai', 'co-che', 'eo_dat', 'trai', o, C1cam, v['td'],
         [dict(t=0.4, k='the_chuong', s='1779 — The Great Siege'), dict(t=0.5, k='ngay_dem', s='20→21/6/1779: Línea và đồn — đường bộ bị cắt (ngày–đêm)'), dict(t=tAc, k='xay', s='trại TBN dựng lên từ 13/7/1779 (cận lều, ngựa, khói bếp)'),
          dict(t=tBc, k='xay', s='10/1779: toàn dải trại, Rock nền')],
-        'ANIM-V2 R1/R3 (thay LOOK-4 cũ): 3 góc thấp 55–95 m — Línea + đồn (bậc 1) → cận trại dựng dần (eo-dat-v7.json, bậc 1–2; lều tự nhiên, số lều giữ nguyên) → dải trại nhìn nam về Rock', chuong='1779 — The Great Siege', cat=ct)
+        'ANIM-V2 R1/R3 (thay LOOK-4 cũ): 2 góc thấp — Línea + đồn (bậc 1) → dải trại mọc dần 13/7 → 28/10/1779 nhìn nam về Rock (eo-dat-v7.json, bậc 1–2; lều tự nhiên, số lều giữ nguyên)', chuong='1779 — The Great Siege', cat=ct)
     v = V['C2']; o = copy.deepcopy(v['opt']); D = d(['2c']); E = V7B.CAMS['E']
     add('C2', ['2c'], 'E (V7B-a)', 'lai', 'co-che', 'bien', 'vinh', o, [K(0, E['p0'], E['l0'], E['fov']), K(D, E['p1'], E['l0'], E['fov'])], v['td'], V7C.SU_KIEN['C2'],
         'LOOK-4 sửa (V7C giây 68–76 chỉ còn nước): máy E của V7B biến thể a (tham chiếu ngữ pháp đã kiểm: hạm đội phong toả đọc rõ, Rock giữa khung); thuyền châu Phi quay đầu ở hàng chặn (V7C)')
