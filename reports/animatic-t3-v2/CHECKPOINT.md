@@ -32,5 +32,15 @@ Phiên sửa animatic T3 theo nhận xét chủ dự án 21/10 21:05–21:15 (ph
 - Soi bố cục shot đổi (tắt cách A, 480×270) + ảnh đầu M1–M5 (1280×720, cách A không lightmap).
 - Dựng lại bộ đệm cảnh: `/var/tmp/cine-out/log/chuan-bi.sh` (v7p_cache → mau_nha → faden → anim_tex), log `/var/tmp/cine-out/log/chuan-bi.log`.
 
+## Omni (gemini-omni-1.1-flash, image-to-video 720p, ~10 s/lượt, ≈ $1,02/lượt) — sổ `so-ai-gemini.jsonl`
+- M3-l1 ĐẠT (chọn) · M4-l1 ĐẠT (chọn, bỏ 2 s đầu) · M2: l1 LOẠI (tàu, tháp chuông, đê bịa ở vịnh) → đổi ảnh đầu nhìn lên sườn; l2 LOẠI (nét giống chữ trên bụi cọ); l3 ĐẠT (chọn, bỏ 1 s đầu)
+- M1: l1 LOẠI (tàu có cột buồm), l2 LOẠI (cờ trên cột), l3 LOẠI (cọc buộc tàu sắt "≈ 1800") → **giữ bản 3D** (3 lượt hết)
+- M5: l1 LOẠI (logo giày, biển vàng sân bay, logo đuôi máy bay) → l2 đang chạy
+- Video gốc Omni (> 5 MB) để ngoài git `/var/tmp/cine-out/omni-goc/` (SHA trong sổ); bản xem 640×360 `omni/xem/`.
+
+## Đang dựng
+- Vòng dựng cảnh đinh P=3 (`scripts/k2tl/anim_vong.sh`, log `/var/tmp/cine-out/log/vong.log`) theo lightmap đã nướng.
+
 ## Sự cố
+- Commit "chốt máy" lần đầu lọt 9 video > 5 MB (preflight báo TRƯỢT nhưng `| tail -1 &&` không chặn) → sửa commit trên nhánh của phiên (amend + force-with-lease), video gốc ra ngoài git + `.gitignore`.
 - Lần 1 dựng bộ đệm lỗi: thiếu `origin/v5a` (LUT) trong bản sao mới → `git fetch origin v5a p-1810 main`, chạy lại.

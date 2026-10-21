@@ -133,16 +133,16 @@
     "at": "2026-10-19 15:00"
    },
    {
-    "t": 2.6,
-    "at": "2026-10-19 18:40"
-   },
-   {
     "t": 4.5,
-    "at": "2026-10-19 19:50"
+    "at": "2026-10-19 17:30"
    },
    {
     "t": 10.5,
-    "at": "2026-10-19 21:40"
+    "at": "2026-10-19 18:20"
+   },
+   {
+    "t": 11.2,
+    "at": "2026-10-19 19:45"
    },
    {
     "t": 12.0,
@@ -182,7 +182,7 @@
     "s": "19/10/2026 15:00: ban ngày — Rock nguyên khối, cổng + đường băng tiền cảnh"
    },
    {
-    "t": 2.6,
+    "t": 10.5,
     "k": "ngay_dem",
     "s": "hoàng hôn → đêm; đèn phố/đường băng bật dần"
    },
@@ -192,7 +192,7 @@
     "s": "M5 (minh hoạ Omni): cận chân người đi bộ bước qua vạch đường băng"
    },
    {
-    "t": 10.5,
+    "t": 11.9,
     "k": "ngay_dem",
     "s": "gần nửa đêm biên giới (23:52)"
    }
@@ -2649,30 +2649,30 @@
    {
     "t": 2.0,
     "p": [
-     -650,
-     4,
-     -655
+     -1050,
+     30,
+     -900
     ],
     "l": [
-     -565,
-     5,
-     -640
+     -600,
+     10,
+     -690
     ],
-    "fov": 30
+    "fov": 34
    },
    {
     "t": 8.98,
     "p": [
-     -646,
-     4,
-     -654
+     -1030,
+     29,
+     -892
     ],
     "l": [
-     -565,
-     5,
-     -640
+     -600,
+     10,
+     -690
     ],
-    "fov": 30
+    "fov": 34
    },
    {
     "t": 9.0,
@@ -2707,24 +2707,24 @@
   "nhin_xuong_deg": [
    2.2,
    2.2,
-   -0.7,
-   -0.7,
+   2.3,
+   2.3,
    1.9,
    1.9
   ],
   "agl_m": [
    48.0,
    47.0,
-   -1.0,
-   -1.0,
+   25.0,
+   24.0,
    52.0,
    51.0
   ],
   "fov": [
    40,
    40,
-   30,
-   30,
+   34,
+   34,
    40,
    40
   ],
@@ -2809,14 +2809,14 @@
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "ANIM-V2: máy thấp chéo từ vịnh (thay khung lai 13° nhìn xuống bến \"đồ chơi\"); M1 minh hoạ Omni 2 → 9 s; đoàn Rodney + tàu chanh: V7C (bậc 2 thời điểm, số/vị trí minh hoạ)",
+  "ghi": "ANIM-V2: máy thấp chéo từ vịnh (thay khung lai 13° nhìn xuống bến \"đồ chơi\"); M1 minh hoạ Omni TRƯỢT 3 lượt (tàu có buồm / cờ / cọc buộc sắt) → giữ 3D góc thấp gần bến 2 → 9 s; đoàn Rodney + tàu chanh: V7C (bậc 2 thời điểm, số/vị trí minh hoạ)",
   "tieu_diem": [
    "old_mole",
    "doan_darby"
   ],
   "luot_thap": false,
   "khung_neo": false,
-  "ai_image": true,
+  "ai_image": false,
   "ai_texture": false,
   "nc": true,
   "lan": null,

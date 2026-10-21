@@ -78,13 +78,13 @@ def shots():
     # ===== CHƯƠNG 0 · MÓC (0 → 43,833) =====
     v = V['H1']; o = copy.deepcopy(v['opt']); D = d(['0a', '0b'])
     # ANIM-V2 (chủ dự án 21/10 21:05): mở đầu BAN NGÀY → hoàng hôn → đêm (timelapse thấy ngay, Rock nhận ra trong ánh ngày ≤ 3 s); M5 (Omni) 4,5 → 10,5 s; kết 23:52 nối H2
-    o['time'] = [dict(t=0, at='2026-10-19 15:00', sun='real', lab='dt'), dict(t=2.6, at='2026-10-19 18:40', sun='real', lab='dt'), dict(t=4.5, at='2026-10-19 19:50', sun='real', lab='dt'),
-                 dict(t=10.5, at='2026-10-19 21:40', sun='real', lab='dt'), dict(t=D, at='2026-10-19 23:52', sun='real', lab='dt')]
+    o['time'] = [dict(t=0, at='2026-10-19 15:00', sun='real', lab='dt'), dict(t=4.5, at='2026-10-19 17:30', sun='real', lab='dt'), dict(t=10.5, at='2026-10-19 18:20', sun='real', lab='dt'),
+                 dict(t=11.2, at='2026-10-19 19:45', sun='real', lab='dt'), dict(t=D, at='2026-10-19 23:52', sun='real', lab='dt')]   # M5 (Omni, nắng chiều) nằm ở 17:30–18:20; hoàng hôn → đêm 10,5 → 12 s
     cam, ct = cuts(D, [dict(t1=4.5, p0=[380, 430, 1350], l0=[-110, 0, -300], dp=(-5, -2, -12), fov=40), dict(t1=10.5, p0=[4, 9.0, -40], l0=[6, 2.0, 0], dp=(0, 0, 2), fov=50),
                        dict(p0=[371, 426, 1330], l0=[-111, 0, -301], dp=(-5, -2, -12), fov=40)])   # ANIM-V2: góc giữa = máy tầm mắt cá chân trên đường Winston Churchill qua đường băng (ảnh đầu M5)
     add('H1', ['0a', '0b'], 'D7-lai → WCA-than → D7-lai', 'lai', 'co-che', 'eo_dat', 'pho', o, cam, v['td'],
-        [dict(t=0.0, k='ngay_dem', s='19/10/2026 15:00: ban ngày — Rock nguyên khối, cổng + đường băng tiền cảnh'), dict(t=2.6, k='ngay_dem', s='hoàng hôn → đêm; đèn phố/đường băng bật dần'),
-         dict(t=4.5, k='minh_hoa', s='M5 (minh hoạ Omni): cận chân người đi bộ bước qua vạch đường băng'), dict(t=10.5, k='ngay_dem', s='gần nửa đêm biên giới (23:52)')],
+        [dict(t=0.0, k='ngay_dem', s='19/10/2026 15:00: ban ngày — Rock nguyên khối, cổng + đường băng tiền cảnh'), dict(t=10.5, k='ngay_dem', s='hoàng hôn → đêm; đèn phố/đường băng bật dần'),
+         dict(t=4.5, k='minh_hoa', s='M5 (minh hoạ Omni): cận chân người đi bộ bước qua vạch đường băng'), dict(t=11.9, k='ngay_dem', s='gần nửa đêm biên giới (23:52)')],
         'ANIM-V2: mở đầu ban ngày → đêm (timelapse 15:00 → 23:52, cùng điểm máy D7, trôi rất chậm) — Rock nhận ra trong ánh ngày 0–3 s; M5 minh hoạ Omni 4,5 → 10,5 s; H2 nối từ 23:52',
         minh_hoa=[dict(ma='M5', t0=4.5, t1=10.5)], cat=ct)
     v = V['H2']; o = copy.deepcopy(v['opt'])
@@ -199,14 +199,15 @@ def shots():
         luot_thap=[0, 8.0], minh_hoa=[dict(ma='M2', t0=0.0, t1=8.0)])
     v = V['C4']; o = copy.deepcopy(v['opt']); D = d(['SM2', '2f']); cam = copy.deepcopy(V7C.CAM['C4'])
     # ANIM-V2: hết "đồ chơi" — ngoài M1 dùng MÁY THẤP CHÉO từ vịnh (≈ 45 m, nhìn xuống ≈ 5°) thấy tàu tiền cảnh + Old Mole + phố + Rock; M1 (Omni) 2,0 → 9,0 s cận bến ở tầm người
-    cam, ct = cuts(D, [dict(t1=2.0, p0=[-1500, 48, -980], l0=[-640, 15, -1080], dp=(30, -1, 0), fov=40), dict(t1=9.0, p0=[-650, 4, -655], l0=[-565, 5, -640], dp=(4, 0, 1), fov=30),
+    cam, ct = cuts(D, [dict(t1=2.0, p0=[-1500, 48, -980], l0=[-640, 15, -1080], dp=(30, -1, 0), fov=40), dict(t1=9.0, p0=[-1050, 30, -900], l0=[-600, 10, -690], dp=(20, -1, 8), fov=34)   # ANIM-V2: M1 trượt 3 lượt → giữ 3D: máy thấp gần bến (≈ 500 m), thuyền cập Old Mole tiền cảnh
+                       ,
                        dict(p0=[-1420, 52, -1180], l0=[-620, 25, -1000], dp=(25, -1, 5), fov=40)])
     o['time'] = [dict(t=0, at='1780-01-16 12:00', sun=15.0, lab='d'), dict(t=1.98, at='1780-01-19 12:00', sun=15.0, lab='d'), dict(t=2.0, at='1780-01-21 10:00', sun=15.0, lab='d'), dict(t=9.0, at='1780-02-01 12:00', sun=15.0, lab='d'),   # ANIM-V2: M1 mở ở 21/1 (đã có người + thùng ở bến)
                  dict(t=9.05, at='1780-10-08 12:00', sun=15.0, lab='d'), dict(t=11.0, at='1780-10-12 12:00', sun=15.0, lab='m'), dict(t=D, at='1780-11-30 12:00', sun=15.0, lab='m')]
     add('C4', ['SM2', '2f'], 'Bm-thap → M1 → Bm-thap', 'lai', 'co-che', 'bien', 'vinh', o, cam, v['td'],
         [dict(t=0.0, k='tau', s='đoàn Rodney vào vịnh 1/1780 (cờ Red Ensign) — máy thấp, tàu tiền cảnh'), dict(t=2.0, k='minh_hoa', s='M1 (minh hoạ Omni): Old Mole 1780 — thuyền cập, người khiêng thùng, đống hàng lớn dần'),
          dict(t=9.05, k='tau', s='10/1780: tàu chanh Đan Mạch vào cảng')],
-        'ANIM-V2: máy thấp chéo từ vịnh (thay khung lai 13° nhìn xuống bến "đồ chơi"); M1 minh hoạ Omni 2 → 9 s; đoàn Rodney + tàu chanh: V7C (bậc 2 thời điểm, số/vị trí minh hoạ)',
+        'ANIM-V2: máy thấp chéo từ vịnh (thay khung lai 13° nhìn xuống bến "đồ chơi"); M1 minh hoạ Omni TRƯỢT 3 lượt (tàu có buồm / cờ / cọc buộc sắt) → giữ 3D góc thấp gần bến 2 → 9 s; đoàn Rodney + tàu chanh: V7C (bậc 2 thời điểm, số/vị trí minh hoạ)',
         cat=ct, minh_hoa=[dict(ma='M1', t0=2.0, t1=9.0)])
     v = V['C5']; o = copy.deepcopy(v['opt']); D = d(['2g']); cam = copy.deepcopy(V7C.CAM['C5'])
     for k in cam: k['l'] = [-900, 0, -900]
@@ -458,7 +459,7 @@ def main():
                   nhin_xuong_deg=pt, agl_m=agl, fov=[c['fov'] for c in cm], dur=d, t0=round(t_abs, 3), t1=round(t_abs + d, 3), thoi_gian=[dict(t=x['t'], at=x['at']) for x in o['time']], nam=[round(min(ys), 3), round(max(ys), 3)],
                   lightmap=[b['dir'] for b in o['nc']['bakes']], tl_buoc=tb, tl_buoc_n=len(tb), cau=[dict(dong=x['dong'], t=round(x['bd'] - t_abs, 3), cau=x['cau']) for x in L], su_kien=sh['su_kien'],
                   moc=o['time'][0]['at'], bac='xem ghi + meta lớp của cảnh', nguon='mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4', chuong=sh.get('chuong'), ghi=sh['ghi'],
-                  tieu_diem=[k2 for k2, _ in sh['td']], luot_thap=sh.get('luot_thap') or False, khung_neo=sh.get('khung_neo', False), ai_image=bool(sh.get('minh_hoa')), ai_texture=False, nc=True, lan=sh.get('lan'), cat_trong_shot=list(sh.get('cat') or []),
+                  tieu_diem=[k2 for k2, _ in sh['td']], luot_thap=sh.get('luot_thap') or False, khung_neo=sh.get('khung_neo', False), ai_image=any((REPO / f"reports/animatic-t3-v2/omni/chon/{m['ma']}.mp4").exists() for m in (sh.get('minh_hoa') or [])), ai_texture=False, nc=True, lan=sh.get('lan'), cat_trong_shot=list(sh.get('cat') or []),
                   minh_hoa=[dict(m, minh_hoa=True, nguon='Gemini Omni (gemini-omni-1.1-flash) image-to-video, ảnh đầu = render của chính shot', bac='minh hoạ N2 (§14.1 c): không mang dữ kiện vị trí; dữ kiện do lời') for m in (sh.get('minh_hoa') or [])])
         log.append(L1)
         bang.append(dict(ma=sh['id'], dong=sh['lines'], t0=round(t_abs, 3), t1=round(t_abs + d, 3), dur=d, diem=sh['diem'], kieu=sh['kieu'], nhin_xuong=pt, agl=agl, lightmap=L1['lightmap'], nam=L1['nam'],

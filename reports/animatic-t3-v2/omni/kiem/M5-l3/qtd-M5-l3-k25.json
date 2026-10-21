@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M5-l3-k25",
+   "nam": 2026,
+   "noi": "Gibraltar",
+   "sha256": "284fa638eb6acf806684982ea2da103c4c4916e22d32b222d91b63a718c9fca9",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "vat_hien_dai",
+     "mo_ta": "Travellers with wheeled suitcases and backpacks walk over a zebra-style crosswalk painted across the airport runway and taxiway. Runway edge lights are visible beyond it.",
+     "ly_do": "The Winston Churchill Avenue tunnel opened in March 2023. After that, the road and pedestrian crossing over the Gibraltar runway were closed to the public. In 2026 people would no longer walk across the runway on a painted crossing like this.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      0,
+      605,
+      1920,
+      1080
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.0361556,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1065,
+     "cacheReadInputTokens": 2936,
+     "cacheCreationInputTokens": 10080,
+     "webSearchRequests": 0,
+     "costUSD": 0.0361556,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 252,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"Travellers with wheeled suitcases and backpacks walk over a zebra-style crosswalk painted across the airport runway and taxiway. Runway edge lights are visible beyond it.\",\"ly_do\":\"The Winston Churchill Avenue tunnel opened in March 2023. After that, the road and pedestrian crossing over the Gibraltar runway were closed to the public. In 2026 people would no longer walk across the runway on a painted crossing like this.\",\"nam_xuat_hien\":null,\"toa_do\":[0.0,0.56,1.0,1.0],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0362,
+ "chi_phi_tb": 0.0362,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}
