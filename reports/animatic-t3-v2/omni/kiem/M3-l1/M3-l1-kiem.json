@@ -1,0 +1,399 @@
+{
+ "tag": "M3-l1",
+ "clip": "/home/user/cine-lab/reports/animatic-t3-v2/omni/ra/M3-l1.mp4",
+ "clip_sha": "0ea8dd2d2590b8730b60c823accc451ce4a369d26d4d35475bb6547cba74f48c",
+ "dau": "/home/user/cine-lab/reports/animatic-t3-v2/omni/dau/M3.jpg",
+ "dau_sha": "9baf8a91fb8fd8081e5d1e1e1cd7ac72a16ceef2b52e1593b9f3bbc96ffb3b18",
+ "nam": "1704",
+ "canh": "August 1704: townspeople leaving the town of Gibraltar on foot along the sandy isthmus, the Rock behind them (illustration, no facts)",
+ "so_khung": 240,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M3-l1/M3-l1-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0215,
+      "usage": {
+       "input_tokens": 10151,
+       "input_tokens_details": {
+        "cache_write_tokens": 10148,
+        "cached_tokens": 0
+       },
+       "output_tokens": 117,
+       "output_tokens_details": {
+        "reasoning_tokens": 74
+       },
+       "total_tokens": 10268
+      }
+     },
+     "secs": 6.8,
+     "mo_ta": "Đoàn người mang hành lý và dắt lừa đi trên eo đất cát, với núi đá Gibraltar phía sau.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1028942
+     },
+     "secs": 14.8,
+     "mo_ta": "A group of townspeople in early-18th-century dress walk across a sandy isthmus toward the viewer. A man leads a laden donkey, a woman carries a bundle, and a boy carries a chest. The Rock of Gibraltar and some green tents are behind them.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Pale lattice or fence-like structure on the far right horizon, resembling a pier or jetty, with a few small shapes nearby. It is not clearly present in the reference and is ambiguous.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.94,
+        0.505,
+        1.0,
+        0.535
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.25
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.009 (TB $0.009/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M3-l1-k25",
+      "nam": 1704,
+      "noi": "Gibraltar",
+      "sha256": "2f9d210590b7cc24454d1f1c70ca6f5f164c9e52c1ada5404452dee89cab73dd",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0088336,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 752,
+        "cacheReadInputTokens": 13016,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0088336,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 156,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1704,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0088,
+    "chi_phi_tb": 0.0088,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M3-l1/M3-l1-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0241,
+      "usage": {
+       "input_tokens": 10145,
+       "input_tokens_details": {
+        "cache_write_tokens": 10142,
+        "cached_tokens": 0
+       },
+       "output_tokens": 385,
+       "output_tokens_details": {
+        "reasoning_tokens": 244
+       },
+       "total_tokens": 10530
+      }
+     },
+     "secs": 12.9,
+     "mo_ta": "Đoàn người mặc trang phục cổ mang hành lý đi bộ trên dải đất cát, có một con lừa và núi đá Gibraltar phía sau.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp thành trên sườn núi phía sau đoàn người, có vẻ là tháp thuộc lâu đài Moorish; đã hiện diện trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.512,
+        0.426,
+        0.529,
+        0.458
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.75
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1013101
+     },
+     "secs": 16.7,
+     "mo_ta": "Townspeople in period dress walk across a sandy plain toward the camera with a donkey, baskets and a chest. The Rock of Gibraltar is behind them, and tents are scattered on the plain.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "A fence- or railing-like structure with a lattice look on the far-right horizon. It may be a pier or a modern fence, and it is not clearly part of the reference scene.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.95,
+        0.5,
+        1.0,
+        0.535
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.35
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "A small tower or castle on the lower slope of the Rock, at the edge of the town. The reference render shows the same tower.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.51,
+        0.43,
+        0.535,
+        0.46
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.008 (TB $0.008/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M3-l1-k55",
+      "nam": 1704,
+      "noi": "Gibraltar",
+      "sha256": "7d5ff5e4670c9a6bc42ce46f6411c765f02515f28778365a9cfec3fdf2296ce6",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0083236,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 701,
+        "cacheReadInputTokens": 13016,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0083236,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 105,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1704,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0083,
+    "chi_phi_tb": 0.0083,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M3-l1/M3-l1-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0241,
+      "usage": {
+       "input_tokens": 10145,
+       "input_tokens_details": {
+        "cache_write_tokens": 10142,
+        "cached_tokens": 0
+       },
+       "output_tokens": 381,
+       "output_tokens_details": {
+        "reasoning_tokens": 234
+       },
+       "total_tokens": 10526
+      }
+     },
+     "secs": 13.2,
+     "mo_ta": "Đoàn người mặc trang phục cổ mang theo đồ đạc đi bộ trên eo đất cát, với khối núi Gibraltar và một tháp thành ở hậu cảnh.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp thành trên sườn núi, có vẻ là Tower of Homage thuộc Lâu đài Moorish; cùng tháp này đã hiện diện trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.511,
+        0.425,
+        0.526,
+        0.455
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1000269
+     },
+     "secs": 14.7,
+     "mo_ta": "Townspeople in period dress (women with baskets, a boy carrying a chest, men in tricorn hats) walk across a sandy plain with scattered tents and shrubs, and the Rock of Gibraltar stands behind them.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Pale lattice-like structure at the far right horizon that looks like a pier, jetty or fence on the water's edge. It is not clearly present in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.94,
+        0.505,
+        1.0,
+        0.535
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.35
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Small tower or castle on the Rock's slope (resembles the Moorish Castle). It is also in the reference.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.505,
+        0.425,
+        0.53,
+        0.45
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.012 (TB $0.012/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M3-l1-k90",
+      "nam": 1704,
+      "noi": "Gibraltar",
+      "sha256": "9c44a5aeb84e2f10f346bb9e10a060e204f62576474e92445208bb34dfd31e50",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Far right on the shoreline there is a light-coloured lattice or screen structure that looks like a modern pier or fence. It is small and indistinct.",
+        "ly_do": "It may be a modern jetty or harbour work. The Gibraltar waterfront in 1704 had no structure like this. I can't identify it with certainty.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1805,
+         540,
+         1910,
+         583
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.0115636,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1025,
+        "cacheReadInputTokens": 13016,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.0115636,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 261,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1704,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Far right on the shoreline there is a light-coloured lattice or screen structure that looks like a modern pier or fence. It is small and indistinct.\",\"ly_do\":\"It may be a modern jetty or harbour work. The Gibraltar waterfront in 1704 had no structure like this. I can't identify it with certainty.\",\"nam_xuat_hien\":null,\"toa_do\":[0.94,0.5,0.995,0.54],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0116,
+    "chi_phi_tb": 0.0116,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

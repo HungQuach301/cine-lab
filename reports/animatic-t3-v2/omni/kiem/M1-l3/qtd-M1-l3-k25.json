@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M1-l3-k25",
+   "nam": 1780,
+   "noi": "Gibraltar",
+   "sha256": "57b7cc1a338e9b3b088dce77101a8a8fc089eb923d68243ad1706e44e33c0a16",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "vat_hien_dai",
+     "mo_ta": "A thin vertical pole or antenna-like spike on the roof of the small white building in the distance, left of the fortress. It is tiny and blurred, so it could be a chimney vent or a flagpole.",
+     "ly_do": "If it is a TV or radio antenna, it would be modern. The detail is too small to be sure.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      480,
+      464,
+      513,
+      502
+     ],
+     "do_tin": 0.12
+    }
+   ],
+   "cost_usd": 0.0355556,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1005,
+     "cacheReadInputTokens": 2936,
+     "cacheCreationInputTokens": 10080,
+     "webSearchRequests": 0,
+     "costUSD": 0.0355556,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 240,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"A thin vertical pole or antenna-like spike on the roof of the small white building in the distance, left of the fortress. It is tiny and blurred, so it could be a chimney vent or a flagpole.\",\"ly_do\":\"If it is a TV or radio antenna, it would be modern. The detail is too small to be sure.\",\"nam_xuat_hien\":null,\"toa_do\":[0.25,0.43,0.267,0.465],\"do_tin\":0.12}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0356,
+ "chi_phi_tb": 0.0356,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

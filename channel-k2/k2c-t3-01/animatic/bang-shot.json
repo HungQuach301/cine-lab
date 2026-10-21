@@ -8,14 +8,22 @@
   "t0": 0.0,
   "t1": 12.0,
   "dur": 12.0,
-  "diem": "D7-lai",
+  "diem": "D7-lai → WCA-than → D7-lai",
   "kieu": "lai",
   "nhin_xuong": [
    14.0,
+   14.1,
+   9.9,
+   10.4,
+   14.1,
    14.1
   ],
   "agl": [
    427.0,
+   425.0,
+   7.0,
+   7.0,
+   423.0,
    420.0
   ],
   "lightmap": [
@@ -35,7 +43,10 @@
   ],
   "ghi": "ANIM-V2: mở đầu ban ngày → đêm (timelapse 15:00 → 23:52, cùng điểm máy D7, trôi rất chậm) — Rock nhận ra trong ánh ngày 0–3 s; M5 minh hoạ Omni 4,5 → 10,5 s; H2 nối từ 23:52",
   "lan": null,
-  "cat": [],
+  "cat": [
+   4.5,
+   10.5
+  ],
   "minh_hoa": [
    {
     "ma": "M5",
@@ -302,12 +313,16 @@
   "nhin_xuong": [
    -0.6,
    -0.6,
+   -1.2,
+   -1.2,
    0.4,
    0.4
   ],
   "agl": [
    7.0,
    7.0,
+   2.0,
+   2.0,
    27.0,
    27.0
   ],
@@ -328,7 +343,8 @@
   "ghi": "ANIM-V2 R1: máy hạ ≈ 16–30 m, cạnh dòng người (đi cùng chiều về bắc, 1 400 người + 24 nhóm — số minh hoạ bậc 5; hướng đi: lời 1g S017–S018); M3 minh hoạ 3,5 → 11,5 s",
   "lan": null,
   "cat": [
-   3.5
+   3.5,
+   11.5
   ],
   "minh_hoa": [
    {
@@ -352,16 +368,16 @@
   "nhin_xuong": [
    3.5,
    3.5,
-   8.6,
-   8.6,
+   19.2,
+   19.7,
    7.3,
    7.2
   ],
   "agl": [
    95.0,
    93.0,
-   147.0,
-   147.0,
+   49.0,
+   50.0,
    165.0,
    161.0
   ],
@@ -408,14 +424,14 @@
   "nhin_xuong": [
    -2.3,
    -2.5,
-   8.0,
-   8.0
+   7.6,
+   7.6
   ],
   "agl": [
    91.0,
    88.0,
-   26.0,
-   25.0
+   29.0,
+   27.0
   ],
   "lightmap": [
    "b1704",
@@ -459,18 +475,18 @@
   "nhin_xuong": [
    5.1,
    5.1,
-   13.2,
-   13.5,
-   8.8,
-   8.7
+   4.3,
+   4.4,
+   7.9,
+   8.0
   ],
   "agl": [
    70.0,
    67.0,
-   64.0,
-   62.0,
-   61.0,
-   58.0
+   30.0,
+   30.0,
+   70.0,
+   70.0
   ],
   "lightmap": [
    "b1779"
@@ -490,7 +506,7 @@
   "ghi": "ANIM-V2 R1/R3 (thay LOOK-4 cũ): 3 góc thấp 55–95 m — Línea + đồn (bậc 1) → cận trại dựng dần (eo-dat-v7.json, bậc 1–2; lều tự nhiên, số lều giữ nguyên) → dải trại nhìn nam về Rock",
   "lan": null,
   "cat": [
-   6.385,
+   12.0,
    16.05
   ],
   "minh_hoa": []
@@ -544,9 +560,9 @@
   "diem": "Ca2-lai",
   "kieu": "chat",
   "nhin_xuong": [
-   -0.3,
-   -0.2,
-   -0.2,
+   -23.9,
+   -23.8,
+   -23.8,
    15.7,
    15.7,
    15.7
@@ -597,7 +613,7 @@
   "nhin_xuong": [
    2.2,
    2.2,
-   -0.6,
+   -0.7,
    -0.7,
    1.9,
    1.9
@@ -605,8 +621,8 @@
   "agl": [
    48.0,
    47.0,
-   -0.0,
-   0.0,
+   -1.0,
+   -1.0,
    52.0,
    51.0
   ],
@@ -653,16 +669,16 @@
    16.2,
    16.2,
    19.0,
-   -0.3,
-   -0.4
+   8.3,
+   8.3
   ],
   "agl": [
    231.0,
    229.0,
    229.0,
    240.0,
-   2.0,
-   2.0
+   22.0,
+   21.0
   ],
   "lightmap": [
    "b1779",
@@ -672,7 +688,7 @@
    1781.278,
    1781.283
   ],
-  "thoi_gian": "1781-04-12 09:20 → 1781-04-14 03:00",
+  "thoi_gian": "1781-04-12 09:20 → 1781-04-14 05:00",
   "vai": "buoc-ngoat",
   "vat": [
    "12/4/1781: đoàn Darby thả neo",
@@ -821,12 +837,12 @@
   "diem": "D-bac-thap",
   "kieu": "lai",
   "nhin_xuong": [
-   5.4,
-   5.2
+   2.7,
+   2.6
   ],
   "agl": [
-   66.0,
-   64.0
+   44.0,
+   43.0
   ],
   "lightmap": [
    "b1782"
@@ -940,27 +956,27 @@
   "nhin_xuong": [
    1.2,
    1.1,
-   6.3,
-   6.2,
-   8.8,
-   8.7
+   1.5,
+   1.4,
+   7.9,
+   8.0
   ],
   "agl": [
    86.0,
    84.0,
    37.0,
    36.0,
-   61.0,
-   58.0
+   70.0,
+   70.0
   ],
   "lightmap": [
    "b1782"
   ],
   "nam": [
    1782.749,
-   1783.55
+   1783.32
   ],
-  "thoi_gian": "1782-10-01 12:00 → 1783.55",
+  "thoi_gian": "1782-10-01 12:00 → 1783.32",
   "vai": "he-qua",
   "vat": [
    "phong toả tiếp tục mùa đông 1782",
@@ -984,15 +1000,19 @@
   "t0": 382.583,
   "t1": 409.833,
   "dur": 27.25,
-  "diem": "F-lai",
+  "diem": "SF-thap → SB-thap",
   "kieu": "lai",
   "nhin_xuong": [
-   11.2,
-   11.1
+   3.3,
+   3.3,
+   3.8,
+   3.7
   ],
   "agl": [
-   700.0,
-   692.0
+   28.0,
+   27.0,
+   55.0,
+   53.0
   ],
   "lightmap": [
    "b1782",
@@ -1009,9 +1029,11 @@
    "1783 → 1809: dải cát giữa tường và Línea",
    "14/2/1810: hai pháo đài Línea nổ tung"
   ],
-  "ghi": "MỐC ĐINH 1810: khói nổ ở San Felipe + Santa Bárbara (ghost SH, bậc 1); Línea biến mất 14/2/1810 (eo-dat-v7.json); dải trung lập không tô (§10.7)",
+  "ghi": "MỐC ĐINH 1810: khói nổ ở San Felipe + Santa Bárbara (ghost SH, bậc 1); Línea biến mất 14/2/1810 (eo-dat-v7.json); dải trung lập không tô (§10.7); ANIM-V2 R2/R3: 2 góc thấp — đồn San Felipe + Línea (1783 → 1809, Rock nền) → đồn Santa Bárbara nổ 14/2/1810",
   "lan": null,
-  "cat": [],
+  "cat": [
+   16.75
+  ],
   "minh_hoa": []
  },
  {
@@ -1022,15 +1044,15 @@
   "t0": 409.833,
   "t1": 418.333,
   "dur": 8.5,
-  "diem": "G-lai",
+  "diem": "B-thap",
   "kieu": "lai",
   "nhin_xuong": [
-   13.6,
-   13.6
+   3.5,
+   3.5
   ],
   "agl": [
-   464.0,
-   458.0
+   95.0,
+   93.0
   ],
   "lightmap": [
    "b1900"
@@ -1044,7 +1066,7 @@
   "vat": [
    "1810 → 1860 trên dải trung lập"
   ],
-  "ghi": "GIỮ CHỖ: lớp \"mép đất Anh tiến dần 1810–60\" chưa có nguồn bậc 1–3 → chỉ bộ đếm chạy + nhà theo năm xây có trong gói; Sayer 1865 chưa nắn khớp",
+  "ghi": "GIỮ CHỖ: lớp \"mép đất Anh tiến dần 1810–60\" chưa có nguồn bậc 1–3; ANIM-V2 R4: góc phố + cảng từ vịnh (nhà theo năm xây có trong gói, tàu theo năm) thay eo đất trống; Sayer 1865 chưa nắn khớp",
   "lan": null,
   "cat": [],
   "minh_hoa": []
@@ -1129,15 +1151,19 @@
   "t0": 435.292,
   "t1": 462.292,
   "dur": 27.0,
-  "diem": "D-lai",
+  "diem": "H-thap → F-hang-rao",
   "kieu": "lai",
   "nhin_xuong": [
-   12.3,
-   12.3
+   2.6,
+   2.6,
+   3.2,
+   3.2
   ],
   "agl": [
-   426.0,
-   420.0
+   34.0,
+   33.0,
+   27.0,
+   27.0
   ],
   "lightmap": [
    "b1900"
@@ -1153,9 +1179,11 @@
    "hàng rào 1909 mọc dọc mép (MỐC ĐINH)",
    "1909 → 1930"
   ],
-  "ghi": "hàng rào 1909: tuyến coi trùng ranh OSM 2026 (ƯỚC TÍNH, eo-dat-v7.json); trại lính/vườn/trường bắn/trường đua 3g CHƯA dựng (chưa có nguồn vị trí bậc 1) — giữ chỗ",
+  "ghi": "hàng rào 1909: tuyến coi trùng ranh OSM 2026 (ƯỚC TÍNH, eo-dat-v7.json); trại lính/vườn/trường bắn/trường đua 3g CHƯA dựng (chưa có nguồn vị trí bậc 1) — giữ chỗ; ANIM-V2 R2/R3: 2 góc thấp (phố La Línea 1900 + Rock → dọc hàng rào mọc 1909)",
   "lan": null,
-  "cat": [],
+  "cat": [
+   6.0
+  ],
   "minh_hoa": []
  },
  {
@@ -1166,15 +1194,15 @@
   "t0": 462.292,
   "t1": 471.625,
   "dur": 9.3333,
-  "diem": "D2-lai",
+  "diem": "D2-thap",
   "kieu": "lai",
   "nhin_xuong": [
-   12.9,
-   12.9
+   0.6,
+   0.6
   ],
   "agl": [
-   420.0,
-   416.0
+   54.0,
+   52.0
   ],
   "lightmap": [
    "b1900",
@@ -1203,15 +1231,19 @@
   "t0": 471.625,
   "t1": 497.125,
   "dur": 25.5,
-  "diem": "D-lai",
+  "diem": "D-thap-dong → D-thap-tay",
   "kieu": "lai",
   "nhin_xuong": [
-   13.0,
-   13.0
+   0.8,
+   0.7,
+   1.5,
+   1.5
   ],
   "agl": [
-   386.0,
-   381.0
+   38.0,
+   38.0,
+   45.0,
+   44.0
   ],
   "lightmap": [
    "b1940"
@@ -1227,9 +1259,11 @@
    "cuối 1939: mặt đường băng cứng mọc",
    "1941: đường băng cắt qua con đường duy nhất sang TBN"
   ],
-  "ghi": "đường băng mọc theo uRecl (S091–S092); ảnh NARA 4a không dùng (TL-4)",
+  "ghi": "đường băng mọc theo uRecl (S091–S092); ảnh NARA 4a không dùng (TL-4); ANIM-V2 R2/R3: 2 góc thấp 40–45 m dọc đường băng",
   "lan": null,
-  "cat": [],
+  "cat": [
+   21.588
+  ],
   "minh_hoa": []
  },
  {
@@ -1242,15 +1276,19 @@
   "t0": 497.125,
   "t1": 525.5,
   "dur": 28.375,
-  "diem": "F2-lai",
+  "diem": "W-vinh-thap → D-vach-thap",
   "kieu": "lai",
   "nhin_xuong": [
-   11.2,
-   11.2
+   3.1,
+   3.1,
+   -4.5,
+   -4.7
   ],
   "agl": [
-   650.0,
-   644.0
+   70.0,
+   69.0,
+   70.0,
+   68.0
   ],
   "lightmap": [
    "b1940"
@@ -1265,9 +1303,11 @@
    "đường băng lấn vịnh theo tháng 1941–43",
    "bụi đá nổ ở vách bắc"
   ],
-  "ghi": "GIỮ CHỖ mặt cắt hầm (M11, ONI 1954) chưa có: lời 4d–4e trên khung vách bắc + đường băng lấn vịnh; bụi đá: vị trí ước tính (bậc 5); thẻ \"55 km\" bỏ (lời mang số)",
+  "ghi": "GIỮ CHỖ mặt cắt hầm (M11, ONI 1954) chưa có: lời 4d–4e trên khung vách bắc + đường băng lấn vịnh; bụi đá: vị trí ước tính (bậc 5); thẻ \"55 km\" bỏ (lời mang số); ANIM-V2 R2/R3: 2 góc thấp (đường băng từ vịnh → vách bắc)",
   "lan": null,
-  "cat": [],
+  "cat": [
+   11.042
+  ],
   "minh_hoa": []
  },
  {

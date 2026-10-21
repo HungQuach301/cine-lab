@@ -57,7 +57,8 @@ def ket_luan(items, nam):
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--dau', required=True); ap.add_argument('--clip', required=True); ap.add_argument('--nam', required=True); ap.add_argument('--canh', required=True)
     ap.add_argument('--noi', default='Gibraltar'); ap.add_argument('--tag', required=True); ap.add_argument('--out', required=True); ap.add_argument('--mo-hinh', default='gpt,claude'); ap.add_argument('--qtd', default='1')
-    a = ap.parse_args(); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
+    ap.add_argument('--chi-qtd', action='store_true', help='giữ kết quả 2 mô hình đã có trong <tag>-kiem.json, chỉ chạy lại q_thoi_dai')
+    a = ap.parse_args(); out = Path(a.out).resolve(); out.mkdir(parents=True, exist_ok=True); a.clip = str(Path(a.clip).resolve()); a.dau = str(Path(a.dau).resolve())
     if tong('gpt') >= 15: sys.exit('CHẶN OpenAI $15');
     if tong('claude') >= 30: sys.exit('CHẶN Claude $30')
     cap = cv2.VideoCapture(a.clip); n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); fps = cap.get(cv2.CAP_PROP_FPS) or 24; fr = []
@@ -65,20 +66,24 @@ def main():
         cap.set(cv2.CAP_PROP_POS_FRAMES, int(u * (n - 1))); ok, im = cap.read()
         if ok: p = out / f'{a.tag}-k{int(u * 100):02d}.png'; cv2.imwrite(str(p), im); fr.append((u, p))
     C = json.load(open(Path(__file__).parent / 'cam_thoi_dai.json')); cam = (C['chung'] if float(a.nam) < 1850 else []) + C['ai_da_bia']
+    cu = json.loads((out / f'{a.tag}-kiem.json').read_text()) if a.chi_qtd and (out / f'{a.tag}-kiem.json').exists() else None
     res = dict(tag=a.tag, clip=a.clip, clip_sha=L.sha_file(a.clip), dau=a.dau, dau_sha=L.sha_file(a.dau), nam=a.nam, canh=a.canh, so_khung=n, fps=fps, prompt_sha=L.sha(PROMPT.encode()), khung=[])
     for u, p in fr:
         K = dict(u=u, anh=str(p), mo_hinh={})
-        with tempfile.TemporaryDirectory() as td:
-            d = Path(td); T = VK.tiles(a.dau, d, 'reference')[:1]; S = VK.tiles(p, d, 'frame')
-            pr = PROMPT.format(canh=a.canh, noi=a.noi, nam=a.nam, dau='\n'.join(f'- {x}' for x in T), khung='\n'.join(f'- {x}' for x in S), cam='\n'.join(f'- {x}' for x in cam),
-                               loai=', '.join(f'"{k}" ({v})' for k, v in LOAI.items()))
-            for mh in a.mo_hinh.split(','):
-                t0 = time.time()
-                if mh == 'gpt': txt, meta = VK.call_gpt(pr.replace('Read ALL the image files below with the Read tool before answering (paths are absolute):', 'The images are attached in this order:'), T + S, f'{a.tag}-k{int(u * 100)}-gpt')
-                else: txt, meta = VK.call_claude(pr, T + S, f'{a.tag}-k{int(u * 100)}-claude')
-                (out / f'{a.tag}-k{int(u * 100):02d}-{mh}.raw.txt').write_text(txt or ''); J = VK.parse(txt) or {}
-                lo, ng = ket_luan(J.get('muc', []), a.nam)
-                K['mo_hinh'][mh] = dict(meta=meta, secs=round(time.time() - t0, 1), mo_ta=J.get('mo_ta'), muc=J.get('muc', []), loi=lo, nghi_van=ng, doc_duoc=bool(J))
+        old = [k for k in (cu or {}).get('khung', []) if k['u'] == u]
+        if old: K['mo_hinh'] = old[0]['mo_hinh']
+        else:
+          with tempfile.TemporaryDirectory() as td:
+              d = Path(td); T = VK.tiles(a.dau, d, 'reference')[:1]; S = VK.tiles(p, d, 'frame')
+              pr = PROMPT.format(canh=a.canh, noi=a.noi, nam=a.nam, dau='\n'.join(f'- {x}' for x in T), khung='\n'.join(f'- {x}' for x in S), cam='\n'.join(f'- {x}' for x in cam),
+                                 loai=', '.join(f'"{k}" ({v})' for k, v in LOAI.items()))
+              for mh in a.mo_hinh.split(','):
+                  t0 = time.time()
+                  if mh == 'gpt': txt, meta = VK.call_gpt(pr.replace('Read ALL the image files below with the Read tool before answering (paths are absolute):', 'The images are attached in this order:'), T + S, f'{a.tag}-k{int(u * 100)}-gpt')
+                  else: txt, meta = VK.call_claude(pr, T + S, f'{a.tag}-k{int(u * 100)}-claude')
+                  (out / f'{a.tag}-k{int(u * 100):02d}-{mh}.raw.txt').write_text(txt or ''); J = VK.parse(txt) or {}
+                  lo, ng = ket_luan(J.get('muc', []), a.nam)
+                  K['mo_hinh'][mh] = dict(meta=meta, secs=round(time.time() - t0, 1), mo_ta=J.get('mo_ta'), muc=J.get('muc', []), loi=lo, nghi_van=ng, doc_duoc=bool(J))
         if a.qtd == '1':
             q = out / f'qtd-{a.tag}-k{int(u * 100):02d}.json'
             r = subprocess.run([sys.executable, str(REPO / 'checks/ll/q_thoi_dai.py'), '--anh', str(p), '--nam', str(int(float(a.nam))), '--noi', a.noi, '--out', str(out / f'qtd-{a.tag}'), '--api', '--json', str(q)],
@@ -93,7 +98,8 @@ def main():
             for x in (f.get('nghi_van') or []): qn.append((k['u'], x))
         if isinstance(q.get('nghi_van'), list): qn += [(k['u'], x) for x in q['nghi_van']]
     doc = all(v['doc_duoc'] for k in res['khung'] for v in k['mo_hinh'].values())
-    res['ket_luan_may'] = dict(loi_mo_hinh=len(loi), q_thoi_dai_nghi_van=len(qn), mo_hinh_doc_duoc=doc, ket_qua='ĐẠT' if (not loi and not qn and doc) else 'LOẠI',
+    qthieu = sum(1 for k in res['khung'] if a.qtd == '1' and not ((k.get('q_thoi_dai') or {}).get('ok') and not (k.get('q_thoi_dai') or {}).get('thieu')))
+    res['ket_luan_may'] = dict(loi_mo_hinh=len(loi), q_thoi_dai_nghi_van=len(qn), mo_hinh_doc_duoc=doc, q_thoi_dai_thieu=qthieu, ket_qua='LOẠI' if (loi or qn) else ('THIẾU' if (qthieu or not doc) else 'ĐẠT'),
                                chi_tiet=[dict(u=u, mo_hinh=mh, loai=x.get('loai'), mo_ta=x.get('mo_ta'), nam=x.get('nam_xuat_hien')) for u, mh, x in loi] + [dict(u=u, mo_hinh='q_thoi_dai', mo_ta=json.dumps(x, ensure_ascii=False)[:200]) for u, x in qn])
     (out / f'{a.tag}-kiem.json').write_text(json.dumps(res, ensure_ascii=False, indent=1))
     print(a.tag, res['ket_luan_may']['ket_qua'], 'lỗi mô hình', len(loi), 'q_thoi_dai', len(qn), 'đọc được', doc)

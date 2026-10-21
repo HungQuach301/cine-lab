@@ -1,0 +1,832 @@
+{
+ "tag": "M1-l3",
+ "clip": "/home/user/cine-lab/reports/animatic-t3-v2/omni/ra/M1-l3.mp4",
+ "clip_sha": "19fad808db019d99386669fa4b76a3b7aa3eb999b329f86038f14355ef08d4dd",
+ "dau": "/home/user/cine-lab/reports/animatic-t3-v2/omni/dau/M1.jpg",
+ "dau_sha": "371b63cecd45f538572d9b7fc516b0f2ee7f358ca9b72feb2d63358eae4b6091",
+ "nam": "1780",
+ "canh": "January 1780, Gibraltar harbour (Old Mole): a relief convoy's supplies being unloaded from a rowing boat, men carrying barrels and crates (illustration, no facts)",
+ "so_khung": 240,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M1-l3/M1-l3-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0292,
+      "usage": {
+       "input_tokens": 10148,
+       "input_tokens_details": {
+        "cache_write_tokens": 10145,
+        "cached_tokens": 0
+       },
+       "output_tokens": 890,
+       "output_tokens_details": {
+        "reasoning_tokens": 374
+       },
+       "total_tokens": 11038
+      }
+     },
+     "secs": 23.1,
+     "mo_ta": "Những người mặc trang phục thời kỳ đang chuyển hàng từ thuyền chèo lên cầu cảng đá, cạnh các thùng gỗ và tường thành.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Khối tháp hoặc pháo đài nhô ra khỏi tường thành, có ô cửa tối và đường gờ kiến trúc, được thêm so với bức tường trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.298,
+        0.281,
+        0.538,
+        0.569
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà thấp phía xa bên trái, có mái, ống khói và cửa, không xuất hiện trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.195,
+        0.455,
+        0.307,
+        0.538
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cầu cảng lát đá phẳng với mép đứng và các bậc cập thuyền thay cho phần bờ kè dốc trong ảnh tham chiếu, làm thay đổi cấu trúc bến.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.288,
+        0.552,
+        1.0,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Trụ buộc tàu dạng nấm kèm dây xích ở tiền cảnh được thêm vào; ảnh không đủ để xác định chắc chắn niên đại của kiểu trụ này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.547,
+        0.691,
+        0.623,
+        0.794
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Khối tháp hoặc pháo đài nhô ra khỏi tường thành, có ô cửa tối và đường gờ kiến trúc, được thêm so với bức tường trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.298,
+        0.281,
+        0.538,
+        0.569
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà thấp phía xa bên trái, có mái, ống khói và cửa, không xuất hiện trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.195,
+        0.455,
+        0.307,
+        0.538
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cầu cảng lát đá phẳng với mép đứng và các bậc cập thuyền thay cho phần bờ kè dốc trong ảnh tham chiếu, làm thay đổi cấu trúc bến.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.288,
+        0.552,
+        1.0,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Trụ buộc tàu dạng nấm kèm dây xích ở tiền cảnh được thêm vào; ảnh không đủ để xác định chắc chắn niên đại của kiểu trụ này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.547,
+        0.691,
+        0.623,
+        0.794
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1066002
+     },
+     "secs": 19.4,
+     "mo_ta": "A sunlit stone harbour quay with a fortified bastion wall, with the Rock of Gibraltar behind. Sailors in a rowing boat hand a crate up to men in civilian dress and redcoats, who stack barrels on the cobbled mole.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Distant white modern-looking buildings with a rooftop chimney or antenna-like mast, invented on the far quay",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.21,
+        0.44,
+        0.31,
+        0.53
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.45
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Dark hull of a larger vessel at the far left edge, with a mast or spar above it, beyond the rowing boats",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.4,
+        0.06,
+        0.55
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "The Rock of Gibraltar with a small structure or signal post on its summit. The reference also has a mountain, but a different one with no structure.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.34,
+        0.2,
+        0.56,
+        0.34
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Invented stone bastion tower with loopholes and crenellations in front of the Rock. The reference has plain walls, not this detailed bastion.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.3,
+        0.28,
+        0.53,
+        0.56
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.35
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Iron mooring bollard with chain on the quay edge, which looks like a modern harbour bollard",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.55,
+        0.69,
+        0.62,
+        0.78
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.25
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Invented troops (redcoat soldiers) and many workers on the quay. The reference has only a small group of figures.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.36,
+        0.47,
+        0.76,
+        0.72
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.2
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M1-l3-k25",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "57b7cc1a338e9b3b088dce77101a8a8fc089eb923d68243ad1706e44e33c0a16",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "vat_hien_dai",
+        "mo_ta": "A thin vertical pole or antenna-like spike on the roof of the small white building in the distance, left of the fortress. It is tiny and blurred, so it could be a chimney vent or a flagpole.",
+        "ly_do": "If it is a TV or radio antenna, it would be modern. The detail is too small to be sure.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         480,
+         464,
+         513,
+         502
+        ],
+        "do_tin": 0.12
+       }
+      ],
+      "cost_usd": 0.0355556,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1005,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0355556,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 240,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"A thin vertical pole or antenna-like spike on the roof of the small white building in the distance, left of the fortress. It is tiny and blurred, so it could be a chimney vent or a flagpole.\",\"ly_do\":\"If it is a TV or radio antenna, it would be modern. The detail is too small to be sure.\",\"nam_xuat_hien\":null,\"toa_do\":[0.25,0.43,0.267,0.465],\"do_tin\":0.12}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0356,
+    "chi_phi_tb": 0.0356,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M1-l3/M1-l3-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0259,
+      "usage": {
+       "input_tokens": 10142,
+       "input_tokens_details": {
+        "cache_write_tokens": 10139,
+        "cached_tokens": 0
+       },
+       "output_tokens": 561,
+       "output_tokens_details": {
+        "reasoning_tokens": 293
+       },
+       "total_tokens": 10703
+      }
+     },
+     "secs": 14.9,
+     "mo_ta": "Men unload barrels and crates from small rowing boats beside a fortified stone quay, with a red-coated soldier nearby.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "An added white, pitched-roof waterfront building with a chimney, doors and windows is absent from the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.199,
+        0.433,
+        0.292,
+        0.524
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "An added projecting stone bastion with a dark rectangular opening replaces the reference wall's plain configuration.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.286,
+        0.245,
+        0.536,
+        0.547
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      },
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "A manufactured curved-head iron mooring bollard on the foreground quay resembles nineteenth-century harbour fittings rather than an eighteenth-century mooring post.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.614,
+        0.707,
+        0.676,
+        0.824
+       ],
+       "nam_xuat_hien": 1800,
+       "do_tin": 0.73
+      }
+     ],
+     "loi": [
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "A manufactured curved-head iron mooring bollard on the foreground quay resembles nineteenth-century harbour fittings rather than an eighteenth-century mooring post.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.614,
+        0.707,
+        0.676,
+        0.824
+       ],
+       "nam_xuat_hien": 1800,
+       "do_tin": 0.73
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "An added white, pitched-roof waterfront building with a chimney, doors and windows is absent from the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.199,
+        0.433,
+        0.292,
+        0.524
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "An added projecting stone bastion with a dark rectangular opening replaces the reference wall's plain configuration.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.286,
+        0.245,
+        0.536,
+        0.547
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1065102
+     },
+     "secs": 21.8,
+     "mo_ta": "A rowing boat moored at a stone quay below a high fortress wall and bastion, with men in navy jackets, a redcoat soldier and civilians stacking barrels, and a rocky headland behind.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Rock of Gibraltar-like headland with a small structure or signal post on its summit. The reference has a mountain, but its shape differs.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.33,
+        0.18,
+        0.55,
+        0.29
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.35
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Invented white-walled modern-looking buildings with a chimney and a thin pole or antenna on the harbour spit at left. They are not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.2,
+        0.43,
+        0.3,
+        0.51
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Invented stone bastion tower with an embrasure and a long harbour breakwater. The reference has only plain walls.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.29,
+        0.25,
+        0.53,
+        0.53
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "Iron mooring bollard with a chain on the quay. It looks like a modern harbour bollard, though cast iron or cannon bollards existed by 1780.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.61,
+        0.71,
+        0.7,
+        0.83
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dark hull-like object at the far left edge of the harbour, possibly a larger vessel.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.49,
+        0.02,
+        0.53
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.2
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Invented white-walled modern-looking buildings with a chimney and a thin pole or antenna on the harbour spit at left. They are not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.2,
+        0.43,
+        0.3,
+        0.51
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M1-l3-k55",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "31bd2573d459e4b4dbd53892a57e28e97f99cc4be087664a29e0fc39bd897edc",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A long, low, flat-topped mole or breakwater runs across the left background. It has a uniform straight face and rubble or riprap at its head. A modern-looking white building with chimneys and a small mast or antenna stands at its root.",
+        "ly_do": "The straight, uniform harbour mole and the riprap armour stone look like later harbour works, not the 1780 Gibraltar waterfront. The thin vertical mast or antenna on the white building also looks modern. Both are small and distant, so this is a low-confidence call.",
+        "nam_xuat_hien": 1900,
+        "toa_do_px": [
+         0,
+         475,
+         576,
+         572
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.037455600000000006,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1195,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.037455600000000006,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 366,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 12.0,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A long, low, flat-topped mole or breakwater runs across the left background. It has a uniform straight face and rubble or riprap at its head. A modern-looking white building with chimneys and a small mast or antenna stands at its root.\",\"ly_do\":\"The straight, uniform harbour mole and the riprap armour stone look like later harbour works, not the 1780 Gibraltar waterfront. The thin vertical mast or antenna on the white building also looks modern. Both are small and distant, so this is a low-confidence call.\",\"nam_xuat_hien\":1900,\"toa_do\":[0.0,0.44,0.3,0.53],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0375,
+    "chi_phi_tb": 0.0375,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M1-l3/M1-l3-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0259,
+      "usage": {
+       "input_tokens": 10148,
+       "input_tokens_details": {
+        "cache_write_tokens": 10145,
+        "cached_tokens": 0
+       },
+       "output_tokens": 563,
+       "output_tokens_details": {
+        "reasoning_tokens": 266
+       },
+       "total_tokens": 10711
+      }
+     },
+     "secs": 16.1,
+     "mo_ta": "Men unload crates from a rowing boat beside stacked barrels and soldiers on a stone quay beneath harbour fortifications.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "An invented pale harbour building with a pitched roof, chimney, blue doorway and multiple openings appears in the left background; it is absent from the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.195,
+        0.405,
+        0.293,
+        0.506
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "A projecting fortified bastion with a sloping face and dark rectangular aperture replaces the reference's simple wall arrangement, introducing unsupported architectural details.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.282,
+        0.212,
+        0.544,
+        0.52
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "A prominent mushroom-headed metal mooring bollard with a chain around its base has been added in the foreground; its modern-looking design is questionable for the scene, although its first-use date cannot be established from the image.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.724,
+        0.739,
+        0.851,
+        0.938
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "An invented pale harbour building with a pitched roof, chimney, blue doorway and multiple openings appears in the left background; it is absent from the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.195,
+        0.405,
+        0.293,
+        0.506
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "A projecting fortified bastion with a sloping face and dark rectangular aperture replaces the reference's simple wall arrangement, introducing unsupported architectural details.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.282,
+        0.212,
+        0.544,
+        0.52
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "A prominent mushroom-headed metal mooring bollard with a chain around its base has been added in the foreground; its modern-looking design is questionable for the scene, although its first-use date cannot be established from the image.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.724,
+        0.739,
+        0.851,
+        0.938
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1070334
+     },
+     "secs": 20.3,
+     "mo_ta": "A rowing boat with sailors in navy jackets lies beside a stone quay under a bastion wall, while redcoats and workers stack barrels and crates, with the Rock of Gibraltar in the background.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Whitewashed buildings with a small mast or antenna and chimney on the far quay. They are invented and are not in the reference. The mast could read as a modern antenna.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.196,
+        0.4,
+        0.29,
+        0.48
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      },
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "Large rusty iron mooring bollard with a chain in the foreground. It looks like a modern harbour bollard and is not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.72,
+        0.74,
+        0.85,
+        0.92
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Small structures or flag-like objects on the summit of the Rock. They are invented and not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.735,
+        0.14,
+        0.77,
+        0.16
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Stone bastion with a shaped corner, embrasure and battlements, plus a long crenellated wall. The reference has plain walls, so this bastion is a new invented detail.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.29,
+        0.0,
+        1.0,
+        0.52
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Whitewashed buildings with a small mast or antenna and chimney on the far quay. They are invented and are not in the reference. The mast could read as a modern antenna.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.196,
+        0.4,
+        0.29,
+        0.48
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M1-l3-k90",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "cc98809100b5759e9726d665b35f8f56d75fa8722778b831b00c4f967d428bec",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "vat_hien_dai",
+        "mo_ta": "A large, rusty, mushroom-headed cast-iron mooring bollard with a heavy chain, set on the quay in the foreground.",
+        "ly_do": "Mushroom-capped cast-iron bollards are a 19th-century industrial harbour fitting. Quays in 1780 used stone or wooden posts, iron rings, or old cannon set upright as bollards.",
+        "nam_xuat_hien": 1850,
+        "toa_do_px": [
+         1402,
+         799,
+         1632,
+         1004
+        ],
+        "do_tin": 0.35
+       }
+      ],
+      "cost_usd": 0.035735600000000006,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1023,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.035735600000000006,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 238,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"A large, rusty, mushroom-headed cast-iron mooring bollard with a heavy chain, set on the quay in the foreground.\",\"ly_do\":\"Mushroom-capped cast-iron bollards are a 19th-century industrial harbour fitting. Quays in 1780 used stone or wooden posts, iron rings, or old cannon set upright as bollards.\",\"nam_xuat_hien\":1850,\"toa_do\":[0.73,0.74,0.85,0.93],\"do_tin\":0.35}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0357,
+    "chi_phi_tb": 0.0357,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 1,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "LOẠI",
+  "chi_tiet": [
+   {
+    "u": 0.55,
+    "mo_hinh": "gpt",
+    "loai": "thoi_dai",
+    "mo_ta": "A manufactured curved-head iron mooring bollard on the foreground quay resembles nineteenth-century harbour fittings rather than an eighteenth-century mooring post.",
+    "nam": 1800
+   }
+  ]
+ }
+}

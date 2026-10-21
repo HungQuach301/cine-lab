@@ -1,0 +1,45 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M2-l3-k25",
+   "nam": 1780,
+   "noi": "Gibraltar",
+   "sha256": "cbcaf5f4c159b15d330a625c9e220cdefd9de04148f0772a0c4370e17cc9454c",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.0314656,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 596,
+     "cacheReadInputTokens": 2936,
+     "cacheCreationInputTokens": 10080,
+     "webSearchRequests": 0,
+     "costUSD": 0.0314656,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 7.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0315,
+ "chi_phi_tb": 0.0315,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

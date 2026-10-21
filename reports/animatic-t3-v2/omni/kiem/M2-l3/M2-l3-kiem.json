@@ -1,0 +1,371 @@
+{
+ "tag": "M2-l3",
+ "clip": "/home/user/cine-lab/reports/animatic-t3-v2/omni/ra/M2-l3.mp4",
+ "clip_sha": "d03dd5949de4d018fd4f9275568edc44690dcba4a65412c5d1130808d830fbe2",
+ "dau": "/home/user/cine-lab/reports/animatic-t3-v2/omni/dau/M2.jpg",
+ "dau_sha": "a07cf23b69ca1eab1604b2864e2d4efc5b9b3b7419eb4b40cb06a44379b64958",
+ "nam": "1780",
+ "canh": "January 1780, siege of Gibraltar: hungry people picking wild plants on the rocky limestone slope of the Rock (illustration, no facts)",
+ "so_khung": 240,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M2-l3/M2-l3-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0213,
+      "usage": {
+       "input_tokens": 10148,
+       "input_tokens_details": {
+        "cache_write_tokens": 10145,
+        "cached_tokens": 0
+       },
+       "output_tokens": 102,
+       "output_tokens_details": {
+        "reasoning_tokens": 43
+       },
+       "total_tokens": 10250
+      }
+     },
+     "secs": 5.1,
+     "mo_ta": "Một người đàn ông và một người phụ nữ mặc trang phục thời kỳ đang hái cây dại trên sườn núi đá vôi, cạnh giỏ đựng rau và các bụi cây thấp.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.09723599999999999
+     },
+     "secs": 12.4,
+     "mo_ta": "Two poor people in period clothing, a man and a woman in a bonnet and shawl, pick wild plants into a basket and a bag on a rocky, grassy limestone hillside with dwarf fan palms and a strip of sea at the right edge.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "A narrow strip of sea is visible on the horizon at the right edge. The reference frame shows no sea, but it is plausible for the Rock's slope.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.93,
+        0.81,
+        1.0,
+        0.9
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.1
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M2-l3-k25",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "cbcaf5f4c159b15d330a625c9e220cdefd9de04148f0772a0c4370e17cc9454c",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0314656,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 596,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0314656,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0315,
+    "chi_phi_tb": 0.0315,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M2-l3/M2-l3-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0212,
+      "usage": {
+       "input_tokens": 10142,
+       "input_tokens_details": {
+        "cache_write_tokens": 10139,
+        "cached_tokens": 0
+       },
+       "output_tokens": 91,
+       "output_tokens_details": {
+        "reasoning_tokens": 38
+       },
+       "total_tokens": 10233
+      }
+     },
+     "secs": 4.4,
+     "mo_ta": "Hai người mặc trang phục cổ đang cúi hái cây dại trên sườn núi đá vôi phủ cỏ và bụi cây dưới bầu trời nhiều mây.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.10186959999999999
+     },
+     "secs": 17.9,
+     "mo_ta": "A man and a woman in rough period clothing bend over to pick wild plants on a rocky, scrub-covered limestone slope, with a grey sky and a strip of sea at the far right edge.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "A grey smoke column rises from behind the slope into the sky. It looks like an invented fire or smoke plume and is not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.4,
+        0.36,
+        0.56,
+        0.61
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      },
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "A small metallic band on the man's wrist looks like a wristwatch or bracelet. It is small and unclear.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.38,
+        0.8,
+        0.41,
+        0.84
+       ],
+       "nam_xuat_hien": 1900,
+       "do_tin": 0.25
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "A strip of sea is visible at the far right edge. The reference shows no sea, only hillside and sky.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.92,
+        0.8,
+        1.0,
+        0.85
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.2
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "A grey smoke column rises from behind the slope into the sky. It looks like an invented fire or smoke plume and is not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.4,
+        0.36,
+        0.56,
+        0.61
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M2-l3-k55",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "c9338d710078fa7fafb2124a9b515c1fad52172f4eec9f3db26d4eb52a448fb8",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0321456,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 664,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0321456,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 68,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0321,
+    "chi_phi_tb": 0.0321,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M2-l3/M2-l3-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0212,
+      "usage": {
+       "input_tokens": 10142,
+       "input_tokens_details": {
+        "cache_write_tokens": 10139,
+        "cached_tokens": 0
+       },
+       "output_tokens": 91,
+       "output_tokens_details": {
+        "reasoning_tokens": 38
+       },
+       "total_tokens": 10233
+      }
+     },
+     "secs": 4.9,
+     "mo_ta": "Hai người mặc quần áo kiểu cổ đang cúi hái cây dại trên sườn núi đá vôi phủ cỏ và cây bụi dưới trời nhiều mây.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.097106
+     },
+     "secs": 12.5,
+     "mo_ta": "A man and a woman in period peasant clothes bend to pick wild plants on a rocky, scrubby limestone hillside, with a faint smoke haze in the sky behind them.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Faint grey smoke column or haze rising behind the ridge on the right. It is not in the reference and could read as an invented fire or smoke plume. It is distant and diffuse, so it may pass as ordinary smoke.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.53,
+        0.33,
+        0.7,
+        0.62
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M2-l3-k90",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "ab790c3b6b20105f014f39673d2aadb0dd08daa6366cd8b0a14e65b1e68329aa",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0314656,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 596,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0314656,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0315,
+    "chi_phi_tb": 0.0315,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

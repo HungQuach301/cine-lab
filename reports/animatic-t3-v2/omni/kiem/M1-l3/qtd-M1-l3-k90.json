@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M1-l3-k90",
+   "nam": 1780,
+   "noi": "Gibraltar",
+   "sha256": "cc98809100b5759e9726d665b35f8f56d75fa8722778b831b00c4f967d428bec",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "vat_hien_dai",
+     "mo_ta": "A large, rusty, mushroom-headed cast-iron mooring bollard with a heavy chain, set on the quay in the foreground.",
+     "ly_do": "Mushroom-capped cast-iron bollards are a 19th-century industrial harbour fitting. Quays in 1780 used stone or wooden posts, iron rings, or old cannon set upright as bollards.",
+     "nam_xuat_hien": 1850,
+     "toa_do_px": [
+      1402,
+      799,
+      1632,
+      1004
+     ],
+     "do_tin": 0.35
+    }
+   ],
+   "cost_usd": 0.035735600000000006,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1023,
+     "cacheReadInputTokens": 2936,
+     "cacheCreationInputTokens": 10080,
+     "webSearchRequests": 0,
+     "costUSD": 0.035735600000000006,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 238,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.9,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"A large, rusty, mushroom-headed cast-iron mooring bollard with a heavy chain, set on the quay in the foreground.\",\"ly_do\":\"Mushroom-capped cast-iron bollards are a 19th-century industrial harbour fitting. Quays in 1780 used stone or wooden posts, iron rings, or old cannon set upright as bollards.\",\"nam_xuat_hien\":1850,\"toa_do\":[0.73,0.74,0.85,0.93],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0357,
+ "chi_phi_tb": 0.0357,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

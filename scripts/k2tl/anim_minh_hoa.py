@@ -1,7 +1,7 @@
 #!/opt/cine/bin/python
 """ANIMATIC-T3-V2 · CHÈN ĐOẠN MINH HOẠ N2 (Omni image-to-video, đã qua bộ kiểm) vào khung cảnh đinh — sau bước dựng cảnh đinh, TRƯỚC render đoạn (như anim_lan.py).
 Mỗi mục minh_hoa của log-shot.json (shot, t0, t1): khung f ∈ [t0·24, t1·24) của cảnh đinh thay bằng khung clip đã CHỌN reports/animatic-t3-v2/omni/chon/<M>.mp4
-(nếu chưa có / bị loại → GIỮ bản 3D, ghi lý do). Clip lấy từ giây 0 (khung đầu = render của chính shot); dài hơn thì cắt, ngắn hơn thì kéo chậm đều.
+(nếu chưa có / bị loại → GIỮ bản 3D, ghi lý do). Clip lấy từ giây 0 (khung đầu = render của chính shot) hoặc từ giây ss ghi trong omni/chon/<M>.json; dài hơn thì cắt, ngắn hơn thì kéo chậm đều.
 Khớp màu (Lab, TB + độ lệch chuẩn, mức k = 0,7) về khung 3D của chính shot quanh đoạn (tông LOOK-1). Chuyển: đầu đoạn CẮT (theo nhịp lời / cắt góc), cuối đoạn HOÀ 0,5 s
 về khung 3D nếu shot còn khung 3D sau đoạn, không thì cắt sang shot sau. Nhãn "Illustration" góc dưới PHẢI suốt đoạn (bộ đếm góc dưới trái do render đoạn vẽ, chạy tiếp).
 Giữ bản gốc ở <dir>/goc-minh-hoa/ (chạy lại được). Ghi log ra JSON: minh_hoa: true, nguồn, bậc, SHA clip.
@@ -45,7 +45,8 @@ for sh in LOG:
             if not (bk / p.name).exists(): shutil.copy2(p, bk / p.name)
         src = lambda i: cv2.imread(str(bk / fr[i].name)) if (bk / fr[i].name).exists() else cv2.imread(str(fr[i]))
         tmp = Path('/var/tmp/cine-out/k2c-t3-anim/minh-hoa') / m['ma']; shutil.rmtree(tmp, ignore_errors=True); tmp.mkdir(parents=True)
-        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(clip), '-vf', f'scale={W}:{Hh}:flags=lanczos', '-q:v', '2', str(tmp / '%05d.jpg')], check=True)
+        cfg = json.loads(clip.with_suffix('.json').read_text()) if clip.with_suffix('.json').exists() else {}; ss = float(cfg.get('ss', 0.0))   # ss: bỏ phần đầu clip (vd. Omni tự cắt cảnh sau khung đầu)
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', f'{ss:.3f}', '-i', str(clip), '-vf', f'scale={W}:{Hh}:flags=lanczos', '-q:v', '2', str(tmp / '%05d.jpg')], check=True)
         cf = sorted(tmp.glob('*.jpg')); cfps = float(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries', 'stream=r_frame_rate', '-of', 'csv=p=0', str(clip)], capture_output=True, text=True).stdout.strip().split('/')[0]) / \
             float((subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries', 'stream=r_frame_rate', '-of', 'csv=p=0', str(clip)], capture_output=True, text=True).stdout.strip().split('/') + ['1'])[1])
         need = n / 24.0; have = len(cf) / cfps; sp = min(1.0, have / need)   # clip ngắn hơn đoạn → kéo chậm đều (ghi lại)
@@ -57,7 +58,7 @@ for sh in LOG:
                 a = (i - (n - nb) + 1) / (nb + 1); im = cv2.addWeighted(im, 1 - a, src(f1), a, 0)
             cv2.imwrite(str(fr[f0 + i]), nhan(im), [cv2.IMWRITE_JPEG_QUALITY, 95]) if fr[f0 + i].suffix == '.jpg' else cv2.imwrite(str(fr[f0 + i]), nhan(im))
         rec.update(chen=True, khung=[f0, f1 - 1], clip=str(clip.relative_to(REPO)), clip_sha=__import__('hashlib').sha256(clip.read_bytes()).hexdigest(), clip_giay=round(have, 3), doan_giay=round(need, 3),
-                   toc_do=round(sp, 3), hoa_cuoi_khung=nb, khop_mau='Lab TB+độ lệch chuẩn k=0,7 về khung 3D quanh đoạn', nhan='Illustration (góc dưới phải, suốt đoạn)',
+                   toc_do=round(sp, 3), bo_dau_clip_s=ss, hoa_cuoi_khung=nb, khop_mau='Lab TB+độ lệch chuẩn k=0,7 về khung 3D quanh đoạn', nhan='Illustration (góc dưới phải, suốt đoạn)',
                    nguon='Gemini Omni gemini-omni-1.1-flash image-to-video (sổ reports/animatic-t3-v2/so-ai-gemini.jsonl)', bac='minh hoạ N2 §14.1 c — không mang dữ kiện vị trí; dữ kiện do lời')
         out.append(rec); print('CHÈN', m['ma'], sh['ma'], f0, f1, f'clip {have:.2f} s / đoạn {need:.2f} s')
 LOGP.write_text(json.dumps(out, ensure_ascii=False, indent=1)); print('MINH-HOA-XONG', sum(1 for r in out if r.get('chen')), '/', len(out))

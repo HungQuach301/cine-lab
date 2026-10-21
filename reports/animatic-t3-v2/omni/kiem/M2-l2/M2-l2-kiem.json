@@ -1,0 +1,353 @@
+{
+ "tag": "M2-l2",
+ "clip": "/home/user/cine-lab/reports/animatic-t3-v2/omni/ra/M2-l2.mp4",
+ "clip_sha": "cbfba28c5573349a077e1aed592821287c94b3626dfe368e21c0315f1e217eb9",
+ "dau": "/home/user/cine-lab/reports/animatic-t3-v2/omni/dau/M2.jpg",
+ "dau_sha": "a07cf23b69ca1eab1604b2864e2d4efc5b9b3b7419eb4b40cb06a44379b64958",
+ "nam": "1780",
+ "canh": "January 1780, siege of Gibraltar: hungry people picking wild plants on the rocky limestone slope of the Rock (illustration, no facts)",
+ "so_khung": 240,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M2-l2/M2-l2-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0246,
+      "usage": {
+       "input_tokens": 10142,
+       "input_tokens_details": {
+        "cache_write_tokens": 10139,
+        "cached_tokens": 0
+       },
+       "output_tokens": 428,
+       "output_tokens_details": {
+        "reasoning_tokens": 305
+       },
+       "total_tokens": 10570
+      }
+     },
+     "secs": 14.7,
+     "mo_ta": "Hai người mặc trang phục kiểu cổ đang hái cây dại trên sườn núi đá vôi có cỏ khô và bụi cây.",
+     "muc": [
+      {
+       "loai": "chu",
+       "mo_ta": "Cụm nét giống chữ hoặc watermark mờ, không đọc rõ, trên bụi cây phía bên phải.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.799,
+        0.804,
+        0.837,
+        0.839
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.76
+      }
+     ],
+     "loi": [
+      {
+       "loai": "chu",
+       "mo_ta": "Cụm nét giống chữ hoặc watermark mờ, không đọc rõ, trên bụi cây phía bên phải.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.799,
+        0.804,
+        0.837,
+        0.839
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.76
+      }
+     ],
+     "nghi_van": [],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.096136
+     },
+     "secs": 13.9,
+     "mo_ta": "A man and a woman in plain period clothing pick wild plants on a rocky limestone slope with dwarf palms and thistles under an overcast sky, with a sliver of distant sea at the right edge.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M2-l2-k25",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "5eebe30f295d99d19f1faa47e0dd2305adbd0b67e35ed197a234f3a358bb3be2",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0314656,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 596,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0314656,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.0,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0315,
+    "chi_phi_tb": 0.0315,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M2-l2/M2-l2-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0213,
+      "usage": {
+       "input_tokens": 10154,
+       "input_tokens_details": {
+        "cache_write_tokens": 10151,
+        "cached_tokens": 0
+       },
+       "output_tokens": 95,
+       "output_tokens_details": {
+        "reasoning_tokens": 40
+       },
+       "total_tokens": 10249
+      }
+     },
+     "secs": 4.8,
+     "mo_ta": "Một người đàn ông và một phụ nữ mặc trang phục cổ đang hái cây dại trên sườn núi đá vôi, mang theo túi vải và giỏ đan.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.0971428
+     },
+     "secs": 14.9,
+     "mo_ta": "A man in an 18th-century coat and a woman in a bonnet and shawl gather wild plants on a rocky limestone slope with dwarf palms under an overcast sky.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Faint grey smoke plume rising behind the man, between the figures, against the sky. It looks like an invented smoke column or distant fire.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.47,
+        0.37,
+        0.56,
+        0.58
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.35
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M2-l2-k55",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "39a8d56b3ba746fbc9789e2e5d1cceea64743196268957d8a09bc6e51f8d440e",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0314656,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 596,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0314656,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0315,
+    "chi_phi_tb": 0.0315,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M2-l2/M2-l2-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0212,
+      "usage": {
+       "input_tokens": 10136,
+       "input_tokens_details": {
+        "cache_write_tokens": 10133,
+        "cached_tokens": 0
+       },
+       "output_tokens": 94,
+       "output_tokens_details": {
+        "reasoning_tokens": 44
+       },
+       "total_tokens": 10230
+      }
+     },
+     "secs": 4.4,
+     "mo_ta": "Một người đàn ông và một phụ nữ mặc trang phục cổ đang hái cây dại trên sườn núi đá vôi phủ cỏ và bụi cây.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.096886
+     },
+     "secs": 16.2,
+     "mo_ta": "A man and a woman in period peasant clothing gather wild plants on a rocky, grassy limestone slope with dwarf palms under an overcast sky.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "A faint dark smoke-like smudge in the sky behind the man's head, possibly a small invented smoke column or just cloud.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.35,
+        0.25,
+        0.58,
+        0.5
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.2
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M2-l2-k90",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "683683d611377ef1e23c6565674ba8c0836fe6991f8e0cd4f686a851aaa4fd00",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0314656,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 596,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0314656,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0315,
+    "chi_phi_tb": 0.0315,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 1,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "LOẠI",
+  "chi_tiet": [
+   {
+    "u": 0.25,
+    "mo_hinh": "gpt",
+    "loai": "chu",
+    "mo_ta": "Cụm nét giống chữ hoặc watermark mờ, không đọc rõ, trên bụi cây phía bên phải.",
+    "nam": null
+   }
+  ]
+ }
+}
