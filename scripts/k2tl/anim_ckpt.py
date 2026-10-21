@@ -4,8 +4,8 @@ Khối nằm giữa hai dấu <!-- TRANG-THAI --> … <!-- /TRANG-THAI -->; ph�
   anim_ckpt.py            (chỉ ghi tệp; commit/đẩy do anim_ckpt.sh)"""
 import datetime as dt, hashlib, json, os, re
 from pathlib import Path
-REPO = Path(__file__).resolve().parents[2]; CK = REPO / 'reports/animatic-t3/CHECKPOINT.md'; O = Path('/var/tmp/cine-out/k2c-t3-anim')
-H = json.loads((O / 'heroes.json').read_text()); xong, con = [], []
+REPO = Path(__file__).resolve().parents[2]; CK = REPO / os.environ.get('ANIM_CK', 'reports/animatic-t3/CHECKPOINT.md')   # ANIM-V2: ANIM_CK=reports/animatic-t3-v2/CHECKPOINT.md; O = Path('/var/tmp/cine-out/k2c-t3-anim')
+H = json.loads((O / 'heroes.json').read_text()) if (O / 'heroes.json').exists() else {}; xong, con = [], []
 for k, v in sorted(H.items()):
     d = Path(v['dir']); ok = (d / 'stamp').exists() and (d / 'stamp').read_text().strip() == v['stamp']; n = int(round(v['dur'] * 24))
     if ok: xong.append((k, n))
@@ -14,7 +14,7 @@ for k, v in sorted(H.items()):
 gio = [l.split() for l in (O / 'heroes-gio.log').read_text().splitlines() if l.strip()] if (O / 'heroes-gio.log').exists() else []
 spf = [float(x[3]) for x in gio[-12:] if float(x[3]) > 1]; s = sum(spf) / len(spf) if spf else 4.0
 khung_con = sum(n - h for _, n, h in con); P = 3; eta_h = khung_con * s / P / 3600
-vong = (Path('/var/tmp/cine-out/log/vong.log').read_text().splitlines() or [''])[-1]
+vong = (Path('/var/tmp/cine-out/log/vong.log').read_text().splitlines() or [''])[-1] if Path('/var/tmp/cine-out/log/vong.log').exists() else '(chưa chạy vòng dựng)'
 def sha(p):
     p = Path(p); return hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else '—'
 now = dt.datetime.now(dt.timezone.utc).strftime('%d/%m/%Y %H:%M UTC')
