@@ -162,7 +162,7 @@ def shots():
              smoke=sg, co=co_ld() + co_lw(), pre1704town=True, recl=False, pho2026=dict(box=[-1200, 700, 1200, 2600]))
     # ANIM-V2 R1 + R3: (A) vây 1704–05 / 1727 — máy hạ ≈ 1,2 km trước vách bắc, khói trận + vách là chủ thể · (B) Línea mọc 1730–35 — máy ≈ 300 m sau tuyến, 70 m, tuyến + đồn chiếm tiền cảnh, Rock nền
     #  · bước năm 2026 đúng chữ "The town behind it is still called La Línea" (phố La Línea sau tuyến cũ)
-    cam, ct = cuts(D, [dict(t1=t30, p0=[-80, 95, 650], l0=[-90, 150, -700], dp=(10, -3, -15), fov=40), dict(p0=[-300, 35, 1250], l0=[-330, 0, 990], dp=(4, -1, -8), fov=44)])
+    cam, ct = cuts(D, [dict(t1=t30, p0=[-80, 95, 650], l0=[-90, 150, -700], dp=(10, -3, -15), fov=40), dict(p0=A(-450, 15, 1100), l0=A(-100, 3, 900), dp=(6, 0, -3), fov=40)])   # đo R2: góc cũ 97 % cỏ trống (máy sát mặt đất) → máy 15 m trên đất, nhìn dọc tuyến từ đầu tây
     add('N1.6', ['1j', '1k'], 'A2-thap → L-linea', 'lai', 'co-che', 'eo_dat', 'eo', o, cam, [('vach_bac', [0, t30]), ('linea', [t30, D])],
         [dict(t=0.5, k='lua', s='vây 1704–05: khói pháo ở chân vách bắc'), dict(t=round(t27, 2), k='buoc_nam', s='bước năm 1727: vây lần nữa'), dict(t=round(t30, 2), k='xay', s='Línea de Contravalación mọc tây → đông 1730–35 (cận tuyến)'),
          dict(t=round(tLL, 2), k='buoc_nam', s='2026: phố La Línea sau tuyến cũ')],
