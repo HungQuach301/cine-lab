@@ -13,6 +13,7 @@ import { ruins } from '../ruins.js';
 import { rng } from '../core.js';
 import { shipFlags, rims } from '../phe.js';   // V7B: cờ tàu + viền màu phe (việc 2)
 import { phaseMaps } from '../layers.js';
+import { grassStrip, aircraft, offsetLine } from '../san_bay.js';   // ANIMATIC-T3: dải cỏ 1934, máy bay 1942, hàng rào mới 2026
 
 export const TERRAIN = { cliff: { k: 1.8, capUp: 80, peak: 412 } };
 export const LOOK = { hemiI: 0.74, hemiSky: '#a9c0e2', hemiGnd: '#b0845a', skyHor: [0.30, 0.52, 0.90], fogC: [0.40, 0.60, 0.90] };
@@ -83,10 +84,15 @@ export async function buildCore(ctx) {
   const CFL = []; if (o.campFlags && inR(1779.5, 1783.3)) for (const t of D.trai) { const a = t.pts[0], b = t.pts[t.pts.length - 1], d = Math.hypot(b[0] - a[0], b[1] - a[1]), k = Math.max(1, Math.round(d / 380));   // V7B: cờ trung đoàn (Cruz de Borgoña) dọc mỗi dãy trại TBN, ≈ 380 m một cờ; trại Pháp cờ trắng
     for (let i = 0; i <= k; i++) { const u = i / k, at = [a[0] + (b[0] - a[0]) * u - (b[1] - a[1]) / d * 50, a[1] + (b[1] - a[1]) * u + (b[0] - a[0]) / d * 50]; const G = flags([{ at, pole: 10, w: 4.0, scale: 1.5, kind: t.side === 'fr' ? 'fr_white' : 'burgundy', toward: 110, phase: i * 0.9 }], ctx); scene.add(G.group); CFL.push({ G, t }); } }
   if (CFL.length) log.lop.push({ lop: 'co_trai', n: CFL.length, nguon: 'cờ trung đoàn bộ binh TBN mang Cruz de Borgoña (thế kỷ 18) — bậc 3 mẫu; vị trí/số cờ minh hoạ (bậc 5); cỡ 4 × 2 m × 1,5', bac: 'bậc 3–5' });
-  if (o.camps !== false && inR(1779.5, 1783.3)) { CAMP = camps(D.trai, ctx, o.campRows ? { hangLoi: true } : {}); scene.add(CAMP.group);   // 35 % lều theo cửa sổ 1779 (≈ 14 000 quân), phần còn lại theo cửa sổ 1782 (≈ 40 000)
+  if (o.camps !== false && inR(1779.5, 1783.3)) { CAMP = camps(D.trai, ctx, Object.assign(o.campRows ? { hangLoi: true } : {}, o.campTuNhien ? { tuNhien: true } : {})); scene.add(CAMP.group);   // 35 % lều theo cửa sổ 1779 (≈ 14 000 quân), phần còn lại theo cửa sổ 1782 (≈ 40 000)
     log.lop.push({ lop: 'trai', so_leu: CAMP.n, nguon: D.trai[0].nguon, bac: D.trai[0].bac }); }
   // ---------- hàng rào 1909 ----------
-  let FEN = null; if (o.fence !== false && lines.border && inR(1908.9, 2027)) { FEN = fence(lines.border, ctx, { w: D.hang_rao_1909.w }); scene.add(FEN.group); log.lop.push({ lop: 'hang_rao_1909', nguon: D.hang_rao_1909.nguon, bac: D.hang_rao_1909.bac }); }
+  let FEN = null; if (o.fence !== false && lines.border && inR(1908.9, 2027)) { FEN = fence(lines.border, ctx, { w: Object.assign({}, D.hang_rao_1909.w, o.fenceOff ? { off0: o.fenceOff[0], off1: o.fenceOff[1] } : {}) });   /* ANIMATIC-T3: opt.fenceOff = [năm bắt đầu gỡ, năm gỡ xong] (5h, 2026) */ scene.add(FEN.group); log.lop.push({ lop: 'hang_rao_1909', nguon: D.hang_rao_1909.nguon, bac: D.hang_rao_1909.bac }); }
+  // ---------- ANIMATIC-T3: hàng rào mới 2026 (lệch vài mét — vị trí ước tính bậc 5), dải cỏ 1934, máy bay 1942 ----------
+  let FEN2 = null; if (o.fenceNew && lines.border) { FEN2 = fence(offsetLine(lines.border, o.fenceNew.off ?? -6), ctx, { w: o.fenceNew.w, color: '#9a958c' }); scene.add(FEN2.group); log.lop.push({ lop: 'hang_rao_moi_2026', nguon: 'lời khoá 5h (Gibraltar government 7/2026: hàng rào cũ gỡ, hàng mới lùi vài mét)', bac: 'năm: lời khoá; vị trí lệch ' + (o.fenceNew.off ?? -6) + ' m: ước tính (bậc 5)' }); }
+  let GS = null, AC = null; if (o.grassStrip || o.mayBay) { const H = await ctx.loadJSON(`${ctx.base}heroes.json`);
+    if (o.grassStrip) { GS = grassStrip(ctx, H.runway.p, o.grassStrip); scene.add(GS.group); log.lop.push(GS.log); }
+    if (o.mayBay) { AC = aircraft(ctx, H.runway.p, o.mayBay); scene.add(AC.group); log.lop.push(AC.log); } }
   // ---------- đường băng + đất lấn vịnh mọc dần (heroes.js/terrain.js uRecl) ----------
   ctx.U.uRecl.value = o.recl === false ? 0 : 1;
   // ---------- cờ trên Tower of Homage: Borgoña 1506–1704, Union từ 4/8/1704 ----------
@@ -168,6 +174,7 @@ export async function buildCore(ctx) {
     if (WORKS) { const k = win(Y, D.cong_su_tien_phuong.w); for (const l of WORKS.list) { for (const m of l.mats) m.userData.uGrow.value = k * l.len + 0.01; for (const ms of l.meshes) ms.visible = k > 0.001; } WORKS.FT.group.visible = k > 0.6; }
     if (CAMP) CAMP.update(Y);
     if (FEN) FEN.update(Y);
+    if (FEN2) FEN2.update(Y); if (GS) GS.update(Y); if (AC) AC.update(Y);
     if (FLB) { FLB.group.visible = Y >= 1506 && Y < 1704.59; FLU.group.visible = Y >= 1704.59; FLB.update(T); FLU.update(T); }
     for (const { f, G } of CO) { G.group.visible = Y >= (f.on ?? -1e9) && Y < (f.off ?? 1e9); if (G.group.visible) G.update(T, hoistAt(f, Y)); }
     for (const { G, t } of CFL) { const k = t.w2 ? t.frac * win(Y, t.w) + (1 - t.frac) * win(Y, t.w2) : win(Y, t.w); G.group.visible = k > 0.15; if (G.group.visible) G.update(T); }
