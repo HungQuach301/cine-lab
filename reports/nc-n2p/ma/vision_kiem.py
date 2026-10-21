@@ -118,7 +118,7 @@ def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--truoc', required=True); ap.add_argument('--sau', required=True); ap.add_argument('--nam', required=True); ap.add_argument('--noi', default='Gibraltar')
     ap.add_argument('--tag', required=True); ap.add_argument('--out', required=True); ap.add_argument('--mo-hinh', default='gpt,claude'); ap.add_argument('--t4', action='store_true')
     a = ap.parse_args(); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
-    C = json.load(open(Path(__file__).parent / 'cam_thoi_dai.json')); cam = C['chung'] + C['ai_da_bia'] + (C['t4_1666'] if a.t4 else [])
+    C = json.load(open(Path(__file__).parent / 'cam_thoi_dai.json')); cam = (C['chung'] if float(a.nam) < 1850 else []) + C['ai_da_bia'] + (C['t4_1666'] if a.t4 else [])   # danh sách 'chung' chỉ cho cảnh trước 1850 (sửa sau c2 2026: mô hình coi ô tô 2026 là lỗi thời đại)
     with tempfile.TemporaryDirectory() as td:
         d = Path(td); T = tiles(a.truoc, d, 'before'); S = tiles(a.sau, d, 'after')
         prompt = PROMPT.format(noi=a.noi, nam=a.nam, truoc='\n'.join(f'- {p}' for p in T), sau='\n'.join(f'- {p}' for p in S), cam='\n'.join(f'- {x}' for x in cam),

@@ -1,0 +1,283 @@
+{
+ "tag": "tl-moc1",
+ "truoc": "/var/tmp/n2p/tlmoc/rgb/00168.jpg",
+ "sau": "/var/tmp/n2p/kiem-cuoi/tl-moc1-ghep.jpg",
+ "nam": "1779",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.0455,
+    "usage": {
+     "input_tokens": 16167,
+     "input_tokens_details": {
+      "cache_write_tokens": 16164,
+      "cached_tokens": 0
+     },
+     "output_tokens": 1319,
+     "output_tokens_details": {
+      "reasoning_tokens": 284
+     },
+     "total_tokens": 17486
+    }
+   },
+   "secs": 32.6,
+   "json": {
+    "them": [
+     {
+      "loai": "do_dac",
+      "mo_ta": "Added cluster of wooden barrels and smaller sack-like containers in the left middle ground.",
+      "toa_do": [
+       0.256,
+       0.389,
+       0.3,
+       0.42
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Wooden barrels and sacks are compatible with 1779.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Added cluster of approximately five upright wooden barrels in the right middle ground.",
+      "toa_do": [
+       0.792,
+       0.532,
+       0.833,
+       0.573
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Wooden storage barrels predate 1779.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "xe_chay",
+      "mo_ta": "Added small wooden cart with an apparent harnessed horse or similar draught animal on its right; no movement can be established from the still image.",
+      "toa_do": [
+       0.365,
+       0.335,
+       0.402,
+       0.36
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "An animal-drawn wooden cart is compatible with 1779.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.88
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Added low heap of timber, poles, and irregular wooden pieces near the lower edge of the top-left quarter; possibly a dismantled cart frame.",
+      "toa_do": [
+       0.065,
+       0.47,
+       0.109,
+       0.499
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Loose timber and wooden equipment are compatible with 1779.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Added compact heap of pale stones above and left of the left-hand barrel cluster.",
+      "toa_do": [
+       0.185,
+       0.312,
+       0.213,
+       0.332
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "A loose stone heap is not intrinsically anachronistic.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Added elongated low heap of pale stones immediately left of the animal-drawn cart.",
+      "toa_do": [
+       0.338,
+       0.347,
+       0.373,
+       0.374
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Loose stone heaps are compatible with 1779.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.84
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Numerous additional discrete scrub bushes and grass tussocks across the foreground and middle-ground plain, including areas that were bare between the original vegetation clusters. This groups the distributed additions rather than counting changes in grass texture.",
+      "toa_do": [
+       0.0,
+       0.239,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Natural scrub and dry grass are compatible with Gibraltar in 1779; no clearly modern planting arrangement is visible.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Additional individually protruding rocks and small boulders scattered across the plain, especially in the lower half, beyond the flat pale ground patches present in BEFORE. Ordinary surface-texture changes are excluded.",
+      "toa_do": [
+       0.0,
+       0.374,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Natural rocks are not anachronistic.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     }
+    ],
+    "bot_doi": [],
+    "doi_loai_vung": []
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.1432534
+   },
+   "secs": 23.5,
+   "json": {
+    "them": [
+     {
+      "loai": "do_dac",
+      "mo_ta": "Cluster of wooden barrels standing on the plain, left-centre",
+      "toa_do": [
+       0.255,
+       0.385,
+       0.305,
+       0.42
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented goods or barrels, not in the 3D render (the rule forbids invented objects)",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Cluster of wooden barrels on the plain, right-centre",
+      "toa_do": [
+       0.785,
+       0.53,
+       0.835,
+       0.57
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented goods or barrels, not in the 3D render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Pile of logs or stones, upper left of the plain",
+      "toa_do": [
+       0.36,
+       0.335,
+       0.4,
+       0.36
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented timber or stone pile",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small heap of stones or wood, left edge",
+      "toa_do": [
+       0.065,
+       0.465,
+       0.115,
+       0.5
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented heap",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small stone or wood pile near the upper right",
+      "toa_do": [
+       0.85,
+       0.505,
+       0.885,
+       0.53
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented heap",
+      "nam_xuat_hien": null,
+      "do_tin": 0.4
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Many scattered white rocks and outcrops added across the plain",
+      "toa_do": [
+       0.0,
+       0.6,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.4
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Dense scrub and bushes added over the plain, replacing the smooth grass",
+      "toa_do": [
+       0.0,
+       0.25,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "cay",
+      "mo_ta": "The small dark round trees in the render were changed into low grey-green bushes",
+      "toa_do": [
+       0.0,
+       0.5,
+       0.8,
+       0.75
+      ],
+      "do_tin": 0.5
+     },
+     {
+      "loai": "vuon",
+      "mo_ta": "The bright green patches and the red-brown bare patch were changed into uniform dry scrubland",
+      "toa_do": [
+       0.0,
+       0.5,
+       1.0,
+       0.9
+      ],
+      "do_tin": 0.4
+     }
+    ],
+    "doi_loai_vung": []
+   }
+  }
+ }
+}

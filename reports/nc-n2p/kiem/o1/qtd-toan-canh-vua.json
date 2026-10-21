@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "toan-canh-vua-l2-ghep",
+   "nam": 1781,
+   "noi": "Gibraltar",
+   "sha256": "6e8c52012931e9a5d1155d235a975fc860da5451c7d86686eb9b38f5c36f66be",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "vat_hien_dai",
+     "mo_ta": "A lone, flat, pale grey rectangular slab stands upright on the hillside terraces. It looks like a concrete or modern panel, but it is too small to identify with confidence.",
+     "ly_do": "It may be a modern concrete or steel object, which would not exist in 1781. It could also be a rendering artefact or a stone block.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1555,
+      788,
+      1613,
+      853
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.0363489,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1104,
+     "cacheReadInputTokens": 2894,
+     "cacheCreationInputTokens": 10003,
+     "webSearchRequests": 0,
+     "costUSD": 0.0363489,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 370,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 12.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1781,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"A lone, flat, pale grey rectangular slab stands upright on the hillside terraces. It looks like a concrete or modern panel, but it is too small to identify with confidence.\",\"ly_do\":\"It may be a modern concrete or steel object, which would not exist in 1781. It could also be a rendering artefact or a stone block.\",\"nam_xuat_hien\":null,\"toa_do\":[0.81,0.73,0.84,0.79],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0363,
+ "chi_phi_tb": 0.0363,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

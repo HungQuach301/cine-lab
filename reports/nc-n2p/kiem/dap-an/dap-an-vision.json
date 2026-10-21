@@ -1,0 +1,243 @@
+{
+ "tag": "dap-an",
+ "truoc": "../nc-cpu/khung/A/cong-cang.jpg",
+ "sau": "/var/tmp/n2p/dap-an/kiem/dap-an-ghep.jpg",
+ "nam": "1780",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.0471,
+    "usage": {
+     "input_tokens": 16177,
+     "input_tokens_details": {
+      "cache_write_tokens": 16174,
+      "cached_tokens": 0
+     },
+     "output_tokens": 1475,
+     "output_tokens_details": {
+      "reasoning_tokens": 466
+     },
+     "total_tokens": 17652
+    }
+   },
+   "secs": 39.6,
+   "json": {
+    "them": [
+     {
+      "loai": "khac",
+      "mo_ta": "Steel lattice electricity-transmission pylon with overhead power lines on the upper-left ridge.",
+      "toa_do": [
+       0.103,
+       0.11,
+       0.174,
+       0.189
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Electrical transmission pylons and power lines did not exist in 1780.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Red modern convertible motor car on the hillside.",
+      "toa_do": [
+       0.108,
+       0.247,
+       0.15,
+       0.276
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "A modern motor car is incompatible with 1780; practical petrol automobiles appeared in the late nineteenth century.",
+      "nam_xuat_hien": 1886,
+      "do_tin": 1.0
+     },
+     {
+      "loai": "co",
+      "mo_ta": "Red flag on a newly added tall pole beside the hillside defensive wall.",
+      "toa_do": [
+       0.258,
+       0.276,
+       0.278,
+       0.342
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "may_bay",
+      "mo_ta": "Modern swept-wing passenger jet in the upper-right sky.",
+      "toa_do": [
+       0.726,
+       0.151,
+       0.781,
+       0.182
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Powered aircraft, particularly jet airliners, did not exist in 1780.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+     },
+     {
+      "loai": "nguoi",
+      "mo_ta": "Single standing or walking figure on the shore outside the foreground fortifications, wearing a blue coat, pale breeches and dark boots, apparently carrying a sword.",
+      "toa_do": [
+       0.177,
+       0.574,
+       0.194,
+       0.625
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "The clothing appears broadly period-compatible, but this is an invented military-looking figure absent from the ground truth, prohibited by the supplied N2+ rule against invented troops.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.92
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "Large square-rigged wooden warship with deployed pale sails and multiple rows of gunports, added in the foreground water.",
+      "toa_do": [
+       0.387,
+       0.587,
+       0.471,
+       0.701
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "The vessel is broadly compatible with the age of sail, but it is wholly invented relative to BEFORE and therefore violates the supplied N2+ prohibition on invented sailing ships.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+     },
+     {
+      "loai": "co",
+      "mo_ta": "Union-pattern flag at the stern of the added foreground warship; its diagonals appear to include red crosses.",
+      "toa_do": [
+       0.379,
+       0.646,
+       0.39,
+       0.664
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "The visible pattern appears to be the post-1801 Union Flag with the red diagonal saltire of St Patrick, which would be too late for 1780. The very small flag limits certainty.",
+      "nam_xuat_hien": 1801,
+      "do_tin": 0.76
+     }
+    ],
+    "bot_doi": [],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "A small patch of shore around and immediately right of the added person appears extended over the original water, locally changing water into grassy or sandy land.",
+      "toa_do": [
+       0.181,
+       0.575,
+       0.21,
+       0.624
+      ],
+      "do_tin": 0.77
+     }
+    ]
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.1398443
+   },
+   "secs": 16.7,
+   "json": {
+    "them": [
+     {
+      "loai": "khac",
+      "mo_ta": "High-voltage electricity pylon with power lines on the hillside ridge",
+      "toa_do": [
+       0.105,
+       0.11,
+       0.172,
+       0.187
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Electric pylons and power lines did not exist in 1780",
+      "nam_xuat_hien": 1900,
+      "do_tin": 0.97
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Red modern convertible car on a dirt patch on the hillside",
+      "toa_do": [
+       0.107,
+       0.245,
+       0.148,
+       0.276
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Motor vehicle",
+      "nam_xuat_hien": 1900,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "may_bay",
+      "mo_ta": "Modern passenger jet airliner flying in the sky",
+      "toa_do": [
+       0.726,
+       0.15,
+       0.78,
+       0.182
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Jet aircraft",
+      "nam_xuat_hien": 1950,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "co",
+      "mo_ta": "Tall flagpole with a red flag on the hillside above the town wall",
+      "toa_do": [
+       0.258,
+       0.275,
+       0.278,
+       0.33
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "Large three-masted sailing ship of the line with full sails and a Union flag at the stern, newly added in the open water",
+      "toa_do": [
+       0.384,
+       0.59,
+       0.47,
+       0.703
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Invented sailing ship. The flag is a pre-1801 Union flag, so the design itself fits 1780.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     },
+     {
+      "loai": "nguoi",
+      "mo_ta": "Single walking figure in a dark coat on the shore beside the bastion",
+      "toa_do": [
+       0.177,
+       0.575,
+       0.19,
+       0.624
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.7
+     }
+    ],
+    "bot_doi": [],
+    "doi_loai_vung": []
+   }
+  }
+ }
+}

@@ -1,0 +1,321 @@
+{
+  "them": [
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "New dry-stone boundary walls crossing the upper hillside beside and above the scattered houses.",
+      "toa_do": [0.858, 0.282, 1.0, 0.393],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Dry-stone walls are period-compatible, but these are invented additions to the ground truth.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Additional zigzagging dry-stone terrace walls on the hillside immediately east of the upper town.",
+      "toa_do": [0.823, 0.389, 1.0, 0.477],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Period-compatible construction; not present in BEFORE.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "New long stone terrace boundary running across the middle-right slope above the storage areas.",
+      "toa_do": [0.777, 0.463, 1.0, 0.566],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Stone terrace walls could exist in 1781; this particular wall is invented.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "New stone enclosure walls around the upper barrel and straw-stack storage terrace.",
+      "toa_do": [0.748, 0.555, 0.872, 0.655],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Historically plausible masonry, but unsupported by BEFORE.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "New low stone walls enclosing a rectangular cultivated plot.",
+      "toa_do": [0.679, 0.649, 0.81, 0.745],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Period-compatible garden enclosure; invented geometry.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "New long, partly taller stone wall behind the right-hand barrels, crates and straw stack.",
+      "toa_do": [0.799, 0.656, 1.0, 0.717],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Stone boundary walls are not intrinsically anachronistic.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "New diagonal dry-stone wall below the garden and left-hand cargo pile.",
+      "toa_do": [0.598, 0.75, 0.813, 0.833],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Period-compatible wall added where BEFORE shows open slope.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "New foreground terrace wall extending from beside the lower houses across the hillside and beneath the timber stack.",
+      "toa_do": [0.585, 0.728, 1.0, 0.932],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Dry-stone construction is plausible for 1781, but this wall is invented.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "vuon",
+      "mo_ta": "New rectangular vegetable garden with multiple planted rows on the foreground hillside.",
+      "toa_do": [0.686, 0.665, 0.792, 0.734],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Vegetable cultivation in rows is period-compatible; this plot does not exist in BEFORE.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "New narrow unpaved tracks threading between the hillside terraces and storage piles.",
+      "toa_do": [0.6, 0.527, 1.0, 0.973],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Dirt paths are period-compatible, but their new layout is not supported by the render.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "do_dac",
+      "mo_ta": "New small cluster of barrels or tubs beside the upper hillside path.",
+      "toa_do": [0.815, 0.549, 0.832, 0.582],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Wooden containers are appropriate to 1781.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+    },
+    {
+      "loai": "do_dac",
+      "mo_ta": "New small group of wooden containers on the terrace immediately above-left of the upper large barrel pile.",
+      "toa_do": [0.773, 0.614, 0.789, 0.639],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Period-compatible containers.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.92
+    },
+    {
+      "loai": "do_dac",
+      "mo_ta": "New upper storage group of upright wooden barrels beside a straw stack.",
+      "toa_do": [0.821, 0.615, 0.849, 0.647],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Wooden barrels predate 1781.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "rom",
+      "mo_ta": "New conical straw or hay stack beside the upper group of barrels.",
+      "toa_do": [0.844, 0.614, 0.86, 0.65],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Traditional straw stacks are period-compatible.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "do_dac",
+      "mo_ta": "New loose heap of cut branches or firewood above-left of the vegetable garden.",
+      "toa_do": [0.67, 0.643, 0.701, 0.683],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Cut wood is period-compatible.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "do_dac",
+      "mo_ta": "New mixed pile of barrels, wooden crates and bundled goods below-left of the garden.",
+      "toa_do": [0.651, 0.727, 0.706, 0.775],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "The visible storage materials are compatible with 1781.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "do_dac",
+      "mo_ta": "New loose pile of branches or short timber below-left of that mixed cargo pile.",
+      "toa_do": [0.615, 0.772, 0.651, 0.81],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Period-compatible firewood.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "rom",
+      "mo_ta": "New small rounded straw stack between the vegetable garden and the isolated pale slab.",
+      "toa_do": [0.784, 0.721, 0.808, 0.759],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Traditional straw storage is period-compatible.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "do_dac",
+      "mo_ta": "New group of upright barrels on the right-hand storage terrace.",
+      "toa_do": [0.842, 0.69, 0.884, 0.733],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Wooden barrels are period-compatible.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "do_dac",
+      "mo_ta": "New crates and tied rectangular bundles to the right of the barrel group.",
+      "toa_do": [0.904, 0.708, 0.955, 0.751],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "No clearly modern packaging is visible.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "rom",
+      "mo_ta": "New large conical straw stack at the far-right storage area.",
+      "toa_do": [0.952, 0.697, 0.983, 0.742],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Traditional straw stacks are period-compatible.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "do_dac",
+      "mo_ta": "New neatly stacked pile of long round timber below the right-hand barrels.",
+      "toa_do": [0.855, 0.733, 0.917, 0.788],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Timber storage is period-compatible.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "do_dac",
+      "mo_ta": "New central lower cargo group of barrels, crates and tied bundles.",
+      "toa_do": [0.719, 0.773, 0.764, 0.822],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Visible wooden and bundled goods are compatible with 1781.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "do_dac",
+      "mo_ta": "New large cluster of barrels and pale sacks or covered containers beside the lowest hillside houses.",
+      "toa_do": [0.573, 0.885, 0.623, 0.946],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "These traditional storage objects are period-compatible.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Numerous newly resolved individual trees and shrub groups across the distant opposite shore and inland plain, replacing areas that contain no corresponding trees in BEFORE.",
+      "toa_do": [0.509, 0.115, 1.0, 0.304],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "No clearly anachronistic species or modern planting arrangement is identifiable.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New trees and shrub clusters on the open ground around the mole, north of the town and beside the castle.",
+      "toa_do": [0.689, 0.28, 0.926, 0.349],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Vegetation is period-compatible, but these additional individual trees are unsupported.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New scattered trees and substantial bushes among the upper hillside houses and invented terraces.",
+      "toa_do": [0.8, 0.277, 1.0, 0.536],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "No temporal incompatibility is evident.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New individual trees and shrub masses around the foreground garden, paths and cargo terraces, outside the groves already present in BEFORE.",
+      "toa_do": [0.598, 0.537, 0.853, 0.875],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Period-compatible vegetation; additional placement violates ground-truth fidelity rather than chronology.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New trees and bushes beside the lower hillside houses and lowest barrel pile.",
+      "toa_do": [0.536, 0.737, 0.671, 0.988],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "No clearly modern landscaping or species is identifiable.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New large agave-like rosette plant in the bottom-right foreground.",
+      "toa_do": [0.917, 0.865, 0.982, 0.956],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Agaves had reached the Mediterranean before 1781; this plant is not itself proof of an anachronism.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New sizeable tree on the coastal strip outside the sea wall.",
+      "toa_do": [0.229, 0.769, 0.259, 0.807],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "A tree is period-compatible, but no corresponding tree exists in BEFORE.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Additional bushes and small trees along the coastal strip, including beside the projecting bastion and near the bottom-left shoreline.",
+      "toa_do": [0.063, 0.621, 0.367, 0.972],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Period-compatible vegetation additions.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "New compact cluster of large pale rocks below-right of the lowest barrel pile.",
+      "toa_do": [0.629, 0.917, 0.68, 0.973],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Natural rocks have no chronological incompatibility; this distinct cluster is invented.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "New tall cluster of block-like pale boulders above-left of the existing foreground rock patch.",
+      "toa_do": [0.773, 0.829, 0.839, 0.915],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Natural stone is period-compatible, but the added raised rock geometry is unsupported.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "Additional bulky foreground boulders and raised rock masses around and below the large rosette plant, beyond a mere change in the existing rock texture.",
+      "toa_do": [0.798, 0.851, 1.0, 1.0],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "No chronological issue, but the extra rock volumes are invented.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+    }
+  ],
+  "bot_doi": [],
+  "doi_loai_vung": []
+}

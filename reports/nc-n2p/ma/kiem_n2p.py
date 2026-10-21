@@ -69,7 +69,7 @@ def ket_luan(V, band, A, anh_tinh):
             if x.get('loai') in LOAI_A: L1.append(dict(it, kieu='THÊM vật lớp (a)'))
             if x.get('thoi_dai_sai'):
                 ny = x.get('nam_xuat_hien'); co_nam = isinstance(ny, (int, float)) and ny > NAM
-                (L2 if (co_nam or x.get('loai') in LOAI_HIEN_DAI) else L2b).append(dict(it, ly_do=x.get('ly_do_thoi_dai'), nam=ny))
+                (L2 if (co_nam or (x.get('loai') in LOAI_HIEN_DAI and NAM < 1900)) else L2b).append(dict(it, ly_do=x.get('ly_do_thoi_dai'), nam=ny))
             if anh_tinh and x.get('loai') in LOAI_DONG: L4.append(it)
         for x in j.get('bot_doi', []):
             if (x.get('do_tin') or 0) < TIN: continue

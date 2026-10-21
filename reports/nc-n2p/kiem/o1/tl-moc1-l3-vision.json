@@ -1,0 +1,228 @@
+{
+ "tag": "tl-moc1-l3",
+ "truoc": "/var/tmp/n2p/tlmoc/rgb/00168.jpg",
+ "sau": "/var/tmp/n2p/kiem-cuoi/tl-moc1-l3-ghep.jpg",
+ "nam": "1779",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.0437,
+    "usage": {
+     "input_tokens": 16167,
+     "input_tokens_details": {
+      "cache_write_tokens": 16164,
+      "cached_tokens": 0
+     },
+     "output_tokens": 1141,
+     "output_tokens_details": {
+      "reasoning_tokens": 370
+     },
+     "total_tokens": 17308
+    }
+   },
+   "secs": 28.1,
+   "json": {
+    "them": [
+     {
+      "loai": "do_dac",
+      "mo_ta": "Added cluster of upright wooden barrels in the middle distance, just right of centre.",
+      "toa_do": [
+       0.648,
+       0.4,
+       0.674,
+       0.43
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Added larger cluster of wooden barrels farther to the right.",
+      "toa_do": [
+       0.904,
+       0.451,
+       0.952,
+       0.491
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Added low heap of cut poles or firewood below and left of the central barrel cluster; no visible flame or smoke.",
+      "toa_do": [
+       0.577,
+       0.445,
+       0.619,
+       0.472
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Added larger heap of cut poles or firewood in the right foreground; no visible flame or smoke.",
+      "toa_do": [
+       0.83,
+       0.529,
+       0.902,
+       0.569
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Numerous additional discrete bushes and scrub clumps scattered across the foreground and middle-distance plain, including previously empty ground between the original vegetation clusters. Grouped here; excludes the general grass-texture replacement.",
+      "toa_do": [
+       0.0,
+       0.236,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Added conspicuous pale protruding boulder in the left foreground, distinct from the surrounding ground texture.",
+      "toa_do": [
+       0.274,
+       0.633,
+       0.302,
+       0.678
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "The narrow pale winding track through the lower-right foreground is no longer discernible, replaced by continuous grass and scrub.",
+      "toa_do": [
+       0.737,
+       0.761,
+       0.848,
+       1.0
+      ],
+      "do_tin": 0.95
+     }
+    ],
+    "doi_loai_vung": []
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.1375934
+   },
+   "secs": 20.8,
+   "json": {
+    "them": [
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stack of barrels or casks standing on the plain, added",
+      "toa_do": [
+       0.64,
+       0.39,
+       0.68,
+       0.43
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Pile of logs or timber on the plain, added",
+      "toa_do": [
+       0.57,
+       0.44,
+       0.62,
+       0.47
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Group of barrels or casks at the right edge, added",
+      "toa_do": [
+       0.9,
+       0.45,
+       0.96,
+       0.5
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Large pile of logs or timber, added",
+      "toa_do": [
+       0.83,
+       0.52,
+       0.93,
+       0.57
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Many scrub bushes and grass tufts added across the plain, replacing the flat green patches. Some larger shrubs and bare rocks also appear.",
+      "toa_do": [
+       0.0,
+       0.27,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "cay",
+      "mo_ta": "The small dark round trees of the render were changed into low green shrubs. The brown bare patch and the dirt track in the lower right were removed or blended into the grass.",
+      "toa_do": [
+       0.0,
+       0.5,
+       1.0,
+       1.0
+      ],
+      "do_tin": 0.4
+     }
+    ],
+    "doi_loai_vung": []
+   }
+  }
+ }
+}
