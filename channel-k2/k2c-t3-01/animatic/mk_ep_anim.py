@@ -148,7 +148,8 @@ def shots():
              fleets=[dict(n=5, center=[-1200, -1300], axis=165, spacing=180, kind='sail', heading=80, wY=[1713.4, 1713.6], co=False, path=[[dy('1713-07-14 00:00'), -2600, -1900], [dy('1713-07-18 00:00'), 0, 0]])],
              lives=[dict(era=1782, wY=dict(on=1700), walkers=[dict(line='MAIN', n=70, width=4, colors=ES1704 + CIV)], lines=dict(MAIN=[[-430, -1600], [-445, -1400], [-440, -1300], [-432, -1150], [-425, -1000]]), chimney=8,
                          boats=[dict(pts=[[-1400, -800], [-1000, -1150], [-700, -1250]], len=8, speed=3, s0=0.1), dict(pts=[[-1500, -1500], [-1000, -1300], [-650, -1080]], len=9, speed=2.5, s0=0.6)])])
-    cam, ct = cuts(D, [dict(t1=tA, p0=[-1750, 95, -900], l0=[-560, 20, -1150], dp=(25, -2, -10), fov=40), dict(t1=tB, p0=[-60, 160, -980], l0=[-135, 100, -825], dp=(-4, 0, 3), fov=24),
+    cam, ct = cuts(D, [dict(t1=tA, p0=[-1750, 95, -900], l0=[-560, 20, -1150], dp=(25, -2, -10), fov=40), dict(t1=tB, p0=[-1150, 60, -760], l0=[-300, 70, -900], dp=(10, 0, -3), fov=30)   # soát dựng: góc lâu đài K-co ở 1713 lỗi hình (tường trong suốt, bụi lơ lửng) → lâu đài + phố + Line Wall từ vịnh, ống dài
+                       ,
                        dict(p0=[120, 170, -420], l0=[60, 0, 900], dp=(0, -4, 12), fov=46)])
     add('N1.5', ['1h', '1i'], 'B-thap → K-co → E-bac', 'lai', 'co-che', 'thanh_pho', 'pho', o, cam, [('cang_pho_lau_dai', [0, tB]), ('eo_dat', [tB, D])],
         [dict(t=0.0, k='tau', s='7/1713: cảng + phố (tàu buôn ra vào, ngày–đêm)'), dict(t=tA, k='co', s='lâu đài, cờ Union trên Tower of Homage (hiệp ước nêu "town, castle and port")'),
@@ -162,7 +163,7 @@ def shots():
              smoke=sg, co=co_ld() + co_lw(), pre1704town=True, recl=False, pho2026=dict(box=[-1200, 700, 1200, 2600]))
     # ANIM-V2 R1 + R3: (A) vây 1704–05 / 1727 — máy hạ ≈ 1,2 km trước vách bắc, khói trận + vách là chủ thể · (B) Línea mọc 1730–35 — máy ≈ 300 m sau tuyến, 70 m, tuyến + đồn chiếm tiền cảnh, Rock nền
     #  · bước năm 2026 đúng chữ "The town behind it is still called La Línea" (phố La Línea sau tuyến cũ)
-    cam, ct = cuts(D, [dict(t1=t30, p0=[-80, 95, 650], l0=[-90, 150, -700], dp=(10, -3, -15), fov=40), dict(p0=[-250, 22, 1180], l0=[-120, 40, -300], dp=(4, 0, -6), fov=36)])   # đo R2: góc cũ 57–97 % cỏ trống → máy ≈ 15 m sau tuyến, nhìn nam: tuyến mọc tiền cảnh + Rock (40–42 % cỏ)
+    cam, ct = cuts(D, [dict(t1=t30, p0=[-80, 95, 650], l0=[-90, 150, -700], dp=(10, -3, -15), fov=40), dict(t1=round(tLL, 3), p0=[-250, 22, 1180], l0=[-120, 40, -300], dp=(4, 0, -6), fov=36), dict(p0=[-250, 110, 1350], l0=[-120, 40, -300], dp=(0, -2, -6), fov=40)])   # soát dựng: bước 2026 ở máy 15 m nằm trong khối nhà → góc 2026 nâng 110 m   # đo R2: góc cũ 57–97 % cỏ trống → máy ≈ 15 m sau tuyến, nhìn nam: tuyến mọc tiền cảnh + Rock (40–42 % cỏ)
     add('N1.6', ['1j', '1k'], 'A2-thap → L-linea', 'lai', 'co-che', 'eo_dat', 'eo', o, cam, [('vach_bac', [0, t30]), ('linea', [t30, D])],
         [dict(t=0.5, k='lua', s='vây 1704–05: khói pháo ở chân vách bắc'), dict(t=round(t27, 2), k='buoc_nam', s='bước năm 1727: vây lần nữa'), dict(t=round(t30, 2), k='xay', s='Línea de Contravalación mọc tây → đông 1730–35 (cận tuyến)'),
          dict(t=round(tLL, 2), k='buoc_nam', s='2026: phố La Línea sau tuyến cũ')],
