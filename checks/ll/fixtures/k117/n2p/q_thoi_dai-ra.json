@@ -1,0 +1,149 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung khung-thu năm 1780: [xe] A modern airliner, a twin-engine jet, flies over the bay. — Jet aircraft did not exist in 1780. Powered flight began in 1903 and jet airliners in the 1950s. (xuất hiện 1903) @px [1390, 162, 1501, 197] tin 0.98",
+  "khung khung-thu năm 1780: [xe] A red modern convertible car is parked on a dirt track on the hillside. — Motor cars did not exist in 1780. The first petrol car was built in 1885, and this body style is 21st-century. (xuất hiện 1885) @px [205, 267, 288, 300] tin 0.98",
+  "khung khung-thu năm 1780: [vat_hien_dai] A steel lattice electricity pylon with overhead power lines stands on the ridge. — High-voltage transmission pylons and power lines are 20th-century infrastructure. Electrical grids did not exist in 1780. (xuất hiện 1900) @px [200, 119, 330, 211] tin 0.97"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 3 ở 1 khung · ghi chú (tin < 0.5) 0 · chi phí $0.057 (TB $0.057/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "khung-thu",
+   "nam": 1780,
+   "noi": "Gibraltar",
+   "sha256": "322efebde857057013c4c522296d7a1b05be318f90f81a354908e1cacc36f599",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [
+    {
+     "muc": "xe",
+     "mo_ta": "A modern airliner, a twin-engine jet, flies over the bay.",
+     "ly_do": "Jet aircraft did not exist in 1780. Powered flight began in 1903 and jet airliners in the 1950s.",
+     "nam_xuat_hien": 1903,
+     "toa_do_px": [
+      1390,
+      162,
+      1501,
+      197
+     ],
+     "do_tin": 0.98,
+     "xac_nhan": {
+      "vung_px": [
+       1279,
+       13,
+       1612,
+       346
+      ],
+      "phong": 2.02,
+      "tra_loi": {
+       "vat": "A twin-engine jet airliner in flight",
+       "dac_diem": "It has a white fuselage and swept-back wings. One engine is visible under the wing. The tail fin is blue with a round emblem. It is seen from the side against a pale blue sky with thin clouds, and the sea horizon is at the bottom.",
+       "co_tu_nam": 1950,
+       "da_co_nam_1780": "no",
+       "ly_do": "Jet airliners first flew in the 1950s. Powered aircraft of any kind did not exist until 1903. In 1780 the only aircraft were hot-air and hydrogen balloons, and the first of those flew in 1783."
+      },
+      "da_co": "no",
+      "giu": true,
+      "cost_usd": 0.0060286,
+      "loi": null
+     }
+    },
+    {
+     "muc": "xe",
+     "mo_ta": "A red modern convertible car is parked on a dirt track on the hillside.",
+     "ly_do": "Motor cars did not exist in 1780. The first petrol car was built in 1885, and this body style is 21st-century.",
+     "nam_xuat_hien": 1885,
+     "toa_do_px": [
+      205,
+      267,
+      288,
+      300
+     ],
+     "do_tin": 0.98,
+     "xac_nhan": {
+      "vung_px": [
+       122,
+       159,
+       371,
+       408
+      ],
+      "phong": 2.7,
+      "tra_loi": {
+       "vat": "A red convertible passenger car (modern motor vehicle) on a dirt track on a hillside",
+       "dac_diem": "Red glossy body, low roofless convertible shape, alloy wheels, front headlights and grille, licence plate at the front. It sits on a dusty track across a scrubby slope. A steel electricity pylon with power lines stands on the ridge behind it.",
+       "co_tu_nam": 1886,
+       "da_co_nam_1780": "no",
+       "ly_do": "Petrol-engined cars date from about 1886, and this is a modern convertible design. Nothing like it existed in 1780, when transport was horse-drawn carts and carriages. The pylon is also anachronistic."
+      },
+      "da_co": "no",
+      "giu": true,
+      "cost_usd": 0.0062286,
+      "loi": null
+     }
+    },
+    {
+     "muc": "vat_hien_dai",
+     "mo_ta": "A steel lattice electricity pylon with overhead power lines stands on the ridge.",
+     "ly_do": "High-voltage transmission pylons and power lines are 20th-century infrastructure. Electrical grids did not exist in 1780.",
+     "nam_xuat_hien": 1900,
+     "toa_do_px": [
+      200,
+      119,
+      330,
+      211
+     ],
+     "do_tin": 0.97,
+     "xac_nhan": {
+      "vung_px": [
+       70,
+       0,
+       460,
+       360
+      ],
+      "phong": 1.72,
+      "tra_loi": {
+       "vat": "Electricity transmission pylon with overhead power lines",
+       "dac_diem": "Tall steel lattice tower on a hill crest, with cross-arms on both sides. Several conductor wires run off to the left and right. It stands against the sky. A red modern car is visible on the slope below.",
+       "co_tu_nam": 1920,
+       "da_co_nam_1780": "no",
+       "ly_do": "Steel lattice high-voltage pylons and power lines only appeared in the late 19th and early 20th century. Nothing like them existed in 1780."
+      },
+      "da_co": "no",
+      "giu": true,
+      "cost_usd": 0.006195399999999999,
+      "loi": null
+     }
+    }
+   ],
+   "ghi_chu": [],
+   "cost_usd": 0.0565392,
+   "cost_buoc2": 0.01845,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1178,
+     "cacheReadInputTokens": 2071,
+     "cacheCreationInputTokens": 10435,
+     "webSearchRequests": 0,
+     "costUSD": 0.0380866,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 323,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"xe\",\"mo_ta\":\"A modern airliner, a twin-engine jet, flies over the bay.\",\"ly_do\":\"Jet aircraft did not exist in 1780. Powered flight began in 1903 and jet airliners in the 1950s.\",\"nam_xuat_hien\":1903,\"toa_do\":[0.724,0.15,0.782,0.182],\"do_tin\":0.98},{\"muc\":\"xe\",\"mo_ta\":\"A red modern convertible car is parked on a dirt track on the hillside.\",\"ly_do\":\"Motor cars did not exist in 1780. The first petrol car was built in 1885, and this body style is 21st-century.\",\"nam_xuat_hien\":1885,\"toa_do\":[0.107,0.247,0.15,0.278],\"do_tin\":0.98},{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"A steel lattice electricity pylon with overhead power lines stands on the ridge.\",\"ly_do\":\"High-voltage transmission pylons and power lines are 20th-century infrastructure. Electrical grids did not exist in 1780.\",\"nam_xuat_hien\":1900,\"toa_do\":[0.104,0.11,0.172,0.195],\"do_tin\":0.97}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0565,
+ "chi_phi_tb": 0.0565,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

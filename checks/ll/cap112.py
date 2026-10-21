@@ -1,5 +1,5 @@
 #!/opt/cine/bin/python
-"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) + 1.16 (SACH-1…PC-1, K-LAI-3V; chỉ tập từ T3; chủ dự án duyệt K116-D1…D9 19/10 18:48 → 1.16.1) (phiên K, 17–19/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
+"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) + 1.16 (SACH-1…PC-1, K-LAI-3V; chỉ tập từ T3; chủ dự án duyệt K116-D1…D9 19/10 18:48 → 1.16.1) + 1.17 (MINH-HOA, EO-DAT-R1…R3 từ T3; N2P-1…6 từ T4) (phiên K, 17–21/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
 HH1) và các luật 1.12.1 (chủ dự án duyệt 16–17/10: HH2, HH3, MM1–MM4, JJ1–JJ2, KK1). Mặc định `k2check.py` vẫn CHỈ BÁO (ghi cấp cạnh kết quả);
 `--cap` áp cấp vào mã thoát: hàng có lỗi thuộc phần Chặn → TRƯỢT, chỉ có lỗi phần Cảnh báo → CẢNH BÁO (không tính vào mã thoát).
 
@@ -71,7 +71,19 @@ CAP = {
     'XEM-CAM': ('Chặn (K116-D1, D2; §13.4 bắt buộc từ T3)', {'*'}, set()),
     'PC-1': ('Cảnh báo (K116-D1; thước tạm, hiệu chuẩn trên ≥ 10 ảnh)', set(), {'*'}),
     'K-LAI-3V': ('Chặn ở cổng G2 (bản phát hành) · Cảnh báo ở animatic (K116-D5)', {'*'}, set()),
+    # 1.17 (phiên K-1.17, 21/10/2026; mức theo lệnh K-1.17: MINH HOẠ + EO-DAT "Chặn ở G2, Cảnh báo ở animatic"; N2P cùng sơ đồ cổng — K đề xuất, chờ duyệt)
+    'MINH-HOA': ('Chặn ở G2 · Cảnh báo ở animatic (lệnh K-1.17; §14.1 (c) N2 / §15 M-d)', {'*'}, set()),
+    'EO-DAT-R1': ('Chặn ở G2 · Cảnh báo ở animatic (lệnh K-1.17; §14.7 R1; ngưỡng K đề xuất tạm)', {'*'}, set()),
+    'EO-DAT-R2': ('Chặn ở G2 · Cảnh báo ở animatic (lệnh K-1.17; §14.7 R2; ngưỡng K đề xuất tạm)', {'*'}, set()),
+    'EO-DAT-R3': ('Chặn ở G2 · Cảnh báo ở animatic (lệnh K-1.17; §14.7 R3)', {'*'}, set()),
+    'N2P-1': ('Chặn (a), (b) ở G2 · Cảnh báo ở animatic · (c) cụm dải 20 px luôn Cảnh báo (người đọc tờ so) — §15 (c)(i), K đề xuất', set('ab'), set('c')),
+    'N2P-2': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(ii), K đề xuất', {'*'}, set()),
+    'N2P-3': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iii), K đề xuất', {'*'}, set()),
+    'N2P-4': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iv), K đề xuất', {'*'}, set()),
+    'N2P-5': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (b), (c)(v), K đề xuất', {'*'}, set()),
+    'N2P-6': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (d) trần, K đề xuất', {'*'}, set()),
 }
+CONG = {'K-LAI-3V', 'MINH-HOA', 'EO-DAT-R1', 'EO-DAT-R2', 'EO-DAT-R3', 'N2P-1', 'N2P-2', 'N2P-3', 'N2P-4', 'N2P-5', 'N2P-6'}   # cấp theo cổng (r['cong'])
 _M = re.compile(r'^\((\w)\)')
 
 
@@ -94,7 +106,7 @@ def cap(ma, r):
     if ma == 'KHOP1':
         ch = [x for x in loi + th if (_muc(x) or '*') in 'abd*' or (_muc(x) == 'c' and r.get('doi_trinh_dung'))]
         return mo, ch, [x for x in loi if x not in ch]
-    if ma == 'K-LAI-3V' and r.get('cong') == 'animatic': return mo, [], loi + th   # K116-D5: animatic (`animatic: true`) chỉ Cảnh báo
+    if ma in CONG and r.get('cong') == 'animatic': return mo, [], loi + th   # K116-D5 (+ 1.17): animatic (`animatic: true`) chỉ Cảnh báo
     if '*' in CH: return mo, loi + th, []
     if '*' in CB: return mo, [], loi + th
     ch = [x for x in loi + th if _muc(x, M) in CH]

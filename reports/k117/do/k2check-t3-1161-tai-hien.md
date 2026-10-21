@@ -1,0 +1,317 @@
+# Luật kênh 2 (checks 1.16.1) — k2c-t3-anim — TRƯỢT
+
+| Mục | Kiểm | Kết quả | Cấp (1.12.1) | Giá trị | Ngưỡng | Sát ngưỡng (±5 %) |
+|---|---|---|---|---|---|---|
+| Q26b | Đa dạng bối cảnh (1.16: cảnh tl/* theo vùng) | **ĐẠT** |  | 35 bối cảnh · lớn nhất tl/t3tl · F-lai 7.4 % · liên tục dài nhất tl/t3tl · D-cong-orbit 31.5 s · nửa sau 17 · trung tính 0.0 % | ≤ 25 % · ≤ 90 s · nửa sau ≥ 3 |  |
+| Q32 | Footage/ảnh nguồn ngoài | **ĐẠT** |  | không dùng footage ngoài | ≤ 40 % · footage ≤ 20 % · ≤ 8 s/clip · < 720p trong khung ≤ 1,5× |  |
+| Q33 | Lặp cảnh | **ĐẠT** |  | 43 góc máy · 43 lần xuất hiện · nhiều nhất tl/t3tl · anim_C1 1 lần · 0 góc > 2 · chưa đo pHash (không có master) | ≤ 2 lần |  |
+| Q34 | Loại shot | **ĐẠT** |  | 45/45 shot có type · scene3d 97.9 % · card 2.1 % · số neo 3D 100 %, chỉ card 0 % (0 số) · địa danh 0 · nhân vật 0 | type · map ±6 s · photo ±6 s · số neo 3D ≥ 60 % · document ≤ 3 s · record ≤ 12 s + dòng tô + nguồn |  |
+| Q35 | Nhãn loại số (D5) | **ĐẠT** |  | mô hình đặc tả · 96 khung xét · ACTUAL nhiều nhất 0/khung · lỗi a 0 · b 0 · c 0 · d 0 | ACTUAL ≤ 1/khung · ESTIMATE bắt buộc · số có năm rõ không cần ACTUAL |  |
+| Q36 | Chữ trên màn hình | **ĐẠT** |  | 0 dòng nguồn · dài nhất 0 ký tự · không có log (cỡ chữ THIẾU) · lỗi a 0 · b 0 · thiếu 0 | nguồn ≥ 38 px, 1 dòng, ≤ 70 ký tự · Facts as of chỉ với luật hiệu lực (+ 1 lần trong câu miễn trừ 0:00–0:15) |  |
+| Q37 | Nhịp thị giác (1.16: miễn khung neo/im lặng ≤ 10 s) | **TRƯỢT** |  | 761.0 s · biến cố khai 146 (gộp 146) · TB 5.21 s · dài nhất 12.71 s · khung tĩnh: không đo (không có master) · miễn khung neo/im lặng (1.16): 0 khoảng, dài nhất trước miễn 12.71 s | TB ≤ 3,5 s · dài nhất ≤ 6 s · khung tĩnh ≤ 6 s |  |
+| A1–A13 | Âm thanh (tập cũ — chỉ báo) | **CHỈ BÁO** |  | CHỈ BÁO · A1 không có master · A2 không có master · A5 không có master · A7 không có master · A4 KHÔNG ÁP (không có lời — 1.16) · A8 KHÔNG ÁP (không có lời — 1.16) | docs/AUDIO-THUOC-DO.md |  |
+| ML1 | Mạch truyện | **TRƯỢT** | Chặn (b), (c) · Cảnh báo (a) ở T3 (Chặn từ T4) — lỗi Chặn 2, Cảnh báo 0 | 41/45 shot gắn (0 suy từ mốc @từ) · timelapse 761.0 s, trôi 4.2 % | mỗi shot gắn câu/claim · timelapse trôi ≤ 15 % |  |
+| ML2 | Lời lặp ý | **ĐẠT** | Chặn có giải trình (người quyết; không vào mã thoát tự động) — lỗi Chặn 0, Cảnh báo 0 | 0 câu · 0 cặp ứng viên (chấm 0) · 0 lặp ý · không khai tóm tắt | n-gram/IDF + chấm ngữ nghĩa ghim mô hình; ngoài tóm tắt cuối |  |
+| ML3 | Lời mời đăng ký | **ĐẠT** | Chặn — lỗi Chặn 0, Cảnh báo 0 | 0 câu mời: không có · 0 luận điểm chính khai | 60 s cuối hoặc ±5 s ranh chương · không trong 20 s trước luận điểm chính |  |
+| FT1 | Chỉ báo footage/ảnh | **ĐẠT** | Cảnh báo (20 % footage đã Chặn ở Q32 b2) — lỗi Chặn 0, Cảnh báo 0 | 0 shot footage/ảnh · tính 0.0 s = 0.0 % (miễn ảnh nhỏ 0.0 s) · khai lý do: 0/0 | ≤ 20 % (trần) · mỗi shot có lý do · ảnh ≤ 1/3 khung ≤ 6 s không tính |  |
+| NHIP-K2 | Nhịp kênh 2 (Q14–Q18 không áp → Q37) | **TRƯỢT** | Chặn (như Q37) — lỗi Chặn 100, Cảnh báo 0 | Q37: 761.0 s · biến cố khai 146 (gộp 146) · TB 5.21 s · dài nhất 12.71 s · khung tĩnh: không đo (không có master) · miễn khung neo/im lặng (1.16): 0 khoảng, dài nhất trước miễn 12.71 s | TB ≤ 3,5 s · dài nhất ≤ 6 s |  |
+| Q26b-K2 | Đa dạng loại cảnh + vùng | **CẢNH BÁO** | Chặn (c), (d), (e) (như Q26b) · Cảnh báo (a), (b) — lỗi Chặn 0, Cảnh báo 3 | loại: 3d 97.9 %, the_so 2.1 % · 34 vùng, lớn nhất F-lai 7.4 % · nửa sau 17 vùng · không vùng 2.1 % | ≥ 3 loại/nửa · loại ≤ 70 % · vùng ≤ 25 %, ≤ 90 s, nửa sau ≥ 3 |  |
+| Q33-K2 | Lặp cảnh (vùng, góc) + pHash L/ΔE | **TRƯỢT** | Chặn (như Q33) — lỗi Chặn 1, Cảnh báo 0 | 43 khoá (vùng, góc) · 43 lần xuất hiện · nhiều nhất tl/t3tl · anim_C1 1 · 0 khoá > 2 | ≤ 2 lần (miễn: khác chương + khác năm/lớp) |  |
+| Q32b-K2 | Trần clip/ảnh | **ĐẠT** | Chặn (như Q32b) — lỗi Chặn 0, Cảnh báo 0 | 0 clip/ảnh ·  | footage ≤ 8 s · ảnh có máy/chú thích đổi ≤ 12 s · ảnh tĩnh ≤ 8 s |  |
+| NC-H1 | Thành phố có nhà | **TRƯỢT** | Chặn (a), (b) (đúng lỗi chủ dự án nêu ở T2) — lỗi Chặn 16, Cảnh báo 0 | 16 shot thành phố (197.1 s; khai 16, suy 0) · có lớp nhà khai 0 · không lớp nhà 16 · không đo fabric 0 | fabric trung vị ≥ 25 % · không khung < 15 % (trừ ≤ 3 s cuối reveal) |  |
+| NC-H2 | Địa cầu | **CẢNH BÁO** | Chặn (a), (b) — lỗi Chặn 0, Cảnh báo 1 | 0 lần · 0.0 s (0.0 % phim) · map/globe 0.0 s · bản đồ nổi tầm cao 0.0 s · dài nhất 0 s | AGL > 50 km: ≤ 1 lần/tập · ≤ 3 s/lần |  |
+| NC-H3 | Tầm mặc định | **CẢNH BÁO** | Cảnh báo — lỗi Chặn 0, Cảnh báo 1 | 3D địa lý 0.0 s · AGL ≤ 60 km 0.0 % · ≤ 3 km 0.0 % · có thành phố: có | AGL ≤ 60 km ≥ 70 % 3D · có thành phố: AGL ≤ 3 km ≥ 40 % |  |
+| NC-H4 | Nơi có tên | **ĐẠT** | Chặn — lỗi Chặn 0, Cảnh báo 0 | 0 shot bản đồ · chip nơi 0 · nhãn địa danh 0 · thiếu 0 (nguồn: đặc tả, không log chữ) | mọi shot bản đồ: chip nơi hoặc nhãn địa danh |  |
+| NC-H5 | Đúng thời kỳ | **ĐẠT** | Chặn (a) · Cảnh báo (b) — lỗi Chặn 0, Cảnh báo 0 | tập không có bộ đếm năm (cảnh tl/* có opt.year/counter, hoặc p.counter) | năm xây ≤ bộ đếm (nam_khung) · ghost có nguồn + nguồn trong mô tả (§12.1: không nhãn trên hình) |  |
+| Q7/Q8-K2 | Nhãn/loại số nhận estimate (khiếu nại TT5 i) | **ĐẠT** | Chặn (thay Q7/Q8 cho kênh 2, như Q35) — lỗi Chặn 0, Cảnh báo 0 | Q7 nhận ESTIMATE: 0 lỗi (không log: chỉ kiểm kind khai) · Q8 loại số: 0 lỗi | kind ∈ actual/projection/estimate (kênh 2) · đủ nhãn, không thừa nhãn |  |
+| Q33 (1.13) | Lặp cảnh — pHash bỏ lớp chữ cố định | **ĐẠT** | Chặn (thay Q33 cho kênh 2) — lỗi Chặn 0, Cảnh báo 0 | 43 góc máy · 43 lần xuất hiện · nhiều nhất tl/t3tl · anim_C1 1 lần · 0 góc > 2 · chưa đo pHash (không có master) | ≤ 2 lần · pHash L vùng nội dung y 18–72 %, θ 16 |  |
+| Q36 (1.13) | Chữ — câu miễn trừ nhận theo chữ | **ĐẠT** | Chặn (thay Q36 cho kênh 2) — lỗi Chặn 0, Cảnh báo 0 | 0 dòng nguồn · dài nhất 0 ký tự · không có log (cỡ chữ THIẾU) · lỗi a 0 · b 0 · thiếu 0 | "This video explains… Facts as of" 1 lần trong 0:00–0:15 không đòi nguồn luật |  |
+| Q37 (1.13) | Nhịp — khung tĩnh theo khung neo | **TRƯỢT** | Chặn (thay Q37 cho kênh 2) — lỗi Chặn 100, Cảnh báo 0 | 761.0 s · biến cố khai 146 (gộp 146) · TB 5.21 s · dài nhất 12.71 s · khung tĩnh: không đo (không có master) · miễn khung neo/im lặng (1.16): 0 khoảng, dài nhất trước miễn 12.71 s | khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s |  |
+| BD-1…BD-8 | Bản đồ chiến lược / inset / ranh | **ĐẠT** | — — lỗi Chặn 0, Cảnh báo 0 | không có shot strategic, lớp ranh, tuyến hay inset |  |  |
+| K-R1…K-R9 | ĐỎ-K | **ĐẠT** | — — lỗi Chặn 0, Cảnh báo 0 | tập không khai rui_ro: do-k |  |  |
+| K-LAI-1…6 | Khung neo LAI | **ĐẠT** | — — lỗi Chặn 0, Cảnh báo 0 | tập không có khối lai: / shot AI |  |  |
+| O2 | Máy soi lỗi thời đại (lưới lọc thứ hai) | **CẢNH BÁO** | Cảnh báo (lưới lọc thứ hai — không thay kiểm nguồn) — lỗi Chặn 0, Cảnh báo 1 | — | 1 khung/5 s + khung neo · cờ/quân phục/tàu/đèn/xe/vật hiện đại/chữ/kiến trúc theo năm · không thay kiểm nguồn |  |
+| SACH-1 | Khung sạch §12.1 + TL-4 | **TRƯỢT** | Chặn (a)–(f) (K116-D1; (e) chữ bản đồ Chặn theo K116-D3: ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ) — lỗi Chặn 1, Cảnh báo 0 | 45 shot · tấm số/trích 0 · tư liệu đứng riêng 0 · không log chữ | chỉ bộ đếm · chip nơi ≤ 3 s · thẻ chương · thẻ phương pháp · bản đồ ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ (K116-D3); không tấm số/trích, không tư liệu đứng riêng (phủ ≤ 3 s) |  |
+| CHUONG-1 | Thẻ chương §13.3 | **ĐẠT** | Chặn (a)–(e) · Cảnh báo (f) vị trí/mờ (K116-D1) — lỗi Chặn 0, Cảnh báo 0 | 5 thẻ (đặc tả) · dài nhất 3.00 s · 0:44.2 1704 — The Rock changes hands; 2:53.5 1779 — The Great Siege; 6:23.0 1783 — The neutral ground; 7:52.0 1939 — A runway on the sand | ≤ 8/tập · "năm — ≤ 6 từ" · ≤ 3 s · không trong móc · trung tính | thẻ '1704 — The Rock chan' s 3.0 (ngưỡng 3.0); thẻ '1779 — The Great Sie' s 3.0 (ngưỡng 3.0); thẻ '1783 — The neutral g' s 3.0 (ngưỡng 3.0); thẻ '1939 — A runway on t' s 3.0 (ngưỡng 3.0); thẻ '1969 — The gate clos' s 3.0 (ngưỡng 3.0) |
+| PP-1 | Thẻ phương pháp (D6) | **CẢNH BÁO** | Chặn (a)–(d) · Cảnh báo (e) tốc độ đọc ≤ 3 từ/s (K116-D1, D8: ≈ 8 s = 7–9 s) — lỗi Chặn 0, Cảnh báo 2 | 2 thẻ · PP1 8.0 s, PP2 8.0 s · 58 từ | 2 thẻ × 7–9 s, cuối phim · nguồn/ước tính/AI · ≤ 3 từ/s |  |
+| TL-1 | Xương sống timelapse §13.6 | **CẢNH BÁO** | Cảnh báo (K116-D1; mục tiêu §13.6, hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 26 | thân phim 745.0 s · góc cao + tl 723.0 s (97.0 %) · đặc tả ≤ 3.54 cắt/phút (cận trên) · ngưỡng hiệu chỉnh sau V7-PILOT | góc cao + thời gian chạy ≥ 75 % · ≤ 5 cắt/phút (video: đổi cấu trúc; đối chiếu đặc tả ±0,5 s) · trôi ≤ 2 %/s · 6–8 điểm máy (hiệu chỉnh sau V7-PILOT) |  |
+| TL-2 | Lướt thấp §13.6 | **ĐẠT** | Cảnh báo (K116-D1; hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 0 | lướt thấp 3 shot · 22.0 s = 3.0 % · ngưỡng hiệu chỉnh sau V7-PILOT | lướt thấp ≤ 10 % · có vai, phố/người (hiệu chỉnh sau V7-PILOT) |  |
+| TL-3 | Không shot trống §13.6 | **CẢNH BÁO** | Cảnh báo (K116-D1; hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 1 | 43 shot 3D · không đổi 0 · trống 0 · thiếu trong_pct 43 | mỗi shot 3D: thời gian chạy hoặc biến cố · trống ≤ 60 % (hiệu chỉnh sau V7-PILOT) |  |
+| NHIP-NGHIA | Nhịp → vật mang nghĩa §13.2 | **ĐẠT** | Chặn (K116-D1; §13.2) — lỗi Chặn 0, Cảnh báo 0 | 71/71 nhịp chính có vật mang nghĩa = 100.0 % | ≥ 90 % nhịp chính |  |
+| XEM-CAM | Cổng XEM CÂM §13.4 | **TRƯỢT** | Chặn (K116-D1, D2; §13.4 bắt buộc từ T3) — lỗi Chặn 1, Cảnh báo 0 | — | 8 câu · 3 AI + chủ dự án · tắt tiếng · chủ dự án ≥ 6/8 VÀ TB AI ≥ 6/8 (K116-D2) |  |
+| PC-1 | Thước phục chế §12.3 | **ĐẠT** | Cảnh báo (K116-D1; thước tạm, hiệu chuẩn trên ≥ 10 ảnh) — lỗi Chặn 0, Cảnh báo 0 | tập không khai phuc_che: (không dùng ảnh phục chế) | Δ cạnh mới so bicubic ≤ 1,0 điểm % · PSNR ≥ bicubic |  |
+| LOCK | checks/ khớp LOCK (1.16.1) | **TRƯỢT** |  | KHÔNG KHỚP |  |  |
+
+## Âm thanh A1–A13
+| Mục | Kiểm | Loại | Kết quả | Giá trị | Ngưỡng |
+|---|---|---|---|---|---|
+| A1 | Loudness tích hợp | chặn | BÁO | không có master |  |
+| A2 | Đỉnh thật sau AAC | chặn | BÁO | không có master |  |
+| A3 | LRA | báo | — | không có master | báo |
+| A4 | Lời trên nhạc (SMR) | chặn | — | KHÔNG ÁP (không có lời — 1.16) | p10 ≥ 15 · min ≥ 12 |
+| A5 | Lặng bất thường | chặn | BÁO | không có master |  |
+| A6 | Tỉ lệ lặng | báo | — | không có master | báo |
+| A7 | Chạm trần | chặn | BÁO | không có master |  |
+| A8 | Chồng lời | chặn | — | KHÔNG ÁP (không có lời — 1.16) | 0 |
+| A9 | ASR hai cách nghe | chặn | — | KHÔNG ÁP (không có lời — 1.16) | 100 % đoạn |
+| A10 | Quãng không lời > 8 s không khai khoảnh khắc nhạc | báo | — | KHÔNG ÁP (không có lời — 1.16) | > 8 s (báo) |
+| A11 | Giao nhạc | chặn | — | không đo (mix.json không phải chuỗi mới) | ≤ 1 ô nhịp · không lặp |
+| A12 | Loudnorm tuyến tính | chặn | — | không đo (mix.json không phải chuỗi mới) | linear |
+| A13 | Đồng bộ tiếng | báo | — | KHÔNG ÁP (không có lời — 1.16) | báo |
+
+## Chi tiết lỗi
+### Q37
+- (a) H1 3.41s loi "To walk in from Spain, you c": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H1 6.67s loi "Since July 2026, this gate h": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H2 3.23s loi "Historians on both sides cou": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H3 5.67s loi "So why, today, is the fight ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_1 6.50s loi "That summer, their fleet sai": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_1 10.79s loi "Its commanders, Admiral Geor": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_2 0.89s loi "This plan, printed in 1705, ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_2 10.50s loi "Inside, Governor Diego de Sa": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_2 19.28s loi "He refused to surrender.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_2 21.39s loi "The fleet answered with some": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_3 9.50s loi "British accounts put the def": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_4 5.13s loi "By a British account, almost": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_5 12.71s loi "If Britain ever gave it up, ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_5 16.55s loi "The treaty names the town, c": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_5 22.02s loi "Spain says the isthmus was n": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_5 25.49s loi "Britain said in 2015 that Gi": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_6 6.07s loi "Spain tried again in 1727.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_6 9.20s loi "Neither siege took it.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_6 10.96s loi "So in 1730, Philip the Fifth": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_6 19.99s loi "The town behind it is still ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 6.38s loi "On the twenty-first of June ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 12.47s loi "Spain had joined France in i": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 16.05s loi "By October, British intellig": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C2 4.95s loi "Based at Algeciras, its boat": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C3 8.19s loi "The governor, General Eliott": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C3 11.14s loi "The food had to come by sea.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C4 7.99s loi "Scurvy spread, until a Danis": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C5 10.07s loi "The townspeople fled south.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_6 3.87s loi "A British officer blamed "re": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_6 8.46s loi "By British tallies, the two ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_10 4.01s loi "By early July, Sergeant Ince": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_10 10.46s loi "In July they blasted a hole ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_10 13.79s loi "A Spanish historian wrote it": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_7 8.71s loi "On the eighth of September, ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_8 8.68s loi "The Duc de Crillon led the s": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_8 12.14s loi "Their answer to red-hot shot": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_8 18.85s loi "A French account says he'd a": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_8 23.11s loi "It was refused.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 0.57s loi "The thirteenth of September ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 4.32s loi "That morning, the batteries ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 9.25s loi "At ten twenty-five, by the S": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 17.24s loi "By the next afternoon, all t": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 21.50s loi "Over two thousand attackers ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 3.57s loi "The blockade never forced a ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 7.13s loi "In February 1783, word came ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 15.62s loi "Spanish historian Montero pu": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 24.33s loi "The garrison's records count": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 30.69s loi "Gibraltar stayed British.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_1 5.07s loi "Which leaves a question the ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_1 11.06s loi "Between the walls and the Sp": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_1 16.75s loi "Around 1810, with Napoleon's": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_1 24.11s loi "With Spain's consent, the Br": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_2 0.55s loi "After that, the edge kept mo": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_2 3.30s loi "A Spanish historian describe": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_3 5.15s loi "In 1870, it became La Línea ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) KC1910 2.50s loi "We'll come back to it.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_4 6.00s loi "In 1908, Britain told Spain,": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_4 13.42s loi "The fence went up in 1909; S": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_4 22.00s loi "Behind the fence: a garrison": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_5 0.69s loi "And from 1934, a grass airst": không khớp mốc nào trong đặc tả (±0.3 s)
+- … 40 mục nữa
+### ML1
+- KB1943/0: cau '' không khớp đúng một câu trong lời
+- KA2026/0: cau '' không khớp đúng một câu trong lời
+### NHIP-K2
+- (a) H1 3.41s loi "To walk in from Spain, you c": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H1 6.67s loi "Since July 2026, this gate h": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H2 3.23s loi "Historians on both sides cou": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H3 5.67s loi "So why, today, is the fight ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_1 6.50s loi "That summer, their fleet sai": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_1 10.79s loi "Its commanders, Admiral Geor": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_2 0.89s loi "This plan, printed in 1705, ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_2 10.50s loi "Inside, Governor Diego de Sa": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_2 19.28s loi "He refused to surrender.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_2 21.39s loi "The fleet answered with some": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_3 9.50s loi "British accounts put the def": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_4 5.13s loi "By a British account, almost": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_5 12.71s loi "If Britain ever gave it up, ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_5 16.55s loi "The treaty names the town, c": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_5 22.02s loi "Spain says the isthmus was n": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_5 25.49s loi "Britain said in 2015 that Gi": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_6 6.07s loi "Spain tried again in 1727.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_6 9.20s loi "Neither siege took it.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_6 10.96s loi "So in 1730, Philip the Fifth": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_6 19.99s loi "The town behind it is still ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 6.38s loi "On the twenty-first of June ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 12.47s loi "Spain had joined France in i": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 16.05s loi "By October, British intellig": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C2 4.95s loi "Based at Algeciras, its boat": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C3 8.19s loi "The governor, General Eliott": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C3 11.14s loi "The food had to come by sea.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C4 7.99s loi "Scurvy spread, until a Danis": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C5 10.07s loi "The townspeople fled south.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_6 3.87s loi "A British officer blamed "re": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_6 8.46s loi "By British tallies, the two ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_10 4.01s loi "By early July, Sergeant Ince": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_10 10.46s loi "In July they blasted a hole ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_10 13.79s loi "A Spanish historian wrote it": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_7 8.71s loi "On the eighth of September, ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_8 8.68s loi "The Duc de Crillon led the s": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_8 12.14s loi "Their answer to red-hot shot": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_8 18.85s loi "A French account says he'd a": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_8 23.11s loi "It was refused.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 0.57s loi "The thirteenth of September ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 4.32s loi "That morning, the batteries ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 9.25s loi "At ten twenty-five, by the S": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 17.24s loi "By the next afternoon, all t": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 21.50s loi "Over two thousand attackers ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 3.57s loi "The blockade never forced a ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 7.13s loi "In February 1783, word came ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 15.62s loi "Spanish historian Montero pu": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 24.33s loi "The garrison's records count": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 30.69s loi "Gibraltar stayed British.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_1 5.07s loi "Which leaves a question the ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_1 11.06s loi "Between the walls and the Sp": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_1 16.75s loi "Around 1810, with Napoleon's": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_1 24.11s loi "With Spain's consent, the Br": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_2 0.55s loi "After that, the edge kept mo": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_2 3.30s loi "A Spanish historian describe": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_3 5.15s loi "In 1870, it became La Línea ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) KC1910 2.50s loi "We'll come back to it.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_4 6.00s loi "In 1908, Britain told Spain,": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_4 13.42s loi "The fence went up in 1909; S": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_4 22.00s loi "Behind the fence: a garrison": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_5 0.69s loi "And from 1934, a grass airst": không khớp mốc nào trong đặc tả (±0.3 s)
+- … 40 mục nữa
+### Q26b-K2
+- (a) nửa đầu: 1 loại cảnh ≥ 3 s (3d) < 3
+- (a) nửa sau: 2 loại cảnh ≥ 3 s (3d, the_so) < 3
+- (b) loại 3d chiếm 97.9 % > 70 %
+### Q33-K2
+- không có master: pHash không đo (chỉ đếm lần khai)
+### NC-H1
+- (a) H2/0 anim_H2 @0:12.0 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) H2T/0 anim_H2T @0:28.0 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) N1_2/0 anim_N1_2 @1:02.6 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) N1_3/0 anim_N1_3 @1:29.4 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) C3/0 anim_C3 @3:27.6 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) C5/0 anim_C5 @3:55.2 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) N2_6/0 anim_N2_6 @4:07.7 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) KA1782/0 anim_KA1782 @4:22.2 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) N3_3/0 anim_N3_3 @6:58.3 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) KC1910/0 anim_KC1910 @7:08.3 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) N4_3/0 anim_N4_3 @8:45.5 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) KB1943/0 anim_KB1943 @9:10.6 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) KB2026/0 anim_KB2026 @10:09.6 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) KC2026/0 anim_KC2026 @10:31.6 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) N5_3/0 anim_N5_3 @10:41.6 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+- (a) KA2026/0 anim_KA2026 @11:57.0 (khai noi: thanh_pho): cảnh tl/t3tl không có lớp nhà/đường (fabric 0 % theo đặc tả) < 25 %
+### NC-H2
+- không có shot bản đồ/địa cầu có máy quay đọc được
+### NC-H3
+- không có thời lượng 3D địa lý
+### Q37 (1.13)
+- (a) H1 3.41s loi "To walk in from Spain, you c": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H1 6.67s loi "Since July 2026, this gate h": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H2 3.23s loi "Historians on both sides cou": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) H3 5.67s loi "So why, today, is the fight ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_1 6.50s loi "That summer, their fleet sai": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_1 10.79s loi "Its commanders, Admiral Geor": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_2 0.89s loi "This plan, printed in 1705, ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_2 10.50s loi "Inside, Governor Diego de Sa": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_2 19.28s loi "He refused to surrender.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_2 21.39s loi "The fleet answered with some": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_3 9.50s loi "British accounts put the def": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_4 5.13s loi "By a British account, almost": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_5 12.71s loi "If Britain ever gave it up, ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_5 16.55s loi "The treaty names the town, c": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_5 22.02s loi "Spain says the isthmus was n": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_5 25.49s loi "Britain said in 2015 that Gi": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_6 6.07s loi "Spain tried again in 1727.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_6 9.20s loi "Neither siege took it.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_6 10.96s loi "So in 1730, Philip the Fifth": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N1_6 19.99s loi "The town behind it is still ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 6.38s loi "On the twenty-first of June ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 12.47s loi "Spain had joined France in i": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C1 16.05s loi "By October, British intellig": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C2 4.95s loi "Based at Algeciras, its boat": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C3 8.19s loi "The governor, General Eliott": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C3 11.14s loi "The food had to come by sea.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C4 7.99s loi "Scurvy spread, until a Danis": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) C5 10.07s loi "The townspeople fled south.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_6 3.87s loi "A British officer blamed "re": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_6 8.46s loi "By British tallies, the two ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_10 4.01s loi "By early July, Sergeant Ince": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_10 10.46s loi "In July they blasted a hole ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_10 13.79s loi "A Spanish historian wrote it": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_7 8.71s loi "On the eighth of September, ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_8 8.68s loi "The Duc de Crillon led the s": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_8 12.14s loi "Their answer to red-hot shot": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_8 18.85s loi "A French account says he'd a": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_8 23.11s loi "It was refused.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 0.57s loi "The thirteenth of September ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 4.32s loi "That morning, the batteries ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 9.25s loi "At ten twenty-five, by the S": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 17.24s loi "By the next afternoon, all t": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_9 21.50s loi "Over two thousand attackers ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 3.57s loi "The blockade never forced a ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 7.13s loi "In February 1783, word came ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 15.62s loi "Spanish historian Montero pu": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 24.33s loi "The garrison's records count": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N2_11 30.69s loi "Gibraltar stayed British.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_1 5.07s loi "Which leaves a question the ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_1 11.06s loi "Between the walls and the Sp": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_1 16.75s loi "Around 1810, with Napoleon's": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_1 24.11s loi "With Spain's consent, the Br": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_2 0.55s loi "After that, the edge kept mo": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_2 3.30s loi "A Spanish historian describe": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_3 5.15s loi "In 1870, it became La Línea ": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) KC1910 2.50s loi "We'll come back to it.": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_4 6.00s loi "In 1908, Britain told Spain,": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_4 13.42s loi "The fence went up in 1909; S": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_4 22.00s loi "Behind the fence: a garrison": không khớp mốc nào trong đặc tả (±0.3 s)
+- (a) N3_5 0.69s loi "And from 1934, a grass airst": không khớp mốc nào trong đặc tả (±0.3 s)
+- … 40 mục nữa
+### O2
+- chưa soi: khai khối o2: {nam | nam_theo} và chạy --o2 <master> --o2-api (Claude API, có chi phí)
+### SACH-1
+- (c) không có log chữ (--logs k2.js) — không đo được chữ thực hiện trên hình; (d) chip nơi chưa đo
+### PP-1
+- (e) thẻ PP1: 29 từ / 8.0 s = 3.6 từ/s > 3 (khó đọc trên điện thoại)
+- (e) thẻ PP2: 29 từ / 8.0 s = 3.6 từ/s > 3 (khó đọc trên điện thoại)
+### TL-1
+- (e) 32 điểm máy cao (cần 6–8)
+- (f) điểm máy D7-lai: chỉ ở năm 2026-10-18 23:52 — phải quay lại ở năm khác
+- (f) điểm máy K2: chỉ ở năm 2026-10-19 15:10 — phải quay lại ở năm khác
+- (f) điểm máy D7h-lai: chỉ ở năm 1938.6 — phải quay lại ở năm khác
+- (f) điểm máy K-co: chỉ ở năm 1704-08-04 08:30 — phải quay lại ở năm khác
+- (f) điểm máy A-lai: chỉ ở năm 1704-08-07 09:00 — phải quay lại ở năm khác
+- (f) điểm máy A2-lai: chỉ ở năm 1704.8 — phải quay lại ở năm khác
+- (f) điểm máy A3 → U1-lai: chỉ ở năm 1779-06-20 14:00 — phải quay lại ở năm khác
+- (f) điểm máy E (V7B-a): chỉ ở năm 1779-07-12 16:00 — phải quay lại ở năm khác
+- (f) điểm máy Ca2-lai: chỉ ở năm 1780-01-14 10:00 — phải quay lại ở năm khác
+- (f) điểm máy Bm → B-lai: chỉ ở năm 1780-01-16 12:00 — phải quay lại ở năm khác
+- (f) điểm máy Cc2-lai: chỉ ở năm 1781-04-12 09:20 — phải quay lại ở năm khác
+- (f) điểm máy D-vach: chỉ ở năm 1782-05-25 12:00 — phải quay lại ở năm khác
+- (f) điểm máy D-bac-lai: chỉ ở năm 1782-09-08 06:30 — phải quay lại ở năm khác
+- (f) điểm máy B-cao-lai: chỉ ở năm 1782-09-11 07:00 — phải quay lại ở năm khác
+- (f) điểm máy B-lan: chỉ ở năm 1782-09-13 06:45 — phải quay lại ở năm khác
+- (f) điểm máy D2-lai: chỉ ở năm 1933.5 — phải quay lại ở năm khác
+- (f) điểm máy F2-lai: chỉ ở năm 1941.6 — phải quay lại ở năm khác
+- (f) điểm máy Bb-lai: chỉ ở năm 1940-05-20 12:00 — phải quay lại ở năm khác
+- (f) điểm máy D-duongbang: chỉ ở năm 1942.3 — phải quay lại ở năm khác
+- (f) điểm máy D-cong: chỉ ở năm 1946.0 — phải quay lại ở năm khác
+- (f) điểm máy D → H: chỉ ở năm 2026-10-19 08:10 — phải quay lại ở năm khác
+- (f) điểm máy D-cong-orbit: chỉ ở năm 2026-07-14 10:00 — phải quay lại ở năm khác
+- (f) điểm máy B-lui: chỉ ở năm 2026-10-18 16:00 — phải quay lại ở năm khác
+- (f) điểm máy D7-lai-nguoc: chỉ ở năm 1730.0 — phải quay lại ở năm khác
+- (c)(d) không có video (master/--tl16-video) — cắt/phút và trôi máy chưa đo (đặc tả: cận trên 3.54 cắt/phút)
+### TL-3
+- (b) 43 shot 3D không có trong_pct (đầu: shot H1: không có trong_pct)
+### XEM-CAM
+- không khai `xem_cam:` trong episode.yaml — cổng XEM CÂM bắt buộc từ T3 (§13.4); K không tự chấm
+

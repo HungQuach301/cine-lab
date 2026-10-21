@@ -116,9 +116,10 @@ def calibrate(aps):
                     hist_khac_bo=hist(neg), hist_cung_bo_khac_goc=hist(sam), hist_khai_cung_goc=hist(pos))
 
 
-def q33(E, TL, video=None, theta=None, aps=None, k2=False):
-    """k2=True: băm 1.13 bỏ lớp chữ cố định (kênh 2) — CHỈ BÁO (k2check hàng "Q33 (1.13)") tới khi chủ dự án duyệt; mặc định luật 1.10.1"""
-    from checks.ll import q_k2var
+def q33(E, TL, video=None, theta=None, aps=None, k2=False, nam_log=None):
+    """k2=True: băm 1.13 bỏ lớp chữ cố định (kênh 2) — CHỈ BÁO (k2check hàng "Q33 (1.13)") tới khi chủ dự án duyệt; mặc định luật 1.10.1.
+    nam_log = {id đoạn: (năm đầu, năm cuối)} (1.17, CHỈ tập từ T3 — khiếu nại animatic T3): lần ở đoạn khác, khoảng năm không chồng mọi lần trước → miễn (TL-1)."""
+    from checks.ll import q_k2var, q_k117
     theta = theta if theta is not None else (q_k2var.THETA_L if k2 else THETA)
     aps = aps if aps is not None else appearances(E, TL)
     if video and aps and 'ph' not in aps[0]: hashes(video, aps, k2)
@@ -128,16 +129,18 @@ def q33(E, TL, video=None, theta=None, aps=None, k2=False):
     bad, near, rows = [], [], {}
     for (sc, cam), g in sorted(G.items()):
         extra = [o for o in aps if o['scene'] == sc and o['cam'] != cam and any(dist(o, x) <= theta for x in g)] if hp else []
-        n = len(g) + len(extra)
-        when = ', '.join(f"{int(a['t0'] // 60)}:{a['t0'] % 60:04.1f}" for a in g)
-        more = ' + pHash: ' + ', '.join(f"{o['cam']} {int(o['t0'] // 60)}:{o['t0'] % 60:04.1f}" for o in extra) if extra else ''
-        rows[f'{sc} · {cam}'] = dict(khai=len(g), phash_them=len(extra), tong=n, luc=when + more)
+        mien = q_k117.q33_mien(g + extra, nam_log) if nam_log else set()
+        n = len(g) + len(extra) - len(mien)
+        when = ', '.join(f"{int(a['t0'] // 60)}:{a['t0'] % 60:04.1f}" + (' (miễn: năm khác, TL-1)' if id(a) in mien else '') for a in g)
+        more = ' + pHash: ' + ', '.join(f"{o['cam']} {int(o['t0'] // 60)}:{o['t0'] % 60:04.1f}" + (' (miễn: năm khác, TL-1)' if id(o) in mien else '') for o in extra) if extra else ''
+        rows[f'{sc} · {cam}'] = dict(khai=len(g), phash_them=len(extra), tong=n, luc=when + more, **({'mien_nam': len(mien)} if nam_log else {}))
         if n > MAX_APPEAR: bad.append(f'{sc} · {cam}: {n} lần ({when}{more}) > {MAX_APPEAR}')
         elif n == MAX_APPEAR: near.append(f'{sc} · {cam}: đúng {MAX_APPEAR} lần')
     top = max(rows.items(), key=lambda z: z[1]['tong']) if rows else ('—', dict(tong=0))
     return dict(ok=not bad, loi=bad, sat_nguong=near, note='; '.join(bad[:6]), bang=rows,
                 val=f"{len(G)} góc máy · {len(aps)} lần xuất hiện · nhiều nhất {top[0]} {top[1]['tong']} lần · {len(bad)} góc > {MAX_APPEAR}"
-                    + (f' · pHash {"L vùng nội dung (bỏ lớp chữ cố định)" if k2 else "xám toàn khung"} θ={theta}, thêm {sum(r["phash_them"] for r in rows.values())} lần lặp không khai' if hp else ' · chưa đo pHash (không có master)'))
+                    + (f' · pHash {"L vùng nội dung (bỏ lớp chữ cố định)" if k2 else "xám toàn khung"} θ={theta}, thêm {sum(r["phash_them"] for r in rows.values())} lần lặp không khai' if hp else ' · chưa đo pHash (không có master)')
+                    + (f' · miễn năm khác (1.17, TL-1) {sum(r.get("mien_nam", 0) for r in rows.values())}' if nam_log else ''))
 
 
 if __name__ == '__main__':

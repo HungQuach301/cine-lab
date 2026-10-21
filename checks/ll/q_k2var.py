@@ -239,7 +239,8 @@ def lien_ket(o, x, theta):
     return dL(o, x) <= theta and dE(o, x) <= DE_MAX
 
 
-def q33_k2(E, TL, video=None, theta=THETA_L, aps=None):
+def q33_k2(E, TL, video=None, theta=THETA_L, aps=None, nam_log=None):
+    """nam_log (1.17, CHỈ tập từ T3 — khiếu nại animatic T3): thêm miễn theo năm log shot (q_k117.q33_mien, TL-1)."""
     aps = aps if aps is not None else appearances(E, TL)
     if video and aps and 'phm' not in aps[0]: hashes(video, aps)
     hp = bool(aps) and all('phm' in a for a in aps)
@@ -251,6 +252,9 @@ def q33_k2(E, TL, video=None, theta=THETA_L, aps=None):
         allap = sorted(g + extra, key=lambda a: a['t0']); first = allap[0]
         mien = [a for a in allap[1:] if a['seg'] != first['seg'] and ((a.get('nam') and str(a['nam']) != str(first.get('nam') or '')) or
                                                                       (a.get('lop') and str(a['lop']) != str(first.get('lop') or '')))]
+        if nam_log:
+            from checks.ll import q_k117
+            mn = q_k117.q33_mien(allap, nam_log); mien += [a for a in allap if id(a) in mn and a not in mien]
         n = len(allap) - len(mien)
         when = ', '.join(f"{(a['cam'] + ' ') if a['cam'] != cam else ''}{mmss(a['t0'])}" + (' (miễn: khác chương + khác năm/lớp)' if a in mien else '') for a in allap)
         rows[f'{sc} · {cam}'] = dict(khai=len(g), anh_them=len(extra), mien=len(mien), tong=n, luc=when)

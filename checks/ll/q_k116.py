@@ -203,7 +203,8 @@ def _run_s(f0, f1, step): return (f1 - f0 + step) / FPS
 
 
 # ------------------------------------------------------------------ SACH-1
-def sach1(E, TL, TX=None, step=12):
+def sach1(E, TL, TX=None, step=12, mh=None):
+    """mh = [(id, t0, t1)] shot minh hoạ (1.17, §14.1 (c)): nhãn "Illustration" (vai minh_hoa hoặc đúng chữ đó) trong các shot này hợp lệ."""
     M = {k: [] for k in 'abcdef'}; S = shot_list(E, TL); PP = {x[0] for x in pp_spans(E, TL)}
     for z in S:
         p = z['sh'].get('p') or {}; ps = z['spec'].get('p') or {}; P = dict(p, **ps); w = f"{z['seg']}/{z['i']} @{mmss(z['t0'])}"
@@ -231,6 +232,7 @@ def sach1(E, TL, TX=None, step=12):
                 if not _vis(x): continue
                 ro, s_ = str(x.get('role') or ''), str(x.get('s') or '')
                 nv += 1
+                if mh and (ro == 'minh_hoa' or s_.strip() == 'Illustration') and any(t0 - 1e-6 <= f / FPS < t1 for _, t0, t1 in mh): continue   # 1.17 §14.1 (c)
                 if ro in OK_ROLES:
                     if ro == 'where': by_role.setdefault(s_, []).append(f)
                     continue
@@ -789,7 +791,9 @@ def check(E, TL=None, ep_dir='.', logs=None, video=None, log_shot_path=None, VF=
     LS, why = log_shot(E, ep_dir, log_shot_path)
     NV, wn = opt_file(E, 'nhip_vat', ep_dir); XC, wx = opt_file(E, 'xem_cam', ep_dir)
     out = {}
-    for k, fn in (('SACH-1', lambda: sach1(E, TL, TX, step)), ('CHUONG-1', lambda: chuong1(E, TL, TX, step, W, H)), ('PP-1', lambda: pp1(E, TL)),
+    from checks.ll import q_k117
+    MH = q_k117._mh_spans(LS) if LS else None   # 1.17: nhãn "Illustration" trong shot minh hoạ không là lỗi SACH-1
+    for k, fn in (('SACH-1', lambda: sach1(E, TL, TX, step, MH)), ('CHUONG-1', lambda: chuong1(E, TL, TX, step, W, H)), ('PP-1', lambda: pp1(E, TL)),
                   ('TL-1', lambda: tl1(E, TL, LS, why, video, VF)), ('TL-2', lambda: tl2(E, TL, LS, why)), ('TL-3', lambda: tl3(E, TL, LS, why)),
                   ('NHIP-NGHIA', lambda: nhip_nghia(E, TL, NV, wn)), ('XEM-CAM', lambda: xem_cam(XC, wx, ep_dir)), ('PC-1', lambda: pc1(E, ep_dir))):
         try: out[k] = fn()

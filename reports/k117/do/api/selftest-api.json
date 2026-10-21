@@ -1,0 +1,984 @@
+{
+ "ket_qua": {
+  "dap-an": {
+   "id": "dap-an",
+   "shot": "S1",
+   "nam": 1780,
+   "anh_tinh": true,
+   "V": {
+    "khoa": "532f9af02203f5d4e8173aded76f3de7",
+    "ket_qua": {
+     "gpt": {
+      "meta": {
+       "model": "gpt-6.1-sol",
+       "usd": 0.0454,
+       "usage": {
+        "input_tokens": 16207,
+        "input_tokens_details": {
+         "cache_write_tokens": 16204,
+         "cached_tokens": 0
+        },
+        "output_tokens": 1302,
+        "output_tokens_details": {
+         "reasoning_tokens": 253
+        },
+        "total_tokens": 17509
+       },
+       "loi": null
+      },
+      "secs": 26.8,
+      "json": {
+       "them": [
+        {
+         "loai": "khac",
+         "mo_ta": "Steel lattice electricity-transmission pylon and suspended overhead wires added on the upper-left ridge.",
+         "toa_do": [
+          0.104,
+          0.111,
+          0.174,
+          0.188
+         ],
+         "thoi_dai_sai": true,
+         "ly_do_thoi_dai": "Electrical transmission pylons and power lines postdate 1780.",
+         "nam_xuat_hien": null,
+         "do_tin": 1.0
+        },
+        {
+         "loai": "xe_may",
+         "mo_ta": "Red modern convertible passenger car added on the hillside.",
+         "toa_do": [
+          0.108,
+          0.247,
+          0.149,
+          0.276
+         ],
+         "thoi_dai_sai": true,
+         "ly_do_thoi_dai": "A modern motor car is incompatible with 1780; practical petrol automobiles appeared in the nineteenth century.",
+         "nam_xuat_hien": 1886,
+         "do_tin": 1.0
+        },
+        {
+         "loai": "co",
+         "mo_ta": "Plain red flag and tall flagpole added beside the hillside defensive wall.",
+         "toa_do": [
+          0.258,
+          0.277,
+          0.278,
+          0.334
+         ],
+         "thoi_dai_sai": false,
+         "ly_do_thoi_dai": "",
+         "nam_xuat_hien": null,
+         "do_tin": 0.99
+        },
+        {
+         "loai": "may_bay",
+         "mo_ta": "Modern swept-wing passenger jet added in the sky above the fleet.",
+         "toa_do": [
+          0.726,
+          0.151,
+          0.782,
+          0.182
+         ],
+         "thoi_dai_sai": true,
+         "ly_do_thoi_dai": "Powered aircraft, particularly jet airliners, did not exist in 1780.",
+         "nam_xuat_hien": 1949,
+         "do_tin": 1.0
+        },
+        {
+         "loai": "chu",
+         "mo_ta": "Pale circular airline-style emblem on the added aircraft's blue tail; no legible lettering.",
+         "toa_do": [
+          0.771,
+          0.16,
+          0.778,
+          0.171
+         ],
+         "thoi_dai_sai": true,
+         "ly_do_thoi_dai": "Modern aircraft branding is incompatible with 1780 and logos are explicitly forbidden.",
+         "nam_xuat_hien": null,
+         "do_tin": 0.76
+        },
+        {
+         "loai": "nguoi",
+         "mo_ta": "Solitary walking figure added on the shore below the near bastion, wearing a blue long coat, pale breeches and dark boots, with an apparent sword or scabbard.",
+         "toa_do": [
+          0.177,
+          0.573,
+          0.194,
+          0.624
+         ],
+         "thoi_dai_sai": false,
+         "ly_do_thoi_dai": "The visible clothing is broadly compatible with the eighteenth century. The invented figure violates scene fidelity, but is not demonstrably anachronistic.",
+         "nam_xuat_hien": null,
+         "do_tin": 0.99
+        },
+        {
+         "loai": "tau_lon",
+         "mo_ta": "Large square-rigged wooden warship with multiple rows of gunports added in previously empty foreground water.",
+         "toa_do": [
+          0.385,
+          0.589,
+          0.47,
+          0.704
+         ],
+         "thoi_dai_sai": false,
+         "ly_do_thoi_dai": "A sailing warship of this general kind is compatible with 1780, although inventing a ship absent from BEFORE violates the stated N2+ scene-fidelity rule.",
+         "nam_xuat_hien": null,
+         "do_tin": 1.0
+        },
+        {
+         "loai": "co",
+         "mo_ta": "Union-pattern flag added at the stern of the new foreground warship; it appears to include red diagonal elements.",
+         "toa_do": [
+          0.379,
+          0.644,
+          0.39,
+          0.661
+         ],
+         "thoi_dai_sai": true,
+         "ly_do_thoi_dai": "The apparent red diagonal saltire suggests the post-1801 Union Flag rather than the pre-1801 design required in 1780. Identification is limited by the flag's small size.",
+         "nam_xuat_hien": 1801,
+         "do_tin": 0.78
+        }
+       ],
+       "bot_doi": [],
+       "doi_loai_vung": []
+      }
+     },
+     "claude": {
+      "meta": {
+       "model": [
+        "claude-sonnet-5-5"
+       ],
+       "usd": 0.0715123,
+       "loi": null
+      },
+      "secs": 17.1,
+      "json": {
+       "them": [
+        {
+         "loai": "khac",
+         "mo_ta": "High-voltage electricity pylon with wires on the hill ridge",
+         "toa_do": [
+          0.104,
+          0.111,
+          0.172,
+          0.188
+         ],
+         "thoi_dai_sai": true,
+         "ly_do_thoi_dai": "Power pylons and wires did not exist in 1780.",
+         "nam_xuat_hien": 1900,
+         "do_tin": 0.97
+        },
+        {
+         "loai": "xe_may",
+         "mo_ta": "Red modern convertible car on the hillside track",
+         "toa_do": [
+          0.108,
+          0.247,
+          0.149,
+          0.276
+         ],
+         "thoi_dai_sai": true,
+         "ly_do_thoi_dai": "Motor vehicles did not exist in 1780.",
+         "nam_xuat_hien": 1900,
+         "do_tin": 0.98
+        },
+        {
+         "loai": "co",
+         "mo_ta": "Tall flagpole with a red flag on the hillside by the town wall",
+         "toa_do": [
+          0.258,
+          0.277,
+          0.278,
+          0.333
+         ],
+         "thoi_dai_sai": false,
+         "ly_do_thoi_dai": "A flagpole with a flag is plausible in 1780, but it is an invented addition. The flag's design is unclear.",
+         "nam_xuat_hien": null,
+         "do_tin": 0.6
+        },
+        {
+         "loai": "may_bay",
+         "mo_ta": "Passenger jet airliner in the sky",
+         "toa_do": [
+          0.726,
+          0.151,
+          0.78,
+          0.18
+         ],
+         "thoi_dai_sai": true,
+         "ly_do_thoi_dai": "Aircraft did not exist in 1780.",
+         "nam_xuat_hien": 1910,
+         "do_tin": 0.98
+        },
+        {
+         "loai": "tau_lon",
+         "mo_ta": "Large three-masted sailing ship of the line with full sails and a British flag, added in the open water",
+         "toa_do": [
+          0.38,
+          0.591,
+          0.469,
+          0.702
+         ],
+         "thoi_dai_sai": false,
+         "ly_do_thoi_dai": "A sailing warship fits 1780. It is an invented ship that is not in the render. Its ensign looks like the Union Flag, which in 1780 would have had no St Patrick saltire, so it may be the wrong design.",
+         "nam_xuat_hien": null,
+         "do_tin": 0.9
+        },
+        {
+         "loai": "nguoi",
+         "mo_ta": "Person in dark coat walking on the shore beside the bastion",
+         "toa_do": [
+          0.177,
+          0.577,
+          0.189,
+          0.623
+         ],
+         "thoi_dai_sai": false,
+         "ly_do_thoi_dai": "A person in period dress is plausible, but it is an invented addition.",
+         "nam_xuat_hien": null,
+         "do_tin": 0.7
+        }
+       ],
+       "bot_doi": [
+        {
+         "loai": "thuyen_nho",
+         "mo_ta": "The small white boat or wake streak at about (0.38,0.6) is covered by the new ship. It may have been merged into the ship.",
+         "toa_do": [
+          0.345,
+          0.597,
+          0.4,
+          0.62
+         ],
+         "do_tin": 0.4
+        }
+       ],
+       "doi_loai_vung": []
+      }
+     }
+    },
+    "prompt_ver": "n2p-v1 (NC-N2P vision_kiem 21/10/2026 → K-1.17)",
+    "loi": null,
+    "chi_phi_usd": 0.1169
+   },
+   "L1": [
+    {
+     "mh": "claude",
+     "loai": "co",
+     "mo_ta": "Tall flagpole with a red flag on the hillside by the town wall",
+     "toa_do": [
+      0.258,
+      0.277,
+      0.278,
+      0.333
+     ],
+     "dai_a": true,
+     "kieu": "THÊM vật lớp (a)"
+    },
+    {
+     "mh": "claude",
+     "loai": "tau_lon",
+     "mo_ta": "Large three-masted sailing ship of the line with full sails and a British flag, added in the open water",
+     "toa_do": [
+      0.38,
+      0.591,
+      0.469,
+      0.702
+     ],
+     "dai_a": false,
+     "kieu": "THÊM vật lớp (a)"
+    },
+    {
+     "mh": "gpt",
+     "loai": "co",
+     "mo_ta": "Plain red flag and tall flagpole added beside the hillside defensive wall.",
+     "toa_do": [
+      0.258,
+      0.277,
+      0.278,
+      0.334
+     ],
+     "dai_a": true,
+     "kieu": "THÊM vật lớp (a)"
+    },
+    {
+     "mh": "gpt",
+     "loai": "chu",
+     "mo_ta": "Pale circular airline-style emblem on the added aircraft's blue tail; no legible lettering.",
+     "toa_do": [
+      0.771,
+      0.16,
+      0.778,
+      0.171
+     ],
+     "dai_a": false,
+     "kieu": "THÊM vật lớp (a)"
+    },
+    {
+     "mh": "gpt",
+     "loai": "tau_lon",
+     "mo_ta": "Large square-rigged wooden warship with multiple rows of gunports added in previously empty foreground water.",
+     "toa_do": [
+      0.385,
+      0.589,
+      0.47,
+      0.704
+     ],
+     "dai_a": false,
+     "kieu": "THÊM vật lớp (a)"
+    },
+    {
+     "mh": "gpt",
+     "loai": "co",
+     "mo_ta": "Union-pattern flag added at the stern of the new foreground warship; it appears to include red diagonal elements.",
+     "toa_do": [
+      0.379,
+      0.644,
+      0.39,
+      0.661
+     ],
+     "dai_a": false,
+     "kieu": "THÊM vật lớp (a)"
+    }
+   ],
+   "L2": [
+    {
+     "mh": "claude",
+     "loai": "khac",
+     "mo_ta": "High-voltage electricity pylon with wires on the hill ridge",
+     "toa_do": [
+      0.104,
+      0.111,
+      0.172,
+      0.188
+     ],
+     "dai_a": false,
+     "ly_do": "Power pylons and wires did not exist in 1780.",
+     "nam": 1900
+    },
+    {
+     "mh": "claude",
+     "loai": "xe_may",
+     "mo_ta": "Red modern convertible car on the hillside track",
+     "toa_do": [
+      0.108,
+      0.247,
+      0.149,
+      0.276
+     ],
+     "dai_a": false,
+     "ly_do": "Motor vehicles did not exist in 1780.",
+     "nam": 1900
+    },
+    {
+     "mh": "claude",
+     "loai": "may_bay",
+     "mo_ta": "Passenger jet airliner in the sky",
+     "toa_do": [
+      0.726,
+      0.151,
+      0.78,
+      0.18
+     ],
+     "dai_a": false,
+     "ly_do": "Aircraft did not exist in 1780.",
+     "nam": 1910
+    },
+    {
+     "mh": "gpt",
+     "loai": "xe_may",
+     "mo_ta": "Red modern convertible passenger car added on the hillside.",
+     "toa_do": [
+      0.108,
+      0.247,
+      0.149,
+      0.276
+     ],
+     "dai_a": false,
+     "ly_do": "A modern motor car is incompatible with 1780; practical petrol automobiles appeared in the nineteenth century.",
+     "nam": 1886
+    },
+    {
+     "mh": "gpt",
+     "loai": "may_bay",
+     "mo_ta": "Modern swept-wing passenger jet added in the sky above the fleet.",
+     "toa_do": [
+      0.726,
+      0.151,
+      0.782,
+      0.182
+     ],
+     "dai_a": false,
+     "ly_do": "Powered aircraft, particularly jet airliners, did not exist in 1780.",
+     "nam": 1949
+    },
+    {
+     "mh": "gpt",
+     "loai": "co",
+     "mo_ta": "Union-pattern flag added at the stern of the new foreground warship; it appears to include red diagonal elements.",
+     "toa_do": [
+      0.379,
+      0.644,
+      0.39,
+      0.661
+     ],
+     "dai_a": false,
+     "ly_do": "The apparent red diagonal saltire suggests the post-1801 Union Flag rather than the pre-1801 design required in 1780. Identification is limited by the flag's small size.",
+     "nam": 1801
+    }
+   ],
+   "L2b": [
+    {
+     "mh": "gpt",
+     "loai": "khac",
+     "mo_ta": "Steel lattice electricity-transmission pylon and suspended overhead wires added on the upper-left ridge.",
+     "toa_do": [
+      0.104,
+      0.111,
+      0.174,
+      0.188
+     ],
+     "dai_a": false,
+     "ly_do": "Electrical transmission pylons and power lines postdate 1780.",
+     "nam": null
+    },
+    {
+     "mh": "gpt",
+     "loai": "chu",
+     "mo_ta": "Pale circular airline-style emblem on the added aircraft's blue tail; no legible lettering.",
+     "toa_do": [
+      0.771,
+      0.16,
+      0.778,
+      0.171
+     ],
+     "dai_a": false,
+     "ly_do": "Modern aircraft branding is incompatible with 1780 and logos are explicitly forbidden.",
+     "nam": null
+    }
+   ],
+   "L4": [
+    {
+     "mh": "claude",
+     "loai": "xe_may",
+     "mo_ta": "Red modern convertible car on the hillside track",
+     "toa_do": [
+      0.108,
+      0.247,
+      0.149,
+      0.276
+     ],
+     "dai_a": false
+    },
+    {
+     "mh": "claude",
+     "loai": "may_bay",
+     "mo_ta": "Passenger jet airliner in the sky",
+     "toa_do": [
+      0.726,
+      0.151,
+      0.78,
+      0.18
+     ],
+     "dai_a": false
+    },
+    {
+     "mh": "claude",
+     "loai": "nguoi",
+     "mo_ta": "Person in dark coat walking on the shore beside the bastion",
+     "toa_do": [
+      0.177,
+      0.577,
+      0.189,
+      0.623
+     ],
+     "dai_a": true
+    },
+    {
+     "mh": "gpt",
+     "loai": "xe_may",
+     "mo_ta": "Red modern convertible passenger car added on the hillside.",
+     "toa_do": [
+      0.108,
+      0.247,
+      0.149,
+      0.276
+     ],
+     "dai_a": false
+    },
+    {
+     "mh": "gpt",
+     "loai": "may_bay",
+     "mo_ta": "Modern swept-wing passenger jet added in the sky above the fleet.",
+     "toa_do": [
+      0.726,
+      0.151,
+      0.782,
+      0.182
+     ],
+     "dai_a": false
+    },
+    {
+     "mh": "gpt",
+     "loai": "nguoi",
+     "mo_ta": "Solitary walking figure added on the shore below the near bastion, wearing a blue long coat, pale breeches and dark boots, with an apparent sword or scabbard.",
+     "toa_do": [
+      0.177,
+      0.573,
+      0.194,
+      0.624
+     ],
+     "dai_a": true
+    }
+   ],
+   "VUNG": [],
+   "Q": {
+    "ghep": {
+     "id": "dap-an-ghep",
+     "nam": 1780,
+     "noi": "Gibraltar",
+     "sha256": "ee243f6e9a5efb140fb9b75f5f3e56343c27843c7e98fa9fe8008ceb123157ae",
+     "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+     "model": "claude-sonnet-5-5",
+     "nghi_van": [
+      {
+       "muc": "xe",
+       "mo_ta": "A twin-engine jet airliner flies in the sky at upper right.",
+       "ly_do": "Jet aircraft did not exist in 1780. The first powered flight was in 1903, and jet airliners came in the 1950s. The first manned balloon flight was 1783.",
+       "nam_xuat_hien": 1952,
+       "toa_do_px": [
+        1390,
+        160,
+        1501,
+        197
+       ],
+       "do_tin": 0.98,
+       "xac_nhan": {
+        "vung_px": [
+         1279,
+         12,
+         1612,
+         345
+        ],
+        "phong": 2.02,
+        "tra_loi": {
+         "vat": "A twin-engine jet airliner in flight",
+         "dac_diem": "It has a long white tube-shaped fuselage and swept-back wings. One engine nacelle hangs under the wing. The tail fin is blue with a round emblem. It is flying against a pale blue sky with thin clouds. The sea or horizon shows at the bottom.",
+         "co_tu_nam": 1958,
+         "da_co_nam_1780": "no",
+         "ly_do": "Jet airliners first entered service around 1952–1958. Powered aircraft did not exist until 1903. In 1780 the only aircraft were hot-air and hydrogen balloons, which were first flown in 1783."
+        },
+        "da_co": "no",
+        "giu": true,
+        "cost_usd": 0.006060899999999999,
+        "loi": null
+       }
+      },
+      {
+       "muc": "xe",
+       "mo_ta": "A red modern convertible car sits on a dirt track on the hillside.",
+       "ly_do": "Motor cars did not exist in 1780. The first practical petrol car dates to 1885–86, and this body style is from the 21st century.",
+       "nam_xuat_hien": 1886,
+       "toa_do_px": [
+        204,
+        265,
+        290,
+        299
+       ],
+       "do_tin": 0.97,
+       "xac_nhan": {
+        "vung_px": [
+         118,
+         153,
+         376,
+         411
+        ],
+        "phong": 2.6,
+        "tra_loi": {
+         "vat": "A modern red convertible car (a small two-door cabriolet)",
+         "dac_diem": "The body is red and low, with a soft top or open roof and alloy wheels. It has modern headlights and a front licence plate. It sits on a dirt track on a grassy hillside. A modern steel electricity pylon with power lines stands on the ridge above it.",
+         "co_tu_nam": 1886,
+         "da_co_nam_1780": "no",
+         "ly_do": "Motor cars first appeared in 1886, and this convertible is a 21st-century design. In 1780 the only road vehicles were horse-drawn carts and carriages."
+        },
+        "da_co": "no",
+        "giu": true,
+        "cost_usd": 0.0059109,
+        "loi": null
+       }
+      },
+      {
+       "muc": "vat_hien_dai",
+       "mo_ta": "A steel lattice electricity pylon with overhead power lines stands on the hill ridge.",
+       "ly_do": "High-voltage transmission pylons and power lines did not exist in 1780. Electrical grids date from the 1880s onward, and steel lattice pylons from the early 20th century.",
+       "nam_xuat_hien": 1900,
+       "toa_do_px": [
+        200,
+        117,
+        330,
+        205
+       ],
+       "do_tin": 0.97,
+       "xac_nhan": {
+        "vung_px": [
+         70,
+         0,
+         460,
+         356
+        ],
+        "phong": 1.72,
+        "tra_loi": {
+         "vat": "Steel lattice electricity transmission pylon with overhead power lines",
+         "dac_diem": "A tall, narrow, tapering lattice steel tower on a hillside ridge. It has cross-arms on both sides, with several conductor cables sagging away from them. A red convertible car is parked on the track below.",
+         "co_tu_nam": 1900,
+         "da_co_nam_1780": "no",
+         "ly_do": "Steel lattice high-voltage pylons and power lines came with electrification in the late 19th and early 20th centuries. Nothing like them existed in 1780."
+        },
+        "da_co": "no",
+        "giu": true,
+        "cost_usd": 0.0069777,
+        "loi": null
+       }
+      }
+     ],
+     "ghi_chu": [],
+     "cost_usd": 0.055834,
+     "cost_buoc2": 0.01895,
+     "model_usage": {
+      "claude-sonnet-5-5": {
+       "inputTokens": 6,
+       "outputTokens": 1225,
+       "cacheReadInputTokens": 2750,
+       "cacheCreationInputTokens": 9739,
+       "webSearchRequests": 0,
+       "costUSD": 0.0368845,
+       "contextWindow": 1000000,
+       "maxOutputTokens": 128000,
+       "thinkingTokens": 339,
+       "canonicalModel": "claude-sonnet-5-5",
+       "provider": "firstParty",
+       "costBasis": "list"
+      }
+     },
+     "secs": 10.9,
+     "so_anh_doc": 5,
+     "loi": null,
+     "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"xe\",\"mo_ta\":\"A twin-engine jet airliner flies in the sky at upper right.\",\"ly_do\":\"Jet aircraft did not exist in 1780. The first powered flight was in 1903, and jet airliners came in the 1950s. The first manned balloon flight was 1783.\",\"nam_xuat_hien\":1952,\"toa_do\":[0.724,0.148,0.782,0.182],\"do_tin\":0.98},{\"muc\":\"xe\",\"mo_ta\":\"A red modern convertible car sits on a dirt track on the hillside.\",\"ly_do\":\"Motor cars did not exist in 1780. The first practical petrol car dates to 1885–86, and this body style is from the 21st century.\",\"nam_xuat_hien\":1886,\"toa_do\":[0.106,0.245,0.151,0.277],\"do_tin\":0.97},{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"A steel lattice electricity pylon with overhead power lines stands on the hill ridge.\",\"ly_do\":\"High-voltage transmission pylons and power lines did not exist in 1780. Electrical grids date from the 1880s onward, and steel lattice pylons from the early 20th century.\",\"nam_xuat_hien\":1900,\"toa_do\":[0.104,0.108,0.172,0.19],\"do_tin\":0.97}]}"
+    },
+    "render": {
+     "id": "dap-an-render",
+     "nam": 1780,
+     "noi": "Gibraltar",
+     "sha256": "2ad768b47c107a83ea204319b81703bea9ac19a31948eac4270402c9244241a2",
+     "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+     "model": "claude-sonnet-5-5",
+     "nghi_van": [],
+     "ghi_chu": [
+      {
+       "muc": "tau",
+       "mo_ta": "Several small dark-and-white elongated streaks on the open water. They look like torpedo-shaped or modern hulls with wakes. They could also be rendering artefacts or small boats.",
+       "ly_do": "If they are torpedoes or motor craft, they are not 1780 vessels. The shape is too ambiguous to be sure, so this is a low-confidence flag.",
+       "nam_xuat_hien": null,
+       "toa_do_px": [
+        672,
+        594,
+        1056,
+        670
+       ],
+       "do_tin": 0.15
+      }
+     ],
+     "cost_usd": 0.0332283,
+     "cost_buoc2": 0.0,
+     "model_usage": {
+      "claude-sonnet-5-5": {
+       "inputTokens": 6,
+       "outputTokens": 865,
+       "cacheReadInputTokens": 2738,
+       "cacheCreationInputTokens": 9717,
+       "webSearchRequests": 0,
+       "costUSD": 0.0332283,
+       "contextWindow": 1000000,
+       "maxOutputTokens": 128000,
+       "thinkingTokens": 255,
+       "canonicalModel": "claude-sonnet-5-5",
+       "provider": "firstParty",
+       "costBasis": "list"
+      }
+     },
+     "secs": 9.1,
+     "so_anh_doc": 5,
+     "loi": null,
+     "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"tau\",\"mo_ta\":\"Several small dark-and-white elongated streaks on the open water. They look like torpedo-shaped or modern hulls with wakes. They could also be rendering artefacts or small boats.\",\"ly_do\":\"If they are torpedoes or motor craft, they are not 1780 vessels. The shape is too ambiguous to be sure, so this is a low-confidence flag.\",\"nam_xuat_hien\":null,\"toa_do\":[0.35,0.55,0.55,0.62],\"do_tin\":0.15}]}"
+    },
+    "moi": [
+     {
+      "muc": "xe",
+      "mo_ta": "A twin-engine jet airliner flies in the sky at upper right.",
+      "ly_do": "Jet aircraft did not exist in 1780. The first powered flight was in 1903, and jet airliners came in the 1950s. The first manned balloon flight was 1783.",
+      "nam_xuat_hien": 1952,
+      "toa_do_px": [
+       1390,
+       160,
+       1501,
+       197
+      ],
+      "do_tin": 0.98,
+      "xac_nhan": {
+       "vung_px": [
+        1279,
+        12,
+        1612,
+        345
+       ],
+       "phong": 2.02,
+       "tra_loi": {
+        "vat": "A twin-engine jet airliner in flight",
+        "dac_diem": "It has a long white tube-shaped fuselage and swept-back wings. One engine nacelle hangs under the wing. The tail fin is blue with a round emblem. It is flying against a pale blue sky with thin clouds. The sea or horizon shows at the bottom.",
+        "co_tu_nam": 1958,
+        "da_co_nam_1780": "no",
+        "ly_do": "Jet airliners first entered service around 1952–1958. Powered aircraft did not exist until 1903. In 1780 the only aircraft were hot-air and hydrogen balloons, which were first flown in 1783."
+       },
+       "da_co": "no",
+       "giu": true,
+       "cost_usd": 0.006060899999999999,
+       "loi": null
+      }
+     },
+     {
+      "muc": "xe",
+      "mo_ta": "A red modern convertible car sits on a dirt track on the hillside.",
+      "ly_do": "Motor cars did not exist in 1780. The first practical petrol car dates to 1885–86, and this body style is from the 21st century.",
+      "nam_xuat_hien": 1886,
+      "toa_do_px": [
+       204,
+       265,
+       290,
+       299
+      ],
+      "do_tin": 0.97,
+      "xac_nhan": {
+       "vung_px": [
+        118,
+        153,
+        376,
+        411
+       ],
+       "phong": 2.6,
+       "tra_loi": {
+        "vat": "A modern red convertible car (a small two-door cabriolet)",
+        "dac_diem": "The body is red and low, with a soft top or open roof and alloy wheels. It has modern headlights and a front licence plate. It sits on a dirt track on a grassy hillside. A modern steel electricity pylon with power lines stands on the ridge above it.",
+        "co_tu_nam": 1886,
+        "da_co_nam_1780": "no",
+        "ly_do": "Motor cars first appeared in 1886, and this convertible is a 21st-century design. In 1780 the only road vehicles were horse-drawn carts and carriages."
+       },
+       "da_co": "no",
+       "giu": true,
+       "cost_usd": 0.0059109,
+       "loi": null
+      }
+     },
+     {
+      "muc": "vat_hien_dai",
+      "mo_ta": "A steel lattice electricity pylon with overhead power lines stands on the hill ridge.",
+      "ly_do": "High-voltage transmission pylons and power lines did not exist in 1780. Electrical grids date from the 1880s onward, and steel lattice pylons from the early 20th century.",
+      "nam_xuat_hien": 1900,
+      "toa_do_px": [
+       200,
+       117,
+       330,
+       205
+      ],
+      "do_tin": 0.97,
+      "xac_nhan": {
+       "vung_px": [
+        70,
+        0,
+        460,
+        356
+       ],
+       "phong": 1.72,
+       "tra_loi": {
+        "vat": "Steel lattice electricity transmission pylon with overhead power lines",
+        "dac_diem": "A tall, narrow, tapering lattice steel tower on a hillside ridge. It has cross-arms on both sides, with several conductor cables sagging away from them. A red convertible car is parked on the track below.",
+        "co_tu_nam": 1900,
+        "da_co_nam_1780": "no",
+        "ly_do": "Steel lattice high-voltage pylons and power lines came with electrification in the late 19th and early 20th centuries. Nothing like them existed in 1780."
+       },
+       "da_co": "no",
+       "giu": true,
+       "cost_usd": 0.0069777,
+       "loi": null
+      }
+     }
+    ],
+    "loi": null,
+    "chi_phi_usd": 0.0891
+   }
+  },
+  "doi-chung": {
+   "id": "doi-chung",
+   "shot": "S1",
+   "nam": 1780,
+   "anh_tinh": true,
+   "V": {
+    "khoa": "d7dab2be10b7ad11f46f6f15ef1a39e4",
+    "ket_qua": {
+     "gpt": {
+      "meta": {
+       "model": "gpt-6.1-sol",
+       "usd": 0.033,
+       "usage": {
+        "input_tokens": 16177,
+        "input_tokens_details": {
+         "cache_write_tokens": 16174,
+         "cached_tokens": 0
+        },
+        "output_tokens": 63,
+        "output_tokens_details": {
+         "reasoning_tokens": 41
+        },
+        "total_tokens": 16240
+       },
+       "loi": null
+      },
+      "secs": 4.7,
+      "json": {
+       "them": [],
+       "bot_doi": [],
+       "doi_loai_vung": []
+      }
+     },
+     "claude": {
+      "meta": {
+       "model": [
+        "claude-sonnet-5-5"
+       ],
+       "usd": 0.06362759999999999,
+       "loi": null
+      },
+      "secs": 11.1,
+      "json": {
+       "them": [],
+       "bot_doi": [],
+       "doi_loai_vung": []
+      }
+     }
+    },
+    "prompt_ver": "n2p-v1 (NC-N2P vision_kiem 21/10/2026 → K-1.17)",
+    "loi": null,
+    "chi_phi_usd": 0.0966
+   },
+   "L1": [],
+   "L2": [],
+   "L2b": [],
+   "L4": [],
+   "VUNG": [],
+   "Q": {
+    "ghep": {
+     "nam": 1780,
+     "noi": "Gibraltar",
+     "sha256": "2ad768b47c107a83ea204319b81703bea9ac19a31948eac4270402c9244241a2",
+     "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+     "model": "claude-sonnet-5-5",
+     "nghi_van": [],
+     "ghi_chu": [
+      {
+       "muc": "tau",
+       "mo_ta": "Several small dark-and-white elongated streaks on the open water. They look like torpedo-shaped or modern hulls with wakes. They could also be rendering artefacts or small boats.",
+       "ly_do": "If they are torpedoes or motor craft, they are not 1780 vessels. The shape is too ambiguous to be sure, so this is a low-confidence flag.",
+       "nam_xuat_hien": null,
+       "toa_do_px": [
+        672,
+        594,
+        1056,
+        670
+       ],
+       "do_tin": 0.15
+      }
+     ],
+     "cost_usd": 0.0332283,
+     "cost_buoc2": 0.0,
+     "model_usage": {
+      "claude-sonnet-5-5": {
+       "inputTokens": 6,
+       "outputTokens": 865,
+       "cacheReadInputTokens": 2738,
+       "cacheCreationInputTokens": 9717,
+       "webSearchRequests": 0,
+       "costUSD": 0.0332283,
+       "contextWindow": 1000000,
+       "maxOutputTokens": 128000,
+       "thinkingTokens": 255,
+       "canonicalModel": "claude-sonnet-5-5",
+       "provider": "firstParty",
+       "costBasis": "list"
+      }
+     },
+     "secs": 9.1,
+     "so_anh_doc": 5,
+     "loi": null,
+     "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"tau\",\"mo_ta\":\"Several small dark-and-white elongated streaks on the open water. They look like torpedo-shaped or modern hulls with wakes. They could also be rendering artefacts or small boats.\",\"ly_do\":\"If they are torpedoes or motor craft, they are not 1780 vessels. The shape is too ambiguous to be sure, so this is a low-confidence flag.\",\"nam_xuat_hien\":null,\"toa_do\":[0.35,0.55,0.55,0.62],\"do_tin\":0.15}]}",
+     "id": "doi-chung-ghep",
+     "tu_bo_dem": true
+    },
+    "render": {
+     "nam": 1780,
+     "noi": "Gibraltar",
+     "sha256": "2ad768b47c107a83ea204319b81703bea9ac19a31948eac4270402c9244241a2",
+     "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+     "model": "claude-sonnet-5-5",
+     "nghi_van": [],
+     "ghi_chu": [
+      {
+       "muc": "tau",
+       "mo_ta": "Several small dark-and-white elongated streaks on the open water. They look like torpedo-shaped or modern hulls with wakes. They could also be rendering artefacts or small boats.",
+       "ly_do": "If they are torpedoes or motor craft, they are not 1780 vessels. The shape is too ambiguous to be sure, so this is a low-confidence flag.",
+       "nam_xuat_hien": null,
+       "toa_do_px": [
+        672,
+        594,
+        1056,
+        670
+       ],
+       "do_tin": 0.15
+      }
+     ],
+     "cost_usd": 0.0332283,
+     "cost_buoc2": 0.0,
+     "model_usage": {
+      "claude-sonnet-5-5": {
+       "inputTokens": 6,
+       "outputTokens": 865,
+       "cacheReadInputTokens": 2738,
+       "cacheCreationInputTokens": 9717,
+       "webSearchRequests": 0,
+       "costUSD": 0.0332283,
+       "contextWindow": 1000000,
+       "maxOutputTokens": 128000,
+       "thinkingTokens": 255,
+       "canonicalModel": "claude-sonnet-5-5",
+       "provider": "firstParty",
+       "costBasis": "list"
+      }
+     },
+     "secs": 9.1,
+     "so_anh_doc": 5,
+     "loi": null,
+     "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"tau\",\"mo_ta\":\"Several small dark-and-white elongated streaks on the open water. They look like torpedo-shaped or modern hulls with wakes. They could also be rendering artefacts or small boats.\",\"ly_do\":\"If they are torpedoes or motor craft, they are not 1780 vessels. The shape is too ambiguous to be sure, so this is a low-confidence flag.\",\"nam_xuat_hien\":null,\"toa_do\":[0.35,0.55,0.55,0.62],\"do_tin\":0.15}]}",
+     "id": "doi-chung-render",
+     "tu_bo_dem": true
+    },
+    "moi": [],
+    "loi": null,
+    "chi_phi_usd": 0.0665
+   }
+  }
+ },
+ "chi_phi": {
+  "vision": 0.21350000000000002,
+  "qtd": 0.15560000000000002
+ }
+}
