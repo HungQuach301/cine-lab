@@ -1,4 +1,4 @@
-"""NC-N2P · thư viện chung: mặt nạ ID (bảng màu V7C idmask_v7c.js), lớp N2+, ghép lớp (a), sổ AI (K-LAI), giá.
+"""(Chép từ NC-N2P cho ANIMATIC-T3-V2; chỉ đổi thư mục sổ N2P.) NC-N2P · thư viện chung: mặt nạ ID (bảng màu V7C idmask_v7c.js), lớp N2+, ghép lớp (a), sổ AI (K-LAI), giá.
 Lớp N2+ trên cảnh Gibraltar thử (T4 London chưa có cảnh): (a) DỮ KIỆN = phố, nhà, trại, công sự, tàu, cờ, pin nổi, lửa, người (lớp sống dựng từ nguồn), khác (xe, đèn);
 (c) NỀN = trời, nước, đất bằng, sườn, đá/vách, cây (mặt nạ V7C xếp cây instanced vào 'nước' — sửa ở idmap: cụm 'nước' nhỏ tách khỏi biển → 'cây').
 (b) MINH HOẠ = không có trên render; AI chỉ được thêm vào vùng (c)."""
@@ -7,7 +7,7 @@ from pathlib import Path
 import cv2, numpy as np
 
 REPO = Path(__file__).resolve().parents[3]
-N2P = REPO / 'reports/nc-n2p'
+N2P = REPO / 'reports/animatic-t3-v2'   # ANIMATIC-T3-V2: bản chép từ origin/nc-n2p:reports/nc-n2p/ma/n2p_lib.py — sổ/chi phí của phiên này
 SO_AI = N2P / 'so-ai.jsonl'
 UA = 'CineLab-research (+https://github.com/HungQuach301/cine-lab)'
 PAL = {'troi': (40, 80, 200), 'nuoc': (0, 170, 190), 'bang': (200, 170, 90), 'suon': (150, 120, 70), 'da': (110, 100, 95), 'pho': (255, 200, 220), 'nha': (235, 235, 235),

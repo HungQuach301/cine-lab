@@ -168,7 +168,8 @@ function coastTex(Y, ext, year, hAt = null) {   // ANIMATIC-T3 (LOOK-4): hAt →
   return { t, flip: Y.flipY };   // hàng 0 của mảng = hàng 0 GPU (đáy) → uv như tYears
 }
 
-const WATER_FS = (GLSL_NOISE, SKY) => `uniform float uT, uFogD, uDim, uBaked, uRefl, uWave, uNcCoastOn, uNcCoastFlip; uniform sampler2D tNoise, tRefl, tCoast; uniform mat4 uReflVP; uniform vec3 uFogC; uniform vec4 uExt; varying vec3 vWP; ${GLSL_NOISE} ${SKY}
+const WATER_FS = (GLSL_NOISE, SKY, GLSL_LAND = null) => `uniform float uT, uFogD, uDim, uBaked, uRefl, uWave, uNcCoastOn, uNcCoastFlip; uniform sampler2D tNoise, tRefl, tCoast; uniform mat4 uReflVP; uniform vec3 uFogC; uniform vec4 uExt; varying vec3 vWP; ${GLSL_NOISE} ${SKY}
+  ${GLSL_LAND ? 'uniform sampler2D tYears; uniform float uYear; ' + GLSL_LAND + '\n#define NC_LANDNOW 1' : ''}
   // NC-CPU: sóng tổng 5 hướng (bước sóng 9–70 m, dịch theo thời gian) + nhiễu kết cấu; mờ theo cỡ điểm ảnh (fwidth) để không răng cưa ở xa
   vec2 wv(vec2 p, float t){ vec2 g = vec2(0.0); const int NW = 5;
     vec3 W[NW]; W[0] = vec3(0.95, 0.31, 70.0); W[1] = vec3(0.70, -0.71, 37.0); W[2] = vec3(0.26, 0.97, 23.0); W[3] = vec3(-0.50, 0.87, 14.0); W[4] = vec3(0.98, -0.17, 9.0);
@@ -176,6 +177,10 @@ const WATER_FS = (GLSL_NOISE, SKY) => `uniform float uT, uFogD, uDim, uBaked, uR
       float fade = 1.0 - clamp(length(fwidth(p)) * k * 0.9, 0.0, 1.0); g += W[i].xy * cos(ph) * a * k * 6.0 * fade; } return g; }
   void main(){ vec3 V = normalize(cameraPosition - vWP); float dist = length(cameraPosition - vWP); vec2 p = vWP.xz;
     vec2 en = vec2(vWP.x, -vWP.z), cuv = (en - uExt.xy) / uExt.zw; float dc = (cuv.x > 0.0 && cuv.x < 1.0 && cuv.y > 0.0 && cuv.y < 1.0 && uNcCoastOn > 0.5) ? texture(tCoast, vec2(cuv.x, uNcCoastFlip > 0.5 ? 1.0 - cuv.y : cuv.y)).r * 510.0 : 999.0;
+    #ifdef NC_LANDNOW
+    /* ANIM-V2 (AT-D1): ô đất lấn CHƯA nổi ở năm của khung (đường băng 1941 đang mọc theo uRecl, đất 1987/2026 trước năm nổi) là NƯỚC — không để bờ tĩnh của mốc tính nó là đất (bọt + màu nông = mảng xanh nhạt phẳng) */
+    if (cuv.x > 0.0 && cuv.x < 1.0 && cuv.y > 0.0 && cuv.y < 1.0) { float lyW = decYear(texture(tYears, cuv).ba); if (lyW > 1.0 && lyW < 9000.0 && landKx(lyW, uYear, vWP.x) < 0.5) dc = max(dc, 30.0); }
+    #endif
     vec2 g = wv(p, uT) * uWave * 0.55;
     float fn = 1.0 - clamp(length(fwidth(p)) * 0.08, 0.0, 1.0);
     vec2 nz = vec2(texture(tNoise, p * 0.011 + vec2(uT * 0.004, 0.0)).g - texture(tNoise, p * 0.011 + vec2(0.37, uT * 0.003)).a, texture(tNoise, p * 0.031 - uT * 0.006).b - texture(tNoise, p * 0.031 + 3.1).r) * 1.6 * fn;
@@ -247,16 +252,16 @@ export async function postBuild(ctx, SC, P, pre) { globalThis.NC_DBG = !!P.dbg;
   meta.patched = { city: nCity, other: nGen };
   // 3. nước
   let water = null; scene.traverse((o) => { if (o.isMesh && o.material && o.material.isShaderMaterial && o.material.uniforms && o.material.uniforms.uReflVP && o.renderOrder === 5) water = o; });
-  let CT = null, CT2 = null, CT0 = null;   // ANIMATIC-T3 (LOOK-4): CT0 = bờ thời 1790 cho năm < 1900 (bờ 1940 có đê/đất lấn chưa tồn tại → vệt bọt thẳng ngoài khơi + mảng nông xanh nhạt)
+  let CT = null, CT2 = null, CT0 = null, CT41 = null, CT87 = null;   // ANIMATIC-T3 (LOOK-4): CT0 = bờ thời 1790 cho năm < 1900 (bờ 1940 có đê/đất lấn chưa tồn tại → vệt bọt thẳng ngoài khơi + mảng nông xanh nhạt)
   if (water && P.water !== false) { const wm = water.material, mod = await import('../water.js'), core = await import('../core.js');
-    const hA = (e, n) => terr.hAt(e, n); CT = coastTex(pre.Y, terr.uni.uExt.value, 1940, hA); CT2 = coastTex(pre.Y, terr.uni.uExt.value, 2026, hA); CT0 = coastTex(pre.Y, terr.uni.uExt.value, 1790, hA);
-    Object.assign(wm.uniforms, { tCoast: { value: CT.t }, uExt: terr.uni.uExt, uNcCoastOn: { value: 1 }, uNcCoastFlip: { value: P.cflip ? 1 : 0 } });
-    wm.fragmentShader = WATER_FS(core.GLSL_NOISE, mod.SKY); wm.needsUpdate = true; meta.water = 'nc'; }
+    const hA = (e, n) => terr.hAt(e, n); CT = coastTex(pre.Y, terr.uni.uExt.value, 1940, hA); CT2 = coastTex(pre.Y, terr.uni.uExt.value, 2026, hA); CT0 = coastTex(pre.Y, terr.uni.uExt.value, 1790, hA); CT41 = coastTex(pre.Y, terr.uni.uExt.value, 1941, hA); CT87 = coastTex(pre.Y, terr.uni.uExt.value, 1987, hA);   /* ANIM-V2 (AT-D1): bờ theo đúng các mốc đất lấn có trong years.png (0 · 1941 · 1987 · 2026) */
+    Object.assign(wm.uniforms, { tCoast: { value: CT.t }, uExt: terr.uni.uExt, uNcCoastOn: { value: 1 }, uNcCoastFlip: { value: P.cflip ? 1 : 0 }, tYears: terr.uni.tYears, uYear: U.uYear, uRecl: U.uRecl || { value: 0 } });
+    wm.fragmentShader = WATER_FS(core.GLSL_NOISE, mod.SKY, (await import('../terrain.js')).GLSL_LAND); wm.needsUpdate = true; meta.water = 'nc'; }
   // 4. sương khí quyển: tắt dần e^(−σ d) — σ mặc định 1/16 km; màu: chân trời sáng ngả xám-lam
   const haze = P.haze === false ? null : Object.assign({ s: 1 / 16000, c: [0.66, 0.74, 0.84] }, typeof P.haze === 'object' ? P.haze : {});
   if (haze) { scene.fog.density = haze.s; scene.fog.color.setRGB(...haze.c); if (water) water.material.uniforms.uFogD.value = haze.s; meta.haze = haze; }
   meta.post_s = +((performance.now() - t0) / 1000).toFixed(2); meta.pre_s = +pre.pre_s.toFixed(2);
-  return { meta, exportPrep: () => (pre.BU ? pre.BU.exportPrep(ctx.R) : 0), update(st, t) { if (pre.BU) meta.bush_vis = pre.BU.update(ctx.cam); if (CT && water) water.material.uniforms.tCoast.value = st.year >= 1942.5 ? CT2.t : st.year >= 1900 ? CT.t : CT0.t; BK.update(st, t); } };
+  return { meta, exportPrep: () => (pre.BU ? pre.BU.exportPrep(ctx.R) : 0), update(st, t) { if (pre.BU) meta.bush_vis = pre.BU.update(ctx.cam); if (CT && water) water.material.uniforms.tCoast.value = st.year >= 2024.5 ? CT2.t : st.year >= 1987 ? CT87.t : st.year >= 1941.9 ? CT41.t : st.year >= 1900 ? CT.t : CT0.t; /* ANIM-V2 (AT-D1): trước đây ≥ 1942,5 dùng bờ 2026 → đất 1987/2026 chưa nổi bị tính là bờ */ BK.update(st, t); } };
 }
 
 // sương: fog_fragment toàn cục (chỉ tiến trình dựng này nạp up.js) — FogExp2 density = σ (1/m), tắt dần tuyến tính theo quang trình

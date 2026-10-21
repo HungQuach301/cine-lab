@@ -4,7 +4,7 @@ Khối nằm giữa hai dấu <!-- TRANG-THAI --> … <!-- /TRANG-THAI -->; ph�
   anim_ckpt.py            (chỉ ghi tệp; commit/đẩy do anim_ckpt.sh)"""
 import datetime as dt, hashlib, json, os, re
 from pathlib import Path
-REPO = Path(__file__).resolve().parents[2]; CK = REPO / os.environ.get('ANIM_CK', 'reports/animatic-t3/CHECKPOINT.md')   # ANIM-V2: ANIM_CK=reports/animatic-t3-v2/CHECKPOINT.md; O = Path('/var/tmp/cine-out/k2c-t3-anim')
+REPO = Path(__file__).resolve().parents[2]; CK = REPO / os.environ.get('ANIM_CK', 'reports/animatic-t3/CHECKPOINT.md'); O = Path('/var/tmp/cine-out/k2c-t3-anim')
 H = json.loads((O / 'heroes.json').read_text()) if (O / 'heroes.json').exists() else {}; xong, con = [], []
 for k, v in sorted(H.items()):
     d = Path(v['dir']); ok = (d / 'stamp').exists() and (d / 'stamp').read_text().strip() == v['stamp']; n = int(round(v['dur'] * 24))
