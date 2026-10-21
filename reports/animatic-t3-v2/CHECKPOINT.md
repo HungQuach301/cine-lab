@@ -3,13 +3,13 @@
 Phiên sửa animatic T3 theo nhận xét chủ dự án 21/10 21:05–21:15 (phương án A + 5 đoạn minh hoạ Omni M1–M5).
 
 <!-- TRANG-THAI -->
-## Trạng thái tự động (21/10/2026 20:19 UTC) — `scripts/k2tl/anim_ckpt.py`
+## Trạng thái tự động (21/10/2026 20:44 UTC) — `scripts/k2tl/anim_ckpt.py`
 
-- Cảnh đinh XONG: **17/43** (8108 khung) · CÒN: **26** (11545 khung chưa dựng).
-- s/khung TB 12 cảnh gần nhất (mỗi tiến trình, P = 3): 3.12 → ước còn **≈ 3.3 h** dựng cảnh đinh; sau đó: ghép cú lặn → render đoạn → ghép master → LOOK-4 → xuất (≈ 1,5 h).
-- Dòng cuối log vòng: `20:17 dựng anim_KA1782 (10.3 s, 960×540)`
-- Xong: C1, C3, C4, H1, KA2026, KB2026, KC2026, N1_1, N1_2, N1_3, N1_4, N2_11, N2_7, N2_8, N5_2, N5_3, N5_4
-- Còn: C2 (118/343), C5 (0/355), H2 (0/439), H2T (0/175), H3 (0/314), KA1782 (30/247), KB1943 (0/247), KC1910 (0/223), N1_5 (0/754), N1_6 (0/667), N2_10 (0/497), N2_6 (0/403), N2_9 (452/727), N3_1 (0/710), N3_2 (0/259), N3_3 (0/295), N3_4 (0/703), N3_5 (0/278), N4_1 (0/667), N4_2 (0/737), N4_3 (0/252), N4_4 (0/461), N4_5 (0/708), N5_1 (0/626), N5_5 (0/523), N5_6 (0/535)
+- Cảnh đinh XONG: **20/43** (9005 khung) · CÒN: **23** (10493 khung chưa dựng).
+- s/khung TB 12 cảnh gần nhất (mỗi tiến trình, P = 3): 2.29 → ước còn **≈ 2.2 h** dựng cảnh đinh; sau đó: ghép cú lặn → render đoạn → ghép master → LOOK-4 → xuất (≈ 1,5 h).
+- Dòng cuối log vòng: `20:37 dựng anim_N3_1 (29.6 s, 960×540)`
+- Xong: C2, C3, C4, H1, H2T, KA1782, KA2026, KB2026, KC2026, N1_1, N1_2, N1_3, N1_4, N2_11, N2_7, N2_8, N2_9, N5_2, N5_3, N5_4
+- Còn: C1 (0/595), C5 (0/355), H2 (0/439), H3 (0/314), KB1943 (0/247), KC1910 (0/223), N1_5 (316/754), N1_6 (0/667), N2_10 (0/497), N2_6 (0/403), N3_1 (133/710), N3_2 (0/259), N3_3 (0/295), N3_4 (0/703), N3_5 (0/278), N4_1 (0/667), N4_2 (306/737), N4_3 (0/252), N4_4 (0/461), N4_5 (0/708), N5_1 (0/626), N5_5 (0/523), N5_6 (0/535)
 
 | Tệp ngoài git | SHA-256 | Tái tạo |
 |---|---|---|
