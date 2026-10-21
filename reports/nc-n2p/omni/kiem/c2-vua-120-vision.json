@@ -1,0 +1,632 @@
+{
+ "tag": "c2-vua-120",
+ "truoc": "/var/tmp/n2p/src/c2/rgb/00120.jpg",
+ "sau": "/var/tmp/n2p/omni/kiem/c2-vua-120-ghep.jpg",
+ "nam": "2026",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.08,
+    "usage": {
+     "input_tokens": 16147,
+     "input_tokens_details": {
+      "cache_write_tokens": 16144,
+      "cached_tokens": 0
+     },
+     "output_tokens": 4772,
+     "output_tokens_details": {
+      "reasoning_tokens": 936
+     },
+     "total_tokens": 20919
+    }
+   },
+   "secs": 90.8,
+   "json": {
+    "them": [
+     {
+      "loai": "khac",
+      "mo_ta": "New angular lake or pond occupying the middle of the green tract immediately north of the runway.",
+      "toa_do": [
+       0.092,
+       0.54,
+       0.201,
+       0.623
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Not inherently anachronistic in 2026, but this invented land-to-water conversion is explicitly forbidden by N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Invented distant mountain ridge extending across the horizon behind the town and bay.",
+      "toa_do": [
+       0.259,
+       0.211,
+       0.981,
+       0.274
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Mountains are not temporally anachronistic; the problem is invented geographic content absent from the ground truth.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "khoi",
+      "mo_ta": "Small pale gray smoke-like plume rising from the lower right slope of the Rock, above the winding paths.",
+      "toa_do": [
+       0.33,
+       0.35,
+       0.35,
+       0.393
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Smoke is not anachronistic in 2026, but an invented smoke plume violates the supplied editing restrictions.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.76
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "Additional tiny pale vessel in the distant bay, above and slightly left of the existing dark vessel near the right side.",
+      "toa_do": [
+       0.908,
+       0.266,
+       0.925,
+       0.28
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "A modern vessel is compatible with 2026, although added motor ships are prohibited by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Added small pale boat nearest the left edge of the foreground harbor water.",
+      "toa_do": [
+       0.741,
+       0.573,
+       0.757,
+       0.588
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "A small boat is compatible with 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Added small pale boat farther down and right in the foreground harbor.",
+      "toa_do": [
+       0.798,
+       0.601,
+       0.814,
+       0.62
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "A small boat is compatible with 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Added dark motorboat immediately south of the long projecting runway strip, with a long wake trailing to the right.",
+      "toa_do": [
+       0.851,
+       0.524,
+       0.868,
+       0.543
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Motorboats are contemporary with 2026, but prohibited by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Added white cabin motorboat in the middle-right foreground harbor.",
+      "toa_do": [
+       0.85,
+       0.561,
+       0.874,
+       0.587
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "A modern cabin motorboat is compatible with 2026, but prohibited by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Added white motorboat farther right, with a conspicuous wake trailing toward the right edge.",
+      "toa_do": [
+       0.893,
+       0.579,
+       0.918,
+       0.604
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Motorboats are contemporary with 2026, but prohibited by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added pale car on the bottom-left foreground road.",
+      "toa_do": [
+       0.106,
+       0.977,
+       0.126,
+       0.997
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Cars are appropriate to 2026, but motor vehicles are explicitly forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added gray car farther right on the same foreground road, left of the roundabout.",
+      "toa_do": [
+       0.171,
+       0.965,
+       0.192,
+       0.987
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Cars are appropriate to 2026, but motor vehicles are forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added small dark car at the southwest entrance to the foreground roundabout.",
+      "toa_do": [
+       0.242,
+       0.942,
+       0.252,
+       0.956
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Cars are appropriate to 2026, but motor vehicles are forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added dark car on the northeast side of the foreground roundabout.",
+      "toa_do": [
+       0.306,
+       0.912,
+       0.318,
+       0.926
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Cars are appropriate to 2026, but motor vehicles are forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added white bus or coach beside the concave inner edge of the large foreground building.",
+      "toa_do": [
+       0.454,
+       0.851,
+       0.486,
+       0.877
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "A bus is appropriate to 2026, but motor vehicles are forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added dark car at the left end of the elongated road loop east of the large foreground building.",
+      "toa_do": [
+       0.503,
+       0.858,
+       0.516,
+       0.871
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Cars are appropriate to 2026, but motor vehicles are forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added small gray car near the upper-right portion of that elongated road loop.",
+      "toa_do": [
+       0.555,
+       0.826,
+       0.569,
+       0.84
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Cars are appropriate to 2026, but motor vehicles are forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added pale vehicle on the diagonal road immediately south of the triangular green plot.",
+      "toa_do": [
+       0.615,
+       0.743,
+       0.628,
+       0.757
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Motor vehicles are contemporary with 2026, but forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.79
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added dark vehicle on the diagonal foreground road, just below and right of the small freestanding square building.",
+      "toa_do": [
+       0.658,
+       0.833,
+       0.674,
+       0.847
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Motor vehicles are contemporary with 2026, but forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.84
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added dark vehicle on the road along the north side of the parallel long sheds.",
+      "toa_do": [
+       0.876,
+       0.758,
+       0.891,
+       0.773
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Motor vehicles are contemporary with 2026, but forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added dark vehicle near the northwest bend of the road surrounding the parallel sheds.",
+      "toa_do": [
+       0.825,
+       0.788,
+       0.84,
+       0.804
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Motor vehicles are contemporary with 2026, but forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added reddish-brown vehicle at the southeast corner of the shed enclosure.",
+      "toa_do": [
+       0.912,
+       0.91,
+       0.924,
+       0.927
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Motor vehicles are contemporary with 2026, but forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added long dark vehicle on the right-hand foreground arterial road.",
+      "toa_do": [
+       0.963,
+       0.909,
+       0.99,
+       0.929
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Motor vehicles are contemporary with 2026, but forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added white car near the right edge on the foreground arterial road.",
+      "toa_do": [
+       0.977,
+       0.936,
+       0.993,
+       0.955
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Cars are appropriate to 2026, but motor vehicles are forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added red car on the lower-right arterial road.",
+      "toa_do": [
+       0.904,
+       0.946,
+       0.92,
+       0.965
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Cars are appropriate to 2026, but motor vehicles are forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added blue-gray tall vehicle close to the bottom edge, left of the lower-right traffic cluster.",
+      "toa_do": [
+       0.871,
+       0.965,
+       0.888,
+       0.997
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Motor vehicles are contemporary with 2026, but forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added small dark car immediately above and right of the blue-gray vehicle.",
+      "toa_do": [
+       0.89,
+       0.962,
+       0.905,
+       0.976
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Cars are appropriate to 2026, but motor vehicles are forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.89
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added dark car below and slightly right of the red car.",
+      "toa_do": [
+       0.904,
+       0.97,
+       0.919,
+       0.987
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Cars are appropriate to 2026, but motor vehicles are forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Added dark car on the lower-right branch of the foreground junction.",
+      "toa_do": [
+       0.953,
+       0.968,
+       0.968,
+       0.985
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Cars are appropriate to 2026, but motor vehicles are forbidden by the supplied N2+ list.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.89
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "vuon",
+      "mo_ta": "The central grass-and-earth tract and its network of pale paths north of the runway have been removed beneath an invented angular lake; the surrounding green perimeter remains.",
+      "toa_do": [
+       0.092,
+       0.54,
+       0.201,
+       0.623
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "The substantial low peninsula on the upper-right side of the bay, including its green slopes and yellow shoreline, has been removed and replaced predominantly by open water.",
+      "toa_do": [
+       0.657,
+       0.195,
+       1.0,
+       0.294
+      ],
+      "do_tin": 0.99
+     }
+    ],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "LAND TO WATER: the middle of the green tract north of the runway has become an angular enclosed lake or pond, covering former grass, bare ground and paths.",
+      "toa_do": [
+       0.092,
+       0.54,
+       0.201,
+       0.623
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "mo_ta": "LAND TO WATER: the upper-right peninsula across the bay has disappeared; its former near and middle slopes and shoreline are now open water. Faint distant mountains do not preserve the original coastline.",
+      "toa_do": [
+       0.657,
+       0.195,
+       1.0,
+       0.294
+      ],
+      "do_tin": 0.99
+     }
+    ]
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.1368236
+   },
+   "secs": 18.9,
+   "json": {
+    "them": [
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Several motor yachts and speedboats with white wakes added on the bay in the right foreground",
+      "toa_do": [
+       0.83,
+       0.55,
+       1.0,
+       0.62
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Modern motor yachts and speedboats",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Cars and vehicles added on the roads at the bottom right and bottom left",
+      "toa_do": [
+       0.85,
+       0.82,
+       1.0,
+       0.99
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Motor vehicles",
+      "nam_xuat_hien": null,
+      "do_tin": 0.75
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Cars on the road at the bottom left near the roundabout",
+      "toa_do": [
+       0.1,
+       0.94,
+       0.25,
+       0.99
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Motor vehicles",
+      "nam_xuat_hien": null,
+      "do_tin": 0.7
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "White bus or coach added beside the large white-roofed building",
+      "toa_do": [
+       0.44,
+       0.84,
+       0.5,
+       0.87
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Motor vehicle (bus)",
+      "nam_xuat_hien": null,
+      "do_tin": 0.7
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Small vehicles on the main diagonal road",
+      "toa_do": [
+       0.5,
+       0.62,
+       0.65,
+       0.8
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Motor vehicles",
+      "nam_xuat_hien": null,
+      "do_tin": 0.4
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Distant mountains on the horizon (Moroccan or Spanish coast) added, with haze, in place of the green headland",
+      "toa_do": [
+       0.0,
+       0.21,
+       1.0,
+       0.28
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "khac",
+      "mo_ta": "Dark-teal pond or lake added on the park lawn at left",
+      "toa_do": [
+       0.09,
+       0.53,
+       0.2,
+       0.62
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "Small distant ship in the haze added on the horizon",
+      "toa_do": [
+       0.75,
+       0.49,
+       0.78,
+       0.5
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Steel-hulled ship",
+      "nam_xuat_hien": null,
+      "do_tin": 0.25
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "da_dat",
+      "mo_ta": "Green headland across the bay on the right replaced by hazy blue mountains",
+      "toa_do": [
+       0.66,
+       0.19,
+       1.0,
+       0.27
+      ],
+      "do_tin": 0.6
+     },
+     {
+      "loai": "khac",
+      "mo_ta": "Sandy and grass lawn with paths in the park at left replaced by a pond",
+      "toa_do": [
+       0.09,
+       0.53,
+       0.2,
+       0.62
+      ],
+      "do_tin": 0.6
+     }
+    ],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "Land to water: lawn in the park at left turned into a dark-teal pond",
+      "toa_do": [
+       0.09,
+       0.53,
+       0.2,
+       0.62
+      ],
+      "do_tin": 0.8
+     }
+    ]
+   }
+  }
+ }
+}

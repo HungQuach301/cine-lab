@@ -1,0 +1,7 @@
+{"quy_uoc": "như V7B (reports/v7b/xem-cam/p-doc.json): 2 = đúng ý chính; 'not sure' kèm suy đoán yếu (vd. 'chắc là bị phong toả') = 1; đoàn tiếp viện 'trông như relief fleet' mà không nêu bằng chứng dỡ hàng = 1; đọc tàu tiếp viện thành tàu tấn công = 0. P (phiên V7C) đọc nguyên văn phieu-R*.json.",
+ "luot": [
+  {"nhan": "nhap", "ban": "nháp không cách A (C1 mở đồng trống)", "r320": {"R1": [2,2,1,1], "R2": [2,2,1,1], "R3": [2,2,1,1], "tong": 18}, "r640": {"R1": [2,2,1,1], "R2": [2,2,1,2], "R3": [2,2,1,2], "tong": 20}},
+  {"nhan": "cuoi-l1", "master_sha256": "b4f554ff974808ab8257092e52a4d0d199ac5bf20f7f57dbc354051d14609e9b", "r320": {"R1": [2,2,1,1], "R2": [2,2,1,1], "R3": [2,2,1,1], "tong": 18}, "r640": {"R1": [2,2,1,2], "R2": [2,2,1,1], "R3": [2,2,1,2], "tong": 19}},
+  {"nhan": "cuoi-l2", "master_sha256": "8e68eca61ffd97ca0e18051426fc3a1062d7dac4414bfa3825cde65ea488de65", "r320": {"R1": [2,2,1,1], "R2": [2,2,1,1], "R3": [2,2,1,1], "tong": 18}, "r640": {"R1": [2,2,1,1], "R2": [2,2,1,1], "R3": [2,2,1,2], "tong": 19}, "ghi": "2/3 người chấm 640 đọc người hái rau cúi 40° thành 'ngã lăn'"},
+  {"nhan": "cuoi (BẢN CUỐI)", "master_sha256": "c8bb1c02ec262cbae4f89db2882305a832ad951e6700ad6eb2b326ea7df70f7c", "r320": {"R1": [2,2,1,1], "R2": [2,2,1,1], "R3": [2,2,1,1], "tong": 18}, "r640": {"R1": [2,2,1,2], "R2": [2,2,1,2], "R3": [2,2,1,1], "tong": 20}}
+ ]}

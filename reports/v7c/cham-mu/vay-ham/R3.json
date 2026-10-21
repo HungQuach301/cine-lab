@@ -1,0 +1,48 @@
+{
+ "A": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 3,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "flat_slide_look",
+   "unreadable_scale",
+   "empty_frame"
+  ],
+  "note": "The wide view does show the rock, the sea and some ships. But the camps are flat tan rectangles with tiny dark dots on a plain green plane. The trees are sparse black specks. The rock is small and distant, so the siege has no weight."
+ },
+ "B": {
+  "craft": 3,
+  "realism": 2,
+  "detail": 3,
+  "toy_like": 8,
+  "ai_look": 5,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "unreadable_scale",
+   "confusing"
+  ],
+  "note": "The top-down view shows regimented rows of identical white blocks on tan rectangles, like game tokens or a spreadsheet grid. A single trench line is the only real feature. There is no rock, sea or horizon, so the location can't be identified. The terrain texture is a mottled green wash."
+ },
+ "C": {
+  "craft": 5,
+  "realism": 5,
+  "detail": 4,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "unreadable_scale",
+   "flat_slide_look"
+  ],
+  "note": "The framing is the same as A. The vegetation is better: darker, denser tree clumps and a more varied grass texture. The sea is more natural, with a lighter horizon haze. The camps are still flat tan strips with tiny dots and no real tents or troops."
+ },
+ "rank": [
+  "C",
+  "A",
+  "B"
+ ],
+ "why": "C has the same readable layout as A, with more natural vegetation, water and atmosphere. B has no sense of place, and its repeated white blocks look like game pieces.",
+ "top_fix_for_best": "Replace the flat tan camp rectangles with textured camp ground (trampled earth, paths, tents, fires, smoke) and larger, better-modelled troop and tent clusters. Then lower the camera, or move it closer to the camps, so the besiegers' lines read at small-screen scale with the fortified rock behind them."
+}

@@ -1,0 +1,959 @@
+{
+ "tag": "c4B-manh-180",
+ "render": "/var/tmp/n2p/src/c4/rgb/00420.jpg",
+ "ai": "/var/tmp/n2p/omni/khung/c4B-manh-180.png",
+ "ghep": "/var/tmp/n2p/omni/kiem/c4B-manh-180-ghep.png",
+ "sha_ghep": "090106ffcc668bf4a77491959507cf9635117c9a50b42ae9e60d24f52bb81f00",
+ "nam": "1779",
+ "i_lop_a": {
+  "max_trong_a": 35,
+  "diem_lech_trong_a": 174730,
+  "dien_tich_a_pct": 19.13,
+  "dai20_pct": 13.35,
+  "dai20_cum_dE30": 42,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     478,
+     88,
+     662,
+     133
+    ],
+    "px": 3575
+   },
+   {
+    "hop": [
+     191,
+     96,
+     401,
+     153
+    ],
+    "px": 3221
+   },
+   {
+    "hop": [
+     1150,
+     248,
+     1280,
+     318
+    ],
+    "px": 2068
+   },
+   {
+    "hop": [
+     1066,
+     191,
+     1149,
+     258
+    ],
+    "px": 1949
+   },
+   {
+    "hop": [
+     222,
+     68,
+     306,
+     124
+    ],
+    "px": 1830
+   },
+   {
+    "hop": [
+     1173,
+     201,
+     1280,
+     251
+    ],
+    "px": 1602
+   },
+   {
+    "hop": [
+     284,
+     58,
+     397,
+     96
+    ],
+    "px": 1358
+   },
+   {
+    "hop": [
+     921,
+     454,
+     1009,
+     493
+    ],
+    "px": 855
+   },
+   {
+    "hop": [
+     561,
+     525,
+     591,
+     573
+    ],
+    "px": 605
+   },
+   {
+    "hop": [
+     352,
+     446,
+     403,
+     468
+    ],
+    "px": 560
+   },
+   {
+    "hop": [
+     1106,
+     546,
+     1152,
+     565
+    ],
+    "px": 483
+   },
+   {
+    "hop": [
+     419,
+     272,
+     462,
+     296
+    ],
+    "px": 473
+   },
+   {
+    "hop": [
+     486,
+     618,
+     535,
+     644
+    ],
+    "px": 473
+   },
+   {
+    "hop": [
+     933,
+     440,
+     973,
+     460
+    ],
+    "px": 426
+   },
+   {
+    "hop": [
+     510,
+     548,
+     529,
+     580
+    ],
+    "px": 397
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 6,
+   "dE_trung_vi": 15.46,
+   "dE_p90": 33.58
+  },
+  "khop_mau": false,
+  "dat_ghep": false,
+  "vat_lop_a": [
+   {
+    "mh": "gpt",
+    "loai": "cong_su",
+    "mo_ta": "Small posts or battlement-like structures newly outlining the summit of the enlarged Rock.",
+    "toa_do": [
+     0.152,
+     0.088,
+     0.192,
+     0.113
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_su",
+    "mo_ta": "New wall and defensive structures descending diagonally along the Rock's right slope.",
+    "toa_do": [
+     0.386,
+     0.302,
+     0.513,
+     0.384
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_su",
+    "mo_ta": "Long new masonry defensive enclosure at the mountain foot, including projecting towers and a taller rectangular building.",
+    "toa_do": [
+     0.253,
+     0.381,
+     0.449,
+     0.44
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New dense town behind the waterfront, including pitched-roof buildings, taller gables and a central steeple-like feature.",
+    "toa_do": [
+     0.447,
+     0.348,
+     0.571,
+     0.422
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_su",
+    "mo_ta": "New large foreground waterfront fort or walled building compound.",
+    "toa_do": [
+     0.468,
+     0.383,
+     0.621,
+     0.456
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Tall narrow tower or chimney-like architectural feature on the waterfront compound.",
+    "toa_do": [
+     0.592,
+     0.357,
+     0.605,
+     0.404
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Long foreground harbour mole extending right from the waterfront compound, with repeated edge posts and an enlarged end.",
+    "toa_do": [
+     0.599,
+     0.437,
+     0.801,
+     0.461
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Second, shorter harbour pier behind the foreground mole.",
+    "toa_do": [
+     0.618,
+     0.418,
+     0.752,
+     0.441
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Distant cross-harbour quay or breakwater behind the sailing ships.",
+    "toa_do": [
+     0.623,
+     0.402,
+     0.789,
+     0.427
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "New small distant multi-masted sailing ship near the inner harbour.",
+    "toa_do": [
+     0.682,
+     0.354,
+     0.715,
+     0.422
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "New large multi-masted square-rigged sailing ship in the middle-right harbour.",
+    "toa_do": [
+     0.778,
+     0.313,
+     0.85,
+     0.435
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "New large square-rigged sailing ship nearest the right edge.",
+    "toa_do": [
+     0.839,
+     0.326,
+     0.959,
+     0.476
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "co",
+    "mo_ta": "Small reddish masthead flag on the middle-right sailing ship.",
+    "toa_do": [
+     0.81,
+     0.311,
+     0.818,
+     0.33
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "co",
+    "mo_ta": "Small pale masthead pennant on the middle-right ship's right mast.",
+    "toa_do": [
+     0.83,
+     0.326,
+     0.838,
+     0.346
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "co",
+    "mo_ta": "Red-and-pale stern ensign on the nearest right-hand ship; design is too indistinct to identify.",
+    "toa_do": [
+     0.941,
+     0.408,
+     0.96,
+     0.443
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New worn dirt camp track across the lower-left foreground and around the large left tents.",
+    "toa_do": [
+     0.0,
+     0.864,
+     0.351,
+     0.998
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New dirt access paths through the central aisle and between the right-hand tents.",
+    "toa_do": [
+     0.366,
+     0.502,
+     0.89,
+     0.873
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Original pale curved track in the right foreground removed beneath the new tents, supplies and rock clusters.",
+    "toa_do": [
+     0.747,
+     0.744,
+     0.871,
+     1.0
+    ],
+    "dai_a": true,
+    "kieu": "BỚT/ĐỔI vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "tau_lon",
+    "mo_ta": "Large three-masted sailing warship with Austrian-style red-white-red ensign, added at right",
+    "toa_do": [
+     0.84,
+     0.33,
+     0.95,
+     0.48
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "tau_lon",
+    "mo_ta": "Second large sailing ship (three masts, yellow sails) in the bay",
+    "toa_do": [
+     0.77,
+     0.32,
+     0.85,
+     0.44
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "tau_lon",
+    "mo_ta": "Distant ship near the mole",
+    "toa_do": [
+     0.68,
+     0.36,
+     0.72,
+     0.42
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Town of Gibraltar with walls, yellow buildings and a bell tower/steeple added at the foot of the Rock",
+    "toa_do": [
+     0.37,
+     0.34,
+     0.64,
+     0.45
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Long stone piers/moles extending into the bay",
+    "toa_do": [
+     0.63,
+     0.42,
+     0.8,
+     0.46
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "tau_lon",
+    "mo_ta": "The small ship sprites of BEFORE are now blue blobs floating in the sky; the real fleet moved to the lower right",
+    "toa_do": [
+     0.38,
+     0.12,
+     0.52,
+     0.17
+    ],
+    "dai_a": true,
+    "kieu": "BỚT/ĐỔI vật lớp (a)"
+   }
+  ],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "gpt",
+    "loai": "da_dat",
+    "mo_ta": "New, much larger Rock of Gibraltar with sheer western cliffs and a long ridge extending toward the centre; replaces the original mountain geometry.",
+    "toa_do": [
+     0.072,
+     0.094,
+     0.509,
+     0.434
+    ],
+    "dai_a": true,
+    "ly_do": "Invented and substantially relocated cliff geometry is forbidden under N2+; not a claim that limestone cliffs are chronologically anachronistic.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "da_dat",
+    "mo_ta": "New distant mountain range behind the town and harbour.",
+    "toa_do": [
+     0.534,
+     0.323,
+     0.789,
+     0.402
+    ],
+    "dai_a": false,
+    "ly_do": "Invented geographical relief, prohibited by the N2+ rule against invented cliffs and terrain.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_su",
+    "mo_ta": "Small posts or battlement-like structures newly outlining the summit of the enlarged Rock.",
+    "toa_do": [
+     0.152,
+     0.088,
+     0.192,
+     0.113
+    ],
+    "dai_a": true,
+    "ly_do": "Unsupported added fortification/architectural details under N2+; their precise historical type is unresolved.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_su",
+    "mo_ta": "New wall and defensive structures descending diagonally along the Rock's right slope.",
+    "toa_do": [
+     0.386,
+     0.302,
+     0.513,
+     0.384
+    ],
+    "dai_a": false,
+    "ly_do": "Invented masonry fortifications and architectural details, prohibited under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_su",
+    "mo_ta": "Long new masonry defensive enclosure at the mountain foot, including projecting towers and a taller rectangular building.",
+    "toa_do": [
+     0.253,
+     0.381,
+     0.449,
+     0.44
+    ],
+    "dai_a": true,
+    "ly_do": "Invented stone structures, prohibited under N2+, although stylistically compatible with the period.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New dense town behind the waterfront, including pitched-roof buildings, taller gables and a central steeple-like feature.",
+    "toa_do": [
+     0.447,
+     0.348,
+     0.571,
+     0.422
+    ],
+    "dai_a": true,
+    "ly_do": "Invented stone buildings and roof/tower details forbidden under N2+; no definite modern construction type is identifiable.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_su",
+    "mo_ta": "New large foreground waterfront fort or walled building compound.",
+    "toa_do": [
+     0.468,
+     0.383,
+     0.621,
+     0.456
+    ],
+    "dai_a": true,
+    "ly_do": "Invented stone fortification, prohibited under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Tall narrow tower or chimney-like architectural feature on the waterfront compound.",
+    "toa_do": [
+     0.592,
+     0.357,
+     0.605,
+     0.404
+    ],
+    "dai_a": false,
+    "ly_do": "Unsupported added architectural feature under N2+; insufficient evidence to identify it as an industrial smokestack.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Long foreground harbour mole extending right from the waterfront compound, with repeated edge posts and an enlarged end.",
+    "toa_do": [
+     0.599,
+     0.437,
+     0.801,
+     0.461
+    ],
+    "dai_a": true,
+    "ly_do": "Invented harbour structure prohibited under N2+; the posts are not sufficiently clear to establish modern bollards.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Second, shorter harbour pier behind the foreground mole.",
+    "toa_do": [
+     0.618,
+     0.418,
+     0.752,
+     0.441
+    ],
+    "dai_a": false,
+    "ly_do": "Invented harbour masonry and architectural detail under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Distant cross-harbour quay or breakwater behind the sailing ships.",
+    "toa_do": [
+     0.623,
+     0.402,
+     0.789,
+     0.427
+    ],
+    "dai_a": false,
+    "ly_do": "Invented harbour structure under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "New small distant multi-masted sailing ship near the inner harbour.",
+    "toa_do": [
+     0.682,
+     0.354,
+     0.715,
+     0.422
+    ],
+    "dai_a": false,
+    "ly_do": "Invented sailing ship explicitly forbidden under N2+; no steam or motor propulsion is evident.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "New large multi-masted square-rigged sailing ship in the middle-right harbour.",
+    "toa_do": [
+     0.778,
+     0.313,
+     0.85,
+     0.435
+    ],
+    "dai_a": true,
+    "ly_do": "Invented sailing ship explicitly forbidden under N2+, though broadly period-compatible.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "New large square-rigged sailing ship nearest the right edge.",
+    "toa_do": [
+     0.839,
+     0.326,
+     0.959,
+     0.476
+    ],
+    "dai_a": true,
+    "ly_do": "Invented sailing ship explicitly forbidden under N2+, though broadly period-compatible.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "nguoi",
+    "mo_ta": "New standing figure in the right foreground aisle, wearing a pale shirt and dark lower clothing.",
+    "toa_do": [
+     0.711,
+     0.781,
+     0.727,
+     0.849
+    ],
+    "dai_a": true,
+    "ly_do": "Invented camp personnel prohibited under N2+; clothing is not demonstrably modern.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "nguoi",
+    "mo_ta": "New standing figure beside the central-aisle tent, adjacent to an existing troop formation.",
+    "toa_do": [
+     0.415,
+     0.663,
+     0.428,
+     0.712
+    ],
+    "dai_a": true,
+    "ly_do": "Invented camp personnel prohibited under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "nguoi",
+    "mo_ta": "New small figure at the right edge of the central aisle beside the existing formation.",
+    "toa_do": [
+     0.439,
+     0.675,
+     0.451,
+     0.711
+    ],
+    "dai_a": true,
+    "ly_do": "Invented camp personnel prohibited under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "nguoi",
+    "mo_ta": "Small distant human figures along the newly invented right shoreline.",
+    "toa_do": [
+     0.668,
+     0.505,
+     0.753,
+     0.553
+    ],
+    "dai_a": false,
+    "ly_do": "Invented people on a newly fabricated camp shoreline, prohibited under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "da_dat",
+    "mo_ta": "New sandy western beach curving from the mountain foot down the left side of the camp.",
+    "toa_do": [
+     0.0,
+     0.426,
+     0.279,
+     0.719
+    ],
+    "dai_a": true,
+    "ly_do": "Part of a forbidden land/water and coastline reconstruction under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "da_dat",
+    "mo_ta": "New sandy eastern beach bordering the invented harbour and right camp edge.",
+    "toa_do": [
+     0.6,
+     0.458,
+     1.0,
+     0.739
+    ],
+    "dai_a": true,
+    "ly_do": "Part of a forbidden land/water and coastline reconstruction under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "tau_lon",
+    "mo_ta": "Large three-masted sailing warship with Austrian-style red-white-red ensign, added at right",
+    "toa_do": [
+     0.84,
+     0.33,
+     0.95,
+     0.48
+    ],
+    "dai_a": true,
+    "ly_do": "Invented sailing ship; the red-white-red flag is not a British, Spanish or French ensign of 1779.",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "tau_lon",
+    "mo_ta": "Second large sailing ship (three masts, yellow sails) in the bay",
+    "toa_do": [
+     0.77,
+     0.32,
+     0.85,
+     0.44
+    ],
+    "dai_a": true,
+    "ly_do": "Invented sailing ship (NC-V2V c4B-c)",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "tau_lon",
+    "mo_ta": "Distant ship near the mole",
+    "toa_do": [
+     0.68,
+     0.36,
+     0.72,
+     0.42
+    ],
+    "dai_a": false,
+    "ly_do": "Invented sailing ship",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Town of Gibraltar with walls, yellow buildings and a bell tower/steeple added at the foot of the Rock",
+    "toa_do": [
+     0.37,
+     0.34,
+     0.64,
+     0.45
+    ],
+    "dai_a": true,
+    "ly_do": "Invented stone buildings and tower (NC-V2V c4B-c; F4)",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Long stone piers/moles extending into the bay",
+    "toa_do": [
+     0.63,
+     0.42,
+     0.8,
+     0.46
+    ],
+    "dai_a": false,
+    "ly_do": "Invented harbour structures resembling modern harbour walls",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "leu",
+    "mo_ta": "Large canvas tents, left foreground",
+    "toa_do": [
+     0.05,
+     0.72,
+     0.2,
+     0.85
+    ],
+    "dai_a": true,
+    "ly_do": "Invented tent camp (invented troops/camp)",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "leu",
+    "mo_ta": "Tent camp on the right beach with several tents",
+    "toa_do": [
+     0.6,
+     0.57,
+     0.97,
+     0.8
+    ],
+    "dai_a": true,
+    "ly_do": "Invented tent camp",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "leu",
+    "mo_ta": "Tents between the two strips",
+    "toa_do": [
+     0.37,
+     0.47,
+     0.44,
+     0.63
+    ],
+    "dai_a": true,
+    "ly_do": "Invented tents",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 2.44,
+  "nuoc_thanh_dat_pct": 71.84,
+  "t9b_dat_thanh_nuoc_pct": 2.44,
+  "t9b_nuoc_thanh_dat_pct": 52.93,
+  "dat": false,
+  "mo_hinh_bao": [
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND → WATER: the broad left-hand plain and foreground slope become an open western sea, reaching diagonally down toward the left foreground beside the new beach.",
+    "toa_do": [
+     0.0,
+     0.208,
+     0.275,
+     0.687
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND → WATER: the centre-right and right-hand plain become the new harbour and eastern sea; the retained upper-right camp strip now floats above this replacement scenery.",
+    "toa_do": [
+     0.598,
+     0.258,
+     1.0,
+     0.729
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "WATER → LAND: part of the original bay is occupied by the greatly enlarged Rock and its eastern ridge.",
+    "toa_do": [
+     0.206,
+     0.164,
+     0.525,
+     0.395
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "WATER → LAND/STRUCTURE: sections of the original water beyond the old foreground shore are replaced by newly invented mountain-foot town and solid shoreline.",
+    "toa_do": [
+     0.267,
+     0.188,
+     0.653,
+     0.268
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Flat plain at the top-left turned into sea and beach on the left side (land to water)",
+    "toa_do": [
+     0.0,
+     0.38,
+     0.27,
+     0.7
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Plain on the right turned into sea and beach (land to water)",
+    "toa_do": [
+     0.6,
+     0.42,
+     1.0,
+     0.7
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Sea on the upper left turned into the Rock and land (water to land)",
+    "toa_do": [
+     0.0,
+     0.1,
+     0.3,
+     0.4
+    ]
+   }
+  ]
+ },
+ "iv_dong_bang": {
+  "ap_dung": false,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

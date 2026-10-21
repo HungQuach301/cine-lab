@@ -1,0 +1,42 @@
+{
+ "A": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "noisy",
+   "confusing"
+  ],
+  "note": "Tight top-down crop with no sky or horizon. The ground has a harsh white-line noise pattern that reads as broken texture rather than streets. Buildings are sparse, blocky, orange boxes, and the fortress is only partly visible. The water is saturated and flat, with some foam shapes. No sense of a dense town."
+ },
+ "B": {
+  "craft": 7,
+  "realism": 7,
+  "detail": 6,
+  "toy_like": 3,
+  "ai_look": 4,
+  "flags": [],
+  "note": "Best frame. Atmospheric haze, a distant hilly horizon, soft clouds and a believable water colour gradient. The grass and terrain have natural variation. The town has a street grid with visible courtyards and greenery, and the ships are small but readable. The buildings are still repeated terracotta blocks and some of the lower-left foreground is soft."
+ },
+ "C": {
+  "craft": 6,
+  "realism": 6,
+  "detail": 5,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Similar framing to B but with oversaturated, flat electric-blue water. The terrain is darker and more uniform. The town is sparser and the buildings are scattered like blocks across beige ground, so it reads less dense. The horizon is clean."
+ },
+ "rank": [
+  "B",
+  "C",
+  "A"
+ ],
+ "why": "B has the most convincing atmosphere, terrain and town density, C has flatter water and sparser blocks, and A has noisy ground texture, a cramped framing and a toy-like look.",
+ "top_fix_for_best": "Make the town denser and less repetitive: vary roof colours, heights and weathering, add smoke, people and harbour activity, and soften the foreground blur so the walls and quays read sharply."
+}

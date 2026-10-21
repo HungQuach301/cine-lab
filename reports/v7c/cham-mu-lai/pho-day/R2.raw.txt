@@ -1,0 +1,9 @@
+```json
+{"A": {"craft": 7, "realism": 7, "detail": 6, "toy_like": 3, "ai_look": 3, "flags": [], "note": "Best atmosphere: hazy distant hills, believable water gradient with soft shoreline foam, painterly grass and terrain. Wall and building materials look convincing. Town is slightly sparse and uniform, and the ships are tiny."},
+"B": {"craft": 5, "realism": 4, "detail": 5, "toy_like": 6, "ai_look": 5, "flags": ["toy_look", "noisy", "unreadable_scale"], "note": "Closest, steepest camera. The street ground has a noisy, high-frequency white pattern that reads as a bad texture or moire. Buildings are blocky extrusions with hard shadows, and the walls look like game assets. No sky or horizon, so little depth or atmosphere."},
+"C": {"craft": 6, "realism": 5, "detail": 6, "toy_like": 5, "ai_look": 4, "flags": ["toy_look"], "note": "Good wide framing with sky and horizon. The water is oversaturated cobalt with a repetitive ripple texture, and the dark horizon band is flat. Buildings are a bit boxy, and the greens and streets are cleaner and more plain than A."},
+"D": {"craft": 7, "realism": 6, "detail": 6, "toy_like": 4, "ai_look": 4, "flags": [], "note": "Nice hazy atmosphere and a lower, more cinematic angle with a good sense of scale. Water has sun glitter. Street and ground texture is a little noisy and washed, and the buildings are sparse and small with some blockiness."}, 
+"rank": ["A", "D", "C", "B"],
+"why": "A has the most natural colour, atmospheric depth and material believability, while B's noisy ground texture, blocky buildings and lack of horizon make it look the most like a game asset.",
+"top_fix_for_best": "Add density and variety to the town (more varied rooflines, chimneys, courtyard trees, smoke wisps, people and carts along the quay), enlarge and detail the ships with wakes and sails, and add soft volumetric haze and cast shadows across the roofs to give richer depth."}
+```

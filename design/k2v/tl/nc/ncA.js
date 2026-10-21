@@ -13,9 +13,9 @@ export const LOOK = T3.LOOK;   // sương / màu sương đặt trong postBuild 
 
 export async function build(ctx) {
   const P = Object.assign({}, (ctx.opt && ctx.opt.nc) || {});
-  if (P.off) { const SC0 = await T3.build(ctx); return SC0; }
+  if (P.off) { const SC0 = await T3.buildCore(ctx); return SC0; }
   const pre = await preBuild(ctx, P);
-  const SC = await T3.build(ctx);
+  const SC = await T3.buildCore(ctx);   /* V7C: t3tl.build tự bọc khi có opt.nc → gọi lõi để không bọc hai lần */
   const post = await postBuild(ctx, SC, P, pre);
   const apply0 = SC.apply;
   SC.apply = (st, t) => { apply0(st, t); post.update(st, t); };

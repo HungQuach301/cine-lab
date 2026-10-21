@@ -1,0 +1,260 @@
+{
+ "tag": "c1-vua-120",
+ "truoc": "/var/tmp/n2p/src/c1/rgb/00384.jpg",
+ "sau": "/var/tmp/n2p/omni/kiem/c1-vua-120-ghep.jpg",
+ "nam": "1782",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.0468,
+    "usage": {
+     "input_tokens": 16157,
+     "input_tokens_details": {
+      "cache_write_tokens": 16154,
+      "cached_tokens": 0
+     },
+     "output_tokens": 1448,
+     "output_tokens_details": {
+      "reasoning_tokens": 516
+     },
+     "total_tokens": 17605
+    }
+   },
+   "secs": 32.3,
+   "json": {
+    "them": [
+     {
+      "loai": "khoi",
+      "mo_ta": "New large, dark smoke column rising from the water immediately offshore of the central waterfront.",
+      "toa_do": [
+       0.277,
+       0.19,
+       0.36,
+       0.365
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "An invented smoke column on the water is expressly forbidden by the supplied rules; this is not a claim that smoke itself is historically anachronistic.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "khoi",
+      "mo_ta": "Additional low, pale-grey smoke plume over the water, just to the right of the new dark smoke column.",
+      "toa_do": [
+       0.358,
+       0.318,
+       0.431,
+       0.371
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "An invented smoke plume on the water is expressly forbidden by the supplied rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "da_dat",
+      "mo_ta": "Dry grassy ground surrounding the upper-right waterfront bastion and extending toward the right-hand defensive wall has been replaced by water. The existing masonry remains in place.",
+      "toa_do": [
+       0.55,
+       0.351,
+       1.0,
+       0.731
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Dry ground immediately below the long diagonal defensive wall and above the central barracks enclosure has become a broad flooded channel.",
+      "toa_do": [
+       0.507,
+       0.538,
+       0.853,
+       0.705
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Dry courtyard ground inside the foreground fortress, between the red-roofed buildings and the large square tower, has been replaced by water.",
+      "toa_do": [
+       0.702,
+       0.746,
+       0.855,
+       0.866
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Extensive dry foreground terrain has become shallow reflective floodwater, including the ground below the left-hand town, around the central red-roofed buildings, and outside the foreground fortress.",
+      "toa_do": [
+       0.0,
+       0.747,
+       1.0,
+       1.0
+      ],
+      "do_tin": 0.98
+     }
+    ],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "LAND → WATER: grassy land around the upper-right waterfront bastion and on the seaward side of the long diagonal defensive wall is flooded, moving the shoreline inland around the existing fortifications.",
+      "toa_do": [
+       0.55,
+       0.351,
+       1.0,
+       0.731
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "mo_ta": "LAND → WATER: the strip below the long diagonal wall and above the central barracks enclosure has become a water-filled channel.",
+      "toa_do": [
+       0.507,
+       0.538,
+       0.853,
+       0.705
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "mo_ta": "LAND → WATER: the enclosed courtyard beside the foreground fortress's square tower has become a pool.",
+      "toa_do": [
+       0.702,
+       0.746,
+       0.855,
+       0.866
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "mo_ta": "LAND → WATER: broad foreground ground surfaces are flooded, with reflective shallow water surrounding the existing houses and fortress walls. The buildings themselves remain.",
+      "toa_do": [
+       0.0,
+       0.747,
+       1.0,
+       1.0
+      ],
+      "do_tin": 0.98
+     }
+    ]
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.1337434
+   },
+   "secs": 16.6,
+   "json": {
+    "them": [
+     {
+      "loai": "khoi",
+      "mo_ta": "Large dark smoke column invented over open water in the centre-left, near the shoreline wall",
+      "toa_do": [
+       0.28,
+       0.2,
+       0.36,
+       0.37
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke column on the water with no source in the render (NC-V2V c1, c2-a)",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "khoi",
+      "mo_ta": "Grey smoke or mist patches added over the land and the new water inlet near the walls and barracks",
+      "toa_do": [
+       0.55,
+       0.43,
+       0.78,
+       0.67
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke or steam drifting over the streets and fortifications (NC-V2V c1)",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "khoi",
+      "mo_ta": "Faint smoke or mist patch on the left of the new water area at the shoreline, beside the harbour wall",
+      "toa_do": [
+       0.38,
+       0.33,
+       0.44,
+       0.4
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke",
+      "nam_xuat_hien": null,
+      "do_tin": 0.4
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "khac",
+      "mo_ta": "Smoke columns above the burning ships were reduced or faded, and the two leftmost columns were partly changed",
+      "toa_do": [
+       0.0,
+       0.0,
+       0.55,
+       0.12
+      ],
+      "do_tin": 0.3
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "The small brown sandy islet or rock patch on the right of the sea was darkened into a dark shape, nearly a shadow",
+      "toa_do": [
+       0.86,
+       0.25,
+       0.94,
+       0.28
+      ],
+      "do_tin": 0.4
+     }
+    ],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "Land became water: the green or brown ground to the right of the mole and inside the fortification (between the walls and the tower) was turned into dark sea or inlet water, and the coastline moved inland",
+      "toa_do": [
+       0.55,
+       0.36,
+       1.0,
+       0.95
+      ],
+      "do_tin": 0.9
+     },
+     {
+      "mo_ta": "Land became water: the foreground brown ground at the bottom turned into a grey-tan sandy or shallow water surface, with dark blue water pools around the houses at bottom centre and right",
+      "toa_do": [
+       0.0,
+       0.8,
+       1.0,
+       1.0
+      ],
+      "do_tin": 0.75
+     },
+     {
+      "mo_ta": "Land became water: dark water between the town edge and the walls, and the area left of the mole, where the green ground was turned dark water",
+      "toa_do": [
+       0.52,
+       0.36,
+       0.62,
+       0.62
+      ],
+      "do_tin": 0.6
+     }
+    ]
+   }
+  }
+ }
+}

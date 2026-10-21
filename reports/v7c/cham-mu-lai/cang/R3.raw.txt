@@ -1,0 +1,12 @@
+```json
+{
+  "A": {"craft": 4, "realism": 3, "detail": 3, "toy_like": 6, "ai_look": 4, "flags": ["confusing", "flat_slide_look", "unreadable_scale", "toy_look"], "note": "This is not a harbour or a convoy. It is a top-down view of a fortress wall with cannons and a stack of red barrels. The sand and stone surfaces are flat and smeared. The tiny blue-grey soldiers look like game pieces. There are no ships and no sea, so it misses the shot type."},
+  "B": {"craft": 6, "realism": 5, "detail": 5, "toy_like": 4, "ai_look": 4, "flags": ["washed_out", "toy_look"], "note": "The composition is clear and the town, hill and convoy all read. The water is saturated and uniformly blue, with a repeating sparkle pattern. The ships are tiny and carry pink or red halo markers that look like game icons. The pier is a flat, untextured plank block."},
+  "C": {"craft": 8, "realism": 7, "detail": 7, "toy_like": 2, "ai_look": 3, "flags": ["unreadable_scale"], "note": "This is the most cinematic of the four. The hazy horizon and softer light give atmosphere. The dense town has terracotta roofs, walls and a green foreshore. Water has depth variation and foam streaks. Small white foam streaks or boats in the foreground are odd, and the convoy is tiny and distant."},
+  "D": {"craft": 6, "realism": 6, "detail": 5, "toy_like": 4, "ai_look": 4, "flags": ["toy_look", "unreadable_scale"], "note": "This is the same layout as B, with richer and darker water and a better horizon haze. The red halo markers under the ships still look like game pieces, and the pier is still a flat plank block. It is a mild improvement on B."}
+  ,
+  "rank": ["C", "D", "B", "A"],
+  "why": "C has the best atmosphere, the most believable town and terrain, and no game-style ship markers, while A is a close-up of a fortress wall that doesn't match the harbour-convoy brief.",
+  "top_fix_for_best": "Enlarge the convoy and put it in the mid-ground, with readable hulls and sails, wakes and some smoke. Remove or explain the odd white streaks in the foreground water, and add harbour life such as boats, quay figures and smoke from the town."
+}
+```

@@ -1,0 +1,54 @@
+{
+ "A": {
+  "craft": 4,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "confusing",
+   "unreadable_scale",
+   "flat_slide_look"
+  ],
+  "note": "This is not a harbour or ships shot. It is a top-down view of fortress walls with cannons and a heap of red barrels or logs. The sand and stone textures are OK, but the walls read as flat colour planes. The tiny troops are a similar size to the barrels, so scale is unclear. It does not match the shot type."
+ },
+ "B": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 5,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "toy_look",
+   "noisy",
+   "unreadable_scale"
+  ],
+  "note": "The composition is clear, with a hill, town and convoy. The water is a saturated, uniform cyan-blue with a noisy sparkle pattern. The ships sit on pink or red base rings that look like game-piece markers. The pier is a plain brown slab. The sky is bright and clean."
+ },
+ "C": {
+  "craft": 8,
+  "realism": 7,
+  "detail": 7,
+  "toy_like": 4,
+  "ai_look": 3,
+  "flags": [],
+  "note": "This is the most natural of the four. The deeper, varied water has foam streaks and a soft horizon haze. The town has visible roofs, walls and a green shoreline, and the hillside has texture. The convoy is small but reads as ships without markers. The odd floating white slivers on the water look like small boats or debris and could confuse a viewer. The town still has a clay-model feel."
+ },
+ "D": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [],
+  "note": "The water is deeper and more natural than in B, and the lighting and haze are better. The pink base rings under the ships are still there and read as game markers. The pier is plain and blocky, and the town is small and flat."
+ },
+ "rank": [
+  "C",
+  "D",
+  "B",
+  "A"
+ ],
+ "why": "C has the most believable water, atmosphere and town, and its ships have no marker rings, while A shows the wrong subject and B has toy-like rings and noisy water.",
+ "top_fix_for_best": "Replace the floating white slivers with properly scaled ships or boats with visible wakes, and make the convoy larger and more detailed in the mid-ground. Add smoke and chimney haze and darker roof and wall variation to the town so it stops reading as a clay model."
+}

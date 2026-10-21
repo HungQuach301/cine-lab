@@ -1,0 +1,404 @@
+{
+ "tag": "c1-vua-60",
+ "render": "/var/tmp/n2p/src/c1/rgb/00324.jpg",
+ "ai": "/var/tmp/n2p/omni/khung/c1-vua-60.png",
+ "ghep": "/var/tmp/n2p/omni/kiem/c1-vua-60-ghep.png",
+ "sha_ghep": "ac448797f1ada164410c523d74a0b43a30f7161dedd5ff52b59e6180c8ce3510",
+ "nam": "1782",
+ "i_lop_a": {
+  "max_trong_a": 43,
+  "diem_lech_trong_a": 359116,
+  "dien_tich_a_pct": 39.05,
+  "dai20_pct": 17.77,
+  "dai20_cum_dE30": 22,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     806,
+     183,
+     986,
+     249
+    ],
+    "px": 2921
+   },
+   {
+    "hop": [
+     300,
+     44,
+     371,
+     122
+    ],
+    "px": 1787
+   },
+   {
+    "hop": [
+     375,
+     67,
+     447,
+     122
+    ],
+    "px": 1514
+   },
+   {
+    "hop": [
+     366,
+     236,
+     461,
+     262
+    ],
+    "px": 1433
+   },
+   {
+    "hop": [
+     810,
+     415,
+     884,
+     446
+    ],
+    "px": 894
+   },
+   {
+    "hop": [
+     770,
+     246,
+     821,
+     275
+    ],
+    "px": 727
+   },
+   {
+    "hop": [
+     887,
+     438,
+     927,
+     470
+    ],
+    "px": 614
+   },
+   {
+    "hop": [
+     419,
+     64,
+     458,
+     90
+    ],
+    "px": 572
+   },
+   {
+    "hop": [
+     767,
+     415,
+     811,
+     433
+    ],
+    "px": 479
+   },
+   {
+    "hop": [
+     782,
+     394,
+     836,
+     412
+    ],
+    "px": 469
+   },
+   {
+    "hop": [
+     789,
+     544,
+     829,
+     567
+    ],
+    "px": 461
+   },
+   {
+    "hop": [
+     475,
+     248,
+     526,
+     265
+    ],
+    "px": 424
+   },
+   {
+    "hop": [
+     483,
+     55,
+     512,
+     78
+    ],
+    "px": 379
+   },
+   {
+    "hop": [
+     770,
+     12,
+     831,
+     28
+    ],
+    "px": 368
+   },
+   {
+    "hop": [
+     112,
+     69,
+     140,
+     93
+    ],
+    "px": 310
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 7,
+   "dE_trung_vi": 5.42,
+   "dE_p90": 28.54
+  },
+  "khop_mau": false,
+  "dat_ghep": false,
+  "vat_lop_a": [
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "Invented orange fireball/explosion on the water immediately outside the central-left waterfront wall.",
+    "toa_do": [
+     0.286,
+     0.245,
+     0.364,
+     0.365
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "Invented cluster of orange flames and dark explosion lobes on the open ground behind the yellow-roofed barracks, inside the foreground defensive walls.",
+    "toa_do": [
+     0.6,
+     0.542,
+     0.693,
+     0.621
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "lua_lon",
+    "mo_ta": "Large orange fireball or explosion on the water near the shore, with a black smoke core",
+    "toa_do": [
+     0.285,
+     0.25,
+     0.365,
+     0.36
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "lua_lon",
+    "mo_ta": "Burning fire or explosion on the grass and parade ground inside the fortifications",
+    "toa_do": [
+     0.6,
+     0.55,
+     0.69,
+     0.62
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   }
+  ],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "Invented orange fireball/explosion on the water immediately outside the central-left waterfront wall.",
+    "toa_do": [
+     0.286,
+     0.245,
+     0.364,
+     0.365
+    ],
+    "dai_a": true,
+    "ly_do": "Invented fire on the water, expressly forbidden by N2+; fire itself is not technologically anachronistic.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "khoi",
+    "mo_ta": "New enormous dark smoke column above the waterfront explosion, spreading across the upper-left and upper-middle water and extending beyond the top edge.",
+    "toa_do": [
+     0.222,
+     0.0,
+     0.463,
+     0.355
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke column over the water, expressly forbidden by N2+; this is additional smoke, not merely reshaping the existing ship smoke.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "khoi",
+    "mo_ta": "Added separate pale impact/smoke puff just to the right of the waterfront explosion, immediately above the seawall.",
+    "toa_do": [
+     0.386,
+     0.339,
+     0.416,
+     0.368
+    ],
+    "dai_a": true,
+    "ly_do": "Invented impact smoke on the waterfront/water, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "Invented cluster of orange flames and dark explosion lobes on the open ground behind the yellow-roofed barracks, inside the foreground defensive walls.",
+    "toa_do": [
+     0.6,
+     0.542,
+     0.693,
+     0.621
+    ],
+    "dai_a": true,
+    "ly_do": "Invented fire in the settlement/fortification, expressly forbidden by N2+; no corresponding fire exists in BEFORE.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "khoi",
+    "mo_ta": "New massive gray smoke column associated with the foreground fire, rising across the defensive works and obscuring a large area of the sea to the left of the mole.",
+    "toa_do": [
+     0.469,
+     0.0,
+     0.779,
+     0.616
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke column in the settlement and over the water, expressly forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "khoi",
+    "mo_ta": "Added pale gray impact/smoke puff on the right flank of the foreground fire, behind and to the right of the yellow-roofed building.",
+    "toa_do": [
+     0.689,
+     0.595,
+     0.735,
+     0.655
+    ],
+    "dai_a": true,
+    "ly_do": "Invented localized explosion/impact smoke within the fortification, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "khoi",
+    "mo_ta": "Added small pale impact/smoke puff on the left flank of the foreground fire, just behind the left end of the yellow-roofed building.",
+    "toa_do": [
+     0.559,
+     0.593,
+     0.582,
+     0.617
+    ],
+    "dai_a": true,
+    "ly_do": "Invented localized impact smoke within the fortification, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "lua_lon",
+    "mo_ta": "Large orange fireball or explosion on the water near the shore, with a black smoke core",
+    "toa_do": [
+     0.285,
+     0.25,
+     0.365,
+     0.36
+    ],
+    "dai_a": true,
+    "ly_do": "Invented fire on the water (NC-V2V c1, c2-a). It is not in the 3D render.",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "khoi",
+    "mo_ta": "Huge dark smoke column rising from the explosion over the sea, top left",
+    "toa_do": [
+     0.22,
+     0.0,
+     0.46,
+     0.36
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke column on the water (NC-V2V c1, c2-a)",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "khoi",
+    "mo_ta": "Very large grey smoke cloud over the sea and the pier, top right of centre, covering the bay",
+    "toa_do": [
+     0.47,
+     0.0,
+     0.78,
+     0.37
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke column over the water and fortification (NC-V2V c1, c2-a)",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "lua_lon",
+    "mo_ta": "Burning fire or explosion on the grass and parade ground inside the fortifications",
+    "toa_do": [
+     0.6,
+     0.55,
+     0.69,
+     0.62
+    ],
+    "dai_a": true,
+    "ly_do": "Invented fire on land (NC-V2V c1, c2-a). It is not in the 3D render.",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "khoi",
+    "mo_ta": "Grey smoke puff beside the land fire, plus a faint smoke haze over the grass and bastion area",
+    "toa_do": [
+     0.55,
+     0.4,
+     0.74,
+     0.67
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke on land (NC-V2V c1)",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 0.12,
+  "nuoc_thanh_dat_pct": 23.74,
+  "t9b_dat_thanh_nuoc_pct": 0.06,
+  "t9b_nuoc_thanh_dat_pct": 22.05,
+  "dat": false,
+  "mo_hinh_bao": []
+ },
+ "iv_dong_bang": {
+  "ap_dung": false,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

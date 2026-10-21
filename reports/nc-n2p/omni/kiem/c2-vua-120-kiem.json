@@ -1,0 +1,230 @@
+{
+ "tag": "c2-vua-120",
+ "render": "/var/tmp/n2p/src/c2/rgb/00120.jpg",
+ "ai": "/var/tmp/n2p/omni/khung/c2-vua-120.png",
+ "ghep": "/var/tmp/n2p/omni/kiem/c2-vua-120-ghep.png",
+ "sha_ghep": "f7d1fdc44a5ec58211da537d8cad1be55b800ffa050d4008976ae33f60def6c6",
+ "nam": "2026",
+ "i_lop_a": {
+  "max_trong_a": 49,
+  "diem_lech_trong_a": 483114,
+  "dien_tich_a_pct": 52.49,
+  "dai20_pct": 18.19,
+  "dai20_cum_dE30": 9,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     119,
+     392,
+     254,
+     448
+    ],
+    "px": 4568
+   },
+   {
+    "hop": [
+     586,
+     619,
+     622,
+     635
+    ],
+    "px": 361
+   },
+   {
+    "hop": [
+     3,
+     216,
+     28,
+     247
+    ],
+    "px": 349
+   },
+   {
+    "hop": [
+     244,
+     139,
+     276,
+     164
+    ],
+    "px": 231
+   },
+   {
+    "hop": [
+     223,
+     126,
+     266,
+     136
+    ],
+    "px": 205
+   },
+   {
+    "hop": [
+     1233,
+     657,
+     1262,
+     669
+    ],
+    "px": 167
+   },
+   {
+    "hop": [
+     1256,
+     206,
+     1280,
+     217
+    ],
+    "px": 158
+   },
+   {
+    "hop": [
+     580,
+     613,
+     616,
+     629
+    ],
+    "px": 157
+   },
+   {
+    "hop": [
+     1158,
+     699,
+     1171,
+     707
+    ],
+    "px": 82
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 25,
+   "dE_trung_vi": 4.02,
+   "dE_p90": 6.78
+  },
+  "khop_mau": false,
+  "dat_ghep": false,
+  "vat_lop_a": [
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Additional tiny pale vessel in the distant bay, above and slightly left of the existing dark vessel near the right side.",
+    "toa_do": [
+     0.908,
+     0.266,
+     0.925,
+     0.28
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   }
+  ],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "claude",
+    "loai": "thuyen_nho",
+    "mo_ta": "Several motor yachts and speedboats with white wakes added on the bay in the right foreground",
+    "toa_do": [
+     0.83,
+     0.55,
+     1.0,
+     0.62
+    ],
+    "dai_a": true,
+    "ly_do": "Modern motor yachts and speedboats",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "xe_may",
+    "mo_ta": "Cars and vehicles added on the roads at the bottom right and bottom left",
+    "toa_do": [
+     0.85,
+     0.82,
+     1.0,
+     0.99
+    ],
+    "dai_a": true,
+    "ly_do": "Motor vehicles",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "xe_may",
+    "mo_ta": "Cars on the road at the bottom left near the roundabout",
+    "toa_do": [
+     0.1,
+     0.94,
+     0.25,
+     0.99
+    ],
+    "dai_a": true,
+    "ly_do": "Motor vehicles",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "xe_may",
+    "mo_ta": "White bus or coach added beside the large white-roofed building",
+    "toa_do": [
+     0.44,
+     0.84,
+     0.5,
+     0.87
+    ],
+    "dai_a": true,
+    "ly_do": "Motor vehicle (bus)",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 2.08,
+  "nuoc_thanh_dat_pct": 4.47,
+  "t9b_dat_thanh_nuoc_pct": 1.98,
+  "t9b_nuoc_thanh_dat_pct": 0.81,
+  "dat": false,
+  "mo_hinh_bao": [
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: the middle of the green tract north of the runway has become an angular enclosed lake or pond, covering former grass, bare ground and paths.",
+    "toa_do": [
+     0.092,
+     0.54,
+     0.201,
+     0.623
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: the upper-right peninsula across the bay has disappeared; its former near and middle slopes and shoreline are now open water. Faint distant mountains do not preserve the original coastline.",
+    "toa_do": [
+     0.657,
+     0.195,
+     1.0,
+     0.294
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Land to water: lawn in the park at left turned into a dark-teal pond",
+    "toa_do": [
+     0.09,
+     0.53,
+     0.2,
+     0.62
+    ]
+   }
+  ]
+ },
+ "iv_dong_bang": {
+  "ap_dung": false,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

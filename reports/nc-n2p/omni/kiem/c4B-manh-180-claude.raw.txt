@@ -1,0 +1,30 @@
+{"them":[
+{"loai":"tau_lon","mo_ta":"Large three-masted sailing warship with Austrian-style red-white-red ensign, added at right","toa_do":[0.84,0.33,0.95,0.48],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented sailing ship; the red-white-red flag is not a British, Spanish or French ensign of 1779.","nam_xuat_hien":null,"do_tin":0.85},
+{"loai":"tau_lon","mo_ta":"Second large sailing ship (three masts, yellow sails) in the bay","toa_do":[0.77,0.32,0.85,0.44],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented sailing ship (NC-V2V c4B-c)","nam_xuat_hien":null,"do_tin":0.8},
+{"loai":"tau_lon","mo_ta":"Distant ship near the mole","toa_do":[0.68,0.36,0.72,0.42],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented sailing ship","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"thuyen_nho","mo_ta":"Small white sailing boat","toa_do":[0.8,0.47,0.82,0.5],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.5},
+{"loai":"cong_trinh","mo_ta":"Town of Gibraltar with walls, yellow buildings and a bell tower/steeple added at the foot of the Rock","toa_do":[0.37,0.34,0.64,0.45],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented stone buildings and tower (NC-V2V c4B-c; F4)","nam_xuat_hien":null,"do_tin":0.8},
+{"loai":"cong_trinh","mo_ta":"Long stone piers/moles extending into the bay","toa_do":[0.63,0.42,0.8,0.46],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented harbour structures resembling modern harbour walls","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"leu","mo_ta":"Large canvas tents, left foreground","toa_do":[0.05,0.72,0.2,0.85],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented tent camp (invented troops/camp)","nam_xuat_hien":null,"do_tin":0.85},
+{"loai":"leu","mo_ta":"Tent camp on the right beach with several tents","toa_do":[0.6,0.57,0.97,0.8],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented tent camp","nam_xuat_hien":null,"do_tin":0.85},
+{"loai":"leu","mo_ta":"Tents between the two strips","toa_do":[0.37,0.47,0.44,0.63],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented tents","nam_xuat_hien":null,"do_tin":0.7},
+{"loai":"phoi","mo_ta":"Laundry (red and white cloths) hung to dry","toa_do":[0.71,0.7,0.83,0.77],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.8},
+{"loai":"nguoi","mo_ta":"Standing person in white near the rocks","toa_do":[0.71,0.78,0.73,0.84],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.7},
+{"loai":"dong_vat","mo_ta":"Horses with a cart and a person at the lower centre","toa_do":[0.36,0.84,0.5,0.93],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"do_dac","mo_ta":"Timber and log piles with a palisade or fascine wall at lower right","toa_do":[0.73,0.84,0.9,0.95],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"do_dac","mo_ta":"Wood or timber piles at the bottom centre","toa_do":[0.41,0.88,0.5,0.99],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.45},
+{"loai":"da_dat","mo_ta":"Rock outcrops and boulders along both shores and in the foreground","toa_do":[0.0,0.65,0.3,1.0],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.5},
+{"loai":"cay","mo_ta":"Dense wild scrub and grass vegetation replacing the flat plain","toa_do":[0.0,0.45,1.0,1.0],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.4},
+{"loai":"cong_su","mo_ta":"Wall/fortification line at the foot of the Rock, with stone ramparts","toa_do":[0.26,0.42,0.6,0.46],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.4}
+],
+"bot_doi":[
+{"loai":"khac","mo_ta":"The Rock was reshaped into a tall, steep monolith, much larger than in BEFORE (a low hill); the 3D town and wall sprites were left floating in the sky","toa_do":[0.07,0.05,0.5,0.45],"do_tin":0.8},
+{"loai":"tau_lon","mo_ta":"The small ship sprites of BEFORE are now blue blobs floating in the sky; the real fleet moved to the lower right","toa_do":[0.38,0.12,0.52,0.17],"do_tin":0.7},
+{"loai":"cay","mo_ta":"Dark green island on the right horizon removed and replaced by sea and mountains","toa_do":[0.73,0.07,1.0,0.14],"do_tin":0.6},
+{"loai":"cay","mo_ta":"Most trees and green patches on the plain removed","toa_do":[0.55,0.52,0.85,0.72],"do_tin":0.5}
+],
+"doi_loai_vung":[
+{"mo_ta":"Flat plain at the top-left turned into sea and beach on the left side (land to water)","toa_do":[0.0,0.38,0.27,0.7],"do_tin":0.8},
+{"mo_ta":"Plain on the right turned into sea and beach (land to water)","toa_do":[0.6,0.42,1.0,0.7],"do_tin":0.8},
+{"mo_ta":"Sea on the upper left turned into the Rock and land (water to land)","toa_do":[0.0,0.1,0.3,0.4],"do_tin":0.5}
+]}

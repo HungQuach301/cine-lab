@@ -1,0 +1,80 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.041 (TB $0.041/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c1-manh-60",
+   "nam": 1782,
+   "noi": "Gibraltar",
+   "sha256": "65adab7e03ae9526aebee0c560aa2241ee4e2e8a4614181efa59f9336012122b",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "The flag on the fort tower looks like the modern Union Jack. It shows red and white diagonal crosses over blue, as in the 1801 design that includes the St Patrick's saltire. A smaller flag on the western bastion looks the same.",
+     "ly_do": "In 1782 the British Union flag was the 1606 design, with only the St George and St Andrew crosses. The St Patrick's saltire was added on 1 January 1801. At this resolution the match is uncertain.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      1728,
+      745,
+      1805,
+      810
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "vung_px": [
+       1651,
+       662,
+       1882,
+       893
+      ],
+      "phong": 2.91,
+      "tra_loi": {
+       "vat": "Union Flag (Great Britain flag) on a flagpole over a fortification",
+       "dac_diem": "The flag is small and blurred. It has a blue field with a red cross and white diagonal lines, which look like a red St George's cross over a white-edged red saltire on blue. That matches the Union Jack of Great Britain. The pole is dark and stands on a sandy-coloured bastion.",
+       "co_tu_nam": 1606,
+       "da_co_nam_1782": "yes",
+       "ly_do": "The Union Flag with St George and St Andrew crosses dates from 1606. The 1801 version added St Patrick's saltire. At this blur I can't make out the red diagonals clearly, but the design appears to be the pre-1801 flag, which was in use in 1782."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.0066007999999999995,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 2.91×: da_co_nam = 'yes' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.0409282,
+   "cost_buoc2": 0.0066,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 944,
+     "cacheReadInputTokens": 2804,
+     "cacheCreationInputTokens": 9838,
+     "webSearchRequests": 0,
+     "costUSD": 0.0343274,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 244,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1782,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"The flag on the fort tower looks like the modern Union Jack. It shows red and white diagonal crosses over blue, as in the 1801 design that includes the St Patrick's saltire. A smaller flag on the western bastion looks the same.\",\"ly_do\":\"In 1782 the British Union flag was the 1606 design, with only the St George and St Andrew crosses. The St Patrick's saltire was added on 1 January 1801. At this resolution the match is uncertain.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.9,0.69,0.94,0.75],\"do_tin\":0.5}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0409,
+ "chi_phi_tb": 0.0409,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

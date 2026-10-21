@@ -10,12 +10,19 @@ export async function makeBake(ctx, P) {
   const dummy = new THREE.DataTexture(new Uint8Array([255, 0, 0, 0]), 1, 1); dummy.needsUpdate = true;
   const uni = { tNcBake: { value: dummy }, uNcBakeBox: { value: new THREE.Vector4(0, 0, 1, 1) }, uNcBakeOn: { value: 0 }, uNcSkyK: { value: 1.0 }, uNcBncK: { value: 0.0 },
     uNcFireK: { value: 0.0 }, uNcSunC: { value: new THREE.Color(1, 1, 1) }, uNcFireC: { value: new THREE.Color(1.0, 0.42, 0.12) } };
-  if (!P.bake) return { uni, meta: null, update() {} };
-  const M = await loadJSON(`/cache/nc/bake/${P.bake}/meta.json`), t = await tex(`/cache/nc/bake/${P.bake}/bake.png`, { srgb: false });
-  t.minFilter = THREE.LinearMipmapLinearFilter; t.generateMipmaps = true;
-  uni.tNcBake.value = t; uni.uNcBakeBox.value.set(...M.box); uni.uNcBakeOn.value = 1;
-  const skyK = P.skyK ?? 1.0, bncK = P.bncK ?? 1.0, fire = P.fire || null;   // fire: { wY: [năm bắt đầu, năm tắt], k }
-  return { uni, meta: Object.assign({}, M, { dir: P.bake }), update(st) {
+  // V7C: P.bakes = [{ dir, wY: [năm đầu, năm cuối], fire? }] — một shot đi qua nhiều mốc/trạng thái phố (vd. 2026 → 1782; trước/sau 12/4/1781) → đổi lightmap theo năm của khung
+  //  (năm ngoài mọi cửa sổ → lightmap có cửa sổ gần nhất). P.bake = '<dir>' (một lightmap, như NC-CPU) vẫn dùng được.
+  const list = P.bakes ? P.bakes.map((b) => Object.assign({ fire: P.fire || null }, b)) : P.bake ? [{ dir: P.bake, wY: [-1e9, 1e9], fire: P.fire || null }] : [];
+  if (!list.length) return { uni, meta: null, update() {} };
+  for (const b of list) { b.M = await loadJSON(`/cache/nc/bake/${b.dir}/meta.json`); b.t = await tex(`/cache/nc/bake/${b.dir}/bake.png`, { srgb: false });
+    b.t.minFilter = THREE.LinearMipmapLinearFilter; b.t.generateMipmaps = true; }
+  const pick = (Y) => list.find((b) => Y >= b.wY[0] && Y <= b.wY[1]) || list.slice().sort((a, b) => Math.min(Math.abs(Y - a.wY[0]), Math.abs(Y - a.wY[1])) - Math.min(Math.abs(Y - b.wY[0]), Math.abs(Y - b.wY[1])))[0];
+  const use = (b) => { uni.tNcBake.value = b.t; uni.uNcBakeBox.value.set(...b.M.box); uni.uNcBakeOn.value = 1; return b; };
+  let cur = use(list[0]);
+  const skyK = P.skyK ?? 1.0, bncK = P.bncK ?? 1.0;
+  return { uni, meta: Object.assign({}, list[0].M, { dir: list[0].dir, bakes: list.map((b) => ({ dir: b.dir, wY: b.wY })) }), update(st) {
+    if (list.length > 1) { const b = pick(st.year); if (b !== cur) cur = use(b); }
+    const M = cur.M, fire = cur.fire;
     uni.uNcSkyK.value = skyK;
     // nảy nắng: tỉ lệ theo cường độ nắng hiện tại (đêm → 0) và lệch hướng nắng so lượt nướng (cos góc)
     const s = ctx.sun, d = ctx.sunDir, b = M.sun_dir ? new THREE.Vector3(...M.sun_dir) : d, cosA = Math.max(0, d.dot(b));

@@ -1,0 +1,164 @@
+{
+ "may": "claude-sonnet-5-5 (claude -p, chỉ Read)",
+ "muc": "r320",
+ "thang": "0/1/2 mỗi câu × 3 người = tối đa 6/câu",
+ "theo_cau": {
+  "Q1": 6,
+  "Q2": 6,
+  "Q3": 5,
+  "Q4": 6
+ },
+ "tong": 23,
+ "toi_da": 24,
+ "clarity_tb": 2.0,
+ "nguoi": {
+  "R1": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "The British. A Union Jack flies on the fortress tower at frames 40-41, and the town is shown under siege in 1779-1781. The pictures never name the place, and the Rock itself is only shown briefly.",
+    "Q2": "A siege. The caption at frame 23 reads '1779 — The Great Siege'. Camps of white tents and a column of troops build up on land outside the town.",
+    "Q3": "Not sure. The pictures never show hunger or empty stores. The most they suggest is that the town is cut off, with enemy tent camps on land and ships on the sea around it.",
+    "Q4": "Ships. A fleet of sailing ships arrives from the sea in April 1781 (frames 53-56), and fire or explosions follow at night. The pictures don't make clear whether the fleet is friendly relief or an attacker, though it appears to be relief."
+   },
+   "lac": [
+    {
+     "frame": 1,
+     "why": "The opening is a night view of a modern city with timestamps and no explanation."
+    },
+    {
+     "frame": 8,
+     "why": "The captions jump through years (1316, 1411, 1704, 1782, 1939, 2026) with no explanation of who is who."
+    },
+    {
+     "frame": 13,
+     "why": "A line of burning ships at sea and a night scene with no context for who is attacking whom."
+    },
+    {
+     "frame": 22,
+     "why": "Empty green land for many frames, so it is unclear what is going on."
+    },
+    {
+     "frame": 34,
+     "why": "Empty sea with a few ships and no sign of what they are or whose side they are on."
+    },
+    {
+     "frame": 43,
+     "why": "Repeated town views with no visible hunger story."
+    },
+    {
+     "frame": 57,
+     "why": "The night scene and fire are ambiguous, so I can't tell who is rescuing whom."
+    }
+   ]
+  },
+  "R2": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "The British. A Union Jack flag flies on the tower of the fortified town in frames 40-41 (Jan 1780). Nothing on screen names the nation, though the flag looks British.",
+    "Q2": "'The Great Siege', which is the on-screen caption at frame 23 (21 Jun 1779). From then on, rows of tents (camps) and a line of troops appear on the land beside the town, so an army has set up camp outside the town to besiege it.",
+    "Q3": "Not sure. The pictures never show food, starvation or hungry people. The most they suggest is that the town is cut off, because an army camps on the land side and ships sit around it on the sea side.",
+    "Q4": "Ships, apparently. Groups of sailing ships approach the town over the sea (frames 34-39, 47, 52-56). I can't tell whether they are a relief fleet or an enemy blockade, and nothing shows them delivering supplies. A night scene with fires (frames 57-58) is unexplained."
+   },
+   "lac": [
+    {
+     "frame": 1,
+     "why": "The video opens with a modern night-time city and 2026 dates, then jumps to 1316, 1411 and 1704 with no explanation."
+    },
+    {
+     "frame": 8,
+     "why": "Smoke and fire appear with only the dates 1316, 1411 and 1704, so I can't tell who is fighting or why."
+    },
+    {
+     "frame": 12,
+     "why": "Heavy smoke and a 1782 date are shown, then ships in a row (frames 13-16) with no stated meaning, possibly an attack."
+    },
+    {
+     "frame": 17,
+     "why": "Jumps to 1939-1943 and 2026 with an airstrip and no explanation, which breaks the 1779 story."
+    },
+    {
+     "frame": 22,
+     "why": "Empty green land for many frames, with only a small 'The Great Siege' caption, so I can't tell who is who."
+    },
+    {
+     "frame": 34,
+     "why": "Ships at sea with no flags or labels, so I can't tell whose they are or what they are doing."
+    },
+    {
+     "frame": 47,
+     "why": "Many ships appear, but I can't tell whether they are friend or enemy, or whether they bring help."
+    },
+    {
+     "frame": 57,
+     "why": "A dark night scene with fires and no clear meaning."
+    }
+   ]
+  },
+  "R3": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 1,
+    "Q4": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "Britain. A Union Jack flies on the fortified tower in frames 40-41 (Jan 1780), and the town is shown under attack from camps and ships. Only that flag identifies the holder.",
+    "Q2": "A siege called 'The Great Siege'. The caption '1779 — The Great Siege' appears at frame 23. Camps of white tents and a column of troops then build up on land, and ships gather at sea.",
+    "Q3": "Not sure. The pictures show the town surrounded by land camps and ships, which suggests a blockade cutting off supplies. I see no clear images of hungry people or empty stores.",
+    "Q4": "Not sure. Ships approach the town in Jan 1780 (frames 47, 52) and in Apr 1781 (frames 53-56), and they could be relief ships. Nothing clearly shows them rescuing the town. Some ships could also be besiegers, and at night in frame 58 the glows could be gunfire or burning ships."
+   },
+   "lac": [
+    {
+     "frame": 1,
+     "why": "Night views of a modern city with 2026 date stamps, with no explanation of how they connect to the siege."
+    },
+    {
+     "frame": 8,
+     "why": "Years jump around (1316, 1411, 1704, 1782, 1939-2026) with smoke and fire, and nothing says who is fighting or why."
+    },
+    {
+     "frame": 13,
+     "why": "Burning ships and a night bombardment in 1782 appear before the 1779 siege, so the order is confusing."
+    },
+    {
+     "frame": 22,
+     "why": "A long stretch of empty green terrain with no clear subject."
+    },
+    {
+     "frame": 34,
+     "why": "Many frames of unlabelled ships on open sea, with no way to tell friend from foe."
+    },
+    {
+     "frame": 47,
+     "why": "Ships approach, but whether they are relief or enemy is unclear."
+    },
+    {
+     "frame": 48,
+     "why": "Fort and troop close-ups with no clear meaning."
+    },
+    {
+     "frame": 57,
+     "why": "Dark night frame with a glow and no clear narrative."
+    },
+    {
+     "frame": 59,
+     "why": "The video ends abruptly with no resolution or outcome."
+    }
+   ]
+  }
+ },
+ "chi_phi_usd_luy_ke": 0.2298
+}

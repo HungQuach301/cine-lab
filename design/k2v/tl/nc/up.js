@@ -156,9 +156,10 @@ function makeBushes(ctx, U, B, Y, era, P) {
 }
 
 // ---------------------------------------------------------------- khoảng cách bờ (m) theo năm → texture R8 (0..255 = 0..510 m; đất = 0)
-function coastTex(Y, ext, year) {
+function coastTex(Y, ext, year, hAt = null) {   // ANIMATIC-T3 (LOOK-4): hAt → điểm ảnh 'đất' có cao độ ≤ 0,2 m (đê ngầm, bãi trũng) KHÔNG tính là bờ (hết vệt bọt thẳng giữa nước)
   const w = Y.w, h = Y.h, D = new Float32Array(w * h), INF = 1e9;
-  for (let iy = 0; iy < h; iy++) for (let ix = 0; ix < w; ix++) { const q = (iy * w + ix) * 4, ly = Y.px[q + 2] * 256 + Y.px[q + 3]; const land = ly < 1 || (ly < 9000 && ly <= year); D[iy * w + ix] = land ? 0 : INF; }
+  for (let iy = 0; iy < h; iy++) for (let ix = 0; ix < w; ix++) { const q = (iy * w + ix) * 4, ly = Y.px[q + 2] * 256 + Y.px[q + 3]; let land = ly < 1 || (ly < 9000 && ly <= year);
+    if (land && hAt && hAt(ext.x + (ix + 0.5) / w * ext.z, ext.y + (iy + 0.5) / h * ext.w) <= 0.2) land = false; D[iy * w + ix] = land ? 0 : INF; }
   const a = 10, b = 14.1; for (let it = 0; it < 2; it++) {
     for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const i = y * w + x; let v = D[i]; if (!v) continue; if (x > 0) v = Math.min(v, D[i - 1] + a); if (y > 0) { v = Math.min(v, D[i - w] + a); if (x > 0) v = Math.min(v, D[i - w - 1] + b); if (x < w - 1) v = Math.min(v, D[i - w + 1] + b); } D[i] = v; }
     for (let y = h - 1; y >= 0; y--) for (let x = w - 1; x >= 0; x--) { const i = y * w + x; let v = D[i]; if (!v) continue; if (x < w - 1) v = Math.min(v, D[i + 1] + a); if (y < h - 1) { v = Math.min(v, D[i + w] + a); if (x < w - 1) v = Math.min(v, D[i + w + 1] + b); if (x > 0) v = Math.min(v, D[i + w - 1] + b); } D[i] = v; } }
@@ -186,10 +187,10 @@ const WATER_FS = (GLSL_NOISE, SKY) => `uniform float uT, uFogD, uDim, uBaked, uR
     if (uRefl > 0.5) { vec4 cp = uReflVP * vec4(vWP + vec3(N.x, 0.0, N.z) * 10.0 * uWave * min(dist / 120.0, 6.0), 1.0); vec2 ruv = cp.xy / cp.w * 0.5 + 0.5;
       if (ruv.x > 0.0 && ruv.x < 1.0 && ruv.y > 0.0 && ruv.y < 1.0) { vec4 rc = texture2D(tRefl, ruv); env = mix(env, rc.rgb, clamp(rc.a, 0.0, 1.0) * 0.85); } }
     vec3 deep = vec3(0.014, 0.062, 0.098), shal = vec3(0.024, 0.100, 0.112);   // sâu: lam đậm bớt bão hoà · nông: ngả lục (chỉ sát bờ ≤ 60 m)
-    vec3 body = mix(shal, deep, smoothstep(3.0, 38.0, dc)) * (1.0 - 0.88 * uNight);
+    vec3 body = mix(shal, deep, smoothstep(2.0, 18.0, dc)) * (1.0 - 0.88 * uNight);
     vec3 c = mix(body, env, F);
     float foam = (1.0 - smoothstep(1.5, 9.0, dc + 4.0 * texture(tNoise, p * 0.05 + uT * 0.01).r)) * (0.55 + 0.45 * sin(dc * 0.9 - uT * 1.3)) * fn;
-    c = mix(c, vec3(0.80, 0.82, 0.80) * (1.0 - 0.9 * uNight), clamp(foam, 0.0, 1.0) * 0.75);
+    c = mix(c, vec3(0.80, 0.82, 0.80) * (1.0 - 0.9 * uNight), clamp(foam, 0.0, 1.0) * 0.5);   // ANIMATIC-T3 (LOOK-4): bọt 0,75 → 0,5, dải nông 38 → 18 m (viền xanh nhạt quanh bờ)
     vec3 S3 = uSun; c += vec3(1.0, 0.92, 0.75) * pow(max(dot(R, S3), 0.0), 900.0) * 4.0 * (1.0 - uNight) * calm;
     float L = dot(c, vec3(0.299, 0.587, 0.114)); c = mix(c, vec3(L), 0.5 * uDim) * (1.0 - 0.34 * uDim);
     float f = 1.0 - exp(-uFogD * dist); gl_FragColor = vec4(mix(c, uFogC, f), 1.0); }`;
@@ -246,16 +247,16 @@ export async function postBuild(ctx, SC, P, pre) { globalThis.NC_DBG = !!P.dbg;
   meta.patched = { city: nCity, other: nGen };
   // 3. nước
   let water = null; scene.traverse((o) => { if (o.isMesh && o.material && o.material.isShaderMaterial && o.material.uniforms && o.material.uniforms.uReflVP && o.renderOrder === 5) water = o; });
-  let CT = null, CT2 = null;
+  let CT = null, CT2 = null, CT0 = null;   // ANIMATIC-T3 (LOOK-4): CT0 = bờ thời 1790 cho năm < 1900 (bờ 1940 có đê/đất lấn chưa tồn tại → vệt bọt thẳng ngoài khơi + mảng nông xanh nhạt)
   if (water && P.water !== false) { const wm = water.material, mod = await import('../water.js'), core = await import('../core.js');
-    CT = coastTex(pre.Y, terr.uni.uExt.value, 1940); CT2 = coastTex(pre.Y, terr.uni.uExt.value, 2026);
+    const hA = (e, n) => terr.hAt(e, n); CT = coastTex(pre.Y, terr.uni.uExt.value, 1940, hA); CT2 = coastTex(pre.Y, terr.uni.uExt.value, 2026, hA); CT0 = coastTex(pre.Y, terr.uni.uExt.value, 1790, hA);
     Object.assign(wm.uniforms, { tCoast: { value: CT.t }, uExt: terr.uni.uExt, uNcCoastOn: { value: 1 }, uNcCoastFlip: { value: P.cflip ? 1 : 0 } });
     wm.fragmentShader = WATER_FS(core.GLSL_NOISE, mod.SKY); wm.needsUpdate = true; meta.water = 'nc'; }
   // 4. sương khí quyển: tắt dần e^(−σ d) — σ mặc định 1/16 km; màu: chân trời sáng ngả xám-lam
   const haze = P.haze === false ? null : Object.assign({ s: 1 / 16000, c: [0.66, 0.74, 0.84] }, typeof P.haze === 'object' ? P.haze : {});
   if (haze) { scene.fog.density = haze.s; scene.fog.color.setRGB(...haze.c); if (water) water.material.uniforms.uFogD.value = haze.s; meta.haze = haze; }
   meta.post_s = +((performance.now() - t0) / 1000).toFixed(2); meta.pre_s = +pre.pre_s.toFixed(2);
-  return { meta, exportPrep: () => (pre.BU ? pre.BU.exportPrep(ctx.R) : 0), update(st, t) { if (pre.BU) meta.bush_vis = pre.BU.update(ctx.cam); if (CT && water) water.material.uniforms.tCoast.value = st.year >= 1942.5 ? CT2.t : CT.t; BK.update(st, t); } };
+  return { meta, exportPrep: () => (pre.BU ? pre.BU.exportPrep(ctx.R) : 0), update(st, t) { if (pre.BU) meta.bush_vis = pre.BU.update(ctx.cam); if (CT && water) water.material.uniforms.tCoast.value = st.year >= 1942.5 ? CT2.t : st.year >= 1900 ? CT.t : CT0.t; BK.update(st, t); } };
 }
 
 // sương: fog_fragment toàn cục (chỉ tiến trình dựng này nạp up.js) — FogExp2 density = σ (1/m), tắt dần tuyến tính theo quang trình

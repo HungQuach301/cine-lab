@@ -1,0 +1,70 @@
+{
+  "them": [
+    {
+      "loai": "khoi",
+      "mo_ta": "New large, dark smoke column rising from the water immediately offshore of the central waterfront.",
+      "toa_do": [0.277, 0.19, 0.36, 0.365],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "An invented smoke column on the water is expressly forbidden by the supplied rules; this is not a claim that smoke itself is historically anachronistic.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "Additional low, pale-grey smoke plume over the water, just to the right of the new dark smoke column.",
+      "toa_do": [0.358, 0.318, 0.431, 0.371],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "An invented smoke plume on the water is expressly forbidden by the supplied rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+    }
+  ],
+  "bot_doi": [
+    {
+      "loai": "da_dat",
+      "mo_ta": "Dry grassy ground surrounding the upper-right waterfront bastion and extending toward the right-hand defensive wall has been replaced by water. The existing masonry remains in place.",
+      "toa_do": [0.55, 0.351, 1.0, 0.731],
+      "do_tin": 0.99
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "Dry ground immediately below the long diagonal defensive wall and above the central barracks enclosure has become a broad flooded channel.",
+      "toa_do": [0.507, 0.538, 0.853, 0.705],
+      "do_tin": 0.99
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "Dry courtyard ground inside the foreground fortress, between the red-roofed buildings and the large square tower, has been replaced by water.",
+      "toa_do": [0.702, 0.746, 0.855, 0.866],
+      "do_tin": 0.99
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "Extensive dry foreground terrain has become shallow reflective floodwater, including the ground below the left-hand town, around the central red-roofed buildings, and outside the foreground fortress.",
+      "toa_do": [0.0, 0.747, 1.0, 1.0],
+      "do_tin": 0.98
+    }
+  ],
+  "doi_loai_vung": [
+    {
+      "mo_ta": "LAND → WATER: grassy land around the upper-right waterfront bastion and on the seaward side of the long diagonal defensive wall is flooded, moving the shoreline inland around the existing fortifications.",
+      "toa_do": [0.55, 0.351, 1.0, 0.731],
+      "do_tin": 0.99
+    },
+    {
+      "mo_ta": "LAND → WATER: the strip below the long diagonal wall and above the central barracks enclosure has become a water-filled channel.",
+      "toa_do": [0.507, 0.538, 0.853, 0.705],
+      "do_tin": 0.99
+    },
+    {
+      "mo_ta": "LAND → WATER: the enclosed courtyard beside the foreground fortress's square tower has become a pool.",
+      "toa_do": [0.702, 0.746, 0.855, 0.866],
+      "do_tin": 0.99
+    },
+    {
+      "mo_ta": "LAND → WATER: broad foreground ground surfaces are flooded, with reflective shallow water surrounding the existing houses and fortress walls. The buildings themselves remain.",
+      "toa_do": [0.0, 0.747, 1.0, 1.0],
+      "do_tin": 0.98
+    }
+  ]
+}

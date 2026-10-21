@@ -1,0 +1,183 @@
+{
+ "tag": "cang-vua-l3",
+ "truoc": "../nc-cpu/khung/A/cong-cang.jpg",
+ "sau": "/var/tmp/n2p/kiem-cuoi/cang-vua-l3-ghep.jpg",
+ "nam": "1780",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.0431,
+    "usage": {
+     "input_tokens": 16187,
+     "input_tokens_details": {
+      "cache_write_tokens": 16184,
+      "cached_tokens": 0
+     },
+     "output_tokens": 1074,
+     "output_tokens_details": {
+      "reasoning_tokens": 420
+     },
+     "total_tokens": 17261
+    }
+   },
+   "secs": 30.2,
+   "json": {
+    "them": [
+     {
+      "loai": "da_dat",
+      "mo_ta": "Added individually defined shoreline boulders and rock outcrops beside the near bastion and the landward end of the long mole; BEFORE has a substantially smoother sandy and grassy foreshore.",
+      "toa_do": [
+       0.091,
+       0.566,
+       0.196,
+       0.687
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.92
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Added exposed boulders along the narrow foreshore beneath the central waterfront fortifications, replacing portions of the smooth grassy bank.",
+      "toa_do": [
+       0.188,
+       0.462,
+       0.34,
+       0.582
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Added small rocky projections and exposed shoreline rocks around and beyond the distant waterfront bastions.",
+      "toa_do": [
+       0.367,
+       0.376,
+       0.428,
+       0.431
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Added a conspicuous patch of raised bushes and scrub between the left-edge houses and the near fortification; this area is predominantly flat grass in BEFORE.",
+      "toa_do": [
+       0.0,
+       0.546,
+       0.109,
+       0.593
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "da_dat",
+      "mo_ta": "The smooth sandy foreshore beside the near bastion has been changed into an irregular boulder-strewn shore; the land itself remains present.",
+      "toa_do": [
+       0.091,
+       0.566,
+       0.196,
+       0.687
+      ],
+      "do_tin": 0.91
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Parts of the continuous grassy strip outside the central waterfront walls have been replaced by exposed shoreline rocks.",
+      "toa_do": [
+       0.188,
+       0.462,
+       0.34,
+       0.582
+      ],
+      "do_tin": 0.86
+     }
+    ],
+    "doi_loai_vung": []
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.1333934
+   },
+   "secs": 18.5,
+   "json": {
+    "them": [
+     {
+      "loai": "da_dat",
+      "mo_ta": "Rocky shoreline with boulders and white surf added along the coast below the fortifications. In BEFORE this was a smooth sand strip and green grass.",
+      "toa_do": [
+       0.05,
+       0.5,
+       0.3,
+       0.7
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Pale limestone rock outcrops and cliff faces added on the hillside (BEFORE had smooth scree and grass).",
+      "toa_do": [
+       0.05,
+       0.185,
+       0.3,
+       0.33
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.45
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Dry scrub added on the grassy strip beside the shore (grass was smooth green in BEFORE).",
+      "toa_do": [
+       0.0,
+       0.53,
+       0.23,
+       0.6
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.3
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "cay",
+      "mo_ta": "Smooth green grass strip along the shore was replaced by rock and scrub.",
+      "toa_do": [
+       0.0,
+       0.53,
+       0.23,
+       0.6
+      ],
+      "do_tin": 0.35
+     }
+    ],
+    "doi_loai_vung": []
+   }
+  }
+ }
+}

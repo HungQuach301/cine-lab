@@ -1,0 +1,494 @@
+{
+ "tag": "tl-moc2-l3",
+ "truoc": "/var/tmp/n2p/tlmoc/rgb/00408.jpg",
+ "sau": "/var/tmp/n2p/kiem-cuoi/tl-moc2-l3-ghep.jpg",
+ "nam": "1779",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.0589,
+    "usage": {
+     "input_tokens": 16177,
+     "input_tokens_details": {
+      "cache_write_tokens": 16174,
+      "cached_tokens": 0
+     },
+     "output_tokens": 2652,
+     "output_tokens_details": {
+      "reasoning_tokens": 337
+     },
+     "total_tokens": 18829
+    }
+   },
+   "secs": 51.9,
+   "json": {
+    "them": [
+     {
+      "loai": "do_dac",
+      "mo_ta": "New compact stack of barrels, some lying horizontally, northwest of the left foreground camp.",
+      "toa_do": [
+       0.262,
+       0.452,
+       0.295,
+       0.476
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Wooden supply barrels were in use before 1779.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "New small stack of barrels immediately north of the gap between the two main camps.",
+      "toa_do": [
+       0.377,
+       0.453,
+       0.4,
+       0.473
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Period-compatible wooden supply barrels.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "New barrel stack west of the upper portion of the left camp.",
+      "toa_do": [
+       0.189,
+       0.506,
+       0.217,
+       0.529
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Period-compatible wooden supply barrels.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "New larger barrel stack farther southwest, outside the left camp.",
+      "toa_do": [
+       0.17,
+       0.547,
+       0.199,
+       0.572
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Period-compatible wooden supply barrels.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "New stack of barrels in the central aisle between the two main camps.",
+      "toa_do": [
+       0.397,
+       0.637,
+       0.43,
+       0.664
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Period-compatible wooden supply barrels.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "New low heap of short cut timber or firewood near the southern end of the central aisle.",
+      "toa_do": [
+       0.417,
+       0.787,
+       0.454,
+       0.82
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Cut timber and firewood are compatible with 1779; no flame or smoke is visible.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.93
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "New low heap of short cut timber or firewood immediately east of the long central camp.",
+      "toa_do": [
+       0.647,
+       0.674,
+       0.681,
+       0.703
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Cut timber and firewood are compatible with 1779; this is not a visible campfire.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "New group of upright barrels in the open ground east of the grove.",
+      "toa_do": [
+       0.825,
+       0.632,
+       0.852,
+       0.661
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Period-compatible wooden supply barrels.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "New pyramid-like stack of horizontal barrels between the long central camp and the lower-right camp.",
+      "toa_do": [
+       0.76,
+       0.793,
+       0.798,
+       0.831
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Period-compatible wooden supply barrels.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "New separate low group of rounded sacks or bundled supplies southeast of the horizontal barrel stack.",
+      "toa_do": [
+       0.789,
+       0.83,
+       0.826,
+       0.861
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "No identifiable modern material or construction; sacks and bundled supplies existed in 1779.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Numerous additional discrete shrubs and scrub clumps across the upper-left open plain, including a substantial cluster at the left edge. These are additional plant forms, beyond the original isolated trees and beyond a grass-texture change.",
+      "toa_do": [
+       0.0,
+       0.221,
+       0.5,
+       0.48
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Natural Mediterranean scrub is compatible with 1779.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Numerous additional discrete bushes and scrub clumps across the upper-right coastal plain and around the distant camp, including larger clusters near the right edge.",
+      "toa_do": [
+       0.5,
+       0.268,
+       1.0,
+       0.5
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Natural scrub is not an anachronism.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Additional individual shrubs and dense scrub clusters throughout the lower-left uncamped ground and central aisle, including the large foreground cluster near the bottom-left.",
+      "toa_do": [
+       0.0,
+       0.5,
+       0.48,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Natural scrub is compatible with the date.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Additional discrete bushes throughout the lower-right uncamped ground, around the existing grove, between the camps, and along the bottom edge; the original grove remains.",
+      "toa_do": [
+       0.59,
+       0.5,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Natural scrub is compatible with 1779; no modern formal planting is evident.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Additional discrete exposed stones and small rock clusters scattered across the upper-left plain, outside the retained camp footprints; distinct from mere recolouring of soil.",
+      "toa_do": [
+       0.0,
+       0.222,
+       0.5,
+       0.48
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Natural loose rocks are not chronologically anachronistic.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Additional discrete stones and rock clusters scattered across the upper-right plain, particularly toward its lower edge and around the scrub.",
+      "toa_do": [
+       0.5,
+       0.28,
+       1.0,
+       0.5
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Natural rocks are compatible with 1779.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Additional scattered rocks and several prominent pale boulder groups throughout the lower-left uncamped foreground, including groups west and southwest of the left camp and along the bottom edge.",
+      "toa_do": [
+       0.0,
+       0.5,
+       0.48,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Loose natural rocks are not an anachronism; these are not new cliffs or buildings.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Additional loose rocks and pale boulder clusters in the lower-right uncamped terrain, including conspicuous groups below the supply stacks and near the bottom-right edge.",
+      "toa_do": [
+       0.59,
+       0.5,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Natural rocks are compatible with the date.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "The pale winding footpath through the lower-right open ground has been erased or largely obscured by the new vegetation and rocky ground. In BEFORE it curves left from beside the lower-right camp, then bends back toward the bottom edge.",
+      "toa_do": [
+       0.727,
+       0.718,
+       0.844,
+       1.0
+      ],
+      "do_tin": 0.98
+     }
+    ],
+    "doi_loai_vung": []
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.1447834
+   },
+   "secs": 24.9,
+   "json": {
+    "them": [
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stack of barrels or logs on the plain, newly added",
+      "toa_do": [
+       0.26,
+       0.45,
+       0.3,
+       0.475
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented heap of barrels or timber not in the render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stack of barrels or logs, added",
+      "toa_do": [
+       0.38,
+       0.45,
+       0.4,
+       0.475
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented heap not in the render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.55
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stack of barrels or logs, added",
+      "toa_do": [
+       0.19,
+       0.51,
+       0.22,
+       0.53
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented heap not in the render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.55
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stack of barrels or logs, added",
+      "toa_do": [
+       0.17,
+       0.55,
+       0.2,
+       0.575
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented heap not in the render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.55
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stack of logs or barrels, added",
+      "toa_do": [
+       0.4,
+       0.64,
+       0.43,
+       0.66
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented heap not in the render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.55
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Pile of logs, added",
+      "toa_do": [
+       0.42,
+       0.79,
+       0.45,
+       0.82
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented heap not in the render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.55
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Pile of logs, added",
+      "toa_do": [
+       0.65,
+       0.68,
+       0.68,
+       0.705
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented heap not in the render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.55
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stack of barrels, added",
+      "toa_do": [
+       0.825,
+       0.63,
+       0.85,
+       0.66
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented heap not in the render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stack of barrels, added",
+      "toa_do": [
+       0.765,
+       0.795,
+       0.805,
+       0.83
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented heap not in the render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stack of barrels, added",
+      "toa_do": [
+       0.79,
+       0.825,
+       0.83,
+       0.85
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented heap not in the render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.55
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Many scrub bushes and shrubs added across the plain, replacing bare grass",
+      "toa_do": [
+       0.0,
+       0.27,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Scattered white rocks and rubble added on the plain",
+      "toa_do": [
+       0.0,
+       0.3,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.45
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "vuon",
+      "mo_ta": "Green grass patches and the darker green meadow areas were replaced by dry scrub texture; the green patch in the lower-right camp area was changed",
+      "toa_do": [
+       0.0,
+       0.5,
+       1.0,
+       1.0
+      ],
+      "do_tin": 0.3
+     }
+    ],
+    "doi_loai_vung": []
+   }
+  }
+ }
+}

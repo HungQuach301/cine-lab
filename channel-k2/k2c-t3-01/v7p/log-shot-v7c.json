@@ -1,0 +1,1668 @@
+[
+ {
+  "shot": "H1",
+  "dong_loi": [
+   "0a",
+   "0b"
+  ],
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "D7",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     420,
+     360,
+     700
+    ],
+    "l": [
+     40,
+     0,
+     180
+    ],
+    "fov": 36
+   },
+   {
+    "t": 12.0,
+    "p": [
+     412,
+     356,
+     690
+    ],
+    "l": [
+     40,
+     0,
+     178
+    ],
+    "fov": 36
+   }
+  ],
+  "loai": "pho",
+  "dur": 12.0,
+  "t0": 0.0,
+  "t1": 12.0,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "2026-10-18 23:52"
+   },
+   {
+    "t": 6.5,
+    "at": "2026-10-19 00:14"
+   },
+   {
+    "t": 12.0,
+    "at": "2026-10-19 08:20"
+   }
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "0a",
+    "t": 0.0,
+    "cau": "Midnight at the Gibraltar frontier."
+   },
+   {
+    "dong": "0a",
+    "t": 3.413,
+    "cau": "To walk in from Spain, you cross an airport runway."
+   },
+   {
+    "dong": "0b",
+    "t": 6.669,
+    "cau": "Since July 2026, this gate has had no routine checks."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "den_dem",
+    "s": "đèn phố + đèn đường băng 2026 đêm"
+   },
+   {
+    "t": 3.4,
+    "k": "nguoi",
+    "s": "người đi bộ qua đường băng vào Gibraltar"
+   },
+   {
+    "t": 11.0,
+    "k": "ngay_dem",
+    "s": "bình minh"
+   }
+  ],
+  "moc": "2026-10-18 23:52",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
+  "chuong": null,
+  "ghi": "máy D7 (mép nam La Línea, AGL ≈ 400, nhìn xuống ≈ 28°): cổng + đường băng + phố hai phía",
+  "tieu_diem": [
+   "bien_gioi"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "trong_pct": 13.1,
+  "trong_ca_nuoc_pct": 21.9,
+  "noi_dung_pct": 78.1,
+  "tieu_diem_dat_pct": 100,
+  "cao_khung_pct": 100,
+  "thap_khung_pct": 0,
+  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/H1.json"
+ },
+ {
+  "shot": "H2",
+  "dong_loi": [
+   "0c",
+   "0d",
+   "0e"
+  ],
+  "goc": "cao",
+  "tl": true,
+  "vai": "buoc-ngoat",
+  "noi": "thanh_pho",
+  "nguoi": false,
+  "diem_may": "K2",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     60,
+     420,
+     -1000
+    ],
+    "l": [
+     -330,
+     0,
+     -900
+    ],
+    "fov": 40
+   },
+   {
+    "t": 10.48,
+    "p": [
+     58,
+     420,
+     -1000
+    ],
+    "l": [
+     -340,
+     0,
+     -905
+    ],
+    "fov": 40
+   },
+   {
+    "t": 10.5,
+    "p": [
+     58,
+     420,
+     -1000
+    ],
+    "l": [
+     -340,
+     0,
+     -905
+    ],
+    "fov": 40
+   },
+   {
+    "t": 13.5,
+    "p": [
+     40,
+     420,
+     -1000
+    ],
+    "l": [
+     -760,
+     0,
+     -1045
+    ],
+    "fov": 44
+   },
+   {
+    "t": 13.52,
+    "p": [
+     40,
+     420,
+     -1000
+    ],
+    "l": [
+     -760,
+     0,
+     -1045
+    ],
+    "fov": 44
+   },
+   {
+    "t": 16.0,
+    "p": [
+     36,
+     419,
+     -1002
+    ],
+    "l": [
+     -765,
+     0,
+     -1045
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "vinh",
+  "dur": 16.0,
+  "t0": 12.0,
+  "t1": 28.0,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "2026-10-19 15:10"
+   },
+   {
+    "t": 3.333333,
+    "at": "2026-10-19 15:40"
+   },
+   {
+    "t": 3.375,
+    "at": 1309.5
+   },
+   {
+    "t": 3.791667,
+    "at": 1309.504
+   },
+   {
+    "t": 3.833333,
+    "at": 1316.0
+   },
+   {
+    "t": 4.25,
+    "at": 1316.004
+   },
+   {
+    "t": 4.291667,
+    "at": 1333.15
+   },
+   {
+    "t": 4.708333,
+    "at": 1333.154
+   },
+   {
+    "t": 4.75,
+    "at": 1333.55
+   },
+   {
+    "t": 5.166667,
+    "at": 1333.5539999999999
+   },
+   {
+    "t": 5.208333,
+    "at": 1350.0
+   },
+   {
+    "t": 5.625,
+    "at": 1350.004
+   },
+   {
+    "t": 5.666667,
+    "at": 1411.5
+   },
+   {
+    "t": 6.083333,
+    "at": 1411.504
+   },
+   {
+    "t": 6.125,
+    "at": 1436.5
+   },
+   {
+    "t": 6.541667,
+    "at": 1436.504
+   },
+   {
+    "t": 6.583333,
+    "at": 1462.5
+   },
+   {
+    "t": 7.0,
+    "at": 1462.504
+   },
+   {
+    "t": 7.041667,
+    "at": 1467.0
+   },
+   {
+    "t": 7.458333,
+    "at": 1467.004
+   },
+   {
+    "t": 7.5,
+    "at": 1506.5
+   },
+   {
+    "t": 7.916667,
+    "at": 1506.504
+   },
+   {
+    "t": 7.958333,
+    "at": "1704-08-04 09:30"
+   },
+   {
+    "t": 10.416667,
+    "at": "1704-08-04 15:30"
+   },
+   {
+    "t": 10.458333,
+    "at": 1705.0
+   },
+   {
+    "t": 10.875,
+    "at": 1705.004
+   },
+   {
+    "t": 10.916667,
+    "at": 1727.5
+   },
+   {
+    "t": 11.333333,
+    "at": 1727.504
+   },
+   {
+    "t": 11.375,
+    "at": 1779.6
+   },
+   {
+    "t": 11.791667,
+    "at": 1779.6039999999998
+   },
+   {
+    "t": 11.833333,
+    "at": "1782-09-13 06:45"
+   },
+   {
+    "t": 13.4,
+    "at": "1782-09-13 09:40"
+   },
+   {
+    "t": 15.0,
+    "at": "1782-09-13 15:40"
+   },
+   {
+    "t": 16.0,
+    "at": "1782-09-13 17:55"
+   }
+  ],
+  "tl_buoc": [
+   {
+    "t": 3.375,
+    "tu": 2026.799,
+    "toi": 1309.5
+   },
+   {
+    "t": 3.8333,
+    "tu": 1309.504,
+    "toi": 1316.0
+   },
+   {
+    "t": 4.2917,
+    "tu": 1316.004,
+    "toi": 1333.15
+   },
+   {
+    "t": 4.75,
+    "tu": 1333.154,
+    "toi": 1333.55
+   },
+   {
+    "t": 5.2083,
+    "tu": 1333.554,
+    "toi": 1350.0
+   },
+   {
+    "t": 5.6667,
+    "tu": 1350.004,
+    "toi": 1411.5
+   },
+   {
+    "t": 6.125,
+    "tu": 1411.504,
+    "toi": 1436.5
+   },
+   {
+    "t": 6.5833,
+    "tu": 1436.504,
+    "toi": 1462.5
+   },
+   {
+    "t": 7.0417,
+    "tu": 1462.504,
+    "toi": 1467.0
+   },
+   {
+    "t": 7.5,
+    "tu": 1467.004,
+    "toi": 1506.5
+   },
+   {
+    "t": 7.9583,
+    "tu": 1506.504,
+    "toi": 1704.591
+   },
+   {
+    "t": 10.4583,
+    "tu": 1704.592,
+    "toi": 1705.0
+   },
+   {
+    "t": 10.9167,
+    "tu": 1705.004,
+    "toi": 1727.5
+   },
+   {
+    "t": 11.375,
+    "tu": 1727.504,
+    "toi": 1779.6
+   },
+   {
+    "t": 11.8333,
+    "tu": 1779.604,
+    "toi": 1782.699
+   }
+  ],
+  "tl_buoc_n": 15,
+  "cau": [
+   {
+    "dong": "0c",
+    "t": 0.0,
+    "cau": "The Rock sits at the western gate of the Mediterranean."
+   },
+   {
+    "dong": "0d",
+    "t": 3.233,
+    "cau": "Historians on both sides count fourteen sieges of it, between 1309 and 1783."
+   },
+   {
+    "dong": "0e",
+    "t": 10.506,
+    "cau": "This is why everyone fought over it, told from both sides' records."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 3.4,
+    "k": "buoc_nam",
+    "s": "bộ đếm bước qua 14 lần vây (1309 → 1506)"
+   },
+   {
+    "t": 8.6,
+    "k": "co",
+    "s": "4/8/1704: Borgoña hạ, Union kéo trên Tower of Homage"
+   },
+   {
+    "t": 11.8,
+    "k": "tau",
+    "s": "10 pin nổi vào vị trí"
+   },
+   {
+    "t": 13.5,
+    "k": "lua",
+    "s": "pin nổi khai hoả"
+   },
+   {
+    "t": 15.0,
+    "k": "lua",
+    "s": "pin nổi bốc cháy"
+   }
+  ],
+  "moc": "2026-10-19 15:10",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
+  "chuong": null,
+  "ghi": "máy K2 trên sườn Rock cao hơn K (AGL ≈ 200, nhìn xuống ≈ 35°): phố + lâu đài phủ khung, hàng pin nổi ở dải trên; cùng thời gian/cờ/đồn trú như V7B",
+  "tieu_diem": [
+   "lau_dai",
+   "pin_noi"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "trong_pct": 18.0,
+  "trong_ca_nuoc_pct": 41.6,
+  "noi_dung_pct": 58.3,
+  "tieu_diem_dat_pct": 81,
+  "cao_khung_pct": 100,
+  "thap_khung_pct": 0,
+  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/H2.json"
+ },
+ {
+  "shot": "H2T",
+  "dong_loi": [
+   "0f"
+  ],
+  "goc": "thap",
+  "tl": true,
+  "vai": "khoanh-khac-bien-co",
+  "noi": "thanh_pho",
+  "nguoi": false,
+  "diem_may": "N2r",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -1950,
+     25,
+     -1150
+    ],
+    "l": [
+     -600,
+     180,
+     -1600
+    ],
+    "fov": 46
+   },
+   {
+    "t": 5.0,
+    "p": [
+     -1928,
+     25,
+     -1158
+    ],
+    "l": [
+     -600,
+     180,
+     -1600
+    ],
+    "fov": 46
+   }
+  ],
+  "loai": "vinh",
+  "dur": 5.0,
+  "t0": 28.0,
+  "t1": 33.0,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1782-09-13 17:55"
+   },
+   {
+    "t": 1.6,
+    "at": "1782-09-13 21:30"
+   },
+   {
+    "t": 5.0,
+    "at": "1782-09-14 02:30"
+   }
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "0f",
+    "t": 0.0,
+    "cau": "In 1782, ten floating batteries came to break it."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "lua",
+    "s": "pin nổi cháy, nhìn từ vịnh (góc thumbnail)"
+   },
+   {
+    "t": 1.6,
+    "k": "ngay_dem",
+    "s": "đêm 13→14/9/1782: lửa phản chiếu"
+   }
+  ],
+  "moc": "1782-09-13 17:55",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
+  "chuong": null,
+  "ghi": "góc máy thumbnail X01/X08 (reports/dong-goi-t3-v2 §1, N2r: [−1950, 25, −1150] → [−600, 180, −1600], fov 46): lướt thấp 25 m, vai: khoảnh khắc biến cố (pin nổi cháy) — hứa của thumbnail có trong phim",
+  "tieu_diem": [
+   "pin_noi"
+  ],
+  "luot_thap": [
+   0,
+   5.0
+  ],
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "trong_pct": 6.9,
+  "trong_ca_nuoc_pct": 39.2,
+  "noi_dung_pct": 6.5,
+  "tieu_diem_dat_pct": 0,
+  "cao_khung_pct": 0,
+  "thap_khung_pct": 100,
+  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/H2T.json"
+ },
+ {
+  "shot": "H3",
+  "dong_loi": [
+   "0g",
+   "0h"
+  ],
+  "goc": "cao",
+  "tl": true,
+  "vai": "buoc-ngoat",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "D7h",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -150,
+     380,
+     560
+    ],
+    "l": [
+     -200,
+     0,
+     -200
+    ],
+    "fov": 40
+   },
+   {
+    "t": 10.8333,
+    "p": [
+     -154,
+     374,
+     548
+    ],
+    "l": [
+     -200,
+     0,
+     -205
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "pho",
+  "dur": 10.8333,
+  "t0": 33.0,
+  "t1": 43.833,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1938.6
+   },
+   {
+    "t": 3.416667,
+    "at": 1941.4
+   },
+   {
+    "t": 5.0,
+    "at": 1943.6
+   },
+   {
+    "t": 5.041667,
+    "at": 1969.45
+   },
+   {
+    "t": 5.5,
+    "at": 1969.454
+   },
+   {
+    "t": 5.541667,
+    "at": 1985.1
+   },
+   {
+    "t": 6.0,
+    "at": 1985.104
+   },
+   {
+    "t": 6.041667,
+    "at": 2026.79
+   },
+   {
+    "t": 10.8333,
+    "at": 2026.792
+   }
+  ],
+  "tl_buoc": [
+   {
+    "t": 5.0417,
+    "tu": 1943.6,
+    "toi": 1969.45
+   },
+   {
+    "t": 5.5417,
+    "tu": 1969.454,
+    "toi": 1985.1
+   },
+   {
+    "t": 6.0417,
+    "tu": 1985.104,
+    "toi": 2026.79
+   }
+  ],
+  "tl_buoc_n": 3,
+  "cau": [
+   {
+    "dong": "0g",
+    "t": 0.0,
+    "cau": "In 1941, a runway was laid across the only road to Spain."
+   },
+   {
+    "dong": "0h",
+    "t": 5.667,
+    "cau": "So why, today, is the fight over it about paperwork and payrolls?"
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "xay",
+    "s": "đường băng mọc qua đường 1939–41"
+   },
+   {
+    "t": 5.0,
+    "k": "buoc_nam",
+    "s": "bước năm 1943 → 1969 → 1985 → 2026"
+   },
+   {
+    "t": 6.1,
+    "k": "xay",
+    "s": "phố 2026"
+   }
+  ],
+  "moc": 1938.6,
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
+  "chuong": null,
+  "ghi": "máy D7h: trên biên giới nhìn nam qua đường băng vào phố Gibraltar 2026",
+  "tieu_diem": [
+   "cho_cat"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "trong_pct": 23.8,
+  "trong_ca_nuoc_pct": 50.2,
+  "noi_dung_pct": 46.9,
+  "tieu_diem_dat_pct": 0,
+  "cao_khung_pct": 100,
+  "thap_khung_pct": 0,
+  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/H3.json"
+ },
+ {
+  "shot": "C1",
+  "dong_loi": [
+   "2a",
+   "2b"
+  ],
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "A3",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -1250,
+     330,
+     3500
+    ],
+    "l": [
+     -1150,
+     60,
+     1500
+    ],
+    "fov": 34
+   },
+   {
+    "t": 7.48,
+    "p": [
+     -1250,
+     328,
+     3490
+    ],
+    "l": [
+     -1150,
+     60,
+     1500
+    ],
+    "fov": 34
+   },
+   {
+    "t": 7.5,
+    "p": [
+     -1250,
+     328,
+     3490
+    ],
+    "l": [
+     -1150,
+     60,
+     1500
+    ],
+    "fov": 34
+   },
+   {
+    "t": 8.9,
+    "p": [
+     -1200,
+     330,
+     3060
+    ],
+    "l": [
+     -1212,
+     0,
+     3010
+    ],
+    "fov": 30
+   },
+   {
+    "t": 10.4,
+    "p": [
+     -1150,
+     170,
+     2780
+    ],
+    "l": [
+     -1220,
+     0,
+     2990
+    ],
+    "fov": 22
+   },
+   {
+    "t": 10.42,
+    "p": [
+     -1150,
+     170,
+     2780
+    ],
+    "l": [
+     -1220,
+     0,
+     2990
+    ],
+    "fov": 22
+   },
+   {
+    "t": 22.5,
+    "p": [
+     -1153,
+     172,
+     2770
+    ],
+    "l": [
+     -1222,
+     0,
+     2992
+    ],
+    "fov": 23
+   }
+  ],
+  "loai": "trai",
+  "dur": 22.5,
+  "t0": 43.833,
+  "t1": 66.333,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1779-06-20 14:00"
+   },
+   {
+    "t": 3.0,
+    "at": "1779-06-21 10:00"
+   },
+   {
+    "t": 4.6,
+    "at": "1779-06-21 11:00"
+   },
+   {
+    "t": 5.6,
+    "at": "1779-06-21 12:00"
+   },
+   {
+    "t": 8.0,
+    "at": "1779-07-13 12:00"
+   },
+   {
+    "t": 22.5,
+    "at": "1779-10-28 12:00"
+   }
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "2a",
+    "t": -0.0,
+    "cau": "Half a century later came a different question: can you starve a rock?"
+   },
+   {
+    "dong": "2a",
+    "t": 6.385,
+    "cau": "On the twenty-first of June 1779, Madrid cut Gibraltar off from Spain."
+   },
+   {
+    "dong": "2b",
+    "t": 12.474,
+    "cau": "Spain had joined France in its war with Britain."
+   },
+   {
+    "dong": "2b",
+    "t": 16.05,
+    "cau": "By October, British intelligence put the Spanish army facing the Rock at up to fourteen thousand."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.4,
+    "k": "the_chuong",
+    "s": "1779 — The Great Siege"
+   },
+   {
+    "t": 8.0,
+    "k": "xay",
+    "s": "trại TBN dựng theo hàng lối (13/7 → 28/10/1779)"
+   },
+   {
+    "t": 9.0,
+    "k": "nguoi",
+    "s": "ngựa kỵ binh, người đi giữa dãy lều, khói bếp"
+   }
+  ],
+  "moc": "1779-06-20 14:00",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
+  "chuong": "1779 — The Great Siege",
+  "ghi": "máy A3 phía nam dãy E5–E7 nhìn bắc dọc dãy lều (Rock sau lưng ở các khung mở)",
+  "tieu_diem": [
+   "trai"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "trong_pct": 56.7,
+  "trong_ca_nuoc_pct": 66.5,
+  "noi_dung_pct": 23.0,
+  "tieu_diem_dat_pct": 60,
+  "cao_khung_pct": 100,
+  "thap_khung_pct": 0,
+  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/C1.json"
+ },
+ {
+  "shot": "C2",
+  "dong_loi": [
+   "2c"
+  ],
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "bien",
+  "nguoi": false,
+  "diem_may": "E2",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -4440,
+     250,
+     -3180
+    ],
+    "l": [
+     -3300,
+     0,
+     -2700
+    ],
+    "fov": 30
+   },
+   {
+    "t": 12.0,
+    "p": [
+     -4425,
+     250,
+     -3172
+    ],
+    "l": [
+     -3300,
+     0,
+     -2700
+    ],
+    "fov": 30
+   }
+  ],
+  "loai": "vinh",
+  "dur": 12.0,
+  "t0": 66.333,
+  "t1": 78.333,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1779-07-12 16:00"
+   },
+   {
+    "t": 3.0,
+    "at": "1779-07-16 16:00"
+   },
+   {
+    "t": 12.0,
+    "at": "1779-12-20 15:00"
+   }
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "2c",
+    "t": -0.0,
+    "cau": "At sea, from mid-July, a Spanish squadron sealed the port."
+   },
+   {
+    "dong": "2c",
+    "t": 4.946,
+    "cau": "Based at Algeciras, its boats were there to cut off the food reaching the Rock from Africa."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "tau",
+    "s": "hải đội TBN vào hàng chặn (16/7/1779)"
+   },
+   {
+    "t": 6.5,
+    "k": "tau",
+    "s": "thuyền châu Phi tới sát hàng chặn"
+   },
+   {
+    "t": 9.0,
+    "k": "tau",
+    "s": "thuyền châu Phi quay về nam"
+   }
+  ],
+  "moc": "1779-07-12 16:00",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
+  "chuong": null,
+  "ghi": "máy E2 ≤ 1,5 km từ chỗ thuyền châu Phi gặp hàng chặn",
+  "tieu_diem": [
+   "chan_thuyen_v7c"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "trong_pct": 6.9,
+  "trong_ca_nuoc_pct": 85.9,
+  "noi_dung_pct": 1.4,
+  "tieu_diem_dat_pct": 0,
+  "cao_khung_pct": 100,
+  "thap_khung_pct": 0,
+  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/C2.json"
+ },
+ {
+  "shot": "C3",
+  "dong_loi": [
+   "2d",
+   "2e"
+  ],
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "thanh_pho",
+  "nguoi": true,
+  "diem_may": "Ca2",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -118,
+     93.3,
+     -985
+    ],
+    "l": [
+     -133,
+     94,
+     -835
+    ],
+    "fov": 38
+   },
+   {
+    "t": 4.48,
+    "p": [
+     -117,
+     93.6,
+     -984
+    ],
+    "l": [
+     -133,
+     94,
+     -835
+    ],
+    "fov": 38
+   },
+   {
+    "t": 4.5,
+    "p": [
+     -117,
+     93.6,
+     -984
+    ],
+    "l": [
+     -133,
+     94,
+     -835
+    ],
+    "fov": 38
+   },
+   {
+    "t": 7.4,
+    "p": [
+     -200,
+     300,
+     -1400
+    ],
+    "l": [
+     -600,
+     0,
+     -1100
+    ],
+    "fov": 42
+   },
+   {
+    "t": 7.42,
+    "p": [
+     -200,
+     300,
+     -1400
+    ],
+    "l": [
+     -600,
+     0,
+     -1100
+    ],
+    "fov": 42
+   },
+   {
+    "t": 14.125,
+    "p": [
+     -206,
+     298,
+     -1394
+    ],
+    "l": [
+     -600,
+     0,
+     -1100
+    ],
+    "fov": 42
+   }
+  ],
+  "loai": "pho",
+  "dur": 14.125,
+  "t0": 78.333,
+  "t1": 92.458,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1780-01-14 10:00"
+   },
+   {
+    "t": 4.5,
+    "at": "1780-01-14 12:00"
+   },
+   {
+    "t": 7.6,
+    "at": "1780-01-14 15:00"
+   },
+   {
+    "t": 8.4,
+    "at": "1780-01-14 15:30"
+   },
+   {
+    "t": 14.125,
+    "at": "1780-01-16 15:30"
+   }
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "2d",
+    "t": -0.0,
+    "cau": "By January 1780, thistles, dandelions and wild leeks were daily food for many; an egg cost sixpence."
+   },
+   {
+    "dong": "2e",
+    "t": 8.191,
+    "cau": "The governor, General Eliott, could hold the walls."
+   },
+   {
+    "dong": "2e",
+    "t": 11.14,
+    "cau": "The food had to come by sea."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "nguoi",
+    "s": "người cúi hái rau dại (S052), cờ Union trên lâu đài"
+   },
+   {
+    "t": 4.5,
+    "k": "may",
+    "s": "cần cẩu lên phố"
+   },
+   {
+    "t": 8.0,
+    "k": "tau",
+    "s": "hải đội phong toả trong vịnh"
+   }
+  ],
+  "moc": "1780-01-14 10:00",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
+  "chuong": null,
+  "ghi": "cận 20–30 m người hái rau dại cúi (S052) 0–4,5 s, nền Tower of Homage + cờ Union cách ≈ 150 m → cần cẩu → Ca2 trên phố nhìn Line Wall + vịnh",
+  "tieu_diem": [
+   "hai_rau",
+   "line_wall"
+  ],
+  "luot_thap": [
+   0,
+   4.5
+  ],
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "trong_pct": 19.5,
+  "trong_ca_nuoc_pct": 48.8,
+  "noi_dung_pct": 37.0,
+  "tieu_diem_dat_pct": 86,
+  "cao_khung_pct": 62,
+  "thap_khung_pct": 38,
+  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/C3.json"
+ },
+ {
+  "shot": "C4",
+  "dong_loi": [
+   "SM2",
+   "2f"
+  ],
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "bien",
+  "nguoi": false,
+  "diem_may": "Bm",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -700,
+     260,
+     -450
+    ],
+    "l": [
+     -1100,
+     0,
+     -1050
+    ],
+    "fov": 46
+   },
+   {
+    "t": 1.8,
+    "p": [
+     -702,
+     258,
+     -452
+    ],
+    "l": [
+     -1095,
+     0,
+     -1045
+    ],
+    "fov": 46
+   },
+   {
+    "t": 3.0,
+    "p": [
+     -603,
+     53,
+     -678
+    ],
+    "l": [
+     -566,
+     1,
+     -643
+    ],
+    "fov": 28
+   },
+   {
+    "t": 3.02,
+    "p": [
+     -603,
+     53,
+     -678
+    ],
+    "l": [
+     -566,
+     1,
+     -643
+    ],
+    "fov": 28
+   },
+   {
+    "t": 6.98,
+    "p": [
+     -601,
+     53,
+     -676
+    ],
+    "l": [
+     -566,
+     1,
+     -643
+    ],
+    "fov": 28
+   },
+   {
+    "t": 7.0,
+    "p": [
+     -601,
+     53,
+     -676
+    ],
+    "l": [
+     -566,
+     1,
+     -643
+    ],
+    "fov": 28
+   },
+   {
+    "t": 8.4,
+    "p": [
+     -560,
+     120,
+     -470
+    ],
+    "l": [
+     -570,
+     0,
+     -720
+    ],
+    "fov": 48
+   },
+   {
+    "t": 8.42,
+    "p": [
+     -560,
+     120,
+     -470
+    ],
+    "l": [
+     -570,
+     0,
+     -720
+    ],
+    "fov": 48
+   },
+   {
+    "t": 13.5,
+    "p": [
+     -556,
+     119,
+     -474
+    ],
+    "l": [
+     -570,
+     0,
+     -722
+    ],
+    "fov": 48
+   }
+  ],
+  "loai": "vinh",
+  "dur": 13.5,
+  "t0": 92.458,
+  "t1": 105.958,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1780-01-16 12:00"
+   },
+   {
+    "t": 2.0,
+    "at": "1780-01-19 12:00"
+   },
+   {
+    "t": 7.0,
+    "at": "1780-02-01 12:00"
+   },
+   {
+    "t": 8.4,
+    "at": "1780-10-08 12:00"
+   },
+   {
+    "t": 11.0,
+    "at": "1780-10-12 12:00"
+   },
+   {
+    "t": 13.5,
+    "at": "1780-11-30 12:00"
+   }
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "SM2",
+    "t": -0.0,
+    "cau": "To break the blockade, Britain sent three relief fleets: 1780, 1781, 1782."
+   },
+   {
+    "dong": "2f",
+    "t": 7.993,
+    "cau": "Scurvy spread, until a Danish ship of lemons was brought in, garrison diaries record."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 1.8,
+    "k": "tau",
+    "s": "đoàn Rodney vào vịnh (cờ Red Ensign)"
+   },
+   {
+    "t": 3.0,
+    "k": "nguoi",
+    "s": "thuyền cập Old Mole, người khiêng thùng, đống thùng lớn dần"
+   },
+   {
+    "t": 9.6,
+    "k": "tau",
+    "s": "tàu chanh Đan Mạch vào cảng 10/1780"
+   }
+  ],
+  "moc": "1780-01-16 12:00",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
+  "chuong": null,
+  "ghi": "đoàn Rodney vào vịnh (máy cao) → cận Old Mole ≈ 95 m (3–7 s): thuyền cập bến, người khiêng thùng, đống thùng lớn dần (S054; số/vị trí bậc 5) → lên Bm2: tàu chanh Đan Mạch",
+  "tieu_diem": [
+   "old_mole",
+   "doan_darby"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "trong_pct": 9.8,
+  "trong_ca_nuoc_pct": 46.8,
+  "noi_dung_pct": 51.7,
+  "tieu_diem_dat_pct": 52,
+  "cao_khung_pct": 100,
+  "thap_khung_pct": 7,
+  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/C4.json"
+ },
+ {
+  "shot": "C5",
+  "dong_loi": [
+   "2g"
+  ],
+  "goc": "cao",
+  "tl": true,
+  "vai": "buoc-ngoat",
+  "noi": "thanh_pho",
+  "nguoi": false,
+  "diem_may": "Cc2",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -250,
+     300,
+     -1700
+    ],
+    "l": [
+     -700,
+     0,
+     -1250
+    ],
+    "fov": 44
+   },
+   {
+    "t": 4.48,
+    "p": [
+     -246,
+     300,
+     -1698
+    ],
+    "l": [
+     -698,
+     0,
+     -1249
+    ],
+    "fov": 44
+   },
+   {
+    "t": 4.5,
+    "p": [
+     -246,
+     300,
+     -1698
+    ],
+    "l": [
+     -698,
+     0,
+     -1249
+    ],
+    "fov": 44
+   },
+   {
+    "t": 6.5,
+    "p": [
+     -110,
+     378,
+     -1652
+    ],
+    "l": [
+     -605,
+     0,
+     -1202
+    ],
+    "fov": 44
+   },
+   {
+    "t": 6.52,
+    "p": [
+     -110,
+     378,
+     -1652
+    ],
+    "l": [
+     -605,
+     0,
+     -1202
+    ],
+    "fov": 44
+   },
+   {
+    "t": 12.5,
+    "p": [
+     -104,
+     376,
+     -1648
+    ],
+    "l": [
+     -602,
+     0,
+     -1200
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "vinh",
+  "dur": 12.5,
+  "t0": 105.958,
+  "t1": 118.458,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1781-04-12 09:20"
+   },
+   {
+    "t": 3.6,
+    "at": "1781-04-12 10:41"
+   },
+   {
+    "t": 5.8,
+    "at": "1781-04-12 10:46"
+   },
+   {
+    "t": 7.4,
+    "at": "1781-04-12 15:00"
+   },
+   {
+    "t": 9.6,
+    "at": "1781-04-14 02:30"
+   },
+   {
+    "t": 12.5,
+    "at": "1781-04-14 11:00"
+   }
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "2g",
+    "t": 0.269,
+    "cau": "On the twelfth of April 1781, the second relief convoy dropped anchor, and Spain's batteries opened fire on the town."
+   },
+   {
+    "dong": "2g",
+    "t": 10.068,
+    "cau": "The townspeople fled south."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 3.6,
+    "k": "tau",
+    "s": "đoàn Darby thả neo xong"
+   },
+   {
+    "t": 5.8,
+    "k": "lua",
+    "s": "pháo TBN bắn vào phố (sau neo 2,2 s)"
+   },
+   {
+    "t": 8.0,
+    "k": "lua",
+    "s": "phố cháy đêm 13→14/4/1781"
+   },
+   {
+    "t": 10.0,
+    "k": "nguoi",
+    "s": "dân chạy về nam"
+   }
+  ],
+  "moc": "1781-04-12 09:20",
+  "bac": "xem tieu_diem/ghi + meta lop của cảnh",
+  "nguon": "reports/v7b/V7B-BAO-CAO.md §2–§5 + mk_ep_v7c.py",
+  "chuong": null,
+  "ghi": "đoàn Darby thả neo xong 3,6 s; pháo bắn vào phố từ 5,8 s (cách 2,2 s); máy Cc2",
+  "tieu_diem": [
+   "doan_darby",
+   "pho_bi_ban"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "trong_pct": 9.3,
+  "trong_ca_nuoc_pct": 62.5,
+  "noi_dung_pct": 37.5,
+  "tieu_diem_dat_pct": 52,
+  "cao_khung_pct": 100,
+  "thap_khung_pct": 0,
+  "do_bo_cuc": "reports/v7c/do/bocuc-v7c/C5.json"
+ }
+]

@@ -1,0 +1,59 @@
+{
+ "A": {
+  "craft": 3,
+  "realism": 3,
+  "detail": 3,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "confusing",
+   "flat_slide_look",
+   "unreadable_scale",
+   "toy_look"
+  ],
+  "note": "This isn't a harbour. It's a close-up of a fortress wall and bastion with a pile of orange barrels or cannon, and a few tiny troops on beige ground. There are no ships, so the shot type doesn't match. The surfaces are flat sandy colour fields. The shadow is the only strong element. The troops are tiny and generic."
+ },
+ "B": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "noisy",
+   "unreadable_scale"
+  ],
+  "note": "The composition is clear, with the town on the left, the pier at the bottom left and the convoy at the top right. The water is a saturated, uniform cyan-blue with a glittery tile pattern and looks like a game ocean. Each ship sits in a red or pink halo marker that reads as game UI. The ships are tiny, and the town is a cluster of brown blocks. The hills are fairly nice."
+ },
+ "C": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 3,
+  "ai_look": 3,
+  "flags": [
+   "noisy"
+  ],
+  "note": "This is the best frame. The camera is lower and closer, which gives a diagonal depth composition. The town has terracotta roofs, fortification walls, green grass and a beach edge. The ships have no markers and the water has some variation, plus a hazy horizon and mountain. Flaws: the water has a repeating tiled ripple pattern, there are odd white floating slivers on the water (they look like debris or rendering glitches), and the ships are small and distant."
+ },
+ "D": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 5,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [
+   "unreadable_scale"
+  ],
+  "note": "This has the same layout as B but with better, deeper water colour and a hazy horizon, so it's more atmospheric. The red halos around the ships are still there and read as markers or wakes. The pier is a flat wooden slab. The town is small and distant, and the ships are tiny."
+ },
+ "rank": [
+  "C",
+  "D",
+  "B",
+  "A"
+ ],
+ "why": "C has the best depth, readable fortified town, believable colour and no ship markers, while A isn't a harbour shot at all and is just flat beige walls.",
+ "top_fix_for_best": "Remove the floating white slivers and the tiled ripple pattern by using a multi-scale, normal-mapped ocean with foam and wakes. Then bring the camera closer to a hero ship group at larger scale, with sails, hull detail, gun smoke and wakes, plus small figures and boats on the quay to give the scene scale."
+}

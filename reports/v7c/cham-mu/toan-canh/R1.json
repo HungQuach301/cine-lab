@@ -1,0 +1,45 @@
+{
+ "A": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "flat_slide_look"
+  ],
+  "note": "Tight, readable composition. The water has good texture and wake streaks. The tiled roofs are dense and warm, but they look like repeated blocks. The fleet is small, evenly spaced and toy-like. Most of the frame is open water, with no depth or horizon. The wall is a flat sandy slab."
+ },
+ "B": {
+  "craft": 7,
+  "realism": 6,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Better depth and scale. The hazy hills and horizon, the sky and the grassy slope give a sense of place. The town runs diagonally along the bay. The ships have magenta/red halos or hulls that look like game markers. The foreground terrain is a bit flat and plain, with sparse vegetation."
+ },
+ "C": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 5,
+  "toy_like": 6,
+  "ai_look": 5,
+  "flags": [
+   "toy_look",
+   "washed_out",
+   "flat_slide_look"
+  ],
+  "note": "Same layout as B but with oversaturated flat-blue water and a yellow-green terrain colour field. The ships have strong magenta markers, so they look like game pieces. The haze is gone and the horizon is dark and harsh. The tree clusters are vivid but flat. It is the least natural of the three."
+ },
+ "rank": [
+  "B",
+  "A",
+  "C"
+ ],
+ "why": "B has the best depth, atmosphere and natural colour, with the horizon and hills giving real scale, while A has good water but little depth and C has flat, oversaturated colour fields and game-marker ships.",
+ "top_fix_for_best": "Replace the magenta halos and markers on the ships with real hulls, sails, wakes and gun smoke. Then add atmospheric haze, varied terrain texture, and tiny figures and carts in the streets and on the walls."
+}

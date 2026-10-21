@@ -1,0 +1,6462 @@
+[
+ {
+  "shot": "H1",
+  "ma": "H1",
+  "dong_loi": [
+   "0a",
+   "0b"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "eo_dat",
+  "nguoi": true,
+  "diem_may": "D7-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     380,
+     430,
+     1350
+    ],
+    "l": [
+     -110,
+     0,
+     -300
+    ],
+    "fov": 40
+   },
+   {
+    "t": 12.0,
+    "p": [
+     366,
+     424,
+     1318
+    ],
+    "l": [
+     -112,
+     0,
+     -302
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "pho",
+  "nhin_xuong_deg": [
+   14.0,
+   14.1
+  ],
+  "agl_m": [
+   427.0,
+   420.0
+  ],
+  "fov": [
+   40,
+   40
+  ],
+  "dur": 12.0,
+  "t0": 0.0,
+  "t1": 12.0,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "2026-10-18 23:52"
+   },
+   {
+    "t": 6.5,
+    "at": "2026-10-19 00:14"
+   },
+   {
+    "t": 12.0,
+    "at": "2026-10-19 08:20"
+   }
+  ],
+  "nam": [
+   2026.797,
+   2026.798
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "0a",
+    "t": 0.0,
+    "cau": "Midnight at the Gibraltar frontier."
+   },
+   {
+    "dong": "0a",
+    "t": 3.413,
+    "cau": "To walk in from Spain, you cross an airport runway."
+   },
+   {
+    "dong": "0b",
+    "t": 6.669,
+    "cau": "Since July 2026, this gate has had no routine checks."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "den_dem",
+    "s": "đèn phố + đèn đường băng 2026 đêm"
+   },
+   {
+    "t": 3.4,
+    "k": "nguoi",
+    "s": "người đi bộ qua đường băng vào Gibraltar"
+   },
+   {
+    "t": 11.0,
+    "k": "ngay_dem",
+    "s": "bình minh"
+   }
+  ],
+  "moc": "2026-10-18 23:52",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "LOOK-4 sửa \"cảnh 2026 mở đầu mất Rock\" (V7C giây 4): máy D7 lùi bắc 650 m, nhìn xuống ≈ 14° → cổng + đường băng tiền cảnh, Rock nguyên khối nền; đêm 2026 → bình minh, người đi bộ qua đường băng",
+  "tieu_diem": [
+   "bien_gioi"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "H2",
+  "ma": "H2",
+  "dong_loi": [
+   "0c",
+   "0d",
+   "0e"
+  ],
+  "kieu_khung": "chat",
+  "goc": "cao",
+  "tl": true,
+  "vai": "buoc-ngoat",
+  "noi": "thanh_pho",
+  "nguoi": false,
+  "diem_may": "K2",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     60,
+     420,
+     -1000
+    ],
+    "l": [
+     -330,
+     0,
+     -900
+    ],
+    "fov": 40
+   },
+   {
+    "t": 10.48,
+    "p": [
+     58,
+     420,
+     -1000
+    ],
+    "l": [
+     -340,
+     0,
+     -905
+    ],
+    "fov": 40
+   },
+   {
+    "t": 10.5,
+    "p": [
+     58,
+     420,
+     -1000
+    ],
+    "l": [
+     -340,
+     0,
+     -905
+    ],
+    "fov": 40
+   },
+   {
+    "t": 13.5,
+    "p": [
+     40,
+     420,
+     -1000
+    ],
+    "l": [
+     -760,
+     0,
+     -1045
+    ],
+    "fov": 44
+   },
+   {
+    "t": 13.52,
+    "p": [
+     40,
+     420,
+     -1000
+    ],
+    "l": [
+     -760,
+     0,
+     -1045
+    ],
+    "fov": 44
+   },
+   {
+    "t": 16.0,
+    "p": [
+     36,
+     419,
+     -1002
+    ],
+    "l": [
+     -765,
+     0,
+     -1045
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "vinh",
+  "nhin_xuong_deg": [
+   46.2,
+   45.7,
+   45.7,
+   27.7,
+   27.7,
+   27.6
+  ],
+  "agl_m": [
+   267.0,
+   267.0,
+   267.0,
+   274.0,
+   274.0,
+   274.0
+  ],
+  "fov": [
+   40,
+   40,
+   40,
+   44,
+   44,
+   44
+  ],
+  "dur": 16.0,
+  "t0": 12.0,
+  "t1": 28.0,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "2026-10-19 15:10"
+   },
+   {
+    "t": 3.333333,
+    "at": "2026-10-19 15:40"
+   },
+   {
+    "t": 3.375,
+    "at": 1309.5
+   },
+   {
+    "t": 3.791667,
+    "at": 1309.504
+   },
+   {
+    "t": 3.833333,
+    "at": 1316.0
+   },
+   {
+    "t": 4.25,
+    "at": 1316.004
+   },
+   {
+    "t": 4.291667,
+    "at": 1333.15
+   },
+   {
+    "t": 4.708333,
+    "at": 1333.154
+   },
+   {
+    "t": 4.75,
+    "at": 1333.55
+   },
+   {
+    "t": 5.166667,
+    "at": 1333.5539999999999
+   },
+   {
+    "t": 5.208333,
+    "at": 1350.0
+   },
+   {
+    "t": 5.625,
+    "at": 1350.004
+   },
+   {
+    "t": 5.666667,
+    "at": 1411.5
+   },
+   {
+    "t": 6.083333,
+    "at": 1411.504
+   },
+   {
+    "t": 6.125,
+    "at": 1436.5
+   },
+   {
+    "t": 6.541667,
+    "at": 1436.504
+   },
+   {
+    "t": 6.583333,
+    "at": 1462.5
+   },
+   {
+    "t": 7.0,
+    "at": 1462.504
+   },
+   {
+    "t": 7.041667,
+    "at": 1467.0
+   },
+   {
+    "t": 7.458333,
+    "at": 1467.004
+   },
+   {
+    "t": 7.5,
+    "at": 1506.5
+   },
+   {
+    "t": 7.916667,
+    "at": 1506.504
+   },
+   {
+    "t": 7.958333,
+    "at": "1704-08-04 09:30"
+   },
+   {
+    "t": 10.416667,
+    "at": "1704-08-04 15:30"
+   },
+   {
+    "t": 10.458333,
+    "at": 1705.0
+   },
+   {
+    "t": 10.875,
+    "at": 1705.004
+   },
+   {
+    "t": 10.916667,
+    "at": 1727.5
+   },
+   {
+    "t": 11.333333,
+    "at": 1727.504
+   },
+   {
+    "t": 11.375,
+    "at": 1779.6
+   },
+   {
+    "t": 11.791667,
+    "at": 1779.6039999999998
+   },
+   {
+    "t": 11.833333,
+    "at": "1782-09-13 06:45"
+   },
+   {
+    "t": 13.4,
+    "at": "1782-09-13 09:40"
+   },
+   {
+    "t": 15.0,
+    "at": "1782-09-13 15:40"
+   },
+   {
+    "t": 16.0,
+    "at": "1782-09-13 17:55"
+   }
+  ],
+  "nam": [
+   1309.5,
+   2026.799
+  ],
+  "lightmap": [
+   "b1704",
+   "b1779",
+   "b1781r",
+   "b1782",
+   "b1900",
+   "b1940",
+   "b2026"
+  ],
+  "tl_buoc": [
+   {
+    "t": 3.375,
+    "tu": 2026.799,
+    "toi": 1309.5
+   },
+   {
+    "t": 3.8333,
+    "tu": 1309.504,
+    "toi": 1316.0
+   },
+   {
+    "t": 4.2917,
+    "tu": 1316.004,
+    "toi": 1333.15
+   },
+   {
+    "t": 4.75,
+    "tu": 1333.154,
+    "toi": 1333.55
+   },
+   {
+    "t": 5.2083,
+    "tu": 1333.554,
+    "toi": 1350.0
+   },
+   {
+    "t": 5.6667,
+    "tu": 1350.004,
+    "toi": 1411.5
+   },
+   {
+    "t": 6.125,
+    "tu": 1411.504,
+    "toi": 1436.5
+   },
+   {
+    "t": 6.5833,
+    "tu": 1436.504,
+    "toi": 1462.5
+   },
+   {
+    "t": 7.0417,
+    "tu": 1462.504,
+    "toi": 1467.0
+   },
+   {
+    "t": 7.5,
+    "tu": 1467.004,
+    "toi": 1506.5
+   },
+   {
+    "t": 7.9583,
+    "tu": 1506.504,
+    "toi": 1704.591
+   },
+   {
+    "t": 10.4583,
+    "tu": 1704.592,
+    "toi": 1705.0
+   },
+   {
+    "t": 10.9167,
+    "tu": 1705.004,
+    "toi": 1727.5
+   },
+   {
+    "t": 11.375,
+    "tu": 1727.504,
+    "toi": 1779.6
+   },
+   {
+    "t": 11.8333,
+    "tu": 1779.604,
+    "toi": 1782.699
+   }
+  ],
+  "tl_buoc_n": 15,
+  "cau": [
+   {
+    "dong": "0c",
+    "t": 0.0,
+    "cau": "The Rock sits at the western gate of the Mediterranean."
+   },
+   {
+    "dong": "0d",
+    "t": 3.233,
+    "cau": "Historians on both sides count fourteen sieges of it, between 1309 and 1783."
+   },
+   {
+    "dong": "0e",
+    "t": 10.506,
+    "cau": "This is why everyone fought over it, told from both sides' records."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 3.4,
+    "k": "buoc_nam",
+    "s": "bộ đếm bước qua 14 lần vây (1309 → 1506)"
+   },
+   {
+    "t": 8.6,
+    "k": "co",
+    "s": "4/8/1704: Borgoña hạ, Union kéo trên Tower of Homage"
+   },
+   {
+    "t": 11.8,
+    "k": "tau",
+    "s": "10 pin nổi vào vị trí"
+   },
+   {
+    "t": 13.5,
+    "k": "lua",
+    "s": "pin nổi khai hoả"
+   },
+   {
+    "t": 15.0,
+    "k": "lua",
+    "s": "pin nổi bốc cháy"
+   }
+  ],
+  "moc": "2026-10-19 15:10",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "kế thừa V7C (mở đầu duyệt): bước năm 14 lần vây, cờ 4/8/1704 hạ–kéo trên Tower of Homage (khung chặt có vai: cờ), pin nổi vào vị trí 13/9/1782; bỏ cờ đuôi lệch ngày của đoàn 1704",
+  "tieu_diem": [
+   "lau_dai",
+   "pin_noi"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "H2T",
+  "ma": "H2T",
+  "dong_loi": [
+   "0f"
+  ],
+  "kieu_khung": "dem",
+  "goc": "thap",
+  "tl": true,
+  "vai": "khoanh-khac-bien-co",
+  "noi": "thanh_pho",
+  "nguoi": false,
+  "diem_may": "N2r",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -1950,
+     25,
+     -1150
+    ],
+    "l": [
+     -600,
+     180,
+     -1600
+    ],
+    "fov": 46
+   },
+   {
+    "t": 5.0,
+    "p": [
+     -1928,
+     25,
+     -1158
+    ],
+    "l": [
+     -600,
+     180,
+     -1600
+    ],
+    "fov": 46
+   }
+  ],
+  "loai": "vinh",
+  "nhin_xuong_deg": [
+   -6.2,
+   -6.3
+  ],
+  "agl_m": [
+   25.0,
+   25.0
+  ],
+  "fov": [
+   46,
+   46
+  ],
+  "dur": 5.0,
+  "t0": 28.0,
+  "t1": 33.0,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1782-09-13 17:55"
+   },
+   {
+    "t": 1.6,
+    "at": "1782-09-13 21:30"
+   },
+   {
+    "t": 5.0,
+    "at": "1782-09-14 02:30"
+   }
+  ],
+  "nam": [
+   1782.701,
+   1782.702
+  ],
+  "lightmap": [
+   "b1782"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "0f",
+    "t": 0.0,
+    "cau": "In 1782, ten floating batteries came to break it."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "lua",
+    "s": "pin nổi cháy, nhìn từ vịnh (góc thumbnail)"
+   },
+   {
+    "t": 1.6,
+    "k": "ngay_dem",
+    "s": "đêm 13→14/9/1782: lửa phản chiếu"
+   }
+  ],
+  "moc": "1782-09-13 17:55",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "LOOK-3 (tham chiếu): góc thumbnail X01/X08, pin nổi cháy đêm 13→14/9/1782 — giữ nguyên V7C",
+  "tieu_diem": [
+   "pin_noi"
+  ],
+  "luot_thap": [
+   0,
+   5.0
+  ],
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "H3",
+  "ma": "H3",
+  "dong_loi": [
+   "0g",
+   "0h"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "buoc-ngoat",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "D7h-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -150,
+     380,
+     560
+    ],
+    "l": [
+     -260,
+     0,
+     -900
+    ],
+    "fov": 40
+   },
+   {
+    "t": 10.8333,
+    "p": [
+     -154,
+     374,
+     548
+    ],
+    "l": [
+     -262,
+     0,
+     -905
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "pho",
+  "nhin_xuong_deg": [
+   14.5,
+   14.4
+  ],
+  "agl_m": [
+   377.0,
+   371.0
+  ],
+  "fov": [
+   40,
+   40
+  ],
+  "dur": 10.8333,
+  "t0": 33.0,
+  "t1": 43.833,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1938.6
+   },
+   {
+    "t": 3.416667,
+    "at": 1941.4
+   },
+   {
+    "t": 5.0,
+    "at": 1943.6
+   },
+   {
+    "t": 5.041667,
+    "at": 1969.45
+   },
+   {
+    "t": 5.5,
+    "at": 1969.454
+   },
+   {
+    "t": 5.541667,
+    "at": 1985.1
+   },
+   {
+    "t": 6.0,
+    "at": 1985.104
+   },
+   {
+    "t": 6.041667,
+    "at": 2026.79
+   },
+   {
+    "t": 10.8333,
+    "at": 2026.792
+   }
+  ],
+  "nam": [
+   1938.6,
+   2026.792
+  ],
+  "lightmap": [
+   "b1940",
+   "b2026"
+  ],
+  "tl_buoc": [
+   {
+    "t": 5.0417,
+    "tu": 1943.6,
+    "toi": 1969.45
+   },
+   {
+    "t": 5.5417,
+    "tu": 1969.454,
+    "toi": 1985.1
+   },
+   {
+    "t": 6.0417,
+    "tu": 1985.104,
+    "toi": 2026.79
+   }
+  ],
+  "tl_buoc_n": 3,
+  "cau": [
+   {
+    "dong": "0g",
+    "t": 0.0,
+    "cau": "In 1941, a runway was laid across the only road to Spain."
+   },
+   {
+    "dong": "0h",
+    "t": 5.667,
+    "cau": "So why, today, is the fight over it about paperwork and payrolls?"
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "xay",
+    "s": "đường băng mọc qua đường 1939–41"
+   },
+   {
+    "t": 5.0,
+    "k": "buoc_nam",
+    "s": "bước năm 1943 → 1969 → 1985 → 2026"
+   },
+   {
+    "t": 6.1,
+    "k": "xay",
+    "s": "phố 2026"
+   }
+  ],
+  "moc": 1938.6,
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "V7C D7h, điểm nhìn dời nam 700 m → nhìn xuống ≈ 14,6° (khung lai): đường băng mọc qua đường 1939–41 → 2026, Rock + phố nền",
+  "tieu_diem": [
+   "cho_cat"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N1_1",
+  "ma": "N1.1",
+  "dong_loi": [
+   "SM1",
+   "1a",
+   "1b"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "bien",
+  "nguoi": false,
+  "diem_may": "B-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -2650,
+     520,
+     -350
+    ],
+    "l": [
+     -850,
+     0,
+     -1450
+    ],
+    "fov": 42
+   },
+   {
+    "t": 18.7917,
+    "p": [
+     -2590,
+     512,
+     -375
+    ],
+    "l": [
+     -850,
+     0,
+     -1450
+    ],
+    "fov": 42
+   }
+  ],
+  "loai": "vinh",
+  "nhin_xuong_deg": [
+   13.8,
+   14.1
+  ],
+  "agl_m": [
+   520.0,
+   512.0
+  ],
+  "fov": [
+   42,
+   42
+  ],
+  "dur": 18.7917,
+  "t0": 43.833,
+  "t1": 62.625,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1704-07-30 09:00"
+   },
+   {
+    "t": 6.5,
+    "at": "1704-07-31 09:00"
+   },
+   {
+    "t": 18.7917,
+    "at": "1704-08-02 15:00"
+   }
+  ],
+  "nam": [
+   1704.578,
+   1704.586
+  ],
+  "lightmap": [
+   "b1704"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "SM1",
+    "t": -0.0,
+    "cau": "Austria, England and the Dutch backed a rival for Spain's crown; France backed Madrid's king."
+   },
+   {
+    "dong": "1a",
+    "t": 6.5,
+    "cau": "That summer, their fleet sailed into the Bay of Gibraltar."
+   },
+   {
+    "dong": "1b",
+    "t": 10.792,
+    "cau": "Its commanders, Admiral George Rooke and Prince George of Hesse-Darmstadt, fought for the rival claimant, \"Charles the Third.\""
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.4,
+    "k": "the_chuong",
+    "s": "1704 — The Rock changes hands"
+   },
+   {
+    "t": 2.0,
+    "k": "tau",
+    "s": "hạm đội Anh–Hà Lan (Rooke) vào vịnh từ eo biển"
+   },
+   {
+    "t": 12.0,
+    "k": "tau",
+    "s": "hạm đội thả neo trước phố 1704"
+   }
+  ],
+  "moc": "1704-07-30 09:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": "1704 — The Rock changes hands",
+  "ghi": "thay bản đồ chiến lược SM1 + chân dung 1b bằng hạm đội vào vịnh (TL-4); 28 tàu (18 tàu chiến + 10 tàu vận tải) — số minh hoạ, vị trí neo minh hoạ (bậc 5); không cờ đuôi (mẫu cờ 1704 chưa có nguồn)",
+  "tieu_diem": [
+   "doan_rooke"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N1_2",
+  "ma": "N1.2",
+  "dong_loi": [
+   "1c",
+   "1d"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "thanh_pho",
+  "nguoi": false,
+  "diem_may": "C-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -80,
+     340,
+     -1950
+    ],
+    "l": [
+     -820,
+     0,
+     -950
+    ],
+    "fov": 44
+   },
+   {
+    "t": 26.75,
+    "p": [
+     -110,
+     334,
+     -1930
+    ],
+    "l": [
+     -820,
+     0,
+     -950
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "pho",
+  "nhin_xuong_deg": [
+   15.3,
+   15.4
+  ],
+  "agl_m": [
+   183.0,
+   199.0
+  ],
+  "fov": [
+   44,
+   44
+  ],
+  "dur": 26.75,
+  "t0": 62.625,
+  "t1": 89.375,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1704-08-01 12:00"
+   },
+   {
+    "t": 19.388999999999996,
+    "at": "1704-08-02 14:00"
+   },
+   {
+    "t": 26.75,
+    "at": "1704-08-03 18:00"
+   }
+  ],
+  "nam": [
+   1704.583,
+   1704.589
+  ],
+  "lightmap": [
+   "b1704"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "1c",
+    "t": 0.887,
+    "cau": "This plan, printed in 1705, shows the prize: a walled town that historians on both sides would call the key of the Mediterranean."
+   },
+   {
+    "dong": "1d",
+    "t": 10.5,
+    "cau": "Inside, Governor Diego de Salinas had barely a hundred soldiers, by a Spanish count."
+   },
+   {
+    "dong": "1d",
+    "t": 19.276,
+    "cau": "He refused to surrender."
+   },
+   {
+    "dong": "1d",
+    "t": 21.389,
+    "cau": "The fleet answered with some fifteen thousand rounds, by British and Spanish accounts alike."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "xay",
+    "s": "phố có tường 1704 (lớp tái dựng 1705)"
+   },
+   {
+    "t": 19.39,
+    "k": "lua",
+    "s": "hạm đội bắn phá: khói pháo ngoài vịnh + khói trong phố"
+   },
+   {
+    "t": 24.75,
+    "k": "ngay_dem",
+    "s": "đêm 3/8/1704"
+   }
+  ],
+  "moc": "1704-08-01 12:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "phố 1704 trong tường (bậc 5: lớp 1705 đại diện); Exact Plan 1704/5 KHÔNG phủ (chưa nắn khớp địa hình — TL-4 chỉ cho phủ khớp) → bản đồ để thẻ phương pháp/mô tả; khói minh hoạ vị trí",
+  "tieu_diem": [
+   "pho_1704"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N1_3",
+  "ma": "N1.3",
+  "dong_loi": [
+   "1e",
+   "1f"
+  ],
+  "kieu_khung": "chat",
+  "goc": "cao",
+  "tl": true,
+  "vai": "buoc-ngoat",
+  "noi": "thanh_pho",
+  "nguoi": true,
+  "diem_may": "K-co",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -60,
+     160,
+     -980
+    ],
+    "l": [
+     -135,
+     100,
+     -825
+    ],
+    "fov": 32
+   },
+   {
+    "t": 15.125,
+    "p": [
+     -64,
+     160,
+     -977
+    ],
+    "l": [
+     -135,
+     100,
+     -825
+    ],
+    "fov": 32
+   }
+  ],
+  "loai": "pho",
+  "nhin_xuong_deg": [
+   19.2,
+   19.7
+  ],
+  "agl_m": [
+   49.0,
+   50.0
+  ],
+  "fov": [
+   32,
+   32
+  ],
+  "dur": 15.125,
+  "t0": 89.375,
+  "t1": 104.5,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1704-08-04 08:30"
+   },
+   {
+    "t": 9.5,
+    "at": "1704-08-04 16:00"
+   },
+   {
+    "t": 15.125,
+    "at": "1704-08-06 12:00"
+   }
+  ],
+  "nam": [
+   1704.591,
+   1704.597
+  ],
+  "lightmap": [
+   "b1704"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "1e",
+    "t": 0.0,
+    "cau": "On the fourth of August 1704, by the new calendar, Gibraltar surrendered."
+   },
+   {
+    "dong": "1f",
+    "t": 9.5,
+    "cau": "British accounts put the defenders at up to five hundred, counting armed townsmen."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 1.5,
+    "k": "co",
+    "s": "4/8/1704: Borgoña hạ trên Tower of Homage"
+   },
+   {
+    "t": 4.0,
+    "k": "co",
+    "s": "Union kéo lên"
+   },
+   {
+    "t": 9.6,
+    "k": "nguoi",
+    "s": "lính Anh–Hà Lan vào lâu đài"
+   }
+  ],
+  "moc": "1704-08-04 08:30",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "MỐC ĐINH 4/8/1704 — khung chặt có vai (cờ, §LOOK-2): máy cách cờ ≈ 180 m, cờ × 1,5; thẻ \"100 / 500\" bỏ (lời mang số)",
+  "tieu_diem": [
+   "lau_dai"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N1_4",
+  "ma": "N1.4",
+  "dong_loi": [
+   "1g"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "eo_dat",
+  "nguoi": true,
+  "diem_may": "A-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -60,
+     165,
+     1450
+    ],
+    "l": [
+     0,
+     0,
+     700
+    ],
+    "fov": 42
+   },
+   {
+    "t": 14.0,
+    "p": [
+     -55,
+     162,
+     1430
+    ],
+    "l": [
+     0,
+     0,
+     700
+    ],
+    "fov": 42
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   12.4,
+   12.5
+  ],
+  "agl_m": [
+   159.0,
+   156.0
+  ],
+  "fov": [
+   42,
+   42
+  ],
+  "dur": 14.0,
+  "t0": 104.5,
+  "t1": 118.5,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1704-08-07 09:00"
+   },
+   {
+    "t": 14.0,
+    "at": "1704-08-25 09:00"
+   }
+  ],
+  "nam": [
+   1704.599,
+   1704.649
+  ],
+  "lightmap": [
+   "b1704"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "1g",
+    "t": 0.0,
+    "cau": "Townspeople could stay if they swore loyalty to \"Charles the Third.\""
+   },
+   {
+    "dong": "1g",
+    "t": 5.132,
+    "cau": "By a British account, almost all left; by a Spanish one, the largest group settled a league north-east, at San Roque."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "nguoi",
+    "s": "dòng dân rời phố đi bắc dọc eo đất (về San Roque)"
+   },
+   {
+    "t": 12.0,
+    "k": "nguoi",
+    "s": "dòng người thưa dần"
+   }
+  ],
+  "moc": "1704-08-07 09:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "nhìn nam từ giữa eo đất (soi 1: máy 3 km không thấy người → lại gần ≈ 1 km): dòng người đi về phía máy, Rock nguyên khối nền (thay mũi tên trắng G1b); số người/tuyến minh hoạ (bậc 5), hướng đi: lời 1g (S017–S018)",
+  "tieu_diem": [
+   "dong_nguoi"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N1_5",
+  "ma": "N1.5",
+  "dong_loi": [
+   "1h",
+   "1i"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "F-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     1900,
+     650,
+     1400
+    ],
+    "l": [
+     -300,
+     0,
+     -1200
+    ],
+    "fov": 44
+   },
+   {
+    "t": 29.125,
+    "p": [
+     1860,
+     642,
+     1420
+    ],
+    "l": [
+     -300,
+     0,
+     -1200
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   10.8,
+   10.7
+  ],
+  "agl_m": [
+   650.0,
+   642.0
+  ],
+  "fov": [
+   44,
+   44
+  ],
+  "dur": 29.125,
+  "t0": 118.5,
+  "t1": 147.625,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1713.25
+   },
+   {
+    "t": 25.438,
+    "at": 1729.5
+   },
+   {
+    "t": 25.488,
+    "at": 2015.5
+   },
+   {
+    "t": 29.125,
+    "at": 2015.6
+   }
+  ],
+  "nam": [
+   1713.25,
+   2015.6
+  ],
+  "lightmap": [
+   "b1704",
+   "b1779",
+   "b1781r",
+   "b1782",
+   "b1900",
+   "b1940",
+   "b2026"
+  ],
+  "tl_buoc": [
+   {
+    "t": 25.488,
+    "tu": 1729.5,
+    "toi": 2015.5
+   }
+  ],
+  "tl_buoc_n": 1,
+  "cau": [
+   {
+    "dong": "1h",
+    "t": 0.0,
+    "cau": "In 1713, the Treaty of Utrecht gave it to the British Crown \"for ever,\" but \"without any territorial jurisdiction, and without any open communication by land.\""
+   },
+   {
+    "dong": "1h",
+    "t": 12.713,
+    "cau": "If Britain ever gave it up, Spain would have first refusal."
+   },
+   {
+    "dong": "1i",
+    "t": 16.55,
+    "cau": "The treaty names the town, castle and port, not the sandy isthmus to the north."
+   },
+   {
+    "dong": "1i",
+    "t": 22.017,
+    "cau": "Spain says the isthmus was never ceded."
+   },
+   {
+    "dong": "1i",
+    "t": 25.488,
+    "cau": "Britain said in 2015 that Gibraltar includes it."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "dem_nam",
+    "s": "1713: eo đất trống phía bắc tường"
+   },
+   {
+    "t": 25.49,
+    "k": "buoc_nam",
+    "s": "bước năm 1729 → 2015: đường băng + phố trên eo đất"
+   }
+  ],
+  "moc": 1713.25,
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "từ biển đông nhìn tây: vách bắc Rock + eo đất cát trống 1713 (hiệp ước chỉ nêu phố, lâu đài, cảng); bước năm tới 2015 khi lời nói \"in 2015\" — không vẽ biên giới (§10.7)",
+  "tieu_diem": [
+   "eo_dat"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N1_6",
+  "ma": "N1.6",
+  "dong_loi": [
+   "1j",
+   "1k"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "A2-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -1300,
+     480,
+     1700
+    ],
+    "l": [
+     150,
+     0,
+     0
+    ],
+    "fov": 50
+   },
+   {
+    "t": 25.4583,
+    "p": [
+     -1280,
+     476,
+     1680
+    ],
+    "l": [
+     150,
+     0,
+     0
+    ],
+    "fov": 50
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   12.1,
+   12.2
+  ],
+  "agl_m": [
+   479.0,
+   475.0
+  ],
+  "fov": [
+   50,
+   50
+  ],
+  "dur": 25.4583,
+  "t0": 147.625,
+  "t1": 173.083,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1704.8
+   },
+   {
+    "t": 6.022000000000003,
+    "at": 1705.3
+   },
+   {
+    "t": 6.072000000000003,
+    "at": 1727.15
+   },
+   {
+    "t": 10.907999999999998,
+    "at": 1727.45
+   },
+   {
+    "t": 10.957999999999998,
+    "at": 1730.0
+   },
+   {
+    "t": 25.4583,
+    "at": 1735.4
+   }
+  ],
+  "nam": [
+   1704.8,
+   1735.4
+  ],
+  "lightmap": [
+   "b1704"
+  ],
+  "tl_buoc": [
+   {
+    "t": 6.072,
+    "tu": 1705.3,
+    "toi": 1727.15
+   },
+   {
+    "t": 10.958,
+    "tu": 1727.45,
+    "toi": 1730.0
+   }
+  ],
+  "tl_buoc_n": 2,
+  "cau": [
+   {
+    "dong": "1j",
+    "t": 0.0,
+    "cau": "Within weeks, Spain and France besieged it, into 1705."
+   },
+   {
+    "dong": "1j",
+    "t": 6.072,
+    "cau": "Spain tried again in 1727."
+   },
+   {
+    "dong": "1j",
+    "t": 9.196,
+    "cau": "Neither siege took it."
+   },
+   {
+    "dong": "1k",
+    "t": 10.958,
+    "cau": "So in 1730, Philip the Fifth ordered a stone line across the isthmus, out of gun range, to cut Gibraltar off by land."
+   },
+   {
+    "dong": "1k",
+    "t": 19.99,
+    "cau": "The town behind it is still called La Línea: \"the line.\""
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "lua",
+    "s": "vây 1704–05: khói pháo ở mặt bắc"
+   },
+   {
+    "t": 6.07,
+    "k": "buoc_nam",
+    "s": "bước năm 1727: vây lần nữa"
+   },
+   {
+    "t": 10.96,
+    "k": "xay",
+    "s": "Línea de Contravalación mọc tây → đông 1730–35"
+   }
+  ],
+  "moc": 1704.8,
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "soi 1: khung A trùng N1.4 + Línea quá nhỏ → máy tây-bắc nhìn dọc Línea, Rock nền phải. Línea mọc theo năm (ghost SH T1782-01, bậc 1; ngày xây: TIEN-KY T3); khói vây 1704–05 và 1727: thời điểm bậc 2, vị trí minh hoạ (bậc 5) — không có tuyến tấn công có nguồn",
+  "tieu_diem": [
+   "linea"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "C1",
+  "ma": "C1",
+  "dong_loi": [
+   "2a",
+   "2b"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "eo_dat",
+  "nguoi": true,
+  "diem_may": "A3 → U1-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -1250,
+     330,
+     3500
+    ],
+    "l": [
+     -1150,
+     60,
+     1500
+    ],
+    "fov": 34
+   },
+   {
+    "t": 7.48,
+    "p": [
+     -1250,
+     328,
+     3490
+    ],
+    "l": [
+     -1150,
+     60,
+     1500
+    ],
+    "fov": 34
+   },
+   {
+    "t": 7.5,
+    "p": [
+     -1250,
+     328,
+     3490
+    ],
+    "l": [
+     -1150,
+     60,
+     1500
+    ],
+    "fov": 34
+   },
+   {
+    "t": 10.4,
+    "p": [
+     -1250,
+     200,
+     2600
+    ],
+    "l": [
+     -1290,
+     0,
+     3350
+    ],
+    "fov": 40
+   },
+   {
+    "t": 10.42,
+    "p": [
+     -1250,
+     200,
+     2600
+    ],
+    "l": [
+     -1290,
+     0,
+     3350
+    ],
+    "fov": 40
+   },
+   {
+    "t": 22.5,
+    "p": [
+     -1254,
+     198,
+     2618
+    ],
+    "l": [
+     -1291,
+     0,
+     3352
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "trai",
+  "nhin_xuong_deg": [
+   7.7,
+   7.7,
+   7.7,
+   14.9,
+   14.9,
+   15.1
+  ],
+  "agl_m": [
+   308.0,
+   306.0,
+   306.0,
+   189.0,
+   189.0,
+   187.0
+  ],
+  "fov": [
+   34,
+   34,
+   34,
+   40,
+   40,
+   40
+  ],
+  "dur": 22.5,
+  "t0": 173.083,
+  "t1": 195.583,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1779-06-20 14:00"
+   },
+   {
+    "t": 3.0,
+    "at": "1779-06-21 10:00"
+   },
+   {
+    "t": 4.6,
+    "at": "1779-06-21 11:00"
+   },
+   {
+    "t": 5.6,
+    "at": "1779-06-21 12:00"
+   },
+   {
+    "t": 8.0,
+    "at": "1779-07-13 12:00"
+   },
+   {
+    "t": 22.5,
+    "at": "1779-10-28 12:00"
+   }
+  ],
+  "nam": [
+   1779.467,
+   1779.823
+  ],
+  "lightmap": [
+   "b1779"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "2a",
+    "t": -0.0,
+    "cau": "Half a century later came a different question: can you starve a rock?"
+   },
+   {
+    "dong": "2a",
+    "t": 6.385,
+    "cau": "On the twenty-first of June 1779, Madrid cut Gibraltar off from Spain."
+   },
+   {
+    "dong": "2b",
+    "t": 12.474,
+    "cau": "Spain had joined France in its war with Britain."
+   },
+   {
+    "dong": "2b",
+    "t": 16.05,
+    "cau": "By October, British intelligence put the Spanish army facing the Rock at up to fourteen thousand."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.4,
+    "k": "the_chuong",
+    "s": "1779 — The Great Siege"
+   },
+   {
+    "t": 8.0,
+    "k": "xay",
+    "s": "trại TBN dựng theo hàng lối (13/7 → 28/10/1779)"
+   },
+   {
+    "t": 9.0,
+    "k": "nguoi",
+    "s": "ngựa kỵ binh, người đi giữa dãy lều, khói bếp"
+   }
+  ],
+  "moc": "1779-06-20 14:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": "1779 — The Great Siege",
+  "ghi": "LOOK-4 sửa (V7C giây 60): U1 nhìn thẳng xuống → khung lai từ nam nhìn bắc ≈ 16°, có đồi Sierra Carbonera + trời; lều tự nhiên (lệch hàng, xoay, sắc vải) — số lều giữ nguyên",
+  "tieu_diem": [
+   "trai"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "C2",
+  "ma": "C2",
+  "dong_loi": [
+   "2c"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "bien",
+  "nguoi": false,
+  "diem_may": "E (V7B-a)",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -6300,
+     170,
+     -1950
+    ],
+    "l": [
+     -500,
+     150,
+     -1500
+    ],
+    "fov": 30
+   },
+   {
+    "t": 12.0,
+    "p": [
+     -6250,
+     168,
+     -1938
+    ],
+    "l": [
+     -500,
+     150,
+     -1500
+    ],
+    "fov": 30
+   }
+  ],
+  "loai": "vinh",
+  "nhin_xuong_deg": [
+   0.2,
+   0.2
+  ],
+  "agl_m": [
+   170.0,
+   168.0
+  ],
+  "fov": [
+   30,
+   30
+  ],
+  "dur": 12.0,
+  "t0": 195.583,
+  "t1": 207.583,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1779-07-12 16:00"
+   },
+   {
+    "t": 3.0,
+    "at": "1779-07-16 16:00"
+   },
+   {
+    "t": 12.0,
+    "at": "1779-12-20 15:00"
+   }
+  ],
+  "nam": [
+   1779.528,
+   1779.969
+  ],
+  "lightmap": [
+   "b1779"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "2c",
+    "t": -0.0,
+    "cau": "At sea, from mid-July, a Spanish squadron sealed the port."
+   },
+   {
+    "dong": "2c",
+    "t": 4.946,
+    "cau": "Based at Algeciras, its boats were there to cut off the food reaching the Rock from Africa."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "tau",
+    "s": "hải đội TBN vào hàng chặn (16/7/1779)"
+   },
+   {
+    "t": 6.5,
+    "k": "tau",
+    "s": "thuyền châu Phi tới sát hàng chặn"
+   },
+   {
+    "t": 9.0,
+    "k": "tau",
+    "s": "thuyền châu Phi quay về nam"
+   }
+  ],
+  "moc": "1779-07-12 16:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "LOOK-4 sửa (V7C giây 68–76 chỉ còn nước): máy E của V7B biến thể a (tham chiếu ngữ pháp đã kiểm: hạm đội phong toả đọc rõ, Rock giữa khung); thuyền châu Phi quay đầu ở hàng chặn (V7C)",
+  "tieu_diem": [
+   "chan_thuyen_v7c"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "C3",
+  "ma": "C3",
+  "dong_loi": [
+   "2d",
+   "2e"
+  ],
+  "kieu_khung": "chat",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "thanh_pho",
+  "nguoi": true,
+  "diem_may": "Ca2-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -118,
+     93.3,
+     -985
+    ],
+    "l": [
+     -133,
+     94,
+     -835
+    ],
+    "fov": 38
+   },
+   {
+    "t": 4.48,
+    "p": [
+     -117,
+     93.6,
+     -984
+    ],
+    "l": [
+     -133,
+     94,
+     -835
+    ],
+    "fov": 38
+   },
+   {
+    "t": 4.5,
+    "p": [
+     -117,
+     93.6,
+     -984
+    ],
+    "l": [
+     -133,
+     94,
+     -835
+    ],
+    "fov": 38
+   },
+   {
+    "t": 7.4,
+    "p": [
+     -150,
+     330,
+     -1700
+    ],
+    "l": [
+     -900,
+     0,
+     -800
+    ],
+    "fov": 42
+   },
+   {
+    "t": 7.42,
+    "p": [
+     -150,
+     330,
+     -1700
+    ],
+    "l": [
+     -900,
+     0,
+     -800
+    ],
+    "fov": 42
+   },
+   {
+    "t": 14.125,
+    "p": [
+     -156,
+     328,
+     -1694
+    ],
+    "l": [
+     -900,
+     0,
+     -800
+    ],
+    "fov": 42
+   }
+  ],
+  "loai": "pho",
+  "nhin_xuong_deg": [
+   -0.3,
+   -0.2,
+   -0.2,
+   15.7,
+   15.7,
+   15.7
+  ],
+  "agl_m": [
+   4.0,
+   4.0,
+   4.0,
+   217.0,
+   217.0,
+   218.0
+  ],
+  "fov": [
+   38,
+   38,
+   38,
+   42,
+   42,
+   42
+  ],
+  "dur": 14.125,
+  "t0": 207.583,
+  "t1": 221.708,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1780-01-14 10:00"
+   },
+   {
+    "t": 4.5,
+    "at": "1780-01-14 12:00"
+   },
+   {
+    "t": 7.6,
+    "at": "1780-01-14 15:00"
+   },
+   {
+    "t": 8.4,
+    "at": "1780-01-14 15:30"
+   },
+   {
+    "t": 14.125,
+    "at": "1780-01-16 15:30"
+   }
+  ],
+  "nam": [
+   1780.037,
+   1780.043
+  ],
+  "lightmap": [
+   "b1779"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "2d",
+    "t": -0.0,
+    "cau": "By January 1780, thistles, dandelions and wild leeks were daily food for many; an egg cost sixpence."
+   },
+   {
+    "dong": "2e",
+    "t": 8.191,
+    "cau": "The governor, General Eliott, could hold the walls."
+   },
+   {
+    "dong": "2e",
+    "t": 11.14,
+    "cau": "The food had to come by sea."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "nguoi",
+    "s": "người cúi hái rau dại (S052), cờ Union trên lâu đài"
+   },
+   {
+    "t": 4.5,
+    "k": "may",
+    "s": "cần cẩu lên phố"
+   },
+   {
+    "t": 8.0,
+    "k": "tau",
+    "s": "hải đội phong toả trong vịnh"
+   }
+  ],
+  "moc": "1780-01-14 10:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "cận 20–30 m người hái rau dại (S052) + cờ Union (khung chặt có vai) → cần cẩu lên khung lai ≈ 16° (phố + Line Wall + hải đội phong toả)",
+  "tieu_diem": [
+   "hai_rau",
+   "line_wall"
+  ],
+  "luot_thap": [
+   0,
+   4.5
+  ],
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "C4",
+  "ma": "C4",
+  "dong_loi": [
+   "SM2",
+   "2f"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "bien",
+  "nguoi": true,
+  "diem_may": "Bm → B-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -700,
+     260,
+     -450
+    ],
+    "l": [
+     -1100,
+     0,
+     -1050
+    ],
+    "fov": 46
+   },
+   {
+    "t": 1.8,
+    "p": [
+     -702,
+     258,
+     -452
+    ],
+    "l": [
+     -1095,
+     0,
+     -1045
+    ],
+    "fov": 46
+   },
+   {
+    "t": 3.0,
+    "p": [
+     -625,
+     28,
+     -705
+    ],
+    "l": [
+     -556,
+     2,
+     -650
+    ],
+    "fov": 34
+   },
+   {
+    "t": 3.02,
+    "p": [
+     -625,
+     28,
+     -705
+    ],
+    "l": [
+     -556,
+     2,
+     -650
+    ],
+    "fov": 34
+   },
+   {
+    "t": 6.98,
+    "p": [
+     -625,
+     28,
+     -705
+    ],
+    "l": [
+     -556,
+     2,
+     -650
+    ],
+    "fov": 34
+   },
+   {
+    "t": 7.0,
+    "p": [
+     -625,
+     28,
+     -705
+    ],
+    "l": [
+     -556,
+     2,
+     -650
+    ],
+    "fov": 34
+   },
+   {
+    "t": 8.4,
+    "p": [
+     -1450,
+     260,
+     -350
+    ],
+    "l": [
+     -650,
+     20,
+     -1050
+    ],
+    "fov": 44
+   },
+   {
+    "t": 8.42,
+    "p": [
+     -1450,
+     260,
+     -350
+    ],
+    "l": [
+     -650,
+     20,
+     -1050
+    ],
+    "fov": 44
+   },
+   {
+    "t": 13.5,
+    "p": [
+     -1440,
+     258,
+     -360
+    ],
+    "l": [
+     -650,
+     20,
+     -1052
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "vinh",
+  "nhin_xuong_deg": [
+   19.8,
+   19.9,
+   16.4,
+   16.4,
+   16.4,
+   16.4,
+   12.7,
+   12.7,
+   12.8
+  ],
+  "agl_m": [
+   258.0,
+   256.0,
+   24.0,
+   24.0,
+   24.0,
+   24.0,
+   260.0,
+   260.0,
+   258.0
+  ],
+  "fov": [
+   46,
+   46,
+   34,
+   34,
+   34,
+   34,
+   44,
+   44,
+   44
+  ],
+  "dur": 13.5,
+  "t0": 221.708,
+  "t1": 235.208,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1780-01-16 12:00"
+   },
+   {
+    "t": 2.0,
+    "at": "1780-01-19 12:00"
+   },
+   {
+    "t": 7.0,
+    "at": "1780-02-01 12:00"
+   },
+   {
+    "t": 8.4,
+    "at": "1780-10-08 12:00"
+   },
+   {
+    "t": 11.0,
+    "at": "1780-10-12 12:00"
+   },
+   {
+    "t": 13.5,
+    "at": "1780-11-30 12:00"
+   }
+  ],
+  "nam": [
+   1780.042,
+   1780.914
+  ],
+  "lightmap": [
+   "b1779"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "SM2",
+    "t": -0.0,
+    "cau": "To break the blockade, Britain sent three relief fleets: 1780, 1781, 1782."
+   },
+   {
+    "dong": "2f",
+    "t": 7.993,
+    "cau": "Scurvy spread, until a Danish ship of lemons was brought in, garrison diaries record."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 1.8,
+    "k": "tau",
+    "s": "đoàn Rodney vào vịnh (cờ Red Ensign)"
+   },
+   {
+    "t": 3.0,
+    "k": "nguoi",
+    "s": "thuyền cập Old Mole, người khiêng thùng, đống thùng lớn dần"
+   },
+   {
+    "t": 9.6,
+    "k": "tau",
+    "s": "tàu chanh Đan Mạch vào cảng 10/1780"
+   }
+  ],
+  "moc": "1780-01-16 12:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "LOOK-4 sửa (V7C giây 100): Bm2 nhìn thẳng xuống → khung lai từ vịnh nhìn Old Mole + phố + Rock ≈ 13°; cận Old Mole dỡ hàng 3–7 s giữ (vai: tiếp tế)",
+  "tieu_diem": [
+   "old_mole",
+   "doan_darby"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "C5",
+  "ma": "C5",
+  "dong_loi": [
+   "2g"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "buoc-ngoat",
+  "noi": "thanh_pho",
+  "nguoi": true,
+  "diem_may": "Cc2-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -250,
+     300,
+     -1700
+    ],
+    "l": [
+     -900,
+     0,
+     -900
+    ],
+    "fov": 44
+   },
+   {
+    "t": 4.48,
+    "p": [
+     -246,
+     300,
+     -1698
+    ],
+    "l": [
+     -900,
+     0,
+     -900
+    ],
+    "fov": 44
+   },
+   {
+    "t": 4.5,
+    "p": [
+     -246,
+     300,
+     -1698
+    ],
+    "l": [
+     -900,
+     0,
+     -900
+    ],
+    "fov": 44
+   },
+   {
+    "t": 6.5,
+    "p": [
+     -110,
+     378,
+     -1652
+    ],
+    "l": [
+     -900,
+     0,
+     -900
+    ],
+    "fov": 44
+   },
+   {
+    "t": 6.52,
+    "p": [
+     -110,
+     378,
+     -1652
+    ],
+    "l": [
+     -900,
+     0,
+     -900
+    ],
+    "fov": 44
+   },
+   {
+    "t": 12.5,
+    "p": [
+     -104,
+     376,
+     -1648
+    ],
+    "l": [
+     -900,
+     0,
+     -900
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "vinh",
+  "nhin_xuong_deg": [
+   16.2,
+   16.2,
+   16.2,
+   19.1,
+   19.1,
+   19.0
+  ],
+  "agl_m": [
+   231.0,
+   229.0,
+   229.0,
+   244.0,
+   244.0,
+   240.0
+  ],
+  "fov": [
+   44,
+   44,
+   44,
+   44,
+   44,
+   44
+  ],
+  "dur": 12.5,
+  "t0": 235.208,
+  "t1": 247.708,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1781-04-12 09:20"
+   },
+   {
+    "t": 3.6,
+    "at": "1781-04-12 10:41"
+   },
+   {
+    "t": 5.8,
+    "at": "1781-04-12 10:46"
+   },
+   {
+    "t": 7.4,
+    "at": "1781-04-12 15:00"
+   },
+   {
+    "t": 9.6,
+    "at": "1781-04-14 02:30"
+   },
+   {
+    "t": 12.5,
+    "at": "1781-04-14 11:00"
+   }
+  ],
+  "nam": [
+   1781.278,
+   1781.283
+  ],
+  "lightmap": [
+   "b1779",
+   "b1781r"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "2g",
+    "t": 0.269,
+    "cau": "On the twelfth of April 1781, the second relief convoy dropped anchor, and Spain's batteries opened fire on the town."
+   },
+   {
+    "dong": "2g",
+    "t": 10.068,
+    "cau": "The townspeople fled south."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 3.6,
+    "k": "tau",
+    "s": "đoàn Darby thả neo xong"
+   },
+   {
+    "t": 5.8,
+    "k": "lua",
+    "s": "pháo TBN bắn vào phố (sau neo 2,2 s)"
+   },
+   {
+    "t": 8.0,
+    "k": "lua",
+    "s": "phố cháy đêm 13→14/4/1781"
+   },
+   {
+    "t": 10.0,
+    "k": "nguoi",
+    "s": "dân chạy về nam"
+   }
+  ],
+  "moc": "1781-04-12 09:20",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "V7C Cc2, điểm nhìn dời xa → ≈ 16–19° (khung lai): đoàn Darby thả neo, pháo bắn vào phố, cháy đêm",
+  "tieu_diem": [
+   "doan_darby",
+   "pho_bi_ban"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N2_6",
+  "ma": "N2.6",
+  "dong_loi": [
+   "2h",
+   "2i"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "thanh_pho",
+  "nguoi": true,
+  "diem_may": "C-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -260,
+     270,
+     -1880
+    ],
+    "l": [
+     -680,
+     0,
+     -1040
+    ],
+    "fov": 40
+   },
+   {
+    "t": 14.4583,
+    "p": [
+     -280,
+     266,
+     -1868
+    ],
+    "l": [
+     -680,
+     0,
+     -1040
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "pho",
+  "nhin_xuong_deg": [
+   16.0,
+   16.1
+  ],
+  "agl_m": [
+   216.0,
+   223.0
+  ],
+  "fov": [
+   40,
+   40
+  ],
+  "dur": 14.4583,
+  "t0": 247.708,
+  "t1": 262.167,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1781-04-14 12:00"
+   },
+   {
+    "t": 8.4,
+    "at": "1781-04-16 18:00"
+   },
+   {
+    "t": 8.450000000000001,
+    "at": 1781.3
+   },
+   {
+    "t": 14.4583,
+    "at": 1782.62
+   }
+  ],
+  "nam": [
+   1781.284,
+   1782.62
+  ],
+  "lightmap": [
+   "b1781r",
+   "b1782"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "2h",
+    "t": -0.0,
+    "cau": "Two days later, soldiers broke into the merchants' stores."
+   },
+   {
+    "dong": "2h",
+    "t": 3.867,
+    "cau": "A British officer blamed \"resentment and intoxication.\""
+   },
+   {
+    "dong": "2i",
+    "t": 8.459,
+    "cau": "By British tallies, the two sides fired over four hundred and sixty thousand rounds."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "nguoi",
+    "s": "14–16/4/1781: lính tụ trước kho thương nhân trên Main Street"
+   },
+   {
+    "t": 8.4,
+    "k": "pha",
+    "s": "phố sập dần thành THE RUINS (plan 1786)"
+   },
+   {
+    "t": 9.5,
+    "k": "lua",
+    "s": "khói pháo hai phía 1781–82"
+   }
+  ],
+  "moc": "1781-04-14 12:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "lính phá kho (2h, S063): nhóm lính trên Main Street — số/vị trí minh hoạ (bậc 5); phố sập theo vùng RUINS Drinkwater 1786 (bậc 1); thẻ 205 328 / 258 387 bỏ (lời mang số)",
+  "tieu_diem": [
+   "pho_bi_ban"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "KA1782",
+  "ma": "KA1782",
+  "dong_loi": [
+   "KA1782"
+  ],
+  "kieu_khung": "neo",
+  "goc": "cao",
+  "tl": true,
+  "vai": "then-now",
+  "noi": "thanh_pho",
+  "nguoi": true,
+  "diem_may": "neo KA",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -460,
+     78.0,
+     -1450
+    ],
+    "l": [
+     -442.6,
+     53.1,
+     -1351.5
+    ],
+    "fov": 44
+   },
+   {
+    "t": 8.0,
+    "p": [
+     -460,
+     78.0,
+     -1450
+    ],
+    "l": [
+     -442.6,
+     53.1,
+     -1351.5
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "neo",
+  "nhin_xuong_deg": [
+   14.0,
+   14.0
+  ],
+  "agl_m": [
+   60.0,
+   60.0
+  ],
+  "fov": [
+   44,
+   44
+  ],
+  "dur": 8.0,
+  "t0": 262.167,
+  "t1": 270.167,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1782-09-10 10:30"
+   },
+   {
+    "t": 8.0,
+    "at": "1782-09-10 10:31"
+   }
+  ],
+  "nam": [
+   1782.692,
+   1782.692
+  ],
+  "lightmap": [
+   "b1782"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "KA1782",
+    "t": 0.0,
+    "cau": "By September 1782, the garrison counted about seven and a half thousand men."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "nguoi",
+    "s": "phố đổ nát 9/1782 (vùng THE RUINS), đồn trú"
+   }
+  ],
+  "moc": "1782-09-10 10:30",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "KHUNG NEO nâng 60 m (soi: tầm mắt ở tư thế G1b chỉ thấy quảng trường trống/tường — phố 9/1782 trong vùng THE RUINS đã sập) — nhìn bắc dọc Main Street: phố đổ nát 9/1782; cặp then/now với KA2026",
+  "tieu_diem": [
+   "pho_hep"
+  ],
+  "luot_thap": false,
+  "khung_neo": true,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N2_10",
+  "ma": "N2.10",
+  "dong_loi": [
+   "2o",
+   "2p"
+  ],
+  "kieu_khung": "chat",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "D-vach",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     400,
+     330,
+     1000
+    ],
+    "l": [
+     -60,
+     140,
+     -1000
+    ],
+    "fov": 40
+   },
+   {
+    "t": 18.375,
+    "p": [
+     375,
+     330,
+     1005
+    ],
+    "l": [
+     -60,
+     140,
+     -1000
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "vach",
+  "nhin_xuong_deg": [
+   5.3,
+   5.3
+  ],
+  "agl_m": [
+   326.0,
+   325.0
+  ],
+  "fov": [
+   40,
+   40
+  ],
+  "dur": 18.375,
+  "t0": 270.167,
+  "t1": 288.542,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1782-05-25 12:00"
+   },
+   {
+    "t": 10.458000000000027,
+    "at": "1782-07-10 12:00"
+   },
+   {
+    "t": 18.375,
+    "at": "1782-07-31 12:00"
+   }
+  ],
+  "nam": [
+   1782.396,
+   1782.579
+  ],
+  "lightmap": [
+   "b1781r",
+   "b1782"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "2o",
+    "t": 0.0,
+    "cau": "That summer, they had been digging through the north face."
+   },
+   {
+    "dong": "2o",
+    "t": 4.005,
+    "cau": "By early July, Sergeant Ince's thirteen men had cut about eighty-two feet of solid rock."
+   },
+   {
+    "dong": "2p",
+    "t": 10.458,
+    "cau": "In July they blasted a hole for air."
+   },
+   {
+    "dong": "2p",
+    "t": 13.79,
+    "cau": "A Spanish historian wrote it was big enough for a cannon."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.6,
+    "k": "xay",
+    "s": "bụi đào ở vách bắc (đường hầm Ince, từ 25/5/1782)"
+   },
+   {
+    "t": 10.76,
+    "k": "no",
+    "s": "7/1782: nổ thủng lỗ thông hơi — khói phụt ra mặt vách"
+   }
+  ],
+  "moc": "1782-05-25 12:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "GIỮ CHỖ mặt cắt hầm (M11 chưa có) — soát LOOK-4: lùi máy để cả khối Rock trong khung; nhìn vách bắc (khung chặt có vai: vách hầm); bụi/khói đào: thời điểm bậc 2 (lời 2o–2p), vị trí trên vách ƯỚC TÍNH (bậc 5); footage 2p không dùng",
+  "tieu_diem": [
+   "vach_bac"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N2_7",
+  "ma": "N2.7",
+  "dong_loi": [
+   "2j"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "D-bac-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     300,
+     320,
+     1600
+    ],
+    "l": [
+     0,
+     40,
+     300
+    ],
+    "fov": 42
+   },
+   {
+    "t": 14.4167,
+    "p": [
+     285,
+     316,
+     1610
+    ],
+    "l": [
+     0,
+     40,
+     300
+    ],
+    "fov": 42
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   11.9,
+   11.6
+  ],
+  "agl_m": [
+   315.0,
+   311.0
+  ],
+  "fov": [
+   42,
+   42
+  ],
+  "dur": 14.4167,
+  "t0": 288.542,
+  "t1": 302.958,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1782-09-08 06:30"
+   },
+   {
+    "t": 14.4167,
+    "at": "1782-09-08 21:00"
+   }
+  ],
+  "nam": [
+   1782.686,
+   1782.687
+  ],
+  "lightmap": [
+   "b1782"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "2j",
+    "t": 0.0,
+    "cau": "The garrison turned to heat: cannonballs heated red-hot, so that whatever they hit caught fire."
+   },
+   {
+    "dong": "2j",
+    "t": 8.707,
+    "cau": "On the eighth of September, they used them in earnest against the Spanish works."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 1.0,
+    "k": "lua",
+    "s": "8/9/1782: đạn nung đỏ — tuyến song song TBN bốc cháy lần lượt"
+   },
+   {
+    "t": 10.0,
+    "k": "ngay_dem",
+    "s": "tối 8/9: lửa còn cháy"
+   }
+  ],
+  "moc": "1782-09-08 06:30",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "(soi 1: từ đỉnh Rock công sự quá nhỏ) từ phía Línea nhìn nam: công sự tiền phương TBN cháy trước vách bắc Rock — (lines1782_tp, bậc 1 thấp) cháy theo S059; vệt đạn không vẽ (chưa có nguồn quỹ đạo)",
+  "tieu_diem": [
+   "cong_su_tbn"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N2_8",
+  "ma": "N2.8",
+  "dong_loi": [
+   "2k",
+   "2l"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "bien",
+  "nguoi": false,
+  "diem_may": "B-cao-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -5600,
+     800,
+     700
+    ],
+    "l": [
+     -2000,
+     0,
+     -1100
+    ],
+    "fov": 36
+   },
+   {
+    "t": 24.0,
+    "p": [
+     -5550,
+     792,
+     675
+    ],
+    "l": [
+     -2000,
+     0,
+     -1100
+    ],
+    "fov": 36
+   }
+  ],
+  "loai": "vinh",
+  "nhin_xuong_deg": [
+   11.2,
+   11.3
+  ],
+  "agl_m": [
+   800.0,
+   792.0
+  ],
+  "fov": [
+   36,
+   36
+  ],
+  "dur": 24.0,
+  "t0": 302.958,
+  "t1": 326.958,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1782-09-11 07:00"
+   },
+   {
+    "t": 24.0,
+    "at": "1782-09-12 18:00"
+   }
+  ],
+  "nam": [
+   1782.694,
+   1782.698
+  ],
+  "lightmap": [
+   "b1782"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "2k",
+    "t": -0.0,
+    "cau": "Four days later, the French and Spanish fleets gathered in the bay: forty-seven ships of the line by the British count, fifty by the Spanish."
+   },
+   {
+    "dong": "2k",
+    "t": 8.684,
+    "cau": "The Duc de Crillon led the siege."
+   },
+   {
+    "dong": "2l",
+    "t": 12.138,
+    "cau": "Their answer to red-hot shot: ten floating batteries, designed by the French engineer d'Arçon."
+   },
+   {
+    "dong": "2l",
+    "t": 18.848,
+    "cau": "A French account says he'd asked to test them against red-hot shot first."
+   },
+   {
+    "dong": "2l",
+    "t": 23.109,
+    "cau": "It was refused."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 1.0,
+    "k": "tau",
+    "s": "hạm đội Pháp–TBN vào vịnh (47 tàu chiến, số phía Anh)"
+   },
+   {
+    "t": 12.0,
+    "k": "tau",
+    "s": "10 pin nổi neo ngoài Algeciras"
+   }
+  ],
+  "moc": "1782-09-11 07:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "(soi 1–2 + soát LOOK-4: hạm đội sau lưng máy / khung gần như chỉ còn nước → gần hơn, 36°) từ tây vịnh nhìn đông-nam qua hàng neo tới Rock: hạm đội tiền cảnh, Rock nền giữa; 47 tàu chiến = số phía Anh (lời 2k); vị trí hàng neo minh hoạ (bậc 5, theo Faden 1783 phía Algeciras); pin nổi ở Algeciras 12/9 (S066)",
+  "tieu_diem": [
+   "ham_doi_lien_quan"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N2_9",
+  "ma": "N2.9",
+  "dong_loi": [
+   "2m",
+   "2n"
+  ],
+  "kieu_khung": "lai+lan",
+  "goc": "cao",
+  "tl": true,
+  "vai": "buoc-ngoat",
+  "noi": "bien",
+  "nguoi": false,
+  "diem_may": "B-lan",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -3300,
+     520,
+     600
+    ],
+    "l": [
+     -900,
+     0,
+     -900
+    ],
+    "fov": 42
+   },
+   {
+    "t": 16.5,
+    "p": [
+     -2933,
+     437,
+     142
+    ],
+    "l": [
+     -1083,
+     0,
+     -992
+    ],
+    "fov": 42
+   }
+  ],
+  "loai": "vinh",
+  "nhin_xuong_deg": [
+   10.4,
+   11.4
+  ],
+  "agl_m": [
+   520.0,
+   437.0
+  ],
+  "fov": [
+   42,
+   42
+  ],
+  "dur": 28.0,
+  "t0": 326.958,
+  "t1": 354.958,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1782-09-13 06:45"
+   },
+   {
+    "t": 16.5,
+    "at": "1782-09-13 15:30"
+   },
+   {
+    "t": 17.0,
+    "at": "1782-09-13 16:00"
+   },
+   {
+    "t": 19.5,
+    "at": "1782-09-13 23:00"
+   },
+   {
+    "t": 26.0,
+    "at": "1782-09-14 02:30"
+   },
+   {
+    "t": 28.0,
+    "at": "1782-09-14 05:54"
+   }
+  ],
+  "nam": [
+   1782.699,
+   1782.702
+  ],
+  "lightmap": [
+   "b1782"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "2m",
+    "t": 0.566,
+    "cau": "The thirteenth of September 1782."
+   },
+   {
+    "dong": "2m",
+    "t": 4.316,
+    "cau": "That morning, the batteries moved into position under the garrison's fire."
+   },
+   {
+    "dong": "2m",
+    "t": 9.25,
+    "cau": "At ten twenty-five, by the Spanish account, the attackers' guns, some four hundred, opened fire together."
+   },
+   {
+    "dong": "2m",
+    "t": 17.238,
+    "cau": "By the next afternoon, all ten batteries were lost."
+   },
+   {
+    "dong": "2n",
+    "t": 21.504,
+    "cau": "Over two thousand attackers were lost, by a British estimate that includes prisoners, and by a Spanish one; the British rescued three hundred and fifty-seven."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 1.0,
+    "k": "tau",
+    "s": "13/9/1782 sáng: 10 pin nổi vào vị trí dưới hoả lực"
+   },
+   {
+    "t": 9.0,
+    "k": "lua",
+    "s": "khai hoả"
+   },
+   {
+    "t": 16.5,
+    "k": "may",
+    "s": "CÚ LẶN (giữ chỗ): chiều → đêm cháy → rạng sáng"
+   }
+  ],
+  "moc": "1782-09-13 06:45",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "0 → 16.5 s cách A (máy theo đường máy cú lặn, khớp khung đầu clip); 16.5 → 28.0 s CẮT sang clip giữ chỗ reports/nc-gpu/lan/ncg-lan-xem.mp4 (5,5 → 17,0 s) — giữ chỗ — bản cuối dựng Cycles GPU (G0)",
+  "tieu_diem": [
+   "pin_noi"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": {
+   "clip": "reports/nc-gpu/lan/ncg-lan-xem.mp4",
+   "ss": 5.5,
+   "t": 16.5,
+   "dur": 11.5
+  }
+ },
+ {
+  "shot": "N2_11",
+  "ma": "N2.11",
+  "dong_loi": [
+   "2q",
+   "2r"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "he-qua",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "G-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -150,
+     700,
+     -1100
+    ],
+    "l": [
+     -500,
+     0,
+     2000
+    ],
+    "fov": 44
+   },
+   {
+    "t": 27.625,
+    "p": [
+     -140,
+     694,
+     -1080
+    ],
+    "l": [
+     -500,
+     0,
+     2000
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "trai",
+  "nhin_xuong_deg": [
+   12.6,
+   12.6
+  ],
+  "agl_m": [
+   615.0,
+   604.0
+  ],
+  "fov": [
+   44,
+   44
+  ],
+  "dur": 27.625,
+  "t0": 354.958,
+  "t1": 382.583,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1782-10-01 12:00"
+   },
+   {
+    "t": 7.127999999999986,
+    "at": "1783-01-25 12:00"
+   },
+   {
+    "t": 13.127999999999986,
+    "at": "1783-02-05 15:00"
+   },
+   {
+    "t": 13.177999999999987,
+    "at": 1783.1
+   },
+   {
+    "t": 27.625,
+    "at": 1783.55
+   }
+  ],
+  "nam": [
+   1782.749,
+   1783.55
+  ],
+  "lightmap": [
+   "b1782"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "2q",
+    "t": 3.575,
+    "cau": "The blockade never forced a surrender."
+   },
+   {
+    "dong": "2q",
+    "t": 7.128,
+    "cau": "In February 1783, word came of a preliminary peace, and on the fifth, the last shot was fired."
+   },
+   {
+    "dong": "2r",
+    "t": 15.625,
+    "cau": "Spanish historian Montero put losses near two thousand defenders and, from all causes, six thousand besiegers."
+   },
+   {
+    "dong": "2r",
+    "t": 24.333,
+    "cau": "The garrison's records count fewer dead: at least eight hundred and sixty-nine."
+   },
+   {
+    "dong": "2r",
+    "t": 30.695,
+    "cau": "Gibraltar stayed British."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "tau",
+    "s": "phong toả tiếp tục mùa đông 1782"
+   },
+   {
+    "t": 12.63,
+    "k": "lua",
+    "s": "5/2/1783: phát súng cuối"
+   },
+   {
+    "t": 14.13,
+    "k": "pha",
+    "s": "trại + công sự TBN rút dần 1783"
+   }
+  ],
+  "moc": "1782-10-01 12:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "(soi 1: từ bắc quá xa) từ đỉnh Rock nhìn bắc: công sự + Línea + dải trại rút theo cửa sổ năm (eo-dat-v7.json, bậc 1–2), Rock nguyên khối; thẻ tổn thất 2r bỏ (lời mang số)",
+  "tieu_diem": [
+   "trai"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N3_1",
+  "ma": "N3.1",
+  "dong_loi": [
+   "3a",
+   "3b"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "buoc-ngoat",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "F-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     1500,
+     700,
+     2600
+    ],
+    "l": [
+     -200,
+     0,
+     -500
+    ],
+    "fov": 44
+   },
+   {
+    "t": 27.25,
+    "p": [
+     1470,
+     692,
+     2620
+    ],
+    "l": [
+     -200,
+     0,
+     -500
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   11.2,
+   11.1
+  ],
+  "agl_m": [
+   700.0,
+   692.0
+  ],
+  "fov": [
+   44,
+   44
+  ],
+  "dur": 27.25,
+  "t0": 382.583,
+  "t1": 409.833,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1783.6
+   },
+   {
+    "t": 16.7,
+    "at": 1809.9
+   },
+   {
+    "t": 16.75,
+    "at": "1810-02-14 08:00"
+   },
+   {
+    "t": 27.25,
+    "at": "1810-02-14 17:00"
+   }
+  ],
+  "nam": [
+   1783.6,
+   1810.122
+  ],
+  "lightmap": [
+   "b1782",
+   "b1900"
+  ],
+  "tl_buoc": [
+   {
+    "t": 16.75,
+    "tu": 1809.9,
+    "toi": 1810.121
+   }
+  ],
+  "tl_buoc_n": 1,
+  "cau": [
+   {
+    "dong": "3a",
+    "t": 5.072,
+    "cau": "Which leaves a question the treaty never answered: where does the Rock end?"
+   },
+   {
+    "dong": "3a",
+    "t": 11.063,
+    "cau": "Between the walls and the Spanish line lay a strip of sand: the neutral ground."
+   },
+   {
+    "dong": "3b",
+    "t": 16.75,
+    "cau": "Around 1810, with Napoleon's armies heading for the Strait, Spain and Britain were allies."
+   },
+   {
+    "dong": "3b",
+    "t": 24.11,
+    "cau": "With Spain's consent, the British blew up the Spanish forts."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.4,
+    "k": "the_chuong",
+    "s": "1783 — The neutral ground"
+   },
+   {
+    "t": 3.0,
+    "k": "dem_nam",
+    "s": "1783 → 1809: dải cát giữa tường và Línea"
+   },
+   {
+    "t": 20.95,
+    "k": "no",
+    "s": "14/2/1810: hai pháo đài Línea nổ tung"
+   }
+  ],
+  "moc": 1783.6,
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": "1783 — The neutral ground",
+  "ghi": "MỐC ĐINH 1810: khói nổ ở San Felipe + Santa Bárbara (ghost SH, bậc 1); Línea biến mất 14/2/1810 (eo-dat-v7.json); dải trung lập không tô (§10.7)",
+  "tieu_diem": [
+   "linea"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N3_2",
+  "ma": "N3.2",
+  "dong_loi": [
+   "3c"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "G-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -80,
+     580,
+     -1450
+    ],
+    "l": [
+     -170,
+     0,
+     950
+    ],
+    "fov": 44
+   },
+   {
+    "t": 8.5,
+    "p": [
+     -70,
+     576,
+     -1430
+    ],
+    "l": [
+     -170,
+     0,
+     950
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   13.6,
+   13.6
+  ],
+  "agl_m": [
+   464.0,
+   458.0
+  ],
+  "fov": [
+   44,
+   44
+  ],
+  "dur": 8.5,
+  "t0": 409.833,
+  "t1": 418.333,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1810.3
+   },
+   {
+    "t": 8.5,
+    "at": 1860.0
+   }
+  ],
+  "nam": [
+   1810.3,
+   1860.0
+  ],
+  "lightmap": [
+   "b1900"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "3c",
+    "t": 0.546,
+    "cau": "After that, the edge kept moving."
+   },
+   {
+    "dong": "3c",
+    "t": 3.297,
+    "cau": "A Spanish historian describes Britain advancing into the neutral zone step by step."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "dem_nam",
+    "s": "1810 → 1860 trên dải trung lập"
+   }
+  ],
+  "moc": 1810.3,
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "GIỮ CHỖ: lớp \"mép đất Anh tiến dần 1810–60\" chưa có nguồn bậc 1–3 → chỉ bộ đếm chạy + nhà theo năm xây có trong gói; Sayer 1865 chưa nắn khớp",
+  "tieu_diem": [
+   "eo_dat"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N3_3",
+  "ma": "N3.3",
+  "dong_loi": [
+   "3d"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "thanh_pho",
+  "nguoi": false,
+  "diem_may": "H-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     950,
+     430,
+     3350
+    ],
+    "l": [
+     80,
+     0,
+     1650
+    ],
+    "fov": 40
+   },
+   {
+    "t": 9.9583,
+    "p": [
+     930,
+     426,
+     3340
+    ],
+    "l": [
+     80,
+     0,
+     1650
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "pho",
+  "nhin_xuong_deg": [
+   12.7,
+   12.7
+  ],
+  "agl_m": [
+   428.0,
+   424.0
+  ],
+  "fov": [
+   40,
+   40
+  ],
+  "dur": 9.9583,
+  "t0": 418.333,
+  "t1": 428.292,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1849.0
+   },
+   {
+    "t": 4.97915,
+    "at": 1870.0
+   },
+   {
+    "t": 9.9583,
+    "at": 1905.0
+   }
+  ],
+  "nam": [
+   1849.0,
+   1905.0
+  ],
+  "lightmap": [
+   "b1900"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "3d",
+    "t": 0.259,
+    "cau": "On the Spanish side, a town grew up behind the old line."
+   },
+   {
+    "dong": "3d",
+    "t": 5.147,
+    "cau": "In 1870, it became La Línea de la Concepción."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "xay",
+    "s": "La Línea mọc theo năm xây (Catastro) 1849 → 1905"
+   }
+  ],
+  "moc": 1849.0,
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "nhà La Línea theo năm xây Catastro (bậc 1 cho năm có; nhà thiếu năm theo quy ước gói)",
+  "tieu_diem": [
+   "la_linea"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "KC1910",
+  "ma": "KC1910",
+  "dong_loi": [
+   "KC1910"
+  ],
+  "kieu_khung": "neo",
+  "goc": "thap",
+  "tl": true,
+  "vai": "then-now",
+  "noi": "thanh_pho",
+  "nguoi": true,
+  "diem_may": "neo KC",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     150,
+     10.1,
+     1340
+    ],
+    "l": [
+     170.8,
+     13.5,
+     1437.8
+    ],
+    "fov": 40
+   },
+   {
+    "t": 7.0,
+    "p": [
+     150,
+     10.1,
+     1340
+    ],
+    "l": [
+     170.8,
+     13.5,
+     1437.8
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "neo",
+  "nhin_xuong_deg": [
+   -1.9,
+   -1.9
+  ],
+  "agl_m": [
+   3.0,
+   3.0
+  ],
+  "fov": [
+   40,
+   40
+  ],
+  "dur": 7.0,
+  "t0": 428.292,
+  "t1": 435.292,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1910-06-15 10:30"
+   },
+   {
+    "t": 7.0,
+    "at": "1910-06-15 10:31"
+   }
+  ],
+  "nam": [
+   1910.453,
+   1910.453
+  ],
+  "lightmap": [
+   "b1900"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "KC1910",
+    "t": 0.0,
+    "cau": "Remember this street in La Línea."
+   },
+   {
+    "dong": "KC1910",
+    "t": 2.497,
+    "cau": "We'll come back to it."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "nguoi",
+    "s": "phố La Línea 1910"
+   }
+  ],
+  "moc": "1910-06-15 10:30",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "KHUNG NEO tầm mắt — cặp then/now với KC2026 (tư thế máy G1b: E 150, N 1340, hướng 12°)",
+  "tieu_diem": [
+   "pho_la_linea"
+  ],
+  "luot_thap": false,
+  "khung_neo": true,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N3_4",
+  "ma": "N3.4",
+  "dong_loi": [
+   "3e",
+   "3f",
+   "3g"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "buoc-ngoat",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "D-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     380,
+     430,
+     1550
+    ],
+    "l": [
+     -220,
+     0,
+     -330
+    ],
+    "fov": 42
+   },
+   {
+    "t": 27.0,
+    "p": [
+     350,
+     424,
+     1530
+    ],
+    "l": [
+     -220,
+     0,
+     -330
+    ],
+    "fov": 42
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   12.3,
+   12.3
+  ],
+  "agl_m": [
+   426.0,
+   420.0
+  ],
+  "fov": [
+   42,
+   42
+  ],
+  "dur": 27.0,
+  "t0": 435.292,
+  "t1": 462.292,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1900.0
+   },
+   {
+    "t": 6.0,
+    "at": 1908.8
+   },
+   {
+    "t": 22.0,
+    "at": 1909.7
+   },
+   {
+    "t": 27.0,
+    "at": 1930.0
+   }
+  ],
+  "nam": [
+   1900.0,
+   1930.0
+  ],
+  "lightmap": [
+   "b1900"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "3e",
+    "t": 0.0,
+    "cau": "This was the gap between them: a strip of neutral ground between two towns."
+   },
+   {
+    "dong": "3f",
+    "t": 6.0,
+    "cau": "In 1908, Britain told Spain, \"as an act of courtesy,\" that it would fence the edge of the neutral ground."
+   },
+   {
+    "dong": "3f",
+    "t": 13.419,
+    "cau": "The fence went up in 1909; Spain does not recognise it as a border."
+   },
+   {
+    "dong": "3g",
+    "t": 22.0,
+    "cau": "Behind the fence: a garrison camp, gardens, rifle ranges, a racecourse."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "dem_nam",
+    "s": "dải trung lập giữa hai phố 1900"
+   },
+   {
+    "t": 7.0,
+    "k": "xay",
+    "s": "hàng rào 1909 mọc dọc mép (MỐC ĐINH)"
+   },
+   {
+    "t": 22.0,
+    "k": "dem_nam",
+    "s": "1909 → 1930"
+   }
+  ],
+  "moc": 1900.0,
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "hàng rào 1909: tuyến coi trùng ranh OSM 2026 (ƯỚC TÍNH, eo-dat-v7.json); trại lính/vườn/trường bắn/trường đua 3g CHƯA dựng (chưa có nguồn vị trí bậc 1) — giữ chỗ",
+  "tieu_diem": [
+   "hang_rao"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N3_5",
+  "ma": "N3.5",
+  "dong_loi": [
+   "3h"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "D2-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -900,
+     420,
+     900
+    ],
+    "l": [
+     0,
+     0,
+     -700
+    ],
+    "fov": 40
+   },
+   {
+    "t": 9.3333,
+    "p": [
+     -880,
+     416,
+     890
+    ],
+    "l": [
+     0,
+     0,
+     -700
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   12.9,
+   12.9
+  ],
+  "agl_m": [
+   420.0,
+   416.0
+  ],
+  "fov": [
+   40,
+   40
+  ],
+  "dur": 9.3333,
+  "t0": 462.292,
+  "t1": 471.625,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1933.5
+   },
+   {
+    "t": 9.3333,
+    "at": 1938.5
+   }
+  ],
+  "nam": [
+   1933.5,
+   1938.5
+  ],
+  "lightmap": [
+   "b1900",
+   "b1940"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "3h",
+    "t": 0.694,
+    "cau": "And from 1934, a grass airstrip was built there."
+   },
+   {
+    "dong": "3h",
+    "t": 5.129,
+    "cau": "Subscribe if you'd like the next place in this series."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "xay",
+    "s": "dải cỏ cắt làm đường bay 1934–36"
+   }
+  ],
+  "moc": 1933.5,
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "soát LOOK-4: Rock chạm mép phải → xoay máy; dải cỏ 1934 (lời 3h): năm bậc 2 (lời), vị trí/bề rộng ƯỚC TÍNH (bậc 5) trên trục đường băng hiện nay",
+  "tieu_diem": [
+   "dai_co"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N4_1",
+  "ma": "N4.1",
+  "dong_loi": [
+   "4a",
+   "4b"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "buoc-ngoat",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "D-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     520,
+     390,
+     1150
+    ],
+    "l": [
+     -150,
+     0,
+     -400
+    ],
+    "fov": 42
+   },
+   {
+    "t": 25.5,
+    "p": [
+     490,
+     385,
+     1135
+    ],
+    "l": [
+     -150,
+     0,
+     -400
+    ],
+    "fov": 42
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   13.0,
+   13.0
+  ],
+  "agl_m": [
+   386.0,
+   381.0
+  ],
+  "fov": [
+   42,
+   42
+  ],
+  "dur": 25.5,
+  "t0": 471.625,
+  "t1": 497.125,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1939.2
+   },
+   {
+    "t": 21.588000000000022,
+    "at": 1939.85
+   },
+   {
+    "t": 25.5,
+    "at": 1941.6
+   }
+  ],
+  "nam": [
+   1939.2,
+   1941.6
+  ],
+  "lightmap": [
+   "b1940"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "4a",
+    "t": 0.0,
+    "cau": "Why build an airfield on disputed ground?"
+   },
+   {
+    "dong": "4a",
+    "t": 4.261,
+    "cau": "In March 1939, Spain protested that the works stood on \"a usurped portion\" of its territory."
+   },
+   {
+    "dong": "4b",
+    "t": 10.779,
+    "cau": "That November, Spain's foreign minister called the strip a fait accompli, like the Rock itself, while insisting its use breached Spanish territory."
+   },
+   {
+    "dong": "4b",
+    "t": 21.588,
+    "cau": "Late in 1939, Britain began a hard runway; in 1941, it was laid across the only road to Spain."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.4,
+    "k": "the_chuong",
+    "s": "1939 — A runway on the sand"
+   },
+   {
+    "t": 21.59,
+    "k": "xay",
+    "s": "cuối 1939: mặt đường băng cứng mọc"
+   },
+   {
+    "t": 22.5,
+    "k": "xay",
+    "s": "1941: đường băng cắt qua con đường duy nhất sang TBN"
+   }
+  ],
+  "moc": 1939.2,
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": "1939 — A runway on the sand",
+  "ghi": "đường băng mọc theo uRecl (S091–S092); ảnh NARA 4a không dùng (TL-4)",
+  "tieu_diem": [
+   "cho_cat"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N4_2",
+  "ma": "N4.2",
+  "dong_loi": [
+   "4c",
+   "4d",
+   "4e"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "F2-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     1700,
+     650,
+     1600
+    ],
+    "l": [
+     -300,
+     0,
+     -1000
+    ],
+    "fov": 44
+   },
+   {
+    "t": 28.375,
+    "p": [
+     1660,
+     644,
+     1610
+    ],
+    "l": [
+     -300,
+     0,
+     -1000
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   11.2,
+   11.2
+  ],
+  "agl_m": [
+   650.0,
+   644.0
+  ],
+  "fov": [
+   44,
+   44
+  ],
+  "dur": 28.375,
+  "t0": 497.125,
+  "t1": 525.5,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1941.6
+   },
+   {
+    "t": 11.0417,
+    "at": 1943.0
+   },
+   {
+    "t": 28.375,
+    "at": 1943.6
+   }
+  ],
+  "nam": [
+   1941.6,
+   1943.6
+  ],
+  "lightmap": [
+   "b1940"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "4c",
+    "t": 4.208,
+    "cau": "Then Britain pushed it out into the bay, with stone blasted from the north face and rubble from new tunnels."
+   },
+   {
+    "dong": "4d",
+    "t": 11.042,
+    "cau": "Inside the Rock, those tunnels held a road about a mile long, a hospital and a power station, dug by British and Canadian tunnellers."
+   },
+   {
+    "dong": "4e",
+    "t": 20.875,
+    "cau": "Gibraltar counts about fifty-five kilometres of tunnels from every era, more than its roads above ground."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "xay",
+    "s": "đường băng lấn vịnh theo tháng 1941–43"
+   },
+   {
+    "t": 3.0,
+    "k": "lua",
+    "s": "bụi đá nổ ở vách bắc"
+   }
+  ],
+  "moc": 1941.6,
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "GIỮ CHỖ mặt cắt hầm (M11, ONI 1954) chưa có: lời 4d–4e trên khung vách bắc + đường băng lấn vịnh; bụi đá: vị trí ước tính (bậc 5); thẻ \"55 km\" bỏ (lời mang số)",
+  "tieu_diem": [
+   "duong_bang"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N4_3",
+  "ma": "N4.3",
+  "dong_loi": [
+   "4f"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "thanh_pho",
+  "nguoi": false,
+  "diem_may": "B-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -2300,
+     430,
+     -650
+    ],
+    "l": [
+     -700,
+     0,
+     -1250
+    ],
+    "fov": 40
+   },
+   {
+    "t": 8.2083,
+    "p": [
+     -2260,
+     424,
+     -670
+    ],
+    "l": [
+     -700,
+     0,
+     -1250
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "pho",
+  "nhin_xuong_deg": [
+   14.1,
+   14.3
+  ],
+  "agl_m": [
+   430.0,
+   424.0
+  ],
+  "fov": [
+   40,
+   40
+  ],
+  "dur": 8.2083,
+  "t0": 525.5,
+  "t1": 533.708,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1943.3
+   },
+   {
+    "t": 8.2083,
+    "at": 1943.7
+   }
+  ],
+  "nam": [
+   1943.3,
+   1943.7
+  ],
+  "lightmap": [
+   "b1940"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "4f",
+    "t": 0.0,
+    "cau": "This 1943 US Army map shows the town house by house, and the runway reaching into the bay."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "xay",
+    "s": "phố 1943 từng nhà (ghost AMS M981) + đường băng vươn ra vịnh"
+   }
+  ],
+  "moc": 1943.3,
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "phố 1943 = lớp ghost AMS M981 1943 (bậc 1); bản đồ phẳng không phủ (chưa nắn khớp trong gói animatic)",
+  "tieu_diem": [
+   "pho_1943"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N4_4",
+  "ma": "N4.4",
+  "dong_loi": [
+   "SM3",
+   "4g"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "bien",
+  "nguoi": false,
+  "diem_may": "Bb-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -2650,
+     600,
+     -2600
+    ],
+    "l": [
+     -750,
+     0,
+     -800
+    ],
+    "fov": 42
+   },
+   {
+    "t": 16.9167,
+    "p": [
+     -2610,
+     592,
+     -2580
+    ],
+    "l": [
+     -750,
+     0,
+     -800
+    ],
+    "fov": 42
+   }
+  ],
+  "loai": "vinh",
+  "nhin_xuong_deg": [
+   12.9,
+   12.9
+  ],
+  "agl_m": [
+   600.0,
+   592.0
+  ],
+  "fov": [
+   42,
+   42
+  ],
+  "dur": 16.9167,
+  "t0": 533.708,
+  "t1": 550.625,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1940-05-20 12:00"
+   },
+   {
+    "t": 5.5,
+    "at": "1940-05-26 12:00"
+   },
+   {
+    "t": 5.55,
+    "at": 1940.5
+   },
+   {
+    "t": 16.9167,
+    "at": 1942.8
+   }
+  ],
+  "nam": [
+   1940.384,
+   1942.8
+  ],
+  "lightmap": [
+   "b1940"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "SM3",
+    "t": -0.0,
+    "cau": "May 1940: Gibraltar sends its women and children away."
+   },
+   {
+    "dong": "SM3",
+    "t": 6.049,
+    "cau": "June: Spain turns \"non-belligerent\" and occupies Tangier."
+   },
+   {
+    "dong": "SM3",
+    "t": 11.355,
+    "cau": "By 1942, the invasion of North Africa is run from inside the Rock."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "tau",
+    "s": "5/1940: tàu sơ tán phụ nữ–trẻ em rời cảng"
+   },
+   {
+    "t": 6.0,
+    "k": "may_bay",
+    "s": "1941–42: máy bay tụ dần trên đường băng"
+   }
+  ],
+  "moc": "1940-05-20 12:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "thay bản đồ chiến lược SM3 + mũi tên 4g: tàu sơ tán rời cảng (6 tàu — số minh hoạ); máy bay = khối minh hoạ (bậc 5, chờ D3); Tangier không lên hình",
+  "tieu_diem": [
+   "so_tan",
+   "may_bay"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "KB1943",
+  "ma": "KB1943",
+  "dong_loi": [
+   "KB1943"
+  ],
+  "kieu_khung": "neo",
+  "goc": "cao",
+  "tl": true,
+  "vai": "then-now",
+  "noi": "thanh_pho",
+  "nguoi": true,
+  "diem_may": "neo KB",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -380,
+     51.8,
+     -1230
+    ],
+    "l": [
+     -444.3,
+     30.6,
+     -1153.4
+    ],
+    "fov": 44
+   },
+   {
+    "t": 8.0,
+    "p": [
+     -380,
+     51.8,
+     -1230
+    ],
+    "l": [
+     -444.3,
+     30.6,
+     -1153.4
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "neo",
+  "nhin_xuong_deg": [
+   12.0,
+   12.0
+  ],
+  "agl_m": [
+   30.0,
+   30.0
+  ],
+  "fov": [
+   44,
+   44
+  ],
+  "dur": 8.0,
+  "t0": 550.625,
+  "t1": 558.625,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "1943-06-15 11:00"
+   },
+   {
+    "t": 8.0,
+    "at": "1943-06-15 11:01"
+   }
+  ],
+  "nam": [
+   1943.453,
+   1943.453
+  ],
+  "lightmap": [
+   "b1940"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "nguoi",
+    "s": "phố 1943 nhìn ra vịnh (tấm im lặng: phụ nữ, trẻ em đã sơ tán)"
+   }
+  ],
+  "moc": "1943-06-15 11:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "TẤM IM LẶNG + KHUNG NEO nâng 30 m (cặp then/now với KB2026); nhà 1943 = nhà 2026 (OSM không có năm xây — giới hạn dữ liệu)",
+  "tieu_diem": [
+   "quang_truong"
+  ],
+  "luot_thap": false,
+  "khung_neo": true,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N4_5",
+  "ma": "N4.5",
+  "dong_loi": [
+   "4h",
+   "4i"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "buoc-ngoat",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "D-duongbang",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     300,
+     230,
+     250
+    ],
+    "l": [
+     -700,
+     0,
+     -20
+    ],
+    "fov": 40
+   },
+   {
+    "t": 27.2083,
+    "p": [
+     260,
+     227,
+     240
+    ],
+    "l": [
+     -700,
+     0,
+     -20
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   12.5,
+   12.9
+  ],
+  "agl_m": [
+   228.0,
+   222.0
+  ],
+  "fov": [
+   40,
+   40
+  ],
+  "dur": 27.2083,
+  "t0": 558.625,
+  "t1": 585.833,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1942.3
+   },
+   {
+    "t": 11.25,
+    "at": "1942-11-07 12:30"
+   },
+   {
+    "t": 27.2083,
+    "at": "1942-11-07 16:20"
+   }
+  ],
+  "nam": [
+   1942.3,
+   1942.851
+  ],
+  "lightmap": [
+   "b1940"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "4h",
+    "t": 0.0,
+    "cau": "For the rest of the war, a Spanish scholar found, Spain protested what it called breaches of Spanish waters; no complaint over the airstrip is on record."
+   },
+   {
+    "dong": "4i",
+    "t": 11.25,
+    "cau": "On the night of the seventh of November 1942, by Gibraltar's official record, at least six hundred and fifty aircraft lined the runway."
+   },
+   {
+    "dong": "4i",
+    "t": 21.397,
+    "cau": "The invasion fleets, from Britain and the United States, came through the Strait."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "may_bay",
+    "s": "máy bay xếp kín hai bên đường băng"
+   },
+   {
+    "t": 11.25,
+    "k": "ngay_dem",
+    "s": "chiều → tối 7/11/1942"
+   },
+   {
+    "t": 20.25,
+    "k": "tau",
+    "s": "đoàn tàu đổ bộ qua eo biển"
+   }
+  ],
+  "moc": 1942.3,
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "≥ 650 máy bay (lời 4i, bậc 2) = khối minh hoạ (bậc 5); để chiều → chạng vạng 7/11 cho đọc được (soi 1: 19:30 tối đen) (lời: \"the night of\"); đoàn tàu qua eo: số/vị trí minh hoạ",
+  "tieu_diem": [
+   "may_bay"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N5_1",
+  "ma": "N5.1",
+  "dong_loi": [
+   "5a",
+   "5b"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "buoc-ngoat",
+  "noi": "eo_dat",
+  "nguoi": true,
+  "diem_may": "D-cong",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     420,
+     400,
+     1700
+    ],
+    "l": [
+     -200,
+     0,
+     0
+    ],
+    "fov": 40
+   },
+   {
+    "t": 23.75,
+    "p": [
+     395,
+     397,
+     1685
+    ],
+    "l": [
+     -200,
+     0,
+     0
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   12.5,
+   12.5
+  ],
+  "agl_m": [
+   396.0,
+   393.0
+  ],
+  "fov": [
+   40,
+   40
+  ],
+  "dur": 23.75,
+  "t0": 585.833,
+  "t1": 609.583,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1946.0
+   },
+   {
+    "t": 3.5990000000000464,
+    "at": 1969.4
+   },
+   {
+    "t": 7.599000000000046,
+    "at": 1969.5
+   },
+   {
+    "t": 20.89300000000003,
+    "at": 1985.0
+   },
+   {
+    "t": 23.75,
+    "at": 1985.25
+   }
+  ],
+  "nam": [
+   1946.0,
+   1985.25
+  ],
+  "lightmap": [
+   "b1940",
+   "b2026"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "5a",
+    "t": -0.0,
+    "cau": "After the war, the argument returned to the gate."
+   },
+   {
+    "dong": "5a",
+    "t": 3.599,
+    "cau": "In June 1969, Spain closed the land frontier completely."
+   },
+   {
+    "dong": "5a",
+    "t": 8.591,
+    "cau": "It followed Gibraltar's new constitution; a Spanish historian says Madrid applied Utrecht strictly."
+   },
+   {
+    "dong": "5b",
+    "t": 15.75,
+    "cau": "Britain counted some four thousand six hundred Spanish day workers cut off."
+   },
+   {
+    "dong": "5b",
+    "t": 21.393,
+    "cau": "The gate fully reopened in 1985."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.4,
+    "k": "the_chuong",
+    "s": "1969 — The gate closes"
+   },
+   {
+    "t": 4.6,
+    "k": "nguoi",
+    "s": "6/1969: dòng người qua cổng dừng hẳn"
+   },
+   {
+    "t": 21.39,
+    "k": "nguoi",
+    "s": "1985: người qua lại trở lại"
+   }
+  ],
+  "moc": 1946.0,
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": "1969 — The gate closes",
+  "ghi": "cổng biên giới (heroes.json gate, bậc 1); dòng người theo năm (lời 5a–5b, bậc 2), số người minh hoạ; thẻ 4 600 / 14 112 bỏ (lời mang số)",
+  "tieu_diem": [
+   "cong"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "KB2026",
+  "ma": "KB2026",
+  "dong_loi": [
+   "KB2026"
+  ],
+  "kieu_khung": "neo",
+  "goc": "cao",
+  "tl": true,
+  "vai": "then-now",
+  "noi": "thanh_pho",
+  "nguoi": true,
+  "diem_may": "neo KB",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -380,
+     51.8,
+     -1230
+    ],
+    "l": [
+     -444.3,
+     30.6,
+     -1153.4
+    ],
+    "fov": 44
+   },
+   {
+    "t": 9.5,
+    "p": [
+     -380,
+     51.8,
+     -1230
+    ],
+    "l": [
+     -444.3,
+     30.6,
+     -1153.4
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "neo",
+  "nhin_xuong_deg": [
+   12.0,
+   12.0
+  ],
+  "agl_m": [
+   30.0,
+   30.0
+  ],
+  "fov": [
+   44,
+   44
+  ],
+  "dur": 9.5,
+  "t0": 609.583,
+  "t1": 619.083,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "2026-10-18 11:00"
+   },
+   {
+    "t": 9.5,
+    "at": "2026-10-18 11:01"
+   }
+  ],
+  "nam": [
+   2026.796,
+   2026.796
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "KB2026",
+    "t": 0.643,
+    "cau": "The same square, today."
+   },
+   {
+    "dong": "KB2026",
+    "t": 3.29,
+    "cau": "In October 2025, people living in Spain held more than four in ten of Gibraltar's jobs."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "nguoi",
+    "s": "cùng góc phố hôm nay"
+   }
+  ],
+  "moc": "2026-10-18 11:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "KHUNG NEO \"the same square, today\" — cùng tư thế máy KB1943 (nâng 30 m)",
+  "tieu_diem": [
+   "quang_truong"
+  ],
+  "luot_thap": false,
+  "khung_neo": true,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N5_2",
+  "ma": "N5.2",
+  "dong_loi": [
+   "5c",
+   "5d"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "eo_dat",
+  "nguoi": true,
+  "diem_may": "D → H",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -260,
+     200,
+     -380
+    ],
+    "l": [
+     150,
+     0,
+     450
+    ],
+    "fov": 40
+   },
+   {
+    "t": 7.9,
+    "p": [
+     -120,
+     210,
+     120
+    ],
+    "l": [
+     200,
+     0,
+     1100
+    ],
+    "fov": 40
+   },
+   {
+    "t": 12.5,
+    "p": [
+     120,
+     260,
+     880
+    ],
+    "l": [
+     260,
+     0,
+     2100
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   12.2,
+   11.5,
+   12.0
+  ],
+  "agl_m": [
+   198.0,
+   208.0,
+   258.0
+  ],
+  "fov": [
+   40,
+   40,
+   40
+  ],
+  "dur": 12.5,
+  "t0": 619.083,
+  "t1": 631.583,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "2026-10-19 08:10"
+   },
+   {
+    "t": 12.5,
+    "at": "2026-10-19 08:40"
+   }
+  ],
+  "nam": [
+   2026.798,
+   2026.798
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "5c",
+    "t": 1.005,
+    "cau": "The UK government puts the daily crossers higher, at about fifteen thousand."
+   },
+   {
+    "dong": "5c",
+    "t": 5.614,
+    "cau": "People on foot still cross the runway."
+   },
+   {
+    "dong": "5d",
+    "t": 8.5,
+    "cau": "And on the other side of the gate."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "nguoi",
+    "s": "người đi bộ băng qua đường băng giờ cao điểm 2026"
+   },
+   {
+    "t": 8.5,
+    "k": "may",
+    "s": "máy trôi qua cổng sang phía La Línea"
+   }
+  ],
+  "moc": "2026-10-19 08:10",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "thay follow-object A-lite bằng khung lai trôi dọc dòng người: đường băng → cổng → La Línea (lời 5d \"the other side of the gate\"); đổi điểm D → H (BAI-HOC #96, D ≤ 25 %)",
+  "tieu_diem": [
+   "nguoi_qua_cong"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "KC2026",
+  "ma": "KC2026",
+  "dong_loi": [
+   "KC2026"
+  ],
+  "kieu_khung": "neo",
+  "goc": "thap",
+  "tl": true,
+  "vai": "then-now",
+  "noi": "thanh_pho",
+  "nguoi": true,
+  "diem_may": "neo KC",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     150,
+     10.1,
+     1340
+    ],
+    "l": [
+     170.8,
+     13.5,
+     1437.8
+    ],
+    "fov": 40
+   },
+   {
+    "t": 10.0,
+    "p": [
+     150,
+     10.1,
+     1340
+    ],
+    "l": [
+     170.8,
+     13.5,
+     1437.8
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "neo",
+  "nhin_xuong_deg": [
+   -1.9,
+   -1.9
+  ],
+  "agl_m": [
+   3.0,
+   3.0
+  ],
+  "fov": [
+   40,
+   40
+  ],
+  "dur": 10.0,
+  "t0": 631.583,
+  "t1": 641.583,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "2026-10-18 10:30"
+   },
+   {
+    "t": 10.0,
+    "at": "2026-10-18 10:31"
+   }
+  ],
+  "nam": [
+   2026.796,
+   2026.796
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "KC2026",
+    "t": -0.0,
+    "cau": "Remember this street?"
+   },
+   {
+    "dong": "KC2026",
+    "t": 1.881,
+    "cau": "In 2024, La Línea's unemployment was twenty-eight point six percent: the highest of a hundred and thirteen Spanish cities."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "nguoi",
+    "s": "cùng phố La Línea hôm nay"
+   }
+  ],
+  "moc": "2026-10-18 10:30",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "KHUNG NEO \"Remember this street?\" — cùng tư thế máy KC1910",
+  "tieu_diem": [
+   "pho_la_linea"
+  ],
+  "luot_thap": false,
+  "khung_neo": true,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N5_3",
+  "ma": "N5.3",
+  "dong_loi": [
+   "5e",
+   "5f"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "co-che",
+  "noi": "thanh_pho",
+  "nguoi": true,
+  "diem_may": "H-lai",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     620,
+     560,
+     3050
+    ],
+    "l": [
+     -120,
+     0,
+     650
+    ],
+    "fov": 40
+   },
+   {
+    "t": 24.5,
+    "p": [
+     590,
+     554,
+     3030
+    ],
+    "l": [
+     -120,
+     0,
+     650
+    ],
+    "fov": 40
+   }
+  ],
+  "loai": "pho",
+  "nhin_xuong_deg": [
+   12.6,
+   12.6
+  ],
+  "agl_m": [
+   556.0,
+   550.0
+  ],
+  "fov": [
+   40,
+   40
+  ],
+  "dur": 24.5,
+  "t0": 641.583,
+  "t1": 666.083,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "2026-10-19 07:30"
+   },
+   {
+    "t": 11.025,
+    "at": "2026-10-19 09:30"
+   },
+   {
+    "t": 12.25,
+    "at": "2026-10-19 14:00"
+   },
+   {
+    "t": 24.5,
+    "at": "2026-10-19 15:00"
+   }
+  ],
+  "nam": [
+   2026.798,
+   2026.799
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "5e",
+    "t": 2.858,
+    "cau": "Here's the twist."
+   },
+   {
+    "dong": "5e",
+    "t": 4.785,
+    "cau": "Gibraltar's government puts output per resident at about eighty-five thousand pounds."
+   },
+   {
+    "dong": "5f",
+    "t": 9.852,
+    "cau": "That spreads output over the thirty-eight thousand who live there, and leaves out the people in Spain who hold fourteen thousand of its jobs."
+   },
+   {
+    "dong": "5f",
+    "t": 18.64,
+    "cau": "Our read: part of the work behind that number is done from the other side."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "nguoi",
+    "s": "sáng: dòng người từ La Línea sang Gibraltar"
+   },
+   {
+    "t": 12.25,
+    "k": "nguoi",
+    "s": "chiều: dòng người về"
+   }
+  ],
+  "moc": "2026-10-19 07:30",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "từ La Línea nhìn nam qua cổng tới Rock: hai phố, một dòng người; thẻ £85 000 bỏ (lời mang số); không tô màu hai bên (§10.7)",
+  "tieu_diem": [
+   "nguoi_qua_cong"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N5_4",
+  "ma": "N5.4",
+  "dong_loi": [
+   "5g",
+   "5h",
+   "5i"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "buoc-ngoat",
+  "noi": "eo_dat",
+  "nguoi": true,
+  "diem_may": "D-cong-orbit",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     330,
+     190,
+     820
+    ],
+    "l": [
+     60,
+     0,
+     470
+    ],
+    "fov": 38
+   },
+   {
+    "t": 15.7292,
+    "p": [
+     120,
+     195,
+     880
+    ],
+    "l": [
+     60,
+     0,
+     470
+    ],
+    "fov": 38
+   },
+   {
+    "t": 31.4583,
+    "p": [
+     -120,
+     200,
+     840
+    ],
+    "l": [
+     60,
+     0,
+     470
+    ],
+    "fov": 38
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   23.3,
+   25.2,
+   25.9
+  ],
+  "agl_m": [
+   187.0,
+   193.0,
+   194.0
+  ],
+  "fov": [
+   38,
+   38,
+   38
+  ],
+  "dur": 31.4583,
+  "t0": 666.083,
+  "t1": 697.542,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "2026-07-14 10:00"
+   },
+   {
+    "t": 12.149000000000001,
+    "at": "2026-07-20 10:00"
+   },
+   {
+    "t": 25.4583,
+    "at": "2026-10-10 10:00"
+   },
+   {
+    "t": 31.4583,
+    "at": "2026-10-18 10:00"
+   }
+  ],
+  "nam": [
+   2026.533,
+   2026.796
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [
+   {
+    "dong": "5g",
+    "t": -0.0,
+    "cau": "In July 2026, Britain and the EU signed a treaty; the next day, routine checks here ended."
+   },
+   {
+    "dong": "5h",
+    "t": 8.167,
+    "cau": "It says it changes neither side's position on sovereignty."
+   },
+   {
+    "dong": "5h",
+    "t": 12.149,
+    "cau": "In July, Gibraltar's government said the old fence was coming down, with a new one a few metres behind; only about a hundred and fifty metres would stay open."
+   },
+   {
+    "dong": "5i",
+    "t": 23.459,
+    "cau": "As of 18 October 2026, the treaty is in force only provisionally, pending a European Parliament vote indicated for the fourteenth of December."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "nguoi",
+    "s": "7/2026: kiểm tra thường lệ dừng — người qua cổng không xếp hàng"
+   },
+   {
+    "t": 13.15,
+    "k": "pha",
+    "s": "hàng rào cũ gỡ từng đoạn"
+   },
+   {
+    "t": 15.15,
+    "k": "xay",
+    "s": "hàng rào mới lùi vài mét"
+   }
+  ],
+  "moc": "2026-07-14 10:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "hàng rào cũ gỡ (lời 5h, bậc 2) + hàng mới lệch 6 m (ƯỚC TÍNH bậc 5 — chờ nguồn vị trí); khoảng mở ≈ 150 m chưa dựng; thẻ 5i bỏ (lời mang ngày)",
+  "tieu_diem": [
+   "hang_rao"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N5_5",
+  "ma": "N5.5",
+  "dong_loi": [
+   "5j"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "he-qua",
+  "noi": "bien",
+  "nguoi": false,
+  "diem_may": "B-lui",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -1900,
+     520,
+     -2300
+    ],
+    "l": [
+     -100,
+     100,
+     -2000
+    ],
+    "fov": 44
+   },
+   {
+    "t": 19.4583,
+    "p": [
+     -3400,
+     900,
+     -900
+    ],
+    "l": [
+     -500,
+     40,
+     -900
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "vinh",
+  "nhin_xuong_deg": [
+   13.0,
+   16.5
+  ],
+  "agl_m": [
+   520.0,
+   900.0
+  ],
+  "fov": [
+   44,
+   44
+  ],
+  "dur": 19.4583,
+  "t0": 697.542,
+  "t1": 717.0,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "2026-10-18 16:00"
+   },
+   {
+    "t": 8.47699999999993,
+    "at": "2026-10-18 16:01"
+   },
+   {
+    "t": 8.52699999999993,
+    "at": 1704.7
+   },
+   {
+    "t": 10.880999999999926,
+    "at": 1704.71
+   },
+   {
+    "t": 10.930999999999926,
+    "at": 1735.5
+   },
+   {
+    "t": 13.341999999999938,
+    "at": 1735.51
+   },
+   {
+    "t": 13.391999999999939,
+    "at": 1909.7
+   },
+   {
+    "t": 15.860999999999944,
+    "at": 1909.71
+   },
+   {
+    "t": 15.910999999999945,
+    "at": 1943.6
+   },
+   {
+    "t": 18.258300000000002,
+    "at": 1943.61
+   },
+   {
+    "t": 18.308300000000003,
+    "at": 2026.79
+   },
+   {
+    "t": 19.4583,
+    "at": 2026.8
+   }
+  ],
+  "nam": [
+   1704.7,
+   2026.8
+  ],
+  "lightmap": [
+   "b1704",
+   "b1779",
+   "b1781r",
+   "b1782",
+   "b1900",
+   "b1940",
+   "b2026"
+  ],
+  "tl_buoc": [
+   {
+    "t": 8.527,
+    "tu": 2026.796,
+    "toi": 1704.7
+   },
+   {
+    "t": 10.931,
+    "tu": 1704.71,
+    "toi": 1735.5
+   },
+   {
+    "t": 13.392,
+    "tu": 1735.51,
+    "toi": 1909.7
+   },
+   {
+    "t": 15.911,
+    "tu": 1909.71,
+    "toi": 1943.6
+   },
+   {
+    "t": 18.3083,
+    "tu": 1943.61,
+    "toi": 2026.79
+   }
+  ],
+  "tl_buoc_n": 5,
+  "cau": [
+   {
+    "dong": "5j",
+    "t": 2.548,
+    "cau": "So why did everyone fight over this place?"
+   },
+   {
+    "dong": "5j",
+    "t": 5.625,
+    "cau": "Where it sits, and the sea that could feed it."
+   },
+   {
+    "dong": "5j",
+    "t": 8.527,
+    "cau": "A wall in 1704."
+   },
+   {
+    "dong": "5j",
+    "t": 10.931,
+    "cau": "A line in 1730."
+   },
+   {
+    "dong": "5j",
+    "t": 13.392,
+    "cau": "A fence in 1909."
+   },
+   {
+    "dong": "5j",
+    "t": 15.911,
+    "cau": "A runway in 1941."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "may",
+    "s": "kéo lùi: Rock giữa vịnh và biển"
+   },
+   {
+    "t": 8.53,
+    "k": "buoc_nam",
+    "s": "1704: tường"
+   },
+   {
+    "t": 10.93,
+    "k": "buoc_nam",
+    "s": "1730: Línea"
+   },
+   {
+    "t": 13.39,
+    "k": "buoc_nam",
+    "s": "1909: hàng rào"
+   },
+   {
+    "t": 15.91,
+    "k": "buoc_nam",
+    "s": "1941: đường băng"
+   },
+   {
+    "t": 18.31,
+    "k": "buoc_nam",
+    "s": "2026"
+   }
+  ],
+  "moc": "2026-10-18 16:00",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "bookend H2: bước năm khớp từng chữ \"A wall in 1704 / A line in 1730 / A fence in 1909 / A runway in 1941\" (thay ghost sepia chồng lớp — TL-4)",
+  "tieu_diem": [
+   "lop_lich_su"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "KA2026",
+  "ma": "KA2026",
+  "dong_loi": [
+   "KA2026"
+  ],
+  "kieu_khung": "neo",
+  "goc": "cao",
+  "tl": true,
+  "vai": "then-now",
+  "noi": "thanh_pho",
+  "nguoi": true,
+  "diem_may": "neo KA",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -460,
+     78.0,
+     -1450
+    ],
+    "l": [
+     -442.6,
+     53.1,
+     -1351.5
+    ],
+    "fov": 44
+   },
+   {
+    "t": 8.0,
+    "p": [
+     -460,
+     78.0,
+     -1450
+    ],
+    "l": [
+     -442.6,
+     53.1,
+     -1351.5
+    ],
+    "fov": 44
+   }
+  ],
+  "loai": "neo",
+  "nhin_xuong_deg": [
+   14.0,
+   14.0
+  ],
+  "agl_m": [
+   60.0,
+   60.0
+  ],
+  "fov": [
+   44,
+   44
+  ],
+  "dur": 8.0,
+  "t0": 717.0,
+  "t1": 725.0,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": "2026-10-18 10:30"
+   },
+   {
+    "t": 8.0,
+    "at": "2026-10-18 10:31"
+   }
+  ],
+  "nam": [
+   2026.796,
+   2026.796
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "tl_buoc": [],
+  "tl_buoc_n": 0,
+  "cau": [],
+  "su_kien": [
+   {
+    "t": 0.0,
+    "k": "nguoi",
+    "s": "cùng phố hôm nay: mái nhà dày đặc"
+   }
+  ],
+  "moc": "2026-10-18 10:30",
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "TẤM IM LẶNG + KHUNG NEO nâng 60 m (cặp then/now với KA1782: phố đổ nát 1782 ↔ phố dày 2026); tách khỏi N5.5 của diem-may.md để ghép cặp",
+  "tieu_diem": [
+   "pho_hep"
+  ],
+  "luot_thap": false,
+  "khung_neo": true,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "N5_6",
+  "ma": "N5.6",
+  "dong_loi": [
+   "5k"
+  ],
+  "kieu_khung": "lai",
+  "goc": "cao",
+  "tl": true,
+  "vai": "he-qua",
+  "noi": "eo_dat",
+  "nguoi": false,
+  "diem_may": "D7-lai-nguoc",
+  "cam": [
+   {
+    "t": 0,
+    "p": [
+     -560,
+     420,
+     1450
+    ],
+    "l": [
+     80,
+     0,
+     -350
+    ],
+    "fov": 42
+   },
+   {
+    "t": 20.0,
+    "p": [
+     -535,
+     414,
+     1430
+    ],
+    "l": [
+     80,
+     0,
+     -350
+    ],
+    "fov": 42
+   }
+  ],
+  "loai": "eo",
+  "nhin_xuong_deg": [
+   12.4,
+   12.4
+  ],
+  "agl_m": [
+   416.0,
+   408.0
+  ],
+  "fov": [
+   42,
+   42
+  ],
+  "dur": 20.0,
+  "t0": 725.0,
+  "t1": 745.0,
+  "thoi_gian": [
+   {
+    "t": 0,
+    "at": 1730.0
+   },
+   {
+    "t": 4.709999999999991,
+    "at": 1735.0
+   },
+   {
+    "t": 4.759999999999991,
+    "at": "2026-10-18 13:00"
+   },
+   {
+    "t": 9.748999999999977,
+    "at": "2026-10-18 13:01"
+   },
+   {
+    "t": 9.798999999999978,
+    "at": 1783.12
+   },
+   {
+    "t": 13.290000000000031,
+    "at": 1783.13
+   },
+   {
+    "t": 13.340000000000032,
+    "at": "2026-10-18 19:30"
+   },
+   {
+    "t": 20.0,
+    "at": "2026-10-18 23:52"
+   }
+  ],
+  "nam": [
+   1730.0,
+   2026.797
+  ],
+  "lightmap": [
+   "b1704",
+   "b1779",
+   "b1781r",
+   "b1782",
+   "b1900",
+   "b1940",
+   "b2026"
+  ],
+  "tl_buoc": [
+   {
+    "t": 4.76,
+    "tu": 1735.0,
+    "toi": 2026.796
+   },
+   {
+    "t": 9.799,
+    "tu": 2026.796,
+    "toi": 1783.12
+   },
+   {
+    "t": 13.34,
+    "tu": 1783.13,
+    "toi": 2026.797
+   }
+  ],
+  "tl_buoc_n": 3,
+  "cau": [
+   {
+    "dong": "5k",
+    "t": 0.0,
+    "cau": "In 1730, Spain ordered a line to cut the Rock off by land."
+   },
+   {
+    "dong": "5k",
+    "t": 4.76,
+    "cau": "Today, four in ten of the Rock's jobs are held by people who live beyond it."
+   },
+   {
+    "dong": "5k",
+    "t": 9.799,
+    "cau": "The last siege ended in 1783."
+   },
+   {
+    "dong": "5k",
+    "t": 13.34,
+    "cau": "The argument didn't."
+   },
+   {
+    "dong": "5k",
+    "t": 15.534,
+    "cau": "Next in Contested Places: London, 1666."
+   }
+  ],
+  "su_kien": [
+   {
+    "t": 0.5,
+    "k": "xay",
+    "s": "1730: Línea mọc"
+   },
+   {
+    "t": 4.76,
+    "k": "buoc_nam",
+    "s": "2026"
+   },
+   {
+    "t": 9.8,
+    "k": "buoc_nam",
+    "s": "1783: trại vây rút"
+   },
+   {
+    "t": 13.34,
+    "k": "ngay_dem",
+    "s": "2026: chiều → nửa đêm biên giới"
+   }
+  ],
+  "moc": 1730.0,
+  "bac": "xem ghi + meta lớp của cảnh",
+  "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
+  "chuong": null,
+  "ghi": "bookend H1 (góc ngược): Línea 1730 → 2026 → 1783 → nửa đêm 2026 theo từng câu 5k",
+  "tieu_diem": [
+   "linea"
+  ],
+  "luot_thap": false,
+  "khung_neo": false,
+  "ai_image": false,
+  "ai_texture": false,
+  "nc": true,
+  "lan": null
+ },
+ {
+  "shot": "PP1",
+  "loai": "thẻ phương pháp",
+  "nguon": "phat-hanh/the-phuong-phap-v2.json",
+  "dur": 8.0,
+  "t0": 745.0,
+  "t1": 753.0,
+  "ai_image": false,
+  "ai_texture": false
+ },
+ {
+  "shot": "PP2",
+  "loai": "thẻ phương pháp",
+  "nguon": "phat-hanh/the-phuong-phap-v2.json",
+  "dur": 8.0,
+  "t0": 753.0,
+  "t1": 761.0,
+  "ai_image": false,
+  "ai_texture": false
+ }
+]

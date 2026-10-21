@@ -1,0 +1,48 @@
+{
+ "tag": "doi-chung",
+ "truoc": "../nc-cpu/khung/A/cong-cang.jpg",
+ "sau": "/var/tmp/n2p/dap-an/kiem/doi-chung-ghep.jpg",
+ "nam": "1780",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.0327,
+    "usage": {
+     "input_tokens": 16167,
+     "input_tokens_details": {
+      "cache_write_tokens": 16164,
+      "cached_tokens": 0
+     },
+     "output_tokens": 41,
+     "output_tokens_details": {
+      "reasoning_tokens": 19
+     },
+     "total_tokens": 16208
+    }
+   },
+   "secs": 4.7,
+   "json": {
+    "them": [],
+    "bot_doi": [],
+    "doi_loai_vung": []
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.1251336
+   },
+   "secs": 10.8,
+   "json": {
+    "them": [],
+    "bot_doi": [],
+    "doi_loai_vung": []
+   }
+  }
+ }
+}

@@ -1,0 +1,105 @@
+{
+ "vat": [
+  {
+   "id": "L1",
+   "loai_loi": "thoi_dai",
+   "bat": {
+    "gpt": true,
+    "claude": true,
+    "hop": true,
+    "q_thoi_dai": true
+   }
+  },
+  {
+   "id": "L2",
+   "loai_loi": "thoi_dai",
+   "bat": {
+    "gpt": true,
+    "claude": true,
+    "hop": true,
+    "q_thoi_dai": true
+   }
+  },
+  {
+   "id": "L3",
+   "loai_loi": "thoi_dai",
+   "bat": {
+    "gpt": true,
+    "claude": true,
+    "hop": true,
+    "q_thoi_dai": true
+   }
+  },
+  {
+   "id": "L4",
+   "loai_loi": "lop_a",
+   "bat": {
+    "gpt": true,
+    "claude": true,
+    "hop": true
+   }
+  },
+  {
+   "id": "L5",
+   "loai_loi": "lop_a",
+   "bat": {
+    "gpt": true,
+    "claude": true,
+    "hop": true
+   }
+  },
+  {
+   "id": "L6",
+   "loai_loi": "dong_bang",
+   "bat": {
+    "gpt": true,
+    "claude": true,
+    "hop": true
+   }
+  }
+ ],
+ "tong": {
+  "gpt": 6,
+  "claude": 6,
+  "hop": 6,
+  "q_thoi_dai_bat_thoi_dai": 3,
+  "q_thoi_dai_so_nghi_van": 3
+ },
+ "bao_thua": {
+  "thoi_dai": [
+   {
+    "mh": "gpt",
+    "loai": "co",
+    "mo_ta": "Union-pattern flag at the stern of the added foreground warship; its diagonals appear to include red crosses.",
+    "cung_vat_chen_khac": true
+   }
+  ],
+  "dong_bang": [
+   {
+    "mh": "gpt",
+    "loai": "xe_may",
+    "mo_ta": "Red modern convertible motor car on the hillside.",
+    "cung_vat_chen_khac": true
+   },
+   {
+    "mh": "gpt",
+    "loai": "may_bay",
+    "mo_ta": "Modern swept-wing passenger jet in the upper-right sky.",
+    "cung_vat_chen_khac": true
+   },
+   {
+    "mh": "claude",
+    "loai": "xe_may",
+    "mo_ta": "Red modern convertible car on a dirt patch on the hillside",
+    "cung_vat_chen_khac": true
+   },
+   {
+    "mh": "claude",
+    "loai": "may_bay",
+    "mo_ta": "Modern passenger jet airliner flying in the sky",
+    "cung_vat_chen_khac": true
+   }
+  ]
+ },
+ "n": 6
+}

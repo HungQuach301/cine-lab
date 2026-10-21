@@ -1,0 +1,95 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung c1-vua-r2-60 năm 1782: [co] Flag on the keep tower at right. It looks like the modern Union Flag, with a red diagonal St Patrick's saltire inside the white diagonals. — In 1782 the British flag was the 1606 Union Flag, which had only the crosses of St George and St Andrew. The version with St Patrick's saltire was introduced on 1 January 1801. (xuất hiện 1801) @px [1738, 740, 1782, 815] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.047 (TB $0.047/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c1-vua-r2-60",
+   "nam": 1782,
+   "noi": "Gibraltar",
+   "sha256": "79e2a457bfd5f4f4379bea2532c3f7ac86d4dfb93c917dcb270621f5453a39ea",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [
+    {
+     "muc": "co",
+     "mo_ta": "Flag on the keep tower at right. It looks like the modern Union Flag, with a red diagonal St Patrick's saltire inside the white diagonals.",
+     "ly_do": "In 1782 the British flag was the 1606 Union Flag, which had only the crosses of St George and St Andrew. The version with St Patrick's saltire was introduced on 1 January 1801.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      1738,
+      740,
+      1782,
+      815
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "vung_px": [
+       1647,
+       665,
+       1872,
+       890
+      ],
+      "phong": 2.99,
+      "tra_loi": {
+       "vat": "Cờ Union Flag (Union Jack) của Anh trên cột cờ ở một pháo đài",
+       "dac_diem": "Nền xanh navy với chữ thập đỏ viền trắng (St George) và các đường chéo đỏ-trắng (St Andrew và St Patrick). Cờ bị nhàu và mờ, nên không đếm được các chi tiết nhỏ.",
+       "co_tu_nam": 1801,
+       "da_co_nam_1782": "no",
+       "ly_do": "Hình này giống cờ Union Jack có chữ thập St Patrick, được dùng từ 1801. Năm 1782 Gibraltar dùng cờ Union 1606 chỉ có St George và St Andrew, nên thiết kế này ra đời sau 1782. Ảnh mờ nên có độ không chắc chắn."
+      },
+      "da_co": "no",
+      "giu": true,
+      "cost_usd": 0.010519400000000002,
+      "loi": null
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "A small flag on the bastion at the far left, also drawn as a modern Union Flag.",
+     "ly_do": "It has the same problem: it shows the post-1801 design, not the 1606 Union Flag in use in 1782.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      58,
+      389,
+      96,
+      416
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.047105400000000006,
+   "cost_buoc2": 0.01052,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1153,
+     "cacheReadInputTokens": 2840,
+     "cacheCreationInputTokens": 9904,
+     "webSearchRequests": 0,
+     "costUSD": 0.036586,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 322,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.2,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1782,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"Flag on the keep tower at right. It looks like the modern Union Flag, with a red diagonal St Patrick's saltire inside the white diagonals.\",\"ly_do\":\"In 1782 the British flag was the 1606 Union Flag, which had only the crosses of St George and St Andrew. The version with St Patrick's saltire was introduced on 1 January 1801.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.905,0.685,0.928,0.755],\"do_tin\":0.5},{\"muc\":\"co\",\"mo_ta\":\"A small flag on the bastion at the far left, also drawn as a modern Union Flag.\",\"ly_do\":\"It has the same problem: it shows the post-1801 design, not the 1606 Union Flag in use in 1782.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.03,0.36,0.05,0.385],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0471,
+ "chi_phi_tb": 0.0471,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

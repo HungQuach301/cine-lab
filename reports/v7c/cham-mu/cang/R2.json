@@ -1,0 +1,46 @@
+{
+ "A": {
+  "craft": 3,
+  "realism": 3,
+  "detail": 3,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "confusing",
+   "flat_slide_look",
+   "unreadable_scale"
+  ],
+  "note": "This is a different shot: a top-down view of a fortress wall with a cannon pile and tiny troops. It doesn't show the harbour or convoy. The ground and walls are flat tan colour fields with weak texture, and the cannons are stacked like blocks. The troops are tiny and badly scaled, and the composition is awkward."
+ },
+ "B": {
+  "craft": 6,
+  "realism": 6,
+  "detail": 5,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [
+   "unreadable_scale"
+  ],
+  "note": "It reads as a coastal town with a hill, haze at the horizon and a ship fleet. The water has believable depth and a gradient from deep to pale blue. The hill has some vegetation texture and the town has a plausible clustered layout. The ships are tiny and have pink and red halos or markers, which look like game pieces. The pier is a flat tan slab."
+ },
+ "C": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 5,
+  "ai_look": 4,
+  "flags": [
+   "noisy",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "It is the same scene as B but with no atmospheric haze. The horizon is hard-edged and the water is saturated cyan-blue with a repetitive noisy sparkle pattern. The result looks more like a game than B does, and the depth is flatter. The ships still have the pink halos."
+ },
+ "rank": [
+  "B",
+  "C",
+  "A"
+ ],
+ "why": "B has the best atmosphere, water depth and sense of place, while C has the same layout but a flatter, more game-like look, and A is a flat, confusing close-up that doesn't show the harbour.",
+ "top_fix_for_best": "Remove the pink halos under the ships and replace them with proper wakes and foam. Make the ships larger, with sails and rigging detail. Add smoke, a ship-to-shore foreground element, and some people on the pier. Texture the pier and town roofs. Add more water variation, such as swell and wake patterns."
+}

@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "cang-vua-l2-ghep",
+   "nam": 1780,
+   "noi": "Gibraltar",
+   "sha256": "cc2622a8355454bd11b1a646719705e71cfb235d69f2a3323f6a649cf1b9bff8",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "tau",
+     "mo_ta": "Three or four small dark, torpedo-shaped objects trail long white wakes in the open water. They have no visible mast, sail or oars. They look like modern motorboats or torpedoes.",
+     "ly_do": "Nothing in 1780 matches this shape. Powered launches and torpedoes did not exist, and boats of the period were sail or oar driven with visible rigs or oars.",
+     "nam_xuat_hien": 1866,
+     "toa_do_px": [
+      662,
+      643,
+      768,
+      670
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "tau",
+     "mo_ta": "Dark wakes with white trails at the other locations in the mid-sea. The most visible are around x 0.52–0.56, y 0.55–0.57, and x 0.63–0.66, y 0.51–0.53.",
+     "ly_do": "These look like fast powered craft leaving straight wakes. This is not consistent with 1780 sail or oar boats.",
+     "nam_xuat_hien": 1866,
+     "toa_do_px": [
+      989,
+      594,
+      1085,
+      616
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.038314299999999996,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1153,
+     "cacheReadInputTokens": 2173,
+     "cacheCreationInputTokens": 10622,
+     "webSearchRequests": 0,
+     "costUSD": 0.038314299999999996,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 260,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.9,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"tau\",\"mo_ta\":\"Three or four small dark, torpedo-shaped objects trail long white wakes in the open water. They have no visible mast, sail or oars. They look like modern motorboats or torpedoes.\",\"ly_do\":\"Nothing in 1780 matches this shape. Powered launches and torpedoes did not exist, and boats of the period were sail or oar driven with visible rigs or oars.\",\"nam_xuat_hien\":1866,\"toa_do\":[0.345,0.595,0.40,0.62],\"do_tin\":0.4},{\"muc\":\"tau\",\"mo_ta\":\"Dark wakes with white trails at the other locations in the mid-sea. The most visible are around x 0.52–0.56, y 0.55–0.57, and x 0.63–0.66, y 0.51–0.53.\",\"ly_do\":\"These look like fast powered craft leaving straight wakes. This is not consistent with 1780 sail or oar boats.\",\"nam_xuat_hien\":1866,\"toa_do\":[0.515,0.55,0.565,0.57],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0383,
+ "chi_phi_tb": 0.0383,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

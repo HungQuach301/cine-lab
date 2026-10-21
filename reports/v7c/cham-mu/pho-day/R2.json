@@ -1,0 +1,45 @@
+{
+ "A": {
+  "craft": 5,
+  "realism": 4,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "noisy"
+  ],
+  "note": "Tight top-down crop with no sky or horizon. The ground is a noisy cracked-looking texture. Buildings are sparse blocky orange boxes scattered over bare dirt, and there is no street grid or vegetation. The water is saturated and flat with a few foam patches. Only three tiny ships and no people."
+ },
+ "B": {
+  "craft": 7,
+  "realism": 7,
+  "detail": 6,
+  "toy_like": 3,
+  "ai_look": 3,
+  "flags": [
+   "unreadable_scale"
+  ],
+  "note": "Best of the three. It has a wide cinematic oblique view, hazy atmospheric perspective, a believable sky, hills, and green meadow terrain. The dense roofscape reads as a town, with visible courtyards and a street grid. The walls and bastions are legible, and there is soft cloud-shadow variation on the water. Ships are tiny and no people are visible. The buildings are still a bit uniform and block-like, and the foreground is slightly smeared."
+ },
+ "C": {
+  "craft": 6,
+  "realism": 5,
+  "detail": 5,
+  "toy_like": 4,
+  "ai_look": 4,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Same composition as B but with an oversaturated electric-blue sea and a darker, harder horizon. The ground is flat tan with little texture, and the town is sparser and more like scattered blocks. The ground is less convincing than B's, and the town reads more like a model."
+ },
+ "rank": [
+  "B",
+  "C",
+  "A"
+ ],
+ "why": "B has the most convincing atmosphere, terrain and town density. C has the same framing but flatter, more saturated surfaces. A is a cropped, noisy, toy-like block layout with no sense of place.",
+ "top_fix_for_best": "Add real ground and building detail: varied roof colours and weathering, streets with crowds, smoke from chimneys, quayside activity, and larger ships with wakes. Also break up the repeated block shapes and add contact shadows and ambient occlusion in the foreground, with a mild depth-of-field or tilt-shift to give the scene scale."
+}

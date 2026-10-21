@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c1-manh-120",
+   "nam": 1782,
+   "noi": "Gibraltar",
+   "sha256": "77396ab5c6b9239d04e4f1355c20c257c7fe49b4765dc2ec61130a4a2c5b1243",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "A red, white and blue Union flag flies from the tower of the fort at the right. Its pattern looks like the post-1801 Union Jack, with the red saltire of St Patrick over white. It is small and furled, so the design is hard to read.",
+     "ly_do": "In 1782 the British flag was the 1606 Union flag, with only the crosses of St George and St Andrew. The St Patrick saltire was added in 1801.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      1743,
+      740,
+      1778,
+      810
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.034337400000000004,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 945,
+     "cacheReadInputTokens": 2804,
+     "cacheCreationInputTokens": 9838,
+     "webSearchRequests": 0,
+     "costUSD": 0.034337400000000004,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 262,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.4,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1782,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"A red, white and blue Union flag flies from the tower of the fort at the right. Its pattern looks like the post-1801 Union Jack, with the red saltire of St Patrick over white. It is small and furled, so the design is hard to read.\",\"ly_do\":\"In 1782 the British flag was the 1606 Union flag, with only the crosses of St George and St Andrew. The St Patrick saltire was added in 1801.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.908,0.685,0.926,0.75],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0343,
+ "chi_phi_tb": 0.0343,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}
