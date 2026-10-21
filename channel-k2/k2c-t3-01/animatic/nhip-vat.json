@@ -4,35 +4,14 @@
    "id": "0a",
    "chinh": true,
    "cau": "Midnight at the Gibraltar frontier.",
-   "shot": "H1",
    "vat": [
     {
-     "loai": "den_dem",
-     "s": "đèn phố + đèn đường băng 2026 đêm",
-     "t": 0.0
+     "loai": "su_kien",
+     "shot": "H1"
     },
     {
-     "loai": "nguoi",
-     "s": "người đi bộ qua đường băng vào Gibraltar",
-     "t": 3.4
-    }
-   ]
-  },
-  {
-   "id": "0a",
-   "chinh": true,
-   "cau": "To walk in from Spain, you cross an airp",
-   "shot": "H1",
-   "vat": [
-    {
-     "loai": "den_dem",
-     "s": "đèn phố + đèn đường băng 2026 đêm",
-     "t": 0.0
-    },
-    {
-     "loai": "nguoi",
-     "s": "người đi bộ qua đường băng vào Gibraltar",
-     "t": 3.4
+     "loai": "dem_nam",
+     "shot": "H1"
     }
    ]
   },
@@ -40,22 +19,14 @@
    "id": "0b",
    "chinh": true,
    "cau": "Since July 2026, this gate has had no ro",
-   "shot": "H1",
    "vat": [
     {
-     "loai": "den_dem",
-     "s": "đèn phố + đèn đường băng 2026 đêm",
-     "t": 0.0
+     "loai": "su_kien",
+     "shot": "H1"
     },
     {
-     "loai": "nguoi",
-     "s": "người đi bộ qua đường băng vào Gibraltar",
-     "t": 3.4
-    },
-    {
-     "loai": "ngay_dem",
-     "s": "bình minh",
-     "t": 11.0
+     "loai": "dem_nam",
+     "shot": "H1"
     }
    ]
   },
@@ -63,12 +34,18 @@
    "id": "0c",
    "chinh": true,
    "cau": "The Rock sits at the western gate of the",
-   "shot": "H2",
    "vat": [
     {
-     "loai": "buoc_nam",
-     "s": "bộ đếm bước qua 14 lần vây (1309 → 1506)",
-     "t": 3.4
+     "loai": "su_kien",
+     "shot": "H2"
+    },
+    {
+     "loai": "dem_nam",
+     "shot": "H2"
+    },
+    {
+     "loai": "co_chu_quyen",
+     "shot": "H2"
     }
    ]
   },
@@ -76,17 +53,18 @@
    "id": "0d",
    "chinh": true,
    "cau": "Historians on both sides count fourteen ",
-   "shot": "H2",
    "vat": [
     {
-     "loai": "buoc_nam",
-     "s": "bộ đếm bước qua 14 lần vây (1309 → 1506)",
-     "t": 3.4
+     "loai": "su_kien",
+     "shot": "H2"
     },
     {
-     "loai": "co",
-     "s": "4/8/1704: Borgoña hạ, Union kéo trên Tower of Homage",
-     "t": 8.6
+     "loai": "dem_nam",
+     "shot": "H2"
+    },
+    {
+     "loai": "co_chu_quyen",
+     "shot": "H2"
     }
    ]
   },
@@ -94,32 +72,18 @@
    "id": "0e",
    "chinh": true,
    "cau": "This is why everyone fought over it, tol",
-   "shot": "H2",
    "vat": [
     {
-     "loai": "buoc_nam",
-     "s": "bộ đếm bước qua 14 lần vây (1309 → 1506)",
-     "t": 3.4
+     "loai": "su_kien",
+     "shot": "H2"
     },
     {
-     "loai": "co",
-     "s": "4/8/1704: Borgoña hạ, Union kéo trên Tower of Homage",
-     "t": 8.6
+     "loai": "dem_nam",
+     "shot": "H2"
     },
     {
-     "loai": "tau",
-     "s": "10 pin nổi vào vị trí",
-     "t": 11.8
-    },
-    {
-     "loai": "lua",
-     "s": "pin nổi khai hoả",
-     "t": 13.5
-    },
-    {
-     "loai": "lua",
-     "s": "pin nổi bốc cháy",
-     "t": 15.0
+     "loai": "co_chu_quyen",
+     "shot": "H2"
     }
    ]
   },
@@ -127,17 +91,14 @@
    "id": "0f",
    "chinh": true,
    "cau": "In 1782, ten floating batteries came to ",
-   "shot": "H2T",
    "vat": [
     {
-     "loai": "lua",
-     "s": "pin nổi cháy, nhìn từ vịnh (góc thumbnail)",
-     "t": 0.0
+     "loai": "su_kien",
+     "shot": "H2T"
     },
     {
-     "loai": "ngay_dem",
-     "s": "đêm 13→14/9/1782: lửa phản chiếu",
-     "t": 1.6
+     "loai": "dem_nam",
+     "shot": "H2T"
     }
    ]
   },
@@ -145,17 +106,14 @@
    "id": "0g",
    "chinh": true,
    "cau": "In 1941, a runway was laid across the on",
-   "shot": "H3",
    "vat": [
     {
-     "loai": "xay",
-     "s": "đường băng mọc qua đường 1939–41",
-     "t": 0.0
+     "loai": "su_kien",
+     "shot": "H3"
     },
     {
-     "loai": "buoc_nam",
-     "s": "bước năm 1943 → 1969 → 1985 → 2026",
-     "t": 5.0
+     "loai": "dem_nam",
+     "shot": "H3"
     }
    ]
   },
@@ -163,22 +121,14 @@
    "id": "0h",
    "chinh": true,
    "cau": "So why, today, is the fight over it abou",
-   "shot": "H3",
    "vat": [
     {
-     "loai": "xay",
-     "s": "đường băng mọc qua đường 1939–41",
-     "t": 0.0
+     "loai": "su_kien",
+     "shot": "H3"
     },
     {
-     "loai": "buoc_nam",
-     "s": "bước năm 1943 → 1969 → 1985 → 2026",
-     "t": 5.0
-    },
-    {
-     "loai": "xay",
-     "s": "phố 2026",
-     "t": 6.1
+     "loai": "dem_nam",
+     "shot": "H3"
     }
    ]
   },
@@ -186,17 +136,18 @@
    "id": "SM1",
    "chinh": true,
    "cau": "Austria, England and the Dutch backed a ",
-   "shot": "N1.1",
    "vat": [
     {
-     "loai": "the_chuong",
-     "s": "1704 — The Rock changes hands",
-     "t": 0.4
+     "loai": "su_kien",
+     "shot": "N1_1"
     },
     {
-     "loai": "tau",
-     "s": "hạm đội Anh–Hà Lan (Rooke) vào vịnh từ eo biển",
-     "t": 2.0
+     "loai": "dem_nam",
+     "shot": "N1_1"
+    },
+    {
+     "loai": "the_chuong",
+     "shot": "N1_1"
     }
    ]
   },
@@ -204,22 +155,14 @@
    "id": "1a",
    "chinh": true,
    "cau": "That summer, their fleet sailed into the",
-   "shot": "N1.1",
    "vat": [
     {
-     "loai": "the_chuong",
-     "s": "1704 — The Rock changes hands",
-     "t": 0.4
+     "loai": "su_kien",
+     "shot": "N1_1"
     },
     {
-     "loai": "tau",
-     "s": "hạm đội Anh–Hà Lan (Rooke) vào vịnh từ eo biển",
-     "t": 2.0
-    },
-    {
-     "loai": "tau",
-     "s": "hạm đội thả neo trước phố 1704",
-     "t": 12.0
+     "loai": "dem_nam",
+     "shot": "N1_1"
     }
    ]
   },
@@ -227,22 +170,14 @@
    "id": "1b",
    "chinh": true,
    "cau": "Its commanders, Admiral George Rooke and",
-   "shot": "N1.1",
    "vat": [
     {
-     "loai": "the_chuong",
-     "s": "1704 — The Rock changes hands",
-     "t": 0.4
+     "loai": "su_kien",
+     "shot": "N1_1"
     },
     {
-     "loai": "tau",
-     "s": "hạm đội Anh–Hà Lan (Rooke) vào vịnh từ eo biển",
-     "t": 2.0
-    },
-    {
-     "loai": "tau",
-     "s": "hạm đội thả neo trước phố 1704",
-     "t": 12.0
+     "loai": "dem_nam",
+     "shot": "N1_1"
     }
    ]
   },
@@ -250,12 +185,14 @@
    "id": "1c",
    "chinh": true,
    "cau": "This plan, printed in 1705, shows the pr",
-   "shot": "N1.2",
    "vat": [
     {
-     "loai": "xay",
-     "s": "phố có tường 1704 (lớp tái dựng 1705)",
-     "t": 0.0
+     "loai": "su_kien",
+     "shot": "N1_2"
+    },
+    {
+     "loai": "dem_nam",
+     "shot": "N1_2"
     }
    ]
   },
@@ -263,58 +200,14 @@
    "id": "1d",
    "chinh": true,
    "cau": "Inside, Governor Diego de Salinas had ba",
-   "shot": "N1.2",
    "vat": [
     {
-     "loai": "xay",
-     "s": "phố có tường 1704 (lớp tái dựng 1705)",
-     "t": 0.0
-    }
-   ]
-  },
-  {
-   "id": "1d",
-   "chinh": true,
-   "cau": "He refused to surrender.",
-   "shot": "N1.2",
-   "vat": [
-    {
-     "loai": "xay",
-     "s": "phố có tường 1704 (lớp tái dựng 1705)",
-     "t": 0.0
+     "loai": "su_kien",
+     "shot": "N1_2"
     },
     {
-     "loai": "lua",
-     "s": "hạm đội bắn phá: khói pháo ngoài vịnh + khói trong phố",
-     "t": 19.39
-    },
-    {
-     "loai": "ngay_dem",
-     "s": "đêm 3/8/1704",
-     "t": 24.75
-    }
-   ]
-  },
-  {
-   "id": "1d",
-   "chinh": true,
-   "cau": "The fleet answered with some fifteen tho",
-   "shot": "N1.2",
-   "vat": [
-    {
-     "loai": "xay",
-     "s": "phố có tường 1704 (lớp tái dựng 1705)",
-     "t": 0.0
-    },
-    {
-     "loai": "lua",
-     "s": "hạm đội bắn phá: khói pháo ngoài vịnh + khói trong phố",
-     "t": 19.39
-    },
-    {
-     "loai": "ngay_dem",
-     "s": "đêm 3/8/1704",
-     "t": 24.75
+     "loai": "dem_nam",
+     "shot": "N1_2"
     }
    ]
   },
@@ -322,17 +215,18 @@
    "id": "1e",
    "chinh": true,
    "cau": "On the fourth of August 1704, by the new",
-   "shot": "N1.3",
    "vat": [
     {
-     "loai": "co",
-     "s": "4/8/1704: Borgoña hạ trên Tower of Homage",
-     "t": 1.5
+     "loai": "su_kien",
+     "shot": "N1_3"
     },
     {
-     "loai": "co",
-     "s": "Union kéo lên",
-     "t": 4.0
+     "loai": "dem_nam",
+     "shot": "N1_3"
+    },
+    {
+     "loai": "co_chu_quyen",
+     "shot": "N1_3"
     }
    ]
   },
@@ -340,22 +234,18 @@
    "id": "1f",
    "chinh": true,
    "cau": "British accounts put the defenders at up",
-   "shot": "N1.3",
    "vat": [
     {
-     "loai": "co",
-     "s": "4/8/1704: Borgoña hạ trên Tower of Homage",
-     "t": 1.5
+     "loai": "su_kien",
+     "shot": "N1_3"
     },
     {
-     "loai": "co",
-     "s": "Union kéo lên",
-     "t": 4.0
+     "loai": "dem_nam",
+     "shot": "N1_3"
     },
     {
-     "loai": "nguoi",
-     "s": "lính Anh–Hà Lan vào lâu đài",
-     "t": 9.6
+     "loai": "co_chu_quyen",
+     "shot": "N1_3"
     }
    ]
   },
@@ -363,25 +253,14 @@
    "id": "1g",
    "chinh": true,
    "cau": "Townspeople could stay if they swore loy",
-   "shot": "N1.4",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "dòng dân rời phố đi bắc dọc eo đất (về San Roque)",
-     "t": 0.5
-    }
-   ]
-  },
-  {
-   "id": "1g",
-   "chinh": true,
-   "cau": "By a British account, almost all left; b",
-   "shot": "N1.4",
-   "vat": [
+     "loai": "su_kien",
+     "shot": "N1_4"
+    },
     {
-     "loai": "nguoi",
-     "s": "dòng dân rời phố đi bắc dọc eo đất (về San Roque)",
-     "t": 0.5
+     "loai": "dem_nam",
+     "shot": "N1_4"
     }
    ]
   },
@@ -389,25 +268,14 @@
    "id": "1h",
    "chinh": true,
    "cau": "In 1713, the Treaty of Utrecht gave it t",
-   "shot": "N1.5",
    "vat": [
     {
-     "loai": "dem_nam",
-     "s": "1713: eo đất trống phía bắc tường",
-     "t": 0.0
-    }
-   ]
-  },
-  {
-   "id": "1h",
-   "chinh": true,
-   "cau": "If Britain ever gave it up, Spain would ",
-   "shot": "N1.5",
-   "vat": [
+     "loai": "su_kien",
+     "shot": "N1_5"
+    },
     {
      "loai": "dem_nam",
-     "s": "1713: eo đất trống phía bắc tường",
-     "t": 0.0
+     "shot": "N1_5"
     }
    ]
   },
@@ -415,48 +283,14 @@
    "id": "1i",
    "chinh": true,
    "cau": "The treaty names the town, castle and po",
-   "shot": "N1.5",
    "vat": [
     {
-     "loai": "dem_nam",
-     "s": "1713: eo đất trống phía bắc tường",
-     "t": 0.0
-    }
-   ]
-  },
-  {
-   "id": "1i",
-   "chinh": true,
-   "cau": "Spain says the isthmus was never ceded.",
-   "shot": "N1.5",
-   "vat": [
-    {
-     "loai": "dem_nam",
-     "s": "1713: eo đất trống phía bắc tường",
-     "t": 0.0
+     "loai": "su_kien",
+     "shot": "N1_5"
     },
     {
-     "loai": "buoc_nam",
-     "s": "bước năm 1729 → 2015: đường băng + phố trên eo đất",
-     "t": 25.49
-    }
-   ]
-  },
-  {
-   "id": "1i",
-   "chinh": true,
-   "cau": "Britain said in 2015 that Gibraltar incl",
-   "shot": "N1.5",
-   "vat": [
-    {
      "loai": "dem_nam",
-     "s": "1713: eo đất trống phía bắc tường",
-     "t": 0.0
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "bước năm 1729 → 2015: đường băng + phố trên eo đất",
-     "t": 25.49
+     "shot": "N1_5"
     }
    ]
   },
@@ -464,58 +298,14 @@
    "id": "1j",
    "chinh": true,
    "cau": "Within weeks, Spain and France besieged ",
-   "shot": "N1.6",
    "vat": [
     {
-     "loai": "lua",
-     "s": "vây 1704–05: khói pháo ở mặt bắc",
-     "t": 0.5
-    }
-   ]
-  },
-  {
-   "id": "1j",
-   "chinh": true,
-   "cau": "Spain tried again in 1727.",
-   "shot": "N1.6",
-   "vat": [
-    {
-     "loai": "lua",
-     "s": "vây 1704–05: khói pháo ở mặt bắc",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N1_6"
     },
     {
-     "loai": "buoc_nam",
-     "s": "bước năm 1727: vây lần nữa",
-     "t": 6.07
-    },
-    {
-     "loai": "xay",
-     "s": "Línea de Contravalación mọc tây → đông 1730–35",
-     "t": 10.96
-    }
-   ]
-  },
-  {
-   "id": "1j",
-   "chinh": true,
-   "cau": "Neither siege took it.",
-   "shot": "N1.6",
-   "vat": [
-    {
-     "loai": "lua",
-     "s": "vây 1704–05: khói pháo ở mặt bắc",
-     "t": 0.5
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "bước năm 1727: vây lần nữa",
-     "t": 6.07
-    },
-    {
-     "loai": "xay",
-     "s": "Línea de Contravalación mọc tây → đông 1730–35",
-     "t": 10.96
+     "loai": "dem_nam",
+     "shot": "N1_6"
     }
    ]
   },
@@ -523,45 +313,14 @@
    "id": "1k",
    "chinh": true,
    "cau": "So in 1730, Philip the Fifth ordered a s",
-   "shot": "N1.6",
    "vat": [
     {
-     "loai": "lua",
-     "s": "vây 1704–05: khói pháo ở mặt bắc",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N1_6"
     },
     {
-     "loai": "buoc_nam",
-     "s": "bước năm 1727: vây lần nữa",
-     "t": 6.07
-    },
-    {
-     "loai": "xay",
-     "s": "Línea de Contravalación mọc tây → đông 1730–35",
-     "t": 10.96
-    }
-   ]
-  },
-  {
-   "id": "1k",
-   "chinh": true,
-   "cau": "The town behind it is still called La Lí",
-   "shot": "N1.6",
-   "vat": [
-    {
-     "loai": "lua",
-     "s": "vây 1704–05: khói pháo ở mặt bắc",
-     "t": 0.5
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "bước năm 1727: vây lần nữa",
-     "t": 6.07
-    },
-    {
-     "loai": "xay",
-     "s": "Línea de Contravalación mọc tây → đông 1730–35",
-     "t": 10.96
+     "loai": "dem_nam",
+     "shot": "N1_6"
     }
    ]
   },
@@ -569,35 +328,18 @@
    "id": "2a",
    "chinh": true,
    "cau": "Half a century later came a different qu",
-   "shot": "C1",
    "vat": [
     {
-     "loai": "the_chuong",
-     "s": "1779 — The Great Siege",
-     "t": 0.4
-    }
-   ]
-  },
-  {
-   "id": "2a",
-   "chinh": true,
-   "cau": "On the twenty-first of June 1779, Madrid",
-   "shot": "C1",
-   "vat": [
-    {
-     "loai": "the_chuong",
-     "s": "1779 — The Great Siege",
-     "t": 0.4
+     "loai": "su_kien",
+     "shot": "C1"
     },
     {
-     "loai": "xay",
-     "s": "trại TBN dựng theo hàng lối (13/7 → 28/10/1779)",
-     "t": 8.0
+     "loai": "dem_nam",
+     "shot": "C1"
     },
     {
-     "loai": "nguoi",
-     "s": "ngựa kỵ binh, người đi giữa dãy lều, khói bếp",
-     "t": 9.0
+     "loai": "the_chuong",
+     "shot": "C1"
     }
    ]
   },
@@ -605,45 +347,14 @@
    "id": "2b",
    "chinh": true,
    "cau": "Spain had joined France in its war with ",
-   "shot": "C1",
    "vat": [
     {
-     "loai": "the_chuong",
-     "s": "1779 — The Great Siege",
-     "t": 0.4
+     "loai": "su_kien",
+     "shot": "C1"
     },
     {
-     "loai": "xay",
-     "s": "trại TBN dựng theo hàng lối (13/7 → 28/10/1779)",
-     "t": 8.0
-    },
-    {
-     "loai": "nguoi",
-     "s": "ngựa kỵ binh, người đi giữa dãy lều, khói bếp",
-     "t": 9.0
-    }
-   ]
-  },
-  {
-   "id": "2b",
-   "chinh": true,
-   "cau": "By October, British intelligence put the",
-   "shot": "C1",
-   "vat": [
-    {
-     "loai": "the_chuong",
-     "s": "1779 — The Great Siege",
-     "t": 0.4
-    },
-    {
-     "loai": "xay",
-     "s": "trại TBN dựng theo hàng lối (13/7 → 28/10/1779)",
-     "t": 8.0
-    },
-    {
-     "loai": "nguoi",
-     "s": "ngựa kỵ binh, người đi giữa dãy lều, khói bếp",
-     "t": 9.0
+     "loai": "dem_nam",
+     "shot": "C1"
     }
    ]
   },
@@ -651,35 +362,14 @@
    "id": "2c",
    "chinh": true,
    "cau": "At sea, from mid-July, a Spanish squadro",
-   "shot": "C2",
    "vat": [
     {
-     "loai": "tau",
-     "s": "hải đội TBN vào hàng chặn (16/7/1779)",
-     "t": 0.5
-    }
-   ]
-  },
-  {
-   "id": "2c",
-   "chinh": true,
-   "cau": "Based at Algeciras, its boats were there",
-   "shot": "C2",
-   "vat": [
-    {
-     "loai": "tau",
-     "s": "hải đội TBN vào hàng chặn (16/7/1779)",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "C2"
     },
     {
-     "loai": "tau",
-     "s": "thuyền châu Phi tới sát hàng chặn",
-     "t": 6.5
-    },
-    {
-     "loai": "tau",
-     "s": "thuyền châu Phi quay về nam",
-     "t": 9.0
+     "loai": "dem_nam",
+     "shot": "C2"
     }
    ]
   },
@@ -687,17 +377,14 @@
    "id": "2d",
    "chinh": true,
    "cau": "By January 1780, thistles, dandelions an",
-   "shot": "C3",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "người cúi hái rau dại (S052), cờ Union trên lâu đài",
-     "t": 0.0
+     "loai": "su_kien",
+     "shot": "C3"
     },
     {
-     "loai": "may",
-     "s": "cần cẩu lên phố",
-     "t": 4.5
+     "loai": "dem_nam",
+     "shot": "C3"
     }
    ]
   },
@@ -705,45 +392,14 @@
    "id": "2e",
    "chinh": true,
    "cau": "The governor, General Eliott, could hold",
-   "shot": "C3",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "người cúi hái rau dại (S052), cờ Union trên lâu đài",
-     "t": 0.0
+     "loai": "su_kien",
+     "shot": "C3"
     },
     {
-     "loai": "may",
-     "s": "cần cẩu lên phố",
-     "t": 4.5
-    },
-    {
-     "loai": "tau",
-     "s": "hải đội phong toả trong vịnh",
-     "t": 8.0
-    }
-   ]
-  },
-  {
-   "id": "2e",
-   "chinh": true,
-   "cau": "The food had to come by sea.",
-   "shot": "C3",
-   "vat": [
-    {
-     "loai": "nguoi",
-     "s": "người cúi hái rau dại (S052), cờ Union trên lâu đài",
-     "t": 0.0
-    },
-    {
-     "loai": "may",
-     "s": "cần cẩu lên phố",
-     "t": 4.5
-    },
-    {
-     "loai": "tau",
-     "s": "hải đội phong toả trong vịnh",
-     "t": 8.0
+     "loai": "dem_nam",
+     "shot": "C3"
     }
    ]
   },
@@ -751,17 +407,14 @@
    "id": "SM2",
    "chinh": true,
    "cau": "To break the blockade, Britain sent thre",
-   "shot": "C4",
    "vat": [
     {
-     "loai": "tau",
-     "s": "đoàn Rodney vào vịnh (cờ Red Ensign)",
-     "t": 1.8
+     "loai": "su_kien",
+     "shot": "C4"
     },
     {
-     "loai": "nguoi",
-     "s": "thuyền cập Old Mole, người khiêng thùng, đống thùng lớn dần",
-     "t": 3.0
+     "loai": "dem_nam",
+     "shot": "C4"
     }
    ]
   },
@@ -769,22 +422,14 @@
    "id": "2f",
    "chinh": true,
    "cau": "Scurvy spread, until a Danish ship of le",
-   "shot": "C4",
    "vat": [
     {
-     "loai": "tau",
-     "s": "đoàn Rodney vào vịnh (cờ Red Ensign)",
-     "t": 1.8
+     "loai": "su_kien",
+     "shot": "C4"
     },
     {
-     "loai": "nguoi",
-     "s": "thuyền cập Old Mole, người khiêng thùng, đống thùng lớn dần",
-     "t": 3.0
-    },
-    {
-     "loai": "tau",
-     "s": "tàu chanh Đan Mạch vào cảng 10/1780",
-     "t": 9.6
+     "loai": "dem_nam",
+     "shot": "C4"
     }
    ]
   },
@@ -792,45 +437,14 @@
    "id": "2g",
    "chinh": true,
    "cau": "On the twelfth of April 1781, the second",
-   "shot": "C5",
    "vat": [
     {
-     "loai": "tau",
-     "s": "đoàn Darby thả neo xong",
-     "t": 3.6
+     "loai": "su_kien",
+     "shot": "C5"
     },
     {
-     "loai": "lua",
-     "s": "pháo TBN bắn vào phố (sau neo 2,2 s)",
-     "t": 5.8
-    }
-   ]
-  },
-  {
-   "id": "2g",
-   "chinh": true,
-   "cau": "The townspeople fled south.",
-   "shot": "C5",
-   "vat": [
-    {
-     "loai": "tau",
-     "s": "đoàn Darby thả neo xong",
-     "t": 3.6
-    },
-    {
-     "loai": "lua",
-     "s": "pháo TBN bắn vào phố (sau neo 2,2 s)",
-     "t": 5.8
-    },
-    {
-     "loai": "lua",
-     "s": "phố cháy đêm 13→14/4/1781",
-     "t": 8.0
-    },
-    {
-     "loai": "nguoi",
-     "s": "dân chạy về nam",
-     "t": 10.0
+     "loai": "dem_nam",
+     "shot": "C5"
     }
    ]
   },
@@ -838,35 +452,14 @@
    "id": "2h",
    "chinh": true,
    "cau": "Two days later, soldiers broke into the ",
-   "shot": "N2.6",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "14–16/4/1781: lính tụ trước kho thương nhân trên Main Street",
-     "t": 0.5
-    }
-   ]
-  },
-  {
-   "id": "2h",
-   "chinh": true,
-   "cau": "A British officer blamed \"resentment and",
-   "shot": "N2.6",
-   "vat": [
-    {
-     "loai": "nguoi",
-     "s": "14–16/4/1781: lính tụ trước kho thương nhân trên Main Street",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N2_6"
     },
     {
-     "loai": "pha",
-     "s": "phố sập dần thành THE RUINS (plan 1786)",
-     "t": 8.4
-    },
-    {
-     "loai": "lua",
-     "s": "khói pháo hai phía 1781–82",
-     "t": 9.5
+     "loai": "dem_nam",
+     "shot": "N2_6"
     }
    ]
   },
@@ -874,22 +467,14 @@
    "id": "2i",
    "chinh": true,
    "cau": "By British tallies, the two sides fired ",
-   "shot": "N2.6",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "14–16/4/1781: lính tụ trước kho thương nhân trên Main Street",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N2_6"
     },
     {
-     "loai": "pha",
-     "s": "phố sập dần thành THE RUINS (plan 1786)",
-     "t": 8.4
-    },
-    {
-     "loai": "lua",
-     "s": "khói pháo hai phía 1781–82",
-     "t": 9.5
+     "loai": "dem_nam",
+     "shot": "N2_6"
     }
    ]
   },
@@ -897,12 +482,14 @@
    "id": "KA1782",
    "chinh": true,
    "cau": "By September 1782, the garrison counted ",
-   "shot": "KA1782",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "phố đổ nát 9/1782 (vùng THE RUINS), đồn trú",
-     "t": 0.0
+     "loai": "su_kien",
+     "shot": "KA1782"
+    },
+    {
+     "loai": "dem_nam",
+     "shot": "KA1782"
     }
    ]
   },
@@ -910,25 +497,14 @@
    "id": "2o",
    "chinh": true,
    "cau": "That summer, they had been digging throu",
-   "shot": "N2.10",
    "vat": [
     {
-     "loai": "xay",
-     "s": "bụi đào ở vách bắc (đường hầm Ince, từ 25/5/1782)",
-     "t": 0.6
-    }
-   ]
-  },
-  {
-   "id": "2o",
-   "chinh": true,
-   "cau": "By early July, Sergeant Ince's thirteen ",
-   "shot": "N2.10",
-   "vat": [
+     "loai": "su_kien",
+     "shot": "N2_10"
+    },
     {
-     "loai": "xay",
-     "s": "bụi đào ở vách bắc (đường hầm Ince, từ 25/5/1782)",
-     "t": 0.6
+     "loai": "dem_nam",
+     "shot": "N2_10"
     }
    ]
   },
@@ -936,35 +512,14 @@
    "id": "2p",
    "chinh": true,
    "cau": "In July they blasted a hole for air.",
-   "shot": "N2.10",
    "vat": [
     {
-     "loai": "xay",
-     "s": "bụi đào ở vách bắc (đường hầm Ince, từ 25/5/1782)",
-     "t": 0.6
+     "loai": "su_kien",
+     "shot": "N2_10"
     },
     {
-     "loai": "no",
-     "s": "7/1782: nổ thủng lỗ thông hơi — khói phụt ra mặt vách",
-     "t": 10.76
-    }
-   ]
-  },
-  {
-   "id": "2p",
-   "chinh": true,
-   "cau": "A Spanish historian wrote it was big eno",
-   "shot": "N2.10",
-   "vat": [
-    {
-     "loai": "xay",
-     "s": "bụi đào ở vách bắc (đường hầm Ince, từ 25/5/1782)",
-     "t": 0.6
-    },
-    {
-     "loai": "no",
-     "s": "7/1782: nổ thủng lỗ thông hơi — khói phụt ra mặt vách",
-     "t": 10.76
+     "loai": "dem_nam",
+     "shot": "N2_10"
     }
    ]
   },
@@ -972,30 +527,14 @@
    "id": "2j",
    "chinh": true,
    "cau": "The garrison turned to heat: cannonballs",
-   "shot": "N2.7",
    "vat": [
     {
-     "loai": "lua",
-     "s": "8/9/1782: đạn nung đỏ — tuyến song song TBN bốc cháy lần lượt",
-     "t": 1.0
-    }
-   ]
-  },
-  {
-   "id": "2j",
-   "chinh": true,
-   "cau": "On the eighth of September, they used th",
-   "shot": "N2.7",
-   "vat": [
-    {
-     "loai": "lua",
-     "s": "8/9/1782: đạn nung đỏ — tuyến song song TBN bốc cháy lần lượt",
-     "t": 1.0
+     "loai": "su_kien",
+     "shot": "N2_7"
     },
     {
-     "loai": "ngay_dem",
-     "s": "tối 8/9: lửa còn cháy",
-     "t": 10.0
+     "loai": "dem_nam",
+     "shot": "N2_7"
     }
    ]
   },
@@ -1003,30 +542,14 @@
    "id": "2k",
    "chinh": true,
    "cau": "Four days later, the French and Spanish ",
-   "shot": "N2.8",
    "vat": [
     {
-     "loai": "tau",
-     "s": "hạm đội Pháp–TBN vào vịnh (47 tàu chiến, số phía Anh)",
-     "t": 1.0
-    }
-   ]
-  },
-  {
-   "id": "2k",
-   "chinh": true,
-   "cau": "The Duc de Crillon led the siege.",
-   "shot": "N2.8",
-   "vat": [
-    {
-     "loai": "tau",
-     "s": "hạm đội Pháp–TBN vào vịnh (47 tàu chiến, số phía Anh)",
-     "t": 1.0
+     "loai": "su_kien",
+     "shot": "N2_8"
     },
     {
-     "loai": "tau",
-     "s": "10 pin nổi neo ngoài Algeciras",
-     "t": 12.0
+     "loai": "dem_nam",
+     "shot": "N2_8"
     }
    ]
   },
@@ -1034,53 +557,14 @@
    "id": "2l",
    "chinh": true,
    "cau": "Their answer to red-hot shot: ten floati",
-   "shot": "N2.8",
    "vat": [
     {
-     "loai": "tau",
-     "s": "hạm đội Pháp–TBN vào vịnh (47 tàu chiến, số phía Anh)",
-     "t": 1.0
+     "loai": "su_kien",
+     "shot": "N2_8"
     },
     {
-     "loai": "tau",
-     "s": "10 pin nổi neo ngoài Algeciras",
-     "t": 12.0
-    }
-   ]
-  },
-  {
-   "id": "2l",
-   "chinh": true,
-   "cau": "A French account says he'd asked to test",
-   "shot": "N2.8",
-   "vat": [
-    {
-     "loai": "tau",
-     "s": "hạm đội Pháp–TBN vào vịnh (47 tàu chiến, số phía Anh)",
-     "t": 1.0
-    },
-    {
-     "loai": "tau",
-     "s": "10 pin nổi neo ngoài Algeciras",
-     "t": 12.0
-    }
-   ]
-  },
-  {
-   "id": "2l",
-   "chinh": true,
-   "cau": "It was refused.",
-   "shot": "N2.8",
-   "vat": [
-    {
-     "loai": "tau",
-     "s": "hạm đội Pháp–TBN vào vịnh (47 tàu chiến, số phía Anh)",
-     "t": 1.0
-    },
-    {
-     "loai": "tau",
-     "s": "10 pin nổi neo ngoài Algeciras",
-     "t": 12.0
+     "loai": "dem_nam",
+     "shot": "N2_8"
     }
    ]
   },
@@ -1088,71 +572,14 @@
    "id": "2m",
    "chinh": true,
    "cau": "The thirteenth of September 1782.",
-   "shot": "N2.9",
    "vat": [
     {
-     "loai": "tau",
-     "s": "13/9/1782 sáng: 10 pin nổi vào vị trí dưới hoả lực",
-     "t": 1.0
-    }
-   ]
-  },
-  {
-   "id": "2m",
-   "chinh": true,
-   "cau": "That morning, the batteries moved into p",
-   "shot": "N2.9",
-   "vat": [
-    {
-     "loai": "tau",
-     "s": "13/9/1782 sáng: 10 pin nổi vào vị trí dưới hoả lực",
-     "t": 1.0
+     "loai": "su_kien",
+     "shot": "N2_9"
     },
     {
-     "loai": "lua",
-     "s": "khai hoả",
-     "t": 9.0
-    }
-   ]
-  },
-  {
-   "id": "2m",
-   "chinh": true,
-   "cau": "At ten twenty-five, by the Spanish accou",
-   "shot": "N2.9",
-   "vat": [
-    {
-     "loai": "tau",
-     "s": "13/9/1782 sáng: 10 pin nổi vào vị trí dưới hoả lực",
-     "t": 1.0
-    },
-    {
-     "loai": "lua",
-     "s": "khai hoả",
-     "t": 9.0
-    }
-   ]
-  },
-  {
-   "id": "2m",
-   "chinh": true,
-   "cau": "By the next afternoon, all ten batteries",
-   "shot": "N2.9",
-   "vat": [
-    {
-     "loai": "tau",
-     "s": "13/9/1782 sáng: 10 pin nổi vào vị trí dưới hoả lực",
-     "t": 1.0
-    },
-    {
-     "loai": "lua",
-     "s": "khai hoả",
-     "t": 9.0
-    },
-    {
-     "loai": "may",
-     "s": "CÚ LẶN (giữ chỗ): chiều → đêm cháy → rạng sáng",
-     "t": 16.5
+     "loai": "dem_nam",
+     "shot": "N2_9"
     }
    ]
   },
@@ -1160,22 +587,14 @@
    "id": "2n",
    "chinh": true,
    "cau": "Over two thousand attackers were lost, b",
-   "shot": "N2.9",
    "vat": [
     {
-     "loai": "tau",
-     "s": "13/9/1782 sáng: 10 pin nổi vào vị trí dưới hoả lực",
-     "t": 1.0
+     "loai": "su_kien",
+     "shot": "N2_9"
     },
     {
-     "loai": "lua",
-     "s": "khai hoả",
-     "t": 9.0
-    },
-    {
-     "loai": "may",
-     "s": "CÚ LẶN (giữ chỗ): chiều → đêm cháy → rạng sáng",
-     "t": 16.5
+     "loai": "dem_nam",
+     "shot": "N2_9"
     }
    ]
   },
@@ -1183,30 +602,14 @@
    "id": "2q",
    "chinh": true,
    "cau": "The blockade never forced a surrender.",
-   "shot": "N2.11",
    "vat": [
     {
-     "loai": "tau",
-     "s": "phong toả tiếp tục mùa đông 1782",
-     "t": 0.5
-    }
-   ]
-  },
-  {
-   "id": "2q",
-   "chinh": true,
-   "cau": "In February 1783, word came of a prelimi",
-   "shot": "N2.11",
-   "vat": [
-    {
-     "loai": "tau",
-     "s": "phong toả tiếp tục mùa đông 1782",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N2_11"
     },
     {
-     "loai": "lua",
-     "s": "5/2/1783: phát súng cuối",
-     "t": 12.63
+     "loai": "dem_nam",
+     "shot": "N2_11"
     }
    ]
   },
@@ -1214,68 +617,14 @@
    "id": "2r",
    "chinh": true,
    "cau": "Spanish historian Montero put losses nea",
-   "shot": "N2.11",
    "vat": [
     {
-     "loai": "tau",
-     "s": "phong toả tiếp tục mùa đông 1782",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N2_11"
     },
     {
-     "loai": "lua",
-     "s": "5/2/1783: phát súng cuối",
-     "t": 12.63
-    },
-    {
-     "loai": "pha",
-     "s": "trại + công sự TBN rút dần 1783",
-     "t": 14.13
-    }
-   ]
-  },
-  {
-   "id": "2r",
-   "chinh": true,
-   "cau": "The garrison's records count fewer dead:",
-   "shot": "N2.11",
-   "vat": [
-    {
-     "loai": "tau",
-     "s": "phong toả tiếp tục mùa đông 1782",
-     "t": 0.5
-    },
-    {
-     "loai": "lua",
-     "s": "5/2/1783: phát súng cuối",
-     "t": 12.63
-    },
-    {
-     "loai": "pha",
-     "s": "trại + công sự TBN rút dần 1783",
-     "t": 14.13
-    }
-   ]
-  },
-  {
-   "id": "2r",
-   "chinh": true,
-   "cau": "Gibraltar stayed British.",
-   "shot": "N2.11",
-   "vat": [
-    {
-     "loai": "tau",
-     "s": "phong toả tiếp tục mùa đông 1782",
-     "t": 0.5
-    },
-    {
-     "loai": "lua",
-     "s": "5/2/1783: phát súng cuối",
-     "t": 12.63
-    },
-    {
-     "loai": "pha",
-     "s": "trại + công sự TBN rút dần 1783",
-     "t": 14.13
+     "loai": "dem_nam",
+     "shot": "N2_11"
     }
    ]
   },
@@ -1283,35 +632,14 @@
    "id": "3a",
    "chinh": true,
    "cau": "Which leaves a question the treaty never",
-   "shot": "N3.1",
    "vat": [
     {
-     "loai": "the_chuong",
-     "s": "1783 — The neutral ground",
-     "t": 0.4
+     "loai": "su_kien",
+     "shot": "N3_1"
     },
     {
      "loai": "dem_nam",
-     "s": "1783 → 1809: dải cát giữa tường và Línea",
-     "t": 3.0
-    }
-   ]
-  },
-  {
-   "id": "3a",
-   "chinh": true,
-   "cau": "Between the walls and the Spanish line l",
-   "shot": "N3.1",
-   "vat": [
-    {
-     "loai": "the_chuong",
-     "s": "1783 — The neutral ground",
-     "t": 0.4
-    },
-    {
-     "loai": "dem_nam",
-     "s": "1783 → 1809: dải cát giữa tường và Línea",
-     "t": 3.0
+     "shot": "N3_1"
     }
    ]
   },
@@ -1319,45 +647,14 @@
    "id": "3b",
    "chinh": true,
    "cau": "Around 1810, with Napoleon's armies head",
-   "shot": "N3.1",
    "vat": [
     {
-     "loai": "the_chuong",
-     "s": "1783 — The neutral ground",
-     "t": 0.4
+     "loai": "su_kien",
+     "shot": "N3_1"
     },
     {
      "loai": "dem_nam",
-     "s": "1783 → 1809: dải cát giữa tường và Línea",
-     "t": 3.0
-    },
-    {
-     "loai": "no",
-     "s": "14/2/1810: hai pháo đài Línea nổ tung",
-     "t": 20.95
-    }
-   ]
-  },
-  {
-   "id": "3b",
-   "chinh": true,
-   "cau": "With Spain's consent, the British blew u",
-   "shot": "N3.1",
-   "vat": [
-    {
-     "loai": "the_chuong",
-     "s": "1783 — The neutral ground",
-     "t": 0.4
-    },
-    {
-     "loai": "dem_nam",
-     "s": "1783 → 1809: dải cát giữa tường và Línea",
-     "t": 3.0
-    },
-    {
-     "loai": "no",
-     "s": "14/2/1810: hai pháo đài Línea nổ tung",
-     "t": 20.95
+     "shot": "N3_1"
     }
    ]
   },
@@ -1365,25 +662,14 @@
    "id": "3c",
    "chinh": true,
    "cau": "After that, the edge kept moving.",
-   "shot": "N3.2",
    "vat": [
     {
-     "loai": "dem_nam",
-     "s": "1810 → 1860 trên dải trung lập",
-     "t": 0.5
-    }
-   ]
-  },
-  {
-   "id": "3c",
-   "chinh": true,
-   "cau": "A Spanish historian describes Britain ad",
-   "shot": "N3.2",
-   "vat": [
+     "loai": "su_kien",
+     "shot": "N3_2"
+    },
     {
      "loai": "dem_nam",
-     "s": "1810 → 1860 trên dải trung lập",
-     "t": 0.5
+     "shot": "N3_2"
     }
    ]
   },
@@ -1391,25 +677,14 @@
    "id": "3d",
    "chinh": true,
    "cau": "On the Spanish side, a town grew up behi",
-   "shot": "N3.3",
    "vat": [
     {
-     "loai": "xay",
-     "s": "La Línea mọc theo năm xây (Catastro) 1849 → 1905",
-     "t": 0.5
-    }
-   ]
-  },
-  {
-   "id": "3d",
-   "chinh": true,
-   "cau": "In 1870, it became La Línea de la Concep",
-   "shot": "N3.3",
-   "vat": [
+     "loai": "su_kien",
+     "shot": "N3_3"
+    },
     {
-     "loai": "xay",
-     "s": "La Línea mọc theo năm xây (Catastro) 1849 → 1905",
-     "t": 0.5
+     "loai": "dem_nam",
+     "shot": "N3_3"
     }
    ]
   },
@@ -1417,25 +692,14 @@
    "id": "KC1910",
    "chinh": true,
    "cau": "Remember this street in La Línea.",
-   "shot": "KC1910",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "phố La Línea 1910",
-     "t": 0.0
-    }
-   ]
-  },
-  {
-   "id": "KC1910",
-   "chinh": true,
-   "cau": "We'll come back to it.",
-   "shot": "KC1910",
-   "vat": [
+     "loai": "su_kien",
+     "shot": "KC1910"
+    },
     {
-     "loai": "nguoi",
-     "s": "phố La Línea 1910",
-     "t": 0.0
+     "loai": "dem_nam",
+     "shot": "KC1910"
     }
    ]
   },
@@ -1443,12 +707,14 @@
    "id": "3e",
    "chinh": true,
    "cau": "This was the gap between them: a strip o",
-   "shot": "N3.4",
    "vat": [
     {
+     "loai": "su_kien",
+     "shot": "N3_4"
+    },
+    {
      "loai": "dem_nam",
-     "s": "dải trung lập giữa hai phố 1900",
-     "t": 0.5
+     "shot": "N3_4"
     }
    ]
   },
@@ -1456,35 +722,14 @@
    "id": "3f",
    "chinh": true,
    "cau": "In 1908, Britain told Spain, \"as an act ",
-   "shot": "N3.4",
    "vat": [
     {
-     "loai": "dem_nam",
-     "s": "dải trung lập giữa hai phố 1900",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N3_4"
     },
     {
-     "loai": "xay",
-     "s": "hàng rào 1909 mọc dọc mép (MỐC ĐINH)",
-     "t": 7.0
-    }
-   ]
-  },
-  {
-   "id": "3f",
-   "chinh": true,
-   "cau": "The fence went up in 1909; Spain does no",
-   "shot": "N3.4",
-   "vat": [
-    {
      "loai": "dem_nam",
-     "s": "dải trung lập giữa hai phố 1900",
-     "t": 0.5
-    },
-    {
-     "loai": "xay",
-     "s": "hàng rào 1909 mọc dọc mép (MỐC ĐINH)",
-     "t": 7.0
+     "shot": "N3_4"
     }
    ]
   },
@@ -1492,22 +737,14 @@
    "id": "3g",
    "chinh": true,
    "cau": "Behind the fence: a garrison camp, garde",
-   "shot": "N3.4",
    "vat": [
     {
-     "loai": "dem_nam",
-     "s": "dải trung lập giữa hai phố 1900",
-     "t": 0.5
-    },
-    {
-     "loai": "xay",
-     "s": "hàng rào 1909 mọc dọc mép (MỐC ĐINH)",
-     "t": 7.0
+     "loai": "su_kien",
+     "shot": "N3_4"
     },
     {
      "loai": "dem_nam",
-     "s": "1909 → 1930",
-     "t": 22.0
+     "shot": "N3_4"
     }
    ]
   },
@@ -1515,25 +752,14 @@
    "id": "3h",
    "chinh": true,
    "cau": "And from 1934, a grass airstrip was buil",
-   "shot": "N3.5",
    "vat": [
     {
-     "loai": "xay",
-     "s": "dải cỏ cắt làm đường bay 1934–36",
-     "t": 0.5
-    }
-   ]
-  },
-  {
-   "id": "3h",
-   "chinh": true,
-   "cau": "Subscribe if you'd like the next place i",
-   "shot": "N3.5",
-   "vat": [
+     "loai": "su_kien",
+     "shot": "N3_5"
+    },
     {
-     "loai": "xay",
-     "s": "dải cỏ cắt làm đường bay 1934–36",
-     "t": 0.5
+     "loai": "dem_nam",
+     "shot": "N3_5"
     }
    ]
   },
@@ -1541,25 +767,18 @@
    "id": "4a",
    "chinh": true,
    "cau": "Why build an airfield on disputed ground",
-   "shot": "N4.1",
    "vat": [
     {
-     "loai": "the_chuong",
-     "s": "1939 — A runway on the sand",
-     "t": 0.4
-    }
-   ]
-  },
-  {
-   "id": "4a",
-   "chinh": true,
-   "cau": "In March 1939, Spain protested that the ",
-   "shot": "N4.1",
-   "vat": [
+     "loai": "su_kien",
+     "shot": "N4_1"
+    },
+    {
+     "loai": "dem_nam",
+     "shot": "N4_1"
+    },
     {
      "loai": "the_chuong",
-     "s": "1939 — A runway on the sand",
-     "t": 0.4
+     "shot": "N4_1"
     }
    ]
   },
@@ -1567,35 +786,14 @@
    "id": "4b",
    "chinh": true,
    "cau": "That November, Spain's foreign minister ",
-   "shot": "N4.1",
    "vat": [
     {
-     "loai": "the_chuong",
-     "s": "1939 — A runway on the sand",
-     "t": 0.4
-    }
-   ]
-  },
-  {
-   "id": "4b",
-   "chinh": true,
-   "cau": "Late in 1939, Britain began a hard runwa",
-   "shot": "N4.1",
-   "vat": [
-    {
-     "loai": "the_chuong",
-     "s": "1939 — A runway on the sand",
-     "t": 0.4
+     "loai": "su_kien",
+     "shot": "N4_1"
     },
     {
-     "loai": "xay",
-     "s": "cuối 1939: mặt đường băng cứng mọc",
-     "t": 21.59
-    },
-    {
-     "loai": "xay",
-     "s": "1941: đường băng cắt qua con đường duy nhất sang TBN",
-     "t": 22.5
+     "loai": "dem_nam",
+     "shot": "N4_1"
     }
    ]
   },
@@ -1603,17 +801,14 @@
    "id": "4c",
    "chinh": true,
    "cau": "Then Britain pushed it out into the bay,",
-   "shot": "N4.2",
    "vat": [
     {
-     "loai": "xay",
-     "s": "đường băng lấn vịnh theo tháng 1941–43",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N4_2"
     },
     {
-     "loai": "lua",
-     "s": "bụi đá nổ ở vách bắc",
-     "t": 3.0
+     "loai": "dem_nam",
+     "shot": "N4_2"
     }
    ]
   },
@@ -1621,17 +816,14 @@
    "id": "4d",
    "chinh": true,
    "cau": "Inside the Rock, those tunnels held a ro",
-   "shot": "N4.2",
    "vat": [
     {
-     "loai": "xay",
-     "s": "đường băng lấn vịnh theo tháng 1941–43",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N4_2"
     },
     {
-     "loai": "lua",
-     "s": "bụi đá nổ ở vách bắc",
-     "t": 3.0
+     "loai": "dem_nam",
+     "shot": "N4_2"
     }
    ]
   },
@@ -1639,17 +831,14 @@
    "id": "4e",
    "chinh": true,
    "cau": "Gibraltar counts about fifty-five kilome",
-   "shot": "N4.2",
    "vat": [
     {
-     "loai": "xay",
-     "s": "đường băng lấn vịnh theo tháng 1941–43",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N4_2"
     },
     {
-     "loai": "lua",
-     "s": "bụi đá nổ ở vách bắc",
-     "t": 3.0
+     "loai": "dem_nam",
+     "shot": "N4_2"
     }
    ]
   },
@@ -1657,12 +846,14 @@
    "id": "4f",
    "chinh": true,
    "cau": "This 1943 US Army map shows the town hou",
-   "shot": "N4.3",
    "vat": [
     {
-     "loai": "xay",
-     "s": "phố 1943 từng nhà (ghost AMS M981) + đường băng vươn ra vịnh",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N4_3"
+    },
+    {
+     "loai": "dem_nam",
+     "shot": "N4_3"
     }
    ]
   },
@@ -1670,53 +861,14 @@
    "id": "SM3",
    "chinh": true,
    "cau": "May 1940: Gibraltar sends its women and ",
-   "shot": "N4.4",
    "vat": [
     {
-     "loai": "tau",
-     "s": "5/1940: tàu sơ tán phụ nữ–trẻ em rời cảng",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N4_4"
     },
     {
-     "loai": "may_bay",
-     "s": "1941–42: máy bay tụ dần trên đường băng",
-     "t": 6.0
-    }
-   ]
-  },
-  {
-   "id": "SM3",
-   "chinh": true,
-   "cau": "June: Spain turns \"non-belligerent\" and ",
-   "shot": "N4.4",
-   "vat": [
-    {
-     "loai": "tau",
-     "s": "5/1940: tàu sơ tán phụ nữ–trẻ em rời cảng",
-     "t": 0.5
-    },
-    {
-     "loai": "may_bay",
-     "s": "1941–42: máy bay tụ dần trên đường băng",
-     "t": 6.0
-    }
-   ]
-  },
-  {
-   "id": "SM3",
-   "chinh": true,
-   "cau": "By 1942, the invasion of North Africa is",
-   "shot": "N4.4",
-   "vat": [
-    {
-     "loai": "tau",
-     "s": "5/1940: tàu sơ tán phụ nữ–trẻ em rời cảng",
-     "t": 0.5
-    },
-    {
-     "loai": "may_bay",
-     "s": "1941–42: máy bay tụ dần trên đường băng",
-     "t": 6.0
+     "loai": "dem_nam",
+     "shot": "N4_4"
     }
    ]
   },
@@ -1724,12 +876,14 @@
    "id": "4h",
    "chinh": true,
    "cau": "For the rest of the war, a Spanish schol",
-   "shot": "N4.5",
    "vat": [
     {
-     "loai": "may_bay",
-     "s": "máy bay xếp kín hai bên đường băng",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N4_5"
+    },
+    {
+     "loai": "dem_nam",
+     "shot": "N4_5"
     }
    ]
   },
@@ -1737,40 +891,14 @@
    "id": "4i",
    "chinh": true,
    "cau": "On the night of the seventh of November ",
-   "shot": "N4.5",
    "vat": [
     {
-     "loai": "may_bay",
-     "s": "máy bay xếp kín hai bên đường băng",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N4_5"
     },
     {
-     "loai": "ngay_dem",
-     "s": "chiều → tối 7/11/1942",
-     "t": 11.25
-    }
-   ]
-  },
-  {
-   "id": "4i",
-   "chinh": true,
-   "cau": "The invasion fleets, from Britain and th",
-   "shot": "N4.5",
-   "vat": [
-    {
-     "loai": "may_bay",
-     "s": "máy bay xếp kín hai bên đường băng",
-     "t": 0.5
-    },
-    {
-     "loai": "ngay_dem",
-     "s": "chiều → tối 7/11/1942",
-     "t": 11.25
-    },
-    {
-     "loai": "tau",
-     "s": "đoàn tàu đổ bộ qua eo biển",
-     "t": 20.25
+     "loai": "dem_nam",
+     "shot": "N4_5"
     }
    ]
   },
@@ -1778,53 +906,18 @@
    "id": "5a",
    "chinh": true,
    "cau": "After the war, the argument returned to ",
-   "shot": "N5.1",
    "vat": [
     {
-     "loai": "the_chuong",
-     "s": "1969 — The gate closes",
-     "t": 0.4
+     "loai": "su_kien",
+     "shot": "N5_1"
     },
     {
-     "loai": "nguoi",
-     "s": "6/1969: dòng người qua cổng dừng hẳn",
-     "t": 4.6
-    }
-   ]
-  },
-  {
-   "id": "5a",
-   "chinh": true,
-   "cau": "In June 1969, Spain closed the land fron",
-   "shot": "N5.1",
-   "vat": [
-    {
-     "loai": "the_chuong",
-     "s": "1969 — The gate closes",
-     "t": 0.4
+     "loai": "dem_nam",
+     "shot": "N5_1"
     },
     {
-     "loai": "nguoi",
-     "s": "6/1969: dòng người qua cổng dừng hẳn",
-     "t": 4.6
-    }
-   ]
-  },
-  {
-   "id": "5a",
-   "chinh": true,
-   "cau": "It followed Gibraltar's new constitution",
-   "shot": "N5.1",
-   "vat": [
-    {
      "loai": "the_chuong",
-     "s": "1969 — The gate closes",
-     "t": 0.4
-    },
-    {
-     "loai": "nguoi",
-     "s": "6/1969: dòng người qua cổng dừng hẳn",
-     "t": 4.6
+     "shot": "N5_1"
     }
    ]
   },
@@ -1832,45 +925,14 @@
    "id": "5b",
    "chinh": true,
    "cau": "Britain counted some four thousand six h",
-   "shot": "N5.1",
    "vat": [
     {
-     "loai": "the_chuong",
-     "s": "1969 — The gate closes",
-     "t": 0.4
+     "loai": "su_kien",
+     "shot": "N5_1"
     },
     {
-     "loai": "nguoi",
-     "s": "6/1969: dòng người qua cổng dừng hẳn",
-     "t": 4.6
-    },
-    {
-     "loai": "nguoi",
-     "s": "1985: người qua lại trở lại",
-     "t": 21.39
-    }
-   ]
-  },
-  {
-   "id": "5b",
-   "chinh": true,
-   "cau": "The gate fully reopened in 1985.",
-   "shot": "N5.1",
-   "vat": [
-    {
-     "loai": "the_chuong",
-     "s": "1969 — The gate closes",
-     "t": 0.4
-    },
-    {
-     "loai": "nguoi",
-     "s": "6/1969: dòng người qua cổng dừng hẳn",
-     "t": 4.6
-    },
-    {
-     "loai": "nguoi",
-     "s": "1985: người qua lại trở lại",
-     "t": 21.39
+     "loai": "dem_nam",
+     "shot": "N5_1"
     }
    ]
   },
@@ -1878,25 +940,14 @@
    "id": "KB2026",
    "chinh": true,
    "cau": "The same square, today.",
-   "shot": "KB2026",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "cùng góc phố hôm nay",
-     "t": 0.0
-    }
-   ]
-  },
-  {
-   "id": "KB2026",
-   "chinh": true,
-   "cau": "In October 2025, people living in Spain ",
-   "shot": "KB2026",
-   "vat": [
+     "loai": "su_kien",
+     "shot": "KB2026"
+    },
     {
-     "loai": "nguoi",
-     "s": "cùng góc phố hôm nay",
-     "t": 0.0
+     "loai": "dem_nam",
+     "shot": "KB2026"
     }
    ]
   },
@@ -1904,30 +955,14 @@
    "id": "5c",
    "chinh": true,
    "cau": "The UK government puts the daily crosser",
-   "shot": "N5.2",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "người đi bộ băng qua đường băng giờ cao điểm 2026",
-     "t": 0.5
-    }
-   ]
-  },
-  {
-   "id": "5c",
-   "chinh": true,
-   "cau": "People on foot still cross the runway.",
-   "shot": "N5.2",
-   "vat": [
-    {
-     "loai": "nguoi",
-     "s": "người đi bộ băng qua đường băng giờ cao điểm 2026",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N5_2"
     },
     {
-     "loai": "may",
-     "s": "máy trôi qua cổng sang phía La Línea",
-     "t": 8.5
+     "loai": "dem_nam",
+     "shot": "N5_2"
     }
    ]
   },
@@ -1935,17 +970,14 @@
    "id": "5d",
    "chinh": true,
    "cau": "And on the other side of the gate.",
-   "shot": "N5.2",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "người đi bộ băng qua đường băng giờ cao điểm 2026",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N5_2"
     },
     {
-     "loai": "may",
-     "s": "máy trôi qua cổng sang phía La Línea",
-     "t": 8.5
+     "loai": "dem_nam",
+     "shot": "N5_2"
     }
    ]
   },
@@ -1953,25 +985,14 @@
    "id": "KC2026",
    "chinh": true,
    "cau": "Remember this street?",
-   "shot": "KC2026",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "cùng phố La Línea hôm nay",
-     "t": 0.0
-    }
-   ]
-  },
-  {
-   "id": "KC2026",
-   "chinh": true,
-   "cau": "In 2024, La Línea's unemployment was twe",
-   "shot": "KC2026",
-   "vat": [
+     "loai": "su_kien",
+     "shot": "KC2026"
+    },
     {
-     "loai": "nguoi",
-     "s": "cùng phố La Línea hôm nay",
-     "t": 0.0
+     "loai": "dem_nam",
+     "shot": "KC2026"
     }
    ]
   },
@@ -1979,25 +1000,14 @@
    "id": "5e",
    "chinh": true,
    "cau": "Here's the twist.",
-   "shot": "N5.3",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "sáng: dòng người từ La Línea sang Gibraltar",
-     "t": 0.5
-    }
-   ]
-  },
-  {
-   "id": "5e",
-   "chinh": true,
-   "cau": "Gibraltar's government puts output per r",
-   "shot": "N5.3",
-   "vat": [
+     "loai": "su_kien",
+     "shot": "N5_3"
+    },
     {
-     "loai": "nguoi",
-     "s": "sáng: dòng người từ La Línea sang Gibraltar",
-     "t": 0.5
+     "loai": "dem_nam",
+     "shot": "N5_3"
     }
    ]
   },
@@ -2005,35 +1015,14 @@
    "id": "5f",
    "chinh": true,
    "cau": "That spreads output over the thirty-eigh",
-   "shot": "N5.3",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "sáng: dòng người từ La Línea sang Gibraltar",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N5_3"
     },
     {
-     "loai": "nguoi",
-     "s": "chiều: dòng người về",
-     "t": 12.25
-    }
-   ]
-  },
-  {
-   "id": "5f",
-   "chinh": true,
-   "cau": "Our read: part of the work behind that n",
-   "shot": "N5.3",
-   "vat": [
-    {
-     "loai": "nguoi",
-     "s": "sáng: dòng người từ La Línea sang Gibraltar",
-     "t": 0.5
-    },
-    {
-     "loai": "nguoi",
-     "s": "chiều: dòng người về",
-     "t": 12.25
+     "loai": "dem_nam",
+     "shot": "N5_3"
     }
    ]
   },
@@ -2041,12 +1030,14 @@
    "id": "5g",
    "chinh": true,
    "cau": "In July 2026, Britain and the EU signed ",
-   "shot": "N5.4",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "7/2026: kiểm tra thường lệ dừng — người qua cổng không xếp hàng",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N5_4"
+    },
+    {
+     "loai": "dem_nam",
+     "shot": "N5_4"
     }
    ]
   },
@@ -2054,40 +1045,14 @@
    "id": "5h",
    "chinh": true,
    "cau": "It says it changes neither side's positi",
-   "shot": "N5.4",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "7/2026: kiểm tra thường lệ dừng — người qua cổng không xếp hàng",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N5_4"
     },
     {
-     "loai": "pha",
-     "s": "hàng rào cũ gỡ từng đoạn",
-     "t": 13.15
-    }
-   ]
-  },
-  {
-   "id": "5h",
-   "chinh": true,
-   "cau": "In July, Gibraltar's government said the",
-   "shot": "N5.4",
-   "vat": [
-    {
-     "loai": "nguoi",
-     "s": "7/2026: kiểm tra thường lệ dừng — người qua cổng không xếp hàng",
-     "t": 0.5
-    },
-    {
-     "loai": "pha",
-     "s": "hàng rào cũ gỡ từng đoạn",
-     "t": 13.15
-    },
-    {
-     "loai": "xay",
-     "s": "hàng rào mới lùi vài mét",
-     "t": 15.15
+     "loai": "dem_nam",
+     "shot": "N5_4"
     }
    ]
   },
@@ -2095,22 +1060,14 @@
    "id": "5i",
    "chinh": true,
    "cau": "As of 18 October 2026, the treaty is in ",
-   "shot": "N5.4",
    "vat": [
     {
-     "loai": "nguoi",
-     "s": "7/2026: kiểm tra thường lệ dừng — người qua cổng không xếp hàng",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N5_4"
     },
     {
-     "loai": "pha",
-     "s": "hàng rào cũ gỡ từng đoạn",
-     "t": 13.15
-    },
-    {
-     "loai": "xay",
-     "s": "hàng rào mới lùi vài mét",
-     "t": 15.15
+     "loai": "dem_nam",
+     "shot": "N5_4"
     }
    ]
   },
@@ -2118,177 +1075,14 @@
    "id": "5j",
    "chinh": true,
    "cau": "So why did everyone fight over this plac",
-   "shot": "N5.5",
    "vat": [
     {
-     "loai": "may",
-     "s": "kéo lùi: Rock giữa vịnh và biển",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N5_5"
     },
     {
-     "loai": "buoc_nam",
-     "s": "1704: tường",
-     "t": 8.53
-    }
-   ]
-  },
-  {
-   "id": "5j",
-   "chinh": true,
-   "cau": "Where it sits, and the sea that could fe",
-   "shot": "N5.5",
-   "vat": [
-    {
-     "loai": "may",
-     "s": "kéo lùi: Rock giữa vịnh và biển",
-     "t": 0.5
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1704: tường",
-     "t": 8.53
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1730: Línea",
-     "t": 10.93
-    }
-   ]
-  },
-  {
-   "id": "5j",
-   "chinh": true,
-   "cau": "A wall in 1704.",
-   "shot": "N5.5",
-   "vat": [
-    {
-     "loai": "may",
-     "s": "kéo lùi: Rock giữa vịnh và biển",
-     "t": 0.5
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1704: tường",
-     "t": 8.53
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1730: Línea",
-     "t": 10.93
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1909: hàng rào",
-     "t": 13.39
-    }
-   ]
-  },
-  {
-   "id": "5j",
-   "chinh": true,
-   "cau": "A line in 1730.",
-   "shot": "N5.5",
-   "vat": [
-    {
-     "loai": "may",
-     "s": "kéo lùi: Rock giữa vịnh và biển",
-     "t": 0.5
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1704: tường",
-     "t": 8.53
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1730: Línea",
-     "t": 10.93
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1909: hàng rào",
-     "t": 13.39
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1941: đường băng",
-     "t": 15.91
-    }
-   ]
-  },
-  {
-   "id": "5j",
-   "chinh": true,
-   "cau": "A fence in 1909.",
-   "shot": "N5.5",
-   "vat": [
-    {
-     "loai": "may",
-     "s": "kéo lùi: Rock giữa vịnh và biển",
-     "t": 0.5
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1704: tường",
-     "t": 8.53
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1730: Línea",
-     "t": 10.93
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1909: hàng rào",
-     "t": 13.39
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1941: đường băng",
-     "t": 15.91
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "2026",
-     "t": 18.31
-    }
-   ]
-  },
-  {
-   "id": "5j",
-   "chinh": true,
-   "cau": "A runway in 1941.",
-   "shot": "N5.5",
-   "vat": [
-    {
-     "loai": "may",
-     "s": "kéo lùi: Rock giữa vịnh và biển",
-     "t": 0.5
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1704: tường",
-     "t": 8.53
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1730: Línea",
-     "t": 10.93
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1909: hàng rào",
-     "t": 13.39
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1941: đường băng",
-     "t": 15.91
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "2026",
-     "t": 18.31
+     "loai": "dem_nam",
+     "shot": "N5_5"
     }
    ]
   },
@@ -2296,124 +1090,14 @@
    "id": "5k",
    "chinh": true,
    "cau": "In 1730, Spain ordered a line to cut the",
-   "shot": "N5.6",
    "vat": [
     {
-     "loai": "xay",
-     "s": "1730: Línea mọc",
-     "t": 0.5
+     "loai": "su_kien",
+     "shot": "N5_6"
     },
     {
-     "loai": "buoc_nam",
-     "s": "2026",
-     "t": 4.76
-    }
-   ]
-  },
-  {
-   "id": "5k",
-   "chinh": true,
-   "cau": "Today, four in ten of the Rock's jobs ar",
-   "shot": "N5.6",
-   "vat": [
-    {
-     "loai": "xay",
-     "s": "1730: Línea mọc",
-     "t": 0.5
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "2026",
-     "t": 4.76
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1783: trại vây rút",
-     "t": 9.8
-    }
-   ]
-  },
-  {
-   "id": "5k",
-   "chinh": true,
-   "cau": "The last siege ended in 1783.",
-   "shot": "N5.6",
-   "vat": [
-    {
-     "loai": "xay",
-     "s": "1730: Línea mọc",
-     "t": 0.5
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "2026",
-     "t": 4.76
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1783: trại vây rút",
-     "t": 9.8
-    },
-    {
-     "loai": "ngay_dem",
-     "s": "2026: chiều → nửa đêm biên giới",
-     "t": 13.34
-    }
-   ]
-  },
-  {
-   "id": "5k",
-   "chinh": true,
-   "cau": "The argument didn't.",
-   "shot": "N5.6",
-   "vat": [
-    {
-     "loai": "xay",
-     "s": "1730: Línea mọc",
-     "t": 0.5
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "2026",
-     "t": 4.76
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1783: trại vây rút",
-     "t": 9.8
-    },
-    {
-     "loai": "ngay_dem",
-     "s": "2026: chiều → nửa đêm biên giới",
-     "t": 13.34
-    }
-   ]
-  },
-  {
-   "id": "5k",
-   "chinh": true,
-   "cau": "Next in Contested Places: London, 1666.",
-   "shot": "N5.6",
-   "vat": [
-    {
-     "loai": "xay",
-     "s": "1730: Línea mọc",
-     "t": 0.5
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "2026",
-     "t": 4.76
-    },
-    {
-     "loai": "buoc_nam",
-     "s": "1783: trại vây rút",
-     "t": 9.8
-    },
-    {
-     "loai": "ngay_dem",
-     "s": "2026: chiều → nửa đêm biên giới",
-     "t": 13.34
+     "loai": "dem_nam",
+     "shot": "N5_6"
     }
    ]
   }

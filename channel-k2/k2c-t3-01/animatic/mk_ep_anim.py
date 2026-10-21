@@ -371,7 +371,7 @@ def main():
         tb = tl_buoc(o); cm = sh['cam']
         pt = [round(pitch(c['p'], c['l']), 1) for c in cm]; agl = [round(c['p'][1] - max(0.0, hAt(c['p'][0], c['p'][2])), 0) for c in cm]
         ys = [dy(x['at']) if isinstance(x['at'], str) else float(x['at']) for x in o['time']]
-        L1 = dict(shot=sh['id'], dong_loi=sh['lines'], kieu_khung=sh['kieu'], goc=sh.get('goc', 'cao'), tl=True, vai=sh['vai'], noi=sh['noi'], nguoi=any(e['k'] == 'nguoi' for e in sh['su_kien']), diem_may=sh['diem'], cam=cm, loai=sh['loai'],
+        L1 = dict(shot=sh['id'].replace('.', '_'), ma=sh['id'], dong_loi=sh['lines'], kieu_khung=sh['kieu'], goc=sh.get('goc', 'cao'), tl=True, vai=sh['vai'], noi=sh['noi'], nguoi=any(e['k'] == 'nguoi' for e in sh['su_kien']), diem_may=sh['diem'], cam=cm, loai=sh['loai'],
                   nhin_xuong_deg=pt, agl_m=agl, fov=[c['fov'] for c in cm], dur=d, t0=round(t_abs, 3), t1=round(t_abs + d, 3), thoi_gian=[dict(t=x['t'], at=x['at']) for x in o['time']], nam=[round(min(ys), 3), round(max(ys), 3)],
                   lightmap=[b['dir'] for b in o['nc']['bakes']], tl_buoc=tb, tl_buoc_n=len(tb), cau=[dict(dong=x['dong'], t=round(x['bd'] - t_abs, 3), cau=x['cau']) for x in L], su_kien=sh['su_kien'],
                   moc=o['time'][0]['at'], bac='xem ghi + meta lớp của cảnh', nguon='mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4', chuong=sh.get('chuong'), ghi=sh['ghi'],
@@ -390,7 +390,7 @@ def main():
         bang.append(dict(ma=f'PP{i + 1}', dong=[], t0=round(t_abs, 3), t1=round(t_abs + th['giay'], 3), dur=th['giay'], diem='—', kieu='the', vai='phuong-phap', vat=th['dong'], ghi='thẻ "How this film was made" v2'))
         t_abs += th['giay']
     E = dict(id='k2c-t3-anim', title='Gibraltar — T3 animatic (whole episode, path A, 960×540, G1 v4.2 narration)', brand='MOVING PARTS', channel='k2', out=OUT,
-             music=[], sources={}, numbers={}, khung_sach=True, loi_khoa='../loi-khoa.txt', claims_md='../claims-vay-ham.md', log_shot='animatic/log-shot.json', nhip_vat='animatic/nhip-vat.json', heroes=heroes, segments=segs)
+             music=[], sources={}, numbers={}, khung_sach=True, loi_khoa='../loi-khoa.txt', claims_md='../claims-vay-ham.md', log_shot='log-shot.json', nhip_vat='nhip-vat.json', heroes=heroes, segments=segs)
     hdr = '# TỆP SINH TỰ ĐỘNG bởi animatic/mk_ep_anim.py (lời khoá v4.2 SHA 51d1c773…, nhịp reports/kl42/nhip-that.json B; LOOK-KHOA.md). Đừng sửa tay.\n'
     (HERE / 'episode.yaml').write_text(hdr + yaml.safe_dump(E, allow_unicode=True, sort_keys=False, width=200))
     def ts(x): h, r = divmod(x, 3600); m, s2 = divmod(r, 60); return f'{int(h):02d}:{int(m):02d}:{s2:06.3f}'.replace('.', ',')
@@ -399,9 +399,18 @@ def main():
     (HERE / 'log-shot.json').write_text(json.dumps(log, ensure_ascii=False, indent=1) + '\n')
     (HERE / 'bang-shot.json').write_text(json.dumps(bang, ensure_ascii=False, indent=1) + '\n')
     (HERE / 'cut-plan.json').write_text(json.dumps(cut) + '\n')
-    vat = []
+    # nhịp chính → vật mang nghĩa (§13.2) theo định dạng V7C (nhip-vat-v7c.json): mỗi dòng lời một mục; loại: su_kien (biến cố thấy được), dem_nam (bộ đếm năm/ngày chạy suốt shot tl),
+    #  co_chu_quyen (cờ đổi/cờ chủ quyền trên công trình), the_chuong (thẻ chương)
+    vat, seen = [], set()
     for sh in log:
-        for x in sh.get('cau', []): vat.append(dict(id=x['dong'], chinh=True, cau=x['cau'][:40], shot=sh['shot'], vat=[dict(loai=e['k'], s=e['s'], t=e['t']) for e in sh['su_kien'] if e['t'] <= x['t'] + 6]))
+        if 'kieu_khung' not in sh: continue
+        for x in sh['cau']:
+            if x['dong'] in seen: continue
+            seen.add(x['dong']); V = [dict(loai='dem_nam', shot=sh['shot'])]
+            if sh['su_kien']: V.insert(0, dict(loai='su_kien', shot=sh['shot']))
+            if any(e['k'] == 'co' for e in sh['su_kien']): V.append(dict(loai='co_chu_quyen', shot=sh['shot']))
+            if sh.get('chuong') and x['t'] < 4: V.append(dict(loai='the_chuong', shot=sh['shot']))
+            vat.append(dict(id=x['dong'], chinh=True, cau=x['cau'][:40], vat=V))
     (HERE / 'nhip-vat.json').write_text(json.dumps(dict(nhip=vat), ensure_ascii=False, indent=1) + '\n')
     n = len(S); nb = sum(x.get('tl_buoc_n', 0) for x in log)
     print(f'{n} shot + 2 thẻ · {t_abs:.3f} s · {len(srt)} câu · {n / (745 / 60):.2f} cắt/phút (shot) · {(n + nb) / (745 / 60):.2f} nếu tính {nb} bước năm · TB {745 / n:.1f} s/shot')

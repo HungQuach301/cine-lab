@@ -3,7 +3,7 @@
 Cập nhật: 21/10/2026 ≈ 04:20 UTC
 
 <!-- TRANG-THAI -->
-## Trạng thái tự động (21/10/2026 13:39 UTC) — `scripts/k2tl/anim_ckpt.py`
+## Trạng thái tự động (21/10/2026 13:40 UTC) — `scripts/k2tl/anim_ckpt.py`
 
 - Cảnh đinh XONG: **43/43** (20253 khung) · CÒN: **0** (0 khung chưa dựng).
 - s/khung TB 12 cảnh gần nhất (mỗi tiến trình, P = 3): 4.42 → ước còn **≈ 0.0 h** dựng cảnh đinh; sau đó: ghép cú lặn → render đoạn → ghép master → LOOK-4 → xuất (≈ 1,5 h).
@@ -56,5 +56,5 @@ Lưu ý: mọi sửa mã `design/k2v/tl/*.js` đổi dấu MỌI cảnh (prep b�
 | lightmap 7 mốc | `$K2TL_CACHE/nc/bake/b{1704,1779,1781r,1782,1900,1940,2026}/` | `bash scripts/k2tl/anim_nuong.sh` (meta → `reports/animatic-t3/do/nuong-*.json`) |
 | nguồn Q3 | `/var/tmp/cine-out/nguon/*.txt` (SHA khớp đăng ký) | tải `https://archive.org/download/<id>/<id>_djvu.txt` |
 
-## Còn lại
-Đo sớm 3 shot → dựng 43 shot → ghép → LOOK-4 → xuất chương → tự đo → báo cáo.
+## Kết thúc phiên (≈ 13:50 UTC)
+XONG mọi bước 0–8; báo cáo `reports/animatic-t3/ANIMATIC-BAO-CAO.md`. Master ngoài git `fa0f32f2…` (SHA đầy đủ `reports/animatic-t3/do/sha-xem.txt`). Vòng tự đẩy CHECKPOINT đã dừng. DỪNG chờ chủ dự án.
