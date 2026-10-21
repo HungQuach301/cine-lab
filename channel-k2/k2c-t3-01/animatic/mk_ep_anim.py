@@ -162,7 +162,7 @@ def shots():
              smoke=sg, co=co_ld() + co_lw(), pre1704town=True, recl=False, pho2026=dict(box=[-1200, 700, 1200, 2600]))
     # ANIM-V2 R1 + R3: (A) vây 1704–05 / 1727 — máy hạ ≈ 1,2 km trước vách bắc, khói trận + vách là chủ thể · (B) Línea mọc 1730–35 — máy ≈ 300 m sau tuyến, 70 m, tuyến + đồn chiếm tiền cảnh, Rock nền
     #  · bước năm 2026 đúng chữ "The town behind it is still called La Línea" (phố La Línea sau tuyến cũ)
-    cam, ct = cuts(D, [dict(t1=t30, p0=[-80, 95, 650], l0=[-90, 150, -700], dp=(10, -3, -15), fov=40), dict(p0=A(-450, 15, 1100), l0=A(-100, 3, 900), dp=(6, 0, -3), fov=40)])   # đo R2: góc cũ 97 % cỏ trống (máy sát mặt đất) → máy 15 m trên đất, nhìn dọc tuyến từ đầu tây
+    cam, ct = cuts(D, [dict(t1=t30, p0=[-80, 95, 650], l0=[-90, 150, -700], dp=(10, -3, -15), fov=40), dict(p0=[-250, 22, 1180], l0=[-120, 40, -300], dp=(4, 0, -6), fov=36)])   # đo R2: góc cũ 57–97 % cỏ trống → máy ≈ 15 m sau tuyến, nhìn nam: tuyến mọc tiền cảnh + Rock (40–42 % cỏ)
     add('N1.6', ['1j', '1k'], 'A2-thap → L-linea', 'lai', 'co-che', 'eo_dat', 'eo', o, cam, [('vach_bac', [0, t30]), ('linea', [t30, D])],
         [dict(t=0.5, k='lua', s='vây 1704–05: khói pháo ở chân vách bắc'), dict(t=round(t27, 2), k='buoc_nam', s='bước năm 1727: vây lần nữa'), dict(t=round(t30, 2), k='xay', s='Línea de Contravalación mọc tây → đông 1730–35 (cận tuyến)'),
          dict(t=round(tLL, 2), k='buoc_nam', s='2026: phố La Línea sau tuyến cũ')],
@@ -280,7 +280,7 @@ def shots():
     blow = [dict(at=[f[0], 10, f[1]], t=[round(t1810 + 4.2 + 0.6 * i, 2), round(t1810 + 9.5, 2)], n=20, size=110, rise=160, drift=[-2, 1], period=0.4, seed=1050 + i, alpha=0.9, fire=0.6) for i, f in enumerate([FT_SF, FT_SB])]
     o = base(time=[dict(t=0, at=1783.6, sun=14.0, lab='y'), dict(t=t1810 - 0.05, at=1809.9, sun=14.0, lab='y', hold=True), dict(t=t1810, at='1810-02-14 08:00', sun='real', lab='dt'), dict(t=D, at='1810-02-14 17:00', sun='real', lab='dt')],
              smoke=blow, co=co_ld() + co_lw(), recl=False)
-    cam, ct = cuts(D, [dict(t1=round(t1810, 3), p0=[-620, 30, 1250], l0=[-300, 5, 960], dp=(10, -1, -6), fov=44), dict(p0=[1150, 55, 1450], l0=[860, 15, 930], dp=(-10, -2, -8), fov=42)])   # ANIM-V2 R2/R3: hạ máy về hai đồn Línea, Rock nền
+    cam, ct = cuts(D, [dict(t1=round(t1810, 3), p0=[-620, 30, 1250], l0=[-300, 20, 960], dp=(10, -1, -6), fov=44), dict(p0=[1150, 55, 1450], l0=[860, 15, 930], dp=(-10, -2, -8), fov=42)])   # ANIM-V2 R2/R3: hạ máy về hai đồn Línea, Rock nền
     add('N3.1', ['3a', '3b'], 'SF-thap → SB-thap', 'lai', 'buoc-ngoat', 'eo_dat', 'eo', o, cam, [('linea', None)],
         [dict(t=0.4, k='the_chuong', s='1783 — The neutral ground'), dict(t=3.0, k='dem_nam', s='1783 → 1809: dải cát giữa tường và Línea'), dict(t=round(t1810 + 4.2, 2), k='no', s='14/2/1810: hai pháo đài Línea nổ tung')],
         'MỐC ĐINH 1810: khói nổ ở San Felipe + Santa Bárbara (ghost SH, bậc 1); Línea biến mất 14/2/1810 (eo-dat-v7.json); dải trung lập không tô (§10.7); ANIM-V2 R2/R3: 2 góc thấp — đồn San Felipe + Línea (1783 → 1809, Rock nền) → đồn Santa Bárbara nổ 14/2/1810', chuong='1783 — The neutral ground', cat=ct)
@@ -291,7 +291,7 @@ def shots():
         'GIỮ CHỖ: lớp "mép đất Anh tiến dần 1810–60" chưa có nguồn bậc 1–3; ANIM-V2 R4: góc phố + cảng từ vịnh (nhà theo năm xây có trong gói, tàu theo năm) thay eo đất trống; Sayer 1865 chưa nắn khớp')
     D = d(['3d'])
     o = base(time=[dict(t=0, at=1849.0, sun=15.0, lab='y'), dict(t=D * 0.5, at=1870.0, sun=15.0, lab='y'), dict(t=D, at=1905.0, sun=15.0, lab='y')], recl=False, co=co_ld())
-    add('N3.3', ['3d'], 'H-lai', 'lai', 'co-che', 'thanh_pho', 'pho', o, hold([950, 430, 3350], [80, 0, 1650], 40, D, (-20, -4, -10)), [('la_linea', None)],
+    add('N3.3', ['3d'], 'H-lai', 'lai', 'co-che', 'thanh_pho', 'pho', o, hold([900, 120, 2800], [100, 45, 1200], 40, D, (-20, -2, -10)), [('la_linea', None)],
         [dict(t=0.5, k='xay', s='La Línea mọc theo năm xây (Catastro) 1849 → 1905')], 'nhà La Línea theo năm xây Catastro (bậc 1 cho năm có; nhà thiếu năm theo quy ước gói)')
     D = d(['KC1910'])
     o = base(time=[dict(t=0, at='1910-06-15 10:30', sun=10.5, lab='y'), dict(t=D, at='1910-06-15 10:31', sun=10.5, lab='y')], recl=False,
@@ -300,7 +300,7 @@ def shots():
         [dict(t=0.0, k='nguoi', s='phố La Línea 1910')], 'KHUNG NEO tầm mắt — cặp then/now với KC2026 (tư thế máy G1b: E 150, N 1340, hướng 12°)', goc='thap', khung_neo=True)
     D = d(['3e', '3f', '3g']); t09 = NH['3f']['bd_phim'] - NH['3e']['bd_phim']; t30 = NH['3g']['bd_phim'] - NH['3e']['bd_phim']
     o = base(time=[dict(t=0, at=1900.0, sun=14.0, lab='y'), dict(t=t09, at=1908.8, sun=14.0, lab='y'), dict(t=t30, at=1909.7, sun=14.0, lab='y'), dict(t=D, at=1930.0, sun=14.0, lab='y')], recl=False, co=co_ld())
-    cam, ct = cuts(D, [dict(t1=round(t09, 3), p0=[150, 42, 1150], l0=[80, 10, 450], dp=(-5, -1, -8), fov=42), dict(p0=[420, 30, 700], l0=[100, 5, 380], dp=(-8, 0, -3), fov=42)])   # ANIM-V2 R2/R3: mép nam La Línea nhìn về Rock → dọc hàng rào 1909
+    cam, ct = cuts(D, [dict(t1=round(t09, 3), p0=[150, 42, 1150], l0=[80, 10, 450], dp=(-5, -1, -8), fov=42), dict(p0=[420, 30, 700], l0=[0, 60, -800], dp=(-8, 0, -3), fov=42)])   # ANIM-V2 R2/R3: mép nam La Línea nhìn về Rock → dọc hàng rào 1909
     add('N3.4', ['3e', '3f', '3g'], 'H-thap → F-hang-rao', 'lai', 'buoc-ngoat', 'eo_dat', 'eo', o, cam, [('hang_rao', None)],
         [dict(t=0.5, k='dem_nam', s='dải trung lập giữa hai phố 1900'), dict(t=round(t09 + 1.0, 2), k='xay', s='hàng rào 1909 mọc dọc mép (MỐC ĐINH)'), dict(t=round(t30, 2), k='dem_nam', s='1909 → 1930')],
         'hàng rào 1909: tuyến coi trùng ranh OSM 2026 (ƯỚC TÍNH, eo-dat-v7.json); trại lính/vườn/trường bắn/trường đua 3g CHƯA dựng (chưa có nguồn vị trí bậc 1) — giữ chỗ; ANIM-V2 R2/R3: 2 góc thấp (phố La Línea 1900 + Rock → dọc hàng rào mọc 1909)', cat=ct)
