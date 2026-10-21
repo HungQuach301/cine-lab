@@ -2,6 +2,22 @@
 
 Cập nhật: 21/10/2026 ≈ 04:20 UTC
 
+<!-- TRANG-THAI -->
+## Trạng thái tự động (21/10/2026 09:03 UTC) — `scripts/k2tl/anim_ckpt.py`
+
+- Cảnh đinh XONG: **26/43** (14856 khung) · CÒN: **17** (4713 khung chưa dựng).
+- s/khung TB 12 cảnh gần nhất (mỗi tiến trình, P = 3): 4.27 → ước còn **≈ 1.9 h** dựng cảnh đinh; sau đó: ghép cú lặn → render đoạn → ghép master → LOOK-4 → xuất (≈ 1,5 h).
+- Dòng cuối log vòng: `09:01 dựng anim_N2_6 (16.8 s, 960×540)`
+- Xong: C1, C2, C3, C4, H2T, KA1782, N1_1, N1_2, N1_5, N1_6, N2_10, N2_11, N2_7, N2_8, N2_9, N3_1, N3_4, N4_1, N4_2, N4_4, N4_5, N5_1, N5_3, N5_4, N5_5, N5_6
+- Còn: C5 (0/355), H1 (0/343), H2 (367/439), H3 (0/314), KA2026 (0/247), KB1943 (0/247), KB2026 (0/283), KC1910 (0/223), KC2026 (0/295), N1_3 (303/418), N1_4 (0/391), N2_6 (14/403), N3_2 (0/259), N3_3 (0/295), N3_5 (0/278), N4_3 (0/252), N5_2 (0/355)
+
+| Tệp ngoài git | SHA-256 | Tái tạo |
+|---|---|---|
+| `/var/tmp/cine-out/k2c-t3-anim/mix.wav` (tiếng cả tập) | `805432b5c7e92bfb007be9e08a8780c40099502e33703fbafc55360d504c4acd` | `anim_mix.py channel-k2/k2c-t3-01/animatic/anim-loi.json <ra.wav>` |
+| cảnh đinh `/var/tmp/cine-out/hero/k2c-t3-anim-anim_*-d/` | (theo stamp từng cảnh) | `bash scripts/k2/build.sh …/animatic/episode.yaml prep` (K2_DRAFT=1 MW=960, chặn mạng) → `P=3 bash scripts/k2tl/anim_vong.sh …/animatic/episode.yaml` |
+| lightmap 7 mốc `$K2TL_CACHE/nc/bake/b*/` | meta `reports/animatic-t3/do/nuong-*.json` | `bash scripts/k2tl/anim_nuong.sh` |
+<!-- /TRANG-THAI -->
+
 ## Xong
 - Bước 0: fetch; `origin/main` = `bc7e96d1` (có P-2010b). Nhánh từ V7C `47a0f55a` + `merge --no-ff origin/main` (0 xung đột). `lock.py --verify` KHỚP 1.16.1 `a3c39873…`; `LOI-KHOA.sha256` 3/3 OK.
 - LOOK-KHOA.md (commit `ANIMATIC-T3 bước 0`, đã đẩy).
