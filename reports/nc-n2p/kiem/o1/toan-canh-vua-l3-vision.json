@@ -1,0 +1,229 @@
+{
+ "tag": "toan-canh-vua-l3",
+ "truoc": "../nc-cpu/khung/A/cong-toan-canh.jpg",
+ "sau": "/var/tmp/n2p/kiem-cuoi/toan-canh-vua-l3-ghep.jpg",
+ "nam": "1781",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.045,
+    "usage": {
+     "input_tokens": 16167,
+     "input_tokens_details": {
+      "cache_write_tokens": 16164,
+      "cached_tokens": 0
+     },
+     "output_tokens": 1264,
+     "output_tokens_details": {
+      "reasoning_tokens": 455
+     },
+     "total_tokens": 17431
+    }
+   },
+   "secs": 34.1,
+   "json": {
+    "them": [
+     {
+      "loai": "cay",
+      "mo_ta": "Numerous additional shrubs and low bushes on the foreground hillside, filling previously open ground between the existing trees, rocks and buildings.",
+      "toa_do": [
+       0.555,
+       0.507,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Additional bushes on the upper-right hillside around and beyond the scattered houses and fortifications.",
+      "toa_do": [
+       0.787,
+       0.278,
+       1.0,
+       0.538
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "New scattered scrub clumps across the open coastal ground behind the mole and beside the northern fortifications.",
+      "toa_do": [
+       0.641,
+       0.282,
+       0.893,
+       0.353
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Additional bushes across the distant isthmus, including within and alongside the existing long enclosed strips.",
+      "toa_do": [
+       0.823,
+       0.206,
+       1.0,
+       0.281
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.89
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Additional individual shrub clumps on the sandy and grassy foreshore outside the western defensive wall, extending from the projecting sandy point toward the bottom-left edge.",
+      "toa_do": [
+       0.015,
+       0.624,
+       0.352,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Additional small upright trees along the upper end of the rectangular garden beside the western wall; the original garden paths and previously existing trees remain.",
+      "toa_do": [
+       0.402,
+       0.653,
+       0.441,
+       0.699
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.86
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Additional discrete exposed boulders and small rocky outcrops scattered across previously open portions of the foreground hillside, beyond the original large foreground rock exposure.",
+      "toa_do": [
+       0.622,
+       0.514,
+       1.0,
+       0.905
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     }
+    ],
+    "bot_doi": [],
+    "doi_loai_vung": []
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.1374838
+   },
+   "secs": 19.7,
+   "json": {
+    "them": [
+     {
+      "loai": "cay",
+      "mo_ta": "Dense shrubs, bushes and yellow flowering scrub added across the eastern hillside; the green blobs in the render became detailed scrub",
+      "toa_do": [
+       0.52,
+       0.5,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "White limestone rock outcrops and boulders added on the hillside. The large outcrop replaces the pale patch in the render, and there are smaller rocks higher up",
+      "toa_do": [
+       0.78,
+       0.55,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.55
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Scrub and bushes added on the coastal strip and dunes west of the walls (q3), and on the beach flats across the bay (q2)",
+      "toa_do": [
+       0.15,
+       0.62,
+       0.55,
+       0.8
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.45
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Vegetation texture added to the northern isthmus and the far hills: bushes and trees on the plain, which was smooth green before",
+      "toa_do": [
+       0.55,
+       0.1,
+       1.0,
+       0.35
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.4
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Dark underwater rocks or seaweed patch added in the shallows at the bottom-left of the bay",
+      "toa_do": [
+       0.01,
+       0.92,
+       0.05,
+       0.96
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.3
+     }
+    ],
+    "bot_doi": [],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "Bottom-left shoreline: the blocky pale shallows and grey-blue edge became smoother turquoise water and a sandy beach. This is a slight coastline softening and the shore may have moved a little.",
+      "toa_do": [
+       0.0,
+       0.62,
+       0.3,
+       1.0
+      ],
+      "do_tin": 0.25
+     }
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,538 @@
+{
+  "them": [
+    {
+      "loai": "tau_lon",
+      "mo_ta": "Invented sailing vessel with pale sails, nearer the left of the two new foreground ships.",
+      "toa_do": [0.583, 0.174, 0.618, 0.232],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "A sailing vessel is plausible in 1779, but inventing a ship absent from the ground truth is explicitly forbidden by the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "tau_lon",
+      "mo_ta": "Invented larger sailing vessel with multiple masts, to the right of the other new ship.",
+      "toa_do": [0.635, 0.157, 0.681, 0.233],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Period-compatible sailing technology, but an invented sailing ship is explicitly prohibited under the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Large invented pitched-roof shed or barn beside the right-hand foreground camp, with an open front and visible structural supports.",
+      "toa_do": [0.643, 0.675, 0.722, 0.775],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Not demonstrably modern in design, but it is an invented building and architectural structure absent from the ground-truth scene, contrary to N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Small invented low hut with a broad grey pitched roof immediately behind the central foreground camp.",
+      "toa_do": [0.439, 0.449, 0.486, 0.481],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "An invented building absent from BEFORE; prohibited reconstruction under N2+, rather than a clearly dated technological anachronism.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Long invented masonry boundary wall along the left side of the foreground camp, including its projecting or returning lower end.",
+      "toa_do": [0.112, 0.486, 0.246, 0.891],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented stone construction and architectural geometry are forbidden by the supplied N2+ restrictions; masonry itself is not anachronistic for 1779.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Short cross-wall or gateway spanning the space beside the long left boundary wall.",
+      "toa_do": [0.151, 0.716, 0.197, 0.746],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented architectural addition absent from BEFORE, prohibited under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Invented diagonal masonry wall along the right edge of the central camp, with a pale raised end beside the tents.",
+      "toa_do": [0.551, 0.507, 0.62, 0.645],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented stone wall and architectural detail, prohibited by N2+ even though such construction could exist in 1779.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "khac",
+      "mo_ta": "New post-and-rail or paling enclosure behind the upper edge of the left foreground camp.",
+      "toa_do": [0.324, 0.468, 0.415, 0.498],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+    },
+    {
+      "loai": "khac",
+      "mo_ta": "New fence or rail line around the tent cluster farther left, extending horizontally behind the tents.",
+      "toa_do": [0.211, 0.383, 0.319, 0.426],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+    },
+    {
+      "loai": "khac",
+      "mo_ta": "New short enclosure posts or rails inside the left camp, beside the newly added brown animal.",
+      "toa_do": [0.252, 0.565, 0.269, 0.651],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.78
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "New branching dirt-track network through the middle distance, connecting the added tents and livestock areas.",
+      "toa_do": [0.174, 0.31, 0.989, 0.533],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "New or substantially rerouted winding dirt track passing the right-hand shed and continuing toward the lower edge.",
+      "toa_do": [0.756, 0.511, 0.909, 1.0],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "New foreground dirt paths outside the lower end of the left enclosure and between the camp plots.",
+      "toa_do": [0.002, 0.841, 0.433, 1.0],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "New pale tent immediately left of the large added tree in the left-middle tent cluster.",
+      "toa_do": [0.212, 0.396, 0.237, 0.428],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "Second pale tent behind and to the right of the preceding tent.",
+      "toa_do": [0.235, 0.387, 0.258, 0.411],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "New white tent at the left of the three-tent row in the upper central pasture.",
+      "toa_do": [0.328, 0.419, 0.349, 0.445],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "New white tent in the middle of the three-tent row.",
+      "toa_do": [0.349, 0.423, 0.368, 0.447],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "New white tent at the right of the three-tent row.",
+      "toa_do": [0.37, 0.423, 0.396, 0.452],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "New tent behind that row, immediately left of the added central tree.",
+      "toa_do": [0.359, 0.39, 0.387, 0.418],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "Small new tent or canvas shelter farther back, near the centre of the frame.",
+      "toa_do": [0.5, 0.37, 0.527, 0.394],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "New white tent just behind the upper-left corner of the left foreground camp.",
+      "toa_do": [0.25, 0.467, 0.287, 0.494],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "New white tent to the right of the preceding tent, behind the same camp.",
+      "toa_do": [0.29, 0.466, 0.318, 0.491],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "New tent at the left/back of the right-middle-distance tent group.",
+      "toa_do": [0.62, 0.396, 0.65, 0.422],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "New front tent in the same right-middle-distance group.",
+      "toa_do": [0.632, 0.41, 0.66, 0.435],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "New rightmost pale tent in the right-middle-distance group.",
+      "toa_do": [0.661, 0.398, 0.693, 0.426],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "Additional pale canvas form or tent at the upper end of the new right-hand camp wall.",
+      "toa_do": [0.554, 0.51, 0.593, 0.566],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.76
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New row of approximately six grazing livestock silhouettes in the open upper-left field.",
+      "toa_do": [0.026, 0.363, 0.095, 0.382],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New brown livestock pair immediately above the left foreground wall and below the tents.",
+      "toa_do": [0.128, 0.459, 0.152, 0.483],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New dark grazing animal to the right of that brown pair.",
+      "toa_do": [0.181, 0.452, 0.198, 0.472],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.92
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New livestock herd in the upper part of the left foreground pasture, including brown, dark and pale animals.",
+      "toa_do": [0.009, 0.513, 0.077, 0.57],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New isolated dark animal east of that herd, close to the long wall.",
+      "toa_do": [0.163, 0.539, 0.178, 0.564],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New animals across the middle of the left pasture, including one near the left edge and one brown animal farther right.",
+      "toa_do": [0.008, 0.608, 0.064, 0.638],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New brown and dark livestock across the lower-middle left pasture, including animals partially clipped by the left frame edge.",
+      "toa_do": [0.0, 0.679, 0.109, 0.736],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New lower-left livestock group, including a partly clipped brown animal at the frame edge.",
+      "toa_do": [0.0, 0.786, 0.091, 0.826],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New brown horse or cow inside the left foreground camp.",
+      "toa_do": [0.286, 0.583, 0.304, 0.612],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New isolated grazing animal in the upper central field.",
+      "toa_do": [0.45, 0.354, 0.466, 0.374],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New dark animal on the central dirt clearing below the small distant tent.",
+      "toa_do": [0.483, 0.391, 0.5, 0.412],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New isolated animal in the upper-right pasture, below the shoreline.",
+      "toa_do": [0.584, 0.306, 0.596, 0.324],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.86
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New pair of dark livestock farther right in the upper pasture.",
+      "toa_do": [0.719, 0.322, 0.744, 0.346],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New isolated dark animal east of that pair.",
+      "toa_do": [0.793, 0.334, 0.808, 0.352],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New brown grazing animal just left of the right-middle-distance tents.",
+      "toa_do": [0.624, 0.365, 0.64, 0.389],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New livestock herd at the upper end of the right foreground grove, including several brown and dark animals.",
+      "toa_do": [0.608, 0.5, 0.761, 0.549],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New livestock scattered inside the right grove, among the surviving trees.",
+      "toa_do": [0.614, 0.55, 0.736, 0.621],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.86
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New pale grey grazing animal immediately above-left of the added shed.",
+      "toa_do": [0.631, 0.613, 0.661, 0.648],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "New dark grazing animal immediately above-right of the added shed.",
+      "toa_do": [0.727, 0.668, 0.747, 0.704],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+    },
+    {
+      "loai": "nguoi",
+      "mo_ta": "Small new upright person-like figure on the central path, below and right of the distant central tent.",
+      "toa_do": [0.539, 0.412, 0.548, 0.437],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Appears to be an invented camp occupant; invented troops or camp personnel violate the supplied N2+ restriction. Clothing is too small to date.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.65
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New large rounded tree with a visible trunk in the left-middle pasture.",
+      "toa_do": [0.188, 0.37, 0.22, 0.428],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New large tree beside the upper central tent group.",
+      "toa_do": [0.377, 0.357, 0.407, 0.415],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New large tree in the left pasture near the animals and lower tents.",
+      "toa_do": [0.048, 0.439, 0.094, 0.509],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New rounded tree to the right of the left-middle tent cluster.",
+      "toa_do": [0.253, 0.407, 0.285, 0.448],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New large tree beside the right-hand winding track, above the foreground grove.",
+      "toa_do": [0.755, 0.435, 0.794, 0.496],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New tree partially clipped by the right frame edge in the middle distance.",
+      "toa_do": [0.989, 0.426, 1.0, 0.483],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.86
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New extensive stands of upright scrub or tall grass around the invented pasture paths, especially across the right foreground and outside the left enclosure; more than a simple recolouring of the original bare ground.",
+      "toa_do": [0.0, 0.385, 1.0, 1.0],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+    }
+  ],
+  "bot_doi": [
+    {
+      "loai": "cay",
+      "mo_ta": "Original line of small trees or bushes in the upper-left field is removed and replaced by livestock silhouettes.",
+      "toa_do": [0.022, 0.359, 0.095, 0.385],
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Original compact grove in the left-middle field is largely removed or replaced by a different arrangement of vegetation.",
+      "toa_do": [0.085, 0.391, 0.139, 0.439],
+      "do_tin": 0.95
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Original small trees immediately northwest of the left camp are removed or replaced by tents, livestock and new vegetation.",
+      "toa_do": [0.18, 0.448, 0.213, 0.485],
+      "do_tin": 0.95
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Original scattered trees across the left foreground are removed or substantially replaced by the invented pasture, livestock, wall and scrub.",
+      "toa_do": [0.0, 0.522, 0.147, 0.826],
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Several original trees in the upper and central portions of the right foreground grove are removed, replaced or obscured by new livestock and pasture features; some lower original trees remain.",
+      "toa_do": [0.64, 0.516, 0.801, 0.631],
+      "do_tin": 0.91
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Original small tree cluster in the right-middle field is removed or replaced by low indistinct vegetation.",
+      "toa_do": [0.72, 0.317, 0.745, 0.345],
+      "do_tin": 0.86
+    },
+    {
+      "loai": "vuon",
+      "mo_ta": "Two small rectangular cultivated or bare-earth plots in the left-middle field lose their original clearly bounded rectangular form.",
+      "toa_do": [0.188, 0.389, 0.297, 0.438],
+      "do_tin": 0.94
+    },
+    {
+      "loai": "vuon",
+      "mo_ta": "Small rectangular brown plot near the centre of the field is removed beneath the newly invented path-and-pasture arrangement.",
+      "toa_do": [0.526, 0.355, 0.564, 0.386],
+      "do_tin": 0.88
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Original faint curving track in the lower-right field is replaced by a differently routed, branching track around the new shed and scrub.",
+      "toa_do": [0.757, 0.785, 0.877, 1.0],
+      "do_tin": 0.96
+    }
+  ],
+  "doi_loai_vung": []
+}

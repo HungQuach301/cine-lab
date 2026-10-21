@@ -1,0 +1,242 @@
+{
+ "tag": "cang-manh-l2",
+ "render": "../nc-cpu/khung/A/cong-cang.jpg",
+ "ai": "/var/tmp/n2p/o1/ai/cang-manh-l2-ai.jpg",
+ "ghep": "/var/tmp/n2p/kiem-cuoi/cang-manh-l2-ghep.png",
+ "sha_ghep": "f6fa64d2c56c61e28271b8f3445b3196b154010d49fea6df1cf542f3e564a84e",
+ "nam": "1780",
+ "i_lop_a": {
+  "max_trong_a": 0,
+  "diem_lech_trong_a": 0,
+  "dien_tich_a_pct": 9.42,
+  "dai20_pct": 6.86,
+  "dai20_cum_dE30": 16,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     402,
+     614,
+     480,
+     632
+    ],
+    "px": 803
+   },
+   {
+    "hop": [
+     571,
+     503,
+     670,
+     545
+    ],
+    "px": 685
+   },
+   {
+    "hop": [
+     241,
+     620,
+     291,
+     653
+    ],
+    "px": 430
+   },
+   {
+    "hop": [
+     489,
+     567,
+     520,
+     610
+    ],
+    "px": 405
+   },
+   {
+    "hop": [
+     709,
+     463,
+     734,
+     488
+    ],
+    "px": 353
+   },
+   {
+    "hop": [
+     0,
+     621,
+     34,
+     634
+    ],
+    "px": 296
+   },
+   {
+    "hop": [
+     76,
+     602,
+     119,
+     613
+    ],
+    "px": 276
+   },
+   {
+    "hop": [
+     236,
+     391,
+     279,
+     404
+    ],
+    "px": 273
+   },
+   {
+    "hop": [
+     355,
+     362,
+     380,
+     377
+    ],
+    "px": 249
+   },
+   {
+    "hop": [
+     736,
+     449,
+     754,
+     463
+    ],
+    "px": 205
+   },
+   {
+    "hop": [
+     372,
+     621,
+     398,
+     636
+    ],
+    "px": 192
+   },
+   {
+    "hop": [
+     275,
+     381,
+     296,
+     392
+    ],
+    "px": 155
+   },
+   {
+    "hop": [
+     186,
+     744,
+     203,
+     757
+    ],
+    "px": 129
+   },
+   {
+    "hop": [
+     201,
+     380,
+     224,
+     387
+    ],
+    "px": 93
+   },
+   {
+    "hop": [
+     493,
+     558,
+     514,
+     568
+    ],
+    "px": 91
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 14,
+   "dE_trung_vi": 4.26,
+   "dE_p90": 5.72
+  },
+  "khop_mau": true,
+  "dat_ghep": true,
+  "vat_lop_a": [
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New network of low, pale dry-stone walls or stone-edged terraces crossing the hillside above the town and continuing toward the distant shore.",
+    "toa_do": [
+     0.0,
+     0.263,
+     0.443,
+     0.383
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   }
+  ],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "claude",
+    "loai": "rom",
+    "mo_ta": "Two haystack-like conical mounds added on the lower left slope",
+    "toa_do": [
+     0.015,
+     0.325,
+     0.056,
+     0.37
+    ],
+    "dai_a": true,
+    "ly_do": "Invented haystacks or beehive-shaped objects that are not in the 3D render",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 0.43,
+  "nuoc_thanh_dat_pct": 2.15,
+  "t9b_dat_thanh_nuoc_pct": 0.32,
+  "t9b_nuoc_thanh_dat_pct": 0.94,
+  "dat": false,
+  "mo_hinh_bao": [
+   {
+    "mh": "gpt",
+    "mo_ta": "WATER became LAND locally where the new rocky point projects farther into the sea immediately right of the near bastion.",
+    "toa_do": [
+     0.091,
+     0.67,
+     0.111,
+     0.699
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND became WATER in the enlarged inlet immediately below the middle waterfront wall, cutting into the formerly continuous grassy coastal strip.",
+    "toa_do": [
+     0.228,
+     0.537,
+     0.259,
+     0.571
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "Local LAND-to-WATER and WATER-to-LAND changes along the distant coast: formerly smooth shore projections and inlets have been replaced by irregular rocky projections and water-filled indentations.",
+    "toa_do": [
+     0.371,
+     0.363,
+     0.432,
+     0.443
+    ]
+   }
+  ]
+ },
+ "iv_dong_bang": {
+  "ap_dung": true,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

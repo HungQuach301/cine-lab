@@ -1,0 +1,75 @@
+{
+  "them": [
+    {
+      "loai": "khac",
+      "mo_ta": "Steel lattice electricity-transmission pylon with overhead power lines on the upper-left ridge.",
+      "toa_do": [0.103, 0.11, 0.174, 0.189],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Electrical transmission pylons and power lines did not exist in 1780.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "xe_may",
+      "mo_ta": "Red modern convertible motor car on the hillside.",
+      "toa_do": [0.108, 0.247, 0.15, 0.276],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "A modern motor car is incompatible with 1780; practical petrol automobiles appeared in the late nineteenth century.",
+      "nam_xuat_hien": 1886,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "co",
+      "mo_ta": "Red flag on a newly added tall pole beside the hillside defensive wall.",
+      "toa_do": [0.258, 0.276, 0.278, 0.342],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "may_bay",
+      "mo_ta": "Modern swept-wing passenger jet in the upper-right sky.",
+      "toa_do": [0.726, 0.151, 0.781, 0.182],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Powered aircraft, particularly jet airliners, did not exist in 1780.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "nguoi",
+      "mo_ta": "Single standing or walking figure on the shore outside the foreground fortifications, wearing a blue coat, pale breeches and dark boots, apparently carrying a sword.",
+      "toa_do": [0.177, 0.574, 0.194, 0.625],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "The clothing appears broadly period-compatible, but this is an invented military-looking figure absent from the ground truth, prohibited by the supplied N2+ rule against invented troops.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.92
+    },
+    {
+      "loai": "tau_lon",
+      "mo_ta": "Large square-rigged wooden warship with deployed pale sails and multiple rows of gunports, added in the foreground water.",
+      "toa_do": [0.387, 0.587, 0.471, 0.701],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "The vessel is broadly compatible with the age of sail, but it is wholly invented relative to BEFORE and therefore violates the supplied N2+ prohibition on invented sailing ships.",
+      "nam_xuat_hien": null,
+      "do_tin": 1.0
+    },
+    {
+      "loai": "co",
+      "mo_ta": "Union-pattern flag at the stern of the added foreground warship; its diagonals appear to include red crosses.",
+      "toa_do": [0.379, 0.646, 0.39, 0.664],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "The visible pattern appears to be the post-1801 Union Flag with the red diagonal saltire of St Patrick, which would be too late for 1780. The very small flag limits certainty.",
+      "nam_xuat_hien": 1801,
+      "do_tin": 0.76
+    }
+  ],
+  "bot_doi": [],
+  "doi_loai_vung": [
+    {
+      "mo_ta": "A small patch of shore around and immediately right of the added person appears extended over the original water, locally changing water into grassy or sandy land.",
+      "toa_do": [0.181, 0.575, 0.21, 0.624],
+      "do_tin": 0.77
+    }
+  ]
+}

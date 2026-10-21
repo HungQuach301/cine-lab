@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c1-manh-180",
+   "nam": 1782,
+   "noi": "Gibraltar",
+   "sha256": "056b4d6d037f47e734a648e2651a99f6f80e3c745bddbce67a02b6e4c27ac4a2",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "The large flag on the bastion at the lower right looks like the modern Union Jack. It has a white-fringed red diagonal cross over the blue field, which suggests St Patrick's saltire was added. It is small and dark, so I can't be sure of the detail.",
+     "ly_do": "In 1782 Britain flew the 1606 Union Flag, which combined only the crosses of St George and St Andrew. The St Patrick's saltire was added with the 1801 union with Ireland.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      1738,
+      745,
+      1797,
+      810
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.034157400000000004,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 927,
+     "cacheReadInputTokens": 2804,
+     "cacheCreationInputTokens": 9838,
+     "webSearchRequests": 0,
+     "costUSD": 0.034157400000000004,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 226,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1782,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"The large flag on the bastion at the lower right looks like the modern Union Jack. It has a white-fringed red diagonal cross over the blue field, which suggests St Patrick's saltire was added. It is small and dark, so I can't be sure of the detail.\",\"ly_do\":\"In 1782 Britain flew the 1606 Union Flag, which combined only the crosses of St George and St Andrew. The St Patrick's saltire was added with the 1801 union with Ireland.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.905,0.69,0.936,0.75],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0342,
+ "chi_phi_tb": 0.0342,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

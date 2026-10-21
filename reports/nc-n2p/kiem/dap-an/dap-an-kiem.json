@@ -1,0 +1,347 @@
+{
+ "tag": "dap-an",
+ "render": "../nc-cpu/khung/A/cong-cang.jpg",
+ "ai": "/var/tmp/n2p/dap-an/khung-thu.png",
+ "ghep": "/var/tmp/n2p/dap-an/kiem/dap-an-ghep.png",
+ "sha_ghep": "322efebde857057013c4c522296d7a1b05be318f90f81a354908e1cacc36f599",
+ "nam": "1780",
+ "i_lop_a": {
+  "max_trong_a": 0,
+  "diem_lech_trong_a": 0,
+  "dien_tich_a_pct": 9.42,
+  "dai20_pct": 6.86,
+  "dai20_cum_dE30": 2,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     342,
+     627,
+     360,
+     645
+    ],
+    "px": 256
+   },
+   {
+    "hop": [
+     483,
+     337,
+     508,
+     355
+    ],
+    "px": 200
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 14,
+   "dE_trung_vi": 0.0,
+   "dE_p90": 0.0
+  },
+  "khop_mau": false,
+  "dat_ghep": true,
+  "vat_lop_a": [
+   {
+    "mh": "gpt",
+    "loai": "co",
+    "mo_ta": "Red flag on a newly added tall pole beside the hillside defensive wall.",
+    "toa_do": [
+     0.258,
+     0.276,
+     0.278,
+     0.342
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Large square-rigged wooden warship with deployed pale sails and multiple rows of gunports, added in the foreground water.",
+    "toa_do": [
+     0.387,
+     0.587,
+     0.471,
+     0.701
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "co",
+    "mo_ta": "Union-pattern flag at the stern of the added foreground warship; its diagonals appear to include red crosses.",
+    "toa_do": [
+     0.379,
+     0.646,
+     0.39,
+     0.664
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "co",
+    "mo_ta": "Tall flagpole with a red flag on the hillside above the town wall",
+    "toa_do": [
+     0.258,
+     0.275,
+     0.278,
+     0.33
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "tau_lon",
+    "mo_ta": "Large three-masted sailing ship of the line with full sails and a Union flag at the stern, newly added in the open water",
+    "toa_do": [
+     0.384,
+     0.59,
+     0.47,
+     0.703
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   }
+  ],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [
+   {
+    "mh": "gpt",
+    "loai": "xe_may",
+    "mo_ta": "Red modern convertible motor car on the hillside.",
+    "toa_do": [
+     0.108,
+     0.247,
+     0.15,
+     0.276
+    ],
+    "dai_a": false,
+    "ly_do": "A modern motor car is incompatible with 1780; practical petrol automobiles appeared in the late nineteenth century.",
+    "nam": 1886
+   },
+   {
+    "mh": "gpt",
+    "loai": "may_bay",
+    "mo_ta": "Modern swept-wing passenger jet in the upper-right sky.",
+    "toa_do": [
+     0.726,
+     0.151,
+     0.781,
+     0.182
+    ],
+    "dai_a": false,
+    "ly_do": "Powered aircraft, particularly jet airliners, did not exist in 1780.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "co",
+    "mo_ta": "Union-pattern flag at the stern of the added foreground warship; its diagonals appear to include red crosses.",
+    "toa_do": [
+     0.379,
+     0.646,
+     0.39,
+     0.664
+    ],
+    "dai_a": false,
+    "ly_do": "The visible pattern appears to be the post-1801 Union Flag with the red diagonal saltire of St Patrick, which would be too late for 1780. The very small flag limits certainty.",
+    "nam": 1801
+   },
+   {
+    "mh": "claude",
+    "loai": "khac",
+    "mo_ta": "High-voltage electricity pylon with power lines on the hillside ridge",
+    "toa_do": [
+     0.105,
+     0.11,
+     0.172,
+     0.187
+    ],
+    "dai_a": false,
+    "ly_do": "Electric pylons and power lines did not exist in 1780",
+    "nam": 1900
+   },
+   {
+    "mh": "claude",
+    "loai": "xe_may",
+    "mo_ta": "Red modern convertible car on a dirt patch on the hillside",
+    "toa_do": [
+     0.107,
+     0.245,
+     0.148,
+     0.276
+    ],
+    "dai_a": false,
+    "ly_do": "Motor vehicle",
+    "nam": 1900
+   },
+   {
+    "mh": "claude",
+    "loai": "may_bay",
+    "mo_ta": "Modern passenger jet airliner flying in the sky",
+    "toa_do": [
+     0.726,
+     0.15,
+     0.78,
+     0.182
+    ],
+    "dai_a": false,
+    "ly_do": "Jet aircraft",
+    "nam": 1950
+   }
+  ],
+  "mo_hinh_bao": [
+   "claude",
+   "gpt"
+  ],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "gpt",
+    "loai": "khac",
+    "mo_ta": "Steel lattice electricity-transmission pylon with overhead power lines on the upper-left ridge.",
+    "toa_do": [
+     0.103,
+     0.11,
+     0.174,
+     0.189
+    ],
+    "dai_a": false,
+    "ly_do": "Electrical transmission pylons and power lines did not exist in 1780.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "nguoi",
+    "mo_ta": "Single standing or walking figure on the shore outside the foreground fortifications, wearing a blue coat, pale breeches and dark boots, apparently carrying a sword.",
+    "toa_do": [
+     0.177,
+     0.574,
+     0.194,
+     0.625
+    ],
+    "dai_a": true,
+    "ly_do": "The clothing appears broadly period-compatible, but this is an invented military-looking figure absent from the ground truth, prohibited by the supplied N2+ rule against invented troops.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Large square-rigged wooden warship with deployed pale sails and multiple rows of gunports, added in the foreground water.",
+    "toa_do": [
+     0.387,
+     0.587,
+     0.471,
+     0.701
+    ],
+    "dai_a": false,
+    "ly_do": "The vessel is broadly compatible with the age of sail, but it is wholly invented relative to BEFORE and therefore violates the supplied N2+ prohibition on invented sailing ships.",
+    "nam": null
+   }
+  ],
+  "dat": false
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 0.39,
+  "nuoc_thanh_dat_pct": 0.91,
+  "dat": false,
+  "mo_hinh_bao": [
+   {
+    "mh": "gpt",
+    "mo_ta": "A small patch of shore around and immediately right of the added person appears extended over the original water, locally changing water into grassy or sandy land.",
+    "toa_do": [
+     0.181,
+     0.575,
+     0.21,
+     0.624
+    ]
+   }
+  ]
+ },
+ "iv_dong_bang": {
+  "ap_dung": true,
+  "loi": [
+   {
+    "mh": "gpt",
+    "loai": "xe_may",
+    "mo_ta": "Red modern convertible motor car on the hillside.",
+    "toa_do": [
+     0.108,
+     0.247,
+     0.15,
+     0.276
+    ],
+    "dai_a": false
+   },
+   {
+    "mh": "gpt",
+    "loai": "may_bay",
+    "mo_ta": "Modern swept-wing passenger jet in the upper-right sky.",
+    "toa_do": [
+     0.726,
+     0.151,
+     0.781,
+     0.182
+    ],
+    "dai_a": false
+   },
+   {
+    "mh": "gpt",
+    "loai": "nguoi",
+    "mo_ta": "Single standing or walking figure on the shore outside the foreground fortifications, wearing a blue coat, pale breeches and dark boots, apparently carrying a sword.",
+    "toa_do": [
+     0.177,
+     0.574,
+     0.194,
+     0.625
+    ],
+    "dai_a": true
+   },
+   {
+    "mh": "claude",
+    "loai": "xe_may",
+    "mo_ta": "Red modern convertible car on a dirt patch on the hillside",
+    "toa_do": [
+     0.107,
+     0.245,
+     0.148,
+     0.276
+    ],
+    "dai_a": false
+   },
+   {
+    "mh": "claude",
+    "loai": "may_bay",
+    "mo_ta": "Modern passenger jet airliner flying in the sky",
+    "toa_do": [
+     0.726,
+     0.15,
+     0.78,
+     0.182
+    ],
+    "dai_a": false
+   },
+   {
+    "mh": "claude",
+    "loai": "nguoi",
+    "mo_ta": "Single walking figure in a dark coat on the shore beside the bastion",
+    "toa_do": [
+     0.177,
+     0.575,
+     0.19,
+     0.624
+    ],
+    "dai_a": true
+   }
+  ],
+  "mo_hinh_bao": [
+   "claude",
+   "gpt"
+  ],
+  "dat": false
+ },
+ "dat_ca": false
+}

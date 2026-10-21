@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c4B-manh-180",
+   "nam": 1779,
+   "noi": "Gibraltar",
+   "sha256": "a8f175a7e5312d636899871df72fdfefd65603b785230dc6c6d262e3b0b614ff",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "The ensign on the stern of the right-hand ship is a red-white-red horizontal tricolour. It resembles an Austrian-style flag, not a Spanish, British or French naval ensign.",
+     "ly_do": "A red-white-red ensign does not match any naval ensign used at Gibraltar in 1779. The Spanish navy flew a white ensign with the royal arms, and the red-yellow-red Spanish flag only came in 1785. The design looks anachronistic or invented.",
+     "nam_xuat_hien": 1785,
+     "toa_do_px": [
+      1795,
+      443,
+      1853,
+      481
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "co",
+     "mo_ta": "A small flag on a pole on the central camp field is white with a red cross and saltire, like a Union Jack. It is very small and blurred.",
+     "ly_do": "If it is the Union flag with the St Patrick's saltire, that design dates from 1801. The 1606 Union flag would be correct for 1779. I can't tell which it is.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      726,
+      886,
+      758,
+      913
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.037453600000000004,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1251,
+     "cacheReadInputTokens": 2816,
+     "cacheCreationInputTokens": 9860,
+     "webSearchRequests": 0,
+     "costUSD": 0.037453600000000004,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 369,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1779,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"The ensign on the stern of the right-hand ship is a red-white-red horizontal tricolour. It resembles an Austrian-style flag, not a Spanish, British or French naval ensign.\",\"ly_do\":\"A red-white-red ensign does not match any naval ensign used at Gibraltar in 1779. The Spanish navy flew a white ensign with the royal arms, and the red-yellow-red Spanish flag only came in 1785. The design looks anachronistic or invented.\",\"nam_xuat_hien\":1785,\"toa_do\":[0.935,0.41,0.965,0.445],\"do_tin\":0.4},{\"muc\":\"co\",\"mo_ta\":\"A small flag on a pole on the central camp field is white with a red cross and saltire, like a Union Jack. It is very small and blurred.\",\"ly_do\":\"If it is the Union flag with the St Patrick's saltire, that design dates from 1801. The 1606 Union flag would be correct for 1779. I can't tell which it is.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.378,0.82,0.395,0.845],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0375,
+ "chi_phi_tb": 0.0375,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

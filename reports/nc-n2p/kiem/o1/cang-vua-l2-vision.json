@@ -1,0 +1,191 @@
+{
+ "tag": "cang-vua-l2",
+ "truoc": "../nc-cpu/khung/A/cong-cang.jpg",
+ "sau": "/var/tmp/n2p/kiem-cuoi/cang-vua-l2-ghep.jpg",
+ "nam": "1780",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.0481,
+    "usage": {
+     "input_tokens": 16177,
+     "input_tokens_details": {
+      "cache_write_tokens": 16174,
+      "cached_tokens": 0
+     },
+     "output_tokens": 1576,
+     "output_tokens_details": {
+      "reasoning_tokens": 994
+     },
+     "total_tokens": 17753
+    }
+   },
+   "secs": 50.8,
+   "json": {
+    "them": [
+     {
+      "loai": "da_dat",
+      "mo_ta": "New projecting boulders and jagged rocky outcrops along the foreground shoreline, immediately outside the large bastion and adjoining coastal wall; these replace the previously smooth soil-and-grass shore.",
+      "toa_do": [
+       0.092,
+       0.49,
+       0.291,
+       0.697
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Not intrinsically anachronistic, but the invented coastal rock formations are prohibited terrain additions under the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Additional projecting coastal rock formations around the middle-distance bastions and the small headlands beyond the town.",
+      "toa_do": [
+       0.287,
+       0.34,
+       0.456,
+       0.503
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Not intrinsically anachronistic, but these invented rocky coastal projections are absent from the ground-truth render and violate the supplied N2+ terrain-preservation rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "da_dat",
+      "mo_ta": "The smooth grassy and sandy coastal apron outside the fortifications has been changed into a broken, boulder-covered rocky shore. This is a change in terrain form, not merely colour grading.",
+      "toa_do": [
+       0.092,
+       0.34,
+       0.456,
+       0.697
+      ],
+      "do_tin": 0.94
+     },
+     {
+      "loai": "khac",
+      "mo_ta": "The partially cropped pale rectangular object with a turquoise-grey surrounding shape at the bottom edge, visible in BEFORE q4, is no longer visible. Its identity cannot be established confidently.",
+      "toa_do": [
+       0.754,
+       0.976,
+       0.78,
+       1.0
+      ],
+      "do_tin": 0.9
+     }
+    ],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "A small inlet cuts into the formerly continuous grassy coastal apron below the recessed bastion, locally changing land into water.",
+      "toa_do": [
+       0.227,
+       0.548,
+       0.261,
+       0.578
+      ],
+      "do_tin": 0.79
+     }
+    ]
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.1371136
+   },
+   "secs": 21.0,
+   "json": {
+    "them": [
+     {
+      "loai": "da_dat",
+      "mo_ta": "Rocky shingle shoreline with boulders and surf foam added along the coast in front of the fortifications. It replaces the smooth sand beach and green meadow strip.",
+      "toa_do": [
+       0.05,
+       0.5,
+       0.34,
+       0.69
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Rocky coast with small islets and foam added at the northern headland near the town's far end.",
+      "toa_do": [
+       0.34,
+       0.33,
+       0.46,
+       0.45
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Hillside given much more exposed white limestone rock and denser scrub than the smooth grassy slope in BEFORE.",
+      "toa_do": [
+       0.0,
+       0.14,
+       0.45,
+       0.38
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Green grass strip between the fortifications and the water replaced by dry scrub and rock.",
+      "toa_do": [
+       0.0,
+       0.52,
+       0.25,
+       0.62
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.4
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "khac",
+      "mo_ta": "The yellow ring and marker around one distant ship has gone. The faint red ring markers are otherwise kept.",
+      "toa_do": [
+       0.56,
+       0.36,
+       0.6,
+       0.4
+      ],
+      "do_tin": 0.2
+     }
+    ],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "The smooth sandy beach and green meadow along the shore became a rocky shore with surf, and the waterline shifted slightly. A water-coloured patch also appears beside the fort bastion.",
+      "toa_do": [
+       0.05,
+       0.5,
+       0.34,
+       0.69
+      ],
+      "do_tin": 0.35
+     }
+    ]
+   }
+  }
+ }
+}

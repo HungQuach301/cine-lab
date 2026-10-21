@@ -1,0 +1,866 @@
+{
+ "tag": "c1-manh-120",
+ "truoc": "/var/tmp/n2p/src/c1/rgb/00384.jpg",
+ "sau": "/var/tmp/n2p/omni/kiem/c1-manh-120-ghep.jpg",
+ "nam": "1782",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.084,
+    "usage": {
+     "input_tokens": 16167,
+     "input_tokens_details": {
+      "cache_write_tokens": 16164,
+      "cached_tokens": 0
+     },
+     "output_tokens": 5166,
+     "output_tokens_details": {
+      "reasoning_tokens": 824
+     },
+     "total_tokens": 21333
+    }
+   },
+   "secs": 114.1,
+   "json": {
+    "them": [
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Small occupied open boat offshore, left of the larger nearby rowing boat.",
+      "toa_do": [
+       0.206,
+       0.286,
+       0.234,
+       0.321
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Elongated open rowing boat immediately offshore from the central-left waterfront.",
+      "toa_do": [
+       0.244,
+       0.322,
+       0.286,
+       0.357
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Small vessel with a pale triangular sail, partly obscured by the new central smoke column.",
+      "toa_do": [
+       0.313,
+       0.192,
+       0.349,
+       0.242
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Additional low boat offshore to the left of the right-hand smoke column.",
+      "toa_do": [
+       0.556,
+       0.267,
+       0.596,
+       0.295
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "nguoi",
+      "mo_ta": "Occupants added with the two new open boats near the left waterfront.",
+      "toa_do": [
+       0.207,
+       0.285,
+       0.28,
+       0.348
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.77
+     },
+     {
+      "loai": "lua_lon",
+      "mo_ta": "New bright fire on the water immediately outside the left waterfront bastion.",
+      "toa_do": [
+       0.079,
+       0.311,
+       0.101,
+       0.351
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented fire on the water, explicitly forbidden by the supplied N2+ rules; not an intrinsically post-1782 technology.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "khoi",
+      "mo_ta": "New dense black smoke column rising from the fire outside the left bastion.",
+      "toa_do": [
+       0.045,
+       0.149,
+       0.124,
+       0.335
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke column on the water is explicitly forbidden by the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "khoi",
+      "mo_ta": "New large dark smoke column immediately offshore from the central waterfront, partly concealing the added sailing boat.",
+      "toa_do": [
+       0.309,
+       0.208,
+       0.434,
+       0.369
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke column on the water is explicitly forbidden by the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "khoi",
+      "mo_ta": "New broad smoke column over the waterfront west of the projecting mole, extending down across the newly flooded ground.",
+      "toa_do": [
+       0.553,
+       0.043,
+       0.768,
+       0.524
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke column absent from the ground-truth render; forbidden by the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "lua_lon",
+      "mo_ta": "New bright fire in the flooded central field behind the inner defensive wall.",
+      "toa_do": [
+       0.591,
+       0.574,
+       0.639,
+       0.608
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented fire on previously unburning ground, now depicted as water; explicitly forbidden by the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Large new pale flat-roofed masonry building in the lower-left foreground, including rooftop parapets, raised partitions and dark openings.",
+      "toa_do": [
+       0.212,
+       0.816,
+       0.338,
+       0.937
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented stone building and architectural details violate the supplied N2+ rules. The image alone does not establish a specifically modern construction date.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Small additional pale rectangular structure immediately behind the new foreground flat-roofed building.",
+      "toa_do": [
+       0.227,
+       0.803,
+       0.27,
+       0.834
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented masonry structure absent from BEFORE; forbidden under the supplied N2+ building-invention rule.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "New pale low building on the right-hand coastal ground, northeast of the mole's landward end.",
+      "toa_do": [
+       0.939,
+       0.4,
+       0.975,
+       0.437
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented masonry building absent from the ground-truth render; forbidden under the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "New pale flat-roofed building with raised roof edges on the right, just above the long north-south defensive wall.",
+      "toa_do": [
+       0.895,
+       0.475,
+       0.96,
+       0.525
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented masonry building and roof details violate the supplied N2+ rules; a modern material cannot be confirmed from appearance alone.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Additional cluster of pale low structures behind the waterfront wall, partly concealed by the new right-hand smoke.",
+      "toa_do": [
+       0.572,
+       0.36,
+       0.614,
+       0.388
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented architectural structures absent from BEFORE; prohibited under the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.75
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "New diagonal row of approximately six pale sloping-roof shelters immediately north of the central diagonal defensive wall.",
+      "toa_do": [
+       0.7,
+       0.499,
+       0.802,
+       0.59
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.81
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "New line of small rectangular blocks or stored goods on the ground between the right-hand building and the defensive works.",
+      "toa_do": [
+       0.861,
+       0.519,
+       0.895,
+       0.606
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.72
+     },
+     {
+      "loai": "nguoi",
+      "mo_ta": "New isolated standing or walking human figure on the foreground path near the bottom centre.",
+      "toa_do": [
+       0.488,
+       0.935,
+       0.502,
+       0.978
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.86
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "New branching pale dirt paths across the lower-left foreground, around the added flat-roofed building.",
+      "toa_do": [
+       0.002,
+       0.818,
+       0.384,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "New winding paths between the foreground houses and castle, continuing toward the bottom edge.",
+      "toa_do": [
+       0.475,
+       0.75,
+       0.69,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "New pale tracks across the coastal ground to the right of the mole and around the added right-hand buildings.",
+      "toa_do": [
+       0.791,
+       0.371,
+       1.0,
+       0.605
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.89
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Added raised boulders, rocky outcrops and irregular pale stone ridges throughout the lower-left foreground, rather than merely a recolouring of the original ground.",
+      "toa_do": [
+       0.0,
+       0.808,
+       0.384,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Added boulders and irregular stone ridges around the foreground houses and southwest of the castle.",
+      "toa_do": [
+       0.475,
+       0.812,
+       0.721,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Additional rocky outcrops and raised stones on the remaining right-hand coastal ground.",
+      "toa_do": [
+       0.794,
+       0.371,
+       1.0,
+       0.604
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "New distinct bushes and small rounded trees across the lower-left foreground and around the new building.",
+      "toa_do": [
+       0.0,
+       0.826,
+       0.391,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "New bushes and small trees among the foreground houses, paths and rocks southwest of the castle.",
+      "toa_do": [
+       0.477,
+       0.847,
+       0.744,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "New distinct scrub clumps on the coastal ground east of the mole.",
+      "toa_do": [
+       0.799,
+       0.374,
+       1.0,
+       0.589
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "tau_lon",
+      "mo_ta": "Several tiny distant vessel silhouettes at the upper edge, to the right of the surviving distant line, are absent in AFTER.",
+      "toa_do": [
+       0.715,
+       0.0,
+       0.767,
+       0.014
+      ],
+      "do_tin": 0.78
+     },
+     {
+      "loai": "vuon",
+      "mo_ta": "Dry grassy ground immediately inland of the central waterfront fortifications has been replaced by broad water channels and pools.",
+      "toa_do": [
+       0.548,
+       0.418,
+       0.858,
+       0.609
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "loai": "vuon",
+      "mo_ta": "Much of the dry central field inside the diagonal defensive wall has been replaced by a pool containing an invented fire.",
+      "toa_do": [
+       0.51,
+       0.539,
+       0.699,
+       0.617
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "loai": "vuon",
+      "mo_ta": "Dry ground east of the long right-hand defensive wall has been replaced by water.",
+      "toa_do": [
+       0.927,
+       0.527,
+       1.0,
+       0.729
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Dry castle courtyard and ground inside the walls have been changed into pools.",
+      "toa_do": [
+       0.691,
+       0.737,
+       0.863,
+       0.859
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "loai": "vuon",
+      "mo_ta": "Dry ground around the castle's southern and eastern exterior has been replaced by water.",
+      "toa_do": [
+       0.632,
+       0.846,
+       1.0,
+       1.0
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "loai": "vuon",
+      "mo_ta": "Patches of dry ground around the foreground houses have become blue pools or channels.",
+      "toa_do": [
+       0.378,
+       0.795,
+       0.569,
+       0.925
+      ],
+      "do_tin": 0.96
+     }
+    ],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "LAND→WATER: broad new channel immediately inland of the waterfront bastion and mole, extending along its southern face.",
+      "toa_do": [
+       0.549,
+       0.419,
+       0.857,
+       0.548
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "mo_ta": "LAND→WATER: new pool in the central field south of the diagonal defensive wall; the added bright fire sits within this converted area.",
+      "toa_do": [
+       0.511,
+       0.541,
+       0.699,
+       0.617
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "mo_ta": "LAND→WATER: narrow channel follows the central diagonal wall toward the right-hand defensive works.",
+      "toa_do": [
+       0.659,
+       0.538,
+       0.807,
+       0.632
+      ],
+      "do_tin": 0.96
+     },
+     {
+      "mo_ta": "LAND→WATER: large flooded area east of the long north-south wall on the right.",
+      "toa_do": [
+       0.928,
+       0.529,
+       1.0,
+       0.728
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "mo_ta": "LAND→WATER: small pool inside the castle's northwestern entrance enclosure.",
+      "toa_do": [
+       0.691,
+       0.739,
+       0.757,
+       0.783
+      ],
+      "do_tin": 0.98
+     },
+     {
+      "mo_ta": "LAND→WATER: main castle courtyard, west of the large square tower, is now a pool.",
+      "toa_do": [
+       0.752,
+       0.779,
+       0.865,
+       0.863
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "mo_ta": "LAND→WATER: new water surrounds the castle's southern curtain wall and large tower, continuing to the right and bottom frame edges.",
+      "toa_do": [
+       0.632,
+       0.846,
+       1.0,
+       1.0
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "mo_ta": "LAND→WATER: new pool beside the western end of the long foreground residential block.",
+      "toa_do": [
+       0.378,
+       0.803,
+       0.437,
+       0.87
+      ],
+      "do_tin": 0.96
+     },
+     {
+      "mo_ta": "LAND→WATER: additional narrow pools around the eastern end of the long residential block and the detached house below it.",
+      "toa_do": [
+       0.474,
+       0.765,
+       0.575,
+       0.925
+      ],
+      "do_tin": 0.94
+     },
+     {
+      "mo_ta": "WATER→LAND: a small green patch fills part of the previously blue waterfront opening between the left and central stretches of seawall.",
+      "toa_do": [
+       0.164,
+       0.377,
+       0.188,
+       0.407
+      ],
+      "do_tin": 0.85
+     }
+    ]
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.1465331
+   },
+   "secs": 27.3,
+   "json": {
+    "them": [
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Large white flat-roofed modern-looking building with blue shadows added in the bottom-left foreground",
+      "toa_do": [
+       0.21,
+       0.81,
+       0.34,
+       0.92
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented stone building with a flat roof that looks like a modern block; not in the 3D render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Small whitish and striped (terraced) buildings on the shore beside the central moat area",
+      "toa_do": [
+       0.7,
+       0.5,
+       0.8,
+       0.6
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented buildings",
+      "nam_xuat_hien": null,
+      "do_tin": 0.55
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Small white buildings on the green shore at the right edge",
+      "toa_do": [
+       0.91,
+       0.38,
+       0.99,
+       0.42
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented small buildings",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     },
+     {
+      "loai": "khoi",
+      "mo_ta": "Large black smoke column over the water in the centre of the bay",
+      "toa_do": [
+       0.31,
+       0.21,
+       0.43,
+       0.37
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke column on the water",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     },
+     {
+      "loai": "khoi",
+      "mo_ta": "Large smoke plume at the right-centre, behind and over the mole",
+      "toa_do": [
+       0.56,
+       0.04,
+       0.76,
+       0.4
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke column",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     },
+     {
+      "loai": "khoi",
+      "mo_ta": "Added dark smoke over the burning ships at the top, plus a column rising from the left ship",
+      "toa_do": [
+       0.04,
+       0.08,
+       0.13,
+       0.35
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke",
+      "nam_xuat_hien": null,
+      "do_tin": 0.7
+     },
+     {
+      "loai": "lua_lon",
+      "mo_ta": "Large fire burning on a left-side vessel or the water, with a flame at the base of the smoke",
+      "toa_do": [
+       0.07,
+       0.3,
+       0.11,
+       0.35
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented fire on the water",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "lua_lon",
+      "mo_ta": "Large fire and smoke burning in the inlet or lagoon in the middle of the land",
+      "toa_do": [
+       0.58,
+       0.55,
+       0.68,
+       0.62
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented fire in the lagoon area",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "Small sailing vessel with a white sail added in the bay",
+      "toa_do": [
+       0.31,
+       0.2,
+       0.34,
+       0.24
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented sailing ship",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Two small grey boats added on the water below the central smoke",
+      "toa_do": [
+       0.21,
+       0.29,
+       0.28,
+       0.35
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.7
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Small boat inside the smoke at the right side of the bay",
+      "toa_do": [
+       0.56,
+       0.27,
+       0.6,
+       0.29
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Small red boat on the water at the right",
+      "toa_do": [
+       0.79,
+       0.23,
+       0.8,
+       0.24
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.35
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Green vegetation, scrub, trees and paths added across the foreground, the right shore and the land around the fort",
+      "toa_do": [
+       0.0,
+       0.74,
+       0.75,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "White rock outcrops, sandy paths and a beach strip added on the foreground and right shore",
+      "toa_do": [
+       0.55,
+       0.85,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "tau_lon",
+      "mo_ta": "The yellow rafts or platforms under the burning ships in the top row were turned into hull and sea-foam shapes",
+      "toa_do": [
+       0.0,
+       0.06,
+       0.54,
+       0.15
+      ],
+      "do_tin": 0.4
+     }
+    ],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "Land turned into water: a dark inlet or lagoon in the middle of the land between the walls and the central fire",
+      "toa_do": [
+       0.55,
+       0.42,
+       0.86,
+       0.62
+      ],
+      "do_tin": 0.8
+     },
+     {
+      "mo_ta": "Land turned into water: moat or water around the fort at the bottom right, with a pool inside the fort",
+      "toa_do": [
+       0.63,
+       0.72,
+       1.0,
+       0.95
+      ],
+      "do_tin": 0.8
+     },
+     {
+      "mo_ta": "Land turned into water: a water channel along the right edge behind the wall",
+      "toa_do": [
+       0.93,
+       0.52,
+       1.0,
+       0.72
+      ],
+      "do_tin": 0.7
+     },
+     {
+      "mo_ta": "Land turned into water: a pool at the foot of the left-hand side of the mole, and water under the wall",
+      "toa_do": [
+       0.55,
+       0.39,
+       0.62,
+       0.45
+      ],
+      "do_tin": 0.6
+     },
+     {
+      "mo_ta": "Land turned into water: blue water patches in the foreground beside the buildings",
+      "toa_do": [
+       0.38,
+       0.82,
+       0.62,
+       0.95
+      ],
+      "do_tin": 0.5
+     }
+    ]
+   }
+  }
+ }
+}

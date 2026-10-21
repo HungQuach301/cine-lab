@@ -1,0 +1,873 @@
+{
+ "tag": "c2-manh-120",
+ "truoc": "/var/tmp/n2p/src/c2/rgb/00120.jpg",
+ "sau": "/var/tmp/n2p/omni/kiem/c2-manh-120-ghep.jpg",
+ "nam": "2026",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.0872,
+    "usage": {
+     "input_tokens": 15786,
+     "input_tokens_details": {
+      "cache_write_tokens": 15783,
+      "cached_tokens": 0
+     },
+     "output_tokens": 5558,
+     "output_tokens_details": {
+      "reasoning_tokens": 925
+     },
+     "total_tokens": 21344
+    }
+   },
+   "secs": 111.6,
+   "json": {
+    "them": [
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Small pale tower/building added on the left summit.",
+      "toa_do": [
+       0.091,
+       0.118,
+       0.111,
+       0.145
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented building prohibited by N2+; not intrinsically incompatible with 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+     },
+     {
+      "loai": "khac",
+      "mo_ta": "Tall slender antenna or mast added on the next summit.",
+      "toa_do": [
+       0.183,
+       0.135,
+       0.192,
+       0.168
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Pale circular or oval summit installation beneath the new mast, replacing the original irregular rocky summit surface.",
+      "toa_do": [
+       0.166,
+       0.163,
+       0.206,
+       0.206
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented architectural installation prohibited by N2+, irrespective of its possible existence in 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Distant mountainous coastline added behind the Rock and across the formerly open left and central horizon.",
+      "toa_do": [
+       0.0,
+       0.218,
+       0.622,
+       0.287
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented terrain changes the ground-truth geography; this is an N2+ violation rather than a chronological impossibility.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "New distant mountainous shoreline across the right horizon, replacing the nearer low green headland.",
+      "toa_do": [
+       0.73,
+       0.193,
+       1.0,
+       0.272
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented replacement terrain and changed coastline violate N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "Distant pale cargo-like ship added offshore left of center.",
+      "toa_do": [
+       0.43,
+       0.282,
+       0.459,
+       0.297
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Added large modern cargo-like ship is forbidden by the supplied N2+ list, although such ships are chronologically compatible with 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.83
+     },
+     {
+      "loai": "lua_lon",
+      "mo_ta": "Bright offshore fire added near the central-right horizon.",
+      "toa_do": [
+       0.624,
+       0.264,
+       0.643,
+       0.283
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented fire on the water is expressly forbidden by N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "khoi",
+      "mo_ta": "Large dark-to-brown smoke column rising and drifting right from the invented offshore fire.",
+      "toa_do": [
+       0.628,
+       0.104,
+       0.793,
+       0.276
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke column over the water is expressly forbidden by N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Stadium-like grandstand complex and long lower covered stand added on the green field north of the runway.",
+      "toa_do": [
+       0.091,
+       0.541,
+       0.198,
+       0.612
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "A stadium with stands is expressly forbidden by the supplied N2+ list; this is not a chronological incompatibility with 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "Small white sailing yacht added just beyond the urban waterfront, with its sail visible above the shoreline.",
+      "toa_do": [
+       0.778,
+       0.368,
+       0.792,
+       0.393
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented sailing vessel prohibited by N2+; a yacht itself is compatible with 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.83
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Distant powered boat added beyond the waterfront at right.",
+      "toa_do": [
+       0.916,
+       0.365,
+       0.938,
+       0.381
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Small cabin motorboat added in the harbor, below the runway extension.",
+      "toa_do": [
+       0.874,
+       0.515,
+       0.898,
+       0.54
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "White motorboat added near the middle of the foreground harbor.",
+      "toa_do": [
+       0.802,
+       0.584,
+       0.827,
+       0.613
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "White sailing yacht with a slender mast added in the lower-right harbor.",
+      "toa_do": [
+       0.871,
+       0.612,
+       0.893,
+       0.655
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented sailing vessel prohibited by N2+, rather than a vessel type too late for 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Partially cropped fast boat added at the extreme right edge of the harbor.",
+      "toa_do": [
+       0.974,
+       0.484,
+       1.0,
+       0.512
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.76
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Short pale stone pier or breakwater projecting rightward into the foreground harbor.",
+      "toa_do": [
+       0.715,
+       0.565,
+       0.773,
+       0.597
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented stone waterfront structure and water-to-land conversion violate N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "New low white-roofed roadside canopy or shelter on the central foreground traffic island.",
+      "toa_do": [
+       0.55,
+       0.82,
+       0.612,
+       0.865
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented architectural structure absent from the ground-truth render.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "nguoi",
+      "mo_ta": "Several pedestrian-like figures added beside the triangular island and road junction.",
+      "toa_do": [
+       0.563,
+       0.761,
+       0.59,
+       0.806
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.79
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Blue car added on the bottom-left road, partly cropped by the frame.",
+      "toa_do": [
+       0.146,
+       0.968,
+       0.189,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Light-colored car added immediately right of the foreground roundabout.",
+      "toa_do": [
+       0.309,
+       0.912,
+       0.333,
+       0.958
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Small blue vehicle added near the upper end of the diagonal road south of the runway crossing.",
+      "toa_do": [
+       0.523,
+       0.634,
+       0.544,
+       0.658
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.83
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Blue-and-white vehicle added farther down the diagonal road.",
+      "toa_do": [
+       0.557,
+       0.671,
+       0.578,
+       0.705
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.93
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Pale vehicle added on the diagonal road between the blue-and-white vehicle and the junction.",
+      "toa_do": [
+       0.58,
+       0.71,
+       0.6,
+       0.736
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Dark reddish vehicle added on the diagonal road approaching the central junction.",
+      "toa_do": [
+       0.598,
+       0.733,
+       0.617,
+       0.76
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Pale blue vehicle added immediately northwest of the central junction.",
+      "toa_do": [
+       0.612,
+       0.752,
+       0.63,
+       0.778
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.79
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Blue car added beside the pedestrians at the triangular island.",
+      "toa_do": [
+       0.583,
+       0.771,
+       0.608,
+       0.796
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Dark blue vehicle added at the northwest end of the new roadside canopy.",
+      "toa_do": [
+       0.522,
+       0.832,
+       0.556,
+       0.863
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.88
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Blue vehicle added west of the new roadside canopy.",
+      "toa_do": [
+       0.497,
+       0.854,
+       0.535,
+       0.885
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Light-colored vehicle added on the diagonal road southeast of the central junction.",
+      "toa_do": [
+       0.664,
+       0.814,
+       0.692,
+       0.853
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.81
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Small pale vehicle added farther southeast on the diagonal road, near the new crossing.",
+      "toa_do": [
+       0.685,
+       0.838,
+       0.71,
+       0.873
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.83
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Long turquoise bus added on the road north of the parallel white-roofed sheds.",
+      "toa_do": [
+       0.84,
+       0.762,
+       0.885,
+       0.796
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Long pale turquoise bus added on the road southwest of the parallel sheds.",
+      "toa_do": [
+       0.836,
+       0.855,
+       0.901,
+       0.905
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.92
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Small blue car added on the lower road just southwest of the central flat-roofed building.",
+      "toa_do": [
+       0.597,
+       0.932,
+       0.62,
+       0.958
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "White minibus or van added on the lower-right diagonal road.",
+      "toa_do": [
+       0.761,
+       0.927,
+       0.804,
+       0.972
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Blue-and-white car added on the bottom-right road.",
+      "toa_do": [
+       0.893,
+       0.935,
+       0.934,
+       0.972
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Partially cropped dark blue vehicle added at the far-right road edge.",
+      "toa_do": [
+       0.978,
+       0.896,
+       1.0,
+       0.932
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.82
+     },
+     {
+      "loai": "den",
+      "mo_ta": "Tall roadside lighting poles added around the bottom-right intersection.",
+      "toa_do": [
+       0.908,
+       0.89,
+       0.966,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.78
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "New zebra-crossing markings across the diagonal road southeast of the central junction.",
+      "toa_do": [
+       0.684,
+       0.851,
+       0.744,
+       0.903
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.92
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "da_dat",
+      "mo_ta": "The original low green headland across the upper-right bay is removed or substantially replaced by a much more distant mountainous shoreline; its projecting footprint is partly open water in AFTER.",
+      "toa_do": [
+       0.658,
+       0.196,
+       1.0,
+       0.279
+      ],
+      "do_tin": 0.97
+     },
+     {
+      "loai": "vuon",
+      "mo_ta": "Part of the original open green field and its internal markings is replaced or obscured by the invented stadium-like stands.",
+      "toa_do": [
+       0.091,
+       0.541,
+       0.198,
+       0.612
+      ],
+      "do_tin": 0.99
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "The original irregular rocky summit patch is changed into a pale, apparently constructed circular installation beneath a new mast.",
+      "toa_do": [
+       0.166,
+       0.163,
+       0.206,
+       0.206
+      ],
+      "do_tin": 0.8
+     }
+    ],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "LAND TO WATER: portions of the original projecting upper-right headland, especially its left tip and lower shoreline, become open bay beneath the new distant horizon. The box encloses the affected original headland, not a uniformly converted rectangle.",
+      "toa_do": [
+       0.658,
+       0.221,
+       1.0,
+       0.279
+      ],
+      "do_tin": 0.94
+     },
+     {
+      "mo_ta": "WATER TO LAND: a new short stone pier or breakwater occupies previously open water just east of the foreground shoreline.",
+      "toa_do": [
+       0.715,
+       0.565,
+       0.773,
+       0.597
+      ],
+      "do_tin": 0.98
+     },
+     {
+      "mo_ta": "WATER TO LAND: newly depicted distant mountainous coastline occupies portions of the formerly open sea horizon behind and to the right of the Rock.",
+      "toa_do": [
+       0.24,
+       0.222,
+       0.614,
+       0.282
+      ],
+      "do_tin": 0.87
+     }
+    ]
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.15379959999999998
+   },
+   "secs": 37.6,
+   "json": {
+    "them": [
+     {
+      "loai": "khoi",
+      "mo_ta": "Large dark smoke column rising from the sea in the bay, with a burning fire at its base",
+      "toa_do": [
+       0.62,
+       0.04,
+       0.83,
+       0.29
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "A smoke column and fire invented on the water. There is no such fire in the 2026 render.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     },
+     {
+      "loai": "lua_lon",
+      "mo_ta": "Orange flames of a burning vessel or object on the water at the base of the smoke",
+      "toa_do": [
+       0.62,
+       0.255,
+       0.655,
+       0.285
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Fire invented on the water.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.75
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Two white sailing yachts or motor boats added in the bay on the right",
+      "toa_do": [
+       0.795,
+       0.575,
+       0.89,
+       0.655
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Leisure boats are plausible in 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "thuyen_nho",
+      "mo_ta": "Speedboats with white wakes added on the water at the right edge",
+      "toa_do": [
+       0.85,
+       0.5,
+       1.0,
+       0.54
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Plausible in 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Short new mole or breakwater stub added in the water beside the beach",
+      "toa_do": [
+       0.72,
+       0.565,
+       0.775,
+       0.595
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Invented structure. It is not an anachronism, but it is not in the ground truth.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Modern building with a terrace and a blue bus-like vehicle added on the green park at left",
+      "toa_do": [
+       0.09,
+       0.55,
+       0.2,
+       0.61
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "An added building that is not in the render. It is not an anachronism for 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.7
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Small tower or mast structures added on the Rock summit",
+      "toa_do": [
+       0.09,
+       0.115,
+       0.2,
+       0.165
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Summit masts and towers exist in 2026, but they were not in the render.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Modern canopy or kiosk building with a flat roof added at the road junction",
+      "toa_do": [
+       0.55,
+       0.815,
+       0.62,
+       0.87
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Added building. Plausible in 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Blue transparent strips or canopies added along the quay and car park",
+      "toa_do": [
+       0.82,
+       0.82,
+       0.9,
+       0.9
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Added structure. Plausible in 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.4
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Cars and vans added on the roads, including a blue car at the bottom left, a van and blue car at the bottom right, and vehicles on the main road",
+      "toa_do": [
+       0.14,
+       0.96,
+       0.19,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Plausible in 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.7
+     },
+     {
+      "loai": "xe_may",
+      "mo_ta": "Van and blue car at the bottom right of the car park road",
+      "toa_do": [
+       0.77,
+       0.92,
+       0.94,
+       0.98
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Plausible in 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.7
+     },
+     {
+      "loai": "khac",
+      "mo_ta": "Blue patch or pond added at the roundabout, bottom centre-left",
+      "toa_do": [
+       0.3,
+       0.81,
+       0.34,
+       0.87
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.35
+     },
+     {
+      "loai": "tau_lon",
+      "mo_ta": "Extra small ship added on the horizon at the left of the bay",
+      "toa_do": [
+       0.43,
+       0.28,
+       0.48,
+       0.3
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "Small and plausible in 2026.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.3
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "khac",
+      "mo_ta": "Dark green headland across the bay at the right was replaced by hazy blue mountains and a distant coast, so the landform changed",
+      "toa_do": [
+       0.66,
+       0.19,
+       1.0,
+       0.27
+      ],
+      "do_tin": 0.6
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "The pale pathways on the green park at left were covered by the added building",
+      "toa_do": [
+       0.09,
+       0.55,
+       0.2,
+       0.61
+      ],
+      "do_tin": 0.3
+     }
+    ],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "Water became a small breakwater or land stub in the bay beside the beach",
+      "toa_do": [
+       0.72,
+       0.565,
+       0.775,
+       0.595
+      ],
+      "do_tin": 0.4
+     },
+     {
+      "mo_ta": "The water near the horizon at the top left of the bay turned into a hazy coastline and land",
+      "toa_do": [
+       0.25,
+       0.23,
+       0.55,
+       0.27
+      ],
+      "do_tin": 0.3
+     }
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "toan-canh-manh-l3-ghep",
+   "nam": 1781,
+   "noi": "Gibraltar",
+   "sha256": "0500e0388b05760af4f76d189757bdbf3c3fe118ce5680e81a17566a73940962",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Gibraltar is shown as a broad town on a gentle, open hillside facing a wide bay. There is no Rock of Gibraltar, no steep limestone ridge and no narrow peninsula. Field strips and long straight entrenchments run across the flat land to the north.",
+     "ly_do": "In 1781 Gibraltar was a small walled town squeezed under the steep Rock, on a narrow peninsula. The terrain and layout here do not match it. This is an anachronism of landmark terrain and layout, not of a specific object.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      480,
+      108,
+      1920,
+      1026
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.035883200000000004,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1049,
+     "cacheReadInputTokens": 2912,
+     "cacheCreationInputTokens": 10036,
+     "webSearchRequests": 0,
+     "costUSD": 0.035883200000000004,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 236,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.7,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1781,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Gibraltar is shown as a broad town on a gentle, open hillside facing a wide bay. There is no Rock of Gibraltar, no steep limestone ridge and no narrow peninsula. Field strips and long straight entrenchments run across the flat land to the north.\",\"ly_do\":\"In 1781 Gibraltar was a small walled town squeezed under the steep Rock, on a narrow peninsula. The terrain and layout here do not match it. This is an anachronism of landmark terrain and layout, not of a specific object.\",\"nam_xuat_hien\":null,\"toa_do\":[0.25,0.1,1.0,0.95],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0359,
+ "chi_phi_tb": 0.0359,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

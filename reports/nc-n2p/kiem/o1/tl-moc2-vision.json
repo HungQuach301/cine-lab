@@ -1,0 +1,398 @@
+{
+ "tag": "tl-moc2",
+ "truoc": "/var/tmp/n2p/tlmoc/rgb/00408.jpg",
+ "sau": "/var/tmp/n2p/kiem-cuoi/tl-moc2-ghep.jpg",
+ "nam": "1779",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.0576,
+    "usage": {
+     "input_tokens": 16187,
+     "input_tokens_details": {
+      "cache_write_tokens": 16184,
+      "cached_tokens": 0
+     },
+     "output_tokens": 2527,
+     "output_tokens_details": {
+      "reasoning_tokens": 481
+     },
+     "total_tokens": 18714
+    }
+   },
+   "secs": 47.6,
+   "json": {
+    "them": [
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small stack of barrels added on open ground immediately above the left foreground camp.",
+      "toa_do": [
+       0.294,
+       0.456,
+       0.308,
+       0.476
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Triangular stack of short cut logs added beside the track above the gap between the two main camps.",
+      "toa_do": [
+       0.394,
+       0.448,
+       0.418,
+       0.468
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Second triangular stack of short cut logs added in the gap between the two main foreground camps.",
+      "toa_do": [
+       0.407,
+       0.671,
+       0.438,
+       0.703
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.92
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Group of stacked barrels added outside the lower-left corner of the left camp.",
+      "toa_do": [
+       0.059,
+       0.828,
+       0.087,
+       0.861
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Group of stacked barrels added below the gap between the two main camps.",
+      "toa_do": [
+       0.435,
+       0.839,
+       0.463,
+       0.875
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Group of stacked barrels added beside the track to the right of the central grove.",
+      "toa_do": [
+       0.815,
+       0.609,
+       0.841,
+       0.635
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "xe_dung",
+      "mo_ta": "Stationary wooden two-wheeled cart carrying a piled load, apparently timber, added between the large central camp and the lower-right camp; no draft animal is visible.",
+      "toa_do": [
+       0.687,
+       0.742,
+       0.719,
+       0.775
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "New narrow, winding dirt footpath through the open ground above the left camp, passing the new barrel stack and log pile and continuing toward the space between the camps.",
+      "toa_do": [
+       0.369,
+       0.392,
+       0.48,
+       0.493
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Additional branching dirt tracks east of the central grove, including a branch past the new barrels and a connection south to the pre-existing curved foreground track.",
+      "toa_do": [
+       0.762,
+       0.539,
+       0.945,
+       0.84
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Numerous discrete pale boulders and small rock clusters added across the upper-left open plain, beyond merely changing the ground's surface texture.",
+      "toa_do": [
+       0.003,
+       0.248,
+       0.495,
+       0.49
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Additional exposed boulders and rock clusters across the upper-right plain, particularly around the existing scrub patches and below the distant right-hand camp.",
+      "toa_do": [
+       0.512,
+       0.286,
+       0.994,
+       0.495
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Numerous new individual boulders and irregular rock clusters west and south of the left foreground camp, including conspicuous rocks immediately beside its western edge.",
+      "toa_do": [
+       0.0,
+       0.492,
+       0.392,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "New boulders in the strip between the main camps and in the foreground below that strip.",
+      "toa_do": [
+       0.382,
+       0.524,
+       0.466,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "New rock outcrops and scattered boulders east of the central grove and around the tracks beside the lower-right camp, including the large pale cluster above the new barrel group.",
+      "toa_do": [
+       0.782,
+       0.513,
+       1.0,
+       0.979
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Additional distinct low bushes scattered across formerly empty parts of the upper plain, separate from the retained original tree groups; excludes the general grass-texture enhancement.",
+      "toa_do": [
+       0.002,
+       0.248,
+       0.998,
+       0.477
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.93
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Additional individual bushes and dense shrub clumps west and south of the left foreground camp, interspersed among the retained original trees and new rocks.",
+      "toa_do": [
+       0.0,
+       0.48,
+       0.396,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "New bushes in the formerly mostly open strip between the two main camps and below their lower ends.",
+      "toa_do": [
+       0.382,
+       0.527,
+       0.466,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Additional shrubs around and beneath the existing central grove and throughout the formerly open ground beside the right-hand tracks and lower-right camp.",
+      "toa_do": [
+       0.627,
+       0.501,
+       1.0,
+       0.981
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     }
+    ],
+    "bot_doi": [],
+    "doi_loai_vung": []
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.1485034
+   },
+   "secs": 31.3,
+   "json": {
+    "them": [
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stack of barrels or casks in the left foreground, not in the render",
+      "toa_do": [
+       0.06,
+       0.83,
+       0.09,
+       0.86
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented goods and supplies where the render has bare ground (rule c4B-c / F4)",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stack of barrels or casks near the lower centre",
+      "toa_do": [
+       0.435,
+       0.84,
+       0.465,
+       0.875
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented goods or supplies not in the render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stack of barrels or casks on the right-hand scrub",
+      "toa_do": [
+       0.814,
+       0.61,
+       0.84,
+       0.635
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented goods or supplies not in the render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.55
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Pile of logs or brushwood with timbers, centre-right",
+      "toa_do": [
+       0.688,
+       0.74,
+       0.72,
+       0.772
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented timber pile that is not in the render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     },
+     {
+      "loai": "leu",
+      "mo_ta": "Small brush hut or heap of thatch or timber at the edge of the middle ground",
+      "toa_do": [
+       0.392,
+       0.447,
+       0.418,
+       0.468
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented shelter or structure not in the render",
+      "nam_xuat_hien": null,
+      "do_tin": 0.45
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Pile of brushwood and timber with a stack of logs, centre-left of the road",
+      "toa_do": [
+       0.407,
+       0.665,
+       0.45,
+       0.7
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented heap that replaces the render's brown ground patch",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "cay",
+      "mo_ta": "The render's green grass and tree clumps and smooth plain were replaced by dry yellow scrub with rock outcrops. This changes the vegetation, and the small dark troop group near the trees was changed to a dark heap.",
+      "toa_do": [
+       0.0,
+       0.28,
+       1.0,
+       1.0
+      ],
+      "do_tin": 0.3
+     }
+    ],
+    "doi_loai_vung": []
+   }
+  }
+ }
+}

@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c4B-vua-r2-120",
+   "nam": 1779,
+   "noi": "Gibraltar",
+   "sha256": "88d711756a75098f889b42bc8a56660f68e4709df53691d5c6ea124621eb4d3a",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "tau",
+     "mo_ta": "Two anchored ships look like 15th–16th century carracks or galleons. They have high sterncastles, a lateen mizzen and small square sails. Other tiny dark boats sit on the water in a row.",
+     "ly_do": "The Royal Navy and the Spanish and French fleets at Gibraltar in 1779 used full-rigged ships, frigates and ships of the line with a different hull form and rig. These archaic ship types do not match them.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1123,
+      178,
+      1306,
+      254
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "co",
+     "mo_ta": "A tiny red and white flag on a pole at the corner of the left field. It resembles a Union Jack, but it is too small to identify the design with certainty.",
+     "ly_do": "If it is the Union Jack with the St Patrick's saltire, that design dates from 1801. The 1779 version had only the crosses of St George and St Andrew.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      720,
+      875,
+      768,
+      907
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.037132200000000004,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1202,
+     "cacheReadInputTokens": 2852,
+     "cacheCreationInputTokens": 9926,
+     "webSearchRequests": 0,
+     "costUSD": 0.037132200000000004,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 303,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 12.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1779,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"tau\",\"mo_ta\":\"Two anchored ships look like 15th–16th century carracks or galleons. They have high sterncastles, a lateen mizzen and small square sails. Other tiny dark boats sit on the water in a row.\",\"ly_do\":\"The Royal Navy and the Spanish and French fleets at Gibraltar in 1779 used full-rigged ships, frigates and ships of the line with a different hull form and rig. These archaic ship types do not match them.\",\"nam_xuat_hien\":null,\"toa_do\":[0.585,0.165,0.68,0.235],\"do_tin\":0.4},{\"muc\":\"co\",\"mo_ta\":\"A tiny red and white flag on a pole at the corner of the left field. It resembles a Union Jack, but it is too small to identify the design with certainty.\",\"ly_do\":\"If it is the Union Jack with the St Patrick's saltire, that design dates from 1801. The 1779 version had only the crosses of St George and St Andrew.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.375,0.81,0.4,0.84],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0371,
+ "chi_phi_tb": 0.0371,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

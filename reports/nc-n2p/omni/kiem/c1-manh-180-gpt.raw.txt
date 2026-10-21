@@ -1,0 +1,169 @@
+{
+  "them": [
+    {
+      "loai": "thuyen_nho",
+      "mo_ta": "New narrow reddish boat in the water immediately offshore of the central-left waterfront.",
+      "toa_do": [0.259, 0.309, 0.299, 0.339],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "thuyen_nho",
+      "mo_ta": "New narrow reddish boat farther offshore, left of the projecting mole.",
+      "toa_do": [0.539, 0.258, 0.575, 0.288],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "thuyen_nho",
+      "mo_ta": "Faint new small craft with an upright tan sail-like feature in the upper-right water.",
+      "toa_do": [0.597, 0.1, 0.614, 0.143],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.68
+    },
+    {
+      "loai": "co",
+      "mo_ta": "New small flag above the seaward tip of the long projecting mole.",
+      "toa_do": [0.791, 0.227, 0.808, 0.271],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "co",
+      "mo_ta": "New small pale pink flag beside the newly invented fire just offshore of the left waterfront bastion.",
+      "toa_do": [0.094, 0.302, 0.108, 0.321],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+    },
+    {
+      "loai": "lua_lon",
+      "mo_ta": "New fire on the water immediately behind the left waterfront bastion, separate from the original distant row of burning vessels.",
+      "toa_do": [0.071, 0.306, 0.1, 0.349],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented fire on the water, explicitly forbidden by the supplied N2+ rules; not a technology-date anachronism.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "New smoke column rising from the added fire behind the left waterfront bastion.",
+      "toa_do": [0.063, 0.228, 0.11, 0.326],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke column on the water, explicitly forbidden by the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "Large new overlapping brown and black smoke plumes over the water immediately offshore of the central waterfront.",
+      "toa_do": [0.302, 0.18, 0.431, 0.369],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke columns absent from the ground-truth render, explicitly forbidden by the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "lua_lon",
+      "mo_ta": "New localized yellow-orange flames in the flooded strip behind the central-right defensive wall.",
+      "toa_do": [0.587, 0.573, 0.622, 0.606],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented flames in a formerly dry area, explicitly forbidden by the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.88
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "New dark vertical plume immediately left of the projecting coastal battery, above an orange-lit patch.",
+      "toa_do": [0.568, 0.302, 0.602, 0.388],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke column absent from BEFORE, explicitly forbidden by the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.79
+    }
+  ],
+  "bot_doi": [
+    {
+      "loai": "da_dat",
+      "mo_ta": "The dark distant land silhouette clipped by the upper edge has disappeared and been replaced by water.",
+      "toa_do": [0.084, 0.0, 0.322, 0.021],
+      "do_tin": 0.96
+    },
+    {
+      "loai": "tau_lon",
+      "mo_ta": "Several tiny, partially cropped vessel silhouettes at the right end of the distant upper-edge flotilla have disappeared.",
+      "toa_do": [0.712, 0.0, 0.766, 0.016],
+      "do_tin": 0.82
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Grassy ground across the lower foreground and around the foreground houses and fort has been removed or submerged, leaving open water around otherwise retained structures.",
+      "toa_do": [0.0, 0.745, 1.0, 1.0],
+      "do_tin": 1.0
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "The broad grassy coastal ground to the right of the projecting battery and behind the right-hand fortifications has been replaced by water.",
+      "toa_do": [0.791, 0.383, 1.0, 0.706],
+      "do_tin": 1.0
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Dry grassy strips between the central defensive walls and buildings have been replaced by blue and orange-reflecting water.",
+      "toa_do": [0.496, 0.421, 0.794, 0.703],
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "The green interior ground of the foreground-right fort enclosure has become a pool of water.",
+      "toa_do": [0.74, 0.773, 0.86, 0.874],
+      "do_tin": 1.0
+    }
+  ],
+  "doi_loai_vung": [
+    {
+      "mo_ta": "LAND TO WATER: the narrow distant land silhouette along the upper edge is erased.",
+      "toa_do": [0.084, 0.0, 0.322, 0.021],
+      "do_tin": 0.96
+    },
+    {
+      "mo_ta": "LAND TO WATER: the extensive lower foreground beneath the town, including ground around the foreground houses and outside the right-hand fort, is flooded. Buildings and walls remain as islands.",
+      "toa_do": [0.0, 0.794, 1.0, 1.0],
+      "do_tin": 1.0
+    },
+    {
+      "mo_ta": "LAND TO WATER: the broad coastal ground east/right of the projecting battery becomes sea, substantially moving the coastline inland.",
+      "toa_do": [0.791, 0.383, 1.0, 0.706],
+      "do_tin": 1.0
+    },
+    {
+      "mo_ta": "LAND TO WATER: the formerly dry strip immediately inland of the central projecting coastal battery becomes an orange-reflecting inlet.",
+      "toa_do": [0.555, 0.423, 0.716, 0.523],
+      "do_tin": 0.99
+    },
+    {
+      "mo_ta": "LAND TO WATER: the broad curved strip between the central diagonal defensive wall and the buildings below it becomes a flooded channel.",
+      "toa_do": [0.496, 0.542, 0.794, 0.703],
+      "do_tin": 1.0
+    },
+    {
+      "mo_ta": "LAND TO WATER: ground between the foreground houses and the western side of the right-hand fort becomes a connecting flooded passage.",
+      "toa_do": [0.586, 0.743, 0.763, 0.9],
+      "do_tin": 0.99
+    },
+    {
+      "mo_ta": "LAND TO WATER: the grassy enclosed courtyard immediately left of the flag-bearing foreground tower becomes a blue pool.",
+      "toa_do": [0.74, 0.773, 0.86, 0.874],
+      "do_tin": 1.0
+    }
+  ]
+}

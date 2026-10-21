@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.039 (TB $0.039/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "cang-vua-l3-ghep",
+   "nam": 1780,
+   "noi": "Gibraltar",
+   "sha256": "6b1d237f8a35af319ae567a0ea01f4e81aa7003c17b57361d13ff4a762de089c",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "tau",
+     "mo_ta": "Several small white-wake objects with dark pointed heads move across open water. They look like motor launches or torpedoes, not sailing boats, oared boats or any 1780 craft. They have no sails, oars or crew.",
+     "ly_do": "Streaks like these suggest powered craft or torpedoes. Neither existed in 1780, when boats were sail- or oar-driven. The shapes are small and ambiguous.",
+     "nam_xuat_hien": 1866,
+     "toa_do_px": [
+      653,
+      637,
+      768,
+      680
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "tau",
+     "mo_ta": "Further white-wake streaks with dark heads sit in mid-water, at about (0.52–0.56, 0.55–0.57), (0.63–0.67, 0.51–0.53) and (0.72–0.75, 0.48–0.5).",
+     "ly_do": "These look like powered projectiles or motorboat wakes. Nothing like them existed in 1780.",
+     "nam_xuat_hien": 1866,
+     "toa_do_px": [
+      998,
+      594,
+      1440,
+      616
+     ],
+     "do_tin": 0.35
+    }
+   ],
+   "cost_usd": 0.03921859999999999,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1235,
+     "cacheReadInputTokens": 2191,
+     "cacheCreationInputTokens": 10655,
+     "webSearchRequests": 0,
+     "costUSD": 0.03921859999999999,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 314,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 14.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"tau\",\"mo_ta\":\"Several small white-wake objects with dark pointed heads move across open water. They look like motor launches or torpedoes, not sailing boats, oared boats or any 1780 craft. They have no sails, oars or crew.\",\"ly_do\":\"Streaks like these suggest powered craft or torpedoes. Neither existed in 1780, when boats were sail- or oar-driven. The shapes are small and ambiguous.\",\"nam_xuat_hien\":1866,\"toa_do\":[0.34,0.59,0.4,0.63],\"do_tin\":0.4},{\"muc\":\"tau\",\"mo_ta\":\"Further white-wake streaks with dark heads sit in mid-water, at about (0.52–0.56, 0.55–0.57), (0.63–0.67, 0.51–0.53) and (0.72–0.75, 0.48–0.5).\",\"ly_do\":\"These look like powered projectiles or motorboat wakes. Nothing like them existed in 1780.\",\"nam_xuat_hien\":1866,\"toa_do\":[0.52,0.55,0.75,0.57],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0392,
+ "chi_phi_tb": 0.0392,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

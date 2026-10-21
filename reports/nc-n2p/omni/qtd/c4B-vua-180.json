@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c4B-vua-180",
+   "nam": 1779,
+   "noi": "Gibraltar",
+   "sha256": "5c8d8be978bb0cee46d9f80776ddad5535bcf6adcda626b4c9b30f25590eaca3",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "Small red and white flags on the camp lines, with one at the lower left of the left camp block. They look like British Union flags, but they are too small to resolve the design.",
+     "ly_do": "If this is the 1801 Union Jack (with the St Patrick's saltire), it is anachronistic. In 1779 the 1606 Union flag, with only the crosses of St George and St Andrew, was in use. The design cannot be confirmed at this size.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      730,
+      886,
+      768,
+      918
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.034443600000000005,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 950,
+     "cacheReadInputTokens": 2816,
+     "cacheCreationInputTokens": 9860,
+     "webSearchRequests": 0,
+     "costUSD": 0.034443600000000005,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 253,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1779,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"Small red and white flags on the camp lines, with one at the lower left of the left camp block. They look like British Union flags, but they are too small to resolve the design.\",\"ly_do\":\"If this is the 1801 Union Jack (with the St Patrick's saltire), it is anachronistic. In 1779 the 1606 Union flag, with only the crosses of St George and St Andrew, was in use. The design cannot be confirmed at this size.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.38,0.82,0.40,0.85],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0344,
+ "chi_phi_tb": 0.0344,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

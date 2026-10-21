@@ -1,0 +1,849 @@
+{
+ "tag": "c1-manh-60",
+ "render": "/var/tmp/n2p/src/c1/rgb/00324.jpg",
+ "ai": "/var/tmp/n2p/omni/khung/c1-manh-60.png",
+ "ghep": "/var/tmp/n2p/omni/kiem/c1-manh-60-ghep.png",
+ "sha_ghep": "8b60d8f14d707d0603f63806f73c366ad8ab119c693837a8e42a6e262cf77b45",
+ "nam": "1782",
+ "i_lop_a": {
+  "max_trong_a": 52,
+  "diem_lech_trong_a": 359113,
+  "dien_tich_a_pct": 39.05,
+  "dai20_pct": 17.77,
+  "dai20_cum_dE30": 49,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     730,
+     225,
+     951,
+     278
+    ],
+    "px": 3908
+   },
+   {
+    "hop": [
+     753,
+     332,
+     917,
+     387
+    ],
+    "px": 2930
+   },
+   {
+    "hop": [
+     375,
+     58,
+     459,
+     122
+    ],
+    "px": 2859
+   },
+   {
+    "hop": [
+     463,
+     54,
+     542,
+     114
+    ],
+    "px": 2666
+   },
+   {
+    "hop": [
+     755,
+     392,
+     894,
+     420
+    ],
+    "px": 2230
+   },
+   {
+    "hop": [
+     764,
+     308,
+     893,
+     347
+    ],
+    "px": 2173
+   },
+   {
+    "hop": [
+     734,
+     415,
+     867,
+     438
+    ],
+    "px": 2025
+   },
+   {
+    "hop": [
+     427,
+     243,
+     548,
+     266
+    ],
+    "px": 1911
+   },
+   {
+    "hop": [
+     508,
+     636,
+     620,
+     670
+    ],
+    "px": 1100
+   },
+   {
+    "hop": [
+     1047,
+     561,
+     1087,
+     606
+    ],
+    "px": 744
+   },
+   {
+    "hop": [
+     409,
+     591,
+     459,
+     610
+    ],
+    "px": 590
+   },
+   {
+    "hop": [
+     296,
+     580,
+     359,
+     600
+    ],
+    "px": 587
+   },
+   {
+    "hop": [
+     93,
+     228,
+     132,
+     252
+    ],
+    "px": 576
+   },
+   {
+    "hop": [
+     0,
+     695,
+     38,
+     720
+    ],
+    "px": 570
+   },
+   {
+    "hop": [
+     293,
+     243,
+     348,
+     261
+    ],
+    "px": 524
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 7,
+   "dE_trung_vi": 14.7,
+   "dE_p90": 27.88
+  },
+  "khop_mau": false,
+  "dat_ghep": false,
+  "vat_lop_a": [
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New large orange fire on the water immediately outside the leftmost coastal bastion.",
+    "toa_do": [
+     0.078,
+     0.295,
+     0.102,
+     0.351
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New orange fire at the shoreline behind the central waterfront buildings.",
+    "toa_do": [
+     0.37,
+     0.341,
+     0.412,
+     0.37
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New fire with two visible orange flame patches in the open ground behind the yellow-roofed barracks.",
+    "toa_do": [
+     0.598,
+     0.573,
+     0.669,
+     0.608
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New orange flames on the leftmost offshore floating battery; the original had pale discharge smoke but no comparable visible fire.",
+    "toa_do": [
+     0.017,
+     0.115,
+     0.032,
+     0.141
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New visible flames on the second offshore floating battery from the left.",
+    "toa_do": [
+     0.092,
+     0.117,
+     0.106,
+     0.139
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New orange flame beneath the smoke on the third offshore floating battery.",
+    "toa_do": [
+     0.172,
+     0.109,
+     0.185,
+     0.131
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New orange flame on the fourth offshore floating battery.",
+    "toa_do": [
+     0.248,
+     0.101,
+     0.263,
+     0.123
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New orange flame on the offshore floating battery near the middle of the frame, immediately left of the rightmost battery.",
+    "toa_do": [
+     0.444,
+     0.089,
+     0.459,
+     0.109
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New prominent orange flame on the rightmost offshore floating battery.",
+    "toa_do": [
+     0.505,
+     0.08,
+     0.524,
+     0.106
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New substantial flat-roofed stone house in the lower-left foreground, including roof parapets, upright roof projections, windows and door openings.",
+    "toa_do": [
+     0.214,
+     0.805,
+     0.332,
+     0.927
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New pale, low, flat-roofed building or connected building cluster outside the fortifications on the right.",
+    "toa_do": [
+     0.898,
+     0.473,
+     0.957,
+     0.524
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New small pale hut-like structure close to the right-hand shoreline.",
+    "toa_do": [
+     0.94,
+     0.396,
+     0.965,
+     0.431
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New broken masonry wall or upright ruin in the open ground just left of the long right-hand defensive wall.",
+    "toa_do": [
+     0.864,
+     0.512,
+     0.894,
+     0.601
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New low broken stone walls and enclosure fragments around and below the added foreground house.",
+    "toa_do": [
+     0.195,
+     0.892,
+     0.39,
+     0.998
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New winding dirt tracks through the foreground, including a route past the added house and a branching route below the castle.",
+    "toa_do": [
+     0.025,
+     0.829,
+     0.728,
+     1.0
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New branching dirt paths in the open ground to the right of the coastal batteries.",
+    "toa_do": [
+     0.799,
+     0.412,
+     1.0,
+     0.683
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "lua_lon",
+    "mo_ta": "Large fire with black smoke on the green slope behind the wall, in the centre right",
+    "toa_do": [
+     0.57,
+     0.43,
+     0.71,
+     0.61
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "lua_lon",
+    "mo_ta": "Orange flames at the base of the smoke column on the left (burning wreck or fire)",
+    "toa_do": [
+     0.07,
+     0.3,
+     0.11,
+     0.35
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Added stone building with a flat roof and ruined walls in the lower-left foreground",
+    "toa_do": [
+     0.22,
+     0.81,
+     0.34,
+     0.92
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Added small white buildings and ruins on the upper right hillside",
+    "toa_do": [
+     0.9,
+     0.46,
+     0.96,
+     0.52
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Added small buildings and ruins at the lower right edge of the top-right area (right edge of the hillside)",
+    "toa_do": [
+     0.94,
+     0.38,
+     0.98,
+     0.42
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   }
+  ],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New large orange fire on the water immediately outside the leftmost coastal bastion.",
+    "toa_do": [
+     0.078,
+     0.295,
+     0.102,
+     0.351
+    ],
+    "dai_a": true,
+    "ly_do": "Invented fire on the water is expressly forbidden by N2+; fire itself is not technologically anachronistic.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "khoi",
+    "mo_ta": "New dark smoke column rising from the fire outside the left coastal bastion.",
+    "toa_do": [
+     0.048,
+     0.15,
+     0.127,
+     0.334
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke column on the water, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New orange fire at the shoreline behind the central waterfront buildings.",
+    "toa_do": [
+     0.37,
+     0.341,
+     0.412,
+     0.37
+    ],
+    "dai_a": true,
+    "ly_do": "Invented waterfront fire, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "khoi",
+    "mo_ta": "New very large black smoke column behind the central waterfront, extending beyond the top of the frame.",
+    "toa_do": [
+     0.252,
+     0.0,
+     0.435,
+     0.37
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke column, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "khoi",
+    "mo_ta": "New large black smoke column immediately left of the projecting mole and behind the coastal battery.",
+    "toa_do": [
+     0.559,
+     0.108,
+     0.742,
+     0.386
+    ],
+    "dai_a": true,
+    "ly_do": "Invented waterfront smoke column, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New fire with two visible orange flame patches in the open ground behind the yellow-roofed barracks.",
+    "toa_do": [
+     0.598,
+     0.573,
+     0.669,
+     0.608
+    ],
+    "dai_a": true,
+    "ly_do": "Invented fire within the settlement, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "khoi",
+    "mo_ta": "New dark smoke rising from the fire behind the barracks, visible on both sides of the intervening defensive wall.",
+    "toa_do": [
+     0.583,
+     0.424,
+     0.715,
+     0.603
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke column within the settlement, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New orange flames on the leftmost offshore floating battery; the original had pale discharge smoke but no comparable visible fire.",
+    "toa_do": [
+     0.017,
+     0.115,
+     0.032,
+     0.141
+    ],
+    "dai_a": true,
+    "ly_do": "Invented vessel fire on the water, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New visible flames on the second offshore floating battery from the left.",
+    "toa_do": [
+     0.092,
+     0.117,
+     0.106,
+     0.139
+    ],
+    "dai_a": true,
+    "ly_do": "Invented vessel fire on the water, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New orange flame beneath the smoke on the third offshore floating battery.",
+    "toa_do": [
+     0.172,
+     0.109,
+     0.185,
+     0.131
+    ],
+    "dai_a": true,
+    "ly_do": "Invented vessel fire on the water, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New orange flame on the fourth offshore floating battery.",
+    "toa_do": [
+     0.248,
+     0.101,
+     0.263,
+     0.123
+    ],
+    "dai_a": true,
+    "ly_do": "Invented vessel fire on the water, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New orange flame on the offshore floating battery near the middle of the frame, immediately left of the rightmost battery.",
+    "toa_do": [
+     0.444,
+     0.089,
+     0.459,
+     0.109
+    ],
+    "dai_a": true,
+    "ly_do": "Invented vessel fire on the water, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "lua_lon",
+    "mo_ta": "New prominent orange flame on the rightmost offshore floating battery.",
+    "toa_do": [
+     0.505,
+     0.08,
+     0.524,
+     0.106
+    ],
+    "dai_a": true,
+    "ly_do": "Invented vessel fire on the water, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "thuyen_nho",
+    "mo_ta": "New small sailing boat with a cream triangular sail between the floating batteries and the waterfront.",
+    "toa_do": [
+     0.308,
+     0.195,
+     0.33,
+     0.245
+    ],
+    "dai_a": false,
+    "ly_do": "Period-plausible boat, but an invented sailing vessel is expressly forbidden by the supplied N2+ rules.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New substantial flat-roofed stone house in the lower-left foreground, including roof parapets, upright roof projections, windows and door openings.",
+    "toa_do": [
+     0.214,
+     0.805,
+     0.332,
+     0.927
+    ],
+    "dai_a": true,
+    "ly_do": "Not demonstrably modern, but an invented stone building and its architectural details violate the supplied N2+ rules.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New pale, low, flat-roofed building or connected building cluster outside the fortifications on the right.",
+    "toa_do": [
+     0.898,
+     0.473,
+     0.957,
+     0.524
+    ],
+    "dai_a": true,
+    "ly_do": "Invented stone buildings, forbidden by N2+; their appearance alone does not establish a post-1782 construction type.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New small pale hut-like structure close to the right-hand shoreline.",
+    "toa_do": [
+     0.94,
+     0.396,
+     0.965,
+     0.431
+    ],
+    "dai_a": false,
+    "ly_do": "Invented stone structure, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New broken masonry wall or upright ruin in the open ground just left of the long right-hand defensive wall.",
+    "toa_do": [
+     0.864,
+     0.512,
+     0.894,
+     0.601
+    ],
+    "dai_a": true,
+    "ly_do": "Invented masonry structure and architectural detail, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New low broken stone walls and enclosure fragments around and below the added foreground house.",
+    "toa_do": [
+     0.195,
+     0.892,
+     0.39,
+     0.998
+    ],
+    "dai_a": false,
+    "ly_do": "Invented masonry structures, forbidden by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "khoi",
+    "mo_ta": "Large black smoke column rising from the sea in the upper centre, with a dark smoke base near the waterline",
+    "toa_do": [
+     0.25,
+     0.0,
+     0.45,
+     0.37
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke column on the water, not in BEFORE (NC-V2V c1, c2-a)",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "khoi",
+    "mo_ta": "Large black smoke column over the east mole and bastion, on the right",
+    "toa_do": [
+     0.57,
+     0.11,
+     0.75,
+     0.39
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke column, not in BEFORE",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "khoi",
+    "mo_ta": "Black smoke column with fire rising from the sea or shore at the left",
+    "toa_do": [
+     0.04,
+     0.08,
+     0.13,
+     0.36
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke column, not in BEFORE",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "lua_lon",
+    "mo_ta": "Large fire with black smoke on the green slope behind the wall, in the centre right",
+    "toa_do": [
+     0.57,
+     0.43,
+     0.71,
+     0.61
+    ],
+    "dai_a": true,
+    "ly_do": "Invented fire and smoke in the landscape (NC-V2V c1)",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "lua_lon",
+    "mo_ta": "Orange flames at the base of the smoke column on the left (burning wreck or fire)",
+    "toa_do": [
+     0.07,
+     0.3,
+     0.11,
+     0.35
+    ],
+    "dai_a": true,
+    "ly_do": "Invented fire on the water",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Added stone building with a flat roof and ruined walls in the lower-left foreground",
+    "toa_do": [
+     0.22,
+     0.81,
+     0.34,
+     0.92
+    ],
+    "dai_a": true,
+    "ly_do": "Invented stone building (NC-V2V c4B-c)",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Added small white buildings and ruins on the upper right hillside",
+    "toa_do": [
+     0.9,
+     0.46,
+     0.96,
+     0.52
+    ],
+    "dai_a": true,
+    "ly_do": "Invented stone buildings",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Added small buildings and ruins at the lower right edge of the top-right area (right edge of the hillside)",
+    "toa_do": [
+     0.94,
+     0.38,
+     0.98,
+     0.42
+    ],
+    "dai_a": false,
+    "ly_do": "Invented stone buildings",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "da_dat",
+    "mo_ta": "Rocky outcrops, cliffs and dirt paths added across the foreground and the right slopes",
+    "toa_do": [
+     0.0,
+     0.8,
+     0.65,
+     1.0
+    ],
+    "dai_a": true,
+    "ly_do": "Invented cliffs and rocks (NC-V2V c4B-c)",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 2.94,
+  "nuoc_thanh_dat_pct": 3.52,
+  "t9b_dat_thanh_nuoc_pct": 2.69,
+  "t9b_nuoc_thanh_dat_pct": 1.69,
+  "dat": false,
+  "mo_hinh_bao": []
+ },
+ "iv_dong_bang": {
+  "ap_dung": false,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

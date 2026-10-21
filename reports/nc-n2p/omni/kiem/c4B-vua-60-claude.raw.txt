@@ -1,0 +1,20 @@
+{"them":[
+{"loai":"tau_lon","mo_ta":"Two large sailing ships (galleons) invented on the sea","toa_do":[0.39,0.19,0.56,0.27],"thoi_dai_sai":false,"ly_do_thoi_dai":"Sailing ships are period-appropriate, but the render contained only tiny boats, so these are invented ships (NC-V2V c4B-c)","nam_xuat_hien":null,"do_tin":0.9},
+{"loai":"cong_trinh","mo_ta":"Town of dense buildings with terracotta roofs at the foot of the rock, and a coastal town along the shore. Neither was in the render.","toa_do":[0.0,0.21,0.2,0.29],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented stone buildings and houses (NC-V2V c4B-c)","nam_xuat_hien":null,"do_tin":0.7},
+{"loai":"cong_trinh","mo_ta":"Long walls or lines running between and beside the fields (dark wall lines with shadows)","toa_do":[0.14,0.5,0.43,0.86],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented fortification walls and stone structures (NC-V2V c4B-c)","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"leu","mo_ta":"White tent or awning, plus a tent or hut group with a wooden palisade at the right","toa_do":[0.19,0.61,0.22,0.66],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented tents and shelters (NC-V2V c4B-a)","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"leu","mo_ta":"Group of huts or tents with a fence on the right","toa_do":[0.65,0.68,0.72,0.8],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented huts and tents (NC-V2V c4B-a)","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"dong_vat","mo_ta":"Horses or cattle grazing on the left meadow, and a horse on the right","toa_do":[0.0,0.58,0.17,0.8],"thoi_dai_sai":false,"ly_do_thoi_dai":"Invented animals; period-appropriate but not in the render","nam_xuat_hien":null,"do_tin":0.7},
+{"loai":"nguoi","mo_ta":"Small figures and a red flag or cloth between the walls","toa_do":[0.41,0.69,0.43,0.73],"thoi_dai_sai":false,"ly_do_thoi_dai":"Invented troops or people (NC-V2V c4B-a)","nam_xuat_hien":null,"do_tin":0.4},
+{"loai":"cay","mo_ta":"Rows and groves of dense trees and scrub, with a dark cluster at the right","toa_do":[0.0,0.35,0.15,0.5],"thoi_dai_sai":false,"ly_do_thoi_dai":"Vegetation changed in kind; not anachronistic","nam_xuat_hien":null,"do_tin":0.5},
+{"loai":"khac","mo_ta":"Dirt tracks and paths across the plain, a beach with surf, and rocky promontories","toa_do":[0.1,0.3,0.95,0.7],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.5}
+],
+"bot_doi":[
+{"loai":"khac","mo_ta":"The green island at the right horizon was removed and replaced by a distorted yellow strip of terrain that cuts across the sea","toa_do":[0.74,0.07,1.0,0.42],"do_tin":0.85},
+{"loai":"thuyen_nho","mo_ta":"Small boats in the bay are changed into smeared blobs, and the outline of the town and wall near the rock is distorted","toa_do":[0.0,0.1,0.52,0.22],"do_tin":0.6},
+{"loai":"da_dat","mo_ta":"The rock was reshaped into a steeper, greener cliff, with a distant mountain range added","toa_do":[0.04,0.04,0.45,0.25],"do_tin":0.6}
+],
+"doi_loai_vung":[
+{"mo_ta":"Sea became land: a yellow strip of fields was added in the sea at the right, replacing the island and water","toa_do":[0.84,0.29,1.0,0.42],"do_tin":0.8},
+{"mo_ta":"Land became sea: the coastline moved, with a bay and beach cut into the land at the top centre, and the shoreline along the right pushed back","toa_do":[0.23,0.25,1.0,0.7],"do_tin":0.6}
+]}

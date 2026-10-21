@@ -1,0 +1,93 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.047 (TB $0.047/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c1-vua-60",
+   "nam": 1782,
+   "noi": "Gibraltar",
+   "sha256": "795797cc671482df02a6496baf856a432c95193397f4af485214187306891937",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "A small Union Jack flies over the bastion at the far left of the shoreline. It appears to be the same 1801-style design.",
+     "ly_do": "The 1801 Union flag design did not exist in 1782. The flag is tiny, so this identification is less certain.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      54,
+      383,
+      86,
+      413
+     ],
+     "do_tin": 0.35
+    },
+    {
+     "muc": "co",
+     "mo_ta": "A Union Jack flies from the keep tower in the lower right. It shows the red diagonal saltire of St Patrick over the blue field. This is the 1801 UK Union Flag design.",
+     "ly_do": "In 1782 the British Union flag was the 1606 design, with only the crosses of St George and St Andrew. The St Patrick's saltire was added with the Union of Great Britain and Ireland in 1801.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      1741,
+      740,
+      1778,
+      812
+     ],
+     "do_tin": 0.6,
+     "xac_nhan": {
+      "vung_px": [
+       1651,
+       668,
+       1867,
+       884
+      ],
+      "phong": 3.11,
+      "tra_loi": {
+       "vat": "Union flag (Great Union flag) flying on a pole over a fortification",
+       "dac_diem": "The flag is small and blurry. It has a blue field with red and white crosses and diagonals: a red upright cross, with white and red diagonal lines. This matches the Union Jack design of St George and St Andrew combined. The flagpole stands on a sandy-coloured bastion.",
+       "co_tu_nam": 1606,
+       "da_co_nam_1782": "yes",
+       "ly_do": "The Union flag combining the crosses of St George and St Andrew dates from 1606 and was in use in 1782. The 1801 version added St Patrick's saltire. I can't clearly see a St Patrick's saltire here, so I read this as the pre-1801 design."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.009946400000000001,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 3.11×: da_co_nam = 'yes' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.0466538,
+   "cost_buoc2": 0.00995,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1182,
+     "cacheReadInputTokens": 2804,
+     "cacheCreationInputTokens": 9838,
+     "webSearchRequests": 0,
+     "costUSD": 0.0367074,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 356,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1782,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"A Union Jack flies from the keep tower in the lower right. It shows the red diagonal saltire of St Patrick over the blue field. This is the 1801 UK Union Flag design.\",\"ly_do\":\"In 1782 the British Union flag was the 1606 design, with only the crosses of St George and St Andrew. The St Patrick's saltire was added with the Union of Great Britain and Ireland in 1801.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.907,0.685,0.926,0.752],\"do_tin\":0.6},{\"muc\":\"co\",\"mo_ta\":\"A small Union Jack flies over the bastion at the far left of the shoreline. It appears to be the same 1801-style design.\",\"ly_do\":\"The 1801 Union flag design did not exist in 1782. The flag is tiny, so this identification is less certain.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.028,0.355,0.045,0.382],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0467,
+ "chi_phi_tb": 0.0467,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

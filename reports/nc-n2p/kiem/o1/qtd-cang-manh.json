@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "cang-manh-l2-ghep",
+   "nam": 1780,
+   "noi": "Gibraltar",
+   "sha256": "f6fa64d2c56c61e28271b8f3445b3196b154010d49fea6df1cf542f3e564a84e",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "tau",
+     "mo_ta": "Several small white and black elongated, cylinder-like objects lie on the open water. They have no visible masts, sails or oars. They look like modern motorboats or torpedo shapes.",
+     "ly_do": "A hull with no sails or oars would suggest motor or modern craft, which did not exist in 1780. The objects are small and ambiguous, so they could be rendering artifacts or wakes.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      668,
+      643,
+      764,
+      667
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.0356403,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1050,
+     "cacheReadInputTokens": 2858,
+     "cacheCreationInputTokens": 9937,
+     "webSearchRequests": 0,
+     "costUSD": 0.0356403,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 333,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"tau\",\"mo_ta\":\"Several small white and black elongated, cylinder-like objects lie on the open water. They have no visible masts, sails or oars. They look like modern motorboats or torpedo shapes.\",\"ly_do\":\"A hull with no sails or oars would suggest motor or modern craft, which did not exist in 1780. The objects are small and ambiguous, so they could be rendering artifacts or wakes.\",\"nam_xuat_hien\":null,\"toa_do\":[0.348,0.595,0.398,0.618],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0356,
+ "chi_phi_tb": 0.0356,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

@@ -1,0 +1,489 @@
+{
+ "tag": "toan-canh-vua-l2",
+ "truoc": "../nc-cpu/khung/A/cong-toan-canh.jpg",
+ "sau": "/var/tmp/n2p/kiem-cuoi/toan-canh-vua-l2-ghep.jpg",
+ "nam": "1781",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.0653,
+    "usage": {
+     "input_tokens": 16157,
+     "input_tokens_details": {
+      "cache_write_tokens": 16154,
+      "cached_tokens": 0
+     },
+     "output_tokens": 3303,
+     "output_tokens_details": {
+      "reasoning_tokens": 674
+     },
+     "total_tokens": 19460
+    }
+   },
+   "secs": 182.5,
+   "json": {
+    "them": [
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Added upper dry-stone terrace wall on the right hillside, above the dense grove.",
+      "toa_do": [
+       0.889,
+       0.428,
+       1.0,
+       0.463
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "An invented built landscape feature absent from the ground-truth render; prohibited under N2+, although dry-stone construction itself predates 1781.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Added middle dry-stone terrace wall crossing the right hillside above the grove.",
+      "toa_do": [
+       0.887,
+       0.47,
+       1.0,
+       0.499
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented architectural addition under N2+; not intrinsically anachronistic construction.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Added lower terrace wall immediately above and behind the prominent tall tree.",
+      "toa_do": [
+       0.856,
+       0.496,
+       1.0,
+       0.537
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented architectural addition absent from BEFORE, prohibited under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Added long, irregular dry-stone retaining wall below the dense grove, including its descending right-hand return.",
+      "toa_do": [
+       0.771,
+       0.635,
+       0.94,
+       0.713
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented retaining structure; violates N2+ architectural preservation rather than representing a demonstrably later technology.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "Added lower dry-stone terrace wall extending left from the vicinity of the existing isolated pale rectangular structure.",
+      "toa_do": [
+       0.725,
+       0.731,
+       0.819,
+       0.761
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented architectural structure absent from BEFORE; prohibited under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Added prominent narrow, cypress-like tree on the hillside at the upper edge of the foreground grove.",
+      "toa_do": [
+       0.885,
+       0.496,
+       0.902,
+       0.548
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Additional trees and substantial shrubs surrounding the existing grove and extending uphill toward the castle; these occupy previously open slope.",
+      "toa_do": [
+       0.821,
+       0.3,
+       1.0,
+       0.563
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Numerous added substantial bushes and small trees across the formerly sparsely vegetated central foreground slope, including around the isolated rectangular structure.",
+      "toa_do": [
+       0.607,
+       0.565,
+       0.894,
+       0.881
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Additional dense shrub clumps along the lower hillside beside the outermost row of houses and across the bottom foreground.",
+      "toa_do": [
+       0.531,
+       0.738,
+       0.803,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Added discrete bushes and small trees on the formerly open ground between the northern fortifications, castle and shoreline.",
+      "toa_do": [
+       0.669,
+       0.218,
+       0.999,
+       0.36
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "New continuous exposed limestone ridge across the middle-right foreground, rather than merely the isolated stones visible there before.",
+      "toa_do": [
+       0.745,
+       0.656,
+       1.0,
+       0.783
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented substantial rock relief is a ground-truth/N2+ violation, not a geological dating anachronism.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Additional broad, raised limestone outcrop extending left of and above the pre-existing pale rock patch in the bottom-right foreground.",
+      "toa_do": [
+       0.692,
+       0.815,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "The enlarged continuous outcrop introduces rock geometry beyond a texture change; invented cliff/rock relief is forbidden under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.84
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Exposed jagged rock heads introduced along the diagonal offshore shoal southwest of the fleet.",
+      "toa_do": [
+       0.186,
+       0.354,
+       0.343,
+       0.464
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Previously flat, water-covered shoal markings have been interpreted as emergent rocks, changing ground-truth relief and locally water into land under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Exposed rock heads at the two angular shallow-water features immediately offshore from the central waterfront.",
+      "toa_do": [
+       0.263,
+       0.524,
+       0.33,
+       0.574
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Adds emergent rock geometry at previously submerged features; prohibited ground-truth and water/land alteration under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Added exposed boulders on and around the western tip of the larger shallow coastal projection.",
+      "toa_do": [
+       0.166,
+       0.628,
+       0.259,
+       0.687
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Some rock heads occupy the formerly blue submerged margin, introducing exposed land under N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Added emergent rocky islets at the smaller angular offshore shoal farther down the left shoreline.",
+      "toa_do": [
+       0.111,
+       0.702,
+       0.187,
+       0.741
+      ],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "The BEFORE feature is blue and submerged; AFTER introduces exposed rocks, a prohibited water-to-land alteration.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.93
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "da_dat",
+      "mo_ta": "Flat submerged diagonal shoal features changed into irregular emergent reefs with projecting rock heads.",
+      "toa_do": [
+       0.186,
+       0.354,
+       0.343,
+       0.464
+      ],
+      "do_tin": 0.8
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Two flat angular offshore shoals changed into protruding rocky reefs.",
+      "toa_do": [
+       0.263,
+       0.524,
+       0.33,
+       0.574
+      ],
+      "do_tin": 0.87
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "The larger coastal projection's simple sandy surface and submerged outer margin changed into a fragmented boulder-strewn rocky projection.",
+      "toa_do": [
+       0.165,
+       0.622,
+       0.311,
+       0.701
+      ],
+      "do_tin": 0.92
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Small angular, water-covered coastal shoal changed into exposed rocky islets.",
+      "toa_do": [
+       0.108,
+       0.699,
+       0.188,
+       0.746
+      ],
+      "do_tin": 0.93
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Scattered foreground stones and the localized pale rock patch replaced or subsumed by much larger continuous limestone ridges.",
+      "toa_do": [
+       0.692,
+       0.656,
+       1.0,
+       1.0
+      ],
+      "do_tin": 0.86
+     }
+    ],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "WATER became exposed ROCK/LAND locally at rock heads along the diagonal offshore shoal; not the entire bounding rectangle.",
+      "toa_do": [
+       0.186,
+       0.354,
+       0.343,
+       0.464
+      ],
+      "do_tin": 0.78
+     },
+     {
+      "mo_ta": "WATER became exposed ROCK/LAND at the two formerly submerged angular features offshore from the central waterfront.",
+      "toa_do": [
+       0.263,
+       0.524,
+       0.33,
+       0.574
+      ],
+      "do_tin": 0.86
+     },
+     {
+      "mo_ta": "WATER became exposed ROCK/LAND in patches along the submerged outer rim of the larger coastal projection.",
+      "toa_do": [
+       0.166,
+       0.628,
+       0.259,
+       0.687
+      ],
+      "do_tin": 0.81
+     },
+     {
+      "mo_ta": "WATER became exposed rocky islets within the smaller blue angular coastal shoal.",
+      "toa_do": [
+       0.111,
+       0.702,
+       0.187,
+       0.741
+      ],
+      "do_tin": 0.92
+     }
+    ]
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.1408234
+   },
+   "secs": 22.6,
+   "json": {
+    "them": [
+     {
+      "loai": "da_dat",
+      "mo_ta": "Large grey limestone rock outcrops added on the right-hand slope and lower right corner",
+      "toa_do": [
+       0.78,
+       0.72,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Dense bushes, scrub and a few cypress-like trees added across the hillside and the coastal plain at upper right",
+      "toa_do": [
+       0.6,
+       0.45,
+       1.0,
+       0.95
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.75
+     },
+     {
+      "loai": "vuon",
+      "mo_ta": "Dry-stone terrace walls with small terrace fields invented on the slope beside the town",
+      "toa_do": [
+       0.72,
+       0.64,
+       0.9,
+       0.77
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Rocky shoreline with boulders, islets and surf foam added along the western coast",
+      "toa_do": [
+       0.0,
+       0.62,
+       0.35,
+       0.95
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.75
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Rocks and surf foam replacing the white shallow-water bands in mid-bay",
+      "toa_do": [
+       0.25,
+       0.35,
+       0.45,
+       0.58
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Shrubs and rocks added along the north-eastern beach and plain, with some rock at the shoreline",
+      "toa_do": [
+       0.7,
+       0.15,
+       1.0,
+       0.42
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.55
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "vuon",
+      "mo_ta": "Town garden plot changed from a pale grid with round trees to a darker, more detailed field; the round trees were removed",
+      "toa_do": [
+       0.34,
+       0.65,
+       0.46,
+       0.78
+      ],
+      "do_tin": 0.3
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Low-poly green scrub patches replaced by photo-like vegetation",
+      "toa_do": [
+       0.85,
+       0.52,
+       1.0,
+       0.68
+      ],
+      "do_tin": 0.3
+     }
+    ],
+    "doi_loai_vung": [
+     {
+      "mo_ta": "The pale shallow-water polygons off the south-west beach became rocky shore and rocks, so the coastline shifted slightly (water to land)",
+      "toa_do": [
+       0.1,
+       0.62,
+       0.3,
+       0.78
+      ],
+      "do_tin": 0.4
+     }
+    ]
+   }
+  }
+ }
+}

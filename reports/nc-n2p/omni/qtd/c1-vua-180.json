@@ -1,0 +1,95 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung c1-vua-180 năm 1782: [co] The flag on the fortress at lower right is a Union Jack with the red diagonal St Patrick's saltire over white. This is the modern Union Flag design. A smaller flag of the same design flies on the bastion at upper left. — In 1782 the British Union Flag had only the crosses of St George and St Andrew. The St Patrick's saltire was added with the Act of Union in 1801. (xuất hiện 1801) @px [1751, 738, 1784, 815] tin 0.6"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.042 (TB $0.042/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c1-vua-180",
+   "nam": 1782,
+   "noi": "Gibraltar",
+   "sha256": "d0f048eb00293809a0b864c19f6667765e1f5c9f4efbeb2c2230cf8b61f03794",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [
+    {
+     "muc": "co",
+     "mo_ta": "The flag on the fortress at lower right is a Union Jack with the red diagonal St Patrick's saltire over white. This is the modern Union Flag design. A smaller flag of the same design flies on the bastion at upper left.",
+     "ly_do": "In 1782 the British Union Flag had only the crosses of St George and St Andrew. The St Patrick's saltire was added with the Act of Union in 1801.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      1751,
+      738,
+      1784,
+      815
+     ],
+     "do_tin": 0.6,
+     "xac_nhan": {
+      "vung_px": [
+       1652,
+       661,
+       1883,
+       892
+      ],
+      "phong": 2.91,
+      "tra_loi": {
+       "vat": "Union Jack (flag of Great Britain) on a flagpole on a fortification",
+       "dac_diem": "The flag is small and blurred. It has a blue field with red and white crossed diagonals and a white-edged red cross, as in a Union flag. It flies from a pole above a dark battlement or bastion.",
+       "co_tu_nam": 1707,
+       "da_co_nam_1782": "no",
+       "ly_do": "This looks like the 1707 Great Britain Union flag, which was in use in 1782. It is not the 1801 Union flag with the added St Patrick's saltire. The image is too blurred to confirm the exact design, so the answer is tentative."
+      },
+      "da_co": "no",
+      "giu": true,
+      "cost_usd": 0.0062708,
+      "loi": null
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "A small Union-type flag flies on the bastion at upper left.",
+     "ly_do": "If it is the modern design, it has the St Patrick's saltire added in 1801. The flag is very small, so I am less sure of its design.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      60,
+      390,
+      86,
+      413
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.0415582,
+   "cost_buoc2": 0.00627,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1040,
+     "cacheReadInputTokens": 2804,
+     "cacheCreationInputTokens": 9838,
+     "webSearchRequests": 0,
+     "costUSD": 0.0352874,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 229,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1782,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"The flag on the fortress at lower right is a Union Jack with the red diagonal St Patrick's saltire over white. This is the modern Union Flag design. A smaller flag of the same design flies on the bastion at upper left.\",\"ly_do\":\"In 1782 the British Union Flag had only the crosses of St George and St Andrew. The St Patrick's saltire was added with the Act of Union in 1801.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.912,0.683,0.929,0.755],\"do_tin\":0.6},{\"muc\":\"co\",\"mo_ta\":\"A small Union-type flag flies on the bastion at upper left.\",\"ly_do\":\"If it is the modern design, it has the St Patrick's saltire added in 1801. The flag is very small, so I am less sure of its design.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.031,0.361,0.045,0.382],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0416,
+ "chi_phi_tb": 0.0416,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}
