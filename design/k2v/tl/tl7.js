@@ -73,7 +73,7 @@ export function camps(specs, ctx, opt = {}) {   // V7C (việc 2d): opt.hangLoi 
     const len = C[C.length - 1];
     for (let s = 0; s < len; s += gap) { let i = 1; while (i < sp.pts.length - 1 && C[i] < s) i++; const a = sp.pts[i - 1], b = sp.pts[i], u = (s - C[i - 1]) / ((C[i] - C[i - 1]) || 1), dx = b[0] - a[0], dn = b[1] - a[1], l = Math.hypot(dx, dn) || 1;
       for (let r = 0; r < rows; r++) { const o = (r - (rows - 1) / 2) * rg + (r >= rows / 2 ? 2.5 : 0), e = a[0] + dx * u - dn / l * o + (R() - 0.5) * 0.6, n = a[1] + dn * u + dx / l * o + (R() - 0.5) * 0.6;
-        if (ctx.terr.hAt(e, n) < 0.5) continue; const tn = opt.tuNhien ? { de: (R() - 0.5) * 2.4 + Math.sin(s * 0.013 + r) * 1.6, dn2: (R() - 0.5) * 2.4, hd: (R() - 0.5) * 0.55, c: R() } : null;   /* ANIMATIC-T3 (LOOK-4): opt.tuNhien — lều lệch hàng ±1,2 m + gợn dọc dãy, xoay ±16°, sắc vải theo lều → hết "bàn cờ" (số lều KHÔNG đổi) */
+        if (ctx.terr.hAt(e, n) < 0.5) continue; const tn = opt.tuNhien ? { de: (R() - 0.5) * 5.0 + Math.sin(s * 0.013 + r) * 3.0, dn2: (R() - 0.5) * 5.0, hd: (R() - 0.5) * 0.9, c: R() } : null;   /* ANIMATIC-T3 (LOOK-4): opt.tuNhien — lều lệch hàng ±1,2 m + gợn dọc dãy, xoay ±16°, sắc vải theo lều → hết "bàn cờ" (số lều KHÔNG đổi) */
         all.push({ sp, e: e + (tn ? tn.de : 0), n: n + (tn ? tn.dn2 : 0), hd: Math.atan2(dn, dx) + Math.PI / 2 + (R() - 0.5) * 0.06 + (tn ? tn.hd : 0), s: s / len, k: 0.9 + 0.2 * R(), j: opt.hangLoi ? Math.min(0.999, s / len + 0.004 * R()) : R(), tc: tn ? tn.c : null }); } } }
   // nền trại: dải đất giẫm (đất trơ, nhạt) dưới mỗi dãy — đọc được từ xa như dải trại trên bản đồ; hiện theo k của dãy (vật nền phụ, bậc 5)
   const grounds = []; for (const sp of specs || []) { const a = sp.pts[0], b = sp.pts[sp.pts.length - 1], dx = b[0] - a[0], dn = b[1] - a[1], l = Math.hypot(dx, dn) || 1, wd = (sp.rows || 3) * (sp.rowGap || 5.5) + 12, nx = -dn / l * wd / 2, nn = dx / l * wd / 2;
@@ -87,11 +87,11 @@ export function camps(specs, ctx, opt = {}) {   // V7C (việc 2d): opt.hangLoi 
   const meshes = [];
   for (const [c, Q] of Object.entries(byC)) { const m = new THREE.MeshLambertMaterial({ color: new THREE.Color(c), side: THREE.DoubleSide }); maskify(m, ctx.U, 1);
     const im = new THREE.InstancedMesh(g, m, Q.length); im.castShadow = im.receiveShadow = true; im.frustumCulled = false; group.add(im); meshes.push({ im, Q });
-    if (opt.tuNhien) { const TONE = [[0.86, 0.83, 0.76], [0.80, 0.76, 0.67], [0.74, 0.69, 0.60], [0.90, 0.88, 0.82], [0.70, 0.66, 0.58]], cc = new THREE.Color(); Q.forEach((q, i) => { const t = TONE[Math.floor(q.tc * TONE.length) % TONE.length]; im.setColorAt(i, cc.setRGB(t[0], t[1], t[2])); }); im.instanceColor.needsUpdate = true; } }
+    if (opt.tuNhien) { const TONE = [[0.78, 0.74, 0.64], [0.70, 0.65, 0.55], [0.62, 0.57, 0.47], [0.82, 0.79, 0.70], [0.58, 0.53, 0.44]], cc = new THREE.Color(); Q.forEach((q, i) => { const t = TONE[Math.floor(q.tc * TONE.length) % TONE.length]; im.setColorAt(i, cc.setRGB(t[0], t[1], t[2])); }); im.instanceColor.needsUpdate = true; } }
   const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), v = new THREE.Vector3(), sc = new THREE.Vector3(), Y = new THREE.Vector3(0, 1, 0);
   let shown = 0;
   return { group, n: all.length, stat: () => ({ leu: all.length, hien: shown }),
-    update(year) { shown = 0; for (const g of grounds) { if (opt.hangLoi) { const kk = kOf(g.sp, year); g.gm.opacity = (opt.tuNhien ? 0.32 : 0.8) * Math.min(1, kk * 12); g.gmesh.visible = kk > 0.005; g.gmesh.geometry.setDrawRange(0, 6 * Math.max(1, Math.ceil(24 * Math.min(1, kk + 0.02)))); continue; }
+    update(year) { shown = 0; for (const g of grounds) { if (opt.hangLoi) { const kk = kOf(g.sp, year); g.gm.opacity = (opt.tuNhien ? 0.12 : 0.8) * Math.min(1, kk * 12); g.gmesh.visible = kk > 0.005; g.gmesh.geometry.setDrawRange(0, 6 * Math.max(1, Math.ceil(24 * Math.min(1, kk + 0.02)))); continue; }
       const k = Math.min(1, kOf(g.sp, year) * 2.2); g.gm.opacity = 0.8 * k; g.gmesh.visible = k > 0.01; }
       for (const { im, Q } of meshes) { Q.forEach((p, i) => { const k = kOf(p.sp, year), on = p.j < k;   // lều mọc ngẫu nhiên tất định theo k (trại dựng dần), rút cùng thứ tự
         v.set(p.e, hAt(p.e, p.n) - 0.05, -p.n); q.setFromAxisAngle(Y, p.hd); const s = on ? p.k : 0; sc.set(s, s, s); m4.compose(v, q, sc); im.setMatrixAt(i, m4); shown += on ? 1 : 0; }); im.instanceMatrix.needsUpdate = true; } } };
