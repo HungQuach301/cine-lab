@@ -1,6 +1,6 @@
 # K-1.17 — CHECKPOINT
 - Nhánh: `checks-1-17` từ `origin/main` @ `bc7e96d1`.
-- 14:40 UTC: đã đọc NC-N2P (§2, §6, mã `reports/nc-n2p/ma/`, đáp án), ANIMATIC-T3 §8.3 + log-shot, V7C-D5, RULES-LL 1.16.1, Kinh thánh §13.6/§14.1. Kinh thánh §14.7 và §15 **chưa có trên nhánh nào** (đã quét mọi nhánh origin) → làm theo nội dung trong lệnh.
-- Đang làm: dựng lại k2check 1.16.1 trên animatic T3 (timeline dựng từ đặc tả, `reports/k117/do/tl_tu_dac_ta.py`) để phân loại 8 hàng Chặn; tiếp theo: `checks/ll/q_n2p.py`, `q_k117.py`, selftest.
-- Chưa sửa `checks/`. LOCK vẫn 1.16.1.
-- 14:47 UTC: mã 1.17 đang viết (bản vá việc dở `reports/k117/wip/checks-wip.patch`, áp bằng `git apply`): `q_n2p.py` + `q_n2p_vision.py` + `data/cam_thoi_dai.json` (N2P-1…6), `q_k117.py` (MINH-HOA, EO-DAT-R1…R3), sửa Q33 (miễn năm khác — TL-1), ML1 (`cau: ""`), NC-H1 (lớp nhà tl/* — V7C-D5), SACH-1 (nhãn Illustration), cap112, k2check. Tái hiện k2check 1.16.1 trên animatic T3: 11 hàng TRƯỢT khớp báo cáo animatic (Q33 cần bản xem ghép 8 chương). Chưa chạy selftest, chưa khoá.
+- 14:35 UTC: đọc xong đầu vào; Kinh thánh §14.7 và §15 không có trên nhánh nào → làm theo lệnh.
+- 14:47 UTC: bản vá việc dở checks 1.17 (đã gỡ khi commit mã).
+- 15:01:40 UTC: `lock.py` (một lần) → 1.17.0 `f6812dec…`; `--verify` KHỚP. Selftest sau khoá: k117 96/96, k116 144/144, k115 105/105, k114 126/126, k113 64/64, k1122 37/37, k1121 48/48, k112 75/75, k2 129/129, ll 317/317. k2check T1 31/31, T2 49/49 hàng giống 1.16.1.
+- 15:10 UTC: báo cáo `reports/k117/K117-BAO-CAO.md`. **XONG — DỪNG chờ chủ dự án.**
