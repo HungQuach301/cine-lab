@@ -3,7 +3,8 @@
   (i)   LỚP (a) sau ghép: max |ghép − render| trong mặt nạ (a) (đạt khi < 1/255 ⇔ 0 ở 8 bit) · viền mềm ≤ 3 px · VẬT MỚI ở dải 20 px quanh vùng (a):
         (1) máy: thành phần ΔE76 ≥ 30 (ảnh mờ σ 1,5, so render) ≥ 80 px trong dải → số cụm + hộp (để người đọc tờ so); (2) mô hình: vật THÊM/BỚT/ĐỔI loại lớp (a)
         (cờ, công trình, công sự, tàu lớn, chữ, đèn, lửa lớn) — ở BẤT KỲ đâu = LỖI; nằm trong dải 20 px thì ghi 'dải (a)'.
-  (ii)  LỖI THỜI ĐẠI: vật THÊM có thoi_dai_sai = true (do_tin ≥ 0,5) ở ÍT NHẤT MỘT trong hai mô hình (gpt-6.1-sol, claude-sonnet-5-5) → LỖI; ghi đồng thuận 2/2 hay 1/2.
+  (ii)  LỖI THỜI ĐẠI: vật THÊM có thoi_dai_sai = true (do_tin ≥ 0,5) VÀ (năm xuất hiện mô hình nêu > năm khung, hoặc loại máy bay/xe máy) ở ÍT NHẤT MỘT trong hai
+        mô hình (gpt-6.1-sol, claude-sonnet-5-5) → LỖI; cờ không kèm năm → 'nghi_van_khong_nam' (người đọc; sửa sau khi đo: mô hình gắn cờ cho vật 'bịa' không lỗi thời đại).
         (+ q_thoi_dai.py của K chạy riêng — xem báo cáo.)
   (iii) ĐỔI LOẠI VÙNG (T9 NC-V2V3): 'màu nước' HSV H 85–130, S ≥ 40, V ≥ 30; đất→nước = % điểm đất (bằng/sườn/đá/phố, mặt nạ) màu nước ở ghép mà render không;
         nước→đất = % điểm nước-màu-nước của render mất màu nước ở ghép; đạt khi mỗi chiều ≤ 2 % + mô hình không báo đổi vùng (do_tin ≥ 0,5) → báo.
@@ -18,6 +19,8 @@ import n2p_lib as L  # noqa: E402
 LOAI_A = {'co', 'cong_trinh', 'cong_su', 'tau_lon', 'chu', 'den', 'lua_lon'}
 LOAI_DONG = {'nguoi', 'dong_vat', 'chim', 'thuyen_nho', 'xe_chay', 'khoi', 'lua_trai', 'may_bay', 'xe_may'}
 TIN = 0.5
+NAM = 0.0
+LOAI_HIEN_DAI = {'may_bay', 'xe_may'}   # (ii) LỖI khi mô hình nêu năm xuất hiện > năm khung, hoặc loại vốn hiện đại; cờ thời đại KHÔNG kèm năm → 'nghi_van_khong_nam' (người đọc)
 
 
 def lab(b): return cv2.cvtColor(b, cv2.COLOR_BGR2LAB).astype(np.float32) * np.array([100 / 255, 1, 1], np.float32) - np.array([0, 128, 128], np.float32)
@@ -39,7 +42,13 @@ def may(render, ghep, Lb):
     D = L.lop_mask(Lb, L.DAT); Wt = Lb == L.NAMES.index('nuoc')
     br, bg = blue(render), blue(ghep)
     d2n = float((D & bg & ~br).sum() / max(1, D.sum()) * 100); n2d = float((Wt & br & ~bg).sum() / max(1, (Wt & br).sum()) * 100)
-    k3 = dict(dat_thanh_nuoc_pct=round(d2n, 2), nuoc_thanh_dat_pct=round(n2d, 2), dat=bool(d2n <= 2 and n2d <= 2))
+    # T9b (NC-N2P, sau khi đọc tờ so 'cang'): bỏ điểm LOÉ nắng (V ≥ 0,85, S ≤ 0,25 — mặt nước loé không phải đất) và dải ≤ 8 px quanh đường bờ của mặt nạ
+    # (bọt sóng, mép bãi dời vài px); số gốc T9 vẫn ghi để so NC-V2V3.
+    hs = cv2.cvtColor(ghep, cv2.COLOR_BGR2HSV); loe = (hs[..., 2] >= 217) & (hs[..., 1] <= 64)
+    bo = cv2.dilate((cv2.morphologyEx(Wt.astype(np.uint8), cv2.MORPH_GRADIENT, np.ones((3, 3), np.uint8)) > 0).astype(np.uint8), np.ones((17, 17), np.uint8)) > 0
+    d2n_b = float((D & bg & ~br & ~bo).sum() / max(1, D.sum()) * 100); n2d_b = float((Wt & br & ~bg & ~loe & ~bo).sum() / max(1, (Wt & br).sum()) * 100)
+    k3 = dict(dat_thanh_nuoc_pct=round(d2n, 2), nuoc_thanh_dat_pct=round(n2d, 2), t9b_dat_thanh_nuoc_pct=round(d2n_b, 2), t9b_nuoc_thanh_dat_pct=round(n2d_b, 2),
+              dat=bool(d2n_b <= 2 and n2d_b <= 2))
     return k1, k3, band, A
 
 
@@ -50,7 +59,7 @@ def in_band(box, band):
 
 
 def ket_luan(V, band, A, anh_tinh):
-    L1, L2, L4, VUNG = [], [], [], []
+    L1, L2, L2b, L4, VUNG = [], [], [], [], []
     for mh, r in (V or {}).items():
         j = r.get('json') or {}
         for x in j.get('them', []):
@@ -58,7 +67,9 @@ def ket_luan(V, band, A, anh_tinh):
             b = x.get('toa_do') if isinstance(x.get('toa_do'), list) and len(x.get('toa_do')) == 4 else [0, 0, 1, 1]
             it = dict(mh=mh, loai=x.get('loai'), mo_ta=x.get('mo_ta'), toa_do=b, dai_a=in_band(b, band) or in_band(b, A))
             if x.get('loai') in LOAI_A: L1.append(dict(it, kieu='THÊM vật lớp (a)'))
-            if x.get('thoi_dai_sai'): L2.append(dict(it, ly_do=x.get('ly_do_thoi_dai'), nam=x.get('nam_xuat_hien')))
+            if x.get('thoi_dai_sai'):
+                ny = x.get('nam_xuat_hien'); co_nam = isinstance(ny, (int, float)) and ny > NAM
+                (L2 if (co_nam or x.get('loai') in LOAI_HIEN_DAI) else L2b).append(dict(it, ly_do=x.get('ly_do_thoi_dai'), nam=ny))
             if anh_tinh and x.get('loai') in LOAI_DONG: L4.append(it)
         for x in j.get('bot_doi', []):
             if (x.get('do_tin') or 0) < TIN: continue
@@ -66,7 +77,7 @@ def ket_luan(V, band, A, anh_tinh):
             if x.get('loai') in LOAI_A: L1.append(dict(mh=mh, loai=x.get('loai'), mo_ta=x.get('mo_ta'), toa_do=b, dai_a=in_band(b, band) or in_band(b, A), kieu='BỚT/ĐỔI vật lớp (a)'))
         for x in j.get('doi_loai_vung', []):
             if (x.get('do_tin') or 0) >= TIN: VUNG.append(dict(mh=mh, mo_ta=x.get('mo_ta'), toa_do=x.get('toa_do')))
-    return L1, L2, L4, VUNG
+    return L1, L2, L2b, L4, VUNG
 
 
 def main():
@@ -86,11 +97,12 @@ def main():
         if a.t4: cmd.append('--t4')
         subprocess.run(cmd, check=False)
     V = json.load(open(vj))['ket_qua'] if vj.exists() else {}
-    L1, L2, L4, VUNG = ket_luan(V, band, A, a.anh_tinh)
+    global NAM; NAM = float(a.nam)
+    L1, L2, L2b, L4, VUNG = ket_luan(V, band, A, a.anh_tinh)
     dong2 = lambda xs: sorted({x['mh'] for x in xs})
     R_ = dict(tag=a.tag, render=a.render, ai=a.ai, ghep=str(pg), sha_ghep=L.sha_file(pg), nam=a.nam,
               i_lop_a=dict(k1, dat_ghep=k1['max_trong_a'] == 0, vat_lop_a=L1, dat=k1['max_trong_a'] == 0 and not L1),
-              ii_thoi_dai=dict(loi=L2, mo_hinh_bao=dong2(L2), dat=not L2),
+              ii_thoi_dai=dict(loi=L2, mo_hinh_bao=dong2(L2), nghi_van_khong_nam=L2b, dat=not L2),
               iii_doi_vung=dict(k3, mo_hinh_bao=VUNG, dat=k3['dat'] and not VUNG),
               iv_dong_bang=dict(ap_dung=bool(a.anh_tinh), loi=L4, mo_hinh_bao=dong2(L4), dat=not L4))
     R_['dat_ca'] = all(R_[k]['dat'] for k in ('i_lop_a', 'ii_thoi_dai', 'iii_doi_vung', 'iv_dong_bang'))

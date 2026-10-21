@@ -15,3 +15,8 @@
 - O1 lượt 2 (không mặt nạ) 6 ảnh + 2 tấm timelapse; khớp màu Reinhard làm lệch viền nền↔vật giảm ≈ 21 → 5–7 ΔE. Sửa ghép: bảo vệ (a) nở 1 px, vật nhỏ nở 3 px (cờ trại bị báo "mất" khi chưa nở).
 - Lượt 2 đọc nguồn (gpt-6.1-sol) + P phân xử → sửa mô tả mục (a)/(b). Luật nháp `LUAT-N2P-T4.md` §1–4, §6.
 - Đang chạy: kiểm cuối O1 (máy + 2 mô hình + q_thoi_dai); dựng clip c1 (≈ 70 %), c4B; sau đó Omni c1.
+
+## Lượt 3 (≈ 06:45 UTC)
+- O1 lượt 3 (làm lại ảnh trượt lượt 2: bỏ chữ "terraces/plots" đã gợi AI vẽ tường đá); bộ kiểm (ii) sửa: cờ "thời đại sai" không kèm năm → nghi vấn; (iii) thêm T9b (bỏ loé nắng + dải 8 px bờ).
+- Omni: c1, c4B, c2 (vừa/mạnh) đã gọi; Omni đổi máy/địa lý (c4B mạnh dựng hẳn góc máy mới), bịa lửa + nhà ở c1 → ghép lớp (a) không cứu được. Làm lại 1 lượt (lệnh "RESTYLE ONLY") cho c1, c4B đang chạy.
+- Timelapse 12 s máy cố định (2 tấm AI 1/7 và 18/9/1779) đã ghép; đo hoà mờ vs cắt cứng.

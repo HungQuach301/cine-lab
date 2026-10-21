@@ -35,8 +35,11 @@ def idmap(png, size=None, cay_max=0.003):
     im = cv2.imread(str(png))[:, :, ::-1]
     if size and (im.shape[1], im.shape[0]) != size: im = cv2.resize(im, size, interpolation=cv2.INTER_NEAREST)
     pal = np.array([PAL[n] for n in NAMES], np.int32)
-    d = ((im[:, :, None, :].astype(np.int32) - pal[None, None]) ** 2).sum(-1)
-    L = d.argmin(-1).astype(np.uint8)
+    key = (im[..., 0].astype(np.int32) << 16) | (im[..., 1].astype(np.int32) << 8) | im[..., 2]
+    pk = (pal[:, 0] << 16) | (pal[:, 1] << 8) | pal[:, 2]; o = np.argsort(pk); ix = np.searchsorted(pk[o], key).clip(0, len(pk) - 1)
+    L = o[ix].astype(np.uint8); bad = pk[o][ix] != key
+    if bad.any():   # điểm không đúng màu bảng (hiếm) → màu gần nhất
+        d = ((im[bad][:, None, :].astype(np.int32) - pal[None]) ** 2).sum(-1); L[bad] = d.argmin(-1)
     w = (L == NAMES.index('nuoc')).astype(np.uint8)
     n, cc, st, _ = cv2.connectedComponentsWithStats(w, 8)
     if n > 1:

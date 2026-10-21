@@ -1,7 +1,7 @@
 #!/opt/cine/bin/python -I
 """NC-N2P · THỬ TIMELAPSE O1 ở MỘT điểm máy cố định qua 2 mốc: TẤM NỀN AI mỗi mốc (OpenAI sửa ảnh, không mặt nạ, khớp màu về render của mốc đó trên lớp (c))
 + LỚP DỮ KIỆN và VẬT CHUYỂN ĐỘNG từ render từng khung (mặt nạ ID từng khung: mọi lớp (a), kể cả người/đơn vị/chim) ; chuyển tấm bằng HOÀ MỜ (và bản CẮT CỨNG để so).
-Đo: (1) nhấp nháy vùng tĩnh lớp (c) (định nghĩa do_v2v.py: xám 160×90, vùng tĩnh = |nguồn_t − nguồn_t−1| < 0,5/255) — TB |ra_t − ra_t−1| so với render;
+Đo: (1) nhấp nháy vùng tĩnh lớp (c) NGOÀI cửa sổ hoà (định nghĩa do_v2v.py: xám 160×90, vùng tĩnh = |nguồn_t − nguồn_t−1| < 0,5/255) — TB |ra_t − ra_t−1| so với render;
     (2) bước nhảy chuyển tấm = max theo khung của ΔE76 TB lớp (c) giữa hai khung liền (ra) ÷ trung vị cả clip; (3) khớp ánh sáng nền ↔ vật render = lech_vien (n2p_lib) mỗi 24 khung.
   timelapse.py --src /var/tmp/n2p/src/c4/rgb --id /var/tmp/n2p/src/c4/id --f0 144 --n 288 --p1 tam1.jpg --f1 168 --p2 tam2.jpg --f2 408 --hoa 264,312 --out <thư mục>"""
 import argparse, json, os, subprocess, sys
@@ -40,12 +40,12 @@ def main():
             Cs = cv2.resize(C.astype(np.uint8), (160, 90), interpolation=cv2.INTER_NEAREST).astype(bool)
             if prev_o is not None:
                 st = (np.abs(gs - prev_s) < 0.5) & Cs
-                if st.sum() > 50: fl_o.append(float(np.abs(go - prev_o)[st].mean())); fl_s.append(float(np.abs(gs - prev_s)[st].mean()))
+                if st.sum() > 50 and not (h0 <= f <= h1): fl_o.append(float(np.abs(go - prev_o)[st].mean())); fl_s.append(float(np.abs(gs - prev_s)[st].mean()))
                 jump.append(float(np.sqrt(((lab(g) - lab(prevG)) ** 2).sum(-1))[C].mean()))
             if i % 24 == 0: viền.append(L.lech_vien(s, g, A))
             prev_o, prev_s, prevG = go, gs, g
         jm = np.array(jump); med = float(np.median(jm))
-        res[mode] = dict(nhap_nhay_ra=round(float(np.mean(fl_o)), 4), nhap_nhay_render=round(float(np.mean(fl_s)), 4), nhap_nhay_ti_le=round(float(np.mean(fl_o) / max(1e-6, np.mean(fl_s))), 2),
+        res[mode] = dict(nhap_nhay_ra=round(float(np.mean(fl_o)), 4), nhap_nhay_render=round(float(np.mean(fl_s)), 4), nhap_nhay_ghi_chu='TB |Δ xám| /khung trên vùng tĩnh lớp (c), NGOÀI cửa sổ hoà (render tĩnh tuyệt đối → so bằng số tuyệt đối, không tỉ số)',
                          buoc_nhay_max_dE=round(float(jm.max()), 3), buoc_nhay_khung=int(a.f0 + 1 + jm.argmax()), buoc_nhay_trung_vi_dE=round(med, 3), buoc_nhay_ti_le=round(float(jm.max() / max(1e-6, med)), 1),
                          vien_dE_trung_vi=round(float(np.median([v['dE_trung_vi'] for v in viền if v.get('so_cum')])), 2), vien_dE_p90_max=round(float(max(v['dE_p90'] for v in viền if v.get('so_cum'))), 2))
         enc(str(d), '%05d.png', str(out / f'tl-{mode}.mp4'))
