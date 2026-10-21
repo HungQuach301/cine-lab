@@ -1,44 +1,409 @@
 {
  "ghi_chu": "NC-N2P · danh mục LỚP (a) DỮ KIỆN CÂU CHUYỆN cho T4 London 1666 — AI không được thêm/xoá/đổi; ghép lại điểm ảnh render theo mặt nạ ID. Ngày theo lịch Julius (Anh 1666; Gregory = +10 ngày → 2/9 J = 12/9 G — dùng ngày Gregory khi tính vị trí mặt trời/mặt trăng). VỊ TRÍ chỉ lấy từ bậc 1 (§12.2): ranh theo ngày = TÊN NƠI theo ngày (bậc 2, trích dưới đây) × VỊ TRÍ nơi đó trên bản đồ bậc 1 (Hollar 1666 vùng cháy; Ogilby & Morgan 1676 — NC-AI §7.3); đoạn ranh nội suy giữa hai nơi có tên = bậc 5, ghi `bac` và kể trong thẻ phương pháp. Mục có 'trich' được kiem_trich.py kiểm khớp nguyên văn; mục 'web' ghi URL + ngày đọc (bậc thứ cấp, dùng cho mốc tồn tại của công trình).",
  "nguon": {
-  "pepys": {"tep": "reports/nc-n2p/nguon/pg4167.txt", "url": "https://www.gutenberg.org/cache/epub/4167/pg4167.txt"},
-  "evelyn": {"tep": "reports/nc-n2p/nguon/pg42081.txt", "url": "https://www.gutenberg.org/cache/epub/42081/pg42081.txt"},
-  "relation1666": {"tep": "reports/nc-n2p/nguon/earlyprint-A63370.txt", "url": "https://distantreader.org/stacks/earlyprint/txt/A63370.txt"}
+  "pepys": {
+   "tep": "reports/nc-n2p/nguon/pg4167.txt",
+   "url": "https://www.gutenberg.org/cache/epub/4167/pg4167.txt"
+  },
+  "evelyn": {
+   "tep": "reports/nc-n2p/nguon/pg42081.txt",
+   "url": "https://www.gutenberg.org/cache/epub/42081/pg42081.txt"
+  },
+  "relation1666": {
+   "tep": "reports/nc-n2p/nguon/earlyprint-A63370.txt",
+   "url": "https://distantreader.org/stacks/earlyprint/txt/A63370.txt"
+  }
  },
  "muc": [
-  {"id": "a01", "nhom": "ranh_chay", "vat": "Điểm phát: nhà thợ bánh trong Pudding Lane, khoảng 1 giờ sáng Chủ nhật 2/9", "ngay": "2/9 01:00", "bac": 2, "nguon": "relation1666", "muc_ngay": "On Sunday the Second of September", "trich": "about one a clock in the morning, there happened a sad and deplorable Fire in Pudding-Lane near New Fish-street"},
-  {"id": "a02", "nhom": "ranh_chay", "vat": "Sáng 2/9: Fish Street cháy, nhà đầu cầu London Bridge cháy; St Magnus đã cháy", "ngay": "2/9 sáng", "bac": 2, "nguon": "pepys", "muc_ngay": "2nd (Lord's day)", "trich": "it begun this morning in the King's baker's' house in Pudding-lane, and that it hath burned St. Magnus's Church and most part of Fish-street already"},
-  {"id": "a03", "nhom": "ranh_chay", "vat": "2/9: lửa dọc bờ sông tới Steelyard (phía tây cầu)", "ngay": "2/9 trưa", "bac": 2, "nguon": "pepys", "muc_ngay": "2nd (Lord's day)", "trich": "in a very little time it got as far as the Steeleyard, while I was there"},
-  {"id": "a04", "nhom": "ranh_chay", "vat": "Tối 2/9: một vòng cung lửa liền từ đây tới bên kia cầu, cung lên đồi dài hơn một dặm", "ngay": "2/9 tối", "bac": 2, "nguon": "pepys", "muc_ngay": "2nd (Lord's day)", "trich": "we saw the fire as only one entire arch of fire from this to the other side the bridge, and in a bow up the hill for an arch of above a mile long"},
-  {"id": "a05", "nhom": "ranh_chay", "vat": "Sáng 3/9: lên Gracechurch St tới Lombard St, tới St Swithin (Cannon St), xuống bờ sông tới Three Cranes (Vintry), phía đông quá Billingsgate", "ngay": "3/9 sáng", "bac": 2, "nguon": "relation1666", "muc_ngay": "On Sunday the Second of September", "trich": "spreading itself by Monday morning up Grace-Church-street to Lombardstreet, and to S. Swithins Church in Canon-street, and downwards from Canon-street to the Waterside as far as the Three Cranes in the Vintry, and Eastward beyond Billingsgate"},
-  {"id": "a06", "nhom": "ranh_chay", "vat": "3/9: cả nửa nam thành từ Cheapside tới sông, Cornhill, Tower St, Fenchurch St, Gracechurch St, tới Baynard's Castle; bắt đầu bén St Paul's (giàn giáo)", "ngay": "3/9 (đêm 3→4)", "bac": 2, "nguon": "evelyn", "muc_ngay": "3d September, 1666", "trich": "saw the whole south part of the city burning from Cheapside to the Thames, and all along Cornhill"},
-  {"id": "a07", "nhom": "cong_trinh", "vat": "Baynard's Castle cháy; St Paul's bén lửa nhờ giàn giáo", "ngay": "3/9 → 4/9", "bac": 2, "nguon": "evelyn", "muc_ngay": "3d September, 1666", "trich": "and so along to Baynard's Castle, and was now taking hold of St. Paul's church, to which the scaffolds contributed exceedingly"},
-  {"id": "a08", "nhom": "ranh_chay", "vat": "4/9: tới Inner Temple; Fleet St, Old Bailey, Ludgate Hill, Warwick Lane, Newgate, Paul's Chain, Watling St đang cháy", "ngay": "4/9", "bac": 2, "nguon": "evelyn", "muc_ngay": "4th September, 1666", "trich": "it is now gotten as far as the Inner Temple. All Fleet street, the Old Bailey, Ludgate hill, Warwick lane, Newgate, Paul's chain, Watling street, now flaming"},
-  {"id": "a09", "nhom": "cong_trinh", "vat": "4/9 tối: St Paul's cháy, cả Cheapside; Pye Corner cháy", "ngay": "4/9 tối", "bac": 2, "nguon": "pepys", "muc_ngay": "4th", "trich": "her house in Pye-corner being burned; so that the fire is got so far that way, and all the Old Bayly, and was running down to Fleete-streete; and Paul's is burned, and all Cheapside"},
-  {"id": "a10", "nhom": "ranh_chay", "vat": "4/9 22:00: phía tây tới St Dunstan's (Fleet St); gió dịu", "ngay": "4/9 22:00", "bac": 2, "nguon": "relation1666", "muc_ngay": "On Sunday the Second of September", "trich": "at 10 of the clock on Tuesday-night, Westward consumed Houses and Churches all the way to S. Dunstan's Church in Fleetstreet; at which time by the favour of God the wind slacked"},
-  {"id": "a11", "nhom": "ranh_chay", "vat": "RANH CUỐI (đêm 4→5/9): danh sách điểm dừng — Fleet St, Inner Temple & Fetter Lane, Holborn Bridge, Pie Corner, Aldersgate, Cripplegate, gần cuối Coleman St, cuối Basinghall St, cửa Postern đầu Bishopsgate St, Leadenhall St, Standard ở Cornhill, nhà thờ ở Fenchurch St, gần Clothworkers' Hall (Mincing Lane), giữa Mark Lane, Tower Dock", "ngay": "4/9 đêm → 5/9", "bac": 2, "nguon": "relation1666", "muc_ngay": "On Sunday the Second of September", "trich": "a stop was put to the Fire in Fleetstreet, the Inner Temple and Fetter-Lane, at Holborn-Bridg, Pie-Corner, Aldersgate, Cripplegate, near the lower end of Coleman-street, at the end of Basinghall-street, by the Postern, at the upper end of Bishopsgate-street, and Leadenhallstreet, at the Standard in Cornhill, at the Church in Fanchurch-street, near Cloathworkers-Hall in Mincing-Lane, at the middle of Mark-Lane, and at the Tower-Dock", "ghi_chu": "cùng danh sách in trong London Gazette số 85 (bản chép của bên thứ ba; bản quét chưa đối chiếu) — VỊ TRÍ từng điểm lấy từ bậc 1"},
-  {"id": "a12", "nhom": "ranh_chay", "vat": "5/9 tối: bùng lại ở Inner Temple, dập trước sáng bằng thuốc nổ; Tanfield Court, Parsons Court và nhà trong sân nhà thờ bị san; nhà thờ Temple và Hall hư nhẹ", "ngay": "5/9 đêm → 6/9 sáng", "bac": 2, "nguon": "relation1666", "muc_ngay": "On Sunday the Second of September", "trich": "after it had laid level with the ground, Tanfield-Court, Parsons-Court, and the Buildings in the Churchyard, and done some little damage to the Church and Hall"},
-  {"id": "a13", "nhom": "ranh_chay", "vat": "5/9: phía tây dừng ở Temple, phía bắc ở cửa vào Smithfield; còn mạnh về phía Cripplegate và Tower", "ngay": "5/9", "bac": 2, "nguon": "evelyn", "muc_ngay": "5th September, 1666", "trich": "it came no farther than the Temple westward, nor than the entrance of Smithfield, north: but continued all this day and night so impetuous toward Cripplegate and the Tower"},
-  {"id": "a14", "nhom": "cong_trinh", "vat": "All Hallows Barking: chỉ cháy mặt đồng hồ và một phần cổng, dập được (5/9)", "ngay": "5/9", "bac": 2, "nguon": "pepys", "muc_ngay": "5th", "trich": "it having only burned the dyall of Barking Church, and part of the porch, and was there quenched"},
-  {"id": "a15", "nhom": "ranh_chay", "vat": "6/9: đám cháy mới ở Bishopsgate (chưa từng cháy), dập nhanh", "ngay": "6/9", "bac": 2, "nguon": "pepys", "muc_ngay": "6th", "trich": "to call our men to Bishop's-gate, where no fire had yet been near, and there is now one broke out"},
-  {"id": "a16", "nhom": "ranh_chay", "vat": "6/9: bờ sông không còn nhà, nhà thờ tới Temple", "ngay": "6/9", "bac": 2, "nguon": "pepys", "muc_ngay": "6th", "trich": "A sad sight to see how the River looks: no houses nor church near it, to the Temple, where it stopped"},
-  {"id": "a17", "nhom": "cong_trinh", "vat": "Clothworkers' Hall cháy liền 3 ngày đêm (hầm dầu) — tới 6/9", "ngay": "4/9 → 6/9", "bac": 2, "nguon": "pepys", "muc_ngay": "6th", "trich": "strange it was to see Cloathworkers' Hall on fire these three days and nights in one body of flame, it being the cellar full of oyle"},
-  {"id": "a18", "nhom": "cong_trinh", "vat": "Royal Exchange (Gresham, 1571) cháy; 5/9 không còn gì đứng trừ tượng Gresham ở góc", "ngay": "3/9 cháy → 5/9 phế tích", "bac": 2, "nguon": "pepys", "muc_ngay": "5th", "trich": "The Exchange a sad sight, nothing standing there, of all the statues or pillars, but Sir Thomas Gresham's picture in the corner", "web": [{"url": "https://en.wikipedia.org/wiki/Royal_Exchange,_London", "doc": "2026-10-21", "trich": "officially opened … 23 January 1571 · destroyed in the Great Fire of London in 1666 · [second] opened in 1669"}]},
-  {"id": "a19", "nhom": "cong_trinh", "vat": "Old St Paul's: mái sập, khoang hát đổ xuống St Faith's (7/9 phế tích)", "ngay": "4/9 cháy → 7/9", "bac": 2, "nguon": "pepys", "muc_ngay": "7th", "trich": "a miserable sight of Paul's church; with all the roofs fallen, and the body of the quire fallen into St. Fayth's"},
-  {"id": "a20", "nhom": "cong_trinh", "vat": "Old St Paul's KHÔNG CÓ CHÓP NHỌN từ 1561 (sét đánh, không dựng lại) — chỉ tháp vuông", "ngay": "cả T4", "bac": 2, "nguon": "relation1666", "muc_ngay": "In the Year 1561", "trich": "the Spire of the Cathedral Church of S. Paul's, being 520 Foot from the ground, and 260 from the square Steeple where it was placed, and was made of wooden materials, but covered with Lead, was with Lightning burnt down, together with the Roofs of that large Church, and that within the space of five hours: the Roofs were afterward re-edified, but not the Spire", "web": [{"url": "https://en.wikipedia.org/wiki/Old_St_Paul%27s_Cathedral", "doc": "2026-10-21", "trich": "The spire was destroyed by fire in 1561 and not replaced · a classical-style portico to the cathedral's west front in the 1630s (Inigo Jones) · sheathed in wooden scaffolding (1666)"}]},
-  {"id": "a21", "nhom": "cong_trinh", "vat": "Mặt tây St Paul's có cổng cột (portico) Inigo Jones, bị nứt vỡ, chỉ còn dòng chữ trên dầm", "ngay": "7/9", "bac": 2, "nguon": "evelyn", "muc_ngay": "7th September, 1666", "trich": "that beautiful portico (for structure comparable to any in Europe, as not long before repaired by the late King) now rent in pieces"},
-  {"id": "a22", "nhom": "cong_trinh", "vat": "Tower of London: không cháy; nhà quanh hào bị dỡ (7/9)", "ngay": "4/9 → 7/9", "bac": 2, "nguon": "evelyn", "muc_ngay": "7th September, 1666", "trich": "his Majesty got to the Tower by water, to demolish the houses about the graff"},
-  {"id": "a23", "nhom": "cong_trinh", "vat": "London Bridge: nhà ở đầu bắc cháy; khoảng trống do vụ cháy 1633 (tới 'chỗ trống đầu tiên') chặn lửa sang Southwark", "ngay": "2/9", "bac": 2, "nguon": "relation1666", "muc_ngay": "On Monday the 13 of February 1633", "trich": "which burned down in both sides the way from S. Magnus to the first open place", "web": [{"url": "https://en.wikipedia.org/wiki/Old_London_Bridge", "doc": "2026-10-21", "trich": "In 1633 fire destroyed the houses on the northern part of the bridge · Construction was not finished until 1209 · demolished after the latter opened in 1831 · Demolition of the houses was completed in 1761"}]},
-  {"id": "a24", "nhom": "cong_trinh", "vat": "Mercers' Chapel, Christ Church, các hội quán: thành tro (7/9)", "ngay": "7/9", "bac": 2, "nguon": "evelyn", "muc_ngay": "7th September, 1666", "trich": "the exquisitely wrought Mercers' Chapel, the sumptuous Exchange, the august fabric of Christ Church, all the rest of the Companies' Halls"},
-  {"id": "a25", "nhom": "cong_trinh", "vat": "Standard ở Cornhill và tượng Elizabeth ở Ludgate còn gần nguyên (7/9)", "ngay": "7/9", "bac": 2, "nguon": "evelyn", "muc_ngay": "7th September, 1666", "trich": "Also the standard in Cornhill, and Queen Elizabeth's effigies, with some arms on Ludgate, continued with but little detriment"},
-  {"id": "a26", "nhom": "cong_trinh", "vat": "Guildhall (1411–1440): hư trong cháy; sửa mái bằng 1670", "ngay": "4/9", "bac": "thứ cấp", "web": [{"url": "https://en.wikipedia.org/wiki/Guildhall,_London", "doc": "2026-10-21", "trich": "Construction began on the current building in 1411 and was completed in 1440 · did not completely escape damage in the Great Fire of London in 1666 · partially restored (with a flat roof) in 1670"}], "ghi_chu": "cần nguồn bậc 2 về mức hư (chưa tìm trong phiên) → tạm dựng tường đứng, mái mất; ghi bậc 5"},
-  {"id": "a27", "nhom": "moc_ton_tai", "vat": "Monument: CHỈ TỪ 1677 (khởi công 1671) — CẤM trong mọi khung 1666", "ngay": "cấm", "bac": "thứ cấp", "web": [{"url": "https://www.themonument.org.uk/history", "doc": "2026-10-21", "trich": "construction work commenced in 1671 · finally completed and opened in 1677"}, {"url": "https://en.wikipedia.org/wiki/Great_Fire_of_London", "doc": "2026-10-21", "trich": "built near Pudding Lane between 1671 and 1676 (caption 1677)"}]},
-  {"id": "a28", "nhom": "moc_ton_tai", "vat": "St Paul's của Wren (vòm): khởi công 6/1675, đặt viên cuối đèn lồng 26/10/1708, Nghị viện tuyên bố xong 25/12/1711 — CẤM trong 1666 (lệnh ghi 'chỉ từ 1710' — nguồn cho 1708/1711)", "ngay": "cấm", "bac": "thứ cấp", "web": [{"url": "https://en.wikipedia.org/wiki/St_Paul%27s_Cathedral", "doc": "2026-10-21", "trich": "it was laid in June 1675 · topping out … took place on 26 October 1708 · declared officially complete by Parliament on 25 December 1711"}]},
-  {"id": "a29", "nhom": "moc_ton_tai", "vat": "Hai tháp tây Westminster Abbey: dựng thập niên 1740 — CẤM (1666 chưa có)", "ngay": "cấm", "bac": "thứ cấp", "web": [{"url": "https://en.wikipedia.org/wiki/Westminster_Abbey", "doc": "2026-10-21", "trich": "the abbey's two western towers were built in the 1740s in a Gothic–Baroque style by Nicholas Hawksmoor and John James"}]},
-  {"id": "a30", "nhom": "moc_ton_tai", "vat": "Nhà hát Globe: dỡ 1644–45 — CẤM ở Bankside 1666", "ngay": "cấm", "bac": "thứ cấp", "web": [{"url": "https://en.wikipedia.org/wiki/Globe_Theatre", "doc": "2026-10-21", "trich": "It was pulled down in 1644–45 · A modern reconstruction … opened in 1997"}]},
-  {"id": "a31", "nhom": "moc_ton_tai", "vat": "Royal Exchange thứ hai (1669), thứ ba (1844): CẤM trong 1666", "ngay": "cấm", "bac": "thứ cấp", "web": [{"url": "https://en.wikipedia.org/wiki/Royal_Exchange,_London", "doc": "2026-10-21", "trich": "opened in 1669 · opened by Queen Victoria on 28 October 1844"}]},
-  {"id": "a32", "nhom": "thoi_tiet_gio", "vat": "Gió đông mạnh 2–4/9, dịu tối 4/9 (hướng khói, hướng lan) — khói xuôi về tây", "ngay": "2/9 → 4/9 22:00", "bac": 2, "nguon": "relation1666", "muc_ngay": "On Sunday the Second of September", "trich": "being fomented by the hand of God in a violent Easterly wind"},
-  {"id": "a33", "nhom": "nguoi_noi", "vat": "Tàu thuyền được lời nhắc: sà lan nhà vua (2/9, Queenhithe); sà lan Pepys ở Tower Dock/Iron Gate (3–4/9)", "ngay": "2/9 → 4/9", "bac": 2, "nguon": "pepys", "muc_ngay": "4th", "trich": "which I did by a lighter at the Iron gate", "ghi_chu": "chỉ lớp (a) khi lời phim nhắc; vị trí bậc 1"},
-  {"id": "a34", "nhom": "chu_so", "vat": "Năm/ngày/giờ (bộ đếm), chữ, số trên hình — do mã đặt, AI KHÔNG vẽ chữ; mọi biển hiệu trong cảnh = lớp (a)", "ngay": "cả T4", "bac": "luật §12.1"}
+  {
+   "id": "a01",
+   "nhom": "ranh_chay",
+   "vat": "Điểm phát: Pudding Lane gần New Fish Street, khoảng 1 giờ sáng Chủ nhật 2/9 (nhà thợ bánh của vua: xem a02)",
+   "ngay": "2/9 01:00",
+   "bac": 2,
+   "nguon": "relation1666",
+   "muc_ngay": "On Sunday the Second of September",
+   "trich": "about one a clock in the morning, there happened a sad and deplorable Fire in Pudding-Lane near New Fish-street"
+  },
+  {
+   "id": "a02",
+   "nhom": "ranh_chay",
+   "vat": "Sáng 2/9: Fish Street cháy, nhà đầu cầu London Bridge cháy; St Magnus đã cháy",
+   "ngay": "2/9 sáng",
+   "bac": 2,
+   "nguon": "pepys",
+   "muc_ngay": "2nd (Lord's day)",
+   "trich": "it begun this morning in the King's baker's' house in Pudding-lane, and that it hath burned St. Magnus's Church and most part of Fish-street already"
+  },
+  {
+   "id": "a03",
+   "nhom": "ranh_chay",
+   "vat": "2/9 (buổi sáng, Pepys trên thuyền): lửa dọc bờ sông tới Steelyard — vị trí Steelyard lấy bậc 1",
+   "ngay": "2/9 trưa",
+   "bac": 2,
+   "nguon": "pepys",
+   "muc_ngay": "2nd (Lord's day)",
+   "trich": "in a very little time it got as far as the Steeleyard, while I was there"
+  },
+  {
+   "id": "a04",
+   "nhom": "ranh_chay",
+   "vat": "Tối 2/9: một vòng cung lửa liền từ đây tới bên kia cầu, cung lên đồi dài hơn một dặm",
+   "ngay": "2/9 tối",
+   "bac": 2,
+   "nguon": "pepys",
+   "muc_ngay": "2nd (Lord's day)",
+   "trich": "we saw the fire as only one entire arch of fire from this to the other side the bridge, and in a bow up the hill for an arch of above a mile long"
+  },
+  {
+   "id": "a05",
+   "nhom": "ranh_chay",
+   "vat": "Sáng 3/9: lên Gracechurch St tới Lombard St, tới St Swithin (Cannon St), xuống bờ sông tới Three Cranes (Vintry), phía đông quá Billingsgate",
+   "ngay": "3/9 sáng",
+   "bac": 2,
+   "nguon": "relation1666",
+   "muc_ngay": "On Sunday the Second of September",
+   "trich": "spreading itself by Monday morning up Grace-Church-street to Lombardstreet, and to S. Swithins Church in Canon-street, and downwards from Canon-street to the Waterside as far as the Three Cranes in the Vintry, and Eastward beyond Billingsgate"
+  },
+  {
+   "id": "a06",
+   "nhom": "ranh_chay",
+   "vat": "3/9: cả nửa nam thành từ Cheapside tới sông, và dọc Cornhill (phần còn lại của câu: a07)",
+   "ngay": "3/9 (đêm 3→4)",
+   "bac": 2,
+   "nguon": "evelyn",
+   "muc_ngay": "3d September, 1666",
+   "trich": "saw the whole south part of the city burning from Cheapside to the Thames, and all along Cornhill"
+  },
+  {
+   "id": "a07",
+   "nhom": "cong_trinh",
+   "vat": "Baynard's Castle cháy; St Paul's bén lửa nhờ giàn giáo",
+   "ngay": "3/9 → 4/9",
+   "bac": 2,
+   "nguon": "evelyn",
+   "muc_ngay": "3d September, 1666",
+   "trich": "and so along to Baynard's Castle, and was now taking hold of St. Paul's church, to which the scaffolds contributed exceedingly"
+  },
+  {
+   "id": "a08",
+   "nhom": "ranh_chay",
+   "vat": "4/9: tới Inner Temple; Fleet St, Old Bailey, Ludgate Hill, Warwick Lane, Newgate, Paul's Chain, Watling St đang cháy",
+   "ngay": "4/9",
+   "bac": 2,
+   "nguon": "evelyn",
+   "muc_ngay": "4th September, 1666",
+   "trich": "it is now gotten as far as the Inner Temple. All Fleet street, the Old Bailey, Ludgate hill, Warwick lane, Newgate, Paul's chain, Watling street, now flaming"
+  },
+  {
+   "id": "a09",
+   "nhom": "cong_trinh",
+   "vat": "4/9 tối: St Paul's cháy, cả Cheapside; Pye Corner cháy",
+   "ngay": "4/9 tối",
+   "bac": 2,
+   "nguon": "pepys",
+   "muc_ngay": "4th",
+   "trich": "her house in Pye-corner being burned; so that the fire is got so far that way, and all the Old Bayly, and was running down to Fleete-streete; and Paul's is burned, and all Cheapside"
+  },
+  {
+   "id": "a10",
+   "nhom": "ranh_chay",
+   "vat": "4/9 22:00: phía tây tới St Dunstan's (Fleet St); gió dịu",
+   "ngay": "4/9 22:00",
+   "bac": 2,
+   "nguon": "relation1666",
+   "muc_ngay": "On Sunday the Second of September",
+   "trich": "at 10 of the clock on Tuesday-night, Westward consumed Houses and Churches all the way to S. Dunstan's Church in Fleetstreet; at which time by the favour of God the wind slacked"
+  },
+  {
+   "id": "a11",
+   "nhom": "ranh_chay",
+   "vat": "RANH CUỐI (đêm 4→5/9): danh sách điểm dừng — Fleet St, Inner Temple & Fetter Lane, Holborn Bridge, Pie Corner, Aldersgate, Cripplegate, gần cuối Coleman St, cuối Basinghall St, cửa Postern đầu Bishopsgate St, Leadenhall St, Standard ở Cornhill, nhà thờ ở Fenchurch St, gần Clothworkers' Hall (Mincing Lane), giữa Mark Lane, Tower Dock",
+   "ngay": "4/9 đêm → 5/9",
+   "bac": 2,
+   "nguon": "relation1666",
+   "muc_ngay": "On Sunday the Second of September",
+   "trich": "a stop was put to the Fire in Fleetstreet, the Inner Temple and Fetter-Lane, at Holborn-Bridg, Pie-Corner, Aldersgate, Cripplegate, near the lower end of Coleman-street, at the end of Basinghall-street, by the Postern, at the upper end of Bishopsgate-street, and Leadenhallstreet, at the Standard in Cornhill, at the Church in Fanchurch-street, near Cloathworkers-Hall in Mincing-Lane, at the middle of Mark-Lane, and at the Tower-Dock",
+   "ghi_chu": "cùng danh sách in trong London Gazette số 85 (bản chép của bên thứ ba; bản quét chưa đối chiếu) — VỊ TRÍ từng điểm lấy từ bậc 1"
+  },
+  {
+   "id": "a12",
+   "nhom": "ranh_chay",
+   "vat": "Đêm thứ Tư 5/9: bùng lại ở Inner Temple (nguồn \"cho là\" do tàn lửa rơi vào máng), dập trước sáng bằng thuốc nổ; Tanfield Court, Parsons Court và nhà trong sân nhà thờ bị san; nhà thờ Temple và Hall hư nhẹ",
+   "ngay": "5/9 đêm → 6/9 sáng",
+   "bac": 2,
+   "nguon": "relation1666",
+   "muc_ngay": "On Sunday the Second of September",
+   "trich": "But on Wednesday-night it suddenly broke out afresh in the Inner Temple, which happened (as is supposed) by flakes of fire falling into the gutters of the Buildings: His Royal Highness in person fortunately watching there that night, by his care, diligence, great labour, and seasonable commands for the blowing up with Gunpowder some of the said Buildings, it was most happily before day extinguished, after it had laid level with the ground, Tanfield-Court, Parsons-Court, and the Buildings in the Churchyard, and done some little damage to the Church and Hall"
+  },
+  {
+   "id": "a13",
+   "nhom": "ranh_chay",
+   "vat": "5/9: phía tây dừng ở Temple, phía bắc ở cửa vào Smithfield; còn mạnh về phía Cripplegate và Tower",
+   "ngay": "5/9",
+   "bac": 2,
+   "nguon": "evelyn",
+   "muc_ngay": "5th September, 1666",
+   "trich": "it came no farther than the Temple westward, nor than the entrance of Smithfield, north: but continued all this day and night so impetuous toward Cripplegate and the Tower"
+  },
+  {
+   "id": "a14",
+   "nhom": "cong_trinh",
+   "vat": "All Hallows Barking: chỉ cháy mặt đồng hồ và một phần cổng, dập được (5/9)",
+   "ngay": "5/9",
+   "bac": 2,
+   "nguon": "pepys",
+   "muc_ngay": "5th",
+   "trich": "it having only burned the dyall of Barking Church, and part of the porch, and was there quenched"
+  },
+  {
+   "id": "a15",
+   "nhom": "ranh_chay",
+   "vat": "6/9: một đám cháy mới ở Bishopsgate (nơi chưa từng cháy) — Pepys kể cùng thợ dập được (\"we did put it out in a little time\", cùng mục ngày)",
+   "ngay": "6/9",
+   "bac": 2,
+   "nguon": "pepys",
+   "muc_ngay": "6th",
+   "trich": "to call our men to Bishop's-gate, where no fire had yet been near, and there is now one broke out"
+  },
+  {
+   "id": "a16",
+   "nhom": "ranh_chay",
+   "vat": "6/9: bờ sông không còn nhà, nhà thờ tới Temple",
+   "ngay": "6/9",
+   "bac": 2,
+   "nguon": "pepys",
+   "muc_ngay": "6th",
+   "trich": "A sad sight to see how the River looks: no houses nor church near it, to the Temple, where it stopped"
+  },
+  {
+   "id": "a17",
+   "nhom": "cong_trinh",
+   "vat": "Clothworkers' Hall cháy liền 3 ngày đêm (hầm dầu) — tới 6/9",
+   "ngay": "4/9 → 6/9",
+   "bac": 2,
+   "nguon": "pepys",
+   "muc_ngay": "6th",
+   "trich": "strange it was to see Cloathworkers' Hall on fire these three days and nights in one body of flame, it being the cellar full of oyle"
+  },
+  {
+   "id": "a18",
+   "nhom": "cong_trinh",
+   "vat": "Royal Exchange cháy; 5/9 không còn gì đứng trừ tượng Gresham ở góc (năm mở cửa 1571 và năm dựng lại: nguồn web)",
+   "ngay": "3/9 cháy → 5/9 phế tích",
+   "bac": 2,
+   "nguon": "pepys",
+   "muc_ngay": "5th",
+   "trich": "The Exchange a sad sight, nothing standing there, of all the statues or pillars, but Sir Thomas Gresham's picture in the corner",
+   "web": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Royal_Exchange,_London",
+     "doc": "2026-10-21",
+     "trich": "officially opened … 23 January 1571 · destroyed in the Great Fire of London in 1666 · [second] opened in 1669"
+    }
+   ]
+  },
+  {
+   "id": "a19",
+   "nhom": "cong_trinh",
+   "vat": "Old St Paul's: mái sập, khoang hát đổ xuống St Faith's (7/9 phế tích)",
+   "ngay": "4/9 cháy → 7/9",
+   "bac": 2,
+   "nguon": "pepys",
+   "muc_ngay": "7th",
+   "trich": "a miserable sight of Paul's church; with all the roofs fallen, and the body of the quire fallen into St. Fayth's"
+  },
+  {
+   "id": "a20",
+   "nhom": "cong_trinh",
+   "vat": "Old St Paul's KHÔNG CÓ CHÓP NHỌN từ 1561 (sét đánh, không dựng lại) — chỉ tháp vuông",
+   "ngay": "cả T4",
+   "bac": 2,
+   "nguon": "relation1666",
+   "muc_ngay": "In the Year 1561",
+   "trich": "the Spire of the Cathedral Church of S. Paul's, being 520 Foot from the ground, and 260 from the square Steeple where it was placed, and was made of wooden materials, but covered with Lead, was with Lightning burnt down, together with the Roofs of that large Church, and that within the space of five hours: the Roofs were afterward re-edified, but not the Spire",
+   "web": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Old_St_Paul%27s_Cathedral",
+     "doc": "2026-10-21",
+     "trich": "The spire was destroyed by fire in 1561 and not replaced · a classical-style portico to the cathedral's west front in the 1630s (Inigo Jones) · sheathed in wooden scaffolding (1666)"
+    }
+   ]
+  },
+  {
+   "id": "a21",
+   "nhom": "cong_trinh",
+   "vat": "Cổng cột (portico) của St Paul's nứt vỡ, chỉ còn dòng chữ trên dầm (vị trí mặt tây + Inigo Jones: nguồn web ở a20)",
+   "ngay": "7/9",
+   "bac": 2,
+   "nguon": "evelyn",
+   "muc_ngay": "7th September, 1666",
+   "trich": "that beautiful portico (for structure comparable to any in Europe, as not long before repaired by the late King) now rent in pieces"
+  },
+  {
+   "id": "a22",
+   "nhom": "cong_trinh",
+   "vat": "Tower of London: nhà vua tới bằng đường sông để dỡ nhà quanh hào (bảo vệ kho thuốc súng ở White Tower) — Tower không cháy: nguồn thứ cấp (Wikipedia Great Fire: lính Tower phá nhà tạo khoảng chặn)",
+   "ngay": "4/9 → 7/9",
+   "bac": 2,
+   "nguon": "evelyn",
+   "muc_ngay": "7th September, 1666",
+   "trich": "his Majesty got to the Tower by water, to demolish the houses about the graff"
+  },
+  {
+   "id": "a23",
+   "nhom": "cong_trinh",
+   "vat": "London Bridge: vụ cháy 13/2/1633 đã đốt nhà hai bên từ St Magnus tới \"chỗ trống đầu tiên\" → khoảng trống chặn lửa sang Southwark ngày 2/9/1666 (nguồn web)",
+   "ngay": "13/2/1633 (giải thích ranh 2/9/1666)",
+   "bac": 2,
+   "nguon": "relation1666",
+   "muc_ngay": "On Monday the 13 of February 1633",
+   "trich": "which burned down in both sides the way from S. Magnus to the first open place",
+   "web": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Old_London_Bridge",
+     "doc": "2026-10-21",
+     "trich": "In 1633 fire destroyed the houses on the northern part of the bridge · Construction was not finished until 1209 · demolished after the latter opened in 1831 · Demolition of the houses was completed in 1761"
+    }
+   ]
+  },
+  {
+   "id": "a24",
+   "nhom": "cong_trinh",
+   "vat": "Mercers' Chapel, Christ Church, các hội quán: thành tro (7/9)",
+   "ngay": "7/9",
+   "bac": 2,
+   "nguon": "evelyn",
+   "muc_ngay": "7th September, 1666",
+   "trich": "the exquisitely wrought Mercers' Chapel, the sumptuous Exchange, the august fabric of Christ Church, all the rest of the Companies' Halls"
+  },
+  {
+   "id": "a25",
+   "nhom": "cong_trinh",
+   "vat": "Standard ở Cornhill và tượng Elizabeth ở Ludgate còn gần nguyên (7/9)",
+   "ngay": "7/9",
+   "bac": 2,
+   "nguon": "evelyn",
+   "muc_ngay": "7th September, 1666",
+   "trich": "Also the standard in Cornhill, and Queen Elizabeth's effigies, with some arms on Ludgate, continued with but little detriment"
+  },
+  {
+   "id": "a26",
+   "nhom": "cong_trinh",
+   "vat": "Guildhall (1411–1440): hư trong cháy; sửa mái bằng 1670",
+   "ngay": "4/9",
+   "bac": "thứ cấp",
+   "web": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Guildhall,_London",
+     "doc": "2026-10-21",
+     "trich": "Construction began on the current building in 1411 and was completed in 1440 · did not completely escape damage in the Great Fire of London in 1666 · partially restored (with a flat roof) in 1670"
+    }
+   ],
+   "ghi_chu": "cần nguồn bậc 2 về mức hư (chưa tìm trong phiên) → tạm dựng tường đứng, mái mất; ghi bậc 5"
+  },
+  {
+   "id": "a27",
+   "nhom": "moc_ton_tai",
+   "vat": "Monument: CHỈ TỪ 1677 (khởi công 1671) — CẤM trong mọi khung 1666",
+   "ngay": "cấm",
+   "bac": "thứ cấp",
+   "web": [
+    {
+     "url": "https://www.themonument.org.uk/history",
+     "doc": "2026-10-21",
+     "trich": "construction work commenced in 1671 · finally completed and opened in 1677"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Great_Fire_of_London",
+     "doc": "2026-10-21",
+     "trich": "built near Pudding Lane between 1671 and 1676 (caption 1677)"
+    }
+   ]
+  },
+  {
+   "id": "a28",
+   "nhom": "moc_ton_tai",
+   "vat": "St Paul's của Wren (vòm): khởi công 6/1675, đặt viên cuối đèn lồng 26/10/1708, Nghị viện tuyên bố xong 25/12/1711 — CẤM trong 1666 (lệnh ghi 'chỉ từ 1710' — nguồn cho 1708/1711)",
+   "ngay": "cấm",
+   "bac": "thứ cấp",
+   "web": [
+    {
+     "url": "https://en.wikipedia.org/wiki/St_Paul%27s_Cathedral",
+     "doc": "2026-10-21",
+     "trich": "it was laid in June 1675 · topping out … took place on 26 October 1708 · declared officially complete by Parliament on 25 December 1711"
+    }
+   ]
+  },
+  {
+   "id": "a29",
+   "nhom": "moc_ton_tai",
+   "vat": "Hai tháp tây Westminster Abbey: dựng thập niên 1740 — CẤM (1666 chưa có)",
+   "ngay": "cấm",
+   "bac": "thứ cấp",
+   "web": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Westminster_Abbey",
+     "doc": "2026-10-21",
+     "trich": "the abbey's two western towers were built in the 1740s in a Gothic–Baroque style by Nicholas Hawksmoor and John James"
+    }
+   ]
+  },
+  {
+   "id": "a30",
+   "nhom": "moc_ton_tai",
+   "vat": "Nhà hát Globe: dỡ 1644–45 — CẤM ở Bankside 1666",
+   "ngay": "cấm",
+   "bac": "thứ cấp",
+   "web": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Globe_Theatre",
+     "doc": "2026-10-21",
+     "trich": "It was pulled down in 1644–45 · A modern reconstruction … opened in 1997"
+    }
+   ]
+  },
+  {
+   "id": "a31",
+   "nhom": "moc_ton_tai",
+   "vat": "Royal Exchange thứ hai (1669), thứ ba (1844): CẤM trong 1666",
+   "ngay": "cấm",
+   "bac": "thứ cấp",
+   "web": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Royal_Exchange,_London",
+     "doc": "2026-10-21",
+     "trich": "opened in 1669 · opened by Queen Victoria on 28 October 1844"
+    }
+   ]
+  },
+  {
+   "id": "a32",
+   "nhom": "thoi_tiet_gio",
+   "vat": "Gió đông mạnh (2–4/9) — khói xuôi về tây; gió dịu lúc 22:00 thứ Ba 4/9 (a10)",
+   "ngay": "2/9 → 4/9 22:00",
+   "bac": 2,
+   "nguon": "relation1666",
+   "muc_ngay": "On Sunday the Second of September",
+   "trich": "being fomented by the hand of God in a violent Easterly wind"
+  },
+  {
+   "id": "a33",
+   "nhom": "nguoi_noi",
+   "vat": "Sà lan của Pepys ở Iron Gate (4/9) — chỉ lớp (a) khi lời phim nhắc; vị trí bậc 1. (Sà lan nhà vua 2/9: b35)",
+   "ngay": "2/9 → 4/9",
+   "bac": 2,
+   "nguon": "pepys",
+   "muc_ngay": "4th",
+   "trich": "which I did by a lighter at the Iron gate",
+   "ghi_chu": "chỉ lớp (a) khi lời phim nhắc; vị trí bậc 1"
+  },
+  {
+   "id": "a34",
+   "nhom": "chu_so",
+   "vat": "Năm/ngày/giờ (bộ đếm), chữ, số trên hình — do mã đặt, AI KHÔNG vẽ chữ; mọi biển hiệu trong cảnh = lớp (a)",
+   "ngay": "cả T4",
+   "bac": "luật §12.1"
+  }
  ]
 }

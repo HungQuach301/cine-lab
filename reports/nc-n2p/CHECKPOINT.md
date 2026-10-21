@@ -9,3 +9,9 @@
 - O1 lượt 1 (có mặt nạ) 6 ảnh $0,459: gpt-image VẼ LẠI HÌNH HỌC (đất → biển ở vay-ham 32 %, núi Rock đổi dáng) → T9 trượt. Lượt 2 KHÔNG mặt nạ: giữ hình học (vay-ham T9 0,27/0,21 %).
 - Đang chạy nền: dựng clip nguồn 1280×720 + mặt nạ (c1, c2, c4B, tl, c4A) ≈ 20 s/khung/làn; O1 lượt 2 (5 ảnh).
 - Tệp ngoài git: /var/tmp/n2p/** (ảnh AI, khung nguồn), /var/tmp/cine-out/k2tl-cache.
+
+## Lượt 2 (≈ 05:20 UTC)
+- Kiểm có đáp án (khung thử = render cổng 'cang' + 6 vật chèn bằng gpt-image, chỉ dán trong hộp, ngoài lớp (a)): gpt-6.1-sol 6/6, claude-sonnet-5-5 6/6, q_thoi_dai.py 3/3 lỗi thời đại; đối chứng (render ↔ render) 0 báo ở cả hai.
+- O1 lượt 2 (không mặt nạ) 6 ảnh + 2 tấm timelapse; khớp màu Reinhard làm lệch viền nền↔vật giảm ≈ 21 → 5–7 ΔE. Sửa ghép: bảo vệ (a) nở 1 px, vật nhỏ nở 3 px (cờ trại bị báo "mất" khi chưa nở).
+- Lượt 2 đọc nguồn (gpt-6.1-sol) + P phân xử → sửa mô tả mục (a)/(b). Luật nháp `LUAT-N2P-T4.md` §1–4, §6.
+- Đang chạy: kiểm cuối O1 (máy + 2 mô hình + q_thoi_dai); dựng clip c1 (≈ 70 %), c4B; sau đó Omni c1.

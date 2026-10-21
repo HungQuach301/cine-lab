@@ -55,9 +55,20 @@ def to_v2v_png(L, out, size=(640, 360)):
     rgb = cv2.resize(rgb, size, interpolation=cv2.INTER_NEAREST); cv2.imwrite(str(out), rgb[:, :, ::-1])
 
 
-def ghep(render, ai, A, feather=3):
-    """GHÉP lớp (a): trong vùng A = điểm ảnh render nguyên vẹn (sai khác 0); viền mềm ra NGOÀI vùng ≤ feather px; ngoài nữa = AI."""
+def bao_ve(A, no=1, nho_px=60, no_nho=2):
+    """vùng BẢO VỆ = mặt nạ (a) nở `no` px (giữ quầng khử răng cưa của mép vật) + vật nhỏ (< nho_px điểm, ví dụ cờ) nở thêm `no_nho` px.
+    Bài học tl-moc2: cờ trại vài px — quầng ngoài mặt nạ bị thay bằng nền AI → mô hình nhìn báo 'cờ biến mất'."""
+    K = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * no + 1, 2 * no + 1)); P = cv2.dilate(A.astype(np.uint8), K) > 0
+    n, cc, st, _ = cv2.connectedComponentsWithStats(A.astype(np.uint8), 8)
+    small = np.isin(cc, [i for i in range(1, n) if st[i, cv2.CC_STAT_AREA] < nho_px])
+    if small.any(): P |= cv2.dilate(small.astype(np.uint8), cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * (no + no_nho) + 1,) * 2)) > 0
+    return P
+
+
+def ghep(render, ai, A, feather=3, bao=True):
+    """GHÉP lớp (a): trong vùng bảo vệ (mặt nạ (a) nở 1 px, vật nhỏ nở 3 px — bao_ve) = điểm ảnh render nguyên vẹn (sai khác 0); viền mềm ra NGOÀI ≤ feather px; ngoài nữa = AI."""
     if ai.shape != render.shape: ai = cv2.resize(ai, (render.shape[1], render.shape[0]), interpolation=cv2.INTER_AREA)
+    if bao: A = bao_ve(A)
     d = cv2.distanceTransform((~A).astype(np.uint8), cv2.DIST_L2, 3)
     al = np.clip(1.0 - d / float(feather + 1), 0, 1); al[A] = 1.0
     out = render.astype(np.float32) * al[..., None] + ai.astype(np.float32) * (1 - al[..., None])
