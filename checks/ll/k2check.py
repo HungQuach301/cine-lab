@@ -1,5 +1,5 @@
 #!/opt/cine/bin/python
-"""Bộ luật kênh 2 — một lệnh (phiên K, bản 1.11.0, 15/10/2026; 1.12.0, 16/10/2026; 1.12.1, 17/10/2026; 1.13.0, 17/10/2026; 1.14.0, 17/10/2026; 1.15.0, 18/10/2026; 1.17.0, 21/10/2026; 1.17.1, 21/10/2026). Áp cho tập kênh 2 từ K2 tập 3 (T2 chạy checks 1.10.2 đã ghim).
+"""Bộ luật kênh 2 — một lệnh (phiên K, bản 1.11.0, 15/10/2026; 1.12.0, 16/10/2026; 1.12.1, 17/10/2026; 1.13.0, 17/10/2026; 1.14.0, 17/10/2026; 1.15.0, 18/10/2026; 1.17.0, 21/10/2026; 1.17.1, 21/10/2026; 1.17.2, 22/10/2026). Áp cho tập kênh 2 từ K2 tập 3 (T2 chạy checks 1.10.2 đã ghim).
 Phiên xưởng chỉ CHẠY (không đọc mã). Định nghĩa: checks/ll/RULES-LL.md.
 
   k2check.py <episode.yaml> [--tl timeline.json] [--master master.mp4] [--mix mix.json] [--logs <thư mục *.log.json>]
@@ -11,6 +11,8 @@ Phiên xưởng chỉ CHẠY (không đọc mã). Định nghĩa: checks/ll/RULE
              1.16.0 (CHỈ tập từ T3: `khung_sach: true` | `kenh2_tu_t3: true`): [--tl16-video <video>] [--log-shot log-shot.json]
              1.17.0 (tập từ T3: MINH-HOA, EO-DAT-R1…R3 (+ R4, ngưỡng §14.7 từ 1.17.1); tập từ T4 `kenh2_tu_t4: true` | `n2p:`: N2P-1…6): [--n2p-vision] gọi 2 mô hình nhìn + O2
              (≈ $0,2–0,3/tấm; mặc định TẮT — chỉ đọc bộ đệm <out>/n2p-vision-cache.json)
+             1.17.2 (tập từ T3): MINH-HOA theo đoạn khai (không nhãn bắt buộc) · K-LAI-1…6 đọc đoạn AI khai trong log shot · PP-1 (d) không đòi câu AI ·
+             TL-1 miễn cắt góc R3 khỏi trần · EO-DAT-R1 chỉ báo + vùng nở · CONG-BO-1 công bố AI ở gói phát hành (Chặn khi `cong: phat_hanh`)
 
 Gọi: Q26b bối cảnh · Q32 footage/ảnh nguồn ngoài · Q33 lặp cảnh · Q34 loại shot · Q35 nhãn loại số (D5) · Q36 chữ trên màn hình ·
 Q37 nhịp thị giác · A1–A13 âm thanh · LOCK. Mã thoát 0 khi mọi mục ĐẠT (âm thanh của tập cũ: CHỈ BÁO, không tính).
@@ -195,11 +197,13 @@ def main():
            'K-LAI-B': 'bão hoà trung vị ≤ 0,40 mỗi khung LAI'}
     if V16:
         LAT = dict(LAT, **{'K-LAI-2': 'LAI: công bố AI (§12.1)', 'K-LAI-3V': 'LAI: nghi vấn còn ghi của vân (1.16)'})
-        LAN = dict(LAN, **{'K-LAI-2': 'cờ ai_* mọi khung · shot khai khớp log · thẻ phương pháp nói AI · mô tả "AI use = Yes" · KHÔNG nhãn trên hình',
+        LAN = dict(LAN, **{'K-LAI-2': 'cờ ai_* mọi khung (hoặc mọi shot log) · shot khai khớp log · mô tả "AI use = Yes" · KHÔNG nhãn trên hình (1.17.2: bỏ "thẻ PP nói AI")',
+                           'K-LAI-1': 'ai_image/ai_texture ≤ 20 % thời lượng (log khung; không có → đoạn khai trong log shot, 1.17.2)',
                            'K-LAI-3V': 'tệp vân dùng không còn nghi vấn chưa xử lý (Chặn ở G2 · Cảnh báo ở animatic — K116-D5)'})
-    if not q_lai.ap_dung(E): bao('K-LAI-1…6', 'Khung neo LAI', lambda: dict(ok=True, loi=[], val='tập không có khối lai: / shot AI', ket_qua='KHÔNG ÁP'))
+    if not q_lai.ap_dung(E, LS17 if V16 else None):   # 1.17.2 (V2-D5): tập từ T3 đọc cả đoạn AI khai trong log shot
+        bao('K-LAI-1…6', 'Khung neo LAI', lambda: dict(ok=True, loi=[], val='tập không có khối lai: / shot AI' + (' / đoạn AI trong log shot' if V16 else ''), ket_qua='KHÔNG ÁP'))
     else:
-        try: LA = (q_lai.check116 if V16 else q_lai.check)(E, TL, ep_dir, logs)
+        try: LA = q_lai.check116(E, TL, ep_dir, logs, LS17) if V16 else q_lai.check(E, TL, ep_dir, logs)
         except Exception as e: LA = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in LAT}
         if V16 and 'K-LAI-3V' in LA: LA['K-LAI-3V'] = dict(LA['K-LAI-3V'], cong='animatic' if E.get('animatic') else 'G2')   # K116-D5
         for k in LAT: bao(k, LAT[k], lambda k=k: LA[k], LAN[k])
@@ -231,8 +235,8 @@ def main():
            'TL-2': 'Lướt thấp §13.6', 'TL-3': 'Không shot trống §13.6', 'NHIP-NGHIA': 'Nhịp → vật mang nghĩa §13.2', 'XEM-CAM': 'Cổng XEM CÂM §13.4',
            'PC-1': 'Thước phục chế §12.3'}
     K6N = {'SACH-1': 'chỉ bộ đếm · chip nơi ≤ 3 s · thẻ chương · thẻ phương pháp · bản đồ ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ (K116-D3); không tấm số/trích, không tư liệu đứng riêng (phủ ≤ 3 s)',
-           'CHUONG-1': '≤ 8/tập · "năm — ≤ 6 từ" · ≤ 3 s · không trong móc · trung tính', 'PP-1': '2 thẻ × 7–9 s, cuối phim · nguồn/ước tính/AI · ≤ 3 từ/s',
-           'TL-1': 'góc cao + thời gian chạy ≥ 75 % · ≤ 5 cắt/phút (video: đổi cấu trúc; đối chiếu đặc tả ±0,5 s) · trôi ≤ 2 %/s · 6–8 điểm máy (hiệu chỉnh sau V7-PILOT)',
+           'CHUONG-1': '≤ 8/tập · "năm — ≤ 6 từ" · ≤ 3 s · không trong móc · trung tính', 'PP-1': '2 thẻ × 7–9 s, cuối phim · nguồn/bản đồ + chỗ ước tính (1.17.2: không đòi câu AI) · ≤ 3 từ/s',
+           'TL-1': 'góc cao + thời gian chạy ≥ 75 % · ≤ 5 cắt/phút (video: đổi cấu trúc; đối chiếu đặc tả ±0,5 s; 1.17.2: cắt góc R3 so_goc/goc_may không tính trần) · trôi ≤ 2 %/s · 6–8 điểm máy (hiệu chỉnh sau V7-PILOT)',
            'TL-2': 'lướt thấp ≤ 10 % · có vai, phố/người (hiệu chỉnh sau V7-PILOT)', 'TL-3': 'mỗi shot 3D: thời gian chạy hoặc biến cố · trống ≤ 60 % (hiệu chỉnh sau V7-PILOT)',
            'NHIP-NGHIA': '≥ 90 % nhịp chính', 'XEM-CAM': '8 câu · 3 AI + chủ dự án · tắt tiếng · chủ dự án ≥ 6/8 VÀ TB AI ≥ 6/8 (K116-D2)', 'PC-1': 'Δ cạnh mới so bicubic ≤ 1,0 điểm % · PSNR ≥ bicubic'}
     if not V16: bao('1.16', 'Luật T3 (SACH-1…PC-1)', lambda: dict(ok=True, loi=[], val='tập trước T3: giữ hành vi 1.15', ket_qua='KHÔNG ÁP'))
@@ -244,9 +248,10 @@ def main():
     # ---- 1.17: MINH-HOA + EO-DAT R1–R4 (tập từ T3; R4 từ 1.17.1) · N2P-1…6 (tập từ T4) — CHỈ BÁO (cấp ở cap112, áp với --cap); tập trước T3: không thêm hàng
     if V16:
         K7T = {'MINH-HOA': 'Minh hoạ AI §14.1 (c) / §15 M-d', 'EO-DAT-R1': 'Eo đất R1 — chủ thể', 'EO-DAT-R2': 'Eo đất R2 — cỏ/cát trống', 'EO-DAT-R3': 'Eo đất R3 — góc + biến cố',
-               'EO-DAT-R4': 'Eo đất R4 — câu lời không vật'}
-        K7N = {'MINH-HOA': '≤ 20 % · nhãn "Illustration" suốt đoạn · kẹp giữa 2 shot 3D · máy ≤ 40 m AGL · sổ AI mỗi đoạn',
-               'EO-DAT-R1': f'chu_the_eo_dat: chủ thể ≥ {q_k117.R1_MIN:g} % khung (Chặn) · {q_k117.R1_MIN:g}–{q_k117.R1_TOT:g} % Cảnh báo (§14.7)',
+               'EO-DAT-R4': 'Eo đất R4 — câu lời không vật', 'CONG-BO-1': 'Công bố AI ở gói phát hành (1.17.2)'}
+        K7N = {'MINH-HOA': 'theo đoạn khai: ≤ 20 % · kẹp giữa 2 khung 3D · máy ≤ 40 m AGL · sổ AI mỗi đoạn (1.17.2: không nhãn bắt buộc)',
+               'EO-DAT-R1': f'chu_the_eo_dat: chủ thể ≥ {q_k117.R1_MIN:g} % khung · {q_k117.R1_MIN:g}–{q_k117.R1_TOT:g} % (§14.7) — CHỈ BÁO mọi cổng, in pixel thô + vùng nở {q_k117.R1_NO:g} % (1.17.2)',
+               'CONG-BO-1': 'khung AI hoặc giọng tổng hợp → mô tả YouTube có câu "AI"/"synthetic" · phat_hanh.youtube_altered_content: true (Chặn ở gói phát hành)',
                'EO-DAT-R2': f'trống (> {q_k117.TRONG_PCT:g} %) liên tục ≤ {q_k117.R2_GIAY:g} s · mỗi chương ≤ {q_k117.R2_CHUONG:g} % thời lượng chương (§14.7)',
                'EO-DAT-R3': 'shot eo đất > 15 s: ≥ 2 góc · biến cố cách ≤ 6 s',
                'EO-DAT-R4': f'loi_khong_vat_eo_dat: noi ∈ pho/lau_dai/cang hoặc bản đồ phủ ≤ {q_k117.R4_BAN_DO:g} s (§14.7, TL-4)'}

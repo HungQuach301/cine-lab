@@ -169,7 +169,7 @@ case('PP-1', 'thẻ 9,0 s (cận trên ≈ 8 ± 1) → sạch (b)', bad(K6.pp1(E
 E = ep(); E['segments'].append(copy.deepcopy(E['segments'][0])); E['segments'][-1]['id'] = 'SAU'
 case('PP-1', 'có shot sau thẻ phương pháp → (c) không ở cuối', bad(K6.pp1(E, mk_tl(E)), 'c'), True)
 E = ep(); E['segments'][-1]['shots'][0]['p']['card']['items'] = [dict(s='Estimated: building heights.')]
-case('PP-1', 'không nói AI → (d)', bad(K6.pp1(E, mk_tl(E)), 'd'), True)
+case('PP-1', '1.17.2 (chủ dự án 22/10: không câu AI trong phim): không nói AI, còn nguồn + ước tính → sạch (d)', bad(K6.pp1(E, mk_tl(E)), 'd'), False)
 E = ep(); E['segments'][-1]['shots'][0]['p']['card']['items'] = [dict(s=' '.join(['word'] * 30) + ' AI estimated')]
 rr = K6.pp1(E, mk_tl(E))
 case('PP-1', '33 từ / 8 s > 3 từ/s → (e) Cảnh báo', bad(rr, 'e'), True)
@@ -293,7 +293,7 @@ case('K-LAI-2', f"1.16: cờ AI mọi khung, shot khai khớp, thẻ PP nói AI,
 E = ep(phat_hanh=dict(mo_ta=tmpf('mt.md', 'Sources: Spilsbury.\n')))
 case('K-LAI-2', 'mô tả không có "AI use = Yes" → (d)', bad(LA.check116(E, mk_tl(E), EP, None)['K-LAI-2'], 'd'), True)
 E = ep(); E['segments'][-1]['shots'][0]['p']['card']['items'] = [dict(s='Estimated: heights.')]; E['segments'][-2]['shots'][0]['p']['card']['items'] = [dict(s='Sources: maps.')]
-case('K-LAI-2', 'thẻ phương pháp không nói AI → (c)', bad(LA.check116(E, mk_tl(E), EP, None)['K-LAI-2'], 'c'), True)
+case('K-LAI-2', '1.17.2: thẻ phương pháp không nói AI → sạch (c) (bỏ yêu cầu)', bad(LA.check116(E, mk_tl(E), EP, None)['K-LAI-2'], 'c'), False)
 E = ep(lai=dict(E0['lai'], log_chu=tmpf('lc.json', [dict(f=100, items=[dict(s='Surface detail AI-assisted · layout, lan', role='ai_label', alpha=1.0)])])))
 case('K-LAI-2', 'nhãn "Surface detail AI-assisted" hiện trên hình → (e) (§12.1)', bad(LA.check116(E, mk_tl(E), EP, None)['K-LAI-2'], 'e'), True)
 E = ep(log_shot=ls_file(lambda L: [x.update(ai_texture=False) for x in L]))

@@ -1,0 +1,77 @@
+ĐÚNG  ML2    bắt lỗi  T2 lời v3.3: bắt D7 (vòng 'wages' 3:55.2↔4:47.8) và D13 (ủng hộ/phản đối 2:28.3↔10:20.1, 2:37.1↔10:25.4, 2:35.2↔10:20.1)
+ĐÚNG  ML2    sạch     T2 lời v3.4 (sau cắt D7, D13): 100 câu · 20 cặp ứng viên (chấm 20) · 0 lặp ý · tóm tắt 10 câu
+ĐÚNG  ML2    bắt lỗi  không có câu trả lời ngữ nghĩa đã lưu và không --api → THIẾU (không ĐẠT)
+ĐÚNG  ML2    bắt lỗi  v3.4 không khai tóm tắt cuối → cặp có câu tóm tắt (vd 1943 ↔ 9:34.7) thành ứng viên chưa chấm: 100 câu · 35 cặp ứng viên (chấm 20) · 0 lặp ý · không khai tóm tắt
+ĐÚNG  ML2    bắt lỗi  khai tóm tắt dài 8 phút (từ chương 02) → lỗi khai, không miễn
+ĐÚNG  ML2    bắt lỗi  tầng n-gram: cùng câu đảo trật tự cách 36 s → ứng viên (điểm 1.0)
+ĐÚNG  ML2    sạch     tầng n-gram: hai câu liền nhau không bao giờ là ứng viên
+ĐÚNG  ML3    bắt lỗi  T2 v3.3: mời đăng ký 3:18.6 (±5 s ranh chương 3:23.3) nhưng kết thúc 1,8 s trước luận điểm chính C22 → TRƯỢT
+ĐÚNG  ML3    sạch     T2 v3.4: 1 câu mời: 10:04.9 (60 s cuối) · 4 luận điểm chính khai → ĐẠT
+ĐÚNG  ML3    bắt lỗi  mời đăng ký 2:30 giữa chương (cách ranh 50 s, ngoài 60 s cuối) → (a)
+ĐÚNG  ML3    sạch     mời đăng ký 1:37–1:41 quanh ranh chương 1:40 (±5 s), luận điểm chính sau 30 s → đạt
+ĐÚNG  ML3    sạch     mời đăng ký 4:20 (60 s cuối) → đạt
+ĐÚNG  ML3    bắt lỗi  có câu mời mà không khai luan_diem_chinh → THIẾU
+ĐÚNG  ML1    bắt lỗi  T2 v3.4 (làm trước luật): 35/42 shot gắn (35 suy từ mốc @từ) · timelapse 0.0 s, trôi 0.0 %; 7 shot mở đoạn `at: 0` không gắn → (a)
+ĐÚNG  ML1    sạch     T2 v3.4 + khai `cau` cho 7 shot mở đoạn → 42/42 shot gắn (35 suy từ mốc @từ) · timelapse 0.0 s, trôi 0.0 %
+ĐÚNG  ML1    bắt lỗi  `cau` không khớp câu nào → (c)
+ĐÚNG  ML1    bắt lỗi  claim C99 không có trong claims.md T2 → (c)
+ĐÚNG  ML1    sạch     claim C20 có trong claims.md → đạt
+ĐÚNG  ML1    sạch     timelapse trôi 10 s / 100 s = 10.0 % → đạt
+ĐÚNG  ML1    sạch     timelapse trôi 15 s / 100 s = 15,0 % (đúng trần) → đạt, nêu sát ngưỡng
+ĐÚNG  ML1    bắt lỗi  timelapse trôi 20 s / 100 s = 20.0 % > 15 % → (b)
+ĐÚNG  FT1    bắt lỗi  T2 v3.4: 11 shot footage/ảnh · tính 69.9 s = 11.3 % (miễn ảnh nhỏ 0.0 s) · khai lý do: 0/11 → (b) chưa khai lý do
+ĐÚNG  FT1    sạch     T2 v3.4 + khai ly_do_hinh → 11.3 % ≤ 20 % đạt
+ĐÚNG  FT1    bắt lỗi  footage 25 s / 100 s → (a) > 20 %
+ĐÚNG  FT1    sạch     ảnh chú thích 0,30 khung, 5 s → không tính (miễn 5.0 s)
+ĐÚNG  FT1    sạch     ảnh 0,30 khung nhưng 7 s > 6 s → tính
+ĐÚNG  FT1    bắt lỗi  ảnh nửa khung 25 s → tính, (a)
+ĐÚNG  BC1    bắt lỗi  nội dung 20 % liên tục 72 khung (3,0 s) → (a)
+ĐÚNG  BC1    sạch     nội dung 20 % liên tục 48 khung (2,0 s, đúng trần) → đạt
+ĐÚNG  BC1    sạch     nội dung 20 % 3,0 s nằm trong mốc đinh → miễn, đạt
+ĐÚNG  BC1    bắt lỗi  shot cận hero, hero trung vị 20 % → (b)
+ĐÚNG  BC1    sạch     shot cận hero, hero trung vị 30 % → đạt
+ĐÚNG  BC1    bắt lỗi  gib20 (v5b1b): mặt nạ 10/480 khung → không đo được quãng liên tục, hero_pct không có → THIẾU (10/480 khung có mặt nạ · nội dung trung vị 21.8 % (min 10.9 %) · 5 khung < 30 % ngoài mốc)
+ĐÚNG  MAU1   sạch     khung nhiều màu/chi tiết: bão hoà 0.757 · colorfulness 134.5 · chi tiết 21.1 · cháy 0.0 % → đạt
+ĐÚNG  MAU1   bắt lỗi  khung xám phẳng → trượt bão hoà/colorfulness/chi tiết
+ĐÚNG  MAU1   bắt lỗi  cùng khung + dải trắng 40 px (cháy 5.56 % cả khung) → trượt cháy sáng
+ĐÚNG  MAU1   bắt lỗi  khung có chữ (co_chu) → THIẾU, không ĐẠT
+ĐÚNG  KHOP1  sạch     nhiễu hạt σ 2 (như llvmpipe ↔ SwiftShader): 1/1 khung đạt cấu trúc (1 đạt chặt) · SSIM min 0.994 · PSNR¼ min 50.07 · vàng swiftshader → mới llvmpipe (ĐỔI TRÌNH DỰNG: (c) bắt buộc)
+ĐÚNG  KHOP1  bắt lỗi  dịch màu đều +2 mức/kênh → (c)
+ĐÚNG  KHOP1  bắt lỗi  mờ Gauss σ 3 → SSIM < 0,90 (c)
+ĐÚNG  KHOP1  bắt lỗi  khung vàng không ghi renderer → (a)
+ĐÚNG  KHOP1  bắt lỗi  log dựng của một tập có 2 renderer (SwiftShader + llvmpipe) → (b) trộn trình dựng
+ĐÚNG  KHOP1  sạch     gpu-rd 12 khung 1080p SwiftShader ↔ llvmpipe (số đã ghi): 12/12 khung đạt cấu trúc (số đã ghi)
+ĐÚNG  KHOP1  bắt lỗi  cùng số, SSIM khung 280 hạ 0,9009 → 0,8990 → (c)
+ĐÚNG  TL-Q1  sạch     ams30: 1 mốc: 1655 1.83 s (khung 312–355) (a) 1,5–2,0 s, (e) ≥ 1 mốc → đạt (a), (e)
+ĐÚNG  TL-Q1  sạch     gib20: 1 mốc: 1941 1.92 s (khung 291–336); chữ năm 139,2/96 px = 1,45×; thẻ 1941 ≥ 3 s, nguồn 38 px → (a), (b), (d) đạt
+ĐÚNG  TL-Q1  bắt lỗi  ams30/gib20: (c) sáng trong mặt nạ công trình chưa đo → THIẾU (không ĐẠT)
+ĐÚNG  TL-Q1  bắt lỗi  ams30 kéo năm dừng 1655 thêm 24 khung → 1 mốc: 1655 2.83 s (khung 312–379) > 2,0 s (a)
+ĐÚNG  TL-Q1  bắt lỗi  ams30 bỏ năm dừng (năm trôi 0,05/khung) → 0 mốc (e)
+ĐÚNG  TL-Q1  bắt lỗi  gib20 chữ năm trong mốc chỉ 110/96 px = 1,15× → (b)
+ĐÚNG  TL-Q2  sạch     ams30 bay dọc Damrak: [8.5, 12.8]: 4.33 s ≤ 15 m/AGL ≤ 120 m (pho: không khai loại → coi pho), lệch TB 3.11 m, max 13.79 m, AGL [54.3, 74.9] (độ cao tuyệt đối (không có địa hình/cao độ tuyến → coi mặt đất 0 m)), đích 0.0° (K tính từ hình học tuyến)
+ĐÚNG  TL-Q2  bắt lỗi  gib20 bay dọc WCA: lệch ≤ 4,6 m nhưng cao 273–308 m > 120 m → trượt
+ĐÚNG  TL-Q2  bắt lỗi  ams30 dời tuyến 25 m về phía đông → không còn 3 s ≤ 15 m
+ĐÚNG  TL-Q2  bắt lỗi  ams30 tuyến không ghi nguồn hình học → trượt
+ĐÚNG  TL-Q3  sạch     ams30: keo_lui 16.4–24.0 s: 186 → 3947 m ×21.2 trong 7.6 s; zoom_in 24.0–27.0 s: 3947 → 98 m ×40.3 trong 3.0 s
+ĐÚNG  TL-Q3  sạch     gib20: zoom_in 3.2–7.4 s: 1202 → 148 m ×8.1 trong 4.2 s; keo_lui 14.4–20.0 s: 460 → 3511 m ×7.6 trong 5.5 s
+ĐÚNG  TL-Q3  bắt lỗi  ams30 kéo lùi đo từ 20,6 s (số render-log.json E3: 1 505 → 3 947 m) = ×2,6 < 5×
+ĐÚNG  TL-Q3  bắt lỗi  ams30 chèn một khung nhảy máy 800 m giữa kéo lùi → cắt
+ĐÚNG  TL-Q4  bắt lỗi  ams30: RIGHTS.md (timelapse-rd) không có dòng ảnh RP-F-00-568 → (a)
+ĐÚNG  TL-Q4  sạch     ams30 then/now: 7 điểm, RMS 0,52 % rộng ảnh, máy yên ≥ 0,8 s, hoà 0,8 s → (c) không lỗi đo
+ĐÚNG  TL-Q4  sạch     ams30 + dòng RIGHTS đủ (CC0, URL, SHA) + ảnh chồng + log neo ≤ 1 % → đạt (RP-F-00-568: RIGHTS đủ; then/now 7 điểm, RMS 6.3/1200 px = 0.52 %, máy yên 1.46 s khi ảnh phủ, hoà 0.80 s)
+ĐÚNG  TL-Q4  bắt lỗi  dòng RIGHTS giấy phép CC BY-NC, SHA rút gọn → (a)
+ĐÚNG  TL-Q4  bắt lỗi  then/now hoà 0,3 s < 0,6 s → (c)
+ĐÚNG  TL-Q4  bắt lỗi  then/now RMS 14 px / 1 200 px = 1,17 % > 1 % → (c)
+ĐÚNG  TL-Q5  sạch     ams30 (a)/(b): khung thường max 14.7 % (trung vị 10.8 %; 72 khung trong ±5 % của 15 %) · mốc đinh max 16.0 % · vùng giữa không neo 0 khung
+ĐÚNG  TL-Q5  bắt lỗi  gib20: thẻ ảnh LoC khung 193–263 = 2,96 s < 3 s → (c)
+ĐÚNG  TL-Q5  bắt lỗi  ams30 khung 100 lên 15,4 % + khung 101 có chữ không neo vùng giữa → (a), (b)
+ĐÚNG  TL-Q5  bắt lỗi  gib20 dòng phương pháp ở khung 240 (giữa phim) → (e)
+ĐÚNG  TL-Q5  sạch     gib20 (d) ≤ 2 lớp thường trực, (f) chữ ≥ 38 px và tương phản ≥ 4,5 (min 9,32) → không lỗi
+ĐÚNG  TL-Q6  bắt lỗi  lớp sổ BAG còn 728 toà năm 1005 (giữ chỗ) mọc → trượt
+ĐÚNG  TL-Q6  sạch     lớp sổ BAG đã loại 1005 → đạt
+ĐÚNG  TL-Q6  bắt lỗi  sổ GWR có mã năm giả 1812 (khai gia) → trượt
+ĐÚNG  TL-Q6  sạch     gib20 tầng chuẩn (Gibraltar 1987/2026, đất 1941/1987/2026) chỉ đổi ở mốc có nguồn → đạt
+ĐÚNG  TL-Q6  bắt lỗi  gib20 tầng chuẩn thêm 12 toà đổi trạng thái năm 1960 (không có mốc nguồn) → trượt
+ĐÚNG  TL-Q6  bắt lỗi  gib20 lớp La Línea (sổ Catastro) không có phân bố năm → THIẾU
+
+selftest 1.12.0: 75/75 ca đúng kỳ vọng · 13 luật, luật thiếu ca đạt hoặc trượt: không

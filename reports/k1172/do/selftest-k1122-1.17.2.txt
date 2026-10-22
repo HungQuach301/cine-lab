@@ -1,0 +1,39 @@
+ĐÚNG  NHIP-K2  sạch     T1: Q14–Q18 trả 'không áp' (luật nhịp LL không áp kênh 2)
+ĐÚNG  NHIP-K2  sạch     T2: Q14–Q18 trả 'không áp' (luật nhịp LL không áp kênh 2)
+ĐÚNG  NHIP-K2  sạch     T2 v3.4: Q14–Q18 không áp · chưa khai beats → mốc đặc tả (cận trên): TB 2.27 s, dài nhất 5.46 s (04 337.66s (mốc)) · 273 mốc sau gộp
+ĐÚNG  NHIP-K2  bắt lỗi  T1 (dựng trước luật nhịp kênh 2): ['(c) mốc đặc tả: dài nhất 28.03 s > 6 s (07 541.06s (mốc); chốt bằng beats hoặc master)']
+ĐÚNG  NHIP-K2  sạch     đặc tả khai `kenh: 1` dù mã 'k2…' → luật LL áp (is_k2 = False)
+ĐÚNG  NHIP-K2  sạch     đặc tả LL mã 'll-ep09' khai `kenh: 2` → không áp
+ĐÚNG  NHIP-K2  sạch     tập LL (không kênh 2) → NHIP-K2 không áp, Q14–Q18 giữ nguyên
+ĐÚNG  NHIP-K2  bắt lỗi  T2 gộp mỗi chương thành 1 shot không mốc (tổng hợp) → dài nhất 148.55 s > 6 s
+ĐÚNG  Q26b-K2  sạch     T1: loại: the_so 34.9 %, 3d 31.2 %, ban_do 19.9 %, anh 11.7 %, footage 2.3 % · 12 vùng, lớn nhất toan-cau 21.2 % · nửa sau 7 vùng · không vùng 45.3 %
+ĐÚNG  Q26b-K2  bắt lỗi  T2 v3.4: loại: ban_do 88.7 %, anh 10.4 %, footage 0.9 % · 7 vùng, lớn nhất eastus 37.8 % · nửa sau 5 vùng · không vùng 10.4 % → (a) nửa sau 2 loại, (b) bản đồ 88,7 %, (c), (d) eastus
+ĐÚNG  Q26b-K2  sạch     bản đồ KHÔNG còn trung tính: T2 bản đồ vào loại ban_do và vào vùng (Q26b cũ: trung tính 99 %)
+ĐÚNG  Q26b-K2  bắt lỗi  Q26b cũ trên T2 trượt (c) vì bản đồ trung tính — biến thể không còn lỗi (c) cũ này
+ĐÚNG  Q26b-K2  sạch     T2 khai vùng nhỏ hơn cho bờ Đông (3 khu, tổng hợp): (c), (d) hết lỗi — loại: ban_do 88.7 %, anh 10.4 %, footage 0.9 % · 8 vùng, lớn nhất east
+ĐÚNG  Q26b-K2  sạch     cấp: (c), (d) vào phần Chặn, (a), (b) vào Cảnh báo (Chặn (c), (d), (e) (như Q26b) · Cảnh báo (a), (b))
+ĐÚNG  Q33-K2   bắt lỗi  T2 (khoá vùng HEAD, tờ khung nháp): 37 khoá (vùng, góc) · 38 lần xuất hiện · nhiều nhất relief/eastus · t2-03-scale 6 · 4 khoá > 2 · pHash L θ=16 + ΔE ≤ 10, thêm 18 lần lặp không khai, miễn 1 — bờ Đông góc rộng sông Delaware lặp ở chương 03/05/06
+ĐÚNG  Q33-K2   sạch     T2: 4 khoá > 2 đúng các góc bờ Đông đã xem mắt (t2-03-scale, t2-05-cost, t2-05-philly, t2-06-watch)
+ĐÚNG  Q33-K2   sạch     T2 cặp sepia ↔ xanh (r02_subsidy ↔ r03_scale, pHash L 12) KHÔNG gộp nhờ ΔE màu
+ĐÚNG  Q33-K2   sạch     T2 vịnh SF: launch ↔ dive cùng góc (pHash L 10, ΔE 0,5) nhưng lần chương 01 khai năm khác → miễn: t2-00-launch 0:00.0, 0:33.4 (miễn: khác chương + khác năm/lớp), 1:31.7
+ĐÚNG  Q33-K2   bắt lỗi  T1 master: 95 khoá (vùng, góc) · 96 lần xuất hiện · nhiều nhất map/globe · m_oregon 3 · 1 khoá > 2 · pHash L θ=16 + ΔE ≤ 10, thêm 6 lần lặp không khai, miễn 0 — địa cầu không khai vùng (m_oregon ↔ m_calif/m_calif2)
+ĐÚNG  Q33-K2   sạch     T1 khai vùng cho bản đồ địa cầu theo bang (tổng hợp từ tên góc): 95 khoá (vùng, góc) · 96 lần xuất hiện · nhiều nhất k2c106/street · st_dolly 2 ·
+ĐÚNG  Q33-K2   sạch     khác vùng, cùng băm → không bao giờ gộp
+ĐÚNG  Q33-K2   bắt lỗi  cùng (vùng, góc) khai 3 lần cùng chương → TRƯỢT
+ĐÚNG  Q33-K2   sạch     lần thứ 3 ở chương khác + khai năm khác → miễn, ĐẠT
+ĐÚNG  Q33-K2   sạch     lần thứ 3 ở chương khác + khai lớp dữ liệu khác → miễn, ĐẠT
+ĐÚNG  Q33-K2   bắt lỗi  lần thứ 3 khác lớp nhưng CÙNG chương → không miễn, TRƯỢT
+ĐÚNG  Q33-K2   bắt lỗi  không có master/băm → THIẾU (không ĐẠT)
+ĐÚNG  Q33-K2   sạch     hiệu chuẩn θ_L trên master Steel + T1 (khác bộ ≤ 1 %, cùng bộ khác góc ≤ 2 %) = 16 (khác bộ 0.65 %, cùng bộ khác góc 1.77 %)
+ĐÚNG  Q32b-K2  sạch     T2 Owens 10.58 s (ảnh có máy (opt.push) + chú thích đổi 3 lần) và Jones 9.36 s (ảnh có máy (opt.push) + chú thích đổi 4 lần) ≤ 12 s → ĐẠT
+ĐÚNG  Q32b-K2  sạch     T1: 27 clip/ảnh · PX-20568183 7.93 s/8 s; LOC-DET-04 7.49 s/8 s; LOC-FSA-04 7.16 s/12 s; LOC-FSA-01 7.09 s/12 s
+ĐÚNG  Q32b-K2  bắt lỗi  ảnh TĨNH HOÀN TOÀN 12 s (không Ken Burns, chú thích không đổi) → TRƯỢT (trần 8 s)
+ĐÚNG  Q32b-K2  sạch     ảnh tĩnh hoàn toàn 7,9 s → ĐẠT
+ĐÚNG  Q32b-K2  sạch     ảnh Ken Burns (opt.push 0,12) 11,5 s → ĐẠT
+ĐÚNG  Q32b-K2  sạch     ảnh có chú thích đổi 1 lần (dòng 2 hiện ở 4 s) 11,5 s → ĐẠT
+ĐÚNG  Q32b-K2  bắt lỗi  ảnh Ken Burns 12,5 s > 12 s → TRƯỢT
+ĐÚNG  Q32b-K2  bắt lỗi  chú thích chỉ hiện ở đầu shot (< 0,5 s) không tính "đổi" → ảnh tĩnh 10 s TRƯỢT
+ĐÚNG  Q32b-K2  bắt lỗi  footage chuyển động 9 s → TRƯỢT (giữ 8 s)
+ĐÚNG  Q32b-K2  sạch     document có máy push (cam push) 10 s → ĐẠT
+
+selftest 1.12.2: 37/37 ca đúng kỳ vọng · 4 biến thể, thiếu ca đạt hoặc trượt: không
