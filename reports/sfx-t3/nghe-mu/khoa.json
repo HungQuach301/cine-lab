@@ -1,0 +1,55 @@
+{
+ "ghi": "MỞ SAU KHI ĐÃ CHẤM. X/Y gán ngẫu nhiên bằng secrets.randbelow(2) cho từng cặp. \"khong-sfx\" = nhạc B + lời G1; \"co-sfx\" = cùng bản + SFX/âm nền đề xuất.",
+ "cap": {
+  "1-moc": {
+   "mo_ta": "móc mở đầu H1–H3 + đầu N1.1 (phim 0,0–45,0 s)",
+   "X": {
+    "ban": "khong-sfx",
+    "tep": "1-moc-X.mp3",
+    "I": -14.0,
+    "TP": -1.9,
+    "dich_LUFS": -14.0,
+    "bu_db": 0.4,
+    "tran_limiter": 0.84,
+    "sha256": "343518968d1810f2ada794c6789990195919fcf1c9049843140cf8676f2b8e09",
+    "mb": 0.901
+   },
+   "Y": {
+    "ban": "co-sfx",
+    "tep": "1-moc-Y.mp3",
+    "I": -14.0,
+    "TP": -1.8,
+    "dich_LUFS": -14.0,
+    "bu_db": 0.4,
+    "tran_limiter": 0.84,
+    "sha256": "d441a7298e9edc39906485da5e040bd58d93df5013e5d803d1fcbb33db692cfe",
+    "mb": 0.901
+   }
+  },
+  "2-pin-noi": {
+   "mo_ta": "pin nổi 13/9/1782: cuối N2.8 + N2.9 + đầu N2.11 (phim 321,0–358,0 s)",
+   "X": {
+    "ban": "khong-sfx",
+    "tep": "2-pin-noi-X.mp3",
+    "I": -14.0,
+    "TP": -1.9,
+    "dich_LUFS": -14.0,
+    "bu_db": 0.4,
+    "tran_limiter": 0.84,
+    "sha256": "fd6ddcac66c35bcec28deb374329fa2209026e67c5069cc825ecde24dc18424f",
+    "mb": 0.741
+   },
+   "Y": {
+    "ban": "co-sfx",
+    "tep": "2-pin-noi-Y.mp3",
+    "I": -14.0,
+    "TP": -1.8,
+    "dich_LUFS": -14.0,
+    "bu_db": 0.4,
+    "tran_limiter": 0.84,
+    "sha256": "fd3dc2463e1a263c93d83d014d110aa9d8cefff3fcd2c69cfa33dcffe250d5f1",
+    "mb": 0.741
+   }
+  }
+ }
+}
