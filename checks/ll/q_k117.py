@@ -1,22 +1,29 @@
 #!/opt/cine/bin/python
-"""Luật kênh 2 bản 1.17.0 (phiên K-1.17, 21/10/2026) + 1.17.1 (phiên K-1.17.1, 21/10/2026: ngưỡng EO-DAT theo Kinh thánh §14.7 nguyên văn, thêm R4) — CHỈ tập kênh 2 từ T3 (`khung_sach: true` | `kenh2_tu_t3: true`, như 1.16); tập cũ giữ
+"""Luật kênh 2 bản 1.17.0 (phiên K-1.17, 21/10/2026) + 1.17.1 (phiên K-1.17.1, 21/10/2026: ngưỡng EO-DAT theo Kinh thánh §14.7 nguyên văn, thêm R4) + 1.17.2
+(phiên K-1.17.2, 22/10/2026: MINH-HOA theo đoạn khai + bỏ nhãn bắt buộc, EO-DAT-R1 chỉ báo + vùng nở, CONG-BO-1) — CHỈ tập kênh 2 từ T3 (`khung_sach: true` | `kenh2_tu_t3: true`, như 1.16); tập cũ giữ
 đúng hành vi 1.16.1 (không thêm hàng). Luật N2+ (T4) ở q_n2p.py. Định nghĩa: checks/ll/RULES-LL.md mục "1.17".
 
-Căn cứ: Kinh thánh kênh 2 §14.1 (c) N2 minh hoạ ≤ 20 %, nhãn "Illustration" suốt đoạn (ngoại lệ §12.1); §15 (T4, M-d); §14.7 R1–R4 eo đất
+Căn cứ: Kinh thánh kênh 2 §14.1 (c) N2 minh hoạ ≤ 20 % (nhãn "Illustration" bỏ theo quyết định chủ dự án 22/10/2026 11:09); §14.1 (f) công bố; §15 (T4, M-d); §14.7 R1–R4 eo đất
 (1.17.0 viết khi §14.7 chưa có trên repo, ngưỡng R1/R2 K đề xuất tạm; 1.17.1 khớp §14.7 nguyên văn — docs/BIBLE-KENH2.md trên main @96b5017c,
 SHA tệp 14ca13aa…: "R1 … chiếm ≥ 15–20 % khung", "R2 Đồng cỏ/cát trống (> 50 % khung) ≤ 6 s liên tục và ≤ 10 % thời lượng mỗi chương",
 "R4 Câu lời không có vật trên eo đất → góc phố/lâu đài/cảng; bản đồ phủ ≤ 3 s (TL-4)").
 
 Hàng (cấp ở cap112.py: Chặn ở cổng G2 · Cảnh báo ở animatic (`animatic: true` trong đặc tả) — như K116-D5; không khai → G2):
-  MINH-HOA  shot log `minh_hoa: true` (T3 theo N2, T4 theo M-d): (a) tổng minh hoạ ≤ 20 % thời lượng; (b) nhãn "Illustration" hiện SUỐT đoạn —
-            log chữ (`log_chu`/--logs: mục có chữ "Illustration") phủ mọi khung mẫu của shot, hoặc trường log shot `nhan_minh_hoa` (chữ) +
-            `nhan_t` [t0, t1] (giây trong shot; không có = cả shot); không có cả hai → THIẾU (chưa có OCR — giới hạn đã biết); (c) đoạn KẸP giữa
-            hai shot 3D (shot liền trước và liền sau có goc cao/thap/neo, không phải minh hoạ/thẻ); (d) máy ≤ 40 m AGL khi log có `agl_m`;
-            (e) sổ AI có dòng cho mỗi đoạn: model + lệnh (lenh | prompt | lenh_sha | prompt_sha) + SHA đầu ra (sha_ra | sha_out | sha256) —
-            trường log shot `so_ai` (dict hoặc list) hoặc tệp `so_ai:` của episode.yaml (.jsonl/.json, mục có `shot` = id đoạn).
+  MINH-HOA  (1.17.2, quyết định chủ dự án 22/10/2026 11:09 — duyệt V2-D1…D8, không nhãn/câu AI trong phim) ĐOẠN minh hoạ khai trong log shot
+            (`doan_ai`): shot `minh_hoa: true` (cả shot) | danh sách `minh_hoa: [{t0, t1, ma?, so_ai?, luot?, kiem?, agl_m?}]` (giây trong
+            shot; mục `minh_hoa: false` / `ai_image: false` = không phải đoạn AI) — V2-D5. Đoạn khai mà shot ghi `ai_image: false` là MÂU THUẪN
+            KHAI: không đo ở đây, báo ở K-LAI-2 (b). T3 theo N2, T4 theo M-d: (a) tổng giây minh hoạ ≤ 20 % thời lượng; (b) BỎ (1.17.2: không nhãn
+            "Illustration" bắt buộc); (c) đoạn KẸP giữa hai khung 3D: khung ngay trước đầu đoạn và ngay sau cuối đoạn (kể cả trong cùng shot)
+            thuộc shot `goc` cao/thap/neo và không nằm trong đoạn minh hoạ khác; (d) máy ≤ 40 m AGL: `agl_m` của đoạn, hoặc `agl_m` của shot
+            ứng với khoá `cam[].t` trong đoạn (log V2: agl_m[i] ↔ cam[i]); (e) sổ AI có dòng cho mỗi đoạn: model (model | model_req |
+            model_resp) + lệnh (lenh | prompt | lenh_sha | prompt_sha) + SHA đầu ra (sha_ra | sha_out | sha256 | output.sha256) — `so_ai` của
+            đoạn/shot (dict hoặc list) hoặc tệp `so_ai:` của episode.yaml (.jsonl/.json; mục khớp khi `shot`/`doan`/`ma` = id đoạn, mã đoạn hoặc
+            id shot, hoặc `tag` = `luot` của đoạn, hoặc `tag` bắt đầu bằng "<mã đoạn>-").
   EO-DAT-R1 shot log `chu_the_eo_dat: true`: chủ thể chiếm khung (trường `chu_the_pct`: số TB shot hoặc [[t, %], …] từ mặt nạ ID; dùng
-            trung vị): (a) < R1_MIN (15 %) → lỗi (Chặn ở G2); (b) R1_MIN ≤ chủ thể < R1_TOT (15–20 %) → Cảnh báo (vùng "15–20 %" của §14.7).
-            Thiếu → THIẾU (tính như (a)).
+            trung vị): (a) < R1_MIN (15 %); (b) R1_MIN ≤ chủ thể < R1_TOT (15–20 %) (vùng "15–20 %" của §14.7). Thiếu → THIẾU.
+            1.17.2 (V2-D2): CHỈ BÁO ở mọi cổng (chủ dự án chấm bằng mắt); in thêm % VÙNG chủ thể theo mặt nạ NỞ ≈ R1_NO (1,5 %) bề ngang khung
+            cạnh % pixel thô — K tự đo khi log có `chu_the_mat_na` (PNG nhị phân, trắng = chủ thể; một tệp hoặc danh sách khung mẫu), không thì
+            đọc `chu_the_pct_no` (số hoặc [[t, %], …]); (a)/(b) vẫn xét trên pixel thô (định nghĩa chưa đổi — K1172-D3).
   EO-DAT-R2 shot eo đất (`noi: eo_dat`), trường `trong_pct` (% cỏ/cát không vật; số TB shot, hoặc [[t, %], …] theo khung mẫu — từ mặt nạ ID);
             "trống" = trong_pct > TRONG_PCT (50 %): (a) giây trống LIÊN TỤC ≤ R2_GIAY (6 s, nối qua ranh shot); (b) mỗi chương: tổng giây
             trống ≤ R2_CHUONG (10 %) × THỜI LƯỢNG CHƯƠNG (mọi shot log của chương, không chỉ shot eo đất). Thiếu trong_pct → THIẾU.
@@ -26,6 +33,14 @@ Hàng (cấp ở cap112.py: Chặn ở cổng G2 · Cảnh báo ở animatic (`a
             lau_dai | cang; `thanh_pho` coi là pho — tên log hiện dùng) HOẶC (b) bản đồ phủ `ban_do_phu` ≤ R4_BAN_DO (3 s, TL-4): số giây,
             [t0, t1], [[t0, t1], …] (xét lần phủ dài nhất) hoặc {dur}. Có `ban_do_phu` > 3 s → lỗi (b) dù noi hợp lệ (TL-4 là trần riêng).
             Không shot khai → KHÔNG ÁP.
+  CONG-BO-1 (1.17.2, mới) tập có khung AI (đoạn minh hoạ / `ai_image` ở log shot hoặc log khung `lai.log_khung`) HOẶC giọng tổng hợp
+            (episode.yaml `giong_tong_hop: true` | `vo.tong_hop` / `voice.synthetic` true | `vo.engine` / `voice.engine` / `vo.nguon` chứa
+            elevenlabs/tts/synthetic): (a) tệp mô tả YouTube của gói phát hành (`phat_hanh.mo_ta`) có câu công bố chứa "AI" hoặc "synthetic";
+            (b) đặc tả gói khai `phat_hanh.youtube_altered_content: true` (cài đặt "AI use" = Yes ở YouTube Studio). Căn cứ: Kinh thánh §14.1 (f)
+            ("bật khai báo nội dung AI trên YouTube"; sửa 22/10 theo quyết định chủ dự án 22/10 11:09) + YouTube Help "Disclosing use of GenAI
+            content" (support.google.com/youtube/answer/14328491, đọc 22/10/2026). Cấp: Chặn ở cổng GÓI PHÁT HÀNH (episode.yaml `cong:
+            phat_hanh` hoặc `phat_hanh.goi: true`); mọi cổng trước đó (animatic, G2) chỉ báo (Cảnh báo). Tập không AI, không giọng tổng hợp →
+            KHÔNG ÁP.
 Sửa luật cũ (khiếu nại 8 hàng Chặn animatic T3 chấp nhận — báo cáo §4), chỉ khi ap_117:
   Q33 / Q33-K2 / Q33 (1.13): lần xuất hiện cùng (cảnh, góc) — khai hay pHash — ở đoạn KHÁC và khoảng năm (log `nam` [y0, y1]) KHÔNG chồng mọi lần
             trước → miễn (Kinh thánh §13.6 TL-1 "mỗi phần phim quay lại cùng điểm máy ở năm khác").
@@ -33,6 +48,7 @@ Sửa luật cũ (khiếu nại 8 hàng Chặn animatic T3 chấp nhận — bá
   NC-H1     lớp nhà khai của cảnh tl/* (V7C-D5): `opt.bfile` (tệp nhà, page.js), `opt.cityOpt`, `opt.pre1704town`, `opt.pho2026`, hoặc trường chung
             `lop_nha: "<mô tả>"` (shot p hoặc heroes.<k>.opt).
   SACH-1    chữ "Illustration" (vai `minh_hoa` hoặc chữ đúng "Illustration") TRONG shot `minh_hoa` là hợp lệ (§14.1 (c)); ngoài shot minh hoạ vẫn là lỗi (e).
+            1.17.2: KHÔNG ĐỔI (lệnh K-1.17.2) — vẫn xét theo SHOT có `minh_hoa` (`_mh_spans`), không theo đoạn.
 """
 import json, os, statistics, sys
 
@@ -49,8 +65,11 @@ R2_CHUONG = 10.0       # §14.7 R2 "≤ 10 % thời lượng mỗi chương" —
 R4_NOI = {'pho', 'lau_dai', 'cang'}; R4_ALIAS = {'thanh_pho': 'pho'}   # §14.7 R4 "góc phố/lâu đài/cảng"
 R4_BAN_DO = 3.0        # §14.7 R4 "bản đồ phủ ≤ 3 s (TL-4)"
 R3_DAI, R3_GOC, R3_GAP = 15.0, 2, 6.0             # lệnh K-1.17: shot > 15 s → ≥ 2 góc, biến cố ≤ 6 s
+R1_NO = 1.5            # 1.17.2 (V2-D2): mặt nạ nở ≈ 1,5 % bề ngang khung (bán kính) cho "vùng chủ thể"
+CB_RE = r'\bAI\b|synthetic'                       # CONG-BO-1 (a): câu công bố có "AI" hoặc "synthetic" (lệnh K-1.17.2)
+GIONG_RE = r'elevenlabs|\btts\b|synthetic|tổng hợp'   # CONG-BO-1: nguồn giọng là giọng tổng hợp
 LOP_NHA_KEYS = ('bfile', 'cityOpt', 'pre1704town', 'pho2026', 'lop_nha')
-ROWS = ('MINH-HOA', 'EO-DAT-R1', 'EO-DAT-R2', 'EO-DAT-R3', 'EO-DAT-R4')
+ROWS = ('MINH-HOA', 'EO-DAT-R1', 'EO-DAT-R2', 'EO-DAT-R3', 'EO-DAT-R4', 'CONG-BO-1')
 LEN = 1e-6
 
 
@@ -94,60 +113,119 @@ def _so_ai(E, ep_dir):
     return J if isinstance(J, list) else (J.get('dong') or J.get('records') or [J]) if isinstance(J, dict) else []
 
 
+def _get(d, k):
+    for part in k.split('.'):
+        d = d.get(part) if isinstance(d, dict) else None
+    return d
+
+
 def _dong_ok(d):
+    """dòng sổ AI đủ model + lệnh + SHA đầu ra (1.17.2: nhận cả tên trường sổ thật V2 — model_req/model_resp, output.sha256)"""
     if not isinstance(d, dict): return False
-    return bool(d.get('model')) and any(d.get(k) for k in ('lenh', 'prompt', 'lenh_sha', 'prompt_sha')) and any(d.get(k) for k in ('sha_ra', 'sha_out', 'sha256'))
+    return (any(d.get(k) for k in ('model', 'model_req', 'model_resp')) and any(d.get(k) for k in ('lenh', 'prompt', 'lenh_sha', 'prompt_sha'))
+            and any(_get(d, k) for k in ('sha_ra', 'sha_out', 'sha256', 'output.sha256')))
 
 
 def _mh_spans(LS):
+    """SACH-1 (1.17; KHÔNG đổi ở 1.17.2): shot có `minh_hoa` truthy → [(id, t0, t1)] cả shot"""
     return [(str(s.get('shot')), a, b) for s, a, b in _abs_t(LS) if s.get('minh_hoa')]
 
 
+def _doan_list(s):
+    """mục khai đoạn minh hoạ của MỘT shot log → [(t0 trong shot, t1, mục)]; `minh_hoa: true` = cả shot (mục {})"""
+    v = s.get('minh_hoa'); d = _dur(s)
+    if v is True: return [(0.0, d, {})]
+    out = []
+    for x in v if isinstance(v, list) else []:
+        if not isinstance(x, dict) or x.get('minh_hoa') is False or x.get('ai_image') is False: continue
+        t0, t1 = _num(x.get('t0')), _num(x.get('t1'))
+        if t0 is None or t1 is None or t1 <= t0: continue
+        out.append((max(0.0, t0), min(d, t1) if d else t1, x))
+    return out
+
+
+def doan_ai(LS):
+    """1.17.2 (V2-D5): đoạn minh hoạ khai trong log shot → (đoạn hợp lệ, đoạn mâu thuẫn). Đoạn = dict(id, ma, shot, s (shot log), m (mục đoạn),
+    a, b (giây tuyệt đối)). Mâu thuẫn: shot ghi `ai_image: false` mà mục đoạn không ghi `ai_image: true` (log V2: C4/M1 trượt 3 lượt → giữ 3D)."""
+    ok, bad = [], []
+    for s, a0, _ in _abs_t(LS):
+        for t0, t1, x in _doan_list(s):
+            sid = str(s.get('shot')); ma = str(x.get('ma') or sid)
+            d = dict(id=f'{sid}/{ma}' if x else sid, ma=ma, shot=sid, s=s, m=x, a=a0 + t0, b=a0 + t1, t0=t0, t1=t1)
+            (bad if s.get('ai_image') is False and x.get('ai_image') is not True else ok).append(d)
+    return sorted(ok, key=lambda z: z['a']), bad
+
+
+def _goc_at(Z, DS, t):
+    """khung tại t (giây tuyệt đối) có phải khung 3D không → (bool, mô tả)"""
+    sh = next(((s, a, b) for s, a, b in Z if a - LEN <= t < b - LEN), None)
+    if sh is None: return False, 'đầu phim' if not Z or t < Z[0][1] + LEN else 'cuối phim'
+    s = sh[0]; g = str(s.get('goc') or '')
+    if any(d['a'] - LEN <= t < d['b'] - LEN for d in DS): return False, f"{s.get('shot')} @{t - sh[1]:.2f} s trong đoạn minh hoạ khác"
+    return g in GOC_3D, f"{s.get('shot')} @{t - sh[1]:.2f} s goc {g or '—'}"
+
+
+def _agl_doan(d):
+    """→ [AGL m] của đoạn: `agl_m` của mục đoạn; không có → agl_m[i] của shot ứng khoá cam[i].t trong đoạn (log V2: hai danh sách cùng độ dài); không khoá
+    nào trong đoạn → khoá gần nhất trước đầu đoạn; không có cam khớp → cả agl_m của shot khi đoạn = cả shot, không thì None (không xét)"""
+    m, s, t0, t1 = d['m'], d['s'], d['t0'], d['t1']
+    v = m.get('agl_m') if isinstance(m, dict) else None
+    if v is not None: return [float(x) for x in (v if isinstance(v, list) else [v]) if _num(x) is not None]
+    ag = s.get('agl_m'); ag = ag if isinstance(ag, list) else ([ag] if _num(ag) is not None else [])
+    if not ag: return None
+    cam = s.get('cam') if isinstance(s.get('cam'), list) else None
+    if cam and len(cam) == len(ag) and all(isinstance(c, dict) and _num(c.get('t')) is not None for c in cam):
+        vals = [float(ag[i]) for i, c in enumerate(cam) if t0 - LEN <= float(c['t']) < t1 - LEN and _num(ag[i]) is not None]
+        if not vals:
+            prev = [i for i, c in enumerate(cam) if float(c['t']) <= t0 + LEN]
+            vals = [float(ag[prev[-1]])] if prev and _num(ag[prev[-1]]) is not None else []
+        return vals
+    return [float(x) for x in ag if _num(x) is not None] if not m or (t0 <= LEN and abs(t1 - _dur(s)) <= LEN) else None
+
+
+def _so_ai_rows(d, SA):
+    m, s = d['m'], d['s']
+    v = (m.get('so_ai') if isinstance(m, dict) else None) or s.get('so_ai')
+    if v: return v if isinstance(v, list) else [v]
+    keys = {d['id'], d['ma'], d['shot']}; luot = str(m.get('luot') or '') if isinstance(m, dict) else ''
+    out = []
+    for x in SA or []:
+        if not isinstance(x, dict): continue
+        k = {str(x.get(f)) for f in ('shot', 'doan', 'ma') if x.get(f) is not None}; tag = str(x.get('tag') or '')
+        if k & keys or (luot and tag == luot) or (not luot and m and tag.startswith(d['ma'] + '-')): out.append(x)
+    return out
+
+
 def minh_hoa(E, TL, LS, ep_dir='.', TX=None, step=12, why=None):
+    """1.17.2: đo theo ĐOẠN khai (doan_ai). (b) nhãn đã bỏ — TX/step giữ trong chữ ký cho tương thích, không dùng."""
     if LS is None: return K6.r(thieu=[why or 'không có log shot'], val='—')
-    Z = _abs_t(LS); mh = [(s, a, b) for s, a, b in Z if s.get('minh_hoa')]
-    if not mh: return K6.na('không shot minh_hoa trong log shot')
+    Z = _abs_t(LS); DS, MT = doan_ai(LS)
+    mt = f" (đoạn khai mâu thuẫn ai_image: false: {', '.join(d['id'] for d in MT)} — K-LAI-2 (b))" if MT else ''
+    if not DS: return K6.na('không đoạn minh hoạ khai trong log shot' + mt)
     T = K6.tong(E, TL) if (TL or E.get('segments')) else sum(_dur(s) for s in LS)
-    M = {k: [] for k in 'abcde'}; th, near = [], []
-    tot = sum(b - a for _, a, b in mh); pct = 100 * tot / T if T else 0.0
-    if pct > MH_MAX + LEN: M['a'].append(f'(a) minh hoạ {tot:.1f} s = {pct:.1f} % > {MH_MAX:g} % thời lượng ({len(mh)} đoạn)')
+    M = {k: [] for k in 'acde'}; th, near = [], []
+    tot = sum(d['b'] - d['a'] for d in DS); pct = 100 * tot / T if T else 0.0
+    if pct > MH_MAX + LEN: M['a'].append(f'(a) minh hoạ {tot:.1f} s = {pct:.1f} % > {MH_MAX:g} % thời lượng ({len(DS)} đoạn)')
     near += K6.sat('minh hoạ %', round(pct, 2), MH_MAX)
     SA = _so_ai(E, ep_dir)
     if isinstance(SA, str): th.append(SA); SA = None
-    for k, (s, a, b) in enumerate(Z):
-        if not s.get('minh_hoa'): continue
-        sid = str(s.get('shot')); w = f'{sid} @{K6.mmss(a)}'
-        # (b) nhãn suốt đoạn
-        if TX is not None:
-            f0, f1 = int(round(a * K6.FPS)), int(round(b * K6.FPS)); fs = [f for f in TX if f0 <= f < f1]
-            co = [f for f in fs if any(K6._vis(x) and NHAN.lower() in str(x.get('s') or '').lower() for x in TX[f])]
-            if not fs: th.append(f'(b) {w}: log chữ không có khung mẫu trong đoạn')
-            elif len(co) < len(fs): M['b'].append(f'(b) {w}: nhãn "{NHAN}" hiện {len(co)}/{len(fs)} khung mẫu (cần suốt đoạn)')
-        elif s.get('nhan_minh_hoa') is not None or s.get('nhan') is not None:
-            nh = str(s.get('nhan_minh_hoa') if s.get('nhan_minh_hoa') is not None else s.get('nhan'))
-            nt = s.get('nhan_t') or [0.0, b - a]
-            if nh.strip() != NHAN: M['b'].append(f'(b) {w}: nhãn {nh!r} ≠ "{NHAN}"')
-            elif _num(nt[0]) is None or _num(nt[1]) is None or nt[0] > 1 / K6.FPS + LEN or nt[1] < (b - a) - 1 / K6.FPS - LEN:
-                M['b'].append(f'(b) {w}: nhãn hiện {nt} không phủ cả đoạn 0–{b - a:.2f} s')
-        else: th.append(f'(b) {w}: không đo được nhãn "{NHAN}" — cần log chữ (`log_chu`) hoặc trường `nhan_minh_hoa` (+ `nhan_t`); chưa có OCR')
-        # (c) kẹp giữa hai shot 3D
-        tr = Z[k - 1][0] if k > 0 else None; sa = Z[k + 1][0] if k + 1 < len(Z) else None
-        is3d = lambda x: x is not None and not x.get('minh_hoa') and str(x.get('goc') or '') in GOC_3D
-        if not (is3d(tr) and is3d(sa)):
-            M['c'].append(f"(c) {w}: không kẹp giữa hai shot 3D (trước: {tr.get('shot') if tr else 'đầu phim'} goc {tr.get('goc') if tr else '—'}; "
-                          f"sau: {sa.get('shot') if sa else 'cuối phim'} goc {sa.get('goc') if sa else '—'})")
+    for d in DS:
+        w = f"{d['id']} @{K6.mmss(d['a'])}–{K6.mmss(d['b'])}"
+        # (c) kẹp giữa hai khung 3D: khung ngay trước đầu đoạn và ngay sau cuối đoạn (kể cả trong cùng shot)
+        ok0, w0 = _goc_at(Z, DS, d['a'] - 0.5 / K6.FPS); ok1, w1 = _goc_at(Z, DS, d['b'] + 0.5 / K6.FPS)
+        if not (ok0 and ok1): M['c'].append(f'(c) {w}: không kẹp giữa hai khung 3D (trước: {w0}; sau: {w1})')
         # (d) máy ≤ 40 m AGL
-        ag = [v for v in (s.get('agl_m') if isinstance(s.get('agl_m'), list) else [s.get('agl_m')]) if _num(v) is not None]
+        ag = _agl_doan(d)
         if ag:
             if max(ag) > MH_AGL + LEN: M['d'].append(f'(d) {w}: máy cao {max(ag):.0f} m AGL > {MH_AGL:g} m')
-            near += K6.sat(f'{sid} AGL m', round(max(ag), 1), MH_AGL)
+            near += K6.sat(f"{d['id']} AGL m", round(max(ag), 1), MH_AGL)
         # (e) sổ AI
-        d = s.get('so_ai'); dl = (d if isinstance(d, list) else [d]) if d else [x for x in SA or [] if isinstance(x, dict) and str(x.get('shot') or x.get('doan')) == sid]
-        if not dl: M['e'].append(f'(e) {w}: sổ AI không có dòng cho đoạn (log shot `so_ai` hoặc tệp so_ai: mục shot = {sid})')
+        dl = _so_ai_rows(d, SA)
+        if not dl: M['e'].append(f"(e) {w}: sổ AI không có dòng cho đoạn (so_ai của đoạn/shot, hoặc tệp so_ai: có shot/doan/ma = {d['ma']} hoặc tag = luot)")
         elif not any(_dong_ok(x) for x in dl): M['e'].append(f'(e) {w}: dòng sổ AI thiếu model / lệnh / SHA đầu ra')
-    loi = sum(M.values(), [])
-    return K6.r(loi=loi, thieu=th, muc=M, sat_nguong=near, val=f'{len(mh)} đoạn minh hoạ · {tot:.1f} s = {pct:.1f} % · nhãn: {"log chữ" if TX is not None else "trường log shot"} · '
-                                                              f'lỗi kẹp {len(M["c"])} · AGL {len(M["d"])} · sổ AI {len(M["e"])}')
+    return K6.r(loi=sum(M.values(), []), thieu=th, muc=M, sat_nguong=near,
+                val=f"{len(DS)} đoạn minh hoạ ({', '.join(d['id'] for d in DS[:6])}) · {tot:.1f} s = {pct:.1f} % · lỗi kẹp {len(M['c'])} · AGL {len(M['d'])} · sổ AI {len(M['e'])}"
+                    + ' · nhãn: không bắt buộc (1.17.2)' + mt)
 
 
 # ================================================================ EO-DAT R1–R4
@@ -155,22 +233,30 @@ def _chuong(s, Z_seg):
     return str(s.get('chuong') if s.get('chuong') is not None else Z_seg.get(str(s.get('shot')), '?'))
 
 
-def eo_dat(E, TL, LS, why=None):
-    if LS is None: return {k: K6.r(thieu=[why or 'không có log shot'], val='—') for k in ROWS[1:]}
+def eo_dat(E, TL, LS, why=None, ep_dir='.'):
+    if LS is None: return {k: K6.r(thieu=[why or 'không có log shot'], val='—') for k in ROWS[1:5]}
     Z = _abs_t(LS); SEG = {str(s['id']): str(s.get('chuong', s.get('part', '?'))) for s in E.get('segments') or []}
     out = {}
     # ---- R1
     L1, th1, rows1, near1 = [], [], [], []
     for s, a, b in Z:
         if not s.get('chu_the_eo_dat'): continue
-        sid = str(s.get('shot')); v = [x for _, x in _series(s.get('chu_the_pct'))]
+        sid = str(s.get('shot')); v = [x for _, x in _series(s.get('chu_the_pct'))]; vn = [x for _, x in _series(s.get('chu_the_pct_no'))]; nguon = 'khai'
+        if s.get('chu_the_mat_na'):   # 1.17.2 (V2-D2): K tự đo pixel thô + vùng nở từ mặt nạ (số đo thật thắng số khai)
+            try:
+                q = [vung_no(K6._p(ep_dir, f)) for f in (s['chu_the_mat_na'] if isinstance(s['chu_the_mat_na'], list) else [s['chu_the_mat_na']])]
+                v, vn, nguon = [x[0] for x in q], [x[1] for x in q], f'đo {len(q)} mặt nạ'
+            except Exception as e: th1.append(f'(a) {sid}: không đọc được chu_the_mat_na ({type(e).__name__}: {e})'); continue   # noqa: BLE001
         if not v: th1.append(f'(a) {sid}: chu_the_eo_dat nhưng không có `chu_the_pct` (đo từ mặt nạ ID)'); continue
-        med = statistics.median(v); rows1.append(f'{sid}: chủ thể trung vị {med:.1f} %')
+        med = statistics.median(v); mn = statistics.median(vn) if vn else None
+        no = f' · vùng nở {R1_NO:g} % bề ngang {mn:.1f} %' if mn is not None else ' · vùng nở: chưa đo (`chu_the_mat_na` | `chu_the_pct_no`)'
+        rows1.append(f'{sid}: pixel thô trung vị {med:.1f} %{no} ({nguon})')
         near1 += K6.sat(f'{sid} chủ thể %', round(med, 1), R1_MIN) + K6.sat(f'{sid} chủ thể %', round(med, 1), R1_TOT)
-        if med < R1_MIN - LEN: L1.append(f'(a) {sid} @{K6.mmss(a)}: chủ thể {med:.1f} % khung < {R1_MIN:g} %')
-        elif med < R1_TOT - LEN: L1.append(f'(b) {sid} @{K6.mmss(a)}: chủ thể {med:.1f} % khung trong vùng {R1_MIN:g}–{R1_TOT:g} % (Cảnh báo)')
+        if med < R1_MIN - LEN: L1.append(f'(a) {sid} @{K6.mmss(a)}: chủ thể {med:.1f} % khung (pixel thô) < {R1_MIN:g} %{no}')
+        elif med < R1_TOT - LEN: L1.append(f'(b) {sid} @{K6.mmss(a)}: chủ thể {med:.1f} % khung (pixel thô) trong vùng {R1_MIN:g}–{R1_TOT:g} %{no}')
     n1 = sum(1 for s in LS if s.get('chu_the_eo_dat'))
-    out['EO-DAT-R1'] = (K6.r(loi=L1, thieu=th1, sat_nguong=near1, muc={c_: [x for x in L1 + th1 if x.startswith(f'({c_})')] for c_ in 'ab'}, val=f'{n1} shot chu_the_eo_dat · ' + ('; '.join(rows1[:6]) or 'chưa đo')) if n1
+    out['EO-DAT-R1'] = (K6.r(loi=L1, thieu=th1, sat_nguong=near1, muc={c_: [x for x in L1 + th1 if x.startswith(f'({c_})')] for c_ in 'ab'},
+                             val=f'{n1} shot chu_the_eo_dat · ' + ('; '.join(rows1[:6]) or 'chưa đo') + ' · CHỈ BÁO mọi cổng (V2-D2, chủ dự án chấm bằng mắt)') if n1
                         else K6.na('không shot khai chu_the_eo_dat'))
     # ---- R2
     eo = [(s, a, b) for s, a, b in Z if str(s.get('noi') or '') == 'eo_dat']
@@ -256,6 +342,75 @@ def _ban_do(v):
     return None, f'kiểu {type(v).__name__}'
 
 
+def vung_no(path, no=R1_NO):
+    """1.17.2 (V2-D2): mặt nạ chủ thể (PNG, trắng = chủ thể) → (% pixel thô, % vùng sau khi nở đĩa bán kính no % bề ngang khung)"""
+    import cv2, numpy as np
+    m = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    if m is None: raise FileNotFoundError(path)
+    b = (m > 127).astype(np.uint8); r = max(1, int(round(no / 100.0 * m.shape[1])))
+    d = cv2.dilate(b, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * r + 1, 2 * r + 1)))
+    return round(float(100 * b.mean()), 2), round(float(100 * d.mean()), 2)
+
+
+# ================================================================ CONG-BO-1 (1.17.2)
+def co_ai(E, LS, ep_dir='.'):
+    """→ [mô tả nguồn khung AI]: đoạn minh hoạ khai, shot log ai_image, log khung lai.log_khung ai_image, shot đặc tả ai_image"""
+    out = []
+    if LS:
+        DS, _ = doan_ai(LS)
+        if DS: out.append(f"{len(DS)} đoạn minh hoạ ({', '.join(d['id'] for d in DS[:4])})")
+        ai = [str(s.get('shot')) for s in LS if s.get('ai_image') is True]
+        if ai: out.append(f"{len(ai)} shot log ai_image ({', '.join(ai[:4])})")
+    lk = (E.get('lai') or {}).get('log_khung')
+    if lk:
+        n = 0
+        for p in ([lk] if isinstance(lk, str) else lk):
+            try: n += sum(1 for x in K6._load(K6._p(ep_dir, p)) or [] if isinstance(x, dict) and x.get('ai_image'))
+            except Exception: pass   # noqa: BLE001 — log hỏng: K-LAI-1/2 báo
+        if n: out.append(f'{n} khung log ai_image')
+    sp = [f"{s['id']}/{i}" for s in E.get('segments') or [] for i, sh in enumerate(s.get('shots') or []) if sh.get('ai_image') or (sh.get('p') or {}).get('ai_image')]
+    if sp: out.append(f"{len(sp)} shot đặc tả ai_image ({', '.join(sp[:4])})")
+    return out
+
+
+def giong_tong_hop(E):
+    """→ mô tả nếu tập khai giọng tổng hợp: giong_tong_hop: true | vo/voice {tong_hop | synthetic: true | engine/nguon/model ~ elevenlabs/tts/synthetic}"""
+    import re
+    if E.get('giong_tong_hop') is True: return 'giong_tong_hop: true'
+    for k in ('vo', 'voice', 'giong'):
+        v = E.get(k)
+        if not isinstance(v, dict): continue
+        if v.get('tong_hop') is True or v.get('synthetic') is True: return f'{k}.tong_hop/synthetic: true'
+        for f in ('engine', 'nguon', 'model', 'nha'):
+            if v.get(f) and re.search(GIONG_RE, str(v[f]), re.I): return f'{k}.{f}: {v[f]}'
+    return None
+
+
+def cong_bo1(E, LS, ep_dir='.'):
+    import re
+    AI, GI = co_ai(E, LS, ep_dir), giong_tong_hop(E)
+    if not AI and not GI: return K6.na('tập không có khung AI (đoạn minh hoạ / ai_image) và không khai giọng tổng hợp')
+    M = {'a': [], 'b': []}; th = []; why = ' · '.join(AI + ([f'giọng tổng hợp ({GI})'] if GI else []))
+    mt, w = K6.mo_ta(E, ep_dir)
+    if mt is None: th.append(f'(a) {w} — cần câu công bố có "AI" hoặc "synthetic" trong mô tả YouTube của gói phát hành')
+    else:
+        cau = [c.strip() for c in re.split(r'(?<=[.!?])\s+|\n+', mt) if re.search(CB_RE, c, re.I)]
+        if not cau: M['a'].append('(a) mô tả YouTube không có câu công bố chứa "AI" hoặc "synthetic"')
+    ph = E.get('phat_hanh') if isinstance(E.get('phat_hanh'), dict) else {}
+    ya = ph.get('youtube_altered_content')
+    if ya is None: th.append('(b) đặc tả gói không khai phat_hanh.youtube_altered_content (cần true — "AI use" = Yes ở YouTube Studio)')
+    elif ya is not True: M['b'].append(f'(b) phat_hanh.youtube_altered_content = {ya!r} (cần true)')
+    return K6.r(loi=sum(M.values(), []), thieu=th, muc=M,
+                val=f"áp vì: {why} · mô tả {'có câu công bố' if mt is not None and not M['a'] else 'thiếu/không câu' if mt is not None else 'không khai'} · youtube_altered_content {ya!r}")
+
+
+def cong_cb(E):
+    """cổng của CONG-BO-1: gói phát hành (`cong: phat_hanh` | `phat_hanh.goi: true`) → Chặn; trước đó chỉ báo"""
+    ph = E.get('phat_hanh') if isinstance(E.get('phat_hanh'), dict) else {}
+    if str(E.get('cong') or '') == 'phat_hanh' or ph.get('goi') is True: return 'phat_hanh'
+    return 'animatic' if E.get('animatic') else 'G2'
+
+
 # ================================================================ sửa luật cũ (chỉ ap_117)
 def nam_log(LS):
     """{id đoạn: (năm đầu, năm cuối)} từ log shot `nam` [y0, y1] | số | `moc`"""
@@ -295,7 +450,11 @@ def check(E, TL=None, ep_dir='.', logs=None, log_shot_path=None):
     out = {}
     try: out['MINH-HOA'] = minh_hoa(E, TL, LS, ep_dir, TX, step, why)
     except Exception as e: out['MINH-HOA'] = K6.r(thieu=[f'không chạy được: {type(e).__name__}: {e}'], val='—')   # noqa: BLE001
-    try: out.update(eo_dat(E, TL, LS, why))
-    except Exception as e: out.update({k: K6.r(thieu=[f'không chạy được: {type(e).__name__}: {e}'], val='—') for k in ROWS[1:]})   # noqa: BLE001
+    try: out.update(eo_dat(E, TL, LS, why, ep_dir))
+    except Exception as e: out.update({k: K6.r(thieu=[f'không chạy được: {type(e).__name__}: {e}'], val='—') for k in ROWS[1:5]})   # noqa: BLE001
     cong = 'animatic' if E.get('animatic') else 'G2'
-    return {k: dict(v, cong=cong) for k, v in out.items()}
+    out = {k: dict(v, cong=cong) for k, v in out.items()}
+    try: out['CONG-BO-1'] = cong_bo1(E, LS, ep_dir)
+    except Exception as e: out['CONG-BO-1'] = K6.r(thieu=[f'không chạy được: {type(e).__name__}: {e}'], val='—')   # noqa: BLE001
+    out['CONG-BO-1'] = dict(out['CONG-BO-1'], cong=cong_cb(E))
+    return out

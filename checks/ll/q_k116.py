@@ -337,8 +337,9 @@ def pp1(E, TL):
     for x, y in zip(P2, P2[1:]):
         if y[1] - x[2] > 0.05: M['c'].append(f'(c) thẻ {x[0]} và {y[0]} không liền nhau ({x[2]:.2f} → {y[1]:.2f} s)')
     txt = ' '.join(_pp_text(s) for _, _, _, s in P)
-    for k, rg in (('nguồn/bản đồ', r'\b(source|sources|map|maps|record|records|archive|registers?|built from)\b'), ('chỗ ước tính', r'\b(estimat\w*|approximat\w*|reconstruct\w*|illustrative)\b'),
-                  ('AI dùng vào việc gì', r'\bAI\b')):
+    # 1.17.2 (quyết định chủ dự án 22/10/2026 11:09 — không câu AI trong phim): (d) = nói nguồn/bản đồ + chỗ ước tính; bỏ "AI dùng vào việc gì"
+    # (công bố AI chuyển sang mô tả + cài đặt YouTube: CONG-BO-1). Không thêm luật cấm chữ.
+    for k, rg in (('nguồn/bản đồ', r'\b(source|sources|map|maps|record|records|archive|registers?|built from)\b'), ('chỗ ước tính', r'\b(estimat\w*|approximat\w*|reconstruct\w*|illustrative)\b')):
         if not re.search(rg, txt, re.I): M['d'].append(f'(d) thẻ phương pháp không nói {k}')
     return r(loi=sum(M.values(), []), muc=M, sat_nguong=near, val=f"{len(P)} thẻ · " + ', '.join(f'{sid} {b - a:.1f} s' for sid, a, b, _ in P) + f' · {len(re.findall(r"[A-Za-z0-9]+", txt))} từ')
 
@@ -496,8 +497,33 @@ def drift_video(F, fps, a, b, cuts=(), step_s=0.25):
     return (round(float(np.median(v)), 2), len(v)) if v else (None, 0)
 
 
+def _n_goc(x):
+    """shot log khai R3: `so_goc` (số nguyên) hoặc `goc_may` (danh sách) → (số góc, [giây trong shot của các lần cắt góc] | None)"""
+    g = x.get('goc_may')
+    if isinstance(g, list) and g:
+        ts = [float(y['t']) for y in g if isinstance(y, dict) and isinstance(y.get('t'), (int, float)) and y['t'] > 0]
+        return len(g), (sorted(ts) if len(ts) == len(g) - 1 else None)
+    n = x.get('so_goc')
+    return (int(n), None) if isinstance(n, (int, float)) and not isinstance(n, bool) else (None, None)
+
+
+def cat_r3(D, cv):
+    """1.17.2 (V2-D7, duyệt 22/10 11:09): cắt video trong shot khai R3 (`so_goc`/`goc_may` ≥ 2) được miễn trần cắt/phút — mỗi shot tối đa
+    (số góc − 1) cắt nằm TRONG shot (cách hai ranh shot > CUT_TOL); `goc_may` có `t` (giây trong shot) → chỉ miễn cắt khớp ±CUT_TOL. → [giây cắt miễn]"""
+    out = []
+    for x, a, b in D:
+        n, ts = _n_goc(x)
+        if not n or n < 2: continue
+        inner = [c for c in cv if a + CUT_TOL < c < b - CUT_TOL and c not in out]
+        if ts is not None: inner = [c for c in inner if any(abs(c - (a + t)) <= CUT_TOL for t in ts)]
+        out += inner[:n - 1]
+    return sorted(out)
+
+
 def tl1(E, TL, LS=None, why=None, video=None, VF=None):
     T = tong(E, TL); PPd = sum(b - a for _, a, b, _ in pp_spans(E, TL)); Tb = T - PPd; M = {k: [] for k in 'abcdef'}; th = []; near = []
+    from checks.ll import q_k117
+    ap_r3 = q_k117.ap_117(E)   # 1.17.2: miễn cắt góc R3 chỉ tập từ T3 (như mọi luật 1.17)
     cuts_s = cut_times_spec(E, TL); cpm_s = len(cuts_s) / (Tb / 60) if Tb else 0.0
     # (b) số shot của đặc tả = CẬN TRÊN số cắt (đổi năm cùng góc máy được khai là shot mới nhưng không phải cắt) → chỉ báo; (c) video quyết
     D = shot_durs(E, TL, LS) if LS is not None else []
@@ -527,8 +553,11 @@ def tl1(E, TL, LS=None, why=None, video=None, VF=None):
             F, fps = VF if VF is not None else video_gray(video)
             cv = cuts_video(F, fps); Tv = len(F) / fps; Tvb = max(1e-6, Tv - PPd); cpm_v = len([c for c in cv if c < Tv - PPd]) / (Tvb / 60)
             nk, chi_v, chi_s = doi_chieu_cat(cv, cuts_s); cvn = dict(n=len(cv), khop=nk, chi_video=len(chi_v), chi_dac_ta=len(chi_s))   # 1.16.1: đối chiếu ranh shot đặc tả (±CUT_TOL s), báo cả hai số
-            if cpm_v > TL_CUT_MIN: M['c'].append(f'(c) video: {len(cv)} cắt đo / {Tvb / 60:.2f} phút = {cpm_v:.2f} cắt/phút > {TL_CUT_MIN:g} (đặc tả {len(cuts_s)} ranh = {cpm_s:.2f}/phút; khớp ±{CUT_TOL:g} s {nk})')
-            near += sat('cắt/phút (video)', round(cpm_v, 2), TL_CUT_MIN); dr = []
+            cr3 = cat_r3(D, [c for c in cv if c < Tv - PPd]) if ap_r3 else []   # 1.17.2 (V2-D7): cắt góc trong shot khai R3 không tính vào trần
+            cpm_t = (len([c for c in cv if c < Tv - PPd]) - len(cr3)) / (Tvb / 60); cvn.update(r3=len(cr3), cpm_tho=round(cpm_v, 2), cpm_tran=round(cpm_t, 2))
+            r3t = f' − {len(cr3)} cắt góc R3 (so_goc/goc_may) = {cpm_t:.2f}/phút tính trần' if ap_r3 else ''
+            if cpm_t > TL_CUT_MIN: M['c'].append(f'(c) video: {len(cv)} cắt đo / {Tvb / 60:.2f} phút = {cpm_v:.2f} cắt/phút{r3t} > {TL_CUT_MIN:g} (đặc tả {len(cuts_s)} ranh = {cpm_s:.2f}/phút; khớp ±{CUT_TOL:g} s {nk})')
+            near += sat('cắt/phút (video, tính trần)', round(cpm_t, 2), TL_CUT_MIN); dr = []
             for x, a, b in D:
                 if goc_of(x, E) == 'cao':
                     v, n = drift_video(F, fps, a, b, cv)
@@ -542,7 +571,7 @@ def tl1(E, TL, LS=None, why=None, video=None, VF=None):
                     if z['ty'] in ('scene3d', 'timelapse'):
                         v, n = drift_video(F, fps, z['t0'], z['t1'], cv)
                         if v is not None: d3.append(v)
-            vt = (f' · video {len(cv)} cắt = {cpm_v:.2f}/phút · đặc tả {len(cuts_s)} ranh = {cpm_s:.2f}/phút · khớp ±{CUT_TOL:g} s {nk}'
+            vt = (f' · video {len(cv)} cắt = {cpm_v:.2f}/phút (thô){r3t} · đặc tả {len(cuts_s)} ranh = {cpm_s:.2f}/phút · khớp ±{CUT_TOL:g} s {nk}'
                   + f' (chỉ video {len(chi_v)}' + (f': {", ".join(mmss(x) for x in chi_v[:6])}{"…" if len(chi_v) > 6 else ""}' if chi_v else '')
                   + f'; chỉ đặc tả {len(chi_s)} — cùng góc máy đổi năm/giờ hoặc chưa cắt)' + (f' · trôi góc cao trung vị {statistics.median(dr):.2f} %/s ({len(dr)} shot)' if dr else '')
                   + (f' · (tham khảo, chưa có goc) trôi máy shot 3D: trung vị {statistics.median(d3):.2f} %/s, ≤ {TL_DRIFT:g} %/s ở {sum(v <= TL_DRIFT for v in d3)}/{len(d3)} shot' if d3 else ''))
@@ -667,11 +696,22 @@ def mo_ta(E, base):
     except OSError as e: return None, f'không đọc được mô tả: {e}'
 
 
-def k_lai2(E, TL, F, TX, base):
-    """(a) log khung có cờ ai_image/ai_texture ở MỌI khung; (b) shot có khung AI ⇔ shot khai AI (đặc tả/log shot); (c) thẻ phương pháp nói AI;
-    (d) mô tả có "AI use = Yes"; (e) nhãn "Surface detail AI-assisted" KHÔNG hiện trên hình (§12.1)."""
+def k_lai2(E, TL, F, TX, base, LS=None):
+    """(a) log khung có cờ ai_image/ai_texture ở MỌI khung; (b) shot có khung AI ⇔ shot khai AI (đặc tả/log shot); (c) BỎ ở 1.17.2 (thẻ phương pháp
+    nói AI — quyết định chủ dự án 22/10/2026 11:09: không câu AI trong phim); (d) mô tả có "AI use = Yes"; (e) nhãn "Surface detail AI-assisted"
+    KHÔNG hiện trên hình (§12.1).
+    1.17.2 (V2-D5): không có lai.log_khung mà log shot khai AI (đoạn `minh_hoa`, `ai_image`) → (a) đọc cờ `ai_image` ở MỌI shot log; (b) thêm chiều
+    ngược: đoạn minh hoạ khai ở shot ghi `ai_image: false` là mâu thuẫn khai."""
+    from checks.ll import q_k117
     loi, th = [], []
-    if F is None: th.append('(a) không có lai.log_khung')
+    if LS is None: LS, _ = log_shot(E, base)
+    if LS:
+        _, MT = q_k117.doan_ai(LS)
+        if MT: loi.append(f"(b) đoạn minh hoạ khai trong log shot nhưng shot ghi ai_image: false: {', '.join(d['id'] for d in MT[:6])} — sửa log (bỏ mục đoạn, hoặc ai_image: true)")
+    if F is None and LS and (q_k117.doan_ai(LS)[0] or any(x.get('ai_image') is True for x in LS)):
+        miss = [str(x.get('shot')) for x in LS if not isinstance(x.get('ai_image'), bool)]
+        if miss: th.append(f"(a) không có lai.log_khung; log shot thiếu cờ ai_image true/false ở {len(miss)} shot ({', '.join(miss[:6])})")
+    elif F is None: th.append('(a) không có lai.log_khung')
     else:
         miss = [x['f'] for x in F if not isinstance(x.get('ai_image'), bool) or not isinstance(x.get('ai_texture', False), bool)]
         if miss: loi.append(f'(a) {len(miss)} khung log không có cờ ai_image/ai_texture dạng true/false (đầu {miss[0]})')
@@ -683,14 +723,14 @@ def k_lai2(E, TL, F, TX, base):
             khac = seg_ai - spec_ai
             if khac: loi.append(f"(b) đoạn có khung AI trong log nhưng đặc tả/log shot không khai: {', '.join(sorted(khac)[:6])}")
     txt = ' '.join(_pp_text(s) for _, _, _, s in pp_spans(E, TL))
-    if not re.search(r'\bAI\b', txt): loi.append('(c) thẻ phương pháp không nói AI dùng vào việc gì')
     mt, why = mo_ta(E, base)
     if mt is None: th.append(f'(d) {why}')
     elif not re.search(r'AI use[^\n]{0,12}?(=|:)\s*\**\s*Yes', mt, re.I): loi.append('(d) mô tả không có "AI use = Yes"')
     if TX is not None:
         hit = sorted(f for f, it in TX.items() for x in it if _vis(x) and (x.get('role') == 'ai_label' or re.search(r'AI-assisted', str(x.get('s') or ''))))
         if hit: loi.append(f'(e) nhãn AI hiện trên hình ở {len(hit)} mẫu (đầu {mmss(hit[0] / FPS)}) — §12.1 bỏ nhãn khỏi hình')
-    return r(loi=loi, thieu=th, val=f"thẻ phương pháp {'có' if re.search(r'[A-Za-z]', txt) else 'không'} · mô tả {'có' if mt else 'không'} · log chữ {'có' if TX is not None else 'không'}")
+    return r(loi=loi, thieu=th, val=f"thẻ phương pháp {'có' if re.search(r'[A-Za-z]', txt) else 'không'} (1.17.2: không đòi câu AI) · mô tả {'có' if mt else 'không'} · log chữ {'có' if TX is not None else 'không'}"
+             + (' · cờ AI: log shot' if F is None and LS else ''))
 
 
 # ------------------------------------------------------------------ NC-H5 (1.16; khiếu nại A-G1B-2)
