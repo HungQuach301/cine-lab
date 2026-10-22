@@ -3,7 +3,7 @@
 Gốc: `origin/k2c-t3-anim-v2` @72e3f0fe ("cứu 4 video gốc Omni") + merge --no-ff `origin/checks-1-17-1` @39d01859 (→ 622a1c27) + `origin/claude/laughing-ptolemy-u7xlwe` @0a10d1fc (→ 170e55ce). 0 xung đột.
 
 <!-- TRANG-THAI -->
-## Trạng thái (22/10/2026 21:39 UTC) — tự động `scripts/k2tl/cuoi_ckpt.py`
+## Trạng thái (22/10/2026 21:42 UTC) — tự động `scripts/k2tl/cuoi_ckpt.py`
 
 - **Khung cảnh đinh 1080p đã dựng:** 18288 / 18288 (100 %) — cảnh xong 44/44; đang dựng: —
 - **Đoạn đã render (sec/*.mkv, quy về khung phim):** 45/45 đoạn = 18288 / 18288 khung phim (100 %). Còn: 
@@ -18,6 +18,9 @@ Gốc: `origin/k2c-t3-anim-v2` @72e3f0fe ("cứu 4 video gốc Omni") + merge --
 
 ## LUT kênh — đo thử (19:58, 147 khung mẫu 1/4 s từ 33/45 đoạn, 640×360)
 Bão hoà trung vị: v 0 → 0,369 · 0,15 → 0,392 · 0,20 → 0,400 · 0,25 → 0,408 · **0,30 → 0,416** · 0,35 → 0,424; màu cờ/đồng phục đổi ≤ 1/255, mái ngói ≤ 5/255. Tờ so `mau/so-lut-v0-v025-v035.jpg`, số `mau/do-lut-mau147.jsonl`. Tạm chọn v = 0,30 (nằm trong ±5 % ngưỡng 0,40 → nêu tên trong báo cáo); chốt khi đủ 45 đoạn.
+
+## LUT kênh — CHỐT (21:38): v = 0,30
+Đo toàn phim (190 khung, 1/4 s, đủ 45 đoạn): bão hoà trung vị v 0 → 0,3725 · 0,20 → 0,400 · 0,25 → 0,408 · **0,30 → 0,416** · 0,35 → 0,424. Tệp `channel-k2/k2c-t3-01/mau/k2c-t3-kenh-v030.cube` SHA-256 `1fc6aa38…b38ba6` (+ `.sha256`, `do-lut-toan-phim-190.jsonl`). 0,416 nằm trong ±5 % ngưỡng 0,40 → nêu tên trong báo cáo. Ghép master + 3 phần + 8 tệp xem đang chạy (`log/xuat.sh`); đo mặt nạ ID 43 shot (trong_pct, chủ thể) đang chạy (`log/do_r2.sh`).
 
 ## Tệp ngoài git
 | Tệp | Tái tạo |
