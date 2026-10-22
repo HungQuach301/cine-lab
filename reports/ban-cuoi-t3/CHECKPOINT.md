@@ -3,17 +3,17 @@
 Gốc: `origin/k2c-t3-anim-v2` @72e3f0fe ("cứu 4 video gốc Omni") + merge --no-ff `origin/checks-1-17-1` @39d01859 (→ 622a1c27) + `origin/claude/laughing-ptolemy-u7xlwe` @0a10d1fc (→ 170e55ce). 0 xung đột.
 
 <!-- TRANG-THAI -->
-## Trạng thái (22/10/2026 20:23 UTC) — tự động `scripts/k2tl/cuoi_ckpt.py`
+## Trạng thái (22/10/2026 20:48 UTC) — tự động `scripts/k2tl/cuoi_ckpt.py`
 
-- **Khung cảnh đinh 1080p đã dựng:** 18961 / 20716 (92 %) — cảnh xong 36/44; đang dựng: N1_3 336/418, N2_6 112/403, N3_1 539/710, N3_2 2/259, N3_5 46/278
-- **Đoạn đã render (sec/*.mkv, quy về khung phim):** 35/45 đoạn = 15440 / 18288 khung phim (84 %). Còn: H3, N1_3, N2_6, N3_1, N3_2, N3_3, KC1910, N3_5, N4_3, KB1943
+- **Khung cảnh đinh 1080p đã dựng:** 19673 / 20716 (95 %) — cảnh xong 38/44; đang dựng: N1_3 336/418, N2_6 112/403, N3_1 539/710, N4_3 130/252, KB1943 93/247
+- **Đoạn đã render (sec/*.mkv, quy về khung phim):** 39/45 đoạn = 16367 / 18288 khung phim (89 %). Còn: N1_3, N2_6, N3_1, KC1910, N4_3, KB1943
 - **Cycles GPU:** H2T 0–119 ĐÃ THAY · N2.9 TRỌN Cycles (sửa ghép A↔B trong cú máy, 14:20): khung 396–671 EXR 276/276, khung 0–395 EXR 396/396 — ĐÃ THAY + chờ render lại đoạn. Pod: ban-cuoi hep2qaz5zj5ri9 bật 06:30 UTC (đã tắt); ban-cuoi-2 qwsekut0bu3kkg bật 07:05 UTC (đã tắt); ban-cuoi-3 j8m2halzltpbww bật 15:29 UTC (đã tắt); ban-cuoi-4 0fnofdnz5sl6vn bật 16:15 UTC (đã tắt). Dòng cuối: pod3 `18:19:55 [ban-cuoi-3] TAT-XONG` · pod4 `18:20:20 [ban-cuoi-4] TAT-XONG` · xuất `CHUAN-BI-XONG`
 - **Số dư RunPod:** $23.09 (dòng `so_du` cuối gio-gpu.jsonl). Đầu phiên $22,95 → $13,97 sau pod 1/2 (chi thật $8,88); 14:57 đọc $28,97 = có nạp thêm $15,00 ngoài phiên, không phải hoàn tiền
 - **Lightmap:** 7/7 (b1704, b1779, b1781r, b1782, b1900, b1940, b2026)
 - **Omni đã chèn (không nhãn):** M2→C3, M3→N1.4, M4→C5, M5→H1 · M1 giữ 3D
-- **Ước còn:** cảnh đinh 1755 khung × 5.4 s/khung ÷ P 2 ≈ **1.3 h**; sau đó render đoạn còn lại + LUT + ghép + k2check + xuất ≈ 2–3 h. Giờ máy đã chạy ≈ 15.9 h (mốc 30 h).
+- **Ước còn:** cảnh đinh 1043 khung × 5.3 s/khung ÷ P 2 ≈ **0.8 h**; sau đó render đoạn còn lại + LUT + ghép + k2check + xuất ≈ 2–3 h. Giờ máy đã chạy ≈ 16.3 h (mốc 30 h).
 - **Việc còn lại (thứ tự):** (1) dựng nốt cảnh đinh; (2) chèn M3 (N1.4), M4 (C5) — tự động khi cảnh xong; (3) N2.9 trọn Cycles: pod 3/4 → nhận → render lại đoạn; (4) render các đoạn còn lại (tự động, chờ RAM); (5) chốt LUT kênh (bão hoà ≥ 0,40) → ghép master + 3 phần + 8 tệp xem; (6) k2check 1.17.2 `--cap`, selftest, LOI-KHOA 3/3, tự đo, XEM CÂM AI; (7) release-k2-t3-g2 (LFS) + thumbnail; (8) báo cáo, DỪNG.
-- Dòng cuối log vòng dựng: `20:23 dựng anim_N3_2 (10.8 s, 1920×1080) ` · render đoạn: `20:06 xoá 300 khung k2c-t3-cuoi-anim_C5`
+- Dòng cuối log vòng dựng: `20:38 dựng anim_KB1943 (10.3 s, 1920×1080) ` · render đoạn: `20:43 xoá 224 khung k2c-t3-cuoi-anim_N3_5`
 <!-- /TRANG-THAI -->
 
 ## LUT kênh — đo thử (19:58, 147 khung mẫu 1/4 s từ 33/45 đoạn, 640×360)
