@@ -17,6 +17,12 @@ Phiên sửa animatic T3 theo nhận xét chủ dự án 21/10 21:05–21:15 (ph
 | lightmap 7 mốc `$K2TL_CACHE/nc/bake/b*/` | meta `reports/animatic-t3-v2/do/nuong-*.json` | `bash scripts/k2tl/anim_nuong.sh` |
 <!-- /TRANG-THAI -->
 
+## Lệnh bổ sung 22/10: cứu 4 video gốc Omni 720p — XONG
+
+- `omni/goc720/` gồm M2.mp4 (CRF 19), M3.mp4 (CRF 17), M4.mp4 (CRF 16), M5.mp4 (CRF 16), tất cả 1280×720, 24 fps, không tiếng, mỗi tệp ≤ 4,9 MB. Kèm `SHA256SUMS` và `GHI-CHU.md`.
+- Không tệp gốc nào MẤT. Riêng M5-l3 lấy từ `omni/ra/` vì `omni-goc/` không có; SHA khớp sổ AI.
+
+
 ## Xong
 - Bước 0: nhánh mới từ @41e0c8fd. `verify.sh`: cài OpenEXR, tifffile/pyshp, npm ci k2v + cong3.
 - Tệp ngoài git của ANIMATIC-T3 (master v1, lightmap, cảnh đinh, bộ đệm) **đã mất theo container** (BAI-HOC #117) → dựng lại bộ đệm + nướng 7 mốc + dựng cả tập (dù sao mọi cảnh cũng đổi dấu do sửa mã `tl/*.js`).
