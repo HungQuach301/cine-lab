@@ -28,6 +28,8 @@ P
   LAM=${PLAN%%|*}; XOA=${PLAN#*|}
   for d in ${XOA//;/ }; do n=$(ls $d 2>/dev/null | grep -c '\.jpg$'); [ "$n" -gt 0 ] && { rm -f $d/*.jpg; echo "$(date -u +%H:%M) xoá $n khung $(basename $d)"; }; done
   if [ -z "$LAM" ]; then N=$($PY -c "import json,os;t=json.load(open('$TL'));print(sum(1 for s in t['segments'] if not os.path.exists('$O/sec/'+s['id']+'.mkv')))"); [ "$N" = 0 ] && { echo "DOAN-XONG"; break; }; sleep ${CHU_KY:-600}; continue; fi
-  IFS=';' read -ra L <<< "$LAM"; for x in "${L[@]}"; do read id h <<< "$x"; echo "$(date -u +%H:%M) render đoạn $id"
+  IFS=';' read -ra L <<< "$LAM"; for x in "${L[@]}"; do read id h <<< "$x"
+    while [ $(awk '/MemAvailable/{print int($2/1048576)}' /proc/meminfo) -lt ${RAM_GB:-5} ]; do sleep 30; done   # Chromium render đoạn sập khi RAM < ~3 GB (3 cảnh đinh song song) — chờ RAM
+    echo "$(date -u +%H:%M) render đoạn $id"
     if node $K2/render.js --tl $TL --seg $id --out $O/sec/$id.mkv 2>>$O/render-$id.err; then echo $h > $O/sec/$id.mkv.hash; else echo "LỖI render $id"; rm -f $O/sec/$id.mkv; fi; done
 done
