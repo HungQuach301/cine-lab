@@ -5,7 +5,7 @@ Phép biến đổi (miền sRGB, giữ độ sáng Rec.709):
     s = 0,8 → hệ số 1 + v·0,09; s = 0,4 → 1 + v·0,46.
   · không đổi độ sáng (luma giữ nguyên trừ phần kẹp [0, 1]); không đổi tông (hue) — chỉ kéo dãn quanh luma.
   cuoi_lut.py tao <v> <ra.cube>          → .cube + in SHA-256
-  cuoi_lut.py do <thư mục khung> [<ra.json>] [--lut a.cube]   → bão hoà trung vị (640×360, cắt y 60–300 như anim_do.py), sai lệch màu cờ trước/sau trên bảng mẫu cờ"""
+  cuoi_lut.py do <thư mục khung> [<ra.json>] [--v <v>]   → bão hoà trung vị (640×360, cắt y 60–300 như anim_do.py), sai lệch màu cờ trước/sau trên bảng mẫu cờ"""
 import hashlib, json, sys
 from pathlib import Path
 import numpy as np
