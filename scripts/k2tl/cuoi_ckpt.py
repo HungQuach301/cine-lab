@@ -8,7 +8,7 @@ REPO = Path(__file__).resolve().parents[2]; CK = REPO / 'reports/ban-cuoi-t3/CHE
 now = dt.datetime.now(dt.timezone.utc); T0 = dt.datetime(2026, 10, 22, 4, 30, tzinfo=dt.timezone.utc)
 H = json.loads((O / 'heroes.json').read_text()); ok = lambda v: (Path(v['dir']) / 'stamp').exists() and (Path(v['dir']) / 'stamp').read_text().strip() == v['stamp']
 xong = [k for k, v in H.items() if ok(v)]; con = [k for k in H if k not in xong]
-nk = {k: round(v['dur'] * 24) for k, v in H.items()}; dang = {k: len(glob.glob(H[k]['dir'] + '.new/*.jpg')) for k in con}
+nk = {k: (json.loads((Path(v['dir']) / 'meta.json').read_text()).get('frames') if (Path(v['dir']) / 'meta.json').exists() else None) or round(v['dur'] * 24) for k, v in H.items()}; dang = {k: len(glob.glob(H[k]['dir'] + '.new/*.jpg')) for k in con}   # nk: khung thật hero.js dựng (meta.json, theo phần shot dùng), chưa có meta thì dur × 24
 k_xong = sum(nk[k] for k in xong) + sum(dang.values()); k_tong = sum(nk.values())
 TL = json.loads((O / 'timeline.json').read_text()); segs = [s for s in TL['segments']]
 co = [s['id'] for s in segs if (O / 'sec' / f"{s['id']}.mkv").exists() and (O / 'sec' / f"{s['id']}.mkv.hash").exists()]
