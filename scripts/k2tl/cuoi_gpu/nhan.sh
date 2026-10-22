@@ -7,9 +7,10 @@ REPO=$(cd "$(dirname "$0")/../../.." && pwd); export K2TL_CACHE=${K2TL_CACHE:-/v
 D=$1; K=$2; A=$3; B=$4; G=/var/tmp/cine-out/cuoi-gpu; IN=$G/exr/$D; PNG=$G/png/$D; mkdir -p $PNG; CPU=$REPO/design/pt/cpu
 HD=$(/opt/cine/bin/python -c "import json;print(json.load(open('/var/tmp/cine-out/k2c-t3-cuoi/heroes.json'))['$K']['dir'])")
 for f in $(seq $A $B); do test -s $IN/$(printf %05d $f).exr || { echo "THIẾU EXR $f"; exit 3; }; done
-T=$G/f32-$$; ls $IN/*.exr | split -l 24 - $T-l-
-for L in $T-l-*; do rm -rf $T; /opt/cine/bin/python $CPU/nc_exr.py $(cat $L) --out $T > /dev/null
-  node $CPU/nc_grade.js --scene t3tl --opt "$(cat $G/opt/$D.json)" --in $T --out $PNG --w 1920 --h 1080 2>&1 | tail -1; rm -rf $T $L; done
+T=$G/f32-$$   # lô 6 khung (lô 24 làm Node thoát — NC-GPU README + RAM khi 3 cảnh đang dựng), bỏ khung đã có PNG, thử lại ≤ 3 lượt
+for k in 1 2 3; do ls $IN/*.exr | while read e; do b=$(basename $e .exr); [ -s $PNG/$b.png ] || echo $e; done | split -l 6 - $T-l-
+  for L in $T-l-*; do [ -f $L ] || continue; rm -rf $T; /opt/cine/bin/python $CPU/nc_exr.py $(cat $L) --out $T > /dev/null
+    node $CPU/nc_grade.js --scene t3tl --opt "$(cat $G/opt/$D.json)" --in $T --out $PNG --w 1920 --h 1080 2>&1 | tail -1 || true; rm -rf $T $L; done; done
 mkdir -p $HD/goc-gpu
 for f in $(seq $A $B); do n=$(printf %05d $f); test -s $PNG/$n.png || { echo "THIẾU PNG $f"; exit 4; }
   [ -f $HD/goc-gpu/$n.jpg ] || cp $HD/$n.jpg $HD/goc-gpu/$n.jpg
