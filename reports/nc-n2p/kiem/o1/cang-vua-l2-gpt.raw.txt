@@ -1,0 +1,43 @@
+{
+  "them": [
+    {
+      "loai": "da_dat",
+      "mo_ta": "New projecting boulders and jagged rocky outcrops along the foreground shoreline, immediately outside the large bastion and adjoining coastal wall; these replace the previously smooth soil-and-grass shore.",
+      "toa_do": [0.092, 0.49, 0.291, 0.697],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Not intrinsically anachronistic, but the invented coastal rock formations are prohibited terrain additions under the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "Additional projecting coastal rock formations around the middle-distance bastions and the small headlands beyond the town.",
+      "toa_do": [0.287, 0.34, 0.456, 0.503],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Not intrinsically anachronistic, but these invented rocky coastal projections are absent from the ground-truth render and violate the supplied N2+ terrain-preservation rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+    }
+  ],
+  "bot_doi": [
+    {
+      "loai": "da_dat",
+      "mo_ta": "The smooth grassy and sandy coastal apron outside the fortifications has been changed into a broken, boulder-covered rocky shore. This is a change in terrain form, not merely colour grading.",
+      "toa_do": [0.092, 0.34, 0.456, 0.697],
+      "do_tin": 0.94
+    },
+    {
+      "loai": "khac",
+      "mo_ta": "The partially cropped pale rectangular object with a turquoise-grey surrounding shape at the bottom edge, visible in BEFORE q4, is no longer visible. Its identity cannot be established confidently.",
+      "toa_do": [0.754, 0.976, 0.78, 1.0],
+      "do_tin": 0.9
+    }
+  ],
+  "doi_loai_vung": [
+    {
+      "mo_ta": "A small inlet cuts into the formerly continuous grassy coastal apron below the recessed bastion, locally changing land into water.",
+      "toa_do": [0.227, 0.548, 0.261, 0.578],
+      "do_tin": 0.79
+    }
+  ]
+}

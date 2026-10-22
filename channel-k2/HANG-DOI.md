@@ -17,6 +17,12 @@
 >
 > Cả hai phép đo đều chỉ đọc chữ.
 
+## CẬP NHẬT 21/10/2026 (phiên P-2110: T3, T4) — bổ sung, không thay
+| Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 21/10 (P-2110) |
+|---|---|---|---|---|
+| T3 | K2C-T3-01 | **Gibraltar — khung vây hãm** (tiêu đề theo khuôn Kinh thánh §14.5) | VÀNG | Đã merge vào `main`: V7C, ANIMATIC-T3 (animatic cả tập, 761 s, look LOOK-KHOA — Kinh thánh §14.7). **Thứ tự kế tiếp:** (1) **vòng sửa animatic V2** — phiên ANIMATIC-T3-V2 (nhánh `k2c-t3-anim-v2`, **đang chạy**): R1–R4 + mở đầu ban ngày rồi sang tối (§14.7), **5 đoạn minh hoạ Omni có nhãn** theo luật N2 (§15 (i)); (2) **bản cuối**: chỉnh màu toàn phim + SFX/âm nền theo hình (Kinh thánh §16) + cú lặn Cycles GPU (G0, §14.2); (3) **G2**; (4) **đăng** (chủ dự án chấp nhận rủi ro giọng G1, 21/10 20:38; thư hỏi ElevenLabs về Beta Services đang chờ) |
+| T4 | — | **London 1666** (cháy và dựng lại) | XANH | Áp **Kinh thánh §15 (luật AI N2+, M-d 8 khoảnh khắc)** + §16. Tiền kỳ theo `reports/NC-N2P-BAO-CAO.md` §6.4 (ranh từng ngày bậc 1, trang phục bậc 3–4, 6–8 điểm máy TL-1). Phiên K: bộ kiểm N2+ vào `checks/` (N2P-D4, §15 (h)) — chờ giao phiên K |
+
 ## CẬP NHẬT 20/10/2026 (phiên P-2010: T3, lộ trình G0/M1–M4) — bổ sung, không thay
 | Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 20/10 (P-2010) |
 |---|---|---|---|---|

@@ -1,0 +1,683 @@
+{
+ "tag": "c4B-vua-60",
+ "render": "/var/tmp/n2p/src/c4/rgb/00300.jpg",
+ "ai": "/var/tmp/n2p/omni/khung/c4B-vua-60.png",
+ "ghep": "/var/tmp/n2p/omni/kiem/c4B-vua-60-ghep.png",
+ "sha_ghep": "8df66a008af15b4d735ad7d11ae1a696eef27dd9118fcb3bebc23d08e4e6de81",
+ "nam": "1779",
+ "i_lop_a": {
+  "max_trong_a": 33,
+  "diem_lech_trong_a": 173426,
+  "dien_tich_a_pct": 18.84,
+  "dai20_pct": 11.78,
+  "dai20_cum_dE30": 19,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     1065,
+     193,
+     1280,
+     321
+    ],
+    "px": 7747
+   },
+   {
+    "hop": [
+     29,
+     125,
+     175,
+     147
+    ],
+    "px": 2179
+   },
+   {
+    "hop": [
+     0,
+     151,
+     172,
+     174
+    ],
+    "px": 2139
+   },
+   {
+    "hop": [
+     237,
+     121,
+     360,
+     156
+    ],
+    "px": 1814
+   },
+   {
+    "hop": [
+     177,
+     157,
+     257,
+     174
+    ],
+    "px": 997
+   },
+   {
+    "hop": [
+     227,
+     73,
+     306,
+     94
+    ],
+    "px": 929
+   },
+   {
+    "hop": [
+     848,
+     525,
+     902,
+     587
+    ],
+    "px": 770
+   },
+   {
+    "hop": [
+     301,
+     74,
+     373,
+     98
+    ],
+    "px": 523
+   },
+   {
+    "hop": [
+     518,
+     566,
+     536,
+     609
+    ],
+    "px": 483
+   },
+   {
+    "hop": [
+     182,
+     616,
+     204,
+     639
+    ],
+    "px": 307
+   },
+   {
+    "hop": [
+     509,
+     527,
+     527,
+     562
+    ],
+    "px": 271
+   },
+   {
+    "hop": [
+     931,
+     439,
+     960,
+     453
+    ],
+    "px": 187
+   },
+   {
+    "hop": [
+     250,
+     455,
+     266,
+     472
+    ],
+    "px": 181
+   },
+   {
+    "hop": [
+     502,
+     468,
+     513,
+     487
+    ],
+    "px": 142
+   },
+   {
+    "hop": [
+     234,
+     109,
+     246,
+     127
+    ],
+    "px": 135
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 6,
+   "dE_trung_vi": 15.01,
+   "dE_p90": 40.62
+  },
+  "khop_mau": false,
+  "dat_ghep": false,
+  "vat_lop_a": [
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Added two-masted sailing ship in the left-middle bay, below the original distant vessels.",
+    "toa_do": [
+     0.393,
+     0.194,
+     0.438,
+     0.266
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Added two-masted sailing ship farther right in the bay.",
+    "toa_do": [
+     0.515,
+     0.192,
+     0.554,
+     0.264
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added settlement of numerous pale masonry buildings across the left middle ground, below the existing long defensive wall; includes taller narrow building forms.",
+    "toa_do": [
+     0.0,
+     0.218,
+     0.201,
+     0.308
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added long raised wall or enclosure boundary along the left side of the central-left rectangular plot.",
+    "toa_do": [
+     0.137,
+     0.499,
+     0.25,
+     0.9
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added tall segmented wall along the right side of the central-left plot, beside the figures and flag.",
+    "toa_do": [
+     0.369,
+     0.492,
+     0.429,
+     0.855
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added low boundary wall across the near end of the central-left plot.",
+    "toa_do": [
+     0.141,
+     0.841,
+     0.426,
+     0.911
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added pale branching dirt-road and footpath network between the new settlement, fields, shore and central plots.",
+    "toa_do": [
+     0.068,
+     0.279,
+     0.672,
+     0.498
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added diagonal dirt track across the lower-left foreground, following the outside of the new enclosure.",
+    "toa_do": [
+     0.0,
+     0.837,
+     0.455,
+     1.0
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added track or passage between the two central rectangular plots, with a connection across their near ends.",
+    "toa_do": [
+     0.386,
+     0.489,
+     0.499,
+     0.926
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added winding right-foreground dirt path leading past the shelter compound and toward the beach; it does not follow the original faint curved track.",
+    "toa_do": [
+     0.749,
+     0.6,
+     0.87,
+     1.0
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added short wall or fenced enclosure surrounding the right-hand shelters.",
+    "toa_do": [
+     0.656,
+     0.717,
+     0.716,
+     0.825
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "co",
+    "mo_ta": "Added small red-and-pale flag on a pole beside the central enclosure wall. Its detailed design is not legible.",
+    "toa_do": [
+     0.405,
+     0.704,
+     0.421,
+     0.755
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "The original faint curved track in the right foreground is replaced by a differently positioned winding path and shelter compound.",
+    "toa_do": [
+     0.749,
+     0.749,
+     0.873,
+     1.0
+    ],
+    "dai_a": true,
+    "kieu": "BỚT/ĐỔI vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "tau_lon",
+    "mo_ta": "Two large sailing ships (galleons) invented on the sea",
+    "toa_do": [
+     0.39,
+     0.19,
+     0.56,
+     0.27
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Town of dense buildings with terracotta roofs at the foot of the rock, and a coastal town along the shore. Neither was in the render.",
+    "toa_do": [
+     0.0,
+     0.21,
+     0.2,
+     0.29
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Long walls or lines running between and beside the fields (dark wall lines with shadows)",
+    "toa_do": [
+     0.14,
+     0.5,
+     0.43,
+     0.86
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   }
+  ],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Added two-masted sailing ship in the left-middle bay, below the original distant vessels.",
+    "toa_do": [
+     0.393,
+     0.194,
+     0.438,
+     0.266
+    ],
+    "dai_a": false,
+    "ly_do": "A sailing vessel is plausible in 1779, but inventing an additional sailing ship is expressly forbidden by the supplied N2+ rules.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Added two-masted sailing ship farther right in the bay.",
+    "toa_do": [
+     0.515,
+     0.192,
+     0.554,
+     0.264
+    ],
+    "dai_a": false,
+    "ly_do": "Chronologically plausible, but an invented sailing ship is expressly forbidden by the supplied N2+ rules.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added settlement of numerous pale masonry buildings across the left middle ground, below the existing long defensive wall; includes taller narrow building forms.",
+    "toa_do": [
+     0.0,
+     0.218,
+     0.201,
+     0.308
+    ],
+    "dai_a": true,
+    "ly_do": "The architectural forms are not demonstrably post-1779, but invented stone buildings are forbidden by the supplied N2+ rules.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "da_dat",
+    "mo_ta": "Added substantial near-vertical cliff faces and projecting rocky headland beneath and in front of the original Gibraltar settlement.",
+    "toa_do": [
+     0.052,
+     0.142,
+     0.307,
+     0.266
+    ],
+    "dai_a": true,
+    "ly_do": "Not a chronological technology issue; invented cliffs and altered terrain geometry are expressly forbidden by the supplied N2+ rules.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "da_dat",
+    "mo_ta": "Added crescent beach around the newly formed bay below the settlement.",
+    "toa_do": [
+     0.193,
+     0.263,
+     0.476,
+     0.381
+    ],
+    "dai_a": false,
+    "ly_do": "The beach accompanies an invented coastline and land/water conversion prohibited by N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "da_dat",
+    "mo_ta": "Added rocky coastal ledges, promontories and low bluffs along the central and right shore.",
+    "toa_do": [
+     0.479,
+     0.355,
+     0.859,
+     0.635
+    ],
+    "dai_a": true,
+    "ly_do": "Invented coastal relief and cliffs, with a relocated shoreline, are prohibited by the supplied N2+ rules.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "da_dat",
+    "mo_ta": "Added sandy beach in the right foreground, replacing part of the original inland plain.",
+    "toa_do": [
+     0.78,
+     0.517,
+     1.0,
+     0.738
+    ],
+    "dai_a": true,
+    "ly_do": "Part of the forbidden invention of a new coastline and conversion of land into sea.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added long raised wall or enclosure boundary along the left side of the central-left rectangular plot.",
+    "toa_do": [
+     0.137,
+     0.499,
+     0.25,
+     0.9
+    ],
+    "dai_a": true,
+    "ly_do": "No demonstrably modern construction, but this is an invented masonry enclosure rather than a texture change.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added tall segmented wall along the right side of the central-left plot, beside the figures and flag.",
+    "toa_do": [
+     0.369,
+     0.492,
+     0.429,
+     0.855
+    ],
+    "dai_a": true,
+    "ly_do": "Invented masonry architecture is prohibited by the supplied N2+ architectural restrictions; the wall itself is not demonstrably post-1779.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added low boundary wall across the near end of the central-left plot.",
+    "toa_do": [
+     0.141,
+     0.841,
+     0.426,
+     0.911
+    ],
+    "dai_a": true,
+    "ly_do": "Invented masonry enclosure, prohibited under the supplied N2+ architectural restrictions.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added short wall or fenced enclosure surrounding the right-hand shelters.",
+    "toa_do": [
+     0.656,
+     0.717,
+     0.716,
+     0.825
+    ],
+    "dai_a": true,
+    "ly_do": "An invented architectural enclosure; no specifically modern material can be established.",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Town of dense buildings with terracotta roofs at the foot of the rock, and a coastal town along the shore. Neither was in the render.",
+    "toa_do": [
+     0.0,
+     0.21,
+     0.2,
+     0.29
+    ],
+    "dai_a": true,
+    "ly_do": "Invented stone buildings and houses (NC-V2V c4B-c)",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "cong_trinh",
+    "mo_ta": "Long walls or lines running between and beside the fields (dark wall lines with shadows)",
+    "toa_do": [
+     0.14,
+     0.5,
+     0.43,
+     0.86
+    ],
+    "dai_a": true,
+    "ly_do": "Invented fortification walls and stone structures (NC-V2V c4B-c)",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "leu",
+    "mo_ta": "White tent or awning, plus a tent or hut group with a wooden palisade at the right",
+    "toa_do": [
+     0.19,
+     0.61,
+     0.22,
+     0.66
+    ],
+    "dai_a": true,
+    "ly_do": "Invented tents and shelters (NC-V2V c4B-a)",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "leu",
+    "mo_ta": "Group of huts or tents with a fence on the right",
+    "toa_do": [
+     0.65,
+     0.68,
+     0.72,
+     0.8
+    ],
+    "dai_a": true,
+    "ly_do": "Invented huts and tents (NC-V2V c4B-a)",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 18.13,
+  "nuoc_thanh_dat_pct": 36.56,
+  "t9b_dat_thanh_nuoc_pct": 16.66,
+  "t9b_nuoc_thanh_dat_pct": 23.77,
+  "dat": false,
+  "mo_hinh_bao": [
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: the original plain immediately southeast of Gibraltar becomes the enlarged crescent bay. The coastline retreats far below its original position.",
+    "toa_do": [
+     0.227,
+     0.224,
+     0.49,
+     0.379
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: the central coastal plain becomes open sea, extending down to the newly invented rocky shoreline.",
+    "toa_do": [
+     0.49,
+     0.252,
+     0.812,
+     0.514
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: much of the right-hand plain becomes sea and surf, reaching approximately the lower-right three-quarter height. The isolated triangular land remnant near the upper-right is excluded.",
+    "toa_do": [
+     0.807,
+     0.416,
+     1.0,
+     0.726
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: original ground between the old shoreline and the isolated triangular remnant becomes water.",
+    "toa_do": [
+     0.715,
+     0.257,
+     0.848,
+     0.43
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: the lower portion of the distant upper-right headland is replaced by open water; its upper silhouette also disappears into the new horizon.",
+    "toa_do": [
+     0.739,
+     0.112,
+     1.0,
+     0.143
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "WATER TO LAND: part of the original small bay beneath the Gibraltar settlement becomes the newly projecting cliff and rocky headland.",
+    "toa_do": [
+     0.205,
+     0.164,
+     0.306,
+     0.255
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Sea became land: a yellow strip of fields was added in the sea at the right, replacing the island and water",
+    "toa_do": [
+     0.84,
+     0.29,
+     1.0,
+     0.42
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Land became sea: the coastline moved, with a bay and beach cut into the land at the top centre, and the shoreline along the right pushed back",
+    "toa_do": [
+     0.23,
+     0.25,
+     1.0,
+     0.7
+    ]
+   }
+  ]
+ },
+ "iv_dong_bang": {
+  "ap_dung": false,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

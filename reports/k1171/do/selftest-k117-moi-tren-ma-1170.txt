@@ -1,0 +1,117 @@
+# selftest_k117.py 1.17.1 (bỏ 15 ca R4 + 2 ca cấp R4 — mã 1.17.0 không có hàng EO-DAT-R4) chạy trên mã checks/ 1.17.0 (@a6a02675) — chứng minh ca mới phân biệt ngưỡng cũ/mới
+ĐÚNG [N2P đáp án] gpt: bắt 6/6 lỗi chèn (NC-N2P: 6/6) — kỳ vọng sạch
+ĐÚNG [N2P đáp án] claude: bắt 6/6 lỗi chèn (NC-N2P: 6/6) — kỳ vọng sạch
+ĐÚNG [N2P đáp án] hop: bắt 6/6 lỗi chèn (NC-N2P: 6/6) — kỳ vọng sạch
+ĐÚNG [N2P-1] khung thử ghép: (a) lệch 0/255 trong lớp (a) — kỳ vọng sạch
+ĐÚNG [N2P-1] khung thử: (b) vật lớp (a) mô hình báo (tàu L4, cờ L5) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-1] khung thử: (c) 2 cụm ΔE ≥ 30 trong dải 20 px (L5 cột cờ, L6 người) — số NC-N2P — kỳ vọng sạch
+ĐÚNG [N2P-1] khung thử: (c) có báo cụm dải (người đọc) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-2] khung thử: (a) lỗi thời đại có năm (máy bay, ô tô, cột điện) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-3] khung thử: (a) T9b ≤ 2 % (0,39 / 0,80) — kỳ vọng sạch
+ĐÚNG [N2P-3] khung thử: (b) gpt báo bờ lấn nước quanh người chèn — kỳ vọng bắt lỗi
+ĐÚNG [N2P-4] khung thử tĩnh: (a) người chèn L6 = đóng băng — kỳ vọng bắt lỗi
+ĐÚNG [N2P-4] cùng khung, không phải tấm tĩnh (anh_tinh false) → không áp (iv) — kỳ vọng sạch
+ĐÚNG [N2P-1] đối chứng render↔render: 0 báo — kỳ vọng sạch
+ĐÚNG [N2P-2] đối chứng render↔render: 0 báo — kỳ vọng sạch
+ĐÚNG [N2P-3] đối chứng render↔render: 0 báo — kỳ vọng sạch
+ĐÚNG [N2P-4] đối chứng render↔render: 0 báo — kỳ vọng sạch
+ĐÚNG [N2P-1] khung thử chưa ghép: (a) lệch 40/255 trong (a) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-3] tô màu nước lên 6 % đất → (a) T9b đất→nước > 2 % — kỳ vọng bắt lỗi
+ĐÚNG [N2P-2] q_thoi_dai bắt 3/3 lỗi thời đại chèn (NC-N2P 3/3) — kỳ vọng sạch
+ĐÚNG [N2P-2] q_thoi_dai: nghi vấn đã có ở render (đối chứng) không tính — kỳ vọng sạch
+ĐÚNG [N2P-2] (b) q_thoi_dai nghi vấn mới → lỗi — kỳ vọng bắt lỗi
+ĐÚNG [N2P vision] không --vision, không bộ đệm → không gọi mạng, "chưa soi" — kỳ vọng sạch
+ĐÚNG [N2P vision] bộ đệm có khoá → đọc lại — kỳ vọng sạch
+ĐÚNG [N2P-1] tập T4 không --vision: (b) thiếu mô hình nhìn (không gọi mạng) — kỳ vọng bắt lỗi
+ĐÚNG [cấp] N2P-1 THIẾU mô hình ở G2 → Chặn — kỳ vọng bắt lỗi
+ĐÚNG [cấp] N2P-1 ở animatic → chỉ Cảnh báo — kỳ vọng sạch
+ĐÚNG [cấp] N2P-1 chỉ (c) cụm dải → Cảnh báo, không Chặn — kỳ vọng sạch
+ĐÚNG [N2P áp dụng] tập T3 (không kenh2_tu_t4/n2p) → N2P-1…6 KHÔNG ÁP — kỳ vọng sạch
+ĐÚNG [N2P-5] hoà 2,0 s, tấm tĩnh → sạch (bước < 1 ΔE/khung) [bước 0.682, nhấp 0.0] — kỳ vọng sạch
+ĐÚNG [N2P-5] cắt cứng giữa 2 tấm → (b) bước nhảy > 1 ΔE/khung [bước 4.258, nhấp 0.0103] — kỳ vọng bắt lỗi
+ĐÚNG [N2P-5] tấm nhấp nháy ±2 mức xám → (c) > 1,5 × đối chứng (sàn 0,02) [bước 1.293, nhấp 0.7291] — kỳ vọng bắt lỗi
+ĐÚNG [N2P-5] khai chuyển tấm kiểu cắt → (a) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-5] hoà 1,5 s < 2 s → (a) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-5] shot ai_nen không có video đo → THIẾU — kỳ vọng sạch
+ĐÚNG [N2P-6] tấm nền 50 % · minh hoạ 20 % · tổng 70 % (đúng trần) → sạch — kỳ vọng sạch
+ĐÚNG [N2P-6] tấm nền 51 % → (a) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-6] minh hoạ 21 % → (b) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-6] tổng AI 71 % (45 + 20 + N1 6) → (c) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-6] một shot vừa ai_nen vừa minh_hoa → (d) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-6] không log shot → THIẾU — kỳ vọng sạch
+ĐÚNG [MINH-HOA] đoạn 10 % kẹp giữa 2 shot 3D, nhãn cả đoạn, máy 35 m, sổ AI đủ → sạch — kỳ vọng sạch
+ĐÚNG [MINH-HOA] không shot minh_hoa → KHÔNG ÁP — kỳ vọng sạch
+ĐÚNG [MINH-HOA] minh hoạ 25 % > 20 % → (a) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] minh hoạ đúng 20 % → sạch (a) — kỳ vọng sạch
+ĐÚNG [MINH-HOA] nhãn "AI illustration" sai chữ → (b) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] nhãn chỉ 2–10 s của đoạn 10 s → (b) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] không log chữ, không trường nhãn → THIẾU (b) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] log chữ: "Illustration" mọi khung mẫu của đoạn → sạch (b) — kỳ vọng sạch
+ĐÚNG [MINH-HOA] log chữ: nhãn tắt từ 45,8 s → (b) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] shot sau là thẻ/ảnh phẳng → (c) không kẹp giữa 2 shot 3D — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] minh hoạ mở đầu phim (không có shot trước) → (c) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] máy 60 m AGL → (d) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] không log agl_m → (d) không xét — kỳ vọng sạch
+ĐÚNG [MINH-HOA] không dòng sổ AI → (e) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] dòng sổ AI thiếu SHA đầu ra → (e) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] sổ AI ở tệp so_ai: (jsonl, mục shot = M) → sạch (e) — kỳ vọng sạch
+ĐÚNG [cấp] MINH-HOA ở G2 → Chặn — kỳ vọng bắt lỗi
+ĐÚNG [cấp] MINH-HOA ở animatic → Cảnh báo — kỳ vọng sạch
+ĐÚNG [SACH-1] nhãn Illustration trong shot minh hoạ → sạch — kỳ vọng sạch
+ĐÚNG [SACH-1] nhãn Illustration ở shot 3D thường → (e) — kỳ vọng bắt lỗi
+ĐÚNG [SACH-1] 1.16.1 (không truyền shot minh hoạ): nhãn → (e) như cũ — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R1] chủ thể trung vị 28 % ≥ 20 % → sạch — kỳ vọng sạch
+SAI  [EO-DAT-R1] chủ thể 20 % (đúng mức trên) → sạch — kỳ vọng sạch · nhận ['(a) S1 @0:00.0: chủ thể 20.0 % khung < 25 %']
+ĐÚNG [EO-DAT-R1] chủ thể 12 % < 15 % → (a) — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R1] chủ thể 14,9 % < 15 % → (a) — kỳ vọng bắt lỗi
+SAI  [EO-DAT-R1] chủ thể 17 % (15–20 %) → (b) Cảnh báo — kỳ vọng bắt lỗi · nhận []
+SAI  [EO-DAT-R1] chủ thể 17 % → KHÔNG (a) — kỳ vọng sạch · nhận ['(a) S1 @0:00.0: chủ thể 17.0 % khung < 25 %']
+SAI  [EO-DAT-R1] chủ thể 15 % (đúng mức dưới) → không (a) — kỳ vọng sạch · nhận ['(a) S1 @0:00.0: chủ thể 15.0 % khung < 25 %']
+SAI  [EO-DAT-R1] chủ thể 22 % (1.17.0 tạm 25 % bắt; §14.7 không) → sạch — kỳ vọng sạch · nhận ['(a) S1 @0:00.0: chủ thể 22.0 % khung < 25 %']
+SAI  [cấp] EO-DAT-R1 17 % ở G2 → không Chặn — kỳ vọng sạch · nhận ['(a) S1 @0:00.0: chủ thể 17.0 % khung < 25 %']
+SAI  [cấp] EO-DAT-R1 17 % ở G2 → có Cảnh báo — kỳ vọng bắt lỗi · nhận []
+ĐÚNG [cấp] EO-DAT-R1 12 % ở G2 → Chặn — kỳ vọng bắt lỗi
+ĐÚNG [cấp] EO-DAT-R1 thiếu chu_the_pct ở G2 → Chặn — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R1] cờ chu_the_eo_dat nhưng không chu_the_pct → THIẾU — kỳ vọng sạch
+ĐÚNG [EO-DAT-R1] không shot khai cờ → KHÔNG ÁP — kỳ vọng sạch
+ĐÚNG [EO-DAT-R2] không khung nào trống → sạch — kỳ vọng sạch
+ĐÚNG [EO-DAT-R2] trống 4 s / chương 40 s = 10 % (đúng trần) → sạch — kỳ vọng sạch
+ĐÚNG [EO-DAT-R2] trong_pct 50 % (không > 50 %) suốt chương → không trống → sạch — kỳ vọng sạch
+SAI  [EO-DAT-R2] trong_pct 55 % (> 50 %; 1.17.0 tạm 60 % bỏ qua) suốt 20 s → (a) — kỳ vọng bắt lỗi · nhận []
+ĐÚNG [EO-DAT-R2] trống 65 % suốt shot 20 s → (a) liên tục > 6 s — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R2] trống nối qua ranh 2 shot: 3 s + 4 s = 7 s → (a) — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R2] trống liên tục đúng 6 s → không (a) — kỳ vọng sạch
+SAI  [EO-DAT-R2] chương 1: 2 khúc 3 s = 6 s / 40 s = 15 % > 10 % → (b) — kỳ vọng bắt lỗi · nhận []
+ĐÚNG [EO-DAT-R2] chương 1: 2 khúc 3 s / 40 s → KHÔNG (a) — kỳ vọng sạch
+SAI  [EO-DAT-R2] chương 2 (20 s): trống 3 s = 15 % > 10 % → (b) — kỳ vọng bắt lỗi · nhận []
+SAI  [EO-DAT-R2] mẫu số = thời lượng chương: trống 8 s / chương 100 s = 8 % → sạch (1.17.0: 8/20 eo đất = 40 % bắt) — kỳ vọng sạch · nhận ['(b) chương 1: eo đất trống 8.0/20.0 s = 40.0 % > 33.3 %']
+ĐÚNG [EO-DAT-R2] cùng dữ liệu, bỏ shot phố 80 s → 8/20 = 40 % → (b) — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R2] thiếu trong_pct → THIẾU — kỳ vọng sạch
+ĐÚNG [EO-DAT-R3] shot 20 s: 2 góc, biến cố 5 · 10,5 · 15,5 s → sạch — kỳ vọng sạch
+ĐÚNG [EO-DAT-R3] shot 20 s: 1 góc → (a) — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R3] shot 20 s: goc_may 2 phần tử → sạch (a) — kỳ vọng sạch
+ĐÚNG [EO-DAT-R3] shot 20 s: khoảng biến cố 8 s → (b) — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R3] shot 20 s thiếu so_goc → THIẾU — kỳ vọng sạch
+ĐÚNG [EO-DAT-R3] shot 15 s (không > 15 s) → không xét — kỳ vọng sạch
+ĐÚNG [cấp] EO-DAT ở animatic → Cảnh báo — kỳ vọng sạch
+ĐÚNG [cấp] EO-DAT ở G2 → Chặn — kỳ vọng bắt lỗi
+ĐÚNG [1.17 áp dụng] tập trước T3 → MINH-HOA/EO-DAT KHÔNG ÁP — kỳ vọng sạch
+ĐÚNG [Q33 (1.17)] 4 lần cùng điểm máy, 4 khoảng năm rời nhau → miễn 3 (đếm 1) — kỳ vọng sạch
+ĐÚNG [Q33 (1.17)] năm chồng lần trước (1780,5 trong 1780–82; 1940,5 trong 1940–41) → không miễn — kỳ vọng sạch
+ĐÚNG [Q33 (1.17)] không log năm → không miễn (hành vi 1.16.1) — kỳ vọng sạch
+ĐÚNG [Q33 (1.17)] cùng đoạn (B hai lần) → không miễn — kỳ vọng sạch
+ĐÚNG [Q33-K2 (1.17)] 3 lần cùng (vùng, góc), không log năm → > 2 (như 1.16.1) — kỳ vọng bắt lỗi
+ĐÚNG [Q33-K2 (1.17)] 3 lần, năm 1700 · 1780 · 1940 (đoạn khác) → miễn, ≤ 2 — kỳ vọng sạch
+ĐÚNG [Q33 (1.17)] q_scene.q33: 3 lần cùng góc khai, không năm → > 2 — kỳ vọng bắt lỗi
+ĐÚNG [Q33 (1.17)] q_scene.q33: 3 lần, 3 khoảng năm rời → ĐẠT — kỳ vọng sạch
+ĐÚNG [ML1 (1.17)] 1.16.1: cau "" → (c) không khớp câu — kỳ vọng bắt lỗi
+ĐÚNG [ML1 (1.17)] 1.17: cau "" = không gắn câu, không (c) — kỳ vọng sạch
+ĐÚNG [NC-H1 (1.17)] opt.bfile: 1.16.1 không nhận lớp nhà — kỳ vọng sạch
+ĐÚNG [NC-H1 (1.17)] opt.bfile: 1.17 nhận lớp nhà khai — kỳ vọng sạch
+ĐÚNG [NC-H1 (1.17)] p.lop_nha: 1.17 nhận — kỳ vọng sạch
+ĐÚNG [NC-H1 (1.17)] cảnh tl/* không khoá lớp nhà nào → vẫn không có lớp — kỳ vọng sạch
+ĐÚNG [cấp] K-LAI-3V animatic → Cảnh báo (K116-D5 giữ nguyên) — kỳ vọng sạch
+ĐÚNG [cấp] K-LAI-3V G2 → Chặn (K116-D5 giữ nguyên) — kỳ vọng bắt lỗi
+
+selftest 1.17: 102/113 ca đúng kỳ vọng · N2P đáp án 3/3 · N2P-1 7/7 · N2P-2 5/5 · N2P-3 4/4 · N2P-4 3/3 · N2P vision 2/2 · cấp 11/13 · N2P áp dụng 1/1 · N2P-5 6/6 · N2P-6 6/6 · MINH-HOA 16/16 · SACH-1 3/3 · EO-DAT-R1 5/10 · EO-DAT-R2 9/13 · EO-DAT-R3 6/6 · 1.17 áp dụng 1/1 · Q33 (1.17) 6/6 · Q33-K2 (1.17) 2/2 · ML1 (1.17) 2/2 · NC-H1 (1.17) 4/4
+exit 1

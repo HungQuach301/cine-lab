@@ -181,12 +181,16 @@ def city_chip(s):
     return bool(s) and bool(CITY_CHIP.match(s)) and not NOT_CITY.search(s)
 
 
-def layer_of(z):
-    """lớp nhà khai của shot thành phố (tập không có mặt nạ fabric)"""
+def layer_of(z, v117=False):
+    """lớp nhà khai của shot thành phố (tập không có mặt nạ fabric). v117 (1.17, CHỈ tập từ T3 — V7C-D5): thêm khoá lớp nhà của cảnh tl/*
+    (opt.bfile, cityOpt, pre1704town, pho2026) và trường chung `lop_nha` (q_k117.co_lop_nha)."""
     o = z['o']
     if z['ty'] in ('photo', 'document', 'record', 'footage'): return 'ảnh/footage'
     for k in ('aerial', 'city', 'buildings', 'ghost', 'fabric'):
         if o.get(k) or z['p'].get(k): return {'aerial': 'ảnh hàng không'}.get(k, k)
+    if v117:
+        from checks.ll import q_k117
+        return q_k117.co_lop_nha(z)
     return None
 
 
@@ -207,6 +211,8 @@ def nc_tap(E, TL):
     so = [z for z in S if z['strat_ok']]; sx = (f" · loại strategic hợp lệ {len(so)} shot ({sum(z['t1'] - z['t0'] for z in so):.1f} s) khỏi NC-H2/H3"
                                                if any(z['strat'] for z in S) else '')
     # ---- NC-H1
+    from checks.ll import q_k116
+    v117 = q_k116.ap_116(E)   # 1.17 (V7C-D5): lớp nhà khai của cảnh tl/* — chỉ tập từ T3
     L1, th1, units, rows1, near1 = [], [], [], [], []
     for z in S:
         if z['strat']: continue   # 1.14: bản đồ chiến lược không bao giờ là cảnh thành phố
@@ -217,7 +223,7 @@ def nc_tap(E, TL):
         elif city_chip(z['where']): city, why = True, f'suy: chip "{z["where"]}"'
         else: continue
         if not city: continue
-        units.append(z); lay = layer_of(z); fab = z['p'].get('fabric_pct') if isinstance(z['p'].get('fabric_pct'), list) else None
+        units.append(z); lay = layer_of(z, v117); fab = z['p'].get('fabric_pct') if isinstance(z['p'].get('fabric_pct'), list) else None
         if fab:
             med = statistics.median(fab); mn = min(fab)
             rows1.append(f"{_w(z)} ({why}): fabric trung vị {med:.1f} %, min {mn:.1f} %")
@@ -231,7 +237,7 @@ def nc_tap(E, TL):
             L1.append(f"(a) {_w(z)} ({why}): cảnh {z['scene']} không có lớp nhà/đường (fabric 0 % theo đặc tả) < {FAB_MED:g} %")
     tl1 = sum(z['t1'] - z['t0'] for z in units)
     H1 = r(True, L1, [], val=f"{len(units)} shot thành phố ({tl1:.1f} s; khai {sum(1 for z in units if z['noi'])}, suy {sum(1 for z in units if not z['noi'])})"
-                           f" · có lớp nhà khai {sum(1 for z in units if layer_of(z))} · không lớp nhà {sum(1 for z in units if not layer_of(z) and not isinstance(z['p'].get('fabric_pct'), list))}"
+                           f" · có lớp nhà khai {sum(1 for z in units if layer_of(z, v117))} · không lớp nhà {sum(1 for z in units if not layer_of(z, v117) and not isinstance(z['p'].get('fabric_pct'), list))}"
                            f" · không đo fabric {len(th1)}", sat_nguong=near1, chi_tiet=rows1, khong_do=th1)
     # ---- NC-H2
     fr = sorted(((t, km, z) for z in geo for t, km in z['agl']), key=lambda x: x[0])

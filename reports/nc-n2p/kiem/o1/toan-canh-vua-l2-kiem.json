@@ -1,0 +1,444 @@
+{
+ "tag": "toan-canh-vua-l2",
+ "render": "../nc-cpu/khung/A/cong-toan-canh.jpg",
+ "ai": "/var/tmp/n2p/o1/ai/toan-canh-vua-l2-ai.jpg",
+ "ghep": "/var/tmp/n2p/kiem-cuoi/toan-canh-vua-l2-ghep.png",
+ "sha_ghep": "6e8c52012931e9a5d1155d235a975fc860da5451c7d86686eb9b38f5c36f66be",
+ "nam": "1781",
+ "i_lop_a": {
+  "max_trong_a": 0,
+  "diem_lech_trong_a": 0,
+  "dien_tich_a_pct": 21.75,
+  "dai20_pct": 11.43,
+  "dai20_cum_dE30": 26,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     1551,
+     815,
+     1568,
+     870
+    ],
+    "px": 600
+   },
+   {
+    "hop": [
+     1597,
+     781,
+     1623,
+     814
+    ],
+    "px": 409
+   },
+   {
+    "hop": [
+     659,
+     624,
+     691,
+     645
+    ],
+    "px": 301
+   },
+   {
+    "hop": [
+     1525,
+     353,
+     1558,
+     374
+    ],
+    "px": 288
+   },
+   {
+    "hop": [
+     685,
+     600,
+     710,
+     622
+    ],
+    "px": 248
+   },
+   {
+    "hop": [
+     1103,
+     949,
+     1122,
+     972
+    ],
+    "px": 239
+   },
+   {
+    "hop": [
+     1665,
+     302,
+     1698,
+     316
+    ],
+    "px": 235
+   },
+   {
+    "hop": [
+     455,
+     872,
+     477,
+     889
+    ],
+    "px": 212
+   },
+   {
+    "hop": [
+     1552,
+     625,
+     1570,
+     644
+    ],
+    "px": 192
+   },
+   {
+    "hop": [
+     1682,
+     432,
+     1701,
+     453
+    ],
+    "px": 189
+   },
+   {
+    "hop": [
+     1446,
+     343,
+     1475,
+     362
+    ],
+    "px": 186
+   },
+   {
+    "hop": [
+     1658,
+     465,
+     1689,
+     477
+    ],
+    "px": 182
+   },
+   {
+    "hop": [
+     1640,
+     204,
+     1672,
+     216
+    ],
+    "px": 169
+   },
+   {
+    "hop": [
+     486,
+     862,
+     512,
+     872
+    ],
+    "px": 163
+   },
+   {
+    "hop": [
+     279,
+     964,
+     306,
+     980
+    ],
+    "px": 147
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 23,
+   "dE_trung_vi": 7.1,
+   "dE_p90": 11.23
+  },
+  "khop_mau": true,
+  "dat_ghep": true,
+  "vat_lop_a": [
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added upper dry-stone terrace wall on the right hillside, above the dense grove.",
+    "toa_do": [
+     0.889,
+     0.428,
+     1.0,
+     0.463
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added middle dry-stone terrace wall crossing the right hillside above the grove.",
+    "toa_do": [
+     0.887,
+     0.47,
+     1.0,
+     0.499
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added lower terrace wall immediately above and behind the prominent tall tree.",
+    "toa_do": [
+     0.856,
+     0.496,
+     1.0,
+     0.537
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added long, irregular dry-stone retaining wall below the dense grove, including its descending right-hand return.",
+    "toa_do": [
+     0.771,
+     0.635,
+     0.94,
+     0.713
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added lower dry-stone terrace wall extending left from the vicinity of the existing isolated pale rectangular structure.",
+    "toa_do": [
+     0.725,
+     0.731,
+     0.819,
+     0.761
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   }
+  ],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added upper dry-stone terrace wall on the right hillside, above the dense grove.",
+    "toa_do": [
+     0.889,
+     0.428,
+     1.0,
+     0.463
+    ],
+    "dai_a": false,
+    "ly_do": "An invented built landscape feature absent from the ground-truth render; prohibited under N2+, although dry-stone construction itself predates 1781.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added middle dry-stone terrace wall crossing the right hillside above the grove.",
+    "toa_do": [
+     0.887,
+     0.47,
+     1.0,
+     0.499
+    ],
+    "dai_a": false,
+    "ly_do": "Invented architectural addition under N2+; not intrinsically anachronistic construction.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added lower terrace wall immediately above and behind the prominent tall tree.",
+    "toa_do": [
+     0.856,
+     0.496,
+     1.0,
+     0.537
+    ],
+    "dai_a": false,
+    "ly_do": "Invented architectural addition absent from BEFORE, prohibited under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added long, irregular dry-stone retaining wall below the dense grove, including its descending right-hand return.",
+    "toa_do": [
+     0.771,
+     0.635,
+     0.94,
+     0.713
+    ],
+    "dai_a": false,
+    "ly_do": "Invented retaining structure; violates N2+ architectural preservation rather than representing a demonstrably later technology.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added lower dry-stone terrace wall extending left from the vicinity of the existing isolated pale rectangular structure.",
+    "toa_do": [
+     0.725,
+     0.731,
+     0.819,
+     0.761
+    ],
+    "dai_a": true,
+    "ly_do": "Invented architectural structure absent from BEFORE; prohibited under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "da_dat",
+    "mo_ta": "New continuous exposed limestone ridge across the middle-right foreground, rather than merely the isolated stones visible there before.",
+    "toa_do": [
+     0.745,
+     0.656,
+     1.0,
+     0.783
+    ],
+    "dai_a": true,
+    "ly_do": "Invented substantial rock relief is a ground-truth/N2+ violation, not a geological dating anachronism.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "da_dat",
+    "mo_ta": "Additional broad, raised limestone outcrop extending left of and above the pre-existing pale rock patch in the bottom-right foreground.",
+    "toa_do": [
+     0.692,
+     0.815,
+     1.0,
+     1.0
+    ],
+    "dai_a": true,
+    "ly_do": "The enlarged continuous outcrop introduces rock geometry beyond a texture change; invented cliff/rock relief is forbidden under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "da_dat",
+    "mo_ta": "Exposed jagged rock heads introduced along the diagonal offshore shoal southwest of the fleet.",
+    "toa_do": [
+     0.186,
+     0.354,
+     0.343,
+     0.464
+    ],
+    "dai_a": true,
+    "ly_do": "Previously flat, water-covered shoal markings have been interpreted as emergent rocks, changing ground-truth relief and locally water into land under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "da_dat",
+    "mo_ta": "Exposed rock heads at the two angular shallow-water features immediately offshore from the central waterfront.",
+    "toa_do": [
+     0.263,
+     0.524,
+     0.33,
+     0.574
+    ],
+    "dai_a": false,
+    "ly_do": "Adds emergent rock geometry at previously submerged features; prohibited ground-truth and water/land alteration under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "da_dat",
+    "mo_ta": "Added exposed boulders on and around the western tip of the larger shallow coastal projection.",
+    "toa_do": [
+     0.166,
+     0.628,
+     0.259,
+     0.687
+    ],
+    "dai_a": false,
+    "ly_do": "Some rock heads occupy the formerly blue submerged margin, introducing exposed land under N2+.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "da_dat",
+    "mo_ta": "Added emergent rocky islets at the smaller angular offshore shoal farther down the left shoreline.",
+    "toa_do": [
+     0.111,
+     0.702,
+     0.187,
+     0.741
+    ],
+    "dai_a": false,
+    "ly_do": "The BEFORE feature is blue and submerged; AFTER introduces exposed rocks, a prohibited water-to-land alteration.",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 0.51,
+  "nuoc_thanh_dat_pct": 2.77,
+  "t9b_dat_thanh_nuoc_pct": 0.17,
+  "t9b_nuoc_thanh_dat_pct": 1.61,
+  "dat": false,
+  "mo_hinh_bao": [
+   {
+    "mh": "gpt",
+    "mo_ta": "WATER became exposed ROCK/LAND locally at rock heads along the diagonal offshore shoal; not the entire bounding rectangle.",
+    "toa_do": [
+     0.186,
+     0.354,
+     0.343,
+     0.464
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "WATER became exposed ROCK/LAND at the two formerly submerged angular features offshore from the central waterfront.",
+    "toa_do": [
+     0.263,
+     0.524,
+     0.33,
+     0.574
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "WATER became exposed ROCK/LAND in patches along the submerged outer rim of the larger coastal projection.",
+    "toa_do": [
+     0.166,
+     0.628,
+     0.259,
+     0.687
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "WATER became exposed rocky islets within the smaller blue angular coastal shoal.",
+    "toa_do": [
+     0.111,
+     0.702,
+     0.187,
+     0.741
+    ]
+   }
+  ]
+ },
+ "iv_dong_bang": {
+  "ap_dung": true,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

@@ -1,0 +1,108 @@
+{
+  "them": [
+    {
+      "loai": "lua_lon",
+      "mo_ta": "Invented burst of fire and bright airborne sparks immediately offshore behind the central-left seawall.",
+      "toa_do": [0.331, 0.303, 0.373, 0.365],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "N2+ forbids invented fires on the water; this burst is absent from BEFORE.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "New tall smoke column rising from the invented offshore fire behind the central-left seawall.",
+      "toa_do": [0.28, 0.169, 0.362, 0.363],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke column on the water, forbidden by N2+ irrespective of historical plausibility.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "Separate smaller smoke plume immediately to the right of the new offshore fire.",
+      "toa_do": [0.396, 0.288, 0.447, 0.365],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Additional smoke plume absent from the ground-truth render.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "Large new billowing smoke formation rising behind and around the right-hand waterfront bastion, with reddish lower smoke extending inland.",
+      "toa_do": [0.578, 0.139, 0.791, 0.515],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "N2+ prohibits invented smoke columns in streets or on the water.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "lua_lon",
+      "mo_ta": "Invented belt of orange fire with distinct flame tongues and scattered sparks in the newly flooded ground between the diagonal wall and the central-right buildings.",
+      "toa_do": [0.548, 0.547, 0.727, 0.615],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented fire in previously unburning ground; expressly forbidden by N2+.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    }
+  ],
+  "bot_doi": [
+    {
+      "loai": "vuon",
+      "mo_ta": "The grassy coastal ground behind and to the right of the waterfront bastion has been replaced by water, leaving walls and structures standing in it.",
+      "toa_do": [0.561, 0.372, 1.0, 0.714],
+      "do_tin": 0.99
+    },
+    {
+      "loai": "vuon",
+      "mo_ta": "Dry grassy ground and paths between the diagonal inner wall and the central-right building enclosure have become a flooded, burning channel.",
+      "toa_do": [0.491, 0.53, 0.799, 0.696],
+      "do_tin": 0.99
+    },
+    {
+      "loai": "vuon",
+      "mo_ta": "The broad grassy foreground below the town, including the ground around the detached foreground houses, has been replaced by water.",
+      "toa_do": [0.0, 0.808, 0.641, 1.0],
+      "do_tin": 0.99
+    },
+    {
+      "loai": "vuon",
+      "mo_ta": "Grassy ground between the foreground houses and the right-hand fort, continuing around the outside of the fort, has been replaced by water.",
+      "toa_do": [0.556, 0.738, 1.0, 1.0],
+      "do_tin": 0.99
+    },
+    {
+      "loai": "vuon",
+      "mo_ta": "The green enclosed yard immediately left of the flag-bearing tower has become a dark water-filled basin.",
+      "toa_do": [0.759, 0.77, 0.868, 0.872],
+      "do_tin": 0.99
+    }
+  ],
+  "doi_loai_vung": [
+    {
+      "mo_ta": "LAND TO WATER: coastal ground inland of the right-hand waterfront bastion and along the right edge has become an extension of the sea.",
+      "toa_do": [0.561, 0.372, 1.0, 0.714],
+      "do_tin": 0.99
+    },
+    {
+      "mo_ta": "LAND TO WATER: formerly dry ground below the diagonal inner wall has become a broad channel containing invented fire and its reflections.",
+      "toa_do": [0.491, 0.53, 0.799, 0.696],
+      "do_tin": 0.99
+    },
+    {
+      "mo_ta": "LAND TO WATER: the lower-left foreground field and ground around the detached houses are submerged; the original town edge now acts as a shoreline.",
+      "toa_do": [0.0, 0.808, 0.641, 1.0],
+      "do_tin": 0.99
+    },
+    {
+      "mo_ta": "LAND TO WATER: ground between the foreground houses and fort, and along the fort's lower and right exterior, has become water.",
+      "toa_do": [0.556, 0.738, 1.0, 1.0],
+      "do_tin": 0.99
+    },
+    {
+      "mo_ta": "LAND TO WATER: the enclosed grassy yard just left of the flag-bearing tower has become a water-filled basin.",
+      "toa_do": [0.759, 0.77, 0.868, 0.872],
+      "do_tin": 0.99
+    }
+  ]
+}

@@ -92,11 +92,13 @@ def is_tl(spec, sh, HE):
     return t == 'timelapse' or bool(_f(spec, 'tl')) or bool(_f(sh, 'tl')) or str(hero).startswith('tl/')
 
 
-def ml1(E, TL, C, ep_dir=None, claims=None):
+def ml1(E, TL, C, ep_dir=None, claims=None, v117=False):
+    """v117 (1.17, CHỈ tập từ T3 — khiếu nại animatic T3): `cau: ""` = không gắn câu (không phải câu sai)."""
     S, bad = q_types.typed(E, TL); HE = TL.get('heroes') or E.get('heroes') or {}
     CL = set(claims) if claims is not None else claims_md(ep_dir); T = float(TL['tong_s']); M = {k: [] for k in 'abc'}; rows = []; tl_troi = 0.0; tl_all = 0.0; n_moc = 0
     for sid, i, a, b, t, sh, spec in S:
         tl = is_tl(spec, sh, HE); dau, cid = _f(spec, 'cau'), _f(spec, 'claim'); gan = None
+        if v117 and isinstance(dau, str) and not dau.strip(): dau = None
         if dau is not None:
             k = tim_cau(C, dau)
             if k is None: M['c'].append(f"{sid}/{i}: cau {str(dau)[:40]!r} không khớp đúng một câu trong lời")

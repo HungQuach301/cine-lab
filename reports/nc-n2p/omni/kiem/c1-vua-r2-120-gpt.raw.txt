@@ -1,0 +1,277 @@
+{
+  "them": [
+    {
+      "loai": "tau_lon",
+      "mo_ta": "Small sailing vessel added below the burning fleet, with a brown hull and pale upright sail or rigging.",
+      "toa_do": [0.436, 0.145, 0.456, 0.19],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Sailing vessels are period-compatible, but inventing a sailing ship is forbidden by the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+    },
+    {
+      "loai": "thuyen_nho",
+      "mo_ta": "Additional low, dark boat-like object immediately offshore, left of the first new smoke puff.",
+      "toa_do": [0.259, 0.322, 0.28, 0.341],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.7
+    },
+    {
+      "loai": "thuyen_nho",
+      "mo_ta": "Additional small dark boat-like object at the right edge of the western offshore smoke.",
+      "toa_do": [0.308, 0.325, 0.33, 0.345],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.66
+    },
+    {
+      "loai": "thuyen_nho",
+      "mo_ta": "Additional low boat-like silhouette above the middle offshore smoke puff.",
+      "toa_do": [0.351, 0.325, 0.374, 0.344],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.7
+    },
+    {
+      "loai": "thuyen_nho",
+      "mo_ta": "Additional small dark boat immediately to the right of the largest new offshore smoke puff.",
+      "toa_do": [0.465, 0.329, 0.484, 0.347],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.78
+    },
+    {
+      "loai": "thuyen_nho",
+      "mo_ta": "Additional small low brown boat-like object offshore, farther right of the new smoke puffs.",
+      "toa_do": [0.531, 0.311, 0.554, 0.328],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.72
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "New grey smoke puff on the water immediately beyond the western-central waterfront.",
+      "toa_do": [0.27, 0.299, 0.322, 0.359],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke on the water is explicitly forbidden, although smoke itself is not chronologically anachronistic.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "Second new low grey smoke puff on the water, east of the first.",
+      "toa_do": [0.335, 0.326, 0.382, 0.365],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke on the water is explicitly forbidden.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "Large new rounded grey smoke column immediately offshore behind the central waterfront wall.",
+      "toa_do": [0.413, 0.285, 0.464, 0.371],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke on the water is explicitly forbidden.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "Broad new grey smoke cloud across the ground south of the waterfront bastion and above the central fire.",
+      "toa_do": [0.558, 0.423, 0.71, 0.531],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "An invented smoke column within the settlement is forbidden by the supplied rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "lua_lon",
+      "mo_ta": "New central blaze behind the barracks enclosure, including a bright lower flame, an upper orange flame and a smaller flame to the right.",
+      "toa_do": [0.61, 0.54, 0.686, 0.616],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "This fire is absent from BEFORE; invented fires in the settlement are forbidden.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "New dark smoke spreading around and above the central blaze toward the castle.",
+      "toa_do": [0.584, 0.514, 0.742, 0.672],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke associated with an invented settlement fire is forbidden.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+    },
+    {
+      "loai": "lua_lon",
+      "mo_ta": "New bright fire immediately outside the castle's southwest wall, beside the red-roofed buildings.",
+      "toa_do": [0.615, 0.749, 0.655, 0.825],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "An invented fire on settlement ground is forbidden.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "lua_trai",
+      "mo_ta": "New smaller orange flame inside the castle's western enclosure, behind the red roofs.",
+      "toa_do": [0.693, 0.747, 0.716, 0.777],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "An invented fire is forbidden; there is no corresponding flame in BEFORE.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "New low dark smoke accompanying the fires at the western side of the castle.",
+      "toa_do": [0.635, 0.731, 0.751, 0.799],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented settlement smoke is forbidden.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.88
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "New pale branching dirt track across the lower-left foreground, with a spur reaching the edge of the town.",
+      "toa_do": [0.0, 0.802, 0.402, 1.0],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "New pale dirt-track network on the terrain east and southeast of the waterfront bastion, including a branch approaching the right-hand defensive wall.",
+      "toa_do": [0.786, 0.378, 1.0, 0.586],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "New raised pale rocky outcrop on the narrow coastal ground immediately west of the large waterfront bastion.",
+      "toa_do": [0.573, 0.337, 0.648, 0.39],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented substantial rocky relief is a ground-truth alteration covered by the prohibition on invented cliffs, not a chronological technology mismatch.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "New rocky ridges, exposed boulders and broken relief across the formerly smooth ground east of the waterfront bastion.",
+      "toa_do": [0.796, 0.38, 1.0, 0.576],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Substantial rocky relief has been invented rather than merely retextured; invented cliffs and terrain features are forbidden.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "New pale rocky ledges and boulders east of the long upright defensive wall and northeast of the castle.",
+      "toa_do": [0.94, 0.561, 1.0, 0.704],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented rocky relief changes the ground-truth terrain and falls under the supplied prohibition on invented cliffs.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "New large foreground rock outcrop cut by the bottom edge, below the branching dirt track.",
+      "toa_do": [0.134, 0.911, 0.291, 1.0],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "A substantial outcrop has been invented on previously comparatively flat ground; this is a terrain-geometry addition, not just texture.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "New scattered stones and smaller exposed rock groups across the lower-left foreground and beside the town-edge track.",
+      "toa_do": [0.0, 0.829, 0.389, 1.0],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "New large pale boulder formation below and southwest of the castle, with numerous smaller surrounding rocks.",
+      "toa_do": [0.477, 0.857, 0.727, 1.0],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Substantial rocky outcrops have been invented, changing terrain geometry under the prohibition on invented cliffs.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "New large pale foreground outcrop below the castle's main square tower, with adjacent smaller stones.",
+      "toa_do": [0.825, 0.909, 0.974, 1.0],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "A substantial rocky outcrop has been invented on the ground-truth terrain.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New individually raised bushes and scrub clumps across the lower foreground, including a prominent rounded bush left of the large foreground outcrop.",
+      "toa_do": [0.0, 0.823, 0.605, 1.0],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New scattered bushes and scrub among the rocks outside the castle's southern and western walls.",
+      "toa_do": [0.552, 0.813, 1.0, 1.0],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.92
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "New rounded bushes, including a small tree-like shrub, on the coastal ground east of the waterfront bastion.",
+      "toa_do": [0.809, 0.394, 1.0, 0.54],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "New low dark offshore feature in the upper-right sea, apparently a rocky islet or exposed shoal; its precise identity is uncertain.",
+      "toa_do": [0.881, 0.064, 0.931, 0.084],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.65
+    }
+  ],
+  "bot_doi": [
+    {
+      "loai": "da_dat",
+      "mo_ta": "Previously low, comparatively smooth foreground terrain has been replaced by raised boulder formations and broken rocky relief. This is a geometric terrain change beyond colour or texture.",
+      "toa_do": [0.0, 0.814, 1.0, 1.0],
+      "do_tin": 0.99
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "Previously smooth coastal ground around and east of the waterfront bastion has been changed into uneven rocky terrain with new ridges and ledges.",
+      "toa_do": [0.565, 0.338, 1.0, 0.705],
+      "do_tin": 0.96
+    }
+  ],
+  "doi_loai_vung": [
+    {
+      "mo_ta": "Possible water-to-land conversion: a new low rocky islet or exposed shoal appears in previously uninterrupted sea in the upper-right. The feature is too indistinct to exclude floating debris confidently.",
+      "toa_do": [0.881, 0.064, 0.931, 0.084],
+      "do_tin": 0.62
+    }
+  ]
+}

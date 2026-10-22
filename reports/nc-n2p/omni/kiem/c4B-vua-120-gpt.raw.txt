@@ -1,0 +1,530 @@
+{
+  "them": [
+    {
+      "loai": "tau_lon",
+      "mo_ta": "Added large sailing ship with multiple masts in the left-center bay; the original distant fleet remains separately visible.",
+      "toa_do": [0.392, 0.193, 0.436, 0.266],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Sailing vessels are period-compatible, but inventing a sailing ship absent from the ground truth is forbidden by the supplied N2+ rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "tau_lon",
+      "mo_ta": "Added large sailing ship with multiple masts farther right in the bay.",
+      "toa_do": [0.508, 0.191, 0.551, 0.263],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented sailing ship, explicitly forbidden by the supplied N2+ rules, although the vessel type is compatible with 1779.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Added settlement of numerous pale stone buildings below and to the left of the original waterfront town, including several taller rectangular buildings.",
+      "toa_do": [0.0, 0.218, 0.207, 0.326],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented stone buildings absent from BEFORE are explicitly forbidden; their appearance alone does not establish a post-1779 date.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "Added projecting cliff faces and rocky headland beneath the original town, substantially changing the rock's lower silhouette rather than merely its texture.",
+      "toa_do": [0.047, 0.135, 0.306, 0.269],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented cliffs and altered land geometry are explicitly forbidden under the supplied rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "Added distant mountainous land silhouette behind the left-hand rock.",
+      "toa_do": [0.0, 0.045, 0.411, 0.116],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Introduces land relief absent from the ground-truth background; this is a geometry addition, not simply atmospheric grading.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "Added broad curving sandy beach below the new settlement and around the left-center bay.",
+      "toa_do": [0.19, 0.262, 0.467, 0.38],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "The beach redraws the ground-truth shoreline, including water-to-sand conversion, forbidden by the supplied rules.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "Added rocky coastal ledges and small projecting outcrops along the newly created diagonal shoreline.",
+      "toa_do": [0.545, 0.361, 0.821, 0.529],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented coastal rock geometry accompanies a forbidden relocation of the shoreline.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "Added sandy beach and rocky coastal bank across the upper-right foreground.",
+      "toa_do": [0.782, 0.505, 1.0, 0.731],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "This is a newly invented coastline across previously inland terrain, not a texture-only edit.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Added branching dirt tracks through the new settlement and across the left middle ground toward the camps.",
+      "toa_do": [0.061, 0.275, 0.405, 0.493],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Added coastal dirt track running from the center toward the right-hand grove and camp.",
+      "toa_do": [0.38, 0.391, 0.668, 0.544],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Added broad diagonal dirt road across the bottom-left foreground, outside the left camp.",
+      "toa_do": [0.037, 0.858, 0.404, 1.0],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Added continuous dirt lane between the two large foreground camp rectangles.",
+      "toa_do": [0.373, 0.476, 0.484, 0.883],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Added winding dirt path around the right-side shelters, continuing through the lower-right foreground.",
+      "toa_do": [0.723, 0.646, 0.87, 1.0],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Added tall perimeter barrier or palisade along the western edge of the left camp.",
+      "toa_do": [0.14, 0.491, 0.246, 0.901],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Added tall segmented perimeter barrier along the eastern edge of the left camp, beside the central lane.",
+      "toa_do": [0.37, 0.488, 0.428, 0.858],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Added low boundary along the near edge of the left camp, joining its two long side barriers.",
+      "toa_do": [0.143, 0.846, 0.415, 0.902],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.93
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Added tall barrier along the right edge of the upper portion of the central-right camp.",
+      "toa_do": [0.533, 0.471, 0.647, 0.693],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "Added boundary barrier continuing beside the right-side shelter compound.",
+      "toa_do": [0.655, 0.706, 0.715, 0.824],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "Added pale pointed canvas tent immediately outside the western barrier of the left camp.",
+      "toa_do": [0.182, 0.611, 0.214, 0.67],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "Added rear pale canvas awning or tent in the right-side shelter compound.",
+      "toa_do": [0.657, 0.699, 0.707, 0.751],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "Added front rectangular canvas awning with visible supports in the right-side shelter compound.",
+      "toa_do": [0.68, 0.729, 0.726, 0.789],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "leu",
+      "mo_ta": "Added small dark low tent or temporary hut beside the right-side awnings.",
+      "toa_do": [0.71, 0.779, 0.739, 0.818],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+    },
+    {
+      "loai": "khac",
+      "mo_ta": "Added upright wooden frame with horizontal crosspiece inside the upper-middle part of the left camp.",
+      "toa_do": [0.249, 0.579, 0.269, 0.629],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+    },
+    {
+      "loai": "do_dac",
+      "mo_ta": "Added cluster of brown stacked supplies or camp equipment inside the left camp.",
+      "toa_do": [0.307, 0.61, 0.33, 0.644],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+    },
+    {
+      "loai": "khac",
+      "mo_ta": "Added several slender upright posts in the grazing ground west of the left camp; no clear lamp heads or wires are visible.",
+      "toa_do": [0.027, 0.515, 0.104, 0.698],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.86
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "Added vertical pale smoke plume just beyond the upper end of the left camp.",
+      "toa_do": [0.309, 0.426, 0.329, 0.489],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented camp smoke absent from BEFORE; the supplied rules prohibit invented campfires and smoke sources.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "Added pale smoke plume near the upper-left corner of the central-right camp.",
+      "toa_do": [0.416, 0.45, 0.434, 0.492],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented smoke source associated with the camp, absent from the ground truth.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "Added low pale smoke puff inside the left camp, below the wooden frame.",
+      "toa_do": [0.257, 0.622, 0.282, 0.654],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented camp smoke; no corresponding smoke source exists in BEFORE.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+    },
+    {
+      "loai": "khoi",
+      "mo_ta": "Added pale smoke or steam plume beside the supplies in the left camp.",
+      "toa_do": [0.325, 0.593, 0.35, 0.636],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "Invented camp smoke absent from the ground truth.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+    },
+    {
+      "loai": "co",
+      "mo_ta": "Added red-and-pale flag on a pole beside the middle of the left camp's eastern barrier.",
+      "toa_do": [0.404, 0.706, 0.42, 0.757],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+    },
+    {
+      "loai": "co",
+      "mo_ta": "Added small reddish flag immediately below and right of the existing flag above the left camp.",
+      "toa_do": [0.36, 0.466, 0.37, 0.486],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.88
+    },
+    {
+      "loai": "co",
+      "mo_ta": "Added small pink-red flag beside the existing flag above the central-right camp.",
+      "toa_do": [0.529, 0.45, 0.538, 0.472],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+    },
+    {
+      "loai": "nguoi",
+      "mo_ta": "Added two tiny upright human-like figures in the open ground above the left camp.",
+      "toa_do": [0.342, 0.397, 0.362, 0.421],
+      "thoi_dai_sai": true,
+      "ly_do_thoi_dai": "These appear to be invented camp personnel, prohibited by the supplied rule against invented troops; clothing details are too small to date.",
+      "nam_xuat_hien": null,
+      "do_tin": 0.68
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "Added dark grazing quadruped at the far-left edge, level with the upper portion of the left camp.",
+      "toa_do": [0.012, 0.608, 0.027, 0.629],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "Added dark grazing quadruped farther right in the upper row west of the camp.",
+      "toa_do": [0.054, 0.609, 0.07, 0.632],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "Added dark grazing quadruped at the right end of that upper row.",
+      "toa_do": [0.12, 0.608, 0.136, 0.629],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "Added dark quadruped in the middle-left grazing ground.",
+      "toa_do": [0.032, 0.673, 0.051, 0.696],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "Added dark quadruped farther right in the middle grazing row.",
+      "toa_do": [0.092, 0.68, 0.111, 0.701],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.92
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "Added horse-like quadruped nearest the western camp barrier.",
+      "toa_do": [0.157, 0.707, 0.175, 0.732],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "Added dark horse-like quadruped near the far-left lower grazing ground.",
+      "toa_do": [0.018, 0.784, 0.036, 0.806],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "Added dark grazing quadruped in the lower middle-left foreground.",
+      "toa_do": [0.106, 0.829, 0.122, 0.85],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.88
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "Added pale-and-dark quadruped beside the lower part of the western camp barrier.",
+      "toa_do": [0.139, 0.823, 0.155, 0.845],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+    },
+    {
+      "loai": "dong_vat",
+      "mo_ta": "Added dark horse-like quadruped beside the right-side shelter compound.",
+      "toa_do": [0.759, 0.731, 0.782, 0.76],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+    },
+    {
+      "loai": "khac",
+      "mo_ta": "Added two small dark low objects beside the coastal track above the central-right camp; their resolution does not establish whether they are animals or equipment.",
+      "toa_do": [0.606, 0.459, 0.631, 0.477],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.76
+    },
+    {
+      "loai": "vuon",
+      "mo_ta": "Added multiple hedge-like rows and enclosed green plots below the new settlement and across the left middle ground.",
+      "toa_do": [0.0, 0.326, 0.204, 0.495],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.95
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Added dense scrub and hedgerow bands around the western grazing ground and camp perimeter, replacing the much more open ground between the original scattered trees.",
+      "toa_do": [0.0, 0.491, 0.216, 0.909],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+    },
+    {
+      "loai": "vuon",
+      "mo_ta": "Added more regularly arranged orchard-like tree rows on the right coastal bank, replacing the original irregular grove.",
+      "toa_do": [0.638, 0.515, 0.786, 0.641],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Added distinct clumps and hedge-like strips beside the new lower-right winding path and shelter compound.",
+      "toa_do": [0.716, 0.758, 0.874, 1.0],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.93
+    }
+  ],
+  "bot_doi": [
+    {
+      "loai": "da_dat",
+      "mo_ta": "Removed the entire distant upper-right headland and its shoreline; open sea/background now occupies its position.",
+      "toa_do": [0.735, 0.08, 1.0, 0.143],
+      "do_tin": 0.99
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "Removed a large expanse of the original flat coastal plain, moving the near shoreline far inland and diagonally across the frame. The distant right-hand camp patch survives as an isolated apparent platform.",
+      "toa_do": [0.223, 0.208, 1.0, 0.728],
+      "do_tin": 0.99
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "Changed the lower geometry and silhouette of Gibraltar's rock, replacing the original sloping base with much taller sheer faces and projecting coastal cliffs.",
+      "toa_do": [0.023, 0.103, 0.306, 0.269],
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Removed the line of scattered bushes and trees near the original upper-right shoreline.",
+      "toa_do": [0.653, 0.261, 0.857, 0.3],
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Removed the small isolated tree cluster in the former middle-right coastal plain; its location is now water.",
+      "toa_do": [0.719, 0.322, 0.745, 0.349],
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Removed the original irregular scrub patches across the former upper-central plain as the area was replaced by the new shoreline and sea.",
+      "toa_do": [0.552, 0.302, 0.712, 0.427],
+      "do_tin": 0.97
+    },
+    {
+      "loai": "da_dat",
+      "mo_ta": "Removed the broad pale stony or sandy patch in the former right middle ground; most of its location is now water.",
+      "toa_do": [0.717, 0.364, 0.924, 0.485],
+      "do_tin": 0.98
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Replaced the original irregular right-hand grove with differently positioned trees and more orderly rows; many of the original lower trees are gone.",
+      "toa_do": [0.642, 0.516, 0.798, 0.706],
+      "do_tin": 0.95
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Removed or replaced numerous original isolated trees west of the left camp, where the edited image now shows grazing animals and different hedge/scrub arrangements.",
+      "toa_do": [0.0, 0.528, 0.187, 0.818],
+      "do_tin": 0.94
+    },
+    {
+      "loai": "cay",
+      "mo_ta": "Replaced the original small tree clumps and open vegetation pattern in the left middle ground with hedge-like rows, plots, and tracks.",
+      "toa_do": [0.018, 0.358, 0.204, 0.486],
+      "do_tin": 0.92
+    }
+  ],
+  "doi_loai_vung": [
+    {
+      "mo_ta": "LAND → WATER: the distant upper-right headland has disappeared into open sea/background.",
+      "toa_do": [0.735, 0.08, 1.0, 0.143],
+      "do_tin": 0.99
+    },
+    {
+      "mo_ta": "LAND → WATER: the sea advances into the former plain across the upper-central part of the frame, forming the new curving bay. This bounding box encloses an irregular converted region, not a wholly rectangular conversion.",
+      "toa_do": [0.241, 0.216, 0.606, 0.388],
+      "do_tin": 0.99
+    },
+    {
+      "mo_ta": "LAND → WATER: the former upper-right plain is submerged around the surviving distant camp patch; that camp patch itself remains land.",
+      "toa_do": [0.601, 0.245, 1.0, 0.495],
+      "do_tin": 0.99
+    },
+    {
+      "mo_ta": "LAND → WATER: the new diagonal coastline cuts deeply into the former right middle ground, with sea occupying ground above and to the right of the new coastal bank.",
+      "toa_do": [0.763, 0.451, 1.0, 0.724],
+      "do_tin": 0.99
+    },
+    {
+      "mo_ta": "WATER → LAND: the enlarged rocky headland below the original waterfront town projects into the former bay.",
+      "toa_do": [0.195, 0.162, 0.305, 0.266],
+      "do_tin": 0.96
+    },
+    {
+      "mo_ta": "WATER → LAND/SAND: part of the original small inlet below the rock is filled by the new settlement-side terrain and sandy beach.",
+      "toa_do": [0.139, 0.167, 0.249, 0.256],
+      "do_tin": 0.93
+    }
+  ]
+}

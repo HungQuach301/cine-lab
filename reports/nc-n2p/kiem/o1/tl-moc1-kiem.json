@@ -1,0 +1,128 @@
+{
+ "tag": "tl-moc1",
+ "render": "/var/tmp/n2p/tlmoc/rgb/00168.jpg",
+ "ai": "/var/tmp/n2p/tlmoc/ai/tl-moc1-ai.jpg",
+ "ghep": "/var/tmp/n2p/kiem-cuoi/tl-moc1-ghep.png",
+ "sha_ghep": "7e12bab9a6fc94335126d08d1cc05a5c4c0a3379b2c6dfcbe0258dfca2314df7",
+ "nam": "1779",
+ "i_lop_a": {
+  "max_trong_a": 0,
+  "diem_lech_trong_a": 0,
+  "dien_tich_a_pct": 0.35,
+  "dai20_pct": 3.02,
+  "dai20_cum_dE30": 1,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     237,
+     79,
+     301,
+     98
+    ],
+    "px": 768
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 2,
+   "dE_trung_vi": 10.98,
+   "dE_p90": 14.88
+  },
+  "khop_mau": true,
+  "dat_ghep": true,
+  "vat_lop_a": [],
+  "dat": true
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Cluster of wooden barrels standing on the plain, left-centre",
+    "toa_do": [
+     0.255,
+     0.385,
+     0.305,
+     0.42
+    ],
+    "dai_a": false,
+    "ly_do": "Invented goods or barrels, not in the 3D render (the rule forbids invented objects)",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Cluster of wooden barrels on the plain, right-centre",
+    "toa_do": [
+     0.785,
+     0.53,
+     0.835,
+     0.57
+    ],
+    "dai_a": false,
+    "ly_do": "Invented goods or barrels, not in the 3D render",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Pile of logs or stones, upper left of the plain",
+    "toa_do": [
+     0.36,
+     0.335,
+     0.4,
+     0.36
+    ],
+    "dai_a": false,
+    "ly_do": "Invented timber or stone pile",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Small heap of stones or wood, left edge",
+    "toa_do": [
+     0.065,
+     0.465,
+     0.115,
+     0.5
+    ],
+    "dai_a": false,
+    "ly_do": "Invented heap",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 0.14,
+  "nuoc_thanh_dat_pct": 0.53,
+  "t9b_dat_thanh_nuoc_pct": 0.01,
+  "t9b_nuoc_thanh_dat_pct": 0.43,
+  "dat": true,
+  "mo_hinh_bao": []
+ },
+ "iv_dong_bang": {
+  "ap_dung": true,
+  "loi": [
+   {
+    "mh": "gpt",
+    "loai": "xe_chay",
+    "mo_ta": "Added small wooden cart with an apparent harnessed horse or similar draught animal on its right; no movement can be established from the still image.",
+    "toa_do": [
+     0.365,
+     0.335,
+     0.402,
+     0.36
+    ],
+    "dai_a": false
+   }
+  ],
+  "mo_hinh_bao": [
+   "gpt"
+  ],
+  "dat": false
+ },
+ "dat_ca": false
+}

@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c4B-vua-r2-180",
+   "nam": 1779,
+   "noi": "Gibraltar",
+   "sha256": "027ba3ac8de7c08b41877bdc5637e814273a0b2c0872f65db46d1c34578f0547",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "A tiny flag on a pole at the corner of the left field plot looks like a red-and-white Union-style flag. It is too small to tell which version it is.",
+     "ly_do": "If it is the 1801 Union Jack, which has the Irish saltire, it would be anachronistic. The 1606/1707 Union flag was in use in 1779. I cannot identify the design at this size.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      730,
+      815,
+      758,
+      842
+     ],
+     "do_tin": 0.15
+    }
+   ],
+   "cost_usd": 0.0369562,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1020,
+     "cacheReadInputTokens": 2167,
+     "cacheCreationInputTokens": 10611,
+     "webSearchRequests": 0,
+     "costUSD": 0.0369562,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 312,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1779,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"A tiny flag on a pole at the corner of the left field plot looks like a red-and-white Union-style flag. It is too small to tell which version it is.\",\"ly_do\":\"If it is the 1801 Union Jack, which has the Irish saltire, it would be anachronistic. The 1606/1707 Union flag was in use in 1779. I cannot identify the design at this size.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.380,0.755,0.395,0.78],\"do_tin\":0.15}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.037,
+ "chi_phi_tb": 0.037,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

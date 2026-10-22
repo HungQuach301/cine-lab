@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c1-vua-120",
+   "nam": 1782,
+   "noi": "Gibraltar",
+   "sha256": "b998f7e98858bb5f1f8f656d94d9b6d57fcc853c23a831096ccbd844100c3c65",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "A Union flag flies on the tower at the right. At this resolution its pattern looks like the red, white and blue Union flag. It might be the post-1801 design with the St Patrick's saltire.",
+     "ly_do": "The 1801 Union flag, which added the St Patrick's saltire, did not exist in 1782. The 1707 Union flag was the correct one then. I can't tell the two apart at this size, so this is unlikely to be a real anachronism.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      1738,
+      745,
+      1805,
+      821
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.033727400000000005,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 884,
+     "cacheReadInputTokens": 2804,
+     "cacheCreationInputTokens": 9838,
+     "webSearchRequests": 0,
+     "costUSD": 0.033727400000000005,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 191,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1782,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"A Union flag flies on the tower at the right. At this resolution its pattern looks like the red, white and blue Union flag. It might be the post-1801 design with the St Patrick's saltire.\",\"ly_do\":\"The 1801 Union flag, which added the St Patrick's saltire, did not exist in 1782. The 1707 Union flag was the correct one then. I can't tell the two apart at this size, so this is unlikely to be a real anachronism.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.905,0.69,0.94,0.76],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0337,
+ "chi_phi_tb": 0.0337,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

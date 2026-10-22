@@ -1,0 +1,310 @@
+{
+ "tag": "c1-vua-120",
+ "render": "/var/tmp/n2p/src/c1/rgb/00384.jpg",
+ "ai": "/var/tmp/n2p/omni/khung/c1-vua-120.png",
+ "ghep": "/var/tmp/n2p/omni/kiem/c1-vua-120-ghep.png",
+ "sha_ghep": "a68ca171923a62c6db79fc1676ae0f1e13f354bc9d62381f398b15828e2319b3",
+ "nam": "1782",
+ "i_lop_a": {
+  "max_trong_a": 45,
+  "diem_lech_trong_a": 359423,
+  "dien_tich_a_pct": 39.17,
+  "dai20_pct": 17.72,
+  "dai20_cum_dE30": 28,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     813,
+     618,
+     1066,
+     691
+    ],
+    "px": 3344
+   },
+   {
+    "hop": [
+     980,
+     566,
+     1085,
+     621
+    ],
+    "px": 1967
+   },
+   {
+    "hop": [
+     779,
+     310,
+     881,
+     334
+    ],
+    "px": 1123
+   },
+   {
+    "hop": [
+     786,
+     415,
+     868,
+     433
+    ],
+    "px": 941
+   },
+   {
+    "hop": [
+     482,
+     596,
+     534,
+     636
+    ],
+    "px": 874
+   },
+   {
+    "hop": [
+     1110,
+     656,
+     1191,
+     683
+    ],
+    "px": 855
+   },
+   {
+    "hop": [
+     791,
+     395,
+     872,
+     416
+    ],
+    "px": 836
+   },
+   {
+    "hop": [
+     628,
+     651,
+     717,
+     672
+    ],
+    "px": 781
+   },
+   {
+    "hop": [
+     249,
+     584,
+     326,
+     606
+    ],
+    "px": 772
+   },
+   {
+    "hop": [
+     395,
+     240,
+     441,
+     260
+    ],
+    "px": 680
+   },
+   {
+    "hop": [
+     688,
+     402,
+     756,
+     426
+    ],
+    "px": 622
+   },
+   {
+    "hop": [
+     607,
+     34,
+     648,
+     55
+    ],
+    "px": 472
+   },
+   {
+    "hop": [
+     928,
+     432,
+     967,
+     452
+    ],
+    "px": 346
+   },
+   {
+    "hop": [
+     806,
+     349,
+     869,
+     368
+    ],
+    "px": 328
+   },
+   {
+    "hop": [
+     767,
+     549,
+     792,
+     566
+    ],
+    "px": 245
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 9,
+   "dE_trung_vi": 10.71,
+   "dE_p90": 15.68
+  },
+  "khop_mau": false,
+  "dat_ghep": false,
+  "vat_lop_a": [],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "gpt",
+    "loai": "khoi",
+    "mo_ta": "New large, dark smoke column rising from the water immediately offshore of the central waterfront.",
+    "toa_do": [
+     0.277,
+     0.19,
+     0.36,
+     0.365
+    ],
+    "dai_a": true,
+    "ly_do": "An invented smoke column on the water is expressly forbidden by the supplied rules; this is not a claim that smoke itself is historically anachronistic.",
+    "nam": null
+   },
+   {
+    "mh": "gpt",
+    "loai": "khoi",
+    "mo_ta": "Additional low, pale-grey smoke plume over the water, just to the right of the new dark smoke column.",
+    "toa_do": [
+     0.358,
+     0.318,
+     0.431,
+     0.371
+    ],
+    "dai_a": true,
+    "ly_do": "An invented smoke plume on the water is expressly forbidden by the supplied rules.",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "khoi",
+    "mo_ta": "Large dark smoke column invented over open water in the centre-left, near the shoreline wall",
+    "toa_do": [
+     0.28,
+     0.2,
+     0.36,
+     0.37
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke column on the water with no source in the render (NC-V2V c1, c2-a)",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "khoi",
+    "mo_ta": "Grey smoke or mist patches added over the land and the new water inlet near the walls and barracks",
+    "toa_do": [
+     0.55,
+     0.43,
+     0.78,
+     0.67
+    ],
+    "dai_a": true,
+    "ly_do": "Invented smoke or steam drifting over the streets and fortifications (NC-V2V c1)",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 32.42,
+  "nuoc_thanh_dat_pct": 0.68,
+  "t9b_dat_thanh_nuoc_pct": 31.2,
+  "t9b_nuoc_thanh_dat_pct": 0.0,
+  "dat": false,
+  "mo_hinh_bao": [
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND → WATER: grassy land around the upper-right waterfront bastion and on the seaward side of the long diagonal defensive wall is flooded, moving the shoreline inland around the existing fortifications.",
+    "toa_do": [
+     0.55,
+     0.351,
+     1.0,
+     0.731
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND → WATER: the strip below the long diagonal wall and above the central barracks enclosure has become a water-filled channel.",
+    "toa_do": [
+     0.507,
+     0.538,
+     0.853,
+     0.705
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND → WATER: the enclosed courtyard beside the foreground fortress's square tower has become a pool.",
+    "toa_do": [
+     0.702,
+     0.746,
+     0.855,
+     0.866
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND → WATER: broad foreground ground surfaces are flooded, with reflective shallow water surrounding the existing houses and fortress walls. The buildings themselves remain.",
+    "toa_do": [
+     0.0,
+     0.747,
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Land became water: the green or brown ground to the right of the mole and inside the fortification (between the walls and the tower) was turned into dark sea or inlet water, and the coastline moved inland",
+    "toa_do": [
+     0.55,
+     0.36,
+     1.0,
+     0.95
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Land became water: the foreground brown ground at the bottom turned into a grey-tan sandy or shallow water surface, with dark blue water pools around the houses at bottom centre and right",
+    "toa_do": [
+     0.0,
+     0.8,
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Land became water: dark water between the town edge and the walls, and the area left of the mole, where the green ground was turned dark water",
+    "toa_do": [
+     0.52,
+     0.36,
+     0.62,
+     0.62
+    ]
+   }
+  ]
+ },
+ "iv_dong_bang": {
+  "ap_dung": false,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

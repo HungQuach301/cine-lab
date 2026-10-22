@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "toan-canh-vua-l3-ghep",
+   "nam": 1781,
+   "noi": "Gibraltar",
+   "sha256": "7a190b678a4f706ea2408d8e262b02f2cf3a85aae305d979acbac9ecca790ed1",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "The landscape is a wide bay with low rolling hills, and a walled town sits on a gently sloping hillside. The Rock of Gibraltar, with its steep limestone ridge, is not visible. The Old Mole and the town walls are shown in a generic way.",
+     "ly_do": "This terrain does not match the real topography of Gibraltar in 1781. That is a landmark-terrain error, not a dating anachronism.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      0,
+      0,
+      1920,
+      1080
+     ],
+     "do_tin": 0.3
+    },
+    {
+     "muc": "vat_hien_dai",
+     "mo_ta": "A smooth, pale rectangular slab lies upright on the scrubby hillside, and it looks like a concrete or modern block.",
+     "ly_do": "It looks like a modern concrete or stone slab, with no known 18th-century equivalent at this spot.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1565,
+      788,
+      1622,
+      864
+     ],
+     "do_tin": 0.15
+    }
+   ],
+   "cost_usd": 0.0378432,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1245,
+     "cacheReadInputTokens": 2912,
+     "cacheCreationInputTokens": 10036,
+     "webSearchRequests": 0,
+     "costUSD": 0.0378432,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 320,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1781,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The landscape is a wide bay with low rolling hills, and a walled town sits on a gently sloping hillside. The Rock of Gibraltar, with its steep limestone ridge, is not visible. The Old Mole and the town walls are shown in a generic way.\",\"ly_do\":\"This terrain does not match the real topography of Gibraltar in 1781. That is a landmark-terrain error, not a dating anachronism.\",\"nam_xuat_hien\":null,\"toa_do\":[0.0,0.0,1.0,1.0],\"do_tin\":0.3},{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"A smooth, pale rectangular slab lies upright on the scrubby hillside, and it looks like a concrete or modern block.\",\"ly_do\":\"It looks like a modern concrete or stone slab, with no known 18th-century equivalent at this spot.\",\"nam_xuat_hien\":null,\"toa_do\":[0.815,0.73,0.845,0.8],\"do_tin\":0.15}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0378,
+ "chi_phi_tb": 0.0378,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

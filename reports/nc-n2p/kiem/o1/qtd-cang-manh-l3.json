@@ -1,0 +1,80 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.045 (TB $0.045/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "cang-manh-l3-ghep",
+   "nam": 1780,
+   "noi": "Gibraltar",
+   "sha256": "e8346c41d61472030cf5192cfe4c229e314ae9f04c137c0235e2e5dc8154bf04",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "tau",
+     "mo_ta": "Several small, dark, cigar-shaped objects with long white wakes move across the bay. They have no masts, sails or oars. They look like torpedoes or motor launches.",
+     "ly_do": "A sail-only, oar-powered 1780 harbour would not have self-propelled, mastless hulls leaving straight foam trails. The shape reads as a torpedo or motorboat.",
+     "nam_xuat_hien": 1866,
+     "toa_do_px": [
+      668,
+      643,
+      762,
+      666
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "vung_px": [
+       574,
+       513,
+       856,
+       795
+      ],
+      "phong": 2.38,
+      "tra_loi": {
+       "vat": "Unidentified small object floating on the sea, possibly a spar, a log, a boat's wake streak, or a very small boat seen from above",
+       "dac_diem": "A thin straight elongated shape with a white or pale body and a black end. There is no visible rig, sail, funnel, hull form or armament. A similar smaller object sits at the top right. The surrounding water is blue and rippled, with a patch of foam or wake, and coastline is visible at the top left.",
+       "co_tu_nam": null,
+       "da_co_nam_1780": "cannot_tell",
+       "ly_do": "The object is too abstract and blurred to classify as a ship or boat design. It shows no rig, funnel or hull detail, so I can't date it. A plain floating spar or log would have existed in 1780, but I can't confirm that is what it is."
+      },
+      "da_co": "cannot_tell",
+      "giu": false,
+      "cost_usd": 0.0098849,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 2.38×: da_co_nam = 'cannot_tell' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.0452295,
+   "cost_buoc2": 0.00988,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1012,
+     "cacheReadInputTokens": 2876,
+     "cacheCreationInputTokens": 9970,
+     "webSearchRequests": 0,
+     "costUSD": 0.0353446,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 282,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"tau\",\"mo_ta\":\"Several small, dark, cigar-shaped objects with long white wakes move across the bay. They have no masts, sails or oars. They look like torpedoes or motor launches.\",\"ly_do\":\"A sail-only, oar-powered 1780 harbour would not have self-propelled, mastless hulls leaving straight foam trails. The shape reads as a torpedo or motorboat.\",\"nam_xuat_hien\":1866,\"toa_do\":[0.348,0.595,0.397,0.617],\"do_tin\":0.5}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0452,
+ "chi_phi_tb": 0.0452,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

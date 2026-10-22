@@ -1,0 +1,229 @@
+{
+ "tag": "tl-moc2-l3",
+ "render": "/var/tmp/n2p/tlmoc/rgb/00408.jpg",
+ "ai": "/var/tmp/n2p/tlmoc/ai/tl-moc2-l3-ai.jpg",
+ "ghep": "/var/tmp/n2p/kiem-cuoi/tl-moc2-l3-ghep.png",
+ "sha_ghep": "7e1d9232236af97434da1818f33e08393db98360771bd7a235fd44cef89151f8",
+ "nam": "1779",
+ "i_lop_a": {
+  "max_trong_a": 0,
+  "diem_lech_trong_a": 0,
+  "dien_tich_a_pct": 18.45,
+  "dai20_pct": 13.5,
+  "dai20_cum_dE30": 3,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     237,
+     80,
+     299,
+     98
+    ],
+    "px": 710
+   },
+   {
+    "hop": [
+     523,
+     464,
+     545,
+     476
+    ],
+    "px": 113
+   },
+   {
+    "hop": [
+     338,
+     334,
+     366,
+     339
+    ],
+    "px": 83
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 6,
+   "dE_trung_vi": 4.63,
+   "dE_p90": 8.93
+  },
+  "khop_mau": true,
+  "dat_ghep": true,
+  "vat_lop_a": [
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "The pale winding footpath through the lower-right open ground has been erased or largely obscured by the new vegetation and rocky ground. In BEFORE it curves left from beside the lower-right camp, then bends back toward the bottom edge.",
+    "toa_do": [
+     0.727,
+     0.718,
+     0.844,
+     1.0
+    ],
+    "dai_a": true,
+    "kieu": "BỚT/ĐỔI vật lớp (a)"
+   }
+  ],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Stack of barrels or logs on the plain, newly added",
+    "toa_do": [
+     0.26,
+     0.45,
+     0.3,
+     0.475
+    ],
+    "dai_a": true,
+    "ly_do": "Invented heap of barrels or timber not in the render",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Stack of barrels or logs, added",
+    "toa_do": [
+     0.38,
+     0.45,
+     0.4,
+     0.475
+    ],
+    "dai_a": true,
+    "ly_do": "Invented heap not in the render",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Stack of barrels or logs, added",
+    "toa_do": [
+     0.19,
+     0.51,
+     0.22,
+     0.53
+    ],
+    "dai_a": false,
+    "ly_do": "Invented heap not in the render",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Stack of barrels or logs, added",
+    "toa_do": [
+     0.17,
+     0.55,
+     0.2,
+     0.575
+    ],
+    "dai_a": true,
+    "ly_do": "Invented heap not in the render",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Stack of logs or barrels, added",
+    "toa_do": [
+     0.4,
+     0.64,
+     0.43,
+     0.66
+    ],
+    "dai_a": true,
+    "ly_do": "Invented heap not in the render",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Pile of logs, added",
+    "toa_do": [
+     0.42,
+     0.79,
+     0.45,
+     0.82
+    ],
+    "dai_a": false,
+    "ly_do": "Invented heap not in the render",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Pile of logs, added",
+    "toa_do": [
+     0.65,
+     0.68,
+     0.68,
+     0.705
+    ],
+    "dai_a": true,
+    "ly_do": "Invented heap not in the render",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Stack of barrels, added",
+    "toa_do": [
+     0.825,
+     0.63,
+     0.85,
+     0.66
+    ],
+    "dai_a": false,
+    "ly_do": "Invented heap not in the render",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Stack of barrels, added",
+    "toa_do": [
+     0.765,
+     0.795,
+     0.805,
+     0.83
+    ],
+    "dai_a": false,
+    "ly_do": "Invented heap not in the render",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Stack of barrels, added",
+    "toa_do": [
+     0.79,
+     0.825,
+     0.83,
+     0.85
+    ],
+    "dai_a": false,
+    "ly_do": "Invented heap not in the render",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 0.26,
+  "nuoc_thanh_dat_pct": 0.1,
+  "t9b_dat_thanh_nuoc_pct": 0.14,
+  "t9b_nuoc_thanh_dat_pct": 0.06,
+  "dat": true,
+  "mo_hinh_bao": []
+ },
+ "iv_dong_bang": {
+  "ap_dung": true,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

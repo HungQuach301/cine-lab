@@ -1,0 +1,172 @@
+{
+ "tag": "tl-moc2",
+ "render": "/var/tmp/n2p/tlmoc/rgb/00408.jpg",
+ "ai": "/var/tmp/n2p/tlmoc/ai/tl-moc2-ai.jpg",
+ "ghep": "/var/tmp/n2p/kiem-cuoi/tl-moc2-ghep.png",
+ "sha_ghep": "253660beea023e75a5ec4ddb1a6031acf6e21d5d0a827e8a52bd25e3461a4e25",
+ "nam": "1779",
+ "i_lop_a": {
+  "max_trong_a": 0,
+  "diem_lech_trong_a": 0,
+  "dien_tich_a_pct": 18.45,
+  "dai20_pct": 13.5,
+  "dai20_cum_dE30": 3,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     237,
+     80,
+     300,
+     98
+    ],
+    "px": 730
+   },
+   {
+    "hop": [
+     534,
+     489,
+     554,
+     502
+    ],
+    "px": 131
+   },
+   {
+    "hop": [
+     378,
+     332,
+     392,
+     342
+    ],
+    "px": 110
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 6,
+   "dE_trung_vi": 4.85,
+   "dE_p90": 8.58
+  },
+  "khop_mau": true,
+  "dat_ghep": true,
+  "vat_lop_a": [
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "New narrow, winding dirt footpath through the open ground above the left camp, passing the new barrel stack and log pile and continuing toward the space between the camps.",
+    "toa_do": [
+     0.369,
+     0.392,
+     0.48,
+     0.493
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Additional branching dirt tracks east of the central grove, including a branch past the new barrels and a connection south to the pre-existing curved foreground track.",
+    "toa_do": [
+     0.762,
+     0.539,
+     0.945,
+     0.84
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   }
+  ],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Stack of barrels or casks in the left foreground, not in the render",
+    "toa_do": [
+     0.06,
+     0.83,
+     0.09,
+     0.86
+    ],
+    "dai_a": false,
+    "ly_do": "Invented goods and supplies where the render has bare ground (rule c4B-c / F4)",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Stack of barrels or casks near the lower centre",
+    "toa_do": [
+     0.435,
+     0.84,
+     0.465,
+     0.875
+    ],
+    "dai_a": true,
+    "ly_do": "Invented goods or supplies not in the render",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Stack of barrels or casks on the right-hand scrub",
+    "toa_do": [
+     0.814,
+     0.61,
+     0.84,
+     0.635
+    ],
+    "dai_a": false,
+    "ly_do": "Invented goods or supplies not in the render",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Pile of logs or brushwood with timbers, centre-right",
+    "toa_do": [
+     0.688,
+     0.74,
+     0.72,
+     0.772
+    ],
+    "dai_a": false,
+    "ly_do": "Invented timber pile that is not in the render",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Pile of brushwood and timber with a stack of logs, centre-left of the road",
+    "toa_do": [
+     0.407,
+     0.665,
+     0.45,
+     0.7
+    ],
+    "dai_a": true,
+    "ly_do": "Invented heap that replaces the render's brown ground patch",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 0.46,
+  "nuoc_thanh_dat_pct": 0.38,
+  "t9b_dat_thanh_nuoc_pct": 0.2,
+  "t9b_nuoc_thanh_dat_pct": 0.35,
+  "dat": true,
+  "mo_hinh_bao": []
+ },
+ "iv_dong_bang": {
+  "ap_dung": true,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

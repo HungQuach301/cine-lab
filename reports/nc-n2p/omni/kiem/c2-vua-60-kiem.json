@@ -1,0 +1,280 @@
+{
+ "tag": "c2-vua-60",
+ "render": "/var/tmp/n2p/src/c2/rgb/00060.jpg",
+ "ai": "/var/tmp/n2p/omni/khung/c2-vua-60.png",
+ "ghep": "/var/tmp/n2p/omni/kiem/c2-vua-60-ghep.png",
+ "sha_ghep": "341c514209fa40c7e3a13df8293acbfb3410d1eac123b9ffb4c4811d542aeef3",
+ "nam": "2026",
+ "i_lop_a": {
+  "max_trong_a": 44,
+  "diem_lech_trong_a": 479882,
+  "dien_tich_a_pct": 52.13,
+  "dai20_pct": 18.37,
+  "dai20_cum_dE30": 12,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     124,
+     391,
+     258,
+     446
+    ],
+    "px": 4467
+   },
+   {
+    "hop": [
+     593,
+     612,
+     628,
+     626
+    ],
+    "px": 316
+   },
+   {
+    "hop": [
+     8,
+     217,
+     32,
+     244
+    ],
+    "px": 310
+   },
+   {
+    "hop": [
+     243,
+     140,
+     270,
+     164
+    ],
+    "px": 251
+   },
+   {
+    "hop": [
+     225,
+     126,
+     267,
+     137
+    ],
+    "px": 193
+   },
+   {
+    "hop": [
+     1254,
+     207,
+     1280,
+     218
+    ],
+    "px": 171
+   },
+   {
+    "hop": [
+     1226,
+     649,
+     1254,
+     660
+    ],
+    "px": 157
+   },
+   {
+    "hop": [
+     1133,
+     688,
+     1148,
+     703
+    ],
+    "px": 140
+   },
+   {
+    "hop": [
+     590,
+     606,
+     623,
+     616
+    ],
+    "px": 131
+   },
+   {
+    "hop": [
+     49,
+     709,
+     76,
+     717
+    ],
+    "px": 128
+   },
+   {
+    "hop": [
+     142,
+     704,
+     161,
+     711
+    ],
+    "px": 115
+   },
+   {
+    "hop": [
+     1262,
+     696,
+     1273,
+     706
+    ],
+    "px": 80
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 26,
+   "dE_trung_vi": 4.46,
+   "dE_p90": 6.87
+  },
+  "khop_mau": false,
+  "dat_ghep": false,
+  "vat_lop_a": [
+   {
+    "mh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Additional distant white vessel in the upper-right bay, above the existing cargo ships.",
+    "toa_do": [
+     0.908,
+     0.268,
+     0.924,
+     0.282
+    ],
+    "dai_a": false,
+    "kieu": "THÊM vật lớp (a)"
+   },
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Repeated pale cut terraces or stepped tracks on the upper-right slope of the Rock are largely erased beneath a continuous gray slope treatment.",
+    "toa_do": [
+     0.18,
+     0.177,
+     0.256,
+     0.281
+    ],
+    "dai_a": true,
+    "kieu": "BỚT/ĐỔI vật lớp (a)"
+   }
+  ],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "claude",
+    "loai": "thuyen_nho",
+    "mo_ta": "Added motor boats and yachts with white wakes in the bay at right. One is large with a long wake.",
+    "toa_do": [
+     0.84,
+     0.5,
+     1.0,
+     0.62
+    ],
+    "dai_a": true,
+    "ly_do": "Modern motor yachts and speedboats with wakes",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "xe_may",
+    "mo_ta": "Added cars and a white van or bus on the road at bottom-left, near the roundabout",
+    "toa_do": [
+     0.02,
+     0.96,
+     0.14,
+     0.99
+    ],
+    "dai_a": true,
+    "ly_do": "Motor vehicles on the road",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "xe_may",
+    "mo_ta": "Added white bus or van on the road beside the large white building",
+    "toa_do": [
+     0.45,
+     0.84,
+     0.5,
+     0.87
+    ],
+    "dai_a": true,
+    "ly_do": "Motor vehicle",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "xe_may",
+    "mo_ta": "Added small blurred cars on the roads and car park at bottom right",
+    "toa_do": [
+     0.83,
+     0.75,
+     1.0,
+     0.99
+    ],
+    "dai_a": true,
+    "ly_do": "Motor vehicles",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 2.08,
+  "nuoc_thanh_dat_pct": 4.46,
+  "t9b_dat_thanh_nuoc_pct": 1.97,
+  "t9b_nuoc_thanh_dat_pct": 0.7,
+  "dat": false,
+  "mo_hinh_bao": [
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: the middle of the field north of the runway becomes an angular pond or lake.",
+    "toa_do": [
+     0.095,
+     0.541,
+     0.203,
+     0.619
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "LAND TO WATER: the nearer headland across the upper-right bay disappears; open sea occupies its former footprint.",
+    "toa_do": [
+     0.656,
+     0.194,
+     1.0,
+     0.302
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "WATER TO LAND: invented distant mountain silhouettes occupy parts of the former unobstructed sea horizon, most clearly immediately right of the Rock and to the left of the removed headland.",
+    "toa_do": [
+     0.258,
+     0.211,
+     0.656,
+     0.267
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Land (grass and sand in the park) became water: a pond or lake",
+    "toa_do": [
+     0.09,
+     0.54,
+     0.21,
+     0.62
+    ]
+   }
+  ]
+ },
+ "iv_dong_bang": {
+  "ap_dung": false,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

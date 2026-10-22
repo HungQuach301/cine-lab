@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c4B-vua-r2-60",
+   "nam": 1779,
+   "noi": "Gibraltar",
+   "sha256": "474ed8148ecc8d99f954504e6c3c3b543275c7c38058e7217b586220754bea5b",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "tau",
+     "mo_ta": "Two ships in the bay have a carrack/caravel-style rig and high-sterned hulls. They look like 15th–16th century vessels.",
+     "ly_do": "In 1779 the bay held full-rigged ships, frigates, xebecs and gunboats, including those of the Great Siege. These archaic rigs would be out of date by about 200 years.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1133,
+      184,
+      1306,
+      259
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "The foreground is an empty pastoral isthmus with tents, a wooden shed, cattle and low walls. The hill on the left is not the Rock of Gibraltar. There is no town, no Line Wall and no North Front fortifications.",
+     "ly_do": "In 1779 Gibraltar was a heavily fortified British garrison under Spanish siege. It had a walled town, batteries, and Spanish siege lines across the isthmus. The Rock has a very different profile.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      0,
+      54,
+      614,
+      238
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.0381562,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1140,
+     "cacheReadInputTokens": 2167,
+     "cacheCreationInputTokens": 10611,
+     "webSearchRequests": 0,
+     "costUSD": 0.0381562,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 223,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1779,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"tau\",\"mo_ta\":\"Two ships in the bay have a carrack/caravel-style rig and high-sterned hulls. They look like 15th–16th century vessels.\",\"ly_do\":\"In 1779 the bay held full-rigged ships, frigates, xebecs and gunboats, including those of the Great Siege. These archaic rigs would be out of date by about 200 years.\",\"nam_xuat_hien\":null,\"toa_do\":[0.59,0.17,0.68,0.24],\"do_tin\":0.4},{\"muc\":\"kien_truc\",\"mo_ta\":\"The foreground is an empty pastoral isthmus with tents, a wooden shed, cattle and low walls. The hill on the left is not the Rock of Gibraltar. There is no town, no Line Wall and no North Front fortifications.\",\"ly_do\":\"In 1779 Gibraltar was a heavily fortified British garrison under Spanish siege. It had a walled town, batteries, and Spanish siege lines across the isthmus. The Rock has a very different profile.\",\"nam_xuat_hien\":null,\"toa_do\":[0.0,0.05,0.32,0.22],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0382,
+ "chi_phi_tb": 0.0382,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

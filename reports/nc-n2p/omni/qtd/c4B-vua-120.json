@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c4B-vua-120",
+   "nam": 1779,
+   "noi": "Gibraltar",
+   "sha256": "89b43d33e9d733573ef06be4ce29c921aaa0655392908a2fbcf1978e80fba674",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "A small flag in the left camp looks like a Union Jack, a red and white cross-and-saltire design. It sits at the corner of the camp enclosure.",
+     "ly_do": "The current Union Flag, with the Irish St Patrick's saltire, dates from 1801. In 1779 the British flag was the 1707 Union with only the crosses of St George and St Andrew. The flag is tiny and blurred, so the identification is uncertain.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      722,
+      869,
+      766,
+      904
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.034303600000000004,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 936,
+     "cacheReadInputTokens": 2816,
+     "cacheCreationInputTokens": 9860,
+     "webSearchRequests": 0,
+     "costUSD": 0.034303600000000004,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 237,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.2,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1779,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"A small flag in the left camp looks like a Union Jack, a red and white cross-and-saltire design. It sits at the corner of the camp enclosure.\",\"ly_do\":\"The current Union Flag, with the Irish St Patrick's saltire, dates from 1801. In 1779 the British flag was the 1707 Union with only the crosses of St George and St Andrew. The flag is tiny and blurred, so the identification is uncertain.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.376,0.805,0.399,0.837],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0343,
+ "chi_phi_tb": 0.0343,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

@@ -1,0 +1,25 @@
+{"them":[
+{"loai":"khoi","mo_ta":"Large dark smoke column rising from a fire on the sea in the bay","toa_do":[0.62,0.10,0.84,0.29],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented fire and smoke column on the water; it is not in the BEFORE render (NC-V2V c1, c2-a)","nam_xuat_hien":null,"do_tin":0.95},
+{"loai":"lua_lon","mo_ta":"Orange flames at the base of the smoke on the water, a burning vessel","toa_do":[0.62,0.26,0.66,0.285],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented fire on the water","nam_xuat_hien":null,"do_tin":0.85},
+{"loai":"cong_trinh","mo_ta":"Multi-storey white building with arched or windowed floors and a blue-orange strip, newly added on the green park beside the runway","toa_do":[0.09,0.54,0.19,0.62],"thoi_dai_sai":true,"ly_do_thoi_dai":"Invented building with added architectural detail (windows and balconies) on a park lawn (F4, BIBLE §11.3)","nam_xuat_hien":null,"do_tin":0.8},
+{"loai":"thuyen_nho","mo_ta":"Two white sailing yachts or catamarans on the bay in the east","toa_do":[0.80,0.59,0.84,0.66],"thoi_dai_sai":false,"ly_do_thoi_dai":"Modern leisure yachts are normal in 2026, but they are added objects","nam_xuat_hien":null,"do_tin":0.85},
+{"loai":"cong_trinh","mo_ta":"Small stone pier or mole with a flat top added in the water off the east beach","toa_do":[0.72,0.57,0.77,0.595],"thoi_dai_sai":false,"ly_do_thoi_dai":"Added structure that is not in the ground-truth render","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"khac","mo_ta":"Wide speedboat wake streak on the water at right","toa_do":[0.80,0.54,1.0,0.60],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.4},
+{"loai":"thuyen_nho","mo_ta":"Small boat with wake in the mid-right bay, and another white boat at the far right edge","toa_do":[0.84,0.50,1.0,0.55],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.4},
+{"loai":"tau_lon","mo_ta":"Distant large ship on the horizon, left of the smoke","toa_do":[0.43,0.28,0.46,0.30],"thoi_dai_sai":false,"ly_do_thoi_dai":"Modern ship matches 2026 shipping in the Bay","nam_xuat_hien":null,"do_tin":0.5},
+{"loai":"xe_chay","mo_ta":"Moving cars and vans added on the roads, bottom right and along the main road","toa_do":[0.77,0.93,0.95,0.99],"thoi_dai_sai":false,"ly_do_thoi_dai":"Modern vehicles are normal in 2026","nam_xuat_hien":null,"do_tin":0.8},
+{"loai":"xe_chay","mo_ta":"Cars, a bus and a blue-white tram or bus strip added along the roads","toa_do":[0.83,0.84,0.92,0.92],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"xe_chay","mo_ta":"Row of cars on the main road toward the beach quarter","toa_do":[0.50,0.62,0.66,0.72],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.5},
+{"loai":"cong_trinh","mo_ta":"Low white-roofed building or bus station with parked cars added in the lower-left road area","toa_do":[0.30,0.82,0.45,0.88],"thoi_dai_sai":false,"ly_do_thoi_dai":"Added building; added detail is not period-specific","nam_xuat_hien":null,"do_tin":0.6},
+{"loai":"cong_trinh","mo_ta":"Small structures on the green plot near the road, replacing the empty plot","toa_do":[0.55,0.74,0.62,0.79],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.4},
+{"loai":"cong_trinh","mo_ta":"Small buildings or masts added on the Rock summit, and a new antenna mast","toa_do":[0.09,0.12,0.19,0.16],"thoi_dai_sai":false,"ly_do_thoi_dai":"Radar and antenna structures exist on the Rock in 2026","nam_xuat_hien":null,"do_tin":0.6}
+],
+"bot_doi":[
+{"loai":"da_dat","mo_ta":"Rock face changed to a whitish chalk-like cliff, with a new pale area on the summit ridge","toa_do":[0.0,0.2,0.2,0.48],"do_tin":0.4},
+{"loai":"cay","mo_ta":"The green headland on the right horizon was replaced by hazy blue distant mountains and a coastal town","toa_do":[0.25,0.19,1.0,0.28],"do_tin":0.6},
+{"loai":"khac","mo_ta":"The roundabout and road surface at the bottom were altered by an overpainted blue patch","toa_do":[0.2,0.9,0.34,0.99],"do_tin":0.4}
+],
+"doi_loai_vung":[
+{"mo_ta":"Land to water: a blue puddle or water patch painted over the roundabout and road area at the bottom of the frame","toa_do":[0.2,0.91,0.34,0.99],"do_tin":0.5},
+{"mo_ta":"Water to land or grey: the sea near the east end of the breakwater has a flat grey-green tint, making part of the bay look like land","toa_do":[0.78,0.5,1.0,0.6],"do_tin":0.25}
+]}

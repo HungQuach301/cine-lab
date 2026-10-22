@@ -1,0 +1,158 @@
+{
+ "tag": "vay-ham-vua-l2",
+ "render": "../nc-cpu/khung/A/cong-vay-ham.jpg",
+ "ai": "/var/tmp/n2p/o1/ai/vay-ham-vua-l2-ai.jpg",
+ "ghep": "/var/tmp/n2p/kiem-cuoi/vay-ham-vua-l2-ghep.png",
+ "sha_ghep": "4579cbdca3aa0dbbe2d45c654c94ff2b9bbc209ded2f2a8be64abd54eb001111",
+ "nam": "1779",
+ "i_lop_a": {
+  "max_trong_a": 0,
+  "diem_lech_trong_a": 0,
+  "dien_tich_a_pct": 19.03,
+  "dai20_pct": 9.67,
+  "dai20_cum_dE30": 6,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     807,
+     480,
+     838,
+     493
+    ],
+    "px": 230
+   },
+   {
+    "hop": [
+     596,
+     674,
+     617,
+     687
+    ],
+    "px": 171
+   },
+   {
+    "hop": [
+     1364,
+     896,
+     1381,
+     913
+    ],
+    "px": 118
+   },
+   {
+    "hop": [
+     1664,
+     838,
+     1688,
+     847
+    ],
+    "px": 88
+   },
+   {
+    "hop": [
+     1424,
+     713,
+     1441,
+     725
+    ],
+    "px": 87
+   },
+   {
+    "hop": [
+     909,
+     962,
+     925,
+     971
+    ],
+    "px": 87
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 7,
+   "dE_trung_vi": 6.43,
+   "dE_p90": 12.38
+  },
+  "khop_mau": true,
+  "dat_ghep": true,
+  "vat_lop_a": [],
+  "dat": true
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Pile of brushwood or timber poles shaped like a lean-to, added on open ground between the camps",
+    "toa_do": [
+     0.403,
+     0.592,
+     0.435,
+     0.625
+    ],
+    "dai_a": true,
+    "ly_do": "Invented object not in the 3D render. It resembles a shelter or hut, so it counts as invented structure or stock (N2+ rule).",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Second pile of poles or brushwood, shaped like a lean-to, added to the right of the central camp",
+    "toa_do": [
+     0.617,
+     0.593,
+     0.658,
+     0.628
+    ],
+    "dai_a": true,
+    "ly_do": "Invented object not in the 3D render, resembling a shelter or stacked timber (N2+ rule).",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Group of four barrels or casks added in open ground to the right of the central camp",
+    "toa_do": [
+     0.737,
+     0.778,
+     0.77,
+     0.816
+    ],
+    "dai_a": false,
+    "ly_do": "Invented goods (barrels) not in the 3D render (N2+ rule).",
+    "nam": null
+   },
+   {
+    "mh": "claude",
+    "loai": "do_dac",
+    "mo_ta": "Small stack of crates or barrels beside the brown troop patch, left of the central camp",
+    "toa_do": [
+     0.4,
+     0.67,
+     0.425,
+     0.695
+    ],
+    "dai_a": true,
+    "ly_do": "Invented goods not in the 3D render (N2+ rule).",
+    "nam": null
+   }
+  ],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 0.27,
+  "nuoc_thanh_dat_pct": 0.07,
+  "t9b_dat_thanh_nuoc_pct": 0.19,
+  "t9b_nuoc_thanh_dat_pct": 0.0,
+  "dat": true,
+  "mo_hinh_bao": []
+ },
+ "iv_dong_bang": {
+  "ap_dung": true,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": true
+}

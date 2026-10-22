@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c1-vua-r2-120",
+   "nam": 1782,
+   "noi": "Gibraltar",
+   "sha256": "890d42baaf08e2d2c393561989215c785157e0832f346ed1f6694df7afd2b895",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "The flag on the tower at the right looks like a Union Flag with red and white crosses on blue. If it is the post-1801 design, it includes St Patrick's saltire. The flag is small and blurry, so I can't be sure of the design.",
+     "ly_do": "The 1801 Union Flag, with St Patrick's cross added, did not exist in 1782. Only the 1606 Union Flag was in use then, with St George's and St Andrew's crosses and no St Patrick's.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      1745,
+      738,
+      1778,
+      806
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.034566,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 951,
+     "cacheReadInputTokens": 2840,
+     "cacheCreationInputTokens": 9904,
+     "webSearchRequests": 0,
+     "costUSD": 0.034566,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 220,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1782,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"The flag on the tower at the right looks like a Union Flag with red and white crosses on blue. If it is the post-1801 design, it includes St Patrick's saltire. The flag is small and blurry, so I can't be sure of the design.\",\"ly_do\":\"The 1801 Union Flag, with St Patrick's cross added, did not exist in 1782. Only the 1606 Union Flag was in use then, with St George's and St Andrew's crosses and no St Patrick's.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.909,0.683,0.926,0.746],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0346,
+ "chi_phi_tb": 0.0346,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

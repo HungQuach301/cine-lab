@@ -1,0 +1,860 @@
+{
+ "tag": "toan-canh-manh-l3",
+ "truoc": "../nc-cpu/khung/A/cong-toan-canh.jpg",
+ "sau": "/var/tmp/n2p/kiem-cuoi/toan-canh-manh-l3-ghep.jpg",
+ "nam": "1781",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.0685,
+    "usage": {
+     "input_tokens": 16187,
+     "input_tokens_details": {
+      "cache_write_tokens": 16184,
+      "cached_tokens": 0
+     },
+     "output_tokens": 3614,
+     "output_tokens_details": {
+      "reasoning_tokens": 516
+     },
+     "total_tokens": 19801
+    }
+   },
+   "secs": 75.2,
+   "json": {
+    "them": [
+     {
+      "loai": "do_dac",
+      "mo_ta": "Foreground cluster of wooden crates, tied sacks and upright barrels on the lower hillside.",
+      "toa_do": [
+       0.618,
+       0.846,
+       0.691,
+       0.914
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Two small barrels near the bottom edge, beside the hillside houses.",
+      "toa_do": [
+       0.584,
+       0.941,
+       0.606,
+       0.967
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Upright barrel and several sacks immediately uphill from the lower foreground supply stack.",
+      "toa_do": [
+       0.605,
+       0.829,
+       0.638,
+       0.866
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Cluster of upright and horizontal wooden barrels in the middle foreground.",
+      "toa_do": [
+       0.73,
+       0.803,
+       0.776,
+       0.849
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Large horizontal stack of cut timber in the lower-right foreground.",
+      "toa_do": [
+       0.839,
+       0.815,
+       0.925,
+       0.884
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stack of poles leaning beside the existing isolated pale slab on the hillside.",
+      "toa_do": [
+       0.831,
+       0.74,
+       0.868,
+       0.8
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Group of tied sacks to the left of the large foreground haystack.",
+      "toa_do": [
+       0.883,
+       0.728,
+       0.913,
+       0.766
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Large conical haystack on the right foreground hillside.",
+      "toa_do": [
+       0.91,
+       0.693,
+       0.971,
+       0.776
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Smaller haystack above the central foreground barrels.",
+      "toa_do": [
+       0.758,
+       0.665,
+       0.799,
+       0.706
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Upper foreground group of wooden barrels beside the smaller haystack.",
+      "toa_do": [
+       0.726,
+       0.659,
+       0.752,
+       0.698
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Large mixed stack of crates, barrels and sacks on the hillside above the houses.",
+      "toa_do": [
+       0.654,
+       0.652,
+       0.713,
+       0.717
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Loose timber and small containers below the upper mixed supply stack.",
+      "toa_do": [
+       0.626,
+       0.719,
+       0.691,
+       0.763
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Separate small heap of short sticks or cut branches on the middle hillside.",
+      "toa_do": [
+       0.723,
+       0.727,
+       0.754,
+       0.759
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Upper hillside supply group containing crates, long timber and pale sacks.",
+      "toa_do": [
+       0.763,
+       0.613,
+       0.833,
+       0.648
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small row of crates and barrels near the upper edge of the bottom-right quarter.",
+      "toa_do": [
+       0.771,
+       0.539,
+       0.802,
+       0.56
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Large haystack farther up the right hillside, below and right of the castle.",
+      "toa_do": [
+       0.926,
+       0.395,
+       0.966,
+       0.447
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Barrels beside the large upper-right hillside haystack.",
+      "toa_do": [
+       0.944,
+       0.434,
+       0.966,
+       0.46
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Row of crates, sacks and barrels downhill from the large upper-right haystack.",
+      "toa_do": [
+       0.866,
+       0.459,
+       0.909,
+       0.485
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small supply stack beside houses near the lower-left edge of the upper-right hillside.",
+      "toa_do": [
+       0.796,
+       0.478,
+       0.808,
+       0.496
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Small haystack on the slope immediately right of the castle.",
+      "toa_do": [
+       0.947,
+       0.328,
+       0.964,
+       0.353
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Pale sacks and other stacked supplies immediately below the small haystack right of the castle.",
+      "toa_do": [
+       0.912,
+       0.341,
+       0.95,
+       0.366
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Another group of pale sacks or bundled goods farther down the slope, right of the castle.",
+      "toa_do": [
+       0.902,
+       0.365,
+       0.934,
+       0.382
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Supply stack on the coastal plain left of the castle, consisting of crates, barrels and sacks.",
+      "toa_do": [
+       0.797,
+       0.307,
+       0.835,
+       0.325
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Separate row of supplies closer to the northern fortifications.",
+      "toa_do": [
+       0.775,
+       0.327,
+       0.795,
+       0.338
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.92
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small supply pile on the coastal plain just inland of the mole.",
+      "toa_do": [
+       0.712,
+       0.316,
+       0.732,
+       0.327
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.93
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small row of goods farther left on the coastal plain near the mole's landward end.",
+      "toa_do": [
+       0.682,
+       0.32,
+       0.697,
+       0.331
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small stack of goods immediately above the mole's landward fortification.",
+      "toa_do": [
+       0.664,
+       0.322,
+       0.676,
+       0.332
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Haystack on the coastal plain between the mole and the castle.",
+      "toa_do": [
+       0.776,
+       0.291,
+       0.787,
+       0.313
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Haystack farther inland on the plain, above and left of the castle flag.",
+      "toa_do": [
+       0.85,
+       0.284,
+       0.864,
+       0.3
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Small haystack on the plain above and right of the castle flag.",
+      "toa_do": [
+       0.906,
+       0.278,
+       0.916,
+       0.293
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Small haystack farther right on the same strip of coastal plain.",
+      "toa_do": [
+       0.917,
+       0.281,
+       0.931,
+       0.295
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Distant supply stack near the right edge of the coastal plain.",
+      "toa_do": [
+       0.984,
+       0.235,
+       1.0,
+       0.249
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.88
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Three small distant haystacks among the field boundaries near the right edge.",
+      "toa_do": [
+       0.949,
+       0.223,
+       0.963,
+       0.241
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.88
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Small distant haystack just left of the other field haystacks.",
+      "toa_do": [
+       0.928,
+       0.232,
+       0.939,
+       0.244
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Small pale haystack on the coastal plain farther left, near the field-wall junction.",
+      "toa_do": [
+       0.898,
+       0.219,
+       0.91,
+       0.233
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.82
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Added discrete bushes and small trees along the beach outside the western sea wall, including a prominent clump near the middle of the beach.",
+      "toa_do": [
+       0.104,
+       0.625,
+       0.333,
+       0.98
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Numerous additional bushes around the new supply piles and across previously open parts of the foreground hillside; the existing woodland also gains a wider fringe of shrubs.",
+      "toa_do": [
+       0.571,
+       0.502,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Additional discrete shrub clumps on the upper-right slope around the haystacks, supplies and castle approaches.",
+      "toa_do": [
+       0.81,
+       0.272,
+       1.0,
+       0.504
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "New scattered bushes and small trees across the formerly largely bare coastal plain behind the northern fortifications and mole.",
+      "toa_do": [
+       0.658,
+       0.194,
+       1.0,
+       0.335
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     }
+    ],
+    "bot_doi": [],
+    "doi_loai_vung": []
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.1544838
+   },
+   "secs": 31.3,
+   "json": {
+    "them": [
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stack of crates and sacks on the hillside",
+      "toa_do": [
+       0.65,
+       0.65,
+       0.715,
+       0.705
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Group of barrels on the hillside",
+      "toa_do": [
+       0.723,
+       0.655,
+       0.755,
+       0.695
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Timber and barrel pile",
+      "toa_do": [
+       0.625,
+       0.715,
+       0.693,
+       0.765
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Cluster of barrels",
+      "toa_do": [
+       0.728,
+       0.795,
+       0.776,
+       0.84
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Crates and sacks pile",
+      "toa_do": [
+       0.615,
+       0.775,
+       0.69,
+       0.835
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Large pile of logs",
+      "toa_do": [
+       0.835,
+       0.82,
+       0.93,
+       0.885
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Log pile beside the existing plank",
+      "toa_do": [
+       0.828,
+       0.74,
+       0.866,
+       0.8
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Crates and stone or sack piles, upper hillside",
+      "toa_do": [
+       0.762,
+       0.605,
+       0.83,
+       0.645
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.75
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Sacks or stones group",
+      "toa_do": [
+       0.882,
+       0.725,
+       0.912,
+       0.762
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.7
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small barrels in the lower left of the hillside",
+      "toa_do": [
+       0.585,
+       0.875,
+       0.607,
+       0.905
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Crate and stone piles, upper right slope",
+      "toa_do": [
+       0.865,
+       0.455,
+       0.905,
+       0.482
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.65
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Large haystack, right slope",
+      "toa_do": [
+       0.91,
+       0.66,
+       0.968,
+       0.72
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Haystack, mid slope",
+      "toa_do": [
+       0.758,
+       0.658,
+       0.802,
+       0.7
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Haystack, upper right",
+      "toa_do": [
+       0.928,
+       0.395,
+       0.964,
+       0.438
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "rom",
+      "mo_ta": "Small haystacks on the neutral ground plain",
+      "toa_do": [
+       0.8,
+       0.425,
+       0.88,
+       0.455
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Dense scrub and bushes added across the hillside, the plain and the beach strip",
+      "toa_do": [
+       0.55,
+       0.45,
+       1.0,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Scrub on the shore strip at the lower left",
+      "toa_do": [
+       0.2,
+       0.76,
+       0.3,
+       0.86
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "da_dat",
+      "mo_ta": "Rocks and stone outcrops added on the slope",
+      "toa_do": [
+       0.78,
+       0.85,
+       0.98,
+       1.0
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     }
+    ],
+    "bot_doi": [
+     {
+      "loai": "cay",
+      "mo_ta": "Bare green low-poly bush patches replaced by realistic scrub",
+      "toa_do": [
+       0.85,
+       0.5,
+       1.0,
+       0.68
+      ],
+      "do_tin": 0.4
+     }
+    ],
+    "doi_loai_vung": []
+   }
+  }
+ }
+}

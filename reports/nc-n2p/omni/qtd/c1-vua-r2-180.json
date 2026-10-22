@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "c1-vua-r2-180",
+   "nam": 1782,
+   "noi": "Gibraltar",
+   "sha256": "dce6105ec1d4ce8621541b5b35cf2bf7b76d2ec53a04ee2e4399da0e58c80671",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "The British Union Flag flies over the bastion at right. It shows red diagonal stripes within the white saltire, which looks like the 1801 design with the St Patrick's cross. A similar small flag flies on the far left.",
+     "ly_do": "In 1782 the Union Flag was the 1606 Great Union, with only the crosses of St George and St Andrew. The version that adds St Patrick's saltire was introduced after the Act of Union, on 1 January 1801. The flag is small and the image is dark, so the identification is uncertain.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      1749,
+      738,
+      1780,
+      815
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.034906,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 985,
+     "cacheReadInputTokens": 2840,
+     "cacheCreationInputTokens": 9904,
+     "webSearchRequests": 0,
+     "costUSD": 0.034906,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 236,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1782,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"The British Union Flag flies over the bastion at right. It shows red diagonal stripes within the white saltire, which looks like the 1801 design with the St Patrick's cross. A similar small flag flies on the far left.\",\"ly_do\":\"In 1782 the Union Flag was the 1606 Great Union, with only the crosses of St George and St Andrew. The version that adds St Patrick's saltire was introduced after the Act of Union, on 1 January 1801. The flag is small and the image is dark, so the identification is uncertain.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.911,0.683,0.927,0.755],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0349,
+ "chi_phi_tb": 0.0349,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

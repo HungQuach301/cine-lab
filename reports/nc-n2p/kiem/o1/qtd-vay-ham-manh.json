@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "vay-ham-manh-l2-ghep",
+   "nam": 1779,
+   "noi": "Gibraltar",
+   "sha256": "c48547d5d0e0a416692218e82f2b0bfddd2420da1464c7b4c0dd9f4cf1b60f7d",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "A small Union-style flag on a pole at the corner of the left encampment. It looks red and white, with a red cross and a red diagonal, and I can't make out a clear blue field. It is only a few pixels wide.",
+     "ly_do": "The 1606 Union Flag was the one in use in 1779. If this is the 1801 design with the red St Patrick's saltire, it is an anachronism. The flag is too small to be sure.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      730,
+      886,
+      768,
+      929
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.0365389,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1123,
+     "cacheReadInputTokens": 2894,
+     "cacheCreationInputTokens": 10003,
+     "webSearchRequests": 0,
+     "costUSD": 0.0365389,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 365,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.4,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1779,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"A small Union-style flag on a pole at the corner of the left encampment. It looks red and white, with a red cross and a red diagonal, and I can't make out a clear blue field. It is only a few pixels wide.\",\"ly_do\":\"The 1606 Union Flag was the one in use in 1779. If this is the 1801 design with the red St Patrick's saltire, it is an anachronism. The flag is too small to be sure.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.38,0.82,0.4,0.86],\"do_tin\":0.25}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0365,
+ "chi_phi_tb": 0.0365,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}
