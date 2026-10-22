@@ -1,0 +1,131 @@
+OK  [STRAT] nghiêng 20°, bề ngang 2 500–2 300 km, relief → hợp lệ — kỳ vọng sạch
+OK  [STRAT] nghiêng 35° → ngoài định nghĩa — kỳ vọng bắt lỗi
+OK  [STRAT] bề ngang 6 000 km → ngoài định nghĩa — kỳ vọng bắt lỗi
+OK  [STRAT] bề ngang 250 km (tầm vùng) → ngoài định nghĩa — kỳ vọng bắt lỗi
+OK  [STRAT] cảnh map/globe khai strategic → ngoài định nghĩa (NC-H2 vẫn áp) — kỳ vọng bắt lỗi
+OK  [STRAT] không khai nghieng/be_ngang_km → ngoài định nghĩa — kỳ vọng bắt lỗi
+OK  [NC-H2] fixture: 2 shot strategic hợp lệ (AGL ≈ 1 900–2 400 km) loại khỏi NC-H2 → 0 lần · 0.0 s (0.0 % phim) · map/globe 0.0 s · bản đồ nổi tầm cao 0.0 s · dài nhất 0 s · loại strategic hợp lệ 2 shot (13.0 s) khỏi NC-H2/H3 — kỳ vọng sạch
+OK  [NC-H2] strategic 01/1 nghiêng 40° (sai định nghĩa) → tính như bản đồ tầm cao → NC-H2 (b) TRƯỢT — kỳ vọng bắt lỗi
+OK  [NC-H3] fixture: mẫu số 3D địa lý không gồm strategic hợp lệ → 3D địa lý 20.2 s · AGL ≤ 60 km 100.0 % · ≤ 3 km 0.0 % · có thành phố: không · loại strategic hợp lệ 2 shot (13.0 s) khỏi NC-H2/H3 — kỳ vọng sạch
+OK  [NC-H3] hai strategic sai định nghĩa → tính vào 3D địa lý: 3D địa lý 33.8 s · AGL ≤ 60 km 60.0 % · ≤ 3 km 0.0 % · có thành phố: không · loại strategic hợp lệ 0 shot (0.0 s) khỏi NC-H2/H3 → (a) TRƯỢT — kỳ vọng bắt lỗi
+OK  [NC-H1] strategic khai noi: thanh_pho + chip dạng thành phố → KHÔNG là đơn vị thành phố, ĐẠT — kỳ vọng sạch
+OK  [NC-H1] cùng shot đổi type map → thành phố không lớp nhà → TRƯỢT (a) — kỳ vọng bắt lỗi
+OK  [NC-H2] T2 L5: r04_state (bản đồ nổi 222 km) khai strategic hợp lệ → hết khỏi lỗi NC-H2 — kỳ vọng sạch
+OK  [NC-H2] T2 L5: g05_china (map/globe) khai strategic → vẫn TRƯỢT NC-H2 — kỳ vọng bắt lỗi
+OK  [BD-1] fixture: 2 shot strategic · 13.0 s = 10.8 % phim · dài nhất 7.00 s · nhiều nhất/chương 1 · hợp lệ định nghĩa 2 → ĐẠT — kỳ vọng sạch
+OK  [BD-1] 13 s / 80 s = 16,3 % > 15 % → (a) — kỳ vọng bắt lỗi
+OK  [BD-1] strategic 9 s > 8 s → (b) — kỳ vọng bắt lỗi
+OK  [BD-1] strategic đúng 8,0 s → ĐẠT (b), sát ngưỡng được nêu tên — kỳ vọng sạch
+OK  [BD-1] 3 shot strategic cùng chương → (c) — kỳ vọng bắt lỗi
+OK  [BD-1] hai shot strategic liền nhau (01/1, 01/2) → (d) — kỳ vọng bắt lỗi
+OK  [BD-1] nghiêng 40° → (e) ngoài định nghĩa — kỳ vọng bắt lỗi
+OK  [BD-1] chỉ tới Cádiz mà shot kề là Gibraltar → (f) — kỳ vọng bắt lỗi
+OK  [BD-1] chú giải 4 phe > 3 → (f) — kỳ vọng bắt lỗi
+OK  [BD-1] log không có nhãn năm trong shot strategic → (f) mốc thời gian — kỳ vọng bắt lỗi
+OK  [BD-1] TIME_RE: "1782", "c. 1779–83", "11 Oct 1782", "Day 312" là mốc; "Source: Drinkwater 1786", nhãn ranh thì không — kỳ vọng sạch
+OK  [BD-1] chỉ còn dòng nguồn có năm trong shot strategic → (f) (dòng nguồn không phải mốc thời gian) — kỳ vọng bắt lỗi
+OK  [BD-1] tập không có strategic → KHÔNG ÁP — kỳ vọng sạch
+OK  [BD-2] fixture: route 0,5–6,5 s trên shot 7 s (86 %) → ĐẠT — kỳ vọng sạch
+OK  [BD-2] chuyển động bắt đầu 2,0 s > 1,5 s → (b) — kỳ vọng bắt lỗi
+OK  [BD-2] chuyển động phủ 3 s / 7 s = 43 % < 60 % → (c) — kỳ vọng bắt lỗi
+OK  [BD-2] không có phần tử route/arrow/fleet/front/blockade → (a) — kỳ vọng bắt lỗi
+OK  [BD-2] cấp: Cảnh báo (không Chặn) khi có lỗi — kỳ vọng sạch
+OK  [BD-3] fixture: 1 cặp shot–lớp ranh · 01/1 @0:06.0 lớp r1782: 14/14 khung = 100.0 % → ĐẠT — kỳ vọng sạch
+OK  [BD-3] nhãn ranh 30 px < 38 px → (a) — kỳ vọng bắt lỗi
+OK  [BD-3] nhãn ranh chỉ ở 1/2 số khung → (a) < 95 % — kỳ vọng bắt lỗi
+OK  [BD-3] nhãn "c. 1783" trên lớp nam 1782 → (c) (K thêm; cấp Cảnh báo) — kỳ vọng bắt lỗi
+OK  [BD-3] nhãn sai chữ "borders approx. c. 1782" → không khớp regex → (a) — kỳ vọng bắt lỗi
+OK  [BD-3] không có log chữ → THIẾU (a), cấp Chặn — kỳ vọng bắt lỗi
+OK  [BD-4] fixture: 2 lớp · bien_gioi_lich_su 1 · shot trỏ 1 → ĐẠT — kỳ vọng sạch
+OK  [BD-4] thiếu nguon_doi_chieu → (a) — kỳ vọng bắt lỗi
+OK  [BD-4] giấy phép CC-BY-SA-4.0 → (b) — kỳ vọng bắt lỗi
+OK  [BD-4] giấy phép viết "CC BY 4.0" → chuẩn hoá thành CC-BY-4.0, ĐẠT — kỳ vọng sạch
+OK  [BD-4] lệch 5,1 px, mép liền → (c) — kỳ vọng bắt lỗi
+OK  [BD-4] lệch 5,1 px, mép mềm → ĐẠT — kỳ vọng sạch
+OK  [BD-4] nguồn đối chiếu trùng nguồn chính → (d) — kỳ vọng bắt lỗi
+OK  [BD-4] shot trỏ lớp r1704 không có trong manifest → (a) — kỳ vọng bắt lỗi
+OK  [BD-5] fixture: biên hiện đại Pyrenees (xa mọi vùng NE disputed) → ĐẠT — kỳ vọng sạch
+OK  [BD-5] biên hiện đại vẽ trên eo đất Gibraltar (36,158°; NE polygon dừng ở 36,141°) → (a) nhờ đệm 10 km — kỳ vọng bắt lỗi
+OK  [BD-5] đường cách polygon NE Gibraltar ≈ 6,6 km (36,20°) → bắt (≤ 10 km) — kỳ vọng bắt lỗi
+OK  [BD-5] đường cách ≈ 17,6 km (36,30°) → ĐẠT — kỳ vọng sạch
+OK  [BD-5] Gibraltar vẽ polygon ở khung 2 500 km (≈ 3,8 px) → (b) phải là điểm — kỳ vọng bắt lỗi
+OK  [BD-5] cùng polygon ở khung 300 km (≈ 32 px) → ĐẠT (b) — kỳ vọng sạch
+OK  [BD-6] fixture: tuyến biển Plymouth → quanh Bồ Đào Nha → Gibraltar → ĐẠT (1 tuyến · biển 1 · đất NE 1:10m, đệm cảng 5 km) — kỳ vọng sạch
+OK  [BD-6] tuyến thẳng Plymouth → Gibraltar cắt Iberia → (a) ((a) tuyến biển howe1782: cắt đất 24.14 km (ngoài đệm 5 km quanh cảng), từ [-4.2867, 48.643) — kỳ vọng bắt lỗi
+OK  [BD-6] tuyến không có claim → (b) — kỳ vọng bắt lỗi
+OK  [BD-6] claim S999 không có trong claims → (c) — kỳ vọng bắt lỗi
+OK  [BD-6] tuyến đất liền (mode land) cắt đất → không áp (a) — kỳ vọng sạch
+OK  [BD-6] shot có phần tử route mà không có routes.geojson → THIẾU — kỳ vọng bắt lỗi
+OK  [BD-7] fixture: 3 phe · đổi màu 0 · fill cờ/biểu tượng 0 · bản địa tô trống 0 → ĐẠT — kỳ vọng sạch
+OK  [BD-7] Tây Ban Nha chương 3 đổi màu #d4b030 (lớp/chương 1: #c9a227) → (a) — kỳ vọng bắt lỗi
+OK  [BD-7] Pháp tô bằng cờ (fill_the co) → (b) — kỳ vọng bắt lỗi
+OK  [BD-7] B8: thực thể bản địa có tên fill none → (c) — kỳ vọng bắt lỗi
+OK  [BD-7] B8: cùng thực thể tô màu riêng → ĐẠT — kỳ vọng sạch
+OK  [BD-8] fixture: inset 5,8 % góc trên trái, 3 s, 2,5 s sau cắt cứng → ĐẠT — kỳ vọng sạch
+OK  [BD-8] inset 15,6 % khung → (a) — kỳ vọng bắt lỗi
+OK  [BD-8] inset góc trên phải không khai lý do → (b) — kỳ vọng bắt lỗi
+OK  [BD-8] inset góc trên phải, khai inset_goc tren_phai + lý do (huy hiệu bảng điểm trên trái) → ĐẠT (b) — kỳ vọng sạch
+OK  [BD-8] inset sát mép trên (y0 = 20 px < 54 px an toàn) → (b) — kỳ vọng bắt lỗi
+OK  [BD-8] inset 5 s → (c) — kỳ vọng bắt lỗi
+OK  [BD-8] chip nơi chồng một phần lên inset → (d) — kỳ vọng bắt lỗi
+OK  [BD-8] hộp LL.occ (sticker) giao inset → (d) — kỳ vọng bắt lỗi
+OK  [BD-8] inset 62,0–64,9 s trong thẻ số (card 60–65 s) → (e) thẻ số — kỳ vọng bắt lỗi
+OK  [BD-8] inset 45,5–48,5 s: 0,5 s sau cắt cứng 45 s → (e) cắt cứng — kỳ vọng bắt lỗi
+OK  [BD-8] inset 13,5–16,5 s: shot vào bằng hoà (dissolve) → không phải cắt cứng, ĐẠT — kỳ vọng sạch
+OK  [BD-8] inset 42,0–44,9 s trong ảnh lưu trữ (photo 40–45 s) → (e) lưu trữ — kỳ vọng bắt lỗi
+OK  [K-R1] fixture ĐỎ-K: 5 mục từ cấm · 11 dòng chữ/lời · 0 lần → ĐẠT — kỳ vọng sạch
+OK  [K-R2] fixture ĐỎ-K: 3 tài sản · cuc_doan/ton_giao 0 · co_lich_su 1 · khung đo: có · khai: K-R2.the đã ký 2026- → ĐẠT — kỳ vọng sạch
+OK  [K-R3] fixture ĐỎ-K: không có manifest lớp · 0 shot bản đồ → ĐẠT — kỳ vọng sạch
+OK  [K-R4] fixture ĐỎ-K: 1 câu có số + từ chết/thương vong · không nối 0 → ĐẠT — kỳ vọng sạch
+OK  [K-R5] fixture ĐỎ-K: 3 tài sản · thẻ bạo lực 1 · khai: K-R5.the đã ký 2026-10-17 → ĐẠT — kỳ vọng sạch
+OK  [K-R6] fixture ĐỎ-K: 2 thumbnail · khai: K-R6.the đã ký 2026-10-17 → ĐẠT — kỳ vọng sạch
+OK  [K-R7] fixture ĐỎ-K: T7 · T6: XANH · T8: XANH · ĐỎ-K trong HANG-DOI: T7 → ĐẠT — kỳ vọng sạch
+OK  [K-R8] fixture ĐỎ-K: 3 vai · điểm 4.5, 4.0, 4.5 → ĐẠT — kỳ vọng sạch
+OK  [K-R9] fixture ĐỎ-K: mô tả 269 ký tự · truyền thống khai 2 · khai: K-R9.tu_chan đã ký 2026-10-17 → ĐẠT — kỳ vọng sạch
+OK  [K-R] tập không khai rui_ro: do-k → mọi K-R KHÔNG ÁP — kỳ vọng sạch
+OK  [K-R] "rui_ro: ĐỎ-K" (chữ hoa, có dấu) → bật — kỳ vọng sạch
+OK  [K-R1] thẻ "Bombenholocaust" → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R1] tiêu đề "Holocausts" (số nhiều, hoa) → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R1] mô tả có "terror bombing" → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R1] regex "war crime" trong srt → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R1] không đọc được danh sách từ cấm → THIẾU — kỳ vọng bắt lỗi
+OK  [K-R2] cờ lịch sử 3 % khung → (c) — kỳ vọng bắt lỗi
+OK  [K-R2] cờ lịch sử hiện liền 4 s → (c) — kỳ vọng bắt lỗi
+OK  [K-R2] cờ lịch sử 4 lần → (c) — kỳ vọng bắt lỗi
+OK  [K-R2] tài sản cuc_doan dùng ở shot → (b) — kỳ vọng bắt lỗi
+OK  [K-R2] tài sản thiếu bieu_tuong → (a) — kỳ vọng bắt lỗi
+OK  [K-R2] không có khung đo + có cờ dùng ở shot → THIẾU mục khai K-R2.do — kỳ vọng bắt lỗi
+OK  [K-R2] không có khung đo, có khai K-R2.do đã ký → ĐẠT — kỳ vọng sạch
+OK  [K-R3] manifest có biên hiện đại trên eo đất Gibraltar → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R3] lớp không khai loai → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R3] tập có shot bản đồ mà không manifest lớp → cần khai K-R3.khong_ranh — kỳ vọng bắt lỗi
+OK  [K-R4] claim D01 mất khoảng và chỉ 1 nguồn → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R4] claim D01 không khoảng nhưng 2 truyền thống → ĐẠT — kỳ vọng sạch
+OK  [K-R4] câu "hundreds of thousands died" không nối số khai → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R5] tài sản thi_the dùng ở shot → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R6] thumbnail thẻ cờ → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R6] thumbnail số "135,000" không có trong claims → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R6] thumbnail chữ "TERROR BOMBING" → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R7] T8 VÀNG liền sau → (b) — kỳ vọng bắt lỗi
+OK  [K-R7] T9 cũng ĐỎ-K (cửa sổ T6–T9 có 2) → (a) — kỳ vọng bắt lỗi
+OK  [K-R7] T10 ĐỎ-K (cách 3 tập: T7–T10 có 2) → (a) — kỳ vọng bắt lỗi
+OK  [K-R7] T11 ĐỎ-K (cách 4 tập) → ĐẠT (a) — kỳ vọng sạch
+OK  [K-R7] tập ĐỎ-K đặt ở T4 → (c), (d) — kỳ vọng bắt lỗi
+OK  [K-R7] T8 chưa xếp → THIẾU (b) — kỳ vọng bắt lỗi
+OK  [K-R7] không khai thu_tu → tìm id k2c-t7-dok trong cột Tập → T7, ĐẠT — kỳ vọng sạch
+OK  [K-R8] vai G2 điểm 3,5 < 4 → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R8] vai G3 có 1 cờ → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R8] chỉ 2 vai → TRƯỢT — kỳ vọng bắt lỗi
+OK  [K-R8] vai G2 điểm đúng 4,0 → ĐẠT, nêu tên sát ngưỡng — kỳ vọng sạch
+OK  [K-R9] mô tả không có "as of" → (a) — kỳ vọng bắt lỗi
+OK  [K-R9] mô tả chỉ có nguồn Đức → (b) — kỳ vọng bắt lỗi
+OK  [K-R9] không có bình luận ghim → (c) — kỳ vọng bắt lỗi
+OK  [K-R9] thiếu khai K-R9.tu_chan → THIẾU — kỳ vọng bắt lỗi
+OK  [KHAI] người ký ghi email → lỗi (che email) — kỳ vọng bắt lỗi
+OK  [KHAI] vai ≠ chu_du_an → lỗi — kỳ vọng bắt lỗi
+OK  [KHAI] cấp K-R: THIẾU mục khai tính Chặn — kỳ vọng bắt lỗi
+
+STRAT 6/6 · NC-H2 4/4 · NC-H3 2/2 · NC-H1 2/2 · BD-1 13/13 · BD-2 5/5 · BD-3 6/6 · BD-4 8/8 · BD-5 6/6 · BD-6 6/6 · BD-7 5/5 · BD-8 12/12 · K-R1 6/6 · K-R2 8/8 · K-R3 4/4 · K-R4 4/4 · K-R5 2/2 · K-R6 4/4 · K-R7 8/8 · K-R8 5/5 · K-R9 5/5 · K-R 2/2 · KHAI 3/3
+
+selftest 1.14: 126/126 đúng kỳ vọng
+exit 0
