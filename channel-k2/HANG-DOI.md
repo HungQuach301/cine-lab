@@ -17,6 +17,28 @@
 >
 > Cả hai phép đo đều chỉ đọc chữ.
 
+## CẬP NHẬT 22/10/2026 (phiên P-2210: T3, T4) — bổ sung, không thay
+Định vị kênh: Kinh thánh §18 (series "Contested Places", hướng Steel bỏ — chủ dự án 22/10 07:04).
+
+| Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 22/10 (P-2210) |
+|---|---|---|---|---|
+| T3 | K2C-T3-01 | **Gibraltar — khung vây hãm** (tiêu đề theo khuôn Kinh thánh §14.5) | VÀNG | Đã merge vào `main`: ANIMATIC-T3-V2 (chủ dự án duyệt V2-D1…D8 kèm 2 điều chỉnh 22/10 11:09) + SFX-T3 (gói "tối giản dưới lời", 22/10 08:23). **Kế tiếp: bản cuối** — mở đầu ngày → đêm, góc mới R1–R4, 4 minh hoạ Omni M2–M5 (không nhãn AI trên hình — §14.1 (c)), màu ở bước chỉnh màu toàn phim (§14.7), SFX theo §16 |
+| T4 | — | **London — cháy hai lần, làm lại hai lần** | XANH | Xương sống chủ dự án duyệt 22/10 07:19: "London cháy hai lần, hai lần được làm lại, hai lần giữ phố cũ; mái vòm St Paul's định hình chân trời hôm nay". Áp Kinh thánh §15 và §17 (chi tiết dưới) |
+
+**T4 London — logline:** "London burned to the ground twice. Twice it got the chance to start over. Why does the City still follow its medieval streets — and why do its skyscrapers bend around one dome?"
+
+**Cấu trúc ≈ 12 phút** (giữ nguyên nhãn [cần kiểm]):
+| Phần | Nội dung | Tỷ lệ |
+|---|---|---|
+| Móc | 2026 → 1666 | 6 % |
+| Hồi 1 | Cháy 2–6/9/1666 | 27 % |
+| Hồi 2 | Làm lại lần 1, 1666–1711: Wren bị gác [cần kiểm], Toà Cháy 27/2/1667, gạch, Monument 202 ft, mái vòm; mạch phụ bảo hiểm Barbon 1680 | 22 % |
+| Hồi 3 | 1711–1939 (St Paul's Heights 1937) | 10 % |
+| Hồi 4 | 29–30/12/1940 | 15 % |
+| Hồi 5 | Làm lại lần 2 → hôm nay: Holden–Holford 1947, London Wall, Barbican [cần kiểm]; toà chọc trời vát theo tầm nhìn [cần kiểm] | 20 % |
+
+Điểm máy xương sống: **Bankside**. Áp Kinh thánh §15 (luật AI N2+) và §17 (lớp thông tin chồng cảnh: bản đồ bối cảnh khi cần + tư liệu thật có chú thích — chủ dự án 22/10 07:19, 07:24).
+
 ## CẬP NHẬT 21/10/2026 (phiên P-2110: T3, T4) — bổ sung, không thay
 | Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 21/10 (P-2110) |
 |---|---|---|---|---|
