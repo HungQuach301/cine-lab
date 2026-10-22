@@ -1,0 +1,1579 @@
+{
+ "chu_giai_muc": "SFX-T3 · bản đồ âm theo shot (43 shot + 2 thẻ) → ../ban-do-am.json + ../ban-do-am.md.\nMức so lời (Kinh thánh §4: lời trên NỀN = nhạc + SFX, p10 ≥ 15 dB / min ≥ 12 dB):\n  N0 = im (không SFX) · N1 = nền xa, dưới lời ≥ 24 dB (trước duck; ≈ −41 LUFS khi lời −17) · N2 = nền rõ, dưới lời ≥ 20 dB\n  N3 = điểm nhấn trong khe lời (không trùng từ), đỉnh ngắn hạn ≤ mức lời − 6 dB · N4 = điểm nhấn được phép ngang nhạc (chỉ khi không lời).\nThời kỳ: P = trước 1900 (không động cơ, không đường phố hiện đại, không tiếng Anh/Pháp nói rõ) · M1 = 1900–1945 (máy bay cánh quạt từ 1934,\n  tàu hơi nước/động cơ đốt trong) · M2 = 1946–2026 (xe, máy bay hiện đại).",
+ "lop": {
+  "GIO": "gió",
+  "SONG": "sóng/biển",
+  "CHIM": "chim biển",
+  "DONG": "đám đông/tiếng người xa",
+  "BUOC": "bước chân",
+  "NGUA": "ngựa/xe ngựa",
+  "THUYEN": "thuyền: mái chèo, dây, gỗ kẽo kẹt",
+  "CO": "cờ bay",
+  "PXA": "pháo xa",
+  "PGAN": "pháo gần/loạt pháo",
+  "HOAMAI": "súng hoả mai",
+  "NO": "nổ lớn (kho thuốc, pháo đài, nổ mìn)",
+  "LUAL": "lửa lớn",
+  "LUAN": "lửa nhỏ/bếp trại",
+  "DAO": "đào/đá/xây",
+  "MAYBAY": "máy bay cánh quạt 1930–40s",
+  "PHO": "phố/xe 2026",
+  "DEM": "đêm yên (côn trùng)",
+  "COI": "còi tàu 1940"
+ },
+ "shot": [
+  {
+   "stt": 1,
+   "ma": "H1",
+   "lời": [
+    "0a",
+    "0b"
+   ],
+   "phim": [
+    0.0,
+    12.0
+   ],
+   "thoi_ky": "M2",
+   "lop": [
+    {
+     "ma": "DEM",
+     "ten": "đêm yên (côn trùng)",
+     "muc": "N1",
+     "ghi": "đêm 23:52 → bình minh 08:20"
+    },
+    {
+     "ma": "PHO",
+     "ten": "phố/xe 2026",
+     "muc": "N1",
+     "ghi": "xe xa đêm, không còi/còi báo"
+    },
+    {
+     "ma": "BUOC",
+     "ten": "bước chân",
+     "muc": "N2",
+     "ghi": "người đi bộ qua đường băng"
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "vào 0,0 s cùng lời: dốc 1,5 s",
+   "im": false
+  },
+  {
+   "stt": 2,
+   "ma": "H2",
+   "lời": [
+    "0c",
+    "0d",
+    "0e"
+   ],
+   "phim": [
+    12.0,
+    28.0
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "PXA",
+     "ten": "pháo xa",
+     "muc": "N2",
+     "ghi": "cuộn pháo xa dưới bộ đếm 14 lần vây (15,4–19,9 s)"
+    },
+    {
+     "ma": "CO",
+     "ten": "cờ bay",
+     "muc": "N2",
+     "ghi": "cờ 4/8/1704 hạ–kéo (20,0–22,4 s)"
+    },
+    {
+     "ma": "PXA",
+     "ten": "pháo xa",
+     "muc": "N3",
+     "ghi": "pin nổi khai hoả (25,4–27,7 s), một phát trong khe 22,1–22,5"
+    },
+    {
+     "ma": "LUAL",
+     "ten": "lửa lớn",
+     "muc": "N1",
+     "ghi": "pin nổi bốc cháy 27,0–28,0"
+    }
+   ],
+   "ghi": "2026 15:10 → 1782: 12,0–15,3 s chỉ gió (giờ 2026 chiều)",
+   "im": false
+  },
+  {
+   "stt": 3,
+   "ma": "H2T",
+   "lời": [
+    "0f"
+   ],
+   "phim": [
+    28.0,
+    33.0
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "LUAL",
+     "ten": "lửa lớn",
+     "muc": "N2",
+     "ghi": "pin nổi cháy, nhìn từ vịnh"
+    },
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N1",
+     "ghi": "sóng vỗ nhẹ (vịnh)"
+    },
+    {
+     "ma": "NO",
+     "ten": "nổ lớn (kho thuốc, pháo đài, nổ mìn)",
+     "muc": "N3",
+     "ghi": "nổ xa trong khe 31,9–33,0"
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 4,
+   "ma": "H3",
+   "lời": [
+    "0g",
+    "0h"
+   ],
+   "phim": [
+    33.0,
+    43.833
+   ],
+   "thoi_ky": "M1→M2",
+   "lop": [
+    {
+     "ma": "MAYBAY",
+     "ten": "máy bay cánh quạt 1930–40s",
+     "muc": "N1",
+     "ghi": "1939–43 (33,0–38,0 s): cánh quạt xa"
+    },
+    {
+     "ma": "PHO",
+     "ten": "phố/xe 2026",
+     "muc": "N1",
+     "ghi": "2026 từ 39,0 s"
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "không động cơ trước 1939",
+   "im": false
+  },
+  {
+   "stt": 5,
+   "ma": "N1.1",
+   "lời": [
+    "SM1",
+    "1a",
+    "1b"
+   ],
+   "phim": [
+    43.833,
+    62.625
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N2",
+     "ghi": "biển mở, eo biển"
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N2",
+     "ghi": ""
+    },
+    {
+     "ma": "THUYEN",
+     "ten": "thuyền: mái chèo, dây, gỗ kẽo kẹt",
+     "muc": "N1",
+     "ghi": "dây buồm, gỗ kẽo kẹt"
+    },
+    {
+     "ma": "CHIM",
+     "ten": "chim biển",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "hạm đội 1704",
+   "im": false
+  },
+  {
+   "stt": 6,
+   "ma": "N1.2",
+   "lời": [
+    "1c",
+    "1d"
+   ],
+   "phim": [
+    62.625,
+    89.375
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "PXA",
+     "ten": "pháo xa",
+     "muc": "N2",
+     "ghi": "bắn phá từ vịnh, dày dần ở 1d (73–89 s)"
+    },
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N1",
+     "ghi": "phố trong tường, rất xa"
+    },
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 7,
+   "ma": "N1.3",
+   "lời": [
+    "1e",
+    "1f"
+   ],
+   "phim": [
+    89.375,
+    104.5
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "CO",
+     "ten": "cờ bay",
+     "muc": "N2",
+     "ghi": "Borgoña hạ, Union kéo"
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N2",
+     "ghi": ""
+    },
+    {
+     "ma": "BUOC",
+     "ten": "bước chân",
+     "muc": "N1",
+     "ghi": "lính vào lâu đài"
+    }
+   ],
+   "ghi": "không trống/kèn (không có nguồn sạch)",
+   "im": false
+  },
+  {
+   "stt": 8,
+   "ma": "N1.4",
+   "lời": [
+    "1g"
+   ],
+   "phim": [
+    104.5,
+    118.5
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N1",
+     "ghi": "dòng dân rời phố, tiếng người rất xa, lọc thấp"
+    },
+    {
+     "ma": "BUOC",
+     "ten": "bước chân",
+     "muc": "N1",
+     "ghi": "bước trên cát"
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N2",
+     "ghi": "eo đất trống"
+    },
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "không tiếng Pháp/Anh rõ chữ",
+   "im": false
+  },
+  {
+   "stt": 9,
+   "ma": "N1.5",
+   "lời": [
+    "1h",
+    "1i"
+   ],
+   "phim": [
+    118.5,
+    147.625
+   ],
+   "thoi_ky": "P→M2",
+   "lop": [
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N2",
+     "ghi": "1713 eo đất trống"
+    },
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N2",
+     "ghi": "biển đông"
+    },
+    {
+     "ma": "PHO",
+     "ten": "phố/xe 2026",
+     "muc": "N1",
+     "ghi": "chỉ từ 25,5 s (2015)"
+    }
+   ],
+   "ghi": "bước năm 1729 → 2015 ở 25,4 s: đổi nền tại cú bước",
+   "im": false
+  },
+  {
+   "stt": 10,
+   "ma": "N1.6",
+   "lời": [
+    "1j",
+    "1k"
+   ],
+   "phim": [
+    147.625,
+    173.083
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "PXA",
+     "ten": "pháo xa",
+     "muc": "N2",
+     "ghi": "vây 1704–05 (0–6 s) và 1727 (6,1–10,9 s)"
+    },
+    {
+     "ma": "DAO",
+     "ten": "đào/đá/xây",
+     "muc": "N1",
+     "ghi": "Línea mọc 1730–35 (11–25 s): đá, xẻng"
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 11,
+   "ma": "C1",
+   "lời": [
+    "2a",
+    "2b"
+   ],
+   "phim": [
+    173.083,
+    195.583
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N1",
+     "ghi": "trại TBN, tiếng người rất xa"
+    },
+    {
+     "ma": "NGUA",
+     "ten": "ngựa/xe ngựa",
+     "muc": "N2",
+     "ghi": "ngựa kỵ binh"
+    },
+    {
+     "ma": "LUAN",
+     "ten": "lửa nhỏ/bếp trại",
+     "muc": "N1",
+     "ghi": "bếp trại"
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "CO",
+     "ten": "cờ bay",
+     "muc": "N1",
+     "ghi": "vải lều"
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 12,
+   "ma": "C2",
+   "lời": [
+    "2c"
+   ],
+   "phim": [
+    195.583,
+    207.583
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N2",
+     "ghi": ""
+    },
+    {
+     "ma": "THUYEN",
+     "ten": "thuyền: mái chèo, dây, gỗ kẽo kẹt",
+     "muc": "N2",
+     "ghi": "mái chèo thuyền châu Phi"
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "CHIM",
+     "ten": "chim biển",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 13,
+   "ma": "C3",
+   "lời": [
+    "2d",
+    "2e"
+   ],
+   "phim": [
+    207.583,
+    221.708
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N2",
+     "ghi": "cận người hái rau"
+    },
+    {
+     "ma": "CO",
+     "ten": "cờ bay",
+     "muc": "N1",
+     "ghi": "Union"
+    },
+    {
+     "ma": "CHIM",
+     "ten": "chim biển",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N1",
+     "ghi": "khi cần cẩu lên"
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 14,
+   "ma": "C4",
+   "lời": [
+    "SM2",
+    "2f"
+   ],
+   "phim": [
+    221.708,
+    235.208
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N2",
+     "ghi": "sóng vỗ Old Mole"
+    },
+    {
+     "ma": "THUYEN",
+     "ten": "thuyền: mái chèo, dây, gỗ kẽo kẹt",
+     "muc": "N2",
+     "ghi": "mái chèo, dây"
+    },
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N1",
+     "ghi": "người khiêng thùng"
+    },
+    {
+     "ma": "CHIM",
+     "ten": "chim biển",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 15,
+   "ma": "C5",
+   "lời": [
+    "2g"
+   ],
+   "phim": [
+    235.208,
+    247.708
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "PGAN",
+     "ten": "pháo gần/loạt pháo",
+     "muc": "N3",
+     "ghi": "pháo TBN bắn vào phố từ 3,6 s (≈ 238,8)"
+    },
+    {
+     "ma": "LUAL",
+     "ten": "lửa lớn",
+     "muc": "N2",
+     "ghi": "phố cháy đêm 13→14/4 (7,4–12,5 s)"
+    },
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N1",
+     "ghi": "dân chạy về nam"
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 16,
+   "ma": "N2.6",
+   "lời": [
+    "2h",
+    "2i"
+   ],
+   "phim": [
+    247.708,
+    262.167
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "PXA",
+     "ten": "pháo xa",
+     "muc": "N2",
+     "ghi": "khói pháo hai phía 1781–82"
+    },
+    {
+     "ma": "DAO",
+     "ten": "đào/đá/xây",
+     "muc": "N1",
+     "ghi": "nhà sập (đá rơi)"
+    },
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N1",
+     "ghi": "lính phá kho, rất xa"
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 17,
+   "ma": "KA1782",
+   "lời": [
+    "KA1782"
+   ],
+   "phim": [
+    262.167,
+    270.167
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N2",
+     "ghi": "phố đổ nát"
+    },
+    {
+     "ma": "PXA",
+     "ten": "pháo xa",
+     "muc": "N1",
+     "ghi": "1 phát rất xa"
+    },
+    {
+     "ma": "CHIM",
+     "ten": "chim biển",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "khung neo có lời",
+   "im": false
+  },
+  {
+   "stt": 18,
+   "ma": "N2.10",
+   "lời": [
+    "2o",
+    "2p"
+   ],
+   "phim": [
+    270.167,
+    288.542
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "DAO",
+     "ten": "đào/đá/xây",
+     "muc": "N2",
+     "ghi": "đào hầm vách bắc"
+    },
+    {
+     "ma": "NO",
+     "ten": "nổ lớn (kho thuốc, pháo đài, nổ mìn)",
+     "muc": "N3",
+     "ghi": "nổ lỗ thông hơi 2p (khe 283,3–…)"
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 19,
+   "ma": "N2.7",
+   "lời": [
+    "2j"
+   ],
+   "phim": [
+    288.542,
+    302.958
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "PGAN",
+     "ten": "pháo gần/loạt pháo",
+     "muc": "N3",
+     "ghi": "đạn nung bắn từ Rock"
+    },
+    {
+     "ma": "LUAL",
+     "ten": "lửa lớn",
+     "muc": "N2",
+     "ghi": "công sự TBN cháy"
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 20,
+   "ma": "N2.8",
+   "lời": [
+    "2k",
+    "2l"
+   ],
+   "phim": [
+    302.958,
+    326.958
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N2",
+     "ghi": ""
+    },
+    {
+     "ma": "THUYEN",
+     "ten": "thuyền: mái chèo, dây, gỗ kẽo kẹt",
+     "muc": "N1",
+     "ghi": "hạm đội neo"
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "CHIM",
+     "ten": "chim biển",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 21,
+   "ma": "N2.9",
+   "lời": [
+    "2m",
+    "2n"
+   ],
+   "phim": [
+    326.958,
+    354.958
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "PXA",
+     "ten": "pháo xa",
+     "muc": "N2",
+     "ghi": "garrison bắn khi pin vào vị trí (331–)"
+    },
+    {
+     "ma": "PGAN",
+     "ten": "pháo gần/loạt pháo",
+     "muc": "N3",
+     "ghi": "≈ 400 khẩu khai hoả — loạt lớn trong khe 342,9–344,2"
+    },
+    {
+     "ma": "LUAL",
+     "ten": "lửa lớn",
+     "muc": "N2",
+     "ghi": "đêm cháy (346,5–353)"
+    },
+    {
+     "ma": "NO",
+     "ten": "nổ lớn (kho thuốc, pháo đài, nổ mìn)",
+     "muc": "N3",
+     "ghi": "pin nổ (khe 348,1–348,5; 352–355 dưới lời 2n ở N2)"
+    },
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "ĐOẠN TRỘN THỬ 2",
+   "im": false
+  },
+  {
+   "stt": 22,
+   "ma": "N2.11",
+   "lời": [
+    "2q",
+    "2r"
+   ],
+   "phim": [
+    354.958,
+    382.583
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N2",
+     "ghi": "mùa đông"
+    },
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "PXA",
+     "ten": "pháo xa",
+     "muc": "N3",
+     "ghi": "MỘT phát cuối ngay sau \"the last shot was fired\" (370,2)"
+    }
+   ],
+   "ghi": "sau phát cuối: không pháo nữa",
+   "im": false
+  },
+  {
+   "stt": 23,
+   "ma": "N3.1",
+   "lời": [
+    "3a",
+    "3b"
+   ],
+   "phim": [
+    382.583,
+    409.833
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "NO",
+     "ten": "nổ lớn (kho thuốc, pháo đài, nổ mìn)",
+     "muc": "N3",
+     "ghi": "14/2/1810 hai pháo đài nổ: khe 405,9–406,7 + dưới lời N2"
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 24,
+   "ma": "N3.2",
+   "lời": [
+    "3c"
+   ],
+   "phim": [
+    409.833,
+    418.333
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "CHIM",
+     "ten": "chim biển",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 25,
+   "ma": "N3.3",
+   "lời": [
+    "3d"
+   ],
+   "phim": [
+    418.333,
+    428.292
+   ],
+   "thoi_ky": "P",
+   "lop": [
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N1",
+     "ghi": "phố La Línea thế kỷ 19, rất xa"
+    },
+    {
+     "ma": "NGUA",
+     "ten": "ngựa/xe ngựa",
+     "muc": "N1",
+     "ghi": "xe ngựa"
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "không xe máy",
+   "im": false
+  },
+  {
+   "stt": 26,
+   "ma": "KC1910",
+   "lời": [
+    "KC1910"
+   ],
+   "phim": [
+    428.292,
+    435.292
+   ],
+   "thoi_ky": "M1",
+   "lop": [
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N2",
+     "ghi": "phố La Línea 1910, tiếng Tây Ban Nha xa"
+    },
+    {
+     "ma": "NGUA",
+     "ten": "ngựa/xe ngựa",
+     "muc": "N2",
+     "ghi": "ngựa/xe ngựa"
+    },
+    {
+     "ma": "BUOC",
+     "ten": "bước chân",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "không ô tô",
+   "im": false
+  },
+  {
+   "stt": 27,
+   "ma": "N3.4",
+   "lời": [
+    "3e",
+    "3f",
+    "3g"
+   ],
+   "phim": [
+    435.292,
+    462.292
+   ],
+   "thoi_ky": "M1",
+   "lop": [
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N2",
+     "ghi": "dải trung lập"
+    },
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N1",
+     "ghi": "hai phố xa"
+    }
+   ],
+   "ghi": "hàng rào 1909: không có tiếng dựng rào sạch → không thêm",
+   "im": false
+  },
+  {
+   "stt": 28,
+   "ma": "N3.5",
+   "lời": [
+    "3h"
+   ],
+   "phim": [
+    462.292,
+    471.625
+   ],
+   "thoi_ky": "M1",
+   "lop": [
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N2",
+     "ghi": "dải cỏ"
+    },
+    {
+     "ma": "MAYBAY",
+     "ten": "máy bay cánh quạt 1930–40s",
+     "muc": "N1",
+     "ghi": "cánh quạt xa 1934–36, một lượt"
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 29,
+   "ma": "N4.1",
+   "lời": [
+    "4a",
+    "4b"
+   ],
+   "phim": [
+    471.625,
+    497.125
+   ],
+   "thoi_ky": "M1",
+   "lop": [
+    {
+     "ma": "DAO",
+     "ten": "đào/đá/xây",
+     "muc": "N1",
+     "ghi": "làm đường băng: đá, xẻng"
+    },
+    {
+     "ma": "MAYBAY",
+     "ten": "máy bay cánh quạt 1930–40s",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "không tiếng máy xúc hiện đại (bíp lùi)",
+   "im": false
+  },
+  {
+   "stt": 30,
+   "ma": "N4.2",
+   "lời": [
+    "4c",
+    "4d",
+    "4e"
+   ],
+   "phim": [
+    497.125,
+    525.5
+   ],
+   "thoi_ky": "M1",
+   "lop": [
+    {
+     "ma": "NO",
+     "ten": "nổ lớn (kho thuốc, pháo đài, nổ mìn)",
+     "muc": "N3",
+     "ghi": "nổ mìn vách bắc (bụi đá)"
+    },
+    {
+     "ma": "DAO",
+     "ten": "đào/đá/xây",
+     "muc": "N1",
+     "ghi": "đá đổ xuống vịnh"
+    },
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "MAYBAY",
+     "ten": "máy bay cánh quạt 1930–40s",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 31,
+   "ma": "N4.3",
+   "lời": [
+    "4f"
+   ],
+   "phim": [
+    525.5,
+    533.708
+   ],
+   "thoi_ky": "M1",
+   "lop": [
+    {
+     "ma": "MAYBAY",
+     "ten": "máy bay cánh quạt 1930–40s",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "CHIM",
+     "ten": "chim biển",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 32,
+   "ma": "N4.4",
+   "lời": [
+    "SM3",
+    "4g"
+   ],
+   "phim": [
+    533.708,
+    550.625
+   ],
+   "thoi_ky": "M1",
+   "lop": [
+    {
+     "ma": "COI",
+     "ten": "còi tàu 1940",
+     "muc": "N3",
+     "ghi": "tàu sơ tán rời cảng 5/1940 (khe đầu 4g)"
+    },
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N2",
+     "ghi": ""
+    },
+    {
+     "ma": "MAYBAY",
+     "ten": "máy bay cánh quạt 1930–40s",
+     "muc": "N2",
+     "ghi": "1941–42 máy bay tụ dần"
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "4g (541,7–550,6) không lời: SFX lên N2–N4 rồi TẮT HẾT trước 550,6 (tấm im lặng)",
+   "im": false
+  },
+  {
+   "stt": 33,
+   "ma": "KB1943",
+   "lời": [
+    "KB1943"
+   ],
+   "phim": [
+    550.625,
+    558.625
+   ],
+   "thoi_ky": "M1",
+   "lop": [],
+   "ghi": "TẤM IM LẶNG §11.2 — CHỈ HÌNH + NHẠC (B8 Echoes): KHÔNG SFX",
+   "im": true
+  },
+  {
+   "stt": 34,
+   "ma": "N4.5",
+   "lời": [
+    "4h",
+    "4i"
+   ],
+   "phim": [
+    558.625,
+    585.833
+   ],
+   "thoi_ky": "M1",
+   "lop": [
+    {
+     "ma": "MAYBAY",
+     "ten": "máy bay cánh quạt 1930–40s",
+     "muc": "N2",
+     "ghi": "động cơ chạy thử dọc đường băng"
+    },
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "vào lại sau tấm im lặng bằng dốc 1 s; không còi tàu (đoàn tàu tắt đèn)",
+   "im": false
+  },
+  {
+   "stt": 35,
+   "ma": "N5.1",
+   "lời": [
+    "5a",
+    "5b"
+   ],
+   "phim": [
+    585.833,
+    609.583
+   ],
+   "thoi_ky": "M2",
+   "lop": [
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N2",
+     "ghi": "dòng người qua cổng 1946–69"
+    },
+    {
+     "ma": "BUOC",
+     "ten": "bước chân",
+     "muc": "N2",
+     "ghi": ""
+    },
+    {
+     "ma": "PHO",
+     "ten": "phố/xe 2026",
+     "muc": "N1",
+     "ghi": "xe 1950–80s"
+    }
+   ],
+   "ghi": "cổng đóng 6/1969 (3,6 s ≈ 589,4): người và bước TẮT, chỉ còn gió đến 1985 (20,9 s ≈ 606,7)",
+   "im": false
+  },
+  {
+   "stt": 36,
+   "ma": "KB2026",
+   "lời": [
+    "KB2026"
+   ],
+   "phim": [
+    609.583,
+    619.083
+   ],
+   "thoi_ky": "M2",
+   "lop": [
+    {
+     "ma": "PHO",
+     "ten": "phố/xe 2026",
+     "muc": "N2",
+     "ghi": "quảng trường hôm nay"
+    },
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "CHIM",
+     "ten": "chim biển",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "khung neo có lời",
+   "im": false
+  },
+  {
+   "stt": 37,
+   "ma": "N5.2",
+   "lời": [
+    "5c",
+    "5d"
+   ],
+   "phim": [
+    619.083,
+    631.583
+   ],
+   "thoi_ky": "M2",
+   "lop": [
+    {
+     "ma": "BUOC",
+     "ten": "bước chân",
+     "muc": "N2",
+     "ghi": "giờ cao điểm qua đường băng"
+    },
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "PHO",
+     "ten": "phố/xe 2026",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 38,
+   "ma": "KC2026",
+   "lời": [
+    "KC2026"
+   ],
+   "phim": [
+    631.583,
+    641.583
+   ],
+   "thoi_ky": "M2",
+   "lop": [
+    {
+     "ma": "PHO",
+     "ten": "phố/xe 2026",
+     "muc": "N2",
+     "ghi": "phố La Línea hôm nay, tiếng TBN"
+    },
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 39,
+   "ma": "N5.3",
+   "lời": [
+    "5e",
+    "5f"
+   ],
+   "phim": [
+    641.583,
+    666.083
+   ],
+   "thoi_ky": "M2",
+   "lop": [
+    {
+     "ma": "BUOC",
+     "ten": "bước chân",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "PHO",
+     "ten": "phố/xe 2026",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "",
+   "im": false
+  },
+  {
+   "stt": 40,
+   "ma": "N5.4",
+   "lời": [
+    "5g",
+    "5h",
+    "5i"
+   ],
+   "phim": [
+    666.083,
+    697.542
+   ],
+   "thoi_ky": "M2",
+   "lop": [
+    {
+     "ma": "DONG",
+     "ten": "đám đông/tiếng người xa",
+     "muc": "N1",
+     "ghi": "người qua cổng không xếp hàng"
+    },
+    {
+     "ma": "PHO",
+     "ten": "phố/xe 2026",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "gỡ rào: không có tiếng kim loại sạch phù hợp → không thêm",
+   "im": false
+  },
+  {
+   "stt": 41,
+   "ma": "N5.5",
+   "lời": [
+    "5j"
+   ],
+   "phim": [
+    697.542,
+    717.0
+   ],
+   "thoi_ky": "P→M2",
+   "lop": [
+    {
+     "ma": "SONG",
+     "ten": "sóng/biển",
+     "muc": "N2",
+     "ghi": ""
+    },
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N2",
+     "ghi": ""
+    },
+    {
+     "ma": "CHIM",
+     "ten": "chim biển",
+     "muc": "N1",
+     "ghi": ""
+    }
+   ],
+   "ghi": "kéo lùi: chỉ nền biển–gió; KHÔNG chèn tiếng theo từng năm (nhạc Hiraeth dâng)",
+   "im": false
+  },
+  {
+   "stt": 42,
+   "ma": "KA2026",
+   "lời": [
+    "KA2026"
+   ],
+   "phim": [
+    717.0,
+    725.0
+   ],
+   "thoi_ky": "M2",
+   "lop": [],
+   "ghi": "TẤM IM LẶNG §11.2 — GIỮ PHƯƠNG ÁN ĐÃ DUYỆT (nhạc A): KHÔNG SFX",
+   "im": true
+  },
+  {
+   "stt": 43,
+   "ma": "N5.6",
+   "lời": [
+    "5k"
+   ],
+   "phim": [
+    725.0,
+    745.0
+   ],
+   "thoi_ky": "P→M2",
+   "lop": [
+    {
+     "ma": "GIO",
+     "ten": "gió",
+     "muc": "N1",
+     "ghi": ""
+    },
+    {
+     "ma": "DEM",
+     "ten": "đêm yên (côn trùng)",
+     "muc": "N1",
+     "ghi": "nửa đêm 2026 (13,3–20 s)"
+    },
+    {
+     "ma": "PHO",
+     "ten": "phố/xe 2026",
+     "muc": "N1",
+     "ghi": "chỉ đoạn 2026"
+    }
+   ],
+   "ghi": "đoạn 1730/1783 (0–4,7; 9,8–13,3 s): chỉ gió",
+   "im": false
+  },
+  {
+   "stt": 44,
+   "ma": "PP1",
+   "lời": [],
+   "phim": [
+    745.0,
+    753.0
+   ],
+   "thoi_ky": "—",
+   "lop": [],
+   "ghi": "thẻ phương pháp: không SFX",
+   "im": true
+  },
+  {
+   "stt": 45,
+   "ma": "PP2",
+   "lời": [],
+   "phim": [
+    753.0,
+    761.0
+   ],
+   "thoi_ky": "—",
+   "lop": [],
+   "ghi": "thẻ phương pháp: không SFX",
+   "im": true
+  }
+ ]
+}
