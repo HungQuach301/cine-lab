@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M1-l1-k55",
+   "nam": 1780,
+   "noi": "Gibraltar",
+   "sha256": "600ee4f11a856ab863a79ee5cd154243fd1565b1635b41daa5f9959c699f991c",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "vat_hien_dai",
+     "mo_ta": "A squat, mushroom-shaped cast-iron mooring bollard with a flared base, standing on the quay at right.",
+     "ly_do": "This bollard form looks like a later 19th-century cast-iron type. In 1780 a quay would more likely have had stone or wooden posts, or iron rings. I am not certain, because the shape is also plausible for the period.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1747,
+      637,
+      1843,
+      713
+     ],
+     "do_tin": 0.12
+    }
+   ],
+   "cost_usd": 0.0348856,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 938,
+     "cacheReadInputTokens": 2936,
+     "cacheCreationInputTokens": 10080,
+     "webSearchRequests": 0,
+     "costUSD": 0.0348856,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 159,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"A squat, mushroom-shaped cast-iron mooring bollard with a flared base, standing on the quay at right.\",\"ly_do\":\"This bollard form looks like a later 19th-century cast-iron type. In 1780 a quay would more likely have had stone or wooden posts, or iron rings. I am not certain, because the shape is also plausible for the period.\",\"nam_xuat_hien\":null,\"toa_do\":[0.91,0.59,0.96,0.66],\"do_tin\":0.12}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0349,
+ "chi_phi_tb": 0.0349,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

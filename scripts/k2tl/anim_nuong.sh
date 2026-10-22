@@ -32,6 +32,6 @@ P
   node $CPU/nc_topo.js --scene t3tl --opt "$OPT" --f 0 --box -2200,-3000,400,600 --res 1 --out $O/topo-$B-m1 2>&1 | tail -1
   FI=(); [ $B = b1782 ] && FI=(--fires "$(cat $CPU/fires-1782.json)")
   /opt/bpy/bin/python $CPU/nc_blend.py -- $O/exp-$B nuong $K2TL_CACHE/nc/bake/$B --topo $O/topo-$B-m1,$O/topo-$B-m4 --tex $K2TL_CACHE/nc/tex --box $BOX --bres 3 --spp 24 "${FI[@]}" --pack $K2TL_CACHE/scene/gib/pack 2>&1 | grep -E "NC-BAKE|Error|Traceback" || true
-  cp $K2TL_CACHE/nc/bake/$B/meta.json $REPO/reports/animatic-t3/do/nuong-$B.json 2>/dev/null || true
+  cp $K2TL_CACHE/nc/bake/$B/meta.json $REPO/${NUONG_META:-reports/animatic-t3/do}/nuong-$B.json 2>/dev/null || true
   echo "NUONG $B $(( $(date +%s) - T0 )) s"
 done; date; echo NUONG-XONG

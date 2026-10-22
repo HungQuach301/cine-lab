@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.039 (TB $0.039/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M5-l2-k55",
+   "nam": 2026,
+   "noi": "Gibraltar",
+   "sha256": "c285aaa005496306dd74aafddbb24457c6c07f3f556abd3dcaf0ec3a8586e5cb",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "vat_hien_dai",
+     "mo_ta": "Travellers with wheeled luggage walk across a wide striped crossing on the airport runway or apron. The crossing has inset white lights in the surface.",
+     "ly_do": "Since the Gibraltar tunnel opened in 2023, Winston Churchill Avenue no longer crosses the runway for traffic and pedestrians. Mass foot traffic across the active runway, with a striped crossing and in-pavement lights, does not match Gibraltar in 2026.",
+     "nam_xuat_hien": 2023,
+     "toa_do_px": [
+      0,
+      540,
+      1920,
+      1080
+     ],
+     "do_tin": 0.35
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A uniform row of low-rise apartment blocks with lit windows stands behind the runway. There is no sign of the Rock of Gibraltar or the terminal building.",
+     "ly_do": "The skyline does not match Gibraltar's 2026 airport surroundings. The Rock, the new terminal and the tunnel works are missing.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      0,
+      389,
+      1920,
+      475
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.0388256,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1332,
+     "cacheReadInputTokens": 2936,
+     "cacheCreationInputTokens": 10080,
+     "webSearchRequests": 0,
+     "costUSD": 0.0388256,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 346,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"Travellers with wheeled luggage walk across a wide striped crossing on the airport runway or apron. The crossing has inset white lights in the surface.\",\"ly_do\":\"Since the Gibraltar tunnel opened in 2023, Winston Churchill Avenue no longer crosses the runway for traffic and pedestrians. Mass foot traffic across the active runway, with a striped crossing and in-pavement lights, does not match Gibraltar in 2026.\",\"nam_xuat_hien\":2023,\"toa_do\":[0.0,0.5,1.0,1.0],\"do_tin\":0.35},{\"muc\":\"kien_truc\",\"mo_ta\":\"A uniform row of low-rise apartment blocks with lit windows stands behind the runway. There is no sign of the Rock of Gibraltar or the terminal building.\",\"ly_do\":\"The skyline does not match Gibraltar's 2026 airport surroundings. The Rock, the new terminal and the tunnel works are missing.\",\"nam_xuat_hien\":null,\"toa_do\":[0.0,0.36,1.0,0.44],\"do_tin\":0.25}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0388,
+ "chi_phi_tb": 0.0388,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

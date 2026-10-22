@@ -1,0 +1,720 @@
+{
+ "tag": "M1-l1",
+ "clip": "/home/user/cine-lab/reports/animatic-t3-v2/omni/ra/M1-l1.mp4",
+ "clip_sha": "f01685b7a94e5dc7fd73dff44b4d000316e39937295538282f88dda2aa3d299b",
+ "dau": "/home/user/cine-lab/reports/animatic-t3-v2/omni/dau/M1.jpg",
+ "dau_sha": "371b63cecd45f538572d9b7fc516b0f2ee7f358ca9b72feb2d63358eae4b6091",
+ "nam": "1780",
+ "canh": "January 1780, Gibraltar harbour (Old Mole): a relief convoy's supplies being unloaded from rowing boats, men carrying barrels and crates (illustration, no facts)",
+ "so_khung": 240,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M1-l1/M1-l1-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0277,
+      "usage": {
+       "input_tokens": 10159,
+       "input_tokens_details": {
+        "cache_write_tokens": 10156,
+        "cached_tokens": 0
+       },
+       "output_tokens": 734,
+       "output_tokens_details": {
+        "reasoning_tokens": 360
+       },
+       "total_tokens": 10893
+      }
+     },
+     "secs": 23.3,
+     "mo_ta": "Khung hình cho thấy những người đàn ông chuyển thùng hàng từ thuyền chèo lên cầu cảng bằng đá, phía sau là tường thành và sườn núi.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Một phần tàu buồm có cột buồm, dây chằng và mũi nhô dài xuất hiện ở mép trái; có vẻ lớn hơn thuyền chèo, nhưng phần thân bị khuất ngoài khung nên chưa xác định chắc quy mô.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.334,
+        0.12,
+        0.652
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.72
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm vật thể tròn màu đỏ nâu phía sau các nhân vật trông như những mặt thùng rời, xếp lơ lửng không có thân hoặc giá đỡ rõ ràng; cụm tương ứng đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.349,
+        0.459,
+        0.429,
+        0.575
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Hình học bờ cảng bị thay đổi: mặt kè dốc liên tục trong ảnh tham chiếu được thay bằng cầu cảng phẳng có mép đá dựng đứng, tạo thêm vùng nước sát chân cầu cảng.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.317,
+        0.572,
+        1.0,
+        0.757
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      }
+     ],
+     "loi": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Một phần tàu buồm có cột buồm, dây chằng và mũi nhô dài xuất hiện ở mép trái; có vẻ lớn hơn thuyền chèo, nhưng phần thân bị khuất ngoài khung nên chưa xác định chắc quy mô.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.334,
+        0.12,
+        0.652
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.72
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm vật thể tròn màu đỏ nâu phía sau các nhân vật trông như những mặt thùng rời, xếp lơ lửng không có thân hoặc giá đỡ rõ ràng; cụm tương ứng đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.349,
+        0.459,
+        0.429,
+        0.575
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Hình học bờ cảng bị thay đổi: mặt kè dốc liên tục trong ảnh tham chiếu được thay bằng cầu cảng phẳng có mép đá dựng đứng, tạo thêm vùng nước sát chân cầu cảng.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.317,
+        0.572,
+        1.0,
+        0.757
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1053941
+     },
+     "secs": 18.6,
+     "mo_ta": "A sunlit stone harbour quay with a rowing boat alongside, sailors, redcoat soldiers and workers handling barrels, a sailing vessel at the left edge, a mountain behind, and gulls in the sky.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Sailing vessel with a mast, rigging and a white hull at the left edge. It is not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.33,
+        0.12,
+        0.65
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Redcoat soldiers in red coats with white cross-belts and tricorn hats, standing near the orange round objects. The reference has only small brown-clad figures here, so these soldiers are invented.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.39,
+        0.49,
+        0.48,
+        0.6
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Stone mooring bollards on the quay, one large at the right and one small at the left. They are plausible for the period but are added details not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.86,
+        0.57,
+        0.91,
+        0.63
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.25
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Quay edge, ladder and added stone harbour wall. In the reference the water reaches a sand-coloured bank, so land and sea have been rearranged.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.33,
+        0.58,
+        1.0,
+        0.75
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.35
+      }
+     ],
+     "loi": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Sailing vessel with a mast, rigging and a white hull at the left edge. It is not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.33,
+        0.12,
+        0.65
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      }
+     ],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M1-l1-k25",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "89f28c7e6f9b8023f9cf56902db2f22968e9feaf43d2ce9325e68436e6f1f177",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0334756,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 797,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0334756,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 201,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0335,
+    "chi_phi_tb": 0.0335,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M1-l1/M1-l1-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.027,
+      "usage": {
+       "input_tokens": 10147,
+       "input_tokens_details": {
+        "cache_write_tokens": 10144,
+        "cached_tokens": 0
+       },
+       "output_tokens": 674,
+       "output_tokens_details": {
+        "reasoning_tokens": 262
+       },
+       "total_tokens": 10821
+      }
+     },
+     "secs": 17.7,
+     "mo_ta": "Men unload barrels and crates from a rowing boat beside a stone quay beneath fortified walls and a rocky hillside.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "A newly formed vertical, block-built quay with a flat paved top replaces the sloping waterfront visible in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.503,
+        0.605,
+        1.0,
+        0.833
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added mushroom-shaped mooring bollard on the foreground quay; its modern-looking form warrants review, but an anachronistic introduction date cannot be established from the image.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.912,
+        0.599,
+        0.954,
+        0.668
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.82
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added smaller mooring bollard on the distant waterfront, absent from the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.114,
+        0.574,
+        0.13,
+        0.601
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added fixed metal access ladder attached to the foreground quay, an architectural detail absent from the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.794,
+        0.674,
+        0.85,
+        0.814
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added narrow access ladder descending from the distant waterfront into the water, absent from the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.112,
+        0.597,
+        0.13,
+        0.662
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "A newly formed vertical, block-built quay with a flat paved top replaces the sloping waterfront visible in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.503,
+        0.605,
+        1.0,
+        0.833
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added mushroom-shaped mooring bollard on the foreground quay; its modern-looking form warrants review, but an anachronistic introduction date cannot be established from the image.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.912,
+        0.599,
+        0.954,
+        0.668
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.82
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added smaller mooring bollard on the distant waterfront, absent from the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.114,
+        0.574,
+        0.13,
+        0.601
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added fixed metal access ladder attached to the foreground quay, an architectural detail absent from the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.794,
+        0.674,
+        0.85,
+        0.814
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added narrow access ladder descending from the distant waterfront into the water, absent from the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.112,
+        0.597,
+        0.13,
+        0.662
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.10233289999999999
+     },
+     "secs": 17.2,
+     "mo_ta": "Sailors and red-coated soldiers unload barrels and crates from a rowing boat onto a stone quay below a tall sandstone bastion wall, with seagulls overhead.",
+     "muc": [
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "Iron mooring bollard on the quay edge. The brief lists modern harbour walls with bollards as forbidden, and this one is not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.91,
+        0.6,
+        0.95,
+        0.665
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Invented stone quay and jetty with a rope ladder, replacing the sand ramp and water of the reference. This is added harbour structure, and it turns land into sea or sea into land.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.58,
+        1.0,
+        0.82
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Soldiers in red coats and tricorns with cross-belts, apparently invented troops. The reference has only small figures in tan coats.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.34,
+        0.46,
+        0.6,
+        0.64
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Invented stone quay and jetty with a rope ladder, replacing the sand ramp and water of the reference. This is added harbour structure, and it turns land into sea or sea into land.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.58,
+        1.0,
+        0.82
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M1-l1-k55",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "600ee4f11a856ab863a79ee5cd154243fd1565b1635b41daa5f9959c699f991c",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "vat_hien_dai",
+        "mo_ta": "A squat, mushroom-shaped cast-iron mooring bollard with a flared base, standing on the quay at right.",
+        "ly_do": "This bollard form looks like a later 19th-century cast-iron type. In 1780 a quay would more likely have had stone or wooden posts, or iron rings. I am not certain, because the shape is also plausible for the period.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1747,
+         637,
+         1843,
+         713
+        ],
+        "do_tin": 0.12
+       }
+      ],
+      "cost_usd": 0.0348856,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 938,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0348856,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 159,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"A squat, mushroom-shaped cast-iron mooring bollard with a flared base, standing on the quay at right.\",\"ly_do\":\"This bollard form looks like a later 19th-century cast-iron type. In 1780 a quay would more likely have had stone or wooden posts, or iron rings. I am not certain, because the shape is also plausible for the period.\",\"nam_xuat_hien\":null,\"toa_do\":[0.91,0.59,0.96,0.66],\"do_tin\":0.12}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0349,
+    "chi_phi_tb": 0.0349,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M1-l1/M1-l1-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0245,
+      "usage": {
+       "input_tokens": 10153,
+       "input_tokens_details": {
+        "cache_write_tokens": 10150,
+        "cached_tokens": 0
+       },
+       "output_tokens": 423,
+       "output_tokens_details": {
+        "reasoning_tokens": 270
+       },
+       "total_tokens": 10576
+      }
+     },
+     "secs": 12.5,
+     "mo_ta": "Những người mặc trang phục thời kỳ đang chuyển thùng gỗ và kiện hàng từ thuyền chèo lên bến đá dưới chân tường thành.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm hình tròn đỏ nâu giống các đầu thùng bị tách rời, treo lơ lửng và chồng lên nhau trước tường phía sau nhóm người; hiện tượng này đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.236,
+        0.448,
+        0.345,
+        0.597
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm hình tròn đỏ nâu giống các đầu thùng bị tách rời, treo lơ lửng và chồng lên nhau trước tường phía sau nhóm người; hiện tượng này đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.236,
+        0.448,
+        0.345,
+        0.597
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1027593
+     },
+     "secs": 18.5,
+     "mo_ta": "Sailors in a wooden rowing boat at a stone quay beside a high sandstone bastion wall, with men in waistcoats and red-coated soldiers handling barrels and a crate on the quay, and seagulls overhead.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Rusty iron ladder fixed to the quay face. It is not in the reference, and its form looks modern-ish.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.84,
+        0.75,
+        0.91,
+        0.93
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Short mooring bollards or posts on the quay edge, and a chain-like ladder at the far left. These were added by the AI and are not in the reference. Bollards are listed as a modern harbour feature, though simple mooring posts fit 1780.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.03,
+        0.57,
+        0.09,
+        0.66
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.25
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cluster of round red disc shapes against the wall. They are ambiguous, look like shields or lamps, and are not recognisable as any real object. The same blobs are in the reference.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.23,
+        0.45,
+        0.35,
+        0.6
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M1-l1-k90",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "c23974fef3eba19f275c3a8c197200922a58fdd499a2871f916b515e9ebb3b7a",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0320956,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 659,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0320956,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 63,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0321,
+    "chi_phi_tb": 0.0321,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 2,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "LOẠI",
+  "chi_tiet": [
+   {
+    "u": 0.25,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Một phần tàu buồm có cột buồm, dây chằng và mũi nhô dài xuất hiện ở mép trái; có vẻ lớn hơn thuyền chèo, nhưng phần thân bị khuất ngoài khung nên chưa xác định chắc quy mô.",
+    "nam": null
+   },
+   {
+    "u": 0.25,
+    "mo_hinh": "claude",
+    "loai": "tau_lon",
+    "mo_ta": "Sailing vessel with a mast, rigging and a white hull at the left edge. It is not in the reference.",
+    "nam": null
+   }
+  ]
+ }
+}

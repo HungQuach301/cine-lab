@@ -8,7 +8,7 @@
 import json, os, subprocess, sys
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
-REPO = Path(__file__).resolve().parents[2]; EPD = REPO / 'channel-k2/k2c-t3-01/animatic'; R = REPO / 'reports/animatic-t3'; X = R / 'xem'
+REPO = Path(__file__).resolve().parents[2]; EPD = REPO / 'channel-k2/k2c-t3-01/animatic'; R = REPO / os.environ.get('ANIM_R', 'reports/animatic-t3'); X = R / 'xem'   # ANIM-V2: ANIM_R=reports/animatic-t3-v2
 M = sys.argv[1]; BUOC = (sys.argv[sys.argv.index('--buoc') + 1] if '--buoc' in sys.argv else 'a,b,c,d').split(',')
 OUTX = Path('/var/tmp/cine-out/k2c-t3-anim/xem'); OUTX.mkdir(parents=True, exist_ok=True); X.mkdir(parents=True, exist_ok=True)
 B = json.loads((EPD / 'bang-shot.json').read_text())
@@ -46,7 +46,7 @@ if 'd' in BUOC:
     L = ['# PHIẾU XEM — animatic cả tập T3 Gibraltar (960×540 → bản xem 640×360, không phụ đề)', '',
          'Ghi nhận xét theo dạng **`<mã shot>: …`** (ví dụ `N1.4: dòng người khó thấy`). Mốc trong tệp = giây tính từ đầu tệp xem của chương; mốc cả phim = giây trên bản liền 960×540.', '',
          '| Tệp xem | Nội dung | Mốc cả phim |', '|---|---|---|']
-    for k, a, b, n in CH: L.append(f'| `reports/animatic-t3/xem/{k}.mp4` | {n} | {mm(a)} → {mm(b)} |')
+    for k, a, b, n in CH: L.append(f'| `{R.relative_to(REPO)}/xem/{k}.mp4` | {n} | {mm(a)} → {mm(b)} |')
     L += ['', '| Mã shot | Tệp xem | Mốc trong tệp | Mốc cả phim | Lời (dòng) | Ghi chú của chủ dự án |', '|---|---|---|---|---|---|']
     for b in B:
         k, a, _, _ = [c for c in CH if c[1] - 1e-3 <= b['t0'] < c[2] - 1e-3][0]

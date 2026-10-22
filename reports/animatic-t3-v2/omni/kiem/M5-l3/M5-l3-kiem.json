@@ -1,0 +1,468 @@
+{
+ "tag": "M5-l3",
+ "clip": "/home/user/cine-lab/reports/animatic-t3-v2/omni/ra/M5-l3.mp4",
+ "clip_sha": "c683c4e9ac7d46a4484c0cbcad359bfc74972fd526f4aa3a92dc03c91e227b5b",
+ "dau": "/home/user/cine-lab/reports/animatic-t3-v2/omni/dau/M5.jpg",
+ "dau_sha": "825768d26fedc4d8bf1e801cbc5454bc497a59c4b5499e242a9b368931834e71",
+ "nam": "2026",
+ "canh": "October 2026, dusk: pedestrians walking across the airport runway road at the Gibraltar frontier (illustration, no facts)",
+ "so_khung": 240,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M5-l3/M5-l3-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0205,
+      "usage": {
+       "input_tokens": 9757,
+       "input_tokens_details": {
+        "cache_write_tokens": 9754,
+        "cached_tokens": 0
+       },
+       "output_tokens": 99,
+       "output_tokens_details": {
+        "reasoning_tokens": 38
+       },
+       "total_tokens": 9856
+      }
+     },
+     "secs": 6.2,
+     "mo_ta": "Người đi bộ mặc trang phục hiện đại, mang ba lô và kéo va li băng qua đường băng tại Gibraltar lúc chạng vạng, phía xa là các dãy nhà và đèn đường băng.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.0957083
+     },
+     "secs": 13.3,
+     "mo_ta": "Low-angle view of pedestrians, one pulling a wheeled suitcase, crossing zebra stripes on a runway road at dusk, with a row of brick apartment blocks on the horizon.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Tiny dark speck in the sky, probably a bird or distant aircraft. A similar speck is faintly visible in the reference.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.135,
+        0.203,
+        0.146,
+        0.214
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.1
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M5-l3-k25",
+      "nam": 2026,
+      "noi": "Gibraltar",
+      "sha256": "284fa638eb6acf806684982ea2da103c4c4916e22d32b222d91b63a718c9fca9",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "vat_hien_dai",
+        "mo_ta": "Travellers with wheeled suitcases and backpacks walk over a zebra-style crosswalk painted across the airport runway and taxiway. Runway edge lights are visible beyond it.",
+        "ly_do": "The Winston Churchill Avenue tunnel opened in March 2023. After that, the road and pedestrian crossing over the Gibraltar runway were closed to the public. In 2026 people would no longer walk across the runway on a painted crossing like this.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         0,
+         605,
+         1920,
+         1080
+        ],
+        "do_tin": 0.4
+       }
+      ],
+      "cost_usd": 0.0361556,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1065,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0361556,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 252,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"Travellers with wheeled suitcases and backpacks walk over a zebra-style crosswalk painted across the airport runway and taxiway. Runway edge lights are visible beyond it.\",\"ly_do\":\"The Winston Churchill Avenue tunnel opened in March 2023. After that, the road and pedestrian crossing over the Gibraltar runway were closed to the public. In 2026 people would no longer walk across the runway on a painted crossing like this.\",\"nam_xuat_hien\":null,\"toa_do\":[0.0,0.56,1.0,1.0],\"do_tin\":0.4}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0362,
+    "chi_phi_tb": 0.0362,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M5-l3/M5-l3-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0224,
+      "usage": {
+       "input_tokens": 9757,
+       "input_tokens_details": {
+        "cache_write_tokens": 9754,
+        "cached_tokens": 0
+       },
+       "output_tokens": 289,
+       "output_tokens_details": {
+        "reasoning_tokens": 153
+       },
+       "total_tokens": 10046
+      }
+     },
+     "secs": 9.3,
+     "mo_ta": "Góc nhìn thấp cho thấy người đi bộ kéo vali qua đường băng, với các dãy nhà và một phần máy bay ở hậu cảnh.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Một phần máy bay phản lực dường như đang đỗ ở hậu cảnh giữa khung hình; thấy cánh và cửa hút động cơ, không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.489,
+        0.396,
+        0.56,
+        0.45
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Một phần máy bay phản lực dường như đang đỗ ở hậu cảnh giữa khung hình; thấy cánh và cửa hút động cơ, không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.489,
+        0.396,
+        0.56,
+        0.45
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.0983351
+     },
+     "secs": 16.4,
+     "mo_ta": "Low-angle view of travellers in casual clothes walking with wheeled suitcases across white runway-crossing stripes, with apartment blocks and a jet aircraft in the distance at dusk.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "A jet airliner with wing and engine is visible in the distance beyond the pedestrians' legs, on or at the edge of the runway. The reference has no aircraft.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.48,
+        0.37,
+        0.55,
+        0.45
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.6
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "A second partial aircraft shape, with a wing and engine, at the far right edge of the horizon behind a pedestrian's leg. This is the right-hand end of the same jet seen in the q2 enlargement, so it may be the same object.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.5,
+        0.38,
+        0.53,
+        0.45
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "A jet airliner with wing and engine is visible in the distance beyond the pedestrians' legs, on or at the edge of the runway. The reference has no aircraft.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.48,
+        0.37,
+        0.55,
+        0.45
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.6
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M5-l3-k55",
+      "nam": 2026,
+      "noi": "Gibraltar",
+      "sha256": "eb8439b1b9c0a79efaa824d602fa12ba53382726284c8f1d025c9416badef662",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0314656,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 596,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0314656,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0315,
+    "chi_phi_tb": 0.0315,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M5-l3/M5-l3-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0222,
+      "usage": {
+       "input_tokens": 9769,
+       "input_tokens_details": {
+        "cache_write_tokens": 9766,
+        "cached_tokens": 0
+       },
+       "output_tokens": 262,
+       "output_tokens_details": {
+        "reasoning_tokens": 131
+       },
+       "total_tokens": 10031
+      }
+     },
+     "secs": 10.0,
+     "mo_ta": "Người đi bộ kéo vali băng qua đường băng, phía sau có một máy bay phản lực và các dãy nhà dưới bầu trời còn sáng.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Máy bay phản lực lớn được thêm ở giữa đường băng, ngay phía sau người đi bộ; không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.431,
+        0.273,
+        0.568,
+        0.455
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Máy bay phản lực lớn được thêm ở giữa đường băng, ngay phía sau người đi bộ; không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.431,
+        0.273,
+        0.568,
+        0.455
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.0954715
+     },
+     "secs": 15.0,
+     "mo_ta": "Low-angle view of pedestrians with rolling suitcases and backpacks crossing striped crosswalk markings on a runway, with a large jet airliner facing the viewer at the far end and apartment blocks on the horizon.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Airliner (twin-engine jet) on the runway or apron in the distance, invented; the reference has no aircraft",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.43,
+        0.27,
+        0.57,
+        0.46
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Runway approach or edge lights glowing in a line beside the aircraft, not in the reference (which has round glowing orbs on the road)",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.44,
+        0.44,
+        0.5,
+        0.47
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Small mast or antenna on the horizon to the right of the aircraft, probably an invented structure",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.62,
+        0.36,
+        0.64,
+        0.4
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Airliner (twin-engine jet) on the runway or apron in the distance, invented; the reference has no aircraft",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.43,
+        0.27,
+        0.57,
+        0.46
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M5-l3-k90",
+      "nam": 2026,
+      "noi": "Gibraltar",
+      "sha256": "ebbcc7d641608a56bd89ac4ed059ff80ff44cdfa8e078a8d765156f07165fe88",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0314656,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 596,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0314656,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0315,
+    "chi_phi_tb": 0.0315,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

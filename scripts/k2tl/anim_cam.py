@@ -7,7 +7,7 @@ import json, os, re, shutil, subprocess, sys, tempfile
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from PIL import Image, ImageDraw
-ROOT = Path(__file__).resolve().parents[2]; D = ROOT / 'reports/animatic-t3/xem-cam'; D.mkdir(parents=True, exist_ok=True); LOG = D / 'cost.jsonl'; MODEL = 'claude-sonnet-5-5'; STEP = 4
+ROOT = Path(__file__).resolve().parents[2]; D = ROOT / os.environ.get('ANIM_CAM_D', 'reports/animatic-t3/xem-cam'); D.mkdir(parents=True, exist_ok=True); LOG = D / 'cost.jsonl'; MODEL = 'claude-sonnet-5-5'; STEP = 4
 RATERS = {
  'R1': 'You are a regular YouTube viewer who often watches short history videos on your phone WITH THE SOUND OFF (e.g. on a train).',
  'R2': 'You are a secondary-school history teacher who has never studied Gibraltar in detail.',

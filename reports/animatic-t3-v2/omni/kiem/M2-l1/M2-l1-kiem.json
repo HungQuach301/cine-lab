@@ -1,0 +1,1313 @@
+{
+ "tag": "M2-l1",
+ "clip": "omni/ra/M2-l1.mp4",
+ "clip_sha": "c3104057fc012b7a37dbddd5e65dfefad8e7ee4a843a0d5021154ec8854079c2",
+ "dau": "omni/dau/M2.jpg",
+ "dau_sha": "b904093a60d00b148e2a0d4ef26a7b3158a4b28b33465422605b5bc6f17ec82b",
+ "nam": "1780",
+ "canh": "January 1780, siege of Gibraltar: hungry people picking wild plants on the rocky hillside above the town, blockade ships far in the bay (illustration, no facts)",
+ "so_khung": 240,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "omni/kiem/M2-l1/M2-l1-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0343,
+      "usage": {
+       "input_tokens": 10154,
+       "input_tokens_details": {
+        "cache_write_tokens": 10151,
+        "cached_tokens": 0
+       },
+       "output_tokens": 1402,
+       "output_tokens_details": {
+        "reasoning_tokens": 265
+       },
+       "total_tokens": 11556
+      }
+     },
+     "secs": 32.1,
+     "mo_ta": "Hai người mặc trang phục cổ hái cây trên sườn đồi đá phía trên một thị trấn ven vịnh, với vài tàu buồm ngoài nước và một cột khói xa phía chân trời.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm bị cắt một phần ở mép trái khung hình; không đối chiếu được với cùng một tàu trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.434,
+        0.02,
+        0.472
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm hai cột với thân màu nâu ở phía trái vịnh, được tạo lại khác các tàu trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.058,
+        0.43,
+        0.096,
+        0.477
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm nhìn ngang ở xa, bên phải tàu hai cột.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.119,
+        0.431,
+        0.139,
+        0.451
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu có cột buồm cao và thân tối, nằm gần giữa nhóm tàu nhìn thấy trong vịnh.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.17,
+        0.434,
+        0.185,
+        0.468
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu nhỏ ở xa nhưng có hình dáng tàu đi biển, phía trên bên phải tàu có cột buồm cao.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.177,
+        0.422,
+        0.195,
+        0.442
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.75
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Tháp chuông mái nhọn được thêm vào thị trấn; ảnh tham chiếu không có tháp này và không đủ căn cứ nhận diện một công trình cụ thể.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.091,
+        0.463,
+        0.11,
+        0.531
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà xây mái ngói phía dưới sườn đồi đã được dựng lại với bố cục và kiến trúc khác ảnh tham chiếu, không chỉ là thay đổi chất liệu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.42,
+        0.528,
+        0.664
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đê hoặc cầu cảng dài nhô ngang ra vịnh được thêm vào, không hiện diện trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.299,
+        0.422,
+        0.432,
+        0.453
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dải khu dân cư màu trắng được thêm dọc bờ bên kia vịnh, nơi ảnh tham chiếu chỉ thể hiện bờ và núi trống.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.328,
+        0.415,
+        0.389
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà mới được thêm trên sườn đồi và ven bờ phía phải vịnh, không có đối tượng tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.6,
+        0.353,
+        0.713,
+        0.421
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "loi": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm bị cắt một phần ở mép trái khung hình; không đối chiếu được với cùng một tàu trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.434,
+        0.02,
+        0.472
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm hai cột với thân màu nâu ở phía trái vịnh, được tạo lại khác các tàu trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.058,
+        0.43,
+        0.096,
+        0.477
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm nhìn ngang ở xa, bên phải tàu hai cột.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.119,
+        0.431,
+        0.139,
+        0.451
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu có cột buồm cao và thân tối, nằm gần giữa nhóm tàu nhìn thấy trong vịnh.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.17,
+        0.434,
+        0.185,
+        0.468
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu nhỏ ở xa nhưng có hình dáng tàu đi biển, phía trên bên phải tàu có cột buồm cao.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.177,
+        0.422,
+        0.195,
+        0.442
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.75
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Tháp chuông mái nhọn được thêm vào thị trấn; ảnh tham chiếu không có tháp này và không đủ căn cứ nhận diện một công trình cụ thể.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.091,
+        0.463,
+        0.11,
+        0.531
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà xây mái ngói phía dưới sườn đồi đã được dựng lại với bố cục và kiến trúc khác ảnh tham chiếu, không chỉ là thay đổi chất liệu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.42,
+        0.528,
+        0.664
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đê hoặc cầu cảng dài nhô ngang ra vịnh được thêm vào, không hiện diện trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.299,
+        0.422,
+        0.432,
+        0.453
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dải khu dân cư màu trắng được thêm dọc bờ bên kia vịnh, nơi ảnh tham chiếu chỉ thể hiện bờ và núi trống.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.328,
+        0.415,
+        0.389
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà mới được thêm trên sườn đồi và ven bờ phía phải vịnh, không có đối tượng tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.6,
+        0.353,
+        0.713,
+        0.421
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1006747
+     },
+     "secs": 15.2,
+     "mo_ta": "Two ragged people in period clothes pick plants on a rocky hillside above a Mediterranean red-roofed town, with a bay, a few ships, and a smoke column in the distance.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Two-masted sailing ships (galleon or caravel type) on the bay at left, plus small boats. The reference also shows ships in the bay, but these look different and there are fewer of them.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.42,
+        0.2,
+        0.47
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Church with a bell tower and a pointed roof in the town. The reference has no church or bell tower.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.09,
+        0.46,
+        0.12,
+        0.52
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.6
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Smoke column invented over the distant hills. It is not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.25,
+        0.2,
+        0.47,
+        0.31
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.6
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "A long pier or breakwater jutting into the bay. It looks like a modern harbour wall and is not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.3,
+        0.43,
+        0.46,
+        0.45
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dense Adriatic-style town with many orange roofs, and a white modern-looking settlement across the bay. These look nothing like the Gibraltar town and landscape in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.47,
+        0.5,
+        0.66
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.45
+      }
+     ],
+     "loi": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Two-masted sailing ships (galleon or caravel type) on the bay at left, plus small boats. The reference also shows ships in the bay, but these look different and there are fewer of them.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.42,
+        0.2,
+        0.47
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Church with a bell tower and a pointed roof in the town. The reference has no church or bell tower.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.09,
+        0.46,
+        0.12,
+        0.52
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.6
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Smoke column invented over the distant hills. It is not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.25,
+        0.2,
+        0.47,
+        0.31
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.6
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "loi": "th.abspath(os.path.join(out_dir, kid)); h = chuan_bi(img_path, d); k = _khoa(h, nam, noi)\n                                                         ~~~~~~~~^^^^^^^^^^^^^\n  File \"/home/user/cine-lab/checks/ll/q_thoi_dai.py\", line 109, in chuan_bi\n    if im is None: raise FileNotFoundError(img_path)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: omni/kiem/M2-l1/M2-l1-k25.png\n"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "omni/kiem/M2-l1/M2-l1-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0358,
+      "usage": {
+       "input_tokens": 10154,
+       "input_tokens_details": {
+        "cache_write_tokens": 10151,
+        "cached_tokens": 0
+       },
+       "output_tokens": 1553,
+       "output_tokens_details": {
+        "reasoning_tokens": 442
+       },
+       "total_tokens": 11707
+      }
+     },
+     "secs": 39.3,
+     "mo_ta": "Hai người mặc trang phục cổ hái cây trên sườn đồi đá phía trên thị trấn ven vịnh, với các tàu buồm ngoài nước và một cột khói ở xa.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm bị cắt một phần ở mép trái khung hình, không đối chiếu được với cùng một tàu trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.426,
+        0.02,
+        0.469
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm hai cột ở phía trái vịnh, phía trên tháp nhà thờ.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.059,
+        0.435,
+        0.092,
+        0.476
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm nhỏ ở xa, bên phải tàu hai cột phía trái.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.118,
+        0.431,
+        0.137,
+        0.448
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm ở xa gần giữa phần vịnh bên trái, phía trên bụi cọ.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.178,
+        0.419,
+        0.195,
+        0.44
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu thân dài trên vịnh, bên trái đầu người đang cúi hái cây.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.265,
+        0.451,
+        0.296,
+        0.471
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà đá mái ngói phía dưới bên trái được dựng lại với bố cục và chi tiết khác ảnh tham chiếu, gồm một tháp nhà thờ mới có mái nhọn; không đủ căn cứ xác định tên công trình.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.465,
+        0.341,
+        0.656
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Các cụm nhà ven bờ và trên sườn đồi ở hậu cảnh bên phải được thêm vào, không có cùng các công trình này trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.428,
+        0.359,
+        0.716,
+        0.493
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.89
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dải khu dân cư trắng được thêm dọc bờ vịnh phía xa.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.331,
+        0.468,
+        0.392
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cầu cảng hoặc đê chắn sóng dài mới xuất hiện giữa vịnh, khác đường bờ trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.3,
+        0.422,
+        0.374,
+        0.447
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cột khói tối mới xuất hiện sau khu dân cư bên kia vịnh; không thấy nguồn để xác nhận đây là khói ống khói hoặc pháo ở xa.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.258,
+        0.131,
+        0.449,
+        0.307
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      }
+     ],
+     "loi": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm bị cắt một phần ở mép trái khung hình, không đối chiếu được với cùng một tàu trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.426,
+        0.02,
+        0.469
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm hai cột ở phía trái vịnh, phía trên tháp nhà thờ.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.059,
+        0.435,
+        0.092,
+        0.476
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm nhỏ ở xa, bên phải tàu hai cột phía trái.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.118,
+        0.431,
+        0.137,
+        0.448
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm ở xa gần giữa phần vịnh bên trái, phía trên bụi cọ.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.178,
+        0.419,
+        0.195,
+        0.44
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu thân dài trên vịnh, bên trái đầu người đang cúi hái cây.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.265,
+        0.451,
+        0.296,
+        0.471
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà đá mái ngói phía dưới bên trái được dựng lại với bố cục và chi tiết khác ảnh tham chiếu, gồm một tháp nhà thờ mới có mái nhọn; không đủ căn cứ xác định tên công trình.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.465,
+        0.341,
+        0.656
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Các cụm nhà ven bờ và trên sườn đồi ở hậu cảnh bên phải được thêm vào, không có cùng các công trình này trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.428,
+        0.359,
+        0.716,
+        0.493
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.89
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dải khu dân cư trắng được thêm dọc bờ vịnh phía xa.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.331,
+        0.468,
+        0.392
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cầu cảng hoặc đê chắn sóng dài mới xuất hiện giữa vịnh, khác đường bờ trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.3,
+        0.422,
+        0.374,
+        0.447
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cột khói tối mới xuất hiện sau khu dân cư bên kia vịnh; không thấy nguồn để xác nhận đây là khói ống khói hoặc pháo ở xa.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.258,
+        0.131,
+        0.449,
+        0.307
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1062447
+     },
+     "secs": 19.2,
+     "mo_ta": "A ragged man kneels and a woman in a bonnet stands holding a basket as they forage on a rocky hillside, with a terracotta-roofed town, a bay with a few ships, distant hills and a smoke column behind them.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Sailing ships (galleon-type with masts) anchored in the bay on the left; ships are present in the reference but these are different ones",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.42,
+        0.1,
+        0.48
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Small dark sailing or cargo boats in the bay, one low flat dark hull in the middle",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.115,
+        0.42,
+        0.3,
+        0.47
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Church bell tower with a small dome in the town on the left, not in the reference",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.09,
+        0.46,
+        0.12,
+        0.51
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dark smoke column rising from beyond the hills, invented and not in the reference",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.26,
+        0.09,
+        0.46,
+        0.31
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.7
+      },
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "Long straight concrete-looking pier or breakwater with a small post, a modern-style harbour wall",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.3,
+        0.42,
+        0.38,
+        0.46
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.45
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Modern white houses on the far shore and a town with terracotta roofs across the bay. This is not Gibraltar, and the reference has only open sea and a distant mountain range.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.33,
+        0.5,
+        0.38
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      }
+     ],
+     "loi": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Church bell tower with a small dome in the town on the left, not in the reference",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.09,
+        0.46,
+        0.12,
+        0.51
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Dark smoke column rising from beyond the hills, invented and not in the reference",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.26,
+        0.09,
+        0.46,
+        0.31
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.7
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "loi": "th.abspath(os.path.join(out_dir, kid)); h = chuan_bi(img_path, d); k = _khoa(h, nam, noi)\n                                                         ~~~~~~~~^^^^^^^^^^^^^\n  File \"/home/user/cine-lab/checks/ll/q_thoi_dai.py\", line 109, in chuan_bi\n    if im is None: raise FileNotFoundError(img_path)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: omni/kiem/M2-l1/M2-l1-k55.png\n"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "omni/kiem/M2-l1/M2-l1-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0324,
+      "usage": {
+       "input_tokens": 10148,
+       "input_tokens_details": {
+        "cache_write_tokens": 10145,
+        "cached_tokens": 0
+       },
+       "output_tokens": 1213,
+       "output_tokens_details": {
+        "reasoning_tokens": 270
+       },
+       "total_tokens": 11361
+      }
+     },
+     "secs": 27.5,
+     "mo_ta": "Hai người đang hái cây trên sườn đồi đá nhìn xuống vịnh có các tàu buồm và những cụm nhà ven bờ.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm hai cột buồm bị cắt một phần ở mép trái; không xác định được là cùng tàu nào trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.431,
+        0.024,
+        0.471
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm hai cột ngoài vịnh bên trái, có thân tàu khá lớn; hình dáng không khớp rõ với tàu trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.063,
+        0.431,
+        0.096,
+        0.478
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm ở xa, phía trên bụi cọ bên trái; không có đối tượng tương ứng xác định được trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.12,
+        0.424,
+        0.141,
+        0.452
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm nhỏ do khoảng cách, nằm xa hơn về phía giữa bên trái vịnh; không khớp rõ với tàu trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.179,
+        0.416,
+        0.197,
+        0.442
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Các dãy nhà sáng màu được thêm trên bờ đối diện vịnh, nơi ảnh tham chiếu chỉ có dải đồi gần như trống.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.33,
+        0.392,
+        0.393
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà trên mũi đất và sườn đồi bên phải là bố cục kiến trúc mới, không tương ứng với thị trấn trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.526,
+        0.361,
+        0.731,
+        0.469
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Hệ thống đê hoặc cầu cảng dài cùng các nhánh bến trong vùng nước giữa khung hình được thêm mới.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.328,
+        0.434,
+        0.442,
+        0.483
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đường bờ bị tái tạo thành vịnh khép bởi các mũi đất và sườn đồi lớn bên phải, thay đổi địa hình ven biển so với ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.528,
+        0.205,
+        1.0,
+        0.477
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      }
+     ],
+     "loi": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm hai cột buồm bị cắt một phần ở mép trái; không xác định được là cùng tàu nào trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.431,
+        0.024,
+        0.471
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm hai cột ngoài vịnh bên trái, có thân tàu khá lớn; hình dáng không khớp rõ với tàu trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.063,
+        0.431,
+        0.096,
+        0.478
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm ở xa, phía trên bụi cọ bên trái; không có đối tượng tương ứng xác định được trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.12,
+        0.424,
+        0.141,
+        0.452
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm nhỏ do khoảng cách, nằm xa hơn về phía giữa bên trái vịnh; không khớp rõ với tàu trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.179,
+        0.416,
+        0.197,
+        0.442
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Các dãy nhà sáng màu được thêm trên bờ đối diện vịnh, nơi ảnh tham chiếu chỉ có dải đồi gần như trống.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.33,
+        0.392,
+        0.393
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà trên mũi đất và sườn đồi bên phải là bố cục kiến trúc mới, không tương ứng với thị trấn trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.526,
+        0.361,
+        0.731,
+        0.469
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Hệ thống đê hoặc cầu cảng dài cùng các nhánh bến trong vùng nước giữa khung hình được thêm mới.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.328,
+        0.434,
+        0.442,
+        0.483
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đường bờ bị tái tạo thành vịnh khép bởi các mũi đất và sườn đồi lớn bên phải, thay đổi địa hình ven biển so với ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.528,
+        0.205,
+        1.0,
+        0.477
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.10682829999999999
+     },
+     "secs": 20.6,
+     "mo_ta": "A ragged man and a woman in a bonnet kneel and pick wild plants on a rocky hillside, with a bay, a harbour town with orange roofs and a few sailing ships behind them, and a grey smoke column rising over the far hills.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Three or more sailing ships (masted, two-masted) at anchor in the bay at left. The reference also has distant sailing ships in the bay, but these are different and larger.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.42,
+        0.2,
+        0.48
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dark grey smoke column rising from behind the distant hills. It is invented, and the reference has no smoke.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.26,
+        0.09,
+        0.46,
+        0.31
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.7
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Long straight pier or breakwater with small moored boats in the harbour in front of the town. It looks like a modern harbour structure, and the reference has none.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.33,
+        0.43,
+        0.44,
+        0.47
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dense white modern-looking houses along the far shore and hills, plus invented town buildings and shoreline. They do not match the reference, which has a walled town and a flat horizon.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.33,
+        0.4,
+        0.38
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "A small tower, cross or antenna-like structure on the summit of the right-hand hill.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.91,
+        0.18,
+        0.95,
+        0.22
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.2
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Dark grey smoke column rising from behind the distant hills. It is invented, and the reference has no smoke.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.26,
+        0.09,
+        0.46,
+        0.31
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.7
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "loi": "th.abspath(os.path.join(out_dir, kid)); h = chuan_bi(img_path, d); k = _khoa(h, nam, noi)\n                                                         ~~~~~~~~^^^^^^^^^^^^^\n  File \"/home/user/cine-lab/checks/ll/q_thoi_dai.py\", line 109, in chuan_bi\n    if im is None: raise FileNotFoundError(img_path)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: omni/kiem/M2-l1/M2-l1-k90.png\n"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 17,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "ket_qua": "LOẠI",
+  "chi_tiet": [
+   {
+    "u": 0.25,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu buồm bị cắt một phần ở mép trái khung hình; không đối chiếu được với cùng một tàu trong ảnh tham chiếu.",
+    "nam": null
+   },
+   {
+    "u": 0.25,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu buồm hai cột với thân màu nâu ở phía trái vịnh, được tạo lại khác các tàu trong ảnh tham chiếu.",
+    "nam": null
+   },
+   {
+    "u": 0.25,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu buồm nhìn ngang ở xa, bên phải tàu hai cột.",
+    "nam": null
+   },
+   {
+    "u": 0.25,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu có cột buồm cao và thân tối, nằm gần giữa nhóm tàu nhìn thấy trong vịnh.",
+    "nam": null
+   },
+   {
+    "u": 0.25,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu nhỏ ở xa nhưng có hình dáng tàu đi biển, phía trên bên phải tàu có cột buồm cao.",
+    "nam": null
+   },
+   {
+    "u": 0.25,
+    "mo_hinh": "claude",
+    "loai": "tau_lon",
+    "mo_ta": "Two-masted sailing ships (galleon or caravel type) on the bay at left, plus small boats. The reference also shows ships in the bay, but these look different and there are fewer of them.",
+    "nam": null
+   },
+   {
+    "u": 0.25,
+    "mo_hinh": "claude",
+    "loai": "cong_trinh_ten",
+    "mo_ta": "Church with a bell tower and a pointed roof in the town. The reference has no church or bell tower.",
+    "nam": null
+   },
+   {
+    "u": 0.55,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu buồm bị cắt một phần ở mép trái khung hình, không đối chiếu được với cùng một tàu trong ảnh tham chiếu.",
+    "nam": null
+   },
+   {
+    "u": 0.55,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu buồm hai cột ở phía trái vịnh, phía trên tháp nhà thờ.",
+    "nam": null
+   },
+   {
+    "u": 0.55,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu buồm nhỏ ở xa, bên phải tàu hai cột phía trái.",
+    "nam": null
+   },
+   {
+    "u": 0.55,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu buồm ở xa gần giữa phần vịnh bên trái, phía trên bụi cọ.",
+    "nam": null
+   },
+   {
+    "u": 0.55,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu thân dài trên vịnh, bên trái đầu người đang cúi hái cây.",
+    "nam": null
+   },
+   {
+    "u": 0.55,
+    "mo_hinh": "claude",
+    "loai": "cong_trinh_ten",
+    "mo_ta": "Church bell tower with a small dome in the town on the left, not in the reference",
+    "nam": null
+   },
+   {
+    "u": 0.9,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu buồm hai cột buồm bị cắt một phần ở mép trái; không xác định được là cùng tàu nào trong ảnh tham chiếu.",
+    "nam": null
+   },
+   {
+    "u": 0.9,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu buồm hai cột ngoài vịnh bên trái, có thân tàu khá lớn; hình dáng không khớp rõ với tàu trong ảnh tham chiếu.",
+    "nam": null
+   },
+   {
+    "u": 0.9,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu buồm ở xa, phía trên bụi cọ bên trái; không có đối tượng tương ứng xác định được trong ảnh tham chiếu.",
+    "nam": null
+   },
+   {
+    "u": 0.9,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu buồm nhỏ do khoảng cách, nằm xa hơn về phía giữa bên trái vịnh; không khớp rõ với tàu trong ảnh tham chiếu.",
+    "nam": null
+   }
+  ]
+ }
+}

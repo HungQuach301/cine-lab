@@ -1,0 +1,814 @@
+{
+ "tag": "M1-l2",
+ "clip": "/home/user/cine-lab/reports/animatic-t3-v2/omni/ra/M1-l2.mp4",
+ "clip_sha": "feeef054493456d5d71341996d237127f88c4b8eb0b05a2a43a336d486d99988",
+ "dau": "/home/user/cine-lab/reports/animatic-t3-v2/omni/dau/M1.jpg",
+ "dau_sha": "371b63cecd45f538572d9b7fc516b0f2ee7f358ca9b72feb2d63358eae4b6091",
+ "nam": "1780",
+ "canh": "January 1780, Gibraltar harbour (Old Mole): a relief convoy's supplies being unloaded from a rowing boat, men carrying barrels and crates (illustration, no facts)",
+ "so_khung": 240,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M1-l2/M1-l2-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0263,
+      "usage": {
+       "input_tokens": 10142,
+       "input_tokens_details": {
+        "cache_write_tokens": 10139,
+        "cached_tokens": 0
+       },
+       "output_tokens": 606,
+       "output_tokens_details": {
+        "reasoning_tokens": 208
+       },
+       "total_tokens": 10748
+      }
+     },
+     "secs": 14.8,
+     "mo_ta": "Men unload barrels and crates from a rowing boat beside a stone quay, with red-coated soldiers, fortifications and two flags visible.",
+     "muc": [
+      {
+       "loai": "co",
+       "mo_ta": "Narrow, furled flag on the tall pole above the bastion; its design is indistinct.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.184,
+        0.059,
+        0.194,
+        0.139
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "co",
+       "mo_ta": "Small flag on a pole at the far left; its design is indistinct.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.021,
+        0.396,
+        0.033,
+        0.426
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added projecting stone sentry turret with a domed roof, slit window and supporting corbels, absent from the reference wall.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.066,
+        0.22,
+        0.108,
+        0.382
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added dark rectangular opening and access ladder in the projecting bastion.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.341,
+        0.35,
+        0.366,
+        0.553
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Five red-coated military figures added along the quay, unlike the figures shown in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.259,
+        0.449,
+        0.73,
+        0.646
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "loi": [
+      {
+       "loai": "co",
+       "mo_ta": "Narrow, furled flag on the tall pole above the bastion; its design is indistinct.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.184,
+        0.059,
+        0.194,
+        0.139
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "co",
+       "mo_ta": "Small flag on a pole at the far left; its design is indistinct.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.021,
+        0.396,
+        0.033,
+        0.426
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Added projecting stone sentry turret with a domed roof, slit window and supporting corbels, absent from the reference wall.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.066,
+        0.22,
+        0.108,
+        0.382
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added dark rectangular opening and access ladder in the projecting bastion.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.341,
+        0.35,
+        0.366,
+        0.553
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Five red-coated military figures added along the quay, unlike the figures shown in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.259,
+        0.449,
+        0.73,
+        0.646
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.105457
+     },
+     "secs": 17.0,
+     "mo_ta": "A rowing boat with sailors in dark jackets lies beside a stone quay at a fortified harbour wall, where redcoat soldiers stand among barrels and crates, with two flagpoles and a sentry turret above.",
+     "muc": [
+      {
+       "loai": "co",
+       "mo_ta": "Tall flagpole with a dark flag on top of the bastion. The reference has no flagpole or flag.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.17,
+        0.04,
+        0.2,
+        0.27
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      },
+      {
+       "loai": "co",
+       "mo_ta": "Small pennant or flag, reddish and grey, on a pole at the far left of the wall.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.018,
+        0.395,
+        0.036,
+        0.48
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.75
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Invented stone sentry turret (garita) with a domed cap at the corner of the bastion, plus a ladder and an opening in the wall. The reference wall has no turret.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.065,
+        0.22,
+        0.105,
+        0.38
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Soldiers in red coats, a sailor crew in navy jackets, and stacks of crates and barrels on the quay. The reference shows only a few distant figures in brown coats.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.26,
+        0.45,
+        0.75,
+        0.8
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Rocky breakwater or boulders along the left shoreline, invented. The reference shows a sandy ramp here.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.57,
+        0.23,
+        0.66
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      }
+     ],
+     "loi": [
+      {
+       "loai": "co",
+       "mo_ta": "Tall flagpole with a dark flag on top of the bastion. The reference has no flagpole or flag.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.17,
+        0.04,
+        0.2,
+        0.27
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      },
+      {
+       "loai": "co",
+       "mo_ta": "Small pennant or flag, reddish and grey, on a pole at the far left of the wall.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.018,
+        0.395,
+        0.036,
+        0.48
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.75
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Invented stone sentry turret (garita) with a domed cap at the corner of the bastion, plus a ladder and an opening in the wall. The reference wall has no turret.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.065,
+        0.22,
+        0.105,
+        0.38
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M1-l2-k25",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "b75210223daad16669171bf3c5fe7b5c676a6c5af0cb8c6e0508bee6c3e15479",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.03240560000000001,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 690,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.03240560000000001,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 94,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0324,
+    "chi_phi_tb": 0.0324,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M1-l2/M1-l2-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0256,
+      "usage": {
+       "input_tokens": 10160,
+       "input_tokens_details": {
+        "cache_write_tokens": 10157,
+        "cached_tokens": 0
+       },
+       "output_tokens": 531,
+       "output_tokens_details": {
+        "reasoning_tokens": 271
+       },
+       "total_tokens": 10691
+      }
+     },
+     "secs": 13.7,
+     "mo_ta": "Men unload barrels and crates from a rowing boat beside a stone quay, with red-coated guards standing near the supplies.",
+     "muc": [
+      {
+       "loai": "co",
+       "mo_ta": "A small, partially cropped dark flag or pennant at the top of the pole behind the left wall; its design is not discernible.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.078,
+        0.0,
+        0.087,
+        0.024
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.72
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "A dark rectangular opening with a ladder beneath it has been added to the stone wall.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.258,
+        0.325,
+        0.283,
+        0.524
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Stone steps descending from the quay into the water are added architectural details absent from the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.16,
+        0.575,
+        0.225,
+        0.697
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      }
+     ],
+     "loi": [
+      {
+       "loai": "co",
+       "mo_ta": "A small, partially cropped dark flag or pennant at the top of the pole behind the left wall; its design is not discernible.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.078,
+        0.0,
+        0.087,
+        0.024
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.72
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "A dark rectangular opening with a ladder beneath it has been added to the stone wall.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.258,
+        0.325,
+        0.283,
+        0.524
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Stone steps descending from the quay into the water are added architectural details absent from the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.16,
+        0.575,
+        0.225,
+        0.697
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1047666
+     },
+     "secs": 23.7,
+     "mo_ta": "Sailors in navy jackets in a rowing boat hand barrels up to a stone quay, where redcoat soldiers stand among stacked barrels and crates in front of a tall fortress wall with a bastion tower.",
+     "muc": [
+      {
+       "loai": "co",
+       "mo_ta": "Tall flagpole at top left with rigging lines and a small dark flag fragment cut off by the frame edge. The reference has no flagpole.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.068,
+        0.0,
+        0.095,
+        0.17
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Mooring bollard on the quay edge with a rope, which could read as a modern harbour-wall bollard. It is not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.73,
+        0.665,
+        0.77,
+        0.72
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Bastion tower with a loophole and a ladder, and a stone staircase down to the water. These are added architectural details that the reference does not show; the reference has only plain crenellated walls.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.14,
+        0.31,
+        0.55
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Stone steps descending into the water at the left of the quay, absent from the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.16,
+        0.57,
+        0.225,
+        0.7
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.25
+      }
+     ],
+     "loi": [
+      {
+       "loai": "co",
+       "mo_ta": "Tall flagpole at top left with rigging lines and a small dark flag fragment cut off by the frame edge. The reference has no flagpole.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.068,
+        0.0,
+        0.095,
+        0.17
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      }
+     ],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M1-l2-k55",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "5ef4313ad131deff33820b99bf158d2e55fd8754ab85964a89ae51682f0df84a",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0322056,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 670,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0322056,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 74,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0322,
+    "chi_phi_tb": 0.0322,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M1-l2/M1-l2-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0241,
+      "usage": {
+       "input_tokens": 10148,
+       "input_tokens_details": {
+        "cache_write_tokens": 10145,
+        "cached_tokens": 0
+       },
+       "output_tokens": 382,
+       "output_tokens_details": {
+        "reasoning_tokens": 194
+       },
+       "total_tokens": 10530
+      }
+     },
+     "secs": 12.8,
+     "mo_ta": "Men unload wooden crates and barrels beside a stone harbour wall, with period-uniformed soldiers standing along the quay.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Added rectangular opening in the wall with a wooden ladder beneath it; neither detail is visible in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.25,
+        0.193,
+        0.28,
+        0.399
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added stone staircase descending from the quay into the water, replacing part of the reference's continuous sloping waterfront.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.106,
+        0.539,
+        0.175,
+        0.706
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Added rectangular opening in the wall with a wooden ladder beneath it; neither detail is visible in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.25,
+        0.193,
+        0.28,
+        0.399
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added stone staircase descending from the quay into the water, replacing part of the reference's continuous sloping waterfront.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.106,
+        0.539,
+        0.175,
+        0.706
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.10442699999999999
+     },
+     "secs": 17.2,
+     "mo_ta": "Sailors in navy jackets and redcoat soldiers unload barrels and crates on a stone quay beside a sandstone fortress wall and bastion, with a small boat at the bottom left.",
+     "muc": [
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "Iron mooring bollard on the quay edge. The forbidden list names bollards on harbour walls, and none is visible in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.205,
+        0.51,
+        0.235,
+        0.555
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Wooden ladder and dark doorway or opening added to the bastion wall. These are added architectural details that are not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.25,
+        0.22,
+        0.28,
+        0.37
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.35
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Thin vertical pole or mast-like object above the top-left parapet. It could be read as a flagpole or antenna.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.04,
+        0.0,
+        0.055,
+        0.03
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.25
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M1-l2-k90",
+      "nam": 1780,
+      "noi": "Gibraltar",
+      "sha256": "bc2ae74b8b8c4305765d2d1fbe0e6535e6a92c7c0189d9b1a6ff41eeb3a831d2",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.032985600000000004,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 748,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.032985600000000004,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 152,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1780,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.033,
+    "chi_phi_tb": 0.033,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 6,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "LOẠI",
+  "chi_tiet": [
+   {
+    "u": 0.25,
+    "mo_hinh": "gpt",
+    "loai": "co",
+    "mo_ta": "Narrow, furled flag on the tall pole above the bastion; its design is indistinct.",
+    "nam": null
+   },
+   {
+    "u": 0.25,
+    "mo_hinh": "gpt",
+    "loai": "co",
+    "mo_ta": "Small flag on a pole at the far left; its design is indistinct.",
+    "nam": null
+   },
+   {
+    "u": 0.25,
+    "mo_hinh": "claude",
+    "loai": "co",
+    "mo_ta": "Tall flagpole with a dark flag on top of the bastion. The reference has no flagpole or flag.",
+    "nam": null
+   },
+   {
+    "u": 0.25,
+    "mo_hinh": "claude",
+    "loai": "co",
+    "mo_ta": "Small pennant or flag, reddish and grey, on a pole at the far left of the wall.",
+    "nam": null
+   },
+   {
+    "u": 0.55,
+    "mo_hinh": "gpt",
+    "loai": "co",
+    "mo_ta": "A small, partially cropped dark flag or pennant at the top of the pole behind the left wall; its design is not discernible.",
+    "nam": null
+   },
+   {
+    "u": 0.55,
+    "mo_hinh": "claude",
+    "loai": "co",
+    "mo_ta": "Tall flagpole at top left with rigging lines and a small dark flag fragment cut off by the frame edge. The reference has no flagpole.",
+    "nam": null
+   }
+  ]
+ }
+}

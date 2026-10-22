@@ -1,0 +1,819 @@
+{
+ "tag": "M4-l1",
+ "clip": "/home/user/cine-lab/reports/animatic-t3-v2/omni/ra/M4-l1.mp4",
+ "clip_sha": "7a72dac3bad46aa5cc83cdb6d1988e2b9fc4da6d1a62fa9931e872f56fe66070",
+ "dau": "/home/user/cine-lab/reports/animatic-t3-v2/omni/dau/M4.jpg",
+ "dau_sha": "60a66e03ab30995cec5e86945d98e05730e51f1705b657d48d67ca83141a3bf9",
+ "nam": "1781",
+ "canh": "Night of 13-14 April 1781: houses burning in the old town of Gibraltar after Spanish bombardment, townspeople fleeing along a street (illustration, no facts)",
+ "so_khung": 240,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M4-l1/M4-l1-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0262,
+      "usage": {
+       "input_tokens": 10162,
+       "input_tokens_details": {
+        "cache_write_tokens": 10159,
+        "cached_tokens": 0
+       },
+       "output_tokens": 584,
+       "output_tokens_details": {
+        "reasoning_tokens": 284
+       },
+       "total_tokens": 10746
+      }
+     },
+     "secs": 19.0,
+     "mo_ta": "A nighttime illustration shows townspeople fleeing down a narrow street between tiled-roof houses, with burning buildings and thick smoke behind them.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Invented close-range row of stone and plaster houses on the left, including detailed tiled roofs, doorways, windows and projecting roof structures not established by the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.399,
+        0.465,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Invented close-range row of exposed-stone houses on the right, with new gables, doorways, windows, roof ledges and a wall-mounted lantern not established by the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.565,
+        0.395,
+        1.0,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added pile of burning timbers obstructing the street behind the fleeing townspeople; this distinct street-level fire is not visible in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.459,
+        0.522,
+        0.518,
+        0.615
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Invented close-range row of stone and plaster houses on the left, including detailed tiled roofs, doorways, windows and projecting roof structures not established by the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.399,
+        0.465,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Invented close-range row of exposed-stone houses on the right, with new gables, doorways, windows, roof ledges and a wall-mounted lantern not established by the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.565,
+        0.395,
+        1.0,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added pile of burning timbers obstructing the street behind the fleeing townspeople; this distinct street-level fire is not visible in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.459,
+        0.522,
+        0.518,
+        0.615
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1073597
+     },
+     "secs": 20.6,
+     "mo_ta": "A night view down a cobbled stone street of old houses, with several roofs on fire and black smoke, and a group of townspeople in period dress walking toward the camera.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "A fortified castle or tower complex on the hilltop at the upper right. It could pass for the Moorish Castle or another identifiable fortification.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.8,
+        0.3,
+        1.0,
+        0.4
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.45
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "A lit lantern or lamp fixed to a wall at the end of the street. It looks like a street lamp, which is not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.56,
+        0.53,
+        0.585,
+        0.58
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "A burning pile of timber or a barricade in the middle of the street, with flames. It is an invented street fire.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.45,
+        0.54,
+        0.52,
+        0.59
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "A black iron fence or railing at the bottom right, beside the stone house. It is an added detail that is not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.85,
+        0.86,
+        0.95,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.35
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Tiny figures and a thin pole-like object on the left rooftop edge. It could be read as an antenna.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.09,
+        0.4,
+        0.115,
+        0.425
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.2
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M4-l1-k25",
+      "nam": 1781,
+      "noi": "Gibraltar",
+      "sha256": "7dc8edf447c9cc78be1b99f53db49ce8fcc36b5f6822d8b767817cbe6ce7f81d",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.031965600000000004,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 646,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.031965600000000004,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 50,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1781,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.032,
+    "chi_phi_tb": 0.032,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M4-l1/M4-l1-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0275,
+      "usage": {
+       "input_tokens": 10144,
+       "input_tokens_details": {
+        "cache_write_tokens": 10141,
+        "cached_tokens": 0
+       },
+       "output_tokens": 720,
+       "output_tokens_details": {
+        "reasoning_tokens": 189
+       },
+       "total_tokens": 10864
+      }
+     },
+     "secs": 18.3,
+     "mo_ta": "Khung hình cho thấy người dân chạy dọc một con phố lát đá giữa các dãy nhà mái ngói đang cháy, với những cột khói đen bốc lên trong đêm.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Dãy nhà sát bên trái con phố được dựng mới so với ảnh tham chiếu, với mái ngói, cửa ra vào, cửa sổ và các chi tiết mặt tiền không thấy trong ảnh đầu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.399,
+        0.461,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dãy nhà đá sát bên phải con phố được dựng mới, gồm các cửa sổ mái, cửa chớp, cửa ra vào và gờ mái không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.593,
+        0.379,
+        1.0,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đống xà gỗ hoặc mái nhà sập đang cháy ngay giữa lòng đường phía sau nhóm người; ảnh tham chiếu không có đám cháy trên đường này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.456,
+        0.517,
+        0.514,
+        0.643
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đèn lồng sáng gắn trên giá ở tường bên phải là chi tiết kiến trúc được thêm mới; hình ảnh không đủ để xác định đây là đèn dầu, khí đốt hay điện.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.576,
+        0.543,
+        0.599,
+        0.588
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Dãy nhà sát bên trái con phố được dựng mới so với ảnh tham chiếu, với mái ngói, cửa ra vào, cửa sổ và các chi tiết mặt tiền không thấy trong ảnh đầu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.399,
+        0.461,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dãy nhà đá sát bên phải con phố được dựng mới, gồm các cửa sổ mái, cửa chớp, cửa ra vào và gờ mái không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.593,
+        0.379,
+        1.0,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đống xà gỗ hoặc mái nhà sập đang cháy ngay giữa lòng đường phía sau nhóm người; ảnh tham chiếu không có đám cháy trên đường này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.456,
+        0.517,
+        0.514,
+        0.643
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đèn lồng sáng gắn trên giá ở tường bên phải là chi tiết kiến trúc được thêm mới; hình ảnh không đủ để xác định đây là đèn dầu, khí đốt hay điện.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.576,
+        0.543,
+        0.599,
+        0.588
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1044629
+     },
+     "secs": 18.5,
+     "mo_ta": "A night view down a cobbled old-town street lined with stone houses and tiled roofs, with several houses burning and sending up smoke, and townspeople in period dress walking toward the camera, with a hilltop fortification at the upper right.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Wall-mounted lantern glowing on a house in the street. It could be read as a street lamp, and it is not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.572,
+        0.545,
+        0.6,
+        0.585
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.35
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Hilltop fortress or castle walls with a crenellated tower at the upper right. They look like an invented landmark and are not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.81,
+        0.3,
+        1.0,
+        0.4
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.45
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Large fire with a pile of burning debris or a barricade in the middle of the street, and tall smoke columns above the rooftops. The reference only shows glowing blobs, not fire in the street.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.45,
+        0.5,
+        0.54,
+        0.62
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dormer window and added architectural detail on the right-hand roof. The reference has no such feature.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.76,
+        0.56,
+        0.81,
+        0.68
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.2
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M4-l1-k55",
+      "nam": 1781,
+      "noi": "Gibraltar",
+      "sha256": "b1378f13d7e19cbc2d87275fd99ce5da401d60ee005bccbe07dde573d3264c2b",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0322856,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 678,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0322856,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 82,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1781,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0323,
+    "chi_phi_tb": 0.0323,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/reports/animatic-t3-v2/omni/kiem/M4-l1/M4-l1-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0282,
+      "usage": {
+       "input_tokens": 10150,
+       "input_tokens_details": {
+        "cache_write_tokens": 10147,
+        "cached_tokens": 0
+       },
+       "output_tokens": 790,
+       "output_tokens_details": {
+        "reasoning_tokens": 278
+       },
+       "total_tokens": 10940
+      }
+     },
+     "secs": 22.5,
+     "mo_ta": "Khung hình minh họa một con phố lát đá ban đêm, với các ngôi nhà cháy, khói đen và người dân di chuyển giữa hai dãy nhà.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Tháp vuông có đỉnh trang trí dạng răng thành ở hậu cảnh bên trái, không thấy cấu trúc tương ứng trong ảnh tham chiếu; không đủ căn cứ xác định là công trình nổi tiếng.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.025,
+        0.392,
+        0.069,
+        0.532
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dãy nhà bên trái được dựng thêm hoặc thay đổi rõ rệt so với tham chiếu, gồm các ô cửa mái nhô cao, mái ngói và hệ cửa ra vào sát phố.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.422,
+        0.458,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dãy nhà đá bên phải có mặt hồi lớn, cửa chớp, gờ ngang và các chi tiết mặt tiền mới, không thấy cùng kiến trúc này trong tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.573,
+        0.338,
+        1.0,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đống cấu kiện gỗ đổ đang cháy ngay giữa lòng phố phía xa là ổ cháy được thêm vào, không thấy trong tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.449,
+        0.529,
+        0.519,
+        0.645
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đèn lồng sáng gắn trên tường bên phải là chi tiết được thêm vào; hình ảnh không đủ để kết luận đây là đèn khí đốt hay đèn điện.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.596,
+        0.565,
+        0.617,
+        0.609
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Tháp vuông có đỉnh trang trí dạng răng thành ở hậu cảnh bên trái, không thấy cấu trúc tương ứng trong ảnh tham chiếu; không đủ căn cứ xác định là công trình nổi tiếng.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.025,
+        0.392,
+        0.069,
+        0.532
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dãy nhà bên trái được dựng thêm hoặc thay đổi rõ rệt so với tham chiếu, gồm các ô cửa mái nhô cao, mái ngói và hệ cửa ra vào sát phố.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.422,
+        0.458,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dãy nhà đá bên phải có mặt hồi lớn, cửa chớp, gờ ngang và các chi tiết mặt tiền mới, không thấy cùng kiến trúc này trong tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.573,
+        0.338,
+        1.0,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đống cấu kiện gỗ đổ đang cháy ngay giữa lòng phố phía xa là ổ cháy được thêm vào, không thấy trong tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.449,
+        0.529,
+        0.519,
+        0.645
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đèn lồng sáng gắn trên tường bên phải là chi tiết được thêm vào; hình ảnh không đủ để kết luận đây là đèn khí đốt hay đèn điện.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.596,
+        0.565,
+        0.617,
+        0.609
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1072429
+     },
+     "secs": 20.9,
+     "mo_ta": "Night street in an old stone town with tiled roofs, several houses burning with black smoke, and townspeople in period dress walking toward the viewer along a cobbled street.",
+     "muc": [
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "Glowing lantern on a wall bracket lighting the street. It looks like a street lamp, which is borderline for 1781. Nothing like it appears in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.59,
+        0.56,
+        0.625,
+        0.61
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Bonfire or pile of burning timber invented in the middle of the street. The reference has only orange glows, not a fire on the street.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.45,
+        0.54,
+        0.52,
+        0.63
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.55
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Large flames and smoke columns on several roofs. They are invented as realistic fires, and the reference only shows soft orange glows.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.68,
+        0.2,
+        0.8,
+        0.43
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Hilltop fortification or castle wall on the skyline at the right edge. It is invented and could be read as a specific castle.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.89,
+        0.29,
+        1.0,
+        0.4
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.35
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tall chimney or bell tower with battlement-like top on the left skyline, which could read as a landmark tower.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.026,
+        0.395,
+        0.068,
+        0.5
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.25
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added architectural details on the buildings: dormer windows on the left roof, wooden doors, shutters and cornices. The reference has plain boxy buildings without these.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.29,
+        0.47,
+        0.36,
+        0.58
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.25
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Bonfire or pile of burning timber invented in the middle of the street. The reference has only orange glows, not a fire on the street.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.45,
+        0.54,
+        0.52,
+        0.63
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.55
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "M4-l1-k90",
+      "nam": 1781,
+      "noi": "Gibraltar",
+      "sha256": "ddbb3d0a236fa2314779f1fa9a4b51dd20a2dda9431408f135ce9f8f40bdc58b",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324356,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 693,
+        "cacheReadInputTokens": 2936,
+        "cacheCreationInputTokens": 10080,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324356,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 97,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1781,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0324,
+    "chi_phi_tb": 0.0324,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

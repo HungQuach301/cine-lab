@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.012 (TB $0.012/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M3-l1-k90",
+   "nam": 1704,
+   "noi": "Gibraltar",
+   "sha256": "9c44a5aeb84e2f10f346bb9e10a060e204f62576474e92445208bb34dfd31e50",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Far right on the shoreline there is a light-coloured lattice or screen structure that looks like a modern pier or fence. It is small and indistinct.",
+     "ly_do": "It may be a modern jetty or harbour work. The Gibraltar waterfront in 1704 had no structure like this. I can't identify it with certainty.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1805,
+      540,
+      1910,
+      583
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.0115636,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1025,
+     "cacheReadInputTokens": 13016,
+     "cacheCreationInputTokens": 0,
+     "webSearchRequests": 0,
+     "costUSD": 0.0115636,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 261,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.2,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1704,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Far right on the shoreline there is a light-coloured lattice or screen structure that looks like a modern pier or fence. It is small and indistinct.\",\"ly_do\":\"It may be a modern jetty or harbour work. The Gibraltar waterfront in 1704 had no structure like this. I can't identify it with certainty.\",\"nam_xuat_hien\":null,\"toa_do\":[0.94,0.5,0.995,0.54],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0116,
+ "chi_phi_tb": 0.0116,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

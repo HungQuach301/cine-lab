@@ -26,15 +26,23 @@ heroes:
       night: true
       time:
       - t: 0
-        at: 2026-10-18 23:52
+        at: 2026-10-19 15:00
         sun: real
         lab: dt
-      - t: 6.5
-        at: 2026-10-19 00:14
+      - t: 4.5
+        at: 2026-10-19 17:30
+        sun: real
+        lab: dt
+      - t: 10.5
+        at: 2026-10-19 18:20
+        sun: real
+        lab: dt
+      - t: 11.2
+        at: 2026-10-19 19:45
         sun: real
         lab: dt
       - t: 12.0
-        at: 2026-10-19 08:20
+        at: 2026-10-19 23:52
         sun: real
         lab: dt
       lives:
@@ -89,13 +97,13 @@ heroes:
       - es
       dur: 12.0
       shot: H1
-      cau: diem-D7-lai
-      diem: D7-lai
+      cau: diem-D7-lai → WCA-than → D7-lai
+      diem: D7-lai → WCA-than → D7-lai
       noi: eo_dat
       vai: co-che
       pack: gib
       cam:
-      - t: 0
+      - t: 0.0
         p:
         - 380
         - 430
@@ -105,15 +113,55 @@ heroes:
         - 0
         - -300
         fov: 40
+      - t: 4.48
+        p:
+        - 375
+        - 428
+        - 1338
+        l:
+        - -110
+        - 0
+        - -300
+        fov: 40
+      - t: 4.5
+        p:
+        - 4
+        - 9.0
+        - -40
+        l:
+        - 6
+        - 2.0
+        - 0
+        fov: 50
+      - t: 10.48
+        p:
+        - 4
+        - 9.0
+        - -38
+        l:
+        - 6
+        - 2.0
+        - 0
+        fov: 50
+      - t: 10.5
+        p:
+        - 371
+        - 426
+        - 1330
+        l:
+        - -111
+        - 0
+        - -301
+        fov: 40
       - t: 12.0
         p:
         - 366
         - 424
         - 1318
         l:
-        - -112
+        - -111
         - 0
-        - -302
+        - -301
         fov: 40
       loai: pho
       td:
@@ -257,14 +305,14 @@ heroes:
         toward: 110
       time:
       - t: 0
-        at: 2026-10-19 15:10
-        sun: 15.5
-        lab: y
+        at: 2026-10-19 23:53
+        sun: real
+        lab: dt
         hold: true
       - t: 3.333333
-        at: 2026-10-19 15:40
-        sun: 15.5
-        lab: y
+        at: 2026-10-20 00:20
+        sun: real
+        lab: dt
         hold: true
       - t: 3.375
         at: 1309.5
@@ -2658,11 +2706,12 @@ heroes:
       - era: 1782
         wY:
           'on': 1704.59
-          off0: 1704.644809
+          off0: 1704.64071
+          off1: 1704.650273
         walkers:
         - line: ISTH
-          n: 320
-          width: 10
+          n: 1400
+          width: 9
           colors:
           - '#e7e0cf'
           - '#c9a227'
@@ -2674,13 +2723,15 @@ heroes:
           - '#7a5a3a'
           - '#a89f8a'
           free: false
+          dir: 1
         crowds:
         - line: ISTH
-          groups: 14
+          groups: 24
           size:
-          - 4
-          - 10
-          speed: 1.1
+          - 5
+          - 12
+          speed: 1.0
+          dir: 1
           colors:
           - '#e7e0cf'
           - '#c9a227'
@@ -2693,8 +2744,6 @@ heroes:
           - '#a89f8a'
         lines:
           ISTH:
-          - - -300
-            - -600
           - - -120
             - -200
           - - 0
@@ -2712,32 +2761,72 @@ heroes:
         - *id029
       dur: 14.0
       shot: N1.4
-      cau: diem-A-lai
-      diem: A-lai
+      cau: diem-A-thap
+      diem: A-thap
       noi: eo_dat
       vai: co-che
       pack: gib
       cam:
-      - t: 0
+      - t: 0.0
         p:
-        - -60
-        - 165
-        - 1450
-        l:
-        - 0
-        - 0
+        - 92
+        - 10.5
         - 700
-        fov: 42
+        l:
+        - -110
+        - 25
+        - -600
+        fov: 38
+      - t: 3.48
+        p:
+        - 92
+        - 10.5
+        - 696
+        l:
+        - -110
+        - 25
+        - -600
+        fov: 38
+      - t: 3.5
+        p:
+        - 82
+        - 4.4
+        - 600
+        l:
+        - 45
+        - 10.7
+        - 300
+        fov: 44
+      - t: 11.48
+        p:
+        - 82
+        - 4.4
+        - 598
+        l:
+        - 45
+        - 10.7
+        - 300
+        fov: 44
+      - t: 11.5
+        p:
+        - 150
+        - 30
+        - 820
+        l:
+        - -60
+        - 20
+        - -500
+        fov: 38
       - t: 14.0
         p:
-        - -55
-        - 162
-        - 1430
+        - 150
+        - 30
+        - 814
         l:
-        - 0
-        - 0
-        - 700
-        fov: 42
+        - -60
+        - 20
+        - -500
+        fov: 38
       loai: eo
       td:
       - - dong_nguoi
@@ -2752,9 +2841,26 @@ heroes:
       cityOpt: *id030
       time:
       - t: 0
-        at: 1713.25
+        at: 1713-07-13 09:00
+        sun: 14.0
+        lab: d
+      - t: 12.662999999999998
+        at: 1713-07-19 15:00
+        sun: 14.0
+        lab: d
+      - t: 12.713
+        at: 1713-07-20 10:00
+        sun: 14.0
+        lab: d
+      - t: 21.916999999999998
+        at: 1713-07-26 15:00
+        sun: 14.0
+        lab: d
+      - t: 21.967
+        at: 1729.3
         sun: 14.0
         lab: y
+        hold: true
       - t: 25.438
         at: 1729.5
         sun: 14.0
@@ -2769,6 +2875,7 @@ heroes:
         at: 2015.6
         sun: 14.0
         lab: y
+      night: true
       co:
       - at: tower
         kind: burgundy
@@ -2815,6 +2922,78 @@ heroes:
         toward: 110
       recl: true
       linea: false
+      fleets:
+      - n: 5
+        center:
+        - -1200
+        - -1300
+        axis: 165
+        spacing: 180
+        kind: sail
+        heading: 80
+        wY:
+        - 1713.4
+        - 1713.6
+        co: false
+        path:
+        - - 1713.531507
+          - -2600
+          - -1900
+        - - 1713.542466
+          - 0
+          - 0
+      lives:
+      - era: 1782
+        wY:
+          'on': 1700
+        walkers:
+        - line: MAIN
+          n: 70
+          width: 4
+          colors:
+          - '#e7e0cf'
+          - '#c9a227'
+          - '#5e4a38'
+          - '#3d4a5a'
+          - '#e7e0cf'
+          - '#5e4a38'
+          - '#3d4a5a'
+          - '#7a5a3a'
+          - '#a89f8a'
+        lines:
+          MAIN:
+          - - -430
+            - -1600
+          - - -445
+            - -1400
+          - - -440
+            - -1300
+          - - -432
+            - -1150
+          - - -425
+            - -1000
+        chimney: 8
+        boats:
+        - pts:
+          - - -1400
+            - -800
+          - - -1000
+            - -1150
+          - - -700
+            - -1250
+          len: 8
+          speed: 3
+          s0: 0.1
+        - pts:
+          - - -1500
+            - -1500
+          - - -1000
+            - -1300
+          - - -650
+            - -1080
+          len: 9
+          speed: 2.5
+          s0: 0.6
       nc:
         bakes:
         - *id029
@@ -2826,37 +3005,80 @@ heroes:
         - *id013
       dur: 29.125
       shot: N1.5
-      cau: diem-F-lai
-      diem: F-lai
-      noi: eo_dat
+      cau: diem-B-thap → K-co → E-bac
+      diem: B-thap → K-co → E-bac
+      noi: thanh_pho
       vai: co-che
       pack: gib
       cam:
-      - t: 0
+      - t: 0.0
         p:
-        - 1900
-        - 650
-        - 1400
+        - -1750
+        - 95
+        - -900
+        l:
+        - -560
+        - 20
+        - -1150
+        fov: 40
+      - t: 12.693
+        p:
+        - -1725
+        - 93
+        - -910
+        l:
+        - -560
+        - 20
+        - -1150
+        fov: 40
+      - t: 12.713
+        p:
+        - -1150
+        - 60
+        - -760
         l:
         - -300
+        - 70
+        - -900
+        fov: 30
+      - t: 21.947
+        p:
+        - -1140
+        - 60
+        - -763
+        l:
+        - -300
+        - 70
+        - -900
+        fov: 30
+      - t: 21.967
+        p:
+        - 120
+        - 170
+        - -420
+        l:
+        - 60
         - 0
-        - -1200
-        fov: 44
+        - 900
+        fov: 46
       - t: 29.125
         p:
-        - 1860
-        - 642
-        - 1420
+        - 120
+        - 166
+        - -408
         l:
-        - -300
+        - 60
         - 0
-        - -1200
-        fov: 44
-      loai: eo
+        - 900
+        fov: 46
+      loai: pho
       td:
-      - &id059
-        - eo_dat
-        - null
+      - - cang_pho_lau_dai
+        - - 0
+          - 21.967
+      - - eo_dat
+        - - 21.967
+          - 29.125
     dur: 29.125
   anim_N1_6:
     hero: tl/t3tl
@@ -2890,8 +3112,18 @@ heroes:
         sun: 14.0
         lab: y
         hold: true
-      - t: 25.4583
+      - t: 19.94000000000001
         at: 1735.4
+        sun: 14.0
+        lab: y
+        hold: true
+      - t: 19.99000000000001
+        at: 2026.78
+        sun: 14.0
+        lab: y
+        hold: true
+      - t: 25.4583
+        at: 2026.79
         sun: 14.0
         lab: y
       smoke:
@@ -2902,9 +3134,9 @@ heroes:
         wY:
         - 1704.8
         - 1705.3
-        n: 12
-        size: 70
-        rise: 80
+        n: 16
+        size: 110
+        rise: 150
         drift:
         - -2
         - 1
@@ -2918,9 +3150,9 @@ heroes:
         wY:
         - 1727.12
         - 1727.45
-        n: 12
-        size: 70
-        rise: 80
+        n: 16
+        size: 110
+        rise: 150
         drift:
         - -2
         - 1
@@ -2934,9 +3166,9 @@ heroes:
         wY:
         - 1704.8
         - 1705.3
-        n: 12
-        size: 70
-        rise: 80
+        n: 16
+        size: 110
+        rise: 150
         drift:
         - -2
         - 1
@@ -2950,9 +3182,9 @@ heroes:
         wY:
         - 1727.12
         - 1727.45
-        n: 12
-        size: 70
-        rise: 80
+        n: 16
+        size: 110
+        rise: 150
         drift:
         - -2
         - 1
@@ -2966,9 +3198,9 @@ heroes:
         wY:
         - 1704.8
         - 1705.3
-        n: 12
-        size: 70
-        rise: 80
+        n: 16
+        size: 110
+        rise: 150
         drift:
         - -2
         - 1
@@ -2982,9 +3214,9 @@ heroes:
         wY:
         - 1727.12
         - 1727.45
-        n: 12
-        size: 70
-        rise: 80
+        n: 16
+        size: 110
+        rise: 150
         drift:
         - -2
         - 1
@@ -3037,42 +3269,97 @@ heroes:
         toward: 110
       pre1704town: true
       recl: false
+      pho2026:
+        box:
+        - -1200
+        - 700
+        - 1200
+        - 2600
       nc:
         bakes:
         - *id029
+        - *id032
+        - *id033
+        - *id025
+        - *id034
+        - *id027
+        - *id013
       dur: 25.4583
       shot: N1.6
-      cau: diem-A2-lai
-      diem: A2-lai
+      cau: diem-A2-thap → L-linea
+      diem: A2-thap → L-linea
       noi: eo_dat
       vai: co-che
       pack: gib
       cam:
-      - t: 0
+      - t: 0.0
         p:
-        - -1300
-        - 480
-        - 1700
+        - -80
+        - 95
+        - 650
         l:
+        - -90
         - 150
-        - 0
-        - 0
-        fov: 50
+        - -700
+        fov: 40
+      - t: 10.938
+        p:
+        - -70
+        - 92
+        - 635
+        l:
+        - -90
+        - 150
+        - -700
+        fov: 40
+      - t: 10.958
+        p:
+        - -200
+        - 60
+        - 1250
+        l:
+        - -130
+        - 60
+        - -600
+        fov: 26
+      - t: 19.97
+        p:
+        - -197
+        - 59
+        - 1245
+        l:
+        - -130
+        - 60
+        - -600
+        fov: 26
+      - t: 19.99
+        p:
+        - -250
+        - 110
+        - 1350
+        l:
+        - -120
+        - 40
+        - -300
+        fov: 40
       - t: 25.4583
         p:
-        - -1280
-        - 476
-        - 1680
+        - -250
+        - 108
+        - 1344
         l:
-        - 150
-        - 0
-        - 0
-        fov: 50
+        - -120
+        - 40
+        - -300
+        fov: 40
       loai: eo
       td:
-      - &id058
-        - linea
-        - null
+      - - vach_bac
+        - - 0
+          - 10.957999999999998
+      - - linea
+        - - 10.957999999999998
+          - 25.4583
     dur: 25.4583
   anim_C1:
     hero: tl/t3tl
@@ -3080,22 +3367,14 @@ heroes:
       night: true
       time:
       - t: 0
-        at: 1779-06-20 14:00
-        sun: 14.0
-        lab: d
-      - t: 3.0
-        at: 1779-06-21 10:00
-        sun: 14.0
-        lab: d
-      - t: 4.6
-        at: 1779-06-21 11:00
-        sun: 12.0
-        lab: d
-      - t: 5.6
-        at: 1779-06-21 12:00
-        sun: 12.0
-        lab: d
-      - t: 8.0
+        at: 1779-06-20 09:00
+        sun: real
+        lab: dt
+      - t: 11.95
+        at: 1779-06-22 16:00
+        sun: real
+        lab: dt
+      - t: 12.0
         at: 1779-07-13 12:00
         sun: 12.0
         lab: d
@@ -3734,72 +4013,52 @@ heroes:
       campTuNhien: true
       dur: 22.5
       shot: C1
-      cau: diem-A3 → U1-lai
-      diem: A3 → U1-lai
+      cau: diem-L-linea → T-trai-bac
+      diem: L-linea → T-trai-bac
       noi: eo_dat
       vai: co-che
       pack: gib
       cam:
-      - t: 0
+      - t: 0.0
         p:
-        - -1250
-        - 330
-        - 3500
+        - -560
+        - 75
+        - 1330
         l:
+        - -120
+        - 15
+        - 820
+        fov: 42
+      - t: 11.98
+        p:
+        - -545
+        - 73
+        - 1320
+        l:
+        - -120
+        - 15
+        - 820
+        fov: 42
+      - t: 12.0
+        p:
         - -1150
-        - 60
-        - 1500
-        fov: 34
-      - t: 7.48
-        p:
-        - -1250
-        - 328
-        - 3490
+        - 96.7
+        - 3550
         l:
-        - -1150
-        - 60
-        - 1500
-        fov: 34
-      - t: 7.5
-        p:
-        - -1250
-        - 328
-        - 3490
-        l:
-        - -1150
-        - 60
-        - 1500
-        fov: 34
-      - t: 10.4
-        p:
-        - -1250
-        - 200
-        - 2600
-        l:
-        - -1290
-        - 0
-        - 3350
-        fov: 40
-      - t: 10.42
-        p:
-        - -1250
-        - 200
-        - 2600
-        l:
-        - -1290
-        - 0
-        - 3350
-        fov: 40
+        - -1300
+        - 11.0
+        - 2950
+        fov: 44
       - t: 22.5
         p:
-        - -1254
-        - 198
-        - 2618
+        - -1145
+        - 96.7
+        - 3540
         l:
-        - -1291
-        - 0
-        - 3352
-        fov: 40
+        - -1300
+        - 11.0
+        - 2950
+        fov: 44
       loai: trai
       td:
       - - trai
@@ -4006,15 +4265,15 @@ heroes:
         at: 1780-01-14 10:00
         sun: real
         lab: d
-      - t: 4.5
-        at: 1780-01-14 12:00
+      - t: 8.0
+        at: 1780-01-14 12:30
         sun: real
         lab: d
-      - t: 7.6
+      - t: 10.0
         at: 1780-01-14 15:00
         sun: real
         lab: d
-      - t: 8.4
+      - t: 10.6
         at: 1780-01-14 15:30
         sun: 15.0
         lab: d
@@ -4056,7 +4315,7 @@ heroes:
           'on': 1700
         walkers:
         - line: SLOPE
-          n: 70
+          n: 24
           width: 14
           colors:
           - '#e7e0cf'
@@ -4793,32 +5052,26 @@ heroes:
         - -118
         - 93.3
         - -985
-        l:
-        - -133
-        - 94
-        - -835
+        l: &id037
+        - 40
+        - 230
+        - -1250
         fov: 38
-      - t: 4.48
+      - t: 7.98
         p:
         - -117
         - 93.6
         - -984
-        l:
-        - -133
-        - 94
-        - -835
+        l: *id037
         fov: 38
-      - t: 4.5
+      - t: 8.0
         p:
         - -117
         - 93.6
         - -984
-        l:
-        - -133
-        - 94
-        - -835
+        l: *id037
         fov: 38
-      - t: 7.4
+      - t: 10.0
         p:
         - -150
         - 330
@@ -4828,7 +5081,7 @@ heroes:
         - 0
         - -800
         fov: 42
-      - t: 7.42
+      - t: 10.02
         p:
         - -150
         - 330
@@ -4865,15 +5118,19 @@ heroes:
         at: 1780-01-16 12:00
         sun: 15.0
         lab: d
-      - t: 2.0
+      - t: 1.98
         at: 1780-01-19 12:00
         sun: 15.0
         lab: d
-      - t: 7.0
+      - t: 2.0
+        at: 1780-01-21 10:00
+        sun: 15.0
+        lab: d
+      - t: 9.0
         at: 1780-02-01 12:00
         sun: 15.0
         lab: d
-      - t: 8.4
+      - t: 9.05
         at: 1780-10-08 12:00
         sun: 15.0
         lab: d
@@ -5079,7 +5336,7 @@ heroes:
           - '#3d4a5a'
         seed: 1780
       co:
-      - at: &id037
+      - at: &id038
         - -600
         - -1268
         kind: union1707
@@ -5097,7 +5354,7 @@ heroes:
         w: 6
         'on': 1704.591644
         toward: 110
-      - at: *id037
+      - at: *id038
         kind: burgundy
         scale: 1.5
         pole: 12
@@ -5213,102 +5470,72 @@ heroes:
       - es
       dur: 13.5
       shot: C4
-      cau: diem-Bm → B-lai
-      diem: Bm → B-lai
+      cau: diem-Bm-thap → M1 → Bm-thap
+      diem: Bm-thap → M1 → Bm-thap
       noi: bien
       vai: co-che
       pack: gib
       cam:
-      - t: 0
+      - t: 0.0
         p:
-        - -700
-        - 260
-        - -450
+        - -1500
+        - 48
+        - -980
         l:
-        - -1100
-        - 0
+        - -640
+        - 15
+        - -1080
+        fov: 40
+      - t: 1.98
+        p:
+        - -1470
+        - 47
+        - -980
+        l:
+        - -640
+        - 15
+        - -1080
+        fov: 40
+      - t: 2.0
+        p:
         - -1050
-        fov: 46
-      - t: 1.8
-        p:
-        - -702
-        - 258
-        - -452
+        - 30
+        - -900
         l:
-        - -1095
-        - 0
-        - -1045
-        fov: 46
-      - t: 3.0
-        p:
-        - -625
-        - 28
-        - -705
-        l:
-        - -556
-        - 2
-        - -650
+        - -600
+        - 10
+        - -690
         fov: 34
-      - t: 3.02
+      - t: 8.98
         p:
-        - -625
-        - 28
-        - -705
+        - -1030
+        - 29
+        - -892
         l:
-        - -556
-        - 2
-        - -650
+        - -600
+        - 10
+        - -690
         fov: 34
-      - t: 6.98
+      - t: 9.0
         p:
-        - -625
-        - 28
-        - -705
+        - -1420
+        - 52
+        - -1180
         l:
-        - -556
-        - 2
-        - -650
-        fov: 34
-      - t: 7.0
-        p:
-        - -625
-        - 28
-        - -705
-        l:
-        - -556
-        - 2
-        - -650
-        fov: 34
-      - t: 8.4
-        p:
-        - -1450
-        - 260
-        - -350
-        l:
-        - -650
-        - 20
-        - -1050
-        fov: 44
-      - t: 8.42
-        p:
-        - -1450
-        - 260
-        - -350
-        l:
-        - -650
-        - 20
-        - -1050
-        fov: 44
+        - -620
+        - 25
+        - -1000
+        fov: 40
       - t: 13.5
         p:
-        - -1440
-        - 258
-        - -360
+        - -1395
+        - 51
+        - -1175
         l:
-        - -650
-        - 20
-        - -1052
-        fov: 44
+        - -620
+        - 25
+        - -1000
+        fov: 40
       loai: vinh
       td:
       - - old_mole
@@ -5344,16 +5571,12 @@ heroes:
         at: 1781-04-12 10:46
         sun: real
         lab: dt
-      - t: 7.4
-        at: 1781-04-12 15:00
-        sun: real
-        lab: dt
-      - t: 9.6
-        at: 1781-04-14 02:30
+      - t: 6.1
+        at: 1781-04-14 01:30
         sun: real
         lab: dt
       - t: 12.5
-        at: 1781-04-14 11:00
+        at: 1781-04-14 05:00
         sun: real
         lab: dt
       fleets:
@@ -5583,7 +5806,7 @@ heroes:
         - line: MAIN
           n: 110
           width: 4
-          colors: &id038
+          colors: &id039
           - '#e7e0cf'
           - '#5e4a38'
           - '#3d4a5a'
@@ -5613,7 +5836,7 @@ heroes:
         - line: SOUTH
           n: 160
           width: 10
-          colors: *id038
+          colors: *id039
           free: false
         lines:
           SOUTH:
@@ -5636,7 +5859,7 @@ heroes:
           h: 90
           n: 10
       co:
-      - at: &id039
+      - at: &id040
         - -600
         - -1268
         kind: union1707
@@ -5654,7 +5877,7 @@ heroes:
         w: 6
         'on': 1704.591644
         toward: 110
-      - at: *id039
+      - at: *id040
         kind: burgundy
         scale: 1.5
         pole: 12
@@ -5691,8 +5914,8 @@ heroes:
       - es
       dur: 12.5
       shot: C5
-      cau: diem-Cc2-lai
-      diem: Cc2-lai
+      cau: diem-Cc2-lai → M4
+      diem: Cc2-lai → M4
       noi: thanh_pho
       vai: buoc-ngoat
       pack: gib
@@ -5727,27 +5950,7 @@ heroes:
         - 0
         - -900
         fov: 44
-      - t: 6.5
-        p:
-        - -110
-        - 378
-        - -1652
-        l:
-        - -900
-        - 0
-        - -900
-        fov: 44
-      - t: 6.52
-        p:
-        - -110
-        - 378
-        - -1652
-        l:
-        - -900
-        - 0
-        - -900
-        fov: 44
-      - t: 12.5
+      - t: 6.08
         p:
         - -104
         - 376
@@ -5757,6 +5960,26 @@ heroes:
         - 0
         - -900
         fov: 44
+      - t: 6.1
+        p:
+        - -420
+        - 40
+        - -1400
+        l:
+        - -445
+        - 20
+        - -1265
+        fov: 40
+      - t: 12.5
+        p:
+        - -421
+        - 39.5
+        - -1397
+        l:
+        - -445
+        - 20
+        - -1265
+        fov: 40
       loai: vinh
       td:
       - - doan_darby
@@ -6134,7 +6357,7 @@ heroes:
         fov: 44
       loai: neo
       td:
-      - &id066
+      - &id065
         - pho_hep
         - null
     dur: 8.0
@@ -6268,32 +6491,52 @@ heroes:
         - *id025
       dur: 18.375
       shot: N2.10
-      cau: diem-D-vach
-      diem: D-vach
+      cau: diem-D-vach-thap → E-vach
+      diem: D-vach-thap → E-vach
       noi: eo_dat
       vai: co-che
       pack: gib
       cam:
-      - t: 0
+      - t: 0.0
         p:
-        - 400
-        - 330
-        - 1000
-        l:
         - -60
-        - 140
-        - -1000
-        fov: 40
+        - 75
+        - 650
+        l:
+        - -20
+        - 190
+        - -800
+        fov: 36
+      - t: 10.438
+        p:
+        - -55
+        - 73
+        - 635
+        l:
+        - -20
+        - 190
+        - -800
+        fov: 36
+      - t: 10.458
+        p:
+        - 650
+        - 95
+        - 280
+        l:
+        - 30
+        - 205
+        - -790
+        fov: 32
       - t: 18.375
         p:
-        - 375
-        - 330
-        - 1005
+        - 642
+        - 94
+        - 274
         l:
-        - -60
-        - 140
-        - -1000
-        fov: 40
+        - 30
+        - 205
+        - -790
+        fov: 32
       loai: vach
       td:
       - - vach_bac
@@ -6319,49 +6562,43 @@ heroes:
       fires:
       - at:
         - -240
-        - 6
         - 455
-        wY: &id040
+        wY: &id041
         - 1782.685788
         - 1782.688356
         size: 40
       - at:
         - -120
-        - 6
         - 340
-        wY: &id041
+        wY: &id042
         - 1782.685908
         - 1782.688356
         size: 40
       - at:
         - 20
-        - 6
         - 380
-        wY: &id042
+        wY: &id043
         - 1782.686028
         - 1782.688356
         size: 40
       - at:
         - 180
-        - 6
         - 330
-        wY: &id043
+        wY: &id044
         - 1782.686148
         - 1782.688356
         size: 40
       - at:
         - 330
-        - 6
         - 280
-        wY: &id044
+        wY: &id045
         - 1782.686268
         - 1782.688356
         size: 40
       - at:
         - 520
-        - 6
         - 190
-        wY: &id045
+        wY: &id046
         - 1782.686388
         - 1782.688356
         size: 40
@@ -6414,8 +6651,8 @@ heroes:
       - at:
         - -240
         - 8
-        - 6
-        wY: *id040
+        - 455
+        wY: *id041
         n: 16
         size: 70
         rise: 130
@@ -6430,8 +6667,8 @@ heroes:
       - at:
         - -120
         - 8
-        - 6
-        wY: *id041
+        - 340
+        wY: *id042
         n: 16
         size: 70
         rise: 130
@@ -6446,8 +6683,8 @@ heroes:
       - at:
         - 20
         - 8
-        - 6
-        wY: *id042
+        - 380
+        wY: *id043
         n: 16
         size: 70
         rise: 130
@@ -6462,8 +6699,8 @@ heroes:
       - at:
         - 180
         - 8
-        - 6
-        wY: *id043
+        - 330
+        wY: *id044
         n: 16
         size: 70
         rise: 130
@@ -6478,8 +6715,8 @@ heroes:
       - at:
         - 330
         - 8
-        - 6
-        wY: *id044
+        - 280
+        wY: *id045
         n: 16
         size: 70
         rise: 130
@@ -6494,8 +6731,8 @@ heroes:
       - at:
         - 520
         - 8
-        - 6
-        wY: *id045
+        - 190
+        wY: *id046
         n: 16
         size: 70
         rise: 130
@@ -6512,32 +6749,32 @@ heroes:
         - *id025
       dur: 14.4167
       shot: N2.7
-      cau: diem-D-bac-lai
-      diem: D-bac-lai
+      cau: diem-D-bac-thap
+      diem: D-bac-thap
       noi: eo_dat
       vai: co-che
       pack: gib
       cam:
       - t: 0
         p:
-        - 300
-        - 320
-        - 1600
+        - 130
+        - 48
+        - 680
         l:
-        - 0
-        - 40
-        - 300
-        fov: 42
+        - 100
+        - 25
+        - 200
+        fov: 44
       - t: 14.4167
         p:
-        - 285
-        - 316
-        - 1610
+        - 122
+        - 47
+        - 684
         l:
-        - 0
-        - 40
-        - 300
-        fov: 42
+        - 100
+        - 25
+        - 200
+        fov: 44
       loai: eo
       td:
       - - cong_su_tbn
@@ -6560,7 +6797,7 @@ heroes:
         sun: 15.0
         lab: d
       fleets:
-      - &id056
+      - &id057
         n: 24
         center:
         - -4300
@@ -6574,7 +6811,7 @@ heroes:
         - 1783.1
         phe: es
         soai: 12
-      - &id057
+      - &id058
         n: 23
         center:
         - -4900
@@ -6751,7 +6988,7 @@ heroes:
       night: true
       fleets:
       - list:
-        - at: &id046
+        - at: &id047
           - -1517.679053604841
           - -706.1311166928107
           kind: battery
@@ -6762,7 +6999,7 @@ heroes:
           - - 1782.699715
             - -1517.679053604841
             - -706.1311166928107
-        - at: &id047
+        - at: &id048
           - -1498.194819470432
           - -844.7686463166306
           kind: battery
@@ -6773,7 +7010,7 @@ heroes:
           - - 1782.699715
             - -1498.194819470432
             - -844.7686463166306
-        - at: &id048
+        - at: &id049
           - -1478.7105853360229
           - -983.4061759404503
           kind: battery
@@ -6784,7 +7021,7 @@ heroes:
           - - 1782.699715
             - -1478.7105853360229
             - -983.4061759404503
-        - at: &id049
+        - at: &id050
           - -1459.2263512016136
           - -1122.04370556427
           kind: battery
@@ -6795,7 +7032,7 @@ heroes:
           - - 1782.699715
             - -1459.2263512016136
             - -1122.04370556427
-        - at: &id050
+        - at: &id051
           - -1439.7421170672046
           - -1260.68123518809
           kind: battery
@@ -6806,7 +7043,7 @@ heroes:
           - - 1782.699715
             - -1439.7421170672046
             - -1260.68123518809
-        - at: &id051
+        - at: &id052
           - -1420.2578829327954
           - -1399.31876481191
           kind: battery
@@ -6817,7 +7054,7 @@ heroes:
           - - 1782.699715
             - -1420.2578829327954
             - -1399.31876481191
-        - at: &id052
+        - at: &id053
           - -1400.7736487983864
           - -1537.95629443573
           kind: battery
@@ -6828,7 +7065,7 @@ heroes:
           - - 1782.699715
             - -1400.7736487983864
             - -1537.95629443573
-        - at: &id053
+        - at: &id054
           - -1381.2894146639771
           - -1676.5938240595497
           kind: battery
@@ -6839,7 +7076,7 @@ heroes:
           - - 1782.699715
             - -1381.2894146639771
             - -1676.5938240595497
-        - at: &id054
+        - at: &id055
           - -1361.805180529568
           - -1815.2313536833694
           kind: battery
@@ -6850,7 +7087,7 @@ heroes:
           - - 1782.699715
             - -1361.805180529568
             - -1815.2313536833694
-        - at: &id055
+        - at: &id056
           - -1342.320946395159
           - -1953.8688833071892
           kind: battery
@@ -6868,8 +7105,6 @@ heroes:
         phe: es
         coScale: 1.5
       - list:
-        - at: *id046
-          kind: battery
         - at: *id047
           kind: battery
         - at: *id048
@@ -6888,6 +7123,8 @@ heroes:
           kind: battery
         - at: *id055
           kind: battery
+        - at: *id056
+          kind: battery
         heading: 172
         wY:
         - 1782.7004
@@ -6895,8 +7132,8 @@ heroes:
         burning: true
         phe: es
         coScale: 1.5
-      - *id056
       - *id057
+      - *id058
       fires:
       - at:
         - -1517.679053604841
@@ -7421,7 +7658,7 @@ heroes:
         sun: 14.0
         lab: m
       - t: 27.625
-        at: 1783.55
+        at: 1783.32
         sun: 14.0
         lab: m
       co:
@@ -7524,31 +7761,71 @@ heroes:
         - *id025
       dur: 27.625
       shot: N2.11
-      cau: diem-G-lai
-      diem: G-lai
+      cau: diem-D-bac-thap → W-cong-su → T-trai-bac
+      diem: D-bac-thap → W-cong-su → T-trai-bac
       noi: eo_dat
       vai: he-qua
       pack: gib
       cam:
-      - t: 0
+      - t: 0.0
         p:
-        - -150
-        - 700
-        - -1100
+        - 300
+        - 90
+        - 820
         l:
-        - -500
-        - 0
-        - 2000
+        - -100
+        - 60
+        - -600
+        fov: 42
+      - t: 7.108
+        p:
+        - 290
+        - 88
+        - 810
+        l:
+        - -100
+        - 60
+        - -600
+        fov: 42
+      - t: 7.128
+        p:
+        - -60
+        - 42
+        - 650
+        l:
+        - 60
+        - 20
+        - -200
+        fov: 40
+      - t: 15.108
+        p:
+        - -55
+        - 41
+        - 645
+        l:
+        - 60
+        - 20
+        - -200
+        fov: 40
+      - t: 15.128
+        p:
+        - -1150
+        - 96.7
+        - 3550
+        l:
+        - -1300
+        - 11.0
+        - 2950
         fov: 44
       - t: 27.625
         p:
-        - -140
-        - 694
-        - -1080
+        - -1145
+        - 96.7
+        - 3540
         l:
-        - -500
-        - 0
-        - 2000
+        - -1300
+        - 11.0
+        - 2950
         fov: 44
       loai: trai
       td:
@@ -7666,35 +7943,57 @@ heroes:
         - *id034
       dur: 27.25
       shot: N3.1
-      cau: diem-F-lai
-      diem: F-lai
+      cau: diem-SF-thap → SB-thap
+      diem: SF-thap → SB-thap
       noi: eo_dat
       vai: buoc-ngoat
       pack: gib
       cam:
-      - t: 0
+      - t: 0.0
         p:
-        - 1500
-        - 700
-        - 2600
+        - -620
+        - 30
+        - 1250
         l:
-        - -200
-        - 0
-        - -500
+        - -300
+        - 20
+        - 960
         fov: 44
+      - t: 16.73
+        p:
+        - -610
+        - 29
+        - 1244
+        l:
+        - -300
+        - 20
+        - 960
+        fov: 44
+      - t: 16.75
+        p:
+        - 1150
+        - 55
+        - 1450
+        l:
+        - 860
+        - 15
+        - 930
+        fov: 42
       - t: 27.25
         p:
-        - 1470
-        - 692
-        - 2620
+        - 1140
+        - 53
+        - 1442
         l:
-        - -200
-        - 0
-        - -500
-        fov: 44
+        - 860
+        - 15
+        - 930
+        fov: 42
       loai: eo
       td:
-      - *id058
+      - &id066
+        - linea
+        - null
     dur: 27.25
   anim_N3_2:
     hero: tl/t3tl
@@ -7762,35 +8061,36 @@ heroes:
         - *id034
       dur: 8.5
       shot: N3.2
-      cau: diem-G-lai
-      diem: G-lai
-      noi: eo_dat
+      cau: diem-B-thap
+      diem: B-thap
+      noi: thanh_pho
       vai: co-che
       pack: gib
       cam:
       - t: 0
         p:
-        - -80
-        - 580
-        - -1450
+        - -1750
+        - 95
+        - -900
         l:
-        - -170
-        - 0
-        - 950
-        fov: 44
+        - -560
+        - 20
+        - -1150
+        fov: 40
       - t: 8.5
         p:
-        - -70
-        - 576
-        - -1430
+        - -1725
+        - 93
+        - -910
         l:
-        - -170
-        - 0
-        - 950
-        fov: 44
-      loai: eo
+        - -560
+        - 20
+        - -1150
+        fov: 40
+      loai: pho
       td:
-      - *id059
+      - - pho_cang
+        - null
     dur: 8.5
   anim_N3_3:
     hero: tl/t3tl
@@ -7848,23 +8148,23 @@ heroes:
       cam:
       - t: 0
         p:
-        - 950
-        - 430
-        - 3350
+        - 900
+        - 120
+        - 2800
         l:
-        - 80
-        - 0
-        - 1650
+        - 100
+        - 45
+        - 1200
         fov: 40
       - t: 9.9583
         p:
-        - 930
-        - 426
-        - 3340
+        - 880
+        - 118
+        - 2790
         l:
-        - 80
-        - 0
-        - 1650
+        - 100
+        - 45
+        - 1200
         fov: 40
       loai: pho
       td:
@@ -7945,7 +8245,7 @@ heroes:
         fov: 40
       loai: neo
       td:
-      - &id063
+      - &id062
         - pho_la_linea
         - null
     dur: 7.0
@@ -8001,35 +8301,55 @@ heroes:
         - *id034
       dur: 27.0
       shot: N3.4
-      cau: diem-D-lai
-      diem: D-lai
+      cau: diem-H-thap → F-hang-rao
+      diem: H-thap → F-hang-rao
       noi: eo_dat
       vai: buoc-ngoat
       pack: gib
       cam:
-      - t: 0
+      - t: 0.0
         p:
-        - 380
-        - 430
-        - 1550
+        - 150
+        - 42
+        - 1150
         l:
-        - -220
+        - 80
+        - 10
+        - 450
+        fov: 42
+      - t: 5.98
+        p:
+        - 145
+        - 41
+        - 1142
+        l:
+        - 80
+        - 10
+        - 450
+        fov: 42
+      - t: 6.0
+        p:
+        - 420
+        - 30
+        - 700
+        l:
         - 0
-        - -330
+        - 60
+        - -800
         fov: 42
       - t: 27.0
         p:
-        - 350
-        - 424
-        - 1530
+        - 412
+        - 30
+        - 697
         l:
-        - -220
         - 0
-        - -330
+        - 60
+        - -800
         fov: 42
       loai: eo
       td:
-      - &id065
+      - &id064
         - hang_rao
         - null
     dur: 27.0
@@ -8084,32 +8404,32 @@ heroes:
         - *id027
       dur: 9.3333
       shot: N3.5
-      cau: diem-D2-lai
-      diem: D2-lai
+      cau: diem-D2-thap
+      diem: D2-thap
       noi: eo_dat
       vai: co-che
       pack: gib
       cam:
       - t: 0
         p:
-        - -900
-        - 420
-        - 900
+        - -380
+        - 55
+        - 650
         l:
-        - 0
-        - 0
-        - -700
-        fov: 40
+        - -60
+        - 40
+        - -650
+        fov: 42
       - t: 9.3333
         p:
-        - -880
-        - 416
-        - 890
+        - -370
+        - 54
+        - 644
         l:
-        - 0
-        - 0
-        - -700
-        fov: 40
+        - -60
+        - 40
+        - -650
+        fov: 42
       loai: eo
       td:
       - - dai_co
@@ -8168,7 +8488,7 @@ heroes:
           n: 40
           width: 5
           women: false
-          colors: &id060
+          colors: &id059
           - '#6b6a4a'
           - '#7a7656'
           - '#2f3d5c'
@@ -8179,31 +8499,51 @@ heroes:
         - *id027
       dur: 25.5
       shot: N4.1
-      cau: diem-D-lai
-      diem: D-lai
+      cau: diem-D-thap-dong → D-thap-tay
+      diem: D-thap-dong → D-thap-tay
       noi: eo_dat
       vai: buoc-ngoat
       pack: gib
       cam:
-      - t: 0
+      - t: 0.0
         p:
-        - 520
-        - 390
-        - 1150
+        - 620
+        - 40
+        - 420
         l:
-        - -150
         - 0
-        - -400
+        - 25
+        - -500
+        fov: 42
+      - t: 21.568
+        p:
+        - 610
+        - 39
+        - 415
+        l:
+        - 0
+        - 25
+        - -500
+        fov: 42
+      - t: 21.588
+        p:
+        - -450
+        - 45
+        - 380
+        l:
+        - 150
+        - 20
+        - -350
         fov: 42
       - t: 25.5
         p:
-        - 490
-        - 385
-        - 1135
+        - -440
+        - 44
+        - 375
         l:
-        - -150
-        - 0
-        - -400
+        - 150
+        - 20
+        - -350
         fov: 42
       loai: eo
       td:
@@ -8361,32 +8701,52 @@ heroes:
         - *id027
       dur: 28.375
       shot: N4.2
-      cau: diem-F2-lai
-      diem: F2-lai
+      cau: diem-W-vinh-thap → D-vach-thap
+      diem: W-vinh-thap → D-vach-thap
       noi: eo_dat
       vai: co-che
       pack: gib
       cam:
-      - t: 0
+      - t: 0.0
         p:
-        - 1700
-        - 650
-        - 1600
+        - -1600
+        - 70
+        - 450
         l:
-        - -300
+        - -500
+        - 5
         - 0
-        - -1000
-        fov: 44
+        fov: 42
+      - t: 11.022
+        p:
+        - -1580
+        - 69
+        - 445
+        l:
+        - -500
+        - 5
+        - 0
+        fov: 42
+      - t: 11.042
+        p:
+        - -60
+        - 75
+        - 650
+        l:
+        - -20
+        - 190
+        - -800
+        fov: 36
       - t: 28.375
         p:
-        - 1660
-        - 644
-        - 1610
+        - -55
+        - 73
+        - 638
         l:
-        - -300
-        - 0
-        - -1000
-        fov: 44
+        - -20
+        - 190
+        - -800
+        fov: 36
       loai: eo
       td:
       - - duong_bang
@@ -8666,7 +9026,7 @@ heroes:
           n: 30
           width: 8
           women: false
-          colors: *id060
+          colors: *id059
         lines:
           SQ:
           - - -470
@@ -8708,7 +9068,7 @@ heroes:
         fov: 44
       loai: neo
       td:
-      - &id062
+      - &id061
         - quang_truong
         - null
     dur: 8.0
@@ -8883,7 +9243,7 @@ heroes:
           n: 120
           width: 6
           women: true
-          colors: &id061
+          colors: &id060
           - '#3d4a5a'
           - '#e7e0cf'
           - '#7a2f2a'
@@ -8899,7 +9259,7 @@ heroes:
           n: 120
           width: 6
           women: true
-          colors: *id061
+          colors: *id060
       nc:
         bakes:
         - *id027
@@ -8962,7 +9322,7 @@ heroes:
           n: 40
           width: 8
           women: true
-          colors: *id061
+          colors: *id060
         lines:
           SQ:
           - - -470
@@ -9004,7 +9364,7 @@ heroes:
         fov: 44
       loai: neo
       td:
-      - *id062
+      - *id061
     dur: 9.5
   anim_N5_2:
     hero: tl/t3tl
@@ -9031,7 +9391,7 @@ heroes:
           n: 220
           width: 6
           women: true
-          colors: *id061
+          colors: *id060
         crowds:
         - line: WCA
           groups: 12
@@ -9039,7 +9399,7 @@ heroes:
           - 4
           - 12
           speed: 1.3
-          colors: *id061
+          colors: *id060
       nc:
         bakes:
         - *id013
@@ -9083,7 +9443,7 @@ heroes:
         fov: 40
       loai: eo
       td:
-      - &id064
+      - &id063
         - nguoi_qua_cong
         - null
     dur: 12.5
@@ -9112,7 +9472,7 @@ heroes:
           n: 20
           width: 5
           women: true
-          colors: *id061
+          colors: *id060
         lines:
           CALLE:
           - - 152
@@ -9156,7 +9516,7 @@ heroes:
         fov: 40
       loai: neo
       td:
-      - *id063
+      - *id062
     dur: 10.0
   anim_N5_3:
     hero: tl/t3tl
@@ -9191,7 +9551,7 @@ heroes:
           n: 260
           width: 6
           women: true
-          colors: *id061
+          colors: *id060
         crowds:
         - line: WCA
           groups: 14
@@ -9199,7 +9559,7 @@ heroes:
           - 4
           - 12
           speed: 1.3
-          colors: *id061
+          colors: *id060
       nc:
         bakes:
         - *id013
@@ -9233,7 +9593,7 @@ heroes:
         fov: 40
       loai: pho
       td:
-      - *id064
+      - *id063
     dur: 24.5
   anim_N5_4:
     hero: tl/t3tl
@@ -9273,54 +9633,78 @@ heroes:
           'on': 2020
         walkers:
         - line: WCA
-          n: 160
+          n: 220
           width: 6
           women: true
-          colors: *id061
+          colors: *id060
+        crowds:
+        - line: WCA
+          groups: 10
+          size:
+          - 4
+          - 10
+          speed: 1.3
+          colors: *id060
+      pho2026:
+        box:
+        - -700
+        - -200
+        - 900
+        - 1500
       nc:
         bakes:
         - *id013
       dur: 31.4583
       shot: N5.4
-      cau: diem-D-cong-orbit
-      diem: D-cong-orbit
+      cau: diem-D-cong-thap → F-hang-rao
+      diem: D-cong-thap → F-hang-rao
       noi: eo_dat
       vai: buoc-ngoat
       pack: gib
       cam:
-      - t: 0
+      - t: 0.0
         p:
-        - 330
-        - 190
-        - 820
+        - 40
+        - 40
+        - -150
         l:
-        - 60
+        - 70
         - 0
-        - 470
-        fov: 38
-      - t: 15.7292
+        - 350
+        fov: 40
+      - t: 12.129
         p:
-        - 120
-        - 195
-        - 880
+        - 48
+        - 40
+        - -140
         l:
-        - 60
+        - 70
         - 0
-        - 470
-        fov: 38
-      - t: 31.4583
+        - 350
+        fov: 40
+      - t: 12.149
         p:
         - -120
-        - 200
-        - 840
+        - 35
+        - 150
         l:
-        - 60
-        - 0
-        - 470
-        fov: 38
+        - 150
+        - 2
+        - 500
+        fov: 42
+      - t: 31.4583
+        p:
+        - -110
+        - 35
+        - 156
+        l:
+        - 150
+        - 2
+        - 500
+        fov: 42
       loai: eo
       td:
-      - *id065
+      - *id064
     dur: 31.4583
   anim_N5_5:
     hero: tl/t3tl
@@ -9501,7 +9885,7 @@ heroes:
           n: 30
           width: 4
           women: true
-          colors: *id061
+          colors: *id060
         lines:
           MAIN:
           - - -440
@@ -9543,7 +9927,7 @@ heroes:
         fov: 44
       loai: neo
       td:
-      - *id066
+      - *id065
     dur: 8.0
   anim_N5_6:
     hero: tl/t3tl
@@ -9629,7 +10013,7 @@ heroes:
           n: 100
           width: 6
           women: true
-          colors: *id061
+          colors: *id060
       nc:
         bakes:
         - *id029
@@ -9669,7 +10053,7 @@ heroes:
         fov: 42
       loai: eo
       td:
-      - *id058
+      - *id066
     dur: 20.0
 segments:
 - id: H1
@@ -9699,7 +10083,7 @@ segments:
       frame0: 0
       tl: true
     cau: Midnight at the Gibraltar frontier.
-    vung: D7-lai
+    vung: D7-lai → WCA-than → D7-lai
     ai_texture: false
 - id: H2
   part: CH0
@@ -9901,7 +10285,7 @@ segments:
       frame0: 0
       tl: true
     cau: Townspeople could stay if they swore loyalty to "Charles the Third."
-    vung: A-lai
+    vung: A-thap
     ai_texture: false
 - id: N1_5
   part: CH1
@@ -9929,14 +10313,14 @@ segments:
   - tpl: plate
     at: 0
     type: scene3d
-    noi: eo_dat
+    noi: thanh_pho
     p:
       sach: true
       hero: anim_N1_5
       frame0: 0
       tl: true
     cau: In 1713, the Treaty of Utrecht gave it to the British Crown "for ever," but "without any territorial jurisdiction, and without any open communication by land."
-    vung: F-lai
+    vung: B-thap → K-co → E-bac
     ai_texture: false
 - id: N1_6
   part: CH1
@@ -9971,7 +10355,7 @@ segments:
       frame0: 0
       tl: true
     cau: Within weeks, Spain and France besieged it, into 1705.
-    vung: A2-lai
+    vung: A2-thap → L-linea
     ai_texture: false
 - id: C1
   part: CH2
@@ -10011,7 +10395,7 @@ segments:
         at: 0.4
         dur: 3.0
     cau: 'Half a century later came a different question: can you starve a rock?'
-    vung: A3 → U1-lai
+    vung: L-linea → T-trai-bac
     ai_texture: false
 - id: C2
   part: CH2
@@ -10092,7 +10476,7 @@ segments:
       frame0: 0
       tl: true
     cau: 'To break the blockade, Britain sent three relief fleets: 1780, 1781, 1782.'
-    vung: Bm → B-lai
+    vung: Bm-thap → M1 → Bm-thap
     ai_texture: false
 - id: C5
   part: CH2
@@ -10121,7 +10505,7 @@ segments:
       frame0: 0
       tl: true
     cau: On the twelfth of April 1781, the second relief convoy dropped anchor, and Spain's batteries opened fire on the town.
-    vung: Cc2-lai
+    vung: Cc2-lai → M4
     ai_texture: false
 - id: N2_6
   part: CH2
@@ -10205,7 +10589,7 @@ segments:
       frame0: 0
       tl: true
     cau: That summer, they had been digging through the north face.
-    vung: D-vach
+    vung: D-vach-thap → E-vach
     ai_texture: false
 - id: N2_7
   part: CH2
@@ -10231,7 +10615,7 @@ segments:
       frame0: 0
       tl: true
     cau: 'The garrison turned to heat: cannonballs heated red-hot, so that whatever they hit caught fire.'
-    vung: D-bac-lai
+    vung: D-bac-thap
     ai_texture: false
 - id: N2_8
   part: CH2
@@ -10342,7 +10726,7 @@ segments:
       frame0: 0
       tl: true
     cau: The blockade never forced a surrender.
-    vung: G-lai
+    vung: D-bac-thap → W-cong-su → T-trai-bac
     ai_texture: false
 - id: N3_1
   part: CH3
@@ -10385,7 +10769,7 @@ segments:
         at: 0.4
         dur: 3.0
     cau: 'Which leaves a question the treaty never answered: where does the Rock end?'
-    vung: F-lai
+    vung: SF-thap → SB-thap
     ai_texture: false
 - id: N3_2
   part: CH3
@@ -10407,14 +10791,14 @@ segments:
   - tpl: plate
     at: 0
     type: scene3d
-    noi: eo_dat
+    noi: thanh_pho
     p:
       sach: true
       hero: anim_N3_2
       frame0: 0
       tl: true
     cau: After that, the edge kept moving.
-    vung: G-lai
+    vung: B-thap
     ai_texture: false
 - id: N3_3
   part: CH3
@@ -10501,7 +10885,7 @@ segments:
       frame0: 0
       tl: true
     cau: 'This was the gap between them: a strip of neutral ground between two towns.'
-    vung: D-lai
+    vung: H-thap → F-hang-rao
     ai_texture: false
 - id: N3_5
   part: CH3
@@ -10530,7 +10914,7 @@ segments:
       frame0: 0
       tl: true
     cau: And from 1934, a grass airstrip was built there.
-    vung: D2-lai
+    vung: D2-thap
     ai_texture: false
 - id: N4_1
   part: CH4
@@ -10570,7 +10954,7 @@ segments:
         at: 0.4
         dur: 3.0
     cau: Why build an airfield on disputed ground?
-    vung: D-lai
+    vung: D-thap-dong → D-thap-tay
     ai_texture: false
 - id: N4_2
   part: CH4
@@ -10602,7 +10986,7 @@ segments:
       frame0: 0
       tl: true
     cau: Then Britain pushed it out into the bay, with stone blasted from the north face and rubble from new tunnels.
-    vung: F2-lai
+    vung: W-vinh-thap → D-vach-thap
     ai_texture: false
 - id: N4_3
   part: CH4
@@ -10903,7 +11287,7 @@ segments:
       frame0: 0
       tl: true
     cau: In July 2026, Britain and the EU signed a treaty; the next day, routine checks here ended.
-    vung: D-cong-orbit
+    vung: D-cong-thap → F-hang-rao
     ai_texture: false
 - id: N5_5
   part: CH5

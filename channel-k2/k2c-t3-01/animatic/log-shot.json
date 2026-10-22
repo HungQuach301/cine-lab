@@ -11,11 +11,11 @@
   "tl": true,
   "vai": "co-che",
   "noi": "eo_dat",
-  "nguoi": true,
-  "diem_may": "D7-lai",
+  "nguoi": false,
+  "diem_may": "D7-lai → WCA-than → D7-lai",
   "cam": [
    {
-    "t": 0,
+    "t": 0.0,
     "p": [
      380,
      430,
@@ -29,6 +29,62 @@
     "fov": 40
    },
    {
+    "t": 4.48,
+    "p": [
+     375,
+     428,
+     1338
+    ],
+    "l": [
+     -110,
+     0,
+     -300
+    ],
+    "fov": 40
+   },
+   {
+    "t": 4.5,
+    "p": [
+     4,
+     9.0,
+     -40
+    ],
+    "l": [
+     6,
+     2.0,
+     0
+    ],
+    "fov": 50
+   },
+   {
+    "t": 10.48,
+    "p": [
+     4,
+     9.0,
+     -38
+    ],
+    "l": [
+     6,
+     2.0,
+     0
+    ],
+    "fov": 50
+   },
+   {
+    "t": 10.5,
+    "p": [
+     371,
+     426,
+     1330
+    ],
+    "l": [
+     -111,
+     0,
+     -301
+    ],
+    "fov": 40
+   },
+   {
     "t": 12.0,
     "p": [
      366,
@@ -36,9 +92,9 @@
      1318
     ],
     "l": [
-     -112,
+     -111,
      0,
-     -302
+     -301
     ],
     "fov": 40
    }
@@ -46,13 +102,25 @@
   "loai": "pho",
   "nhin_xuong_deg": [
    14.0,
+   14.1,
+   9.9,
+   10.4,
+   14.1,
    14.1
   ],
   "agl_m": [
    427.0,
+   425.0,
+   7.0,
+   7.0,
+   423.0,
    420.0
   ],
   "fov": [
+   40,
+   40,
+   50,
+   50,
    40,
    40
   ],
@@ -62,20 +130,28 @@
   "thoi_gian": [
    {
     "t": 0,
-    "at": "2026-10-18 23:52"
+    "at": "2026-10-19 15:00"
    },
    {
-    "t": 6.5,
-    "at": "2026-10-19 00:14"
+    "t": 4.5,
+    "at": "2026-10-19 17:30"
+   },
+   {
+    "t": 10.5,
+    "at": "2026-10-19 18:20"
+   },
+   {
+    "t": 11.2,
+    "at": "2026-10-19 19:45"
    },
    {
     "t": 12.0,
-    "at": "2026-10-19 08:20"
+    "at": "2026-10-19 23:52"
    }
   ],
   "nam": [
-   2026.797,
-   2026.798
+   2026.799,
+   2026.8
   ],
   "lightmap": [
    "b2026"
@@ -102,34 +178,53 @@
   "su_kien": [
    {
     "t": 0.0,
-    "k": "den_dem",
-    "s": "đèn phố + đèn đường băng 2026 đêm"
-   },
-   {
-    "t": 3.4,
-    "k": "nguoi",
-    "s": "người đi bộ qua đường băng vào Gibraltar"
-   },
-   {
-    "t": 11.0,
     "k": "ngay_dem",
-    "s": "bình minh"
+    "s": "19/10/2026 15:00: ban ngày — Rock nguyên khối, cổng + đường băng tiền cảnh"
+   },
+   {
+    "t": 10.5,
+    "k": "ngay_dem",
+    "s": "hoàng hôn → đêm; đèn phố/đường băng bật dần"
+   },
+   {
+    "t": 4.5,
+    "k": "minh_hoa",
+    "s": "M5 (minh hoạ Omni): cận chân người đi bộ bước qua vạch đường băng"
+   },
+   {
+    "t": 11.9,
+    "k": "ngay_dem",
+    "s": "gần nửa đêm biên giới (23:52)"
    }
   ],
-  "moc": "2026-10-18 23:52",
+  "moc": "2026-10-19 15:00",
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "LOOK-4 sửa \"cảnh 2026 mở đầu mất Rock\" (V7C giây 4): máy D7 lùi bắc 650 m, nhìn xuống ≈ 14° → cổng + đường băng tiền cảnh, Rock nguyên khối nền; đêm 2026 → bình minh, người đi bộ qua đường băng",
+  "ghi": "ANIM-V2: mở đầu ban ngày → đêm (timelapse 15:00 → 23:52, cùng điểm máy D7, trôi rất chậm) — Rock nhận ra trong ánh ngày 0–3 s; M5 minh hoạ Omni 4,5 → 10,5 s; H2 nối từ 23:52",
   "tieu_diem": [
    "bien_gioi"
   ],
   "luot_thap": false,
   "khung_neo": false,
-  "ai_image": false,
+  "ai_image": true,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [
+   4.5,
+   10.5
+  ],
+  "minh_hoa": [
+   {
+    "ma": "M5",
+    "t0": 4.5,
+    "t1": 10.5,
+    "minh_hoa": true,
+    "nguon": "Gemini Omni (gemini-omni-1.1-flash) image-to-video, ảnh đầu = render của chính shot",
+    "bac": "minh hoạ N2 (§14.1 c): không mang dữ kiện vị trí; dữ kiện do lời"
+   }
+  ]
  },
  {
   "shot": "H2",
@@ -263,11 +358,11 @@
   "thoi_gian": [
    {
     "t": 0,
-    "at": "2026-10-19 15:10"
+    "at": "2026-10-19 23:53"
    },
    {
     "t": 3.333333,
-    "at": "2026-10-19 15:40"
+    "at": "2026-10-20 00:20"
    },
    {
     "t": 3.375,
@@ -400,7 +495,7 @@
   ],
   "nam": [
    1309.5,
-   2026.799
+   2026.8
   ],
   "lightmap": [
    "b1704",
@@ -414,7 +509,7 @@
   "tl_buoc": [
    {
     "t": 3.375,
-    "tu": 2026.799,
+    "tu": 2026.8,
     "toi": 1309.5
    },
    {
@@ -533,7 +628,7 @@
     "s": "pin nổi bốc cháy"
    }
   ],
-  "moc": "2026-10-19 15:10",
+  "moc": "2026-10-19 23:53",
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
@@ -547,7 +642,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "H2T",
@@ -666,7 +763,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "H3",
@@ -834,7 +933,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N1_1",
@@ -967,7 +1068,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N1_2",
@@ -1104,7 +1207,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N1_3",
@@ -1231,7 +1336,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N1_4",
@@ -1240,54 +1347,122 @@
    "1g"
   ],
   "kieu_khung": "lai",
-  "goc": "cao",
+  "goc": "thap",
   "tl": true,
   "vai": "co-che",
   "noi": "eo_dat",
   "nguoi": true,
-  "diem_may": "A-lai",
+  "diem_may": "A-thap",
   "cam": [
    {
-    "t": 0,
+    "t": 0.0,
     "p": [
-     -60,
-     165,
-     1450
-    ],
-    "l": [
-     0,
-     0,
+     92,
+     10.5,
      700
     ],
-    "fov": 42
+    "l": [
+     -110,
+     25,
+     -600
+    ],
+    "fov": 38
+   },
+   {
+    "t": 3.48,
+    "p": [
+     92,
+     10.5,
+     696
+    ],
+    "l": [
+     -110,
+     25,
+     -600
+    ],
+    "fov": 38
+   },
+   {
+    "t": 3.5,
+    "p": [
+     82,
+     4.4,
+     600
+    ],
+    "l": [
+     45,
+     10.7,
+     300
+    ],
+    "fov": 44
+   },
+   {
+    "t": 11.48,
+    "p": [
+     82,
+     4.4,
+     598
+    ],
+    "l": [
+     45,
+     10.7,
+     300
+    ],
+    "fov": 44
+   },
+   {
+    "t": 11.5,
+    "p": [
+     150,
+     30,
+     820
+    ],
+    "l": [
+     -60,
+     20,
+     -500
+    ],
+    "fov": 38
    },
    {
     "t": 14.0,
     "p": [
-     -55,
-     162,
-     1430
+     150,
+     30,
+     814
     ],
     "l": [
-     0,
-     0,
-     700
+     -60,
+     20,
+     -500
     ],
-    "fov": 42
+    "fov": 38
    }
   ],
   "loai": "eo",
   "nhin_xuong_deg": [
-   12.4,
-   12.5
+   -0.6,
+   -0.6,
+   -1.2,
+   -1.2,
+   0.4,
+   0.4
   ],
   "agl_m": [
-   159.0,
-   156.0
+   7.0,
+   7.0,
+   2.0,
+   2.0,
+   27.0,
+   27.0
   ],
   "fov": [
-   42,
-   42
+   38,
+   38,
+   44,
+   44,
+   38,
+   38
   ],
   "dur": 14.0,
   "t0": 104.5,
@@ -1327,28 +1502,47 @@
    {
     "t": 0.5,
     "k": "nguoi",
-    "s": "dòng dân rời phố đi bắc dọc eo đất (về San Roque)"
+    "s": "dòng dân rời phố đi bắc dọc eo đất (về San Roque) — cận dòng người"
    },
    {
-    "t": 12.0,
+    "t": 3.5,
+    "k": "minh_hoa",
+    "s": "M3 (minh hoạ Omni): gia đình mang đồ đi trên đường cát, Rock sau lưng"
+   },
+   {
+    "t": 11.5,
     "k": "nguoi",
-    "s": "dòng người thưa dần"
+    "s": "dòng người thưa dần (21–25/8)"
    }
   ],
   "moc": "1704-08-07 09:00",
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "nhìn nam từ giữa eo đất (soi 1: máy 3 km không thấy người → lại gần ≈ 1 km): dòng người đi về phía máy, Rock nguyên khối nền (thay mũi tên trắng G1b); số người/tuyến minh hoạ (bậc 5), hướng đi: lời 1g (S017–S018)",
+  "ghi": "ANIM-V2 R1: máy hạ ≈ 16–30 m, cạnh dòng người (đi cùng chiều về bắc, 1 400 người + 24 nhóm — số minh hoạ bậc 5; hướng đi: lời 1g S017–S018); M3 minh hoạ 3,5 → 11,5 s",
   "tieu_diem": [
    "dong_nguoi"
   ],
   "luot_thap": false,
   "khung_neo": false,
-  "ai_image": false,
+  "ai_image": true,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [
+   3.5,
+   11.5
+  ],
+  "minh_hoa": [
+   {
+    "ma": "M3",
+    "t0": 3.5,
+    "t1": 11.5,
+    "minh_hoa": true,
+    "nguon": "Gemini Omni (gemini-omni-1.1-flash) image-to-video, ảnh đầu = render của chính shot",
+    "bac": "minh hoạ N2 (§14.1 c): không mang dữ kiện vị trí; dữ kiện do lời"
+   }
+  ]
  },
  {
   "shot": "N1_5",
@@ -1361,51 +1555,119 @@
   "goc": "cao",
   "tl": true,
   "vai": "co-che",
-  "noi": "eo_dat",
+  "noi": "thanh_pho",
   "nguoi": false,
-  "diem_may": "F-lai",
+  "diem_may": "B-thap → K-co → E-bac",
   "cam": [
    {
-    "t": 0,
+    "t": 0.0,
     "p": [
-     1900,
-     650,
-     1400
+     -1750,
+     95,
+     -900
+    ],
+    "l": [
+     -560,
+     20,
+     -1150
+    ],
+    "fov": 40
+   },
+   {
+    "t": 12.693,
+    "p": [
+     -1725,
+     93,
+     -910
+    ],
+    "l": [
+     -560,
+     20,
+     -1150
+    ],
+    "fov": 40
+   },
+   {
+    "t": 12.713,
+    "p": [
+     -1150,
+     60,
+     -760
     ],
     "l": [
      -300,
-     0,
-     -1200
+     70,
+     -900
     ],
-    "fov": 44
+    "fov": 30
+   },
+   {
+    "t": 21.947,
+    "p": [
+     -1140,
+     60,
+     -763
+    ],
+    "l": [
+     -300,
+     70,
+     -900
+    ],
+    "fov": 30
+   },
+   {
+    "t": 21.967,
+    "p": [
+     120,
+     170,
+     -420
+    ],
+    "l": [
+     60,
+     0,
+     900
+    ],
+    "fov": 46
    },
    {
     "t": 29.125,
     "p": [
-     1860,
-     642,
-     1420
+     120,
+     166,
+     -408
     ],
     "l": [
-     -300,
+     60,
      0,
-     -1200
+     900
     ],
-    "fov": 44
+    "fov": 46
    }
   ],
-  "loai": "eo",
+  "loai": "pho",
   "nhin_xuong_deg": [
-   10.8,
-   10.7
+   3.5,
+   3.5,
+   -0.7,
+   -0.7,
+   7.3,
+   7.2
   ],
   "agl_m": [
-   650.0,
-   642.0
+   95.0,
+   93.0,
+   58.0,
+   57.0,
+   165.0,
+   161.0
   ],
   "fov": [
-   44,
-   44
+   40,
+   40,
+   30,
+   30,
+   46,
+   46
   ],
   "dur": 29.125,
   "t0": 118.5,
@@ -1413,7 +1675,23 @@
   "thoi_gian": [
    {
     "t": 0,
-    "at": 1713.25
+    "at": "1713-07-13 09:00"
+   },
+   {
+    "t": 12.662999999999998,
+    "at": "1713-07-19 15:00"
+   },
+   {
+    "t": 12.713,
+    "at": "1713-07-20 10:00"
+   },
+   {
+    "t": 21.916999999999998,
+    "at": "1713-07-26 15:00"
+   },
+   {
+    "t": 21.967,
+    "at": 1729.3
    },
    {
     "t": 25.438,
@@ -1429,7 +1707,7 @@
    }
   ],
   "nam": [
-   1713.25,
+   1713.53,
    2015.6
   ],
   "lightmap": [
@@ -1443,12 +1721,17 @@
   ],
   "tl_buoc": [
    {
+    "t": 21.967,
+    "tu": 1713.566,
+    "toi": 1729.3
+   },
+   {
     "t": 25.488,
     "tu": 1729.5,
     "toi": 2015.5
    }
   ],
-  "tl_buoc_n": 1,
+  "tl_buoc_n": 2,
   "cau": [
    {
     "dong": "1h",
@@ -1479,21 +1762,32 @@
   "su_kien": [
    {
     "t": 0.0,
+    "k": "tau",
+    "s": "7/1713: cảng + phố (tàu buôn ra vào, ngày–đêm)"
+   },
+   {
+    "t": 12.713,
+    "k": "co",
+    "s": "lâu đài, cờ Union trên Tower of Homage (hiệp ước nêu \"town, castle and port\")"
+   },
+   {
+    "t": 21.967,
     "k": "dem_nam",
-    "s": "1713: eo đất trống phía bắc tường"
+    "s": "eo đất phía bắc 1729 (không có trong hiệp ước)"
    },
    {
     "t": 25.49,
     "k": "buoc_nam",
-    "s": "bước năm 1729 → 2015: đường băng + phố trên eo đất"
+    "s": "bước năm 2015: đường băng + phố trên eo đất"
    }
   ],
-  "moc": 1713.25,
+  "moc": "1713-07-13 09:00",
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "từ biển đông nhìn tây: vách bắc Rock + eo đất cát trống 1713 (hiệp ước chỉ nêu phố, lâu đài, cảng); bước năm tới 2015 khi lời nói \"in 2015\" — không vẽ biên giới (§10.7)",
+  "ghi": "ANIM-V2 R4/R3: lời hiệp ước không có vật trên eo đất → góc cảng (tàu buôn 5 chiếc + thuyền nhỏ: số/vị trí minh hoạ bậc 5; ngày 13/7/1713: ngày ký hiệp ước, bậc 2) → góc lâu đài (cờ Union, như N1.3) → eo đất từ mép bắc Rock: trống ≤ 4 s rồi bước năm 2015 đúng chữ \"in 2015\" — không vẽ biên giới (§10.7)",
   "tieu_diem": [
+   "cang_pho_lau_dai",
    "eo_dat"
   ],
   "luot_thap": false,
@@ -1501,7 +1795,12 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [
+   12.713,
+   21.967
+  ],
+  "minh_hoa": []
  },
  {
   "shot": "N1_6",
@@ -1516,49 +1815,117 @@
   "vai": "co-che",
   "noi": "eo_dat",
   "nguoi": false,
-  "diem_may": "A2-lai",
+  "diem_may": "A2-thap → L-linea",
   "cam": [
    {
-    "t": 0,
+    "t": 0.0,
     "p": [
-     -1300,
-     480,
-     1700
+     -80,
+     95,
+     650
     ],
     "l": [
+     -90,
      150,
-     0,
-     0
+     -700
     ],
-    "fov": 50
+    "fov": 40
+   },
+   {
+    "t": 10.938,
+    "p": [
+     -70,
+     92,
+     635
+    ],
+    "l": [
+     -90,
+     150,
+     -700
+    ],
+    "fov": 40
+   },
+   {
+    "t": 10.958,
+    "p": [
+     -200,
+     60,
+     1250
+    ],
+    "l": [
+     -130,
+     60,
+     -600
+    ],
+    "fov": 26
+   },
+   {
+    "t": 19.97,
+    "p": [
+     -197,
+     59,
+     1245
+    ],
+    "l": [
+     -130,
+     60,
+     -600
+    ],
+    "fov": 26
+   },
+   {
+    "t": 19.99,
+    "p": [
+     -250,
+     110,
+     1350
+    ],
+    "l": [
+     -120,
+     40,
+     -300
+    ],
+    "fov": 40
    },
    {
     "t": 25.4583,
     "p": [
-     -1280,
-     476,
-     1680
+     -250,
+     108,
+     1344
     ],
     "l": [
-     150,
-     0,
-     0
+     -120,
+     40,
+     -300
     ],
-    "fov": 50
+    "fov": 40
    }
   ],
   "loai": "eo",
   "nhin_xuong_deg": [
-   12.1,
-   12.2
+   -2.3,
+   -2.5,
+   0.0,
+   -0.0,
+   2.4,
+   2.4
   ],
   "agl_m": [
-   479.0,
-   475.0
+   91.0,
+   88.0,
+   53.0,
+   52.0,
+   103.0,
+   101.0
   ],
   "fov": [
-   50,
-   50
+   40,
+   40,
+   26,
+   26,
+   40,
+   40
   ],
   "dur": 25.4583,
   "t0": 147.625,
@@ -1585,16 +1952,30 @@
     "at": 1730.0
    },
    {
-    "t": 25.4583,
+    "t": 19.94000000000001,
     "at": 1735.4
+   },
+   {
+    "t": 19.99000000000001,
+    "at": 2026.78
+   },
+   {
+    "t": 25.4583,
+    "at": 2026.79
    }
   ],
   "nam": [
    1704.8,
-   1735.4
+   2026.79
   ],
   "lightmap": [
-   "b1704"
+   "b1704",
+   "b1779",
+   "b1781r",
+   "b1782",
+   "b1900",
+   "b1940",
+   "b2026"
   ],
   "tl_buoc": [
    {
@@ -1606,9 +1987,14 @@
     "t": 10.958,
     "tu": 1727.45,
     "toi": 1730.0
+   },
+   {
+    "t": 19.99,
+    "tu": 1735.4,
+    "toi": 2026.78
    }
   ],
-  "tl_buoc_n": 2,
+  "tl_buoc_n": 3,
   "cau": [
    {
     "dong": "1j",
@@ -1640,7 +2026,7 @@
    {
     "t": 0.5,
     "k": "lua",
-    "s": "vây 1704–05: khói pháo ở mặt bắc"
+    "s": "vây 1704–05: khói pháo ở chân vách bắc"
    },
    {
     "t": 6.07,
@@ -1650,15 +2036,21 @@
    {
     "t": 10.96,
     "k": "xay",
-    "s": "Línea de Contravalación mọc tây → đông 1730–35"
+    "s": "Línea de Contravalación mọc tây → đông 1730–35 (cận tuyến)"
+   },
+   {
+    "t": 19.99,
+    "k": "buoc_nam",
+    "s": "2026: phố La Línea sau tuyến cũ"
    }
   ],
   "moc": 1704.8,
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "soi 1: khung A trùng N1.4 + Línea quá nhỏ → máy tây-bắc nhìn dọc Línea, Rock nền phải. Línea mọc theo năm (ghost SH T1782-01, bậc 1; ngày xây: TIEN-KY T3); khói vây 1704–05 và 1727: thời điểm bậc 2, vị trí minh hoạ (bậc 5) — không có tuyến tấn công có nguồn",
+  "ghi": "ANIM-V2 R1/R3: 2 góc — vách bắc + khói vây (thời điểm bậc 2, vị trí khói minh hoạ bậc 5) → cận Línea mọc theo năm (ghost SH T1782-01, bậc 1; ngày xây TIEN-KY T3) + bước 2026 (nhà La Línea: Catastro/OSM, bậc 1) đúng chữ \"still called La Línea\"",
   "tieu_diem": [
+   "vach_bac",
    "linea"
   ],
   "luot_thap": false,
@@ -1666,7 +2058,12 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [
+   10.958,
+   19.99
+  ],
+  "minh_hoa": []
  },
  {
   "shot": "C1",
@@ -1680,118 +2077,84 @@
   "tl": true,
   "vai": "co-che",
   "noi": "eo_dat",
-  "nguoi": true,
-  "diem_may": "A3 → U1-lai",
+  "nguoi": false,
+  "diem_may": "L-linea → T-trai-bac",
   "cam": [
    {
-    "t": 0,
+    "t": 0.0,
     "p": [
-     -1250,
-     330,
-     3500
+     -560,
+     75,
+     1330
     ],
     "l": [
+     -120,
+     15,
+     820
+    ],
+    "fov": 42
+   },
+   {
+    "t": 11.98,
+    "p": [
+     -545,
+     73,
+     1320
+    ],
+    "l": [
+     -120,
+     15,
+     820
+    ],
+    "fov": 42
+   },
+   {
+    "t": 12.0,
+    "p": [
      -1150,
-     60,
-     1500
-    ],
-    "fov": 34
-   },
-   {
-    "t": 7.48,
-    "p": [
-     -1250,
-     328,
-     3490
+     96.7,
+     3550
     ],
     "l": [
-     -1150,
-     60,
-     1500
+     -1300,
+     11.0,
+     2950
     ],
-    "fov": 34
-   },
-   {
-    "t": 7.5,
-    "p": [
-     -1250,
-     328,
-     3490
-    ],
-    "l": [
-     -1150,
-     60,
-     1500
-    ],
-    "fov": 34
-   },
-   {
-    "t": 10.4,
-    "p": [
-     -1250,
-     200,
-     2600
-    ],
-    "l": [
-     -1290,
-     0,
-     3350
-    ],
-    "fov": 40
-   },
-   {
-    "t": 10.42,
-    "p": [
-     -1250,
-     200,
-     2600
-    ],
-    "l": [
-     -1290,
-     0,
-     3350
-    ],
-    "fov": 40
+    "fov": 44
    },
    {
     "t": 22.5,
     "p": [
-     -1254,
-     198,
-     2618
+     -1145,
+     96.7,
+     3540
     ],
     "l": [
-     -1291,
-     0,
-     3352
+     -1300,
+     11.0,
+     2950
     ],
-    "fov": 40
+    "fov": 44
    }
   ],
   "loai": "trai",
   "nhin_xuong_deg": [
-   7.7,
-   7.7,
-   7.7,
-   14.9,
-   14.9,
-   15.1
+   5.1,
+   5.1,
+   7.9,
+   8.0
   ],
   "agl_m": [
-   308.0,
-   306.0,
-   306.0,
-   189.0,
-   189.0,
-   187.0
+   70.0,
+   67.0,
+   70.0,
+   70.0
   ],
   "fov": [
-   34,
-   34,
-   34,
-   40,
-   40,
-   40
+   42,
+   42,
+   44,
+   44
   ],
   "dur": 22.5,
   "t0": 173.083,
@@ -1799,22 +2162,14 @@
   "thoi_gian": [
    {
     "t": 0,
-    "at": "1779-06-20 14:00"
+    "at": "1779-06-20 09:00"
    },
    {
-    "t": 3.0,
-    "at": "1779-06-21 10:00"
+    "t": 11.95,
+    "at": "1779-06-22 16:00"
    },
    {
-    "t": 4.6,
-    "at": "1779-06-21 11:00"
-   },
-   {
-    "t": 5.6,
-    "at": "1779-06-21 12:00"
-   },
-   {
-    "t": 8.0,
+    "t": 12.0,
     "at": "1779-07-13 12:00"
    },
    {
@@ -1860,21 +2215,26 @@
     "s": "1779 — The Great Siege"
    },
    {
-    "t": 8.0,
-    "k": "xay",
-    "s": "trại TBN dựng theo hàng lối (13/7 → 28/10/1779)"
+    "t": 0.5,
+    "k": "ngay_dem",
+    "s": "20→21/6/1779: Línea và đồn — đường bộ bị cắt (ngày–đêm)"
    },
    {
-    "t": 9.0,
-    "k": "nguoi",
-    "s": "ngựa kỵ binh, người đi giữa dãy lều, khói bếp"
+    "t": 12.0,
+    "k": "xay",
+    "s": "trại TBN dựng lên từ 13/7/1779 (cận lều, ngựa, khói bếp)"
+   },
+   {
+    "t": 16.05,
+    "k": "xay",
+    "s": "10/1779: toàn dải trại, Rock nền"
    }
   ],
-  "moc": "1779-06-20 14:00",
+  "moc": "1779-06-20 09:00",
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": "1779 — The Great Siege",
-  "ghi": "LOOK-4 sửa (V7C giây 60): U1 nhìn thẳng xuống → khung lai từ nam nhìn bắc ≈ 16°, có đồi Sierra Carbonera + trời; lều tự nhiên (lệch hàng, xoay, sắc vải) — số lều giữ nguyên",
+  "ghi": "ANIM-V2 R1/R3 (thay LOOK-4 cũ): 2 góc thấp — Línea + đồn (bậc 1) → dải trại mọc dần 13/7 → 28/10/1779 nhìn nam về Rock (eo-dat-v7.json, bậc 1–2; lều tự nhiên, số lều giữ nguyên)",
   "tieu_diem": [
    "trai"
   ],
@@ -1883,7 +2243,11 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [
+   12.0
+  ],
+  "minh_hoa": []
  },
  {
   "shot": "C2",
@@ -2009,7 +2373,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "C3",
@@ -2023,7 +2389,7 @@
   "tl": true,
   "vai": "co-che",
   "noi": "thanh_pho",
-  "nguoi": true,
+  "nguoi": false,
   "diem_may": "Ca2-lai",
   "cam": [
    {
@@ -2034,42 +2400,42 @@
      -985
     ],
     "l": [
-     -133,
-     94,
-     -835
+     40,
+     230,
+     -1250
     ],
     "fov": 38
    },
    {
-    "t": 4.48,
+    "t": 7.98,
     "p": [
      -117,
      93.6,
      -984
     ],
     "l": [
-     -133,
-     94,
-     -835
+     40,
+     230,
+     -1250
     ],
     "fov": 38
    },
    {
-    "t": 4.5,
+    "t": 8.0,
     "p": [
      -117,
      93.6,
      -984
     ],
     "l": [
-     -133,
-     94,
-     -835
+     40,
+     230,
+     -1250
     ],
     "fov": 38
    },
    {
-    "t": 7.4,
+    "t": 10.0,
     "p": [
      -150,
      330,
@@ -2083,7 +2449,7 @@
     "fov": 42
    },
    {
-    "t": 7.42,
+    "t": 10.02,
     "p": [
      -150,
      330,
@@ -2113,9 +2479,9 @@
   ],
   "loai": "pho",
   "nhin_xuong_deg": [
-   -0.3,
-   -0.2,
-   -0.2,
+   -23.9,
+   -23.8,
+   -23.8,
    15.7,
    15.7,
    15.7
@@ -2145,15 +2511,15 @@
     "at": "1780-01-14 10:00"
    },
    {
-    "t": 4.5,
-    "at": "1780-01-14 12:00"
+    "t": 8.0,
+    "at": "1780-01-14 12:30"
    },
    {
-    "t": 7.6,
+    "t": 10.0,
     "at": "1780-01-14 15:00"
    },
    {
-    "t": 8.4,
+    "t": 10.6,
     "at": "1780-01-14 15:30"
    },
    {
@@ -2190,38 +2556,44 @@
   "su_kien": [
    {
     "t": 0.0,
-    "k": "nguoi",
-    "s": "người cúi hái rau dại (S052), cờ Union trên lâu đài"
-   },
-   {
-    "t": 4.5,
-    "k": "may",
-    "s": "cần cẩu lên phố"
+    "k": "minh_hoa",
+    "s": "M2 (minh hoạ Omni): người cúi hái rau dại trên sườn đá, gió, khói xa (1/1780)"
    },
    {
     "t": 8.0,
-    "k": "tau",
-    "s": "hải đội phong toả trong vịnh"
+    "k": "may",
+    "s": "cẩu lên: phố + Line Wall + hải đội phong toả"
    }
   ],
   "moc": "1780-01-14 10:00",
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "cận 20–30 m người hái rau dại (S052) + cờ Union (khung chặt có vai) → cần cẩu lên khung lai ≈ 16° (phố + Line Wall + hải đội phong toả)",
+  "ghi": "ANIM-V2: M2 minh hoạ Omni 0 → 8 s (ảnh đầu = khung cận 20–30 m người hái rau dại S052 của chính shot; Q3: Drinkwater 1786 tr. 108 \"thistles, dandelion, wild leeks\"); 8 → 10 s cẩu lên khung lai ≈ 16°",
   "tieu_diem": [
    "hai_rau",
    "line_wall"
   ],
   "luot_thap": [
    0,
-   4.5
+   8.0
   ],
   "khung_neo": false,
-  "ai_image": false,
+  "ai_image": true,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": [
+   {
+    "ma": "M2",
+    "t0": 0.0,
+    "t1": 8.0,
+    "minh_hoa": true,
+    "nguon": "Gemini Omni (gemini-omni-1.1-flash) image-to-video, ảnh đầu = render của chính shot",
+    "bac": "minh hoạ N2 (§14.1 c): không mang dữ kiện vị trí; dữ kiện do lời"
+   }
+  ]
  },
  {
   "shot": "C4",
@@ -2235,169 +2607,118 @@
   "tl": true,
   "vai": "co-che",
   "noi": "bien",
-  "nguoi": true,
-  "diem_may": "Bm → B-lai",
+  "nguoi": false,
+  "diem_may": "Bm-thap → M1 → Bm-thap",
   "cam": [
    {
-    "t": 0,
+    "t": 0.0,
     "p": [
-     -700,
-     260,
-     -450
+     -1500,
+     48,
+     -980
     ],
     "l": [
-     -1100,
-     0,
-     -1050
+     -640,
+     15,
+     -1080
     ],
-    "fov": 46
+    "fov": 40
    },
    {
-    "t": 1.8,
+    "t": 1.98,
     "p": [
-     -702,
-     258,
-     -452
+     -1470,
+     47,
+     -980
     ],
     "l": [
-     -1095,
-     0,
-     -1045
+     -640,
+     15,
+     -1080
     ],
-    "fov": 46
+    "fov": 40
    },
    {
-    "t": 3.0,
+    "t": 2.0,
     "p": [
-     -625,
-     28,
-     -705
+     -1050,
+     30,
+     -900
     ],
     "l": [
-     -556,
-     2,
-     -650
+     -600,
+     10,
+     -690
     ],
     "fov": 34
    },
    {
-    "t": 3.02,
+    "t": 8.98,
     "p": [
-     -625,
-     28,
-     -705
+     -1030,
+     29,
+     -892
     ],
     "l": [
-     -556,
-     2,
-     -650
+     -600,
+     10,
+     -690
     ],
     "fov": 34
    },
    {
-    "t": 6.98,
+    "t": 9.0,
     "p": [
-     -625,
-     28,
-     -705
+     -1420,
+     52,
+     -1180
     ],
     "l": [
-     -556,
-     2,
-     -650
+     -620,
+     25,
+     -1000
     ],
-    "fov": 34
-   },
-   {
-    "t": 7.0,
-    "p": [
-     -625,
-     28,
-     -705
-    ],
-    "l": [
-     -556,
-     2,
-     -650
-    ],
-    "fov": 34
-   },
-   {
-    "t": 8.4,
-    "p": [
-     -1450,
-     260,
-     -350
-    ],
-    "l": [
-     -650,
-     20,
-     -1050
-    ],
-    "fov": 44
-   },
-   {
-    "t": 8.42,
-    "p": [
-     -1450,
-     260,
-     -350
-    ],
-    "l": [
-     -650,
-     20,
-     -1050
-    ],
-    "fov": 44
+    "fov": 40
    },
    {
     "t": 13.5,
     "p": [
-     -1440,
-     258,
-     -360
+     -1395,
+     51,
+     -1175
     ],
     "l": [
-     -650,
-     20,
-     -1052
+     -620,
+     25,
+     -1000
     ],
-    "fov": 44
+    "fov": 40
    }
   ],
   "loai": "vinh",
   "nhin_xuong_deg": [
-   19.8,
-   19.9,
-   16.4,
-   16.4,
-   16.4,
-   16.4,
-   12.7,
-   12.7,
-   12.8
+   2.2,
+   2.2,
+   2.3,
+   2.3,
+   1.9,
+   1.9
   ],
   "agl_m": [
-   258.0,
-   256.0,
+   48.0,
+   47.0,
+   25.0,
    24.0,
-   24.0,
-   24.0,
-   24.0,
-   260.0,
-   260.0,
-   258.0
+   52.0,
+   51.0
   ],
   "fov": [
-   46,
-   46,
+   40,
+   40,
    34,
    34,
-   34,
-   34,
-   44,
-   44,
-   44
+   40,
+   40
   ],
   "dur": 13.5,
   "t0": 221.708,
@@ -2408,15 +2729,19 @@
     "at": "1780-01-16 12:00"
    },
    {
-    "t": 2.0,
+    "t": 1.98,
     "at": "1780-01-19 12:00"
    },
    {
-    "t": 7.0,
+    "t": 2.0,
+    "at": "1780-01-21 10:00"
+   },
+   {
+    "t": 9.0,
     "at": "1780-02-01 12:00"
    },
    {
-    "t": 8.4,
+    "t": 9.05,
     "at": "1780-10-08 12:00"
    },
    {
@@ -2435,8 +2760,14 @@
   "lightmap": [
    "b1779"
   ],
-  "tl_buoc": [],
-  "tl_buoc_n": 0,
+  "tl_buoc": [
+   {
+    "t": 9.05,
+    "tu": 1780.086,
+    "toi": 1780.769
+   }
+  ],
+  "tl_buoc_n": 1,
   "cau": [
    {
     "dong": "SM2",
@@ -2451,26 +2782,26 @@
   ],
   "su_kien": [
    {
-    "t": 1.8,
+    "t": 0.0,
     "k": "tau",
-    "s": "đoàn Rodney vào vịnh (cờ Red Ensign)"
+    "s": "đoàn Rodney vào vịnh 1/1780 (cờ Red Ensign) — máy thấp, tàu tiền cảnh"
    },
    {
-    "t": 3.0,
-    "k": "nguoi",
-    "s": "thuyền cập Old Mole, người khiêng thùng, đống thùng lớn dần"
+    "t": 2.0,
+    "k": "minh_hoa",
+    "s": "M1 (minh hoạ Omni): Old Mole 1780 — thuyền cập, người khiêng thùng, đống hàng lớn dần"
    },
    {
-    "t": 9.6,
+    "t": 9.05,
     "k": "tau",
-    "s": "tàu chanh Đan Mạch vào cảng 10/1780"
+    "s": "10/1780: tàu chanh Đan Mạch vào cảng"
    }
   ],
   "moc": "1780-01-16 12:00",
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "LOOK-4 sửa (V7C giây 100): Bm2 nhìn thẳng xuống → khung lai từ vịnh nhìn Old Mole + phố + Rock ≈ 13°; cận Old Mole dỡ hàng 3–7 s giữ (vai: tiếp tế)",
+  "ghi": "ANIM-V2: máy thấp chéo từ vịnh (thay khung lai 13° nhìn xuống bến \"đồ chơi\"); M1 minh hoạ Omni TRƯỢT 3 lượt (tàu có buồm / cờ / cọc buộc sắt) → giữ 3D góc thấp gần bến 2 → 9 s; đoàn Rodney + tàu chanh: V7C (bậc 2 thời điểm, số/vị trí minh hoạ)",
   "tieu_diem": [
    "old_mole",
    "doan_darby"
@@ -2480,7 +2811,21 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [
+   2.0,
+   9.0
+  ],
+  "minh_hoa": [
+   {
+    "ma": "M1",
+    "t0": 2.0,
+    "t1": 9.0,
+    "minh_hoa": true,
+    "nguon": "Gemini Omni (gemini-omni-1.1-flash) image-to-video, ảnh đầu = render của chính shot",
+    "bac": "minh hoạ N2 (§14.1 c): không mang dữ kiện vị trí; dữ kiện do lời"
+   }
+  ]
  },
  {
   "shot": "C5",
@@ -2493,8 +2838,8 @@
   "tl": true,
   "vai": "buoc-ngoat",
   "noi": "thanh_pho",
-  "nguoi": true,
-  "diem_may": "Cc2-lai",
+  "nguoi": false,
+  "diem_may": "Cc2-lai → M4",
   "cam": [
    {
     "t": 0,
@@ -2539,35 +2884,7 @@
     "fov": 44
    },
    {
-    "t": 6.5,
-    "p": [
-     -110,
-     378,
-     -1652
-    ],
-    "l": [
-     -900,
-     0,
-     -900
-    ],
-    "fov": 44
-   },
-   {
-    "t": 6.52,
-    "p": [
-     -110,
-     378,
-     -1652
-    ],
-    "l": [
-     -900,
-     0,
-     -900
-    ],
-    "fov": 44
-   },
-   {
-    "t": 12.5,
+    "t": 6.08,
     "p": [
      -104,
      376,
@@ -2579,6 +2896,34 @@
      -900
     ],
     "fov": 44
+   },
+   {
+    "t": 6.1,
+    "p": [
+     -420,
+     40,
+     -1400
+    ],
+    "l": [
+     -445,
+     20,
+     -1265
+    ],
+    "fov": 40
+   },
+   {
+    "t": 12.5,
+    "p": [
+     -421,
+     39.5,
+     -1397
+    ],
+    "l": [
+     -445,
+     20,
+     -1265
+    ],
+    "fov": 40
    }
   ],
   "loai": "vinh",
@@ -2586,25 +2931,25 @@
    16.2,
    16.2,
    16.2,
-   19.1,
-   19.1,
-   19.0
+   19.0,
+   8.3,
+   8.3
   ],
   "agl_m": [
    231.0,
    229.0,
    229.0,
-   244.0,
-   244.0,
-   240.0
+   240.0,
+   22.0,
+   21.0
   ],
   "fov": [
    44,
    44,
    44,
    44,
-   44,
-   44
+   40,
+   40
   ],
   "dur": 12.5,
   "t0": 235.208,
@@ -2623,16 +2968,12 @@
     "at": "1781-04-12 10:46"
    },
    {
-    "t": 7.4,
-    "at": "1781-04-12 15:00"
-   },
-   {
-    "t": 9.6,
-    "at": "1781-04-14 02:30"
+    "t": 6.1,
+    "at": "1781-04-14 01:30"
    },
    {
     "t": 12.5,
-    "at": "1781-04-14 11:00"
+    "at": "1781-04-14 05:00"
    }
   ],
   "nam": [
@@ -2659,41 +3000,49 @@
   ],
   "su_kien": [
    {
-    "t": 3.6,
+    "t": 0.5,
     "k": "tau",
-    "s": "đoàn Darby thả neo xong"
+    "s": "12/4/1781: đoàn Darby thả neo"
    },
    {
-    "t": 5.8,
+    "t": 5.9,
     "k": "lua",
-    "s": "pháo TBN bắn vào phố (sau neo 2,2 s)"
+    "s": "pháo TBN bắn vào phố"
    },
    {
-    "t": 8.0,
-    "k": "lua",
-    "s": "phố cháy đêm 13→14/4/1781"
-   },
-   {
-    "t": 10.0,
-    "k": "nguoi",
-    "s": "dân chạy về nam"
+    "t": 6.1,
+    "k": "minh_hoa",
+    "s": "M4 (minh hoạ Omni): ngõ đêm 13→14/4/1781, ánh lửa, người chạy về nam"
    }
   ],
   "moc": "1781-04-12 09:20",
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "V7C Cc2, điểm nhìn dời xa → ≈ 16–19° (khung lai): đoàn Darby thả neo, pháo bắn vào phố, cháy đêm",
+  "ghi": "V7C Cc2 (khung lai ≈ 16–19°): đoàn Darby thả neo, pháo bắn vào phố; ANIM-V2: M4 minh hoạ Omni 6,1 → 12,5 s (cháy 4–5 nhà đêm 13→14/4, S063; dân chạy về nam: lời 2g)",
   "tieu_diem": [
    "doan_darby",
    "pho_bi_ban"
   ],
   "luot_thap": false,
   "khung_neo": false,
-  "ai_image": false,
+  "ai_image": true,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [
+   6.1
+  ],
+  "minh_hoa": [
+   {
+    "ma": "M4",
+    "t0": 6.1,
+    "t1": 12.5,
+    "minh_hoa": true,
+    "nguon": "Gemini Omni (gemini-omni-1.1-flash) image-to-video, ảnh đầu = render của chính shot",
+    "bac": "minh hoạ N2 (§14.1 c): không mang dữ kiện vị trí; dữ kiện do lời"
+   }
+  ]
  },
  {
   "shot": "N2_6",
@@ -2830,7 +3179,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "KA1782",
@@ -2937,7 +3288,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N2_10",
@@ -2952,49 +3305,83 @@
   "vai": "co-che",
   "noi": "eo_dat",
   "nguoi": false,
-  "diem_may": "D-vach",
+  "diem_may": "D-vach-thap → E-vach",
   "cam": [
    {
-    "t": 0,
+    "t": 0.0,
     "p": [
-     400,
-     330,
-     1000
+     -60,
+     75,
+     650
     ],
     "l": [
-     -60,
-     140,
-     -1000
+     -20,
+     190,
+     -800
     ],
-    "fov": 40
+    "fov": 36
+   },
+   {
+    "t": 10.438,
+    "p": [
+     -55,
+     73,
+     635
+    ],
+    "l": [
+     -20,
+     190,
+     -800
+    ],
+    "fov": 36
+   },
+   {
+    "t": 10.458,
+    "p": [
+     650,
+     95,
+     280
+    ],
+    "l": [
+     30,
+     205,
+     -790
+    ],
+    "fov": 32
    },
    {
     "t": 18.375,
     "p": [
-     375,
-     330,
-     1005
+     642,
+     94,
+     274
     ],
     "l": [
-     -60,
-     140,
-     -1000
+     30,
+     205,
+     -790
     ],
-    "fov": 40
+    "fov": 32
    }
   ],
   "loai": "vach",
   "nhin_xuong_deg": [
-   5.3,
-   5.3
+   -4.5,
+   -4.7,
+   -5.1,
+   -5.2
   ],
   "agl_m": [
-   326.0,
-   325.0
+   70.0,
+   68.0,
+   93.0,
+   92.0
   ],
   "fov": [
-   40,
-   40
+   36,
+   36,
+   32,
+   32
   ],
   "dur": 18.375,
   "t0": 270.167,
@@ -3061,7 +3448,7 @@
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "GIỮ CHỖ mặt cắt hầm (M11 chưa có) — soát LOOK-4: lùi máy để cả khối Rock trong khung; nhìn vách bắc (khung chặt có vai: vách hầm); bụi/khói đào: thời điểm bậc 2 (lời 2o–2p), vị trí trên vách ƯỚC TÍNH (bậc 5); footage 2p không dùng",
+  "ghi": "GIỮ CHỖ mặt cắt hầm (M11 chưa có); ANIM-V2 R1/R3: máy hạ 75–95 m, vách bắc chiếm khung (cả khối Rock trong khung), 2 góc: bụi đào → nổ lỗ thông hơi; bụi/khói đào: thời điểm bậc 2 (lời 2o–2p), vị trí trên vách ƯỚC TÍNH (bậc 5); footage 2p không dùng",
   "tieu_diem": [
    "vach_bac"
   ],
@@ -3070,7 +3457,11 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [
+   10.458
+  ],
+  "minh_hoa": []
  },
  {
   "shot": "N2_7",
@@ -3084,49 +3475,49 @@
   "vai": "co-che",
   "noi": "eo_dat",
   "nguoi": false,
-  "diem_may": "D-bac-lai",
+  "diem_may": "D-bac-thap",
   "cam": [
    {
     "t": 0,
     "p": [
-     300,
-     320,
-     1600
+     130,
+     48,
+     680
     ],
     "l": [
-     0,
-     40,
-     300
+     100,
+     25,
+     200
     ],
-    "fov": 42
+    "fov": 44
    },
    {
     "t": 14.4167,
     "p": [
-     285,
-     316,
-     1610
+     122,
+     47,
+     684
     ],
     "l": [
-     0,
-     40,
-     300
+     100,
+     25,
+     200
     ],
-    "fov": 42
+    "fov": 44
    }
   ],
   "loai": "eo",
   "nhin_xuong_deg": [
-   11.9,
-   11.6
+   2.7,
+   2.6
   ],
   "agl_m": [
-   315.0,
-   311.0
+   44.0,
+   43.0
   ],
   "fov": [
-   42,
-   42
+   44,
+   44
   ],
   "dur": 14.4167,
   "t0": 288.542,
@@ -3187,7 +3578,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N2_8",
@@ -3320,7 +3713,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N2_9",
@@ -3479,7 +3874,9 @@
    "ss": 5.5,
    "t": 16.5,
    "dur": 11.5
-  }
+  },
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N2_11",
@@ -3494,47 +3891,115 @@
   "vai": "he-qua",
   "noi": "eo_dat",
   "nguoi": false,
-  "diem_may": "G-lai",
+  "diem_may": "D-bac-thap → W-cong-su → T-trai-bac",
   "cam": [
    {
-    "t": 0,
+    "t": 0.0,
     "p": [
-     -150,
-     700,
-     -1100
+     300,
+     90,
+     820
     ],
     "l": [
-     -500,
-     0,
-     2000
+     -100,
+     60,
+     -600
+    ],
+    "fov": 42
+   },
+   {
+    "t": 7.108,
+    "p": [
+     290,
+     88,
+     810
+    ],
+    "l": [
+     -100,
+     60,
+     -600
+    ],
+    "fov": 42
+   },
+   {
+    "t": 7.128,
+    "p": [
+     -60,
+     42,
+     650
+    ],
+    "l": [
+     60,
+     20,
+     -200
+    ],
+    "fov": 40
+   },
+   {
+    "t": 15.108,
+    "p": [
+     -55,
+     41,
+     645
+    ],
+    "l": [
+     60,
+     20,
+     -200
+    ],
+    "fov": 40
+   },
+   {
+    "t": 15.128,
+    "p": [
+     -1150,
+     96.7,
+     3550
+    ],
+    "l": [
+     -1300,
+     11.0,
+     2950
     ],
     "fov": 44
    },
    {
     "t": 27.625,
     "p": [
-     -140,
-     694,
-     -1080
+     -1145,
+     96.7,
+     3540
     ],
     "l": [
-     -500,
-     0,
-     2000
+     -1300,
+     11.0,
+     2950
     ],
     "fov": 44
    }
   ],
   "loai": "trai",
   "nhin_xuong_deg": [
-   12.6,
-   12.6
+   1.2,
+   1.1,
+   1.5,
+   1.4,
+   7.9,
+   8.0
   ],
   "agl_m": [
-   615.0,
-   604.0
+   86.0,
+   84.0,
+   37.0,
+   36.0,
+   70.0,
+   70.0
   ],
   "fov": [
+   42,
+   42,
+   40,
+   40,
    44,
    44
   ],
@@ -3560,12 +4025,12 @@
    },
    {
     "t": 27.625,
-    "at": 1783.55
+    "at": 1783.32
    }
   ],
   "nam": [
    1782.749,
-   1783.55
+   1783.32
   ],
   "lightmap": [
    "b1782"
@@ -3620,7 +4085,7 @@
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "(soi 1: từ bắc quá xa) từ đỉnh Rock nhìn bắc: công sự + Línea + dải trại rút theo cửa sổ năm (eo-dat-v7.json, bậc 1–2), Rock nguyên khối; thẻ tổn thất 2r bỏ (lời mang số)",
+  "ghi": "ANIM-V2 R1/R3: 3 góc thấp 42–95 m — công sự tiền phương + Rock (mùa đông 1782) → cận công sự, khói phát súng cuối 5/2/1783 → dải trại rút theo cửa sổ năm (eo-dat-v7.json, bậc 1–2) nhìn nam về Rock; thẻ tổn thất 2r bỏ (lời mang số)",
   "tieu_diem": [
    "trai"
   ],
@@ -3629,7 +4094,12 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [
+   7.128,
+   15.128
+  ],
+  "minh_hoa": []
  },
  {
   "shot": "N3_1",
@@ -3644,49 +4114,83 @@
   "vai": "buoc-ngoat",
   "noi": "eo_dat",
   "nguoi": false,
-  "diem_may": "F-lai",
+  "diem_may": "SF-thap → SB-thap",
   "cam": [
    {
-    "t": 0,
+    "t": 0.0,
     "p": [
-     1500,
-     700,
-     2600
+     -620,
+     30,
+     1250
     ],
     "l": [
-     -200,
-     0,
-     -500
+     -300,
+     20,
+     960
     ],
     "fov": 44
    },
    {
-    "t": 27.25,
+    "t": 16.73,
     "p": [
-     1470,
-     692,
-     2620
+     -610,
+     29,
+     1244
     ],
     "l": [
-     -200,
-     0,
-     -500
+     -300,
+     20,
+     960
     ],
     "fov": 44
+   },
+   {
+    "t": 16.75,
+    "p": [
+     1150,
+     55,
+     1450
+    ],
+    "l": [
+     860,
+     15,
+     930
+    ],
+    "fov": 42
+   },
+   {
+    "t": 27.25,
+    "p": [
+     1140,
+     53,
+     1442
+    ],
+    "l": [
+     860,
+     15,
+     930
+    ],
+    "fov": 42
    }
   ],
   "loai": "eo",
   "nhin_xuong_deg": [
-   11.2,
-   11.1
+   1.3,
+   1.2,
+   3.8,
+   3.7
   ],
   "agl_m": [
-   700.0,
-   692.0
+   28.0,
+   27.0,
+   55.0,
+   53.0
   ],
   "fov": [
    44,
-   44
+   44,
+   42,
+   42
   ],
   "dur": 27.25,
   "t0": 382.583,
@@ -3768,7 +4272,7 @@
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": "1783 — The neutral ground",
-  "ghi": "MỐC ĐINH 1810: khói nổ ở San Felipe + Santa Bárbara (ghost SH, bậc 1); Línea biến mất 14/2/1810 (eo-dat-v7.json); dải trung lập không tô (§10.7)",
+  "ghi": "MỐC ĐINH 1810: khói nổ ở San Felipe + Santa Bárbara (ghost SH, bậc 1); Línea biến mất 14/2/1810 (eo-dat-v7.json); dải trung lập không tô (§10.7); ANIM-V2 R2/R3: 2 góc thấp — đồn San Felipe + Línea (1783 → 1809, Rock nền) → đồn Santa Bárbara nổ 14/2/1810",
   "tieu_diem": [
    "linea"
   ],
@@ -3777,7 +4281,11 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [
+   16.75
+  ],
+  "minh_hoa": []
  },
  {
   "shot": "N3_2",
@@ -3789,51 +4297,51 @@
   "goc": "cao",
   "tl": true,
   "vai": "co-che",
-  "noi": "eo_dat",
+  "noi": "thanh_pho",
   "nguoi": false,
-  "diem_may": "G-lai",
+  "diem_may": "B-thap",
   "cam": [
    {
     "t": 0,
     "p": [
-     -80,
-     580,
-     -1450
+     -1750,
+     95,
+     -900
     ],
     "l": [
-     -170,
-     0,
-     950
+     -560,
+     20,
+     -1150
     ],
-    "fov": 44
+    "fov": 40
    },
    {
     "t": 8.5,
     "p": [
-     -70,
-     576,
-     -1430
+     -1725,
+     93,
+     -910
     ],
     "l": [
-     -170,
-     0,
-     950
+     -560,
+     20,
+     -1150
     ],
-    "fov": 44
+    "fov": 40
    }
   ],
-  "loai": "eo",
+  "loai": "pho",
   "nhin_xuong_deg": [
-   13.6,
-   13.6
+   3.5,
+   3.5
   ],
   "agl_m": [
-   464.0,
-   458.0
+   95.0,
+   93.0
   ],
   "fov": [
-   44,
-   44
+   40,
+   40
   ],
   "dur": 8.5,
   "t0": 409.833,
@@ -3880,16 +4388,18 @@
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "GIỮ CHỖ: lớp \"mép đất Anh tiến dần 1810–60\" chưa có nguồn bậc 1–3 → chỉ bộ đếm chạy + nhà theo năm xây có trong gói; Sayer 1865 chưa nắn khớp",
+  "ghi": "GIỮ CHỖ: lớp \"mép đất Anh tiến dần 1810–60\" chưa có nguồn bậc 1–3; ANIM-V2 R4: góc phố + cảng từ vịnh (nhà theo năm xây có trong gói, tàu theo năm) thay eo đất trống; Sayer 1865 chưa nắn khớp",
   "tieu_diem": [
-   "eo_dat"
+   "pho_cang"
   ],
   "luot_thap": false,
   "khung_neo": false,
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N3_3",
@@ -3908,40 +4418,40 @@
    {
     "t": 0,
     "p": [
-     950,
-     430,
-     3350
+     900,
+     120,
+     2800
     ],
     "l": [
-     80,
-     0,
-     1650
+     100,
+     45,
+     1200
     ],
     "fov": 40
    },
    {
     "t": 9.9583,
     "p": [
-     930,
-     426,
-     3340
+     880,
+     118,
+     2790
     ],
     "l": [
-     80,
-     0,
-     1650
+     100,
+     45,
+     1200
     ],
     "fov": 40
    }
   ],
   "loai": "pho",
   "nhin_xuong_deg": [
-   12.7,
-   12.7
+   2.4,
+   2.4
   ],
   "agl_m": [
-   428.0,
-   424.0
+   114.0,
+   113.0
   ],
   "fov": [
    40,
@@ -4005,7 +4515,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "KC1910",
@@ -4117,7 +4629,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N3_4",
@@ -4133,47 +4647,81 @@
   "vai": "buoc-ngoat",
   "noi": "eo_dat",
   "nguoi": false,
-  "diem_may": "D-lai",
+  "diem_may": "H-thap → F-hang-rao",
   "cam": [
    {
-    "t": 0,
+    "t": 0.0,
     "p": [
-     380,
-     430,
-     1550
+     150,
+     42,
+     1150
     ],
     "l": [
-     -220,
+     80,
+     10,
+     450
+    ],
+    "fov": 42
+   },
+   {
+    "t": 5.98,
+    "p": [
+     145,
+     41,
+     1142
+    ],
+    "l": [
+     80,
+     10,
+     450
+    ],
+    "fov": 42
+   },
+   {
+    "t": 6.0,
+    "p": [
+     420,
+     30,
+     700
+    ],
+    "l": [
      0,
-     -330
+     60,
+     -800
     ],
     "fov": 42
    },
    {
     "t": 27.0,
     "p": [
-     350,
-     424,
-     1530
+     412,
+     30,
+     697
     ],
     "l": [
-     -220,
      0,
-     -330
+     60,
+     -800
     ],
     "fov": 42
    }
   ],
   "loai": "eo",
   "nhin_xuong_deg": [
-   12.3,
-   12.3
+   2.6,
+   2.6,
+   -1.1,
+   -1.1
   ],
   "agl_m": [
-   426.0,
-   420.0
+   34.0,
+   33.0,
+   27.0,
+   27.0
   ],
   "fov": [
+   42,
+   42,
    42,
    42
   ],
@@ -4250,7 +4798,7 @@
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "hàng rào 1909: tuyến coi trùng ranh OSM 2026 (ƯỚC TÍNH, eo-dat-v7.json); trại lính/vườn/trường bắn/trường đua 3g CHƯA dựng (chưa có nguồn vị trí bậc 1) — giữ chỗ",
+  "ghi": "hàng rào 1909: tuyến coi trùng ranh OSM 2026 (ƯỚC TÍNH, eo-dat-v7.json); trại lính/vườn/trường bắn/trường đua 3g CHƯA dựng (chưa có nguồn vị trí bậc 1) — giữ chỗ; ANIM-V2 R2/R3: 2 góc thấp (phố La Línea 1900 + Rock → dọc hàng rào mọc 1909)",
   "tieu_diem": [
    "hang_rao"
   ],
@@ -4259,7 +4807,11 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [
+   6.0
+  ],
+  "minh_hoa": []
  },
  {
   "shot": "N3_5",
@@ -4273,49 +4825,49 @@
   "vai": "co-che",
   "noi": "eo_dat",
   "nguoi": false,
-  "diem_may": "D2-lai",
+  "diem_may": "D2-thap",
   "cam": [
    {
     "t": 0,
     "p": [
-     -900,
-     420,
-     900
+     -380,
+     55,
+     650
     ],
     "l": [
-     0,
-     0,
-     -700
+     -60,
+     40,
+     -650
     ],
-    "fov": 40
+    "fov": 42
    },
    {
     "t": 9.3333,
     "p": [
-     -880,
-     416,
-     890
+     -370,
+     54,
+     644
     ],
     "l": [
-     0,
-     0,
-     -700
+     -60,
+     40,
+     -650
     ],
-    "fov": 40
+    "fov": 42
    }
   ],
   "loai": "eo",
   "nhin_xuong_deg": [
-   12.9,
-   12.9
+   0.6,
+   0.6
   ],
   "agl_m": [
-   420.0,
-   416.0
+   54.0,
+   52.0
   ],
   "fov": [
-   40,
-   40
+   42,
+   42
   ],
   "dur": 9.3333,
   "t0": 462.292,
@@ -4372,7 +4924,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N4_1",
@@ -4387,47 +4941,81 @@
   "vai": "buoc-ngoat",
   "noi": "eo_dat",
   "nguoi": false,
-  "diem_may": "D-lai",
+  "diem_may": "D-thap-dong → D-thap-tay",
   "cam": [
    {
-    "t": 0,
+    "t": 0.0,
     "p": [
-     520,
-     390,
-     1150
+     620,
+     40,
+     420
     ],
     "l": [
-     -150,
      0,
-     -400
+     25,
+     -500
+    ],
+    "fov": 42
+   },
+   {
+    "t": 21.568,
+    "p": [
+     610,
+     39,
+     415
+    ],
+    "l": [
+     0,
+     25,
+     -500
+    ],
+    "fov": 42
+   },
+   {
+    "t": 21.588,
+    "p": [
+     -450,
+     45,
+     380
+    ],
+    "l": [
+     150,
+     20,
+     -350
     ],
     "fov": 42
    },
    {
     "t": 25.5,
     "p": [
-     490,
-     385,
-     1135
+     -440,
+     44,
+     375
     ],
     "l": [
-     -150,
-     0,
-     -400
+     150,
+     20,
+     -350
     ],
     "fov": 42
    }
   ],
   "loai": "eo",
   "nhin_xuong_deg": [
-   13.0,
-   13.0
+   0.8,
+   0.7,
+   1.5,
+   1.5
   ],
   "agl_m": [
-   386.0,
-   381.0
+   38.0,
+   38.0,
+   45.0,
+   44.0
   ],
   "fov": [
+   42,
+   42,
    42,
    42
   ],
@@ -4500,7 +5088,7 @@
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": "1939 — A runway on the sand",
-  "ghi": "đường băng mọc theo uRecl (S091–S092); ảnh NARA 4a không dùng (TL-4)",
+  "ghi": "đường băng mọc theo uRecl (S091–S092); ảnh NARA 4a không dùng (TL-4); ANIM-V2 R2/R3: 2 góc thấp 40–45 m dọc đường băng",
   "tieu_diem": [
    "cho_cat"
   ],
@@ -4509,7 +5097,11 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [
+   21.588
+  ],
+  "minh_hoa": []
  },
  {
   "shot": "N4_2",
@@ -4525,49 +5117,83 @@
   "vai": "co-che",
   "noi": "eo_dat",
   "nguoi": false,
-  "diem_may": "F2-lai",
+  "diem_may": "W-vinh-thap → D-vach-thap",
   "cam": [
    {
-    "t": 0,
+    "t": 0.0,
     "p": [
-     1700,
-     650,
-     1600
+     -1600,
+     70,
+     450
     ],
     "l": [
-     -300,
-     0,
-     -1000
+     -500,
+     5,
+     0
     ],
-    "fov": 44
+    "fov": 42
+   },
+   {
+    "t": 11.022,
+    "p": [
+     -1580,
+     69,
+     445
+    ],
+    "l": [
+     -500,
+     5,
+     0
+    ],
+    "fov": 42
+   },
+   {
+    "t": 11.042,
+    "p": [
+     -60,
+     75,
+     650
+    ],
+    "l": [
+     -20,
+     190,
+     -800
+    ],
+    "fov": 36
    },
    {
     "t": 28.375,
     "p": [
-     1660,
-     644,
-     1610
+     -55,
+     73,
+     638
     ],
     "l": [
-     -300,
-     0,
-     -1000
+     -20,
+     190,
+     -800
     ],
-    "fov": 44
+    "fov": 36
    }
   ],
   "loai": "eo",
   "nhin_xuong_deg": [
-   11.2,
-   11.2
+   3.1,
+   3.1,
+   -4.5,
+   -4.7
   ],
   "agl_m": [
-   650.0,
-   644.0
+   70.0,
+   69.0,
+   70.0,
+   68.0
   ],
   "fov": [
-   44,
-   44
+   42,
+   42,
+   36,
+   36
   ],
   "dur": 28.375,
   "t0": 497.125,
@@ -4628,7 +5254,7 @@
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "GIỮ CHỖ mặt cắt hầm (M11, ONI 1954) chưa có: lời 4d–4e trên khung vách bắc + đường băng lấn vịnh; bụi đá: vị trí ước tính (bậc 5); thẻ \"55 km\" bỏ (lời mang số)",
+  "ghi": "GIỮ CHỖ mặt cắt hầm (M11, ONI 1954) chưa có: lời 4d–4e trên khung vách bắc + đường băng lấn vịnh; bụi đá: vị trí ước tính (bậc 5); thẻ \"55 km\" bỏ (lời mang số); ANIM-V2 R2/R3: 2 góc thấp (đường băng từ vịnh → vách bắc)",
   "tieu_diem": [
    "duong_bang"
   ],
@@ -4637,7 +5263,11 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [
+   11.042
+  ],
+  "minh_hoa": []
  },
  {
   "shot": "N4_3",
@@ -4744,7 +5374,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N4_4",
@@ -4876,7 +5508,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "KB1943",
@@ -4977,7 +5611,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N4_5",
@@ -5109,7 +5745,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N5_1",
@@ -5260,7 +5898,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "KB2026",
@@ -5372,7 +6012,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N5_2",
@@ -5512,7 +6154,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "KC2026",
@@ -5624,7 +6268,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N5_3",
@@ -5760,7 +6406,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N5_4",
@@ -5776,66 +6424,83 @@
   "vai": "buoc-ngoat",
   "noi": "eo_dat",
   "nguoi": true,
-  "diem_may": "D-cong-orbit",
+  "diem_may": "D-cong-thap → F-hang-rao",
   "cam": [
    {
-    "t": 0,
+    "t": 0.0,
     "p": [
-     330,
-     190,
-     820
+     40,
+     40,
+     -150
     ],
     "l": [
-     60,
+     70,
      0,
-     470
+     350
     ],
-    "fov": 38
+    "fov": 40
    },
    {
-    "t": 15.7292,
+    "t": 12.129,
     "p": [
-     120,
-     195,
-     880
+     48,
+     40,
+     -140
     ],
     "l": [
-     60,
+     70,
      0,
-     470
+     350
     ],
-    "fov": 38
+    "fov": 40
+   },
+   {
+    "t": 12.149,
+    "p": [
+     -120,
+     35,
+     150
+    ],
+    "l": [
+     150,
+     2,
+     500
+    ],
+    "fov": 42
    },
    {
     "t": 31.4583,
     "p": [
-     -120,
-     200,
-     840
+     -110,
+     35,
+     156
     ],
     "l": [
-     60,
-     0,
-     470
+     150,
+     2,
+     500
     ],
-    "fov": 38
+    "fov": 42
    }
   ],
   "loai": "eo",
   "nhin_xuong_deg": [
-   23.3,
-   25.2,
-   25.9
+   4.6,
+   4.7,
+   4.3,
+   4.4
   ],
   "agl_m": [
-   187.0,
-   193.0,
-   194.0
+   38.0,
+   38.0,
+   33.0,
+   33.0
   ],
   "fov": [
-   38,
-   38,
-   38
+   40,
+   40,
+   42,
+   42
   ],
   "dur": 31.4583,
   "t0": 666.083,
@@ -5910,7 +6575,7 @@
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "hàng rào cũ gỡ (lời 5h, bậc 2) + hàng mới lệch 6 m (ƯỚC TÍNH bậc 5 — chờ nguồn vị trí); khoảng mở ≈ 150 m chưa dựng; thẻ 5i bỏ (lời mang ngày)",
+  "ghi": "hàng rào cũ gỡ (lời 5h, bậc 2) + hàng mới lệch 6 m (ƯỚC TÍNH bậc 5 — chờ nguồn vị trí); khoảng mở ≈ 150 m chưa dựng; thẻ 5i bỏ (lời mang ngày); ANIM-V2: máy thấp có chân trời + phố 2026 có cây/đèn/xe (bậc 5 vật nền phụ)",
   "tieu_diem": [
    "hang_rao"
   ],
@@ -5919,7 +6584,11 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [
+   12.149
+  ],
+  "minh_hoa": []
  },
  {
   "shot": "N5_5",
@@ -6148,7 +6817,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "KA2026",
@@ -6249,7 +6920,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "N5_6",
@@ -6437,7 +7110,9 @@
   "ai_image": false,
   "ai_texture": false,
   "nc": true,
-  "lan": null
+  "lan": null,
+  "cat_trong_shot": [],
+  "minh_hoa": []
  },
  {
   "shot": "PP1",
