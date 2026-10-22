@@ -26,5 +26,33 @@
   "so_ai": "reports/animatic-t3-v2/so-ai-gemini.jsonl",
   "model": "gemini-omni-1.1-flash",
   "bac": "minh hoạ N2 §14.1 c — không mang dữ kiện vị trí; dữ kiện do lời"
+ },
+ {
+  "ma": "M5",
+  "shot": "H1",
+  "t0": 4.5,
+  "t1": 9.5,
+  "minh_hoa": true,
+  "luot": "M5-l3",
+  "chen": true,
+  "khung": [
+   108,
+   227
+  ],
+  "nguon_720": "reports/animatic-t3-v2/omni/goc720/M5.mp4",
+  "sha_720": "91f17db5055afa8036755ba7021665caa30146efb42e322da00b35fdad6aff2e",
+  "tep_1080": "/var/tmp/cine-out/omni1080/M5.mp4",
+  "sha_1080": "1694c1cbbfd91fb937ede663e39b08e7feafe24331194b5688b021b08daf7993",
+  "phong": "Lanczos 1280×720 → 1920×1080 + unsharp 5:5:0,45 (độ sáng), x264 crf 12",
+  "bo_dau_s": 0.0,
+  "clip_giay": 6.5,
+  "doan_giay": 5.0,
+  "toc_do": 1.0,
+  "hoa_cuoi_khung": 12,
+  "khop_mau": "Lab TB+độ lệch chuẩn k=0,7 về khung 3D quanh đoạn",
+  "nhan": null,
+  "so_ai": "reports/animatic-t3-v2/so-ai-gemini.jsonl",
+  "model": "gemini-omni-1.1-flash",
+  "bac": "minh hoạ N2 §14.1 c — không mang dữ kiện vị trí; dữ kiện do lời"
  }
 ]
