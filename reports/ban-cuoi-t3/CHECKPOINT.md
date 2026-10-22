@@ -28,3 +28,5 @@ Gốc: `origin/k2c-t3-anim-v2` @72e3f0fe ("cứu 4 video gốc Omni") + merge --
   (a) C4: không mục `minh_hoa` M1, `ai_image: false` (K-LAI-2); (b) M2–M5: `luot` (M2-l3, M3-l1, M4-l1, M5-l3) + `sha_goc` tệp gốc + `kiem` (tệp kiểm lượt) + episode.yaml `so_ai: reports/animatic-t3-v2/so-ai-gemini.jsonl` (MINH-HOA (e), K-LAI-3/6);
   (c) mọi shot có cắt góc: `so_goc` + `goc_may: [{id, t, t0, t1, loai}]` (TL-1 (c)); C3 thêm cắt 8,0 s (minh hoạ M2 → cẩu lên);
   (d) episode.yaml `giong_tong_hop: true`, `phat_hanh: {cong: phat_hanh, goi: release-k2-t3-g2, youtube_altered_content: true}` — mô tả YouTube do phiên đóng gói viết (CONG-BO-1 được phép báo thiếu mô tả ở phiên này).
+- 14:20: soát mối nối N2.9 trên đoạn đã render: A (0–16,5 s) và Cycles (16,5–28 s) nằm trong CÙNG một cú máy liên tục → trái "không ghép A↔B trong một cú máy" (tông đổi rõ ở 16,5 s). Đổi cách: dựng TRỌN N2.9 bằng Cycles GPU (thêm khung 0–395, 2 pod), thay toàn bộ khung, render lại đoạn N2_9. Tổng Cycles 33 s = 4,3 %.
+- Thiếu RAM khi render đoạn chạy cùng 3 cảnh đinh (Chromium sập 3 lần ở N5.1/N5.3) → đổi cách: P = 2 + render đoạn chờ RAM ≥ 5 GB.

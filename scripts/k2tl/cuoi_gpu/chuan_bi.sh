@@ -25,7 +25,9 @@ mot() { local D=$1 A=$2 B=$3; local OP=$G/opt/$D.json; mkdir -p $G/$D/exp $G/$D/
     for k in 1 2 3; do echo -n "$D xuất $F (lượt $k) "; node $GPU/gpu_export.js --scene t3tl --opt "$(cat $OP)" --f $F --far 7000 --nopass --w 1920 --h 1080 --out $X 2>&1 | tail -1 || true; [ -f $X/manifest.json ] && break; done
     [ -f $X/manifest.json ] || { echo "LỖI xuất $D $F sau 3 lượt — dừng (đổi cách)"; exit 5; }; done
   [ -f $G/$D/lf/$(printf %05d $B).json ] || node $GPU/gpu_export.js --scene t3tl --opt "$(cat $OP)" --lightfx $A:$((B + 1)) --w 1920 --h 1080 --out $G/$D/lf 2>&1 | tail -1
-  [ -f $G/$D/cam.json ] || node $CPU/nc_topo.js --scene t3tl --opt "$(cat $OP)" --campath $G/$D/cam.json --n $((B + 12)) --box 0,0,10,10 --res 10 --out $G/$D/tmp-topo 2>&1 | tail -1
+  [ -f $G/$D/cam.json ] || { [ $D = n29a ] && [ -s $G/n29-cam.json ] && cp $G/n29-cam.json $G/$D/cam.json; } || node $CPU/nc_topo.js --scene t3tl --opt "$(cat $OP)" --campath $G/$D/cam.json --n $((B + 12)) --box 0,0,10,10 --res 10 --out $G/$D/tmp-topo 2>&1 | tail -1
   /opt/cine/bin/python $GPU/dive_pack.py $G/$D $G/$D.tar; }
-case ${1:-ca} in n29) mot n29 396 671;; h2t) mot h2t 0 119;; ca) mot h2t 0 119; mot n29 396 671;; esac
+# n29a = N2.9 khung 0–395 (phần trước cú lặn, CÙNG cú máy liên tục với phần lặn → dựng Cycles để cả shot là một đường dựng; không ghép A↔B trong cú máy)
+[ "${1:-ca}" = n29a ] && { cp -f $G/opt/n29.json $G/opt/n29a.json; }
+case ${1:-ca} in n29) mot n29 396 671;; n29a) mot n29a 0 395;; h2t) mot h2t 0 119;; ca) mot h2t 0 119; mot n29 396 671;; esac
 echo CHUAN-BI-XONG

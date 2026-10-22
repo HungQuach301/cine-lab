@@ -13,6 +13,6 @@ for k in 1 2 3; do ls $IN/*.exr | while read e; do b=$(basename $e .exr); [ -s $
     node $CPU/nc_grade.js --scene t3tl --opt "$(cat $G/opt/$D.json)" --in $T --out $PNG --w 1920 --h 1080 2>&1 | tail -1 || true; rm -rf $T $L; done; done
 mkdir -p $HD/goc-gpu
 for f in $(seq $A $B); do n=$(printf %05d $f); test -s $PNG/$n.png || { echo "THIẾU PNG $f"; exit 4; }
-  [ -f $HD/goc-gpu/$n.jpg ] || cp $HD/$n.jpg $HD/goc-gpu/$n.jpg
+  [ -f $HD/goc-gpu/$n.jpg ] || [ ! -f $HD/$n.jpg ] || cp $HD/$n.jpg $HD/goc-gpu/$n.jpg   # khung A có thể đã xoá sau render đoạn
   /opt/cine/bin/python -c "from PIL import Image;Image.open('$PNG/$n.png').convert('RGB').save('$HD/$n.jpg',quality=95)"; done
 echo "NHAN-XONG $D $A-$B → $HD"
