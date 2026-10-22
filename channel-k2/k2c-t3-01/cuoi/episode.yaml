@@ -7834,22 +7834,6 @@ heroes:
         period: 0.32
         seed: 7127
         alpha: 0.65
-      - at:
-        - -910
-        - 7.9
-        - -1098
-        t:
-        - 22.79
-        - 27.79
-        n: 10
-        size: 34
-        rise: 55
-        drift:
-        - -1.5
-        - 0.6
-        period: 0.32
-        seed: 7228
-        alpha: 0.65
       co:
       - at: tower
         kind: burgundy
@@ -11731,6 +11715,102 @@ heroes:
       td:
       - *id074
     dur: 20.0
+  anim_PP:
+    hero: tl/t3tl
+    opt:
+      rimPhe:
+      - es
+      bfile: buildings-v7b.json
+      cityOpt:
+        near: 2600
+        winFar: 2400
+      time:
+      - t: 0
+        at: 2026-10-18 23:52
+        sun: real
+        lab: dt
+      - t: 17.0
+        at: 2026-10-19 00:12
+        sun: real
+        lab: dt
+      night: true
+      lamps:
+        box:
+        - -2500
+        - -2500
+        - 2500
+        - 3500
+      co:
+      - at: tower
+        kind: burgundy
+        scale: 1.5
+        pole: 9
+        'on': 1506
+        'off': 1704.591473
+        hoist:
+        - - 1704.591302
+          - 1
+        - - 1704.591473
+          - 0
+      - at: tower
+        kind: union1707
+        scale: 1.5
+        pole: 9
+        'on': 1704.591644
+        hoist:
+        - - 1704.591644
+          - 0
+        - - 1704.591872
+          - 1
+      campTuNhien: true
+      lives:
+      - era: 2026
+        wY:
+          'on': 1990
+        walkers:
+        - line: WCA
+          n: 100
+          width: 6
+          women: true
+          colors:
+          - '#3d4a5a'
+          - '#e7e0cf'
+          - '#7a2f2a'
+          - '#2f5d7a'
+          - '#5e4a38'
+          - '#c9a227'
+      nc:
+        bakes:
+        - *id013
+      dur: 17.0
+      shot: PP
+      cau: diem-PP
+      diem: D7-lai-nguoc
+      noi: eo_dat
+      vai: he-qua
+      pack: gib
+      cam:
+      - t: 0
+        p:
+        - -535
+        - 414
+        - 1430
+        l: &id075
+        - 80
+        - 0
+        - -350
+        fov: 42
+      - t: 17.0
+        p:
+        - -527
+        - 412
+        - 1424
+        l: *id075
+        fov: 42
+      loai: eo
+      td:
+      - *id074
+    dur: 17.0
 segments:
 - id: H1
   part: CH0
@@ -12779,16 +12859,25 @@ segments:
     s: khói bếp / lửa đồng bốc lên (minh hoạ bậ
   - t: 16.5
     k: may
-    s: 'CÚ LẶN (giữ chỗ): chiều → đêm cháy → rạn'
+    s: 'CÚ LẶN (Cycles GPU): chiều → đêm cháy → '
   - t: 17.01
     k: bien_co_tu_dac_ta
     s: lửa xuất hiện
   - t: 17.57
     k: bien_co_tu_dac_ta
     s: khói xuất hiện
-  - t: 22.79
-    k: khoi
-    s: khói bếp / lửa đồng bốc lên (minh hoạ bậ
+  - t: 19.5
+    k: ngay_dem
+    s: 'đêm: pin nổi cháy'
+  - t: 21.0
+    k: may
+    s: lướt 15–17 m dọc hàng pin nổi cháy
+  - t: 24.5
+    k: may
+    s: ngược lên cao
+  - t: 26.0
+    k: ngay_dem
+    s: 02:30 → rạng sáng 14/9
   moc_loi:
   - t: 0.57
     s: 'The thirteenth of September '
@@ -13877,9 +13966,9 @@ segments:
     type: card
     p:
       sach: true
-      hero: anim_N5_6
-      frame0: 479
-      speed: 0.0
+      hero: anim_PP
+      frame0: 0
+      speed: 1.0
       card:
         type: list
         title: How this film was made
@@ -13908,9 +13997,9 @@ segments:
     type: card
     p:
       sach: true
-      hero: anim_N5_6
-      frame0: 479
-      speed: 0.0
+      hero: anim_PP
+      frame0: 216
+      speed: 1.0
       card:
         type: list
         title: How this film was made

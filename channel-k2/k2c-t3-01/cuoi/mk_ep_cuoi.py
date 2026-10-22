@@ -313,9 +313,11 @@ def shots():
              fleets=copy.deepcopy(bf) + big, fires=copy.deepcopy(v['opt']['fires']), smoke=copy.deepcopy(v['opt']['smoke']), co=co_ld() + co_lw(), recl=False, lamps=dict(box=[-3000, -2600, 600, 800]))
     dcam = json.loads((REPO / 'design/pt/cpu/dive-opt.json').read_text())['cam']
     add('N2.9', ['2m', '2n'], 'B-lan', 'lai+lan', 'buoc-ngoat', 'bien', 'vinh', o, [K(0, dcam[0]['p'], dcam[0]['l'], 42), K(dive_at, [-2933, 437, 142], [-1083, 0, -992], 42)], [('pin_noi', None)],
-        [dict(t=1.0, k='tau', s='13/9/1782 sáng: 10 pin nổi vào vị trí dưới hoả lực'), dict(t=9.0, k='lua', s='khai hoả'), dict(t=dive_at, k='may', s='CÚ LẶN (giữ chỗ): chiều → đêm cháy → rạng sáng')],
-        f'0 → {dive_at} s cách A (máy theo đường máy cú lặn, khớp khung đầu clip); {dive_at} → {D} s CẮT sang clip giữ chỗ reports/nc-gpu/lan/ncg-lan-xem.mp4 (5,5 → 17,0 s) — giữ chỗ — bản cuối dựng Cycles GPU (G0)',
-        lan=dict(clip='reports/nc-gpu/lan/ncg-lan-xem.mp4', ss=5.5, t=dive_at, dur=round(D - dive_at, 3)))
+        [dict(t=1.0, k='tau', s='13/9/1782 sáng: 10 pin nổi vào vị trí dưới hoả lực'), dict(t=9.0, k='lua', s='khai hoả'), dict(t=dive_at, k='may', s='CÚ LẶN (Cycles GPU): chiều → đêm cháy → rạng sáng'),
+         dict(t=round(dive_at + 3.0, 2), k='ngay_dem', s='đêm: pin nổi cháy'), dict(t=round(dive_at + 4.5, 2), k='may', s='lướt 15–17 m dọc hàng pin nổi cháy'), dict(t=round(dive_at + 8.0, 2), k='may', s='ngược lên cao'),
+         dict(t=round(dive_at + 9.5, 2), k='ngay_dem', s='02:30 → rạng sáng 14/9')],
+        f'0 → {dive_at} s cách A (máy theo đường máy cú lặn); {dive_at} → {D} s DỰNG TRỌN bằng Cycles GPU (RunPod, §14.2–14.3; scripts/k2tl/cuoi_gpu/) theo đường máy design/pt/cpu/dive-opt.json τ 5,5 → 17,0 — không ghép A↔B trong cú máy',
+        lan=dict(cycles_gpu=True, t=dive_at, dur=round(D - dive_at, 3), dive_tau=[5.5, 17.0]))
     D = d(['2q', '2r']); tpeace = NH['2q']['cau'][1]['bd_phim'] - NH['2q']['bd_phim']
     o = base(time=[dict(t=0, at='1782-10-01 12:00', sun=14.0, lab='m'), dict(t=tpeace, at='1783-01-25 12:00', sun=14.0, lab='d'), dict(t=tpeace + 6.0, at='1783-02-05 15:00', sun=14.0, lab='d'),
                    dict(t=tpeace + 6.05, at=1783.10, sun=14.0, lab='m'), dict(t=D, at=1783.32, sun=14.0, lab='m')], co=co_ld() + co_lw(), recl=False, campTuNhien=True,   # ANIM-V2: trại rút hết ngay trước cuối shot (hết khúc đồng trống dài)
@@ -568,9 +570,14 @@ def main():
         t_abs += d
     assert abs(t_abs - 745.0) < 0.01, t_abs
     # 2 thẻ phương pháp × 8 s (§12.1 b, the-phuong-phap-v2.json) trên khung cuối N5.6 (đêm biên giới) giữ tĩnh
+    # BAN-CUOI-T3: nền 2 thẻ = cảnh riêng tiếp nối N5.6 (đêm biên giới 23:52 → 00:12, người đi, đèn) — v2 dựng thẻ trên khung N5.6 đứng yên (Q37: khung tĩnh 7,5 s từ 12:25,5)
+    o56 = copy.deepcopy(heroes['anim_N5_6']['opt']); TPP = sum(th['giay'] for th in PP['the']); kc = o56['cam'][-1]
+    o56.update(dur=TPP, shot='PP', cau='diem-PP', time=[dict(t=0, at='2026-10-18 23:52', sun='real', lab='dt'), dict(t=TPP, at='2026-10-19 00:12', sun='real', lab='dt')],
+               cam=[K(0, kc['p'], kc['l'], kc['fov']), K(TPP, [kc['p'][0] + 8, kc['p'][1] - 2, kc['p'][2] - 6], kc['l'], kc['fov'])])
+    o56['nc'] = dict(bakes=[BK['2026']]); heroes['anim_PP'] = dict(hero='tl/t3tl', opt=o56, dur=TPP)
     for i, th in enumerate(PP['the']):
         segs.append(dict(id=f'PP{i + 1}', part='END', chuong='5', dur=th['giay'], fadeIn=0, fadeOut=10 if i == 1 else 0, beats=[dict(t=0.0, k='cut', s=th['tua'])],
-                         shots=[dict(tpl='plate', at=0, type='card', p=dict(sach=True, hero='anim_N5_6', frame0=int(round(dur_of(['5k']) * 24)) - 1, speed=0.0,
+                         shots=[dict(tpl='plate', at=0, type='card', p=dict(sach=True, hero='anim_PP', frame0=int(round(sum(x['giay'] for x in PP['the'][:i]) * 24)), speed=1.0,
                                      card=dict(type='list', title=th['tua'], px=40, gap=30, items=[dict(s=x, at=0.3 + 0.5 * j) for j, x in enumerate(th['dong'])])))]))
         log.append(dict(shot=f'PP{i + 1}', loai='thẻ phương pháp', nguon='phat-hanh/the-phuong-phap-v2.json', dur=th['giay'], t0=round(t_abs, 3), t1=round(t_abs + th['giay'], 3), ai_image=False, ai_texture=False))
         bang.append(dict(ma=f'PP{i + 1}', dong=[], t0=round(t_abs, 3), t1=round(t_abs + th['giay'], 3), dur=th['giay'], diem='—', kieu='the', vai='phuong-phap', vat=th['dong'], ghi='thẻ "How this film was made" v2'))
