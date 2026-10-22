@@ -3,17 +3,17 @@
 Gốc: `origin/k2c-t3-anim-v2` @72e3f0fe ("cứu 4 video gốc Omni") + merge --no-ff `origin/checks-1-17-1` @39d01859 (→ 622a1c27) + `origin/claude/laughing-ptolemy-u7xlwe` @0a10d1fc (→ 170e55ce). 0 xung đột.
 
 <!-- TRANG-THAI -->
-## Trạng thái (22/10/2026 17:53 UTC) — tự động `scripts/k2tl/cuoi_ckpt.py`
+## Trạng thái (22/10/2026 18:17 UTC) — tự động `scripts/k2tl/cuoi_ckpt.py`
 
-- **Khung cảnh đinh 1080p đã dựng:** 15423 / 20716 (74 %) — cảnh xong 28/44; đang dựng: N1_1 180/506, N2_10 36/497, N3_1 539/710
-- **Đoạn đã render (sec/*.mkv, quy về khung phim):** 27/45 đoạn = 12175 / 18288 khung phim (67 %). Còn: H2, H3, N1_1, N1_3, N1_4, C5, N2_6, N2_10, N3_1, N3_2, N3_3, KC1910, N3_5, N4_3, N4_4, KB1943, N5_5, N5_6
-- **Cycles GPU:** H2T 0–119 ĐÃ THAY · N2.9 TRỌN Cycles (sửa ghép A↔B trong cú máy, 14:20): khung 396–671 EXR 276/276, khung 0–395 EXR 288/396 — chưa thay. Pod: ban-cuoi hep2qaz5zj5ri9 bật 06:30 UTC (đã tắt); ban-cuoi-2 qwsekut0bu3kkg bật 07:05 UTC (đã tắt); ban-cuoi-3 j8m2halzltpbww bật 15:29 UTC (đang chạy); ban-cuoi-4 0fnofdnz5sl6vn bật 16:15 UTC (đang chạy). Dòng cuối: pod3 `17:52:43 [ban-cuoi-3] pod báo xong mà còn thiếu 51 — kéo lại` · pod4 `17:52:42 [ban-cuoi-4] pod báo xong mà còn thiếu 57 — kéo lại` · xuất `CHUAN-BI-XONG`
+- **Khung cảnh đinh 1080p đã dựng:** 16223 / 20716 (78 %) — cảnh xong 29/44; đang dựng: N2_10 416/497, N3_1 539/710, N4_4 94/461
+- **Đoạn đã render (sec/*.mkv, quy về khung phim):** 29/45 đoạn = 13122 / 18288 khung phim (72 %). Còn: H2, H3, N1_1, N1_3, N1_4, C5, N2_6, N2_10, N3_1, N3_2, N3_3, KC1910, N3_5, N4_3, N4_4, KB1943
+- **Cycles GPU:** H2T 0–119 ĐÃ THAY · N2.9 TRỌN Cycles (sửa ghép A↔B trong cú máy, 14:20): khung 396–671 EXR 276/276, khung 0–395 EXR 292/396 — chưa thay. Pod: ban-cuoi hep2qaz5zj5ri9 bật 06:30 UTC (đã tắt); ban-cuoi-2 qwsekut0bu3kkg bật 07:05 UTC (đã tắt); ban-cuoi-3 j8m2halzltpbww bật 15:29 UTC (đang chạy); ban-cuoi-4 0fnofdnz5sl6vn bật 16:15 UTC (đang chạy). Dòng cuối: pod3 `18:16:58 [ban-cuoi-3] pod báo xong mà còn thiếu 51 — kéo lại` · pod4 `18:17:29 [ban-cuoi-4] pod báo xong mà còn thiếu 57 — kéo lại` · xuất `CHUAN-BI-XONG`
 - **Số dư RunPod:** $28.97 (dòng `so_du` cuối gio-gpu.jsonl). Đầu phiên $22,95 → $13,97 sau pod 1/2 (chi thật $8,88); 14:57 đọc $28,97 = có nạp thêm $15,00 ngoài phiên, không phải hoàn tiền
 - **Lightmap:** 7/7 (b1704, b1779, b1781r, b1782, b1900, b1940, b2026)
 - **Omni đã chèn (không nhãn):** M2→C3, M5→H1 · M1 giữ 3D
-- **Ước còn:** cảnh đinh 5293 khung × 5.2 s/khung ÷ P 2 ≈ **3.8 h**; sau đó render đoạn còn lại + LUT + ghép + k2check + xuất ≈ 2–3 h. Giờ máy đã chạy ≈ 13.4 h (mốc 30 h).
+- **Ước còn:** cảnh đinh 4493 khung × 5.0 s/khung ÷ P 2 ≈ **3.1 h**; sau đó render đoạn còn lại + LUT + ghép + k2check + xuất ≈ 2–3 h. Giờ máy đã chạy ≈ 13.8 h (mốc 30 h).
 - **Việc còn lại (thứ tự):** (1) dựng nốt cảnh đinh; (2) chèn M3 (N1.4), M4 (C5) — tự động khi cảnh xong; (3) N2.9 trọn Cycles: pod 3/4 → nhận → render lại đoạn; (4) render các đoạn còn lại (tự động, chờ RAM); (5) chốt LUT kênh (bão hoà ≥ 0,40) → ghép master + 3 phần + 8 tệp xem; (6) k2check 1.17.2 `--cap`, selftest, LOI-KHOA 3/3, tự đo, XEM CÂM AI; (7) release-k2-t3-g2 (LFS) + thumbnail; (8) báo cáo, DỪNG.
-- Dòng cuối log vòng dựng: `17:49 dựng anim_N2_10 (20.7 s, 1920×1080) ` · render đoạn: `17:50 render đoạn N5_5`
+- Dòng cuối log vòng dựng: `18:10 dựng anim_N4_4 (19.2 s, 1920×1080) ` · render đoạn: `18:16 render đoạn N1_1`
 <!-- /TRANG-THAI -->
 
 ## Tệp ngoài git
@@ -25,6 +25,7 @@ Gốc: `origin/k2c-t3-anim-v2` @72e3f0fe ("cứu 4 video gốc Omni") + merge --
 | `/var/tmp/cine-out/omni1080/M2…M5.mp4` | lệnh ffmpeg trong `scripts/k2tl/cuoi_minh_hoa.py` từ `reports/animatic-t3-v2/omni/goc720/` |
 
 ## Sự cố (ghi dần)
+- 16:23 (pod 3) / 16:53 (pod 4) → 18:20: pod đã dựng đủ n29a 0–395 nhưng máy không kéo về được 108 khung cuối (147–197, 339–395). Nguyên nhân: `pod.py ls` cắt đầu ra ở 4 000 ký tự → JSON hỏng khi > ~147 tệp → `dk_pod.sh` bỏ qua tất cả (try/except), không báo lỗi, pod vẫn chạy chờ. Bộ chờ của tôi hết hạn 2 h nên tôi phát hiện muộn lúc 18:16. Tốn thêm ≈ 2 h × 2 pod × $1,19 ≈ **$4,4 vô ích**. Sửa: bỏ cắt trong `pod.py ls` (dk_pod đang chạy tự kéo lại ở lượt sau, không khởi động lại). Bài học đề xuất cho BAI-HOC (P ghi): không cắt đầu ra máy đọc; khi pod báo xong mà thiếu khung > 2 lượt thì báo LỖI và dừng chờ.
 - 15:29 pod 4 (N2.9 khung 198–395) không bật: RunPod lỗi 500 "no longer any instances available" (RTX 5090 SECURE); bộ chờ của tôi hết hạn nên tới 16:15 mới phát hiện (chậm ≈ 45 phút cho dải này). Xử lý: `log/pod4b.sh` thử lại mỗi 3 phút (sau 3 lần đổi SECURE/COMMUNITY); bật được ngay lần 1 lúc 16:15. Không đổi kết quả (cùng GPU, cùng Blender).
 - 05:45–06:30: Chromium sập (Target crashed, thiếu RAM) ở N2.9, N2.11, C1 và vài lượt xuất GPU khi nướng b2026 + 3 trình duyệt chạy cùng → P = 1–2 khi nướng, thử lại tự động (giám sát vòng; xuất GPU thử lại 3 lượt).
 - 07:22: `nc_topo.js --campath` mặc định 480 khung → `cam.json` của n29 thiếu khung 480–671; bắt được TRƯỚC khi tải lên pod; dựng lại với `--n 684` (chuan_bi.sh đã sửa).

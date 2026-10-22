@@ -127,5 +127,5 @@ if __name__ == '__main__':
     elif c == 'get': n, dt = get(a[1], a[2]); print(json.dumps({'MB': round(n / 1e6, 1), 's': round(dt, 1)}))
     elif c == 'run': run(a[1], '--cho' in a)
     elif c == 'log': u, h = base(); s, r = req(f'{u}/log/{a[1]}?tail={a[2] if len(a) > 2 else 3000}', headers=h); j = json.loads(r); print(j['log']); print('XONG', j['xong'], 'MA', j['ma'])
-    elif c == 'ls': u, h = base(); s, r = req(f'{u}/ls/{a[1]}', headers=h); print(r.decode()[:4000])
+    elif c == 'ls': u, h = base(); s, r = req(f'{u}/ls/{a[1]}', headers=h); print(r.decode())   # KHÔNG cắt: cắt 4000 ký tự làm hỏng JSON khi > ~147 tệp → dk_pod.sh không kéo được khung nào (sự cố 22/10 16:23–18:20)
     elif c == 'du': print(json.dumps(balance()))
