@@ -1,0 +1,2040 @@
+[
+ {
+  "ma": "H1",
+  "dong": [
+   "0a",
+   "0b"
+  ],
+  "t0": 0.0,
+  "t1": 12.0,
+  "dur": 12.0,
+  "diem": "D7-lai → WCA-than → D7-lai",
+  "kieu": "lai",
+  "nhin_xuong": [
+   14.0,
+   14.1,
+   9.9,
+   10.4,
+   14.1,
+   14.1
+  ],
+  "agl": [
+   427.0,
+   425.0,
+   7.0,
+   7.0,
+   423.0,
+   420.0
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "nam": [
+   2026.799,
+   2026.8
+  ],
+  "thoi_gian": "2026-10-19 15:00 → 2026-10-19 23:52",
+  "vai": "co-che",
+  "vat": [
+   "19/10/2026 15:00: ban ngày — Rock nguyên khối, cổng + đường băng tiền cảnh",
+   "M5 (minh hoạ Omni): cận chân người đi bộ bước qua vạch đường băng",
+   "hoàng hôn → đêm; đèn phố/đường băng bật dần",
+   "gần nửa đêm biên giới (23:52)"
+  ],
+  "ghi": "ANIM-V2: mở đầu ban ngày → đêm (timelapse 15:00 → 23:52, cùng điểm máy D7, trôi rất chậm) — Rock nhận ra trong ánh ngày 0–3 s; M5 minh hoạ Omni 4,5 → 10,5 s; H2 nối từ 23:52",
+  "lan": null,
+  "cat": [
+   4.5,
+   9.5
+  ],
+  "minh_hoa": [
+   {
+    "ma": "M5",
+    "t0": 4.5,
+    "t1": 9.5
+   }
+  ]
+ },
+ {
+  "ma": "H2",
+  "dong": [
+   "0c",
+   "0d",
+   "0e"
+  ],
+  "t0": 12.0,
+  "t1": 28.0,
+  "dur": 16.0,
+  "diem": "K2",
+  "kieu": "chat",
+  "nhin_xuong": [
+   46.2,
+   45.7,
+   45.7,
+   27.7,
+   27.7,
+   27.6
+  ],
+  "agl": [
+   267.0,
+   267.0,
+   267.0,
+   274.0,
+   274.0,
+   274.0
+  ],
+  "lightmap": [
+   "b1704",
+   "b1779",
+   "b1781r",
+   "b1782",
+   "b1900",
+   "b1940",
+   "b2026"
+  ],
+  "nam": [
+   1309.5,
+   2026.8
+  ],
+  "thoi_gian": "2026-10-19 23:53 → 1782-09-13 17:55",
+  "vai": "buoc-ngoat",
+  "vat": [
+   "bộ đếm bước qua 14 lần vây (1309 → 1506)",
+   "4/8/1704: Borgoña hạ, Union kéo trên Tower of Homage",
+   "10 pin nổi vào vị trí",
+   "pin nổi khai hoả",
+   "pin nổi bốc cháy",
+   "lửa xuất hiện"
+  ],
+  "ghi": "kế thừa V7C (mở đầu duyệt): bước năm 14 lần vây, cờ 4/8/1704 hạ–kéo trên Tower of Homage (khung chặt có vai: cờ), pin nổi vào vị trí 13/9/1782; bỏ cờ đuôi lệch ngày của đoàn 1704",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "H2T",
+  "dong": [
+   "0f"
+  ],
+  "t0": 28.0,
+  "t1": 33.0,
+  "dur": 5.0,
+  "diem": "N2r",
+  "kieu": "dem",
+  "nhin_xuong": [
+   -6.2,
+   -6.3
+  ],
+  "agl": [
+   25.0,
+   25.0
+  ],
+  "lightmap": [
+   "b1782"
+  ],
+  "nam": [
+   1782.701,
+   1782.702
+  ],
+  "thoi_gian": "1782-09-13 17:55 → 1782-09-14 02:30",
+  "vai": "khoanh-khac-bien-co",
+  "vat": [
+   "pin nổi cháy, nhìn từ vịnh (góc thumbnail)",
+   "đêm 13→14/9/1782: lửa phản chiếu"
+  ],
+  "ghi": "LOOK-3 (tham chiếu): góc thumbnail X01/X08, pin nổi cháy đêm 13→14/9/1782 — giữ nguyên V7C",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "H3",
+  "dong": [
+   "0g",
+   "0h"
+  ],
+  "t0": 33.0,
+  "t1": 43.833,
+  "dur": 10.8333,
+  "diem": "D7h-lai",
+  "kieu": "lai",
+  "nhin_xuong": [
+   14.5,
+   14.4
+  ],
+  "agl": [
+   377.0,
+   371.0
+  ],
+  "lightmap": [
+   "b1940",
+   "b2026"
+  ],
+  "nam": [
+   1938.6,
+   2026.792
+  ],
+  "thoi_gian": "1938.6 → 2026.792",
+  "vai": "buoc-ngoat",
+  "vat": [
+   "đường băng mọc qua đường 1939–41",
+   "bước năm 1943 → 1969 → 1985 → 2026",
+   "phố 2026"
+  ],
+  "ghi": "V7C D7h, điểm nhìn dời nam 700 m → nhìn xuống ≈ 14,6° (khung lai): đường băng mọc qua đường 1939–41 → 2026, Rock + phố nền",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N1.1",
+  "dong": [
+   "SM1",
+   "1a",
+   "1b"
+  ],
+  "t0": 43.833,
+  "t1": 62.625,
+  "dur": 18.7917,
+  "diem": "B-lai",
+  "kieu": "lai",
+  "nhin_xuong": [
+   13.8,
+   14.1
+  ],
+  "agl": [
+   520.0,
+   512.0
+  ],
+  "lightmap": [
+   "b1704"
+  ],
+  "nam": [
+   1704.578,
+   1704.586
+  ],
+  "thoi_gian": "1704-07-30 09:00 → 1704-08-02 15:00",
+  "vai": "co-che",
+  "vat": [
+   "1704 — The Rock changes hands",
+   "hạm đội Anh–Hà Lan (Rooke) vào vịnh từ eo biển",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "hạm đội thả neo trước phố 1704",
+   "tàu tới vị trí/đổi hướng"
+  ],
+  "ghi": "thay bản đồ chiến lược SM1 + chân dung 1b bằng hạm đội vào vịnh (TL-4); 28 tàu (18 tàu chiến + 10 tàu vận tải) — số minh hoạ, vị trí neo minh hoạ (bậc 5); không cờ đuôi (mẫu cờ 1704 chưa có nguồn)",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N1.2",
+  "dong": [
+   "1c",
+   "1d"
+  ],
+  "t0": 62.625,
+  "t1": 89.375,
+  "dur": 26.75,
+  "diem": "C-lai",
+  "kieu": "lai",
+  "nhin_xuong": [
+   15.3,
+   15.4
+  ],
+  "agl": [
+   183.0,
+   199.0
+  ],
+  "lightmap": [
+   "b1704"
+  ],
+  "nam": [
+   1704.583,
+   1704.589
+  ],
+  "thoi_gian": "1704-08-01 12:00 → 1704-08-03 18:00",
+  "vai": "co-che",
+  "vat": [
+   "phố có tường 1704 (lớp tái dựng 1705)",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "hạm đội bắn phá: khói pháo ngoài vịnh + khói trong phố",
+   "đêm 3/8/1704",
+   "khói hết"
+  ],
+  "ghi": "phố 1704 trong tường (bậc 5: lớp 1705 đại diện); Exact Plan 1704/5 KHÔNG phủ (chưa nắn khớp địa hình — TL-4 chỉ cho phủ khớp) → bản đồ để thẻ phương pháp/mô tả; khói minh hoạ vị trí",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N1.3",
+  "dong": [
+   "1e",
+   "1f"
+  ],
+  "t0": 89.375,
+  "t1": 104.5,
+  "dur": 15.125,
+  "diem": "K-co",
+  "kieu": "chat",
+  "nhin_xuong": [
+   19.2,
+   19.7
+  ],
+  "agl": [
+   49.0,
+   50.0
+  ],
+  "lightmap": [
+   "b1704"
+  ],
+  "nam": [
+   1704.591,
+   1704.597
+  ],
+  "thoi_gian": "1704-08-04 08:30 → 1704-08-06 12:00",
+  "vai": "buoc-ngoat",
+  "vat": [
+   "4/8/1704: Borgoña hạ trên Tower of Homage",
+   "Union kéo lên",
+   "lính Anh–Hà Lan vào lâu đài"
+  ],
+  "ghi": "MỐC ĐINH 4/8/1704 — khung chặt có vai (cờ, §LOOK-2): máy cách cờ ≈ 180 m, cờ × 1,5; thẻ \"100 / 500\" bỏ (lời mang số)",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N1.4",
+  "dong": [
+   "1g"
+  ],
+  "t0": 104.5,
+  "t1": 118.5,
+  "dur": 14.0,
+  "diem": "A-thap",
+  "kieu": "lai",
+  "nhin_xuong": [
+   -0.6,
+   -0.6,
+   -1.2,
+   -1.2,
+   0.4,
+   0.4
+  ],
+  "agl": [
+   7.0,
+   7.0,
+   2.0,
+   2.0,
+   27.0,
+   27.0
+  ],
+  "lightmap": [
+   "b1704"
+  ],
+  "nam": [
+   1704.599,
+   1704.649
+  ],
+  "thoi_gian": "1704-08-07 09:00 → 1704-08-25 09:00",
+  "vai": "co-che",
+  "vat": [
+   "dòng dân rời phố đi bắc dọc eo đất (về San Roque) — cận dòng người",
+   "M3 (minh hoạ Omni): gia đình mang đồ đi trên đường cát, Rock sau lưng",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "dòng người thưa dần (21–25/8)"
+  ],
+  "ghi": "ANIM-V2 R1: máy hạ ≈ 16–30 m, cạnh dòng người (đi cùng chiều về bắc, 1 400 người + 24 nhóm — số minh hoạ bậc 5; hướng đi: lời 1g S017–S018); M3 minh hoạ 3,5 → 11,5 s",
+  "lan": null,
+  "cat": [
+   3.5,
+   11.5
+  ],
+  "minh_hoa": [
+   {
+    "ma": "M3",
+    "t0": 3.5,
+    "t1": 11.5
+   }
+  ]
+ },
+ {
+  "ma": "N1.5",
+  "dong": [
+   "1h",
+   "1i"
+  ],
+  "t0": 118.5,
+  "t1": 147.625,
+  "dur": 29.125,
+  "diem": "B-thap → K-co → E-bac",
+  "kieu": "lai",
+  "nhin_xuong": [
+   3.5,
+   3.5,
+   -0.7,
+   -0.7,
+   7.3,
+   7.2
+  ],
+  "agl": [
+   95.0,
+   93.0,
+   58.0,
+   57.0,
+   165.0,
+   161.0
+  ],
+  "lightmap": [
+   "b1704",
+   "b1779",
+   "b1781r",
+   "b1782",
+   "b1900",
+   "b1940",
+   "b2026"
+  ],
+  "nam": [
+   1713.53,
+   2015.6
+  ],
+  "thoi_gian": "1713-07-13 09:00 → 2015.6",
+  "vai": "co-che",
+  "vat": [
+   "7/1713: cảng + phố (tàu buôn ra vào, ngày–đêm)",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "tàu tới vị trí/đổi hướng",
+   "lâu đài, cờ Union trên Tower of Homage (hiệp ước nêu \"town, castle and port\")",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "eo đất phía bắc 1729 (không có trong hiệp ước)",
+   "bước năm 2015: đường băng + phố trên eo đất"
+  ],
+  "ghi": "ANIM-V2 R4/R3: lời hiệp ước không có vật trên eo đất → góc cảng (tàu buôn 5 chiếc + thuyền nhỏ: số/vị trí minh hoạ bậc 5; ngày 13/7/1713: ngày ký hiệp ước, bậc 2) → góc lâu đài (cờ Union, như N1.3) → eo đất từ mép bắc Rock: trống ≤ 4 s rồi bước năm 2015 đúng chữ \"in 2015\" — không vẽ biên giới (§10.7)",
+  "lan": null,
+  "cat": [
+   12.713,
+   21.967
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N1.6",
+  "dong": [
+   "1j",
+   "1k"
+  ],
+  "t0": 147.625,
+  "t1": 173.083,
+  "dur": 25.4583,
+  "diem": "A2-thap → L-linea",
+  "kieu": "lai",
+  "nhin_xuong": [
+   -2.3,
+   -2.5,
+   0.0,
+   -0.0,
+   2.4,
+   2.4
+  ],
+  "agl": [
+   91.0,
+   88.0,
+   53.0,
+   52.0,
+   103.0,
+   101.0
+  ],
+  "lightmap": [
+   "b1704",
+   "b1779",
+   "b1781r",
+   "b1782",
+   "b1900",
+   "b1940",
+   "b2026"
+  ],
+  "nam": [
+   1704.8,
+   2026.79
+  ],
+  "thoi_gian": "1704.8 → 2026.79",
+  "vai": "co-che",
+  "vat": [
+   "vây 1704–05: khói pháo ở chân vách bắc",
+   "bước năm 1727: vây lần nữa",
+   "Línea de Contravalación mọc tây → đông 1730–35 (cận tuyến)",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "2026: phố La Línea sau tuyến cũ"
+  ],
+  "ghi": "ANIM-V2 R1/R3: 2 góc — vách bắc + khói vây (thời điểm bậc 2, vị trí khói minh hoạ bậc 5) → cận Línea mọc theo năm (ghost SH T1782-01, bậc 1; ngày xây TIEN-KY T3) + bước 2026 (nhà La Línea: Catastro/OSM, bậc 1) đúng chữ \"still called La Línea\"",
+  "lan": null,
+  "cat": [
+   10.958,
+   19.99
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "C1",
+  "dong": [
+   "2a",
+   "2b"
+  ],
+  "t0": 173.083,
+  "t1": 195.583,
+  "dur": 22.5,
+  "diem": "L-linea → T-trai-bac",
+  "kieu": "lai",
+  "nhin_xuong": [
+   5.1,
+   5.1,
+   7.9,
+   8.0
+  ],
+  "agl": [
+   70.0,
+   67.0,
+   70.0,
+   70.0
+  ],
+  "lightmap": [
+   "b1779"
+  ],
+  "nam": [
+   1779.467,
+   1779.823
+  ],
+  "thoi_gian": "1779-06-20 09:00 → 1779-10-28 12:00",
+  "vai": "co-che",
+  "vat": [
+   "1779 — The Great Siege",
+   "20→21/6/1779: Línea và đồn — đường bộ bị cắt (ngày–đêm)",
+   "người/thuyền bắt đầu rút",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "trại TBN dựng lên từ 13/7/1779 (cận lều, ngựa, khói bếp)",
+   "nhóm người xuất hiện",
+   "nhóm người xuất hiện",
+   "nhóm người xuất hiện",
+   "nhóm người xuất hiện",
+   "nhóm người xuất hiện",
+   "10/1779: toàn dải trại, Rock nền",
+   "nhóm người xuất hiện",
+   "nhóm người xuất hiện"
+  ],
+  "ghi": "ANIM-V2 R1/R3 (thay LOOK-4 cũ): 2 góc thấp — Línea + đồn (bậc 1) → dải trại mọc dần 13/7 → 28/10/1779 nhìn nam về Rock (eo-dat-v7.json, bậc 1–2; lều tự nhiên, số lều giữ nguyên)",
+  "lan": null,
+  "cat": [
+   12.0
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "C2",
+  "dong": [
+   "2c"
+  ],
+  "t0": 195.583,
+  "t1": 207.583,
+  "dur": 12.0,
+  "diem": "E (V7B-a)",
+  "kieu": "lai",
+  "nhin_xuong": [
+   0.2,
+   0.2
+  ],
+  "agl": [
+   170.0,
+   168.0
+  ],
+  "lightmap": [
+   "b1779"
+  ],
+  "nam": [
+   1779.528,
+   1779.969
+  ],
+  "thoi_gian": "1779-07-12 16:00 → 1779-12-20 15:00",
+  "vai": "co-che",
+  "vat": [
+   "hải đội TBN vào hàng chặn (16/7/1779)",
+   "tàu hết",
+   "tàu tới vị trí/đổi hướng",
+   "thuyền châu Phi tới sát hàng chặn",
+   "thuyền châu Phi quay về nam"
+  ],
+  "ghi": "LOOK-4 sửa (V7C giây 68–76 chỉ còn nước): máy E của V7B biến thể a (tham chiếu ngữ pháp đã kiểm: hạm đội phong toả đọc rõ, Rock giữa khung); thuyền châu Phi quay đầu ở hàng chặn (V7C)",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "C3",
+  "dong": [
+   "2d",
+   "2e"
+  ],
+  "t0": 207.583,
+  "t1": 221.708,
+  "dur": 14.125,
+  "diem": "Ca2-lai",
+  "kieu": "chat",
+  "nhin_xuong": [
+   -23.9,
+   -23.8,
+   -23.8,
+   15.7,
+   15.7,
+   15.7
+  ],
+  "agl": [
+   4.0,
+   4.0,
+   4.0,
+   217.0,
+   217.0,
+   218.0
+  ],
+  "lightmap": [
+   "b1779"
+  ],
+  "nam": [
+   1780.037,
+   1780.043
+  ],
+  "thoi_gian": "1780-01-14 10:00 → 1780-01-16 15:30",
+  "vai": "co-che",
+  "vat": [
+   "M2 (minh hoạ Omni): người cúi hái rau dại trên sườn đá, gió, khói xa (1/1780)",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "cẩu lên: phố + Line Wall + hải đội phong toả",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)"
+  ],
+  "ghi": "ANIM-V2: M2 minh hoạ Omni 0 → 8 s (ảnh đầu = khung cận 20–30 m người hái rau dại S052 của chính shot; Q3: Drinkwater 1786 tr. 108 \"thistles, dandelion, wild leeks\"); 8 → 10 s cẩu lên khung lai ≈ 16°",
+  "lan": null,
+  "cat": [
+   8.0
+  ],
+  "minh_hoa": [
+   {
+    "ma": "M2",
+    "t0": 0.0,
+    "t1": 8.0
+   }
+  ]
+ },
+ {
+  "ma": "C4",
+  "dong": [
+   "SM2",
+   "2f"
+  ],
+  "t0": 221.708,
+  "t1": 235.208,
+  "dur": 13.5,
+  "diem": "Bm-thap → M1 → Bm-thap",
+  "kieu": "lai",
+  "nhin_xuong": [
+   -0.9,
+   -1.2,
+   0.6,
+   0.6,
+   1.9,
+   1.9
+  ],
+  "agl": [
+   45.0,
+   40.0,
+   50.0,
+   49.0,
+   52.0,
+   51.0
+  ],
+  "lightmap": [
+   "b1779"
+  ],
+  "nam": [
+   1780.049,
+   1780.914
+  ],
+  "thoi_gian": "1780-01-18 18:10 → 1780-11-30 12:00",
+  "vai": "co-che",
+  "vat": [
+   "đoàn cứu viện Rodney vào vịnh 17→19/1/1780 (cờ Red Ensign) — máy thấp chéo, đoàn tàu là tiêu điểm, Rock nền",
+   "Old Mole 21/1→1/2/1780: thuyền cập, người khiêng thùng, đống hàng lớn dần (3D, M1 giữ 3D)",
+   "thùng hàng đủ",
+   "10/1780: tàu chanh Đan Mạch vào cảng",
+   "tàu xuất hiện",
+   "tàu tới vị trí/đổi hướng"
+  ],
+  "ghi": "ANIM-V2: máy thấp chéo từ vịnh (thay khung lai 13° nhìn xuống bến \"đồ chơi\"); M1 minh hoạ Omni TRƯỢT 3 lượt (tàu có buồm / cờ / cọc buộc sắt) → giữ 3D góc thấp gần bến 2 → 9 s; đoàn Rodney + tàu chanh: V7C (bậc 2 thời điểm, số/vị trí minh hoạ)",
+  "lan": null,
+  "cat": [
+   6.0,
+   10.0
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "C5",
+  "dong": [
+   "2g"
+  ],
+  "t0": 235.208,
+  "t1": 247.708,
+  "dur": 12.5,
+  "diem": "Cc2-lai → M4",
+  "kieu": "lai",
+  "nhin_xuong": [
+   16.2,
+   16.2,
+   16.2,
+   19.0,
+   8.3,
+   8.3
+  ],
+  "agl": [
+   231.0,
+   229.0,
+   229.0,
+   240.0,
+   22.0,
+   21.0
+  ],
+  "lightmap": [
+   "b1779",
+   "b1781r"
+  ],
+  "nam": [
+   1781.278,
+   1781.283
+  ],
+  "thoi_gian": "1781-04-12 09:20 → 1781-04-14 05:00",
+  "vai": "buoc-ngoat",
+  "vat": [
+   "12/4/1781: đoàn Darby thả neo",
+   "người/thuyền bắt đầu rút",
+   "pháo TBN bắn vào phố",
+   "M4 (minh hoạ Omni): ngõ đêm 13→14/4/1781, ánh lửa, người chạy về nam",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)"
+  ],
+  "ghi": "V7C Cc2 (khung lai ≈ 16–19°): đoàn Darby thả neo, pháo bắn vào phố; ANIM-V2: M4 minh hoạ Omni 6,1 → 12,5 s (cháy 4–5 nhà đêm 13→14/4, S063; dân chạy về nam: lời 2g)",
+  "lan": null,
+  "cat": [
+   6.1
+  ],
+  "minh_hoa": [
+   {
+    "ma": "M4",
+    "t0": 6.1,
+    "t1": 12.5
+   }
+  ]
+ },
+ {
+  "ma": "N2.6",
+  "dong": [
+   "2h",
+   "2i"
+  ],
+  "t0": 247.708,
+  "t1": 262.167,
+  "dur": 14.4583,
+  "diem": "C-lai",
+  "kieu": "lai",
+  "nhin_xuong": [
+   16.0,
+   16.1
+  ],
+  "agl": [
+   216.0,
+   223.0
+  ],
+  "lightmap": [
+   "b1781r",
+   "b1782"
+  ],
+  "nam": [
+   1781.284,
+   1782.62
+  ],
+  "thoi_gian": "1781-04-14 12:00 → 1782.62",
+  "vai": "co-che",
+  "vat": [
+   "14–16/4/1781: lính tụ trước kho thương nhân trên Main Street",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "phố sập dần thành THE RUINS (plan 1786)",
+   "khói pháo hai phía 1781–82"
+  ],
+  "ghi": "lính phá kho (2h, S063): nhóm lính trên Main Street — số/vị trí minh hoạ (bậc 5); phố sập theo vùng RUINS Drinkwater 1786 (bậc 1); thẻ 205 328 / 258 387 bỏ (lời mang số)",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "KA1782",
+  "dong": [
+   "KA1782"
+  ],
+  "t0": 262.167,
+  "t1": 270.167,
+  "dur": 8.0,
+  "diem": "neo KA",
+  "kieu": "neo",
+  "nhin_xuong": [
+   14.0,
+   14.0
+  ],
+  "agl": [
+   60.0,
+   60.0
+  ],
+  "lightmap": [
+   "b1782"
+  ],
+  "nam": [
+   1782.692,
+   1782.692
+  ],
+  "thoi_gian": "1782-09-10 10:30 → 1782-09-10 10:31",
+  "vai": "then-now",
+  "vat": [
+   "phố đổ nát 9/1782 (vùng THE RUINS), đồn trú"
+  ],
+  "ghi": "KHUNG NEO nâng 60 m (soi: tầm mắt ở tư thế G1b chỉ thấy quảng trường trống/tường — phố 9/1782 trong vùng THE RUINS đã sập) — nhìn bắc dọc Main Street: phố đổ nát 9/1782; cặp then/now với KA2026",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N2.10",
+  "dong": [
+   "2o",
+   "2p"
+  ],
+  "t0": 270.167,
+  "t1": 288.542,
+  "dur": 18.375,
+  "diem": "D-vach-thap → E-vach",
+  "kieu": "chat",
+  "nhin_xuong": [
+   -4.5,
+   -4.7,
+   -5.1,
+   -5.2
+  ],
+  "agl": [
+   70.0,
+   68.0,
+   93.0,
+   92.0
+  ],
+  "lightmap": [
+   "b1781r",
+   "b1782"
+  ],
+  "nam": [
+   1782.396,
+   1782.579
+  ],
+  "thoi_gian": "1782-05-25 12:00 → 1782-07-31 12:00",
+  "vai": "co-che",
+  "vat": [
+   "bụi đào ở vách bắc (đường hầm Ince, từ 25/5/1782)",
+   "khói bắt đầu/tắt",
+   "khói bắt đầu/tắt",
+   "khói bắt đầu/tắt",
+   "khói bắt đầu/tắt",
+   "khói bắt đầu/tắt",
+   "khói bắt đầu/tắt",
+   "khói bắt đầu/tắt",
+   "7/1782: nổ thủng lỗ thông hơi — khói phụt ra mặt vách",
+   "khói bắt đầu/tắt"
+  ],
+  "ghi": "GIỮ CHỖ mặt cắt hầm (M11 chưa có); ANIM-V2 R1/R3: máy hạ 75–95 m, vách bắc chiếm khung (cả khối Rock trong khung), 2 góc: bụi đào → nổ lỗ thông hơi; bụi/khói đào: thời điểm bậc 2 (lời 2o–2p), vị trí trên vách ƯỚC TÍNH (bậc 5); footage 2p không dùng",
+  "lan": null,
+  "cat": [
+   10.458
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N2.7",
+  "dong": [
+   "2j"
+  ],
+  "t0": 288.542,
+  "t1": 302.958,
+  "dur": 14.4167,
+  "diem": "D-bac-thap",
+  "kieu": "lai",
+  "nhin_xuong": [
+   2.7,
+   2.6
+  ],
+  "agl": [
+   44.0,
+   43.0
+  ],
+  "lightmap": [
+   "b1782"
+  ],
+  "nam": [
+   1782.686,
+   1782.687
+  ],
+  "thoi_gian": "1782-09-08 06:30 → 1782-09-08 21:00",
+  "vai": "co-che",
+  "vat": [
+   "8/9/1782: đạn nung đỏ — tuyến song song TBN bốc cháy lần lượt",
+   "khói xuất hiện",
+   "khói xuất hiện",
+   "khói xuất hiện",
+   "khói xuất hiện",
+   "tối 8/9: lửa còn cháy"
+  ],
+  "ghi": "(soi 1: từ đỉnh Rock công sự quá nhỏ) từ phía Línea nhìn nam: công sự tiền phương TBN cháy trước vách bắc Rock — (lines1782_tp, bậc 1 thấp) cháy theo S059; vệt đạn không vẽ (chưa có nguồn quỹ đạo)",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N2.8",
+  "dong": [
+   "2k",
+   "2l"
+  ],
+  "t0": 302.958,
+  "t1": 326.958,
+  "dur": 24.0,
+  "diem": "B-cao-lai → Al-pin-thap",
+  "kieu": "lai",
+  "nhin_xuong": [
+   5.6,
+   5.6,
+   5.6,
+   5.6,
+   2.1,
+   2.1,
+   2.1,
+   2.1
+  ],
+  "agl": [
+   600.0,
+   600.0,
+   595.0,
+   595.0,
+   180.0,
+   180.0,
+   178.0,
+   178.0
+  ],
+  "lightmap": [
+   "b1782"
+  ],
+  "nam": [
+   1782.694,
+   1782.698
+  ],
+  "thoi_gian": "1782-09-11 09:00 → 1782-09-12 15:00",
+  "vai": "co-che",
+  "vat": [
+   "hạm đội Pháp–TBN trong vịnh (47 tàu chiến, số phía Anh)",
+   "11/9 chiều: đợt 1 hạm đội thả neo",
+   "hoàng hôn 11/9",
+   "góc 2 thấp hơn: pin nổi tiền cảnh, hạm đội + Rock nền",
+   "rạng sáng 12/9",
+   "12/9 sáng: đợt 2 hạm đội thả neo"
+  ],
+  "ghi": "(soi 1–2 + soát LOOK-4: hạm đội sau lưng máy / khung gần như chỉ còn nước → gần hơn, 36°) từ tây vịnh nhìn đông-nam qua hàng neo tới Rock: hạm đội tiền cảnh, Rock nền giữa; 47 tàu chiến = số phía Anh (lời 2k); vị trí hàng neo minh hoạ (bậc 5, theo Faden 1783 phía Algeciras); pin nổi ở Algeciras 12/9 (S066); BAN-CUOI-T3 1e: 2 góc",
+  "lan": null,
+  "cat": [
+   12.5
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N2.9",
+  "dong": [
+   "2m",
+   "2n"
+  ],
+  "t0": 326.958,
+  "t1": 354.958,
+  "dur": 28.0,
+  "diem": "B-lan",
+  "kieu": "lai+lan",
+  "nhin_xuong": [
+   10.4,
+   11.4
+  ],
+  "agl": [
+   520.0,
+   437.0
+  ],
+  "lightmap": [
+   "b1782"
+  ],
+  "nam": [
+   1782.699,
+   1782.702
+  ],
+  "thoi_gian": "1782-09-13 06:45 → 1782-09-14 05:54",
+  "vai": "buoc-ngoat",
+  "vat": [
+   "13/9/1782 sáng: 10 pin nổi vào vị trí dưới hoả lực",
+   "khói xuất hiện",
+   "khai hoả",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "CÚ LẶN (Cycles GPU): chiều → đêm cháy → rạng sáng",
+   "lửa xuất hiện",
+   "khói xuất hiện",
+   "đêm: pin nổi cháy",
+   "lướt 15–17 m dọc hàng pin nổi cháy",
+   "ngược lên cao",
+   "02:30 → rạng sáng 14/9"
+  ],
+  "ghi": "0 → 16.5 s cách A (máy theo đường máy cú lặn); 16.5 → 28.0 s DỰNG TRỌN bằng Cycles GPU (RunPod, §14.2–14.3; scripts/k2tl/cuoi_gpu/) theo đường máy design/pt/cpu/dive-opt.json τ 5,5 → 17,0 — không ghép A↔B trong cú máy",
+  "lan": {
+   "cycles_gpu": true,
+   "t": 16.5,
+   "dur": 11.5,
+   "dive_tau": [
+    5.5,
+    17.0
+   ]
+  },
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N2.11",
+  "dong": [
+   "2q",
+   "2r"
+  ],
+  "t0": 354.958,
+  "t1": 382.583,
+  "dur": 27.625,
+  "diem": "D-bac-thap → W-cong-su → T-trai-bac",
+  "kieu": "lai",
+  "nhin_xuong": [
+   1.2,
+   1.1,
+   1.5,
+   1.4,
+   7.9,
+   8.0
+  ],
+  "agl": [
+   86.0,
+   84.0,
+   37.0,
+   36.0,
+   70.0,
+   70.0
+  ],
+  "lightmap": [
+   "b1782"
+  ],
+  "nam": [
+   1782.749,
+   1783.32
+  ],
+  "thoi_gian": "1782-10-01 12:00 → 1783.32",
+  "vai": "he-qua",
+  "vat": [
+   "phong toả tiếp tục mùa đông 1782",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "5/2/1783: phát súng cuối",
+   "trại + công sự TBN rút dần 1783",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)"
+  ],
+  "ghi": "ANIM-V2 R1/R3: 3 góc thấp 42–95 m — công sự tiền phương + Rock (mùa đông 1782) → cận công sự, khói phát súng cuối 5/2/1783 → dải trại rút theo cửa sổ năm (eo-dat-v7.json, bậc 1–2) nhìn nam về Rock; thẻ tổn thất 2r bỏ (lời mang số)",
+  "lan": null,
+  "cat": [
+   7.128,
+   15.128
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N3.1",
+  "dong": [
+   "3a",
+   "3b"
+  ],
+  "t0": 382.583,
+  "t1": 409.833,
+  "dur": 27.25,
+  "diem": "SF-thap → SB-thap",
+  "kieu": "lai",
+  "nhin_xuong": [
+   -1.3,
+   -1.3,
+   3.8,
+   3.7
+  ],
+  "agl": [
+   38.0,
+   38.0,
+   55.0,
+   53.0
+  ],
+  "lightmap": [
+   "b1782",
+   "b1900"
+  ],
+  "nam": [
+   1783.6,
+   1810.122
+  ],
+  "thoi_gian": "1783.6 → 1810-02-14 17:00",
+  "vai": "buoc-ngoat",
+  "vat": [
+   "1783 — The neutral ground",
+   "1783 → 1809: dải cát giữa tường và Línea",
+   "vuon đủ",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "14/2/1810: hai pháo đài Línea nổ tung",
+   "khói bắt đầu/tắt",
+   "khói bắt đầu/tắt"
+  ],
+  "ghi": "MỐC ĐINH 1810: khói nổ ở San Felipe + Santa Bárbara (ghost SH, bậc 1); Línea biến mất 14/2/1810 (eo-dat-v7.json); dải trung lập không tô (§10.7); ANIM-V2 R2/R3: 2 góc thấp — đồn San Felipe + Línea (1783 → 1809, Rock nền) → đồn Santa Bárbara nổ 14/2/1810",
+  "lan": null,
+  "cat": [
+   16.75
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N3.2",
+  "dong": [
+   "3c"
+  ],
+  "t0": 409.833,
+  "t1": 418.333,
+  "dur": 8.5,
+  "diem": "B-thap",
+  "kieu": "lai",
+  "nhin_xuong": [
+   3.5,
+   3.5
+  ],
+  "agl": [
+   95.0,
+   93.0
+  ],
+  "lightmap": [
+   "b1900"
+  ],
+  "nam": [
+   1810.3,
+   1860.0
+  ],
+  "thoi_gian": "1810.3 → 1860.0",
+  "vai": "co-che",
+  "vat": [
+   "1810 → 1860 trên dải trung lập",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)"
+  ],
+  "ghi": "GIỮ CHỖ: lớp \"mép đất Anh tiến dần 1810–60\" chưa có nguồn bậc 1–3; ANIM-V2 R4: góc phố + cảng từ vịnh (nhà theo năm xây có trong gói, tàu theo năm) thay eo đất trống; Sayer 1865 chưa nắn khớp",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N3.3",
+  "dong": [
+   "3d"
+  ],
+  "t0": 418.333,
+  "t1": 428.292,
+  "dur": 9.9583,
+  "diem": "H-lai",
+  "kieu": "lai",
+  "nhin_xuong": [
+   -0.5,
+   -0.5
+  ],
+  "agl": [
+   36.0,
+   35.0
+  ],
+  "lightmap": [
+   "b1900"
+  ],
+  "nam": [
+   1849.0,
+   1905.0
+  ],
+  "thoi_gian": "1849.0 → 1905.0",
+  "vai": "co-che",
+  "vat": [
+   "La Línea mọc theo năm xây (Catastro) 1849 → 1905",
+   "kho xuất hiện",
+   "rao xuất hiện",
+   "rao đủ",
+   "vuon đủ",
+   "kho đủ",
+   "kho đủ"
+  ],
+  "ghi": "nhà La Línea theo năm xây Catastro (bậc 1 cho năm có; nhà thiếu năm theo quy ước gói)",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "KC1910",
+  "dong": [
+   "KC1910"
+  ],
+  "t0": 428.292,
+  "t1": 435.292,
+  "dur": 7.0,
+  "diem": "neo KC",
+  "kieu": "neo",
+  "nhin_xuong": [
+   -1.9,
+   -1.9
+  ],
+  "agl": [
+   3.0,
+   3.0
+  ],
+  "lightmap": [
+   "b1900"
+  ],
+  "nam": [
+   1910.453,
+   1910.453
+  ],
+  "thoi_gian": "1910-06-15 10:30 → 1910-06-15 10:31",
+  "vai": "then-now",
+  "vat": [
+   "phố La Línea 1910"
+  ],
+  "ghi": "KHUNG NEO tầm mắt — cặp then/now với KC2026 (tư thế máy G1b: E 150, N 1340, hướng 12°)",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N3.4",
+  "dong": [
+   "3e",
+   "3f",
+   "3g"
+  ],
+  "t0": 435.292,
+  "t1": 462.292,
+  "dur": 27.0,
+  "diem": "H-thap → F-hang-rao",
+  "kieu": "lai",
+  "nhin_xuong": [
+   2.6,
+   2.6,
+   -3.9,
+   -3.9
+  ],
+  "agl": [
+   34.0,
+   33.0,
+   27.0,
+   27.0
+  ],
+  "lightmap": [
+   "b1900"
+  ],
+  "nam": [
+   1900.0,
+   1930.0
+  ],
+  "thoi_gian": "1900.0 → 1930.0",
+  "vai": "buoc-ngoat",
+  "vat": [
+   "dải trung lập giữa hai phố 1900",
+   "hàng rào 1909 mọc dọc mép (MỐC ĐINH)",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "1909 → 1930",
+   "leu đủ",
+   "kho đủ"
+  ],
+  "ghi": "hàng rào 1909: tuyến coi trùng ranh OSM 2026 (ƯỚC TÍNH, eo-dat-v7.json); trại lính/vườn/trường bắn/trường đua 3g CHƯA dựng (chưa có nguồn vị trí bậc 1) — giữ chỗ; ANIM-V2 R2/R3: 2 góc thấp (phố La Línea 1900 + Rock → dọc hàng rào mọc 1909)",
+  "lan": null,
+  "cat": [
+   6.0
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N3.5",
+  "dong": [
+   "3h"
+  ],
+  "t0": 462.292,
+  "t1": 471.625,
+  "dur": 9.3333,
+  "diem": "D2-thap",
+  "kieu": "lai",
+  "nhin_xuong": [
+   0.6,
+   0.6
+  ],
+  "agl": [
+   54.0,
+   52.0
+  ],
+  "lightmap": [
+   "b1900",
+   "b1940"
+  ],
+  "nam": [
+   1933.5,
+   1938.5
+  ],
+  "thoi_gian": "1933.5 → 1938.5",
+  "vai": "co-che",
+  "vat": [
+   "dải cỏ cắt làm đường bay 1934–36",
+   "kho xuất hiện",
+   "kho đủ"
+  ],
+  "ghi": "soát LOOK-4: Rock chạm mép phải → xoay máy; dải cỏ 1934 (lời 3h): năm bậc 2 (lời), vị trí/bề rộng ƯỚC TÍNH (bậc 5) trên trục đường băng hiện nay",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N4.1",
+  "dong": [
+   "4a",
+   "4b"
+  ],
+  "t0": 471.625,
+  "t1": 497.125,
+  "dur": 25.5,
+  "diem": "D-thap-dong → D-thap-tay",
+  "kieu": "lai",
+  "nhin_xuong": [
+   -2.7,
+   -2.7,
+   1.5,
+   1.5
+  ],
+  "agl": [
+   28.0,
+   27.0,
+   45.0,
+   44.0
+  ],
+  "lightmap": [
+   "b1940"
+  ],
+  "nam": [
+   1939.2,
+   1941.6
+  ],
+  "thoi_gian": "1939.2 → 1941.6",
+  "vai": "buoc-ngoat",
+  "vat": [
+   "1939 — A runway on the sand",
+   "kho xuất hiện",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "cuối 1939: mặt đường băng cứng mọc",
+   "1941: đường băng cắt qua con đường duy nhất sang TBN",
+   "dong đủ"
+  ],
+  "ghi": "đường băng mọc theo uRecl (S091–S092); ảnh NARA 4a không dùng (TL-4); ANIM-V2 R2/R3: 2 góc thấp 40–45 m dọc đường băng",
+  "lan": null,
+  "cat": [
+   21.588
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N4.2",
+  "dong": [
+   "4c",
+   "4d",
+   "4e"
+  ],
+  "t0": 497.125,
+  "t1": 525.5,
+  "dur": 28.375,
+  "diem": "W-vinh-thap → D-vach-thap",
+  "kieu": "lai",
+  "nhin_xuong": [
+   3.1,
+   3.1,
+   -4.5,
+   -4.7
+  ],
+  "agl": [
+   70.0,
+   69.0,
+   70.0,
+   68.0
+  ],
+  "lightmap": [
+   "b1940"
+  ],
+  "nam": [
+   1941.6,
+   1943.6
+  ],
+  "thoi_gian": "1941.6 → 1943.6",
+  "vai": "co-che",
+  "vat": [
+   "đường băng lấn vịnh theo tháng 1941–43",
+   "khói xuất hiện",
+   "bụi đá nổ ở vách bắc",
+   "khói xuất hiện",
+   "khói xuất hiện",
+   "khói xuất hiện",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "khói hết"
+  ],
+  "ghi": "GIỮ CHỖ mặt cắt hầm (M11, ONI 1954) chưa có: lời 4d–4e trên khung vách bắc + đường băng lấn vịnh; bụi đá: vị trí ước tính (bậc 5); thẻ \"55 km\" bỏ (lời mang số); ANIM-V2 R2/R3: 2 góc thấp (đường băng từ vịnh → vách bắc)",
+  "lan": null,
+  "cat": [
+   11.042
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N4.3",
+  "dong": [
+   "4f"
+  ],
+  "t0": 525.5,
+  "t1": 533.708,
+  "dur": 8.2083,
+  "diem": "B-lai",
+  "kieu": "lai",
+  "nhin_xuong": [
+   14.1,
+   14.3
+  ],
+  "agl": [
+   430.0,
+   424.0
+  ],
+  "lightmap": [
+   "b1940"
+  ],
+  "nam": [
+   1943.3,
+   1943.7
+  ],
+  "thoi_gian": "1943.3 → 1943.7",
+  "vai": "co-che",
+  "vat": [
+   "phố 1943 từng nhà (ghost AMS M981) + đường băng vươn ra vịnh",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)"
+  ],
+  "ghi": "phố 1943 = lớp ghost AMS M981 1943 (bậc 1); bản đồ phẳng không phủ (chưa nắn khớp trong gói animatic)",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N4.4",
+  "dong": [
+   "SM3",
+   "4g"
+  ],
+  "t0": 533.708,
+  "t1": 550.625,
+  "dur": 16.9167,
+  "diem": "Bb-lai",
+  "kieu": "lai",
+  "nhin_xuong": [
+   12.9,
+   12.9
+  ],
+  "agl": [
+   600.0,
+   592.0
+  ],
+  "lightmap": [
+   "b1940"
+  ],
+  "nam": [
+   1940.384,
+   1942.8
+  ],
+  "thoi_gian": "1940-05-20 12:00 → 1942.8",
+  "vai": "co-che",
+  "vat": [
+   "5/1940: tàu sơ tán phụ nữ–trẻ em rời cảng",
+   "tàu hết",
+   "1941–42: máy bay tụ dần trên đường băng",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)"
+  ],
+  "ghi": "thay bản đồ chiến lược SM3 + mũi tên 4g: tàu sơ tán rời cảng (6 tàu — số minh hoạ); máy bay = khối minh hoạ (bậc 5, chờ D3); Tangier không lên hình",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "KB1943",
+  "dong": [
+   "KB1943"
+  ],
+  "t0": 550.625,
+  "t1": 558.625,
+  "dur": 8.0,
+  "diem": "neo KB",
+  "kieu": "neo",
+  "nhin_xuong": [
+   12.0,
+   12.0
+  ],
+  "agl": [
+   30.0,
+   30.0
+  ],
+  "lightmap": [
+   "b1940"
+  ],
+  "nam": [
+   1943.453,
+   1943.453
+  ],
+  "thoi_gian": "1943-06-15 11:00 → 1943-06-15 11:01",
+  "vai": "then-now",
+  "vat": [
+   "phố 1943 nhìn ra vịnh (tấm im lặng: phụ nữ, trẻ em đã sơ tán)"
+  ],
+  "ghi": "TẤM IM LẶNG + KHUNG NEO nâng 30 m (cặp then/now với KB2026); nhà 1943 = nhà 2026 (OSM không có năm xây — giới hạn dữ liệu)",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N4.5",
+  "dong": [
+   "4h",
+   "4i"
+  ],
+  "t0": 558.625,
+  "t1": 585.833,
+  "dur": 27.2083,
+  "diem": "D-duongbang",
+  "kieu": "lai",
+  "nhin_xuong": [
+   12.5,
+   12.9
+  ],
+  "agl": [
+   228.0,
+   222.0
+  ],
+  "lightmap": [
+   "b1940"
+  ],
+  "nam": [
+   1942.3,
+   1942.851
+  ],
+  "thoi_gian": "1942.3 → 1942-11-07 16:20",
+  "vai": "buoc-ngoat",
+  "vat": [
+   "máy bay xếp kín hai bên đường băng",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "chiều → tối 7/11/1942",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)",
+   "đoàn tàu đổ bộ qua eo biển",
+   "khói bếp / lửa đồng bốc lên (minh hoạ bậc 5, ước lượng; nhịp 1e)"
+  ],
+  "ghi": "≥ 650 máy bay (lời 4i, bậc 2) = khối minh hoạ (bậc 5); để chiều → chạng vạng 7/11 cho đọc được (soi 1: 19:30 tối đen) (lời: \"the night of\"); đoàn tàu qua eo: số/vị trí minh hoạ",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N5.1",
+  "dong": [
+   "5a",
+   "5b"
+  ],
+  "t0": 585.833,
+  "t1": 609.583,
+  "dur": 23.75,
+  "diem": "D-cong-thap → D-cong",
+  "kieu": "lai",
+  "nhin_xuong": [
+   -0.9,
+   -0.9,
+   -0.9,
+   -0.9,
+   12.5,
+   12.5,
+   12.5,
+   12.5,
+   -0.7,
+   -0.7,
+   -0.7,
+   -0.7
+  ],
+  "agl": [
+   18.0,
+   18.0,
+   18.0,
+   18.0,
+   396.0,
+   396.0,
+   394.0,
+   394.0,
+   22.0,
+   22.0,
+   22.0,
+   22.0
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "nam": [
+   1966.0,
+   1985.25
+  ],
+  "thoi_gian": "1966.0 → 1985.25",
+  "vai": "buoc-ngoat",
+  "vat": [
+   "1969 — The gate closes",
+   "1966–69: dòng người + xe qua cổng hai chiều (cận, Rock nền)",
+   "8/6/1969: rào chắn hạ, người và xe dừng ở hai phía cổng",
+   "người/thuyền bắt đầu rút",
+   "góc cao: cổng vắng 1969 → 1977",
+   "góc thấp ở cổng: rào chắn vẫn đóng (1977 → 1985)",
+   "1985: rào gỡ, người qua lại trở lại",
+   "rao bắt đầu rút"
+  ],
+  "ghi": "BAN-CUOI-T3 1d: góc thấp có Rock — cổng đóng thành biến cố thấy được ≥ 4 s (rào chắn + người/xe dừng hai phía; minh hoạ bậc 5 theo mốc lời 5a); góc cao giữ từ v2; dòng người theo năm (lời 5a–5b, bậc 2)",
+  "lan": null,
+  "cat": [
+   9.599,
+   15.6
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "KB2026",
+  "dong": [
+   "KB2026"
+  ],
+  "t0": 609.583,
+  "t1": 619.083,
+  "dur": 9.5,
+  "diem": "neo KB",
+  "kieu": "neo",
+  "nhin_xuong": [
+   12.0,
+   12.0
+  ],
+  "agl": [
+   30.0,
+   30.0
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "nam": [
+   2026.796,
+   2026.796
+  ],
+  "thoi_gian": "2026-10-18 11:00 → 2026-10-18 11:01",
+  "vai": "then-now",
+  "vat": [
+   "cùng góc phố hôm nay"
+  ],
+  "ghi": "KHUNG NEO \"the same square, today\" — cùng tư thế máy KB1943 (nâng 30 m)",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N5.2",
+  "dong": [
+   "5c",
+   "5d"
+  ],
+  "t0": 619.083,
+  "t1": 631.583,
+  "dur": 12.5,
+  "diem": "D → H",
+  "kieu": "lai",
+  "nhin_xuong": [
+   12.2,
+   12.2,
+   17.1,
+   17.2,
+   3.1,
+   3.1,
+   3.1,
+   3.1
+  ],
+  "agl": [
+   198.0,
+   198.0,
+   204.0,
+   204.0,
+   57.0,
+   57.0,
+   57.0,
+   57.0
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "nam": [
+   2026.798,
+   2026.798
+  ],
+  "thoi_gian": "2026-10-19 08:10 → 2026-10-19 08:40",
+  "vai": "co-che",
+  "vat": [
+   "người đi bộ băng qua đường băng giờ cao điểm 2026",
+   "góc 2: thấp sau cổng nhìn bắc — dòng người sang La Línea",
+   "dòng người qua cổng sang phía La Línea (lời 5d)"
+  ],
+  "ghi": "thay follow-object A-lite bằng khung lai trôi dọc dòng người: đường băng → cổng → La Línea (lời 5d \"the other side of the gate\"); đổi điểm D → H (BAI-HOC #96, D ≤ 25 %); BAN-CUOI-T3 1e: 2 góc (cắt 4,3 s)",
+  "lan": null,
+  "cat": [
+   4.3
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "KC2026",
+  "dong": [
+   "KC2026"
+  ],
+  "t0": 631.583,
+  "t1": 641.583,
+  "dur": 10.0,
+  "diem": "neo KC",
+  "kieu": "neo",
+  "nhin_xuong": [
+   -1.9,
+   -1.9
+  ],
+  "agl": [
+   3.0,
+   3.0
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "nam": [
+   2026.796,
+   2026.796
+  ],
+  "thoi_gian": "2026-10-18 10:30 → 2026-10-18 10:31",
+  "vai": "then-now",
+  "vat": [
+   "cùng phố La Línea hôm nay"
+  ],
+  "ghi": "KHUNG NEO \"Remember this street?\" — cùng tư thế máy KC1910",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N5.3",
+  "dong": [
+   "5e",
+   "5f"
+  ],
+  "t0": 641.583,
+  "t1": 666.083,
+  "dur": 24.5,
+  "diem": "H-lai → D-cong-thap → H-lai",
+  "kieu": "lai",
+  "nhin_xuong": [
+   12.6,
+   12.6,
+   12.6,
+   12.6,
+   4.5,
+   4.5,
+   4.6,
+   4.6,
+   12.5,
+   12.5,
+   12.5,
+   12.5
+  ],
+  "agl": [
+   556.0,
+   556.0,
+   554.0,
+   554.0,
+   45.0,
+   45.0,
+   46.0,
+   46.0,
+   551.0,
+   551.0,
+   547.0,
+   547.0
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "nam": [
+   2026.798,
+   2026.799
+  ],
+  "thoi_gian": "2026-10-19 07:30 → 2026-10-19 18:30",
+  "vai": "co-che",
+  "vat": [
+   "sáng: dòng người từ La Línea sang Gibraltar",
+   "mặt trời mọc (≈ 08:35)",
+   "góc 2: cận cổng, dòng người buổi sáng",
+   "chiều: dòng người về (góc cao)",
+   "bước giờ 15:30 → 17:40: nắng xế, bóng dài",
+   "giờ tan tầm: dòng người về đông lên"
+  ],
+  "ghi": "từ La Línea nhìn nam qua cổng tới Rock: hai phố, một dòng người; thẻ £85 000 bỏ (lời mang số); không tô màu hai bên (§10.7); BAN-CUOI-T3 1e: 3 góc + bước giờ chiều",
+  "lan": null,
+  "cat": [
+   8.0,
+   12.25
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N5.4",
+  "dong": [
+   "5g",
+   "5h",
+   "5i"
+  ],
+  "t0": 666.083,
+  "t1": 697.542,
+  "dur": 31.4583,
+  "diem": "D-cong-thap → F-hang-rao",
+  "kieu": "lai",
+  "nhin_xuong": [
+   4.6,
+   4.6,
+   4.6,
+   4.6,
+   6.3,
+   6.3,
+   6.4,
+   6.4,
+   4.3,
+   4.3,
+   4.4,
+   4.4
+  ],
+  "agl": [
+   38.0,
+   38.0,
+   38.0,
+   38.0,
+   30.0,
+   30.0,
+   30.0,
+   30.0,
+   33.0,
+   33.0,
+   33.0,
+   33.0
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "nam": [
+   2026.533,
+   2026.796
+  ],
+  "thoi_gian": "2026-07-14 10:00 → 2026-10-18 10:00",
+  "vai": "buoc-ngoat",
+  "vat": [
+   "7/2026: kiểm tra thường lệ dừng — người qua cổng không xếp hàng",
+   "hàng rào cũ gỡ từng đoạn",
+   "hàng rào mới lùi vài mét",
+   "nửa tuyến rào cũ đã gỡ",
+   "đoạn rào cũ cuối đang gỡ",
+   "hàng rào mới dựng xong",
+   "dòng người đông lên qua đoạn rào mới"
+  ],
+  "ghi": "hàng rào cũ gỡ (lời 5h, bậc 2) + hàng mới lệch 6 m (ƯỚC TÍNH bậc 5 — chờ nguồn vị trí); khoảng mở ≈ 150 m chưa dựng; thẻ 5i bỏ (lời mang ngày); ANIM-V2: máy thấp có chân trời + phố 2026 có cây/đèn/xe (bậc 5 vật nền phụ)",
+  "lan": null,
+  "cat": [
+   6.3,
+   12.149
+  ],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N5.5",
+  "dong": [
+   "5j"
+  ],
+  "t0": 697.542,
+  "t1": 717.0,
+  "dur": 19.4583,
+  "diem": "B-lui",
+  "kieu": "lai",
+  "nhin_xuong": [
+   13.0,
+   16.5
+  ],
+  "agl": [
+   520.0,
+   900.0
+  ],
+  "lightmap": [
+   "b1704",
+   "b1779",
+   "b1781r",
+   "b1782",
+   "b1900",
+   "b1940",
+   "b2026"
+  ],
+  "nam": [
+   1704.7,
+   2026.8
+  ],
+  "thoi_gian": "2026-10-18 16:00 → 2026.8",
+  "vai": "he-qua",
+  "vat": [
+   "kéo lùi: Rock giữa vịnh và biển",
+   "1704: tường",
+   "1730: Línea",
+   "1909: hàng rào",
+   "1941: đường băng",
+   "2026"
+  ],
+  "ghi": "bookend H2: bước năm khớp từng chữ \"A wall in 1704 / A line in 1730 / A fence in 1909 / A runway in 1941\" (thay ghost sepia chồng lớp — TL-4)",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "KA2026",
+  "dong": [
+   "KA2026"
+  ],
+  "t0": 717.0,
+  "t1": 725.0,
+  "dur": 8.0,
+  "diem": "neo KA",
+  "kieu": "neo",
+  "nhin_xuong": [
+   14.0,
+   14.0
+  ],
+  "agl": [
+   60.0,
+   60.0
+  ],
+  "lightmap": [
+   "b2026"
+  ],
+  "nam": [
+   2026.796,
+   2026.796
+  ],
+  "thoi_gian": "2026-10-18 10:30 → 2026-10-18 10:31",
+  "vai": "then-now",
+  "vat": [
+   "cùng phố hôm nay: mái nhà dày đặc"
+  ],
+  "ghi": "TẤM IM LẶNG + KHUNG NEO nâng 60 m (cặp then/now với KA1782: phố đổ nát 1782 ↔ phố dày 2026); tách khỏi N5.5 của diem-may.md để ghép cặp",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "N5.6",
+  "dong": [
+   "5k"
+  ],
+  "t0": 725.0,
+  "t1": 745.0,
+  "dur": 20.0,
+  "diem": "D7-lai-nguoc",
+  "kieu": "lai",
+  "nhin_xuong": [
+   12.4,
+   12.4
+  ],
+  "agl": [
+   416.0,
+   408.0
+  ],
+  "lightmap": [
+   "b1704",
+   "b1779",
+   "b1781r",
+   "b1782",
+   "b1900",
+   "b1940",
+   "b2026"
+  ],
+  "nam": [
+   1730.0,
+   2026.797
+  ],
+  "thoi_gian": "1730.0 → 2026-10-18 23:52",
+  "vai": "he-qua",
+  "vat": [
+   "1730: Línea mọc",
+   "2026",
+   "1783: trại vây rút",
+   "2026: chiều → nửa đêm biên giới",
+   "hoàng hôn: đèn phố + đèn đường băng bật dần",
+   "đêm hẳn"
+  ],
+  "ghi": "bookend H1 (góc ngược): Línea 1730 → 2026 → 1783 → nửa đêm 2026 theo từng câu 5k",
+  "lan": null,
+  "cat": [],
+  "minh_hoa": []
+ },
+ {
+  "ma": "PP1",
+  "dong": [],
+  "t0": 745.0,
+  "t1": 754.0,
+  "dur": 9.0,
+  "diem": "—",
+  "kieu": "the",
+  "vai": "phuong-phap",
+  "vat": [
+   "Built from British and Spanish records and period maps.",
+   "Every source, with pages: description and pinned comment.",
+   "Estimated: 1782 ruins, camps, isthmus buildings, heights, coastline, borders."
+  ],
+  "ghi": "thẻ \"How this film was made\" v2"
+ },
+ {
+  "ma": "PP2",
+  "dong": [],
+  "t0": 754.0,
+  "t1": 762.0,
+  "dur": 8.0,
+  "diem": "—",
+  "kieu": "the",
+  "vai": "phuong-phap",
+  "vat": [
+   "Troops, crowds and ships: illustrative in number and layout.",
+   "Some close-up scenes are illustrative; they add no facts."
+  ],
+  "ghi": "thẻ \"How this film was made\" v2"
+ }
+]
