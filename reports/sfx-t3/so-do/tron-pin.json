@@ -1,0 +1,399 @@
+{
+ "doan": "pin",
+ "khoang_phim": [
+  321.0,
+  358.0
+ ],
+ "truoc_master": {
+  "nhac_LUFS_trong_loi": -22.39,
+  "sfx_LUFS_trong_loi": -32.69,
+  "sfx_LUFS_ngoai_loi": -22.92,
+  "sfx_LUFS_ca_doan": -30.34
+ },
+ "nen": [
+  {
+   "id": "B4a",
+   "phim": [
+    321.0,
+    327.435
+   ],
+   "bai": [
+    62.27,
+    68.705
+   ],
+   "gain_db": -9.01
+  },
+  {
+   "id": "B4b",
+   "phim": [
+    326.485,
+    347.435
+   ],
+   "bai": [
+    159.905,
+    180.855
+   ],
+   "gain_db": -9.01
+  },
+  {
+   "id": "B4c",
+   "phim": [
+    346.485,
+    358.0
+   ],
+   "bai": [
+    204.045,
+    215.56
+   ],
+   "gain_db": -9.01
+  },
+  {
+   "id": "B5",
+   "phim": [
+    353.46,
+    358.0
+   ],
+   "bai": [
+    -1.5,
+    3.04
+   ],
+   "gain_db": -4.87
+  }
+ ],
+ "sfx": [
+  {
+   "uv": "SONG-1",
+   "t": 321.0,
+   "dai": 7.0,
+   "db": -15.0,
+   "muc": -38,
+   "ghi": "N2.8 hạm đội trong vịnh"
+  },
+  {
+   "uv": "THUYEN-2",
+   "t": 321.0,
+   "dai": 6.5,
+   "db": -20.0,
+   "muc": -43,
+   "ghi": "N2.8 dây/gỗ tàu neo"
+  },
+  {
+   "uv": "GIO-2",
+   "t": 321.0,
+   "dai": 37.0,
+   "db": -18.0,
+   "muc": -41,
+   "ghi": "gió nền suốt đoạn"
+  },
+  {
+   "uv": "PXA-3",
+   "t": 330.65,
+   "dai": 4.61,
+   "db": -1.45,
+   "muc": -31,
+   "ghi": "N2.9 garrison bắn khi pin vào vị trí (khe 330,6–331,3)"
+  },
+  {
+   "uv": "PXA-1",
+   "t": 332.9,
+   "dai": 2.7,
+   "db": -13.0,
+   "muc": -36,
+   "ghi": "N2.9 dưới lời"
+  },
+  {
+   "uv": "PXA-1",
+   "t": 333.9,
+   "dai": 2.7,
+   "db": -14.0,
+   "muc": -37,
+   "ghi": "N2.9 10:25 khai hoả, pháo dày dần (dưới lời, lọc xa)"
+  },
+  {
+   "uv": "PXA-2",
+   "t": 334.403,
+   "dai": 3.58,
+   "db": -14.0,
+   "muc": -37,
+   "ghi": "N2.9 10:25 khai hoả, pháo dày dần (dưới lời, lọc xa)"
+  },
+  {
+   "uv": "PXA-3",
+   "t": 335.062,
+   "dai": 4.61,
+   "db": -7.45,
+   "muc": -37,
+   "ghi": "N2.9 10:25 khai hoả, pháo dày dần (dưới lời, lọc xa)"
+  },
+  {
+   "uv": "PXA-1",
+   "t": 335.914,
+   "dai": 2.7,
+   "db": -8.0,
+   "muc": -31,
+   "ghi": "N2.9 10:25 khai hoả, pháo dày dần (dưới lời, lọc xa)"
+  },
+  {
+   "uv": "PXA-2",
+   "t": 336.773,
+   "dai": 3.58,
+   "db": -14.0,
+   "muc": -37,
+   "ghi": "N2.9 10:25 khai hoả, pháo dày dần (dưới lời, lọc xa)"
+  },
+  {
+   "uv": "PXA-3",
+   "t": 337.4,
+   "dai": 4.61,
+   "db": -7.45,
+   "muc": -37,
+   "ghi": "N2.9 10:25 khai hoả, pháo dày dần (dưới lời, lọc xa)"
+  },
+  {
+   "uv": "PXA-1",
+   "t": 337.994,
+   "dai": 2.7,
+   "db": -14.0,
+   "muc": -37,
+   "ghi": "N2.9 10:25 khai hoả, pháo dày dần (dưới lời, lọc xa)"
+  },
+  {
+   "uv": "PXA-2",
+   "t": 338.659,
+   "dai": 3.58,
+   "db": -14.0,
+   "muc": -37,
+   "ghi": "N2.9 10:25 khai hoả, pháo dày dần (dưới lời, lọc xa)"
+  },
+  {
+   "uv": "PXA-3",
+   "t": 339.554,
+   "dai": 4.61,
+   "db": -7.45,
+   "muc": -37,
+   "ghi": "N2.9 10:25 khai hoả, pháo dày dần (dưới lời, lọc xa)"
+  },
+  {
+   "uv": "PXA-1",
+   "t": 340.483,
+   "dai": 2.7,
+   "db": -14.0,
+   "muc": -37,
+   "ghi": "N2.9 10:25 khai hoả, pháo dày dần (dưới lời, lọc xa)"
+  },
+  {
+   "uv": "PXA-2",
+   "t": 341.233,
+   "dai": 3.58,
+   "db": -14.0,
+   "muc": -37,
+   "ghi": "N2.9 10:25 khai hoả, pháo dày dần (dưới lời, lọc xa)"
+  },
+  {
+   "uv": "PXA-3",
+   "t": 342.007,
+   "dai": 4.61,
+   "db": -7.45,
+   "muc": -37,
+   "ghi": "N2.9 10:25 khai hoả, pháo dày dần (dưới lời, lọc xa)"
+  },
+  {
+   "uv": "PXA-1",
+   "t": 342.555,
+   "dai": 2.7,
+   "db": -14.0,
+   "muc": -37,
+   "ghi": "N2.9 10:25 khai hoả, pháo dày dần (dưới lời, lọc xa)"
+  },
+  {
+   "uv": "PXA-2",
+   "t": 335.4,
+   "dai": 3.58,
+   "db": -8.0,
+   "muc": -31,
+   "ghi": "khe 335,3–336,2"
+  },
+  {
+   "uv": "PXA-2",
+   "t": 342.95,
+   "dai": 3.58,
+   "db": -4.0,
+   "muc": -27,
+   "ghi": "\"opened fire together\" → loạt lớn trong khe 342,9–344,2"
+  },
+  {
+   "uv": "PXA-1",
+   "t": 343.03,
+   "dai": 2.7,
+   "db": -4.0,
+   "muc": -27,
+   "ghi": "\"opened fire together\" → loạt lớn trong khe 342,9–344,2"
+  },
+  {
+   "uv": "PXA-3",
+   "t": 343.12,
+   "dai": 4.61,
+   "db": 2.55,
+   "muc": -27,
+   "ghi": "\"opened fire together\" → loạt lớn trong khe 342,9–344,2"
+  },
+  {
+   "uv": "HOAMAI-2",
+   "t": 343.2,
+   "dai": 1.19,
+   "db": -4.0,
+   "muc": -27,
+   "ghi": "\"opened fire together\" → loạt lớn trong khe 342,9–344,2 — HOAMAI-1 (NPS) rút: còn tiếng hô \"fire\" (AST Speech 0,44–0,62)"
+  },
+  {
+   "uv": "NUOC-1",
+   "t": 343.65,
+   "dai": 1.65,
+   "db": -10.0,
+   "muc": -33,
+   "ghi": "đạn rơi xuống biển"
+  },
+  {
+   "uv": "LUAL-2",
+   "t": 343.5,
+   "dai": 12.5,
+   "db": 8.57,
+   "muc": -35,
+   "ghi": "cú lặn: chiều → đêm cháy"
+  },
+  {
+   "uv": "SONG-2",
+   "t": 344.0,
+   "dai": 14.0,
+   "db": -17.0,
+   "muc": -40,
+   "ghi": "sóng vỗ đêm"
+  },
+  {
+   "uv": "NO-1",
+   "t": 348.07,
+   "dai": 6.0,
+   "db": -6.0,
+   "muc": -29,
+   "ghi": "pin nổ (khe 348,06–348,46), đuôi dưới lời 2n"
+  },
+  {
+   "uv": "NO-2",
+   "t": 352.4,
+   "dai": 0.77,
+   "db": -14.0,
+   "muc": -37,
+   "ghi": "pin nổ xa dưới lời 2n (đêm → rạng sáng)"
+  }
+ ],
+ "ban": {
+  "khong-sfx": {
+   "dau_ra": {
+    "I": -13.9,
+    "LRA": 2.3,
+    "TP": -1.5,
+    "TP_sau_aac": -1.5,
+    "lang_pct": 0.0,
+    "lang_bat_thuong": 0,
+    "cham_tran": 0
+   },
+   "smr": {
+    "cua_so": 23,
+    "trung_vi": 20.29,
+    "p10": 19.43,
+    "min": 19.16,
+    "duoi_nguong_pct": 0.0,
+    "nguong": 15.0
+   },
+   "dat": {
+    "I": true,
+    "TP": true,
+    "TP_sau_aac": true,
+    "SMR_p10": true,
+    "loudnorm_tuyen_tinh": true
+   },
+   "duck": {
+    "so_khoang": 3,
+    "trung_vi_db": -15.9,
+    "sau_nhat_db": -16.4,
+    "khoang_vuot_co_ban": 3
+   },
+   "cua_so_smr_thap_nhat": [
+    [
+     350.2,
+     19.16
+    ],
+    [
+     337.2,
+     19.37
+    ],
+    [
+     349.2,
+     19.42
+    ],
+    [
+     326.8,
+     19.47
+    ],
+    [
+     336.2,
+     19.6
+    ]
+   ]
+  },
+  "co-sfx": {
+   "dau_ra": {
+    "I": -13.9,
+    "LRA": 2.1,
+    "TP": -1.5,
+    "TP_sau_aac": -1.5,
+    "lang_pct": 0.0,
+    "lang_bat_thuong": 0,
+    "cham_tran": 0
+   },
+   "smr": {
+    "cua_so": 23,
+    "trung_vi": 19.19,
+    "p10": 16.87,
+    "min": 16.33,
+    "duoi_nguong_pct": 0.0,
+    "nguong": 15.0
+   },
+   "dat": {
+    "I": true,
+    "TP": true,
+    "TP_sau_aac": true,
+    "SMR_p10": true,
+    "loudnorm_tuyen_tinh": true
+   },
+   "duck": {
+    "so_khoang": 3,
+    "trung_vi_db": -16.5,
+    "sau_nhat_db": -17.3,
+    "khoang_vuot_co_ban": 3
+   },
+   "cua_so_smr_thap_nhat": [
+    [
+     349.2,
+     16.33
+    ],
+    [
+     348.2,
+     16.43
+    ],
+    [
+     347.2,
+     16.81
+    ],
+    [
+     350.2,
+     17.11
+    ],
+    [
+     346.2,
+     18.47
+    ]
+   ]
+  }
+ }
+}
