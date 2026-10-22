@@ -1,0 +1,85 @@
+ĐÚNG [MINH-HOA] đoạn M2 8 s TRONG shot 3D, máy 4 m (cam↔agl_m), sổ AI khớp luot, KHÔNG nhãn, KHÔNG log chữ → sạch — kỳ vọng sạch
+ĐÚNG [MINH-HOA] shot có minh_hoa: [] (log V2) → KHÔNG ÁP — kỳ vọng sạch
+ĐÚNG [MINH-HOA] đoạn 25 s (2 đoạn 12,5 s) = 25 % > 20 % → (a) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] đoạn đúng 20 s = 20 % → sạch (a) — kỳ vọng sạch
+ĐÚNG [MINH-HOA] 1.17.2 đo theo ĐOẠN: hai shot kề là thẻ phẳng nhưng đoạn nằm giữa shot 3D (khung 3D trước + sau cùng shot) → sạch (c) — kỳ vọng sạch
+ĐÚNG [MINH-HOA] đoạn bắt đầu đầu shot C, shot A trước là thẻ phẳng → (c) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] đoạn kết cuối shot C, shot B sau là 3D → sạch (c) — kỳ vọng sạch
+ĐÚNG [MINH-HOA] hai đoạn liền nhau 4–8 s + 8–12 s (không khung 3D giữa) → (c) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] đoạn ở cuối phim (shot cuối, không khung sau) → (c) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] AGL theo cam: đoạn 4–12 s (4 m) dù shot có góc 217 m → sạch (d) — kỳ vọng sạch
+ĐÚNG [MINH-HOA] AGL theo cam: đoạn 12–20 s (218 m) → (d) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] agl_m của mục đoạn (60 m) ưu tiên → (d) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] không sổ AI → (e) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] sổ AI dòng tag khác (M9-l1) → (e) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] dòng sổ thiếu SHA đầu ra → (e) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] sổ AI không khai luot: khớp tag "M2-…" theo mã đoạn → sạch (e) — kỳ vọng sạch
+ĐÚNG [MINH-HOA] đoạn khai ở shot ai_image: false (như C4/M1) → không đo (KHÔNG ÁP, nêu tên) — lỗi ở K-LAI-2 (b) — kỳ vọng sạch
+ĐÚNG [cấp] MINH-HOA (c) ở G2 → Chặn — kỳ vọng bắt lỗi
+ĐÚNG [cấp] MINH-HOA (c) ở animatic → Cảnh báo — kỳ vọng sạch
+ĐÚNG [SACH-1] SACH-1 không đổi: _mh_spans vẫn trả cả shot có minh_hoa (C 40–60 s) — kỳ vọng sạch
+ĐÚNG [V2-D5] log V2 thật: 4 đoạn M5 (H1), M3 (N1.4), M2 (C3), M4 (C5) = 28,4 s; C4/M1 (ai_image false) là mâu thuẫn — kỳ vọng sạch
+ĐÚNG [V2-D5] log V2: (a) 28,4 s / 761 s = 3,7 % ≤ 20 %, (c) 4/4 kẹp giữa 2 khung 3D, (d) 4/4 ≤ 40 m → sạch (a)(c)(d) — kỳ vọng sạch
+ĐÚNG [V2-D5] log V2 chưa nối sổ AI (episode.yaml không so_ai:) → (e) ×4 — kỳ vọng sạch
+ĐÚNG [V2-D5] log V2 + sổ Gemini thật (khớp tag M2-…/M3-…/M4-…/M5-…; model_req, prompt, output.sha256) → sạch (e) — kỳ vọng sạch
+ĐÚNG [K-LAI] ap_dung: không khối lai, đặc tả không ai_image, log shot có đoạn → ÁP — kỳ vọng sạch
+ĐÚNG [K-LAI] ap_dung: log shot không đoạn, không ai_image → KHÔNG ÁP — kỳ vọng sạch
+ĐÚNG [K-LAI] ap_dung tập cũ (k2check không truyền log shot) → như 1.16 (KHÔNG ÁP) — kỳ vọng sạch
+ĐÚNG [K-LAI-1] đoạn 8 s / 100 s = 8 % (từ log shot) → sạch — 8.00 s AI / 100.00 s (tổng dur đặc tả) = 8.0 % · nguồn: log shot (1 đoạn minh ho — kỳ vọng sạch
+ĐÚNG [K-LAI-1] đoạn 22 s / 100 s = 22 % > 20 % → lỗi — kỳ vọng bắt lỗi
+ĐÚNG [K-LAI-2] đoạn khai, shot ai_image: true, mọi shot có cờ → sạch (a)(b) — kỳ vọng sạch
+ĐÚNG [K-LAI-2] không log khung, 2 shot log thiếu cờ ai_image → THIẾU (a) — kỳ vọng bắt lỗi
+ĐÚNG [K-LAI-2] đoạn khai ở shot ai_image: false (C4/M1 V2) → (b) mâu thuẫn khai — kỳ vọng bắt lỗi
+ĐÚNG [K-LAI-2] 1.17.2: không đòi thẻ PP nói AI (đặc tả không có thẻ PP) → không có (c) — kỳ vọng sạch
+ĐÚNG [K-LAI-3] đoạn có tệp kiểm (ket_luan_may ĐẠT, 0 lỗi mô hình) → sạch — kỳ vọng sạch
+ĐÚNG [K-LAI-3] tệp kiểm LOẠI (17 lỗi) mà vẫn dùng → (b) — kỳ vọng bắt lỗi
+ĐÚNG [K-LAI-3] đoạn không có tệp kiểm → THIẾU — kỳ vọng sạch
+ĐÚNG [K-LAI-4/5/B] chỉ minh hoạ → KHÔNG ÁP có lý do nêu đoạn (không phải "không có khối lai / shot AI") — kỳ vọng sạch
+ĐÚNG [K-LAI-6] sổ Gemini thật (c2pa dict → co_manifest, file/sha từ output, mặt nạ = toàn khung) → sạch — kỳ vọng sạch
+ĐÚNG [K-LAI-6] dòng sổ prompt < 40 ký tự (không nguyên văn) → lỗi — kỳ vọng bắt lỗi
+ĐÚNG [K-LAI-6] không có sổ AI → THIẾU — kỳ vọng sạch
+ĐÚNG [V2-D5] log V2 thật: không hàng K-LAI nào báo "tập không có khối lai / shot AI" — kỳ vọng sạch
+ĐÚNG [V2-D5] log V2 thật: K-LAI-2 (b) bắt C4/M1 mâu thuẫn — kỳ vọng sạch
+ĐÚNG [V2-D5] log V2 thật: K-LAI-1 28,4 s = 3,7 % ≤ 20 % — kỳ vọng sạch
+ĐÚNG [PP-1] (d) mới: nguồn/bản đồ + chỗ ước tính, KHÔNG câu AI → sạch (d) — kỳ vọng sạch
+ĐÚNG [PP-1] (d) mới: không nói nguồn/bản đồ → (d) — kỳ vọng bắt lỗi
+ĐÚNG [PP-1] (d) mới: không nói chỗ ước tính → (d) — kỳ vọng bắt lỗi
+ĐÚNG [PP-1] thẻ có câu AI vẫn hợp lệ (không thêm luật cấm chữ) — kỳ vọng sạch
+ĐÚNG [CONG-BO-1] tập không khung AI, không giọng tổng hợp → KHÔNG ÁP — kỳ vọng sạch
+ĐÚNG [CONG-BO-1] đoạn minh hoạ + mô tả có câu "AI" + youtube_altered_content: true → sạch — kỳ vọng sạch
+ĐÚNG [CONG-BO-1] mô tả không có câu "AI"/"synthetic" → (a) — kỳ vọng bắt lỗi
+ĐÚNG [CONG-BO-1] youtube_altered_content: false → (b) — kỳ vọng bắt lỗi
+ĐÚNG [CONG-BO-1] không khai youtube_altered_content → THIẾU (b) — kỳ vọng bắt lỗi
+ĐÚNG [CONG-BO-1] không khai phat_hanh.mo_ta → THIẾU (a) — kỳ vọng bắt lỗi
+ĐÚNG [CONG-BO-1] chỉ giọng tổng hợp (vo.engine: ElevenLabs), mô tả "synthetic voice" + cờ → sạch — kỳ vọng sạch
+ĐÚNG [CONG-BO-1] chỉ giọng tổng hợp (giong_tong_hop: true), không cờ → (b)/THIẾU — kỳ vọng bắt lỗi
+ĐÚNG [cấp] CONG-BO-1 lỗi ở G2 → chỉ báo (không Chặn) — kỳ vọng sạch
+ĐÚNG [cấp] CONG-BO-1 lỗi ở gói phát hành (cong: phat_hanh) → Chặn — kỳ vọng bắt lỗi
+ĐÚNG [cấp] CONG-BO-1 lỗi ở gói phát hành (phat_hanh.goi: true) → Chặn — kỳ vọng bắt lỗi
+ĐÚNG [cấp] CONG-BO-1 đủ ở gói phát hành → 0 Chặn — kỳ vọng sạch
+ĐÚNG [CONG-BO-1] log V2 thật (đoạn minh hoạ, không phat_hanh) → THIẾU (a)(b) — chỉ báo ở G2 — kỳ vọng sạch
+ĐÚNG [TL-1] v-cat, mỗi shot so_goc: 4 → miễn 9 cắt góc trong shot → 2 cắt / 0,6 phút = 3,33 ≤ 5 → sạch (c) — kỳ vọng sạch
+ĐÚNG [TL-1] vẫn in số thô (11 cắt = 18,33/phút) cạnh số tính trần — kỳ vọng sạch
+ĐÚNG [TL-1] so_goc: 2 → chỉ miễn 1 cắt/shot → 8 cắt = 13,3/phút > 5 → (c) — kỳ vọng bắt lỗi
+ĐÚNG [TL-1] goc_may 4 góc có t khớp (3, 6, 9 s trong shot) → sạch (c) — kỳ vọng sạch
+ĐÚNG [TL-1] goc_may có t lệch (1, 2, 4 s) → không miễn → (c) — kỳ vọng bắt lỗi
+ĐÚNG [TL-1] không khai so_goc/goc_may (như log V2: chỉ cat_trong_shot) → như 1.17.1 (c) — kỳ vọng bắt lỗi
+ĐÚNG [TL-1] cắt ở ranh shot (12, 24 s) không bao giờ được miễn — kỳ vọng sạch
+ĐÚNG [EO-DAT-R1] vùng nở: mặt nạ vạch mảnh — pixel thô < 15 % nhưng vùng nở ≥ 20 % — kỳ vọng sạch
+ĐÚNG [EO-DAT-R1] K tự đo từ chu_the_mat_na: pixel thô < 15 % → (a) có ghi, kèm % vùng nở — kỳ vọng sạch
+ĐÚNG [cấp] EO-DAT-R1 (a) ở G2 → chỉ báo, không Chặn (V2-D2) — kỳ vọng sạch
+ĐÚNG [EO-DAT-R1] khai chu_the_pct 22 % + chu_the_pct_no 41 % → sạch, in cả hai số — kỳ vọng sạch
+ĐÚNG [EO-DAT-R1] khai 12 % (không vùng nở) → (a) + ghi "vùng nở: chưa đo" — kỳ vọng bắt lỗi
+ĐÚNG [1.17.2 áp dụng] tập trước T3 → MINH-HOA/EO-DAT/CONG-BO-1 KHÔNG ÁP — kỳ vọng sạch
+ĐÚNG [1.17.2 áp dụng] q_k117.check có hàng CONG-BO-1 — kỳ vọng sạch
+
+  MINH-HOA ca chuẩn: 1 đoạn minh hoạ (C/M2) · 8.0 s = 8.0 % · lỗi kẹp 0 · AGL 0 · sổ AI 0 · nhãn: không bắt buộc (1.17.2)
+  MINH-HOA log V2 (không sổ AI): 4 đoạn minh hoạ (H1/M5, N1_4/M3, C3/M2, C5/M4) · 28.4 s = 3.7 % · lỗi kẹp 0 · AGL 0 · sổ AI 4 · nhãn: không bắt buộc (1.17.2) (đoạn khai mâu thuẫn ai_image: false: C4/M1 — K-LAI-2 (b))
+  MINH-HOA log V2 + sổ Gemini thật: 4 đoạn minh hoạ (H1/M5, N1_4/M3, C3/M2, C5/M4) · 28.4 s = 3.7 % · lỗi kẹp 0 · AGL 0 · sổ AI 0 · nhãn: không bắt buộc (1.17.2) (đoạn khai mâu thuẫn ai_image: false: C4/M1 — K-LAI-2 (b))
+  K-LAI log shot: K-LAI-1 ĐẠT · K-LAI-2 THIẾU · K-LAI-3 ĐẠT · K-LAI-4 KHÔNG ÁP · K-LAI-5 KHÔNG ÁP · K-LAI-6 ĐẠT · K-LAI-B KHÔNG ÁP · K-LAI-3V KHÔNG ÁP
+  K-LAI log V2: K-LAI-1 ĐẠT · K-LAI-2 TRƯỢT · K-LAI-3 THIẾU · K-LAI-4 KHÔNG ÁP · K-LAI-5 KHÔNG ÁP · K-LAI-6 THIẾU · K-LAI-B KHÔNG ÁP · K-LAI-3V KHÔNG ÁP
+  TL-1 v-cat + so_goc 4: thân phim 36.0 s · góc cao + tl 36.0 s (100.0 %) · đặc tả ≤ 3.33 cắt/phút (cận trên) · video 11 cắt = 18.33/phút (thô) − 9 cắt góc R3 (so_goc/goc_may) = 3.33/phút tính trần · đặc tả 2 ranh = 3.33/phút · khớp ±0.5 s 2 (ch
+  vùng nở mặt nạ thử (vạch mảnh): pixel thô 4.96 % · nở 1,5 % bề ngang 41.84 %
+  EO-DAT-R1 mặt nạ: 1 shot chu_the_eo_dat · S1: pixel thô trung vị 5.0 % · vùng nở 1.5 % bề ngang 41.8 % (đo 1 mặt nạ) · CHỈ BÁO mọi cổng (V2-D2, chủ dự án chấm bằng mắt)
+
+selftest 1.17.2: 74/74 ca đúng kỳ vọng · MINH-HOA 17/17 · cấp 7/7 · SACH-1 1/1 · V2-D5 7/7 · K-LAI 3/3 · K-LAI-1 2/2 · K-LAI-2 4/4 · K-LAI-3 3/3 · K-LAI-4/5/B 1/1 · K-LAI-6 3/3 · PP-1 4/4 · CONG-BO-1 9/9 · TL-1 7/7 · EO-DAT-R1 4/4 · 1.17.2 áp dụng 2/2 · luật thiếu ca đạt hoặc trượt: không

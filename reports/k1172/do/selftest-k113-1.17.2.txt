@@ -1,0 +1,66 @@
+ĐÚNG  AGL         sạch     relief mốc cuối dist 18 km, tilt 64° → (dist, tilt) = (18.00, 64.00); AGL 7.89 km
+ĐÚNG  AGL         sạch     địa cầu g05_china alt 18 (đơn vị R/10), tilt 0 → AGL 11,468 km = 18 × 637,1
+ĐÚNG  AGL         sạch     preset pair (thấp nhất alt 2,5) luôn > 50 km
+ĐÚNG  AGL         sạch     relief khai sai (mốc rỗng) không làm sập luật
+ĐÚNG  NC-H1       bắt lỗi  gib20 V5b-2a (không khai noi → suy AGL ≤ 3 km): 588/588 khung thành phố (suy AGL ≤ 3 km) · fabric trung vị 36.1 % · min 2.5 % · khung < 15 % (ngoài đuôi reveal) 117 → (b) eo đất 1896–1941
+ĐÚNG  NC-H1       sạch     gib20 + khai eo đất 7,5–12,4 s là eo_dat (không thành phố): 470/588 khung thành phố (khai noi) · fabric trung vị 42.4 % · min 15.3 % · khung < 15 % (ngoài đuôi reveal) 0 → ĐẠT
+ĐÚNG  NC-H1       bắt lỗi  mặt nạ fabric trung vị 20 % → (a)
+ĐÚNG  NC-H1       sạch     fabric 10 % trong 2 s cuối cú reveal kéo lùi → miễn, ĐẠT
+ĐÚNG  NC-H1       bắt lỗi  fabric 10 % bắt đầu 4 s trước hết reveal (ngoài 3 s miễn) → (b)
+ĐÚNG  NC-H1       bắt lỗi  bộ không có mặt nạ → THIẾU (không ĐẠT)
+ĐÚNG  NC-H1       bắt lỗi  T2 L5: 8 shot thành phố (112.0 s; khai 0, suy 8) · có lớp nhà khai 2 · không lớp nhà 6 · không đo fabric 2 → shot relief khai/suy thành phố mà không có lớp nhà = TRƯỢT theo đặc tả
+ĐÚNG  NC-H1       sạch     T2 L5 r05_philly/r06_home (ảnh hàng không opt.aerial) → lớp nhà khai, không TRƯỢT
+ĐÚNG  NC-H1       sạch     T2 L5 + mặt nạ fabric (tổng hợp) trung vị ≥ 25 %, min ≥ 15 % ở 6 shot thành phố → ĐẠT
+ĐÚNG  NC-H1       sạch     chip "San Francisco Bay, Calif." / "Delaware River valley" không suy thành phố; "Richmond, Calif.", "Philadelphia area" có
+ĐÚNG  NC-H2       bắt lỗi  T2 L5: 12 lần · 181.4 s (29.3 % phim) · map/globe 41.7 s · bản đồ nổi tầm cao 139.8 s · dài nhất 43.18 s → TRƯỢT, có g05_china (18–30 bán kính… đơn vị R/10)
+ĐÚNG  NC-H2       sạch     gib20 V5b-2a: 0 lần · AGL cao nhất 2.17 km → ĐẠT
+ĐÚNG  NC-H2       sạch     một lần AGL 80 km dài 2,5 s → ĐẠT
+ĐÚNG  NC-H2       bắt lỗi  hai lần địa cầu (mỗi lần 1 s) → (a)
+ĐÚNG  NC-H2       bắt lỗi  một lần 4 s → (b)
+ĐÚNG  NC-H3       sạch     gib20 V5b-2a: 3D 24.5 s · AGL ≤ 60 km 100.0 % · ≤ 3 km 100.0 % → ĐẠT
+ĐÚNG  NC-H3       bắt lỗi  T2 L5: 3D địa lý 558.8 s · AGL ≤ 60 km 70.8 % · ≤ 3 km 1.1 % · có thành phố: có → (b) tập có thành phố mà AGL ≤ 3 km 1 %
+ĐÚNG  NC-H3       bắt lỗi  bộ ở AGL 100 km 60 % thời lượng → (a)
+ĐÚNG  NC-H4       sạch     T2 L5 (sau SS1/TT): 34 shot bản đồ · chip nơi 16 · nhãn địa danh 18 · thiếu 0 (nguồn: đặc tả, không log chữ) → ĐẠT
+ĐÚNG  NC-H4       bắt lỗi  T2 L5 bỏ chip "Delaware Bay" của r03_ladder (không nhãn địa danh khác) → TRƯỢT nêu tên shot
+ĐÚNG  NC-H4       bắt lỗi  gib20 V5b-2a: log chữ không có chip nơi/địa danh → TRƯỢT (0 mục chữ nơi/địa danh trong log · role: card, index, index_)
+ĐÚNG  NC-H4       sạch     bộ có log chữ role where "Amsterdam" → ĐẠT
+ĐÚNG  NC-H5       bắt lỗi  gib20 V5b-2a: nhãn ghost dài nhất 2,75 s < 3 s → (b); (a) THIẾU nam_khung · nhãn ghost: "V.B. Cumbo · LoC · muted houses: reconst" 38 px; "reconstructed from LoC phot
+ĐÚNG  NC-H5       sạch     tập kênh 2 không timelapse → KHÔNG ÁP
+ĐÚNG  NC-H5       sạch     năm xây ≤ bộ đếm + ghost hiện 2,0 s, nhãn ghost 38 px 2,0–5,5 s → ĐẠT
+ĐÚNG  NC-H5       bắt lỗi  toà năm xây 5 năm sau bộ đếm (khung 96–119) → (a)
+ĐÚNG  NC-H5       bắt lỗi  nhãn ghost chỉ 2 s → (b)
+ĐÚNG  NC-H5       bắt lỗi  nhãn ghost 3,5 s nhưng 30 px < 38 → (b)
+ĐÚNG  Q7/Q8-K2    bắt lỗi  T2 L5 (log mô hình đặc tả): luật v2 báo "thiếu nhãn ESTIMATE" ở r03_tanker (estimate kênh 2 hợp lệ)
+ĐÚNG  Q7/Q8-K2    sạch     T2 L5, est=True (1.13): nhãn ESTIMATE được nhận → hết lỗi ESTIMATE
+ĐÚNG  Q7/Q8-K2    bắt lỗi  est=True: số estimate hiện mà bỏ nhãn ESTIMATE → vẫn TRƯỢT
+ĐÚNG  Q7/Q8-K2    sạch     Q8 loại số: T2 L5 (kênh 2, có n_tanker4 estimate) → ĐẠT
+ĐÚNG  Q7/Q8-K2    bắt lỗi  Q8 loại số: tập LL (không kênh 2) khai estimate → TRƯỢT (LL giữ actual/projection)
+ĐÚNG  Q7/Q8-K2    bắt lỗi  Q8 loại số: kênh 2 khai kind "guess" → TRƯỢT
+ĐÚNG  Q36 (1.13)  bắt lỗi  T2 L5, luật 1.11.1: câu "This video explains… Facts as of" 0:05.6 không khai mien_tru → (b) 1
+ĐÚNG  Q36 (1.13)  sạch     T2 L5, 1.13: câu miễn trừ nhận theo chữ, 1 lần trong 0:00–0:15 → (b) 0
+ĐÚNG  Q36 (1.13)  bắt lỗi  câu miễn trừ kéo tới 0:16.6 (ngoài 0:00–0:15) → (b)
+ĐÚNG  Q36 (1.13)  bắt lỗi  câu miễn trừ lặp lần 2 (0:17) → (b)
+ĐÚNG  Q33 (1.13)  bắt lỗi  T2 L5 luật 1.10.1 (xám toàn khung θ 14, có chip nơi + tấm chữ):  > 2 · pHash xám toàn khung θ=14, thêm 26 lần lặp không khai → 9 góc > 2
+ĐÚNG  Q33 (1.13)  bắt lỗi  T2 L5 1.13 (L vùng nội dung θ 16): 1 góc > 2 — r01_dive cùng góc Richmond sepia 0:00/0:33/1:31 (K xem khung: lặp thật)
+ĐÚNG  Q33 (1.13)  sạch     T2 L5 bỏ lần dùng lại r01_dive 1:31 → ĐẠT
+ĐÚNG  Q33 (1.13)  sạch     cùng nội dung, khác chip nơi + dòng nguồn → pHash L vùng nội dung lệch 0 bit (≤ θ)
+ĐÚNG  Q33 (1.13)  sạch     khác nội dung, CÙNG chip + dòng nguồn → lệch 38 bit > θ (không gộp nhầm)
+ĐÚNG  Q33 (1.13)  sạch     mặc định (k2=False) vẫn luật 1.10.1: θ 14, xám toàn khung
+ĐÚNG  Q37 (1.13)  bắt lỗi  máy trôi chậm 30 s: thước 1.11.0 coi là tĩnh (29.96 s) → (d) cũ
+ĐÚNG  Q37 (1.13)  sạch     cùng phim, 1.13 (neo): khung tĩnh dài nhất 2.38 s, trôi chậm 1 quãng báo kèm → (d) ĐẠT
+ĐÚNG  Q37 (1.13)  bắt lỗi  khung đứng hẳn 7 s + nhiễu ±0,3 → (d) 1.13 bắt (7.12 s)
+ĐÚNG  Q37 (1.13)  sạch     hai quãng tĩnh 7 s cách nhau 3 s chuyển động → liệt kê cả hai (thước cũ chỉ báo quãng dài nhất): 2 lỗi (d)
+ĐÚNG  cấp         sạch     NC-H1: có cấp đề xuất trong cap112 (Chặn (a), (b) (đúng lỗi chủ dự án nêu ở T2))
+ĐÚNG  cấp         sạch     NC-H2: có cấp đề xuất trong cap112 (Chặn (a), (b))
+ĐÚNG  cấp         sạch     NC-H3: có cấp đề xuất trong cap112 (Cảnh báo)
+ĐÚNG  cấp         sạch     NC-H4: có cấp đề xuất trong cap112 (Chặn)
+ĐÚNG  cấp         sạch     NC-H5: có cấp đề xuất trong cap112 (Chặn (a) · Cảnh báo (b))
+ĐÚNG  cấp         sạch     Q7/Q8-K2: có cấp đề xuất trong cap112 (Chặn (thay Q7/Q8 cho kênh 2, như Q35))
+ĐÚNG  cấp         sạch     Q33 (1.13): có cấp đề xuất trong cap112 (Chặn (thay Q33 cho kênh 2))
+ĐÚNG  cấp         sạch     Q36 (1.13): có cấp đề xuất trong cap112 (Chặn (thay Q36 cho kênh 2))
+ĐÚNG  cấp         sạch     Q37 (1.13): có cấp đề xuất trong cap112 (Chặn (thay Q37 cho kênh 2))
+ĐÚNG  cấp         sạch     NC-H3 lỗi chỉ vào Cảnh báo; NC-H1 lỗi (a) vào Chặn
+ĐÚNG  cấp         sạch     NC-H5 (b) Cảnh báo, (a) Chặn
+ĐÚNG  cấp         bắt lỗi  luật lạ (không có trong CAP) → Chặn mặc định (an toàn)
+
+selftest 1.13: 64/64 ca đúng kỳ vọng · 11 nhóm, luật thiếu ca đạt hoặc trượt: không

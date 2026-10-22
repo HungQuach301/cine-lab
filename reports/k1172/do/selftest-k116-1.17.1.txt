@@ -1,0 +1,151 @@
+OK  [cổng] (sạch) tập cũ (k115 ep-lai, không khung_sach) → mọi hàng 1.16 KHÔNG ÁP
+OK  [cổng] (sạch) tập T3 (khung_sach: true) → 1.16 bật
+OK  [cổng] (bắt lỗi) tập không khai khung_sach → ap_116 tắt (giữ 1.15)
+OK  [SACH-1] (sạch) fixture T3: bộ đếm + chip 2,5 s + thẻ chương + thẻ phương pháp — 17 shot · tấm số/trích 0 · tư liệu đứng riêng 0 · log chữ 332 mục hiện · cấm 0 · chip 1 lần, dài nhất 2.50 s · nhãn địa danh 0 shot, dài nhất 0.00 s · lỗi chữ bản đồ/khác 0
+OK  [SACH-1] (bắt lỗi) p.so (số/câu trích ≤ 3 s, kiểu G1b) → (a) TL-4
+OK  [SACH-1] (bắt lỗi) tấm số đứng riêng (card num) → (a)
+OK  [SACH-1] (bắt lỗi) ảnh tư liệu đứng riêng → (b)
+OK  [SACH-1] (sạch) tư liệu phủ lên địa hình 2,5 s → sạch
+OK  [SACH-1] (bắt lỗi) tư liệu phủ 3,5 s > 3 s → (b)
+OK  [SACH-1] (bắt lỗi) log: dòng nguồn ngắn hiện (vai src_ngan) → (c)
+OK  [SACH-1] (sạch) log: nhãn AI alpha 0 (đã tắt) → sạch
+OK  [SACH-1] (bắt lỗi) log: "approx. borders" hiện dưới vai khác → (c) (bắt theo chữ)
+OK  [SACH-1] (bắt lỗi) chip nơi 4,0 s > 3 s → (d)
+OK  [SACH-1] (sạch) K116-D3: 2 nhãn địa danh (diem + inset) hiện 3,0 s (sát ngưỡng) → sạch (e) — 17 shot · tấm số/trích 0 · tư liệu đứng riêng 0 · log chữ 344 mục hiện · cấm 0 · chip 1 lần, dài nhất 2.50 s · nhãn địa danh 1 shot, dài nhất 3.00 s · lỗi chữ bản đồ/khác 0
+OK  [SACH-1] (bắt lỗi) K116-D3: 3 nhãn địa danh cùng shot → (e)
+OK  [cap] (bắt lỗi) SACH-1 (e) là Chặn (K116-D3)
+OK  [SACH-1] (bắt lỗi) K116-D3: nhãn địa danh hiện 4,0 s > 3 s → (e)
+OK  [SACH-1] (bắt lỗi) K116-D3: chú giải chữ (vai chu_giai) → (e) (phe bằng màu + cờ)
+OK  [SACH-1] (bắt lỗi) K116-D3: chữ ngoài danh sách (vai index) → (e)
+OK  [SACH-1] (bắt lỗi) shot không bật p.sach → (f)
+OK  [SACH-1] (bắt lỗi) không có log chữ → THIẾU (c) (Chặn)
+OK  [CHUONG-1] (sạch) 2 thẻ chương đúng dạng, ≤ 3 s, ngoài móc — 2 thẻ (đặc tả) · dài nhất 3.00 s · 0:48.5 1704 — The Rock changes hands; 1:36.5 1779 — The Great Siege begins
+OK  [CHUONG-1] (bắt lỗi) 9 thẻ > 8 → (a)
+OK  [CHUONG-1] (sạch) 8 thẻ = 8 → sạch (a)
+OK  [CHUONG-1] (bắt lỗi) cụm 7 từ → (b)
+OK  [CHUONG-1] (bắt lỗi) không có năm → (b)
+OK  [CHUONG-1] (bắt lỗi) 3,5 s > 3 s → (c)
+OK  [CHUONG-1] (bắt lỗi) thẻ trong móc mở đầu (chương 0) → (d)
+OK  [CHUONG-1] (bắt lỗi) "captured" → (e) không trung tính
+OK  [CHUONG-1] (sạch) chỉ có log chữ vai the_chuong (góc dưới trái, mờ vào/ra) → sạch — 1 thẻ (log) · dài nhất 2.50 s · 0:48.5 1704 — The Rock changes hands
+OK  [CHUONG-1] (bắt lỗi) log: thẻ ở góc trên phải → (f) Cảnh báo
+OK  [cap] (sạch) CHUONG-1 (f) không vào Chặn
+OK  [PP-1] (sạch) 2 thẻ × 8 s cuối phim, đủ nguồn/ước tính/AI — 2 thẻ · PP1 8.0 s, PP2 8.0 s · 38 từ
+OK  [PP-1] (bắt lỗi) 1 thẻ → (a)
+OK  [PP-1] (bắt lỗi) thẻ 5 s (như G1b) → (b)
+OK  [PP-1] (sạch) thẻ 9,0 s (cận trên ≈ 8 ± 1) → sạch (b)
+OK  [PP-1] (bắt lỗi) có shot sau thẻ phương pháp → (c) không ở cuối
+OK  [PP-1] (bắt lỗi) không nói AI → (d)
+OK  [PP-1] (bắt lỗi) 33 từ / 8 s > 3 từ/s → (e) Cảnh báo
+OK  [cap] (sạch) PP-1 (e) không vào Chặn
+OK  [TL-1] (sạch) (a)(e)(f) fixture: góc cao + thời gian chạy 89 %, 6 điểm máy × 2 năm — thân phim 145.0 s · góc cao + tl 129.0 s (89.0 %) · đặc tả ≤ 6.62 cắt/phút (cận trên) · ng
+OK  [TL-1] (bắt lỗi) không có video → THIẾU (c)(d) (Cảnh báo)
+OK  [TL-1] (bắt lỗi) 6 shot góc cao không có thời gian chạy → 47 % < 75 % (a)
+OK  [TL-1] (bắt lỗi) 5 điểm máy < 6 → (e)
+OK  [TL-1] (bắt lỗi) điểm máy d0 chỉ ở một năm → (f)
+OK  [TL-1] (bắt lỗi) log thiếu goc → THIẾU (a)
+OK  [TL-1] (sạch) video v-ok: 2 cắt / 0,6 phút = 3,33 ≤ 5 → sạch (c)
+OK  [TL-1] (bắt lỗi) video v-ok: shot lia 6 %/s > 2 %/s → (d); shot trôi 1 %/s và đẩy máy phóng 3 %/s (góc khung 1,6 %/s) không lỗi
+OK  [TL-1] (bắt lỗi) video v-cat: 11 cắt / 0,6 phút = 18,3 > 5 → (c)
+OK  [TL-1] (sạch) thước cắt: v-ok đúng 2 cắt ở 12 s, 24 s · v-cat đúng 11 cắt
+OK  [cap] (sạch) TL-1 toàn Cảnh báo (hiệu chỉnh sau V7-PILOT)
+OK  [TL-1] (sạch) thước cắt 1.16.1: timelapse MỘT góc máy đổi ngày–đêm nhanh + đèn bật + chớp 2 khung + khói + phụ đề nung đổi chữ → 0 cắt
+OK  [TL-1] (sạch) thước cắt 1.16.1: cắt cứng giữa hai cảnh cùng histogram độ sáng (3,0 s) → đúng 1 cắt
+OK  [TL-1] (sạch) thước cắt 1.16.1: v-cungsang chỉ lấy 3 s trước cắt (khung 0–35) → 0 cắt (chứng: phát hiện đến từ đổi cảnh)
+OK  [TL-1] (sạch) đối chiếu ranh đặc tả ±0,5 s: video [12,02; 24,4; 30] ↔ đặc tả [12; 18; 24] → 2 khớp, chỉ video 30, chỉ đặc tả 18
+OK  [TL-1] (sạch) đối chiếu: lệch 0,6 s > 0,5 s → không khớp
+OK  [TL-1] (sạch) TL-1 báo cả hai số (video + đặc tả + khớp)
+OK  [TL-1] (sạch) TL-1 (c) trên v-ngaydem: 0 cắt/phút → sạch (c)
+OK  [TL-2] (sạch) lướt thấp 1 shot 8 s, có vai, phố — lướt thấp 1 shot · 8.0 s = 5.5 % · ngưỡng hiệu chỉnh sau V7-PILOT
+OK  [TL-2] (bắt lỗi) 4 shot lướt thấp 38 s = 26 % > 10 % → (a)
+OK  [TL-2] (bắt lỗi) lướt thấp không có vai → (b)
+OK  [TL-2] (bắt lỗi) lướt thấp trên eo đất, không người → (b)
+OK  [TL-2] (sạch) lướt thấp trên eo đất là khoảnh khắc người (nguoi: true) → sạch
+OK  [TL-3] (sạch) mọi shot 3D có thời gian chạy, trống 20 % — 15 shot 3D · không đổi 0 · trống 0 · thiếu trong_pct 0
+OK  [TL-3] (bắt lỗi) shot không thời gian chạy, không biến cố → (a)
+OK  [TL-3] (bắt lỗi) trống 70 % > 60 % mà không thời gian chạy (dù có biến cố) → (b)
+OK  [TL-3] (sạch) trống 70 % nhưng có thời gian chạy → sạch (b)
+OK  [TL-3] (bắt lỗi) không ghi bac → (c)
+OK  [TL-3] (bắt lỗi) thiếu trong_pct → THIẾU (b)
+OK  [NHIP-NGHIA] (sạch) 15/15 nhịp chính có vật — 15/15 nhịp chính có vật mang nghĩa = 100.0 %
+OK  [NHIP-NGHIA] (bắt lỗi) 2 nhịp thiếu vật → 13/15 = 86,7 % < 90 % — 13/15 nhịp chính có vật mang nghĩa = 86.7 %
+OK  [NHIP-NGHIA] (sạch) 1 nhịp thiếu → 14/15 = 93,3 % ≥ 90 % → sạch
+OK  [NHIP-NGHIA] (bắt lỗi) loại vật ngoài danh sách §13.2 → lỗi
+OK  [NHIP-NGHIA] (bắt lỗi) shot không có trong đặc tả → lỗi
+OK  [NHIP-NGHIA] (bắt lỗi) vật thẻ chương ở shot không có thẻ → lỗi
+OK  [NHIP-NGHIA] (bắt lỗi) không có tệp bảng nhịp → THIẾU
+OK  [XEM-CAM] (sạch) 8 câu, 3 AI + chủ dự án, tắt tiếng, thấp nhất 6/8 — 8 câu · AI 3 · chủ dự án 1 · ai-1 7/8, ai-2 6/8, ai-3 8/8, chu-du-an 7/8 · TB AI 7.00/8
+OK  [XEM-CAM] (sạch) K116-D2: một AI 5/8 nhưng TB AI 6,67 ≥ 6 → sạch — 8 câu · AI 3 · chủ dự án 1 · ai-1 7/8, ai-2 5/8, ai-3 8/8, chu-du-an 7/8 · TB AI 6.67/8
+OK  [XEM-CAM] (sạch) K116-D2: TB AI đúng 6,00 (sát ngưỡng) → sạch
+OK  [XEM-CAM] (bắt lỗi) K116-D2: TB AI 5,67 < 6 (AI 5, 6, 6) → (c)
+OK  [XEM-CAM] (bắt lỗi) K116-D2: chủ dự án 5/8 (TB AI 7) → (c)
+OK  [XEM-CAM] (bắt lỗi) chỉ 2 người chấm AI → (b)
+OK  [XEM-CAM] (bắt lỗi) không có chủ dự án → (b)
+OK  [XEM-CAM] (bắt lỗi) không tắt tiếng → (a)
+OK  [XEM-CAM] (bắt lỗi) 7 câu hỏi → (a)
+OK  [XEM-CAM] (bắt lỗi) có email → (d)
+OK  [XEM-CAM] (bắt lỗi) SHA animatic khác bản đã chấm → (e)
+OK  [XEM-CAM] (bắt lỗi) không có tệp kết quả → THIẾU (Chặn)
+OK  [PC-1] (sạch) 000757 · Swin2SR (Δ cạnh mới −0,23 điểm so bicubic, PSNR +0,42 dB) → dùng được
+OK  [PC-1] (bắt lỗi) 000759 · Swin2SR Δ +2,24 điểm → lỗi
+OK  [PC-1] (bắt lỗi) 000761 · Swin2SR Δ +1,13 điểm → lỗi
+OK  [PC-1] (bắt lỗi) 000757 · Real-ESRGAN Δ +46,1, PSNR −15 dB → lỗi
+OK  [PC-1] (sạch) không khai phuc_che → KHÔNG ÁP
+OK  [PC-1] (bắt lỗi) ảnh dùng không có trong kiểm có đáp án → THIẾU
+OK  [cap] (sạch) PC-1 Cảnh báo
+OK  [K-LAI-2] (sạch) 1.16: cờ AI mọi khung, shot khai khớp, thẻ PP nói AI, mô tả AI use = Yes, không nhãn trên hình — thẻ phương pháp có · mô tả có · log chữ không
+OK  [K-LAI-2] (bắt lỗi) mô tả không có "AI use = Yes" → (d)
+OK  [K-LAI-2] (bắt lỗi) thẻ phương pháp không nói AI → (c)
+OK  [K-LAI-2] (bắt lỗi) nhãn "Surface detail AI-assisted" hiện trên hình → (e) (§12.1)
+OK  [K-LAI-2] (bắt lỗi) log khung có vân ở C03 nhưng đặc tả/log shot không khai → (b)
+OK  [K-LAI-3] (sạch) 1.16 vân sạch (1 tệp dùng, 0 lỗi chắc) — vân: 1 tệp dùng / 2 trong sổ · lỗi chắc 0 · có điều kiện chưa xác nhận 0
+OK  [K-LAI-4] (sạch) chỉ vân (không tấm C) → K-LAI-4/5/B KHÔNG ÁP
+OK  [K-LAI-4] (bắt lỗi) có cả tấm C (ai_image) → K-LAI-4 áp lại: không khai bao_ve → THIẾU
+OK  [K-LAI-3] (bắt lỗi) có tấm C mà không có sổ tấm C → K-LAI-3 [tấm C] THIẾU
+OK  [K-LAI-6] (sạch) vân: input.mask_frac thay mask.pct_duoc_sua — vân: 2 lệnh AI · $0.0800 · C2PA 2/2
+OK  [K-LAI-3V] (sạch) vân dùng không ghi nghi vấn → sạch
+OK  [K-LAI-3] (bắt lỗi) vân dùng có lỗi chắc → (b)
+OK  [K-LAI-3] (bắt lỗi) kết luận "dùng nếu …" chưa ghi dieu_kien_dat → THIẾU (d)
+OK  [K-LAI-3] (sạch) "dùng nếu …" + dieu_kien_dat: true → sạch
+OK  [K-LAI-3V] (bắt lỗi) vân dùng còn ghi nghi vấn → K-LAI-3V (Cảnh báo); K-LAI-3 vẫn sạch
+OK  [cap] (sạch) K-LAI-3V ở animatic → Cảnh báo (K116-D5)
+OK  [cap] (bắt lỗi) K-LAI-3V ở cổng G2 (bản phát hành) → Chặn (K116-D5)
+OK  [K-LAI-6] (bắt lỗi) vân: không có % mặt nạ (không mask_frac, không mask: null) → lỗi
+OK  [K-LAI-5] (bắt lỗi) V6 thật 1.15: K-LAI-5 lỗi "133 lệnh sinh > 1 + 2" (hành vi cũ giữ nguyên)
+OK  [K-LAI-5] (sạch) V6 thật 1.16: chỉ vân → K-LAI-4/5/B KHÔNG ÁP
+OK  [K-LAI-6] (sạch) V6 thật 1.16: 133 lệnh PT3 đủ trường (mask_frac) → sạch
+OK  [K-LAI-3] (bắt lỗi) V6 thật 1.16: 55 tệp "dùng nếu đạt kiểm trôi" chưa xác nhận → THIẾU
+OK  [K-LAI-3V] (bắt lỗi) V6 thật 1.16: 65 tệp vân dùng còn ghi nghi vấn → Cảnh báo
+OK  [K-LAI-2] (bắt lỗi) V6 thật 1.16: nhãn AI vẫn vẽ trên hình (log ai_label) → (e)
+OK  [NC-H5] (sạch) bộ đếm tl/* được nhận; nam_khung đúng; ghost có nguồn trong mô tả — bộ đếm có · nam_khung có · ghost 1 (ghost-1782)
+OK  [NC-H5] (bắt lỗi) lớp nhà năm 1720 > bộ đếm 1704 → (a)
+OK  [NC-H5] (bắt lỗi) không có nam_khung → THIẾU (a) (Chặn)
+OK  [NC-H5] (bắt lỗi) nguồn ghost không có trong mô tả → (b)
+OK  [NC-H5] (sạch) không có bộ đếm → KHÔNG ÁP
+OK  [BD-3] (sạch) lớp ranh có nam + nguồn, nguồn trong mô tả, không nhãn trên hình — 1 cặp shot–lớp ranh · nhãn trong dữ liệu (manifest) + nguồn 
+OK  [BD-3] (bắt lỗi) nguồn ranh (Cliopatria) không có trong mô tả → (b)
+OK  [BD-3] (bắt lỗi) nhãn "approx. borders" hiện trên hình → (c) §12.1
+OK  [BD-3] (bắt lỗi) manifest lớp ranh thiếu nguồn → (a)
+OK  [Q26b] (sạch) 1.16 cảnh tl/fx theo vùng: 8 bối cảnh · lớn nhất tl/fx · vinh 18.0 % · liên tục dài nhất tl/fx · 
+OK  [Q26b] (bắt lỗi) hành vi cũ (v116 tắt): một mô-đun tl/fx = một bối cảnh → lỗi: 2 bối cảnh · lớn nhất tl/fx 90.1 % · liên tục dài 
+OK  [Q26b] (bắt lỗi) 1.16, mọi shot cùng một vùng → lỗi (vẫn bắt lặp bối cảnh thật)
+OK  [Q37] (sạch) khung neo 8 s → khoảng 8 s được miễn (c) — hung neo/im lặng (1.16): 1 khoảng, dài nhất trước miễn 8.0 s
+OK  [Q37] (bắt lỗi) cùng tập, không miễn (hành vi cũ) → (c) 8 s > 6 s
+OK  [Q37] (bắt lỗi) khung neo 11 s > 10 s → (c)
+OK  [Q37] (bắt lỗi) 3 tấm im lặng > 2/tập → (c)
+OK  [Q37] (sạch) 1 tấm im lặng 9 s + khung neo 8 s (khai neo: true) → sạch (c)
+OK  [Q37] (bắt lỗi) shot 8 s thường (không khai) → vẫn (c)
+OK  [A*] (bắt lỗi) hành vi cũ: không lời → A4 lỗi "không có stem"
+OK  [A*] (sạch) 1.16 không lời: A4, A8, A9, A10, A13 KHÔNG ÁP
+OK  [A*] (bắt lỗi) 1.16 không lời: A1/A2/A5/A7 (master) vẫn áp → lỗi khi thiếu master
+OK  [A*] (sạch) 1.16 animatic: true → CHỈ BÁO
+OK  [A*] (bắt lỗi) 1.16 có lời mà không stem → A4 vẫn lỗi
+OK  [ML1] (sạch) lời khoá 3 câu: shot C01 khai `cau` (≥ 12 ký tự đầu câu) gắn được — 1/17 shot gắn (0 suy từ mốc @từ) · timelapse 161.0 s, trôi 93.8 %
+OK  [ML1] (bắt lỗi) `cau` không có trong lời khoá → (c)
+TL-1 video tổng hợp v-ok: thân phim 36.0 s · góc cao + tl 36.0 s (100.0 %) · đặc tả ≤ 3.33 cắt/phút (cận trên) · video 2 cắt = 3.33/phút · đặc tả 2 ranh = 3.33/phút · khớp ±0.5 s 2 (chỉ video 0; chỉ đặc tả 0 — cùng góc máy đổi năm/giờ hoặc chưa cắt) · trôi góc cao trung vị 1.61 %/s (3 shot) · ngưỡng hiệu chỉnh sau V7-PILOT
+PC-1 G1b thật: 1 ảnh dùng · 342-FH_000757.jpg realesrgan_x2plus: TRƯỢT (Δ +46.14); 342-FH_000757.jpg swin2sr_x2: ĐẠT (Δ -0.23); 342-FH_000759.jpg realesrgan_x2plus: TRƯỢT (Δ +44.26); 342-FH_000759.jpg swin2sr_x2: TRƯỢT (Δ +2.24); 342-FH_000761.jpg realesrgan_x2plus: TRƯỢT (Δ +43.85); 342-FH_000761.jpg swin2sr_x2: TRƯỢT (Δ +1.13)
+V6 thật 1.15: K-LAI-1 ĐẠT · K-LAI-2 ĐẠT · K-LAI-3 TRƯỢT · K-LAI-4 THIẾU · K-LAI-5 TRƯỢT · K-LAI-6 TRƯỢT · K-LAI-B THIẾU
+V6 thật 1.16: K-LAI-1 ĐẠT · K-LAI-2 TRƯỢT · K-LAI-3 THIẾU · K-LAI-4 KHÔNG ÁP · K-LAI-5 KHÔNG ÁP · K-LAI-6 ĐẠT · K-LAI-B KHÔNG ÁP · K-LAI-3V TRƯỢT · K-LAI-3: vân: 69 tệp dùng / 133 trong sổ · lỗi chắc 0 · có điều kiện chưa xác nhận 55
+q_k116.check fixture T3: SACH-1 ĐẠT · CHUONG-1 ĐẠT · PP-1 ĐẠT · TL-1 THIẾU · TL-2 ĐẠT · TL-3 ĐẠT · NHIP-NGHIA ĐẠT · XEM-CAM ĐẠT · PC-1 ĐẠT
+
+selftest 1.16: 144/144 đúng kỳ vọng · 23 nhóm · cổng 3, SACH-1 17, cap 7, CHUONG-1 10, PP-1 7, TL-1 17, TL-2 5, TL-3 6, NHIP-NGHIA 7, XEM-CAM 12, PC-1 6, K-LAI-2 6, K-LAI-3 6, K-LAI-4 2, K-LAI-6 3, K-LAI-3V 3, K-LAI-5 2, NC-H5 5, BD-3 4, Q26b 3, Q37 6, A* 5, ML1 2 · luật thiếu ca đạt hoặc trượt: không
