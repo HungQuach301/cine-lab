@@ -6,7 +6,8 @@ SAU = master v2 (960×540) theo bang-shot.json hiện tại.
   v2_to_so.py mh <thư mục ra>                                  → to-so-minh-hoa.jpg (dau/<M>.jpg | omni/chon/<M>.mp4 25 % · 55 % · 90 %)"""
 import json, subprocess, sys
 from pathlib import Path
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
+FONT = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 14)   # RIGHTS C4-F1 — có dấu tiếng Việt
 REPO = Path(__file__).resolve().parents[2]
 XEM = [('01-mo-dau', 0.0), ('02-ch1-rock-1704', 43.833), ('03-ch2a-vay-ham', 173.083), ('04-ch2b-tan-cong-1782', 262.167), ('05-ch3-dat-trung-lap', 382.583),
        ('06-ch4-duong-bang', 471.625), ('07-ch5a-cong', 585.833), ('08-ch5b-ket', 666.083)]
@@ -30,7 +31,7 @@ def shot(master, out, ids):
         for r, (lab, bb, src_of) in enumerate([('TRƯỚC (ANIMATIC-T3, 640×360)', a, lambda t: v1_src(t)), ('SAU (v2)', b, lambda t: (master, t))]):
             ts = [bb['t0'] + 0.3, (bb['t0'] + bb['t1']) / 2, bb['t1'] - 0.3]
             for j, t in enumerate(ts):
-                s, tt = src_of(t); sh.paste(khung(s, tt, tmp), (j * W, r * (H + 22) + 22)); g.text((j * W + 4, r * (H + 22) + 4), f'{sid} {lab} · phim {t:.1f} s', fill=(255, 230, 120))
+                s, tt = src_of(t); sh.paste(khung(s, tt, tmp), (j * W, r * (H + 22) + 22)); g.text((j * W + 4, r * (H + 22) + 4), f'{sid} {lab} · phim {t:.1f} s', fill=(255, 230, 120), font=FONT)
         sh.save(out / f"to-so-{sid.replace('.', '_')}.jpg", quality=82); print('xong', sid)
     tmp.unlink(missing_ok=True)
 
@@ -41,11 +42,11 @@ def mh(out):
     for i, m in enumerate(Ms):
         y = i * (H + 22) + 22; p = D / 'dau' / f'{m}.jpg'
         if p.exists(): sh.paste(Image.open(p).convert('RGB').resize((W, H)), (0, y))
-        g.text((4, y - 18), f'{m} ảnh đầu (render của ta)', fill=(255, 230, 120)); c = D / 'chon' / f'{m}.mp4'
+        g.text((4, y - 18), f'{m} ảnh đầu (render của ta)', fill=(255, 230, 120), font=FONT); c = D / 'chon' / f'{m}.mp4'
         if c.exists():
             d = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', str(c)], capture_output=True, text=True).stdout)
-            for j, u in enumerate((0.25, 0.55, 0.9)): sh.paste(khung(c, u * d, tmp), ((j + 1) * W, y)); g.text(((j + 1) * W + 4, y - 18), f'{m} Omni {int(u * 100)} %', fill=(255, 230, 120))
-        else: g.text((W + 10, y + 100), f'{m}: không có clip đạt — giữ bản 3D', fill=(255, 120, 120))
+            for j, u in enumerate((0.25, 0.55, 0.9)): sh.paste(khung(c, u * d, tmp), ((j + 1) * W, y)); g.text(((j + 1) * W + 4, y - 18), f'{m} Omni {int(u * 100)} %', fill=(255, 230, 120), font=FONT)
+        else: g.text((W + 10, y + 100), f'{m}: 3 lượt Omni đều LOẠI (tàu có buồm · cờ · cọc buộc sắt) — giữ bản 3D', fill=(255, 120, 120), font=FONT)
     sh.save(out / 'to-so-minh-hoa.jpg', quality=82); tmp.unlink(missing_ok=True); print('xong minh hoạ')
 
 
