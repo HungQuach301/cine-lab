@@ -1,0 +1,351 @@
+{
+ "doan": "moc",
+ "khoang_phim": [
+  0.0,
+  45.0
+ ],
+ "truoc_master": {
+  "nhac_LUFS_trong_loi": -26.51,
+  "sfx_LUFS_trong_loi": -34.68,
+  "sfx_LUFS_ngoai_loi": -28.6,
+  "sfx_LUFS_ca_doan": -33.51
+ },
+ "nen": [
+  {
+   "id": "B1",
+   "phim": [
+    0.0,
+    44.83
+   ],
+   "bai": [
+    0.0,
+    44.83
+   ],
+   "gain_db": -8.95
+  },
+  {
+   "id": "B2",
+   "phim": [
+    42.83,
+    45.0
+   ],
+   "bai": [
+    19.0,
+    21.17
+   ],
+   "gain_db": -6.09
+  }
+ ],
+ "sfx": [
+  {
+   "uv": "PHO-3",
+   "t": 0.0,
+   "dai": 12.0,
+   "db": -16.0,
+   "muc": -39,
+   "ghi": "H1 đêm 2026: đường xa sau mưa"
+  },
+  {
+   "uv": "DEM-1",
+   "t": 0.0,
+   "dai": 10.0,
+   "db": -20.0,
+   "muc": -43,
+   "ghi": "H1 dế đêm, tắt dần khi tới bình minh"
+  },
+  {
+   "uv": "BUOC-1",
+   "t": 2.0,
+   "dai": 9.0,
+   "db": -6.2,
+   "muc": -39,
+   "ghi": "H1 người đi bộ qua đường băng"
+  },
+  {
+   "uv": "SONG-3",
+   "t": 9.0,
+   "dai": 6.6,
+   "db": -17.0,
+   "muc": -40,
+   "ghi": "H1→H2 bình minh: biển + mòng biển (NPS Olympic) — CHIM-1 rút: AST nghe thành quạ (Crow 0,72), chờ tai"
+  },
+  {
+   "uv": "GIO-2",
+   "t": 11.0,
+   "dai": 17.5,
+   "db": -17.0,
+   "muc": -40,
+   "ghi": "H2 gió trên Rock (nối 2026 → 1782)"
+  },
+  {
+   "uv": "PXA-1",
+   "t": 15.42,
+   "dai": 2.7,
+   "db": -14.0,
+   "muc": -37,
+   "ghi": "H2 bộ đếm 14 lần vây: pháo rất xa (lọc 1,5 kHz)"
+  },
+  {
+   "uv": "PXA-3",
+   "t": 16.25,
+   "dai": 4.61,
+   "db": -7.45,
+   "muc": -37,
+   "ghi": "H2 bộ đếm 14 lần vây: pháo rất xa (lọc 1,5 kHz)"
+  },
+  {
+   "uv": "PXA-2",
+   "t": 17.08,
+   "dai": 3.58,
+   "db": -14.0,
+   "muc": -37,
+   "ghi": "H2 bộ đếm 14 lần vây: pháo rất xa (lọc 1,5 kHz)"
+  },
+  {
+   "uv": "PXA-1",
+   "t": 17.92,
+   "dai": 2.7,
+   "db": -14.0,
+   "muc": -37,
+   "ghi": "H2 bộ đếm 14 lần vây: pháo rất xa (lọc 1,5 kHz)"
+  },
+  {
+   "uv": "PXA-3",
+   "t": 18.75,
+   "dai": 4.61,
+   "db": -7.45,
+   "muc": -37,
+   "ghi": "H2 bộ đếm 14 lần vây: pháo rất xa (lọc 1,5 kHz)"
+  },
+  {
+   "uv": "PXA-2",
+   "t": 19.58,
+   "dai": 3.58,
+   "db": -14.0,
+   "muc": -37,
+   "ghi": "H2 bộ đếm 14 lần vây: pháo rất xa (lọc 1,5 kHz)"
+  },
+  {
+   "uv": "CO-1",
+   "t": 19.95,
+   "dai": 2.6,
+   "db": -0.74,
+   "muc": -36,
+   "ghi": "H2 4/8/1704 cờ hạ–kéo"
+  },
+  {
+   "uv": "PXA-2",
+   "t": 22.15,
+   "dai": 3.58,
+   "db": -8.0,
+   "muc": -31,
+   "ghi": "H2 khe lời 22,1–22,5"
+  },
+  {
+   "uv": "PXA-1",
+   "t": 25.45,
+   "dai": 2.7,
+   "db": -11.0,
+   "muc": -34,
+   "ghi": "H2 pin nổi khai hoả (dưới lời 0e)"
+  },
+  {
+   "uv": "PXA-3",
+   "t": 26.05,
+   "dai": 4.61,
+   "db": -4.45,
+   "muc": -34,
+   "ghi": "H2 pin nổi khai hoả (dưới lời 0e)"
+  },
+  {
+   "uv": "PXA-2",
+   "t": 26.55,
+   "dai": 3.58,
+   "db": -11.0,
+   "muc": -34,
+   "ghi": "H2 pin nổi khai hoả (dưới lời 0e)"
+  },
+  {
+   "uv": "PXA-2",
+   "t": 26.78,
+   "dai": 3.58,
+   "db": -6.0,
+   "muc": -29,
+   "ghi": "H2 khe 26,7–28,0"
+  },
+  {
+   "uv": "PXA-1",
+   "t": 27.35,
+   "dai": 2.7,
+   "db": -8.0,
+   "muc": -31,
+   "ghi": "H2 khe 26,7–28,0"
+  },
+  {
+   "uv": "LUAL-1",
+   "t": 27.0,
+   "dai": 7.5,
+   "db": 4.15,
+   "muc": -35,
+   "ghi": "H2→H2T pin nổi bốc cháy, đêm"
+  },
+  {
+   "uv": "SONG-2",
+   "t": 28.0,
+   "dai": 6.0,
+   "db": -16.0,
+   "muc": -39,
+   "ghi": "H2T sóng vỗ (nhìn từ vịnh)"
+  },
+  {
+   "uv": "NO-1",
+   "t": 31.95,
+   "dai": 4.0,
+   "db": -6.0,
+   "muc": -29,
+   "ghi": "H2T nổ xa trong khe 31,9–33,0"
+  },
+  {
+   "uv": "MAYBAY-1",
+   "t": 33.3,
+   "dai": 5.0,
+   "db": -18.0,
+   "muc": -41,
+   "ghi": "H3 1939–43: cánh quạt xa"
+  },
+  {
+   "uv": "GIO-3",
+   "t": 33.0,
+   "dai": 10.0,
+   "db": -20.0,
+   "muc": -43,
+   "ghi": "H3 gió nền"
+  },
+  {
+   "uv": "PHO-1",
+   "t": 38.6,
+   "dai": 5.5,
+   "db": -14.31,
+   "muc": -39,
+   "ghi": "H3 2026 từ 39,0 s"
+  },
+  {
+   "uv": "SONG-1",
+   "t": 42.8,
+   "dai": 2.2,
+   "db": -15.0,
+   "muc": -38,
+   "ghi": "J-cut biển 1704 vào trước cắt 43,8 (BAI-HOC #105)"
+  }
+ ],
+ "ban": {
+  "khong-sfx": {
+   "dau_ra": {
+    "I": -13.9,
+    "LRA": 2.8,
+    "TP": -1.5,
+    "TP_sau_aac": -1.5,
+    "lang_pct": 0.0,
+    "lang_bat_thuong": 0,
+    "cham_tran": 0
+   },
+   "smr": {
+    "cua_so": 21,
+    "trung_vi": 24.81,
+    "p10": 20.0,
+    "min": 19.11,
+    "duoi_nguong_pct": 0.0,
+    "nguong": 15.0
+   },
+   "dat": {
+    "I": true,
+    "TP": true,
+    "TP_sau_aac": true,
+    "SMR_p10": true,
+    "loudnorm_tuyen_tinh": true
+   },
+   "duck": {
+    "so_khoang": 7,
+    "trung_vi_db": -12.0,
+    "sau_nhat_db": -13.3,
+    "khoang_vuot_co_ban": 2
+   },
+   "cua_so_smr_thap_nhat": [
+    [
+     23.0,
+     19.11
+    ],
+    [
+     22.0,
+     19.93
+    ],
+    [
+     28.0,
+     20.0
+    ],
+    [
+     34.0,
+     20.99
+    ],
+    [
+     38.7,
+     21.04
+    ]
+   ]
+  },
+  "co-sfx": {
+   "dau_ra": {
+    "I": -13.9,
+    "LRA": 2.8,
+    "TP": -1.5,
+    "TP_sau_aac": -1.4,
+    "lang_pct": 0.0,
+    "lang_bat_thuong": 0,
+    "cham_tran": 0
+   },
+   "smr": {
+    "cua_so": 21,
+    "trung_vi": 21.68,
+    "p10": 18.54,
+    "min": 17.11,
+    "duoi_nguong_pct": 0.0,
+    "nguong": 15.0
+   },
+   "dat": {
+    "I": true,
+    "TP": true,
+    "TP_sau_aac": true,
+    "SMR_p10": true,
+    "loudnorm_tuyen_tinh": true
+   },
+   "duck": {
+    "so_khoang": 7,
+    "trung_vi_db": -12.0,
+    "sau_nhat_db": -14.0,
+    "khoang_vuot_co_ban": 3
+   },
+   "cua_so_smr_thap_nhat": [
+    [
+     33.0,
+     17.11
+    ],
+    [
+     22.0,
+     17.83
+    ],
+    [
+     21.0,
+     18.54
+    ],
+    [
+     23.0,
+     19.05
+    ],
+    [
+     28.0,
+     19.47
+    ]
+   ]
+  }
+ }
+}

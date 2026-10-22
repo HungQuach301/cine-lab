@@ -1,0 +1,10 @@
+# Trang bị proxy/nguồn chặn — ghi NGUYÊN VĂN, KHÔNG vượt chặn (không mirror/cache). UA "CineLab-research (+https://github.com/HungQuach301/cine-lab)". 22/10/2026 UTC.
+1. https://freesound.org/  và  https://freesound.org/apiv2/  và  https://cdn.freesound.org/
+   HTTP/2 403 · content-type: (rỗng) · content-length: 0 · date: Thu, 22 Oct 2026 00:09:40 GMT   (thân rỗng; scripts/env/verify.sh cũng báo "FAIL  Freesound — HTTP 403 (tuỳ chọn)")
+2. https://pixabay.com/sound-effects/
+   HTTP/2 403 · server: cloudflare · cf-mitigated: challenge · <title>Just a moment...</title>   (00:09:40 GMT)
+3. https://sonniss.com/gameaudiogdc  → 301 → https://sonniss.com/gameaudiogdc/
+   HTTP/2 403 · cf-mitigated: challenge · <title>Just a moment...</title>   (00:09:56 GMT) — không đọc được giấy phép gói GDC nên KHÔNG dùng
+4. https://commons.wikimedia.org/w/api.php (list=search, lượt thứ 3 trở đi)
+   HTTP/2 429 · x-envoy-ratelimited: true · "You are making too many requests to the API. Please follow the best practices at https://www.mediawiki.org/wiki/Wikimedia_APIs/Rate_limits. If you are unsure how to get the access you need, contact [email đã che]."  (lặp BAI-HOC-LL #82) — dừng, không thử lại
+Ghi chú: các tệp OpenGameArt khai "derivative of freesound.org/…" không kiểm được giấy phép gốc (Freesound bị chặn) → LOẠI (xem báo cáo §2).
