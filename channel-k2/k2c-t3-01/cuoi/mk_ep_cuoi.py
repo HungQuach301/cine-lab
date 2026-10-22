@@ -57,6 +57,10 @@ def neo_cam(E, N, agl, hd, d, fov=42, up=2.0):
     return [K(0, [E, round(h, 1), N], [round(x, 1) for x in L], fov), K(d, [E, round(h, 1), N], [round(x, 1) for x in L], fov)]
 
 def dur_of(ids): return round(sum(NH[i]['dur_moi'] for i in ids), 4)
+# BAN-CUOI-T3 (lệnh bổ sung 22/10, K-1.17.2): lượt Omni đã giữ + SHA tệp gốc (khớp sổ AI reports/animatic-t3-v2/so-ai-gemini.jsonl; reports/animatic-t3-v2/omni/goc720/GHI-CHU.md) + tệp kiểm
+LUOT = dict(M2=('M2-l3', 'd03dd5949de4d018fd4f9275568edc44690dcba4a65412c5d1130808d830fbe2'), M3=('M3-l1', '0ea8dd2d2590b8730b60c823accc451ce4a369d26d4d35475bb6547cba74f48c'),
+            M4=('M4-l1', '7a72dac3bad46aa5cc83cdb6d1988e2b9fc4da6d1a62fa9931e872f56fe66070'), M5=('M5-l3', 'c683c4e9ac7d46a4484c0cbcad359bfc74972fd526f4aa3a92dc03c91e227b5b'))
+SO_AI = 'reports/animatic-t3-v2/so-ai-gemini.jsonl'
 H1_DAO = [('To walk in from Spain, you cross an airport runway.', 3.413, 6.269, 0.5),   # BAN-CUOI-T3 1c (V2-D3): đảo 3 câu đầu, cắt từ master giọng theo mốc câu (T3-loi-moc.json), không tạo giọng mới
           ('Since July 2026, this gate has had no routine checks.', 6.943, 11.285, 3.756),
           ('Midnight at the Gibraltar frontier.', 0.0, 2.148, 9.75)]
@@ -242,7 +246,7 @@ def shots():
     add('C3', ['2d', '2e'], 'Ca2-lai', 'chat', 'co-che', 'thanh_pho', 'pho', o, cam, v['td'],
         [dict(t=0.0, k='minh_hoa', s='M2 (minh hoạ Omni): người cúi hái rau dại trên sườn đá, gió, khói xa (1/1780)'), dict(t=8.0, k='may', s='cẩu lên: phố + Line Wall + hải đội phong toả')],
         'ANIM-V2: M2 minh hoạ Omni 0 → 8 s (ảnh đầu = khung cận 20–30 m người hái rau dại S052 của chính shot; Q3: Drinkwater 1786 tr. 108 "thistles, dandelion, wild leeks"); 8 → 10 s cẩu lên khung lai ≈ 16°',
-        luot_thap=[0, 8.0], minh_hoa=[dict(ma='M2', t0=0.0, t1=8.0)])
+        luot_thap=[0, 8.0], minh_hoa=[dict(ma='M2', t0=0.0, t1=8.0)], cat=[8.0])   # BAN-CUOI-T3: khai cắt máy M2 → cẩu lên (khoá 7,98/8,0 s)
     v = V['C4']; o = copy.deepcopy(v['opt']); D = d(['SM2', '2f']); cam = copy.deepcopy(V7C.CAM['C4'])
     # ANIM-V2: hết "đồ chơi" — ngoài M1 dùng MÁY THẤP CHÉO từ vịnh (≈ 45 m, nhìn xuống ≈ 5°) thấy tàu tiền cảnh + Old Mole + phố + Rock; M1 (Omni) 2,0 → 9,0 s cận bến ở tầm người
     # BAN-CUOI-T3 (1a): v2 mất đoàn cứu viện Rodney (thời gian góc 1 trước cửa sổ đoàn tàu + máy đặt giữa hàng neo). Góc 1 (0 → 6 s, lời SM2 "three relief fleets"):
@@ -558,10 +562,14 @@ def main():
                   moc=o['time'][0]['at'], bac='xem ghi + meta lớp của cảnh', nguon='mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4', chuong=sh.get('chuong'), ghi=sh['ghi'],
                   tieu_diem=[k2 for k2, _ in sh['td']], luot_thap=sh.get('luot_thap') or False, khung_neo=sh.get('khung_neo', False), ai_image=any((REPO / f"reports/animatic-t3-v2/omni/goc720/{m['ma']}.mp4").exists() for m in (sh.get('minh_hoa') or [])), ai_texture=False, nc=True, lan=sh.get('lan'), cat_trong_shot=list(sh.get('cat') or []),
                   minh_hoa=[dict(m, minh_hoa=True, nguon='Gemini Omni (gemini-omni-1.1-flash) image-to-video, ảnh đầu = render của chính shot', bac='minh hoạ N2 (§14.1 c): không mang dữ kiện vị trí; dữ kiện do lời', so_ai='reports/animatic-t3-v2/so-ai-gemini.jsonl',
+                                luot=LUOT[m['ma']][0], sha_goc=LUOT[m['ma']][1], kiem=f"reports/animatic-t3-v2/omni/kiem/{LUOT[m['ma']][0]}/{LUOT[m['ma']][0]}-kiem.json",
                                 agl_m=round(max(0.0, BC.cam_tai(cm, m['t0'] + 0.05)[0][1] - max(0.0, hAt(BC.cam_tai(cm, m['t0'] + 0.05)[0][0], BC.cam_tai(cm, m['t0'] + 0.05)[0][2]))), 1), nhan_minh_hoa=None, nhan_ghi='bỏ nhãn — quyết định chủ dự án 22/10/2026 11:09') for m in (sh.get('minh_hoa') or [])])
         gm = [dict(t0=0.0, t1=round(float((sh.get('cat') or [d])[0]) if sh.get('cat') else d, 3))]
         cs = [0.0] + [float(c) for c in sh.get('cat') or []] + [d]; gm = [dict(t0=round(a, 3), t1=round(b, 3)) for a, b in zip(cs, cs[1:])]
-        L1.update(so_goc=len(gm), goc_may=gm)   # F8 (R3)
+        lan_t = [m for m in (sh.get('minh_hoa') or [])]
+        gm = [dict(g, id=chr(65 + i), t=g['t0'], loai=('minh_hoa ' + next(m['ma'] for m in lan_t if abs(m['t0'] - g['t0']) < 0.05)) if any(abs(m['t0'] - g['t0']) < 0.05 for m in lan_t) else '3D') for i, g in enumerate(gm)]
+        L1.update(so_goc=len(gm), goc_may=gm)   # F8 (R3) + K-1.17.2 TL-1 (c): goc_may [{id, t}] — mỗi ranh là đổi điểm máy thật (gồm ranh đoạn minh hoạ: đổi sang/ra máy minh hoạ)
+        if not L1['minh_hoa']: L1['ai_image'] = False   # K-LAI-2: C4/M1 giữ 3D → không mục đoạn, ai_image false
         if sh['opt'].get('doiSong'): L1.update(bac=5, uoc_luong=True, doi_song=sorted({x['kind'] for x in sh['opt']['doiSong']}), doi_song_nguon='không nguồn riêng — V2-D8 chủ dự án 22/10 11:09 (vật đời sống chung, bậc 5 ước lượng)')
         if any(e['k'] == 'khoi' for e in sh['su_kien']): L1['khoi_nhip'] = dict(bac=5, uoc_luong=True, ghi='khói bếp/lửa đồng thêm cho nhịp (1e)')
         log.append(L1)
@@ -583,7 +591,8 @@ def main():
         bang.append(dict(ma=f'PP{i + 1}', dong=[], t0=round(t_abs, 3), t1=round(t_abs + th['giay'], 3), dur=th['giay'], diem='—', kieu='the', vai='phuong-phap', vat=th['dong'], ghi='thẻ "How this film was made" v2'))
         t_abs += th['giay']
     E = dict(id='k2c-t3-cuoi', title='Gibraltar — T3 final (1080p24, path A + Cycles GPU dive, G1 v4.2 narration)', brand='MOVING PARTS', channel='k2', out=OUT,
-             music=[], sources={}, numbers={}, khung_sach=True, loi_khoa='../loi-khoa.txt', claims_md='../claims-vay-ham.md', log_shot='log-shot.json', nhip_vat='nhip-vat.json', heroes=heroes, segments=segs)
+             music=[], sources={}, numbers={}, khung_sach=True, so_ai=SO_AI, giong_tong_hop=True,   # K-1.17.2: MINH-HOA (e) / K-LAI-6 sổ AI; CONG-BO-1 giọng G1 ElevenLabs
+             phat_hanh=dict(cong='phat_hanh', goi='release-k2-t3-g2', youtube_altered_content=True, ghi='mô tả YouTube (câu AI/synthetic) do phiên đóng gói viết — phiên BAN-CUOI-T3 chưa có'), loi_khoa='../loi-khoa.txt', claims_md='../claims-vay-ham.md', log_shot='log-shot.json', nhip_vat='nhip-vat.json', heroes=heroes, segments=segs)
     hdr = '# TỆP SINH TỰ ĐỘNG bởi cuoi/mk_ep_cuoi.py (BAN-CUOI-T3, bản sao có sửa của animatic/mk_ep_anim.py) (lời khoá v4.2 SHA 51d1c773…, nhịp reports/kl42/nhip-that.json B; LOOK-KHOA.md). Đừng sửa tay.\n'
     (HERE / 'episode.yaml').write_text(hdr + yaml.safe_dump(E, allow_unicode=True, sort_keys=False, width=200))
     def ts(x): h, r = divmod(x, 3600); m, s2 = divmod(r, 60); return f'{int(h):02d}:{int(m):02d}:{s2:06.3f}'.replace('.', ',')

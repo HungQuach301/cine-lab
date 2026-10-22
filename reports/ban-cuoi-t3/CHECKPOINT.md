@@ -21,3 +21,10 @@ Gốc: `origin/k2c-t3-anim-v2` @72e3f0fe ("cứu 4 video gốc Omni") + merge --
 - 05:45–06:30: Chromium sập (Target crashed, thiếu RAM) ở N2.9, N2.11, C1 và vài lượt xuất GPU khi nướng b2026 + 3 trình duyệt chạy cùng → P = 1–2 khi nướng, thử lại tự động (giám sát vòng; xuất GPU thử lại 3 lượt).
 - 07:22: `nc_topo.js --campath` mặc định 480 khung → `cam.json` của n29 thiếu khung 480–671; bắt được TRƯỚC khi tải lên pod; dựng lại với `--n 684` (chuan_bi.sh đã sửa).
 - ≈ 07:24: container khởi động lại (tiến trình mất, đĩa còn); 2 pod vẫn chạy phía RunPod (trạng thái ở đĩa) → khởi động lại nướng/vòng dựng (--resume)/giám sát/CHECKPOINT/điều khiển pod. Pod 2 bật sớm ≈ 25 phút trước khi có dữ liệu (≈ $0,5 chờ).
+
+## Lệnh bổ sung chủ dự án 22/10 (sau rà K-1.17.2) — XONG (≈ 07:45 UTC)
+- `git fetch` + merge --no-ff `origin/checks-1-17-2` @451e3970 (chỉ checks/ + reports/k1172/; 0 xung đột); `lock.py --verify` KHỚP 1.17.2 `aca05e60…`. Mọi k2check từ giờ dùng 1.17.2; bỏ nhánh dự phòng 1.17.1 ở việc 9.
+- Khai báo bản cuối (qua `cuoi/mk_ep_cuoi.py`, chỉ log + khoá gốc episode.yaml — prep thử ở thư mục tạm rồi prep thật: **0 cảnh đổi dấu**, vòng dựng 1080p không dừng):
+  (a) C4: không mục `minh_hoa` M1, `ai_image: false` (K-LAI-2); (b) M2–M5: `luot` (M2-l3, M3-l1, M4-l1, M5-l3) + `sha_goc` tệp gốc + `kiem` (tệp kiểm lượt) + episode.yaml `so_ai: reports/animatic-t3-v2/so-ai-gemini.jsonl` (MINH-HOA (e), K-LAI-3/6);
+  (c) mọi shot có cắt góc: `so_goc` + `goc_may: [{id, t, t0, t1, loai}]` (TL-1 (c)); C3 thêm cắt 8,0 s (minh hoạ M2 → cẩu lên);
+  (d) episode.yaml `giong_tong_hop: true`, `phat_hanh: {cong: phat_hanh, goi: release-k2-t3-g2, youtube_altered_content: true}` — mô tả YouTube do phiên đóng gói viết (CONG-BO-1 được phép báo thiếu mô tả ở phiên này).

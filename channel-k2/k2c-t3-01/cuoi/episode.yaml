@@ -8,6 +8,13 @@ music: []
 sources: {}
 numbers: {}
 khung_sach: true
+so_ai: reports/animatic-t3-v2/so-ai-gemini.jsonl
+giong_tong_hop: true
+phat_hanh:
+  cong: phat_hanh
+  goi: release-k2-t3-g2
+  youtube_altered_content: true
+  ghi: mô tả YouTube (câu AI/synthetic) do phiên đóng gói viết — phiên BAN-CUOI-T3 chưa có
 loi_khoa: ../loi-khoa.txt
 claims_md: ../claims-vay-ham.md
 log_shot: log-shot.json
@@ -12474,6 +12481,9 @@ segments:
   - t: 4.0
     k: khoi
     s: khói bếp / lửa đồng bốc lên (minh hoạ bậ
+  - t: 8.0
+    k: cut
+    s: góc
   - t: 8.0
     k: may
     s: 'cẩu lên: phố + Line Wall + hải đội phong'
