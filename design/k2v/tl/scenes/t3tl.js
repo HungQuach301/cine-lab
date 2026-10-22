@@ -132,6 +132,7 @@ export async function buildCore(ctx) {
   let NG = null; if (o.ngua && inR(1779.5, 1783.3)) { const { horseLines } = await import('../ngua.js'); NG = horseLines(o.ngua, ctx); scene.add(NG.group);   /* V7C (việc 2d): ngựa kỵ binh trại 1779 (S048 "12 squadrons of horse") */
     log.lop.push({ lop: 'ngua_trai', n: NG.n, nguon: 'S048 Drinkwater 1786: 10/1779 quân TBN có 12 squadrons of horse', bac: 'số: bậc 2 (+ cỡ đội ≈ 120 bậc 5); vị trí hàng ngựa: bậc 5; hình: bậc 4–5' }); }
   let ST = null; if (o.pho2026 && inR(1990, 2027)) { const { streetLife } = await import('../duong2026.js'); ST = await streetLife(ctx, o.pho2026); log.lop.push(ST.log); }   /* V7C (việc 2e): cây/đèn/xe đỗ phố 2026 */
+  const DS = o.doiSong && o.doiSong.length ? (await import('../doisong.js')).doiSong(o.doiSong, ctx, terr) : null; if (DS) { scene.add(DS.group); log.lop.push(DS.log); }   /* BAN-CUOI-T3 (1b, V2-D8): vật đời sống chung, bậc 5 ước lượng */
   let CSK = null; if (o.casks) { const c = o.casks, R0 = rng(1780), g = new THREE.CylinderGeometry(0.42, 0.42, 1.0, 8).rotateZ(Math.PI / 2), m = new THREE.MeshLambertMaterial({ color: 0x7a5534 }); ctx.maskify(m, ctx.U, 1);   // V7B: thùng tiếp tế chất trên Old Mole (S054 — đoàn mang lương thực; số/vị trí minh hoạ bậc 5)
     const im = new THREE.InstancedMesh(g, m, c.n), m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), Yx = new THREE.Vector3(0, 1, 0), P = []; im.castShadow = im.receiveShadow = true;
     for (let i = 0; i < c.n; i++) { const row = Math.floor(i / 30), col = i % 30, lay = Math.floor(row / 3); P.push({ e: c.at[0] + (col - 15) * 1.1 + (R0() - 0.5) * 0.2, n: c.at[1] + (row % 3 - 1) * 1.0 + Math.floor(row / 3) * 0.0 + (lay ? 0.5 : 0), y: lay * 0.82, k: R0() }); }
@@ -189,6 +190,7 @@ export async function buildCore(ctx) {
     if (NG) NG.update(Y);
     if (ST) ST.update(Y);
     if (CSK) CSK.update(Y);
+    if (DS) DS.update(Y, T);
     if (LMP) LMP.update(st.night || 0, Y, T);
     if (RM) { for (const F of FLEETS) F.update(Y); RM.update(ctx.cam.position); } }
   function overlay(tt, st, T) { T.chrome(tt, { s: st.clock.s }, 0, null, null, null); }
