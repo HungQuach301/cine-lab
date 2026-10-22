@@ -49,13 +49,20 @@ def finish_stem(vo, music, sfx, speech, out_wav, C):
             if not tp_ok: ceiling -= (A['TP'] - C['tp']) + 0.1
             if abs(dI) > 0.1: extra += dI
         os.replace(o, out_wav)
-    out = lib.dec(out_wav, 2, dtype=np.float32)[:N]; g = float(np.sum(out * mix[:len(out)]) / max(1e-12, np.sum(mix[:len(out)] ** 2)))   # hệ số tuyến tính master/tổng
+    out = lib.dec(out_wav, 2, dtype=np.float32)[:N]
+    a, b = out[SR * 30:SR * 60, 0], mix[SR * 30:SR * 60, 0]; lag, best = 0, -2.0   # trễ của chuỗi loudness (bộ giới hạn nhìn trước) — dò ±400 mẫu
+    for k in range(-400, 401):
+        x, y = (a[k:], b[:len(b) - k]) if k >= 0 else (a[:k], b[-k:]); r = float(np.dot(x, y) / np.sqrt(np.dot(x, x) * np.dot(y, y) + 1e-20))
+        if r > best: lag, best = k, r
+    sh = lambda x: np.concatenate([np.zeros((lag, x.shape[1]), np.float32), x[:len(x) - lag]]) if lag > 0 else (np.concatenate([x[-lag:], np.zeros((-lag, x.shape[1]), np.float32)]) if lag < 0 else x)
+    Vo, Mu, Sx, mix = sh(Vo), sh(Mu), sh(Sx), sh(mix)
+    g = float(np.sum(out * mix[:len(out)]) / max(1e-12, np.sum(mix[:len(out)] ** 2)))   # hệ số tuyến tính master/tổng (sau khi khử trễ)
     resid = out - g * mix[:len(out)]; rel = float(20 * np.log10(max(1e-9, np.sqrt(np.mean(resid ** 2))) / max(1e-9, np.sqrt(np.mean(out ** 2)))))
     M = measure.measure(out_wav, None)
     R = dict(cong_cu='scripts/k2tl/cuoi_mix.py (bước như scripts/audio/master.py finish)', tham_so={k: C[k] for k in C if k != 'vo_chain'}, tong_s=round(dur, 3), loi_LUFS_truoc_chuan=round(float(Lvo), 2),
              duck=dict(so_khoang=len(D), trung_vi_db=float(np.median([d['duck_db'] for d in D])) if D else 0, sau_nhat_db=min((d['duck_db'] for d in D), default=0)), loudness=log,
              dau_ra=dict(I=M['I'], LRA=M['LRA'], TP=M['TP'], TP_sau_aac=log[-1]['aac']['TP'], lang_pct=M['lang_pct'], lang_bat_thuong=M['lang_bat_thuong']['so'], cham_tran=M['cham_tran']), smr=smr,
-             stem=dict(he_so=round(g, 5), sai_khac_tong_stem_vs_master_dB=round(rel, 1)))
+             stem=dict(he_so=round(g, 5), tre_mau=lag, tuong_quan=round(best, 5), sai_khac_tong_stem_vs_master_dB=round(rel, 1)))
     R['dat'] = dict(I=abs(M['I'] - C['I']) <= 0.2, TP=M['TP'] <= C['tp'], TP_sau_aac=log[-1]['aac']['TP'] <= C['tp'], SMR_p10=bool(smr and smr['p10'] >= C['smr']))
     return R, dict(giong=Vo * g, nhac=Mu * g, sfx=Sx * g)
 

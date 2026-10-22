@@ -22,7 +22,8 @@ print('n29 cam', [(c['t'], [round(x) for x in c['p']]) for c in cam], 'dur', D, 
 P
 mot() { local D=$1 A=$2 B=$3; local OP=$G/opt/$D.json; mkdir -p $G/$D/exp $G/$D/lf
   for F in $(seq $A 12 $B); do X=$G/$D/exp/d-$(printf %05d $F); [ -f $X/manifest.json ] && continue
-    echo -n "$D xuất $F "; node $GPU/gpu_export.js --scene t3tl --opt "$(cat $OP)" --f $F --far 7000 --nopass --w 1920 --h 1080 --out $X 2>&1 | tail -1; done
+    for k in 1 2 3; do echo -n "$D xuất $F (lượt $k) "; node $GPU/gpu_export.js --scene t3tl --opt "$(cat $OP)" --f $F --far 7000 --nopass --w 1920 --h 1080 --out $X 2>&1 | tail -1 || true; [ -f $X/manifest.json ] && break; done
+    [ -f $X/manifest.json ] || { echo "LỖI xuất $D $F sau 3 lượt — dừng (đổi cách)"; exit 5; }; done
   [ -f $G/$D/lf/$(printf %05d $B).json ] || node $GPU/gpu_export.js --scene t3tl --opt "$(cat $OP)" --lightfx $A:$((B + 1)) --w 1920 --h 1080 --out $G/$D/lf 2>&1 | tail -1
   [ -f $G/$D/cam.json ] || node $CPU/nc_topo.js --scene t3tl --opt "$(cat $OP)" --campath $G/$D/cam.json --box 0,0,10,10 --res 10 --out $G/$D/tmp-topo 2>&1 | tail -1
   /opt/cine/bin/python $GPU/dive_pack.py $G/$D $G/$D.tar; }
