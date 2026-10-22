@@ -18,7 +18,7 @@
 ## Khối điều lệ
 | Trường | Lệnh | Thực tế |
 |---|---|---|
-| Nhánh | `sfx-t3` từ origin/main @96b5017c | `claude/laughing-ptolemy-u7xlwe` (harness buộc), gốc đúng @96b5017c; 5 commit; đã đẩy; không merge |
+| Nhánh | `sfx-t3` từ origin/main @96b5017c | `claude/laughing-ptolemy-u7xlwe` (harness buộc), gốc đúng @96b5017c; 5 commit (commit cuối chỉ sửa dòng này); đã đẩy; không merge |
 | Vùng sửa | `reports/sfx-t3/**` ≤ 40 MB, không LFS, tệp tiếng ≤ 2 MB OGG/FLAC | ≈ 24 MB; 41 tệp OGG ứng viên, lớn nhất 1,23 MB; gói nghe 4 MP3 (0,74–0,90 MB); 0 tệp LFS |
 | Chi phí | Claude mốc $3, chặn $10; dịch vụ khác 0 | Claude API **$0** (không gọi `claude -p`), 0 subagent. Token phiên chính không đo được trong phiên, nên không tự khai. OpenAI / Gemini / ElevenLabs / RunPod / YouTube **0**. Không mua, không đăng ký |
 | Preflight | bắt buộc | Hook `pre-commit` + `pre-push` (preflight → `git lfs pre-push`) cài từ commit 2. Mọi lần đẩy sau đều **ĐẠT**, `lock.py --verify` **KHỚP**. **Sự cố:** lần đẩy đầu chạy trước khi cài hook; xem dòng dưới |
