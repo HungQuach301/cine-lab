@@ -1,0 +1,224 @@
+{
+ "ghi": "THAM KHẢO — không phải chấm đạt; chủ dự án chấm cuối (§13.4)",
+ "may": "claude-sonnet-5-5 (claude -p, chỉ Read)",
+ "thang": "0/1/2 mỗi câu × 3 người = tối đa 6/câu",
+ "theo_cau": {
+  "Q1": 6,
+  "Q2": 6,
+  "Q3": 6,
+  "Q4": 4,
+  "Q5": 6,
+  "Q6": 6,
+  "Q7": 0,
+  "Q8": 6
+ },
+ "tong": 40,
+ "toi_da": 48,
+ "clarity_tb": 2.67,
+ "nguoi": {
+  "R1": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 1,
+    "Q5": 2,
+    "Q6": 2,
+    "Q7": 0,
+    "Q8": 2
+   },
+   "clarity": 3,
+   "tra_loi": {
+    "Q1": "Britain. A red-white-blue Union Jack-style flag flies on the tower and walls after 4 Aug 1704, under the caption \"1704 — The Rock changes hands\". Residents also walk away from the town (frames 26-29).",
+    "Q2": "The Great Siege. The caption \"1779 — The Great Siege\" appears, then wooden lines and forts are built across the sand and ships gather offshore.",
+    "Q3": "They look cut off by a blockade. Ships ring the bay and siege lines wall off the land side. In Jan 1780 a man and woman pick plants on a hillside, which suggests there is little food.",
+    "Q4": "A fleet of ships arrives at the harbour (frame 59, 12 Apr 1781). I am not sure it is shown as a rescue, but it follows the hunger scenes.",
+    "Q5": "A big attack at sea on 13-14 Sep 1782. A row of ships sails in at the town, and at night the line of vessels burns and smokes below the Rock. It looks like the attacking ships are destroyed.",
+    "Q6": "Over the centuries the sand is first covered in siege lines and forts, then empty fields. A first small neighbourhood and a runway appear around 1939, with an airfield by 1942-43. A large dense town of streets and apartment blocks fills the land by 2026.",
+    "Q7": "Not sure. In Jun-Aug 1969 a dark line or fence shows across the flat land, and nothing is clearly happening at a gate. Nothing in the pictures shows what happens later.",
+    "Q8": "An airport runway with a crosswalk. Travellers with suitcases walk across it, and in 2026 street scenes and aerials show the two towns side by side on either side of it."
+   },
+   "lac": [
+    {
+     "frame": 3,
+     "why": "The night city and the opening date jumps (2026, then 1411, 1704, 1782, 1939) come before any story is set up."
+    },
+    {
+     "frame": 6,
+     "why": "A 1782 flash-forward appears before the 1704 story, so it is unclear why."
+    },
+    {
+     "frame": 35,
+     "why": "A 1729 line on the sand and a 2015 shot follow one another with no explanation."
+    },
+    {
+     "frame": 44,
+     "why": "A dark night frame with a tiny wall; it is unclear what is happening."
+    },
+    {
+     "frame": 59,
+     "why": "Ships arrive but it is unclear whether they are friend or foe, or what they bring."
+    },
+    {
+     "frame": 60,
+     "why": "Burning streets at night in Apr 1781, with no clear cause or link to the hunger scenes."
+    },
+    {
+     "frame": 96,
+     "why": "A string of year-only dates over empty fields, with no clue about the point."
+    },
+    {
+     "frame": 107,
+     "why": "A street with a few figures in 1910 has no context."
+    },
+    {
+     "frame": 147,
+     "why": "The Jun 1969 frame shows only a faint line across the land, with no gate or explanation."
+    },
+    {
+     "frame": 152,
+     "why": "Rooftops of a town in 2026 with no label saying which town or why it matters."
+    },
+    {
+     "frame": 181,
+     "why": "The film jumps back to 1735, 1943 and 1731 in the ending, so the order is unclear."
+    }
+   ]
+  },
+  "R2": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2,
+    "Q5": 2,
+    "Q6": 2,
+    "Q7": 0,
+    "Q8": 2
+   },
+   "clarity": 2,
+   "tra_loi": {
+    "Q1": "Britain. A flag with a red cross on a white field and a small union canton flies on the tower in frames 22-25, dated 4-5 Aug 1704, and the chapter title reads '1704 — The Rock changes hands'. The pictures don't show which nation held it before. I can't make out the flag's details at this size, so I'm inferring Britain from the red-and-white design.",
+    "Q2": "The 'Great Siege' (chapter title '1779 — The Great Siege', frame 43). Wooden siege lines and forts are built across the flat land north of the rock, and ships gather offshore in July 1779.",
+    "Q3": "The town is cut off. A line of lines or forts closes the land side (frames 43-48), and ships blockade the sea side (frames 49-51, 54-59). Frames 52-53 show a man and woman picking plants on a hillside in Jan 1780, which suggests food was short. There is also fire and bombardment in the town in Apr 1781 (frames 60-61) and ruins by 1782 (frames 64-67). The pictures never show an explicit cause such as an empty storehouse, so the blockade is my best reading.",
+    "Q4": "Not sure. Ships appear near the rock in Jan 1780 (frame 54) and Apr 1781 (frame 59), and they could be a relief fleet. I can't tell from the pictures whether they are friendly or enemy.",
+    "Q5": "A large attack from the sea. On 8 Sep 1782 there is heavy smoke and fire along the land front. A row of floating batteries or ships then lines up in front of the rock on 11-13 Sep. They burn brightly at night on 13-14 Sep (frames 86-88), so the attack on the rock seems to fail with the ships on fire.",
+    "Q6": "Over time the sandy flat land is built up. Wooden lines and forts come first (1731-1783). Then it is mostly empty grass and sand through the 1800s. Small buildings and streets appear around 1904-1910, and the chapter title '1939 — A runway on the sand' marks an airstrip. Housing and a dense modern town fill the land by 1969-2026, and a runway is still visible in 2026.",
+    "Q7": "Not sure. Frames 147-151 are dated Jun 1969, Aug 1969, Aug 1973, Mar 1980 and Sep 1984. They show a long line across the flat land that looks like a fence or border, and the new town grows beside it over those years. The pictures don't show a gate closing or reopening, or any people or traffic at a gate.",
+    "Q8": "The runway. In the 2026 frames (155-157, 167-169) people walk across a crossing and the flat airfield, apparently on foot between the two towns. The modern streets and buildings of the two towns run up to the same strip of land. The only link the pictures clearly show is people walking across the runway or crossing, with luggage in frames 1-2."
+   },
+   "lac": [
+    {
+     "frame": 4,
+     "why": "The opening montage jumps among 1411, 1704, 1782, 1939 and 2026 with no explanation."
+    },
+    {
+     "frame": 26,
+     "why": "A column of people and a man with a donkey walk across the plain (9-24 Aug 1704). The pictures don't say who they are or why they leave."
+    },
+    {
+     "frame": 35,
+     "why": "1729 shows a thin line on empty land and then jumps to a 2015 shot, so the timeline is unclear."
+    },
+    {
+     "frame": 52,
+     "why": "A couple picks plants on a hillside, and nothing on screen says this means hunger."
+    },
+    {
+     "frame": 59,
+     "why": "Ships come to the town in 1781, and I can't tell whether they are rescuers or attackers."
+    },
+    {
+     "frame": 107,
+     "why": "Two figures stand in a narrow street in 1910, with no clue to the point."
+    },
+    {
+     "frame": 147,
+     "why": "The 1969 shots show no gate, closure or crowd, only a faint line across the land."
+    },
+    {
+     "frame": 181,
+     "why": "The film jumps among 1735, 1943, 2026, 1731 and 1783 at the end, which confuses the order of events."
+    }
+   ]
+  },
+  "R3": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 1,
+    "Q5": 2,
+    "Q6": 2,
+    "Q7": 0,
+    "Q8": 2
+   },
+   "clarity": 3,
+   "tra_loi": {
+    "Q1": "Britain. A Union Jack flies on the tower and walls in frames 22-25 (Aug 1704), right after the title card \"1704 — The Rock changes hands\" (frame 11). The flag is tiny, so I'm reading it as British, not certain of it.",
+    "Q2": "A siege, shown by the title card \"1779 — The Great Siege\" (frame 43). Besieging lines and wooden forts go up on the sandy isthmus (frames 43-48), and ships blockade the bay (frame 49).",
+    "Q3": "The siege cuts the town off by land and sea, so food runs short. Frames 52-53 show two people foraging for wild plants on the hillside in Jan 1780. Frames 54-58 show the bay with the town, but I can't tell whether the ships there are blockading it or arriving.",
+    "Q4": "A fleet of ships arrives by sea, relieving the town. Frame 59 (Apr 1781) shows a group of ships approaching the town, and frame 49 shows ships in the bay. The pictures don't show that the ships carry supplies, so this is my reading and I'm not fully sure.",
+    "Q5": "A big naval battle at night. A line of floating batteries (ships lit up) forms on 11-13 Sep 1782 (frames 76-85). In frames 86-88 those ships burn and flash in the dark on 13-14 Sep. The Rock's attackers appear to be destroyed, so the attack seems to fail.",
+    "Q6": "An airstrip, then a town. Wooden lines and forts stand on empty flat land in the 1700s. The title card \"1939 — A runway on the sand\" (frame 118) comes first, then a runway and buildings (frames 127-132). After 1969 a dense modern city fills the land north of the Rock (frames 146-166).",
+    "Q7": "I'm not sure. The 1969 frames (147-148) show only the aerial view, and the isthmus looks empty. I never see a border gate or a closing, and no closure or reopening is shown. Frames 155-157 and 167-169 show an airfield and the dense city beside it.",
+    "Q8": "I'm not sure. Frames 155-157 and 167-169 show an airport apron or runway between the two built-up areas. Frames 158-159 and 162-163 show pedestrians in a street. Frames 1-2 show people with suitcases walking across a runway crossing. I read this as the runway being crossed on foot, but no frame shows it directly."
+   },
+   "lac": [
+    {
+     "frame": 0,
+     "why": "Opens with modern 2026 footage and then jumps to 1411 and 1782, so the timeline has no clear starting point."
+    },
+    {
+     "frame": 6,
+     "why": "The 1782 ships at sea appear in the intro, long before the story reaches them. Out of sequence and unexplained."
+    },
+    {
+     "frame": 26,
+     "why": "A column of people and a donkey walk across the grass. Without narration I can't tell they are residents leaving the town in 1704."
+    },
+    {
+     "frame": 35,
+     "why": "The 1729 and 2015 shots show an empty plain and then a modern town. The point of the jump is unclear."
+    },
+    {
+     "frame": 52,
+     "why": "Hunger is only implied by two people picking plants. No food shortage is shown directly."
+    },
+    {
+     "frame": 60,
+     "why": "Night fire in the streets. I can't tell who is shooting at the town or why."
+    },
+    {
+     "frame": 76,
+     "why": "Dots on the sea (floating batteries) are hard to read as ships, and who attacks whom is unclear."
+    },
+    {
+     "frame": 107,
+     "why": "A street scene in 1910 with figures that look like placeholder models. The story link is unclear."
+    },
+    {
+     "frame": 147,
+     "why": "1969 shows only an empty aerial view. No border gate or closure is visible."
+    },
+    {
+     "frame": 168,
+     "why": "Airfield views and a quarter-by-quarter modern timelapse. The gate, the border and the link between the towns are never shown."
+    }
+   ]
+  }
+ },
+ "chi_phi_usd": 0.3956,
+ "p_doc": {
+  "Q1": 6,
+  "Q2": 6,
+  "Q3": 6,
+  "Q4": 2,
+  "Q5": 6,
+  "Q6": 6,
+  "Q7": 0,
+  "Q8": 5,
+  "tong": 37,
+  "ghi": "P đọc lại nguyên văn (luật như ANIMATIC-T3: chỉ tính khi trả lời đúng ý chính, không rào \"not sure\"): Q4 R1 1 · R2 0 · R3 1; Q8 R1 2 · R2 2 · R3 1 (rào \"not sure\"). ANIMATIC-T3: 31/48."
+ }
+}

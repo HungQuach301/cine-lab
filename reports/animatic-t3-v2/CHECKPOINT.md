@@ -3,19 +3,18 @@
 Phiên sửa animatic T3 theo nhận xét chủ dự án 21/10 21:05–21:15 (phương án A + 5 đoạn minh hoạ Omni M1–M5).
 
 <!-- TRANG-THAI -->
-## Trạng thái tự động (22/10/2026 03:25 UTC) — `scripts/k2tl/anim_ckpt.py`
+## Trạng thái cuối (22/10/2026 03:40 UTC) — HOÀN TẤT, DỪNG chờ chủ dự án
 
-- Cảnh đinh XONG: **43/43** (20253 khung) · CÒN: **0** (0 khung chưa dựng).
-- s/khung TB 12 cảnh gần nhất (mỗi tiến trình, P = 3): 3.13 → ước còn **≈ 0.0 h** dựng cảnh đinh; sau đó: ghép cú lặn → render đoạn → ghép master → LOOK-4 → xuất (≈ 1,5 h).
-- Dòng cuối log vòng: `00:02 VONG-XONG`
-- Xong: C1, C2, C3, C4, C5, H1, H2, H2T, H3, KA1782, KA2026, KB1943, KB2026, KC1910, KC2026, N1_1, N1_2, N1_3, N1_4, N1_5, N1_6, N2_10, N2_11, N2_6, N2_7, N2_8, N2_9, N3_1, N3_2, N3_3, N3_4, N3_5, N4_1, N4_2, N4_3, N4_4, N4_5, N5_1, N5_2, N5_3, N5_4, N5_5, N5_6
-- Còn: 
+- Cảnh đinh: **43/43** xong. Master v2 dựng xong, 761,000 s, SHA `a9a35a128225bbf0ab8cce3de3a361e16dc95002170235ef6fd574465ff59b74` (ngoài git).
+- Minh hoạ Omni: M2, M3, M4, M5 đạt và đã chèn; M1 giữ 3D sau 3 lần LOẠI.
+- Đã xuất: 8 tệp xem trong `xem/`, `to-khung.jpg`, `to-so/`, `PHIEU-XEM-V2.md`. Đã chạy k2check 1.16.1 và xem câm 3 AI.
+- Báo cáo: `ANIM-V2-BAO-CAO.md`. Vòng CHECKPOINT tự động đã dừng.
 
 | Tệp ngoài git | SHA-256 | Tái tạo |
 |---|---|---|
+| `/var/tmp/cine-out/k2c-t3-anim/k2c-t3-anim-v2-master.mp4` | `a9a35a128225bbf0ab8cce3de3a361e16dc95002170235ef6fd574465ff59b74` | xem `ANIM-V2-BAO-CAO.md` mục 6 |
 | `/var/tmp/cine-out/k2c-t3-anim/mix.wav` (tiếng cả tập) | `805432b5c7e92bfb007be9e08a8780c40099502e33703fbafc55360d504c4acd` | `anim_mix.py channel-k2/k2c-t3-01/animatic/anim-loi.json <ra.wav>` |
-| cảnh đinh `/var/tmp/cine-out/hero/k2c-t3-anim-anim_*-d/` | (theo stamp từng cảnh) | `bash scripts/k2/build.sh …/animatic/episode.yaml prep` (K2_DRAFT=1 MW=960, chặn mạng) → `P=3 bash scripts/k2tl/anim_vong.sh …/animatic/episode.yaml` |
-| lightmap 7 mốc `$K2TL_CACHE/nc/bake/b*/` | meta `reports/animatic-t3/do/nuong-*.json` | `bash scripts/k2tl/anim_nuong.sh` |
+| lightmap 7 mốc `$K2TL_CACHE/nc/bake/b*/` | meta `reports/animatic-t3-v2/do/nuong-*.json` | `bash scripts/k2tl/anim_nuong.sh` |
 <!-- /TRANG-THAI -->
 
 ## Xong
