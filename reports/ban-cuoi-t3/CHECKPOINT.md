@@ -2,15 +2,17 @@
 
 Gốc: `origin/k2c-t3-anim-v2` @72e3f0fe ("cứu 4 video gốc Omni") + merge --no-ff `origin/checks-1-17-1` @39d01859 (→ 622a1c27) + `origin/claude/laughing-ptolemy-u7xlwe` @0a10d1fc (→ 170e55ce). 0 xung đột.
 
-## Trạng thái (cập nhật 22/10 05:15 UTC)
-- Bộ đệm cảnh gib dựng lại (`scripts/k2tl/cuoi_cache.sh`); 2 tệp nguồn bị proxy cắt giữa chừng (Catastro, LoC) → tải lại, SHA KHỚP sổ V5B1.
-- Hook preflight + LFS pre-push đã cài.
-- Nướng 7 lightmap đang chạy nền (PGID trong `/var/tmp/cine-out/log/nuong.pgid`): b1779 xong 1 160 s.
-- Việc 1b: module mới `design/k2v/tl/doisong.js` (vật đời sống chung bậc 5) + `cuoi/mk_ep_cuoi.py` (bản sao mk_ep_anim.py có sửa). Soi 480×270: N3.1, N3.3, N3.4, N4.1 cỏ ≤ 40 % (trừ ≤ 2 s đầu N3.3).
-- Chưa: C4 (1a), H1 (1c), 1969 (1d), nhịp (1e), nhãn (1f); GPU; 1080p; Omni; màu; âm thanh; thẻ; kiểm; xuất.
+## Trạng thái (cập nhật 22/10 05:46 UTC)
+- Bộ đệm cảnh gib xong; nướng lightmap nền (b1779 1 160 s, b1782 1 548 s xong; còn b2026 b1704 b1781r b1940 b1900).
+- Việc 1 (máy + nội dung) XONG ở đặc tả `channel-k2/k2c-t3-01/cuoi/` (mk_ep_cuoi.py → episode.yaml, log-shot.json, bang-shot.json, anim-loi.json, phu-de.srt): 1a C4, 1b ch3–4, 1c H1, 1d cổng 1969, 1e nhịp (283 biến cố, TB 2,65 s), 1f bỏ nhãn (cuoi_minh_hoa.py). Mã `design/k2v/tl/*` CHỐT.
+- Prep 1080p xong (762,0 s, 18 288 khung; ElevenLabs 0 ký tự). Vòng dựng cảnh đinh 1080p SPP 4 đang chạy nền: `scripts/k2tl/anim_vong2.sh` (PGID `/var/tmp/cine-out/log/vong.pgid`, P đọc `/var/tmp/cine-out/log/P` = 2 khi nướng). Đo sơ bộ ≈ 3,3–3,8 s/khung/tiến trình.
+- Omni 1080p: 4 tệp phóng Lanczos + unsharp ở `/var/tmp/cine-out/omni1080/` (tái tạo bằng lệnh trong `scripts/k2tl/cuoi_minh_hoa.py`).
+- Chưa: GPU (việc 2), chèn minh hoạ + lặn sau khi dựng, LUT, âm thanh, k2check, xuất.
 
 ## Tệp ngoài git
 | Tệp | Tái tạo |
 |---|---|
 | `/var/tmp/cine-out/k2tl-cache/` | `bash scripts/k2tl/cuoi_cache.sh` |
 | lightmap `$K2TL_CACHE/nc/bake/b*/` | `NUONG_META=reports/ban-cuoi-t3/do bash scripts/k2tl/anim_nuong.sh` |
+| cảnh đinh 1080p `/var/tmp/cine-out/hero/k2c-t3-cuoi-anim_*` | vòng dựng (dấu cảnh trong heroes.json; `--resume`) |
+| `/var/tmp/cine-out/omni1080/M2…M5.mp4` | lệnh ffmpeg trong `scripts/k2tl/cuoi_minh_hoa.py` từ `reports/animatic-t3-v2/omni/goc720/` |

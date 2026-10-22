@@ -68,7 +68,7 @@ function roads(sp, ctx, terr, g) {
 
 // ---- xe + gia súc (lớp 'nguoi': vật động có vai sống) ----
 function carts(sp, ctx, terr, g) {
-  const R = rng(sp.seed || 31), tai = sp.kieu === 'tai', C = cum(sp.pts), L = C[C.length - 1], n = sp.n || 4, v = sp.v || (tai ? 6 : 1.6);
+  const R = rng(sp.seed || 31), tai = sp.kieu === 'tai', C = cum(sp.pts), L = C[C.length - 1], n = sp.n || 4, v = sp.v ?? (tai ? 6 : 1.6);
   const body = tai ? geoMerge([new THREE.BoxGeometry(2.2, 1.6, 5.2).translate(0, 1.5, -0.6), new THREE.BoxGeometry(2.0, 1.7, 1.6).translate(0, 1.55, 2.6)])
     : geoMerge([new THREE.BoxGeometry(1.6, 0.7, 3.0).translate(0, 1.05, 0), new THREE.BoxGeometry(0.7, 1.3, 2.0).translate(0, 1.2, 2.6)]);   // thùng xe + con vật kéo (khối)
   const whl = new THREE.CylinderGeometry(tai ? 0.5 : 0.65, tai ? 0.5 : 0.65, 0.2, 10).rotateZ(Math.PI / 2);

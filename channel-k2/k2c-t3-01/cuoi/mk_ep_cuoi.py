@@ -12,7 +12,8 @@ import copy, importlib.util, json, math, random, sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent; EP = HERE.parent; REPO = EP.parents[1]
-OUT = sys.argv[sys.argv.index('--out') + 1] if '--out' in sys.argv else '/var/tmp/cine-out/k2c-t3-anim'
+sys.path.insert(0, str(REPO / 'scripts/k2tl')); import cuoi_bien_co as BC   # BAN-CUOI-T3
+OUT = sys.argv[sys.argv.index('--out') + 1] if '--out' in sys.argv else '/var/tmp/cine-out/k2c-t3-cuoi'
 _s = importlib.util.spec_from_file_location('v7c', EP / 'v7p/mk_ep_v7c.py'); V7C = importlib.util.module_from_spec(_s); _a = sys.argv; sys.argv = ['v7c', '--nc', '1']; _s.loader.exec_module(V7C); sys.argv = _a
 V7B, V7P = V7C.V7B, V7C.V7B.V7P
 NH, dy, hAt = V7C.NH, V7C.dy, V7C.hAt
@@ -34,7 +35,7 @@ def K(t, p, l, fov): return dict(t=round(t, 4), p=p, l=l, fov=fov)
 def hold(p, l, fov, d, dp=(0, 0, 0)):
     """máy giữ + trôi chậm tuyến tính dp (m) suốt shot (TL-1 ≤ 2 %/s)"""
     return [K(0, list(p), list(l), fov), K(d, [p[0] + dp[0], p[1] + dp[1], p[2] + dp[2]], list(l), fov)]
-def cuts(D, segs):
+def cuts(D, segs, giu=False):
     """ANIM-V2 (R3): shot chia góc — segs = [dict(t1 (bỏ ở góc cuối), p0, l0, [p1 | dp], [l1], fov)]; cắt cứng giữa các góc (khoá cuối góc trước ở t1 − 0,02 s). Trả (khoá máy, giây cắt trong shot)."""
     keys, ct, t0 = [], [], 0.0
     for i, g in enumerate(segs):
@@ -42,6 +43,9 @@ def cuts(D, segs):
         if i: ct.append(round(t0, 4))
         keys.append(K(t0, list(g['p0']), list(g['l0']), g['fov']))
         p1 = g.get('p1') or [g['p0'][k] + g.get('dp', (0, 0, 0))[k] for k in range(3)]
+        if giu:   # BAN-CUOI-T3: khoá giữ sát hai đầu góc → tiếp tuyến Hermite không lấy theo góc kề (máy thấp cạnh máy cao 400 m vọt dưới đất — BAI-HOC #118a)
+            f = lambda u: [g['p0'][k] + (p1[k] - g['p0'][k]) * u for k in range(3)]; a, b = t0 + 0.04, t1 - (0.06 if i < len(segs) - 1 else 0.04)
+            keys.append(K(a, f(0.04 / (t1 - t0)), list(g.get('l1') or g['l0']) if False else list(g['l0']), g['fov'])); keys.append(K(b, f((b - t0) / (t1 - t0)), list(g.get('l1') or g['l0']), g['fov']))
         keys.append(K(t1 - (0.02 if i < len(segs) - 1 else 0.0), list(p1), list(g.get('l1') or g['l0']), g['fov']))
         t0 = t1
     return keys, ct
@@ -53,10 +57,15 @@ def neo_cam(E, N, agl, hd, d, fov=42, up=2.0):
     return [K(0, [E, round(h, 1), N], [round(x, 1) for x in L], fov), K(d, [E, round(h, 1), N], [round(x, 1) for x in L], fov)]
 
 def dur_of(ids): return round(sum(NH[i]['dur_moi'] for i in ids), 4)
+H1_DAO = [('To walk in from Spain, you cross an airport runway.', 3.413, 6.269, 0.5),   # BAN-CUOI-T3 1c (V2-D3): đảo 3 câu đầu, cắt từ master giọng theo mốc câu (T3-loi-moc.json), không tạo giọng mới
+          ('Since July 2026, this gate has had no routine checks.', 6.943, 11.285, 3.756),
+          ('Midnight at the Gibraltar frontier.', 0.0, 2.148, 9.75)]
 def lines_of(ids):
     out = []
     for i in ids:
+        if i in ('0a', '0b'): continue
         for c in NH[i].get('cau', []): out.append(dict(dong=i, bd=round(c['bd_phim'], 3), kt=round(c['kt_phim'], 3), cau=c['khoa']))
+    if '0a' in ids: out = [dict(dong=('0a' if 'Midnight' in c or 'To walk' in c else '0b'), bd=round(f, 3), kt=round(f + b - a, 3), cau=c) for c, a, b, f in H1_DAO] + out
     return out
 
 # ---------------- mốc toạ độ (ENU m, gốc gói gib) ----------------
@@ -104,6 +113,8 @@ DS_N41 = [dict(kind='xe', kieu='tai', pts=[[-700, -40], [-200, -30], [300, -20],
           dict(kind='vuon', w=40, h=28, luong=8, cao=0.5, mau=[0x4f6b2e, 0x7a5a3a, 0x8a7a40, 0x5d7a35], at=[150, 560], r=150, sx=1.6, n=36, wY=dict(on=1900), seed=4106), dict(kind='kho', at=[250, 620], r=120, n=12, wY=dict(on=1900), seed=4107),
           dict(kind='giasuc', loai='de', at=[0, 650], r=60, n=30, wY=dict(on=1900), seed=4108)]
 
+C4_P1, C4_L1, C4_F1 = [-4500, 45, -700], [-600, 110, -1300], 40   # BAN-CUOI-T3 1a: máy góc 1 C4 (chọn bằng thử máy)
+
 # ---------------- 43 SHOT ----------------
 def shots():
     S = []; V = {s['id']: s for s in V7C.shots()}
@@ -113,15 +124,15 @@ def shots():
     # ===== CHƯƠNG 0 · MÓC (0 → 43,833) =====
     v = V['H1']; o = copy.deepcopy(v['opt']); D = d(['0a', '0b'])
     # ANIM-V2 (chủ dự án 21/10 21:05): mở đầu BAN NGÀY → hoàng hôn → đêm (timelapse thấy ngay, Rock nhận ra trong ánh ngày ≤ 3 s); M5 (Omni) 4,5 → 10,5 s; kết 23:52 nối H2
-    o['time'] = [dict(t=0, at='2026-10-19 15:00', sun='real', lab='dt'), dict(t=4.5, at='2026-10-19 17:30', sun='real', lab='dt'), dict(t=10.5, at='2026-10-19 18:20', sun='real', lab='dt'),
-                 dict(t=11.2, at='2026-10-19 19:45', sun='real', lab='dt'), dict(t=D, at='2026-10-19 23:52', sun='real', lab='dt')]   # M5 (Omni, nắng chiều) nằm ở 17:30–18:20; hoàng hôn → đêm 10,5 → 12 s
-    cam, ct = cuts(D, [dict(t1=4.5, p0=[380, 430, 1350], l0=[-110, 0, -300], dp=(-5, -2, -12), fov=40), dict(t1=10.5, p0=[4, 9.0, -40], l0=[6, 2.0, 0], dp=(0, 0, 2), fov=50),
+    o['time'] = [dict(t=0, at='2026-10-19 15:00', sun='real', lab='dt'), dict(t=4.5, at='2026-10-19 17:30', sun='real', lab='dt'), dict(t=9.5, at='2026-10-19 19:40', sun='real', lab='dt'),
+                 dict(t=9.65, at='2026-10-19 20:30', sun='real', lab='dt'), dict(t=D, at='2026-10-19 23:52', sun='real', lab='dt')]   # BAN-CUOI-T3 1c: M5 rút 1 s (4,5 → 9,5); hoàng hôn → đêm 9,5 → 9,65 s; "Midnight…" từ 9,75 s trên đêm 3D   # M5 (Omni, nắng chiều) nằm ở 17:30–18:20; hoàng hôn → đêm 10,5 → 12 s
+    cam, ct = cuts(D, [dict(t1=4.5, p0=[380, 430, 1350], l0=[-110, 0, -300], dp=(-5, -2, -12), fov=40), dict(t1=9.5, p0=[4, 9.0, -40], l0=[6, 2.0, 0], dp=(0, 0, 2), fov=50),
                        dict(p0=[371, 426, 1330], l0=[-111, 0, -301], dp=(-5, -2, -12), fov=40)])   # ANIM-V2: góc giữa = máy tầm mắt cá chân trên đường Winston Churchill qua đường băng (ảnh đầu M5)
     add('H1', ['0a', '0b'], 'D7-lai → WCA-than → D7-lai', 'lai', 'co-che', 'eo_dat', 'pho', o, cam, v['td'],
-        [dict(t=0.0, k='ngay_dem', s='19/10/2026 15:00: ban ngày — Rock nguyên khối, cổng + đường băng tiền cảnh'), dict(t=10.5, k='ngay_dem', s='hoàng hôn → đêm; đèn phố/đường băng bật dần'),
-         dict(t=4.5, k='minh_hoa', s='M5 (minh hoạ Omni): cận chân người đi bộ bước qua vạch đường băng'), dict(t=11.9, k='ngay_dem', s='gần nửa đêm biên giới (23:52)')],
+        [dict(t=0.0, k='ngay_dem', s='19/10/2026 15:00: ban ngày — Rock nguyên khối, cổng + đường băng tiền cảnh'), dict(t=4.5, k='minh_hoa', s='M5 (minh hoạ Omni): cận chân người đi bộ bước qua vạch đường băng'),
+         dict(t=9.5, k='ngay_dem', s='hoàng hôn → đêm; đèn phố/đường băng bật dần'), dict(t=11.9, k='ngay_dem', s='gần nửa đêm biên giới (23:52)')],
         'ANIM-V2: mở đầu ban ngày → đêm (timelapse 15:00 → 23:52, cùng điểm máy D7, trôi rất chậm) — Rock nhận ra trong ánh ngày 0–3 s; M5 minh hoạ Omni 4,5 → 10,5 s; H2 nối từ 23:52',
-        minh_hoa=[dict(ma='M5', t0=4.5, t1=10.5)], cat=ct)
+        minh_hoa=[dict(ma='M5', t0=4.5, t1=9.5)], cat=ct)
     v = V['H2']; o = copy.deepcopy(v['opt'])
     o['time'][0] = dict(t=0, at='2026-10-19 23:53', sun='real', lab='dt', hold=True); o['time'][1] = dict(t=o['time'][1]['t'], at='2026-10-20 00:20', sun='real', lab='dt', hold=True)   # ANIM-V2: nối giờ kết thúc H1 (đêm)
     for f in o['fleets']:
@@ -234,16 +245,18 @@ def shots():
         luot_thap=[0, 8.0], minh_hoa=[dict(ma='M2', t0=0.0, t1=8.0)])
     v = V['C4']; o = copy.deepcopy(v['opt']); D = d(['SM2', '2f']); cam = copy.deepcopy(V7C.CAM['C4'])
     # ANIM-V2: hết "đồ chơi" — ngoài M1 dùng MÁY THẤP CHÉO từ vịnh (≈ 45 m, nhìn xuống ≈ 5°) thấy tàu tiền cảnh + Old Mole + phố + Rock; M1 (Omni) 2,0 → 9,0 s cận bến ở tầm người
-    cam, ct = cuts(D, [dict(t1=2.0, p0=[-1500, 48, -980], l0=[-640, 15, -1080], dp=(30, -1, 0), fov=40), dict(t1=9.0, p0=[-1050, 30, -900], l0=[-600, 10, -690], dp=(20, -1, 8), fov=34)   # ANIM-V2: M1 trượt 3 lượt → giữ 3D: máy thấp gần bến (≈ 500 m), thuyền cập Old Mole tiền cảnh
-                       ,
+    # BAN-CUOI-T3 (1a): v2 mất đoàn cứu viện Rodney (thời gian góc 1 trước cửa sổ đoàn tàu + máy đặt giữa hàng neo). Góc 1 (0 → 6 s, lời SM2 "three relief fleets"):
+    #  máy thấp chéo từ vịnh, đoàn Rodney (9 tàu chiến + 12 tàu hàng, dữ liệu tàu V7C/v1) đi vào, Rock nền không cắt mép · góc 2 (6 → 10 s, M1 giữ 3D): dỡ hàng Old Mole, hàng neo phía sau
+    #  · góc 3 (10 → 13,5 s, lời 2f): tàu chanh Đan Mạch vào cảng 10/1780
+    cam, ct = cuts(D, [dict(t1=6.0, p0=C4_P1, l0=C4_L1, dp=(700, -5, -100), fov=C4_F1), dict(t1=10.0, p0=[-1900, 50, -1900], l0=[-600, 30, -700], dp=(30, -1, 25), fov=40),
                        dict(p0=[-1420, 52, -1180], l0=[-620, 25, -1000], dp=(25, -1, 5), fov=40)])
-    o['time'] = [dict(t=0, at='1780-01-16 12:00', sun=15.0, lab='d'), dict(t=1.98, at='1780-01-19 12:00', sun=15.0, lab='d'), dict(t=2.0, at='1780-01-21 10:00', sun=15.0, lab='d'), dict(t=9.0, at='1780-02-01 12:00', sun=15.0, lab='d'),   # ANIM-V2: M1 mở ở 21/1 (đã có người + thùng ở bến)
-                 dict(t=9.05, at='1780-10-08 12:00', sun=15.0, lab='d'), dict(t=11.0, at='1780-10-12 12:00', sun=15.0, lab='m'), dict(t=D, at='1780-11-30 12:00', sun=15.0, lab='m')]
+    o['time'] = [dict(t=0, at='1780-01-18 18:10', sun=15.0, lab='d'), dict(t=5.98, at='1780-01-19 13:00', sun=15.0, lab='d'), dict(t=6.0, at='1780-01-21 10:00', sun=15.0, lab='d'), dict(t=10.0, at='1780-02-01 12:00', sun=15.0, lab='d'),
+                 dict(t=10.05, at='1780-10-08 12:00', sun=15.0, lab='d'), dict(t=11.5, at='1780-10-12 12:00', sun=15.0, lab='m'), dict(t=D, at='1780-11-30 12:00', sun=15.0, lab='m')]
     add('C4', ['SM2', '2f'], 'Bm-thap → M1 → Bm-thap', 'lai', 'co-che', 'bien', 'vinh', o, cam, v['td'],
-        [dict(t=0.0, k='tau', s='đoàn Rodney vào vịnh 1/1780 (cờ Red Ensign) — máy thấp, tàu tiền cảnh'), dict(t=2.0, k='minh_hoa', s='M1 (minh hoạ Omni): Old Mole 1780 — thuyền cập, người khiêng thùng, đống hàng lớn dần'),
-         dict(t=9.05, k='tau', s='10/1780: tàu chanh Đan Mạch vào cảng')],
+        [dict(t=0.0, k='tau', s='đoàn cứu viện Rodney vào vịnh 17→19/1/1780 (cờ Red Ensign) — máy thấp chéo, đoàn tàu là tiêu điểm, Rock nền'), dict(t=6.0, k='nguoi', s='Old Mole 21/1→1/2/1780: thuyền cập, người khiêng thùng, đống hàng lớn dần (3D, M1 giữ 3D)'),
+         dict(t=10.05, k='tau', s='10/1780: tàu chanh Đan Mạch vào cảng')],
         'ANIM-V2: máy thấp chéo từ vịnh (thay khung lai 13° nhìn xuống bến "đồ chơi"); M1 minh hoạ Omni TRƯỢT 3 lượt (tàu có buồm / cờ / cọc buộc sắt) → giữ 3D góc thấp gần bến 2 → 9 s; đoàn Rodney + tàu chanh: V7C (bậc 2 thời điểm, số/vị trí minh hoạ)',
-        cat=ct, minh_hoa=[dict(ma='M1', t0=2.0, t1=9.0)])
+        cat=ct)
     v = V['C5']; o = copy.deepcopy(v['opt']); D = d(['2g']); cam = copy.deepcopy(V7C.CAM['C5'])
     for k in cam: k['l'] = [-900, 0, -900]
     # ANIM-V2: M4 (Omni) 6,1 → 12,5 s — ngõ đêm 13→14/4/1781, ánh lửa, người chạy về nam (lời "Spain's batteries opened fire on the town … The townspeople fled south"); ảnh đầu = máy tầm người trên Main Street nhìn bắc về các nhà cháy
@@ -286,10 +299,12 @@ def shots():
     big = [dict(n=24, center=[-4300, 1300], axis=150, spacing=230, kind='line', heading=110, wY=[dy('1782-09-11 14:00'), 1783.1], phe='es', soai=12),   # soi 2: bản có path không hiện → hai đợt thả neo theo giờ (11/9 chiều, 12/9 sáng); vị trí minh hoạ
            dict(n=23, center=[-4900, 400], axis=150, spacing=230, kind='line', heading=110, wY=[dy('1782-09-12 08:00'), 1783.1], phe='es', soai=11)]
     bt = [dict(list=[dict(at=[-6300 + 70 * i, -1700 + 60 * i], kind='battery') for i in range(10)], heading=60, wY=[1782.69, 1783.0], phe='es', coScale=1.5)]
-    o = base(time=[dict(t=0, at='1782-09-11 07:00', sun=15.0, lab='d'), dict(t=D, at='1782-09-12 18:00', sun=15.0, lab='d')], fleets=big + bt, co=co_ld() + co_lw(), recl=False)
-    add('N2.8', ['2k', '2l'], 'B-cao-lai', 'lai', 'co-che', 'bien', 'vinh', o, hold([-5600, 800, 700], [-2000, 0, -1100], 36, D, (50, -8, -25)), [('ham_doi_lien_quan', None)],
-        [dict(t=1.0, k='tau', s='hạm đội Pháp–TBN vào vịnh (47 tàu chiến, số phía Anh)'), dict(t=12.0, k='tau', s='10 pin nổi neo ngoài Algeciras')],
-        '(soi 1–2 + soát LOOK-4: hạm đội sau lưng máy / khung gần như chỉ còn nước → gần hơn, 36°) từ tây vịnh nhìn đông-nam qua hàng neo tới Rock: hạm đội tiền cảnh, Rock nền giữa; 47 tàu chiến = số phía Anh (lời 2k); vị trí hàng neo minh hoạ (bậc 5, theo Faden 1783 phía Algeciras); pin nổi ở Algeciras 12/9 (S066)')
+    o = base(time=[dict(t=0, at='1782-09-11 09:00', sun='real', lab='dt'), dict(t=D, at='1782-09-12 15:00', sun='real', lab='dt')], fleets=big + bt, co=co_ld() + co_lw(), recl=False)   # BAN-CUOI-T3 1e: giờ thật (đêm 11→12/9 thấy được)
+    N28cam, ct28 = cuts(D, [dict(t1=12.5, p0=[-8200, 600, -2600], l0=[-2600, 0, -200], dp=(60, -5, 20), fov=36), dict(p0=[-6800, 180, -1800], l0=[-2500, 10, -100], dp=(50, -2, 20), fov=38)], giu=True)   # BAN-CUOI-T3 1e: khung tĩnh neo 17,46 s → 2 góc
+    add('N2.8', ['2k', '2l'], 'B-cao-lai → Al-pin-thap', 'lai', 'co-che', 'bien', 'vinh', o, N28cam, [('ham_doi_lien_quan', None)],
+        [dict(t=1.0, k='tau', s='hạm đội Pháp–TBN trong vịnh (47 tàu chiến, số phía Anh)'), dict(t=round(D * 5 / 30, 2), k='tau', s='11/9 chiều: đợt 1 hạm đội thả neo'), dict(t=round(D * 10.5 / 30, 2), k='ngay_dem', s='hoàng hôn 11/9'),
+         dict(t=12.5, k='may', s='góc 2 thấp hơn: pin nổi tiền cảnh, hạm đội + Rock nền'), dict(t=round(D * 22 / 30, 2), k='ngay_dem', s='rạng sáng 12/9'), dict(t=round(D * 23 / 30, 2), k='tau', s='12/9 sáng: đợt 2 hạm đội thả neo')],
+        '(soi 1–2 + soát LOOK-4: hạm đội sau lưng máy / khung gần như chỉ còn nước → gần hơn, 36°) từ tây vịnh nhìn đông-nam qua hàng neo tới Rock: hạm đội tiền cảnh, Rock nền giữa; 47 tàu chiến = số phía Anh (lời 2k); vị trí hàng neo minh hoạ (bậc 5, theo Faden 1783 phía Algeciras); pin nổi ở Algeciras 12/9 (S066); BAN-CUOI-T3 1e: 2 góc', cat=ct28)
     D = d(['2m', '2n']); dive_at = round(D - 11.5, 3)
     v = V['H2']; bf = [f for f in v['opt']['fleets'] if any(k.get('kind') == 'battery' for k in (f.get('list') or []))]
     o = base(time=[dict(t=0, at='1782-09-13 06:45', sun='real', lab='dt'), dict(t=dive_at, at='1782-09-13 15:30', sun='real', lab='dt'),   # sau dive_at: đường thời gian của clip cú lặn (dive-opt.json t 5,5 → 17,0) → bộ đếm khung ghép đúng giờ clip
@@ -386,13 +401,29 @@ def shots():
         '≥ 650 máy bay (lời 4i, bậc 2) = khối minh hoạ (bậc 5); để chiều → chạng vạng 7/11 cho đọc được (soi 1: 19:30 tối đen) (lời: "the night of"); đoàn tàu qua eo: số/vị trí minh hoạ')
     # ===== CHƯƠNG 5 · CỔNG (585,833 → 745,0) =====
     D = d(['5a', '5b']); t69 = NH['5a']['cau'][1]['bd_phim'] - NH['5a']['bd_phim']; t85 = NH['5b']['cau'][1]['bd_phim'] - NH['5a']['bd_phim']
-    o = base(time=[dict(t=0, at=1946.0, sun=11.0, lab='y'), dict(t=t69, at=1969.40, sun=11.0, lab='m'), dict(t=t69 + 4.0, at=1969.50, sun=11.0, lab='m'), dict(t=t85 - 0.5, at=1985.0, sun=11.0, lab='m'),
-                   dict(t=D, at=1985.25, sun=11.0, lab='m')], recl=True,
-             lives=[dict(era=2026, wY=dict(on=1946, off0=1969.44, off1=1969.46), walkers=[dict(line='WCA', n=120, width=6, women=True, colors=MOD)]),
-                    dict(era=2026, wY=dict(on=1985.12, full=1985.2), walkers=[dict(line='WCA', n=120, width=6, women=True, colors=MOD)])])
-    add('N5.1', ['5a', '5b'], 'D-cong', 'lai', 'buoc-ngoat', 'eo_dat', 'eo', o, hold([420, 400, 1700], [-200, 0, 0], 40, D, (-25, -3, -15)), [('cong', None)],
-        [dict(t=0.4, k='the_chuong', s='1969 — The gate closes'), dict(t=round(t69 + 1, 2), k='nguoi', s='6/1969: dòng người qua cổng dừng hẳn'), dict(t=round(t85, 2), k='nguoi', s='1985: người qua lại trở lại')],
-        'cổng biên giới (heroes.json gate, bậc 1); dòng người theo năm (lời 5a–5b, bậc 2), số người minh hoạ; thẻ 4 600 / 14 112 bỏ (lời mang số)', chuong='1969 — The gate closes')
+    # BAN-CUOI-T3 (1d, XEM CÂM Q7 0/6): góc A thấp nhìn qua cổng về Rock — dòng người/xe qua lại → 8/6/1969 (lời "closed the land frontier completely") rào chắn hạ ngang đường,
+    #  người + xe DỪNG ở hai phía (≥ 4 s), rồi tản dần · góc B (góc cao cũ): cổng vắng 1969 → 1985 mở lại. Người/xe dừng, rào chắn: hình minh hoạ (bậc 5, ước lượng) theo mốc có nguồn (lời 5a).
+    tA5 = round(t69 + 6.0, 3); tC = t69 + 1.2
+    o = base(time=[dict(t=0, at=1966.0, sun=11.0, lab='m'), dict(t=t69, at=1969.40, sun=11.0, lab='m'), dict(t=tC, at='1969-06-08 09:00', sun='real', lab='dt'), dict(t=tA5 - 0.05, at='1969-06-08 19:00', sun='real', lab='dt'),
+                   dict(t=tA5, at=1969.50, sun=11.0, lab='m'), dict(t=t85 - 0.5, at=1985.0, sun=11.0, lab='m'), dict(t=D, at=1985.25, sun=11.0, lab='m')], recl=True,
+             lives=[dict(era=2026, wY=dict(on=1946, off0=dy('1969-06-08 09:30'), off1=dy('1969-06-08 10:00')), walkers=[dict(line='WCA', n=160, width=6, women=True, colors=MOD)]),
+                    dict(era=2026, wY=dict(on=1985.12, full=1985.2), walkers=[dict(line='WCA', n=120, width=6, women=True, colors=MOD)]),
+                    dict(era=2026, wY=dict(on=dy('1969-06-08 09:00'), off0=dy('1969-06-08 17:00'), off1=dy('1969-06-08 18:00')), speed=0.03, seed=1969,   # người đứng lại hai phía cổng (gần như yên)
+                         walkers=[dict(line='BAC', n=70, width=14, women=True, colors=MOD), dict(line='NAM', n=50, width=14, women=True, colors=MOD)],
+                         lines=dict(BAC=[[62, 492], [70, 520], [80, 560], [90, 610]], NAM=[[58, 462], [50, 440], [38, 410], [20, 360]]))],
+             doiSong=[dict(kind='rao', pts=[[30, 486], [92, 482]], buoc=2.5, wY=dict(on=dy('1969-06-08 08:30'), full=dy('1969-06-08 09:00'), off0=1985.15, off1=1985.16), seed=5101),   # rào chắn ngang đường ở cổng
+                      dict(kind='rao', pts=[[30, 472], [92, 468]], buoc=2.5, wY=dict(on=dy('1969-06-08 08:30'), full=dy('1969-06-08 09:00'), off0=1985.15, off1=1985.16), seed=5102),
+                      dict(kind='xe', kieu='tai', pts=[[78, 520], [95, 700], [110, 900]], n=7, v=0.0, wY=dict(on=dy('1969-06-08 09:00'), off0=dy('1969-06-08 18:00')), seed=5103),   # xe dừng phía TBN
+                      dict(kind='xe', kieu='tai', pts=[[45, 440], [20, 300], [-30, 100]], n=5, v=0.0, wY=dict(on=dy('1969-06-08 09:00'), off0=dy('1969-06-08 18:00')), seed=5104),
+                      dict(kind='xe', kieu='tai', pts=[[110, 900], [70, 520], [-60, 100], [-150, -250]], n=10, v=9.0, hai_chieu=True, wY=dict(on=1946, off0=dy('1969-06-08 08:00')), seed=5105),
+                      dict(kind='xe', kieu='tai', pts=[[110, 900], [70, 520], [-60, 100], [-150, -250]], n=8, v=9.0, hai_chieu=True, wY=dict(on=1985.15), seed=5106),
+                      dict(kind='kho', at=[95, 500], r=14, n=2, wY=dict(on=1946), seed=5107), dict(kind='kho', at=[25, 450], r=14, n=2, wY=dict(on=1946), seed=5108)])   # trạm gác/lán hải quan chung (không tên, ước lượng)
+    cam, ct = cuts(D, [dict(t1=tA5, p0=A(85, 18, 640), l0=[10, 40, -500], dp=(-3, 0, -6), fov=30), dict(t1=15.6, p0=[420, 400, 1700], l0=[-200, 0, 0], dp=(-12, -2, -8), fov=40),
+                       dict(p0=A(70, 22, 700), l0=[0, 40, -500], dp=(-3, 0, -6), fov=32)], giu=True)   # BAN-CUOI-T3 1e: góc C thấp ở cổng 1977 → 1985 (rào gỡ, người trở lại)
+    add('N5.1', ['5a', '5b'], 'D-cong-thap → D-cong', 'lai', 'buoc-ngoat', 'eo_dat', 'eo', o, cam, [('cong', None)],
+        [dict(t=0.4, k='the_chuong', s='1969 — The gate closes'), dict(t=0.5, k='nguoi', s='1966–69: dòng người + xe qua cổng hai chiều (cận, Rock nền)'), dict(t=round(tC, 2), k='nguoi', s='8/6/1969: rào chắn hạ, người và xe dừng ở hai phía cổng'),
+         dict(t=tA5, k='may', s='góc cao: cổng vắng 1969 → 1977'), dict(t=15.6, k='may', s='góc thấp ở cổng: rào chắn vẫn đóng (1977 → 1985)'), dict(t=round(t85, 2), k='nguoi', s='1985: rào gỡ, người qua lại trở lại')],
+        'BAN-CUOI-T3 1d: góc thấp có Rock — cổng đóng thành biến cố thấy được ≥ 4 s (rào chắn + người/xe dừng hai phía; minh hoạ bậc 5 theo mốc lời 5a); góc cao giữ từ v2; dòng người theo năm (lời 5a–5b, bậc 2)', chuong='1969 — The gate closes', cat=ct)
     D = d(['KB2026'])
     o = base(time=[dict(t=0, at='2026-10-18 11:00', sun=11.0, lab='y'), dict(t=D, at='2026-10-18 11:01', sun=11.0, lab='y')],
              lives=[dict(era=2026, wY=dict(on=1990), walkers=[dict(line='SQ', n=40, width=8, women=True, colors=MOD)], lines=dict(SQ=[[-470, -1110], [-440, -1150], [-420, -1190]]))])
@@ -401,30 +432,39 @@ def shots():
     D = d(['5c', '5d']); tside = NH['5d']['bd_phim'] - NH['5c']['bd_phim']
     o = base(time=[dict(t=0, at='2026-10-19 08:10', sun='real', lab='dt'), dict(t=D, at='2026-10-19 08:40', sun='real', lab='dt')],
              lives=[dict(era=2026, wY=dict(on=2020), walkers=[dict(line='WCA', n=220, width=6, women=True, colors=MOD)], crowds=[dict(line='WCA', groups=12, size=[4, 12], speed=1.3, colors=MOD)])])
+    N52cam, ct52 = cuts(D, [dict(t1=4.3, p0=[-260, 200, -380], l0=[150, 0, 450], dp=(70, 5, 260), fov=40), dict(p0=[40, 60, 180], l0=[150, 0, 1300], dp=(8, 0, 25), fov=38)], giu=True)   # BAN-CUOI-T3 1e: 2 góc
     add('N5.2', ['5c', '5d'], 'D → H', 'lai', 'co-che', 'eo_dat', 'eo', o,
-        [K(0, [-260, 200, -380], [150, 0, 450], 40), K(tside - 0.6, [-120, 210, 120], [200, 0, 1100], 40), K(D, [120, 260, 880], [260, 0, 2100], 40)], [('nguoi_qua_cong', None)],
-        [dict(t=0.5, k='nguoi', s='người đi bộ băng qua đường băng giờ cao điểm 2026'), dict(t=round(tside, 2), k='may', s='máy trôi qua cổng sang phía La Línea')],
-        'thay follow-object A-lite bằng khung lai trôi dọc dòng người: đường băng → cổng → La Línea (lời 5d "the other side of the gate"); đổi điểm D → H (BAI-HOC #96, D ≤ 25 %)')
+        N52cam, [('nguoi_qua_cong', None)],
+        [dict(t=0.5, k='nguoi', s='người đi bộ băng qua đường băng giờ cao điểm 2026'), dict(t=4.3, k='may', s='góc 2: thấp sau cổng nhìn bắc — dòng người sang La Línea'), dict(t=round(tside, 2), k='nguoi', s='dòng người qua cổng sang phía La Línea (lời 5d)')],
+        'thay follow-object A-lite bằng khung lai trôi dọc dòng người: đường băng → cổng → La Línea (lời 5d "the other side of the gate"); đổi điểm D → H (BAI-HOC #96, D ≤ 25 %); BAN-CUOI-T3 1e: 2 góc (cắt 4,3 s)', cat=ct52)
     D = d(['KC2026'])
     o = base(time=[dict(t=0, at='2026-10-18 10:30', sun=10.5, lab='y'), dict(t=D, at='2026-10-18 10:31', sun=10.5, lab='y')],
              lives=[dict(era=2026, wY=dict(on=1990), walkers=[dict(line='CALLE', n=20, width=5, women=True, colors=MOD)], lines=dict(CALLE=[[152, 1350], [160, 1390], [170, 1440], [180, 1490]]))])
     add('KC2026', ['KC2026'], 'neo KC', 'neo', 'then-now', 'thanh_pho', 'neo', o, neo_cam(150, 1340, 2.6, 12, D, fov=40), [('pho_la_linea', None)],
         [dict(t=0.0, k='nguoi', s='cùng phố La Línea hôm nay')], 'KHUNG NEO "Remember this street?" — cùng tư thế máy KC1910', goc='thap', khung_neo=True)
     D = d(['5e', '5f'])
-    o = base(time=[dict(t=0, at='2026-10-19 07:30', sun='real', lab='dt'), dict(t=D * 0.45, at='2026-10-19 09:30', sun='real', lab='dt'), dict(t=D * 0.5, at='2026-10-19 14:00', sun='real', lab='dt'), dict(t=D, at='2026-10-19 15:00', sun='real', lab='dt')],
-             lives=[dict(era=2026, wY=dict(on=2020), walkers=[dict(line='WCA', n=260, width=6, women=True, colors=MOD)], crowds=[dict(line='WCA', groups=14, size=[4, 12], speed=1.3, colors=MOD)])])
-    add('N5.3', ['5e', '5f'], 'H-lai', 'lai', 'co-che', 'thanh_pho', 'pho', o, hold([620, 560, 3050], [-120, 0, 650], 40, D, (-30, -6, -20)), [('nguoi_qua_cong', None)],
-        [dict(t=0.5, k='nguoi', s='sáng: dòng người từ La Línea sang Gibraltar'), dict(t=round(D * 0.5, 2), k='nguoi', s='chiều: dòng người về')],
-        'từ La Línea nhìn nam qua cổng tới Rock: hai phố, một dòng người; thẻ £85 000 bỏ (lời mang số); không tô màu hai bên (§10.7)')
+    o = base(time=[dict(t=0, at='2026-10-19 07:30', sun='real', lab='dt'), dict(t=D * 0.45, at='2026-10-19 09:30', sun='real', lab='dt'), dict(t=D * 0.5, at='2026-10-19 14:00', sun='real', lab='dt'),
+                   dict(t=D * 0.72, at='2026-10-19 15:30', sun='real', lab='dt'), dict(t=D * 0.72 + 0.3, at='2026-10-19 17:40', sun='real', lab='dt'), dict(t=D, at='2026-10-19 18:30', sun='real', lab='dt')],
+             lives=[dict(era=2026, wY=dict(on=2020), walkers=[dict(line='WCA', n=260, width=6, women=True, colors=MOD)], crowds=[dict(line='WCA', groups=14, size=[4, 12], speed=1.3, colors=MOD)]),
+                    dict(era=2026, wY=dict(on=dy('2026-10-19 17:30')), seed=2027, walkers=[dict(line='WCA', n=220, width=6, women=True, colors=MOD)])])   # BAN-CUOI-T3 1e: giờ tan tầm, dòng người về đông lên (minh hoạ bậc 5)
+    N53cam, ct53 = cuts(D, [dict(t1=8.0, p0=[620, 560, 3050], l0=[-120, 0, 650], dp=(-8, -2, -6), fov=40), dict(t1=round(D * 0.5, 3), p0=A(160, 45, 700), l0=[40, 20, 300], dp=(-3, 0, -6), fov=36),
+                           dict(p0=[605, 555, 3040], l0=[-120, 0, 650], dp=(-20, -4, -14), fov=40)], giu=True)
+    add('N5.3', ['5e', '5f'], 'H-lai → D-cong-thap → H-lai', 'lai', 'co-che', 'thanh_pho', 'pho', o, N53cam, [('nguoi_qua_cong', None)],
+        [dict(t=0.5, k='nguoi', s='sáng: dòng người từ La Línea sang Gibraltar'), dict(t=round(D * 0.45 * 65 / 120, 2), k='ngay_dem', s='mặt trời mọc (≈ 08:35)'), dict(t=8.0, k='may', s='góc 2: cận cổng, dòng người buổi sáng'), dict(t=round(D * 0.5, 2), k='nguoi', s='chiều: dòng người về (góc cao)'),
+         dict(t=round(D * 0.72, 2), k='ngay_dem', s='bước giờ 15:30 → 17:40: nắng xế, bóng dài'), dict(t=round(D * 0.72 + 1.2, 2), k='nguoi', s='giờ tan tầm: dòng người về đông lên')],
+        'từ La Línea nhìn nam qua cổng tới Rock: hai phố, một dòng người; thẻ £85 000 bỏ (lời mang số); không tô màu hai bên (§10.7); BAN-CUOI-T3 1e: 3 góc + bước giờ chiều', cat=ct53)
     D = d(['5g', '5h', '5i']); tf = NH['5h']['cau'][1]['bd_phim'] - NH['5g']['bd_phim']
     o = base(time=[dict(t=0, at='2026-07-14 10:00', sun=11.0, lab='d'), dict(t=tf, at='2026-07-20 10:00', sun=11.0, lab='d'), dict(t=D - 6, at='2026-10-10 10:00', sun=11.0, lab='d'), dict(t=D, at='2026-10-18 10:00', sun=11.0, lab='d')],
              fenceOff=[2026.55, 2026.75], fenceNew=dict(off=-6, w=dict(on=2026.55, full=2026.76)),
-             lives=[dict(era=2026, wY=dict(on=2020), walkers=[dict(line='WCA', n=220, width=6, women=True, colors=MOD)], crowds=[dict(line='WCA', groups=10, size=[4, 10], speed=1.3, colors=MOD)])],
+             lives=[dict(era=2026, wY=dict(on=2020), walkers=[dict(line='WCA', n=220, width=6, women=True, colors=MOD)], crowds=[dict(line='WCA', groups=10, size=[4, 10], speed=1.3, colors=MOD)]),
+                    dict(era=2026, wY=dict(on=dy('2026-10-14 00:00')), seed=2028, walkers=[dict(line='WCA', n=160, width=8, women=True, colors=MOD)])],   # BAN-CUOI-T3 1e: dòng người đông lên qua đoạn rào mới (minh hoạ bậc 5)
              pho2026=dict(box=[-700, -200, 900, 1500]))
     # ANIM-V2 (hết "bản đồ trò chơi"): khung lai THẤP có chân trời (45–55 m, nhìn xuống ≈ 6–8°), cây/đèn/xe phố 2026 (duong2026), 2 góc: cổng + dòng người · dọc hàng rào (gỡ cũ, dựng mới)
-    cam, ct = cuts(D, [dict(t1=round(tf, 3), p0=[40, 40, -150], l0=[70, 0, 350], dp=(8, 0, 10), fov=40), dict(p0=[-120, 35, 150], l0=[150, 2, 500], dp=(10, 0, 6), fov=42)])   # soát dựng: góc cũ có bãi cỏ công viên chiếm nửa khung → nhìn bắc từ đường băng qua cổng
+    cam, ct = cuts(D, [dict(t1=6.3, p0=[40, 40, -150], l0=[70, 0, 350], dp=(4, 0, 5), fov=40), dict(t1=round(tf, 3), p0=A(180, 30, 260), l0=[40, 5, 520], dp=(-4, 0, 4), fov=38), dict(p0=[-120, 35, 150], l0=[150, 2, 500], dp=(10, 0, 6), fov=42)], giu=True)   # BAN-CUOI-T3 1e: thêm góc 2 (cắt 6,0 s)   # soát dựng: góc cũ có bãi cỏ công viên chiếm nửa khung → nhìn bắc từ đường băng qua cổng
+    sys.path.insert(0, str(REPO / 'scripts/k2tl')); import cuoi_bien_co as BC0
+    ev54 = [dict(t=round(x, 2), k=k, s=m) for Y, k, m in [(2026.65, 'pha', 'nửa tuyến rào cũ đã gỡ'), (2026.715, 'pha', 'đoạn rào cũ cuối đang gỡ'), (2026.76, 'xay', 'hàng rào mới dựng xong'), (dy('2026-10-14 00:00'), 'nguoi', 'dòng người đông lên qua đoạn rào mới')] for x in BC0.t_cua_nam(o, Y, dy)]
     add('N5.4', ['5g', '5h', '5i'], 'D-cong-thap → F-hang-rao', 'lai', 'buoc-ngoat', 'eo_dat', 'eo', o, cam, [('hang_rao', None)],
-        [dict(t=0.5, k='nguoi', s='7/2026: kiểm tra thường lệ dừng — người qua cổng không xếp hàng'), dict(t=round(tf + 1, 2), k='pha', s='hàng rào cũ gỡ từng đoạn'), dict(t=round(tf + 3, 2), k='xay', s='hàng rào mới lùi vài mét')],
+        [dict(t=0.5, k='nguoi', s='7/2026: kiểm tra thường lệ dừng — người qua cổng không xếp hàng'), dict(t=round(tf + 1, 2), k='pha', s='hàng rào cũ gỡ từng đoạn'), *ev54, dict(t=round(tf + 3, 2), k='xay', s='hàng rào mới lùi vài mét')],
         'hàng rào cũ gỡ (lời 5h, bậc 2) + hàng mới lệch 6 m (ƯỚC TÍNH bậc 5 — chờ nguồn vị trí); khoảng mở ≈ 150 m chưa dựng; thẻ 5i bỏ (lời mang ngày); ANIM-V2: máy thấp có chân trời + phố 2026 có cây/đèn/xe (bậc 5 vật nền phụ)', cat=ct)
     D = d(['5j']); tl = {k: NH['5j']['cau'][i]['bd_phim'] - NH['5j']['bd_phim'] for i, k in [(2, 1704), (3, 1730), (4, 1909), (5, 1941)]}
     ST = 11 / 24
@@ -452,6 +492,16 @@ def shots():
     add('N5.6', ['5k'], 'D7-lai-nguoc', 'lai', 'he-qua', 'eo_dat', 'eo', o, hold([-560, 420, 1450], [80, 0, -350], 42, D, (25, -6, -20)), [('linea', None)],
         [dict(t=0.5, k='xay', s='1730: Línea mọc'), dict(t=round(tt[1], 2), k='buoc_nam', s='2026'), dict(t=round(tt[2], 2), k='buoc_nam', s='1783: trại vây rút'), dict(t=round(tt[3], 2), k='ngay_dem', s='2026: chiều → nửa đêm biên giới')],
         'bookend H1 (góc ngược): Línea 1730 → 2026 → 1783 → nửa đêm 2026 theo từng câu 5k')
+    _t = lambda hh: tt[3] + (D - tt[3]) * hh / (23 + 52 / 60 - 19.5)   # BAN-CUOI-T3 1e: đèn phố bật / đêm hẳn (19:30 → 23:52)
+    S[-1]['su_kien'] += [dict(t=round(_t(0.25), 2), k='den', s='hoàng hôn: đèn phố + đèn đường băng bật dần'), dict(t=round(_t(0.95), 2), k='ngay_dem', s='đêm hẳn')]
+    sys.path.insert(0, str(REPO / 'scripts/k2tl')); import cuoi_bien_co as BC   # BAN-CUOI-T3 1e: khai biến cố hình THẬT đọc từ đặc tả (vật xuất hiện/biến mất trong khung)
+    for s in S:
+        D0 = dur_of(s['lines']); co = [e['t'] for e in s['su_kien']]
+        for t, mo in BC.bien_co(s['opt'], s['cam'], D0, dy):
+            if all(abs(t - c) >= 0.5 for c in co): s['su_kien'].append(dict(t=t, k='bien_co_tu_dac_ta', s=mo)); co.append(t)
+        s['su_kien'].sort(key=lambda e: e['t'])
+        nk, kho = BC.them_khoi(s, D0, hAt, dy)
+        if nk or kho: print(f"  1e {s['id']}: +{nk} khói" + (f", KHÔNG đặt được ở {kho}" if kho else ''))
     for s in S:
         o = s['opt']
         if 'nc' not in o or o.get('nc') is None or isinstance(o.get('nc'), dict): o['nc'] = nc_for(o)
@@ -463,7 +513,7 @@ def tl_buoc(o):
         if b['t'] - a['t'] <= 0.06 + 1e-6 and abs(yr(b) - yr(a)) > 0.1: out.append(dict(t=round(b['t'], 4), tu=round(yr(a), 3), toi=round(yr(b), 3)))
     return out
 
-PP = json.loads((EP / 'phat-hanh/the-phuong-phap-v2.json').read_text())
+PP = json.loads((HERE / 'the-phuong-phap-cuoi.json').read_text())   # BAN-CUOI-T3 việc 7
 
 def main():
     import yaml
@@ -478,15 +528,23 @@ def main():
         if OD: OD.mkdir(parents=True, exist_ok=True); (OD / f'{key}.json').write_text(json.dumps(o))
         heroes[key] = dict(hero='tl/t3tl', opt=o, dur=d)
         p = dict(sach=True, hero=key, frame0=0, tl=True)
+        if sh.get('khung_neo'): p['khung_neo'] = True   # F4
+        if sh['id'] in ('KB1943', 'KA2026'): p['im_lang'] = True   # F4: tấm im lặng (§11.2)
+        if sh['id'] in ('C3', 'C5'): p['lop_nha'] = 'phố 1779–81 (lớp tái dựng 1705 + ghost1782, town1782 của t3tl); C5 sau 12/4/1781: vùng THE RUINS'   # F5
         if sh.get('chuong'): p['chuong'] = dict(s=sh['chuong'], at=0.4, dur=3.0); p['the_chuong'] = dict(s=sh['chuong'], at=0.4, dur=3.0)
         L = lines_of(sh['lines'])
         for x in L: srt.append((x['bd'], x['kt'], x['cau']))
+        if sh['id'] == 'H1':
+            for c, a, b, f in H1_DAO: loi.append(dict(dong='0a' if ('Midnight' in c or 'To walk' in c) else '0b', cau=c, bd_phim=f, bd_stem=a, kt_stem=b))
         for i in sh['lines']:
             s = NH[i]
+            if i in ('0a', '0b'): continue
             if s.get('loi_bd_phim') is not None and s.get('ban_thu'): loi.append(dict(dong=i, bd_phim=round(s['loi_bd_phim'], 3), bd_stem=s['ban_thu']['bd_stem'], kt_stem=s['ban_thu']['kt_stem']))
         ch = str(NH[sh['lines'][0]]['ch'])
         seg = dict(id=sh['id'].replace('.', '_'), part=f'CH{ch}', chuong=ch, dur=d, fadeIn=6 if not segs else 0, fadeOut=0,
-                   beats=[dict(t=0.0, k='cut', s=sh['id'])] + [dict(t=round(x['bd'] - t_abs, 2), k='loi', s=x['cau'][:28]) for x in L if x['bd'] - t_abs > 0.2],
+                   beats=sorted([dict(t=0.0, k='cut', s=sh['id'])] + [dict(t=round(float(c), 2), k='cut', s='góc') for c in sh.get('cat') or []] + [dict(t=round(e['t'], 2), k=e['k'], s=e['s'][:40]) for e in sh['su_kien'] if e['t'] > 0.05]
+                                + [dict(t=round(b['t'], 2), k='buoc_nam', s=f"{b['tu']:.0f} → {b['toi']:.0f}") for b in tl_buoc(o)], key=lambda b: b['t']),   # F2: beats = biến cố HÌNH
+                   moc_loi=[dict(t=round(x['bd'] - t_abs, 2), s=x['cau'][:28]) for x in L],
                    shots=[dict(tpl='plate', at=0, type='scene3d', noi=sh['noi'], p=p, cau=(L[0]['cau'] if L else ''), vung=sh['diem'], ai_texture=False)])
         segs.append(seg); cut[sh['id']] = [0.0] + list(sh.get('cat') or []) + ([sh['lan']['t']] if sh.get('lan') else [])
         tb = tl_buoc(o); cm = sh['cam']
@@ -496,8 +554,14 @@ def main():
                   nhin_xuong_deg=pt, agl_m=agl, fov=[c['fov'] for c in cm], dur=d, t0=round(t_abs, 3), t1=round(t_abs + d, 3), thoi_gian=[dict(t=x['t'], at=x['at']) for x in o['time']], nam=[round(min(ys), 3), round(max(ys), 3)],
                   lightmap=[b['dir'] for b in o['nc']['bakes']], tl_buoc=tb, tl_buoc_n=len(tb), cau=[dict(dong=x['dong'], t=round(x['bd'] - t_abs, 3), cau=x['cau']) for x in L], su_kien=sh['su_kien'],
                   moc=o['time'][0]['at'], bac='xem ghi + meta lớp của cảnh', nguon='mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4', chuong=sh.get('chuong'), ghi=sh['ghi'],
-                  tieu_diem=[k2 for k2, _ in sh['td']], luot_thap=sh.get('luot_thap') or False, khung_neo=sh.get('khung_neo', False), ai_image=any((REPO / f"reports/animatic-t3-v2/omni/chon/{m['ma']}.mp4").exists() for m in (sh.get('minh_hoa') or [])), ai_texture=False, nc=True, lan=sh.get('lan'), cat_trong_shot=list(sh.get('cat') or []),
-                  minh_hoa=[dict(m, minh_hoa=True, nguon='Gemini Omni (gemini-omni-1.1-flash) image-to-video, ảnh đầu = render của chính shot', bac='minh hoạ N2 (§14.1 c): không mang dữ kiện vị trí; dữ kiện do lời') for m in (sh.get('minh_hoa') or [])])
+                  tieu_diem=[k2 for k2, _ in sh['td']], luot_thap=sh.get('luot_thap') or False, khung_neo=sh.get('khung_neo', False), ai_image=any((REPO / f"reports/animatic-t3-v2/omni/goc720/{m['ma']}.mp4").exists() for m in (sh.get('minh_hoa') or [])), ai_texture=False, nc=True, lan=sh.get('lan'), cat_trong_shot=list(sh.get('cat') or []),
+                  minh_hoa=[dict(m, minh_hoa=True, nguon='Gemini Omni (gemini-omni-1.1-flash) image-to-video, ảnh đầu = render của chính shot', bac='minh hoạ N2 (§14.1 c): không mang dữ kiện vị trí; dữ kiện do lời', so_ai='reports/animatic-t3-v2/so-ai-gemini.jsonl',
+                                agl_m=round(max(0.0, BC.cam_tai(cm, m['t0'] + 0.05)[0][1] - max(0.0, hAt(BC.cam_tai(cm, m['t0'] + 0.05)[0][0], BC.cam_tai(cm, m['t0'] + 0.05)[0][2]))), 1), nhan_minh_hoa=None, nhan_ghi='bỏ nhãn — quyết định chủ dự án 22/10/2026 11:09') for m in (sh.get('minh_hoa') or [])])
+        gm = [dict(t0=0.0, t1=round(float((sh.get('cat') or [d])[0]) if sh.get('cat') else d, 3))]
+        cs = [0.0] + [float(c) for c in sh.get('cat') or []] + [d]; gm = [dict(t0=round(a, 3), t1=round(b, 3)) for a, b in zip(cs, cs[1:])]
+        L1.update(so_goc=len(gm), goc_may=gm)   # F8 (R3)
+        if sh['opt'].get('doiSong'): L1.update(bac=5, uoc_luong=True, doi_song=sorted({x['kind'] for x in sh['opt']['doiSong']}), doi_song_nguon='không nguồn riêng — V2-D8 chủ dự án 22/10 11:09 (vật đời sống chung, bậc 5 ước lượng)')
+        if any(e['k'] == 'khoi' for e in sh['su_kien']): L1['khoi_nhip'] = dict(bac=5, uoc_luong=True, ghi='khói bếp/lửa đồng thêm cho nhịp (1e)')
         log.append(L1)
         bang.append(dict(ma=sh['id'], dong=sh['lines'], t0=round(t_abs, 3), t1=round(t_abs + d, 3), dur=d, diem=sh['diem'], kieu=sh['kieu'], nhin_xuong=pt, agl=agl, lightmap=L1['lightmap'], nam=L1['nam'],
                          thoi_gian=f"{o['time'][0]['at']} → {o['time'][-1]['at']}", vai=sh['vai'], vat=[e['s'] for e in sh['su_kien']], ghi=sh['ghi'], lan=sh.get('lan'), cat=list(sh.get('cat') or []), minh_hoa=sh.get('minh_hoa') or []))
@@ -511,9 +575,9 @@ def main():
         log.append(dict(shot=f'PP{i + 1}', loai='thẻ phương pháp', nguon='phat-hanh/the-phuong-phap-v2.json', dur=th['giay'], t0=round(t_abs, 3), t1=round(t_abs + th['giay'], 3), ai_image=False, ai_texture=False))
         bang.append(dict(ma=f'PP{i + 1}', dong=[], t0=round(t_abs, 3), t1=round(t_abs + th['giay'], 3), dur=th['giay'], diem='—', kieu='the', vai='phuong-phap', vat=th['dong'], ghi='thẻ "How this film was made" v2'))
         t_abs += th['giay']
-    E = dict(id='k2c-t3-anim', title='Gibraltar — T3 animatic (whole episode, path A, 960×540, G1 v4.2 narration)', brand='MOVING PARTS', channel='k2', out=OUT,
+    E = dict(id='k2c-t3-cuoi', title='Gibraltar — T3 final (1080p24, path A + Cycles GPU dive, G1 v4.2 narration)', brand='MOVING PARTS', channel='k2', out=OUT,
              music=[], sources={}, numbers={}, khung_sach=True, loi_khoa='../loi-khoa.txt', claims_md='../claims-vay-ham.md', log_shot='log-shot.json', nhip_vat='nhip-vat.json', heroes=heroes, segments=segs)
-    hdr = '# TỆP SINH TỰ ĐỘNG bởi animatic/mk_ep_anim.py (lời khoá v4.2 SHA 51d1c773…, nhịp reports/kl42/nhip-that.json B; LOOK-KHOA.md). Đừng sửa tay.\n'
+    hdr = '# TỆP SINH TỰ ĐỘNG bởi cuoi/mk_ep_cuoi.py (BAN-CUOI-T3, bản sao có sửa của animatic/mk_ep_anim.py) (lời khoá v4.2 SHA 51d1c773…, nhịp reports/kl42/nhip-that.json B; LOOK-KHOA.md). Đừng sửa tay.\n'
     (HERE / 'episode.yaml').write_text(hdr + yaml.safe_dump(E, allow_unicode=True, sort_keys=False, width=200))
     def ts(x): h, r = divmod(x, 3600); m, s2 = divmod(r, 60); return f'{int(h):02d}:{int(m):02d}:{s2:06.3f}'.replace('.', ',')
     (HERE / 'phu-de.srt').write_text(''.join(f'{i + 1}\n{ts(a)} --> {ts(b)}\n{x}\n\n' for i, (a, b, x) in enumerate(srt)))
