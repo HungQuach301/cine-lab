@@ -572,6 +572,12 @@ def main():
         if not L1['minh_hoa']: L1['ai_image'] = False   # K-LAI-2: C4/M1 giữ 3D → không mục đoạn, ai_image false
         if sh['opt'].get('doiSong'): L1.update(bac=5, uoc_luong=True, doi_song=sorted({x['kind'] for x in sh['opt']['doiSong']}), doi_song_nguon='không nguồn riêng — V2-D8 chủ dự án 22/10 11:09 (vật đời sống chung, bậc 5 ước lượng)')
         if any(e['k'] == 'khoi' for e in sh['su_kien']): L1['khoi_nhip'] = dict(bac=5, uoc_luong=True, ghi='khói bếp/lửa đồng thêm cho nhịp (1e)')
+        bc = REPO / 'reports/ban-cuoi-t3/do/bocuc' / f"{sh['id'].replace('.', '_')}.json"   # F8: mặt nạ ID 1 mẫu/s trên cảnh 3D (v2_do_r2.py do, máy + vật như bản dựng, tắt cách A)
+        if bc.exists():
+            FR = json.loads(bc.read_text())['frames']; CT = ('nguoi', 'trai', 'congsu', 'nha', 'pho', 'lua', 'tau', 'pin', 'co', 'khac')
+            L1.update(trong_pct=[[x['t'], round(x['pct'].get('bang', 0) + x['pct'].get('suon', 0), 1)] for x in FR], chu_the_pct=[[x['t'], round(sum(x['pct'].get(c, 0) for c in CT), 1)] for x in FR],
+                      do_bo_cuc=str(bc.relative_to(REPO)))   # [[t giây trong shot, %]]; trống = bằng + sườn (như v7c_log.py); chủ thể = vật trên đất
+            if sh['noi'] == 'eo_dat': L1['chu_the_eo_dat'] = True
         log.append(L1)
         bang.append(dict(ma=sh['id'], dong=sh['lines'], t0=round(t_abs, 3), t1=round(t_abs + d, 3), dur=d, diem=sh['diem'], kieu=sh['kieu'], nhin_xuong=pt, agl=agl, lightmap=L1['lightmap'], nam=L1['nam'],
                          thoi_gian=f"{o['time'][0]['at']} → {o['time'][-1]['at']}", vai=sh['vai'], vat=[e['s'] for e in sh['su_kien']], ghi=sh['ghi'], lan=sh.get('lan'), cat=list(sh.get('cat') or []), minh_hoa=sh.get('minh_hoa') or []))
