@@ -3,7 +3,7 @@
 Phiên sửa animatic T3 theo nhận xét chủ dự án 21/10 21:05–21:15 (phương án A + 5 đoạn minh hoạ Omni M1–M5).
 
 <!-- TRANG-THAI -->
-## Trạng thái tự động (22/10/2026 00:30 UTC) — `scripts/k2tl/anim_ckpt.py`
+## Trạng thái tự động (22/10/2026 00:55 UTC) — `scripts/k2tl/anim_ckpt.py`
 
 - Cảnh đinh XONG: **43/43** (20253 khung) · CÒN: **0** (0 khung chưa dựng).
 - s/khung TB 12 cảnh gần nhất (mỗi tiến trình, P = 3): 3.22 → ước còn **≈ 0.0 h** dựng cảnh đinh; sau đó: ghép cú lặn → render đoạn → ghép master → LOOK-4 → xuất (≈ 1,5 h).
