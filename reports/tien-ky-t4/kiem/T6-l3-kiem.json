@@ -1,0 +1,177 @@
+{
+ "tag": "T6-l3",
+ "render": "/var/tmp/ldn/t6/ghep/T6-l3-render-khop.png",
+ "ai": "/var/tmp/ldn/t6/ghep/T6-l3-ghep.png",
+ "ghep": "/var/tmp/ldn/t6/kiem/T6-l3-ghep.png",
+ "sha_ghep": "d5de5127606751e63fa1894ad18d6eea78378539689c67a51b22debdf685ead1",
+ "nam": "1666",
+ "i_lop_a": {
+  "max_trong_a": 0,
+  "diem_lech_trong_a": 0,
+  "dien_tich_a_pct": 36.64,
+  "dai20_pct": 8.13,
+  "dai20_cum_dE30": 5,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     0,
+     988,
+     82,
+     1016
+    ],
+    "px": 962
+   },
+   {
+    "hop": [
+     193,
+     998,
+     220,
+     1007
+    ],
+    "px": 121
+   },
+   {
+    "hop": [
+     8,
+     701,
+     19,
+     714
+    ],
+    "px": 102
+   },
+   {
+    "hop": [
+     1175,
+     739,
+     1186,
+     753
+    ],
+    "px": 93
+   },
+   {
+    "hop": [
+     948,
+     713,
+     955,
+     731
+    ],
+    "px": 87
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 4,
+   "dE_trung_vi": 8.1,
+   "dE_p90": 12.78
+  },
+  "khop_mau": false,
+  "dat_ghep": true,
+  "vat_lop_a": [
+   {
+    "mh": "gpt",
+    "loai": "cong_trinh",
+    "mo_ta": "Added a continuous distant built-up settlement beyond the original model's northern edge; individual buildings are too distant to identify reliably.",
+    "toa_do": [
+     0.0,
+     0.237,
+     1.0,
+     0.287
+    ],
+    "dai_a": true,
+    "kieu": "THÊM vật lớp (a)"
+   }
+  ],
+  "dat": false
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [],
+  "dat": true
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 20.63,
+  "nuoc_thanh_dat_pct": 19.77,
+  "t9b_dat_thanh_nuoc_pct": 20.63,
+  "t9b_nuoc_thanh_dat_pct": 15.02,
+  "dat": false,
+  "mo_hinh_bao": [
+   {
+    "mh": "gpt",
+    "mo_ta": "Land to water: the flat ground beyond and between the rear building clusters has become a broad pale-blue waterway. The box encloses the affected northern band, not the retained building clusters within it.",
+    "toa_do": [
+     0.0,
+     0.277,
+     1.0,
+     0.336
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "Land to water: branching open ground between the upper-left building blocks has been rendered as connected reflective channels.",
+    "toa_do": [
+     0.0,
+     0.313,
+     0.218,
+     0.379
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "Land to water: the open ground immediately behind and left of Old St Paul's square tower has become a pale reflective pool or inlet.",
+    "toa_do": [
+     0.199,
+     0.369,
+     0.236,
+     0.408
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "Land to water: the elongated inland clearing northeast of Old St Paul's has been given a pale-blue water surface.",
+    "toa_do": [
+     0.362,
+     0.34,
+     0.447,
+     0.362
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "Land to water: the enclosed oval clearing among the upper-right building clusters has become a blue pool.",
+    "toa_do": [
+     0.705,
+     0.315,
+     0.801,
+     0.35
+    ]
+   },
+   {
+    "mh": "gpt",
+    "mo_ta": "Land to water: smaller connected clearings and passages immediately left and below the upper-right pool have acquired water surfaces.",
+    "toa_do": [
+     0.661,
+     0.337,
+     0.729,
+     0.387
+    ]
+   },
+   {
+    "mh": "claude",
+    "mo_ta": "Pale sand flats and gaps between the distant houses became water, like a lagoon or river, across the whole mid-distance band",
+    "toa_do": [
+     0.0,
+     0.28,
+     1.0,
+     0.36
+    ]
+   }
+  ]
+ },
+ "iv_dong_bang": {
+  "ap_dung": true,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

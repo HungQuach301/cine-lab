@@ -1,0 +1,888 @@
+{
+ "tag": "T5-l1",
+ "clip": "/var/tmp/ldn/t5/omni/T5-l1.mp4",
+ "clip_sha": "189c9af2f5ff77c81ea37dde8abee9d78d081d2bb122fe3e5024f44c3fab3c30",
+ "dau": "/var/tmp/ldn/t5/dau-chot.jpg",
+ "dau_sha": "c3ad1de2832031100a8752b6b5168c4b22e5822df4c1601f8d8c9d66561ff5fe",
+ "nam": "1666",
+ "canh": "About 1 am on Sunday 2 September 1666, moonlit night: rooftop-height view over timber-framed houses; a small fire starts inside one house (glow in a window, thin smoke). Illustration with no location facts.",
+ "so_khung": 240,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/ldn/t5/kiem/T5-l1-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0241,
+      "usage": {
+       "input_tokens": 10181,
+       "input_tokens_details": {
+        "cache_write_tokens": 10178,
+        "cached_tokens": 0
+       },
+       "output_tokens": 371,
+       "output_tokens_details": {
+        "reasoning_tokens": 136
+       },
+       "total_tokens": 10552
+      }
+     },
+     "secs": 11.6,
+     "mo_ta": "Khung hình nhìn ngang tầm mái qua các dãy nhà và tháp, có trăng trên trời cùng những chi tiết kiến trúc chồng mờ ở tiền cảnh.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Các cửa sổ, đường diềm mái và bề mặt mái ngói được thêm ở tiền cảnh bên trái, hiện chồng mờ xuyên qua hình khối nhà gốc.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.48,
+        0.45,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Hệ thanh gỗ đứng và chéo được thêm trên mặt tiền nhà lớn bên phải, hiện như một lớp kiến trúc chồng mờ không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.735,
+        0.635,
+        0.958,
+        0.985
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Các cửa sổ, đường diềm mái và bề mặt mái ngói được thêm ở tiền cảnh bên trái, hiện chồng mờ xuyên qua hình khối nhà gốc.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.48,
+        0.45,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Hệ thanh gỗ đứng và chéo được thêm trên mặt tiền nhà lớn bên phải, hiện như một lớp kiến trúc chồng mờ không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.735,
+        0.635,
+        0.958,
+        0.985
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-haiku-5-5",
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1018705
+     },
+     "secs": 16.7,
+     "mo_ta": "A dusk or moonlit view over a dense field of timber-framed houses with red-tiled roofs and distant tower spires. The geometry is warped and the lower left shows a new slate-roofed house. There is no visible fire or glow.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "A moon disc has been added in the sky at upper right. It is not in the reference, but it fits a moonlit night.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.77,
+        0.01,
+        0.83,
+        0.11
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "A large, grey, slate-roofed house with a stone-like facade, a lit-looking wall and windows has been added at lower left. It is a new architectural detail and not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.5,
+        0.33,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.55
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "A faint, ghostly rectangular tower or blob on the horizon at center right, with no counterpart in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.77,
+        0.27,
+        0.82,
+        0.31
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Thin pole or wire-like dark lines, a vertical dark line near the center right and a diagonal line near the center, among the houses. They look like poles or wires.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.62,
+        0.55,
+        0.65,
+        0.72
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Several square and pointed towers and spires on the horizon, with a large tower at left. They are the same as in the reference but are slightly changed in shape.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.05,
+        0.19,
+        0.95,
+        0.32
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.25
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "A large, grey, slate-roofed house with a stone-like facade, a lit-looking wall and windows has been added at lower left. It is a new architectural detail and not in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.5,
+        0.33,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.55
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "T5-l1-k25",
+      "nam": 1666,
+      "noi": "London (City), Pudding Lane quarter",
+      "sha256": "062c8f90285e3ce963cc0d7a66959478d6f2776b7854ff3e3cbecca09d38a80a",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Tall, slender, plain obelisk-like pointed shaft on the skyline at the centre. It has no church body and looks like a column. It is the only one of its kind among the skyline towers.",
+        "ly_do": "It could be read as the Monument to the Great Fire, built 1671–77 near Pudding Lane. It would not exist in 1666. It may only be a generic church spire, so this is a weak suspicion.",
+        "nam_xuat_hien": 1677,
+        "toa_do_px": [
+         925,
+         124,
+         964,
+         335
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.035476499999999994,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 884,
+        "cacheReadInputTokens": 2145,
+        "cacheCreationInputTokens": 10564,
+        "webSearchRequests": 0,
+        "costUSD": 0.035476499999999994,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 185,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Tall, slender, plain obelisk-like pointed shaft on the skyline at the centre. It has no church body and looks like a column. It is the only one of its kind among the skyline towers.\",\"ly_do\":\"It could be read as the Monument to the Great Fire, built 1671–77 near Pudding Lane. It would not exist in 1666. It may only be a generic church spire, so this is a weak suspicion.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.482,0.115,0.502,0.31],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0355,
+    "chi_phi_tb": 0.0355,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/ldn/t5/kiem/T5-l1-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0319,
+      "usage": {
+       "input_tokens": 10169,
+       "input_tokens_details": {
+        "cache_write_tokens": 10166,
+        "cached_tokens": 0
+       },
+       "output_tokens": 1161,
+       "output_tokens_details": {
+        "reasoning_tokens": 221
+       },
+       "total_tokens": 11330
+      }
+     },
+     "secs": 28.8,
+     "mo_ta": "Khung hình nhìn ngang mái những ngôi nhà khung gỗ dưới trăng tròn, với lửa trong một cửa sổ và một vệt khói mỏng phía trước.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Trăng gần tròn được thêm vào; pha trăng này không phù hợp với ngày 2 tháng 9 năm 1666.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.777,
+        0.01,
+        0.831,
+        0.105
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Tháp đá mái chóp bên trái có các ô cửa và chi tiết xây đá được tự thêm, không có trong hình khối đơn giản của ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.007,
+        0.153,
+        0.06,
+        0.326
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Nhà tiền cảnh bên trái được thêm cửa sổ, gờ cửa và các chi tiết mặt đứng không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.002,
+        0.443,
+        0.234,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dãy nhà nhỏ phía sau bên trái được thêm hệ khung gỗ lộ thiên, cửa sổ và các mái nhô.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.188,
+        0.344,
+        0.285,
+        0.742
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt đứng ngôi nhà có cửa sổ cháy được thêm hệ khung gỗ, nhiều cửa sổ chia ô, gờ cửa, tầng nhô và cửa ra vào; các chi tiết này không xuất hiện trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.237,
+        0.38,
+        0.568,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ngôi nhà ngay bên phải nhà cháy được thêm cửa sổ, cửa ra vào, khung gỗ và tầng nhô.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.561,
+        0.394,
+        0.683,
+        0.929
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dãy nhà lớn bên phải được thêm hệ khung gỗ, nhiều cửa sổ, cửa ra vào và các mái che nhô ra phía ngõ.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.656,
+        0.248,
+        1.0,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ống khói xây gạch mới trên mái nhà bên trái.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.046,
+        0.29,
+        0.073,
+        0.37
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ống khói cao mới trên mái gần giữa khung hình.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.324,
+        0.276,
+        0.35,
+        0.445
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ống khói mới trên mái phía sau dãy nhà bên phải.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.661,
+        0.27,
+        0.681,
+        0.367
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ống khói gạch lớn có chụp trên mái ở mép phải, không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.948,
+        0.174,
+        1.0,
+        0.395
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Trăng gần tròn được thêm vào; pha trăng này không phù hợp với ngày 2 tháng 9 năm 1666.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.777,
+        0.01,
+        0.831,
+        0.105
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Tháp đá mái chóp bên trái có các ô cửa và chi tiết xây đá được tự thêm, không có trong hình khối đơn giản của ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.007,
+        0.153,
+        0.06,
+        0.326
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Nhà tiền cảnh bên trái được thêm cửa sổ, gờ cửa và các chi tiết mặt đứng không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.002,
+        0.443,
+        0.234,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dãy nhà nhỏ phía sau bên trái được thêm hệ khung gỗ lộ thiên, cửa sổ và các mái nhô.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.188,
+        0.344,
+        0.285,
+        0.742
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt đứng ngôi nhà có cửa sổ cháy được thêm hệ khung gỗ, nhiều cửa sổ chia ô, gờ cửa, tầng nhô và cửa ra vào; các chi tiết này không xuất hiện trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.237,
+        0.38,
+        0.568,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ngôi nhà ngay bên phải nhà cháy được thêm cửa sổ, cửa ra vào, khung gỗ và tầng nhô.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.561,
+        0.394,
+        0.683,
+        0.929
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dãy nhà lớn bên phải được thêm hệ khung gỗ, nhiều cửa sổ, cửa ra vào và các mái che nhô ra phía ngõ.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.656,
+        0.248,
+        1.0,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ống khói xây gạch mới trên mái nhà bên trái.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.046,
+        0.29,
+        0.073,
+        0.37
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ống khói cao mới trên mái gần giữa khung hình.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.324,
+        0.276,
+        0.35,
+        0.445
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ống khói mới trên mái phía sau dãy nhà bên phải.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.661,
+        0.27,
+        0.681,
+        0.367
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ống khói gạch lớn có chụp trên mái ở mép phải, không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.948,
+        0.174,
+        1.0,
+        0.395
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-haiku-5-5",
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.1016438
+     },
+     "secs": 22.5,
+     "mo_ta": "A moonlit night view over the timber-framed roofs of a medieval town. A small fire glows in one house's upper window with thin smoke rising, a cobbled lane runs below, and distant towers sit on the skyline.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Stone tower with a pyramidal roof and small windows on the left skyline. It looks like a generic church or castle tower and is not identifiable. A similar tower is in the reference.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.01,
+        0.15,
+        0.06,
+        0.32
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      },
+      {
+       "loai": "chu",
+       "mo_ta": "Small scrawled symbol or mark on the plaster panel above the burning house's lower window. It could read as a letter or number.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.37,
+        0.65,
+        0.4,
+        0.68
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.2
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "T5-l1-k55",
+      "nam": 1666,
+      "noi": "London (City), Pudding Lane quarter",
+      "sha256": "05834f18f4a41a6c0e393533a63ffe26b0a828b8af5e3b2672382e893d4ba686",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.031192499999999998,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 620,
+        "cacheReadInputTokens": 2830,
+        "cacheCreationInputTokens": 9879,
+        "webSearchRequests": 0,
+        "costUSD": 0.031192499999999998,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 119,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0312,
+    "chi_phi_tb": 0.0312,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/ldn/t5/kiem/T5-l1-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0269,
+      "usage": {
+       "input_tokens": 10163,
+       "input_tokens_details": {
+        "cache_write_tokens": 10160,
+        "cached_tokens": 0
+       },
+       "output_tokens": 657,
+       "output_tokens_details": {
+        "reasoning_tokens": 266
+       },
+       "total_tokens": 10820
+      }
+     },
+     "secs": 16.9,
+     "mo_ta": "Khung hình nhìn ngang mái các nhà khung gỗ dưới ánh trăng, với lửa trong một cửa sổ và khói mỏng bay lên trước mặt nhà.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt tiền nhà lớn phía trước được bổ sung các cửa sổ chia ô, gờ bậu và gờ ngang trang trí không có trong hình tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.126,
+        0.425,
+        0.455,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cửa ra vào vòm với khung đá ở cuối ngõ là chi tiết kiến trúc được thêm mới.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.83,
+        0.716,
+        0.91,
+        0.88
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Phần tầng nhà nhô ra cùng các thanh đỡ phía dưới ở bên phải được thêm vào so với các khối nhà đơn giản trong hình tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.626,
+        0.609,
+        0.826,
+        0.944
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ống khói trên mái giữa có chụp tam giác rỗng, một chi tiết kiến trúc bất thường và không có trong hình tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.379,
+        0.062,
+        0.423,
+        0.174
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt tiền nhà lớn phía trước được bổ sung các cửa sổ chia ô, gờ bậu và gờ ngang trang trí không có trong hình tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.126,
+        0.425,
+        0.455,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cửa ra vào vòm với khung đá ở cuối ngõ là chi tiết kiến trúc được thêm mới.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.83,
+        0.716,
+        0.91,
+        0.88
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Phần tầng nhà nhô ra cùng các thanh đỡ phía dưới ở bên phải được thêm vào so với các khối nhà đơn giản trong hình tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.626,
+        0.609,
+        0.826,
+        0.944
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ống khói trên mái giữa có chụp tam giác rỗng, một chi tiết kiến trúc bất thường và không có trong hình tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.379,
+        0.062,
+        0.423,
+        0.174
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "doc_duoc": true
+    },
+    "claude": {
+     "meta": {
+      "model": [
+       "claude-haiku-5-5",
+       "claude-sonnet-5-5"
+      ],
+      "usd": 0.10140469999999999
+     },
+     "secs": 18.0,
+     "mo_ta": "A moonlit night view over timber-framed houses with tiled roofs, with a fire glowing in one lower window, thin smoke rising, and a cobbled yard at lower right.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Arched stone doorway with a carved surround and steps on the far house. This is an added architectural detail that the reference render does not have.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.83,
+        0.73,
+        0.89,
+        0.87
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.4
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Fire glowing in a window with logs visible, and a smoke column rising above it. The scene brief asks for this fire, but the reference has no fire.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.34,
+        0.76,
+        0.44,
+        0.94
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.2
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "T5-l1-k90",
+      "nam": 1666,
+      "noi": "London (City), Pudding Lane quarter",
+      "sha256": "dfc4e74985617fb315cfee4207afa2db998cc735043e9183da8a750bf24287ec",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.030722499999999996,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 573,
+        "cacheReadInputTokens": 2830,
+        "cacheCreationInputTokens": 9879,
+        "webSearchRequests": 0,
+        "costUSD": 0.030722499999999996,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 72,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0307,
+    "chi_phi_tb": 0.0307,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}
