@@ -4,6 +4,7 @@
 
 ## Trạng thái
 - 23/10 ≈ 14:40 UTC: ĐANG LÀM — soát T3 thấy sân nhà thờ St Paul's bị lấp + cửa sổ hoa hồng sai hướng → sửa hình học, nướng lại, DỰNG LẠI TOÀN BỘ (24 khung, tờ mù, 4 clip, đo 1080p, T3) bằng `/var/tmp/ldn/r/lai_het.sh` (dự kiến xong ≈ 15:50). Báo cáo đang điền số.
+- 23/10 ≈ 14:55 UTC: dựng lại xong 24 khung + tờ mù + khoá trên hình học bản cuối (nướng lại 14:37–14:41); đang dựng clip + đo 1080p + T3.
 - Chi phí: Claude API 0 · OpenAI 0 · RunPod 0 (nướng Cycles CPU đủ nhanh, không thuê GPU) · Gemini/ElevenLabs/YouTube 0.
 - Không pod GPU nào bật. Tiến trình nền: PID trong `/var/tmp/ldn/log/*.pid`.
 
