@@ -10,5 +10,7 @@
 - 23/10 ≈ 17:35 UTC: 8 khung V2 3D (spp 24) + mặt nạ + LUT xong; đo công trình xong (`reports/look-t4-v2/do/cong-trinh.json`); Cycles GPU 2 khung M2-dem (RTX 5090 74 s, RTX 4090 117 s; pod đã tắt, HTTP 204); tấm nền: Gemini Batch lượt 1 (4 tấm, chờ 146–209 s), OpenAI lượt 1 (4) + lượt 2 (3); cổng kiểm đang chạy; timelapse 3/8 s đang dựng.
 - Chi phí đến giờ (sổ): Gemini ≈ $0,14 · OpenAI ≈ $0,53 (ảnh) + kiểm · Claude (kiểm) xem `cost.jsonl` · RunPod ≈ $0,05.
 
+- 23/10 ≈ 19:10 UTC: **XONG — DỪNG chờ chủ dự án.** Tờ so, clip, đo, tấm nền (24 lượt + ghép lại), ước, phiếu, báo cáo đầy đủ. Không còn tiến trình nền; không pod; tổng tiền ≈ $9,29 (Claude vượt mốc theo dõi $3 → $6,02, dưới chặn $15).
+
 ## Lệnh bổ sung đã áp
 - (chưa có)
