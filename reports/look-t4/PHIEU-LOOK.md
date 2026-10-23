@@ -3,7 +3,7 @@
 > Chủ dự án chấm mù. Phiên này **không** tự chấm mù bằng AI và không chọn hộ. Khoá giải mã `khoa.json` — chỉ mở sau khi chọn xong.
 
 ## 1. Cách chọn
-1. Mở `reports/look-t4/to-chon-mu.jpg` (8 hàng × 3 cột X/Y/Z; thứ tự cột đã xáo theo từng hàng). Xem kỹ từng ô ở 1080p: `reports/look-t4/khung-mu/<hàng>-<X|Y|Z>.jpg`.
+1. Mở `reports/look-t4/to-chon-mu.jpg` (8 hàng × 3 cột X/Y/Z; thứ tự cột đã xáo theo từng hàng). Xem kỹ từng ô ở 1080p: `reports/look-t4/khung/<hàng>-<X|Y|Z>.jpg`.
 2. Mỗi hàng chọn **một cột**, hoặc ghi **"không cột nào đạt"** (kèm một dòng lý do). Có thể chọn cột khác nhau giữa các hàng — phiên sau sẽ đề xuất một look hợp nhất nếu các lựa chọn lệch nhau.
 3. **Sau khi đã chọn**, xem 4 clip 8 s (biến thể A cho mọi mốc theo lệnh — xem trước sẽ lộ một cột; thời gian chạy trong khung, cú máy theo §19 đề xuất): `reports/look-t4/clip/clip-M1-A.mp4` … `clip-M4-A.mp4` — đánh giá chuyển động, không dùng để chọn cột.
 

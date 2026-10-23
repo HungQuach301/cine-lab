@@ -3,7 +3,7 @@
 > Nhánh thật: `k2c-t4-02-look` (gốc `origin/k2c-t4-02-tienky` @888de179). Nhánh mặc định của bộ khung `ccr-32b90b5c-vzo2m7` KHÔNG dùng (lệnh gọi tên nhánh).
 
 ## Trạng thái
-- 23/10 ≈ 13:48 UTC: ĐANG LÀM — XONG 24 khung 1080p + tờ mù + khoá + số đo. Đang chạy `look_sau.sh` (4 clip 8 s ≈ 6,6 s/khung/tiến trình sau khi chia ô 300 m loại theo khung nhìn; đo s/khung 1080p P = 2; tranh khắc T3). Báo cáo + phiếu nháp đã có. Tiếp: điền số clip/T3/ước, commit DỪNG.
+- 23/10 ≈ 14:28 UTC: ĐANG LÀM — XONG 24 khung + tờ mù + 4 clip (đạt §19) + đo 1080p sản xuất (7,6–7,8 s/khung/tiến trình). Đang dựng tranh khắc T3 (2 tiến trình). Tiếp: ghép T3, điền báo cáo, commit DỪNG.
 - Chi phí: Claude API 0 · OpenAI 0 · RunPod 0 (nướng Cycles CPU đủ nhanh, không thuê GPU) · Gemini/ElevenLabs/YouTube 0.
 - Không pod GPU nào bật. Tiến trình nền: PID trong `/var/tmp/ldn/log/*.pid`.
 

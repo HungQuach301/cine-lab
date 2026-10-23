@@ -31,7 +31,7 @@ Mã: `scripts/k2ldn/hinh_hoc_look.py` (hình học v2 → `ldn2.bin`, SHA trong 
 | Ánh sáng nướng | Cycles **CPU** 1 m/texel, 32 spp, hộp 3,2 × 2,3 km, 3 mốc (1666 / 1940 / 2026): **93,8 · 88,3 · 109,1 s**; R = bức xạ trời có che khuất + nảy → AO phố + chân tường (tắt dần theo cao). GPU **không thuê**: CPU đã < 2 phút/mốc (đo), thuê pod chỉ để nướng tốn thời gian khởi động hơn | `bake_*.png.json` | — |
 | Khí quyển | Sương có độ cao (tích phân mật độ e^(−y/H) dọc tia máy) + lớp khói than thấp riêng (biến thể B) + đồi xa ngoài hộp (Hampstead/Highgate bắc, Sydenham/Norwood nam — bậc 5) + dãy nhà xa theo năm | — | 5 (đồi xa) |
 
-Hình học cuối: **2 283 957 tam giác** (`ldn2.bin` SHA-256 [[SHA_BIN]]).
+Hình học cuối: **2 283 957 tam giác** (`ldn2.bin` SHA-256 `11632ded53a0467b6c764ef2e9518f25ee7e766610a5f66483cb4f85f81ecd44`; mọi khung, clip, tranh khắc dựng trên đúng bản này; siêu dữ liệu: `channel-k2/k2c-t4-02/look/ldn2-meta.json`).
 
 ## §2. Việc 2 — BỐN MỐC LOOK × 2 KHUNG
 Nguồn thật của máy/giờ/tham số: `channel-k2/k2c-t4-02/look/may/<hàng>-<A|B|C>.json` (sinh bằng `scripts/k2ldn/look_khung.py`). Cao độ máy là cao độ TUYỆT ĐỐI (ODN). Dựng 1920×1080, 16 spp, P = 2 (`scripts/k2ldn/look_chay.sh`).
@@ -103,7 +103,14 @@ Phạm vi bão hoà TV trên 24 ô: 0.024 – 0.584 (ngưỡng §14.4: 0,40). T�
 - **Khoá giải mã:** `reports/look-t4/khoa.json` (+ số đo tổng hợp theo biến thể `reports/look-t4/khoa-do.json`) — **chỉ mở sau khi chọn**. Số đo từng ô theo nhãn mù: `reports/look-t4/do/<hàng>-<X|Y|Z>.json`.
 - **Clip 8 s, 640 × 360, biến thể A, ≤ 5 MB** (`scripts/k2ldn/look_clip.sh`; đo cú máy `reports/look-t4/do/clip-M*.json`):
 
-[[CLIP]]
+| Clip | Cú máy (§19 đề xuất) | Quay hướng nhìn °/s (TB/max) | Vòng quanh tiêu điểm °/s (TB/max) | Tiêu điểm trôi % khung/s (TB/max) | s/khung dựng (640×360, spp 4, P = 2) | MB |
+|---|---|---|---|---|---|---|
+| `clip/clip-M1-A.mp4` | VÒNG CUNG 18° / 8 s = 2,25°/s quanh City; thời gian chạy 15:00 → 16:30 | 2.17 / 2.52 | 1.69 / 1.99 | 0.73 / 0.85 | 5.92 | 3.24 |
+| `clip/clip-M2-A.mp4` | ĐẨY VÀO 16 % quãng tới tiêu điểm / 8 s; giờ cháy 3/9 12:00 → 18:00 (khói lớn dần) | 0.0 / 0.0 | 0.36 / 0.46 | 0.46 / 0.6 | 6.35 | 1.45 |
+| `clip/clip-M3-A.mp4` | ĐẨY VÀO chậm; 29/12/1940 20:00 → 23:00 (đám cháy lan) | 0.0 / 0.0 | 0.34 / 0.43 | 0.47 / 0.6 | 5.96 | 1.04 |
+| `clip/clip-M4-A.mp4` | VÒNG CUNG 16° / 8 s = 2°/s; 14:00 → 19:30 (chiều → hoàng hôn, cửa sổ sáng dần) | 1.92 / 2.24 | 1.52 / 1.8 | 0.63 / 0.74 | 6.28 | 2.75 |
+
+Mọi clip trong giới hạn §19 đề xuất (quay ≤ 3°/s; tiêu điểm ≤ 1,5 %/s). Thời gian chạy trong khung ở cả 4 clip (giờ/giờ cháy nội suy theo khoá).
 
 Ghi chú: clip đều là biến thể A theo lệnh, nên xem clip TRƯỚC khi chọn sẽ cho biết A trông thế nào — đề nghị chủ dự án chọn trên tờ mù trước, rồi mới xem clip.
 
@@ -121,7 +128,29 @@ Làm lại bản thử T3 tiền kỳ với Old St Paul's mới: Hollar *Old St 
 Tệp: `reports/look-t4/t3/T3-khac-hoa-look.mp4` (8 s) · tờ so trước/sau cùng thời điểm hoà (4,0 s): `reports/look-t4/t3/T3-so-truoc-sau.jpg` (trái: tiền kỳ `reports/tien-ky-t4/xem/T3-khac-hoa-1080.jpg`, phải: look). Số đo: `reports/look-t4/do/t3-may.json`, `t3-khop.json`.
 
 ## §6. Việc 6 — ƯỚC LẠI GIỜ MÁY / CHI PHÍ
-[[VIEC6]]
+**Số đo trong phiên** (llvmpipe, 4 vCPU, P = 2 = hai tiến trình cùng lúc như sản xuất; `look/may/do1080-M*.json`, 24 khung mỗi tiến trình, khung 0 gồm biên dịch shader):
+
+| Lớp / cấu hình | s/khung mỗi tiến trình (trung vị khung 1–23) | Ghi chú |
+|---|---|---|
+| Cách A look, 1080p, spp 4 — M1 ngày (vòng cung P1) | **7,55 / 7,66** | khung 0: 16,8 s; nạp cảnh 5,5–5,9 s |
+| Cách A look, 1080p, spp 4 — M3 đêm lửa 1940 (đẩy vào P1) | **7,74 / 7,84** | lửa + khói atlas không làm chậm đáng kể |
+| Cách A look, 640×360, spp 4 (4 clip) | 5,9–6,3 | nghẽn ở số đỉnh (2,28 tr. tam giác × bóng + gương + 4 mẫu), không ở điểm ảnh |
+| Khung look tĩnh 1080p, spp 16 | 37–46 (một khung, gồm nạp + biên dịch) | 24 khung ≈ 16 phút ở P = 2 |
+| Nướng lightmap Cycles CPU 1 m, 32 spp, 3,2 × 2,3 km | 88–109 s / mốc | 3 mốc trong phiên |
+
+Tối ưu đã làm (không đổi hình, lệch TB 0,005/255): bản đồ bóng 1 lần/khung (trước: mỗi mẫu); chia hình học thành ô 300 m để loại theo khung nhìn (8,3 → 6,0 s/khung ở 640×360).
+
+**Ước cả tập** (bảng shot v1: lớp A 513 s = 12 312 khung; mặt nạ ID 190 s; 6–8 mốc lightmap):
+
+| Khoản | UOC-VA-GHIM (tiền kỳ) | Ước mới (số đo look) | Lệch | Thay số? |
+|---|---|---|---|---|
+| Cách A 1080p (P = 2) | 8 s/khung/tiến trình → ≈ 14 h | 7,7 s → 12 312 × 7,7 / 2 ≈ **13,2 h** | −6 % | không (< 20 %) |
+| Mặt nạ ID shot N2+ | ≈ 4 h ở P = 2 | ≈ 4 h (mặt nạ 1 lượt, không tích luỹ) | ≈ 0 | không |
+| Nướng ánh sáng theo mốc | ≈ 5 h (6–8 mốc × 40 phút) | 6–8 mốc × ≈ 100 s ≈ **0,2 h** | −96 % | **có** — thay bằng ≈ 0,2 h (CPU, không cần GPU) |
+| Tổng giờ máy container | ≈ 25–30 h | ≈ **20–25 h** (≈ 2 phiên ≤ 12 h) | −17…−20 % | ghi mới (biên dưới −20 %) |
+| GPU Cycles (D5: 3–4 cận đêm 30–40 s) | ≈ $5–8 | không đổi (look không dùng Cycles) — **nướng lightmap: $0 GPU** | — | — |
+
+Rủi ro tốc độ: số đỉnh là nút thắt — thêm người/xe (L3) hay chi tiết hình học mái/cửa sẽ tăng thời gian gần tuyến tính; đề xuất LOD (gộp nhà xa > 1,5 km thành khối mái) nếu cần thêm chi tiết gần.
 
 ## §7. Việc 7 — PHIẾU CHỌN
 `reports/look-t4/PHIEU-LOOK.md`: cách chọn (mỗi hàng 1 cột hoặc "không cột nào đạt"), Q1–Q3 (đồ chơi / khói–lửa / nhận ra London), quyết định đề xuất L1–L6. Phiên này **không** chấm mù bằng AI, **không** dùng AI soi có phí (O2: không); tự soi lỗi bằng mắt từng khung (lỗi đã sửa ghi ở §9).
