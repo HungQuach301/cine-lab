@@ -1,6 +1,6 @@
 #!/opt/cine/bin/python
 """BAN-CUOI-T3 · SOI SHOT (bố cục + R2 mắt): mỗi shot dựng khung màu + mặt nạ ID mỗi `every` khung (tắt cách A, 480×270) bằng design/k2v/v7c/do_bocuc.js,
-rồi tờ soi có nhãn % 'bang' (cỏ/cát trống), % chủ thể; đánh dấu khung bang > 40 % (ngưỡng mắt 1b). Ghi <ra>/<shot>/do.json + <ra>/<shot>/to.jpg.
+rồi tờ soi có nhãn % TRỐNG = 'bang' + 'suon' (cùng định nghĩa trong_pct khai cho K — 23/10: bản cũ chỉ 'bang' nên bỏ sót C1), % chủ thể; đánh dấu khung trống > 40 % (ngưỡng mắt 1b). Ghi <ra>/<shot>/do.json + <ra>/<shot>/to.jpg.
   cuoi_soi.py <thư mục opt> <ra> N3_1,N3_3 [--every 48] [--P 2] [--cot 6]"""
 import json, os, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor
@@ -19,9 +19,9 @@ def one(sid):
     for i, x in enumerate(D):
         p = d / 'jpg' / f"{x['f']:05d}.jpg"; X, Y = (i % COT) * W, (i // COT) * (H + 18)
         if p.exists(): sh.paste(Image.open(p).convert('RGB'), (X, Y + 18))
-        b = x['pct'].get('bang', 0); ct = sum(x['pct'].get(k, 0) for k in CT)
-        g.text((X + 4, Y + 3), f"{sid} t{x['f'] / 24:5.1f} bang {b:.0f}% ct {ct:.1f}% troi {x['pct'].get('troi', 0):.0f}%", fill=(255, 80, 80) if b > 40 else (255, 230, 120))
+        b = x['pct'].get('bang', 0) + x['pct'].get('suon', 0); ct = sum(x['pct'].get(k, 0) for k in CT)
+        g.text((X + 4, Y + 3), f"{sid} t{x['f'] / 24:5.1f} trong {b:.0f}% ct {ct:.1f}% troi {x['pct'].get('troi', 0):.0f}%", fill=(255, 80, 80) if b > 40 else (255, 230, 120))
     sh.save(d / 'to.jpg', quality=82)
-    return sid, ' '.join(f"{x['f'] / 24:.0f}:{x['pct'].get('bang', 0):.0f}" for x in D)
+    return sid, ' '.join(f"{x['f'] / 24:.0f}:{x['pct'].get('bang', 0) + x['pct'].get('suon', 0):.0f}" for x in D)
 with ThreadPoolExecutor(P) as ex:
     for sid, s in ex.map(one, shots): print(sid, s, flush=True)
