@@ -36,6 +36,9 @@ def decode(png):
 def rong(yr, codes):
     m = np.isin(yr, codes)
     if not m.any(): return None
+    k, cc, st, _ = cv2.connectedComponentsWithStats(m.astype(np.uint8), 8)          # bỏ cụm lẻ < 5 px (mã trùng ngẫu nhiên / điểm rời) trước khi đo
+    m = np.isin(cc, [i for i in range(1, k) if st[i, 4] >= 5])
+    if not m.any(): return None
     ys, xs = np.nonzero(m); row = np.bincount(ys, minlength=yr.shape[0])
     best = 0
     for y in np.unique(ys):

@@ -462,7 +462,7 @@ async function buildChimneySmoke(base) {
   CHIM = new THREE.Mesh(g, new THREE.ShaderMaterial({ uniforms: U, transparent: true, depthWrite: false, blending: THREE.CustomBlending, blendSrc: THREE.OneFactor, blendDst: THREE.OneMinusSrcAlphaFactor,
     vertexShader: `attribute vec4 off; attribute vec4 sd; uniform float uYear, uT, uChimK; uniform vec3 uCam; uniform vec2 uWind; varying vec2 vUv; varying float vA; varying float vS;
       void main(){ vUv = position.xy + vec2(0.5, 0.0); float on = (uYear >= sd.x && uYear < sd.y && sd.z < uChimK) ? 1.0 : 0.0; float age = fract(off.w + uT * 0.02 + sd.w * 0.1);
-        vec3 c = off.xyz + vec3(uWind.x * age * 70.0, age * 26.0 + 1.0, uWind.y * age * 70.0); float size = (1.5 + age * 13.0) * on; vA = on * (1.0 - age) * smoothstep(0.0, 0.15, age) * 0.30 * smoothstep(180.0, 520.0, length(uCam - c)); vS = sd.w;
+        vec3 c = off.xyz + vec3(uWind.x * age * 70.0, age * 26.0 + 1.0, uWind.y * age * 70.0); float size = (1.5 + age * 13.0) * on; vA = on * (1.0 - age) * smoothstep(0.0, 0.15, age) * 0.30 * smoothstep(180.0, 520.0, length(uCam - c)) * (1.0 - smoothstep(1500.0, 3000.0, length(uCam - c))); vS = sd.w;   /* V2: khói bếp xa mờ dần (trước đây không áp sương → đốm sáng ở chân trời) */
         vec3 toC = normalize(uCam - c); vec3 rt = normalize(cross(vec3(0.0, 1.0, 0.0), toC)); vec3 up = normalize(cross(toC, rt)); vec3 w = c + (rt * position.x + up * (position.y - 0.5)) * size;
         if (size < 0.01) w = vec3(0.0, -1000.0, 0.0); gl_Position = projectionMatrix * viewMatrix * vec4(w, 1.0); }`,
     fragmentShader: `varying vec2 vUv; varying float vA; varying float vS; uniform vec3 uSunCol, uHaze; uniform float uNight; ${GLSL_N}
