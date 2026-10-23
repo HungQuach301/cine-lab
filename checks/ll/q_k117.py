@@ -207,8 +207,10 @@ def minh_hoa(E, TL, LS, ep_dir='.', TX=None, step=12, why=None):
     T = K6.tong(E, TL) if (TL or E.get('segments')) else sum(_dur(s) for s in LS)
     M = {k: [] for k in 'acde'}; th, near = [], []
     tot = sum(d['b'] - d['a'] for d in DS); pct = 100 * tot / T if T else 0.0
-    if pct > MH_MAX + LEN: M['a'].append(f'(a) minh hoạ {tot:.1f} s = {pct:.1f} % > {MH_MAX:g} % thời lượng ({len(DS)} đoạn)')
-    near += K6.sat('minh hoạ %', round(pct, 2), MH_MAX)
+    t4 = bool(E.get('kenh2_tu_t4') or E.get('n2p'))   # 1.17.4 (Q2, chủ dự án 23/10/2026 21:45): tập từ T4 bỏ trần cứng 20 % — thay bằng GEMINI-NGAN-SACH,
+    if not t4:                                         # N2P-6 (c) tổng AI ≤ 70 %, GOC-CAO-60 (q_k1174). T3 giữ trần cũ (không hồi tố).
+        if pct > MH_MAX + LEN: M['a'].append(f'(a) minh hoạ {tot:.1f} s = {pct:.1f} % > {MH_MAX:g} % thời lượng ({len(DS)} đoạn)')
+        near += K6.sat('minh hoạ %', round(pct, 2), MH_MAX)
     SA = _so_ai(E, ep_dir)
     if isinstance(SA, str): th.append(SA); SA = None
     for d in DS:
@@ -226,7 +228,8 @@ def minh_hoa(E, TL, LS, ep_dir='.', TX=None, step=12, why=None):
         if not dl: M['e'].append(f"(e) {w}: sổ AI không có dòng cho đoạn (so_ai của đoạn/shot, hoặc tệp so_ai: có shot/doan/ma = {d['ma']} hoặc tag = luot)")
         elif not any(_dong_ok(x) for x in dl): M['e'].append(f'(e) {w}: dòng sổ AI thiếu model / lệnh / SHA đầu ra')
     return K6.r(loi=sum(M.values(), []), thieu=th, muc=M, sat_nguong=near,
-                val=f"{len(DS)} đoạn minh hoạ ({', '.join(d['id'] for d in DS[:6])}) · {tot:.1f} s = {pct:.1f} % · lỗi kẹp {len(M['c'])} · AGL {len(M['d'])} · sổ AI {len(M['e'])}"
+                val=f"{len(DS)} đoạn minh hoạ ({', '.join(d['id'] for d in DS[:6])}) · {tot:.1f} s = {pct:.1f} %" + (' (từ T4: không trần cứng — Q2; xem GEMINI-NGAN-SACH, N2P-6 (c), GOC-CAO-60)' if t4 else '')
+                    + f" · lỗi kẹp {len(M['c'])} · AGL {len(M['d'])} · sổ AI {len(M['e'])}"
                     + ' · nhãn: không bắt buộc (1.17.2)' + mt)
 
 

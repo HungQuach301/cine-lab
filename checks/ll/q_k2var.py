@@ -310,14 +310,14 @@ def q32b_k2(E, TL):
 
 
 # ================================================================ NHIP-K2 (Q14–Q18 → Q37 cho kênh 2)
-def nhip_k2(E, TL, mp4=None, tl=None, mien=None, tl_moc=False):
+def nhip_k2(E, TL, mp4=None, tl=None, mien=None, tl_moc=False, bcv=None):
     """Kênh 2: Q14–Q18 (luật nhịp LL) KHÔNG ÁP; nhịp đo bằng Q37 (TB ≤ 3,5 s, dài nhất ≤ 6 s — Kinh thánh §4, thước scripts/k2/rhythm.py).
     Đặc tả chưa khai `beats` → dùng MỐC ĐẶC TẢ (mọi mốc thật khai trong đặc tả): TRƯỢT khi mốc đã vượt ngưỡng (máy 3D di chuyển liên tục không
     sinh mốc nên phải chốt bằng beats hoặc master); mốc ĐẠT → "ĐẠT (cận)" (mốc ≥ biến cố khai được)."""
     from checks.ll import q_nhip, q_rhythm
     if not is_k2(E): return dict(ok=True, loi=[], val='không áp (tập LL: Q14–Q18 như cũ)', khong_ap=True)
     ll = q_rhythm.measure(dict(E, kenh=2, id=E.get('id') or 'k2'), TL)
-    r = q_nhip.q37(E, TL, mp4, tl=tl, mien=mien, tl_moc=tl_moc); M = r.get('moc_dac_ta')   # tl_moc: 1.17.3 (A2), chỉ tập từ T3
+    r = q_nhip.q37(E, TL, mp4, tl=tl, mien=mien, tl_moc=tl_moc, bcv=bcv); M = r.get('moc_dac_ta')   # tl_moc: 1.17.3 (A2), chỉ tập từ T3
     if r.get('bien_co') or not M: return dict(r, ll=ll, val='Q37: ' + r['val'])
     loi = [x for x in (r.get('loi') or []) if not x.startswith('(a)') or 'không khai beats' not in x]
     if M['tb'] > 3.5: loi.append(f"(b) mốc đặc tả: TB {M['tb']} s > 3,5 s (mốc đặc tả; chuyển động máy liên tục của cảnh 3D không sinh mốc — chốt bằng beats hoặc master)")
