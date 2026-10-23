@@ -110,18 +110,20 @@ def loi():
     for x in L: print(x['t'], x['bd_stem'], x['kt_stem'], '|', x['khoa'], '|', x['asr'])
 
 # phụ đề: chữ KHOÁ (không phải chữ ASR) chia thẻ ≤ 2 dòng; thời điểm thẻ theo mốc từ ASR (khớp theo số từ)
-def the_phu_de(L, maxch=26):
+def the_phu_de(L, maxch=44):
     out = []
     for x in L:
         ws = x['khoa'].split(); tu = x['tu']; n = len(ws)
         def tt(i, end=False):   # mốc của từ khoá thứ i (ánh xạ tỉ lệ khi số từ ASR khác)
             j = min(len(tu) - 1, round(i * (len(tu) - 1) / max(1, n - 1))) if tu else 0
             return x['t'] + (tu[j]['b'] if end else tu[j]['a']) if tu else x['t'] + (x['kt_stem'] - x['bd_stem']) * (i + end) / n
-        groups, cur = [], []
-        for i, w in enumerate(ws):
-            if cur and len(' '.join(ws[k] for k in cur + [i])) > 2 * maxch: groups.append(cur); cur = []
-            cur.append(i)
-        groups.append(cur)
+        L_ = len(x['khoa']); nc = -(-L_ // maxch); groups = []   # số thẻ = ⌈ký tự / maxch⌉, cắt ở ranh từ gần mốc chia đều nhất (ưu tiên sau dấu phẩy)
+        cuts, pos, acc = [], [], 0
+        for i, w in enumerate(ws): acc += len(w) + 1; pos.append(acc)
+        for c in range(1, nc):
+            tg = L_ * c / nc; cuts.append(min(range(n - 1), key=lambda i: abs(pos[i] - tg) - (6 if ws[i].endswith(',') else 0)) + 1)
+        b0 = 0
+        for c in sorted(set(cuts)) + [n]: groups.append(list(range(b0, c))); b0 = c
         for g in groups:
             s = ' '.join(ws[k] for k in g); out.append(dict(a=round(tt(g[0]) - 0.08, 3), b=round(tt(g[-1], True) + 0.25, 3), s=s))
     for i in range(len(out) - 1): out[i]['b'] = min(out[i]['b'], out[i + 1]['a'] - 0.04)
@@ -141,7 +143,7 @@ def tron():
         dict(uv='GIO-1', t=0.0, muc=-43, dai=4.2, fi=0.8, fo=0.6), dict(uv='PHO-1', t=0.0, muc=-43, dai=4.2, fi=1.0, fo=0.6, ghi='phố 2026 ban ngày'),
         dict(uv='MAYBAY-1', t=0.6, muc=-44, dai=3.6, fi=1.0, fo=1.0, ghi='đường băng'),
         dict(uv='SONG-1', t=4.2, muc=-42, dai=11.8, fi=0.6, fo=0.8, ghi='vịnh 1704'), dict(uv='CHIM-1', t=4.4, muc=-45, dai=6.0, fi=1.0, fo=1.0),
-        dict(uv='PXA-1', t=9.1, muc=-38, dai=2.5, fo=0.6, pan=-0.3, ghi='vây 1705 (pháo xa, khe lời)'), dict(uv='PXA-3', t=11.6, muc=-40, dai=2.5, fo=0.8, pan=0.3, ghi='vây 1727'),
+        dict(uv='PXA-1', t=9.1, muc=-38, dai=2.5, fo=0.6, pan=-0.3, ghi='vây 1705 (pháo xa, dưới lời)'), dict(uv='PXA-3', t=11.85, muc=-40, dai=2.5, fo=0.8, pan=0.3, ghi='vây 1727 (khe lời 11,81–12,31)'),
         dict(uv='LUAL-1', t=16.0, muc=-36, dai=4.3, fi=0.3, fo=0.6, ghi='pin nổi cháy'), dict(uv='NO-1', t=16.05, muc=-31, vao=0.1, dai=4.2, lp=1800, fo=1.5, ghi='pin nổ'),
         dict(uv='GIO-2', t=20.3, muc=-43, dai=14.7, fi=0.8, fo=0.8, ghi='eo đất'), dict(uv='CO-2', t=26.8, muc=-44, dai=3.0, fi=0.4, fo=0.6, ghi='1909'),
         dict(uv='MAYBAY-1', t=30.3, muc=-40, dai=4.7, fi=0.6, fo=1.2, ghi='đường băng 1941'),
