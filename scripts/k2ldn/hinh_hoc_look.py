@@ -148,6 +148,7 @@ SLATE = (92, 96, 104)
 def lots(streets):
     """sinh lô dọc phố (mặt tiền + chiều sâu) cho nhà 1666; trả danh sách dict lô. Chiếm chỗ trên lưới 2 m để không chồng."""
     occ = np.zeros((GH, GW), np.uint8); occ |= WAT66; out = []
+    occ |= poly_mask([san_nha_tho()])                                           # sân nhà thờ St Paul's để trống (Doornick 1666, Hollar 1658: churchyard)
     for l, hw, nm in streets: cv2.polylines(occ, [np.round(to_g(l)).astype(np.int32)], False, 1, thickness=max(1, int(round(2 * hw / G))))   # lòng phố không bị lô của phố khác lấn
     for l, hw, nm in streets:
         seg = np.diff(l, axis=0); ln = np.linalg.norm(seg, axis=1)
@@ -189,6 +190,15 @@ def lots(streets):
             cv2.fillPoly(occ, [np.round(to_g(poly)).astype(np.int32)], 1)
             out.append({'c': c, 'u': udir, 'v': -vdir, 'w': w, 'd': d, 'hw': 1.5, 'front': False, 'pho': ''})
     return out, occ
+
+def san_nha_tho():
+    """sân nhà thờ St Paul's (churchyard) quanh Old St Paul's: hộp theo trục nhà thờ u −122…+128 m, v ±62 m (giới hạn: Ludgate Hill / Old Change / Paternoster Row / Carter Lane)
+    — Doornick 1666 vẽ khoảng trống quanh "S. Paul Kerck"; Hollar 1658 sân trống trước mặt đông. Bậc 4 (ranh ước theo phố OSM còn giữ)."""
+    for b in R['toa']:
+        if b['name'] == "St Paul's Cathedral":
+            r = np.array(b['r'], float); c = r.mean(0); X = r - c; w, V = np.linalg.eigh(X.T @ X); ax = V[:, 1] if V[0, 1] > 0 else -V[:, 1]; break
+    c = c + ax * 18.0; vv = np.array([-ax[1], ax[0]])
+    return np.array([c + ax * u + vv * v for u, v in ((-122, -62), (128, -62), (128, 62), (-122, 62))])
 
 def kho_ven_song(occ):
     """kho/bến/nhà ven sông bờ bắc 1666 (Fleet → Tower) và bờ nam (Bankside): dãy nhà sát kè, đầu hồi ra sông (Hollar Long View 1647; Doornick vẽ dãy nhà sát nước) — bậc 4 hình, bậc 5 lô."""
@@ -429,7 +439,10 @@ def st_pauls_old(m):
     # mặt đông: cửa sổ hoa hồng + 7 cửa sổ nhọn (Hollar 2010.529), tháp nhọn góc
     x0, z0 = P(86.1, -5.5); x1, z1 = P(86.1, 5.5)
     m.wall((x0, z0), (x1, z1), g + 4.0, g + 17.0, g, (34, 32, 34), t, 5, 13, 0)
-    xr, zr = P(86.12, 0); m.cyl(xr, zr, 4.6, 4.6, g + 20.0, g + 20.3, (30, 28, 32), t, 5, 13, 24)
+    for i in range(24):                                                       # cửa sổ hoa hồng: đĩa ĐỨNG trên mặt đông (tâm 20,2 m, bán kính 4,6 m) — 24 quạt tam giác
+        a0, a1 = 2 * math.pi * i / 24, 2 * math.pi * (i + 1) / 24
+        c0 = P(86.15, 0.0); p0 = P(86.15, 4.6 * math.cos(a0)); p1 = P(86.15, 4.6 * math.cos(a1))
+        m.tri((c0[0], g + 20.2, c0[1]), (p0[0], g + 20.2 + 4.6 * math.sin(a0), p0[1]), (p1[0], g + 20.2 + 4.6 * math.sin(a1), p1[1]), (40, 36, 40), t, 5, 13, 0)
     for vv in (-15.5, -6.5, 6.5, 15.5):
         B(86.0, vv, 2.4, 2.4, 0, 36 if abs(vv) < 10 else 22); x, z = P(86.0, vv); m.cyl(x, z, 1.1, 0.05, g + (36 if abs(vv) < 10 else 22), g + (45 if abs(vv) < 10 else 28), jit(st, 4), t, 5, 5, 8)
     # tháp giao điểm: thân 20 m vuông tới 58 m, lan can + 4 chóp góc tới 62–66 m; hai tầng cửa sổ nhọn mỗi mặt

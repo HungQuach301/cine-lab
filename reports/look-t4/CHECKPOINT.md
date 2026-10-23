@@ -3,7 +3,7 @@
 > Nhánh thật: `k2c-t4-02-look` (gốc `origin/k2c-t4-02-tienky` @888de179). Nhánh mặc định của bộ khung `ccr-32b90b5c-vzo2m7` KHÔNG dùng (lệnh gọi tên nhánh).
 
 ## Trạng thái
-- 23/10 ≈ 14:28 UTC: ĐANG LÀM — XONG 24 khung + tờ mù + 4 clip (đạt §19) + đo 1080p sản xuất (7,6–7,8 s/khung/tiến trình). Đang dựng tranh khắc T3 (2 tiến trình). Tiếp: ghép T3, điền báo cáo, commit DỪNG.
+- 23/10 ≈ 14:40 UTC: ĐANG LÀM — soát T3 thấy sân nhà thờ St Paul's bị lấp + cửa sổ hoa hồng sai hướng → sửa hình học, nướng lại, DỰNG LẠI TOÀN BỘ (24 khung, tờ mù, 4 clip, đo 1080p, T3) bằng `/var/tmp/ldn/r/lai_het.sh` (dự kiến xong ≈ 15:50). Báo cáo đang điền số.
 - Chi phí: Claude API 0 · OpenAI 0 · RunPod 0 (nướng Cycles CPU đủ nhanh, không thuê GPU) · Gemini/ElevenLabs/YouTube 0.
 - Không pod GPU nào bật. Tiến trình nền: PID trong `/var/tmp/ldn/log/*.pid`.
 
