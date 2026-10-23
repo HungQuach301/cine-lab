@@ -1,0 +1,64 @@
+diff --git a/docs/BIBLE-KENH2.md b/docs/BIBLE-KENH2.md
+index a2186e07..bfe7d847 100644
+--- a/docs/BIBLE-KENH2.md
++++ b/docs/BIBLE-KENH2.md
+@@ -1,4 +1,4 @@
+-# KINH THÁNH KÊNH 2 — Moving Parts (chủ dự án duyệt 13/10/2026 22:49; bổ sung 14/10/2026 10:41, 18:08, 20:45, 22:11, 15/10/2026, 16–17/10/2026 — §10 và 17–18/10/2026 — §11; bổ sung 18/10/2026 tối — §12; §13 + sửa 19/10; §14 + sửa 20/10, 20/10 22:34; §14.7 + §15 + §16 — 21/10/2026; sửa §14–§15 + §17 + §18 — 22/10/2026)
++# KINH THÁNH KÊNH 2 — Moving Parts (chủ dự án duyệt 13/10/2026 22:49; bổ sung 14/10/2026 10:41, 18:08, 20:45, 22:11, 15/10/2026, 16–17/10/2026 — §10 và 17–18/10/2026 — §11; bổ sung 18/10/2026 tối — §12; §13 + sửa 19/10; §14 + sửa 20/10, 20/10 22:34; §14.7 + §15 + §16 — 21/10/2026; sửa §14–§15 + §17 + §18 — 22/10/2026; §19 + sửa §13.6, §15 — 23/10/2026)
+ 
+ Nguồn hình thành: phân tích đối thủ "Fortune of Nations Animated" (lời + 14 khung, 13/10) và "GoDocs" (video Suez 11:00 đo bằng máy, 14/10) + định hướng nâng cấp nhà máy (Bảng trạng thái) + Teardown số liệu 15/10 (channel-k2/TEARDOWN-FON.md) + NC-LS / NC-LS2 (17/10). Nguyên tắc: học CÔNG THỨC, không sao chép sản phẩm (không dùng câu chữ, hình, thumbnail, nhận diện, danh sách đề tài của đối thủ; lời/video của đối thủ không đưa vào repo).
+ 
+@@ -227,6 +227,7 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h
+ - TL-4 Không tấm tư liệu và tấm số/câu trích đứng riêng; tư liệu chỉ phủ khớp lên địa hình rồi tan vào cảnh ≤ 3 s; số liệu và câu trích do lời + phụ đề CC mang.
+ - TL-5 Mở đầu là timelapse từ giây 0, dài theo lời móc; khoảnh khắc giá trị nhất xuất hiện trong 30 s đầu.
+ - TL-6 Thẻ chương theo §13.3.
++- Từ T4: máy trong shot theo §19 (a) (thay TL-1 "cố định hoặc trôi ≤ 2 %/s"; CODINH vẫn bắt buộc cho shot có tấm nền N2+); bản đồ cổ và tranh khắc theo §19 (b)(c) (thay TL-4) — chủ dự án duyệt 23/10/2026 17:42 (G1 T4, D9).
+ 
+ ## 14. Bổ sung 19–20/10/2026 (chủ dự án duyệt; nới luật AI tới N2 20/10 21:15, duyệt tất cả khuyến nghị 20/10 21:22)
+ 
+@@ -288,9 +289,9 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h
+ - (a) Ba lớp. **LỚP DỮ KIỆN CÂU CHUYỆN — khoá:** vật mang câu chuyện/nhịp kể (cờ, công trình có tên, ranh giới/ranh đám cháy theo ngày, tàu/vật được lời nhắc tới, đường sá chính, năm/ngày, chữ, số) **và hình học địa lý** (đường bờ, chân trời, dáng núi/đồi có tên, vị trí mặt nước); vật/biến cố gắn trực tiếp với ranh lửa của ngày đó (lửa lớn, cột khói, nổ nhà chặn lửa). AI không được thêm/xoá/đổi; ghép lại điểm ảnh render theo mặt nạ ID (sai khác < 1/255; vùng bảo vệ = mặt nạ nở 1 px, vật < 60 px nở 3 px; viền mềm ≤ 3 px); cấm đổi loại vùng (đất ↔ nước). **LỚP CHI TIẾT MINH HOẠ — AI được thêm/đổi:** người, đám đông, lều, lửa trại, khói, đồ đạc, thuyền nhỏ, xe, gia súc, cây, quần áo phơi… nếu đúng thời kỳ (bảng vật của tập, nguồn bậc 2–5 §12.2), không trái hoàn cảnh có nguồn, không lỗi thời đại, không chữ; trên **ảnh tĩnh** chỉ vật đứng yên trong khoảng thời gian của tấm, **người và động vật luôn tính là chuyển động**. **LỚP NỀN — AI tự do về bề mặt** (vân đất, nước, trời, sương, ánh sáng), không tự do về hình học.
+ - (b) Cách dùng: **ảnh tĩnh** sửa KHÔNG gửi mặt nạ (mặt nạ làm mô hình vẽ lại hình học) rồi ghép lớp (a) + khớp màu render VÀO tông tấm nền AI (không kéo tấm AI về tông render); vật lớp (a) nằm trên nền đất (vd dãy trại) dựng lại có vân/bóng cùng tông tấm nền; lệnh chỉ nêu vật đứng yên cụ thể từ bảng vật, cấm tên vật lớp (a) (tường, ruộng bậc thang, lối, cầu, nhà…). **Video AI (video→video) không dùng** cho tới khi một mô hình qua cổng (c) với tỷ lệ làm lại ≤ 3 lượt/đoạn. Vật chuyển động và lớp dữ kiện luôn từ render từng khung; chuyển giữa hai tấm nền chỉ bằng hoà ≥ 2 s.
+ - (c) Cổng kiểm bắt buộc mọi khung N2+: (i) lớp (a) 0/255 + 0 vật (a) thêm/bớt/đổi; (ii) 0 lỗi thời đại có năm ở hai mô hình nhìn khác nhau + q_thoi_dai; (iii) đổi loại vùng T9b ≤ 2 % mỗi chiều và 0 báo của mô hình; (iv) 0 vật chuyển động trên tấm tĩnh; (v) nhấp nháy ≤ 1,5 × đối chứng, chuyển tấm ≤ 1 ΔE/khung; + người đọc tờ so. Bộ kiểm có khung thử đáp án; đổi mô hình/đề bài thì chạy lại đáp án.
+-- (d) Trần T4: tấm nền N2+ ≤ 50 % thời lượng (chỉ shot timelapse máy cố định); minh hoạ M-d ≤ 20 %; tổng khung có AI ≤ 70 %; hai loại không chồng nhau trên một shot; chuyển tấm nền chỉ bằng hoà ≥ 2 s. Không dùng AI video→video (sửa video theo video nguồn) cho shot timelapse hoặc shot mang dữ kiện; video AI chỉ cho minh hoạ M-d.
++- (d) Trần T4: tấm nền N2+ ≤ 50 % thời lượng (chỉ shot timelapse máy cố định); minh hoạ M-d ≤ 20 %; tổng khung có AI ≤ 70 %; hai loại không chồng nhau trên một shot; chuyển tấm nền chỉ bằng hoà ≥ 2 s. Không dùng AI video→video (sửa video theo video nguồn) cho shot timelapse hoặc shot mang dữ kiện; video AI chỉ cho minh hoạ M-d. T4: tấm nền N2+ lập kế hoạch ≤ 15 % thời lượng tới khi phiên K xét phép (iii) (D11, chủ dự án 23/10/2026 17:42); trần 50 % giữ nguyên làm trần luật.
+ - (e) Công bố: bật "AI use = Yes" trên YouTube; thẻ phương pháp KHÔNG nhắc AI (chủ dự án 22/10/2026 11:09); câu "illustrative detail (people, goods, boats, carts, textures) is AI-generated; the fire's extent by day, named buildings, dates and the river are from sources" CHỈ ở mô tả YouTube; danh sách nguồn lớp (a) và (b) trong mô tả/bình luận ghim; sổ AI ghi mọi lệnh (model, lệnh nguyên văn, SHA vào/ra, % điểm ảnh AI, giá, C2PA/SynthID).
+-- (f) Minh hoạ M-d (duyệt 21/10 15:56): đoạn AI đứng riêng, máy tầm người 0–40 m (toàn cảnh cao do 3D); không công trình có tên làm chủ thể — nếu buộc có thì ảnh đầu lấy từ render; mỗi đoạn kẹp giữa hai shot timelapse 3D cùng thời điểm, bộ đếm chạy tiếp; khớp lớp (a) (gió, trăng, ranh lửa theo ngày); không dựng nhân vật lịch sử có tên; qua cùng bộ kiểm (c). Khung T4: 8 khoảnh khắc — (1) Pudding Lane 01:00 2/9; (2) bờ sông gần cầu sáng 2/9; (3) Thames sà lan + đồ trôi, bờ bắc rực lửa; (4) Watling Street xe/người khiêng/người bệnh; (5) chì chảy quanh St Paul's đêm 4/9; (6) nổ nhà bằng thuốc súng Tower Street; (7) Moorfields lều/chòi/đống đồ; (8) phế tích bốc khói 7/9.
++- (f) Minh hoạ M-d (duyệt 21/10 15:56): đoạn AI đứng riêng, máy tầm người 0–40 m (toàn cảnh cao do 3D); không công trình có tên làm chủ thể — nếu buộc có thì ảnh đầu lấy từ render; mỗi đoạn kẹp giữa hai shot timelapse 3D cùng thời điểm, bộ đếm chạy tiếp; khớp lớp (a) (gió, trăng, ranh lửa theo ngày); không dựng nhân vật lịch sử có tên; qua cùng bộ kiểm (c). Khung T4: 8 khoảnh khắc — (1) Pudding Lane 01:00 2/9; (2) bờ sông gần cầu sáng 2/9; (3) Thames sà lan + đồ trôi, bờ bắc rực lửa; (4) Watling Street xe/người khiêng/người bệnh; (5) chì chảy quanh St Paul's đêm 4/9; (6) người cứu đồ lên xe ở Cheapside sáng 3/9 (thay "nổ nhà bằng thuốc súng Tower Street": nổ nhà là lớp dữ kiện theo LUAT-N2P-T4 b34 → dựng 3D; D10, chủ dự án 23/10/2026 17:42); (7) Moorfields lều/chòi/đống đồ; (8) phế tích bốc khói 7/9.
+ - (g) Lối mòn/đường đất: có trên bản đồ đo đạc thời đó (bậc 1) thuộc lớp (a); không nguồn thuộc lớp (c); mặt nạ ID ghi trường lối mòn có nguồn.
+ - (h) Bộ kiểm N2+ đưa vào checks/ ở phiên K (N2P-D4); Cosmos-Transfer gác (N2P-D6).
+ - (i) T3 (luật N2 §14.1): được dùng minh hoạ AI theo đúng nguyên tắc (f), ≤ 20 % thời lượng — chủ dự án mở cho vòng sửa T3 ngày 21/10 21:15 (5 đoạn: Rodney dỡ hàng Old Mole 1780, hái rau dại 1780, dân rời phố 8/1704, phố cháy đêm 4/1781, cận chân người qua đường băng 2026).
+@@ -309,3 +310,33 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h
+ - 07:07: chủ dự án tự chuyển video Steel sang không công khai.
+ - Các mục §1–§9 chỉ còn giá trị lịch sử; chỗ trái với §18 thì §18 thắng.
+ - T3 phát hành bản cuối 23/10/2026 (G2 nghiệm thu 10:24; 10:45 chủ dự án: "Tôi không muốn sửa thêm gì nữa, muốn hoàn tất để post tập 3 luôn"): master `k2-t3-v1-master.mp4` SHA-256 `5b9f0bcc…`, nhánh `release-k2-t3-g2`; chủ dự án tự đăng theo `k2-t3-v1-dang-tai.md`.
++
++## 19. Ngữ pháp máy điện ảnh cho timelapse cùng nơi + chất liệu tư liệu sống (áp từ T4; chủ dự án duyệt 23/10/2026 17:42 (G1 T4, D9))
++
++**(a) Bộ cú máy.** Trong một shot timelapse, máy được dùng MỘT trong các cú sau; **thời gian chạy suốt cú máy** (không dừng thời gian để "khoe" chuyển động máy):
++
++| Mã | Cú máy | Thông số đề xuất (đo tại tiêu điểm, khung 16:9) |
++|---|---|---|
++| CODINH | cố định / trôi nhẹ | ≤ 2 % khung/giây (giữ TL-1 cũ) — **bắt buộc** cho shot dùng tấm nền N2+ |
++| DAY | đẩy vào chậm | tiêu điểm phóng ≤ 1,5 %/s chiều rộng; tiến ≤ 1,5 % khoảng cách tới tiêu điểm mỗi giây |
++| KEO | kéo lùi lộ cảnh | lùi ≤ 2 % khoảng cách/giây; phải lộ ra vật mang nghĩa mới (không kéo lùi chỉ để "rộng") |
++| CAU | cần cẩu lên/xuống | 2–6 m/s ở độ cao 150–300 m; góc chúc đổi ≤ 1,5°/s |
++| VONG | vòng cung quanh tiêu điểm | tổng ≤ 30–45°, ≤ 3°/s; tiêu điểm giữ trong vùng 1/3 |
++| TRUOT | trượt ngang có tiền cảnh (thị sai) | tiêu điểm dịch ≤ 3 % khung/s; tiền cảnh 8–15 %/s; tiền cảnh là vật đúng mốc năm |
++| NGHIENG | nghiêng lộ cảnh | ≤ 2°/s, kết thúc ở vật mang nghĩa |
++| THAP | góc thấp anh hùng | máy 20–60 m, ngửa 5–15°; chỉ cho công trình có vai truyện; tổng ≤ 12 % thời lượng tập |
++| XUONG | nhìn thẳng xuống → xiên | từ −90° về −20…−35° trong 4–8 s; dùng cho chuyển bản đồ ↔ 3D |
++| LAN | cú lặn | theo §14.3 |
++| KHOP | khớp cắt cùng khung khác năm (then–now) | cùng máy, cùng FOV (sai khác 0 px ở điểm neo); cắt hoặc hoà ≤ 1 s |
++
++**Luật:** (1) mỗi chương ≥ 4 loại cú máy (không tính M-d và thẻ); (2) ≤ 2 shot liền nhau cùng loại; (3) **điểm máy xương sống chính tái xuất mỗi hồi với khung y hệt** (lưu tham số máy một lần, mọi lần dùng đọc lại đúng tham số) để khớp cắt; (4) TL-1 sửa thành: *"6–8 điểm máy cao; trong shot máy dùng bộ cú máy §19 (a) với giới hạn tốc độ trên; shot có tấm nền N2+ phải CODINH; ≥ 75 % thời lượng là góc cao/toàn cảnh có thời gian chạy (phần cao của cú lặn tính vào)"*; trần cắt/phút TL-1 không áp cho cắt góc trong shot (như §14.7 V2-D7).
++
++**(b) Bản đồ cổ hoạt hoá.** Chỉ dùng bản đồ thời đó có bằng chứng PD/CC0 lưu ở `licenses/` (URL, ngày, JSON/ảnh trang). Hoạt hoá được phép: vẽ lan lửa, hướng, ranh theo **dữ kiện có nguồn** (tên nơi theo ngày bậc 2 × vị trí bậc 1; đoạn nội suy ghi "ước lượng" bậc 5 trong log); máy đẩy/trượt; chuyển bản đồ ↔ 3D **cùng toạ độ** (khớp điểm khống chế, ghi sai số đo được). **Không** dùng AI vẽ lại, tô màu, làm nét hay "phục chế" bản đồ/tranh khắc. Mỗi lần ≤ 10 s, ≤ 1–2 lần/hồi, ≤ 3 tên nơi trên hình; tổng bản đồ (cổ + 3D kiểu bản đồ) ≤ 12 % thời lượng. Lớp vẽ thêm (lửa, ranh) dùng màu/nét không lẫn với nét khắc gốc.
++
++**(c) Tranh khắc công trình/nhân vật.** Khớp vào 3D **cùng góc** (hoà ≥ 1 s: tranh → 3D hoặc ngược lại) hoặc đặt ở góc khung (≤ 1/3 khung). Chỉ thị sai 2,5D thủ công (tách lớp bằng tay theo nét vẽ, không ước độ sâu bằng AI — §12.3) hoặc đẩy nhẹ ≤ 1,5 %/s; không AI lên tư liệu. Chú thích ≤ 6 từ. Mỗi mục ghi RIGHTS (nguồn, giấy phép, bằng chứng). Tính chung trần tư liệu + tranh khắc + thẻ ≤ 10 % thời lượng.
++
++**Phạm vi và quan hệ với luật cũ (chủ dự án duyệt 23/10/2026 17:42 (G1 T4, D9)):**
++- Áp từ T4; T3 và các tập trước giữ §13.6 như cũ.
++- §19 (a) thay TL-1 "cố định (hoặc trôi ≤ 2 % khung/giây)" cho tập từ T4; CODINH vẫn bắt buộc cho shot có tấm nền N2+. Bản thử T4 vượt ≤ 3°/s (vòng cung, cẩu) do nén đoạn 3 s; sản xuất giữ ≤ 3°/s (D9).
++- §19 (b)(c) thay TL-4 cho bản đồ cổ và tranh khắc từ T4. Trần: bản đồ (cổ + 3D kiểu bản đồ) ≤ 12 % thời lượng; tư liệu + tranh khắc + thẻ ≤ 10 % thời lượng.
++- Lửa/khói T4 (D5): lửa/khói cách A (atlas nướng sẵn) cho cảnh rộng; Cycles GPU chỉ 3–4 cận đêm (≈ 30–40 s); không ghép A↔B trong một cú máy (§14.2); nếu Cycles ngày không sửa được mép thể tích → chỉ A.
