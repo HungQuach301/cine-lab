@@ -1,0 +1,357 @@
+{
+ "ban_do": "Doornick 1666, Rijksmuseum RP-P-OB-82.345 (PDM)",
+ "anh": {
+  "tep": "rijks-doornick-0.jpg",
+  "sha256": "2c51b336901b9745321882d33d98ec5f5de1cb90bca8a9b029946160148203da",
+  "co": [
+   5324,
+   4650
+  ]
+ },
+ "ghi_chu": "LOOK-T4 23/10/2026: ĐỌC LẠI điểm khống chế (tệp khop-doornick.json của TIEN-KY-T4 bị channel-k2/.gitignore chặn, mất theo container). px đọc tay trên ảnh gốc 5324×4650; EN = EPSG:27700 (OSM/vị trí cổng có tên).",
+ "diem": [
+  {
+   "ten": "Ludgate",
+   "px": [
+    2482,
+    1377
+   ],
+   "en": [
+    531760,
+    181158
+   ],
+   "nguon_en": "vị trí cổng: Ludgate Hill tại St Martin within Ludgate (bậc 3)",
+   "dung": true
+  },
+  {
+   "ten": "Newgate",
+   "px": [
+    2480,
+    1197
+   ],
+   "en": [
+    531796,
+    181409
+   ],
+   "nguon_en": "Newgate Street × Old Bailey (bậc 3)",
+   "dung": true
+  },
+  {
+   "ten": "Aldersgate",
+   "px": [
+    2672,
+    1145
+   ],
+   "en": [
+    532145,
+    181465
+   ],
+   "nguon_en": "Aldersgate Street × London Wall cũ (bậc 3)",
+   "dung": true
+  },
+  {
+   "ten": "Cripplegate",
+   "px": [
+    2722,
+    992
+   ],
+   "en": [
+    532330,
+    181615
+   ],
+   "nguon_en": "Wood Street × Fore Street (bậc 3)",
+   "dung": true
+  },
+  {
+   "ten": "Moorgate",
+   "px": [
+    2995,
+    990
+   ],
+   "en": [
+    532700,
+    181555
+   ],
+   "nguon_en": "Moorgate × London Wall (bậc 3)",
+   "dung": true
+  },
+  {
+   "ten": "Bishopsgate",
+   "px": [
+    3348,
+    1033
+   ],
+   "en": [
+    533198,
+    181430
+   ],
+   "nguon_en": "Bishopsgate × Wormwood Street (bậc 3)",
+   "dung": true
+  },
+  {
+   "ten": "Aldgate",
+   "px": [
+    3608,
+    1242
+   ],
+   "en": [
+    533510,
+    181170
+   ],
+   "nguon_en": "Aldgate High Street × Duke's Place (bậc 3)",
+   "dung": true
+  },
+  {
+   "ten": "London Bridge N",
+   "px": [
+    3228,
+    1606
+   ],
+   "en": [
+    532905,
+    180640
+   ],
+   "nguon_en": "mố bắc cầu cũ cạnh St Magnus (bậc 2–3)",
+   "dung": true
+  },
+  {
+   "ten": "London Bridge S",
+   "px": [
+    3232,
+    1795
+   ],
+   "en": [
+    532840,
+    180370
+   ],
+   "nguon_en": "mố nam cầu cũ (bậc 3)",
+   "dung": true
+  },
+  {
+   "ten": "White Tower",
+   "px": [
+    3752,
+    1558
+   ],
+   "en": [
+    533612,
+    180555
+   ],
+   "nguon_en": "OSM White Tower (bậc 1 vị trí; hình vẽ bậc 4)",
+   "dung": true
+  },
+  {
+   "ten": "Fleet Bridge",
+   "px": [
+    2390,
+    1393
+   ],
+   "en": [
+    531632,
+    181174
+   ],
+   "nguon_en": "Fleet Street × Farringdon/New Bridge St (bậc 3)",
+   "dung": true
+  },
+  {
+   "ten": "St Paul's (hình vẽ)",
+   "px": [
+    2640,
+    1385
+   ],
+   "en": [
+    532110,
+    181130
+   ],
+   "nguon_en": "giao điểm nhà thờ cũ ≈ vòm nay (bậc 4) — điểm kiểm",
+   "dung": false
+  },
+  {
+   "ten": "C (đầu tây vùng cháy)",
+   "px": [
+    2020,
+    1478
+   ],
+   "en": [
+    531270,
+    181160
+   ],
+   "nguon_en": "Fetter Lane × Fleet Street (bậc 4) — điểm kiểm",
+   "dung": false
+  },
+  {
+   "ten": "Holborn Bridge",
+   "px": [
+    2330,
+    1290
+   ],
+   "en": [
+    531585,
+    181506
+   ],
+   "nguon_en": "Holborn × Farringdon (bậc 4) — điểm kiểm",
+   "dung": false
+  }
+ ],
+ "ket_qua": {
+  "affine": {
+   "he_so": [
+    [
+     528439.443953313,
+     183707.55939735513
+    ],
+    [
+     1513.017840473676,
+     -234.26795593932175
+    ],
+    [
+     -292.9779172663993,
+     -1433.0422395938213
+    ]
+   ],
+   "rms_m": 49.9399543561555,
+   "max_m": 90.89157690663396,
+   "loo_rms_m": 70.31655034875874,
+   "loo_max_m": 128.95304280784006,
+   "du": {
+    "Ludgate": [
+     31.8,
+     41.8
+    ],
+    "Newgate": [
+     45.1,
+     56.9
+    ],
+    "Aldersgate": [
+     24.3,
+     28.7
+    ],
+    "Cripplegate": [
+     71.0,
+     92.5
+    ],
+    "Moorgate": [
+     37.5,
+     49.1
+    ],
+    "Bishopsgate": [
+     13.6,
+     19.6
+    ],
+    "Aldgate": [
+     90.9,
+     129.0
+    ],
+    "London Bridge N": [
+     53.0,
+     68.2
+    ],
+    "London Bridge S": [
+     37.3,
+     65.1
+    ],
+    "White Tower": [
+     62.9,
+     100.9
+    ],
+    "Fleet Bridge": [
+     27.3,
+     39.1
+    ]
+   },
+   "kiem": {
+    "St Paul's (hình vẽ)": 85.9,
+    "C (đầu tây vùng cháy)": 211.8,
+    "Holborn Bridge": 192.9
+   },
+   "m_moi_px": [
+    1.531,
+    1.463
+   ],
+   "xoay_do": -8.8
+  },
+  "poly2": {
+   "he_so": [
+    [
+     527364.299913635,
+     181934.13521683053
+    ],
+    [
+     2410.229179197448,
+     274.14587551754727
+    ],
+    [
+     -684.0300626334349,
+     66.57598819598027
+    ],
+    [
+     -162.87502211273093,
+     -38.86681268684624
+    ],
+    [
+     64.69967663858843,
+     -196.03309716238732
+    ],
+    [
+     77.95257942785734,
+     -326.3245988032241
+    ]
+   ],
+   "rms_m": 31.555182789468816,
+   "max_m": 52.65804131991213,
+   "loo_rms_m": 105.48849405805692,
+   "loo_max_m": 200.53015524924075,
+   "du": {
+    "Ludgate": [
+     22.5,
+     34.5
+    ],
+    "Newgate": [
+     29.1,
+     42.2
+    ],
+    "Aldersgate": [
+     30.3,
+     47.9
+    ],
+    "Cripplegate": [
+     39.6,
+     79.8
+    ],
+    "Moorgate": [
+     20.9,
+     32.0
+    ],
+    "Bishopsgate": [
+     30.7,
+     70.1
+    ],
+    "Aldgate": [
+     52.7,
+     108.0
+    ],
+    "London Bridge N": [
+     30.3,
+     117.3
+    ],
+    "London Bridge S": [
+     27.5,
+     200.5
+    ],
+    "White Tower": [
+     26.6,
+     189.3
+    ],
+    "Fleet Bridge": [
+     23.8,
+     58.0
+    ]
+   },
+   "kiem": {
+    "St Paul's (hình vẽ)": 79.4,
+    "C (đầu tây vùng cháy)": 350.5,
+    "Holborn Bridge": 196.3
+   }
+  }
+ }
+}

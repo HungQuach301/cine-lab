@@ -20,11 +20,11 @@ R = json.load(open(os.path.join(DATA, 'vec/osm2026.json')))
 DTM = np.load(os.path.join(DATA, 'lidar/dtm_kham_1m.npy')); DSM = np.load(os.path.join(DATA, 'lidar/dsm_kham_1m.npy'))
 def lidar(A, E, N):
     c = np.clip((np.asarray(E) - BB[0]).astype(int), 0, A.shape[1] - 1); r = np.clip((BB[3] - np.asarray(N)).astype(int), 0, A.shape[0] - 1); return A[r, c]
-K = json.load(open(os.path.join(REPO, 'channel-k2/k2c-t4-02/du-lieu/khop-doornick.json')))
+K = json.load(open(os.path.join(REPO, 'channel-k2/k2c-t4-02/mo-hinh/khop-doornick.json')))
 KD = [d for d in K['diem'] if d.get('dung', True)]
 TPS = RBFInterpolator(np.array([d['px'] for d in KD], float), np.array([d['en'] for d in KD], float), kernel='thin_plate_spline')
 TPSi = RBFInterpolator(np.array([d['en'] for d in KD], float), np.array([d['px'] for d in KD], float), kernel='thin_plate_spline')
-RANH = json.load(open(os.path.join(REPO, 'channel-k2/k2c-t4-02/du-lieu/ranh-chay-1666-cuoi.json')))
+RANH = json.load(open(os.path.join(REPO, 'channel-k2/k2c-t4-02/mo-hinh/ranh-chay-1666-cuoi.json')))
 
 # lưới raster 2 m cho mặt nạ
 G = 2.0; GW, GH = int((BB[2] - BB[0]) / G), int((BB[3] - BB[1]) / G)
