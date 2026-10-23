@@ -70,7 +70,8 @@ def parse(txt):
 
 
 def call_gpt(prompt, imgs, tag):
-    if spent('gpt') + L.tong_usd('openai') >= 15: raise SystemExit('CHẶN OpenAI $15')
+    lim = float(os.environ.get('OAI_CHAN', 15))   # LOOK-T4-V2: chặn OpenAI $8 qua biến môi trường
+    if spent('gpt') + L.tong_usd('openai') >= lim: raise SystemExit(f'CHẶN OpenAI ${lim}')
     content = [{'type': 'input_text', 'text': prompt}]
     for p in imgs: content.append({'type': 'input_image', 'image_url': 'data:image/jpeg;base64,' + base64.b64encode(Path(p).read_bytes()).decode(), 'detail': 'high'})
     body = {'model': GPT, 'input': [{'role': 'user', 'content': content}], 'stream': True, 'reasoning': {'effort': 'medium'}}
@@ -95,7 +96,8 @@ def call_gpt(prompt, imgs, tag):
 
 
 def call_claude(prompt, imgs, tag):
-    if spent('claude') >= 25: raise SystemExit('CHẶN Claude $25')
+    lim = float(os.environ.get('CLAUDE_CHAN', 25))   # LOOK-T4-V2: chặn Claude $15 qua biến môi trường
+    if spent('claude') >= lim: raise SystemExit(f'CHẶN Claude ${lim}')
     env = dict(os.environ, ANTHROPIC_API_KEY=os.environ['CONSOLE_API_KEY'])
     with tempfile.TemporaryDirectory() as cwd:
         mp = {}

@@ -12,7 +12,7 @@ UA: "CineLab-research (+https://github.com/HungQuach301/cine-lab)" — không em
 import sys, os, json, time, base64, secrets, hashlib, urllib.request, urllib.error, datetime
 UA = 'CineLab-research (+https://github.com/HungQuach301/cine-lab)'
 HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.abspath(os.path.join(HERE, '../../..'))   # scripts/k2ldn/gpu → gốc repo
-LEDGER = os.path.join(REPO, 'reports/tien-ky-t4/gio-gpu.jsonl')
+LEDGER = os.environ.get('NCG_LEDGER') or os.path.join(REPO, 'reports/tien-ky-t4/gio-gpu.jsonl')   # LOOK-T4-V2: NCG_LEDGER=reports/look-t4-v2/gio-gpu.jsonl
 STATE = os.environ.get('NCG_STATE', '/var/tmp/ldn/gpu/pod.json')
 CH = 64 << 20
 

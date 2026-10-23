@@ -166,8 +166,10 @@ function patchB(mat, depth) {
           gl_FragColor.rgb += vec3(1.0, 0.30, 0.05) * vb * (0.10 + 1.5 * hot) * 1.4 * (0.45 + 0.55 * uNight); }
         if (uWin > 0.0 && glassK > 0.1 && (vK > 3.5 && vK < 4.5)) { float on = step(0.42, h21(floor(vUvm / vec2(1.5, 3.8)) + floor(vW.xz / 37.0))); gl_FragColor.rgb += vec3(1.0, 0.80, 0.55) * on * uWin * 1.1 * glassK; }
         gl_FragColor.rgb = hazeApply(gl_FragColor.rgb, vW);
-        if (uMask > 0.5) gl_FragColor = vec4(s2l(vec3(235.0) / 255.0), 1.0);
-        if (uMask > 1.5) { float q = floor(vTx * 2.0 + 0.5); gl_FragColor = (vK > 4.5 && vK < 5.5) ? vec4(s2l(vec3(floor(q / 256.0), mod(q, 256.0), 255.0) / 255.0), 1.0) : vec4(0.0, 0.0, 0.0, 1.0); }`);
+        if (uMask > 0.5) gl_FragColor = vec4(vec3(235.0) / 255.0, 1.0);   /* V2: màu mặt nạ ghi THẲNG (đầu ra sau colorspace_fragment, không mã hoá lại) */
+        if (uMask > 1.5) { float id = 0.0; const float C[12] = float[12](1675.5, 1697.0, 1707.0, 1708.5, 1708.8, 1671.5, 1672.5, 1676.5, 1676.9, 1100.0, 1100.5, 1300.0);   /* mã công trình → chỉ số 1–12 (màu cách nhau 20 mức R) */
+          for (int i = 0; i < 12; i++) if (abs(vTx - C[i]) < 0.05) id = float(i + 1);
+          gl_FragColor = (vK > 4.5 && vK < 5.5 && id > 0.5) ? vec4(vec3(id * 20.0, 0.0, 200.0) / 255.0, 1.0) : vec4(0.0, 0.0, 0.0, 1.0); }`);
   };
   mat.customProgramCacheKey = () => (depth ? 'lk-d' : 'lk-c');
 }
@@ -241,7 +243,7 @@ async function build(cfg) {
         if (uHour >= 0.0) { float ash = texture2D(uFire, fu).a; gl_FragColor.rgb *= mix(1.0, 0.20 + 0.10 * vn(vW.xz * 0.3), clamp(ash, 0.0, 1.0)); }
         if (uDbg > 0.5) gl_FragColor = vec4(texture2D(uFire, fu).a, texture2D(uFire, fu).r, uHour >= 0.0 ? 1.0 : 0.0, 1.0);   // tro + than sau cháy
         gl_FragColor.rgb += diffuseColor.rgb * vec3(1.0, 0.42, 0.12) * uFireK * (fg.r * 2.0 + fg.g * 0.6 + fg.b * 0.08);
-        gl_FragColor.rgb = hazeApply(gl_FragColor.rgb, vW); if (uMask > 0.5) gl_FragColor = vec4(s2l(vec3(200.0, 170.0, 90.0) / 255.0), 1.0);`); };
+        gl_FragColor.rgb = hazeApply(gl_FragColor.rgb, vW); if (uMask > 0.5) gl_FragColor = vec4(vec3(200.0, 170.0, 90.0) / 255.0, 1.0);`); };
   TER = new THREE.Mesh(tg, tm); TER.receiveShadow = true; TER.frustumCulled = false; scene.add(TER);
   // ---- mặt nước Thames: sóng nhiều hướng + Fresnel + phản chiếu phẳng (vật trên nước) + màu nước sông (không mảng xanh nhạt — LOOK-4 T3)
   const TW = (T.nx - 1) * T.step, TD = (T.nz - 1) * T.step;
@@ -270,7 +272,7 @@ async function build(cfg) {
       .replace('vec4 diffuseColor = vec4( diffuse, opacity );', `float n1 = fbm3(vWf.xz * 0.004), n2 = vn(vWf.xz * 0.02); vec3 fld = mix(vec3(0.17, 0.20, 0.09), vec3(0.24, 0.23, 0.12), n1) * (0.85 + 0.3 * step(0.5, n2));
         vec3 urb = mix(vec3(0.20, 0.19, 0.18), vec3(0.26, 0.24, 0.22), n1); float k = smoothstep(1750.0, 1900.0, uYear) * smoothstep(0.2, 0.6, n1 + 0.25 * smoothstep(1900.0, 1950.0, uYear));
         vec4 diffuseColor = vec4(mix(fld, urb, k), 1.0);`)
-      .replace('#include <dithering_fragment>', '#include <dithering_fragment>\n gl_FragColor.rgb = hazeApply(gl_FragColor.rgb, vWf); if (uMask > 0.5) gl_FragColor = vec4(s2l(vec3(150.0, 120.0, 70.0) / 255.0), 1.0);'); };   /* V2: đất xa ngoài hộp = "suon" trong mặt nạ */
+      .replace('#include <dithering_fragment>', '#include <dithering_fragment>\n gl_FragColor.rgb = hazeApply(gl_FragColor.rgb, vWf); if (uMask > 0.5) gl_FragColor = vec4(vec3(150.0, 120.0, 70.0) / 255.0, 1.0);'); };   /* V2: đất xa ngoài hộp = "suon" trong mặt nạ */
   const sh = new THREE.Shape([new THREE.Vector2(-40000, -40000), new THREE.Vector2(40000, -40000), new THREE.Vector2(40000, 40000), new THREE.Vector2(-40000, 40000)]); const m5 = 5;
   sh.holes.push(new THREE.Path([new THREE.Vector2(T.x0 + m5, -(T.z0 + m5)), new THREE.Vector2(T.x0 + m5, -(T.z0 + TD - m5)), new THREE.Vector2(T.x0 + TW - m5, -(T.z0 + TD - m5)), new THREE.Vector2(T.x0 + TW - m5, -(T.z0 + m5))]));
   const fg = new THREE.PlaneGeometry(60000, 60000, 240, 240).rotateX(-Math.PI / 2); { const p = fg.attributes.position; const ss2 = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
@@ -289,7 +291,7 @@ async function build(cfg) {
           { vec3 ip = (instanceMatrix * vec4(0.0, 0.0, 0.0, 1.0)).xyz; float r = fract(sin(dot(ip.xz, vec2(12.9898, 78.233))) * 43758.5453); float era = smoothstep(1750.0, 1950.0, uYear);
             float keep = step(r, mix(0.12, 1.0, era)); transformed.y *= mix(0.35, 1.0, era) * keep; transformed.xz *= mix(0.25, 1.0, era) * keep; }`)
         .replace('#include <project_vertex>', '#include <project_vertex>\n vWf = (modelMatrix * instanceMatrix * vec4(transformed, 1.0)).xyz;');
-      s.fragmentShader = s.fragmentShader.replace('#include <common>', `#include <common>\nvarying vec3 vWf; uniform float uMask; ${HAZE}`).replace('#include <dithering_fragment>', '#include <dithering_fragment>\n gl_FragColor.rgb = hazeApply(gl_FragColor.rgb, vWf); if (uMask > 0.5) gl_FragColor = vec4(vec3(0.2158605), 1.0);'); };   /* V2: nhà xa ngoài hộp = "khac" */ ms.material.customProgramCacheKey = () => 'far'; LG.farCity = ms; scene.add(ms); }
+      s.fragmentShader = s.fragmentShader.replace('#include <common>', `#include <common>\nvarying vec3 vWf; uniform float uMask; ${HAZE}`).replace('#include <dithering_fragment>', '#include <dithering_fragment>\n gl_FragColor.rgb = hazeApply(gl_FragColor.rgb, vWf); if (uMask > 0.5) gl_FragColor = vec4(vec3(128.0 / 255.0), 1.0);'); };   /* V2: nhà xa ngoài hộp = "khac" */ ms.material.customProgramCacheKey = () => 'far'; LG.farCity = ms; scene.add(ms); }
   const skm = new THREE.ShaderMaterial({ uniforms: U, side: THREE.BackSide, depthWrite: false, vertexShader: `varying vec3 vD; void main(){ vD = position; vec4 p = projectionMatrix * viewMatrix * vec4(position + cameraPosition, 1.0); gl_Position = p.xyww; }`,
     fragmentShader: `varying vec3 vD; uniform float uMask; ${GLSL_N} ${HAZE} ${SKYF} void main(){ vec3 d = normalize(vD); vec3 c = skyCol(d);
       float hz = 1.0 - smoothstep(0.0, 0.10, d.y); c = mix(c, uHaze, hz * 0.35); c = mix(c, uCoalCol * mix(1.0, 0.04, uNight), (1.0 - exp(-uCoal * 900.0)) * (1.0 - smoothstep(0.0, 0.12, d.y)));
@@ -416,7 +418,7 @@ async function buildTrees(base) {
     s.fragmentShader = s.fragmentShader.replace('#include <common>', `#include <common>\nvarying vec3 vWt; varying float vSd; uniform float uLeaf, uMask; ${GLSL_N} ${HAZE}`)
       .replace('vec4 diffuseColor = vec4( diffuse, opacity );', `float nn = vn(vWt.xz * 0.9 + vWt.y * 0.7); vec3 lf = mix(vec3(0.05, 0.085, 0.03), vec3(0.11, 0.15, 0.05), nn) * (0.8 + 0.4 * vSd);
         vec3 br = mix(vec3(0.10, 0.085, 0.07), vec3(0.16, 0.13, 0.10), nn); vec4 diffuseColor = vec4(mix(br, lf, uLeaf), 1.0);`)
-      .replace('#include <dithering_fragment>', '#include <dithering_fragment>\n gl_FragColor.rgb = hazeApply(gl_FragColor.rgb, vWt); if (uMask > 0.5) gl_FragColor = vec4(s2l(vec3(60.0, 140.0, 60.0) / 255.0), 1.0);'); };
+      .replace('#include <dithering_fragment>', '#include <dithering_fragment>\n gl_FragColor.rgb = hazeApply(gl_FragColor.rgb, vWt); if (uMask > 0.5) gl_FragColor = vec4(vec3(60.0, 140.0, 60.0) / 255.0, 1.0);'); };
   mat.customProgramCacheKey = () => 'cay';
   const dm = new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking }); dm.onBeforeCompile = (s) => { Object.assign(s.uniforms, U); s.uniforms.uLeaf = U.uLeaf || (U.uLeaf = { value: 1 }); s.vertexShader = vs(s.vertexShader); }; dm.customProgramCacheKey = () => 'cay-d';
   TREES = new THREE.Mesh(g, mat); TREES.customDepthMaterial = dm; TREES.castShadow = TREES.receiveShadow = true; TREES.frustumCulled = false; scene.add(TREES);

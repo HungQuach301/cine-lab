@@ -2,7 +2,7 @@
 """LOOK-T4-V2 · ĐO CÔNG TRÌNH BIỂU TƯỢNG ở 1080p từ điểm máy P1 (Bankside cao, [532330, 180250, 230]).
   do_cong_trinh.py khai      → channel-k2/k2c-t4-02/look/may-v2/do-*.json (máy đo: P1 nhìn thẳng từng công trình, fov 50° và 36°; + khung M4-rong/M3-rong như tờ so)
   do_cong_trinh.py do <thư mục dựng>   → reports/look-t4-v2/do/cong-trinh.json + reports/look-t4-v2/cong-trinh/*.jpg (ô cắt 1080p phóng ×3 lân cận gần nhất)
-Mặt nạ mã công trình (look2.js uMask 2): điểm ảnh lớp 5 mang mã q = round(2·năm bắt đầu) (R = q div 256, G = q mod 256, B = 255); có che khuất thật.
+Mặt nạ mã công trình (look2.js uMask 2): điểm ảnh lớp 5 có năm bắt đầu thuộc bảng CODES mang màu (20·chỉ số, 0, 200), giải mã theo màu gần nhất; có che khuất thật.
 Mã: St Paul's — 1675,5 thân · 1697 trống + hàng cột · 1707 tháp tây · 1708,5 vỏ vòm chì · 1708,8 Golden Gallery + đèn lồng + cầu + thập giá;
 Monument — 1671,5 đế + bệ · 1672,5 thân cột · 1676,5 đầu cột + ban công + nón · 1676,9 bầu lửa; White Tower — 1100 khối chính · 1100,5 tháp góc + mũ chì."""
 import json, os, sys, glob
@@ -25,9 +25,12 @@ def khai():
     print(n, 'máy đo')
 
 
+CODES = [1675.5, 1697.0, 1707.0, 1708.5, 1708.8, 1671.5, 1672.5, 1676.5, 1676.9, 1100.0, 1100.5, 1300.0]   # thứ tự = bảng C[] trong look2.js (màu R = 20·chỉ số, B = 200)
 def decode(png):
     im = cv2.imread(png)[:, :, ::-1].astype(np.int32)
-    ok = im[..., 2] == 255; q = im[..., 0] * 256 + im[..., 1]; yr = np.where(ok, q / 2.0, -1.0); return yr
+    pal = np.array([[0, 0, 0]] + [[20 * (i + 1), 0, 200] for i in range(len(CODES))])
+    d = ((im[:, :, None, :] - pal[None, None]) ** 2).sum(-1); idx = d.argmin(-1); ok = d.min(-1) < 60   # màu ghi thẳng (không mã hoá sRGB) — sai lệch ≤ 1 mức
+    yr = np.where(ok & (idx > 0), np.array([-1.0] + CODES)[idx], -1.0); return yr
 
 
 def rong(yr, codes):

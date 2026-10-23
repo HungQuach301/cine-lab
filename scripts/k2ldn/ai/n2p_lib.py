@@ -7,7 +7,7 @@ from pathlib import Path
 import cv2, numpy as np
 
 REPO = Path(__file__).resolve().parents[3]  # scripts/k2ldn/ai → gốc repo
-N2P = REPO / 'reports/tien-ky-t4'   # TIEN-KY-T4: bản chép từ reports/animatic-t3-v2/ma/n2p_lib.py — sổ/chi phí của phiên này
+N2P = Path(os.environ.get('N2P_DIR') or (REPO / 'reports/tien-ky-t4'))   # TIEN-KY-T4: bản chép từ reports/animatic-t3-v2/ma/n2p_lib.py; LOOK-T4-V2: N2P_DIR=reports/look-t4-v2 (sổ/chi phí của phiên đó)
 SO_AI = N2P / 'so-ai.jsonl'
 UA = 'CineLab-research (+https://github.com/HungQuach301/cine-lab)'
 PAL = {'troi': (40, 80, 200), 'nuoc': (0, 170, 190), 'bang': (200, 170, 90), 'suon': (150, 120, 70), 'da': (110, 100, 95), 'pho': (255, 200, 220), 'nha': (235, 235, 235),

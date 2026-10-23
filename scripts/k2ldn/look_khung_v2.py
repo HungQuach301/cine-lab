@@ -39,6 +39,23 @@ def main():
         if k in ('M1-rong', 'M4-rong', 'M3-rong'):                 # đề xuất P1 ống hẹp (cùng vị trí + điểm nhìn, fov 36°)
             k2 = dict(key); k2['fov'] = 36
             json.dump(shot(k, k2, {'de_xuat': 'P1 ống hẹp fov 36° (cùng vị trí/hướng)'}), open(os.path.join(OUT, f'{k}-hep.json'), 'w'), ensure_ascii=False, indent=1); n += 1
+    # 1940 toàn cảnh KHÔNG lửa/khói (ảnh vào cho tấm nền; lửa 3D ghép lại sau theo mặt nạ sai khác)
+    key = {kk: vv for kk, vv in K0.KHUNG['M3-rong'].items() if kk != 'vai'}; key.update(t=0, fire=False, smoke=False)
+    json.dump(shot('M3-rong', key, {'vai': 'M3-rong KHÔNG lửa/khói — ảnh vào tấm nền'}), open(os.path.join(OUT, 'M3-rong-khonglua.json'), 'w'), ensure_ascii=False, indent=1); n += 1
+    # TIMELAPSE máy CODINH (§19 a — bắt buộc cho tấm nền N2+) 640×360, spp 4: thời gian chạy; M1-rong 8 s (clip so), còn lại 3 s (phép (v) nhấp nháy)
+    TL = {'M1-rong': (8.0, dict(date0=[1666, 9, 11, 15.25], date1=[1666, 9, 11, 15.75])), 'M1-trung': (3.0, dict(date0=[1666, 9, 11, 16.0], date1=[1666, 9, 11, 16.17])),
+          'M3-rong': (3.0, dict(h40=[3.4, 3.65])), 'M4-rong': (3.0, dict(date0=[2026, 9, 2, 15.0], date1=[2026, 9, 2, 15.17]))}
+    for k, (dur, C) in TL.items():
+        for nl in ((False, True) if k == 'M3-rong' else (False,)):
+            K = {kk: vv for kk, vv in K0.KHUNG[k].items() if kk != 'vai'}; keys = []
+            for i in range(2):
+                kk = dict(K); kk['t'] = dur * i
+                if 'date0' in C: kk['date'] = C['date0'] if i == 0 else C['date1']
+                if 'h40' in C: kk['h40'] = C['h40'][i]
+                if nl: kk.update(fire=False, smoke=False)
+                keys.append(kk)
+            sh = shot(k, keys[0], {'dur': dur, 'W': 640, 'H': 360, 'spp': 4, 'shadow': 3072, 'easeKeys': False, 'keys': keys, 'cu_may': 'CODINH (máy cố định, thời gian chạy)'})
+            json.dump(sh, open(os.path.join(OUT, f'tl-{k}{"-khonglua" if nl else ""}.json'), 'w'), ensure_ascii=False, indent=1); n += 1
     print(n, 'tệp máy V2 →', OUT)
 
 
