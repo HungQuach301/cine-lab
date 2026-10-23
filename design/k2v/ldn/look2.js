@@ -534,7 +534,7 @@ window.renderFrame = async (f) => {
   const fire66 = (f.hour ?? -1) >= 0, fire40 = (f.h40 ?? -1) >= 0;
   FIRE['66'].visible = fire66 && f.fire !== false; SMOKE['66'].visible = fire66 && f.smoke !== false; FIRE['40'].visible = fire40 && f.fire !== false; SMOKE['40'].visible = fire40 && f.smoke !== false;
   for (const k of ['66', '40']) { const on = (k === '66' ? fire66 : fire40) && f.fire !== false; GLOW['e' + k].visible = on && f.embers !== false; GLOW['g' + k].visible = on && f.glow !== false; }
-  U.uToy.value = f.look && f.look.toy != null ? f.look.toy : 1;
+  U.uToy.value = f.look && f.look.toy != null ? f.look.toy : 1; CHIM.visible = f.chim !== false;   // V2: chim=false → ảnh vào tấm nền không khói bếp (khói bếp = vật chuyển động, ghép lại từ render)
   LG.farCity.visible = true;
   if (f.mask) { U.uMask.value = f.mask === 2 ? 2 : 1; for (const k in FIRE) { FIRE[k].visible = SMOKE[k].visible = false; } for (const k in GLOW) GLOW[k].visible = false; CHIM.visible = false; R.setRenderTarget(null); R.render(scene, cam); U.uMask.value = 0; CHIM.visible = true;
     const gl = R.getContext(), W = CFG.W, H = CFG.H, px = new Uint8Array(W * H * 4); gl.readPixels(0, 0, W, H, gl.RGBA, gl.UNSIGNED_BYTE, px);

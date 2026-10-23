@@ -56,6 +56,13 @@ def main():
                 keys.append(kk)
             sh = shot(k, keys[0], {'dur': dur, 'W': 640, 'H': 360, 'spp': 4, 'shadow': 3072, 'easeKeys': False, 'keys': keys, 'cu_may': 'CODINH (máy cố định, thời gian chạy)'})
             json.dump(sh, open(os.path.join(OUT, f'tl-{k}{"-khonglua" if nl else ""}.json'), 'w'), ensure_ascii=False, indent=1); n += 1
+    # 1666: ảnh vào tấm nền KHÔNG khói bếp (vật chuyển động; ghép lại từ render) — khung 1080 + timelapse
+    for k in ('M1-rong', 'M1-trung'):
+        key = {kk: vv for kk, vv in K0.KHUNG[k].items() if kk != 'vai'}; key.update(t=0, chim=False)
+        json.dump(shot(k, key, {'vai': f'{k} KHÔNG khói bếp — ảnh vào tấm nền'}), open(os.path.join(OUT, f'{k}-khongkhoi.json'), 'w'), ensure_ascii=False, indent=1); n += 1
+        t = json.load(open(os.path.join(OUT, f'tl-{k}.json')))
+        for kk in t['keys']: kk['chim'] = False
+        json.dump(t, open(os.path.join(OUT, f'tl-{k}-khongkhoi.json'), 'w'), ensure_ascii=False, indent=1); n += 1
     print(n, 'tệp máy V2 →', OUT)
 
 

@@ -16,6 +16,7 @@ os.environ.setdefault('N2P_DIR', str(Path(__file__).resolve().parents[2] / 'repo
 import n2p_lib as L  # noqa: E402
 import kiem_n2p as K  # noqa: E402
 V2 = Path(os.environ.get('V2_DIR', '/var/tmp/ldn/v2')); RR = V2 / 'r'
+TWIN = {'M3-rong': 'khonglua', 'M1-rong': 'khongkhoi', 'M1-trung': 'khongkhoi'}
 NAM = {'M1-rong': 1666, 'M1-trung': 1666, 'M3-rong': 1940, 'M4-rong': 2026}
 REPO = Path(__file__).resolve().parents[2]; PY = '/opt/cine/bin/python'
 
@@ -23,11 +24,12 @@ REPO = Path(__file__).resolve().parents[2]; PY = '/opt/cine/bin/python'
 def prep(k):
     d = V2 / 'tn' / k; d.mkdir(parents=True, exist_ok=True)
     R = cv2.imread(str(RR / k / 'lut.jpg')); M = cv2.imread(str(RR / f'{k}-mask1' / '00000.png'))   # khung V2 đã áp LUT kênh (look hợp nhất)
-    if k == 'M3-rong':
-        N = cv2.imread(str(RR / 'M3-rong-khonglua' / 'lut.jpg')); vao = N
+    tw = TWIN.get(k)
+    if tw:                                             # M3: lửa/khói 3D = lớp (a) 'lua'; 1666: khói bếp = vật chuyển động → lớp sống từ render ('nguoi' trong mặt nạ)
+        N = cv2.imread(str(RR / f'{k}-{tw}' / 'lut.jpg')); vao = N
         diff = np.abs(R.astype(np.int16) - N.astype(np.int16)).max(-1) > 8
         diff = cv2.dilate(diff.astype(np.uint8), np.ones((5, 5), np.uint8)) > 0
-        M = M.copy(); M[diff] = L.PAL['lua'][::-1]; pct = float(diff.mean() * 100)
+        M = M.copy(); M[diff] = L.PAL['lua' if tw == 'khonglua' else 'nguoi'][::-1]; pct = float(diff.mean() * 100)
     else: vao = R; pct = 0.0
     cv2.imwrite(str(d / 'vao.jpg'), vao, [cv2.IMWRITE_JPEG_QUALITY, 92]); cv2.imwrite(str(d / 'render.png'), R); cv2.imwrite(str(d / 'matna.png'), M)
     Lb = L.idmap(d / 'matna.png'); st = {n: round(float((Lb == i).mean() * 100), 2) for i, n in enumerate(L.NAMES) if (Lb == i).any()}
@@ -82,7 +84,7 @@ def tl(k, tag, clip=None):
             dst.mkdir(exist_ok=True); lut = REPO / 'channel-k2/k2c-t3-01/mau/k2c-t3-kenh-v030.cube'
             subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-start_number', '0', '-i', str(src / '%05d.jpg'), '-vf', f"lut3d=file='{lut}':interp=tetrahedral", '-q:v', '2', '-start_number', '0', str(dst / '%05d.jpg')], check=True)
         return sorted(dst.glob('[0-9]*.jpg'))
-    fs = lutdir(k); nofire = lutdir(f'{k}-khonglua') if k == 'M3-rong' else None
+    fs = lutdir(k); nofire = lutdir(f'{k}-{TWIN[k]}') if k in TWIN else None
     Lb = L.idmap(d / 'matna.png', (W, H)); A0 = L.lop_mask(Lb, [n for n in L.LOP_A if n != 'lua'])
     gh = json.load(open(o / 'ghep.json'))['khop_mau']; kk = np.array(gh['k'], np.float32); mr, sr, ma, sa = [np.array(gh[x], np.float32) for x in ('mean_render', 'std_render', 'mean_ai', 'std_ai')]
     plate = cv2.resize(cv2.imread(str(o / 'ghep.png')), (W, H), interpolation=cv2.INTER_AREA)
