@@ -4,8 +4,8 @@
 Máy 3D giải từ bản vẽ bằng scripts/k2ldn/t3_may.py (trục ngang + dịch ống kính). KHÔNG AI chạm tư liệu. Thao tác cho phép, đều là biến đổi hình học/độ mờ:
  (1) tranh đặt nguyên khung (đồng dạng: vừa chiều cao, giữa khung) — nét gốc giữ nguyên (lấy mẫu song tuyến);
  (2) thị sai 2,5D THỦ CÔNG trong đoạn tĩnh: mặt nạ toà nhà vẽ tay bằng đa giác (toạ độ trong tệp), lớp nhà phóng 1,000 → 1,012, nền giấy 1,000 → 1,003;
- (3) UỐN dần (đoạn --uon) từ phép đồng dạng sang phép chiếu phối cảnh (homography) khớp 7 điểm mặt đông của tranh lên chính các điểm đó của mô hình chiếu qua máy
-     từng khung (nội suy 4 góc tranh) → mặt đông nằm đúng mô hình trước lúc hoà;
+ (3) UỐN dần (đoạn --uon) từ phép đặt ban đầu sang phép TỈ LỆ + TỊNH TIẾN (không xoay) khớp bình phương tối thiểu 7 điểm mặt đông của tranh lên chính các điểm đó của mô hình
+     chiếu qua máy từng khung (nội suy 4 góc tranh) → mặt đông nằm đúng mô hình trước lúc hoà (v2a dùng homography: ngoại suy méo phóng tờ ×2 → bỏ);
  (4) hoà mờ tranh → 3D (đoạn --hoa). Ghi sai lệch đăng ký từng điểm (px khung) vào t3.json."""
 import json, os, sys
 import numpy as np, cv2
@@ -41,9 +41,10 @@ frames = sorted(LOG['frames'], key=lambda r: r['f']); log = {'uon_s': [u0, u1], 
 for r in frames:
     f = r['f']; t = f / FPS; im3 = cv2.imread(os.path.join(IN, f'{f:05d}.jpg'))[:H, :, ::-1].astype(np.float32) / 255.0
     q3 = np.array([proj(r, *m) for _, m in FACE], np.float32)
-    Hk, _ = cv2.findHomography(src_pts.astype(np.float32), q3, 0)
+    xm, ym = src_pts.mean(0), q3.mean(0); sc = float(((src_pts - xm) * (q3 - ym)).sum() / ((src_pts - xm) ** 2).sum())   # tỉ lệ + tịnh tiến, nghiệm đóng (không xoay: đường đứng tranh và máy đều đứng)
+    Hk = np.array([[sc, 0, ym[0] - sc * xm[0]], [0, sc, ym[1] - sc * xm[1]], [0, 0, 1]])
     if f == frames[0]['f']:
-        e = np.hypot(*(tf(Hk, src_pts) - q3).T); log['homography_khop_khung0'] = Hk.tolist()
+        e = np.hypot(*(tf(Hk, src_pts) - q3).T); log['dong_dang_khop_khung0'] = Hk.tolist()
         log['sai_lech_mat_dong_sau_uon_px'] = [round(float(x), 1) for x in e]
         log['sai_lech_mat_dong_truoc_uon_px'] = [round(float(x), 1) for x in np.hypot(*(tf(S0, src_pts) - q3).T)]
         log['sai_lech_diem_khac_sau_uon_px'] = {n: round(float(np.hypot(*(tf(Hk, np.array([p], float) * s)[0] - proj(r, *m)))), 1) for n, (p, m) in KHAC.items()}

@@ -4,7 +4,7 @@
 
 ## Trạng thái
 - 23/10 ≈ 06:00 UTC: khởi động; verify.sh 10 PASS/5 FAIL → cài npm ci (k2v, cong3), OpenEXR/tifffile/pyshp; hook preflight pre-commit + pre-push đã cài.
-- 10:05 UTC: pod T1 TẮT (1,62 h, $1,90; đủ 120 + 120 khung + 2 khung 1080). Kết luận T1: A tốt hơn (Cycles lộ mép miền thể tích ban ngày). Sửa lỗi hạt lửa trên sông (page.js) → hàng E dựng lại T1 A (PGID 5107). T3 v2: máy giải 9 điểm + uốn tranh lên mặt đông (PGID 6418 đang dựng). Báo cáo + tờ so + phiếu G1 (D1–D18) đang hoàn thiện.
+- 10:25 UTC: **XONG — DỪNG chờ chủ dự án.** Đủ việc 1–8: TREATMENT, LOI-NHAP-v1, BANG-SHOT-v1, DE-XUAT-BIBLE-19, dữ liệu + RIGHTS-NHAP, 6 bản thử (xem/ + TO-SO.md), UOC-VA-GHIM, PHIEU-G1 (D1–D18), TIEN-KY-T4-BAO-CAO.md. Pod đã tắt + xoá; không tiến trình nền nào chạy. Chi thật ≈ $4,24 (Claude $0,82 · OpenAI $0,50 · Gemini $1,02 · RunPod $1,90); giờ máy ≈ 4,5 h. Chờ: chủ dự án duyệt phiếu G1; phiên K xem D11; phiên P merge.
 
 ## Lệnh bổ sung nhận được
 - (chưa có)
@@ -16,3 +16,4 @@
 - 09:15 UTC: T4 xong (4 đoạn, đo t4-may.json); T6 3 lượt OpenAI ($0,23): lượt 1–2 (iii) trượt (màu nước / dải biển giả ở chân trời cảnh dựng — đã sửa cảnh), lượt 3 trượt nặng (đổi vùng 20 %) → 0/3 đạt máy; ghép timelapse 6 s trên tấm lượt 2 (nhấp nháy (c) 0,078 so render 2,42). T5 Omni lượt 1 ĐẠT máy ($1,02). T1 Cycles: hộp thể tích theo ô ≈ 3 phút/khung → đổi sang miền thể tích duy nhất (bản đồ giờ bén lửa) 12,4 s/khung 960×540 spp 32; pod đang dựng hết. T2/T3 đang dựng lại (lỗi xoay máy thiên đỉnh; PnP tranh Hollar). RIGHTS-NHAP viết.
 - 09:40 UTC: PHIEU-G1 nháp; tờ so T1 (scripts/k2ldn/t1_so.sh); xem/T6-timelapse-n2p.mp4 640×360. Ghi nhận kiểm T5: ảnh đầu đọc như hoàng hôn (không ra 01:00 đêm) + một khối toà OSM sáng (năm bắt đầu sai) — đã kẹp ≥ 1667,5 trong hinh_hoc.py.
 - 10:05 UTC: báo cáo nháp, tờ so, UOC cập nhật số đo Cycles 1080p (ngày 45,6 s, đêm 15,3 s); T1 lỗi lửa trên sông sửa; T3 v2 (t3_may.py)
+- 10:25 UTC: T1 A dựng lại (hết lửa trên sông) + tờ so 2×2; T3 v2 (máy giải 9 điểm, mặt đông RMS 28 px/1280); báo cáo cuối; commit DỪNG.

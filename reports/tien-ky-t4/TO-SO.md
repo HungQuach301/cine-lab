@@ -7,10 +7,10 @@
 |---|---|---|
 | Tệp xem | `T1-lua-A-vs-Cycles.mp4` (màn chia đôi cùng cú máy: trái A, phải Cycles; ngày 5 s + đêm 5 s) · `T1-to-so-2x2.jpg` (khung đầy đủ) | như trái |
 | 1080p | `T1-A-ngay-1080.jpg`, `T1-A-dem-1080.jpg` | `T1-Cycles-ngay-1080.jpg`, `T1-Cycles-dem-1080.jpg` |
-| s/khung | @@T1A@@ | 960×540: ngày 12,36 (đo thử 48 khung) / 16,1 (72 khung còn lại) · đêm 6,38 (48 spp) · 1080p: ngày 45,6 / đêm 15,3 |
+| s/khung | 1280×720, spp 4: ngày **5,42**, đêm **5,45** (120 khung mỗi đoạn; một phần thời gian chạy chồng vòng dựng T3, P = 2) · 1080p: ngày 8,97 / đêm 7,45 | 960×540: ngày 12,36 (đo thử 48 khung) / 16,1 (72 khung còn lại) · đêm 6,38 (48 spp) · 1080p: ngày 45,6 / đêm 15,3 |
 | Tiền | 0 (CPU container) | pod 1,62 h × $1,19 = **$1,93** (số dư RunPod 23,08 → 21,18) — gồm cài đặt, đo thử, dựng 240 khung + 2 khung 1080 |
 | Đọc hình | khói cột xám đậm bốc theo gió đông → tây (b39), lửa theo giờ trên mặt phố, ánh lửa phủ mặt tiền; đêm: bầu trời nhuộm cam, khói đỏ phía dưới | đêm: vành lửa sáng đúng ranh giờ, ánh phản chiếu sông tốt; **ngày: khói nhạt như sương, lộ mép hộp miền thể tích (vách đứng trên sông), không thành cột** |
-| Lỗi thấy | hạt lửa rơi trên mặt sông (ô lưới giờ cháy phủ lòng sông) → **đã sửa** trong `page.js` (bỏ ô có nền 1666 < 1,2 m) và dựng lại; bờ sông bậc thang, nền bến bãi màu cát nhạt | mép miền thể tích; khói thiếu mật độ/đổ bóng; mức tối đêm quá sâu so A |
+| Lỗi thấy | hạt lửa rơi trên mặt sông (ô lưới giờ cháy phủ lòng sông) → **đã sửa** trong `page.js` (bỏ ô có nền 1666 < 1,2 m) và dựng lại; còn: bờ sông bậc thang, nền bến bãi màu cát nhạt; **đêm: đường cắt ngang ở chân trời** giữa dải khói trời và thành phố + vài mảng khói tối hình chữ nhật sát chân trời (tấm khói billboard) — sửa ở sản xuất (khói trời mờ dần theo độ cao, billboard mềm mép) | mép miền thể tích; khói thiếu mật độ/đổ bóng; mức tối đêm quá sâu so A |
 | Kết luận | **A tốt hơn ở bản thử này** cho cảnh rộng | cần sửa mép (mờ dần biên miền theo khoảng cách tới ô cháy) + mật độ khói rồi thử lại (≈ $2) trước khi dùng cho 3–4 cận đêm |
 
 ## T2 — Bản đồ cổ hoạt hoá → 3D cùng toạ độ (Bankside)
@@ -21,7 +21,11 @@
 - s/khung A 4,3 (1280×720); 0 $.
 
 ## T3 — Tranh Hollar Old St Paul's → 3D cùng góc (không AI)
-@@T3@@
+- Tệp: `T3-khac-hoa-3d.mp4` (8 s) · `T3-khac-hoa-1080.jpg` (khung giữa lúc hoà — tờ so trực quan tranh ↔ mô hình).
+- Cách (v2, `scripts/k2ldn/t3_may.py` + `t3_khac.py`): **giải máy 3D từ bản vẽ** — trục nhìn ngang + dịch ống kính (bản vẽ dùng phối cảnh kiến trúc, đường đứng song song); 6 ẩn, 9 điểm đọc tay, bình phương tối thiểu → máy cách mặt đông 72 m, cao 15,9 m trên nền, f tương đương fov dọc 44,7°. Dịch ống kính thực hiện bằng dựng khung cao 1280×934 rồi cắt 720 dòng trên (post.js dùng chung đặt lại ma trận chiếu). Tranh giữ nguyên khung 0–1,5 s (thị sai 2,5D thủ công theo mặt nạ đa giác vẽ tay), 1,5–3 s chỉnh tỉ lệ + tịnh tiến về mặt đông của mô hình, 3–5 s hoà mờ, 5–8 s máy đẩy vào 6 m. Không AI.
+- Đo (`do/t3-may.json`, `do/t3-khop.json`): giải máy RMS 96 px / trung vị 51 px trên bản 2000 px; **mặt đông trên khung 1280: RMS ≈ 28 px (2,2 %)**, cửa sổ hoa hồng 51 px, **đỉnh tháp 117 px** (mô hình tháp đặt ở giao điểm u = 10 m, khối hộp trơn; tranh cho tháp gần mặt đông hơn và có cửa sổ lancet), chân cánh ngang nam 18 px.
+- Đánh giá: hồi mặt đông khớp tốt, hoà mờ đọc được "bản vẽ thành công trình"; **mô hình Old St Paul's thô so với tranh** (tháp, trụ bay, gian bên), nhà lô lấp vào sân nhà thờ che chân công trình (tranh: sân trống) → cần D6 (dựng lại theo Hollar/Dugdale 1658) + mặt nạ sân nhà thờ trong `hinh_hoc.py`.
+- Lượt trước (v1, homography 4 điểm với máy xa) làm tranh co thành thẻ nhỏ nghiêng → bỏ. s/khung A 4,9–5,0 (1280×934); 0 $.
 
 ## T4 — Ba cú máy ở Bankside 1666 → 2026 + khớp cắt
 - Tệp: `T4-cu-may.mp4` (10 s: đẩy vào 3 s · vòng cung 3 s · cẩu lộ 2,5 s · khớp cắt 1,5 s) · `T4-a-day-1080.jpg`. Đo `do/t4-may.json` (neo = mái vòm St Paul's):
