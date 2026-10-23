@@ -320,8 +320,8 @@ def shots():
         [dict(t=1.0, k='tau', s='13/9/1782 sáng: 10 pin nổi vào vị trí dưới hoả lực'), dict(t=9.0, k='lua', s='khai hoả'), dict(t=dive_at, k='may', s='CÚ LẶN (Cycles GPU): chiều → đêm cháy → rạng sáng'),
          dict(t=round(dive_at + 3.0, 2), k='ngay_dem', s='đêm: pin nổi cháy'), dict(t=round(dive_at + 4.5, 2), k='may', s='lướt 15–17 m dọc hàng pin nổi cháy'), dict(t=round(dive_at + 8.0, 2), k='may', s='ngược lên cao'),
          dict(t=round(dive_at + 9.5, 2), k='ngay_dem', s='02:30 → rạng sáng 14/9')],
-        f'0 → {dive_at} s cách A (máy theo đường máy cú lặn); {dive_at} → {D} s DỰNG TRỌN bằng Cycles GPU (RunPod, §14.2–14.3; scripts/k2tl/cuoi_gpu/) theo đường máy design/pt/cpu/dive-opt.json τ 5,5 → 17,0 — không ghép A↔B trong cú máy',
-        lan=dict(cycles_gpu=True, t=dive_at, dur=round(D - dive_at, 3), dive_tau=[5.5, 17.0]))
+        f'0 → {D} s DỰNG TRỌN bằng Cycles GPU (RunPod, §14.2–14.3; scripts/k2tl/cuoi_gpu/): 0 → {dive_at} s máy theo đường máy cú lặn, {dive_at} → {D} s theo design/pt/cpu/dive-opt.json τ 5,5 → 17,0 — cả cú máy một cách dựng, không ghép A↔B',
+        lan=dict(cycles_gpu=True, t=0.0, dur=round(D, 3), t_may=dive_at, dive_tau=[5.5, 17.0], ghi='22/10 14:20: dựng TRỌN shot bằng Cycles GPU (bản đầu ghép cách A 0 → dive_at với Cycles trong cùng một cú máy — vi phạm lệnh, đã dựng lại khung 0–395 trên pod 3/4)'))
     D = d(['2q', '2r']); tpeace = NH['2q']['cau'][1]['bd_phim'] - NH['2q']['bd_phim']
     o = base(time=[dict(t=0, at='1782-10-01 12:00', sun=14.0, lab='m'), dict(t=tpeace, at='1783-01-25 12:00', sun=14.0, lab='d'), dict(t=tpeace + 6.0, at='1783-02-05 15:00', sun=14.0, lab='d'),
                    dict(t=tpeace + 6.05, at=1783.10, sun=14.0, lab='m'), dict(t=D, at=1783.32, sun=14.0, lab='m')], co=co_ld() + co_lw(), recl=False, campTuNhien=True,   # ANIM-V2: trại rút hết ngay trước cuối shot (hết khúc đồng trống dài)
@@ -552,7 +552,7 @@ def main():
                                 + [dict(t=round(b['t'], 2), k='buoc_nam', s=f"{b['tu']:.0f} → {b['toi']:.0f}") for b in tl_buoc(o)], key=lambda b: b['t']),   # F2: beats = biến cố HÌNH
                    moc_loi=[dict(t=round(x['bd'] - t_abs, 2), s=x['cau'][:28]) for x in L],
                    shots=[dict(tpl='plate', at=0, type='scene3d', noi=sh['noi'], p=p, cau=(L[0]['cau'] if L else ''), vung=sh['diem'], ai_texture=False)])
-        segs.append(seg); cut[sh['id']] = [0.0] + list(sh.get('cat') or []) + ([sh['lan']['t']] if sh.get('lan') else [])
+        segs.append(seg); cut[sh['id']] = [0.0] + list(sh.get('cat') or []) + ([sh['lan']['t']] if sh.get('lan') and sh['lan']['t'] > 0 else [])
         tb = tl_buoc(o); cm = sh['cam']
         pt = [round(pitch(c['p'], c['l']), 1) for c in cm]; agl = [round(c['p'][1] - max(0.0, hAt(c['p'][0], c['p'][2])), 0) for c in cm]
         ys = [dy(x['at']) if isinstance(x['at'], str) else float(x['at']) for x in o['time']]

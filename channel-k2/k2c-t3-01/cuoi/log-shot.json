@@ -7389,7 +7389,7 @@
   "bac": "xem ghi + meta lớp của cảnh",
   "nguon": "mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4",
   "chuong": null,
-  "ghi": "0 → 16.5 s cách A (máy theo đường máy cú lặn); 16.5 → 28.0 s DỰNG TRỌN bằng Cycles GPU (RunPod, §14.2–14.3; scripts/k2tl/cuoi_gpu/) theo đường máy design/pt/cpu/dive-opt.json τ 5,5 → 17,0 — không ghép A↔B trong cú máy",
+  "ghi": "0 → 28.0 s DỰNG TRỌN bằng Cycles GPU (RunPod, §14.2–14.3; scripts/k2tl/cuoi_gpu/): 0 → 16.5 s máy theo đường máy cú lặn, 16.5 → 28.0 s theo design/pt/cpu/dive-opt.json τ 5,5 → 17,0 — cả cú máy một cách dựng, không ghép A↔B",
   "tieu_diem": [
    "pin_noi"
   ],
@@ -7400,12 +7400,14 @@
   "nc": true,
   "lan": {
    "cycles_gpu": true,
-   "t": 16.5,
-   "dur": 11.5,
+   "t": 0.0,
+   "dur": 28.0,
+   "t_may": 16.5,
    "dive_tau": [
     5.5,
     17.0
-   ]
+   ],
+   "ghi": "22/10 14:20: dựng TRỌN shot bằng Cycles GPU (bản đầu ghép cách A 0 → dive_at với Cycles trong cùng một cú máy — vi phạm lệnh, đã dựng lại khung 0–395 trên pod 3/4)"
   },
   "cat_trong_shot": [],
   "minh_hoa": [],

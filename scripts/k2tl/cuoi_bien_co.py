@@ -105,7 +105,7 @@ def them_khoi(sh, D, hAt, dy, tran=6.0, tu=5.5):
         k = int(math.ceil((b - a) / tu)) - 1
         for j in range(1, k + 1):
             t = round(a + (b - a) * j / (k + 1), 2)
-            if sh.get('lan') and t >= sh['lan']['t']: kho.append(t); continue   # phần cú lặn dựng Cycles GPU theo đường máy riêng — không đặt khói theo máy A
+            if sh.get('lan') and t >= sh['lan'].get('t_may', sh['lan']['t']): kho.append(t); continue   # phần cú lặn theo đường máy riêng (t_may) — không đặt khói theo máy trước đó
             if nam_tai(o, t, dy) >= 1950: kho.append(t); continue   # khói bếp/lửa đồng chỉ trước 1950
             P = diem_dat(sh['cam'], t, hAt)
             if not P: kho.append(t); continue
