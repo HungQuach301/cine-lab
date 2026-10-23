@@ -1,6 +1,6 @@
 // KÊNH 2 · bản sao scripts/ll/render.js: nạp scripts/k2/lib/k2.js + điểm neo cảnh 3D (anchors.json) vào window.ANC. Gốc: Last Lamplighters · nhà máy — render một đoạn (16:9) hoặc một Short (9:16) từ timeline của ll.py, trong Chromium (canvas2D).
 // node scripts/ll/render.js --tl <timeline.json> --seg <id> | --short <id>  --out <tệp.mkv> [--from f --to f] [--only f1,f2 --jpgdir d]
-// Ra: <out> (H.264 crf 10 yuv444p, trung gian gần không mất) + <out>.log.json:
+// Ra: <out> (H.264 crf 13 yuv444p — BAN-CUOI-T3: 10 → 13 để đủ đĩa cho 1080p; trung gian gần không mất) + <out>.log.json:
 //   act: chuỗi '0'/'1' mỗi khung (có nội dung đang hiện/chuyển), cam: khoảng cách máy tới lớp gần nhất (cảnh 2.5D),
 //   text: ở khung mẫu (mỗi 12 khung) — chữ, cỡ chữ hoa hiệu dụng (px), tương phản đo trên điểm ảnh thật (WCAG), raised: số lần mẫu phải nâng cỡ chữ. zones (Q-L20, từ tập 6): vùng hình của khung mẫu [x0, y0, x1, y1] trong mỗi mục text.
 const { chromium } = require('/opt/pw/node_modules/playwright');
@@ -61,7 +61,7 @@ const SAMPLE = +arg('sample', 12);
     for (const f of ONLY) { await loadPlates(f); await page.evaluate((f) => window.drawFrame(f), f); fs.writeFileSync(path.join(d, `${SEG || SH}_f${String(f).padStart(5, '0')}.jpg`), await page.screenshot({ type: 'jpeg', quality: 88 })); }
     await browser.close(); return; }
   const ff = spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'image2pipe', '-c:v', 'mjpeg', '-framerate', '24', '-i', '-',
-    '-c:v', 'libx264', '-preset', 'medium', '-crf', '10', '-pix_fmt', 'yuv444p', '-g', '48', '-r', '24', OUT], { stdio: ['pipe', 'inherit', 'inherit'] });
+    '-c:v', 'libx264', '-preset', 'medium', '-crf', '13', '-pix_fmt', 'yuv444p', '-g', '48', '-r', '24', OUT], { stdio: ['pipe', 'inherit', 'inherit'] });
   const act = [], fill = [], cam = [], texts = [], hit = [], insets = [], smpOk = (f) => f % SAMPLE === 0; const t0 = Date.now();   /* V5b-2b: log inset (diện tích riêng, nguồn) ở khung mẫu */
   for (let f = F0; f < F1; f++) {
     await loadPlates(f);

@@ -1,0 +1,131 @@
+ĐÚNG  A1      sạch     master AAC −14,0 LUFS (đo -14.0 LUFS) → trong −15,0…−13,8
+ĐÚNG  A1      bắt lỗi  master AAC -15.4 LUFS (thấp) → ngoài khoảng
+ĐÚNG  A1      bắt lỗi  master AAC -13.4 LUFS (cao) → ngoài khoảng
+ĐÚNG  A1      sạch     master −13,9 LUFS (trong mép trên đã gồm dung sai +0,2) → đạt
+ĐÚNG  A2      sạch     đỉnh thật sau AAC thấp (tín hiệu đều) → đạt
+ĐÚNG  A2      bắt lỗi  xung 0,97 (−0,3 dBFS) giữa phim → đỉnh thật sau AAC > −1,0 dBTP
+ĐÚNG  A5      bắt lỗi  lặng tuyệt đối 1,3 s giữa phim → 1 đoạn lặng bất thường
+ĐÚNG  A5      sạch     lặng 0,6 s (ngắt câu) → không tính
+ĐÚNG  A5      sạch     lặng 1,8 s ở đầu phim (vùng bỏ 2 s đầu) → không tính
+ĐÚNG  A7      bắt lỗi  3 mẫu liền = 1,0 (wav f32) → 1 lần chạm trần
+ĐÚNG  A7      sạch     2 mẫu liền = 1,0 → chưa tính chạm trần (≥ 3)
+ĐÚNG  A1      bắt lỗi  không có master với MIX=audio → TRƯỢT (không đo được)
+ĐÚNG  A4      sạch     mix.json smr p10 16,0 · min 13,0 → đạt
+ĐÚNG  A4      bắt lỗi  mix.json smr p10 14,9 → trượt
+ĐÚNG  A4      bắt lỗi  mix.json smr min 11,9 (p10 vẫn 16) → trượt
+ĐÚNG  A4      bắt lỗi  không stem, mix.json không có smr → trượt
+ĐÚNG  A4      sạch     stem lời −20 / nền -38.0 LUFS → K tự tính: p10 18.0 · min 18.0 dB · 13 cửa sổ
+ĐÚNG  A4      bắt lỗi  stem lời −20 / nền -33.0 LUFS → K tự tính: p10 13.0 · min 13.0 dB · 13 cửa sổ
+ĐÚNG  A8      sạch     hai đoạn lời liền, không chồng → đạt
+ĐÚNG  A8      bắt lỗi  đoạn 01 bắt đầu lời ở 9,5 s khi đoạn 00 còn đọc tới 9,8 s → chồng lời
+ĐÚNG  A9      sạch     hai cách nghe đủ 1943 + 3 (chữ "three" = số "3") → đạt
+ĐÚNG  A9      bắt lỗi  tham lam nghe "three cargo ship today" vẫn có 3, beam 5 mất 1943 → trượt
+ĐÚNG  A9      bắt lỗi  beam 5 đủ, tham lam nghe "tree cargo ships" (mất 3) → trượt (phải đủ CẢ HAI cách)
+ĐÚNG  A9      bắt lỗi  câu "500-won" (ASR nghe "501", won/one) KHÔNG khai miễn → trượt
+ĐÚNG  A9      sạch     khai asr_mo_ho đúng nguyên văn + lý do → miễn câu đó (liệt kê chấm tai), câu 1972 vẫn chấm → đạt
+ĐÚNG  A9      bắt lỗi  khai miễn với lý do < 20 ký tự → trượt
+ĐÚNG  A9      bắt lỗi  khai miễn một câu không có trong lời → trượt
+ĐÚNG  A9      bắt lỗi  câu miễn không che câu khác: "1972" nghe thành "1970" ở câu không miễn → trượt
+ĐÚNG  A9      sạch     T1 đoạn 09 thật: ASR viết "Minneapolis-fed" (gạch nối) → nhận "Fed" (1.11.0 trước sửa: báo nhầm)
+ĐÚNG  A9      bắt lỗi  ASR "Minneapolis researchers" (mất hẳn Fed) → vẫn trượt
+ĐÚNG  A11     sạch     giao bài lệch −3,0 s ở 72 bpm (1 ô = 3,33 s) → đạt
+ĐÚNG  A11     bắt lỗi  giao bài lệch −3,5 s > 1 ô nhịp → trượt
+ĐÚNG  A11     bắt lỗi  cue đọc tới 230 s trên bài 200 s (kéo/lặp nhạc) → trượt
+ĐÚNG  A11     bắt lỗi  cùng bài a.mp3 dùng lại 0–100 s ở cue 3 (> 60 s nguồn) → trượt
+ĐÚNG  A11     sạch     cùng bài dùng lại khúc khác (0–100 s rồi 150–190 s) → đạt
+ĐÚNG  A12     sạch     loudnorm linear → đạt
+ĐÚNG  A12     bắt lỗi  loudnorm dynamic (nén động ẩn) → trượt
+ĐÚNG  A*      sạch     tập cũ (mix.json của ll/mix.py) −17 LUFS → kết quả CHỈ BÁO, không chặn
+ĐÚNG  A*      bắt lỗi  cùng master với MIX=audio → TRƯỢT (A1 chặn)
+ĐÚNG  A*      sạch     tập MIX=audio đạt mọi mục chặn → ĐẠT
+ĐÚNG  Q37     sạch     cuộn K2V4: bản sao K = số rhythm.py đã ghi (TB 1.14 s, dài nhất 4.15 s, 57 biến cố)
+ĐÚNG  Q37     bắt lỗi  cuộn K2V4 thêm biến cố không có mốc đặc tả (1,93 s) → (a)
+ĐÚNG  Q37     bắt lỗi  đoạn thiếu biến cố cut ở 0 → (a)
+ĐÚNG  Q37     bắt lỗi  kéo đoạn đầu thêm 7 s không biến cố → khoảng dài nhất > 6 s (c)
+ĐÚNG  Q37     bắt lỗi  chỉ giữ biến cố cut (cắt cảnh) → TB > 3,5 s (b)
+ĐÚNG  Q37     bắt lỗi  một đoạn không khai beats → (a)
+ĐÚNG  Q37     sạch     cảnh dùng lại từ khung 48 (đặc tả đã giải: ll.load đổi frame0 → off): mốc máy τ = 3 s → giây đoạn 3,0 ([0.0, 2.0, 3.0])
+ĐÚNG  Q37     bắt lỗi  video có khung tĩnh 7 s → (d) (6.96 s)
+ĐÚNG  Q37     sạch     video có khung tĩnh 5 s → đạt (4.96 s)
+ĐÚNG  Q37     bắt lỗi  T1 (làm trước luật, không khai beats) → (a); tham khảo mốc đặc tả TB 3.26 s
+ĐÚNG  Q35     bắt lỗi  số hiện tại (2026) khai kind actual trên tag + nhãn góc → ACTUAL 2 lần (b)
+ĐÚNG  Q35     bắt lỗi  số hiện tại không có nhãn ACTUAL nào, năm 2026 không hiện → (a)
+ĐÚNG  Q35     sạch     số lịch sử 1943, chip năm "1943" hiện cùng khung, không nhãn ACTUAL → đạt (D5)
+ĐÚNG  Q35     sạch     số lịch sử 1943, năm ở chữ phụ của nhãn → đạt
+ĐÚNG  Q35     bắt lỗi  số lịch sử khai year nhưng năm không hiện trên khung, không ACTUAL → (a)
+ĐÚNG  Q35     sạch     ước tính có nhãn ESTIMATE (tag kind estimate) → đạt
+ĐÚNG  Q35     bắt lỗi  ước tính không khai kind → không có ESTIMATE (c)
+ĐÚNG  Q35     bắt lỗi  ước tính khai kind actual → (d) + ACTUAL thay ESTIMATE
+ĐÚNG  Q35     sạch     dự báo có PROJECTION (nhãn góc) → đạt
+ĐÚNG  Q35     bắt lỗi  tag khai ESTIMATE cho số không phải ước tính → (d)
+ĐÚNG  Q35     bắt lỗi  hai tag actual hiện lần lượt (1 s, 3 s) + nhãn góc → (b) ở khung 3 s
+ĐÚNG  Q35     bắt lỗi  log render: khung 48 có 2 chữ "ACTUAL" → (b)
+ĐÚNG  Q35     sạch     log render: một "ACTUAL" cạnh 0.04% → đạt
+ĐÚNG  Q35     bắt lỗi  log render: ước tính ≈ 4× hiện với ACTUAL, thiếu ESTIMATE → (c)
+ĐÚNG  Q35     bắt lỗi  T1 bản phát hành (làm trước D5): 22 shot ACTUAL ≥ 2 lần/khung (chấm mù V2: 'ACTUAL lặp')
+ĐÚNG  Q36     sạch     dòng nguồn 70 ký tự → đạt (độ dài)
+ĐÚNG  Q36     bắt lỗi  dòng nguồn 71 ký tự → (a)
+ĐÚNG  Q36     sạch     p.src 50 ký tự + credit "3D illustration" nối khi vẽ = 68 → đạt
+ĐÚNG  Q36     bắt lỗi  p.src 60 ký tự + credit → 78 ký tự (a)
+ĐÚNG  Q36     bắt lỗi  không có log render → cỡ chữ THIẾU (không ĐẠT)
+ĐÚNG  Q36     sạch     log render: dòng nguồn 38,0 px
+ĐÚNG  Q36     bắt lỗi  log render: dòng nguồn 35,8 px
+ĐÚNG  Q36     bắt lỗi  log render: dòng nguồn bị xuống 2 dòng → (a) (log không có dòng nguyên văn)
+ĐÚNG  Q36     sạch     "Facts as of" + nguồn Seattle Building Code (loai luat, hieu_luc) → đạt
+ĐÚNG  Q36     bắt lỗi  "Facts as of" trên dữ liệu thống kê (Census) → (b)
+ĐÚNG  Q36     bắt lỗi  "Facts as of" trong câu miễn trừ (cap), shot không dẫn luật → (b)
+ĐÚNG  Q36     bắt lỗi  "Facts as of" + luật đã hết hiệu lực (2020) → (b)
+ĐÚNG  Q36     bắt lỗi  "Facts as of 12 Oct 2026" + quy định hiệu lực từ 2027 → (b)
+ĐÚNG  Q36     sạch     "Facts as of" + p.luat: LAW khai trực tiếp → đạt
+ĐÚNG  Q36     bắt lỗi  T1 (trước V3/luật này): 56 dòng nguồn > 70 ký tự, 6 'Facts as of' chưa khai luật hiệu lực
+ĐÚNG  Q32     sạch     kênh 2: LoC 640×480 trong khung ×1,5 có viền + DVIDS đủ điều kiện → đạt (footage thật 15.2 %)
+ĐÚNG  Q32     sạch     nguồn dvidshub.net được nhận (1.10.2: "ngoài danh sách cho phép")
+ĐÚNG  Q32i    bắt lỗi  nguồn 640×480 phóng đầy khung (không fit: frame) → (i)
+ĐÚNG  Q32i    bắt lỗi  nguồn 640×480 trong khung phóng 1,6× → (i)
+ĐÚNG  Q32i    bắt lỗi  nguồn 640×480 trong khung, không viền → (i)
+ĐÚNG  Q32i    bắt lỗi  nguồn 640×480 trong khung, không khai zoom → (i)
+ĐÚNG  Q32b2   bắt lỗi  footage 10 s / 45 s = 22,2 % > 20 % (ảnh + footage vẫn < 40 %) → (b2)
+ĐÚNG  Q32b2   sạch     footage 10 s / 52 s = 19,2 % → đạt, nêu sát ngưỡng: ['phim: footage thật 19.2 % (ngưỡng 20 %)']
+ĐÚNG  Q32h    bắt lỗi  thiếu tệp giấy phép licenses/b1.txt → (h)
+ĐÚNG  Q32h    bắt lỗi  tệp giấy phép không ghi SHA của dòng sổ → (h)
+ĐÚNG  Q32h    bắt lỗi  DVIDS: tệp giấy phép thiếu chữ "public domain" → (h)
+ĐÚNG  Q32g    bắt lỗi  DVIDS: logo "co: đã làm mờ" (vẫn trong khung) → (g)
+ĐÚNG  Q32g    sạch     DVIDS: logo "co: đã cắt khỏi khung" → đạt
+ĐÚNG  Q32g    bắt lỗi  DVIDS: người nhận diện được, không ghi "không nổi bật" → (g)
+ĐÚNG  Q32g    sạch     DVIDS: người ở xa "không cận mặt" → đạt
+ĐÚNG  Q32g    bắt lỗi  DVIDS: câu ghi công không có "U.S. government work" (như cuộn K2V4) → (g)
+ĐÚNG  Q32g    bắt lỗi  DVIDS: mô tả YouTube có, thiếu câu ghi công → (g)
+ĐÚNG  Q32g    sạch     DVIDS: mô tả YouTube có nguyên văn câu ghi công → đạt
+ĐÚNG  Q32g    bắt lỗi  DVIDS giấy phép CC BY (không phải PD) → (a)
+ĐÚNG  Q32     sạch     tập LL (ngoài channel-k2/): (b2), (h), (i) không áp — như 1.10.2
+ĐÚNG  Q32     bắt lỗi  cuộn K2V4 (sổ thật): DVIDS hết '(a) ngoài danh sách'; ghi công thiếu 'U.S. government work' → (g)
+ĐÚNG  Q34d    sạch     document ngày đủ 1926-11-22 → đạt
+ĐÚNG  Q34d    bắt lỗi  document ngày chỉ có năm 1926, không khai lý do → (d)
+ĐÚNG  Q34d    sạch     document năm 1926 + date_chi_nam (nguồn chỉ ghi năm, ≥ 20 ký tự) → đạt
+ĐÚNG  Q34d    bắt lỗi  document năm 1926 + lý do quá ngắn → (d)
+ĐÚNG  Q34d    bắt lỗi  document "1926-11" (tháng, không khai) → (d)
+ĐÚNG  Q34e    sạch     record 10 s, dòng tô ở 1 s, nguồn Federal Register khai quy_dinh + hieu_luc → đạt
+ĐÚNG  Q34e    sạch     record 12,0 s (đúng trần) → đạt
+ĐÚNG  Q34e    bắt lỗi  record 12,5 s > 12 s → (e)
+ĐÚNG  Q34e    bắt lỗi  record không có dòng tô (p.hl, opt.hl) → (e)
+ĐÚNG  Q34e    bắt lỗi  record có p.hl nhưng hiện ở 11 s, ngoài shot 0–10 s → (e)
+ĐÚNG  Q34e    sạch     record dòng tô ở opt.hl của cảnh (τ = 15 s, shot vào cảnh từ khung 240, speed 1 → giây đoạn 5) → đạt
+ĐÚNG  Q34e    bắt lỗi  record opt.hl τ = 8 s nhưng shot vào cảnh từ khung 240 (τ 10 s) → dòng tô không hiện trong shot → (e)
+ĐÚNG  Q34e    bắt lỗi  record không dẫn nguồn → (e)
+ĐÚNG  Q34e    bắt lỗi  record là luật (p.luat FRX) mà nguồn thiếu hieu_luc → (e)
+ĐÚNG  Q34e    sạch     record thư (nguồn không phải luật, không cần hieu_luc) → đạt
+ĐÚNG  Q34e    bắt lỗi  record nguồn p.nguon trỏ khoá không có trong sources → (e)
+ĐÚNG  Q34d    bắt lỗi  document (ảnh chụp báo) 10 s vẫn > 3 s → (d); cùng shot khai record → đạt (e)
+ĐÚNG  Q34     sạch     type record nằm trong TYPES (không lỗi (0)); tỉ lệ: {'record': 100.0}
+ĐÚNG  Q36b    sạch     câu miễn trừ có "Facts as of" 0:03–0:12, khai mien_tru → đạt (O3)
+ĐÚNG  Q36b    bắt lỗi  cùng câu nhưng không khai mien_tru → (b) như 1.11.0
+ĐÚNG  Q36b    sạch     câu miễn trừ nối qua 2 shot liền (0–5, 5–30; cap seg) = MỘT lần → đạt (như T2 00/0–00/1)
+ĐÚNG  Q36b    bắt lỗi  câu miễn trừ hiện 0:10–0:20 (kéo quá 0:15) → (b)
+ĐÚNG  Q36b    bắt lỗi  câu miễn trừ đặt ở 1:00 (ngoài 0:00–0:15) → (b)
+ĐÚNG  Q36b    bắt lỗi  câu miễn trừ "Facts as of" lần thứ hai (0:03 rồi 0:13 sau một câu khác) → (b)
+ĐÚNG  Q36b    sạch     p.mien_tru trên shot (không trên cap) → đạt
+ĐÚNG  Q36b    bắt lỗi  có câu miễn trừ hợp lệ, nhưng p.asof "Facts as of" trên số liệu Census ở shot sau → (b) (ngoài câu miễn trừ giữ luật cũ)
+ĐÚNG  Q14–18  sạch     T1 k2c-t1-06 (đặc tả dưới channel-k2/) → Q14–Q18 "không áp"
+ĐÚNG  Q14–18  bắt lỗi  cùng dữ liệu T1 đội lốt tập LL → vẫn đo như LL (tái hiện hiện tượng khiếu nại: Q14, Q15, Q17 TRƯỢT)
+
+selftest kênh 2 (1.11.1): 129/129 ca đúng kỳ vọng

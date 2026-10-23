@@ -1,0 +1,50 @@
+ĐÚNG  Q35-TL  sạch     gib20 V5b-2a: 274 khung bộ đếm "≈" (khung 80–528) · dòng phương pháp "≈ = interpolated…" khung 88 (3.67 s) → ĐẠT
+ĐÚNG  Q35-TL  bắt lỗi  gib20 V5b-1b: 15 khung bộ đếm "≈" (khung 96–456) · KHÔNG có dòng phương pháp "≈ = …" trong 6 s đầu → TRƯỢT (c)
+ĐÚNG  Q35-TL  bắt lỗi  gib20 V5b-2a, dòng "≈ = interpolated between counts" dời tới 10 s (ngoài 6 s đầu) → TRƯỢT
+ĐÚNG  Q35-TL  bắt lỗi  gib20 V5b-2a + nhãn neo "≈ 3× more ships" (vai tag, không phải bộ đếm) không ESTIMATE → TRƯỢT
+ĐÚNG  Q35     sạch     đặc tả: shot timelapse, bộ đếm "≈ 19,047 residents" (estimate) + dòng phương pháp 0:00,5 → ĐẠT (mô hình đặc tả · 4 khung xét · ACTUAL nhiều nhất 0/khung · 2 khung bộ đếm timelapse "≈" nhận thay ESTIMATE (HH3) · lỗi a 0 · b 0 · c 0 · d 0)
+ĐÚNG  Q35     bắt lỗi  đặc tả: shot timelapse, bộ đếm "≈", KHÔNG có dòng "≈ = interpolated between counts" → (c)
+ĐÚNG  Q35     bắt lỗi  đặc tả: dòng phương pháp ở 10,5 s (ngoài 6 s đầu phim) → (c)
+ĐÚNG  Q35     bắt lỗi  đặc tả: shot scene3d (không phải timelapse) có "≈" + dòng phương pháp → (c) như cũ
+ĐÚNG  Q35     bắt lỗi  đặc tả: shot timelapse, số estimate KHÔNG bắt đầu "≈" → (c) như cũ
+ĐÚNG  TL-Q2   sạch     gib20 V5b-2a: [7.8, 10.8]: 3.0 s ≤ 15 m/AGL ≤ 300 m (eo_dat: campath.shots.route_type), lệch TB 0.41 m, max 8.92 m, AGL [96.2, 103.5] (AGL K tính từ địa hình của bộ (Copernicus GLO-30 (gói cảnh gib, terrain)), đích 4.4° (dev_m của campath (bộ dựng tính; tuyến không có trong repo)) → ĐẠT
+ĐÚNG  TL-Q2   bắt lỗi  gib20 V5b-1b (không khai loại → pho ≤ 120 m; không địa hình → độ cao tuyệt đối): ['tuyến 0 [7.8, 10.8]: chỉ 0.00 s liên tục ≤ 15 m và AGL ≤ 120 m (pho) (≤ 15 m: 3.00 s, nhưng AGL 273–308 m)']
+ĐÚNG  TL-Q2   bắt lỗi  gib20 V5b-1b khai loai eo_dat (≤ 300 m), cao độ tuyến 3 m: AGL 270–305 m — ['tuyến 0 [7.8, 10.8]: chỉ 2.88 s liên tục ≤ 15 m và AGL ≤ 300 m (eo_dat) (≤ 15 m: 3.00 s, nhưng AGL 270–305 m)']
+ĐÚNG  TL-Q2   sạch     gib20 V5b-1b khai loai eo_dat, cao độ tuyến 12 m (tổng hợp): [7.8, 10.8]: 3.0 s ≤ 15 m/AGL ≤ 300 m (eo_dat: tuyen.loai), lệch TB 0.48 m, max 4.61 m, AGL [260.6, 296.1] (độ cao tuyệt
+ĐÚNG  TL-Q2   bắt lỗi  gib20 V5b-2a khai loai pho, nâng máy +30 m (AGL ≈ 126–134 m > 120) → TRƯỢT
+ĐÚNG  TL-Q2   sạch     gib20 V5b-2a khai loai pho (AGL 96–104 m ≤ 120) → ĐẠT
+ĐÚNG  TL-Q2   sạch     loại tuyến lạ 'kenh' → coi pho: loại 'kenh' không rõ → coi pho
+ĐÚNG  TL-Q1c  sạch     gib20 V5b-2a đường băng 1941: mốc 298–340: hero↔vành 1.345 (L 0.1275/0.2928), hero mốc/ngoài 2.799 (6/8 khung) → ĐẠT → ĐẠT (c)
+ĐÚNG  TL-Q1c  bắt lỗi  gib20 V5b-2a chỉ khung mốc 308, 316 (tương phản vành 1,11 / 0,84), không có khung hero ngoài mốc → TRƯỢT: mốc 298–340: hero↔vành 1.004 (L 0.1275/0.2556), hero mốc/ngoài None (2/0 khung) → TRƯỢT
+ĐÚNG  TL-Q1c  bắt lỗi  tổng hợp: hero 0,20 trên nền 0,26 (tương phản 0,30), ngoài mốc 0,19 (×1,05) → TRƯỢT: mốc 298–340: hero↔vành 0.281 (L 0.2016/0.2582), hero mốc/ngoài 1.054 (3/2 khung) → TRƯỢT
+ĐÚNG  TL-Q1c  sạch     tổng hợp: cùng mốc, hero ngoài mốc 0,13 → hero mốc / ngoài mốc ×1,54 ≥ 1,3 → ĐẠT (cách ii): mốc 298–340: hero↔vành 0.281 (L 0.2016/0.2582), hero mốc/ngoài 1.55 (3/2 khung) → ĐẠT
+ĐÚNG  TL-Q1c  sạch     tổng hợp: hero 0,40 trên nền 0,15 (tương phản 1,67) → ĐẠT (cách i): mốc 298–340: hero↔vành 1.681 (L 0.402/0.15), hero mốc/ngoài 3.09 (3/2 khung) → ĐẠT
+ĐÚNG  TL-Q1c  bắt lỗi  không khai hero_anh (chỉ có nhan_sang 1.12.0) → THIẾU (c)
+ĐÚNG  TL-Q7   bắt lỗi  gib20 V5b-2a: năm/s max (cửa sổ 0.5 s): bay thấp (AGL ≤ 150 m) 40.00 (từ khung 149) · crane/reveal 10.00 (từ khung 414) · AGL K tính từ địa hình của bộ (Copernicus GLO-30 (gói cảnh gib, terrain) — bay xuống ngoài cú (6,0–8,3 s, AGL 78–148 m) 40 năm/s → TRƯỢT
+ĐÚNG  TL-Q7   sạch     gib20 V5b-2a chỉ cú liên hoàn 7,8–22,8 s: năm/s max (cửa sổ 0.5 s): bay thấp (AGL ≤ 150 m) 10.00 (từ khung 71) · crane/reveal 10.00  → ĐẠT
+ĐÚNG  TL-Q7   sạch     cú liên hoàn, reveal (AGL > 247 m) chạy 18 năm/s → ĐẠT (trần 20): năm/s max (cửa sổ 0.5 s): bay thấp (AGL ≤ 150 m) 10.00 (từ khung 71) · crane/reveal 18.00 
+ĐÚNG  TL-Q7   bắt lỗi  cú liên hoàn, reveal chạy 24 năm/s > 20 → TRƯỢT
+ĐÚNG  TL-Q7   bắt lỗi  cú liên hoàn, bay WCA (AGL ≈ 100 m) chạy 12 năm/s > 10 → TRƯỢT
+ĐÚNG  TL-Q7   bắt lỗi  gib20 V5b-1b: campath không có pha/AGL → THIẾU
+ĐÚNG  TL-Q8   bắt lỗi  gib20 V5b-2a eo đất 1896–1941: ['cú liên hoàn 188–547: pha bay thấp 9.42 s, content_pct trung vị 13.1 % < 30 % — quãng < 30 %: khung 188–297 (7.8–12.4 s, năm 1896–1941, min 2 %), khung 333–368 (13.9–15.4 s, năm 1941–1952, min 27.6 %)'] → báo
+ĐÚNG  TL-Q8   sạch     gib20 V5b-2a, mặt nạ nâng content ≥ 35 % (tổng hợp): cú 188–547: bay thấp 226 khung (9.42 s), content trung vị 35.0 % → ĐẠT
+ĐÚNG  TL-Q8   bắt lỗi  bộ không có mặt nạ mỗi khung → THIẾU
+ĐÚNG  TL-Q9   sạch     tập = gib20 V5b-2a + cuộn 6 preset: 1 cú liên hoàn · 1 vertigo · tốc độ góc max 76.2 °/s (presets khung 215) · gib20 liên hoàn 188–547: orbit 5.00 → ĐẠT
+ĐÚNG  TL-Q9   bắt lỗi  tập có 3 cú liên hoàn > 2 → (a)
+ĐÚNG  TL-Q9   bắt lỗi  tập có 2 vertigo > 1 → (b)
+ĐÚNG  TL-Q9   bắt lỗi  cú liên hoàn bỏ vai ở pha crane → (c)
+ĐÚNG  TL-Q9   bắt lỗi  orbit cắt còn 3,8 s (< 4 s) → (d)
+ĐÚNG  TL-Q9   bắt lỗi  hướng nhìn lắc 6 khung (≈ 800 °/s) → (e) Chặn: ['gib20: 7 bước khung > 90 °/s (đầu: khung 420, max 3481.8 °/s)']
+ĐÚNG  TL-Q9   sạch     cấp: (e) vào phần Chặn (Cảnh báo (a)–(d) · Chặn (e) tốc độ góc (JJ1/KK1))
+ĐÚNG  KHOP1   sạch     khung vàng llvmpipe V5b-2a ↔ K dựng lại llvmpipe (máy khác): 2/2 khung đạt cấu trúc (2 đạt chặt) · SSIM min 1.0 · PSNR¼ min 99.0 · vàng llvmpipe → mới llvmpipe
+ĐÚNG  KHOP1   bắt lỗi  khung vàng llvmpipe ↔ K dựng SwiftShader (đổi trình dựng): 0/2 khung đạt cấu trúc (2 đạt chặt) · SSIM min 0.8969 · PSNR¼ min 44.35 · vàng llvmpipe → mới swiftshader (ĐỔI TRÌNH DỰNG: (c) bắt buộc) → (c) TRƯỢT, vào phần Chặn
+ĐÚNG  KHOP1   bắt lỗi  khung vàng khai gl "swiftshader" mà renderer là llvmpipe → (a)
+ĐÚNG  KHOP1   bắt lỗi  khung vàng không khai gl (mẫu 1.12.0 chỉ có renderer) → (a)
+ĐÚNG  KHOP1   bắt lỗi  khung vàng không khai goi_canh.sha256 → (a)
+ĐÚNG  KHOP1   bắt lỗi  khung vàng SHA lệch tệp (khung 00214.png bị thay) → (a)
+ĐÚNG  KHOP1   sạch     khai lại đúng → ĐẠT
+ĐÚNG  KHOP1   bắt lỗi  khung mới dựng từ gói cảnh khác (goi_canh.sha256 khác) → (d)
+ĐÚNG  Q34     sạch     type timelapse nằm trong TYPES (không lỗi (0))
+ĐÚNG  Q34     bắt lỗi  type "time-lapse" (ngoài TYPES) → (0)
+
+selftest 1.12.1: 48/48 ca đúng kỳ vọng · 9 luật, luật thiếu ca đạt hoặc trượt: không

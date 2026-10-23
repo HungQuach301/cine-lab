@@ -1,0 +1,109 @@
+OK  [K-LAI-1] (sạch) fixture ep-lai (shot LAI 6 s / 60 s, nhãn 38 px, sổ đủ, ngoại lệ X1 có duyệt)
+OK  [K-LAI-2] (sạch) fixture ep-lai (shot LAI 6 s / 60 s, nhãn 38 px, sổ đủ, ngoại lệ X1 có duyệt)
+OK  [K-LAI-3] (sạch) fixture ep-lai (shot LAI 6 s / 60 s, nhãn 38 px, sổ đủ, ngoại lệ X1 có duyệt)
+OK  [K-LAI-4] (sạch) fixture ep-lai (shot LAI 6 s / 60 s, nhãn 38 px, sổ đủ, ngoại lệ X1 có duyệt)
+OK  [K-LAI-5] (sạch) fixture ep-lai (shot LAI 6 s / 60 s, nhãn 38 px, sổ đủ, ngoại lệ X1 có duyệt)
+OK  [K-LAI-6] (sạch) fixture ep-lai (shot LAI 6 s / 60 s, nhãn 38 px, sổ đủ, ngoại lệ X1 có duyệt)
+OK  [K-LAI-B] (sạch) fixture ep-lai (shot LAI 6 s / 60 s, nhãn 38 px, sổ đủ, ngoại lệ X1 có duyệt)
+OK  [K-LAI-2] (sạch) nhãn đúng 38,0 px → nêu tên sát ngưỡng
+OK  [K-LAI] (sạch) tập không có khối lai: và không shot AI → KHÔNG ÁP
+OK  [K-LAI] (sạch) shot khai ai_image nhưng không có khối lai: → THIẾU (mọi hàng)
+OK  [K-LAI-1] (bắt lỗi) AI 15,2 s / 60 s = 25,3 % > 20 %
+OK  [K-LAI-1] (sạch) ai_texture cũng tính: 6 s + 5 s = 18,3 % ≤ 20 % → ĐẠT
+OK  [K-LAI-1] (sạch) ai 11,7 s = 19.51 % (±5 % quanh 20 %) → ĐẠT, nêu tên
+OK  [K-LAI-1] (bắt lỗi) log thưa (mỗi 2 khung) → THIẾU
+OK  [K-LAI-2] (bắt lỗi) nhãn tắt 14 khung cuối shot LAI (a)
+OK  [K-LAI-2] (bắt lỗi) nhãn 30 px < 38 px (b)
+OK  [K-LAI-2] (bắt lỗi) nhãn ở góc trên phải (b)
+OK  [K-LAI-2] (bắt lỗi) nhãn mất ở 4 mẫu cuối shot (log chữ) (b)
+OK  [K-LAI-2] (bắt lỗi) chữ nhãn khác ("AI-generated") → không nhận (b)
+OK  [K-LAI-2] (bắt lỗi) "suốt shot": 20 khung đầu shot b/0 không AI và không nhãn → (a)
+OK  [K-LAI-2] (bắt lỗi) không có log chữ → THIẾU
+OK  [K-LAI-3] (bắt lỗi) loi_chac_cuoi = 1 (b)
+OK  [K-LAI-3] (bắt lỗi) nghi_van_con_lai = 1 (c)
+OK  [K-LAI-3] (bắt lỗi) sổ tổng ghi nghi_van_cuoi_nhe 1, mục tấm ghi 0 (c)
+OK  [K-LAI-3] (bắt lỗi) ngoại lệ X1 không có duyệt (d)
+OK  [K-LAI-3] (bắt lỗi) duyệt ghi email người ký (d)
+OK  [K-LAI-3] (bắt lỗi) duyệt vai phien_p (d)
+OK  [K-LAI-3] (sạch) duyệt trong chính kiem-du-kien (ngoai_le_duyet) → ĐẠT
+OK  [K-LAI-3] (bắt lỗi) tấm dùng không có trong sổ goi-api (a)
+OK  [K-LAI-3] (bắt lỗi) bằng chứng trỏ kiem-mu/ (e)
+OK  [K-LAI-3] (bắt lỗi) cach_kiem "dùng chấm mù 3 người" (e)
+OK  [K-LAI-3] (bắt lỗi) không có kiem-du-kien → THIẾU
+OK  [K-LAI-4] (bắt lỗi) vùng bảo vệ lệch +2/255 (a)
+OK  [K-LAI-4] (sạch) lệch 1 mức ở 97 % điểm ảnh: TB 0.970/255 < 1 → ĐẠT, nêu tên sát ngưỡng
+OK  [K-LAI-4] (bắt lỗi) khung LAI là JPEG → (a)
+OK  [K-LAI-4] (bắt lỗi) vùng bắt buộc (cờ) ngoài mặt nạ bảo vệ (b)
+OK  [K-LAI-4] (bắt lỗi) không có bao_ve → THIẾU
+OK  [K-LAI-5] (bắt lỗi) hai tấm C dùng cho cùng khung neo × mốc (a)
+OK  [K-LAI-5] (bắt lỗi) 4 lệnh sinh thành công (3 lần sinh lại) (b)
+OK  [K-LAI-5] (sạch) lệnh lỗi đường truyền 502 không tính lần sinh → ĐẠT
+OK  [K-LAI-5] (bắt lỗi) sinh C từ lượt đêm "n" (c)
+OK  [K-LAI-5] (bắt lỗi) đêm LAI sáng ≈ 2,4× A (d)
+OK  [K-LAI-5] (bắt lỗi) không khai cặp đêm → THIẾU (d)
+OK  [K-LAI-5] (sạch) khai dem: [] (tập không có đêm) → ĐẠT
+OK  [K-LAI-6] (bắt lỗi) thiếu prompt
+OK  [K-LAI-6] (bắt lỗi) prompt rút gọn < 40 ký tự
+OK  [K-LAI-6] (bắt lỗi) thiếu c2pa + usage
+OK  [K-LAI-6] (bắt lỗi) thiếu mask.pct_duoc_sua
+OK  [K-LAI-6] (bắt lỗi) usd là chuỗi
+OK  [K-LAI-6] (sạch) lệnh 502 không ảnh: không đòi c2pa/file/usage → ĐẠT
+OK  [K-LAI-B] (bắt lỗi) khung LAI bão hoà 0,52 > 0,40 (vàng cam đậm như PT2 1943)
+OK  [K-LAI-B] (sạch) bão hoà 0,39 → ĐẠT, nêu tên sát ngưỡng
+OK  [cap] (bắt lỗi) K-LAI-1 lỗi → Chặn
+OK  [cap] (sạch) K-LAI-B lỗi → chỉ Cảnh báo (không Chặn)
+OK  [cap] (sạch) O2 / BC2 / BC3 / BC4 lỗi → chỉ Cảnh báo
+OK  [K-LAI-3] (bắt lỗi) PT2 THẬT: W5 (công-xon 1943) chờ duyệt → (d)
+OK  [K-LAI-3] (bắt lỗi) PT2 THẬT: sổ tổng "nghi_van_cuoi_nhe 1" (W3 sót ≈ 0,05 %) mà mục tấm ghi 0 → (c)
+OK  [K-LAI-5] (sạch) PT2 THẬT: 1 tấm/khung neo, 2 + 1 lệnh sinh, lượt d2 → (a)–(c) ĐẠT
+OK  [K-LAI-6] (sạch) PT2 THẬT: sổ goi-api đủ trường (3 lệnh, $0,1878, C2PA 3/3)
+OK  [K-LAI-1] (bắt lỗi) PT2 THẬT: đoạn thử 20 s toàn khung LAI = 100 % > 20 % (đúng: luật đo cấp tập)
+OK  [K-LAI-2] (bắt lỗi) PT2 THẬT: 480/480 khung nhan_phuong_phap nhưng không log chữ → THIẾU
+OK  [O2] (sạch) ảnh tổng hợp: cờ Union 1801 (cao 90 px) ở năm 1782 → bắt, hộp giao cờ thật [1123, 300, 1303, 390]
+OK  [O2] (sạch) cờ 1801 @1782: bước 2 phóng to xác nhận "no" (chưa có năm 1782)
+OK  [O2] (sạch) ảnh tổng hợp: cờ Union 1707 ở năm 1782 → KHÔNG báo (0 nghi vấn cờ, 0 nghi vấn giao vùng cờ)
+OK  [O2] (sạch) ảnh tổng hợp: cờ 1801 nhỏ (cao 32 px) @1782 → bắt
+OK  [O2] (sạch) khung THẬT PT A 1782 (cờ 1707 ≈ 20×25 px; người chấm PT gán nhầm 1801): bước 1 báo nhầm, bước 2 phóng to hạ → 0 nghi vấn
+OK  [O2] (bắt lỗi) không có trong bộ đệm + không --api → THIẾU (không gọi mạng, không ĐẠT)
+OK  [O2] (bắt lỗi) hàng O2 trên 5 khung: có nghi vấn → lỗi (mức Cảnh báo), ghi chi phí/khung
+OK  [O2] (sạch) lấy mẫu 60 s / 5 s + neo 12,3 s → 13 mẫu, giữa cửa sổ
+OK  [O2] (sạch) đề bài cố định: đủ 8 mục + năm khung + 5 ảnh
+OK  [O2] (sạch) toạ độ 0–1 → px 1920×1080; tin 0,3 < 0,5 → ghi chú
+OK  [BC2] (sạch) fixture bc (nội dung 62 %, nước + trống 20 %, khối 7,5–14 px, hero có vân + pháp tuyến 35°)
+OK  [BC3] (sạch) fixture bc (nội dung 62 %, nước + trống 20 %, khối 7,5–14 px, hero có vân + pháp tuyến 35°)
+OK  [BC4] (sạch) fixture bc (nội dung 62 %, nước + trống 20 %, khối 7,5–14 px, hero có vân + pháp tuyến 35°)
+OK  [BC2] (bắt lỗi) thành phố nội dung 42 % < 50 % (a)
+OK  [BC2] (bắt lỗi) nước 30 % + cỏ trống 10 % = 40 % > 1/3 (b)
+OK  [BC2] (bắt lỗi) mặt nạ không có nuoc_pct/co_trong_pct → (b) THIẾU
+OK  [BC2] (sạch) không shot thanh_pho → KHÔNG ÁP
+OK  [BC2] (bắt lỗi) V5b-2b THẬT: phố 1782 (18–26 s) nội dung trung vị 18,3 % < 50 % (a)
+OK  [BC2] (sạch) V5b-2b THẬT: orbit King's Bastion (5,6–12 s) nội dung 53,0 % → không lỗi (a) shot này
+OK  [BC3] (bắt lỗi) tàu t1 4 px trong 1,5 s (> 0,5 s) < 6 px
+OK  [BC3] (bắt lỗi) khối quân từ box 5 px (không h_px) → lỗi
+OK  [BC3] (sạch) khối < 6 px nhưng hien: false (ẩn trong khói) → không tính
+OK  [BC3] (bắt lỗi) không log_vat → THIẾU
+OK  [BC4] (bắt lỗi) hero "tấm phẳng" màu trơn: chi tiết < 16 (a) + pháp tuyến 0° (b)
+OK  [BC4] (bắt lỗi) hero dán vân trên mặt phẳng: chi tiết đạt nhưng pháp tuyến 0° < 10° (b)
+OK  [BC4] (bắt lỗi) gib20 V5b-2a THẬT (hero giao lộ 1941, 14 khung): khung 300–396 (14 mẫu): chi tiết hero 11.2 → (a) tấm phẳng (chỉ báo)
+OK  [BC4] (bắt lỗi) không hero_anh → THIẾU
+OK  [Q37] (bắt lỗi) V5b-2b THẬT trước I8: 30.0 s · biến cố khai 5 (gộp 5) · TB 6.0 s · dài nhất 8.0 s · khung tĩnh: không đo (không có master) → (b) TRƯỢT
+OK  [Q37] (sạch) V5b-2b THẬT sau I8 (pha ramp/orbit/pin/crane/reveal + đồng hồ dừng 09:45): TB 3.33 s → (b) ĐẠT
+OK  [Q37] (sạch) V5b-2b sau I8: 7 biến cố cảnh tl (6 pha + 1 đồng hồ dừng), TB 3,33 s nêu tên sát ngưỡng 3,5
+OK  [Q37] (bắt lỗi) V5b-2b sau I8: phố 1782 (18–26 s) không có biến cố → (c) 8,0 s vẫn TRƯỢT (không bịa mốc)
+OK  [Q37] (sạch) đồng hồ cảnh eo đất chạy 1 phút/s (nhãn đứng ~1 s) KHÔNG tính là dừng
+OK  [Q37] (sạch) biến cố đo không qua (a): (a) chỉ xét beats khai
+OK  [Q37] (sạch) campath không có canh (gib20 cũ) → không ánh xạ, không thêm biến cố
+OK  [Q37] (sạch) campath.shots[].phases (khai pha theo giây cảnh) được dùng thay frames[].phase của cảnh đó
+OK  [Q37] (sạch) T2 L5 + bộ gib20: kết quả giống hệt khi không có bộ (luật cũ giữ nguyên)
+OK  [TL-Q1] (sạch) V5b-2b THẬT sau I8: 1 mốc: dừng giờ [pha pin] 1.79 s (khung 178–220) → (a), (e) ĐẠT
+OK  [TL-Q1] (sạch) V5b-2b: (b) chữ đồng hồ 81,2 / 56 px = 1,45× ≥ 1,4× → ĐẠT
+OK  [TL-Q1] (bắt lỗi) V5b-2b bỏ pha pin (như trước I8) → 0 mốc (e)
+OK  [TL-Q1] (sạch) không pha pin, có đồng hồ theo khung dừng 1,79 s → mốc dừng giờ: 1 mốc: dừng giờ [đồng hồ "13 Sep 1782 · 09:45"] 1.79 s (khung 178–220)
+OK  [TL-Q1] (bắt lỗi) pha pin kéo dài 2,96 s → (a) ngoài 1,5–2,0 s
+OK  [TL-Q1] (bắt lỗi) pha pin 0,75 s < 1,0 s → không là mốc (e)
+OK  [TL-Q1] (sạch) ams30: mốc dừng năm giữ nguyên, 0 mốc dừng giờ thêm (không có pha pin ngoài mốc năm) — 1 mốc: 1655 1.83 s (khung 312–355)
+OK  [TL-Q1] (sạch) gib20 V5b-2a: mốc dừng năm giữ nguyên, 0 mốc dừng giờ thêm (không có pha pin ngoài mốc năm) — 1 mốc: 1941 1.79 s (khung 298–340) · (c) mốc 298–340: hero↔v
+  O2 (thông tin, không tính ca) khung THẬT PT C 1782 (cờ 1801 ≈ 20×25 px — K nhìn 1080p cũng không thấy chéo đỏ): nghi vấn 0, ghi chú [('co', [758, 475, 793, 513], 0.4)] → BỎ SÓT (giới hạn điểm ảnh, RULES-LL 1.15)
+  O2 chi phí/khung (bộ đệm lượt thật): co1801-1782 $0.0424, co1707-1782 $0.0338, co1801-nho-1782 $0.0460, pt-c-1782-dau $0.0363, pt-a-1782-trua $0.0433 · tổng $0.202
+
+selftest 1.15: 105/105 đúng kỳ vọng · 15 nhóm · K-LAI-1 6, K-LAI-2 10, K-LAI-3 14, K-LAI-4 6, K-LAI-5 9, K-LAI-6 8, K-LAI-B 3, K-LAI 2, cap 3, O2 10, BC2 7, BC3 5, BC4 5, Q37 9, TL-Q1 8 · luật thiếu ca đạt hoặc trượt: không

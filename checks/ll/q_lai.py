@@ -35,6 +35,10 @@ K-LAI-5 Một tấm, ban ngày: (a) ≤ 1 tấm C dùng / khung neo × mốc; (b
 K-LAI-6 Sổ AI: mỗi lệnh goi-api có model (req + resp), prompt nguyên văn, mask.pct_duoc_sua, usage, usd, c2pa, date_utc (giờ), file + sha256.
 K-LAI-B (P2-3, Cảnh báo) Bão hoà: mỗi khung LAI không chữ, bão hoà HSV trung vị (thước MAU1: 640×360, vùng giữa 15–85 %) ≤ SAT_MAX (0,40).
 Trong ±5 % quanh ngưỡng: nêu tên.
+1.17.2 (phiên K-1.17.2, 22/10/2026; V2-D5): tập từ T3 (check116, k2check truyền log shot) BẬT cả khi chỉ log shot khai AI — đoạn `minh_hoa`
+(q_k117.doan_ai) hoặc shot `ai_image: true`; không khối `lai:` → K-LAI-1 tính từ log shot, K-LAI-2 cờ ai_image ở mọi shot log + mâu thuẫn khai,
+K-LAI-3 tệp kiểm từng đoạn minh hoạ (klai3_mh), K-LAI-6 sổ `so_ai:` (dạng sổ Gemini V2), K-LAI-4/5/B KHÔNG ÁP có lý do (minh hoạ toàn khung).
+K-LAI-2 (c) "thẻ phương pháp nói AI" bỏ (quyết định chủ dự án 22/10/2026 11:09). Tập trước T3 (check): không đổi.
 """
 import glob, json, os, re, statistics, sys
 
@@ -89,7 +93,11 @@ def shot_ai(E):
     return out
 
 
-def ap_dung(E): return bool(E.get('lai')) or bool(shot_ai(E))
+def ap_dung(E, LS=None):
+    """1.17.2 (V2-D5): thêm log shot khai AI (đoạn minh_hoa, ai_image: true) — LS chỉ truyền ở tập từ T3 (k2check), tập cũ giữ nguyên"""
+    if E.get('lai') or shot_ai(E): return True
+    DS, SH, MT = log_ai(LS)
+    return bool(DS or SH or MT)
 
 
 def tong_s(E, TL, L):
@@ -393,6 +401,70 @@ def klaib(L, base):
              bao_hoa={os.path.basename(f): v for f, v in zip(fs, S)})
 
 
+# ------------------------------------------------------------------ 1.17.2 (V2-D5): đoạn AI khai trong log shot (tập từ T3)
+def log_ai(LS):
+    """log shot → (đoạn minh hoạ hợp lệ [q_k117.doan_ai], [(shot, t0, t1)] shot ai_image: true không khai đoạn (cả shot)), mâu thuẫn"""
+    from checks.ll import q_k117
+    if not LS: return [], [], []
+    DS, MT = q_k117.doan_ai(LS); co = {d['shot'] for d in DS}
+    sh = [(str(s.get('shot')), a, b) for s, a, b in q_k117._abs_t(LS) if s.get('ai_image') is True and str(s.get('shot')) not in co]
+    return DS, sh, MT
+
+
+def q_k117_abs(LS):
+    from checks.ll import q_k117
+    return q_k117._abs_t(LS)
+
+
+def klai1_log(DS, SH, T, src):
+    """K-LAI-1 khi không có lai.log_khung: tổng giây đoạn minh hoạ + shot ai_image (cả shot) theo log shot ≤ AI_MAX"""
+    if T is None: return r(thieu=['không biết thời lượng phim (timeline.tong_s / dur đặc tả)'], val='—')
+    s = sum(d['b'] - d['a'] for d in DS) + sum(b - a for _, a, b in SH); p = s / T if T else 0.0
+    loi = [f'{s:.2f} s đoạn AI khai = {100 * p:.1f} % > {100 * AI_MAX:.0f} % thời lượng'] if p > AI_MAX else []
+    return r(loi=loi, val=f'{s:.2f} s AI / {T:.2f} s ({src}) = {100 * p:.1f} % · nguồn: log shot ({len(DS)} đoạn minh hoạ + {len(SH)} shot ai_image), không có log khung',
+             sat_nguong=sat('tỷ lệ AI', round(p, 4), AI_MAX), ty_le=round(p, 4), giay=round(s, 2))
+
+
+def klai3_mh(DS, L, base):
+    """K-LAI-3 cho đoạn minh hoạ (§14.1 (e): cổng kiểm bắt buộc cho mọi khung AI, 0 lỗi chắc mới dùng): mỗi đoạn có tệp kiểm — `kiem` của mục đoạn
+    hoặc lai.kiem_minh_hoa {<mã đoạn | luot | id đoạn>: tệp} — với kết luận máy ĐẠT (ket_luan_may.ket_qua | ket_qua | ket_luan) và 0 lỗi mô hình
+    (ket_luan_may.loi_mo_hinh | loi_chac); không lấy chấm mù làm bằng chứng. Người đọc tờ so: ngoài máy (ghi trong báo cáo phiên dựng)."""
+    KM = L.get('kiem_minh_hoa') or {}; loi, th, ok = [], [], 0
+    for d in DS:
+        m = d['m'] or {}; p = m.get('kiem') or next((KM.get(k) for k in (d['ma'], str(m.get('luot') or ''), d['id']) if k and KM.get(k)), None)
+        if not p: th.append(f"{d['id']}: không có tệp kiểm (mục đoạn `kiem` hoặc lai.kiem_minh_hoa.{d['ma']})"); continue
+        try: J = _load(_p(base, p))
+        except Exception as e: th.append(f"{d['id']}: không đọc được tệp kiểm {p}: {e}"); continue
+        kl = J.get('ket_luan_may') if isinstance(J.get('ket_luan_may'), dict) else J
+        kq = str(kl.get('ket_qua') or kl.get('ket_luan') or '')
+        nl = kl.get('loi_mo_hinh', kl.get('loi_chac', kl.get('loi_chac_cuoi')))
+        nl = len(nl) if isinstance(nl, list) else nl
+        if re.search(r'kiem-mu|blind|chấm mù', json.dumps(J.get('bang_chung') or '', ensure_ascii=False), re.I): loi.append(f"(e) {d['id']}: bằng chứng kiểm trỏ tới chấm mù"); continue
+        if not re.match(r'^(ĐẠT|DAT|dat|dùng|pass)', kq): loi.append(f"(b) {d['id']}: kết luận kiểm {kq or '—'!r} (cần ĐẠT)")
+        elif nl not in (0, None): loi.append(f"(b) {d['id']}: {nl} lỗi mô hình mà vẫn dùng")
+        else: ok += 1
+    return r(loi=loi, thieu=th, val=f'minh hoạ: {len(DS)} đoạn · kiểm ĐẠT {ok} · thiếu tệp kiểm {len(th)}')
+
+
+def so_ai_tap(E, L, base):
+    """sổ AI của tập cho đoạn minh hoạ: lai.goi_api, không thì tệp so_ai: của episode.yaml → (list | None, lỗi)"""
+    p = L.get('goi_api') or E.get('so_ai')
+    if not p: return None, None
+    try:
+        J = _load(_p(base, p))
+        return (J if isinstance(J, list) else (J.get('dong') or J.get('records') or [J]) if isinstance(J, dict) else []), None
+    except Exception as e: return None, f'không đọc được sổ AI {p}: {e}'
+
+
+def _norm_mh(g):
+    """dòng sổ minh hoạ (Gemini Omni V2) → tên trường K-LAI-6: file/sha256 từ output, c2pa dict → bool co_manifest, mặt nạ = toàn khung"""
+    g = dict(g); o = g.get('output') if isinstance(g.get('output'), dict) else {}
+    g.setdefault('file', o.get('file')); g.setdefault('sha256', o.get('sha256'))
+    if isinstance(g.get('c2pa'), dict): g['c2pa'] = bool(g['c2pa'].get('co_manifest'))
+    if _get(g, 'mask.pct_duoc_sua') is None: g['mask'] = dict(g.get('mask') or {}, pct_duoc_sua='toàn khung (minh hoạ N2)')
+    return g
+
+
 # ------------------------------------------------------------------ 1.16 (khiếu nại A-V6-1): nhánh vân bề mặt `ai_texture` (HC7)
 def _is_van_ledger(KD): return isinstance(KD, dict) and isinstance(KD.get('tep'), list) and not KD.get('khung_neo')
 
@@ -448,14 +520,31 @@ def _merge(a, b, tag_a, tag_b):
              val=f"{tag_a}: {a['val']} · {tag_b}: {b['val']}", sat_nguong=(a.get('sat_nguong') or []) + (b.get('sat_nguong') or []))
 
 
-def check116(E, TL=None, ep_dir='.', logs=None):
+def check116(E, TL=None, ep_dir='.', logs=None, LS=None):
     """1.16 (CHỈ tập từ T3): K-LAI-2 theo §12.1 (q_k116.k_lai2); tách tấm C (`ai_image`) và vân (`ai_texture`): K-LAI-4, K-LAI-5, K-LAI-B chỉ áp
     khi có khung ai_image; K-LAI-3/6 áp cho từng sổ (tấm C: lai.kiem_du_kien/goi_api dạng khung_neo; vân: lai.kiem_du_kien_van/goi_api_van, hoặc sổ
     dạng `tep` của PT3); thêm K-LAI-3V (nghi vấn vân, Cảnh báo)."""
     from checks.ll import q_k116
-    if not ap_dung(E): return {k: na('tập không có khối lai: và không shot nào khai ai_image/ai_texture') for k in ROWS + ('K-LAI-3V',)}
-    L = E.get('lai') or {}; base = ep_dir
-    if not L: return {k: r(thieu=[f"shot khai AI ({', '.join(shot_ai(E)[:4])}) nhưng episode.yaml không có khối lai:"], val='—') for k in ROWS + ('K-LAI-3V',)}
+    if LS is None: LS = q_k116.log_shot(E, ep_dir)[0]
+    if not ap_dung(E, LS): return {k: na('tập không có khối lai:, không shot đặc tả khai ai_image/ai_texture, không đoạn AI khai trong log shot') for k in ROWS + ('K-LAI-3V',)}
+    L = E.get('lai') or {}; base = ep_dir; DS, SH, MT = log_ai(LS)
+    if not L and not (DS or SH or MT):
+        return {k: r(thieu=[f"shot khai AI ({', '.join(shot_ai(E)[:4])}) nhưng episode.yaml không có khối lai:"], val='—') for k in ROWS + ('K-LAI-3V',)}
+    if not L:   # 1.17.2 (V2-D5): chỉ có khai trong log shot (đoạn minh hoạ / shot ai_image), không khối lai:
+        T, src = tong_s(E, TL, {}); TX, W, H, txs = text_map({}, base, TL, logs); G, ge = so_ai_tap(E, {}, base)
+        if T is None and LS: T, src = sum(b - a for _, a, b in q_k117_abs(LS)), 'tổng thời lượng log shot'
+        mh = f"{len(DS)} đoạn minh hoạ ({', '.join(d['id'] for d in DS[:4])})" if DS else ''
+        shc = f"{len(SH)} shot ai_image cả shot ({', '.join(x[0] for x in SH[:4])}) — tấm C cần khối lai: (kiem_du_kien, goi_api, bao_ve, khung_lai)" if SH else ''
+        th_c = [shc] if SH else []
+        na_mh = f'{mh}: minh hoạ toàn khung (§14.1 (c)) — không có khung A cùng khung / tấm C khung neo để so; kiểm minh hoạ ở K-LAI-3 + MINH-HOA'
+        k3 = klai3_mh(DS, {}, base) if DS else None
+        k6 = (r(thieu=[ge], val='—') if ge else klai6([_norm_mh(g) for g in G]) if G is not None
+              else r(thieu=[f'{mh or shc}: không có sổ AI (tệp so_ai: của episode.yaml hoặc lai.goi_api)'], val='—'))
+        def one(x): return r(thieu=th_c, val='—') if SH and not DS else (dict(x, thieu=x['thieu'] + th_c, ok=x['ok'] and not th_c, ket_qua=x.get('ket_qua') or ('THIẾU' if th_c and not x['loi'] else None)) if th_c else x)
+        return {'K-LAI-1': klai1_log(DS, SH, T, src), 'K-LAI-2': q_k116.k_lai2(E, TL, None, TX, base, LS),
+                'K-LAI-3': one(k3) if k3 else r(thieu=th_c, val='—'), 'K-LAI-4': r(thieu=th_c, val='—') if SH else na(na_mh),
+                'K-LAI-5': r(thieu=th_c, val='—') if SH else na(na_mh), 'K-LAI-6': k6, 'K-LAI-B': r(thieu=th_c, val='—') if SH else na(na_mh),
+                'K-LAI-3V': na('không có khung ai_texture')}
     F = frames(L, base); T, src = tong_s(E, TL, L)
     if T is None and F: T, src = len(F) / FPS, 'số khung log'
     TX, W, H, txs = text_map(L, base, TL, logs)
@@ -475,7 +564,9 @@ def check116(E, TL=None, ep_dir='.', logs=None):
     chi_van = 'chỉ có vân bề mặt ai_texture (không tấm C): không có khung A / tấm dùng / khung đêm để so (1.16, khiếu nại A-V6-1)'
     k3c = klai3(KD, G, DY, L.get('kiem_du_kien')) if img else None
     k3v, k3n = klai3v(KV, GV, DY) if tex else (None, na('không có khung ai_texture'))
-    out = {'K-LAI-1': klai1(F, T, src), 'K-LAI-2': q_k116.k_lai2(E, TL, F, TX, base), 'K-LAI-3': _merge(k3c, k3v, 'tấm C', 'vân') or na('không có khung AI'),
+    k3m = klai3_mh(DS, L, base) if DS else None   # 1.17.2: đoạn minh hoạ khai trong log shot
+    out = {'K-LAI-1': klai1(F, T, src) if F is not None or not (DS or SH) else klai1_log(DS, SH, T, src), 'K-LAI-2': q_k116.k_lai2(E, TL, F, TX, base, LS),
+           'K-LAI-3': _merge(_merge(k3c, k3v, 'tấm C', 'vân'), k3m, 'tấm C/vân', 'minh hoạ') or na('không có khung AI'),
            'K-LAI-4': klai4(L, base) if img else na(chi_van), 'K-LAI-5': klai5(KD, G, base, L) if img else na(chi_van),
            'K-LAI-6': _merge(klai6(G) if img else None, klai6v(GV) if tex else None, 'tấm C', 'vân') or na('không có khung AI'),
            'K-LAI-B': klaib(L, base) if img else na(chi_van), 'K-LAI-3V': k3n}

@@ -199,13 +199,13 @@ case('MINH-HOA', 'minh hoạ 25 % > 20 % → (a)', bad(mh([dict(shot='A', t0=0, 
                                                         dict(shot='B', t0=55, t1=100, dur=45, goc='cao')], E=E25), 'a'), True)
 case('MINH-HOA', 'minh hoạ đúng 20 % → sạch (a)', bad(mh([dict(shot='A', t0=0, t1=30, dur=30, goc='cao'), dict(LSm()[1], t0=30, t1=50, dur=20),
                                                          dict(shot='B', t0=50, t1=100, dur=50, goc='cao')]), 'a'), False)
-case('MINH-HOA', 'nhãn "AI illustration" sai chữ → (b)', bad(mh(LSm(nhan_minh_hoa='AI illustration')), 'b'), True)
-case('MINH-HOA', 'nhãn chỉ 2–10 s của đoạn 10 s → (b)', bad(mh(LSm(nhan_t=[2.0, 10.0])), 'b'), True)
-case('MINH-HOA', 'không log chữ, không trường nhãn → THIẾU (b)', bad(mh(LSm(nhan_minh_hoa=None)), 'b'), True)
+case('MINH-HOA', '1.17.2 (bỏ nhãn bắt buộc, chủ dự án 22/10): nhãn "AI illustration" sai chữ → sạch (b)', bad(mh(LSm(nhan_minh_hoa='AI illustration')), 'b'), False)
+case('MINH-HOA', '1.17.2: nhãn chỉ 2–10 s của đoạn 10 s → sạch (b)', bad(mh(LSm(nhan_t=[2.0, 10.0])), 'b'), False)
+case('MINH-HOA', '1.17.2: không log chữ, không trường nhãn → sạch (b) (không còn THIẾU)', bad(mh(LSm(nhan_minh_hoa=None)), 'b'), False)
 TXok = {f: [dict(role='minh_hoa', s='Illustration')] for f in range(960, 1200, 12)}
 TXpart = {f: ([dict(role='minh_hoa', s='Illustration')] if f < 1100 else []) for f in range(960, 1200, 12)}
 case('MINH-HOA', 'log chữ: "Illustration" mọi khung mẫu của đoạn → sạch (b)', bad(mh(LSm(nhan_minh_hoa=None), TXok), 'b'), False)
-case('MINH-HOA', 'log chữ: nhãn tắt từ 45,8 s → (b)', bad(mh(LSm(nhan_minh_hoa=None), TXpart), 'b'), True)
+case('MINH-HOA', '1.17.2: log chữ: nhãn tắt từ 45,8 s → sạch (b)', bad(mh(LSm(nhan_minh_hoa=None), TXpart), 'b'), False)
 L3 = LSm(); L3[2] = dict(L3[2], goc='phang')
 case('MINH-HOA', 'shot sau là thẻ/ảnh phẳng → (c) không kẹp giữa 2 shot 3D', bad(mh(L3), 'c'), True)
 case('MINH-HOA', 'minh hoạ mở đầu phim (không có shot trước) → (c)', bad(mh(LSm()[1:]), 'c'), True)
@@ -247,9 +247,9 @@ mo, ch, cb = cap112.cap('EO-DAT-R1', dict(eo([dict(R1ok[0], chu_the_pct=17)])['E
 case('cấp', 'EO-DAT-R1 17 % ở G2 → không Chặn', ch, False)
 case('cấp', 'EO-DAT-R1 17 % ở G2 → có Cảnh báo', cb, True)
 mo, ch, cb = cap112.cap('EO-DAT-R1', dict(eo([dict(R1ok[0], chu_the_pct=12)])['EO-DAT-R1'], cong='G2'))
-case('cấp', 'EO-DAT-R1 12 % ở G2 → Chặn', ch, True)
+case('cấp', '1.17.2 (V2-D2): EO-DAT-R1 12 % ở G2 → chỉ báo, không Chặn', ch, False)
 mo, ch, cb = cap112.cap('EO-DAT-R1', dict(eo([dict(R1ok[0], chu_the_pct=None)])['EO-DAT-R1'], cong='G2'))
-case('cấp', 'EO-DAT-R1 thiếu chu_the_pct ở G2 → Chặn', ch, True)
+case('cấp', '1.17.2 (V2-D2): EO-DAT-R1 thiếu chu_the_pct ở G2 → chỉ báo, không Chặn', ch, False)
 case('EO-DAT-R1', 'cờ chu_the_eo_dat nhưng không chu_the_pct → THIẾU', kq(eo([dict(R1ok[0], chu_the_pct=None)])['EO-DAT-R1'], 'THIẾU'), False)
 case('EO-DAT-R1', 'không shot khai cờ → KHÔNG ÁP', kq(eo([dict(R1ok[0], chu_the_eo_dat=False)])['EO-DAT-R1'], 'KHÔNG ÁP'), False)
 # chương 1 = S1 + S2 = 40 s → trần (b) 10 % = 4 s; chương 2 = S3 = 20 s → 2 s
