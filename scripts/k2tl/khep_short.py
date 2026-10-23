@@ -37,16 +37,17 @@ SHOTS = [
                dict(t=7.35, at=1727.5, sun=15.5, lab='y', hold=True), dict(t=11.8, at=1727.504, sun=15.5, lab='y', hold=True)]),
     dict(k='C', cycles=True, t=[16.0, 20.3], ss=347.0, crop=[608, 1080, 760, 0], diem='Cycles N2.9 (master 347,0–351,3 s)'),
     dict(k='D', src='anim_N5_6', t=[20.3, 35.0], nc=['b1900', 'b1940'], diem='Línea (eo đất thấp, nhìn Rock từ bắc)',
-         cam=[dict(p=[-200, 95, 1250], l=[70, 60, -600], fov=60), dict(p=[-196, 94, 1222], l=[70, 60, -600], fov=60)],
-         time=[dict(t=0, at=1783.65, sun=14.0, lab='y', hold=True), dict(t=6.4, at=1783.66, sun=14.0, lab='y', hold=True),
-               dict(t=6.45, at=1909.7, sun=16.0, lab='y', hold=True), dict(t=9.9, at=1909.71, sun=16.0, lab='y', hold=True),
+         cam=[dict(p=[-200, 95, 1250], l=[70, 60, -600], fov=60), dict(t=5.98, p=[-196, 94, 1234], l=[70, 60, -600], fov=60),   # góc 1: Spanish Lines 1783 (≤ 6 s, R2)
+              dict(t=6.0, p=[330, 150, 800], l=[230, -150, -600], fov=58), dict(p=[324, 148, 786], l=[230, -150, -600], fov=58)],   # góc 2: gần ranh giới — hàng rào 1909, đường băng 1941 (vật lời nhắc tới, BAI-HOC K24)
+         time=[dict(t=0, at=1783.65, sun=14.0, lab='y', hold=True), dict(t=5.98, at=1783.66, sun=14.0, lab='y', hold=True),
+               dict(t=6.0, at=1909.7, sun=16.0, lab='y', hold=True), dict(t=9.9, at=1909.71, sun=16.0, lab='y', hold=True),
                dict(t=9.95, at=1941.7, sun=17.2, lab='y', hold=True), dict(t=14.7, at=1941.71, sun=18.2, lab='y', hold=True)]),
     dict(k='E', src='anim_H1', t=[35.0, 48.5], cam=[D7, D7b], nc=['b2026'], diem='D7 (cùng điểm máy cảnh A — ngày → đêm)',
          time=[dict(t=0, at='2026-10-19 19:30', sun='real', lab='dt'), dict(t=13.5, at='2026-10-19 23:52', sun='real', lab='dt')]),
 ]
 DUR = 48.5
 # bộ đếm năm (chỉ năm, §12.1 + lệnh 23/10): [giây Short, chữ]
-DEM = [(0.0, '2026'), (4.2, '1704'), (9.05, '1705'), (11.55, '1727'), (16.0, '1782'), (20.3, '1783'), (26.75, '1909'), (30.25, '1941'), (35.0, '2026')]
+DEM = [(0.0, '2026'), (4.2, '1704'), (9.05, '1705'), (11.55, '1727'), (16.0, '1782'), (20.3, '1783'), (26.3, '1909'), (30.25, '1941'), (35.0, '2026')]
 # câu cắt từ master giọng: (giây Short đặt câu, chương, mã đoạn, chữ khoá) — thứ tự chương trong T3-loi-moc.json
 LOI = [(0.5, '00 HOOK', 'To walk in from Spain, you cross an airport runway.'),
        (4.7, '00 HOOK', 'The Rock sits at the western gate of the Mediterranean.'),
@@ -71,7 +72,7 @@ def heroes():
     for s in SHOTS:
         if s.get('cycles'): continue
         d = round(s['t'][1] - s['t'][0], 4); o = copy.deepcopy(E[s['src']]['opt'])
-        o['cam'] = [dict(s['cam'][0], t=0), dict(s['cam'][1], t=d)]; o['time'] = copy.deepcopy(s['time']); o['dur'] = d
+        o['cam'] = [dict(c, t=c.get('t', 0 if i == 0 else d)) for i, c in enumerate(s['cam'])]; o['time'] = copy.deepcopy(s['time']); o['dur'] = d
         o['nc'] = {'bakes': [dict(dir=b, wY=NC[b]) for b in s['nc']]}; o['shot'] = 'short-S1-' + s['k']; o.pop('td', None)
         st = hashlib.sha1(json.dumps(o, sort_keys=True, default=str).encode()).hexdigest()
         out['short_' + s['k']] = dict(hero='tl/t3tl', variant='a', dur=d, size=[W, H], dir=f"{O}/hero/short_{s['k']}", stamp=st, src=s['src'], opt=o)
@@ -126,7 +127,9 @@ def the_phu_de(L, maxch=44):
         for c in sorted(set(cuts)) + [n]: groups.append(list(range(b0, c))); b0 = c
         for g in groups:
             s = ' '.join(ws[k] for k in g); out.append(dict(a=round(tt(g[0]) - 0.08, 3), b=round(tt(g[-1], True) + 0.25, 3), s=s))
-    for i in range(len(out) - 1): out[i]['b'] = min(out[i]['b'], out[i + 1]['a'] - 0.04)
+    for i in range(len(out) - 1):
+        if out[i + 1]['a'] - out[i]['b'] <= 0.15: out[i]['b'] = out[i + 1]['a']; out[i]['noi_sau'] = out[i + 1]['noi_truoc'] = True   # thẻ liền nhau: đổi chữ tại chỗ, không mờ (tránh nháy)
+        else: out[i]['b'] = min(out[i]['b'], out[i + 1]['a'] - 0.04)
     return out
 
 def tron():
@@ -164,13 +167,13 @@ def ve_chu(t, sub):
     im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); g = ImageDraw.Draw(im); hop = []
     k = max(i for i, (a, _) in enumerate(DEM) if t >= a); a, ys = DEM[k]
     u = min(1.0, (t - a) / 0.4) if k else 1.0; c1, c3 = 1.70158, 2.70158; sc = 1 + c3 * (u - 1) ** 3 + c1 * (u - 1) ** 2 if k else 1.0   # backOut 0,4 s như k2.js
-    px = int(round(72 * 1.45 * sc)); f = ImageFont.truetype(FD, px); tw = g.textlength(ys, font=f); w, h = tw + 52 * sc, px * 1.42
+    sc = max(sc, 0.05); px = max(4, int(round(72 * 1.45 * sc))); f = ImageFont.truetype(FD, px); tw = g.textlength(ys, font=f); w, h = tw + 52 * sc, px * 1.42
     x0, y0 = 70, 210; cx, cy = x0 + (tw + 52) / 2, y0 + 72 * 1.45 * 1.42 / 2; x, y = cx - w / 2, cy - h / 2
     g.rounded_rectangle([x, y, x + w, y + h], radius=12, fill=(12, 18, 27, 230), outline=(230, 235, 240, 77), width=2)
     g.text((x + 26 * sc, y + h / 2), ys, font=f, fill=(230, 235, 240, 255), anchor='lm'); hop.append(dict(vai='year', s=ys, box=[x, y, x + w, y + h]))
     for s in sub:
         if not (s['a'] <= t < s['b']): continue
-        al = min(1.0, (t - s['a']) / 0.12, (s['b'] - t) / 0.12); fs = 66; f = ImageFont.truetype(FB, fs); mw = SAFE_R - 70 - 64
+        al = min(1.0, 1.0 if s.get('noi_truoc') else (t - s['a']) / 0.12, 1.0 if s.get('noi_sau') else (s['b'] - t) / 0.12); fs = 66; f = ImageFont.truetype(FB, fs); mw = SAFE_R - 70 - 64
         ln, cur = [], ''
         for wd in s['s'].split():
             n = (cur + ' ' + wd).strip()
