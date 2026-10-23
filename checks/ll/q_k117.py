@@ -49,6 +49,8 @@ Sửa luật cũ (khiếu nại 8 hàng Chặn animatic T3 chấp nhận — bá
             `lop_nha: "<mô tả>"` (shot p hoặc heroes.<k>.opt).
   SACH-1    chữ "Illustration" (vai `minh_hoa` hoặc chữ đúng "Illustration") TRONG shot `minh_hoa` là hợp lệ (§14.1 (c)); ngoài shot minh hoạ vẫn là lỗi (e).
             1.17.2: KHÔNG ĐỔI (lệnh K-1.17.2) — vẫn xét theo SHOT có `minh_hoa` (`_mh_spans`), không theo đoạn.
+1.17.3 (phiên K-1.17.3, 23/10/2026; khiếu nại BAN-CUOI-T3 — phán quyết checks-appeal.md): EO-DAT-R3 (b) ranh góc máy `goc_may[].t` + lưới khung (A3);
+  EO-DAT-R3 (a) ngoại lệ có khai `r3_ngoai_le` + dòng AUTHORSHIP (đề xuất K1173-D1); Q33 miễn năm theo khoảng năm HIỆN (`nam_hien`/`nam_khoang`, A5).
 """
 import json, os, statistics, sys
 
@@ -297,17 +299,25 @@ def eo_dat(E, TL, LS, why=None, ep_dir='.'):
     if not eo: out['EO-DAT-R3'] = K6.na('không shot eo đất (noi: eo_dat)')
     elif not dai: out['EO-DAT-R3'] = K6.r(val=f'{len(eo)} shot eo đất · 0 shot > {R3_DAI:g} s')
     else:
-        L3, th3, rows3 = [], [], []
+        L3, th3, rows3, rows3n, near3 = [], [], [], [], []
         for s, a, b in dai:
             sid = str(s.get('shot')); w = f'{sid} @{K6.mmss(a)} ({b - a:.1f} s)'
             ng = s.get('so_goc') if _num(s.get('so_goc')) is not None else (len(s['goc_may']) if isinstance(s.get('goc_may'), list) else None)
             if ng is None: th3.append(f'(a) {w}: thiếu `so_goc` (hoặc `goc_may`)')
-            elif ng < R3_GOC: L3.append(f'(a) {w}: {int(ng)} góc máy < {R3_GOC}')
-            ev = sorted({0.0, b - a} | {float(x['t']) for k in ('su_kien', 'tl_buoc') for x in s.get(k) or [] if isinstance(x, dict) and _num(x.get('t')) is not None and 0 <= x['t'] <= b - a})
-            g = max((y - x for x, y in zip(ev, ev[1:])), default=b - a); rows3.append(f'{sid} {g:.1f} s')
-            if g > R3_GAP + LEN: L3.append(f'(b) {w}: khoảng không biến cố dài nhất {g:.1f} s > {R3_GAP:g} s ({len(ev) - 2} biến cố log)')
-        out['EO-DAT-R3'] = K6.r(loi=L3, thieu=th3, muc={c_: [x for x in L3 if x.startswith(f'({c_})')] for c_ in 'ab'},
-                                val=f'{len(dai)}/{len(eo)} shot eo đất > {R3_DAI:g} s · khoảng biến cố dài nhất: ' + ', '.join(rows3[:8]))
+            elif ng < R3_GOC:
+                nl, why_nl = r3_ngoai_le(s, ep_dir)
+                if nl: rows3n.append(f'{sid}: {int(ng)} góc — ngoại lệ có khai ({nl})')
+                else: L3.append(f'(a) {w}: {int(ng)} góc máy < {R3_GOC}' + (f' — {why_nl}' if why_nl else ''))
+            # (b) 1.17.3 (khiếu nại A3): đầu mỗi góc máy (`goc_may[].t0 | t` > 0) là ranh như đầu/cuối shot (R3 "mỗi góc có biến cố ≤ 6 s");
+            # mốc quy về lưới khung phim (round(t · 24) / 24) — video không hiện được biến cố giữa hai khung
+            cg = {float(x.get('t0', x.get('t'))) for x in s.get('goc_may') or [] if isinstance(x, dict) and _num(x.get('t0', x.get('t'))) is not None and 0 < float(x.get('t0', x.get('t'))) < b - a}
+            evr = {float(x['t']) for k in ('su_kien', 'tl_buoc') for x in s.get(k) or [] if isinstance(x, dict) and _num(x.get('t')) is not None and 0 <= x['t'] <= b - a}
+            ev = sorted({round(t * K6.FPS) / K6.FPS for t in {0.0, b - a} | evr | cg})
+            g = max((y - x for x, y in zip(ev, ev[1:])), default=b - a); rows3.append(f'{sid} {g:.2f} s'); near3 += K6.sat(f'{sid} khoảng biến cố s', round(g, 2), R3_GAP)
+            if g > R3_GAP + LEN: L3.append(f'(b) {w}: khoảng không biến cố dài nhất {g:.2f} s > {R3_GAP:g} s ({len(evr)} biến cố log + {len(cg)} ranh góc máy)')
+        out['EO-DAT-R3'] = K6.r(loi=L3, thieu=th3, sat_nguong=near3, muc={c_: [x for x in L3 if x.startswith(f'({c_})')] for c_ in 'ab'},
+                                val=f'{len(dai)}/{len(eo)} shot eo đất > {R3_DAI:g} s · khoảng biến cố dài nhất (tính ranh góc máy, 1.17.3): ' + ', '.join(rows3[:8])
+                                    + (' · ' + '; '.join(rows3n) if rows3n else ''))
     # ---- R4 (1.17.1)
     r4 = [(s, a, b) for s, a, b in Z if s.get('loi_khong_vat_eo_dat')]
     if not r4: out['EO-DAT-R4'] = K6.na('không shot khai loi_khong_vat_eo_dat')
@@ -327,6 +337,37 @@ def eo_dat(E, TL, LS, why=None, ep_dir='.'):
         out['EO-DAT-R4'] = K6.r(loi=L4, thieu=th4, sat_nguong=near4, muc={c_: [x for x in L4 + th4 if x.startswith(f'({c_})')] for c_ in 'ab'},
                                 val=f'{len(r4)} shot loi_khong_vat_eo_dat · ' + ('; '.join(rows4[:6]) or '—'))
     return out
+
+
+def _authorship(ep_dir):
+    """AUTHORSHIP.md của repo: tìm ngược từ thư mục episode.yaml lên gốc → nội dung hoặc None"""
+    d = os.path.abspath(ep_dir or '.')
+    for _ in range(12):
+        f = os.path.join(d, 'AUTHORSHIP.md')
+        if os.path.isfile(f): return open(f, encoding='utf-8').read()
+        if os.path.dirname(d) == d: break
+        d = os.path.dirname(d)
+    return None
+
+
+def r3_ngoai_le(s, ep_dir='.'):
+    """1.17.3 (đề xuất K1173-D1 — chờ chủ dự án duyệt): shot eo đất > 15 s MỘT góc là ý đồ (vd. bookend) → log shot khai
+    `r3_ngoai_le: {ly_do: "<lý do>", authorship: "YYYY-MM-DD HH:MM"}`. Chỉ nhận khi AUTHORSHIP.md có MỘT dòng chứa đúng ngày (YYYY-MM-DD), đúng giờ
+    (HH:MM), id shot (N4_5 hoặc N4.5) và chữ "R3" — tức chủ dự án đã duyệt và P đã ghi. K không tự cho đạt: khai mà không có dòng → vẫn lỗi (a).
+    → (mô tả ngoại lệ, None) | (None, lý do không nhận | None khi không khai)"""
+    import re
+    v = s.get('r3_ngoai_le')
+    if not v: return None, None
+    if not isinstance(v, dict) or not str(v.get('ly_do') or '').strip() or not str(v.get('authorship') or '').strip():
+        return None, 'r3_ngoai_le khai thiếu `ly_do` hoặc `authorship` (ngày giờ dòng duyệt)'
+    m = re.match(r'^\s*(\d{4}-\d{2}-\d{2})[ T]+(\d{1,2}:\d{2})\s*$', str(v['authorship']))
+    if not m: return None, f"r3_ngoai_le.authorship {v['authorship']!r} không đúng dạng 'YYYY-MM-DD HH:MM'"
+    A = _authorship(ep_dir)
+    if A is None: return None, 'r3_ngoai_le: không tìm thấy AUTHORSHIP.md'
+    sid = str(s.get('shot')); ids = {sid, sid.replace('_', '.')}
+    ok = [l for l in A.splitlines() if m.group(1) in l and m.group(2) in l and 'R3' in l and any(re.search(r'(?<![\w.])' + re.escape(i) + r'(?![\w])', l) for i in ids)]
+    if not ok: return None, f"r3_ngoai_le: AUTHORSHIP.md không có dòng {m.group(1)} {m.group(2)} nêu {sid} + R3 (chủ dự án chưa duyệt / P chưa ghi)"
+    return f"{str(v['ly_do']).strip()[:60]} — AUTHORSHIP {m.group(1)} {m.group(2)}", None
 
 
 def _ban_do(v):
@@ -422,14 +463,56 @@ def nam_log(LS):
     return out
 
 
+JUMP_S = 0.125   # 1.17.3 (khiếu nại A5): hai mốc opt.time cách ≤ 3 khung (0,125 s) = BƯỚC NĂM (cắt thời gian) — năm giữa hai mốc không hiện
+
+
+def nam_hien(E, TL=None):
+    """1.17.3 (khiếu nại A5 BAN-CUOI-T3): {id đoạn: [(y0, y1), …]} = các KHOẢNG NĂM HIỆN TRÊN HÌNH, đọc từ đặc tả: đường cong `heroes.<p.hero>.opt.time`
+    (bản sao độc lập tl7.timeline của trình dựng: JD + Hermite Fritsch–Carlson, mốc hold) lấy mẫu mỗi khung trong khung shot (frame0, speed);
+    bước năm (hai mốc cách ≤ JUMP_S) tách khoảng. Đoạn không có cảnh opt.time → không có mục (k2check dùng `nam` của log shot như 1.17)."""
+    from checks.ll import q_nhip
+    H = dict(E.get('heroes') or {}, **((TL or {}).get('heroes') or {})); out = {}
+    for sid, dur, _, shots, _ in q_nhip.view(E, TL):
+        for j, sh in enumerate(shots):
+            p = sh.get('p') or {}; o = (H.get(p.get('hero')) or {}).get('opt') or {}
+            yr, K = q_nhip.tl_year(o)
+            if yr is None: continue
+            at = _num(sh.get('at')) or 0.0; end = _num(shots[j + 1].get('at')) if j + 1 < len(shots) else dur
+            f0 = (_num(p.get('frame0', p.get('off', 0))) or 0.0) / K6.FPS; sp = _num(p.get('speed', 1)) or 1.0
+            J = [(K[i][0], K[i + 1][0]) for i in range(len(K) - 1) if 0 < K[i + 1][0] - K[i][0] <= JUMP_S + LEN and K[i + 1][1] != K[i][1]]
+            n = max(1, int(round(((end or at) - at) * K6.FPS))); runs = {}
+            for f in range(n + 1):
+                tau = f0 + min(f / K6.FPS, (end or at) - at) * sp
+                if any(a_ + LEN < tau < b_ - LEN for a_, b_ in J): continue   # khung nằm giữa bước năm (≤ 3 khung chuyển) — không phải năm "hiện"
+                k = sum(1 for a_, b_ in J if b_ - LEN <= tau)
+                y = yr(tau); r_ = runs.setdefault(k, [y, y]); r_[0] = min(r_[0], y); r_[1] = max(r_[1], y)
+            out.setdefault(str(sid), []).extend((round(a, 4), round(b, 4)) for a, b in runs.values())
+    return out
+
+
+def nam_khoang(E, TL=None, LS=None):
+    """1.17.3: {id đoạn: [(y0, y1), …]} — năm hiện theo đặc tả (nam_hien) thắng; đoạn không có → `nam` của log shot (1.17)."""
+    NL = {k: [v] for k, v in nam_log(LS).items()}
+    try: NL.update(nam_hien(E, TL))
+    except Exception: pass   # noqa: BLE001 — đặc tả lạ: giữ năm log
+    return NL
+
+
+def _khoang(y):
+    if y is None: return None
+    return [tuple(y)] if isinstance(y, tuple) and len(y) == 2 and all(_num(v) is not None for v in y) else [tuple(v) for v in y]
+
+
 def q33_mien(allap, NL):
-    """lần xuất hiện được miễn (TL-1): khác đoạn VÀ khoảng năm không chồng MỌI lần trước (khai hay pHash). → tập id(ap)"""
+    """lần xuất hiện được miễn (TL-1): khác đoạn VÀ khoảng năm không chồng MỌI lần trước (khai hay pHash). → tập id(ap).
+    NL = {đoạn: (y0, y1)} (1.17, năm log) hoặc {đoạn: [(y0, y1), …]} (1.17.3, các khoảng năm hiện — nam_khoang)."""
     if not NL: return set()
     seg = lambda x: str(x.get('seg') or (x.get('shots') or ['?/'])[0].split('/')[0])
+    cho = lambda A, B: any(not (a[1] < b[0] or a[0] > b[1]) for a in A for b in B)
     seen, mien = [], set()
     for a in sorted(allap, key=lambda x: x['t0']):
-        y = NL.get(seg(a))
-        if seen and y is not None and all(seg(p) != seg(a) for p, _ in seen) and all(py is not None and (y[1] < py[0] or y[0] > py[1]) for _, py in seen):
+        y = _khoang(NL.get(seg(a)))
+        if seen and y and all(seg(p) != seg(a) for p, _ in seen) and all(py and not cho(y, py) for _, py in seen):
             mien.add(id(a))
         seen.append((a, y))
     return mien

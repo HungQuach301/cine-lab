@@ -42,6 +42,7 @@ Hàng (cấp ở cap112.py — chủ dự án duyệt K116-D1…D9 19/10 18:48; 
   PC-1    §12.3 phục chế (khiếu nại A-G1B-6): cạnh mới so với MỐC BICUBIC cùng ô: Δ ≤ 1,0 điểm % và PSNR ≥ bicubic; ảnh dùng phải đạt.
 Thay cho luật cũ ở tập từ T3 (khiếu nại chấp nhận): K-LAI-2 (k_lai2), NC-H5 (nch5), BD-3 (bd3); ML1 đọc lời khoá (cau_tu_loi_khoa).
 Trong ±5 % quanh ngưỡng: nêu tên.
+1.17.3 (khiếu nại BAN-CUOI-T3): TL-3 nhận trong_pct [[t, %], …] (tb_pct, A1); SACH-1 nhận chữ thẻ chương / thẻ PP theo đặc tả (A6).
 """
 import glob, json, os, re, statistics, subprocess, sys
 
@@ -221,6 +222,12 @@ def sach1(E, TL, TX=None, step=12, mh=None):
             elif dur <= 0 or dur > DOC_S + 1e-6: M['b'].append(f'(b) {w}: tư liệu phủ địa hình {dur:.2f} s (cần 0 < dur ≤ {DOC_S:g} s)')
         if not P.get('sach'): M['f'].append(f'(f) {w}: shot không bật lọc khung sạch (p.sach)')
     th, nv, chip, nl = [], 0, [], []
+    # 1.17.3 (khiếu nại A6 BAN-CUOI-T3): chữ của thẻ chương (§13.3) và thẻ phương pháp (§12.1 (b), D6) nhận theo ĐẶC TẢ, không chỉ theo tên vai log:
+    # mọi chữ trong khoảng giờ của đoạn thẻ phương pháp (pp_spans — PP-1 xét nội dung); chữ trùng nguyên văn thẻ chương khai ở đặc tả (p.the_chuong)
+    # trong khoảng [at, at + dur] ± 1 bước mẫu (CHUONG-1 xét dạng/thời lượng). Ngoài hai khoảng đó vẫn xét như 1.16.1.
+    PPT = [(a, b) for _, a, b, _ in pp_spans(E, TL)]
+    CHT = [(re.sub(r'\s+', ' ', c['s']).strip().lower(), c['t0'], c['t0'] + c['d']) for c in the_chuong(E, TL) if c['nguon'] == 'đặc tả' and c['d'] > 0]
+    n_the = {'pp': 0, 'chuong': 0}
     if TX is None: th.append('(c) không có log chữ (--logs k2.js) — không đo được chữ thực hiện trên hình; (d) chip nơi chưa đo')
     else:
         by_role = {}; nhan = {}   # nhan: shot → {chữ: [khung]} (nhãn địa danh K116-D3)
@@ -233,6 +240,9 @@ def sach1(E, TL, TX=None, step=12, mh=None):
                 ro, s_ = str(x.get('role') or ''), str(x.get('s') or '')
                 nv += 1
                 if mh and (ro == 'minh_hoa' or s_.strip() == 'Illustration') and any(t0 - 1e-6 <= f / FPS < t1 for _, t0, t1 in mh): continue   # 1.17 §14.1 (c)
+                if any(a - 1e-6 <= f / FPS < b + 1e-6 for a, b in PPT): n_the['pp'] += 1; continue   # 1.17.3 A6: thẻ phương pháp
+                if ro not in OK_ROLES and any(re.sub(r'\s+', ' ', s_).strip().lower() == k and a - step / FPS - 1e-6 <= f / FPS <= b + step / FPS + 1e-6 for k, a, b in CHT):
+                    n_the['chuong'] += 1; continue   # 1.17.3 A6: thẻ chương khai ở đặc tả (log ghi vai khác `the_chuong`)
                 if ro in OK_ROLES:
                     if ro == 'where': by_role.setdefault(s_, []).append(f)
                     continue
@@ -255,7 +265,8 @@ def sach1(E, TL, TX=None, step=12, mh=None):
     loi = sum(M.values(), [])
     near = (sat('chip nơi dài nhất s', round(max(chip), 2), CHIP_S) if chip else []) + (sat('nhãn địa danh dài nhất s', round(max(nl), 2), MAP_LABEL_S) if nl else [])
     return r(loi=loi, thieu=th, muc=M, sat_nguong=near,
-             val=f"{len(S)} shot · tấm số/trích {len(M['a'])} · tư liệu đứng riêng {len(M['b'])} · " + (f"log chữ {nv} mục hiện · cấm {len(M['c'])} · chip {len(chip)} lần, dài nhất {max(chip or [0]):.2f} s · nhãn địa danh {len(nl)} shot, dài nhất {max(nl or [0]):.2f} s · lỗi chữ bản đồ/khác {len(M['e'])}" if TX is not None else 'không log chữ'))
+             val=f"{len(S)} shot · tấm số/trích {len(M['a'])} · tư liệu đứng riêng {len(M['b'])} · " + (f"log chữ {nv} mục hiện · cấm {len(M['c'])} · chip {len(chip)} lần, dài nhất {max(chip or [0]):.2f} s · nhãn địa danh {len(nl)} shot, dài nhất {max(nl or [0]):.2f} s · lỗi chữ bản đồ/khác {len(M['e'])}" if TX is not None else 'không log chữ')
+                 + (f" · chữ thẻ theo đặc tả (1.17.3): PP {n_the['pp']} mẫu, chương {n_the['chuong']} mẫu" if TX is not None and (n_the['pp'] or n_the['chuong']) else ''))
 
 
 # ------------------------------------------------------------------ thẻ chương
@@ -594,6 +605,23 @@ def tl2(E, TL, LS=None, why=None):
              val=f'lướt thấp {len(th)} shot · {s:.1f} s = {pc:.1f} % · ngưỡng hiệu chỉnh sau V7-PILOT')
 
 
+def tb_pct(v, dur):
+    """1.17.3 (khiếu nại A1 BAN-CUOI-T3): trường % theo shot → số TB. Số → chính nó; [[t, %], …] / [{t, v|pct}] (khung mẫu, t giây trong shot)
+    → trung bình theo thời gian (mẫu i giữ tới mẫu i+1, mẫu cuối tới hết shot; t thiếu → trung bình cộng); khác → None."""
+    if isinstance(v, (int, float)) and not isinstance(v, bool): return float(v)
+    xs = []
+    for x in v if isinstance(v, list) else []:
+        if isinstance(x, (list, tuple)) and len(x) == 2 and isinstance(x[1], (int, float)) and not isinstance(x[1], bool): xs.append((x[0], float(x[1])))
+        elif isinstance(x, dict) and isinstance(x.get('v', x.get('pct')), (int, float)): xs.append((x.get('t'), float(x.get('v', x.get('pct')))))
+    if not xs: return None
+    if any(not isinstance(t, (int, float)) for t, _ in xs) or not dur: return sum(v_ for _, v_ in xs) / len(xs)
+    xs = sorted((float(t), v_) for t, v_ in xs); w = []
+    for j, (t, v_) in enumerate(xs):
+        t1 = xs[j + 1][0] if j + 1 < len(xs) else max(dur, t); w.append((max(0.0, min(t1, dur) - max(t, 0.0)), v_))
+    W = sum(d for d, _ in w)
+    return sum(d * v_ for d, v_ in w) / W if W > 0 else sum(v_ for _, v_ in xs) / len(xs)
+
+
 def tl3(E, TL, LS=None, why=None):
     if LS is None: return r(thieu=[f'(a) {why}'], val='—')
     M = {'a': [], 'b': [], 'c': []}; th = []; D = shot_durs(E, TL, LS); n3 = 0; near = []
@@ -603,11 +631,11 @@ def tl3(E, TL, LS=None, why=None):
         if g not in ('cao', 'thap', 'neo'): continue
         n3 += 1; tl_ = x.get('tl') is True; ev = bool(x.get('su_kien'))
         if not tl_ and not ev: M['a'].append(f"(a) shot {x.get('shot')} ({g}, {b - a:.1f} s): không thời gian chạy, không biến cố thấy được")
-        tp = x.get('trong_pct')
-        if tp is None: th.append(f"(b) shot {x.get('shot')}: không có trong_pct")
+        tp = tb_pct(x.get('trong_pct'), b - a)   # 1.17.3 (khiếu nại A1): số TB shot hoặc [[t, %], …] (dạng EO-DAT-R2) → TB theo thời gian
+        if tp is None: th.append(f"(b) shot {x.get('shot')}: không có trong_pct" + (' đọc được (cần số hoặc [[t, %], …])' if x.get('trong_pct') is not None else ''))
         else:
-            if float(tp) > TRONG_PCT and not tl_: M['b'].append(f"(b) shot {x.get('shot')}: trống {float(tp):.1f} % > {TRONG_PCT:g} % mà không có thời gian chạy")
-            near += sat(f"shot {x.get('shot')} trống %", round(float(tp), 1), TRONG_PCT)
+            if tp > TRONG_PCT and not tl_: M['b'].append(f"(b) shot {x.get('shot')}: trống {tp:.1f} % > {TRONG_PCT:g} % mà không có thời gian chạy")
+            near += sat(f"shot {x.get('shot')} trống %", round(tp, 1), TRONG_PCT)
         if not str(x.get('bac') or '').strip(): M['c'].append(f"(c) shot {x.get('shot')}: không ghi `bac` căn cứ")
     th2 = ([f'(b) {len(th)} shot 3D không có trong_pct (đầu: {th[0][4:]})'] if th else []) + ([f'(a) {len(nog)} shot log không có `goc` — không biết shot nào là 3D'] if nog else [])
     return r(loi=sum(M.values(), []), thieu=th2, muc=M, sat_nguong=near, val=f'{n3} shot 3D · không đổi {len(M["a"])} · trống {len(M["b"])} · thiếu trong_pct {len(th)}')
