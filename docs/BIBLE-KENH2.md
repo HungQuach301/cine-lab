@@ -260,6 +260,7 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - Khuôn tiêu đề series (c) "<Nơi>: <lời hứa> | 3D Timelapse", ≤ 60 ký tự; mọi dữ kiện trong tiêu đề phải đúng lời khoá (cấm kiểu "14 Sieges in 3D" khi chỉ dựng 2 cuộc).
 - Thumbnail do phiên dựng làm từ render của ta (DG-1), được AI tăng cường theo N1; góc máy thumbnail PHẢI có trong phim.
 - Test & Compare là "tính năng nâng cao", không đòi YPP.
+- T3: thumbnail do chủ dự án tự tạo bằng AI ngoài repo khi đăng (chủ dự án 23/10/2026 10:45: "6 thumbnails không đạt, tôi sẽ tự generate với AI khi post"); khuyến nghị: gốc từ khung có trong phim, không thêm sự kiện phim không có. Không đổi luật cho T4 (dòng DG-1 ở trên vẫn áp) trừ khi chủ dự án quyết khác.
 
 ### 14.6 Âm thanh
 - Nhạc T3 = phương án B (Scott Buckley, CC BY 4.0), trừ tấm im lặng KA2026 = phương án A.
@@ -307,3 +308,4 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - 07:04: kênh 2 phát triển theo hướng T3 — series "Contested Places": tái dựng 3D timelapse một nơi chốn tranh chấp qua nhiều thế kỷ, nối tới hôm nay; hướng Steel bỏ.
 - 07:07: chủ dự án tự chuyển video Steel sang không công khai.
 - Các mục §1–§9 chỉ còn giá trị lịch sử; chỗ trái với §18 thì §18 thắng.
+- T3 phát hành bản cuối 23/10/2026 (G2 nghiệm thu 10:24; 10:45 chủ dự án: "Tôi không muốn sửa thêm gì nữa, muốn hoàn tất để post tập 3 luôn"): master `k2-t3-v1-master.mp4` SHA-256 `5b9f0bcc…`, nhánh `release-k2-t3-g2`; chủ dự án tự đăng theo `k2-t3-v1-dang-tai.md`.
