@@ -4,7 +4,9 @@ Tham chiếu (không tự khai — đều từ đặc tả/timeline đã khoá):
   CẮT   = ranh shot (timeline tổng hợp từ đặc tả) ∪ ranh góc máy `goc_may[].t0` > 0 (log shot bản cuối) ∪ beat `cut` khớp mốc đặc tả ±0,3 s
   BEAT  = beat khai (không phải `cut`) KHỚP mốc đặc tả 1.17.3 ±0,3 s (đúng phần Q37 (a) nhận)
   MỐC   = mốc đặc tả 1.17.3 (spec_times tl_moc) — chỉ để báo độ chính xác (mốc không phủ đổi liên tục giữa hai mốc)
-  TĨNH  = quãng khung tĩnh theo khung neo Q37 (1.13) (mọi khung khác khung đầu < 2/255) ≥ 2 s → mọi biến cố bên trong là báo NHẦM
+  TĨNH  = quãng khung tĩnh theo khung neo Q37 (1.13) (mọi khung khác khung đầu < 2/255) ≥ 2 s VÀ tĩnh THEO Ô: mọi ô 8 × 6 (xám 160×90) lệch TB so khung
+          đầu < 3/255 suốt quãng → mọi biến cố bên trong là báo NHẦM. (Đo 23/10: chỉ 2/25 quãng tĩnh Q37 (1.13) là tĩnh theo ô; 23 quãng kia có ô đổi
+          tới 52/255 — đổi cục bộ thật mà trung bình toàn khung không thấy, nên không dùng làm chuẩn "không biến cố".)
   TỔNG HỢP = 6 khung T3 làm clip 10 s chỉ có máy đi (trượt 2 %/s + phóng 1,5 %/s + quay 0,5°/s, H.264 CRF 18): báo nhầm; cùng clip có
              một vật đổi cục bộ (ô 5 % bề ngang lấy từ khung khác) ở 5,0 s: phải bắt trong ±0,25 s.
 Tiêu chí ĐẠT (đặt TRƯỚC khi đo, ghi ở q_bcv.HC_*; sửa một lần trước lượt đo đầy đủ — xem báo cáo): R cắt ≥ 95 % · R beat ≥ 70 % · sai số giờ
@@ -17,6 +19,7 @@ from checks.ll import q_bcv as B, q_nhip as N, base  # noqa: E402
 
 LUOI = list(itertools.product((4.0, 6.0, 8.0, 12.0), (1.5, 2.0, 3.0)))
 FR_T = (20.0, 140.0, 260.0, 380.0, 500.0, 620.0)
+TINH_O = 3.0
 
 
 def tham_chieu(E, TL, LS):
@@ -84,7 +87,12 @@ def main():
     nj = int(a[a.index('--song-song') + 1]) if '--song-song' in a else 3
     E = base.load(ep); TL = json.load(open(tlp)); LS = json.load(open(lsp)); LS = LS.get('shots', LS) if isinstance(LS, dict) else LS
     moc, beat, cat, T = tham_chieu(E, TL, LS)
-    tinh = N.static_anchor(N.gray160(master)); N._G.clear()
+    import numpy as np
+    G = N.gray160(master); tinh = []
+    for L, s0 in N.static_anchor(G):
+        f0 = int(round(s0 * 24)); f1 = f0 + int(round(L * 24))
+        if L >= 2.0 and float(np.abs(G[f0:f1] - G[f0]).reshape(f1 - f0, 6, 15, 8, 20).mean(axis=(2, 4)).max()) < TINH_O: tinh.append((L, s0))
+    N._G.clear()
     syn = [(_clip(master, t, os.path.join(out, f'syn-{int(t)}.mp4')), _clip(master, t, os.path.join(out, f'syn-{int(t)}-doi.mp4'), True)) for t in FR_T]
     jobs = [(master, th, k, out) for th, k in LUOI] + [(c, th, k, out) for th, k in LUOI for pair in syn for c in pair]
     with mp.Pool(nj) as P: P.map(_chay, jobs, chunksize=1)
