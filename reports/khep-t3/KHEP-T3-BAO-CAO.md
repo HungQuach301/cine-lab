@@ -93,7 +93,8 @@ Nhánh thật: `k2c-t3-khep` (từ origin/main @9852adf5) + `release-k2-t3-g2` (
 | LFS | +119 MB | — |
 
 ## 6. Merge main
-Mục này được điền sau khi chạy (xem commit cuối).
+- `origin/main` @**9852adf5** không đổi trong phiên, là tổ tiên của `k2c-t3-khep` → **fast-forward** (không rebase, không merge, không force). SHA main mới = commit cuối của `k2c-t3-khep` (commit "… DỪNG chờ chủ dự án").
+- Trước ff: `tools/preflight.sh --range origin/main..HEAD` — 20 tệp — **ĐẠT**; `lock.py --verify` KHỚP; grep email trên `git diff origin/main..HEAD`: **0**.
 
 ## 7. Sự cố
 1. `cuoi_cache.sh` lần 1 dừng: thiếu ref `origin/v5a` (LUT A) → `git fetch origin v5a`, chạy lại (≈ 3 phút).
