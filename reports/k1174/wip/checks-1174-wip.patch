@@ -354,10 +354,10 @@ index f2a3373c..96e44fc9 100644
  case('N2P-6', 'không log shot → THIẾU', kq(N.n2p6(E5, None), 'THIẾU'), False)
 diff --git a/checks/ll/q_bcv.py b/checks/ll/q_bcv.py
 new file mode 100644
-index 00000000..3d9322a7
+index 00000000..4a264a1a
 --- /dev/null
 +++ b/checks/ll/q_bcv.py
-@@ -0,0 +1,186 @@
+@@ -0,0 +1,187 @@
 +#!/opt/cine/bin/python
 +"""BIEN-CO-V — thước BIẾN CỐ THẤY ĐƯỢC đo trên video (phiên K-1.17.4, 23/10/2026; K117-D8 / K116-D4, chủ dự án duyệt Q7 23/10/2026 21:45).
 +Căn cứ: Kinh thánh §4 (14/10 18:08) "trung bình ≤ 3,5 s có một biến cố hình mới …; không giữ khung tĩnh > 6 s"; §13.6 TL-1/TL-3 (timelapse: thời
@@ -369,7 +369,7 @@ index 00000000..3d9322a7
 +về neo mới). Lưới GX × GY ô (8 × 6). Mỗi ô giữ một KHUNG NEO; mỗi BUOC khung (0,25 s) so khung hiện tại với khung neo của ô đã bù chuyển động
 +máy (homography gộp neo → hiện tại) và bù sáng toàn khung (g·x + o, bình phương nhỏ nhất trên vùng hợp lệ): phần dư r = |Δ| trung bình trong ô
 +(mức xám /255). Ô có r ≥ THETA và r ≥ K_CUC_BO × trung vị r các ô (thay đổi CỤC BỘ, không phải trôi/thị sai toàn khung) → ô ĐỔI, neo ô về khung
-+hiện tại. Ô ra khỏi vùng nhìn (phần hợp lệ < 50 %, do máy đi) → neo lại, KHÔNG là biến cố (vật mới vào khung do máy không phải biến cố thời gian).
++hiện tại cùng 8 ô kề (một vật đổi trải nhiều ô = một biến cố). Ô ra khỏi vùng nhìn (phần hợp lệ < 50 %, do máy đi) → neo lại, KHÔNG là biến cố (vật mới vào khung do máy không phải biến cố thời gian).
 +Neo ô quá NEO_MAX (3 s) → neo lại, không biến cố: "thấy được" = đổi cục bộ ≥ THETA trong ≤ 3 s (chặn trôi tích luỹ của bù chuyển động máy).
 +BIẾN CỐ = thời điểm có ≥ 1 ô đổi (hoặc cắt); gộp các biến cố cách < 0,25 s (như Q37). Đổi liên tục (lửa lan, nhà mọc) cho biến cố lặp theo
 +tốc độ đổi (mỗi lần ô vượt ngưỡng so với neo của nó).
@@ -464,7 +464,8 @@ index 00000000..3d9322a7
 +        if ghi_o: chuoi.append((round(i / fps, 3), float(np.nanmax(R)) if np.isfinite(R).any() else 0.0, med))
 +        if doi.any(): ev.append((round(i / fps, 3), int(doi.sum()), round(float(np.nanmax(R[doi])), 2), 'o'))
 +        gia = (i - ID) >= NEO_MAX * fps   # neo quá tuổi → neo lại (không biến cố): chặn trôi tích luỹ của bù chuyển động
-+        ID[doi | roi | gia] = i; neo[i] = cf; M_neo[i] = Mt.copy()
++        ke = cv2.dilate(doi.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool)   # một vật đổi trải nhiều ô = MỘT biến cố: neo lại cả ô kề
++        ID[ke | roi | gia] = i; neo[i] = cf; M_neo[i] = Mt.copy()
 +        for f in [f for f in neo if f not in set(ID.ravel().tolist())]: neo.pop(f); M_neo.pop(f)
 +    return dict(su_kien=ev, cat=cats, n_khung=i + 1, thong_so=dict(theta=theta, k=k, W=W, H=H, GX=GX, GY=GY, BUOC=BUOC), chuoi=chuoi if ghi_o else None)
 +
@@ -983,10 +984,10 @@ index 00000000..a9efb60d
 +        print(k, v.get('ket_qua') or ('ĐẠT' if v['ok'] else 'TRƯỢT'), '·', v['val']); [print('   ', x) for x in (v['loi'] + (v.get('thieu') or []))[:20]]
 diff --git a/checks/ll/selftest_k1174.py b/checks/ll/selftest_k1174.py
 new file mode 100644
-index 00000000..6beb5fab
+index 00000000..7da462c2
 --- /dev/null
 +++ b/checks/ll/selftest_k1174.py
-@@ -0,0 +1,281 @@
+@@ -0,0 +1,282 @@
 +#!/opt/cine/bin/python
 +"""Tự kiểm luật 1.17.4 (phiên K-1.17.4, 23/10/2026; chủ dự án duyệt Q1–Q7 23/10/2026 21:45). Mỗi luật đổi/mới ≥ 1 ca ĐẠT + ≥ 1 ca TRƯỢT.
 +Không mạng, không API. Video thử dựng tại chỗ (thư mục tạm) từ ảnh vân tổng hợp (không dùng tài sản phim).
@@ -1026,10 +1027,11 @@ index 00000000..6beb5fab
 +def van(seed, w=1600, h=900):
 +    g = np.random.default_rng(seed); x = cv2.resize(g.integers(0, 255, (h // 20, w // 20, 3), dtype=np.uint8), (w, h), interpolation=cv2.INTER_CUBIC)
 +    x = cv2.GaussianBlur(x, (0, 0), 2.0); n = g.integers(0, 255, (h, w, 3), dtype=np.uint8)
-+    return cv2.addWeighted(x, 0.8, cv2.GaussianBlur(n, (0, 0), 1.2), 0.2, 0)
++    return cv2.addWeighted(x, 0.93, cv2.GaussianBlur(n, (0, 0), 1.2), 0.07, 0)   # vân mịn kiểu cảnh dựng (nhiễu hạt 7 %)
 +
 +
 +NEN, NEN2 = van(1), van(2)
++NEN3 = np.clip(van(3).astype(np.int16) // 2 + 110, 0, 255).astype(np.uint8)   # vật mới sáng rõ (lửa/nhà mới) — đổi THẤY ĐƯỢC chắc chắn
 +
 +
 +def mk(path, n, fn, w=640, h=360):
@@ -1044,7 +1046,7 @@ index 00000000..6beb5fab
 +    return cv2.resize(cv2.warpAffine(img, M, (W_, H_), borderMode=cv2.BORDER_REFLECT), (w, h), interpolation=cv2.INTER_AREA)
 +
 +
-+def dan(img, src, x0, y0, s=100):
++def dan(img, src, x0, y0, s=160):
 +    o = img.copy(); o[y0:y0 + s, x0:x0 + s] = src[y0:y0 + s, x0:x0 + s]; return o
 +
 +
@@ -1055,7 +1057,7 @@ index 00000000..6beb5fab
 +def nhip(f):
 +    I = NEN.copy()
 +    for j, t in enumerate((2, 4, 6, 8, 10, 12)):
-+        if f / 24 >= t: I = dan(I, NEN2, 150 + 220 * (j % 6), 200 + 150 * (j % 3))
++        if f / 24 >= t: I = dan(I, NEN3, 120 + 230 * j, 150 + 220 * (j % 3))
 +    return khung(I, f / 24, pan=0.005)
 +V_NHIP = mk(os.path.join(TMP, 'nhip.mp4'), 336, nhip)
 +V_CAT = mk(os.path.join(TMP, 'cat.mp4'), 240, lambda f: khung(NEN if f < 120 else NEN2, f / 24))

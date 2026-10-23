@@ -9,7 +9,8 @@
 | 16:05 | Master T3 tải (UA CineLab-research; SHA 5b9f0bcc… khớp). k2check 1.17.3 trên T3 chạy từ worktree thưa origin/main (LOCK KHỚP). `checks/ll/q_bcv.py` (thước biến cố video, chưa khoá) + `do/hieu_chuan_bcv.py`; thử 60 s đầu: bắt cắt góc 4,5/9,58 s, ranh shot, bước năm H2 trùng beat | xong |
 | 16:24 | k2check 1.17.3 trên T3 (worktree thưa origin/main, master đường tuyệt đối) **trùng hệt** bảng K-1.17.3 (11 m 49 s) → `do/k2check-1.17.3-t3.md`. Mã 1.17.4 (chưa khoá, bản vá WIP): q_bcv (thước sửa: neo ≤ 3 s, mờ σ 1,5), q_k1174 (MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU, GEMINI-NGAN-SACH, GOC-CAO-60), D6 (q37_mien thẻ PP), Q2 (MINH-HOA/N2P-6), k2check + cap112, RULES-LL 1.17.4, VERSION 1.17.4; `checks-appeal.md` phán quyết D11 = LỖI ẢNH. Selftest cũ k112…k2 đạt (k117: 1 kỳ vọng đổi có căn cứ Q2); selftest_k1174 89/91 (2 ca thước tổng hợp chờ ngưỡng hiệu chuẩn). Thử T4 (BANG-SHOT-v1 + sổ Gemini) → `do/thu-t4-bang-shot.txt` | xong |
 | 16:51 | Hiệu chuẩn lượt 1 (σ khung 1): mọi cấu hình R cắt 100 %, R beat 87–98 %, Δt TV 0,04–0,07 s, 0 báo nhầm ở quãng tĩnh theo ô — nhưng clip chỉ máy đi báo nhầm 14–201/60 s → KHÔNG đạt. Sửa: (1) clip tổng hợp cắt giữa (bỏ biên phản chiếu), (2) quãng tĩnh = tĩnh theo ô (23/25 quãng tĩnh Q37 1.13 có ô đổi tới 52/255), (3) mờ khung σ 2 (răng cưa khi phóng/quay) | xong |
-| 17:00 | Hiệu chuẩn lượt 2 (σ khung 2, neo 3 s), lưới θ {6, 8, 10, 12} × k {2, 3} | đang làm |
+| 17:00 | Hiệu chuẩn lượt 2 (σ khung 2, neo 3 s) — dừng giữa chừng (theo PID): selftest tổng hợp cho thấy đếm trùng ở ô kề | bỏ |
+| 17:22 | Thước: ô đổi → neo lại cả 8 ô kề (một vật = một biến cố); selftest_k1174 91/91 (θ 8 và 10). Hiệu chuẩn lượt 3 (thuật toán cuối) | đang làm |
 
 ## Lệnh bổ sung đã áp
 - `pkill -f hieu_chuan_bcv.py` khớp chính lệnh shell (bài học LL #24/#41, lặp lại) → shell thoát 144; sửa bị bỏ đã chạy lại; từ đó dừng tiến trình theo PID.
