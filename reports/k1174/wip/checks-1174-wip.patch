@@ -354,7 +354,7 @@ index f2a3373c..96e44fc9 100644
  case('N2P-6', 'không log shot → THIẾU', kq(N.n2p6(E5, None), 'THIẾU'), False)
 diff --git a/checks/ll/q_bcv.py b/checks/ll/q_bcv.py
 new file mode 100644
-index 00000000..d9884354
+index 00000000..3d9322a7
 --- /dev/null
 +++ b/checks/ll/q_bcv.py
 @@ -0,0 +1,186 @@
@@ -394,7 +394,7 @@ index 00000000..d9884354
 +W, H, GX, GY, BUOC, FPS = 256, 144, 8, 6, 6, 24
 +THETA, K_CUC_BO = 6.0, 2.0          # ghi đè bởi hiệu chuẩn (xem HIEU_CHUAN)
 +CAT_DU, CAT_MIN_PT, CAT_TY, TRONG_STD = 18.0, 12, 0.30, 3.0
-+NEO_MAX, MO_DU = 3.0, 1.5           # tuổi neo ô ≤ 3 s (dưới ngưỡng TB 3,5 s): đổi CHẬM hơn THETA/3 s không là biến cố thấy được; làm mờ phần dư σ 1,5
++NEO_MAX, MO_DU, MO_KHUNG = 3.0, 1.5, 2.0   # tuổi neo ô ≤ 3 s (dưới ngưỡng TB 3,5 s): đổi CHẬM hơn THETA/3 s không là biến cố thấy được; mờ khung σ 2 (σ 1 → răng cưa khi máy phóng/quay = báo nhầm 14–91/60 s clip tổng hợp), mờ phần dư σ 1,5
 +MERGE, MEAN_MAX, GAP_MAX, MIEN_MAX = 0.25, 3.5, 6.0, 10.0
 +TOL = 0.5                           # khớp tham chiếu khi hiệu chuẩn (như TL-1 đối chiếu cắt ±0,5 s)
 +HC_R_CAT, HC_R_BEAT, HC_DT, HC_FP_PHUT = 95.0, 70.0, 0.25, 1.0
@@ -423,7 +423,7 @@ index 00000000..d9884354
 +    neo, M_neo, ID = {}, {}, np.zeros((GY, GX), np.int64)    # neo[f] = khung chuẩn hoá; M_neo[f] = Mt lúc f; ID[ô] = khung neo của ô
 +    ones = np.ones((H, W), np.float32); chuoi = []
 +    for b in _frames(mp4):
-+        i += 1; cur = cv2.GaussianBlur(np.frombuffer(b, np.uint8).reshape(H, W), (0, 0), 1.0)
++        i += 1; cur = cv2.GaussianBlur(np.frombuffer(b, np.uint8).reshape(H, W), (0, 0), MO_KHUNG)
 +        if float(cur.std()) < TRONG_STD:   # khung trống (đen/mờ dần): không theo, không biến cố; khung có hình đầu tiên sau đó = cắt
 +            prev = None; trong = True; continue
 +        cut = prev is None and trong; trong = False

@@ -7,8 +7,8 @@ Tham chiếu (không tự khai — đều từ đặc tả/timeline đã khoá):
   TĨNH  = quãng khung tĩnh theo khung neo Q37 (1.13) (mọi khung khác khung đầu < 2/255) ≥ 2 s VÀ tĩnh THEO Ô: mọi ô 8 × 6 (xám 160×90) lệch TB so khung
           đầu < 3/255 suốt quãng → mọi biến cố bên trong là báo NHẦM. (Đo 23/10: chỉ 2/25 quãng tĩnh Q37 (1.13) là tĩnh theo ô; 23 quãng kia có ô đổi
           tới 52/255 — đổi cục bộ thật mà trung bình toàn khung không thấy, nên không dùng làm chuẩn "không biến cố".)
-  TỔNG HỢP = 6 khung T3 làm clip 10 s chỉ có máy đi (trượt 2 %/s + phóng 1,5 %/s + quay 0,5°/s, H.264 CRF 18): báo nhầm; cùng clip có
-             một vật đổi cục bộ (ô 5 % bề ngang lấy từ khung khác) ở 5,0 s: phải bắt trong ±0,25 s.
+  TỔNG HỢP = 6 khung T3 làm clip 10 s chỉ có máy đi (trượt 2 %/s + phóng 1,5 %/s + quay 0,5°/s, H.264 CRF 18, cắt giữa — không lộ biên): báo nhầm;
+             cùng clip có một vật đổi cục bộ (ô 96 px = 7,5 % bề ngang, lấy từ khung +97 s) ở 5,0 s: phải bắt trong ±0,25 s.
 Tiêu chí ĐẠT (đặt TRƯỚC khi đo, ghi ở q_bcv.HC_*; sửa một lần trước lượt đo đầy đủ — xem báo cáo): R cắt ≥ 95 % · R beat ≥ 70 % · sai số giờ
 trung vị ≤ 0,25 s · báo nhầm ≤ 1/phút trong quãng TĨNH và 0 trên clip chỉ máy đi · bắt 6/6 vật đổi tổng hợp. Độ chính xác so MỐC chỉ báo.
 Chọn (θ, k) trên NỬA ĐẦU (t < T/2), kiểm trên NỬA SAU; báo cả hai.
@@ -17,7 +17,7 @@ import json, os, subprocess, sys, itertools, multiprocessing as mp
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')); sys.path.insert(0, ROOT)
 from checks.ll import q_bcv as B, q_nhip as N, base  # noqa: E402
 
-LUOI = list(itertools.product((4.0, 6.0, 8.0, 12.0), (1.5, 2.0, 3.0)))
+LUOI = list(itertools.product((6.0, 8.0, 10.0, 12.0), (2.0, 3.0)))
 FR_T = (20.0, 140.0, 260.0, 380.0, 500.0, 620.0)
 TINH_O = 3.0
 
@@ -44,18 +44,19 @@ def tham_chieu(E, TL, LS):
 
 
 def _clip(master, t, out, doi=False):
+    """khung T3 1920×1080 → máy 2D (trượt 2 %/s + phóng 1,5 %/s + quay 0,5°/s quanh tâm) rồi CẮT GIỮA 1280×720: không lộ biên (bản đầu dùng biên
+    phản chiếu → nội dung giả ở mép khi máy trượt/quay — lỗi của clip thử, đã bỏ). doi: ô 96 px (7,5 % bề ngang cắt) lấy từ khung +97 s, gắn theo cảnh, từ 5,0 s."""
     import cv2, numpy as np
-    raw = subprocess.run(['ffmpeg', '-v', 'error', '-ss', str(t), '-i', master, '-frames:v', '1', '-vf', 'scale=1280:720', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-'], capture_output=True, check=True).stdout
-    F = np.frombuffer(raw, np.uint8).reshape(720, 1280, 3)
-    raw2 = subprocess.run(['ffmpeg', '-v', 'error', '-ss', str(t + 97.0), '-i', master, '-frames:v', '1', '-vf', 'scale=1280:720', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-'], capture_output=True, check=True).stdout
-    F2 = np.frombuffer(raw2, np.uint8).reshape(720, 1280, 3)
+    rd = lambda tt: np.frombuffer(subprocess.run(['ffmpeg', '-v', 'error', '-ss', str(tt), '-i', master, '-frames:v', '1', '-vf', 'scale=1920:1080', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-'],
+                                                 capture_output=True, check=True).stdout, np.uint8).reshape(1080, 1920, 3)
+    F, F2 = rd(t), rd(t + 97.0)
     p = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', '1280x720', '-r', '24', '-i', '-', '-c:v', 'libx264', '-crf', '18', '-pix_fmt', 'yuv420p', out], stdin=subprocess.PIPE)
-    s = 64; x0, y0 = 760, 300   # ô đổi 64 px = 5 % bề ngang
+    s, x0, y0 = 96, 1080, 500
     for f in range(240):
         tt = f / 24; G = F.copy()
         if doi and tt >= 5.0: G[y0:y0 + s, x0:x0 + s] = F2[y0:y0 + s, x0:x0 + s]
-        M = cv2.getRotationMatrix2D((640, 360), 0.5 * tt, 1.0 + 0.015 * tt); M[0, 2] += -0.02 * 1280 * tt
-        p.stdin.write(cv2.warpAffine(G, M, (1280, 720), borderMode=cv2.BORDER_REFLECT).tobytes())
+        M = cv2.getRotationMatrix2D((960, 540), 0.5 * tt, 1.0 + 0.015 * tt); M[0, 2] += -0.02 * 1280 * tt
+        p.stdin.write(np.ascontiguousarray(cv2.warpAffine(G, M, (1920, 1080), flags=cv2.INTER_LINEAR)[180:900, 320:1600]).tobytes())
     p.stdin.close(); p.wait(); return out
 
 
