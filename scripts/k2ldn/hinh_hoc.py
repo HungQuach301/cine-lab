@@ -330,18 +330,19 @@ def st_pauls_old(m):
     st = COL['da']; tl = (1300.0, die, g, burn); tlr = (die, 1675.4, g, burn)
     def B(u, v, w, d, y0, y1, roof=None, rh=0, t=tl, col=st, colr=COL['chi']):
         x, z = P(u, v); m.box(x, z, w, d, ang, g + y0, g + y1, jitter(col, 6), jitter(colr, 6), t, 5, roof, rh)
-    B(0, 0, 176, 22, 0, 30, 'gable', 12)                     # thân giữa (nave + choir)
-    B(0, -16, 170, 10, 0, 16, None); B(0, 16, 170, 10, 0, 16, None)   # gian bên
-    B(10, 0, 20, 90, 0, 30, 'gable', 12)                      # cánh ngang
+    # kích thước: dài 586 ft ≈ 179 m, rộng thân + gian bên ≈ 100–104 ft ≈ 31 m (Wikipedia "Old St Paul's Cathedral" — [cần kiểm] nguồn tốt hơn: Dugdale 1658)
+    B(0, 0, 176, 14, 0, 28, 'gable', 12)                     # thân giữa (nave + choir): rộng 14 m, tường 28 m, nóc 40 m
+    B(0, -11.5, 170, 9, 0, 15, None); B(0, 11.5, 170, 9, 0, 15, None)   # gian bên ±(7…16) m, cao 15 m
+    B(10, 0, 18, 88, 0, 28, 'gable', 12)                      # cánh ngang 88 m
     for u in range(-80, 90, 10):                              # trụ bay
-        for v in (-21.5, 21.5): B(u, v, 2.0, 3.0, 0, 22 + (u % 20 == 0) * 2, None)
+        for v in (-16.5, 16.5): B(u, v, 2.0, 3.0, 0, 18 + (u % 20 == 0) * 2, None)
     B(10, 0, 24, 24, 0, 87, 'pyr', 4)                          # tháp vuông giao điểm (≈ 285 ft) [cần kiểm]
     for a, b in ((-12, -12), (12, -12), (12, 12), (-12, 12)):
         x, z = P(10 + a, b); m.cyl(x, z, 1.5, 0.2, g + 87, g + 95, st, tl, 5, 6)
     B(-92, 0, 6, 34, 0, 18, None)                              # portico Inigo Jones (thập niên 1630, a20)
-    x, z = P(88.5, 0); m.cyl(x, z, 5.5, 5.5, g + 18, g + 18.6, COL['den'], tl, 5, 20)   # cửa sổ hoa hồng (mặt đông) — đĩa tối
+    x, z = P(88.5, 0); m.cyl(x, z, 4.5, 4.5, g + 17, g + 17.6, COL['den'], tl, 5, 20)   # cửa sổ hoa hồng (mặt đông) — đĩa tối
     # phế tích sau 4/9/1666 (mái sập, a19): vỏ tường thấp + tháp cụt
-    B(0, 0, 176, 22, 0, 18, None, t=tlr, col=COL['pheTich'], colr=COL['pheTich']); B(10, 0, 24, 24, 0, 55, None, t=tlr, col=COL['pheTich'], colr=COL['pheTich'])
+    B(0, 0, 176, 32, 0, 18, None, t=tlr, col=COL['pheTich'], colr=COL['pheTich']); B(10, 0, 24, 24, 0, 55, None, t=tlr, col=COL['pheTich'], colr=COL['pheTich'])
     return c
 def tower_of_london(m):
     c = np.array([533622.6, 180552.6]); g = H(*c); x, z = L(*c); tl = (1100.0, 9999.0, g, -1.0); st = COL['da']

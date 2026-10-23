@@ -5,7 +5,7 @@
 #   setsid nohup bash scripts/k2ldn/gpu/chay_t1.sh [tat-ca|keo|tat] > /var/tmp/ldn/log/pod-t1.log 2>&1 &
 set -u
 REPO=$(cd "$(dirname "$0")/../../.." && pwd); G=/var/tmp/ldn/gpu; P="/opt/cine/bin/python $REPO/scripts/k2ldn/gpu/pod.py"
-RES=${RES:-960x540}; SPP_N=${SPP_N:-64}; SPP_D=${SPP_D:-96}
+RES=${RES:-960x540}; SPP_N=${SPP_N:-32}; SPP_D=${SPP_D:-48}
 mkdir -p $G/ra/ngay $G/ra/dem
 log() { echo "$(date -u +%H:%M:%S) $*"; }
 thieu() { /opt/cine/bin/python -c "import os;print(sum(1 for f in range($2,$3+1) if not (os.path.exists('$G/ra/$1/%05d.jpg'%f) and os.path.getsize('$G/ra/$1/%05d.jpg'%f)>0)))"; }
@@ -16,9 +16,10 @@ except Exception: pass"); do j=$G/ra/$D/${f%.png}.jpg; [ -s $j ] && continue
 B=${1:-tat-ca}
 if [ $B = tat-ca ]; then
   [ -f $G/pod.json ] || { log "BẬT pod"; $P len "NVIDIA GeForce RTX 5090" SECURE t1-lua 60 || exit 2; }
+  [ -n "${BO_CAI:-}" ] && { log "pod đã cài — bỏ qua tải cơ sở"; } || {
   rm -rf $G/co-so; mkdir -p $G/co-so/gpu; cp $REPO/scripts/k2ldn/gpu/pod_setup.sh $REPO/scripts/k2ldn/cy_ldn.py $G/co-so/gpu/; cp /var/tmp/ldn/cy/ngay.npz /var/tmp/ldn/cy/dem.npz $G/co-so/
   tar -cf $G/co-so.tar -C $G/co-so . && sha256sum $G/co-so.tar
-  $P put $G/co-so.tar co-so.tar && $P run "cd /w && tar xf co-so.tar && bash /w/gpu/pod_setup.sh" --cho | tail -4
+  $P put $G/co-so.tar co-so.tar && $P run "cd /w && tar xf co-so.tar && bash /w/gpu/pod_setup.sh" --cho | tail -4; }
   log "ĐO THỬ 2 s (ngày khung 0–47)"; T0=$(date +%s)
   $P run "cd /w && ./blender/blender -b --factory-startup --python-exit-code 1 -P /w/gpu/cy_ldn.py -- /w/ngay.npz /w/out/ngay --res $RES --spp $SPP_N --frames 0:47 > /w/ngay-thu.log 2>&1; grep CY- /w/ngay-thu.log | tail -3" --cho | tail -4
   T1=$(date +%s); keo; log "ĐO THỬ xong: $((T1 - T0)) s đồng hồ / 48 khung; thiếu $(thieu ngay 0 47)"; echo "{\"do_thu\": \"ngay 0-47\", \"giay\": $((T1 - T0)), \"khung\": 48, \"res\": \"$RES\", \"spp\": $SPP_N}" > $G/do-thu.json

@@ -33,7 +33,7 @@ def ground_EN(view, proj, gy=12.0, step=4):
     p = a + d * t[..., None]; E = p[..., 0] + 532000; N = 180800 - p[..., 2]
     return E, N, t > 0
 def bilinear(grid, gx, gy):
-    return cv2.remap(grid.astype(np.float32), gx.astype(np.float32), gy.astype(np.float32), cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=-1)
+    return cv2.remap(grid.astype(np.float32), gx.astype(np.float32), gy.astype(np.float32), cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=1e6)
 def hour_of(t, t_map):   # đồng hồ bản đồ: 0 → 100 giờ trong t_map giây (2/9 00:00 → 6/9 04:00), chậm ở đầu cho kịp đọc
     u = min(1.0, max(0.0, t / t_map)); return 100.0 * (u ** 1.15)
 DAYS = [(0, 'SUN 2 SEPT 1666'), (24, 'MON 3 SEPT'), (48, 'TUE 4 SEPT'), (72, 'WED 5 SEPT'), (96, 'THU 6 SEPT')]

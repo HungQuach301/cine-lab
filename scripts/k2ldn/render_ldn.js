@@ -36,7 +36,8 @@ function at(t) {
   await GLM.assertRenderer(GL, info.renderer, browser); console.error('[info]', JSON.stringify(info));
   const only = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
   const frames = only.length ? only : [...Array(+arg('to', N) - +arg('from', 0)).keys()].map((i) => i + +arg('from', 0));
-  const ff = spawn('ffmpeg', ['-nostdin', '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', `${W}x${H}`, '-r', String(fps), '-i', '-', '-vf', 'vflip', '-q:v', '2', '-start_number', '0', path.join(OUT, 'tmp_%05d.jpg')]);
+  const EXT = arg('mask') ? '.png' : '.jpg';   // mặt nạ ID: PNG (JPEG làm nhiễu màu nhãn ở mép)
+  const ff = spawn('ffmpeg', ['-nostdin', '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', `${W}x${H}`, '-r', String(fps), '-i', '-', '-vf', 'vflip', ...(EXT === '.jpg' ? ['-q:v', '2'] : []), '-start_number', '0', path.join(OUT, 'tmp_%05d' + EXT)]);
   const log = { renderer: info.renderer, W, H, shot: S, frames: [] }, t0 = Date.now();
   for (const f of frames) {
     const k = at(f / fps); const fr = { cam: { p: k.p, l: k.l, fov: k.fov }, year: k.year ?? 1666.6, hour: k.hour ?? -1, hod: k.hod, t: f / fps, n: f, spp: +arg('spp', S.spp || 4), fire: k.fire, smoke: k.smoke, smokeSky: k.smokeSky, mask: !!arg('mask') };
@@ -46,7 +47,7 @@ function at(t) {
     if (frames.indexOf(f) % 12 === 0) console.error(`[ldn] ${f} ${((Date.now() - t0) / 1000 / (frames.indexOf(f) + 1)).toFixed(2)} s/khung · mặt trời ${r.sun_el.toFixed(1)}° · lửa ${r.fire.toFixed(0)}`);
   }
   ff.stdin.end(); await new Promise((res) => ff.on('close', res));
-  frames.forEach((f, i) => { const a = path.join(OUT, 'tmp_' + String(i).padStart(5, '0') + '.jpg'); if (fs.existsSync(a)) fs.renameSync(a, path.join(OUT, String(f).padStart(5, '0') + '.jpg')); });
+  frames.forEach((f, i) => { const a = path.join(OUT, 'tmp_' + String(i).padStart(5, '0') + EXT); if (fs.existsSync(a)) fs.renameSync(a, path.join(OUT, String(f).padStart(5, '0') + EXT)); });
   log.s_per_frame = (Date.now() - t0) / 1000 / frames.length; fs.writeFileSync(path.join(OUT, 'log.json'), JSON.stringify(log));
   console.log(JSON.stringify({ frames: frames.length, s_per_frame: +log.s_per_frame.toFixed(2), renderer: info.renderer }));
   await browser.close(); srv.close();

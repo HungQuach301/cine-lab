@@ -13,9 +13,9 @@ h0, h1 = (float(x) for x in (sys.argv[sys.argv.index('--hoa') + 1] if '--hoa' in
 LOG = json.load(open(os.path.join(IN, 'log.json'))); W, H = LOG['W'], LOG['H']; FPS = LOG['shot'].get('fps', 24)
 D = cv2.imread(os.path.join(SRC, 'met-395057-0.jpg'))[:, :, ::-1].astype(np.float32) / 255.0; DH, DW = D.shape[:2]; s = DW / 2000.0   # toạ độ ghi theo bản xem 2000 px
 # 4 điểm mặt đông trên tranh (bản xem 2000 px): chân trụ trái, chân trụ phải, đỉnh trụ trái ở mép mái, đỉnh trụ phải — đọc tay
-Q_TRANH = np.array([[1000, 1525], [1655, 1525], [1000, 700], [1655, 700]], float) * s
+Q_TRANH = np.array([[1000, 1525], [1655, 1525], [1135, 470], [1445, 470]], float) * s   # chân tường gian bên trái/phải · mép mái thân giữa trái/phải
 # cùng 4 điểm trên mô hình (u, v, y) theo trục Old St Paul's (hinh_hoc.py: nhà 176 m, gian bên ±21 m, tường gian bên 16 m)
-Q_MOHINH = [(88.0, -21.0, 0.0), (88.0, 21.0, 0.0), (88.0, -21.0, 22.0), (88.0, 21.0, 22.0)]
+Q_MOHINH = [(88.0, -16.0, 0.0), (88.0, 16.0, 0.0), (88.0, -7.0, 28.0), (88.0, 7.0, 28.0)]
 # mặt nạ toà nhà vẽ tay (đa giác, bản xem 2000 px) — lớp trước cho thị sai 2,5D
 POLY = np.array([[60, 1570], [60, 560], [180, 470], [640, 470], [700, 380], [760, 60], [940, 30], [1150, 160], [1180, 380], [1280, 380], [1460, 470], [1760, 470], [1880, 560], [1880, 1570]], float) * s
 M = json.load(open(os.path.join(DATA, 'canh/ldn.json'))); c = np.array(M['old_st_pauls_EN'])
@@ -36,8 +36,8 @@ for r in frames:
         # thị sai 2,5D thủ công trước lúc hoà: nền giấy phóng 1,000 → 1,004, lớp nhà 1,000 → 1,014 (quanh tâm mặt đông)
         u = min(1.0, t / max(h0, 1e-3)); cx, cy = q3[:, 0].mean(), q3[:, 1].mean()
         def S(k): return np.array([[k, 0, cx * (1 - k)], [0, k, cy * (1 - k)], [0, 0, 1]])
-        bg = cv2.warpPerspective(D, S(1 + 0.004 * u) @ Hm, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
-        fg = cv2.warpPerspective(D, S(1 + 0.014 * u) @ Hm, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+        bg = cv2.warpPerspective(D, S(1 + 0.004 * u) @ Hm, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=(0.86, 0.80, 0.68))
+        fg = cv2.warpPerspective(D, S(1 + 0.014 * u) @ Hm, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=(0.86, 0.80, 0.68))
         mk = cv2.warpPerspective(mask, S(1 + 0.014 * u) @ Hm, (W, H), flags=cv2.INTER_LINEAR)[..., None]
         dr = bg * (1 - mk) + fg * mk
         k = 0.0 if t < h0 else (t - h0) / (h1 - h0); k = k * k * (3 - 2 * k)
@@ -47,7 +47,7 @@ for r in frames:
     Image.fromarray((np.clip(out, 0, 1) * 255).astype(np.uint8)).save(os.path.join(OUT, f'{f:05d}.jpg'), quality=92)
 # sai lệch đăng ký: đỉnh hồi mặt đông + tâm cửa sổ hoa hồng + đỉnh tháp (không dùng để khớp) sau homography so với chiếu mô hình
 r0 = frames[0]; Hm = np.array(log['homography_khung0'])
-chk = {'dinh_hoi_dong': ((1278, 388), (88.0, 0.0, 42.0)), 'tam_cua_so_hoa_hong': ((1310, 860), (88.5, 0.0, 18.3)), 'dinh_thap': ((938, 38), (10.0, 0.0, 91.0))}
+chk = {'dinh_hoi_dong': ((1278, 388), (88.0, 0.0, 40.0)), 'tam_cua_so_hoa_hong': ((1310, 860), (88.5, 0.0, 17.3)), 'dinh_thap': ((938, 38), (10.0, 0.0, 91.0))}
 log['sai_lech_px'] = {}
 for k, (pt, uvy) in chk.items():
     p = Hm @ np.array([pt[0] * s, pt[1] * s, 1.0]); p = p[:2] / p[2]; q = proj(r0, *uvy); log['sai_lech_px'][k] = round(float(np.hypot(p[0] - q[0], p[1] - q[1])), 1)

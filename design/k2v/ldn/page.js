@@ -127,7 +127,17 @@ async function build(cfg) {
         vec2 fu = (vW.xz + vec2(0.0, -120.0) - uFireBox.xy) / uFireBox.zw; vec3 fg = texture2D(uFire, fu + (N.xz) * 0.02).rgb;
         c += vec3(1.0, 0.45, 0.15) * uFireK * (fg.g * 0.10 + fg.b * 0.03) * (0.15 + fr);
         float d = length(vW - uCam); c = mix(c, uHaze, 1.0 - exp(-d * uHazeK)); gl_FragColor = vec4(c, 1.0); if (uMask > 0.5) gl_FragColor = vec4(vec3(0.0, 170.0, 190.0) / 255.0, 1.0); }` });   // 'nuoc' (ShaderMaterial: không mã hoá sRGB)
-  WATER = new THREE.Mesh(new THREE.PlaneGeometry(9000, 6000).rotateX(-Math.PI / 2), wm); WATER.position.set(0, 0.6, 0); scene.add(WATER);
+  // mặt nước chỉ trong hộp địa hình (ngoài hộp là đất xa — tránh dải "biển" giả ở chân trời: London không có biển)
+  const TW = (T.nx - 1) * T.step, TD = (T.nz - 1) * T.step;
+  WATER = new THREE.Mesh(new THREE.PlaneGeometry(TW, TD).rotateX(-Math.PI / 2), wm); WATER.position.set(T.x0 + TW / 2, 0.6, T.z0 + TD / 2); scene.add(WATER);
+  const fm = new THREE.MeshLambertMaterial({ color: new THREE.Color(0.30, 0.28, 0.24) });
+  fm.onBeforeCompile = (s) => { Object.assign(s.uniforms, U); s.fragmentShader = s.fragmentShader.replace('#include <common>', '#include <common>\nuniform float uMask; uniform vec3 uHaze, uCam; uniform float uHazeK; varying vec3 vWf;').replace('#include <dithering_fragment>', '#include <dithering_fragment>\n float dist = length(vWf - uCam); gl_FragColor.rgb = mix(gl_FragColor.rgb, uHaze, 1.0 - exp(-dist * uHazeK)); if (uMask > 0.5) gl_FragColor = vec4(s2lf(vec3(200.0, 170.0, 90.0) / 255.0), 1.0);').replace('void main() {', 'vec3 s2lf(vec3 c){ return mix(c / 12.92, pow((c + 0.055) / 1.055, vec3(2.4)), step(vec3(0.04045), c)); }\nvoid main() {');
+    s.vertexShader = s.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vWf;').replace('#include <begin_vertex>', '#include <begin_vertex>\n vWf = (modelMatrix * vec4(transformed, 1.0)).xyz;'); };
+  const sh = new THREE.Shape([new THREE.Vector2(-30000, -30000), new THREE.Vector2(30000, -30000), new THREE.Vector2(30000, 30000), new THREE.Vector2(-30000, 30000)]);
+  const m5 = 5;   // lỗ = hộp địa hình (thu 5 m để khít mép)
+  sh.holes.push(new THREE.Path([new THREE.Vector2(T.x0 + m5, -(T.z0 + m5)), new THREE.Vector2(T.x0 + m5, -(T.z0 + TD - m5)), new THREE.Vector2(T.x0 + TW - m5, -(T.z0 + TD - m5)), new THREE.Vector2(T.x0 + TW - m5, -(T.z0 + m5))]));
+  const FAR = new THREE.Mesh(new THREE.ShapeGeometry(sh).rotateX(-Math.PI / 2), fm); FAR.position.set(0, 6.0, 0);   // đất xa ngoài hộp (bậc 5: chỉ để chân trời là đất)
+  FAR.renderOrder = -0.5; scene.add(FAR);
   // trời
   const sm = new THREE.ShaderMaterial({ uniforms: U, side: THREE.BackSide, depthWrite: false, vertexShader: `varying vec3 vD; void main(){ vD = position; vec4 p = projectionMatrix * viewMatrix * vec4(position + cameraPosition, 1.0); gl_Position = p.xyww; }`,
     fragmentShader: `varying vec3 vD; uniform vec3 uSky, uHaze, uSunDir, uSunCol; uniform float uNight, uFireK, uT, uMask; ${GLSL_N}
@@ -227,8 +237,8 @@ function setTime(year, hour, opt = {}) {
   U.uSunCol.value.setRGB(1.0, 0.72 + 0.26 * warm, 0.45 + 0.5 * warm);
   U.uSky.value.setRGB(0.30 * day + 0.006, 0.46 * day + 0.009, 0.80 * day + 0.022); U.uHaze.value.setRGB(0.62 * day + 0.012, 0.66 * day + 0.014, 0.72 * day + 0.024);
   if (opt.smokeSky && hour >= 0) { const k = opt.smokeSky; U.uSky.value.lerp(new THREE.Color(0.55, 0.45, 0.36), k * day); U.uHaze.value.lerp(new THREE.Color(0.62, 0.52, 0.42), k * day); }
-  LG.sun.intensity = 3.0 * day + 0.10 * night; LG.sun.color.copy(U.uSunCol.value); if (night > 0.5) LG.sun.color.setRGB(0.55, 0.65, 0.9);   // trăng (b38: đêm 2/9 sáng trăng)
-  const dir = night > 0.5 ? new THREE.Vector3(-0.3, 0.6, 0.5).normalize() : sd; LG.sun.position.copy(dir).multiplyScalar(3000); LG.hemi.intensity = 0.55 * day + 0.07 * night;
+  LG.sun.intensity = 3.0 * day + 0.30 * night;   // trăng sáng (Pepys b38: 'moon: shine') LG.sun.color.copy(U.uSunCol.value); if (night > 0.5) LG.sun.color.setRGB(0.55, 0.65, 0.9);   // trăng (b38: đêm 2/9 sáng trăng)
+  const dir = night > 0.5 ? new THREE.Vector3(-0.3, 0.6, 0.5).normalize() : sd; LG.sun.position.copy(dir).multiplyScalar(3000); LG.hemi.intensity = 0.55 * day + 0.12 * night;
   LG.hemi.color.setRGB(0.75 * day + 0.2 * night, 0.82 * day + 0.25 * night, 0.93 * day + 0.4 * night);
   U.uWin.value = hour < 0 && year > 1950 ? night : 0;
   const f = updateFire(hour); U.uFireK.value = hour >= 0 ? (0.5 + 1.2 * night) : 0;

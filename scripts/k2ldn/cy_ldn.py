@@ -34,7 +34,7 @@ def gpu():
 DT = gpu(); sc.render.engine = 'CYCLES'; sc.cycles.device = 'GPU' if DT != 'CPU' else 'CPU'
 sc.cycles.samples = SPP; sc.cycles.use_denoising = True; sc.cycles.denoiser = 'OPENIMAGEDENOISE'
 sc.cycles.max_bounces = 6; sc.cycles.diffuse_bounces = 3; sc.cycles.glossy_bounces = 2; sc.cycles.transparent_max_bounces = 8; sc.cycles.volume_bounces = 1
-sc.cycles.volume_step_rate = float(opt.get('--vstep', 2.0)); sc.cycles.volume_max_steps = 256
+sc.cycles.volume_step_rate = float(opt.get('--vstep', 12.0)); sc.cycles.volume_max_steps = 64
 sc.render.resolution_x, sc.render.resolution_y = RES; sc.render.resolution_percentage = 100; sc.render.fps = FPS
 sc.render.image_settings.file_format = 'PNG'; sc.render.image_settings.color_depth = '8'
 sc.view_settings.view_transform = 'AgX'; sc.view_settings.look = 'AgX - Medium High Contrast'
@@ -89,7 +89,7 @@ def math_(N, Lk, op, a, b=None, val=None):
     m = N.new('ShaderNodeMath'); m.operation = op
     for idx, x in enumerate((a, b)):
         if x is None: continue
-        if isinstance(x, (int, float)): m.inputs[idx].default_value = x
+        if isinstance(x, (int, float, np.floating)): m.inputs[idx].default_value = float(x)
         else: Lk.new(x, m.inputs[idx])
     return m.outputs[0]
 def smooth(N, Lk, x, e0, e1):
@@ -157,7 +157,7 @@ def vol_mat(kind):
     ig = N.new('ShaderNodeAttribute'); ig.attribute_type = 'OBJECT'; ig.attribute_name = 'ign'
     bI, aa = burn_expr(N, Lk, ig.outputs['Fac'])
     tc = N.new('ShaderNodeTexCoord'); sep = N.new('ShaderNodeSeparateXYZ'); Lk.new(tc.outputs['Generated'], sep.inputs[0]); zc = sep.outputs['Z']
-    nz = N.new('ShaderNodeTexNoise'); nz.noise_dimensions = '4D'; nz.inputs['Detail'].default_value = 6.0
+    nz = N.new('ShaderNodeTexNoise'); nz.noise_dimensions = '4D'; nz.inputs['Detail'].default_value = 3.0 if kind == 'lua' else 2.0
     oi = N.new('ShaderNodeObjectInfo')
     w = math_(N, Lk, 'ADD', math_(N, Lk, 'MULTIPLY', gio_node(N), 60.0 if kind == 'lua' else 8.0), math_(N, Lk, 'MULTIPLY', oi.outputs['Random'], 100.0))
     Lk.new(w, nz.inputs['W'])
@@ -180,21 +180,65 @@ def vol_mat(kind):
         shape = math_(N, Lk, 'SUBTRACT', 1.0, smooth(N, Lk, r, 0.22, 0.5))
         top = math_(N, Lk, 'SUBTRACT', 1.0, smooth(N, Lk, zc, 0.6, 1.0))
         dn = math_(N, Lk, 'MULTIPLY', math_(N, Lk, 'MULTIPLY', smooth(N, Lk, nz.outputs['Fac'], 0.42, 0.7), shape), top)
-        Lk.new(math_(N, Lk, 'MULTIPLY', dn, math_(N, Lk, 'MULTIPLY', sb, 0.05)), pv.inputs['Density']); pv.inputs['Color'].default_value = (0.32, 0.30, 0.28, 1); pv.inputs['Anisotropy'].default_value = 0.35
+        Lk.new(math_(N, Lk, 'MULTIPLY', dn, math_(N, Lk, 'MULTIPLY', sb, 0.03)), pv.inputs['Density']); pv.inputs['Color'].default_value = (0.32, 0.30, 0.28, 1); pv.inputs['Anisotropy'].default_value = 0.35
     Lk.new(pv.outputs[0], o.inputs['Volume']); return m
-mL, mS = vol_mat('lua'), vol_mat('khoi')
-def box_mesh(name, w, h, lean=0.0):
-    V = [(-w / 2, -w / 2, 0), (w / 2, -w / 2, 0), (w / 2, w / 2, 0), (-w / 2, w / 2, 0), (-w / 2 - lean, -w / 2, h), (w / 2 - lean, -w / 2, h), (w / 2 - lean, w / 2, h), (-w / 2 - lean, w / 2, h)]
-    Fq = [(0, 3, 2, 1), (4, 5, 6, 7), (0, 1, 5, 4), (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7)]
-    me = bpy.data.meshes.new(name); me.from_pydata(V, [], Fq); me.update(); return me
-meL = box_mesh('hop-lua', 24, 30); meL.materials.append(mL); meS = box_mesh('hop-khoi', 70, 260, lean=170); meS.materials.append(mS)
-nl = 0; lamps = []
-for k, (x, y, z, ig) in enumerate(cells):
-    for me, kind in ((meL, 'lua'), (meS, 'khoi')):
-        if kind == 'khoi' and k % 2: continue
-        o_ = bpy.data.objects.new(f'{kind}{k}', me); sc.collection.objects.link(o_); o_.location = B(float(x), float(y), float(z)); o_['ign'] = float(ig); nl += 1
-    if k % 2 == 0:
-        L_ = bpy.data.lights.new(f'den{k}', 'POINT'); L_.color = (1.0, 0.42, 0.12); L_.shadow_soft_size = 8.0; lo = bpy.data.objects.new(f'den{k}', L_); sc.collection.objects.link(lo); lo.location = B(float(x), float(y) + 12, float(z)); lamps.append((L_, float(ig)))
+# MIỀN THỂ TÍCH DUY NHẤT (đổi cách 23/10: hộp theo ô ≈ 3 phút/khung): ảnh giờ bén lửa 20 m (từ cell) → mật độ = f(gio − ign) × hồ sơ cao × nhiễu
+xs, zs = cells[:, 0], cells[:, 2]
+if len(cells):
+    x0, x1, z0, z1 = xs.min() - 40, xs.max() + 40, zs.min() - 40, zs.max() + 40
+    nxm, nzm = int((x1 - x0) / 10) + 1, int((z1 - z0) / 10) + 1
+    img = np.ones((nzm, nxm), np.float32)                       # 1.0 = không cháy (giờ 200)
+    for (x, y, z, ig) in cells:
+        i, j = int((x - x0) / 10), int((z - z0) / 10)
+        img[max(0, j - 1):j + 2, max(0, i - 1):i + 2] = np.minimum(img[max(0, j - 1):j + 2, max(0, i - 1):i + 2], ig / 200.0)
+    # ảnh Blender: hàng 0 = đáy (Y nhỏ = Bắc nhỏ = z lớn) → lật theo z (z = −N)
+    bim = bpy.data.images.new('ign', nxm, nzm, float_buffer=True, alpha=False); px = np.zeros((nzm, nxm, 4), np.float32)
+    px[..., 0] = img[::-1, :]; px[..., 1] = px[..., 0]; px[..., 2] = px[..., 0]; px[..., 3] = 1; bim.colorspace_settings.name = 'Non-Color'; bim.pixels.foreach_set(px.ravel()); bim.update(); bim.pack()
+    gy = float(np.median(cells[:, 1]))
+    def dom(name, h, kind):
+        V = [(x0, -z1, gy - 5), (x1, -z1, gy - 5), (x1, -z0, gy - 5), (x0, -z0, gy - 5), (x0, -z1, gy + h), (x1, -z1, gy + h), (x1, -z0, gy + h), (x0, -z0, gy + h)]
+        Fq = [(0, 3, 2, 1), (4, 5, 6, 7), (0, 1, 5, 4), (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7)]
+        me = bpy.data.meshes.new(name); me.from_pydata(V, [], Fq); me.update(); ob_ = bpy.data.objects.new(name, me); sc.collection.objects.link(ob_)
+        m = bpy.data.materials.new('vol-' + kind); nt, N, Lk = nodes(m); o = N.new('ShaderNodeOutputMaterial'); pv = N.new('ShaderNodeVolumePrincipled')
+        tc = N.new('ShaderNodeTexCoord'); sp = N.new('ShaderNodeSeparateXYZ'); Lk.new(tc.outputs['Generated'], sp.inputs[0]); zc = sp.outputs['Z']
+        # toạ độ ảnh: khói trôi sang tây theo độ cao (gió đông, b39): lấy mẫu tại x + 0,6·cao
+        u = sp.outputs['X'] if kind == 'lua' else math_(N, Lk, 'ADD', sp.outputs['X'], math_(N, Lk, 'MULTIPLY', zc, 0.6 * h / (x1 - x0)))
+        cmb = N.new('ShaderNodeCombineXYZ'); Lk.new(u, cmb.inputs['X']); Lk.new(sp.outputs['Y'], cmb.inputs['Y'])
+        ti = N.new('ShaderNodeTexImage'); ti.image = bim; ti.interpolation = 'Linear'; ti.extension = 'EXTEND'; Lk.new(cmb.outputs[0], ti.inputs['Vector'])
+        ign = math_(N, Lk, 'MULTIPLY', ti.outputs['Color'], 200.0)
+        bI, aa = burn_expr(N, Lk, ign)
+        nz = N.new('ShaderNodeTexNoise'); nz.noise_dimensions = '4D'; nz.inputs['Detail'].default_value = 3.0
+        wv = N.new('ShaderNodeVectorMath'); wv.operation = 'MULTIPLY'; wv.inputs[1].default_value = ((x1 - x0) / 9.0, (z1 - z0) / 9.0, h / 9.0) if kind == 'lua' else ((x1 - x0) / 22.0, (z1 - z0) / 22.0, h / 28.0)
+        Lk.new(tc.outputs['Generated'], wv.inputs[0]); Lk.new(wv.outputs[0], nz.inputs['Vector'])
+        Lk.new(math_(N, Lk, 'MULTIPLY', gio_node(N), 50.0 if kind == 'lua' else 6.0), nz.inputs['W'])
+        if kind == 'lua':
+            prof = math_(N, Lk, 'SUBTRACT', 1.0, smooth(N, Lk, zc, 0.15, 0.85))
+            dn = math_(N, Lk, 'MULTIPLY', smooth(N, Lk, math_(N, Lk, 'SUBTRACT', nz.outputs['Fac'], math_(N, Lk, 'MULTIPLY', zc, 0.45)), 0.50, 0.66), prof)
+            dens = math_(N, Lk, 'MULTIPLY', dn, bI)
+            Lk.new(math_(N, Lk, 'MULTIPLY', dens, 0.05), pv.inputs['Density']); pv.inputs['Color'].default_value = (0.2, 0.18, 0.16, 1)
+            Lk.new(math_(N, Lk, 'MULTIPLY', dens, 1.2), pv.inputs['Blackbody Intensity'])
+            Lk.new(math_(N, Lk, 'ADD', 950.0, math_(N, Lk, 'MULTIPLY', math_(N, Lk, 'SUBTRACT', 1.0, zc), 900.0)), pv.inputs['Temperature'])
+        else:
+            sb = math_(N, Lk, 'MULTIPLY', smooth(N, Lk, aa, 0.2, 1.5), math_(N, Lk, 'SUBTRACT', 1.0, smooth(N, Lk, aa, 10.0, 30.0)))
+            sb = math_(N, Lk, 'MULTIPLY', sb, math_(N, Lk, 'LESS_THAN', ign, 199.0))
+            top = math_(N, Lk, 'SUBTRACT', 1.0, smooth(N, Lk, zc, 0.55, 1.0))
+            edge = smooth(N, Lk, math_(N, Lk, 'MINIMUM', math_(N, Lk, 'MINIMUM', sp.outputs['X'], math_(N, Lk, 'SUBTRACT', 1.0, sp.outputs['X'])), math_(N, Lk, 'MINIMUM', sp.outputs['Y'], math_(N, Lk, 'SUBTRACT', 1.0, sp.outputs['Y']))), 0.0, 0.12)
+            dn = math_(N, Lk, 'MULTIPLY', math_(N, Lk, 'MULTIPLY', smooth(N, Lk, nz.outputs['Fac'], 0.45, 0.75), top), math_(N, Lk, 'MULTIPLY', edge, smooth(N, Lk, zc, 0.0, 0.06)))
+            em_ = math_(N, Lk, 'MULTIPLY', math_(N, Lk, 'MULTIPLY', sb, math_(N, Lk, 'POWER', math_(N, Lk, 'SUBTRACT', 1.0, zc), 6.0)), math_(N, Lk, 'MULTIPLY', dn, 0.04))
+            Lk.new(em_, pv.inputs['Emission Strength']); pv.inputs['Emission Color'].default_value = (1.0, 0.38, 0.1, 1)
+            Lk.new(math_(N, Lk, 'MULTIPLY', dn, math_(N, Lk, 'MULTIPLY', sb, 0.02)), pv.inputs['Density']); pv.inputs['Color'].default_value = (0.32, 0.30, 0.28, 1); pv.inputs['Anisotropy'].default_value = 0.35
+        if os.environ.get('CY_DBG') == '1':   # gỡ lỗi: mật độ hằng
+            for l_ in list(Lk):
+                if l_.to_node == pv and l_.to_socket.name == 'Density': Lk.remove(l_)
+            pv.inputs['Density'].default_value = 0.004
+        if os.environ.get('CY_DBG') == '2':   # gỡ lỗi: xem giá trị ảnh (đỏ = giờ bén nhỏ)
+            for l_ in list(Lk):
+                if l_.to_node == pv and l_.to_socket.name in ('Density', 'Blackbody Intensity'): Lk.remove(l_)
+            pv.inputs['Density'].default_value = 0.0; pv.inputs['Emission Strength'].default_value = 0.05; Lk.new(math_(N, Lk, 'SUBTRACT', 1.0, ti.outputs['Color']), pv.inputs['Emission Color'])
+        Lk.new(pv.outputs[0], o.inputs['Volume']); me.materials.append(m); return ob_
+    if os.environ.get('CY_LUA') != '0': dom('mien-lua', 45.0, 'lua')
+    if os.environ.get('CY_KHOI') != '0': dom('mien-khoi', 420.0, 'khoi')
+nl = 2; lamps = []
 def burnI(ig, h):
     if h < ig: return 0.0
     a_ = h - ig; ss = lambda e0, e1, x: (lambda t: t * t * (3 - 2 * t))(min(1, max(0, (x - e0) / (e1 - e0))))
