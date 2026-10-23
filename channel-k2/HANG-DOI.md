@@ -17,6 +17,11 @@
 >
 > Cả hai phép đo đều chỉ đọc chữ.
 
+## CẬP NHẬT 23/10/2026 17:42 (phiên P-2310b: T4) — bổ sung, không thay
+| Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 23/10 (P-2310b) |
+|---|---|---|---|---|
+| T4 | K2C-T4-02 | **London — cháy hai lần, làm lại hai lần** | XANH | **G1 duyệt 23/10 17:42; M1b khoá look đang chạy** (phiên LOOK-T4). Tiền kỳ (`k2c-t4-02-tienky` @888de179) đã merge vào `main`: `channel-k2/k2c-t4-02/` (TREATMENT, LOI-NHAP-v1, BANG-SHOT-v1, RIGHTS-NHAP), `reports/tien-ky-t4/`. **D3: GIỮ logline** "London burned to the ground twice…" và câu L04 "London has burned to the ground twice" như cũ. D11: tấm nền N2+ lập kế hoạch ≤ 15 % tới khi phiên K xét phép (iii); D12: bỏ Leake, dùng Doornick 1666. Luật máy/bản đồ/tranh khắc: Kinh thánh §19. Tiếp theo: M1b → animatic |
+
 ## CẬP NHẬT 23/10/2026 (phiên PHAT-HANH-T3: T3, T4) — bổ sung, không thay
 | Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 23/10 (PHAT-HANH-T3) |
 |---|---|---|---|---|

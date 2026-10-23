@@ -1,0 +1,302 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://manifests.collections.yale.edu/ycba/obj/40597",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "Print made by unknown artist, General View of London during the Great Fire of 1666, undated"
+    ]
+  },
+  "metadata": [
+    {
+      "label": {
+        "en": [
+          "Copyright Statement"
+        ]
+      },
+      "value": {
+        "en": [
+          "Public Domain"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Creator"
+        ]
+      },
+      "value": {
+        "en": [
+          "unknown artist"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Title"
+        ]
+      },
+      "value": {
+        "en": [
+          "General View of London during the Great Fire of 1666"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Medium"
+        ]
+      },
+      "value": {
+        "en": [
+          "Engraving"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Credit Line"
+        ]
+      },
+      "value": {
+        "en": [
+          "Yale Center for British Art, Paul Mellon Collection"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Institution"
+        ]
+      },
+      "value": {
+        "en": [
+          "Yale Center for British Art"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Collection"
+        ]
+      },
+      "value": {
+        "en": [
+          "Prints and Drawings"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Call Number"
+        ]
+      },
+      "value": {
+        "en": [
+          "B1977.14.17854"
+        ]
+      }
+    }
+  ],
+  "rights": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "requiredStatement": {
+    "label": {
+      "en": [
+        "Rights Description"
+      ]
+    },
+    "value": {
+      "en": [
+        "Metadata describing Yale Center for British Art collections is public domain under CC0. Copyright or other restrictions may apply to cultural works or images of those works in this record."
+      ]
+    }
+  },
+  "logo": [
+    {
+      "id": "https://static.britishart.yale.edu/images/ycba_logo.jpg",
+      "type": "Image"
+    }
+  ],
+  "homepage": [
+    {
+      "format": "text/html",
+      "id": "https://collections.britishart.yale.edu/catalog/tms:40597",
+      "label": {
+        "en": [
+          "catalog entry at the Yale Center for British Art"
+        ]
+      },
+      "type": "Text"
+    }
+  ],
+  "seeAlso": [
+    {
+      "format": "text/xml",
+      "id": "https://harvester-bl.britishart.yale.edu/oaicatmuseum/OAIHandler?verb=GetRecord\u0026identifier=oai:tms.ycba.yale.edu:40597\u0026metadataPrefix=lido",
+      "profile": "http://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd",
+      "type": "Dataset"
+    },
+    {
+      "format": "text/rdf+n3",
+      "id": "http://collection.britishart.yale.edu/id/page/object/40597",
+      "type": "Dataset"
+    }
+  ],
+  "items": [
+    {
+      "id": "https://manifests.collections.yale.edu/canvas/ycba/a5998f50-0d66-4911-9ebe-d5b0c7ee99e7",
+      "type": "Canvas",
+      "label": {
+        "en": [
+          "recto"
+        ]
+      },
+      "height": 4432,
+      "width": 7486,
+      "items": [
+        {
+          "id": "https://manifests.collections.yale.edu/annopage/ycba/a5998f50-0d66-4911-9ebe-d5b0c7ee99e7",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://manifests.collections.yale.edu/annotation/ycba/a5998f50-0d66-4911-9ebe-d5b0c7ee99e7",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://images.collections.yale.edu/iiif/2/ycba:a5998f50-0d66-4911-9ebe-d5b0c7ee99e7/full/full/0/default.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "service": [
+                  {
+                    "@id": "https://images.collections.yale.edu/iiif/2/ycba:a5998f50-0d66-4911-9ebe-d5b0c7ee99e7",
+                    "@type": "ImageService2",
+                    "profile": "http://iiif.io/api/image/2/level2.json"
+                  }
+                ],
+                "height": 4432,
+                "width": 7486
+              },
+              "target": "https://manifests.collections.yale.edu/canvas/ycba/a5998f50-0d66-4911-9ebe-d5b0c7ee99e7"
+            }
+          ]
+        }
+      ],
+      "rendering": [
+        {
+          "id": "https://media.collections.yale.edu/tiff/ycba/a5998f50-0d66-4911-9ebe-d5b0c7ee99e7.tif",
+          "type": "Image",
+          "label": {
+            "en": [
+              "TIFF for download"
+            ]
+          },
+          "format": "image/tiff"
+        }
+      ],
+      "thumbnail": [
+        {
+          "id": "https://media.collections.yale.edu/thumbnail/ycba/a5998f50-0d66-4911-9ebe-d5b0c7ee99e7",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 480,
+          "height": 284
+        }
+      ],
+      "metadata": [
+        {
+          "label": {
+            "en": [
+              "Image Use Rights"
+            ]
+          },
+          "value": {
+            "en": [
+              "No Copyright: You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission. (CC0 1.0)"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "https://manifests.collections.yale.edu/canvas/ycba/a07b3bd8-4ff0-4af0-b07b-80acb56b1285",
+      "type": "Canvas",
+      "label": {
+        "en": [
+          "recto"
+        ]
+      },
+      "height": 6275,
+      "width": 8010,
+      "items": [
+        {
+          "id": "https://manifests.collections.yale.edu/annopage/ycba/a07b3bd8-4ff0-4af0-b07b-80acb56b1285",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://manifests.collections.yale.edu/annotation/ycba/a07b3bd8-4ff0-4af0-b07b-80acb56b1285",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://images.collections.yale.edu/iiif/2/ycba:a07b3bd8-4ff0-4af0-b07b-80acb56b1285/full/full/0/default.jpg",
+                "type": "Image",
+                "format": "image/jpeg",
+                "service": [
+                  {
+                    "@id": "https://images.collections.yale.edu/iiif/2/ycba:a07b3bd8-4ff0-4af0-b07b-80acb56b1285",
+                    "@type": "ImageService2",
+                    "profile": "http://iiif.io/api/image/2/level2.json"
+                  }
+                ],
+                "height": 6275,
+                "width": 8010
+              },
+              "target": "https://manifests.collections.yale.edu/canvas/ycba/a07b3bd8-4ff0-4af0-b07b-80acb56b1285"
+            }
+          ]
+        }
+      ],
+      "rendering": [
+        {
+          "id": "https://media.collections.yale.edu/tiff/ycba/a07b3bd8-4ff0-4af0-b07b-80acb56b1285.tif",
+          "type": "Image",
+          "label": {
+            "en": [
+              "TIFF for download"
+            ]
+          },
+          "format": "image/tiff"
+        }
+      ],
+      "thumbnail": [
+        {
+          "id": "https://media.collections.yale.edu/thumbnail/ycba/a07b3bd8-4ff0-4af0-b07b-80acb56b1285",
+          "type": "Image",
+          "format": "image/jpeg",
+          "width": 480,
+          "height": 376
+        }
+      ],
+      "metadata": [
+        {
+          "label": {
+            "en": [
+              "Image Use Rights"
+            ]
+          },
+          "value": {
+            "en": [
+              "No Copyright: You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission. (CC0 1.0)"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
