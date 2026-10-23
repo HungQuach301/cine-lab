@@ -8,7 +8,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 OUT = os.path.join(REPO, 'channel-k2/k2c-t4-02/look/may'); os.makedirs(OUT, exist_ok=True)
 LMT = -0.098 / 15                                   # giờ địa phương trung bình London (1666): UTC = LMT − kinh độ/15
 P1 = dict(p=[532330, 180250, 230], l=[532420, 180980, 15], fov=50)
-P2 = dict(p=[532690, 180290, 70], l=[532560, 180900, 22], fov=55)
+P2 = dict(p=[532690, 180290, 70], l=[532727, 180990, 20], fov=60)   # bắc: cầu (bắc) ở 1/3 phải, Old St Paul's 1/3 trái — góc Hollar Long View
 P6 = dict(p=[533250, 180480, 35], l=[532300, 180850, 30], fov=45)
 P4 = dict(p=[531300, 181160, 40], l=[532100, 181140, 60], fov=35)
 # mốc: năm (thập phân), ngày giờ (lịch Gregory UTC qua tz) hoặc giờ cháy 1666 (kể từ 2/9 00:00 Julius) / 1940 (kể từ 29/12/1940 18:00)
@@ -25,7 +25,7 @@ KHUNG = {
 # BIẾN THỂ (3D thuần; chỉ ánh sáng–màu–khí quyển–mật độ chi tiết). A theo LOOK-1 T3 (sương σ = 1/16 km, màu chân trời [0,66 0,74 0,84], LUT kênh v0,30).
 LOOK = {
  'A': dict(ten='T3 kênh', haze=[1 / 16000, 0.66, 0.74, 0.84], hazeH=700, coal=[0, 0.5, 0.46, 0.40, 70], sunK=3.0, hemiK=0.62, sunTint=[1, 1, 1], skyTop=[0.20, 0.38, 0.74], skyHor=[0.62, 0.72, 0.86],
-           cloud=0.32, cloudCol=[1.0, 0.99, 0.96], water=[0.040, 0.050, 0.042], texK=1.0, chim=0.30, smokeK=1.0, smokeTint=[1, 1, 1], exposure=0.95, lut='k2c-t3-kenh-v030.cube'),
+           cloud=0.32, cloudCol=[1.0, 0.99, 0.96], water=[0.040, 0.050, 0.042], texK=1.0, chim=0.30, smokeK=0.85, smokeTint=[1, 1, 1], exposure=0.95, lut='k2c-t3-kenh-v030.cube'),
  'B': dict(ten='London sương', haze=[1 / 6000, 0.60, 0.63, 0.66], hazeH=420, coal=[1 / 4200, 0.46, 0.43, 0.39, 90], sunK=2.1, hemiK=0.78, sunTint=[0.96, 0.97, 1.02], skyTop=[0.42, 0.48, 0.58], skyHor=[0.66, 0.68, 0.70],
            cloud=0.78, cloudCol=[0.86, 0.87, 0.89], water=[0.036, 0.042, 0.040], texK=0.9, chim=0.85, smokeK=1.25, smokeTint=[0.92, 0.92, 0.95], exposure=1.0, lut='look-B-lanh.cube'),
  'C': dict(ten='tranh khắc ấm', haze=[1 / 10500, 0.84, 0.76, 0.62], hazeH=520, coal=[0, 0.5, 0.46, 0.40, 70], sunK=2.6, hemiK=0.72, sunTint=[1.06, 0.97, 0.84], skyTop=[0.40, 0.50, 0.64], skyHor=[0.88, 0.80, 0.66],

@@ -17,7 +17,8 @@ OUT = os.path.join(H0.DATA, 'look'); os.makedirs(OUT, exist_ok=True)
 # bờ bắc 1666 (Fleet → Tower): mặt nạ cháy Doornick bỏ mép sông và nét khắc ven sông thưa → dải ≤ 150 m từ mép nước là kho/bến/nhà dày đặc (Thames Street, Hollar Long View) — bậc 4
 _gE = BB[0] + (np.arange(GW) + 0.5) * G; _gN = BB[3] - (np.arange(GH) + 0.5) * G
 _dw = cv2.distanceTransform((WAT66 == 0).astype(np.uint8), cv2.DIST_L2, 5) * G
-BUILT[(_dw > 3) & (_dw < 150) & (_gE[None, :] > 531650) & (_gE[None, :] < 533450) & (_gN[:, None] > 180550) & (WAT66 == 0)] = 1
+RIV = ((_dw > 3) & (_dw < 150) & (_gE[None, :] > 531650) & (_gE[None, :] < 533450) & (_gN[:, None] > 180550) & (WAT66 == 0)).astype(np.uint8)
+BUILT[RIV == 1] = 1
 REPO = H0.REPO
 RNG = np.random.default_rng(16661)
 def L(E, N): return (E - E0, -(N - N0))
@@ -147,6 +148,7 @@ SLATE = (92, 96, 104)
 def lots(streets):
     """sinh lô dọc phố (mặt tiền + chiều sâu) cho nhà 1666; trả danh sách dict lô. Chiếm chỗ trên lưới 2 m để không chồng."""
     occ = np.zeros((GH, GW), np.uint8); occ |= WAT66; out = []
+    for l, hw, nm in streets: cv2.polylines(occ, [np.round(to_g(l)).astype(np.int32)], False, 1, thickness=max(1, int(round(2 * hw / G))))   # lòng phố không bị lô của phố khác lấn
     for l, hw, nm in streets:
         seg = np.diff(l, axis=0); ln = np.linalg.norm(seg, axis=1)
         for i in range(len(seg)):
@@ -178,7 +180,7 @@ def lots(streets):
             c = np.array([E + RNG.uniform(-1.5, 1.5), N + RNG.uniform(-1.5, 1.5)])
             if at(BUILT, c) == 0 or at(occ, c) == 1: continue
             gc = to_g(c); r_, c_ = int(gc[1]), int(gc[0])
-            if dt[r_, c_] * G > 45 or RNG.random() < 0.2: continue
+            if dt[r_, c_] * G > (110 if RIV[r_, c_] else 45) or RNG.random() < (0.08 if RIV[r_, c_] else 0.2): continue   # ven sông: kho/sân bến dày, không vườn
             nx_, ny_ = gx[r_, c_], -gy[r_, c_]; nn = math.hypot(nx_, ny_) or 1.0; vdir = np.array([-nx_ / nn, -ny_ / nn])   # về phía phố
             udir = np.array([vdir[1], -vdir[0]]); w = float(RNG.uniform(4.0, 6.5)); d = float(RNG.uniform(6.0, 9.0))
             cs = [c + udir * a * w / 2 + vdir * b * d / 2 for a in (-0.8, 0, 0.8) for b in (-0.8, 0, 0.8)]
@@ -598,7 +600,7 @@ def lop_dat(streets):
     gm = poly_mask([d['r'] for d in R['dat']]); c26[gm == 1] = 3
     # 1666: vườn sâu trong khối (Doornick vẽ vườn) — xa phố > 45 m trong vùng có nhà; ngoài vùng có nhà = đồng cỏ
     st = (c66 == 1).astype(np.uint8); dt = cv2.distanceTransform(1 - st, cv2.DIST_L2, 5) * G
-    c66[(dt > 45) & (BUILT == 1)] = 3; c66[(BUILT == 0) & (c66 == 0)] = 3
+    c66[(dt > 45) & (BUILT == 1) & (RIV == 0)] = 3; c66[(BUILT == 0) & (c66 == 0)] = 3; c66[(RIV == 1) & (c66 == 0)] = 5
     for c_, W, wharf in ((c66, WAT66, 5), (c26, WAT26, 2)):
         dd = cv2.distanceTransform((W == 0).astype(np.uint8), cv2.DIST_L2, 5) * G
         c_[(W == 0) & (dd < 22)] = wharf                                 # 1666: bến/kè gỗ + sân bến (lát sỏi, ván) dọc bờ — không cỏ; 2026: lối đi ven sông lát đá
