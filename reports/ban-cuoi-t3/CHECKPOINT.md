@@ -3,15 +3,15 @@
 Gốc: `origin/k2c-t3-anim-v2` @72e3f0fe ("cứu 4 video gốc Omni") + merge --no-ff `origin/checks-1-17-1` @39d01859 (→ 622a1c27) + `origin/claude/laughing-ptolemy-u7xlwe` @0a10d1fc (→ 170e55ce). 0 xung đột.
 
 <!-- TRANG-THAI -->
-## Trạng thái (23/10/2026 00:09 UTC) — tự động `scripts/k2tl/cuoi_ckpt.py`
+## Trạng thái (23/10/2026 00:22 UTC) — tự động `scripts/k2tl/cuoi_ckpt.py`
 
-- **Khung cảnh đinh 1080p đã dựng:** 18288 / 18288 (100 %) — cảnh xong 44/44; đang dựng: —
+- **Khung cảnh đinh 1080p đã dựng:** 17791 / 18288 (97 %) — cảnh xong 43/44; đang dựng: C1 43/540
 - **Đoạn đã render (sec/*.mkv, quy về khung phim):** 45/45 đoạn = 18288 / 18288 khung phim (100 %). Còn: 
 - **Cycles GPU:** H2T 0–119 ĐÃ THAY · N2.9 TRỌN Cycles (sửa ghép A↔B trong cú máy, 14:20): khung 396–671 EXR 0/276, khung 0–395 EXR 0/396 — ĐÃ THAY + chờ render lại đoạn. Pod: ban-cuoi hep2qaz5zj5ri9 bật 06:30 UTC (đã tắt); ban-cuoi-2 qwsekut0bu3kkg bật 07:05 UTC (đã tắt); ban-cuoi-3 j8m2halzltpbww bật 15:29 UTC (đã tắt); ban-cuoi-4 0fnofdnz5sl6vn bật 16:15 UTC (đã tắt). Dòng cuối: pod3 `18:19:55 [ban-cuoi-3] TAT-XONG` · pod4 `18:20:20 [ban-cuoi-4] TAT-XONG` · xuất `CHUAN-BI-XONG`
 - **Số dư RunPod:** $23.09 (dòng `so_du` cuối gio-gpu.jsonl). Đầu phiên $22,95 → $13,97 sau pod 1/2 (chi thật $8,88); 14:57 đọc $28,97 = có nạp thêm $15,00 ngoài phiên, không phải hoàn tiền
 - **Lightmap:** 7/7 (b1704, b1779, b1781r, b1782, b1900, b1940, b2026)
 - **Omni đã chèn (không nhãn):** M2→C3, M3→N1.4, M4→C5, M5→H1 · M1 giữ 3D
-- **Ước còn:** cảnh đinh 0 khung × 5.1 s/khung ÷ P 2 ≈ **0.0 h**; sau đó render đoạn còn lại + LUT + ghép + k2check + xuất ≈ 2–3 h. Giờ máy đã chạy ≈ 19.7 h (mốc 30 h).
+- **Ước còn:** cảnh đinh 497 khung × 5.1 s/khung ÷ P 2 ≈ **0.3 h**; sau đó render đoạn còn lại + LUT + ghép + k2check + xuất ≈ 2–3 h. Giờ máy đã chạy ≈ 19.9 h (mốc 30 h).
 - **Việc còn lại (thứ tự):** (1) dựng nốt cảnh đinh; (2) chèn M3 (N1.4), M4 (C5) — tự động khi cảnh xong; (3) N2.9 trọn Cycles: pod 3/4 → nhận → render lại đoạn; (4) render các đoạn còn lại (tự động, chờ RAM); (5) chốt LUT kênh (bão hoà ≥ 0,40) → ghép master + 3 phần + 8 tệp xem; (6) k2check 1.17.2 `--cap`, selftest, LOI-KHOA 3/3, tự đo, XEM CÂM AI; (7) release-k2-t3-g2 (LFS) + thumbnail; (8) báo cáo, DỪNG.
 - Dòng cuối log vòng dựng: `21:29 VONG-XONG` · render đoạn: `DOAN-XONG`
 <!-- /TRANG-THAI -->
@@ -21,6 +21,12 @@ Bão hoà trung vị: v 0 → 0,369 · 0,15 → 0,392 · 0,20 → 0,400 · 0,25 
 
 ## LUT kênh — CHỐT (21:38): v = 0,30
 Đo toàn phim (190 khung, 1/4 s, đủ 45 đoạn): bão hoà trung vị v 0 → 0,3725 · 0,20 → 0,400 · 0,25 → 0,408 · **0,30 → 0,416** · 0,35 → 0,424. Tệp `channel-k2/k2c-t3-01/mau/k2c-t3-kenh-v030.cube` SHA-256 `1fc6aa38…b38ba6` (+ `.sha256`, `do-lut-toan-phim-190.jsonl`). 0,416 nằm trong ±5 % ngưỡng 0,40 → nêu tên trong báo cáo. Ghép master + 3 phần + 8 tệp xem đang chạy (`log/xuat.sh`); đo mặt nạ ID 43 shot (trong_pct, chủ thể) đang chạy (`log/do_r2.sh`).
+
+## k2check 1.17.2 `--cap` lượt 1 trên master (23/10 ≈ 00:00) — TRƯỢT, mã thoát 1 (`do/k2check-1.17.2-cap.txt`)
+- Lỗi khai của phiên này (đã sửa): đường dẫn `so_ai`/`kiem` theo gốc repo → K đọc theo thư mục episode.yaml (K-LAI-3, K-LAI-6, MINH-HOA (e)); N2.9 `lan` còn ghi phần Cycles 16,5–28 s (đã sửa: trọn shot; tự đo Cycles 33,0 s = 4,33 %).
+- **Lỗi phim: C1** trống (bằng + sườn) 47–61 % mọi giây, liên tục 10,5 s (EO-DAT-R2) — việc 1b ghi rõ "(+C1)" nhưng tôi chưa sửa C1 (công cụ soi `cuoi_soi.py` chỉ cờ 'bang' > 40 %, không cộng sườn, và chưa chạy cho C1). Sửa: góc 1 máy thấp tele (fov 26) Línea + Rock; góc 2 máy vào giữa dải trại (lều theo dữ liệu bậc 1–2 mọc 13/7 → 28/10/1779) nhìn nam; thêm đường đất, xe kéo, đống vật tư, gia súc, vườn (bậc 5, ước lượng; KHÔNG thêm lều/kho). Soi: trống 36 % (góc 1), 42 → 31 % (góc 2; > 40 % chỉ 2 s đầu khi lều chưa mọc). Một lượt thử ngửa máy (trời 61 %) đạt số nhưng dải trại chỉ là vệt chân trời — **bỏ** vì là lách chỉ số. Chỉ cảnh `anim_C1` đổi dấu (prep thử). Dựng lại C1 → đoạn C1 → xuất lại master/phần/xem (`log/c1_xuat.sh`).
+- Gửi K: `reports/ban-cuoi-t3/checks-appeal.md` (TL-3 sập với `trong_pct` danh sách; Q37 (a) không đọc mốc trong `heroes.<k>.opt`; R3 (b) không đếm cắt góc; PP-1 đếm cả tiêu đề; Q33 miễn năm khác).
+- Chờ chủ dự án: N4_5, N5_6 một góc (R3 (a)); PP1 3,4 từ/s nếu tính tiêu đề.
 
 ## Tệp ngoài git
 | Tệp | Tái tạo |
