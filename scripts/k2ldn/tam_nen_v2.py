@@ -75,8 +75,14 @@ def flicker(frames, region):
 
 
 def tl(k, tag, clip=None):
-    d = V2 / 'tn' / k; o = d / tag; tld = V2 / 'tl' / k; fs = sorted(tld.glob('[0-9]*.jpg')); W, H = 640, 360
-    nofire = sorted((V2 / 'tl' / f'{k}-khonglua').glob('[0-9]*.jpg')) if k == 'M3-rong' else None
+    d = V2 / 'tn' / k; o = d / tag; W, H = 640, 360
+    def lutdir(x):                                     # áp LUT kênh A cho cả dãy khung (ffmpeg lut3d, nội suy tứ diện — như look_lut.py ap)
+        src = V2 / 'tl' / x; dst = src / 'lut'
+        if not (dst / '00000.jpg').exists():
+            dst.mkdir(exist_ok=True); lut = REPO / 'channel-k2/k2c-t3-01/mau/k2c-t3-kenh-v030.cube'
+            subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-start_number', '0', '-i', str(src / '%05d.jpg'), '-vf', f"lut3d=file='{lut}':interp=tetrahedral", '-q:v', '2', '-start_number', '0', str(dst / '%05d.jpg')], check=True)
+        return sorted(dst.glob('[0-9]*.jpg'))
+    fs = lutdir(k); nofire = lutdir(f'{k}-khonglua') if k == 'M3-rong' else None
     Lb = L.idmap(d / 'matna.png', (W, H)); A0 = L.lop_mask(Lb, [n for n in L.LOP_A if n != 'lua'])
     gh = json.load(open(o / 'ghep.json'))['khop_mau']; kk = np.array(gh['k'], np.float32); mr, sr, ma, sa = [np.array(gh[x], np.float32) for x in ('mean_render', 'std_render', 'mean_ai', 'std_ai')]
     plate = cv2.resize(cv2.imread(str(o / 'ghep.png')), (W, H), interpolation=cv2.INTER_AREA)
