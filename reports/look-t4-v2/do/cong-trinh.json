@@ -1,12 +1,692 @@
 {
- "M3-rong-hep": {},
- "M3-rong": {},
- "M4-rong-hep": {},
- "M4-rong": {},
- "do-monument-36": {},
- "do-monument-50": {},
- "do-stpauls-36": {},
- "do-stpauls-50": {},
- "do-tower-36": {},
- "do-tower-50": {}
+ "M3-rong-hep": {
+  "stpauls": {
+   "vom": {
+    "rong_max_px": 67,
+    "cao_px": 51,
+    "diem_anh": 2543,
+    "hop": [
+     186,
+     313,
+     252,
+     363
+    ]
+   },
+   "trong": {
+    "rong_max_px": 73,
+    "cao_px": 63,
+    "diem_anh": 3260,
+    "hop": [
+     185,
+     355,
+     260,
+     417
+    ]
+   },
+   "den_long": {
+    "rong_max_px": 20,
+    "cao_px": 51,
+    "diem_anh": 579,
+    "hop": [
+     203,
+     263,
+     223,
+     313
+    ]
+   },
+   "thap_tay": {
+    "rong_max_px": 49,
+    "cao_px": 149,
+    "diem_anh": 4110,
+    "hop": [
+     32,
+     349,
+     80,
+     497
+    ]
+   },
+   "than": {
+    "rong_max_px": 329,
+    "cao_px": 98,
+    "diem_anh": 21684,
+    "hop": [
+     33,
+     396,
+     364,
+     493
+    ]
+   }
+  }
+ },
+ "M3-rong": {
+  "stpauls": {
+   "vom": {
+    "rong_max_px": 46,
+    "cao_px": 36,
+    "diem_anh": 1233,
+    "hop": [
+     421,
+     382,
+     466,
+     417
+    ]
+   },
+   "trong": {
+    "rong_max_px": 51,
+    "cao_px": 44,
+    "diem_anh": 1579,
+    "hop": [
+     420,
+     411,
+     472,
+     454
+    ]
+   },
+   "den_long": {
+    "rong_max_px": 14,
+    "cao_px": 34,
+    "diem_anh": 279,
+    "hop": [
+     433,
+     349,
+     446,
+     382
+    ]
+   },
+   "thap_tay": {
+    "rong_max_px": 34,
+    "cao_px": 104,
+    "diem_anh": 1992,
+    "hop": [
+     313,
+     407,
+     346,
+     510
+    ]
+   },
+   "than": {
+    "rong_max_px": 230,
+    "cao_px": 69,
+    "diem_anh": 10543,
+    "hop": [
+     314,
+     439,
+     544,
+     507
+    ]
+   }
+  }
+ },
+ "M4-rong-hep": {
+  "stpauls": {
+   "vom": {
+    "rong_max_px": 67,
+    "cao_px": 51,
+    "diem_anh": 2543,
+    "hop": [
+     186,
+     313,
+     252,
+     363
+    ]
+   },
+   "trong": {
+    "rong_max_px": 73,
+    "cao_px": 63,
+    "diem_anh": 3260,
+    "hop": [
+     185,
+     355,
+     260,
+     417
+    ]
+   },
+   "den_long": {
+    "rong_max_px": 20,
+    "cao_px": 51,
+    "diem_anh": 579,
+    "hop": [
+     203,
+     263,
+     223,
+     313
+    ]
+   },
+   "thap_tay": {
+    "rong_max_px": 49,
+    "cao_px": 144,
+    "diem_anh": 3285,
+    "hop": [
+     32,
+     349,
+     80,
+     492
+    ]
+   },
+   "than": {
+    "rong_max_px": 329,
+    "cao_px": 97,
+    "diem_anh": 22743,
+    "hop": [
+     33,
+     396,
+     364,
+     492
+    ]
+   }
+  }
+ },
+ "M4-rong": {
+  "stpauls": {
+   "vom": {
+    "rong_max_px": 46,
+    "cao_px": 36,
+    "diem_anh": 1233,
+    "hop": [
+     421,
+     382,
+     466,
+     417
+    ]
+   },
+   "trong": {
+    "rong_max_px": 51,
+    "cao_px": 44,
+    "diem_anh": 1579,
+    "hop": [
+     420,
+     411,
+     472,
+     454
+    ]
+   },
+   "den_long": {
+    "rong_max_px": 14,
+    "cao_px": 34,
+    "diem_anh": 279,
+    "hop": [
+     433,
+     349,
+     446,
+     382
+    ]
+   },
+   "thap_tay": {
+    "rong_max_px": 34,
+    "cao_px": 99,
+    "diem_anh": 1591,
+    "hop": [
+     313,
+     407,
+     346,
+     505
+    ]
+   },
+   "than": {
+    "rong_max_px": 230,
+    "cao_px": 68,
+    "diem_anh": 11064,
+    "hop": [
+     314,
+     439,
+     544,
+     506
+    ]
+   }
+  }
+ },
+ "do-monument-36": {
+  "monument": {
+   "ca": {
+    "rong_max_px": 10,
+    "cao_px": 56,
+    "diem_anh": 166,
+    "hop": [
+     952,
+     485,
+     962,
+     540
+    ]
+   },
+   "be": null,
+   "cot": {
+    "rong_max_px": 1,
+    "cao_px": 25,
+    "diem_anh": 25,
+    "hop": [
+     956,
+     516,
+     956,
+     540
+    ]
+   },
+   "bau_lua": {
+    "rong_max_px": 4,
+    "cao_px": 6,
+    "diem_anh": 17,
+    "hop": [
+     958,
+     485,
+     961,
+     490
+    ]
+   },
+   "non": {
+    "rong_max_px": 10,
+    "cao_px": 25,
+    "diem_anh": 124,
+    "hop": [
+     952,
+     491,
+     962,
+     515
+    ]
+   }
+  },
+  "tower": {
+   "ca": {
+    "rong_max_px": 90,
+    "cao_px": 65,
+    "diem_anh": 3895,
+    "hop": [
+     1771,
+     400,
+     1863,
+     464
+    ]
+   },
+   "khoi": {
+    "rong_max_px": 69,
+    "cao_px": 48,
+    "diem_anh": 2229,
+    "hop": [
+     1781,
+     417,
+     1853,
+     464
+    ]
+   },
+   "thap_goc": {
+    "rong_max_px": 90,
+    "cao_px": 65,
+    "diem_anh": 1666,
+    "hop": [
+     1771,
+     400,
+     1863,
+     464
+    ]
+   }
+  }
+ },
+ "do-monument-50": {
+  "monument": {
+   "ca": {
+    "rong_max_px": 12,
+    "cao_px": 38,
+    "diem_anh": 92,
+    "hop": [
+     954,
+     502,
+     965,
+     539
+    ]
+   },
+   "be": null,
+   "cot": {
+    "rong_max_px": 1,
+    "cao_px": 17,
+    "diem_anh": 17,
+    "hop": [
+     957,
+     523,
+     957,
+     539
+    ]
+   },
+   "bau_lua": {
+    "rong_max_px": 4,
+    "cao_px": 4,
+    "diem_anh": 10,
+    "hop": [
+     958,
+     502,
+     961,
+     505
+    ]
+   },
+   "non": {
+    "rong_max_px": 12,
+    "cao_px": 17,
+    "diem_anh": 65,
+    "hop": [
+     954,
+     506,
+     965,
+     522
+    ]
+   }
+  },
+  "tower": {
+   "ca": {
+    "rong_max_px": 63,
+    "cao_px": 44,
+    "diem_anh": 1886,
+    "hop": [
+     1525,
+     444,
+     1589,
+     487
+    ]
+   },
+   "khoi": {
+    "rong_max_px": 49,
+    "cao_px": 34,
+    "diem_anh": 1081,
+    "hop": [
+     1532,
+     454,
+     1582,
+     487
+    ]
+   },
+   "thap_goc": {
+    "rong_max_px": 63,
+    "cao_px": 44,
+    "diem_anh": 805,
+    "hop": [
+     1525,
+     444,
+     1589,
+     487
+    ]
+   }
+  }
+ },
+ "do-stpauls-36": {
+  "stpauls": {
+   "vom": {
+    "rong_max_px": 55,
+    "cao_px": 46,
+    "diem_anh": 1908,
+    "hop": [
+     860,
+     474,
+     914,
+     519
+    ]
+   },
+   "trong": {
+    "rong_max_px": 61,
+    "cao_px": 56,
+    "diem_anh": 2461,
+    "hop": [
+     857,
+     514,
+     917,
+     569
+    ]
+   },
+   "den_long": {
+    "rong_max_px": 16,
+    "cao_px": 46,
+    "diem_anh": 426,
+    "hop": [
+     879,
+     429,
+     894,
+     474
+    ]
+   },
+   "thap_tay": {
+    "rong_max_px": 38,
+    "cao_px": 128,
+    "diem_anh": 2248,
+    "hop": [
+     730,
+     498,
+     769,
+     625
+    ]
+   },
+   "than": {
+    "rong_max_px": 274,
+    "cao_px": 85,
+    "diem_anh": 17278,
+    "hop": [
+     728,
+     550,
+     1001,
+     634
+    ]
+   }
+  }
+ },
+ "do-stpauls-50": {
+  "stpauls": {
+   "vom": {
+    "rong_max_px": 39,
+    "cao_px": 32,
+    "diem_anh": 924,
+    "hop": [
+     890,
+     494,
+     928,
+     525
+    ]
+   },
+   "trong": {
+    "rong_max_px": 43,
+    "cao_px": 39,
+    "diem_anh": 1188,
+    "hop": [
+     888,
+     522,
+     930,
+     560
+    ]
+   },
+   "den_long": {
+    "rong_max_px": 11,
+    "cao_px": 32,
+    "diem_anh": 205,
+    "hop": [
+     904,
+     463,
+     914,
+     494
+    ]
+   },
+   "thap_tay": {
+    "rong_max_px": 27,
+    "cao_px": 90,
+    "diem_anh": 1101,
+    "hop": [
+     800,
+     510,
+     827,
+     599
+    ]
+   },
+   "than": {
+    "rong_max_px": 191,
+    "cao_px": 59,
+    "diem_anh": 8378,
+    "hop": [
+     798,
+     547,
+     988,
+     605
+    ]
+   }
+  }
+ },
+ "do-tower-36": {
+  "monument": {
+   "ca": {
+    "rong_max_px": 21,
+    "cao_px": 63,
+    "diem_anh": 238,
+    "hop": [
+     104,
+     654,
+     124,
+     716
+    ]
+   },
+   "be": null,
+   "cot": {
+    "rong_max_px": 2,
+    "cao_px": 28,
+    "diem_anh": 32,
+    "hop": [
+     110,
+     689,
+     112,
+     716
+    ]
+   },
+   "bau_lua": {
+    "rong_max_px": 5,
+    "cao_px": 7,
+    "diem_anh": 27,
+    "hop": [
+     110,
+     654,
+     114,
+     660
+    ]
+   },
+   "non": {
+    "rong_max_px": 21,
+    "cao_px": 29,
+    "diem_anh": 179,
+    "hop": [
+     104,
+     660,
+     124,
+     688
+    ]
+   }
+  },
+  "tower": {
+   "ca": {
+    "rong_max_px": 70,
+    "cao_px": 56,
+    "diem_anh": 2721,
+    "hop": [
+     925,
+     501,
+     994,
+     556
+    ]
+   },
+   "khoi": {
+    "rong_max_px": 54,
+    "cao_px": 42,
+    "diem_anh": 1580,
+    "hop": [
+     934,
+     515,
+     987,
+     556
+    ]
+   },
+   "thap_goc": {
+    "rong_max_px": 70,
+    "cao_px": 56,
+    "diem_anh": 1141,
+    "hop": [
+     925,
+     501,
+     994,
+     556
+    ]
+   }
+  }
+ },
+ "do-tower-50": {
+  "monument": {
+   "ca": {
+    "rong_max_px": 12,
+    "cao_px": 44,
+    "diem_anh": 112,
+    "hop": [
+     363,
+     619,
+     377,
+     662
+    ]
+   },
+   "be": null,
+   "cot": {
+    "rong_max_px": 1,
+    "cao_px": 16,
+    "diem_anh": 14,
+    "hop": [
+     368,
+     647,
+     369,
+     662
+    ]
+   },
+   "bau_lua": {
+    "rong_max_px": 4,
+    "cao_px": 5,
+    "diem_anh": 13,
+    "hop": [
+     367,
+     619,
+     370,
+     623
+    ]
+   },
+   "non": {
+    "rong_max_px": 12,
+    "cao_px": 19,
+    "diem_anh": 85,
+    "hop": [
+     363,
+     624,
+     377,
+     642
+    ]
+   }
+  },
+  "tower": {
+   "ca": {
+    "rong_max_px": 49,
+    "cao_px": 38,
+    "diem_anh": 1326,
+    "hop": [
+     936,
+     514,
+     984,
+     551
+    ]
+   },
+   "khoi": {
+    "rong_max_px": 38,
+    "cao_px": 29,
+    "diem_anh": 764,
+    "hop": [
+     942,
+     523,
+     979,
+     551
+    ]
+   },
+   "thap_goc": {
+    "rong_max_px": 49,
+    "cao_px": 38,
+    "diem_anh": 562,
+    "hop": [
+     936,
+     514,
+     984,
+     551
+    ]
+   }
+  }
+ }
 }
