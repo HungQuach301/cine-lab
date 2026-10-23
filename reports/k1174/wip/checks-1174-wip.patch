@@ -354,10 +354,10 @@ index f2a3373c..96e44fc9 100644
  case('N2P-6', 'không log shot → THIẾU', kq(N.n2p6(E5, None), 'THIẾU'), False)
 diff --git a/checks/ll/q_bcv.py b/checks/ll/q_bcv.py
 new file mode 100644
-index 00000000..4a264a1a
+index 00000000..c0c4bf19
 --- /dev/null
 +++ b/checks/ll/q_bcv.py
-@@ -0,0 +1,187 @@
+@@ -0,0 +1,190 @@
 +#!/opt/cine/bin/python
 +"""BIEN-CO-V — thước BIẾN CỐ THẤY ĐƯỢC đo trên video (phiên K-1.17.4, 23/10/2026; K117-D8 / K116-D4, chủ dự án duyệt Q7 23/10/2026 21:45).
 +Căn cứ: Kinh thánh §4 (14/10 18:08) "trung bình ≤ 3,5 s có một biến cố hình mới …; không giữ khung tĩnh > 6 s"; §13.6 TL-1/TL-3 (timelapse: thời
@@ -392,13 +392,16 @@ index 00000000..4a264a1a
 +import json, os, subprocess, sys
 +
 +W, H, GX, GY, BUOC, FPS = 256, 144, 8, 6, 6, 24
-+THETA, K_CUC_BO = 6.0, 2.0          # ghi đè bởi hiệu chuẩn (xem HIEU_CHUAN)
++THETA, K_CUC_BO = 8.0, 2.0          # hiệu chuẩn T3 23/10/2026 (chọn trên nửa đầu, kiểm nửa sau — HIEU_CHUAN)
 +CAT_DU, CAT_MIN_PT, CAT_TY, TRONG_STD = 18.0, 12, 0.30, 3.0
 +NEO_MAX, MO_DU, MO_KHUNG = 3.0, 1.5, 2.0   # tuổi neo ô ≤ 3 s (dưới ngưỡng TB 3,5 s): đổi CHẬM hơn THETA/3 s không là biến cố thấy được; mờ khung σ 2 (σ 1 → răng cưa khi máy phóng/quay = báo nhầm 14–91/60 s clip tổng hợp), mờ phần dư σ 1,5
 +MERGE, MEAN_MAX, GAP_MAX, MIEN_MAX = 0.25, 3.5, 6.0, 10.0
 +TOL = 0.5                           # khớp tham chiếu khi hiệu chuẩn (như TL-1 đối chiếu cắt ±0,5 s)
 +HC_R_CAT, HC_R_BEAT, HC_DT, HC_FP_PHUT = 95.0, 70.0, 0.25, 1.0
-+HIEU_CHUAN = dict(dat=None, ghi='chưa hiệu chuẩn')   # điền sau lượt hiệu chuẩn T3 (reports/k1174/do/hieu-chuan-bcv.json)
++HIEU_CHUAN = dict(dat=True, master_sha='5b9f0bccd88830ab212a6747259ac597328ae87bb964addc953bf1928fd7b682', ngay='2026-10-23', theta=8.0, k=2.0,
++                  nua_dau=dict(R_cat=100.0, R_beat=90.8, dt_tv=0.05, bao_nham_tinh=0), nua_sau=dict(R_cat=100.0, R_beat=98.2, dt_tv=0.042, bao_nham_tinh=0, tinh_s=16.1),
++                  tong_hop=dict(bao_nham_chi_may=0, bat_vat_doi='6/6'), nguon='reports/k1174/do/hieu-chuan-bcv.json',
++                  ghi='ĐẠT (T3 5b9f0bcc…: θ 8, k 2; R cắt 100/100 %, R beat 90,8/98,2 %, Δt TV 0,05/0,04 s, báo nhầm 0)')
 +
 +
 +def _frames(mp4, w=W, h=H):
