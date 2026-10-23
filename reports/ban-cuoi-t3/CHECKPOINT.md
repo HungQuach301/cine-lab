@@ -2,8 +2,11 @@
 
 Gốc: `origin/k2c-t3-anim-v2` @72e3f0fe ("cứu 4 video gốc Omni") + merge --no-ff `origin/checks-1-17-1` @39d01859 (→ 622a1c27) + `origin/claude/laughing-ptolemy-u7xlwe` @0a10d1fc (→ 170e55ce). 0 xung đột.
 
+## DỪNG (23/10 ≈ 02:10 UTC) — chờ chủ dự án duyệt G2
+Xong việc 1–10. Nhánh phát hành `release-k2-t3-g2` @5e43250a (LFS đã đẩy). Báo cáo `BAN-CUOI-BAO-CAO.md`. Không còn tiến trình nền (vòng CHECKPOINT tự động đã dừng theo PGID lúc 02:05 vì HEAD đổi sang nhánh release — tránh đẩy nhầm `HEAD:k2c-t3-cuoi`; đã kiểm `k2c-t3-cuoi` trên remote không bị đổi). Mọi pod RunPod đã tắt.
+
 <!-- TRANG-THAI -->
-## Trạng thái (23/10/2026 02:03 UTC) — tự động `scripts/k2tl/cuoi_ckpt.py`
+## Trạng thái (23/10/2026 02:07 UTC) — tự động `scripts/k2tl/cuoi_ckpt.py`
 
 - **Khung cảnh đinh 1080p đã dựng:** 18288 / 18288 (100 %) — cảnh xong 44/44; đang dựng: —
 - **Đoạn đã render (sec/*.mkv, quy về khung phim):** 45/45 đoạn = 18288 / 18288 khung phim (100 %). Còn: 

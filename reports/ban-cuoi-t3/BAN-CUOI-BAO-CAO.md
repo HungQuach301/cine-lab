@@ -9,7 +9,7 @@
 | Nhánh làm việc | `k2c-t3-cuoi` (đã đẩy; **không** dùng nhánh mặc định của bộ khung `ccr-e46904cd-ltvfbq`) |
 | Gốc | `origin/k2c-t3-anim-v2` @72e3f0fe + merge --no-ff `origin/checks-1-17-1` @39d01859 (→ 622a1c27) + `origin/claude/laughing-ptolemy-u7xlwe` @0a10d1fc (→ 170e55ce) + **`origin/checks-1-17-2` @451e3970 (→ 681f0081, lệnh bổ sung 22/10)** — 0 xung đột |
 | LOCK | 1.17.2 `aca05e60…6d60` — `lock.py --verify` KHỚP ở mọi lần chạy và mọi commit |
-| Nhánh phát hành | `release-k2-t3-g2` — xem §10 (SHA commit ghi ở §10) |
+| Nhánh phát hành | `release-k2-t3-g2` @**`5e43250a`** (= `k2c-t3-cuoi` @ad124ee1 + gói ở gốc; LFS; đã đẩy) |
 | Master | `k2-t3-v1-master.mp4` SHA-256 `5b9f0bccd88830ab212a6747259ac597328ae87bb964addc953bf1928fd7b682` · 1920×1080 H.264 High 24 fps · 762,000 s · 18 288 khung · hình 18,5 Mb/s (crf 17, trần 19 Mb/s) · AAC LC 48 kHz 310 kb/s · tổng 18,8 Mb/s · 1,79 GB |
 | Lệnh bổ sung 22/10 (sau K-1.17.2) | XONG ≈ 07:45 UTC: merge checks-1-17-2; khai M1 không đoạn / C4 `ai_image: false`; M2–M5 `luot` + SHA gốc + tệp kiểm; `so_goc`/`goc_may` mọi shot cắt góc; `giong_tong_hop: true` + `phat_hanh: {cong: phat_hanh, goi: release-k2-t3-g2, youtube_altered_content: true}`; không đổi dấu cảnh nào (prep thử → 0 cảnh đổi) |
 | Lệnh bổ sung 22/10 (trạng thái) | XONG 14:57: khối "Trạng thái" trong CHECKPOINT tự cập nhật mỗi lần đẩy (`scripts/k2tl/cuoi_ckpt.py`), số dư RunPod ghi vào `gio-gpu.jsonl` |
@@ -87,7 +87,21 @@ Tệp: `do/k2check-1.17.2-cap.txt` (lượt 1), `-l2.txt`, `-l3.txt`; khiếu n�
 | XEM CÂM 3 AI (tham khảo, 1 khung/4 s, 320×180, không tiếng) | từ khoá **45/48** (R1 16/16, R2 13/16, R3 16/16; Q4 5/6, Q7 4/6); thang 8 câu: 8,0 · 6,5 · 8,0; $0,39. **P chưa đọc lại nguyên văn; chủ dự án chưa chấm** |
 
 ## 10. Việc 10 — xuất
-<!-- XUAT -->
+**Nhánh `release-k2-t3-g2`** = `k2c-t3-cuoi` @`ad124ee1` + commit **`5e43250a`** (đã đẩy 02:06 UTC 23/10; `git lfs push` lại: 0 đối tượng cần tải → 4 đối tượng LFS đã ở máy chủ). Chỉ gói ở gốc nhánh; LFS đúng `tools/lfs-allow.txt` (`*-master.mp4`, `*-v[0-9]-p[0-9].mp4`); preflight 14 tệp **ĐẠT**.
+
+| Tệp (gốc nhánh release) | Cỡ | SHA-256 | Ghi chú |
+|---|---|---|---|
+| `k2-t3-v1-master.mp4` (LFS) | 1 792 597 145 B | `5b9f0bccd88830ab212a6747259ac597328ae87bb964addc953bf1928fd7b682` | 1080p24 H.264 High, **18,82 Mb/s tổng** (hình 18,51 · AAC 310 kb/s ≥ 256) |
+| `k2-t3-v1-p1.mp4` (LFS) | 620 478 004 B | `a431eaab…77c` | 0 → 262,208 s (6 293 khung) |
+| `k2-t3-v1-p2.mp4` (LFS) | 503 865 724 B | `9e193745…394` | 262,208 → 471,625 s (5 026 khung) |
+| `k2-t3-v1-p3.mp4` (LFS) | 663 959 397 B | `dec0fd06…72e3` | 471,625 → 762,0 s (6 969 khung); khung ranh p1/p2/p3 ↔ master MD5 KHỚP |
+| `k2-t3-v1-en.srt` / `.vtt` | 13,6 / 12,4 kB | `a18ac507…` / `d7b4a923…` | 129 câu |
+| `k2-t3-v1-thumb-1…6.jpg` | 0,73–0,92 MB | `SHA256SUMS.txt` | 1920×1080, không chữ, X01/X08 |
+| `SHA256SUMS.txt`, `README-k2-t3-g2.md` | | | |
+
+Ngoài git (SHA): `mix.wav` `b0eb636a77f4338cb0d3f27b750c8cb9e91849b5e115e1df553bb106770d76d4` · `stem-giong.wav` `0cbe4556fa2ac60e49d4d223beb3ccaae60ac758ce30923821702d887efce69d` · `stem-nhac.wav` `c85fbff6ea5e627d28a7503d47ff882bcb176163e996376d9ed05e3ffe3127a0` · `stem-sfx.wav` `7547d96018ea0d11128cd37325b51472f2e953c91d050bf27e3a5ea789514237` (219 MB/tệp, `/var/tmp/cine-out/k2c-t3-cuoi/mix/` — mất khi container thu hồi; tái tạo `scripts/k2tl/cuoi_mix.py`; đề xuất D4). Master crf 16 lượt 1 (41,3 Mb/s, `86b0a507…`) đã xoá vì đĩa — tái tạo được.
+
+Nhánh làm việc: 8 tệp xem 640×360 theo chương `reports/ban-cuoi-t3/xem/01…08` (4,62–4,75 MB, tổng 762 s), tờ khung 73 ô `to/to-khung.jpg`, 11 tờ so trước/sau `to/to-so-*.jpg`, tờ thumbnail `to/to-thumbnail-6.jpg`, tờ soi C1/N3.3 `to/soi/`.
 
 ## 11. Chi phí thật
 | Dịch vụ | Chi | Mốc |
