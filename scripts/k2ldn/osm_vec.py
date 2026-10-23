@@ -39,9 +39,23 @@ for rid, (mem, t) in rels.items():
     if t.get('type') == 'multipolygon' and ('building' in t or 'building:part' in t):
         for typ, ref, role in mem:
             if typ == 'way' and role == 'outer' and ref in ways: add_bld(ring(ways[ref][0]), t, 'r' + rid)
-    if t.get('type') == 'multipolygon' and (t.get('natural') == 'water' or t.get('water')):
-        for typ, ref, role in mem:
-            if typ == 'way' and role == 'outer' and ref in ways: R['nuoc'].append({'id': 'r' + rid, 'r': ring(ways[ref][0]), 'k': t.get('water') or 'water', 'open': True})
+    if t.get('type') == 'multipolygon' and (t.get('natural') == 'water' or t.get('water') or t.get('waterway') == 'riverbank'):
+        segs = [list(ways[ref][0]) for typ, ref, role in mem if typ == 'way' and role in ('outer', '') and ref in ways]
+        rings = []
+        while segs:                                   # nối các đoạn way thành vòng kín (theo nút đầu/cuối)
+            cur = segs.pop(0); changed = True
+            while cur[0] != cur[-1] and changed:
+                changed = False
+                for i, sg in enumerate(segs):
+                    if sg[0] == cur[-1]: cur += sg[1:]
+                    elif sg[-1] == cur[-1]: cur += sg[::-1][1:]
+                    elif sg[-1] == cur[0]: cur = sg + cur[1:]
+                    elif sg[0] == cur[0]: cur = sg[::-1] + cur[1:]
+                    else: continue
+                    segs.pop(i); changed = True; break
+            rings.append(cur)
+        for rr in rings:
+            R['nuoc'].append({'id': 'r' + rid, 'r': ring(rr), 'k': t.get('water') or 'water', 'kin': rr[0] == rr[-1], 'thieu_nut': sum(1 for n in rr if n not in P)})
 for nid, (lo, la, t) in nodes.items():
     if t.get('name') and (t.get('amenity') == 'place_of_worship' or 'historic' in t or t.get('place')): R['diem'].append({'name': t['name'], 'p': P[nid], 'k': t.get('amenity') or t.get('historic') or t.get('place'), 'osm': 'n' + nid})
 json.dump(R, open(os.path.join(OUT, 'osm2026.json'), 'w'))
