@@ -17,6 +17,22 @@
 >
 > Cả hai phép đo đều chỉ đọc chữ.
 
+## CẬP NHẬT 23/10/2026 (phiên PHAT-HANH-T3: T3, T4) — bổ sung, không thay
+| Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 23/10 (PHAT-HANH-T3) |
+|---|---|---|---|---|
+| T3 | K2C-T3-01 | **Gibraltar: From 14 Sieges to a Runway \| 3D Timelapse** | VÀNG | **Đã nghiệm thu, chờ đăng.** G2 bản cuối nghiệm thu 23/10 10:24; 10:45 chủ dự án dừng mọi sửa phim (BAN-CUOI D1–D6 không làm), tự tạo thumbnail bằng AI khi đăng. Bản cuối merge vào `main` (k2c-t3-cuoi @7fe51d13). Gói đăng ở gốc nhánh `release-k2-t3-g2` (master `5b9f0bcc…`, phụ đề, `k2-t3-v1-title/youtube-description/pinned-comment/tags.txt`, hướng dẫn `k2-t3-v1-dang-tai.md`). Sau khi đăng: đo bình luận chê giọng/AI ≤ 2 % (Kinh thánh §10.1); cổng quyết định sau 3 tập lịch sử (T3, T4, T5) |
+| T4 | — | **London — cháy hai lần, làm lại hai lần** | XANH | Tiền kỳ giấy xong ở Project: `claude/CINE-LAB-T4-TIEN-KY-GIAY.md` (**ngoài repo**; 12 dữ kiện đã kiểm nằm trong tệp đó). Chủ dự án duyệt 4 quyết định 22/10 13:40 ("Đồng ý Quyết 4 mục T4 trên theo khuyến nghị") — dưới đây |
+
+**T4 — 4 quyết định đã duyệt (22/10/2026 13:40; AUTHORSHIP cùng ngày):**
+| Mã | Quyết định |
+|---|---|
+| T4-G1 | Không dùng ảnh "St Paul's Survives" — dựng 3D + 1 ảnh Crown MOI |
+| T4-G2 | Cách nói ba dữ kiện: "late February 1667" · "fewer than ten recorded deaths" · "Churchill reportedly" |
+| T4-G3 | Điểm máy xương sống Bankside đặt cao |
+| T4-G4 | Dữ liệu hiện trạng 2026 chỉ dùng OSM + LiDAR EA + OS Open |
+
+**12 dữ kiện đã kiểm:** nằm trong `claude/CINE-LAB-T4-TIEN-KY-GIAY.md` (Project). Phiên PHAT-HANH-T3 không đọc được tệp ngoài repo nên **không chép lại ở đây** (không đoán); ba dữ kiện có cách nói đã chốt là ba mục T4-G2. **Việc chờ:** chủ dự án hoặc phiên tiền kỳ T4 đưa tệp vào repo (`channel-k2/` thư mục T4) để phiên sau tóm tắt đủ 12 mục.
+
 ## CẬP NHẬT 22/10/2026 (phiên P-2210: T3, T4) — bổ sung, không thay
 Định vị kênh: Kinh thánh §18 (series "Contested Places", hướng Steel bỏ — chủ dự án 22/10 07:04).
 
