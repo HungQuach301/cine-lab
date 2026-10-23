@@ -53,7 +53,40 @@
   "iii_mh": 0,
   "iv": 0,
   "iv_vat": "",
-  "v": null,
+  "v": {
+   "khung": 192,
+   "nhap_nhay_ghep": 0.0227,
+   "nhap_nhay_doi_chung": 0.0066,
+   "nhap_nhay_render_tho": 2.4327,
+   "ty_le": 3.439,
+   "dat": false
+  },
+  "dat": false
+ },
+ "M1-rong-gem-l3g": {
+  "i": 0,
+  "vat": "",
+  "ii": 0,
+  "qtd": "1 khung soi · nghi vấn 0 ở 0 khung · ghi",
+  "iii": [
+   1.11,
+   19.77
+  ],
+  "iii_hop": [
+   2.61,
+   19.77
+  ],
+  "iii_mh": 0,
+  "iv": 1,
+  "iv_vat": "claude:khoi",
+  "v": {
+   "khung": 192,
+   "nhap_nhay_ghep": 0.0666,
+   "nhap_nhay_doi_chung": 0.0662,
+   "nhap_nhay_render_tho": 2.4375,
+   "ty_le": 1.006,
+   "dat": true
+  },
   "dat": false
  },
  "M1-rong-oai-l1": {
@@ -94,6 +127,25 @@
   "v": null,
   "dat": false
  },
+ "M1-rong-oai-l3-thamkhao": {
+  "i": 0,
+  "vat": "",
+  "ii": 0,
+  "qtd": "1 khung soi · nghi vấn 0 ở 0 khung · ghi",
+  "iii": [
+   0.12,
+   0.03
+  ],
+  "iii_hop": [
+   0.3,
+   0.03
+  ],
+  "iii_mh": 0,
+  "iv": 1,
+  "iv_vat": "claude:khoi",
+  "v": null,
+  "dat": false
+ },
  "M1-rong-oai-l3": {
   "i": 0,
   "vat": "",
@@ -110,7 +162,40 @@
   "iii_mh": 0,
   "iv": 2,
   "iv_vat": "gpt:khoi; claude:khoi",
-  "v": null,
+  "v": {
+   "khung": 192,
+   "nhap_nhay_ghep": 0.0246,
+   "nhap_nhay_doi_chung": 0.0054,
+   "nhap_nhay_render_tho": 2.4327,
+   "ty_le": 4.556,
+   "dat": false
+  },
+  "dat": false
+ },
+ "M1-rong-oai-l3g": {
+  "i": 0,
+  "vat": "",
+  "ii": 0,
+  "qtd": "1 khung soi · nghi vấn 0 ở 0 khung · ghi",
+  "iii": [
+   0.15,
+   0.03
+  ],
+  "iii_hop": [
+   0.35,
+   0.03
+  ],
+  "iii_mh": 0,
+  "iv": 1,
+  "iv_vat": "claude:khoi",
+  "v": {
+   "khung": 192,
+   "nhap_nhay_ghep": 0.0663,
+   "nhap_nhay_doi_chung": 0.066,
+   "nhap_nhay_render_tho": 2.4375,
+   "ty_le": 1.005,
+   "dat": true
+  },
   "dat": false
  },
  "M1-trung-gem-l1": {
@@ -167,7 +252,40 @@
   "iii_mh": 0,
   "iv": 1,
   "iv_vat": "claude:khoi",
-  "v": null,
+  "v": {
+   "khung": 72,
+   "nhap_nhay_ghep": 0.0186,
+   "nhap_nhay_doi_chung": 0.0035,
+   "nhap_nhay_render_tho": 2.4821,
+   "ty_le": 5.314,
+   "dat": false
+  },
+  "dat": false
+ },
+ "M1-trung-gem-l3g": {
+  "i": 0,
+  "vat": "",
+  "ii": 0,
+  "qtd": "1 khung soi · nghi vấn 0 ở 0 khung · ghi",
+  "iii": [
+   0.14,
+   26.28
+  ],
+  "iii_hop": [
+   0.25,
+   26.28
+  ],
+  "iii_mh": 0,
+  "iv": 1,
+  "iv_vat": "claude:khoi",
+  "v": {
+   "khung": 72,
+   "nhap_nhay_ghep": 0.043,
+   "nhap_nhay_doi_chung": 0.0428,
+   "nhap_nhay_render_tho": 2.4844,
+   "ty_le": 1.005,
+   "dat": true
+  },
   "dat": false
  },
  "M1-trung-oai-l1": {
@@ -208,6 +326,25 @@
   "v": null,
   "dat": false
  },
+ "M1-trung-oai-l3-thamkhao": {
+  "i": 0,
+  "vat": "",
+  "ii": 0,
+  "qtd": "1 khung soi · nghi vấn 0 ở 0 khung · ghi",
+  "iii": [
+   0.15,
+   4.83
+  ],
+  "iii_hop": [
+   0.27,
+   4.83
+  ],
+  "iii_mh": 0,
+  "iv": 2,
+  "iv_vat": "gpt:khoi; claude:khoi",
+  "v": null,
+  "dat": false
+ },
  "M1-trung-oai-l3": {
   "i": 0,
   "vat": "",
@@ -224,7 +361,40 @@
   "iii_mh": 0,
   "iv": 2,
   "iv_vat": "gpt:khoi; claude:khoi",
-  "v": null,
+  "v": {
+   "khung": 72,
+   "nhap_nhay_ghep": 0.0427,
+   "nhap_nhay_doi_chung": 0.0036,
+   "nhap_nhay_render_tho": 2.4821,
+   "ty_le": 11.861,
+   "dat": false
+  },
+  "dat": false
+ },
+ "M1-trung-oai-l3g": {
+  "i": 0,
+  "vat": "",
+  "ii": 0,
+  "qtd": "1 khung soi · nghi vấn 0 ở 0 khung · ghi",
+  "iii": [
+   0.14,
+   4.88
+  ],
+  "iii_hop": [
+   0.26,
+   4.88
+  ],
+  "iii_mh": 0,
+  "iv": 2,
+  "iv_vat": "gpt:khoi; claude:khoi",
+  "v": {
+   "khung": 72,
+   "nhap_nhay_ghep": 0.0429,
+   "nhap_nhay_doi_chung": 0.0429,
+   "nhap_nhay_render_tho": 2.4844,
+   "ty_le": 1.0,
+   "dat": true
+  },
   "dat": false
  },
  "M3-rong-gem-l1": {
@@ -281,7 +451,14 @@
   "iii_mh": 1,
   "iv": 1,
   "iv_vat": "claude:khoi",
-  "v": null,
+  "v": {
+   "khung": 72,
+   "nhap_nhay_ghep": 0.02,
+   "nhap_nhay_doi_chung": 0.0061,
+   "nhap_nhay_render_tho": 2.2567,
+   "ty_le": 3.279,
+   "dat": false
+  },
   "dat": false
  },
  "M3-rong-oai-l1": {
@@ -338,7 +515,14 @@
   "iii_mh": 0,
   "iv": 12,
   "iv_vat": "gpt:thuyen_nho; gpt:thuyen_nho; gpt:thuyen_nho; gpt:thuyen_nho; gpt:thuyen_nho; gpt:thuyen_nho; gpt:thuyen_nho; gpt:thuyen_nho; gpt:thuyen_nho; gpt:thuyen_nho; claude:thuyen_nho; claude:khoi",
-  "v": null,
+  "v": {
+   "khung": 72,
+   "nhap_nhay_ghep": 0.0293,
+   "nhap_nhay_doi_chung": 0.0061,
+   "nhap_nhay_render_tho": 2.2567,
+   "ty_le": 4.803,
+   "dat": false
+  },
   "dat": false
  },
  "M4-rong-gem-l1": {
@@ -395,7 +579,14 @@
   "iii_mh": 0,
   "iv": 0,
   "iv_vat": "",
-  "v": null,
+  "v": {
+   "khung": 72,
+   "nhap_nhay_ghep": 0.0001,
+   "nhap_nhay_doi_chung": 0.0,
+   "nhap_nhay_render_tho": 2.435,
+   "ty_le": 1.0,
+   "dat": true
+  },
   "dat": false
  },
  "M4-rong-oai-l1": {
@@ -452,7 +643,14 @@
   "iii_mh": 0,
   "iv": 0,
   "iv_vat": "",
-  "v": null,
+  "v": {
+   "khung": 72,
+   "nhap_nhay_ghep": 0.0001,
+   "nhap_nhay_doi_chung": 0.0,
+   "nhap_nhay_render_tho": 2.435,
+   "ty_le": 1.0,
+   "dat": true
+  },
   "dat": true
  }
 }
