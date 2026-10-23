@@ -1,0 +1,48 @@
+ĐÚNG [TL-3] N2_7 thật: trong_pct [[t, %], …] 15 mẫu (≈ 42 %) → không sập, sạch (1.17.2: TypeError) — kỳ vọng sạch
+ĐÚNG [TL-3] danh sách [[0, 80], [5, 70]] (TB 73,5 %) không thời gian chạy → (b) trống — kỳ vọng bắt lỗi
+ĐÚNG [TL-3] danh sách [[0, 30], [1, 95]] trên 14,4 s → TB theo THỜI GIAN 90,5 % (không phải TB cộng 62,5 %) → (b) — kỳ vọng bắt lỗi
+ĐÚNG [TL-3] danh sách [[0, 95], [13, 30]] → TB theo thời gian 89,1 % → (b); cùng shot có thời gian chạy → sạch — kỳ vọng sạch
+ĐÚNG [TL-3] dạng [{t, v}] 40 % → sạch — kỳ vọng sạch
+ĐÚNG [TL-3] số TB shot 65 % (dạng cũ) → (b) như 1.17.2 — kỳ vọng bắt lỗi
+ĐÚNG [TL-3] trong_pct 'abc' → THIẾU (không sập) — kỳ vọng bắt lỗi
+ĐÚNG [Q37 (a) tl] bản sao đường cong thời gian của K trùng tl7.js (năm ≤ 1e-9, crossing ≤ 1/48 s) — kỳ vọng sạch
+ĐÚNG [Q37 (a) tl] H2 thật: bước năm "2027 → 1310" @3,38 s (mốc opt.time t = 3,375) → 1.17.2 (a) lỗi — kỳ vọng bắt lỗi
+ĐÚNG [Q37 (a) tl] H2 thật: cùng beat, tl_moc (1.17.3) → khớp mốc — kỳ vọng sạch
+ĐÚNG [Q37 (a) tl] N2_7: khói smoke[1].wY qua đường cong opt.time → 1.69 s; beat đúng giờ trình dựng → sạch — kỳ vọng sạch
+ĐÚNG [Q37 (a) tl] N2_7: cùng beat, không tl_moc (1.17.2) → (a) — kỳ vọng bắt lỗi
+ĐÚNG [Q37 (a) tl] N2_7 thật: beat "khói xuất hiện" @3,08 s (thước xưởng scripts/k2tl/cuoi_bien_co.py: nội suy tuyến tính + dy() bỏ múi giờ LMT; lệch giờ trình dựng 1,39 s) → vẫn (a) ở 1.17.3 — kỳ vọng bắt lỗi
+ĐÚNG [Q37 (a) tl] N2_7: beat @9,0 s không ứng mốc nào → (a) dù tl_moc (không nới bừa) — kỳ vọng bắt lỗi
+ĐÚNG [Q37 (a) tl] N1_1 thật: thẻ chương p.the_chuong.at 0,4 s → tl_moc khớp — kỳ vọng sạch
+ĐÚNG [Q37 (a) tl] tập không cảnh opt.time: tl_moc không thêm mốc (spec_times giống hệt) — kỳ vọng sạch
+ĐÚNG [EO-DAT-R3] N2_11 thật: 3 góc khai goc_may → (b) sạch (1.17.2: 8.8 s) — kỳ vọng sạch
+ĐÚNG [EO-DAT-R3] N2_11 thật bỏ goc_may (chỉ so_goc) → (b) như 1.17.2 — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R3] N5_4 thật: 3 góc khai goc_may → (b) sạch (1.17.2: 12.7 s) — kỳ vọng sạch
+ĐÚNG [EO-DAT-R3] N5_4 thật bỏ goc_may (chỉ so_goc) → (b) như 1.17.2 — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R3] N5_1 thật: 9,599 → 15,6 s = 6,001 s → lưới khung 144 khung = 6,00 s → sạch, nêu ±5 % — kỳ vọng sạch
+ĐÚNG [EO-DAT-R3] khoảng 6,10 s (146 khung) → (b) — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R3] goc_may t = 0 không tính ranh (đầu shot đã tính) → shot 1 góc 16 s không biến cố → (b) — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R3] N4_5 thật 1 góc, không khai ngoại lệ → (a) — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R3] N4_5 khai r3_ngoai_le trỏ 23/10 10:45 nhưng dòng AUTHORSHIP đó không nêu N4_5 + R3 → vẫn (a) (K không tự cho đạt) — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R3] N4_5 khai r3_ngoai_le + AUTHORSHIP có dòng 2026-10-24 09:12 nêu N4.5 + R3 → (a) nhận, ghi "ngoại lệ có khai" — kỳ vọng sạch
+ĐÚNG [EO-DAT-R3] r3_ngoai_le thiếu ly_do → (a) — kỳ vọng bắt lỗi
+ĐÚNG [EO-DAT-R3] r3_ngoai_le khai nhưng không có AUTHORSHIP.md → (a) — kỳ vọng bắt lỗi
+ĐÚNG [cấp] EO-DAT-R3 (b) ở G2 → Chặn (không đổi) — kỳ vọng bắt lỗi
+ĐÚNG [PP-1] PP1 thật 26 từ thân + 5 từ tiêu đề / 9 s = 3,4 từ/s → (e) Cảnh báo (giữ luật 1.16 — K116-D8) — kỳ vọng bắt lỗi
+ĐÚNG [PP-1] PP1 rút còn 22 từ thân + 5 tiêu đề = 27 / 9 s = 3,0 → sạch (cách khai đúng cho T4) — kỳ vọng sạch
+ĐÚNG [Q33 miễn năm] thật N1_6/N2_10/N3_4/N5_2 với năm log [min, max] (1.17.2) → N2_10, N3_4 KHÔNG miễn (N1_6 bao 1704–2026) — kỳ vọng bắt lỗi
+ĐÚNG [Q33 miễn năm] cùng 4 lần với khoảng năm HIỆN (1.17.3) → N2_10, N3_4, N5_2 đều miễn (≤ 2 lần tính) — kỳ vọng sạch
+ĐÚNG [Q33 miễn năm] N2_10 đổi sang 1704,9–1705,1 (chồng khoảng hiện 1704,8–1705,3 của N1_6) → N2_10 KHÔNG miễn — kỳ vọng bắt lỗi
+ĐÚNG [Q33 miễn năm] dạng cũ {đoạn: (y0, y1)} vẫn đọc được (tập không opt.time) — kỳ vọng sạch
+ĐÚNG [Q33 miễn năm] cùng đoạn → không miễn dù năm khác — kỳ vọng sạch
+ĐÚNG [SACH-1] thẻ chương vai `chuong` trong khoảng khai + chữ thẻ PP vai rỗng ("How this film was made", "illustrative") → sạch (1.17.2: (c) + (e) ×2) — kỳ vọng sạch
+ĐÚNG [SACH-1] cùng chữ thẻ chương nhưng hiện ở 10 s (ngoài khoảng khai 0,4–3,4 s) → (e) — kỳ vọng bắt lỗi
+ĐÚNG [SACH-1] "illustrative" ngoài thẻ PP (12 s) → (c) cấm — kỳ vọng bắt lỗi
+ĐÚNG [SACH-1] chữ vai rỗng lạ ở 5 s → (e) như cũ — kỳ vọng bắt lỗi
+ĐÚNG [SACH-1] chữ thẻ chương KHÁC nguyên văn khai ("1704 — The Rock is captured") trong khoảng → (e) — kỳ vọng bắt lỗi
+ĐÚNG [1.17.3 áp dụng] tập trước T3: q_k117.check KHÔNG ÁP mọi hàng — kỳ vọng sạch
+
+  bản sao tl7 của K so tl7.js (node): lệch năm max 0.00e+00 trên 147 điểm · lệch crossing max 0.000 s trên 12 năm
+  H2 thật: (a) 1.17.2 19 lỗi → 1.17.3 0
+  năm hiện N1_6 1704.80–1705.30, 1727.15–1727.45, 1730.00–1735.40, 2026.78–2026.79 · N2_10 [(1782.3959, 1782.5795)] · N3_4 [(1900.0, 1930.0)]
+
+selftest 1.17.3: 42/42 ca đúng kỳ vọng · TL-3 7/7 · Q37 (a) tl 9/9 · EO-DAT-R3 12/12 · cấp 1/1 · PP-1 2/2 · Q33 miễn năm 5/5 · SACH-1 5/5 · 1.17.3 áp dụng 1/1 · luật thiếu ca đạt hoặc trượt: không
