@@ -1,9 +1,316 @@
+diff --git a/checks/ll/cap112.py b/checks/ll/cap112.py
+index b551cd6a..5a298efc 100644
+--- a/checks/ll/cap112.py
++++ b/checks/ll/cap112.py
+@@ -1,5 +1,5 @@
+ #!/opt/cine/bin/python
+-"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) + 1.16 (SACH-1…PC-1, K-LAI-3V; chỉ tập từ T3; chủ dự án duyệt K116-D1…D9 19/10 18:48 → 1.16.1) + 1.17 (MINH-HOA, EO-DAT-R1…R3 từ T3; N2P-1…6 từ T4) + 1.17.1 (EO-DAT ngưỡng §14.7, EO-DAT-R4) + 1.17.2 (EO-DAT-R1 chỉ báo mọi cổng — V2-D2; CONG-BO-1 Chặn ở gói phát hành) + 1.17.3 (khiếu nại BAN-CUOI-T3 A1–A6: không đổi cấp hàng nào) (phiên K, 17–23/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
++"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) + 1.16 (SACH-1…PC-1, K-LAI-3V; chỉ tập từ T3; chủ dự án duyệt K116-D1…D9 19/10 18:48 → 1.16.1) + 1.17 (MINH-HOA, EO-DAT-R1…R3 từ T3; N2P-1…6 từ T4) + 1.17.1 (EO-DAT ngưỡng §14.7, EO-DAT-R4) + 1.17.2 (EO-DAT-R1 chỉ báo mọi cổng — V2-D2; CONG-BO-1 Chặn ở gói phát hành) + 1.17.3 (khiếu nại BAN-CUOI-T3 A1–A6: không đổi cấp hàng nào) + 1.17.4 (BIEN-CO-V; từ T4: MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU, GEMINI-NGAN-SACH, GOC-CAO-60) (phiên K, 17–23/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
+ HH1) và các luật 1.12.1 (chủ dự án duyệt 16–17/10: HH2, HH3, MM1–MM4, JJ1–JJ2, KK1). Mặc định `k2check.py` vẫn CHỈ BÁO (ghi cấp cạnh kết quả);
+ `--cap` áp cấp vào mã thoát: hàng có lỗi thuộc phần Chặn → TRƯỢT, chỉ có lỗi phần Cảnh báo → CẢNH BÁO (không tính vào mã thoát).
+ 
+@@ -85,8 +85,17 @@ CAP = {
+     'N2P-6': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (d) trần, K đề xuất', {'*'}, set()),
+     # 1.17.2 (phiên K-1.17.2, 22/10/2026; quyết định chủ dự án 22/10 11:09)
+     'CONG-BO-1': ('Chặn ở gói phát hành (`cong: phat_hanh` | `phat_hanh.goi: true`) · chỉ báo (Cảnh báo) ở mọi cổng trước — §14.1 (f), YouTube "AI use"', {'*'}, set()),
++    # 1.17.4 (phiên K-1.17.4, 23/10/2026; chủ dự án duyệt Q1–Q7 23/10 21:45; lệnh: "mức Cảnh báo ở animatic, Chặn ở G2 trừ khi ghi khác")
++    'BIEN-CO-V': ('Chặn (b), (c), (h) ở G2 khi thước đạt hiệu chuẩn (q_bcv.HIEU_CHUAN + (h) trên tập) · Cảnh báo ở animatic hoặc khi chưa hiệu chuẩn — K117-D8', set('bch'), set()),
++    'MAY-19': ('Chặn (a)–(g) ở G2 · Cảnh báo ở animatic · (w) luôn Cảnh báo — §19 (a)', set('abcdefg'), {'w'}),
++    'BAN-DO-12': ('Chặn ở G2 · Cảnh báo ở animatic — §19 (b)', {'*'}, set()),
++    'TU-LIEU-10': ('Chặn ở G2 · Cảnh báo ở animatic — §19 (c)', {'*'}, set()),
++    'AI-TU-LIEU': ('Chặn ở G2 · Cảnh báo ở animatic — §19 (b)(c)', {'*'}, set()),
++    'GEMINI-NGAN-SACH': ('Chặn (a) vượt ngân sách, (u) thiếu giá thật ở G2 · Cảnh báo (k) thiếu khai, (m) vượt mốc theo dõi · Cảnh báo ở animatic — Q2 (i)', set('au'), set('km')),
++    'GOC-CAO-60': ('Chặn ở G2 · Cảnh báo ở animatic — Q2 (iii)', {'*'}, set()),
+ }
+-CONG = {'K-LAI-3V', 'MINH-HOA', 'EO-DAT-R2', 'EO-DAT-R3', 'EO-DAT-R4', 'N2P-1', 'N2P-2', 'N2P-3', 'N2P-4', 'N2P-5', 'N2P-6'}   # cấp theo cổng (r['cong'])
++CONG = {'K-LAI-3V', 'MINH-HOA', 'EO-DAT-R2', 'EO-DAT-R3', 'EO-DAT-R4', 'N2P-1', 'N2P-2', 'N2P-3', 'N2P-4', 'N2P-5', 'N2P-6',
++        'BIEN-CO-V', 'MAY-19', 'BAN-DO-12', 'TU-LIEU-10', 'AI-TU-LIEU', 'GEMINI-NGAN-SACH', 'GOC-CAO-60'}   # cấp theo cổng (r['cong']); 1.17.4 thêm 7 hàng
+ _M = re.compile(r'^\((\w)\)')
+ 
+ 
+@@ -110,6 +119,7 @@ def cap(ma, r):
+         ch = [x for x in loi + th if (_muc(x) or '*') in 'abd*' or (_muc(x) == 'c' and r.get('doi_trinh_dung'))]
+         return mo, ch, [x for x in loi if x not in ch]
+     if ma in CONG and r.get('cong') == 'animatic': return mo, [], loi + th   # K116-D5 (+ 1.17): animatic (`animatic: true`) chỉ Cảnh báo
++    if ma == 'BIEN-CO-V' and not r.get('dat_hieu_chuan'): return mo, [], loi + th   # 1.17.4: thước chưa đạt hiệu chuẩn → chỉ Cảnh báo
+     if ma == 'CONG-BO-1' and r.get('cong') != 'phat_hanh': return mo, [], loi + th   # 1.17.2: Chặn chỉ ở gói phát hành
+     if '*' in CH: return mo, loi + th, []
+     if '*' in CB: return mo, [], loi + th
+diff --git a/checks/ll/k2check.py b/checks/ll/k2check.py
+index 2c6aba93..8921eef3 100644
+--- a/checks/ll/k2check.py
++++ b/checks/ll/k2check.py
+@@ -16,6 +16,9 @@ Phiên xưởng chỉ CHẠY (không đọc mã). Định nghĩa: checks/ll/RULE
+              1.17.3 (tập từ T3; khiếu nại BAN-CUOI-T3 A1–A6): TL-3 nhận trong_pct [[t, %], …] · Q37/NHIP-K2/Q37 (1.13) (a) đọc mốc cảnh tl/*
+              (opt.time + năm thế giới của lớp vật qua đường cong thời gian) · EO-DAT-R3 (b) ranh góc máy + lưới khung, (a) ngoại lệ có khai
+              (`r3_ngoai_le` + dòng AUTHORSHIP) · Q33 miễn năm theo khoảng năm hiện (opt.time, bước năm) · SACH-1 chữ thẻ chương/PP theo đặc tả
++             1.17.4 (chủ dự án duyệt Q1–Q7 23/10/2026 21:45): BIEN-CO-V thước biến cố ĐO trên video (tập từ T3 có video; K117-D8) — tập từ T4 cộng
++             biến cố đo vào Q37/NHIP-K2/Q37 (1.13) (b)(c) khi thước đạt hiệu chuẩn · Q37 (c) miễn khối thẻ PP cuối phim (K1173-D6, từ T3) · tập từ T4:
++             MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU (§19), GEMINI-NGAN-SACH, GOC-CAO-60 (Q2); MINH-HOA (a) / N2P-6 (b) bỏ trần 20 % (Q2)
+ 
+ Gọi: Q26b bối cảnh · Q32 footage/ảnh nguồn ngoài · Q33 lặp cảnh · Q34 loại shot · Q35 nhãn loại số (D5) · Q36 chữ trên màn hình ·
+ Q37 nhịp thị giác · A1–A13 âm thanh · LOCK. Mã thoát 0 khi mọi mục ĐẠT (âm thanh của tập cũ: CHỈ BÁO, không tính).
+@@ -40,7 +43,7 @@ Mặc định: timeline <out>/timeline.json, master <out>/<id>-v1-master.mp4 n
+ import glob, json, os, subprocess, sys
+ 
+ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
+-from checks.ll import base, q_setting, q_footage, q_scene, q_types, q_chu, q_nhip, q_amthanh, q_mach, q_ftg, q_hinh, q_tl, q_k2var, cap112, q_k116, q_k117  # noqa: E402
++from checks.ll import base, q_setting, q_footage, q_scene, q_types, q_chu, q_nhip, q_amthanh, q_mach, q_ftg, q_hinh, q_tl, q_k2var, cap112, q_k116, q_k117, q_bcv, q_k1174  # noqa: E402
+ from checks.cinecheck import VERSION  # noqa: E402
+ 
+ 
+@@ -65,6 +68,15 @@ def main():
+         try: TLB.append((json.load(open(bp)), os.path.dirname(os.path.abspath(bp))))
+         except (OSError, ValueError): pass
+ 
++    # 1.17.4 (K117-D8): thước biến cố video — đo một lần (tập từ T3 có video); cộng vào Q37 (b)(c) chỉ tập từ T4 khi thước đạt hiệu chuẩn
++    mv0 = m if m and os.path.exists(m) else None
++    BCV = None
++    if V16 and mv0 and '--no-bcv' not in a:
++        try: BCV = q_bcv.do_video(mv0)
++        except Exception as e: BCV = e
++    BCVR = q_bcv.hang(E, TL, mv0, 'animatic' if E.get('animatic') else 'G2', MIEN, BCV if isinstance(BCV, dict) else None) if (V16 and isinstance(BCV, dict)) else None
++    BV = [(t, s_, k_, d_) for t, s_, k_, d_ in q_bcv.cho_q37(E, BCV if isinstance(BCV, dict) else None, bool(BCVR and BCVR.get('dat_hieu_chuan')))]
++
+     def row(q, ten, r, nguong=''):
+         kq = r.get('ket_qua') or ('ĐẠT' if r['ok'] else 'TRƯỢT')
+         rows.append(dict(q=q, ten=ten, kq=kq, val=r.get('val', ''), nguong=nguong, sat='; '.join(r.get('sat_nguong') or []), loi=(r.get('loi') or []) + (r.get('thieu') or [])))
+@@ -74,7 +86,7 @@ def main():
+     row('Q34', 'Loại shot', q_types.q34(E, TL, ep_dir), 'type · map ±6 s · photo ±6 s · số neo 3D ≥ 60 % · document ≤ 3 s · record ≤ 12 s + dòng tô + nguồn')
+     row('Q35', 'Nhãn loại số (D5)', q_chu.q35(E, TL, logs), 'ACTUAL ≤ 1/khung · ESTIMATE bắt buộc · số có năm rõ không cần ACTUAL')
+     row('Q36', 'Chữ trên màn hình', q_chu.q36(E, TL, logs), 'nguồn ≥ 38 px, 1 dòng, ≤ 70 ký tự · Facts as of chỉ với luật hiệu lực (+ 1 lần trong câu miễn trừ 0:00–0:15)')
+-    row('Q37', 'Nhịp thị giác' + (' (1.16: miễn khung neo/im lặng ≤ 10 s)' if V16 else ''), q_nhip.q37(E, TL, m if m and os.path.exists(m) else None, tl=TLB or None, mien=MIEN, tl_moc=V17),
++    row('Q37', 'Nhịp thị giác' + (' (1.16: miễn khung neo/im lặng ≤ 10 s; 1.17.4: + thẻ PP cuối phim)' if V16 else ''), q_nhip.q37(E, TL, m if m and os.path.exists(m) else None, tl=TLB or None, mien=MIEN, tl_moc=V17, bcv=BV),
+         'TB ≤ 3,5 s · dài nhất ≤ 6 s · khung tĩnh ≤ 6 s')
+     ra = q_amthanh.check(E, TL, master=m, MX=MX, vo=g('vo'), bed=g('bed'), asr='--no-asr' not in a, v116=V16)
+     row('A1–A13', 'Âm thanh (' + ('MIX=audio' if ra['ap_dung'] else 'tập cũ — chỉ báo') + ')', ra, 'docs/AUDIO-THUOC-DO.md')
+@@ -111,7 +123,7 @@ def main():
+     if g('vang') and g('moi'): bao('KHOP1', 'Khớp cấu trúc khi đổi trình dựng', lambda: q_hinh.khop1(g('vang'), g('moi')), 'tần thấp ≤ 3 % · dịch ≤ 1 · PSNR¼ ≥ 40 · SSIM ≥ 0,90 · renderer ghi rõ, không trộn')
+     # ---- 1.12.2: biến thể kênh 2 (NN2, NN3, khiếu nại Q14/Q15/Q17) — CHỈ BÁO cạnh luật cũ tới khi chủ dự án duyệt thay
+     mv = m if m and os.path.exists(m) else None
+-    bao('NHIP-K2', 'Nhịp kênh 2 (Q14–Q18 không áp → Q37)', lambda: q_k2var.nhip_k2(E, TL, mv, tl=TLB or None, mien=MIEN, tl_moc=V17), 'TB ≤ 3,5 s · dài nhất ≤ 6 s')
++    bao('NHIP-K2', 'Nhịp kênh 2 (Q14–Q18 không áp → Q37)', lambda: q_k2var.nhip_k2(E, TL, mv, tl=TLB or None, mien=MIEN, tl_moc=V17, bcv=BV), 'TB ≤ 3,5 s · dài nhất ≤ 6 s')
+     bao('Q26b-K2', 'Đa dạng loại cảnh + vùng', lambda: q_k2var.q26b_k2(E, TL), '≥ 3 loại/nửa · loại ≤ 70 % · vùng ≤ 25 %, ≤ 90 s, nửa sau ≥ 3')
+     bao('Q33-K2', 'Lặp cảnh (vùng, góc) + pHash L/ΔE', lambda: {k: v for k, v in q_k2var.q33_k2(E, TL, mv, nam_log=NL17).items() if k != 'aps'},
+         '≤ 2 lần (miễn: khác chương + khác năm/lớp' + ('; 1.17.3: năm hiện (opt.time / log shot) không chồng — TL-1)' if NL17 else ')'))
+@@ -161,7 +173,13 @@ def main():
+     bao('Q33 (1.13)', 'Lặp cảnh — pHash bỏ lớp chữ cố định', lambda: q_scene.q33(E, TL, video=mv, k2=True, nam_log=NL17),
+         '≤ 2 lần · pHash L vùng nội dung y 18–72 %, θ 16' + (' · 1.17.3: miễn cùng điểm máy năm khác (TL-1, năm hiện theo opt.time)' if NL17 else ''))
+     bao('Q36 (1.13)', 'Chữ — câu miễn trừ nhận theo chữ', lambda: q_chu.q36(E, TL, logs, v113=True), '"This video explains… Facts as of" 1 lần trong 0:00–0:15 không đòi nguồn luật')
+-    bao('Q37 (1.13)', 'Nhịp — khung tĩnh theo khung neo', lambda: q_nhip.q37(E, TL, mv, v113=True, tl=TLB or None, mien=MIEN, tl_moc=V17), 'khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s')
++    bao('Q37 (1.13)', 'Nhịp — khung tĩnh theo khung neo', lambda: q_nhip.q37(E, TL, mv, v113=True, tl=TLB or None, mien=MIEN, tl_moc=V17, bcv=BV), 'khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s')
++    if V16:   # 1.17.4 (K117-D8): thước biến cố ĐO trên video
++        def bcv_row():
++            if BCVR: return BCVR
++            if isinstance(BCV, Exception): return dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {BCV}'], val='—', cong='animatic' if E.get('animatic') else 'G2')
++            return q_bcv.hang(E, TL, None, 'animatic' if E.get('animatic') else 'G2', MIEN)
++        bao('BIEN-CO-V', 'Biến cố thấy được ĐO trên video (K117-D8)', bcv_row, 'TB khoảng biến cố đo ≤ 3,5 s · dài nhất ≤ 6 s (miễn khung neo/im lặng/thẻ PP ≤ 10 s) · bắt ≥ 95 % ranh shot')
+     # ---- 1.14: BD-1…BD-8 bản đồ chiến lược/inset/ranh (NC-BD §3.4; chủ dự án duyệt B1–B8 17/10) + K-R1…K-R9 ĐỎ-K (NC-LS2 §5.3; YY5) — CHỈ BÁO
+     from checks.ll import q_bando, q_dok
+     BDT = {'BD-1': 'Bản đồ chiến lược: tỷ trọng + định nghĩa', 'BD-2': 'Bản đồ chiến lược: chuyển động', 'BD-3': 'Nhãn ranh "approx. borders c. YYYY — nguồn"',
+@@ -273,6 +291,18 @@ def main():
+             try: N2 = q_n2p.check(E, TL, ep_dir, LS17, vision='--n2p-vision' in a)
+             except Exception as e: N2 = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in N2T}
+             for k in N2T: bao(k, N2T[k], lambda k=k: N2[k], N2N[k])
++    # ---- 1.17.4: §19 + Q2 (tập từ T4) — CHỈ BÁO (cấp ở cap112, áp với --cap)
++    if V16:
++        K74T = {'MAY-19': 'Ngữ pháp máy §19 (a)', 'BAN-DO-12': 'Bản đồ ≤ 12 % §19 (b)', 'TU-LIEU-10': 'Tư liệu + khắc + thẻ ≤ 10 % §19 (c)', 'AI-TU-LIEU': 'Không AI lên tư liệu §19 (b)(c)',
++                'GEMINI-NGAN-SACH': 'Ngân sách Gemini của tập (Q2 i)', 'GOC-CAO-60': 'Góc cao timelapse ≥ 60 % (Q2 iii)'}
++        K74N = {'MAY-19': 'tốc độ theo cú máy (log khung) · N2+ = CODINH · KHOP ≤ 0,5 px · ≥ 4 loại/chương · ≤ 2 liền · THAP ≤ 12 %', 'BAN-DO-12': 'MAP + MAP3D ≤ 12 % · ≤ 10 s/lần',
++                'TU-LIEU-10': 'TL + KHAC + THE ≤ 10 %', 'AI-TU-LIEU': '0 shot tư liệu có AI · 0 dòng sổ AI có SHA tư liệu', 'GEMINI-NGAN-SACH': 'tổng usd sổ Gemini ≤ ngan_sach_gemini_usd',
++                'GOC-CAO-60': 'goc cao + tl (V7B-D1 theo log khung) ≥ 60 % thân phim'}
++        if not q_k1174.ap_1174(E): bao('1.17.4 (T4)', 'MAY-19 … GOC-CAO-60', lambda: dict(ok=True, loi=[], val='tập trước T4 — không hồi tố (Q2: T3 giữ luật cũ)', ket_qua='KHÔNG ÁP'))
++        else:
++            try: K74 = q_k1174.check(E, TL, ep_dir, LS17)
++            except Exception as e: K74 = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in K74T}
++            for k in K74T: bao(k, K74T[k], lambda k=k: K74[k], K74N[k])
+     lk = subprocess.run([sys.executable, os.path.join(base.REPO, 'checks', 'lock.py'), '--verify'], capture_output=True, text=True)
+     rows.append(dict(q='LOCK', ten=f'checks/ khớp LOCK ({VERSION})', kq='ĐẠT' if lk.returncode == 0 else 'TRƯỢT', val='KHỚP' if lk.returncode == 0 else 'KHÔNG KHỚP', nguong='', sat='', loi=[]))
+     ok = all(r['kq'] in ('ĐẠT', 'CẢNH BÁO') or r['kq'].startswith('CHỈ BÁO') for r in rows)
+diff --git a/checks/ll/q_k116.py b/checks/ll/q_k116.py
+index c841afea..e3464c2d 100644
+--- a/checks/ll/q_k116.py
++++ b/checks/ll/q_k116.py
+@@ -846,6 +846,13 @@ def q37_mien(E, TL):
+         P = dict(z['sh'].get('p') or {}, **(z['spec'].get('p') or {})); S = z['spec']
+         if S.get('khung_neo') or S.get('neo') or P.get('khung_neo') or P.get('neo'): out.append((z['t0'], z['t1'], 'khung_neo', f"{z['seg']}/{z['i']}"))
+         elif S.get('im_lang') or P.get('im_lang'): out.append((z['t0'], z['t1'], 'im_lang', f"{z['seg']}/{z['i']}"))
++    # 1.17.4 (K1173-D6, chủ dự án duyệt Q7 23/10/2026 21:45): đoạn thẻ phương pháp (D6: 2 thẻ × ≈ 8 s, cuối phim) miễn Q37 (c) như khung neo /
++    # tấm im lặng. Chỉ nhận khối thẻ PP liền nhau KẾT ở cuối phim (± PP_END); trần ≤ 10 s/thẻ (q37: MIEN_MAX) và ≤ 2 thẻ (q37: PP_MIEN_N).
++    PS = sorted(pp_spans(E, TL), key=lambda x: x[1]); T = tong(E, TL); khoi = []
++    for x in reversed(PS):
++        if (not khoi and abs(x[2] - T) <= PP_END) or (khoi and khoi[-1][1] - x[2] <= 0.05): khoi.append(x)
++        elif khoi: break
++    out += [(round(a, 3), round(b, 3), 'the_pp', str(sid)) for sid, a, b, _ in reversed(khoi)]
+     return out
+ 
+ 
+diff --git a/checks/ll/q_k117.py b/checks/ll/q_k117.py
+index d119785a..8034661f 100644
+--- a/checks/ll/q_k117.py
++++ b/checks/ll/q_k117.py
+@@ -207,8 +207,10 @@ def minh_hoa(E, TL, LS, ep_dir='.', TX=None, step=12, why=None):
+     T = K6.tong(E, TL) if (TL or E.get('segments')) else sum(_dur(s) for s in LS)
+     M = {k: [] for k in 'acde'}; th, near = [], []
+     tot = sum(d['b'] - d['a'] for d in DS); pct = 100 * tot / T if T else 0.0
+-    if pct > MH_MAX + LEN: M['a'].append(f'(a) minh hoạ {tot:.1f} s = {pct:.1f} % > {MH_MAX:g} % thời lượng ({len(DS)} đoạn)')
+-    near += K6.sat('minh hoạ %', round(pct, 2), MH_MAX)
++    t4 = bool(E.get('kenh2_tu_t4') or E.get('n2p'))   # 1.17.4 (Q2, chủ dự án 23/10/2026 21:45): tập từ T4 bỏ trần cứng 20 % — thay bằng GEMINI-NGAN-SACH,
++    if not t4:                                         # N2P-6 (c) tổng AI ≤ 70 %, GOC-CAO-60 (q_k1174). T3 giữ trần cũ (không hồi tố).
++        if pct > MH_MAX + LEN: M['a'].append(f'(a) minh hoạ {tot:.1f} s = {pct:.1f} % > {MH_MAX:g} % thời lượng ({len(DS)} đoạn)')
++        near += K6.sat('minh hoạ %', round(pct, 2), MH_MAX)
+     SA = _so_ai(E, ep_dir)
+     if isinstance(SA, str): th.append(SA); SA = None
+     for d in DS:
+@@ -226,7 +228,8 @@ def minh_hoa(E, TL, LS, ep_dir='.', TX=None, step=12, why=None):
+         if not dl: M['e'].append(f"(e) {w}: sổ AI không có dòng cho đoạn (so_ai của đoạn/shot, hoặc tệp so_ai: có shot/doan/ma = {d['ma']} hoặc tag = luot)")
+         elif not any(_dong_ok(x) for x in dl): M['e'].append(f'(e) {w}: dòng sổ AI thiếu model / lệnh / SHA đầu ra')
+     return K6.r(loi=sum(M.values(), []), thieu=th, muc=M, sat_nguong=near,
+-                val=f"{len(DS)} đoạn minh hoạ ({', '.join(d['id'] for d in DS[:6])}) · {tot:.1f} s = {pct:.1f} % · lỗi kẹp {len(M['c'])} · AGL {len(M['d'])} · sổ AI {len(M['e'])}"
++                val=f"{len(DS)} đoạn minh hoạ ({', '.join(d['id'] for d in DS[:6])}) · {tot:.1f} s = {pct:.1f} %" + (' (từ T4: không trần cứng — Q2; xem GEMINI-NGAN-SACH, N2P-6 (c), GOC-CAO-60)' if t4 else '')
++                    + f" · lỗi kẹp {len(M['c'])} · AGL {len(M['d'])} · sổ AI {len(M['e'])}"
+                     + ' · nhãn: không bắt buộc (1.17.2)' + mt)
+ 
+ 
+diff --git a/checks/ll/q_k2var.py b/checks/ll/q_k2var.py
+index d534fd73..487b5676 100644
+--- a/checks/ll/q_k2var.py
++++ b/checks/ll/q_k2var.py
+@@ -310,14 +310,14 @@ def q32b_k2(E, TL):
+ 
+ 
+ # ================================================================ NHIP-K2 (Q14–Q18 → Q37 cho kênh 2)
+-def nhip_k2(E, TL, mp4=None, tl=None, mien=None, tl_moc=False):
++def nhip_k2(E, TL, mp4=None, tl=None, mien=None, tl_moc=False, bcv=None):
+     """Kênh 2: Q14–Q18 (luật nhịp LL) KHÔNG ÁP; nhịp đo bằng Q37 (TB ≤ 3,5 s, dài nhất ≤ 6 s — Kinh thánh §4, thước scripts/k2/rhythm.py).
+     Đặc tả chưa khai `beats` → dùng MỐC ĐẶC TẢ (mọi mốc thật khai trong đặc tả): TRƯỢT khi mốc đã vượt ngưỡng (máy 3D di chuyển liên tục không
+     sinh mốc nên phải chốt bằng beats hoặc master); mốc ĐẠT → "ĐẠT (cận)" (mốc ≥ biến cố khai được)."""
+     from checks.ll import q_nhip, q_rhythm
+     if not is_k2(E): return dict(ok=True, loi=[], val='không áp (tập LL: Q14–Q18 như cũ)', khong_ap=True)
+     ll = q_rhythm.measure(dict(E, kenh=2, id=E.get('id') or 'k2'), TL)
+-    r = q_nhip.q37(E, TL, mp4, tl=tl, mien=mien, tl_moc=tl_moc); M = r.get('moc_dac_ta')   # tl_moc: 1.17.3 (A2), chỉ tập từ T3
++    r = q_nhip.q37(E, TL, mp4, tl=tl, mien=mien, tl_moc=tl_moc, bcv=bcv); M = r.get('moc_dac_ta')   # tl_moc: 1.17.3 (A2), chỉ tập từ T3
+     if r.get('bien_co') or not M: return dict(r, ll=ll, val='Q37: ' + r['val'])
+     loi = [x for x in (r.get('loi') or []) if not x.startswith('(a)') or 'không khai beats' not in x]
+     if M['tb'] > 3.5: loi.append(f"(b) mốc đặc tả: TB {M['tb']} s > 3,5 s (mốc đặc tả; chuyển động máy liên tục của cảnh 3D không sinh mốc — chốt bằng beats hoặc master)")
+diff --git a/checks/ll/q_n2p.py b/checks/ll/q_n2p.py
+index 126b3019..25b0fa12 100644
+--- a/checks/ll/q_n2p.py
++++ b/checks/ll/q_n2p.py
+@@ -29,7 +29,7 @@ Hàng (cấp ở cap112.py: Chặn ở cổng G2 · Cảnh báo ở animatic (`a
+   N2P-5 (v) nhấp nháy + chuyển tấm (video shot tấm nền): (a) mỗi chuyển tấm khai `kieu: hoa` và `dur` ≥ 2 s; (b) bước nhảy chuyển tấm: max theo
+         bước khung của ΔE76 TB trên lớp (c) ≤ 1,0 ΔE/khung; (c) nhấp nháy: TB |Δ xám|/khung trên lớp (c) ngoài cửa sổ hoà ≤ 1,5 × đối chứng render
+         (sàn đo SAN_NHAP = 0,02 mức xám/khung khi đối chứng ≈ 0).
+-  N2P-6 (vi) trần §15(d) (log shot): (a) tấm nền `ai_nen` ≤ 50 % thời lượng; (b) minh hoạ `minh_hoa` (M-d) ≤ 20 %; (c) tổng khung có AI (ai_nen ∪
++  N2P-6 (vi) trần §15(d) (log shot): (a) tấm nền `ai_nen` ≤ 50 % thời lượng; (b) minh hoạ `minh_hoa` (M-d) — 1.17.4 (Q2): KHÔNG trần cứng, chỉ ghi %; (c) tổng khung có AI (ai_nen ∪
+         minh_hoa ∪ ai_image ∪ ai_texture) ≤ 70 %; (d) không chồng: một shot không vừa `ai_nen` vừa `minh_hoa`.
+ Mô hình nhìn MẶC ĐỊNH TẮT (chi phí ≈ $0,2/khung + q_thoi_dai ≈ $0,04 × 2): `--vision` (k2check `--n2p-vision`) mới gọi; không cờ → đọc bộ đệm
+ <out>/n2p-vision-cache.json; khung chưa soi → THIẾU (Chặn ở G2).
+@@ -311,6 +311,8 @@ def _dur(s):
+ 
+ 
+ def n2p6(E, LS, tong_s=None):
++    """1.17.4 (Q2, chủ dự án 23/10/2026 21:45): (b) trần minh hoạ 20 % BỎ cho tập từ T4 (mọi tập vào N2P đều từ T4) — chỉ ghi %; giới hạn thay thế:
++    GEMINI-NGAN-SACH (ngân sách Gemini của tập), (c) tổng AI ≤ 70 % (giữ), GOC-CAO-60 (q_k1174)."""
+     if not LS: return r(thieu=['không có log shot (`log_shot`) — không đọc được ai_nen / minh_hoa'], val='—')
+     T = float(tong_s) if tong_s else sum(_dur(s) for s in LS)
+     nen = [s for s in LS if s.get('ai_nen')]; mh = [s for s in LS if s.get('minh_hoa')]
+@@ -318,11 +320,10 @@ def n2p6(E, LS, tong_s=None):
+     pn, pm, pt = (100 * sum(_dur(s) for s in x) / T if T else 0.0 for x in (nen, mh, ai))
+     loi, near = [], []
+     if pn > TRAN_NEN + 1e-9: loi.append(f'(a) tấm nền N2+ {pn:.1f} % > {TRAN_NEN:g} % thời lượng ({len(nen)} shot)')
+-    if pm > TRAN_MH + 1e-9: loi.append(f'(b) minh hoạ (M-d) {pm:.1f} % > {TRAN_MH:g} % ({len(mh)} shot)')
+     if pt > TRAN_TONG + 1e-9: loi.append(f'(c) tổng khung có AI {pt:.1f} % > {TRAN_TONG:g} % ({len(ai)} shot)')
+     loi += [f"(d) {s.get('shot')}: vừa ai_nen vừa minh_hoa (chồng shot — mỗi shot một loại)" for s in LS if s.get('ai_nen') and s.get('minh_hoa')]
+-    near += sat('tấm nền %', round(pn, 2), TRAN_NEN) + sat('minh hoạ %', round(pm, 2), TRAN_MH) + sat('tổng AI %', round(pt, 2), TRAN_TONG)
+-    return r(loi, val=f'{T:.1f} s · tấm nền {pn:.1f} % ({len(nen)}) · minh hoạ {pm:.1f} % ({len(mh)}) · tổng AI {pt:.1f} % ({len(ai)})', sat_nguong=near,
++    near += sat('tấm nền %', round(pn, 2), TRAN_NEN) + sat('tổng AI %', round(pt, 2), TRAN_TONG)
++    return r(loi, val=f'{T:.1f} s · tấm nền {pn:.1f} % ({len(nen)}) · minh hoạ {pm:.1f} % ({len(mh)}; không trần cứng từ 1.17.4 — Q2) · tổng AI {pt:.1f} % ({len(ai)})', sat_nguong=near,
+              muc={c: [x for x in loi if x.startswith(f'({c})')] for c in 'abcd'}, pct=dict(nen=round(pn, 2), minh_hoa=round(pm, 2), tong=round(pt, 2)))
+ 
+ 
+diff --git a/checks/ll/q_nhip.py b/checks/ll/q_nhip.py
+index 6b3561e3..0c1bb0e5 100644
+--- a/checks/ll/q_nhip.py
++++ b/checks/ll/q_nhip.py
+@@ -389,6 +389,7 @@ def stats(ev, total):
+ 
+ 
+ MIEN_MAX, IM_LANG_N = 10.0, 2   # 1.16 (khiếu nại A-G1B-5; Kinh thánh §11.2): khung neo giữ 6–10 s; 1–2 tấm im lặng 8–10 s/tập
++PP_MIEN_N = 2                    # 1.17.4 (K1173-D6): ≤ 2 thẻ phương pháp × ≤ 10 s (MIEN_MAX), cuối phim — miễn (c) (q_k116.q37_mien)
+ 
+ 
+ def gaps_mien(ev, total, mien):
+@@ -408,12 +409,14 @@ def gaps_mien(ev, total, mien):
+     return round(g, 2), f'{e[1]} {e[0]:.2f}s ({e[2]})', ex
+ 
+ 
+-def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None, tl_moc=False):
++def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None, tl_moc=False, bcv=None):
+     """v113=True: (d) khung tĩnh theo khung neo (1.13) — CHỈ BÁO (k2check hàng "Q37 (1.13)") tới khi chủ dự án duyệt; mặc định thước 1.11.0.
+     tl = [(bộ timelapse, thư mục)] (1.15, I8): cộng biến cố đo trong cảnh tl vào (b), (c).
+     mien = [(t0, t1 tuyệt đối, 'khung_neo'|'im_lang', tên)] (1.16, CHỈ tập từ T3 — khiếu nại A-G1B-5): (c) bỏ khoảng nằm trọn trong shot khung neo /
+     tấm im lặng khi ≤ 10 s (Kinh thánh §11.2); shot miễn > 10 s → (c); > 2 tấm im lặng/tập → (c). TB (b) và khung tĩnh (d) giữ nguyên.
+-    tl_moc (1.17.3, CHỈ tập từ T3 — khiếu nại A2): (a) đối chiếu cả mốc thật của cảnh timelapse (spec_times tl_moc). (b)(c)(d) không đổi."""
++    tl_moc (1.17.3, CHỈ tập từ T3 — khiếu nại A2): (a) đối chiếu cả mốc thật của cảnh timelapse (spec_times tl_moc). (b)(c)(d) không đổi.
++    bcv (1.17.4, K117-D8 — CHỈ tập từ T4, thước q_bcv đạt hiệu chuẩn): [(t tuyệt đối, 'video', loại, mô tả)] biến cố ĐO trên video, cộng vào (b)(c)
++    như I8; không qua (a). Biến cố tự khai trong log shot không bao giờ được nhận."""
+     V = view(E, TL); bad, ev, mk, t_abs, nob = [], [], [], 0.0, []
+     for sid, dur, HZ, shots, B in V:
+         T = spec_times(HZ, shots, dur, tl_moc); mk += [(t_abs + x, sid, 'mốc', '') for x in T if x < dur]
+@@ -429,6 +432,7 @@ def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None, tl_moc=Fal
+     if nob: bad.append(f'(a) {len(nob)}/{len(V)} đoạn không khai beats ({", ".join(nob[:6])}{"…" if len(nob) > 6 else ""})')
+     TE = tl_bien_co(V, tl, dict(E.get('heroes') or {}, **((TL or {}).get('heroes') or {}))) if tl else []
+     ev += [(t, sid, k, s) for t, sid, k, s in TE]
++    BV = list(bcv or []); ev += BV
+     S = stats(ev, t_abs) if ev else None; M = stats(mk, t_abs); near = []
+     if S:
+         if S['tb'] > MEAN_MAX: bad.append(f"(b) khoảng biến cố trung bình {S['tb']} s > {MEAN_MAX} s")
+@@ -439,6 +443,8 @@ def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None, tl_moc=Fal
+                 if b_ - a_ > MIEN_MAX + 1e-6: bad.append(f"(c) shot {k_} {n_} dài {b_ - a_:.2f} s > {MIEN_MAX:g} s (miễn chỉ tới {MIEN_MAX:g} s)")
+             nil = sorted({n_ for a_, b_, k_, n_ in mien if k_ == 'im_lang'})
+             if len(nil) > IM_LANG_N: bad.append(f"(c) {len(nil)} tấm im lặng khai miễn > {IM_LANG_N}/tập ({', '.join(nil[:6])})")
++            npp = sorted({n_ for a_, b_, k_, n_ in mien if k_ == 'the_pp'})
++            if len(npp) > PP_MIEN_N: bad.append(f"(c) {len(npp)} thẻ phương pháp khai miễn > {PP_MIEN_N}/tập ({', '.join(npp[:6])}) — 1.17.4 K1173-D6")
+         if S['dai_nhat'] > GAP_MAX: bad.append(f"(c) khoảng dài nhất {S['dai_nhat']} s > {GAP_MAX} s (từ {S['dai_nhat_tu']})")
+         near += [f"TB {S['tb']} s (ngưỡng {MEAN_MAX})"] if abs(S['tb'] - MEAN_MAX) <= 0.05 * MEAN_MAX else []
+         near += [f"khoảng dài nhất {S['dai_nhat']} s (ngưỡng {GAP_MAX})"] if abs(S['dai_nhat'] - GAP_MAX) <= 0.05 * GAP_MAX else []
+@@ -450,13 +456,14 @@ def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None, tl_moc=Fal
+             if L > STATIC_MAX: bad.append(f'(d) khung tĩnh {L} s > {STATIC_MAX} s (từ {int(a // 60)}:{a % 60:04.1f})')
+             elif abs(L - STATIC_MAX) <= 0.05 * STATIC_MAX: near.append(f'khung tĩnh {L} s từ {int(a // 60)}:{a % 60:04.1f} (ngưỡng {STATIC_MAX})')
+         troi = [x for x in _runs_cu(F, STATIC_MAX) if not any(L > STATIC_MAX and a <= x[1] + x[0] and x[1] <= a + L for L, a in A)] if v113 else []
+-    val = (f"{t_abs:.1f} s · " + (f"biến cố khai {S['n'] - len(TE)}{' + đo cảnh tl ' + str(len(TE)) if TE else ''} (gộp {S['gop']}) · TB {S['tb']} s · dài nhất {S['dai_nhat']} s" if S else 'không khai beats')
++    val = (f"{t_abs:.1f} s · " + (f"biến cố khai {S['n'] - len(TE) - len(BV)}{' + đo cảnh tl ' + str(len(TE)) if TE else ''}{' + đo video ' + str(len(BV)) if BV else ''} (gộp {S['gop']}) · TB {S['tb']} s · dài nhất {S['dai_nhat']} s" if S else 'không khai beats')
+            + (f" · khung tĩnh ({'neo, < ' + str(STATIC_ANCHOR) + '/255' if v113 else 'khung liền < ' + str(STATIC_DIFF) + '/255'}) dài nhất {st[0]} s (từ {int(st[1] // 60)}:{st[1] % 60:04.1f})"
+               + (f" · trôi chậm (thước cũ > {STATIC_MAX:g} s, không tĩnh): {len(troi)} quãng, dài nhất {max(troi)[0]} s từ {int(max(troi)[1] // 60)}:{max(troi)[1] % 60:04.1f}" if troi else '')
+               if st else ' · khung tĩnh: không đo (không có master)')
+            + (f" · tham khảo mốc đặc tả: TB {M['tb']} s, dài nhất {M['dai_nhat']} s ({M['dai_nhat_tu']})" if M and not S else '')
+            + (f" · miễn khung neo/im lặng (1.16): {len(S.get('mien') or [])} khoảng, dài nhất trước miễn {S.get('dai_nhat_goc')} s" if S and mien is not None else '')
+-           + (f" · biến cố cảnh tl (đo, I8): {len(TE)} (" + ', '.join(f'{k[3:]} {sum(1 for x in TE if x[2] == k)}' for k in sorted({x[2] for x in TE})) + ')' if TE else ''))
++           + (f" · biến cố cảnh tl (đo, I8): {len(TE)} (" + ', '.join(f'{k[3:]} {sum(1 for x in TE if x[2] == k)}' for k in sorted({x[2] for x in TE})) + ')' if TE else '')
++           + (f" · biến cố đo trên video (1.17.4, q_bcv): {len(BV)}" if BV else ''))
+     return dict(ok=not bad, loi=bad, val=val, note='; '.join(bad[:5]), sat_nguong=near, bien_co=S, moc_dac_ta=M, khung_tinh=st, khung_tinh_cu=st_cu,
+                 troi_cham=troi, tong_s=round(t_abs, 2), bien_co_tl=TE)
+ 
+diff --git a/checks/ll/selftest_k117.py b/checks/ll/selftest_k117.py
+index f2a3373c..96e44fc9 100644
+--- a/checks/ll/selftest_k117.py
++++ b/checks/ll/selftest_k117.py
+@@ -176,7 +176,7 @@ def LSx(nen, mh, n1=0.0, chong=False):
+ 
+ 
+ for args, exp, muc, ten in (((50, 20), False, 'abcd', 'tấm nền 50 % · minh hoạ 20 % · tổng 70 % (đúng trần) → sạch'),
+-                            ((51, 10), True, 'a', 'tấm nền 51 % → (a)'), ((30, 21), True, 'b', 'minh hoạ 21 % → (b)'),
++                            ((51, 10), True, 'a', 'tấm nền 51 % → (a)'), ((30, 21), False, 'b', 'minh hoạ 21 % → 1.17.4 (Q2, chủ dự án 23/10 21:45): bỏ trần 20 % cho T4 → không (b) [kỳ vọng 1.17.0 đổi]'),
+                             ((45, 20, 6), True, 'c', 'tổng AI 71 % (45 + 20 + N1 6) → (c)'), ((40, 10, 0, True), True, 'd', 'một shot vừa ai_nen vừa minh_hoa → (d)')):
+     case('N2P-6', ten, bad(N.n2p6(E5, LSx(*args)), *muc), exp)
+ case('N2P-6', 'không log shot → THIẾU', kq(N.n2p6(E5, None), 'THIẾU'), False)
 diff --git a/checks/ll/q_bcv.py b/checks/ll/q_bcv.py
 new file mode 100644
-index 00000000..ce9f5f7f
+index 00000000..d9884354
 --- /dev/null
 +++ b/checks/ll/q_bcv.py
-@@ -0,0 +1,202 @@
+@@ -0,0 +1,186 @@
 +#!/opt/cine/bin/python
 +"""BIEN-CO-V — thước BIẾN CỐ THẤY ĐƯỢC đo trên video (phiên K-1.17.4, 23/10/2026; K117-D8 / K116-D4, chủ dự án duyệt Q7 23/10/2026 21:45).
 +Căn cứ: Kinh thánh §4 (14/10 18:08) "trung bình ≤ 3,5 s có một biến cố hình mới …; không giữ khung tĩnh > 6 s"; §13.6 TL-1/TL-3 (timelapse: thời
@@ -16,17 +323,19 @@ index 00000000..ce9f5f7f
 +máy (homography gộp neo → hiện tại) và bù sáng toàn khung (g·x + o, bình phương nhỏ nhất trên vùng hợp lệ): phần dư r = |Δ| trung bình trong ô
 +(mức xám /255). Ô có r ≥ THETA và r ≥ K_CUC_BO × trung vị r các ô (thay đổi CỤC BỘ, không phải trôi/thị sai toàn khung) → ô ĐỔI, neo ô về khung
 +hiện tại. Ô ra khỏi vùng nhìn (phần hợp lệ < 50 %, do máy đi) → neo lại, KHÔNG là biến cố (vật mới vào khung do máy không phải biến cố thời gian).
++Neo ô quá NEO_MAX (3 s) → neo lại, không biến cố: "thấy được" = đổi cục bộ ≥ THETA trong ≤ 3 s (chặn trôi tích luỹ của bù chuyển động máy).
 +BIẾN CỐ = thời điểm có ≥ 1 ô đổi (hoặc cắt); gộp các biến cố cách < 0,25 s (như Q37). Đổi liên tục (lửa lan, nhà mọc) cho biến cố lặp theo
 +tốc độ đổi (mỗi lần ô vượt ngưỡng so với neo của nó).
 +Bù chuyển động máy chỉ là homography — thị sai mạnh (máy cẩu thấp) còn dư; điều kiện "cục bộ" (≥ K × trung vị) chặn phần lớn dư thị sai.
 +
 +HIỆU CHUẨN (trên master T3 bản cuối, SHA 5b9f0bcc…; `reports/k1174/do/hieu_chuan_bcv.py`): tham chiếu = ranh shot + ranh góc máy (cắt), beat
-+khai ĐÃ KHỚP mốc đặc tả (Q37 (a) 1.17.3), mốc đặc tả 1.17.3 (tl_moc). Tiêu chí ĐẠT đặt trước khi đo (HC_*): R cắt ≥ 95 %, R beat ≥ 70 %,
-+độ chính xác ≥ 70 % và hơn mức ngẫu nhiên (biến cố dịch giờ) ≥ 20 điểm %, sai số giờ trung vị ≤ 0,25 s — trên cả nửa chỉnh lẫn nửa kiểm.
-+Kết quả ghi ở HIEU_CHUAN (hằng số, kèm SHA master); THETA, K_CUC_BO chọn trên nửa đầu, kiểm trên nửa sau.
++khai ĐÃ KHỚP mốc đặc tả (Q37 (a) 1.17.3), quãng khung TĨNH (Q37 1.13, ≥ 2 s) và clip tổng hợp (chỉ máy đi / thêm một vật đổi). Tiêu chí ĐẠT
++(HC_*, đặt trước lượt đo đầy đủ): R cắt ≥ 95 %, R beat ≥ 70 %, sai số giờ trung vị ≤ 0,25 s, báo nhầm ≤ 1/phút trong quãng tĩnh và 0 trên clip
++chỉ máy đi, bắt 6/6 vật đổi tổng hợp ±0,25 s — trên cả nửa chỉnh lẫn nửa kiểm. Độ chính xác so mốc đặc tả CHỈ BÁO (mốc không phủ đổi liên tục
++giữa hai mốc của timelapse). Kết quả ghi ở HIEU_CHUAN (hằng số, kèm SHA master); THETA, K_CUC_BO chọn trên nửa đầu, kiểm trên nửa sau.
 +
 +Hàng BIEN-CO-V (k2check, tập từ T3 có video): (b) khoảng biến cố ĐO trung bình ≤ 3,5 s; (c) khoảng dài nhất ≤ 6 s, miễn như Q37 1.16 (khung
-+neo, tấm im lặng ≤ 10 s) + 1.17.4 thẻ phương pháp (≤ 2 thẻ × ≤ 10 s, cuối phim — K1173-D6); (h) hiệu chuẩn trên CHÍNH tập: R cắt ≥ 95 % so
++neo, tấm im lặng ≤ 10 s) + 1.17.4 thẻ phương pháp cuối phim (≤ 2 thẻ × ≤ 10 s — K1173-D6; q_k116.q37_mien); (h) hiệu chuẩn trên CHÍNH tập: R cắt ≥ 95 % so
 +ranh shot của timeline. Cấp: Cảnh báo ở animatic; Chặn ở G2 khi HIEU_CHUAN đạt VÀ (h) đạt — không thì Cảnh báo (`muc` = 'chua_hieu_chuan').
 +Q37 / NHIP-K2 / Q37 (1.13) (tập từ T4 — `kenh2_tu_t4`/`n2p`, có video, thước đạt hiệu chuẩn): (b)(c) cộng biến cố ĐO (như I8). Beat tự khai
 +trong log shot (`su_kien`) KHÔNG được nhận ở đâu.
@@ -38,11 +347,11 @@ index 00000000..ce9f5f7f
 +W, H, GX, GY, BUOC, FPS = 256, 144, 8, 6, 6, 24
 +THETA, K_CUC_BO = 6.0, 2.0          # ghi đè bởi hiệu chuẩn (xem HIEU_CHUAN)
 +CAT_DU, CAT_MIN_PT, CAT_TY, TRONG_STD = 18.0, 12, 0.30, 3.0
++NEO_MAX, MO_DU = 3.0, 1.5           # tuổi neo ô ≤ 3 s (dưới ngưỡng TB 3,5 s): đổi CHẬM hơn THETA/3 s không là biến cố thấy được; làm mờ phần dư σ 1,5
 +MERGE, MEAN_MAX, GAP_MAX, MIEN_MAX = 0.25, 3.5, 6.0, 10.0
 +TOL = 0.5                           # khớp tham chiếu khi hiệu chuẩn (như TL-1 đối chiếu cắt ±0,5 s)
-+HC_R_CAT, HC_R_BEAT, HC_P, HC_P_HON, HC_DT = 95.0, 70.0, 70.0, 20.0, 0.25
++HC_R_CAT, HC_R_BEAT, HC_DT, HC_FP_PHUT = 95.0, 70.0, 0.25, 1.0
 +HIEU_CHUAN = dict(dat=None, ghi='chưa hiệu chuẩn')   # điền sau lượt hiệu chuẩn T3 (reports/k1174/do/hieu-chuan-bcv.json)
-+PP_N, PP_MAX = 2, 10.0              # K1173-D6: miễn (c) cho ≤ 2 thẻ phương pháp × ≤ 10 s, cuối phim
 +
 +
 +def _frames(mp4, w=W, h=H):
@@ -97,7 +406,7 @@ index 00000000..ce9f5f7f
 +            Ha = Mt @ np.linalg.inv(M_neo[int(a)]); A = cv2.warpPerspective(neo[int(a)], Ha, (W, H)); vm = cv2.warpPerspective(ones, Ha, (W, H)) > 0.99
 +            if vm.sum() > 100:
 +                x, y = A[vm], cf[vm]; g_, o_ = np.polyfit(x, y, 1) if x.std() > 1e-3 else (1.0, float(y.mean() - x.mean()))
-+                d = np.abs(cf - (g_ * A + o_))
++                d = cv2.GaussianBlur(np.abs(cf - (g_ * A + o_)), (0, 0), MO_DU)
 +            else: d = np.zeros_like(cf)
 +            for gy, gx in zip(*np.nonzero(ID == a)):
 +                sl = (slice(gy * ch, (gy + 1) * ch), slice(gx * cw, (gx + 1) * cw)); m = vm[sl]; V[gy, gx] = m.mean()
@@ -107,7 +416,8 @@ index 00000000..ce9f5f7f
 +        roi = V < 0.5
 +        if ghi_o: chuoi.append((round(i / fps, 3), float(np.nanmax(R)) if np.isfinite(R).any() else 0.0, med))
 +        if doi.any(): ev.append((round(i / fps, 3), int(doi.sum()), round(float(np.nanmax(R[doi])), 2), 'o'))
-+        ID[doi | roi] = i; neo[i] = cf; M_neo[i] = Mt.copy()
++        gia = (i - ID) >= NEO_MAX * fps   # neo quá tuổi → neo lại (không biến cố): chặn trôi tích luỹ của bù chuyển động
++        ID[doi | roi | gia] = i; neo[i] = cf; M_neo[i] = Mt.copy()
 +        for f in [f for f in neo if f not in set(ID.ravel().tolist())]: neo.pop(f); M_neo.pop(f)
 +    return dict(su_kien=ev, cat=cats, n_khung=i + 1, thong_so=dict(theta=theta, k=k, W=W, H=H, GX=GX, GY=GY, BUOC=BUOC), chuoi=chuoi if ghi_o else None)
 +
@@ -137,33 +447,15 @@ index 00000000..ce9f5f7f
 +def tb_dai(ev, total, mien=()):
 +    """(b) TB khoảng; (c) dài nhất (bỏ khoảng nằm trọn trong một đoạn miễn ≤ MIEN_MAX) → (tb, dài nhất, từ, [miễn])"""
 +    U = gop(ev)
-+    if not U: return None, total, 0.0, []
-+    G = [(a, b) for a, b in zip(U, U[1:])] + [(U[-1], total)]
-+    if U[0] > 0: G = [(0.0, U[0])] + G
++    G = ([(a, b) for a, b in zip(U, U[1:])] + [(U[-1], total)]) if U else [(0.0, total)]
++    if U and U[0] > 0: G = [(0.0, U[0])] + G
 +    keep, ex = [], []
 +    for a, b in G:
 +        m = next((m for m in mien if m[0] - 0.05 <= a and b <= m[1] + 0.05), None)
 +        if m and b - a <= MIEN_MAX + 1e-6: ex.append((round(b - a, 2), round(a, 2), m[2], m[3]))
 +        else: keep.append((b - a, a))
 +    g, at = max(keep) if keep else (0.0, 0.0)
-+    return round(total / len(U), 2), round(g, 2), round(at, 2), ex
-+
-+
-+def pp_mien(E, TL):
-+    """K1173-D6 (1.17.4): đoạn thẻ phương pháp (shot type card / p.card, hoặc đoạn có `the_phuong_phap`) ở cuối phim → [(t0, t1, 'the_pp', id)].
-+    Chỉ nhận ≤ PP_N thẻ, mỗi thẻ ≤ PP_MAX s, nằm trong 60 s cuối; thẻ ngoài điều kiện → trả trong `loi` (không miễn)."""
-+    out, loi, T = [], [], float(TL.get('tong_s') or 0)
-+    for sg in TL.get('segments') or []:
-+        for sh in sg.get('shots') or []:
-+            p = sh.get('p') or {}
-+            if not (sh.get('type') == 'card' or p.get('card') or sh.get('the_phuong_phap') or p.get('the_phuong_phap')): continue
-+            a, b = float(sg['t0']) + float(sh.get('t0') or 0), float(sg['t0']) + float(sh.get('t1') or 0)
-+            nm = f"{sg.get('id')}:{sh.get('id') or p.get('hero') or 'the'}"
-+            if b - a > PP_MAX + 1e-6: loi.append(f'thẻ PP {nm} dài {b - a:.2f} s > {PP_MAX:g} s (không miễn)')
-+            elif T and a < T - 60.0: loi.append(f'thẻ PP {nm} ở {a:.1f} s, không trong 60 s cuối (không miễn)')
-+            else: out.append((round(a, 3), round(b, 3), 'the_pp', nm))
-+    if len(out) > PP_N: loi.append(f'{len(out)} thẻ PP > {PP_N} (chỉ miễn {PP_N} thẻ cuối)'); out = out[-PP_N:]
-+    return out, loi
++    return (round(total / len(U), 2) if U else None), round(g, 2), round(at, 2), ex
 +
 +
 +def ranh_shot(TL):
@@ -174,14 +466,13 @@ index 00000000..ce9f5f7f
 +    """hàng BIEN-CO-V. ket = kết quả do_video đã có (tránh đo lại). tl_ev: biến cố cảnh tl đo (I8) cộng vào."""
 +    if not mp4 or not os.path.exists(mp4): return dict(ok=False, ket_qua='THIẾU', loi=[], thieu=['(b) không có video (master/animatic)'], val='—', cong=cong)
 +    D = ket or do_video(mp4); T = float(TL.get('tong_s') or D['n_khung'] / FPS)
-+    pm, ploi = pp_mien(E, TL); M = list(mien or []) + pm
++    M = list(mien or [])   # khung neo, tấm im lặng, thẻ PP cuối phim (q_k116.q37_mien — 1.16 + 1.17.4 K1173-D6)
 +    ev = [e[0] for e in D['su_kien']] + [float(x) for x in tl_ev]
 +    tb, dn, tu, ex = tb_dai(ev, T, M)
 +    rs = ranh_shot(TL); _, nr, _ = khop([e[0] for e in D['su_kien']], rs); rcat = 100.0 * nr / len(rs) if rs else 100.0
 +    loi, near, muc = [], [], {}
 +    if tb is None or tb > MEAN_MAX: loi.append(f'(b) khoảng biến cố ĐO trung bình {tb} s > {MEAN_MAX:g} s')
 +    if dn > GAP_MAX: loi.append(f'(c) khoảng dài nhất không biến cố ĐO {dn} s > {GAP_MAX:g} s (từ {int(tu // 60)}:{tu % 60:04.1f})')
-+    loi += [f'(c) {x}' for x in ploi]
 +    hc_tap = rcat >= HC_R_CAT
 +    if not hc_tap: loi.append(f'(h) thước trên tập này: bắt {nr}/{len(rs)} ranh shot = {rcat:.1f} % < {HC_R_CAT:g} % — chưa tin để Chặn')
 +    for v, ng, ten in ((tb or 0, MEAN_MAX, 'TB'), (dn, GAP_MAX, 'dài nhất')):
@@ -206,3 +497,727 @@ index 00000000..ce9f5f7f
 +    R = do_video(a[0]); U = gop([e[0] for e in R['su_kien']]); T = R['n_khung'] / FPS
 +    print(f"{len(R['su_kien'])} biến cố (gộp {len(U)}; cắt {len(R['cat'])}) · TB {T / max(1, len(U)):.2f} s · {T:.1f} s")
 +    if '--json' in a: json.dump(R, open(a[a.index('--json') + 1], 'w'), ensure_ascii=False)
+diff --git a/checks/ll/q_k1174.py b/checks/ll/q_k1174.py
+new file mode 100644
+index 00000000..a9efb60d
+--- /dev/null
++++ b/checks/ll/q_k1174.py
+@@ -0,0 +1,431 @@
++#!/opt/cine/bin/python
++"""Luật 1.17.4 (phiên K-1.17.4, 23/10/2026) — CHỈ tập kênh 2 từ T4 (`kenh2_tu_t4: true` hoặc khối `n2p:`). T3 và trước: KHÔNG ÁP (không hồi tố).
++Căn cứ: Kinh thánh §19 (a)(b)(c) + §13.6 dòng "Từ T4" (chủ dự án duyệt 23/10/2026 17:42, G1 T4 D9); §15 (d) sửa theo Q2 (chủ dự án 23/10/2026
++21:45, nguyên văn "Duyệt Q1–Q7"): bỏ trần cứng 20 % cho minh hoạ M-d, thay bằng (i) ngân sách Gemini mỗi tập do chủ dự án đặt, (ii) tổng khung có
++AI ≤ 70 % (giữ, N2P-6 (c)), (iii) góc cao timelapse ≥ 60 % thời lượng; Q1: T4 ngân sách Gemini mốc theo dõi $25, chặn $30.
++Cấp (cap112): Cảnh báo ở animatic (`animatic: true`) · Chặn ở G2 — trừ mục ghi "(w)" luôn Cảnh báo.
++
++Đầu vào (đường dẫn tương đối thư mục episode.yaml):
++  episode.yaml: `ngan_sach_gemini_usd` (trần chặn, $), `ngan_sach_gemini_moc_usd` (mốc theo dõi, $, tuỳ chọn), `so_ai_gemini` (jsonl; không có → `so_ai`,
++     lọc dòng Gemini), `goc_toa_do: [E0, N0]` (gốc toạ độ cảnh của log máy; mặc định 532000, 180800 như scripts/k2ldn/t4_do.py), `sha_tu_lieu`
++     (tệp danh sách SHA-256 tư liệu, vd licenses/SHA256-TU-LIEU.txt).
++  log shot (`log_shot`) mỗi shot: `shot`, `t0`/`t1` hoặc `dur`, `chuong`, `goc` (`cao`…), `tl` (thời gian chạy), `cu_may` ∈ CU_MAY (§19 a; MD/PP/THE
++     cho đoạn không phải cú máy 3D), `log_may` (log.json của scripts/k2ldn/render_ldn.js: frames[{f, cam{p, l, fov}, view?, proj?}], W, H, shot.fps),
++     `tieu_diem` [x, y, z] toạ độ cảnh | `tieu_diem_en` [E, N, h] (mặc định: điểm nhìn `l` của khung đầu), `khop_voi` (shot tham chiếu của KHOP),
++     `diem_neo` (điểm neo KHOP; mặc định tiêu điểm), `hoa_s` (KHOP: thời gian hoà), `lo_ra` (KEO: vật mang nghĩa lộ ra), `mat_dat_m` (cao độ đất
++     dưới máy, mặc định 0), `lop: {MAP, MAP3D, KHAC, TL, THE, …: giây}` (như BANG-SHOT), `ai_nen`, `minh_hoa`, `ai_image`, `ai_texture`,
++     `tu_lieu_chong_sau_ai` (tư liệu là lớp chồng SAU ghép AI).
++     Thiếu `log_may` → được đọc `log_may_tom_tat` (bảng đo của t4_do.py: tieu_diem_pct_khung_s, quay_do_s, may_m_s, khop_lech_neo_px) — chỉ đủ ở
++     animatic; ở G2 thiếu log khung = THIẾU (Chặn): số đo phải từ log khung của trình dựng, không từ bảng tóm tắt.
++
++Hàng:
++  MAY-19 (§19 a, đo từ log máy mỗi khung; tốc độ = TB trượt 1 s, lấy lớn nhất trong shot):
++     (a) tốc độ theo cú máy: CODINH tiêu điểm ≤ 2 % khung/s · DAY tiêu điểm ≤ 1,5 % khung/s và tiến ≤ 1,5 % khoảng cách/s · KEO lùi ≤ 2 %
++         khoảng cách/s · CAU dọc ≤ 6 m/s, chúc đổi ≤ 1,5°/s · VONG ≤ 3°/s quanh tiêu điểm, tổng ≤ 45° · TRUOT tiêu điểm ≤ 3 % khung/s · NGHIENG
++         ≤ 2°/s · THAP máy 20–60 m trên đất, ngửa 5–15° · XUONG chúc từ ≤ −85° về −35…−20° trong 4–8 s · LAN (§14.3) không đo tốc độ;
++     (b) shot có tấm nền N2+ (`ai_nen`) phải `cu_may: CODINH` và đo trôi ≤ 2 % khung/s;
++     (c) KHOP: sai khác điểm neo giữa khung cuối shot `khop_voi` và khung đầu shot (hoặc đầu ↔ cuối cùng shot) ≤ 0,5 px (= 0 px ở lưới điểm
++         ảnh), cùng FOV; hoà ≤ 1 s;
++     (d) mỗi chương ≥ 4 loại cú máy (không tính MD, PP, THE);
++     (e) ≤ 2 shot liền nhau cùng loại (thứ tự phim; MD/PP/THE xen giữa ngắt chuỗi);
++     (f) THAP tổng ≤ 12 % thời lượng tập;
++     (g) shot 3D thiếu `cu_may` hoặc thiếu log máy → THIẾU;
++     (w) Cảnh báo: CAU TB dọc < 2 m/s hoặc cao ngoài 150–300 m; VONG tiêu điểm ra ngoài vùng 1/6–5/6 khung; KEO không khai `lo_ra`; DAY phóng
++         ảnh > 1,5 %/s (thước phụ).
++  BAN-DO-12 (§19 b): (a) bản đồ (MAP cổ + MAP3D 3D kiểu bản đồ) ≤ 12 % thời lượng; (b) mỗi lần dùng bản đồ cổ (MAP) ≤ 10 s.
++  TU-LIEU-10 (§19 c): tư liệu + tranh khắc + thẻ (TL + KHAC + THE) ≤ 10 % thời lượng.
++  AI-TU-LIEU (§19 b, c): (a) 0 shot có lớp MAP/KHAC/TL mà khai minh_hoa / ai_image / ai_texture; shot có ai_nen + tư liệu phải khai
++     `tu_lieu_chong_sau_ai: true`; (b) 0 dòng sổ AI có SHA đầu vào trùng SHA tư liệu (`sha_tu_lieu`).
++  GEMINI-NGAN-SACH (Q2 (i), Q1): tổng `usd` các dòng Gemini của sổ AI tập (giá thật từng lệnh) ≤ `ngan_sach_gemini_usd`; (a) vượt → Chặn ở G2;
++     (k) thiếu khai ngân sách → Cảnh báo; (m) vượt mốc theo dõi → Cảnh báo; (u) dòng Gemini thiếu `usd` → THIẾU (chưa cộng được giá thật).
++  GOC-CAO-60 (Q2 (iii)): thời lượng góc cao có thời gian chạy ≥ 60 % thân phim (trừ thẻ PP), đo theo định nghĩa hiện hành: shot `goc: cao` và
++     `tl: true` (TL-1, q_k116.tl1); có log máy → mỗi khung đạt V7B-D1 (cao trên đất ≥ 120 m HOẶC chúc ≥ 15° với cao ≥ 50 m) mới tính.
++"""
++import json, math, os, re, sys
++
++sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
++from checks.ll import q_k116 as K6  # noqa: E402
++
++CU_MAY = ('CODINH', 'DAY', 'KEO', 'CAU', 'VONG', 'TRUOT', 'NGHIENG', 'THAP', 'XUONG', 'LAN', 'KHOP')
++KHONG_MAY = ('MD', 'PP', 'THE')
++LIM = dict(CODINH_TD=2.0, DAY_TD=1.5, DAY_TIEN=1.5, DAY_PHONG=1.5, KEO_LUI=2.0, CAU_MS=6.0, CAU_MS_MIN=2.0, CAU_CAO=(150.0, 300.0), CAU_CHUC=1.5,
++           VONG_DS=3.0, VONG_TONG=45.0, TRUOT_TD=3.0, NGHIENG_DS=2.0, THAP_CAO=(20.0, 60.0), THAP_NGUA=(5.0, 15.0), XUONG_DAU=-85.0, XUONG_CUOI=(-35.0, -20.0),
++           XUONG_S=(4.0, 8.0), KHOP_PX=0.5, KHOP_HOA=1.0, THAP_PCT=12.0, LOAI_CHUONG=4, LIEN_MAX=2)
++BAN_DO_PCT, BAN_DO_LAN, TU_LIEU_PCT, GOC_CAO_PCT = 12.0, 10.0, 10.0, 60.0
++V7B_CAO, V7B_CHUC, V7B_SAN = 120.0, 15.0, 50.0
++GOC0 = (532000.0, 180800.0)
++
++
++def ap_1174(E): return bool(E.get('kenh2_tu_t4') or E.get('n2p'))
++
++
++def r(loi=(), thieu=(), val='', **kw):
++    loi, thieu = list(loi), list(thieu)
++    return dict(ok=not loi and not thieu, ket_qua='THIẾU' if thieu and not loi else None, loi=loi, thieu=thieu, val=val, **kw)
++
++
++def na(why): return dict(ok=True, ket_qua='KHÔNG ÁP', loi=[], val=why)
++
++
++def sat(ten, v, ng): return [f'{ten} {v} (ngưỡng {ng})'] if ng and abs(v - ng) <= 0.05 * abs(ng) else []
++
++
++def _dur(s):
++    if isinstance(s.get('dur'), (int, float)): return float(s['dur'])
++    if isinstance(s.get('t1'), (int, float)) and isinstance(s.get('t0'), (int, float)): return float(s['t1']) - float(s['t0'])
++    return 0.0
++
++
++def _tong(E, TL, LS):
++    T = K6.tong(E, TL) if (TL or E.get('segments')) else 0.0
++    return T or sum(_dur(s) for s in LS or [])
++
++
++def _lop(s, *k):
++    L = s.get('lop') or {}
++    return sum(float(L.get(x) or 0) for x in k if isinstance(L.get(x), (int, float)))
++
++
++def _cu(s):
++    c = str(s.get('cu_may') or '').upper()
++    if not c and s.get('minh_hoa'): c = 'MD'
++    return c
++
++
++# ---------------------------------------------------------------- hình học máy (toạ độ cảnh y lên, như design/k2v/ldn + t4_do.py)
++def _np(): import numpy as np; return np  # noqa: E702
++
++
++def _view_proj(fr, W, H):
++    np = _np()
++    if fr.get('view') and fr.get('proj'):
++        return np.array(fr['view'], float).reshape(4, 4).T, np.array(fr['proj'], float).reshape(4, 4).T
++    p, l = np.array(fr['cam']['p'], float), np.array(fr['cam']['l'], float); f = l - p; f /= np.linalg.norm(f)
++    up = np.array([0.0, 1.0, 0.0]) if abs(f[1]) < 0.999 else np.array([0.0, 0.0, -1.0])
++    s = np.cross(f, up); s /= np.linalg.norm(s); u = np.cross(s, f)
++    V = np.eye(4); V[0, :3], V[1, :3], V[2, :3] = s, u, -f; V[:3, 3] = -V[:3, :3] @ p
++    fy = 1.0 / math.tan(math.radians(float(fr['cam'].get('fov') or 50)) / 2); n, fa = 1.0, 1e5
++    P = np.zeros((4, 4)); P[0, 0], P[1, 1] = fy / (W / H), fy; P[2, 2], P[2, 3], P[3, 2] = (fa + n) / (n - fa), 2 * fa * n / (n - fa), -1.0
++    return V, P
++
++
++def chieu(fr, W, H, X):
++    np = _np(); V, P = _view_proj(fr, W, H); q = P @ V @ np.append(np.asarray(X, float), 1.0); q = q[:3] / q[3]
++    return np.array([(q[0] + 1) / 2 * W, (1 - q[1]) / 2 * H])
++
++
++def _tb1s(v, fps):
++    np = _np(); v = np.asarray(v, float)
++    if len(v) == 0: return v
++    k = max(1, int(round(fps))); return np.convolve(v, np.ones(k) / k, mode='valid') if len(v) >= k else np.array([v.mean()])
++
++
++def _en(x, goc):
++    return [float(x[0]) - goc[0], float(x[2]), -(float(x[1]) - goc[1])]
++
++
++def do_shot(L, F=None, mat_dat=0.0):
++    """log render_ldn.js → số đo (tốc độ đã TB trượt 1 s; lấy lớn nhất)."""
++    np = _np(); W, H = float(L.get('W') or 1920), float(L.get('H') or 1080); fps = float((L.get('shot') or {}).get('fps') or L.get('fps') or 24)
++    FR = sorted(L['frames'], key=lambda x: x.get('f', 0)); n = len(FR)
++    p = np.array([x['cam']['p'] for x in FR], float); l = np.array([x['cam']['l'] for x in FR], float); fov = np.array([float(x['cam'].get('fov') or 50) for x in FR])
++    F = np.asarray(F if F is not None else l[0], float)
++    s = np.array([chieu(x, W, H, F) for x in FR]); d = np.linalg.norm(p - F, axis=1); dr = (l - p) / np.linalg.norm(l - p, axis=1, keepdims=True)
++    chuc = np.degrees(np.arcsin(np.clip(dr[:, 1], -1, 1)))   # âm = nhìn xuống
++    az = np.degrees(np.unwrap(np.arctan2(p[:, 2] - F[2], p[:, 0] - F[0])))
++    out = dict(n=n, giay=round(n / fps, 3), fps=fps, W=W, H=H)
++    if n >= 2:
++        td = np.linalg.norm(np.diff(s, axis=0), axis=1) * fps / W * 100
++        tien = -np.diff(d) / d[:-1] * fps * 100   # + = tiến vào
++        sc = np.log(1.0 / (d * np.tan(np.radians(fov) / 2))); ph = np.abs(np.diff(sc)) * fps * 100
++        quay = np.degrees(np.arccos(np.clip((dr[1:] * dr[:-1]).sum(1), -1, 1))) * fps
++        doc = np.abs(np.diff(p[:, 1])) * fps; dchuc = np.abs(np.diff(chuc)) * fps; daz = np.abs(np.diff(az)) * fps
++        m = lambda v: round(float(_tb1s(v, fps).max()), 3)
++        out.update(td=m(td), tien=m(tien), lui=m(-tien), phong=m(ph), quay=m(quay), doc=m(doc), doc_tb=round(float(doc.mean()), 3), chuc_ds=m(dchuc), vong_ds=m(daz),
++                   vong_tong=round(float(abs(az[-1] - az[0])), 2))
++    else:
++        out.update(td=0.0, tien=0.0, lui=0.0, phong=0.0, quay=0.0, doc=0.0, doc_tb=0.0, chuc_ds=0.0, vong_ds=0.0, vong_tong=0.0)
++    cao = p[:, 1] - float(mat_dat)
++    out.update(cao=[round(float(cao.min()), 1), round(float(cao.max()), 1)], chuc=[round(float(chuc.min()), 2), round(float(chuc.max()), 2)],
++               chuc_dau=round(float(chuc[0]), 2), chuc_cuoi=round(float(chuc[-1]), 2), fov=[round(float(fov.min()), 3), round(float(fov.max()), 3)],
++               td_x=[round(float(s[:, 0].min() / W), 3), round(float(s[:, 0].max() / W), 3)], td_y=[round(float(s[:, 1].min() / H), 3), round(float(s[:, 1].max() / H), 3)])
++    # XUONG: thời gian từ khi rời ≤ −85° tới khi vào −35…−20°
++    t_roi = next((i for i in range(n) if chuc[i] > LIM['XUONG_DAU']), None); t_vao = next((i for i in range(n) if LIM['XUONG_CUOI'][0] <= chuc[i] <= LIM['XUONG_CUOI'][1]), None)
++    out['xuong_s'] = round((t_vao - t_roi) / fps, 2) if t_roi is not None and t_vao is not None and t_vao >= t_roi else None
++    # V7B-D1 theo khung: cao ≥ 120 m HOẶC (chúc ≥ 15° và cao ≥ 50 m)
++    v7 = (cao >= V7B_CAO) | ((-chuc >= V7B_CHUC) & (cao >= V7B_SAN)); out['v7b_ty'] = round(float(v7.mean()), 4)
++    out['_s'], out['_fov'], out['_FR'] = s, fov, FR
++    return out
++
++
++def _ld(base, x):
++    if x is None or isinstance(x, (dict, list)): return x
++    return K6._load(K6._p(base, x))
++
++
++def _tieu_diem(s, E):
++    goc = tuple(E.get('goc_toa_do') or GOC0)
++    if s.get('tieu_diem') is not None: return [float(v) for v in s['tieu_diem']]
++    if s.get('tieu_diem_en') is not None: return _en(s['tieu_diem_en'], goc)
++    return None
++
++
++def _ap_toc_do(c, D, M, w):
++    """(a) tốc độ theo loại + (w) cảnh báo phụ"""
++    L = LIM
++    def vuot(ten, v, ng, muc='a'):
++        if v is not None and v > ng + 1e-9: M[muc].append(f'({muc}) {w} {c}: {ten} {v:g} > {ng:g}')
++    if c == 'CODINH': vuot('tiêu điểm % khung/s', D['td'], L['CODINH_TD'])
++    elif c == 'DAY':
++        vuot('tiêu điểm % khung/s', D['td'], L['DAY_TD']); vuot('tiến % khoảng cách/s', D['tien'], L['DAY_TIEN'])
++        if D['phong'] > L['DAY_PHONG'] + 1e-9: M['w'].append(f"(w) {w} DAY: phóng ảnh tại tiêu điểm {D['phong']:g} %/s > {L['DAY_PHONG']:g} (thước phụ)")
++    elif c == 'KEO': vuot('lùi % khoảng cách/s', D['lui'], L['KEO_LUI'])
++    elif c == 'CAU':
++        vuot('dọc m/s', D['doc'], L['CAU_MS']); vuot('chúc đổi °/s', D['chuc_ds'], L['CAU_CHUC'])
++        if D['doc_tb'] < L['CAU_MS_MIN']: M['w'].append(f"(w) {w} CAU: dọc TB {D['doc_tb']:g} m/s < {L['CAU_MS_MIN']:g}")
++        if D['cao'][0] < L['CAU_CAO'][0] - 1e-9 or D['cao'][1] > L['CAU_CAO'][1] + 1e-9: M['w'].append(f"(w) {w} CAU: cao {D['cao'][0]:g}–{D['cao'][1]:g} m ngoài {L['CAU_CAO'][0]:g}–{L['CAU_CAO'][1]:g} m")
++    elif c == 'VONG':
++        vuot('vòng °/s', D['vong_ds'], L['VONG_DS']); vuot('vòng tổng °', D['vong_tong'], L['VONG_TONG'])
++        if D['td_x'][0] < 1 / 6 or D['td_x'][1] > 5 / 6 or D['td_y'][0] < 1 / 6 or D['td_y'][1] > 5 / 6: M['w'].append(f"(w) {w} VONG: tiêu điểm ra ngoài vùng 1/6–5/6 khung (x {D['td_x']}, y {D['td_y']})")
++    elif c == 'TRUOT': vuot('tiêu điểm % khung/s', D['td'], L['TRUOT_TD'])
++    elif c == 'NGHIENG': vuot('quay °/s', D['quay'], L['NGHIENG_DS'])
++    elif c == 'THAP':
++        if D['cao'][0] < L['THAP_CAO'][0] - 1e-9 or D['cao'][1] > L['THAP_CAO'][1] + 1e-9: M['a'].append(f"(a) {w} THAP: máy cao {D['cao'][0]:g}–{D['cao'][1]:g} m ngoài {L['THAP_CAO'][0]:g}–{L['THAP_CAO'][1]:g} m trên đất")
++        if D['chuc'][0] < L['THAP_NGUA'][0] - 1e-9 or D['chuc'][1] > L['THAP_NGUA'][1] + 1e-9: M['a'].append(f"(a) {w} THAP: ngửa {D['chuc'][0]:g}…{D['chuc'][1]:g}° ngoài {L['THAP_NGUA'][0]:g}–{L['THAP_NGUA'][1]:g}°")
++    elif c == 'XUONG':
++        if D['chuc_dau'] > L['XUONG_DAU'] + 1e-9: M['a'].append(f"(a) {w} XUONG: chúc đầu {D['chuc_dau']:g}° (cần ≤ {L['XUONG_DAU']:g}°)")
++        if not L['XUONG_CUOI'][0] - 1e-9 <= D['chuc_cuoi'] <= L['XUONG_CUOI'][1] + 1e-9: M['a'].append(f"(a) {w} XUONG: chúc cuối {D['chuc_cuoi']:g}° ngoài {L['XUONG_CUOI'][0]:g}…{L['XUONG_CUOI'][1]:g}°")
++        xs = D.get('xuong_s')
++        if xs is None or not L['XUONG_S'][0] - 1e-9 <= xs <= L['XUONG_S'][1] + 1e-9: M['a'].append(f"(a) {w} XUONG: chuyển {xs} s ngoài {L['XUONG_S'][0]:g}–{L['XUONG_S'][1]:g} s")
++
++
++def _ap_tom_tat(c, R, M, w):
++    """bảng tóm tắt t4_do.py: chỉ td (% khung/s, max) · quay (°/s, max) · may_m_s (max); loại cần số không có trong bảng → THIẾU (g)."""
++    td = (R.get('tieu_diem_pct_khung_s') or {}).get('max'); qu = (R.get('quay_do_s') or {}).get('max'); ms = (R.get('may_m_s') or {}).get('max')
++    def vuot(ten, v, ng):
++        if v is None: M['g'].append(f'(g) {w} {c}: bảng tóm tắt không có {ten}')
++        elif v > ng + 1e-9: M['a'].append(f'(a) {w} {c}: {ten} {v:g} > {ng:g} (bảng tóm tắt t4_do)')
++    if c == 'CODINH': vuot('tiêu điểm % khung/s', td, LIM['CODINH_TD'])
++    elif c in ('DAY', 'TRUOT'): vuot('tiêu điểm % khung/s', td, LIM[c + '_TD'])
++    elif c == 'VONG': vuot('quay °/s (cận trên của vòng °/s)', qu, LIM['VONG_DS'])
++    elif c == 'NGHIENG': vuot('quay °/s', qu, LIM['NGHIENG_DS'])
++    elif c == 'CAU': vuot('máy m/s (cận trên của dọc m/s)', ms, LIM['CAU_MS']); vuot('quay °/s (cận trên của chúc °/s)', qu, LIM['CAU_CHUC'])
++    elif c == 'KHOP':
++        k = R.get('khop_lech_neo_px')
++        if k is None: M['g'].append(f'(g) {w} KHOP: bảng tóm tắt không có khop_lech_neo_px')
++        elif k > LIM['KHOP_PX'] + 1e-9: M['c'].append(f'(c) {w} KHOP: lệch neo {k:g} px > {LIM["KHOP_PX"]:g} (bảng tóm tắt)')
++    elif c in ('KEO', 'THAP', 'XUONG'): M['g'].append(f'(g) {w} {c}: bảng tóm tắt không đủ số (cần log khung)')
++
++
++def may19(E, TL, LS, ep_dir='.', cong='G2'):
++    if LS is None: return r(thieu=['(g) không có log shot'], val='—', cong=cong)
++    T = _tong(E, TL, LS); M = {k: [] for k in 'abcdefgw'}; near = []; DO = {}; nlog = ntt = 0
++    Z = sorted(LS, key=lambda s: float(s.get('t0') or 0))
++    for s in Z:
++        c = _cu(s); w = str(s.get('shot'))
++        if c in KHONG_MAY: continue
++        if not c:
++            if s.get('goc') in ('cao', 'thap', 'neo') or s.get('tl'): M['g'].append(f'(g) {w}: shot 3D không khai `cu_may`')
++            continue
++        if c not in CU_MAY: M['g'].append(f'(g) {w}: cu_may {c!r} không thuộc §19 (a) ({", ".join(CU_MAY)})'); continue
++        if s.get('ai_nen') and c != 'CODINH': M['b'].append(f'(b) {w}: shot tấm nền N2+ (ai_nen) phải CODINH, khai {c}')
++        Lg = None
++        try: Lg = _ld(ep_dir, s.get('log_may'))
++        except Exception as e: M['g'].append(f'(g) {w}: không đọc được log_may: {e}')   # noqa: BLE001
++        if Lg:
++            nlog += 1; D = do_shot(Lg, _tieu_diem(s, E), float(s.get('mat_dat_m') or E.get('mat_dat_m') or 0)); DO[w] = D
++            _ap_toc_do(c, D, M, w)
++            if s.get('ai_nen') and D['td'] > LIM['CODINH_TD'] + 1e-9: M['b'].append(f"(b) {w}: tấm nền N2+ nhưng trôi {D['td']:g} % khung/s > {LIM['CODINH_TD']:g}")
++            for nm, v, ng in (('tiêu điểm %/s', D['td'], {'CODINH': 2.0, 'DAY': 1.5, 'TRUOT': 3.0}.get(c)), ('vòng °/s', D['vong_ds'], 3.0 if c == 'VONG' else None),
++                              ('quay °/s', D['quay'], 2.0 if c == 'NGHIENG' else None)):
++                if ng: near += sat(f'{w} {nm}', v, ng)
++            if c == 'KHOP':
++                Fn = s.get('diem_neo'); Fn = ([float(v) for v in Fn] if Fn else None) or _tieu_diem(s, E) or Lg['frames'][0]['cam']['l']
++                ref = next((x for x in LS if str(x.get('shot')) == str(s.get('khop_voi'))), None) if s.get('khop_voi') else None
++                try: LR = _ld(ep_dir, ref.get('log_may')) if ref else Lg
++                except Exception as e: LR = None; M['g'].append(f'(g) {w}: không đọc được log_may của {s.get("khop_voi")}: {e}')   # noqa: BLE001
++                if LR:
++                    fa = sorted(LR['frames'], key=lambda x: x.get('f', 0))[-1]; fb = sorted(Lg['frames'], key=lambda x: x.get('f', 0))[0 if ref else -1]
++                    if not ref: fa = sorted(Lg['frames'], key=lambda x: x.get('f', 0))[0]
++                    Wd, Hd = float(Lg.get('W') or 1920), float(Lg.get('H') or 1080); np = _np()
++                    # điểm neo + 6 điểm lệch ±25 % khoảng cách (ngang, dọc, trước/sau theo máy tham chiếu): khớp "cùng máy, cùng FOV" cả khung,
++                    # không chỉ điểm nhìn (điểm nhìn luôn ở giữa khung dù máy dời)
++                    pa, la = np.array(fa['cam']['p'], float), np.array(fa['cam']['l'], float); f_ = (la - pa) / np.linalg.norm(la - pa)
++                    sx = np.cross(f_, [0.0, 1.0, 0.0]); sx = sx / (np.linalg.norm(sx) or 1.0); uy = np.cross(sx, f_); dd = 0.25 * float(np.linalg.norm(np.asarray(Fn, float) - pa))
++                    P5 = [np.asarray(Fn, float)] + [np.asarray(Fn, float) + q * dd * v for v in (sx, uy, f_) for q in (-1.0, 1.0)]   # + trước/sau tiêu điểm (thị sai)
++                    dpx = max(float(np.linalg.norm(chieu(fa, Wd, Hd, X) - chieu(fb, Wd, Hd, X))) for X in P5); D['khop_px'] = round(dpx, 3)
++                    if dpx > LIM['KHOP_PX'] + 1e-9: M['c'].append(f"(c) {w} KHOP: lệch điểm neo {dpx:.2f} px > {LIM['KHOP_PX']:g} px (0 px ở lưới điểm ảnh)")
++                    if abs(float(fa['cam'].get('fov') or 0) - float(fb['cam'].get('fov') or 0)) > 1e-6: M['c'].append(f"(c) {w} KHOP: FOV khác ({fa['cam'].get('fov')} ↔ {fb['cam'].get('fov')})")
++                if isinstance(s.get('hoa_s'), (int, float)) and s['hoa_s'] > LIM['KHOP_HOA'] + 1e-9: M['c'].append(f"(c) {w} KHOP: hoà {s['hoa_s']:g} s > {LIM['KHOP_HOA']:g} s")
++        elif s.get('log_may_tom_tat'):
++            ntt += 1
++            try: R = _ld(ep_dir, s['log_may_tom_tat'])
++            except Exception as e: M['g'].append(f'(g) {w}: không đọc được log_may_tom_tat: {e}'); continue   # noqa: BLE001
++            _ap_tom_tat(c, R, M, w)
++            if cong != 'animatic': M['g'].append(f'(g) {w}: chỉ có bảng tóm tắt (t4_do), không có log khung — ở G2 phải đo từ log khung')
++        elif c != 'LAN': M['g'].append(f'(g) {w}: không có `log_may` (log.json render_ldn.js) — không đo được §19 (a)')
++        if c == 'KEO' and not s.get('lo_ra'): M['w'].append(f'(w) {w} KEO: không khai `lo_ra` (vật mang nghĩa mới lộ ra — §19 a)')
++    # (d) ≥ 4 loại/chương · (e) ≤ 2 liền · (f) THAP ≤ 12 %
++    ch = {}
++    for s in Z:
++        c = _cu(s)
++        if c in CU_MAY: ch.setdefault(str(s.get('chuong', '?')), set()).add(c)
++    for k, v in ch.items():
++        if len(v) < LIM['LOAI_CHUONG']: M['d'].append(f"(d) chương {k}: {len(v)} loại cú máy ({', '.join(sorted(v))}) < {LIM['LOAI_CHUONG']}")
++    run, prev = 0, None
++    for s in Z:
++        c = _cu(s)
++        if c in CU_MAY and c == prev: run += 1
++        else: run = 1 if c in CU_MAY else 0
++        prev = c if c in CU_MAY else None
++        if run == LIM['LIEN_MAX'] + 1: M['e'].append(f"(e) {s.get('shot')}: {run} shot liền cùng loại {c} > {LIM['LIEN_MAX']}")
++    th = sum(_dur(s) for s in Z if _cu(s) == 'THAP'); pth = 100 * th / T if T else 0.0
++    if pth > LIM['THAP_PCT'] + 1e-9: M['f'].append(f"(f) THAP {th:.1f} s = {pth:.1f} % > {LIM['THAP_PCT']:g} % thời lượng tập")
++    near += sat('THAP %', round(pth, 2), LIM['THAP_PCT'])
++    thieu = M.pop('g'); loi = sum(M.values(), [])
++    val = (f"{sum(1 for s in Z if _cu(s) in CU_MAY)} shot cú máy · log khung {nlog} · tóm tắt {ntt} · loại/chương " + ', '.join(f'{k}:{len(v)}' for k, v in sorted(ch.items()))
++           + f" · THAP {pth:.1f} % · lỗi a {len(M['a'])} b {len(M['b'])} c {len(M['c'])} d {len(M['d'])} e {len(M['e'])} f {len(M['f'])} · cảnh báo w {len(M['w'])}")
++    M['g'] = thieu
++    return r(loi, thieu, val, muc=M, sat_nguong=near, cong=cong, do={k: {kk: vv for kk, vv in v.items() if not kk.startswith('_')} for k, v in DO.items()})
++
++
++# ---------------------------------------------------------------- §19 (b)(c) trần
++def ban_do_12(E, TL, LS, cong='G2'):
++    if LS is None: return r(thieu=['không có log shot'], val='—', cong=cong)
++    T = _tong(E, TL, LS); M = {'a': [], 'b': []}; tot = 0.0
++    for s in LS:
++        v = _lop(s, 'MAP', 'MAP3D') or (float(s['ban_do_s']) if isinstance(s.get('ban_do_s'), (int, float)) else 0.0); tot += v
++        vc = _lop(s, 'MAP') or (float(s['ban_do_co_s']) if isinstance(s.get('ban_do_co_s'), (int, float)) else 0.0)   # "mỗi lần ≤ 10 s" là lần dùng BẢN ĐỒ CỔ (§19 b)
++        if vc > BAN_DO_LAN + 1e-9: M['b'].append(f"(b) {s.get('shot')}: bản đồ cổ {vc:g} s > {BAN_DO_LAN:g} s/lần")
++    p = 100 * tot / T if T else 0.0
++    if p > BAN_DO_PCT + 1e-9: M['a'].append(f'(a) bản đồ (cổ + 3D kiểu bản đồ) {tot:.1f} s = {p:.2f} % > {BAN_DO_PCT:g} %')
++    return r(sum(M.values(), []), val=f'{tot:.1f} s / {T:.1f} s = {p:.2f} %', sat_nguong=sat('bản đồ %', round(p, 2), BAN_DO_PCT), muc=M, cong=cong, pct=round(p, 2))
++
++
++def tu_lieu_10(E, TL, LS, cong='G2'):
++    if LS is None: return r(thieu=['không có log shot'], val='—', cong=cong)
++    T = _tong(E, TL, LS); tot = sum(_lop(s, 'TL', 'KHAC', 'THE') for s in LS); p = 100 * tot / T if T else 0.0
++    loi = [f'(a) tư liệu + tranh khắc + thẻ {tot:.1f} s = {p:.2f} % > {TU_LIEU_PCT:g} %'] if p > TU_LIEU_PCT + 1e-9 else []
++    return r(loi, val=f'{tot:.1f} s / {T:.1f} s = {p:.2f} % (TL {sum(_lop(s, "TL") for s in LS):g} · KHAC {sum(_lop(s, "KHAC") for s in LS):g} · THE {sum(_lop(s, "THE") for s in LS):g} s)',
++             sat_nguong=sat('tư liệu + khắc + thẻ %', round(p, 2), TU_LIEU_PCT), cong=cong, pct=round(p, 2))
++
++
++def _so_gemini(E, ep_dir):
++    p = E.get('so_ai_gemini') or E.get('so_ai')
++    if not p: return None, 'không khai `so_ai_gemini` / `so_ai`'
++    try: J = K6._load(K6._p(ep_dir, p))
++    except Exception as e: return None, f'không đọc được sổ AI ({p}): {e}'   # noqa: BLE001
++    J = J if isinstance(J, list) else (J.get('dong') or J.get('records') or [J]) if isinstance(J, dict) else []
++    g = [x for x in J if isinstance(x, dict) and ('gemini' in str(x.get('nha') or '').lower() or 'gemini' in str(x.get('model_req') or x.get('model') or '').lower())]
++    return g, None
++
++
++def ai_tu_lieu(E, LS, ep_dir='.', cong='G2'):
++    if LS is None: return r(thieu=['không có log shot'], val='—', cong=cong)
++    M = {'a': [], 'b': []}; th = []; n = 0
++    for s in LS:
++        if _lop(s, 'MAP', 'KHAC', 'TL') <= 0: continue
++        n += 1; w = str(s.get('shot'))
++        ai = [k for k in ('minh_hoa', 'ai_image', 'ai_texture') if s.get(k)]
++        if ai: M['a'].append(f"(a) {w}: shot có tư liệu (bản đồ cổ/tranh khắc/ảnh) khai {', '.join(ai)} — §19 (b)(c) không AI lên tư liệu")
++        if s.get('ai_nen') and not s.get('tu_lieu_chong_sau_ai'): M['a'].append(f'(a) {w}: shot tấm nền N2+ có tư liệu nhưng không khai `tu_lieu_chong_sau_ai: true`')
++    sha = set()
++    if E.get('sha_tu_lieu'):
++        try:
++            for ln in open(K6._p(ep_dir, E['sha_tu_lieu']), encoding='utf-8'):
++                sha.update(re.findall(r'\b[0-9a-f]{64}\b', ln))
++        except OSError as e: th.append(f'(b) không đọc được sha_tu_lieu: {e}')
++    else: th.append('(b) không khai `sha_tu_lieu` (danh sách SHA-256 tư liệu) — không đối chiếu được sổ AI')
++    nso = 0
++    for key in ('so_ai', 'so_ai_gemini', 'so_ai_openai'):
++        if not E.get(key): continue
++        try: J = K6._load(K6._p(ep_dir, E[key]))
++        except Exception: continue   # noqa: BLE001
++        for x in (J if isinstance(J, list) else []):
++            nso += 1; vs = re.findall(r'\b[0-9a-f]{64}\b', json.dumps({k: v for k, v in x.items() if k in ('input', 'inputs', 'sha_vao', 'vao', 'anh_vao')}))
++            hit = sha.intersection(vs)
++            if hit: M['b'].append(f"(b) sổ AI {x.get('tag') or x.get('id')}: đầu vào là tư liệu (SHA {sorted(hit)[0][:12]}…) — cấm AI lên bản đồ cổ/tranh khắc")
++    return r(sum(M.values(), []), th, val=f'{n} shot có tư liệu · {len(sha)} SHA tư liệu · {nso} dòng sổ AI đối chiếu', muc=M, cong=cong)
++
++
++def gemini_ngan_sach(E, ep_dir='.', cong='G2'):
++    G, why = _so_gemini(E, ep_dir); M = {'a': [], 'k': [], 'm': [], 'u': []}
++    if G is None: return r(thieu=[f'(u) {why}'], val='—', muc=dict(M, u=[f'(u) {why}']), cong=cong)
++    tot, thieu = 0.0, []
++    for x in G:
++        u = x.get('usd', x.get('chi_phi_usd', x.get('cost_usd')))
++        if isinstance(u, (int, float)): tot += float(u)
++        else: thieu.append(f"(u) dòng {x.get('tag') or x.get('id')}: không có giá thật `usd` (usage {str(x.get('usage'))[:60]})")
++    ns, moc = E.get('ngan_sach_gemini_usd'), E.get('ngan_sach_gemini_moc_usd'); near = []
++    if not isinstance(ns, (int, float)): M['k'].append('(k) episode.yaml không khai `ngan_sach_gemini_usd` (ngân sách Gemini của tập do chủ dự án đặt — Q2 (i))')
++    elif tot > ns + 1e-9: M['a'].append(f'(a) Gemini ${tot:.2f} > ngân sách ${ns:g} ({len(G)} lệnh)')
++    if isinstance(ns, (int, float)): near += sat('Gemini $', round(tot, 2), float(ns))
++    if isinstance(moc, (int, float)) and tot > moc + 1e-9: M['m'].append(f'(m) Gemini ${tot:.2f} > mốc theo dõi ${moc:g}')
++    M['u'] = thieu
++    return r(M['a'] + M['k'] + M['m'], thieu, val=f'{len(G)} lệnh Gemini · ${tot:.2f}' + (f' / ngân sách ${ns:g}' if isinstance(ns, (int, float)) else ' / chưa khai ngân sách')
++             + (f' (mốc ${moc:g})' if isinstance(moc, (int, float)) else ''), muc=M, sat_nguong=near, cong=cong, usd=round(tot, 4))
++
++
++def goc_cao_60(E, TL, LS, ep_dir='.', cong='G2'):
++    if LS is None: return r(thieu=['không có log shot'], val='—', cong=cong)
++    T = K6.tong(E, TL) if (TL or E.get('segments')) else sum(_dur(s) for s in LS)
++    PPd = sum(b - a for _, a, b, _ in K6.pp_spans(E, TL)) if (TL or E.get('segments')) else sum(_dur(s) for s in LS if _cu(s) == 'PP')
++    Tb = T - PPd; cao = 0.0; th = []; nlog = 0
++    for s in LS:
++        if not s.get('tl') or K6.goc_of(s, E) != 'cao': continue
++        d = _dur(s); Lg = None
++        try: Lg = _ld(ep_dir, s.get('log_may'))
++        except Exception: Lg = None   # noqa: BLE001
++        if Lg:
++            nlog += 1; D = do_shot(Lg, _tieu_diem(s, E), float(s.get('mat_dat_m') or E.get('mat_dat_m') or 0)); cao += d * D['v7b_ty']
++        else: cao += d
++    nog = [str(s.get('shot')) for s in LS if K6.goc_of(s, E) is None and _cu(s) not in KHONG_MAY]
++    if nog: th.append(f'{len(nog)} shot không khai `goc` ({", ".join(nog[:6])})')
++    p = 100 * cao / Tb if Tb else 0.0
++    loi = [f'(a) góc cao timelapse {cao:.1f} s = {p:.1f} % < {GOC_CAO_PCT:g} % thân phim ({Tb:.1f} s)'] if p < GOC_CAO_PCT - 1e-9 else []
++    return r(loi, th if not loi else [], val=f'{cao:.1f} s / {Tb:.1f} s = {p:.1f} % (log khung V7B-D1: {nlog} shot)', sat_nguong=sat('góc cao %', round(p, 1), GOC_CAO_PCT), cong=cong, pct=round(p, 2))
++
++
++ROWS = ('MAY-19', 'BAN-DO-12', 'TU-LIEU-10', 'AI-TU-LIEU', 'GEMINI-NGAN-SACH', 'GOC-CAO-60')
++
++
++def chuan_ls(LS):
++    """nhận cả bảng shot tiền kỳ (scripts/k2ldn/bang_shot.py → BANG-SHOT-v*.json: {shot: [{ma, phan, bat_dau_s, giay, loai_may, may{cao}, lop}]}) → dạng log shot.
++    Bảng shot là KẾ HOẠCH (khai): dùng cho thử luật/ước trước dựng; số đo máy §19 (a) vẫn cần log khung."""
++    if isinstance(LS, dict) and isinstance(LS.get('shot'), list): LS = LS['shot']
++    if not isinstance(LS, list): return LS
++    out = []
++    for x in LS:
++        if 'ma' in x and 'shot' not in x:
++            lop = dict(x.get('lop') or {}); c = str(x.get('loai_may') or '').upper(); may = x.get('may') or {}
++            y = dict(shot=x['ma'], t0=float(x.get('bat_dau_s') or 0), dur=float(x.get('giay') or 0), chuong=x.get('phan'), cu_may=c, lop=lop,
++                     ai_nen=bool(lop.get('N2P')), minh_hoa=(c == 'MD'), tl=c not in KHONG_MAY, goc=('cao' if may.get('cao') else 'thap') if may else ('phang' if c in ('PP', 'THE') else None),
++                     diem_may=x.get('diem_may'), _bang_shot=True)
++            y['t1'] = y['t0'] + y['dur']; out.append(y)
++        else: out.append(x)
++    return out
++
++
++def check(E, TL=None, ep_dir='.', LS=None):
++    if not ap_1174(E): return {k: na('tập trước T4 (không khai kenh2_tu_t4 / n2p) — 1.17.4 không hồi tố') for k in ROWS}
++    cong = 'animatic' if E.get('animatic') else 'G2'; out = {}
++    if not LS and E.get('log_shot'):   # log_shot là bảng shot tiền kỳ (dict {shot: […]}) — K6.log_shot chỉ đọc khoá `shots`
++        try: LS = K6._load(K6._p(ep_dir, E['log_shot']))
++        except Exception: LS = None   # noqa: BLE001
++    LS = chuan_ls(LS)
++    for k, fn in (('MAY-19', lambda: may19(E, TL, LS, ep_dir, cong)), ('BAN-DO-12', lambda: ban_do_12(E, TL, LS, cong)), ('TU-LIEU-10', lambda: tu_lieu_10(E, TL, LS, cong)),
++                  ('AI-TU-LIEU', lambda: ai_tu_lieu(E, LS, ep_dir, cong)), ('GEMINI-NGAN-SACH', lambda: gemini_ngan_sach(E, ep_dir, cong)),
++                  ('GOC-CAO-60', lambda: goc_cao_60(E, TL, LS, ep_dir, cong))):
++        try: out[k] = fn()
++        except Exception as e: out[k] = r(thieu=[f'không chạy được: {type(e).__name__}: {e}'], val='—', cong=cong)   # noqa: BLE001
++    return out
++
++
++if __name__ == '__main__':
++    a = sys.argv[1:]
++    if not a: sys.exit(__doc__)
++    from checks.ll import base
++    E = base.load(a[0]); ep = os.path.dirname(os.path.abspath(a[0])); LS = K6.log_shot(E, ep, a[a.index('--log-shot') + 1] if '--log-shot' in a else None)[0]
++    TL = json.load(open(a[a.index('--tl') + 1])) if '--tl' in a else None
++    for k, v in check(E, TL, ep, LS).items():
++        print(k, v.get('ket_qua') or ('ĐẠT' if v['ok'] else 'TRƯỢT'), '·', v['val']); [print('   ', x) for x in (v['loi'] + (v.get('thieu') or []))[:20]]
+diff --git a/checks/ll/selftest_k1174.py b/checks/ll/selftest_k1174.py
+new file mode 100644
+index 00000000..6beb5fab
+--- /dev/null
++++ b/checks/ll/selftest_k1174.py
+@@ -0,0 +1,281 @@
++#!/opt/cine/bin/python
++"""Tự kiểm luật 1.17.4 (phiên K-1.17.4, 23/10/2026; chủ dự án duyệt Q1–Q7 23/10/2026 21:45). Mỗi luật đổi/mới ≥ 1 ca ĐẠT + ≥ 1 ca TRƯỢT.
++Không mạng, không API. Video thử dựng tại chỗ (thư mục tạm) từ ảnh vân tổng hợp (không dùng tài sản phim).
++  BIEN-CO-V (q_bcv): tĩnh → không biến cố; chỉ máy đi (trượt + phóng + quay) → không biến cố; vật đổi cục bộ → bắt đúng giờ; cắt → bắt;
++                     hàng (b)(c) đạt/trượt; miễn thẻ PP; (h) ranh shot; cấp chưa hiệu chuẩn → Cảnh báo.
++  Q37 + bcv (K117-D8): tập T4 + thước đạt → biến cố đo cộng vào (b)(c); tập T3 hoặc thước chưa đạt → không cộng; không nhận su_kien log.
++  Q37 (c) thẻ PP (K1173-D6): 2 thẻ × 9 s cuối phim miễn; thẻ giữa phim / 11 s / 3 thẻ → không miễn.
++  MINH-HOA (a) / N2P-6 (b) (Q2): T4 bỏ trần 20 %; T3 giữ.
++  MAY-19 (§19 a): mỗi cú máy một ca đạt + một ca trượt trên log khung tổng hợp; N2+ phải CODINH; KHOP 0 px; ≥ 4 loại/chương; ≤ 2 liền; THAP ≤ 12 %;
++                  thiếu log → THIẾU; bảng tóm tắt t4_do chỉ đủ ở animatic.
++  BAN-DO-12, TU-LIEU-10, AI-TU-LIEU, GEMINI-NGAN-SACH, GOC-CAO-60: đạt/trượt; cấp G2 ↔ animatic.
++  Đầu vào thử thật (tiền kỳ T4): reports/tien-ky-t4/do/t4-may.json (bảng tóm tắt) — VONG 10,6°/s, CAU vượt; KHOP 0,0 px đạt.
++  /opt/cine/bin/python checks/ll/selftest_k1174.py        mã thoát 0 = mọi ca đúng kỳ vọng"""
++import copy, json, math, os, subprocess, sys, tempfile
++
++ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
++sys.path.insert(0, ROOT)
++import numpy as np  # noqa: E402
++import cv2  # noqa: E402
++from checks.ll import q_bcv as B, q_nhip as N, q_k116 as K6, q_k117 as K7, q_n2p as NP, q_k1174 as K, cap112  # noqa: E402
++
++TMP = tempfile.mkdtemp(prefix='k1174-'); R = []
++
++
++def case(rule, name, got, expect_fail):
++    got = list(got) if got else []
++    R.append((rule, name, 'bắt lỗi' if expect_fail else 'sạch', bool(got) == expect_fail, got[:2]))
++
++
++def bad(x, *muc):
++    L = (x.get('loi') or []) + (x.get('thieu') or [])
++    return [y for y in L if not muc or any(y.startswith(f'({m})') for m in muc)]
++
++
++# ====================================================================== BIEN-CO-V — video tổng hợp 640×360, 24 khung/s
++rng = np.random.default_rng(1174)
++def van(seed, w=1600, h=900):
++    g = np.random.default_rng(seed); x = cv2.resize(g.integers(0, 255, (h // 20, w // 20, 3), dtype=np.uint8), (w, h), interpolation=cv2.INTER_CUBIC)
++    x = cv2.GaussianBlur(x, (0, 0), 2.0); n = g.integers(0, 255, (h, w, 3), dtype=np.uint8)
++    return cv2.addWeighted(x, 0.8, cv2.GaussianBlur(n, (0, 0), 1.2), 0.2, 0)
++
++
++NEN, NEN2 = van(1), van(2)
++
++
++def mk(path, n, fn, w=640, h=360):
++    p = subprocess.Popen(['ffmpeg', '-v', 'error', '-nostdin', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', f'{w}x{h}', '-r', '24', '-i', '-', '-c:v', 'libx264', '-crf', '18', '-pix_fmt', 'yuv420p', path],
++                         stdin=subprocess.PIPE)
++    for f in range(n): p.stdin.write(np.ascontiguousarray(fn(f)).tobytes())
++    p.stdin.close(); p.wait(); return path
++
++
++def khung(img, tt, pan=0.0, zoom=0.0, rot=0.0, w=640, h=360):
++    H_, W_ = img.shape[:2]; M = cv2.getRotationMatrix2D((W_ / 2, H_ / 2), rot * tt, 1.0 + zoom * tt); M[0, 2] += -pan * W_ * tt
++    return cv2.resize(cv2.warpAffine(img, M, (W_, H_), borderMode=cv2.BORDER_REFLECT), (w, h), interpolation=cv2.INTER_AREA)
++
++
++def dan(img, src, x0, y0, s=100):
++    o = img.copy(); o[y0:y0 + s, x0:x0 + s] = src[y0:y0 + s, x0:x0 + s]; return o
++
++
++V_TINH = mk(os.path.join(TMP, 'tinh.mp4'), 240, lambda f: khung(NEN, f / 24))
++V_MAY = mk(os.path.join(TMP, 'may.mp4'), 240, lambda f: khung(NEN, f / 24, pan=0.02, zoom=0.015, rot=0.5))
++V_DOI = mk(os.path.join(TMP, 'doi.mp4'), 240, lambda f: khung(dan(NEN, NEN2, 1000, 400) if f / 24 >= 5.0 else NEN, f / 24, pan=0.02, zoom=0.015, rot=0.5))
++# nhịp: vật đổi cục bộ mỗi 2 s (6 ô khác nhau), máy trôi nhẹ
++def nhip(f):
++    I = NEN.copy()
++    for j, t in enumerate((2, 4, 6, 8, 10, 12)):
++        if f / 24 >= t: I = dan(I, NEN2, 150 + 220 * (j % 6), 200 + 150 * (j % 3))
++    return khung(I, f / 24, pan=0.005)
++V_NHIP = mk(os.path.join(TMP, 'nhip.mp4'), 336, nhip)
++V_CAT = mk(os.path.join(TMP, 'cat.mp4'), 240, lambda f: khung(NEN if f < 120 else NEN2, f / 24))
++
++Dt = B.do_video(V_TINH); Dm = B.do_video(V_MAY); Dd = B.do_video(V_DOI); Dn = B.do_video(V_NHIP); Dc = B.do_video(V_CAT)
++case('BIEN-CO-V', f"clip tĩnh 10 s → 0 biến cố đo (đo {len(Dt['su_kien'])})", Dt['su_kien'], False)
++case('BIEN-CO-V', f"clip chỉ máy đi (trượt 2 %/s + phóng 1,5 %/s + quay 0,5°/s) → 0 biến cố (đo {len(Dm['su_kien'])})", Dm['su_kien'], False)
++hit = [e for e in Dd['su_kien'] if abs(e[0] - 5.0) <= 0.25]
++case('BIEN-CO-V', f"vật đổi cục bộ ở 5,0 s trên máy đi → bắt ±0,25 s ({[e[0] for e in Dd['su_kien']]})", [] if hit and len(B.gop([e[0] for e in Dd['su_kien']])) == 1 else ['không bắt / bắt thừa'], False)
++case('BIEN-CO-V', f"cắt cứng ở 5,0 s → loại 'cat' ({Dc['cat']})", [] if any(abs(t - 5.0) <= 0.05 for t in Dc['cat']) else ['không bắt cắt'], False)
++nh = B.gop([e[0] for e in Dn['su_kien']])
++case('BIEN-CO-V', f'6 vật đổi mỗi 2 s → bắt 6/6 ({nh})', [] if all(any(abs(u - t) <= 0.25 for u in nh) for t in (2, 4, 6, 8, 10, 12)) and len(nh) == 6 else [nh], False)
++
++# hàng: tập T4 giả (một đoạn, ranh shot ở 0)
++TLx = lambda T, shots=None: dict(tong_s=T, segments=[dict(id='A', t0=0.0, t1=T, shots=shots or [dict(t0=0.0, t1=T)])])
++E4 = dict(id='t4', kenh2_tu_t4=True, khung_sach=True)
++Hn = B.hang(E4, TLx(14.0), V_NHIP, 'G2', [], Dn)
++case('BIEN-CO-V', f"nhịp 2 s, khoảng cuối 2 s → (b)(c) sạch ({Hn['val'][:60]}…)", bad(Hn, 'b', 'c'), False)
++Ht = B.hang(E4, TLx(10.0), V_TINH, 'G2', [], Dt)
++case('BIEN-CO-V', 'clip tĩnh 10 s → (b) TB > 3,5 s và (c) dài nhất 10 s > 6 s', bad(Ht, 'b', 'c'), True)
++Hm = B.hang(E4, TLx(10.0), V_TINH, 'G2', [(0.0, 10.0, 'the_pp', 'PP1')], Dt)
++case('BIEN-CO-V', '1.17.4 K1173-D6: cùng clip là thẻ PP cuối phim (≤ 10 s) → (c) miễn', bad(Hm, 'c'), False)
++Hc = B.hang(E4, TLx(10.0, [dict(t0=0.0, t1=5.0), dict(t0=5.0, t1=10.0)]), V_CAT, 'G2', [], Dc)
++case('BIEN-CO-V', '(h) bắt ranh shot 5,0 s → 100 % ≥ 95 %', bad(Hc, 'h'), False)
++Hh = B.hang(E4, TLx(10.0, [dict(t0=0.0, t1=3.0), dict(t0=3.0, t1=10.0)]), V_TINH, 'G2', [], Dt)
++case('BIEN-CO-V', '(h) ranh shot khai 3,0 s mà video không cắt → 0 % < 95 % (thước không tin trên tập)', bad(Hh, 'h'), True)
++HC0 = dict(B.HIEU_CHUAN)
++B.HIEU_CHUAN.update(dat=False); r0 = B.hang(E4, TLx(10.0), V_TINH, 'G2', [], Dt)
++mo, ch, cb = cap112.cap('BIEN-CO-V', r0)
++case('cấp', 'BIEN-CO-V thước chưa đạt hiệu chuẩn → không Chặn (chỉ Cảnh báo)', ch, False)
++B.HIEU_CHUAN.update(dat=True); r1 = B.hang(E4, TLx(10.0), V_TINH, 'G2', [], Dt); mo, ch, cb = cap112.cap('BIEN-CO-V', r1)
++case('cấp', 'BIEN-CO-V thước đạt + G2 → (b)(c) Chặn', ch, True)
++mo, ch, cb = cap112.cap('BIEN-CO-V', dict(r1, cong='animatic'))
++case('cấp', 'BIEN-CO-V ở animatic → chỉ Cảnh báo', ch, False)
++
++# ====================================================================== Q37 + bcv (K117-D8) và miễn thẻ PP (K1173-D6)
++def ep37(beats_A, kenh2_tu_t4=True, pp=(9.0, 9.0), pp_at_end=True):
++    segs = [dict(id='A', dur=30.0, beats=beats_A, shots=[dict(at=0, type='scene3d', p={})])]
++    if not pp_at_end: segs = [dict(id='PP1', dur=pp[0], the_phuong_phap=True, beats=[dict(t=0, k='cut', s='PP1')], shots=[dict(at=0, type='card', p={})])] + segs
++    else: segs += [dict(id=f'PP{i + 1}', dur=d, the_phuong_phap=True, beats=[dict(t=0, k='cut', s=f'PP{i + 1}')], shots=[dict(at=0, type='card', p={})]) for i, d in enumerate(pp)]
++    E = dict(id='x', khung_sach=True, segments=segs)
++    if kenh2_tu_t4: E['kenh2_tu_t4'] = True
++    return E
++
++
++def q37c(E, bcv=None):
++    M = K6.q37_mien(E, None)
++    r = N.q37(E, None, mien=M, bcv=bcv)
++    return [x for x in r['loi'] if x.startswith('(b)') or x.startswith('(c)')], r, M
++
++
++BA = [dict(t=0, k='cut', s='A'), dict(t=2.0, k='cut', s='g'), dict(t=4.0, k='cut', s='g'), dict(t=26.0, k='cut', s='g'), dict(t=28.0, k='cut', s='g')]
++L0, r0, M0 = q37c(ep37(BA))
++case('Q37', 'beat khai thưa (khoảng 4 → 26 s = 22 s) → (c)', L0, True)
++EV = [(float(t), 'video', 'video:o', '1 ô') for t in range(6, 26, 2)]
++L1, r1, _ = q37c(ep37(BA), bcv=EV)
++case('Q37', '1.17.4: + biến cố ĐO trên video mỗi 2 s (tập T4, thước đạt) → (b)(c) sạch', L1, False)
++E3 = ep37(BA, kenh2_tu_t4=False)
++case('Q37', 'tập T3: q_bcv.cho_q37 không trả biến cố (không cộng) → vẫn (c)', q37c(E3, bcv=B.cho_q37(E3, dict(su_kien=[(t, 1, 9.0, 'o') for t in range(6, 26, 4)]), True))[0], True)
++case('Q37', 'tập T4 nhưng thước chưa đạt hiệu chuẩn → không cộng → vẫn (c)', q37c(ep37(BA), bcv=B.cho_q37(ep37(BA), dict(su_kien=[(t, 1, 9.0, 'o') for t in range(6, 26, 4)]), False))[0], True)
++case('Q37', 'tập T4 + thước đạt → cho_q37 trả biến cố → (b)(c) sạch', q37c(ep37(BA), bcv=B.cho_q37(ep37(BA), dict(su_kien=[(float(t), 1, 9.0, 'o') for t in range(6, 26, 2)]), True))[0], False)
++ESK = ep37(BA); ESK['segments'][0]['su_kien'] = [dict(t=t, s='tự khai') for t in range(6, 26, 4)]
++case('Q37', 'su_kien tự khai trong đặc tả/log không được nhận (K117-D8)', q37c(ESK)[0], True)
++# K1173-D6
++BOK = [dict(t=0, k='cut', s='A')] + [dict(t=float(t), k='cut', s='g') for t in range(2, 30, 2)]
++Lp, rp, Mp = q37c(ep37(BOK))
++case('Q37', f"K1173-D6: 2 thẻ PP × 9 s cuối phim → (c) miễn (miễn {[m[2] for m in Mp]})", Lp, False)
++case('Q37', 'K1173-D6: trước 1.17.4 (không miễn thẻ PP) cùng tập → (c) 9 s', [x for x in N.q37(ep37(BOK), None, mien=[m for m in Mp if m[2] != 'the_pp'])['loi'] if x.startswith('(c)')], True)
++case('Q37', 'K1173-D6: thẻ PP 11 s → không miễn quá 10 s → (c)', q37c(ep37(BOK, pp=(11.0, 8.0)))[0], True)
++case('Q37', 'K1173-D6: thẻ PP ở ĐẦU phim (không cuối) → không miễn → (c)', q37c(ep37(BOK, pp=(9.0,), pp_at_end=False))[0], True)
++case('Q37', 'K1173-D6: 3 thẻ PP liền cuối phim → (c) > 2 thẻ', q37c(ep37(BOK, pp=(8.0, 8.0, 8.0)))[0], True)
++
++# ====================================================================== Q2: MINH-HOA (a) / N2P-6 (b)
++SO = dict(model='gemini-omni-1.1-flash', lenh='…', sha_vao='aa' * 32, sha_ra='bb' * 32)
++LSm = [dict(shot='A', t0=0, t1=30, dur=30, goc='cao'), dict(shot='M', t0=30, t1=55, dur=25, minh_hoa=True, goc='thap', agl_m=[30], so_ai=SO), dict(shot='B', t0=55, t1=100, dur=45, goc='cao')]
++EM3 = dict(id='t3', khung_sach=True, segments=[dict(id=s, dur=d) for s, d in (('A', 30), ('M', 25), ('B', 45))])
++EM4 = dict(EM3, id='t4', kenh2_tu_t4=True)
++case('MINH-HOA', 'T3: minh hoạ 25 % > 20 % → (a) (không hồi tố)', bad(K7.minh_hoa(EM3, None, LSm), 'a'), True)
++case('MINH-HOA', 'T4 (Q2): minh hoạ 25 % → không (a)', bad(K7.minh_hoa(EM4, None, LSm), 'a'), False)
++LS6 = [dict(shot='A', dur=30, ai_nen=True), dict(shot='B', dur=25, minh_hoa=True), dict(shot='C', dur=45)]
++case('N2P-6', 'T4 (Q2): minh hoạ 25 % → không (b)', bad(NP.n2p6(EM4, LS6), 'b'), False)
++case('N2P-6', 'tổng AI 75 % (50 + 25) > 70 % → (c) giữ', bad(NP.n2p6(EM4, [dict(shot='A', dur=50, ai_nen=True), dict(shot='B', dur=25, minh_hoa=True), dict(shot='C', dur=25)]), 'c'), True)
++
++
++# ====================================================================== MAY-19 — log khung tổng hợp (định dạng render_ldn.js)
++def log(keys, dur=8.0, fps=24, W=1920, H=1080):
++    """keys: hàm t → (p, l, fov) — toạ độ cảnh (y lên)"""
++    fr = []
++    for f in range(int(round(dur * fps))):
++        p, l, fov = keys(f / fps); fr.append(dict(f=f, cam=dict(p=list(map(float, p)), l=list(map(float, l)), fov=float(fov)), year=1666.6))
++    return dict(W=W, H=H, shot=dict(fps=fps, dur=dur), frames=fr)
++
++
++F0 = np.array([0.0, 40.0, -600.0])
++def tr(dx=0.0, dy=0.0, dz=0.0, base=(0.0, 230.0, 400.0), lk=None, fov=50.0, dfov=0.0):
++    return lambda t: (np.array(base) + np.array([dx, dy, dz]) * t, (F0 if lk is None else lk(t)), fov + dfov * t)
++def quay(deg_s, R=1000.0, h=230.0):
++    return lambda t: (F0 + np.array([R * math.sin(math.radians(deg_s * t)), h - F0[1], R * math.cos(math.radians(deg_s * t))]), F0, 50.0)
++def nhin(pitch0, pitch1, T=6.0, h=2200.0):
++    def k(t):
++        a = math.radians(pitch0 + (pitch1 - pitch0) * min(1.0, t / T)); p = np.array([0.0, h, 0.0])
++        return p, p + np.array([0.0, math.sin(a), -math.cos(a)]) * 100.0, 40.0
++    return k
++def thap(h, ngua):
++    return lambda t: (np.array([0.0, h, 300.0]), np.array([0.0, h, 300.0]) + np.array([0.0, math.sin(math.radians(ngua)), -math.cos(math.radians(ngua))]) * 100, 35.0)
++
++
++def L1(cu, keys, dur=8.0, **kw):
++    d = dict(shot=cu.lower(), t0=0.0, dur=dur, chuong='1', cu_may=cu, goc='cao', tl=True, log_may=log(keys, dur)); d.update(kw); return d
++
++
++def may(LS, E=None, cong='G2'):
++    return K.may19(E or dict(id='t4', kenh2_tu_t4=True), None, LS, '.', cong)
++
++
++dist0 = float(np.linalg.norm(np.array([0.0, 230.0, 400.0]) - F0))
++CA = [('CODINH', tr(dx=0.5, lk=lambda t: F0 + np.array([0.5 * t, 0, 0])), tr(dx=40.0, lk=lambda t: F0 + np.array([40.0 * t, 0, 0])), 'trôi máy + điểm nhìn 0,5 → 40 m/s'),
++      ('DAY', tr(dz=-0.010 * dist0), tr(dz=-0.03 * dist0), 'tiến 1 % → 3 % khoảng cách/s'),
++      ('KEO', tr(dz=0.015 * dist0), tr(dz=0.04 * dist0), 'lùi 1,5 % → 4 % khoảng cách/s'),
++      ('CAU', tr(dy=4.0, lk=lambda t: F0), tr(dy=10.0, lk=lambda t: F0), 'dọc 4 → 10 m/s'),
++      ('VONG', quay(2.5), quay(5.0), 'vòng 2,5 → 5°/s'),
++      ('TRUOT', tr(dx=15.0, lk=lambda t: F0 + np.array([15.0 * t, 0, 0])), tr(dx=60.0, lk=lambda t: F0 + np.array([60.0 * t, 0, 0])), 'tiêu điểm dịch chậm → nhanh'),
++      ('NGHIENG', nhin(-10, -20, 8.0, 230.0), nhin(-10, -40, 8.0, 230.0), 'nghiêng 1,25 → 3,75°/s'),
++      ('THAP', thap(40.0, 10.0), thap(90.0, 10.0), 'máy 40 m → 90 m'),
++      ('XUONG', nhin(-89.9, -30.0, 6.0), nhin(-89.9, -30.0, 2.0), 'chuyển 6 s → 2 s')]
++for cu, ok, ko, ten in CA:
++    case('MAY-19', f'{cu} đạt ({ten})', bad(may([L1(cu, ok)]), 'a'), False)
++    case('MAY-19', f'{cu} trượt ({ten})', bad(may([L1(cu, ko)]), 'a'), True)
++case('MAY-19', '(b) shot ai_nen khai VONG (không CODINH) → (b)', bad(may([L1('VONG', quay(2.5), ai_nen=True)]), 'b'), True)
++case('MAY-19', '(b) shot ai_nen CODINH trôi 0,05 %/s → sạch (b)', bad(may([L1('CODINH', tr(dx=0.5), ai_nen=True)]), 'b'), False)
++KA = L1('CODINH', tr(), shot='p1-1666')
++case('MAY-19', '(c) KHOP cùng máy cùng FOV → 0 px', bad(may([KA, L1('KHOP', tr(), shot='p1-1711', t0=8.0, khop_voi='p1-1666')]), 'c'), False)
++case('MAY-19', '(c) KHOP lệch máy 2 m → > 0,5 px', bad(may([KA, L1('KHOP', tr(base=(2.0, 230.0, 400.0)), shot='p1-1711', t0=8.0, khop_voi='p1-1666')]), 'c'), True)
++case('MAY-19', '(c) KHOP FOV khác 50 → 51°', bad(may([KA, L1('KHOP', tr(fov=51.0), shot='p1-1711', t0=8.0, khop_voi='p1-1666')]), 'c'), True)
++def chuoi(cus, ch='1'):
++    return [dict(shot=f's{i}', t0=8.0 * i, dur=8.0, chuong=ch, cu_may=c, goc='cao', tl=True, log_may=log(tr(), 8.0) if c != 'LAN' else None) for i, c in enumerate(cus)]
++case('MAY-19', '(d) chương 4 loại (CODINH, DAY, VONG, CAU) → sạch', bad(may(chuoi(['CODINH', 'DAY', 'VONG', 'CAU'])), 'd'), False)
++case('MAY-19', '(d) chương 3 loại → (d)', bad(may(chuoi(['CODINH', 'DAY', 'VONG', 'CODINH'])), 'd'), True)
++case('MAY-19', '(e) 2 shot liền CODINH → sạch', bad(may(chuoi(['CODINH', 'CODINH', 'DAY', 'VONG', 'CAU'])), 'e'), False)
++case('MAY-19', '(e) 3 shot liền CODINH → (e)', bad(may(chuoi(['CODINH', 'CODINH', 'CODINH', 'DAY', 'VONG', 'CAU'])), 'e'), True)
++case('MAY-19', '(e) MD xen giữa ngắt chuỗi', bad(may(chuoi(['CODINH', 'CODINH', 'MD', 'CODINH', 'DAY', 'VONG', 'CAU'])), 'e'), False)
++TH = [L1('THAP', thap(40.0, 10.0), dur=12.0)] + [dict(shot=f'x{i}', t0=12.0 + 8 * i, dur=8.0, chuong='1', cu_may='LAN', goc='cao', tl=True) for i in range(11)]
++case('MAY-19', '(f) THAP 12 s / 100 s = 12 % (đúng trần) → sạch', bad(may(TH), 'f'), False)
++case('MAY-19', '(f) THAP 13 s / 101 s > 12 % → (f)', bad(may([dict(TH[0], dur=13.0, log_may=log(thap(40.0, 10.0), 13.0))] + TH[1:]), 'f'), True)
++case('MAY-19', '(g) shot 3D không log máy → THIẾU', bad(may([dict(shot='z', t0=0, dur=8, chuong='1', cu_may='DAY', goc='cao', tl=True)]), 'g'), True)
++case('MAY-19', '(g) shot không khai cu_may → THIẾU', bad(may([dict(shot='z', t0=0, dur=8, chuong='1', goc='cao', tl=True)]), 'g'), True)
++cw = cap112.cap('MAY-19', dict(may([L1('KEO', tr(dz=0.015 * dist0))]), cong='G2'))
++case('MAY-19', '(w) KEO không khai lo_ra → Cảnh báo, không Chặn', [x for x in cw[1] if x.startswith('(w)')] or ([] if any(x.startswith('(w)') for x in cw[2]) else ['không có (w)']), False)
++# bảng tóm tắt t4_do (đầu vào thử thật)
++T4M = json.load(open(os.path.join(ROOT, 'reports', 'tien-ky-t4', 'do', 't4-may.json')))
++TT = {d['doan']: d for d in T4M['doan']}
++LST = [dict(shot=k, t0=3.0 * i, dur=TT[k]['giay'], chuong='thu', cu_may=c, goc='cao', tl=True, log_may_tom_tat=TT[k], lo_ra='x') for i, (k, c) in enumerate((('a-day', 'DAY'), ('b-vong', 'VONG'), ('c-cau', 'CAU'), ('d-khop', 'KHOP')))]
++RT = may(LST, cong='animatic')
++case('MAY-19', 'tiền kỳ T4 (t4-may.json): DAY tiêu điểm 1,06 %/s ≤ 1,5 → sạch', [x for x in bad(RT, 'a') if 'a-day' in x], False)
++case('MAY-19', 'tiền kỳ T4: VONG quay 12,64°/s > 3 → (a)', [x for x in bad(RT, 'a') if 'b-vong' in x], True)
++case('MAY-19', 'tiền kỳ T4: CAU 130,9 m/s, 4,77°/s → (a)', [x for x in bad(RT, 'a') if 'c-cau' in x], True)
++case('MAY-19', 'tiền kỳ T4: KHOP lệch neo 0,0 px → sạch (c)', bad(RT, 'c'), False)
++case('MAY-19', 'bảng tóm tắt ở animatic: không THIẾU (g)', bad(RT, 'g'), False)
++case('MAY-19', 'bảng tóm tắt ở G2: THIẾU (g) — phải đo từ log khung', bad(may(LST, cong='G2'), 'g'), True)
++mo, ch, cb = cap112.cap('MAY-19', RT)
++case('cấp', 'MAY-19 ở animatic → chỉ Cảnh báo', ch, False)
++mo, ch, cb = cap112.cap('MAY-19', may(LST, cong='G2'))
++case('cấp', 'MAY-19 ở G2 → Chặn', ch, True)
++
++# ====================================================================== BAN-DO-12, TU-LIEU-10, AI-TU-LIEU
++E4b = dict(id='t4', kenh2_tu_t4=True)
++LSb = lambda mp, m3, tl=0, kh=0, th=0: [dict(shot='a', dur=10, lop=dict(MAP=mp, MAP3D=m3, TL=tl, KHAC=kh, THE=th)), dict(shot='b', dur=90)]
++case('BAN-DO-12', 'bản đồ 12 s / 100 s = 12 % (đúng trần) → sạch', bad(K.ban_do_12(E4b, None, [dict(shot='a', dur=12, lop=dict(MAP=8, MAP3D=4)), dict(shot='b', dur=88)])), False)
++case('BAN-DO-12', 'bản đồ 13 % → (a)', bad(K.ban_do_12(E4b, None, [dict(shot='a', dur=13, lop=dict(MAP=9, MAP3D=4)), dict(shot='b', dur=87)]), 'a'), True)
++case('BAN-DO-12', 'bản đồ cổ một lần 11 s → (b)', bad(K.ban_do_12(E4b, None, [dict(shot='a', dur=11, lop=dict(MAP=11)), dict(shot='b', dur=89)]), 'b'), True)
++case('TU-LIEU-10', 'TL 4 + KHAC 3 + THE 3 = 10 % → sạch', bad(K.tu_lieu_10(E4b, None, LSb(0, 0, 4, 3, 3))), False)
++case('TU-LIEU-10', 'TL 5 + KHAC 3 + THE 3 = 11 % → (a)', bad(K.tu_lieu_10(E4b, None, [dict(shot='a', dur=11, lop=dict(TL=5, KHAC=3, THE=3)), dict(shot='b', dur=89)])), True)
++SHAF = os.path.join(TMP, 'sha.txt'); open(SHAF, 'w').write('ab' * 32 + '  tu-lieu/doornick.jpg\n')
++SOF = os.path.join(TMP, 'so.jsonl'); open(SOF, 'w').write(json.dumps(dict(tag='x', nha='openai', input=[dict(file='a.jpg', sha256='cd' * 32)])) + '\n')
++SOB = os.path.join(TMP, 'so-bad.jsonl'); open(SOB, 'w').write(json.dumps(dict(tag='y', nha='openai', input=[dict(file='doornick.jpg', sha256='ab' * 32)])) + '\n')
++EA = dict(E4b, sha_tu_lieu=SHAF, so_ai=SOF)
++case('AI-TU-LIEU', 'shot bản đồ cổ không AI; sổ AI không có SHA tư liệu → sạch', bad(K.ai_tu_lieu(EA, [dict(shot='a', dur=9, lop=dict(MAP=9))], TMP)), False)
++case('AI-TU-LIEU', 'shot tranh khắc khai ai_image → (a)', bad(K.ai_tu_lieu(EA, [dict(shot='a', dur=9, lop=dict(KHAC=4), ai_image=True)], TMP), 'a'), True)
++case('AI-TU-LIEU', 'shot tấm nền N2+ + tư liệu không khai chồng sau AI → (a)', bad(K.ai_tu_lieu(EA, [dict(shot='a', dur=9, lop=dict(KHAC=4), ai_nen=True)], TMP), 'a'), True)
++case('AI-TU-LIEU', 'tấm nền N2+ + tư liệu chồng SAU ghép (khai) → sạch', bad(K.ai_tu_lieu(EA, [dict(shot='a', dur=9, lop=dict(KHAC=4), ai_nen=True, tu_lieu_chong_sau_ai=True)], TMP)), False)
++case('AI-TU-LIEU', 'sổ AI có đầu vào = SHA bản đồ cổ → (b)', bad(K.ai_tu_lieu(dict(EA, so_ai=SOB), [dict(shot='a', dur=9, lop=dict(MAP=9))], TMP), 'b'), True)
++
++# ====================================================================== GEMINI-NGAN-SACH, GOC-CAO-60
++GF = os.path.join(TMP, 'gem.jsonl')
++open(GF, 'w').write(''.join(json.dumps(dict(tag=f'M{i}', nha='gemini', model_req='gemini-omni-1.1-flash', usd=1.02)) + '\n' for i in range(24))
++                    + json.dumps(dict(tag='o', nha='openai', usd=9.0)) + '\n')
++EG = dict(E4b, so_ai_gemini=GF, ngan_sach_gemini_usd=30, ngan_sach_gemini_moc_usd=25)
++rg = K.gemini_ngan_sach(EG, TMP)
++case('GEMINI-NGAN-SACH', f"24 lệnh × $1,02 = ${rg.get('usd')} ≤ $30 (bỏ dòng OpenAI) → sạch (a)", bad(rg, 'a', 'u'), False)
++case('GEMINI-NGAN-SACH', 'vượt mốc theo dõi $25 → (m) Cảnh báo, không Chặn', [x for x in cap112.cap('GEMINI-NGAN-SACH', rg)[1]], False)
++case('GEMINI-NGAN-SACH', 'ngân sách $20 → (a) Chặn ở G2', cap112.cap('GEMINI-NGAN-SACH', K.gemini_ngan_sach(dict(EG, ngan_sach_gemini_usd=20), TMP))[1], True)
++case('GEMINI-NGAN-SACH', 'ngân sách $20 ở animatic → chỉ Cảnh báo', cap112.cap('GEMINI-NGAN-SACH', K.gemini_ngan_sach(dict(EG, ngan_sach_gemini_usd=20), TMP, 'animatic'))[1], False)
++case('GEMINI-NGAN-SACH', 'không khai ngân sách → (k) Cảnh báo (không Chặn)', cap112.cap('GEMINI-NGAN-SACH', K.gemini_ngan_sach({k: v for k, v in EG.items() if k != 'ngan_sach_gemini_usd'}, TMP))[1], False)
++case('GEMINI-NGAN-SACH', 'không khai ngân sách → có (k)', bad(K.gemini_ngan_sach({k: v for k, v in EG.items() if k != 'ngan_sach_gemini_usd'}, TMP), 'k'), True)
++GU = os.path.join(TMP, 'gem-u.jsonl'); open(GU, 'w').write(json.dumps(dict(tag='M1', nha='gemini', usage={'total_tokens': 59712})) + '\n')
++case('GEMINI-NGAN-SACH', 'dòng Gemini thiếu giá thật usd → (u) THIẾU', bad(K.gemini_ngan_sach(dict(EG, so_ai_gemini=GU), TMP), 'u'), True)
++LSg = lambda cao: [dict(shot='a', dur=cao, goc='cao', tl=True), dict(shot='b', dur=100 - cao, goc='thap', tl=True)]
++case('GOC-CAO-60', 'góc cao 60 s / 100 s = 60 % (đúng ngưỡng) → sạch', bad(K.goc_cao_60(E4b, None, LSg(60))), False)
++case('GOC-CAO-60', 'góc cao 59 % → (a)', bad(K.goc_cao_60(E4b, None, LSg(59))), True)
++case('GOC-CAO-60', 'thẻ PP không tính vào thân phim: 58 / (100 − 4) = 60,4 % → sạch', bad(K.goc_cao_60(E4b, None, LSg(58)[:1] + [dict(shot='b', dur=38, goc='thap', tl=True), dict(shot='pp', dur=4, cu_may='PP')])), False)
++LV = [dict(shot='a', dur=60, goc='cao', tl=True, log_may=log(lambda t: (np.array([0.0, 30.0, 0.0]), np.array([0.0, 30.0, -100.0]), 50.0), 4.0)), dict(shot='b', dur=40, goc='thap', tl=True)]
++case('GOC-CAO-60', 'khai goc cao nhưng log khung: máy 30 m nhìn ngang (không đạt V7B-D1) → (a)', bad(K.goc_cao_60(E4b, None, LV)), True)
++
++# ====================================================================== áp dụng
++case('áp dụng', 'tập T3 → 6 hàng 1.17.4 KHÔNG ÁP', [k for k, v in K.check(dict(id='t3', khung_sach=True), None, '.', []).items() if v.get('ket_qua') != 'KHÔNG ÁP'], False)
++B.HIEU_CHUAN.clear(); B.HIEU_CHUAN.update(HC0)
++
++# ---------------------------------------------------------------------- in kết quả
++ok = all(x[3] for x in R)
++for rule, name, kv, good, got in R: print(f"{'ĐÚNG' if good else 'SAI '} [{rule}] {name} — kỳ vọng {kv}" + ('' if good else f' · được {got}'))
++print(f"\nselftest_k1174: {sum(x[3] for x in R)}/{len(R)} ca đúng kỳ vọng — {'ĐẠT' if ok else 'TRƯỢT'}")
++sys.exit(0 if ok else 1)
