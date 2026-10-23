@@ -14,7 +14,8 @@
 | 17:35 | Hiệu chuẩn lượt 3 **ĐẠT**: θ 8, k 2 (chọn nửa đầu, kiểm nửa sau đạt) — R cắt 100/100 %, R beat 90,8/98,2 %, Δt TV 0,05/0,04 s, 0 báo nhầm (tĩnh theo ô + chỉ máy đi), bắt 6/6 → `do/hieu-chuan-bcv.json`; `q_bcv.HIEU_CHUAN` ghi hằng số; selftest_k1174 91/91 | xong |
 | 17:48 | k2check 1.17.4 (chưa khoá) trên T3 (12 m 6 s): chỉ đổi Q37/NHIP-K2/Q37 (1.13) (c) 9,0 s PP1 → miễn (lộ 8,03 s N5_5), + BIEN-CO-V (TRƯỢT (c) 19,62 s từ 1:02,6), + hàng 1.17.4 (T4) KHÔNG ÁP → `do/k2check-1.17.4-t3-truoc-khoa.md`. Thử lưới mịn 16×9: không cứu vật nhỏ ở mọi θ không báo nhầm → giữ 8×6 | xong |
 | 17:49 | `lock.py` (không `--verify`, MỘT lần) → **1.17.4 `08486eb2…`**; `--verify` KHỚP; selftest_k1174 91/91 | xong |
-| — | Trên cây đã khoá: selftest cũ + k1174, k2check 1.17.4 cuối trên T3, báo cáo | đang làm |
+| 18:00 | Trên cây đã khoá: selftest k112…k1174, k2, ll đạt hết (k1174 91/91); k2check 1.17.4 cuối trên T3 (10 m 12 s) trùng lượt trước khoá, LOCK 1.17.4 KHỚP; 51/54 hàng như 1.17.3 → `do/so-1173-1174.md` | xong |
+| 18:05 | Báo cáo `K1174-BAO-CAO.md` (§0–§13), quyết định K1174-D1…D6 | xong — **DỪNG chờ chủ dự án** |
 
 ## Lệnh bổ sung đã áp
 - 17:37: lần 2 lệnh dừng theo chuỗi (`grep "[k]2check-1174-truoc"`) khớp chính shell (exit 144) — chỉ lượt k2check vừa khởi động bị dừng; từ đây lấy PID bằng lệnh riêng.

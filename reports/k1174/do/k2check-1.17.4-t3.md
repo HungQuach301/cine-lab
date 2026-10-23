@@ -56,7 +56,7 @@
 | CONG-BO-1 | Công bố AI ở gói phát hành (1.17.2) | **CẢNH BÁO** | Chặn ở gói phát hành (`cong: phat_hanh` | `phat_hanh.goi: true`) · chỉ báo (Cảnh báo) ở mọi cổng trước — §14.1 (f), YouTube "AI use" — lỗi Chặn 0, Cảnh báo 1 | áp vì: 4 đoạn minh hoạ (H1/M5, N1_4/M3, C3/M2, C5/M4) · 4 shot log ai_image (H1, N1_4, C3, C5) · giọng tổng hợp (giong_tong_hop: true) · mô tả không khai · youtube_altered_content True | khung AI hoặc giọng tổng hợp → mô tả YouTube có câu "AI"/"synthetic" · phat_hanh.youtube_altered_content: true (Chặn ở gói phát hành) |  |
 | N2P-1…6 | Luật N2+ (§15, từ T4) | **ĐẠT** | — — lỗi Chặn 0, Cảnh báo 0 | tập trước T4 (không khai kenh2_tu_t4 / n2p) |  |  |
 | 1.17.4 (T4) | MAY-19 … GOC-CAO-60 | **ĐẠT** | — — lỗi Chặn 0, Cảnh báo 0 | tập trước T4 — không hồi tố (Q2: T3 giữ luật cũ) |  |  |
-| LOCK | checks/ khớp LOCK (1.17.4) | **TRƯỢT** |  | KHÔNG KHỚP |  |  |
+| LOCK | checks/ khớp LOCK (1.17.4) | **ĐẠT** |  | KHỚP |  |  |
 
 ## Âm thanh A1–A13
 | Mục | Kiểm | Loại | Kết quả | Giá trị | Ngưỡng |
