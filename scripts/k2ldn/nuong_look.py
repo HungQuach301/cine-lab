@@ -11,7 +11,8 @@ a = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else sys.argv[1:]
 YEAR = float(a[0]); OUTP = os.path.abspath(a[1])
 def opt(k, d): return a[a.index(k) + 1] if k in a else d
 BOX = [float(v) for v in opt('--box', '531000,179900,533900,181900').split(',')]; MPX = float(opt('--m', '2.0')); SPP = int(opt('--spp', '16')); GPU = '--gpu' in a
-DATA = os.environ.get('LDN_DATA', '/var/tmp/ldn'); J = json.load(open(os.path.join(DATA, 'look/ldn2.json'))); B = open(os.path.join(DATA, 'look/ldn2.bin'), 'rb').read()
+DATA = os.environ.get('LDN_DATA', '/var/tmp/ldn'); LK = os.environ.get('LDN_LOOK', 'look')   # LOOK-T4-V2: thư mục hình học (look | look2)
+J = json.load(open(os.path.join(DATA, LK, 'ldn2.json'))); B = open(os.path.join(DATA, LK, 'ldn2.bin'), 'rb').read()
 def arr(nm, dt):
     l = J['bo_cuc'][nm]; return np.frombuffer(B, dtype=dt, count=l['len'] // np.dtype(dt).itemsize, offset=l['off'])
 P = arr('pos', np.float32).reshape(-1, 3); TL = arr('tl', np.float32).reshape(-1, 4); K = arr('k', np.uint8)
