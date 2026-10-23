@@ -612,7 +612,7 @@ def main():
         bang.append(dict(ma=f'PP{i + 1}', dong=[], t0=round(t_abs, 3), t1=round(t_abs + th['giay'], 3), dur=th['giay'], diem='—', kieu='the', vai='phuong-phap', vat=th['dong'], ghi='thẻ "How this film was made" v2'))
         t_abs += th['giay']
     E = dict(id='k2c-t3-cuoi', title='Gibraltar — T3 final (1080p24, path A + Cycles GPU dive, G1 v4.2 narration)', brand='MOVING PARTS', channel='k2', out=OUT,
-             music=[], sources={}, numbers={}, khung_sach=True, so_ai=SO_AI, giong_tong_hop=True,   # K-1.17.2: MINH-HOA (e) / K-LAI-6 sổ AI; CONG-BO-1 giọng G1 ElevenLabs
+             music=[], sources={}, numbers={}, khung_sach=True, so_ai=SO_AI, xem_cam="xem-cam-cuoi.json", giong_tong_hop=True,   # K-1.17.2: MINH-HOA (e) / K-LAI-6 sổ AI; CONG-BO-1 giọng G1 ElevenLabs
              phat_hanh=dict(cong='phat_hanh', goi='release-k2-t3-g2', youtube_altered_content=True, ghi='mô tả YouTube (câu AI/synthetic) do phiên đóng gói viết — phiên BAN-CUOI-T3 chưa có'), loi_khoa='../loi-khoa.txt', claims_md='../claims-vay-ham.md', log_shot='log-shot.json', nhip_vat='nhip-vat.json', heroes=heroes, segments=segs)
     hdr = '# TỆP SINH TỰ ĐỘNG bởi cuoi/mk_ep_cuoi.py (BAN-CUOI-T3, bản sao có sửa của animatic/mk_ep_anim.py) (lời khoá v4.2 SHA 51d1c773…, nhịp reports/kl42/nhip-that.json B; LOOK-KHOA.md). Đừng sửa tay.\n'
     (HERE / 'episode.yaml').write_text(hdr + yaml.safe_dump(E, allow_unicode=True, sort_keys=False, width=200))

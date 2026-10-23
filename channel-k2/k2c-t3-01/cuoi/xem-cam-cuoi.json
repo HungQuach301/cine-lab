@@ -1,0 +1,44 @@
+{
+ "tat_tieng": true,
+ "cau_hoi": [
+  "Q1 Who holds the fortified town on the big rock after 1704 (whose flag)?",
+  "Q2 What begins in 1779?",
+  "Q3 Why are people in the town hungry around 1780?",
+  "Q4 What comes to help/rescue the town?",
+  "Q5 What happens at sea in September 1782?",
+  "Q6 What gets built, over the centuries, on the flat sandy land north of the rock?",
+  "Q7 What happens at the border gate in 1969, and later?",
+  "Q8 What connects the two towns on either side of the border today?"
+ ],
+ "ghi": "8 câu §13.4 (0/1/2 mỗi câu, chấm theo từ khoá anim_cam.py); chuỗi 1 khung/4 s, 320×180, không tiếng, không phụ đề; người chấm AI chỉ THAM KHẢO; chủ dự án CHƯA chấm; P chưa đọc lại nguyên văn (p_doc)",
+ "nguoi_cham": [
+  {
+   "id": "R1",
+   "vai": "ai",
+   "model": "claude-sonnet-5-5",
+   "dung": 16,
+   "tong": 16,
+   "ngay": "2026-10-23"
+  },
+  {
+   "id": "R2",
+   "vai": "ai",
+   "model": "claude-sonnet-5-5",
+   "dung": 13,
+   "tong": 16,
+   "ngay": "2026-10-23"
+  },
+  {
+   "id": "R3",
+   "vai": "ai",
+   "model": "claude-sonnet-5-5",
+   "dung": 16,
+   "tong": 16,
+   "ngay": "2026-10-23"
+  }
+ ],
+ "chi_phi_usd": 0.3919,
+ "ket_qua": "reports/ban-cuoi-t3/xem-cam/ket-qua.json",
+ "video": "/var/tmp/cine-out/phat-hanh/k2-t3-v1-master.mp4",
+ "video_sha256": "5b9f0bccd88830ab212a6747259ac597328ae87bb964addc953bf1928fd7b682"
+}
