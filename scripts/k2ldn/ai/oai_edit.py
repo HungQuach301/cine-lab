@@ -5,13 +5,13 @@ Mỗi lệnh → một dòng sổ AI reports/tien-ky-t4/so-ai.jsonl (TIEN-KY-T4)
 developers.openai.com/api/docs/pricing đọc 21/10/2026: chữ vào $5/M, ảnh vào $8/M, ảnh ra $30/M; C2PA đọc từ tệp ra).
 Mốc theo dõi $5 (ghi lợi ích rồi làm tiếp); CHẶN an toàn $20 → từ chối gọi.
   oai_edit.py --img <ảnh 1920×1080> [--mask <mask-rgba.png>] --prompt-file <tệp> --tag <nhãn> --out <thư mục> [--size 2560x1440]"""
-import argparse, base64, json, sys, time, urllib.error, urllib.request, uuid
+import argparse, base64, json, os, sys, time, urllib.error, urllib.request, uuid
 from pathlib import Path
 from PIL import Image
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import n2p_lib as L  # noqa: E402
 
-MODEL = 'gpt-image-2.5-sunburst-2026-09-08'; MOC, CHAN = 5.0, 15.0   # TIEN-KY-T4: chặn $15 (lệnh 23/10)
+MODEL = 'gpt-image-2.5-sunburst-2026-09-08'; MOC, CHAN = float(os.environ.get('OAI_MOC', 5.0)), float(os.environ.get('OAI_CHAN', 15.0))   # TIEN-KY-T4: chặn $15; LOOK-T4-V2: mốc $3, chặn $8 (đặt qua biến môi trường)
 
 
 def main():

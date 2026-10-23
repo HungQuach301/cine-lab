@@ -14,7 +14,7 @@ IN, OUT = sys.argv[1], sys.argv[2]; os.makedirs(OUT, exist_ok=True)
 arg = lambda k, d: float(sys.argv[sys.argv.index(k) + 1]) if k in sys.argv else d
 MAP_END, FADE = arg('--map-end', 6.0), arg('--fade', 1.5)
 LOG = json.load(open(os.path.join(IN, 'log.json'))); W, H = LOG['W'], LOG['H']; FPS = LOG['shot'].get('fps', 24)
-K = json.load(open(os.path.join(REPO, 'channel-k2/k2c-t4-02/du-lieu/khop-doornick.json'))); KD = [d for d in K['diem'] if d.get('dung', True)]
+K = json.load(open(os.path.join(REPO, 'channel-k2/k2c-t4-02/mo-hinh/khop-doornick.json'))); KD = [d for d in K['diem'] if d.get('dung', True)]
 TPSi = RBFInterpolator(np.array([d['en'] for d in KD], float), np.array([d['px'] for d in KD], float), kernel='thin_plate_spline')
 MAPIM = cv2.imread(os.path.join(SRC, 'rijks-doornick-0.jpg'))[:, :, ::-1].astype(np.float32) / 255.0
 M = json.load(open(os.path.join(DATA, 'canh/ldn.json'))); LC = M['luoi_chay']

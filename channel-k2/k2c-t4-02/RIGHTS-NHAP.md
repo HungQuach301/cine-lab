@@ -49,3 +49,29 @@
 - Lửa/khói cách A: atlas thể tích sinh thủ tục (`scripts/k2ldn/nuong_flipbook.py`, numpy) — không tài sản ngoài.
 - LUT kênh xem thử: `channel-k2/k2c-t3-01/mau/k2c-t3-kenh-v030.cube` (của dự án).
 - Blender 5.2.2 (GPL, công cụ), three.js 0.180 (MIT), Chromium/Playwright (công cụ).
+
+## F. Bổ sung LOOK-T4 (23/10/2026) — phiên P chép vào `RIGHTS.md` sau duyệt look
+
+### F1. Tư liệu mới (D6: Old St Paul's theo Hollar/Dugdale 1658)
+| ID | Mục | Nơi giữ · số hiệu | Giấy phép (nguyên văn nơi giữ) | Bằng chứng | Rủi ro | Dùng | Ghi công |
+|---|---|---|---|---|---|---|---|
+| met-336039 | Hollar, *Saint Paul's, South side (Ecclesiae Cathedralis S. Pauli, A Meridie Prospectus)*, Dugdale *History of St Paul's* 1658 | The Met (objectID 336039) | API `isPublicDomain: true` (Met Open Access CC0) | `licenses/met-336039.json` (JSON nguyên văn + SHA) | thấp | tỉ lệ tầng/khoang Old St Paul's (bậc 4) — không lên hình | The Met, CC0 |
+| met-336038 | Hollar, *Saint Paul's from the South Showing the Spire*, Dugdale 1658 | The Met (336038) | `isPublicDomain: true` | `licenses/met-336038.json` | thấp | đối chiếu (trước 1561 — có chóp; KHÔNG dựng chóp) | The Met, CC0 |
+| met-757299 | Dugdale, *The History of St. Paul's Cathedral in London* (1658), sách | The Met (757299) | `isPublicDomain: true` | `licenses/met-757299.json` | thấp | tra bản khắc (2 ảnh trang) | The Met, CC0 |
+Bản thu ≤ 2 400 px trong `look/tu-lieu/`; SHA bản gốc: `licenses/SHA256-TU-LIEU-LOOK.txt`. Tranh khắc dùng trong bản thử T3 (D7) vẫn là met-395057 (§A).
+
+### F2. Vân bề mặt CC0 (Poly Haven, 16 lớp, bản 1k JPG diff + nor_gl)
+Danh sách, cỡ thật, URL, SHA-256 từng tệp: `look/van-cc0.json` (tải bằng `scripts/k2ldn/tai_van.py`, ngày 23/10/2026). Giấy phép: CC0 1.0 (Poly Haven: mọi tài sản CC0). Lớp: plastered_wall_02 · medieval_wood · brick_wall_02 · clay_roof_tiles_02 · roof_slates_02 · old_stone_wall · white_sandstone_bricks · concrete_wall_008 · metal_plate · cobblestone_floor_01 · brown_mud_02 · aerial_asphalt_01 · granite_tile · leafy_grass · old_planks_02 · brick_wall_006. Rủi ro: thấp. Ghi công (không bắt buộc): Poly Haven (polyhaven.com).
+
+### F3. Dữ liệu vị trí mới
+| Mục | Nguồn | Giấy phép | Dùng | Bậc |
+|---|---|---|---|---|
+| Toạ độ 78 nhà thờ giáo xứ City (bài Wikipedia từng nhà thờ, qua API `prop=coordinates`) + danh sách 34 nhà thờ không dựng lại (Reynolds 1922, bảng Wikipedia) | en.wikipedia.org (truy cập 23/10/2026) | dữ kiện (toạ độ) — không chép văn bản/ảnh | `mo-hinh/nha-tho-1666.json` → vị trí tháp nhà thờ 1666, nhà thờ Wren | 3 (vị trí), 5 (hình tháp 1666) |
+| Kích thước Old St Paul's: dài 586 ft, thân 100 ft, cánh ngang 290 ft (Clifton-Taylor tr. 275); tháp 204 ft (Hooke 1664, Jardine 2001) | qua Wikipedia "Old St Paul's Cathedral" | dữ kiện | hình học Old St Paul's | 3 |
+| Kích thước St Paul's (Wren): 158 m, ngang cánh 75 m, thân 37 m, tới thập giá 111 m (Fletcher 1962) | qua Wikipedia "St Paul's Cathedral" | dữ kiện | hình học St Paul's | 3 |
+| Điểm khống chế Doornick (đọc lại) + ranh cháy cuối | Doornick 1666 (Rijks PDM, §A) × OSM | như §A/§B | `mo-hinh/khop-doornick.json`, `mo-hinh/ranh-chay-1666-cuoi.json` | 1 (ranh), 3 (điểm) |
+
+### F4. Phần mềm / tài sản tự tạo
+- LUT xuất biến thể B/C (`look/mau/look-B-lanh.cube`, `look-C-am.cube`, SHA trong `.sha256`) — của dự án, sinh bằng `scripts/k2ldn/look_lut.py`.
+- Lightmap nướng (Cycles CPU, `scripts/k2ldn/nuong_look.py`) — tạo từ hình học dự án, ngoài git (tái tạo được).
+- Không dùng AI sinh hình trong khung look (look = 3D thuần).

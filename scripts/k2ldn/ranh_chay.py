@@ -1,11 +1,11 @@
 #!/opt/cine/bin/python
 """TIEN-KY-T4 · ranh vùng cháy CUỐI 1666 từ bản đồ Doornick 1666 (vùng để trắng = đã cháy; bậc 1) → đa giác EPSG:27700.
-  ranh_chay.py  → channel-k2/k2c-t4-02/du-lieu/ranh-chay-1666-cuoi.json (+ diện tích, so "over 400 acres")
+  ranh_chay.py  → channel-k2/k2c-t4-02/mo-hinh/ranh-chay-1666-cuoi.json (+ diện tích, so "over 400 acres")
 Cách: mật độ mực (ngưỡng < 150, hộp 45 px) < 0,30 → cắt theo bờ sông vẽ tay → thành phần chứa tâm City → đóng 41 px → đường viền → TPS/affine theo khop-doornick.json."""
 import json, os, cv2, numpy as np
 from scipy.interpolate import RBFInterpolator
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-K = json.load(open(os.path.join(REPO, 'channel-k2/k2c-t4-02/du-lieu/khop-doornick.json')))
+K = json.load(open(os.path.join(REPO, 'channel-k2/k2c-t4-02/mo-hinh/khop-doornick.json')))
 D = [d for d in K['diem'] if d.get('dung', True)]
 PX = np.array([d['px'] for d in D], float); EN = np.array([d['en'] for d in D], float)
 tps = RBFInterpolator(PX, EN, kernel='thin_plate_spline', smoothing=0.0)
@@ -24,5 +24,5 @@ out = {'nguon': K['ban_do'], 'bac': 1, 'cach': __doc__.split('\n')[2].strip(), '
 for name, f in (('tps', tps), ('affine', aff)):
     P = f(cnt); a = area(P); out[name] = {'en': np.round(P, 1).tolist(), 'dien_tich_ha': round(a / 1e4, 1), 'acre': round(a / 4046.86, 0)}
     print(name, 'diện tích %.1f ha = %d acre' % (a / 1e4, a / 4046.86), 'đỉnh', len(P))
-json.dump(out, open(os.path.join(REPO, 'channel-k2/k2c-t4-02/du-lieu/ranh-chay-1666-cuoi.json'), 'w'))
+json.dump(out, open(os.path.join(REPO, 'channel-k2/k2c-t4-02/mo-hinh/ranh-chay-1666-cuoi.json'), 'w'))
 cv2.imwrite('/var/tmp/ldn/crop/chay-mask.png', mask)

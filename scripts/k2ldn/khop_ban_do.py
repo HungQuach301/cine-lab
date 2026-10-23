@@ -1,6 +1,6 @@
 #!/opt/cine/bin/python
 """TIEN-KY-T4 · khớp toạ độ bản đồ cổ ↔ EPSG:27700 (OSM 2026) bằng điểm khống chế ghi tay.
-  khop_ban_do.py channel-k2/k2c-t4-02/du-lieu/khop-<bản đồ>.json
+  khop_ban_do.py channel-k2/k2c-t4-02/mo-hinh/khop-<bản đồ>.json
 Tệp vào: {"anh": <tệp + SHA>, "diem": [{"ten", "px":[x,y], "en":[E,N], "nguon_en", "dung": true|false}]}
 Ra: thêm "affine", "poly2" (hệ số px→EN), sai số từng điểm (m), RMS, lỗi bỏ-một (LOO) — ghi lại vào chính tệp."""
 import json, sys, numpy as np

@@ -1,0 +1,7 @@
+# LOOK-T4 (23/10/2026): channel-k2/.gitignore chặn *.json → dữ liệu khớp bản đồ/ranh cháy và bằng chứng giấy phép của T4 từng KHÔNG vào git (mất theo container).
+# Mở lại cho các thư mục mới của T4 (tệp nhỏ, đầu vào bắt buộc; không chứa dữ liệu kênh khác).
+!mo-hinh/*.json
+!look/**/*.json
+!licenses/met-336039.json
+!licenses/met-336038.json
+!licenses/met-757299.json
