@@ -185,8 +185,16 @@ async function build(cfg) {
   g.setAttribute('kk', new THREE.BufferAttribute(new Float32Array(kk), 1)); g.setAttribute('uvm', new THREE.BufferAttribute(uvm, 2)); g.setAttribute('mt', new THREE.BufferAttribute(new Float32Array(mt), 1)); g.setAttribute('fl', new THREE.BufferAttribute(new Float32Array(fl), 1));
   g.computeVertexNormals();
   const m = new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide }); patchB(m, false);
-  BLD = new THREE.Mesh(g, m); BLD.castShadow = BLD.receiveShadow = true; BLD.frustumCulled = false;
-  const dm = new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking, side: THREE.DoubleSide }); patchB(dm, true); BLD.customDepthMaterial = dm; scene.add(BLD);
+  // chia ô 300 m (gom tam giác theo tâm) → loại theo khung nhìn cho máy chính, gương và bản đồ bóng (llvmpipe nghẽn ở số đỉnh, không ở điểm ảnh)
+  const dm = new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking, side: THREE.DoubleSide }); patchB(dm, true);
+  BLD = new THREE.Group(); { const TILE = 300, P_ = g.attributes.position.array, nT = P_.length / 9, key = new Int32Array(nT), cnt = new Map();
+    for (let t = 0; t < nT; t++) { const cx = (P_[t * 9] + P_[t * 9 + 3] + P_[t * 9 + 6]) / 3, cz = (P_[t * 9 + 2] + P_[t * 9 + 5] + P_[t * 9 + 8]) / 3; const k = (Math.floor(cx / TILE) + 100) * 1000 + Math.floor(cz / TILE) + 100; key[t] = k; cnt.set(k, (cnt.get(k) || 0) + 1); }
+    const names = Object.keys(g.attributes), tiles = new Map();
+    for (const [k, c] of cnt) { const at = {}; for (const nm of names) { const A0 = g.attributes[nm]; at[nm] = new A0.array.constructor(c * 3 * A0.itemSize); } tiles.set(k, { at, n: 0 }); }
+    for (let t = 0; t < nT; t++) { const T_ = tiles.get(key[t]); for (const nm of names) { const A0 = g.attributes[nm], sz = A0.itemSize * 3; T_.at[nm].set(A0.array.subarray(t * sz, t * sz + sz), T_.n * sz); } T_.n++; }
+    for (const [k, T_] of tiles) { const gg = new THREE.BufferGeometry(); for (const nm of names) gg.setAttribute(nm, new THREE.BufferAttribute(T_.at[nm], g.attributes[nm].itemSize)); gg.computeBoundingSphere();
+      const ms = new THREE.Mesh(gg, m); ms.castShadow = ms.receiveShadow = true; ms.customDepthMaterial = dm; BLD.add(ms); } }
+  g.dispose(); scene.add(BLD);
   // ---- địa hình + lớp phủ mặt đất
   const T = META.dia_hinh, nx = T.nx, nz = T.nz; const h26 = A('h26', Float32Array), h66 = A('h66', Float32Array);
   const tg = new THREE.PlaneGeometry(1, 1, nx - 1, nz - 1); const tp = tg.attributes.position.array, H2 = new Float32Array(nx * nz), H6 = new Float32Array(nx * nz);

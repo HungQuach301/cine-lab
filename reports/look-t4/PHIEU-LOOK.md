@@ -5,7 +5,7 @@
 ## 1. Cách chọn
 1. Mở `reports/look-t4/to-chon-mu.jpg` (8 hàng × 3 cột X/Y/Z; thứ tự cột đã xáo theo từng hàng). Xem kỹ từng ô ở 1080p: `reports/look-t4/khung-mu/<hàng>-<X|Y|Z>.jpg`.
 2. Mỗi hàng chọn **một cột**, hoặc ghi **"không cột nào đạt"** (kèm một dòng lý do). Có thể chọn cột khác nhau giữa các hàng — phiên sau sẽ đề xuất một look hợp nhất nếu các lựa chọn lệch nhau.
-3. Xem thêm 4 clip 8 s (cùng một biến thể cho mọi mốc, thời gian chạy trong khung, cú máy theo §19 đề xuất): `reports/look-t4/clip/clip-M1-A.mp4` … `clip-M4-A.mp4` — để đánh giá chuyển động, không dùng để chọn cột.
+3. **Sau khi đã chọn**, xem 4 clip 8 s (biến thể A cho mọi mốc theo lệnh — xem trước sẽ lộ một cột; thời gian chạy trong khung, cú máy theo §19 đề xuất): `reports/look-t4/clip/clip-M1-A.mp4` … `clip-M4-A.mp4` — đánh giá chuyển động, không dùng để chọn cột.
 
 | Hàng | Khung | Chọn (X / Y / Z / không đạt) | Ghi chú |
 |---|---|---|---|
@@ -28,7 +28,7 @@
 | # | Quyết định | Phương án | Ưu | Nhược | Tác động | Rủi ro | Khuyến nghị |
 |---|---|---|---|---|---|---|---|
 | L1 | Look T4 | theo kết quả chọn mù §1 | chủ dự án chấm hình cuối | — | khoá look trước animatic (bài học T3 số 1) | thấp | chọn theo tờ mù |
-| L2 | Ngưỡng bão hoà trung vị ≥ 0,40 (BIBLE §14.4) với London | (a) giữ ngưỡng → đẩy màu (trời xanh đậm, nước xanh, ngói bão hoà, bỏ sương) · (b) ngưỡng theo tập: lấy trung vị của khung chủ dự án chọn làm mốc, giữ ΔE shot kề · (c) đo chỉ vùng thành phố (bỏ trời/nước/khói) | (b) giữ đúng không khí London (sương, khói than, trời xám) mà vẫn có số để giữ liền mạch | (a) dễ thành "đồ chơi", trái căn cứ không khí (Evelyn, *Fumifugium* 1661) · (b) đổi luật kênh | màu cả tập | vừa | **(b)**; nếu chủ dự án giữ (a) thì chỉ biến thể C tiến gần (xem báo cáo §3) |
+| L2 | Ngưỡng bão hoà trung vị ≥ 0,40 (BIBLE §14.4) với London | (a) giữ ngưỡng → đẩy màu (trời xanh đậm, nước xanh, ngói bão hoà, bỏ sương) · (b) ngưỡng theo tập: lấy trung vị của khung chủ dự án chọn làm mốc, giữ ΔE shot kề · (c) đo chỉ vùng thành phố (bỏ trời/nước/khói) | (b) giữ đúng không khí London (sương, khói than, trời xám) mà vẫn có số để giữ liền mạch | (a) dễ thành "đồ chơi", trái căn cứ không khí (Evelyn, *Fumifugium* 1661) · (b) đổi luật kênh | màu cả tập | vừa | **(b)**; nếu giữ (a): không ô ngày nào đạt (cao nhất 0,37 — báo cáo §3), phải đẩy màu ở bước sản xuất |
 | L3 | Người / xe / thuyền nhỏ ở cận | (a) thêm ở sản xuất cho khung ≤ 60 m (người theo tranh Hollar/Luyken bậc 4, mật độ theo Pepys/Evelyn bậc 2) · (b) bỏ, chỉ thuyền | (a) phố sống, đúng §11.2 "sự sống" | thêm giờ dựng, cần nguồn trang phục | khung trung/cận | vừa | **(a)** cho khung trung, thuyền giữ như look |
 | L4 | Thành phố 1940 | (a) khối Victoria–Edward thay nhà 1667 trên cùng lô (bậc 5, như look) · (b) thêm toà có tên còn lại (OSM start_date < 1940, bậc 1) — đã có trong look | (a)+(b) City 1940 dày như ảnh thời đó | (a) là ước lượng hình khối | H3–H4 | vừa | **(a)+(b)**, ghi "ước lượng" trong thẻ phương pháp |
 | L5 | Lửa đêm cận (D5) | (a) giữ cách A cho cảnh rộng + Cycles GPU 3–4 cận đêm · (b) chỉ cách A | xem báo cáo §2 (đêm 2/9 từ sông đọc được bằng cách A) | (a) thêm ≈ $5–8 GPU | H1-13, H4-04 | thấp | **(a)** như G1 |

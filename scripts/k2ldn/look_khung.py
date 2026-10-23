@@ -72,7 +72,7 @@ def main():
             if 'hour' in C: k['hour'] = C['hour'][0] + (C['hour'][1] - C['hour'][0]) * u
             if 'h40' in C: k['h40'] = C['h40'][0] + (C['h40'][1] - C['h40'][0]) * u
             keys.append(k)
-        sh = {'fps': 24, 'dur': 8.0, 'W': 640, 'H': 360, 'spp': 4, 'smooth': True, 'easeKeys': False, 'look': look_for('A', C['base']), 'keys': keys, 'hero_EN': HERO[C['base']], 'cu_may': C['cu'],
+        sh = {'fps': 24, 'dur': 8.0, 'W': 640, 'H': 360, 'spp': 4, 'shadow': 3072, 'smooth': True, 'easeKeys': False, 'look': look_for('A', C['base']), 'keys': keys, 'hero_EN': HERO[C['base']], 'cu_may': C['cu'],
               'bake': {'url': '/data/look/bake_%s.png' % {'M1': '1666.6', 'M2': '1666.6', 'M3': '1940.98', 'M4': '2026.7'}[m], 'box': [530800, 179700, 534000, 182000]}}
         json.dump(sh, open(os.path.join(OUT, f'clip-{m}.json'), 'w'), ensure_ascii=False, indent=1)
     json.dump({'khung': rows, 'bien_the': {v: LOOK[v]['ten'] for v in LOOK}}, open(os.path.join(OUT, 'muc-luc.json'), 'w'), ensure_ascii=False, indent=1)

@@ -51,13 +51,74 @@ Lửa/khói: cách A (atlas thể tích nướng sẵn — tiền kỳ T1, tái 
 Bỏ trong M4-trung bản đầu: máy 52 m nhìn thấy cụm tháp CAO HƠN mái vòm (đúng hình học), nên hạ về gần mặt phố như tầm nhìn bảo vệ được đo (LVMF) — lần đặt 9 m đầu tiên nằm DƯỚI mặt đất (nhầm cao độ tương đối/tuyệt đối), đã sửa (§9).
 
 ## §3. Việc 3 — BA BIẾN THỂ + SỐ ĐO
-[[VIEC3]]
+Ba biến thể, **cùng hình học / máy / giờ** trong mỗi hàng, chỉ khác ánh sáng – màu – khí quyển – mật độ chi tiết (tham số `look` trong `look/may/*.json`) + LUT xuất. Không lọc "giả tranh", không AI.
+
+| Biến thể | Khí quyển | Ánh sáng / trời | Nước | Mật độ chi tiết | LUT xuất |
+|---|---|---|---|---|---|
+| A "T3 kênh" | sương e^(−σd), σ = 1/16 km, màu chân trời [0,60 0,74 0,90]-họ T3 (LOOK-1) | nắng 3,2 · bán cầu 0,62 · trời thiên đỉnh [0,13 0,33 0,70] như `water.js` T3, mây 0,32 | xanh–lục sẫm | vân 100 %, khói bếp 0,30 | `k2c-t3-kenh-v030.cube` (kênh T3, không chép) |
+| B "London sương" | sương dày σ = 1/6 km, xám lạnh, H 420 m + **lớp khói than thấp** σ = 1/4,2 km, H 90 m (1666: Evelyn *Fumifugium* 1661 tả khói than London — mức dày bậc 5; 1940: khói than + khói cháy ước lượng; **2026: không khói than** — Clean Air Act 1956) | nắng 2,1 · bán cầu 0,78 · trời phủ mây 0,78 xám | xám lục | vân 90 %, khói bếp 0,85, khói cháy ×1,25 | `look-B-lanh.cube`: bão hoà −18 %, bóng ngả lạnh |
+| C "tranh khắc ấm" | sương ấm σ = 1/10,5 km, vàng đất | nắng ấm [1,06 0,97 0,84] · trời [0,40 0,50 0,64]→chân trời [0,88 0,80 0,66], mây 0,5 | nâu lục | vân 85 %, khói bếp 0,45 | `look-C-am.cube`: tương phản mềm (đen nâng 0,035, sáng cuộn), bảng màu ochre/umber — chỉ đường cong màu |
+
+**Số đo mọi khung** (`scripts/k2ldn/look_do.py`, ảnh thu 640×360 như thước V6/NC-CPU; mặt nạ ID dựng riêng mỗi hàng). Bảng theo **nhãn mù** để không lộ khoá; tổng hợp theo biến thể: `reports/look-t4/khoa-do.json` (**mở sau khi chọn**). Định nghĩa: bão hoà = HSV trung vị (cả khung / dải giữa y 60–300); colorfulness Hasler–Süsstrunk; chi tiết = trung vị |Laplace| (NC-CPU: không đo được "độ thật", chỉ theo dõi); nước/trời theo mặt nạ ID; sương = điểm không phải trời có độ lệch chuẩn cục bộ < 2,5/255 và gần màu chân trời (ΔE < 12); tiêu điểm = điểm chiếu vật tiêu điểm (toạ độ trong `look/may/*.json` → `hero_EN`) qua ma trận máy thật của lượt dựng.
+
+| Khung | Cột (mù) | Bão hoà TV (cả khung / giữa) | Colorfulness | Chi tiết | Nước % | Trời % | Sương % | Trời+sương % | Tiêu điểm (x %, y %) · cách giao 1/3 · tương phản | ±5 % ngưỡng |
+|---|---|---|---|---|---|---|---|---|---|---|
+| M1-rong | X | 0.345 / 0.369 | 27.0 | 7.0 | 28.9 | 20.0 | 0.0 | 20.0 | 28.2, 42.6 · 7.5 · 0.36 | trời+sương |
+| M1-rong | Y | 0.051 / 0.047 | 8.5 | 6.0 | 28.9 | 20.0 | 0.8 | 20.8 | 28.2, 42.6 · 7.5 · 0.28 | trời+sương |
+| M1-rong | Z | 0.180 / 0.173 | 33.1 | 7.0 | 28.9 | 20.0 | 0.0 | 20.0 | 28.2, 42.6 · 7.5 · 0.43 | trời+sương |
+| M1-trung | X | 0.059 / 0.063 | 12.2 | 6.0 | 28.1 | 23.2 | 0.0 | 23.2 | 64.8, 41.0 · 5.6 · 0.39 | — |
+| M1-trung | Y | 0.325 / 0.341 | 28.6 | 7.0 | 28.1 | 23.2 | 0.0 | 23.2 | 64.8, 41.0 · 5.6 · 0.49 | — |
+| M1-trung | Z | 0.286 / 0.392 | 37.5 | 7.0 | 28.1 | 23.2 | 0.0 | 23.2 | 64.8, 41.0 · 5.6 · 0.57 | — |
+| M2-ngay | X | 0.165 / 0.169 | 24.2 | 5.0 | 28.9 | 20.0 | 4.7 | 24.7 | 28.2, 42.6 · 7.5 · 0.27 | — |
+| M2-ngay | Y | 0.024 / 0.027 | 10.3 | 5.0 | 28.9 | 20.0 | 5.8 | 25.8 | 28.2, 42.6 · 7.5 · 0.36 | — |
+| M2-ngay | Z | 0.369 / 0.373 | 28.1 | 5.0 | 28.9 | 20.0 | 3.0 | 23.0 | 28.2, 42.6 · 7.5 · 0.29 | — |
+| M2-dem | X | 0.584 / 0.624 | 31.7 | 4.0 | 30.2 | 49.0 | 0.1 | 49.1 | 28.6, 56.1 · 8.2 · 0.35 | — |
+| M2-dem | Y | 0.502 / 0.565 | 32.0 | 2.0 | 30.2 | 49.0 | 0.2 | 49.1 | 28.6, 56.1 · 8.2 · 0.19 | — |
+| M2-dem | Z | 0.416 / 0.443 | 24.2 | 4.0 | 30.2 | 49.0 | 1.2 | 50.1 | 28.6, 56.1 · 8.2 · 0.31 | bão hoà |
+| M3-rong | X | 0.545 / 0.553 | 18.2 | 5.0 | 27.4 | 20.0 | 0.0 | 20.0 | 26.3, 39.7 · 6.7 · 2.44 | trời+sương |
+| M3-rong | Y | 0.580 / 0.502 | 25.6 | 4.0 | 27.4 | 20.0 | 0.0 | 20.0 | 26.3, 39.7 · 6.7 · 2.44 | trời+sương |
+| M3-rong | Z | 0.275 / 0.275 | 24.5 | 2.0 | 27.4 | 20.0 | 0.0 | 20.0 | 26.3, 39.7 · 6.7 · 3.17 | trời+sương |
+| M3-trung | X | 0.400 / 0.416 | 18.4 | 4.0 | 0.2 | 54.0 | 0.0 | 54.0 | 50.7, 50.5 · 16.1 · 1.0 | bão hoà |
+| M3-trung | Y | 0.286 / 0.400 | 23.5 | 2.0 | 0.2 | 54.0 | 0.0 | 54.0 | 50.7, 50.5 · 16.1 · 1.14 | — |
+| M3-trung | Z | 0.514 / 0.537 | 24.6 | 4.0 | 0.2 | 54.0 | 0.0 | 54.0 | 50.7, 50.5 · 16.1 · 1.09 | — |
+| M4-rong | X | 0.278 / 0.286 | 19.6 | 7.0 | 25.6 | 19.7 | 0.0 | 19.7 | 26.3, 39.7 · 6.7 · 0.64 | trời+sương |
+| M4-rong | Y | 0.067 / 0.071 | 6.9 | 6.0 | 25.6 | 19.7 | 0.0 | 19.7 | 26.3, 39.7 · 6.7 · 0.54 | trời+sương |
+| M4-rong | Z | 0.141 / 0.110 | 25.6 | 7.0 | 25.6 | 19.7 | 0.0 | 19.7 | 26.3, 39.7 · 6.7 · 0.72 | trời+sương |
+| M4-trung | X | 0.047 / 0.047 | 9.6 | 5.0 | 0.0 | 49.6 | 0.4 | 49.9 | 50.0, 57.9 · 13.3 · 0.5 | — |
+| M4-trung | Y | 0.196 / 0.184 | 30.7 | 5.0 | 0.0 | 49.6 | 0.0 | 49.6 | 50.0, 57.9 · 13.3 · 0.7 | — |
+| M4-trung | Z | 0.161 / 0.161 | 21.0 | 5.0 | 0.0 | 49.6 | 0.7 | 50.3 | 50.0, 57.9 · 13.3 · 0.6 | — |
+
+Phạm vi bão hoà TV trên 24 ô: 0.024 – 0.584 (ngưỡng §14.4: 0,40). Tổng hợp theo biến thể: `khoa-do.json` (mở sau khi chọn).
+
+
+Đọc số (tự đo, không tự chấm đạt):
+- **Bão hoà trung vị ≥ 0,40 (BIBLE §14.4) không đạt ở khung ngày** của cả 3 biến thể (phạm vi 0,024–0,37 ngày); khung đêm lửa 0,40–0,58 (nền tối + cam). Ô ngày cao nhất 0,37 (biến thể nào: xem `khoa-do.json` sau khi chọn — nêu ở đây sẽ lộ khoá). Nguyên nhân đo được: trời London nhạt + đồng xa xám lục + tường trát/đá bão hoà thấp; mặt nước xanh của một biến thể đạt 0,56 nhưng chỉ chiếm 26–30 % khung. Không đẩy màu chỉ để vượt ngưỡng (luật cứng) → đề xuất **L2** ở phiếu.
+- **Trời + sương** ở P1 (toàn cảnh): 20,0 % (M1, M3) và 19,7 % (M4) — đúng mép trên dải 8–20 % của LOOK-2 T3 (nêu tên ở §11); M2-ngay 23–26 % do khói che chân trời. Khung trung mặt phố (M3-trung, M4-trung) trời 50–54 %: là khung tầm nhìn mái vòm (vai truyện "mái vòm còn nền trời"), không thuộc khung lai LOOK-2.
+- **Nước** ≤ 30,2 % mọi khung (≤ 1/3, §11.4).
+- **Tiêu điểm**: P1 ở (28 %, 43 %) — cách giao điểm 1/3 trái-trên 7,5 % đường chéo; M1-trung cầu ở (65 %, 41 %); M2-dem ở (29 %, 56 %); M3-trung / M4-trung mái vòm giữa khung (51 %, 51 %) / (50 %, 58 %) — đặt giữa có chủ ý theo trục phố.
+
 
 ## §4. Việc 4 — TỜ CHỌN MÙ + CLIP
-[[VIEC4]]
+- **Tờ chọn mù:** `reports/look-t4/to-chon-mu.jpg` (2756 × 3836, 1,9 MB) — 8 hàng (4 mốc × 2 khung) × 3 cột; thứ tự cột **xáo theo hàng** (hạt giống 16660902, ghi trong khoá), nhãn trung tính **X / Y / Z**; nhãn hàng chỉ ghi mốc + vai khung. Bản 1080p từng ô: `reports/look-t4/khung/<hàng>-<X|Y|Z>.jpg` (JPG ≤ 2 MB, đã LUT). Bản theo tên biến thể (lộ khoá) để NGOÀI git (`/var/tmp/ldn/look/khung-abc/`), SHA-256 ghi trong khoá.
+- **Khoá giải mã:** `reports/look-t4/khoa.json` (+ số đo tổng hợp theo biến thể `reports/look-t4/khoa-do.json`) — **chỉ mở sau khi chọn**. Số đo từng ô theo nhãn mù: `reports/look-t4/do/<hàng>-<X|Y|Z>.json`.
+- **Clip 8 s, 640 × 360, biến thể A, ≤ 5 MB** (`scripts/k2ldn/look_clip.sh`; đo cú máy `reports/look-t4/do/clip-M*.json`):
+
+[[CLIP]]
+
+Ghi chú: clip đều là biến thể A theo lệnh, nên xem clip TRƯỚC khi chọn sẽ cho biết A trông thế nào — đề nghị chủ dự án chọn trên tờ mù trước, rồi mới xem clip.
 
 ## §5. Việc 5 — TRANH KHẮC (D7) với Old St Paul's mới
-[[VIEC5]]
+Làm lại bản thử T3 tiền kỳ với Old St Paul's mới: Hollar *Old St Paul's seen from the East* (Met 2010.529 = 395057, CC0) hoà vào 3D cùng góc; **đăng ký điểm** (9 điểm đọc tay giữ nguyên tiền kỳ, toạ độ mô hình theo hình học mới) + **thị sai 2,5D thủ công** (mặt nạ đa giác vẽ tay, lớp nhà 1,000 → 1,012) + uốn tỉ lệ/tịnh tiến về mặt đông + hoà mờ; **không AI**. Mã: `scripts/k2ldn/t3_look.py` (cùng thuật toán `t3_may.py`/`t3_khac.py`, không sửa hai tệp đó). Ngày 1/9/1666 (J.) 9:00 sáng, nắng phía đông như bản khắc.
+
+| Đo | Tiền kỳ (mô hình cũ) | Look (mô hình Hollar/Dugdale) |
+|---|---|---|
+| Giải máy — RMS 9 điểm (px bản 2000) | 96,1 | **49,8** |
+| — trung vị | 50,9 | **33,8** |
+| — đỉnh tháp giao điểm | **232,5** | **23,7** |
+| Máy giải được | cách mặt đông 72 m, fov dọc 56° | cách mặt đông 247 m, cao 38,7 m, fov dọc 18,9° (khung cao 1002 → cắt 720; tranh gần phối cảnh trực giao — máy xa, ống kính dài hợp hơn) |
+[[T3KHOP]]
+
+Tệp: `reports/look-t4/t3/T3-khac-hoa-look.mp4` (8 s) · tờ so trước/sau cùng thời điểm hoà (4,0 s): `reports/look-t4/t3/T3-so-truoc-sau.jpg` (trái: tiền kỳ `reports/tien-ky-t4/xem/T3-khac-hoa-1080.jpg`, phải: look). Số đo: `reports/look-t4/do/t3-may.json`, `t3-khop.json`.
 
 ## §6. Việc 6 — ƯỚC LẠI GIỜ MÁY / CHI PHÍ
 [[VIEC6]]
@@ -69,13 +130,50 @@ Bỏ trong M4-trung bản đầu: máy 52 m nhìn thấy cụm tháp CAO HƠN m�
 Chi tiết: `channel-k2/k2c-t4-02/RIGHTS-NHAP.md` mục F. Tóm tắt: Met 336039 / 336038 / 757299 (Hollar + Dugdale 1658, CC0, JSON nguyên văn trong `licenses/`); 16 vân Poly Haven CC0 (`look/van-cc0.json`, SHA từng tệp); toạ độ 78 nhà thờ (Wikipedia API, dữ kiện, bậc 3); kích thước Old St Paul's (Clifton-Taylor; Hooke 1664) và St Paul's (Fletcher 1962) qua Wikipedia (bậc 3). Dữ liệu cũ dùng lại: OSM (ODbL), EA LiDAR (OGL v3), Doornick (Rijks PDM). Không AI sinh hình trong khung look.
 
 ## §9. Sự cố
-[[SUCO]]
+| # | Sự cố | Xử lý | Kết quả |
+|---|---|---|---|
+| 1 | Dữ liệu tiền kỳ ngoài git mất theo container (`/var/tmp/ldn`: OSM, LiDAR, tư liệu, atlas lửa) | tải lại bằng lệnh tiền kỳ (`tai_lidar.py`, `tai_tu_lieu.py`, OSM bằng `tai_osm.py` mới — UA đúng luật), nướng lại atlas (`nuong_flipbook.py` 96×192, 148 s) | đủ; SHA tư liệu khớp (bản thu trong git không đổi) |
+| 2 | **`khop-doornick.json` + `ranh-chay-1666-cuoi.json` của tiền kỳ KHÔNG có trong git** — `channel-k2/.gitignore` chặn `*.json` (lặp kiểu BAI-HOC #117) | đọc lại 11 điểm khống chế + 3 điểm kiểm trên Doornick gốc 5324×4650; thêm `channel-k2/k2c-t4-02/.gitignore` mở `mo-hinh/*.json`, `look/**/*.json`; dữ liệu nay ở `mo-hinh/` (trong git) | affine RMS 49,9 m (tiền kỳ 44,2), LOO 70,3 m; nhãn St Paul's lệch 85,9 m (tiền kỳ ≈ 85 m); ranh cháy 148,3 ha = **366 acre** (tiền kỳ 399) — §11 |
+| 3 | Thiếu `pyproj` + lưới OSTN15 | cài `pyproj==3.8.0` (ghim D17) + `uk_os_OSTN15_NTv2_OSGBtoETRS.tif` (SHA 5d6ed64d…) | — |
+| 4 | `kill $(pgrep -f …)` giết chính shell (exit 144) — **lặp BAI-HOC #112** | từ đó chỉ dừng theo PID | không mất dữ liệu |
+| 5 | Hai chuỗi nền (dựng hình học + nướng) chạy chồng 3 lần vì PID ghi nhầm (`setsid` tách tiến trình; `ps | head -1` lấy tiến trình cũ) → nướng trên hình học cũ | dừng theo PID thật, chạy lại | mất ≈ 15 phút máy |
+| 6 | Nướng Cycles ra "không che khuất" (trung vị 1,0) | mặt đất tạo bằng `foreach_set` có pháp tuyến ÚP (trục Y Blender = −z đảo chiều vòng) → bake nhìn nửa cầu dưới; đảo thứ tự đỉnh | 0,59–0,65 trung bình, AO phố đúng |
+| 7 | UV mặt đất tràn ngoài [0,1] (đệm 300 m) bị ghi chồng khi nướng | mặt đất đúng hộp, nhà giữ đệm để che | — |
+| 8 | Hai lần sửa mã chèn chú thích `#`/`//` giữa dòng nuốt phần còn lại (Python: mất `VICT`; JS: trang lỗi cú pháp) — **lặp sự cố #16 tiền kỳ** | sửa; từ đó `node --check` sau mỗi lần sửa `look.js` | 2 lượt thử hỏng |
+| 9 | Doornick: số 1–93 là **tên phố** (bảng chú giải "Direction to the names of the Streetes"), không phải nhà thờ → không lấy được vị trí nhà thờ trong vùng cháy từ Doornick như lệnh | vị trí từ toạ độ Wikipedia (78) + OSM (30); ghi bậc 3 | lệch lệnh có lý do (Doornick để trắng vùng cháy) |
+| 10 | Wikipedia API trả 429 | lùi 15–30 s, gom 50 tiêu đề/lượt | đủ 85/100 toạ độ |
+| 11 | Mặt nạ cháy Doornick bỏ mép sông → dải Thames Street không có nhà và không cháy; trước đó dải cỏ xanh ven sông | dải ≤ 150 m bờ bắc = có nhà (lõi khối ≤ 110 m), cháy theo trường giờ RBF | nhà trong vùng cháy 12 447 (dữ kiện 13 200 → −5,7 %) |
+| 12 | Lô của phố này lấn lòng phố khác (khối nhà giữa Fleet Street che máy P4) | vẽ lòng phố vào lưới chiếm chỗ trước khi đặt lô | lô 60 569 → 43 057 (bỏ nhà nằm trên phố) |
+| 13 | Phần OSM `building:part` của St Paul's dựng thành khối kính văn phòng quanh mái vòm ("trụ kính") | bỏ mọi toà/phần nằm trong đường bao St Paul's (−6 m) và quanh Tower; nhà thờ OSM dựng bằng đá | mái vòm đọc đúng (trống 32 cột, vòm chì, đèn lồng) |
+| 14 | M4-trung đặt máy 9 m tưởng là trên mặt phố → nằm DƯỚI mặt đất (cao độ máy là tuyệt đối ODN, mặt phố 15,1 m) | ghi rõ "TUYỆT ĐỐI" trong `look_khung.py`; đặt 19,1 m (mặt phố 9,1 m + 10 m) gần Ludgate Circus | khung đúng tầm nhìn |
+| 15 | Bản đồ bóng 6144² dựng lại ở MỖI mẫu tích luỹ | dựng một lần mỗi khung | tích luỹ 1080p 16 spp còn ≈ 5 s |
+| 16 | Sửa `look_chay.sh` khi nó đang chạy → bash báo EOF cuối lượt | đủ 24/24 khung trước lỗi; từ đó không sửa tệp đang chạy | — |
+| 17 | Một lượt nướng 2026 (205 s) chạy chồng lúc đã bắt đầu dựng 2 khung → **3 tiến trình nặng ≈ 3 phút** (luật P ≤ 2 khi nướng) | khung lượt đó bị dựng lại toàn bộ ở lượt cuối (nướng xong trước) | lượt cuối tuân P = 2 |
+| 18 | Thử nghiệm bằng mắt phát hiện và sửa trước lượt cuối: thuyền neo che máy P6; nhà đang cháy "phát sáng trắng" (phát xạ bão hoà) → mảng lửa theo ô cửa; trời đêm ám cam toàn bầu; lớp khói than sáng ở đêm (B); kính cửa sổ văn phòng ánh lam như nhiễu; hộp nhà xa trôi nổi; trụ cầu/đường OSM vẽ chồng thành tấm cầu 40 m | sửa trong `look.js` / `hinh_hoc_look.py` | — |
+
+Không force-push, không amend, không pod GPU nào được bật. Không lỗi nào lặp ≥ 3 lần trong cùng một cách làm.
 
 ## §10. Chi phí thật
-[[CHIPHI]]
+| Khoản | Mốc theo dõi | Chặn | Thật | Nguồn số |
+|---|---|---|---|---|
+| Claude API | $5 | > $20 | **$0** (không gọi; không chấm/soi AI) | — |
+| OpenAI (chỉ soi/chấm) | $3 | > $10 | **$0** | — |
+| RunPod | $10 (số dư ≈ $21) | > $20 | **$0** — không bật pod: nướng Cycles CPU đo 88–109 s/mốc (1 m, 32 spp) nên GPU không "nhanh hơn rõ" khi tính cả khởi động pod | `bake_*.png.json` |
+| Gemini / ElevenLabs / YouTube | 0 | — | 0 / 0 / 0 | — |
+| Giờ máy container | 12 h | — | [[GIO_MAY]] | CHECKPOINT |
+| **Tổng tiền API/GPU** | | | **$0** | |
+
+Chi phí mô hình của chính phiên Claude Code không nằm trong bảng (không có số đo trong phiên).
 
 ## §11. Chỉ số trong ±5 % quanh ngưỡng
-[[NGUONG]]
+| Chỉ số | Giá trị | Ngưỡng | Lệch | Ghi chú |
+|---|---|---|---|---|
+| Trời + sương, toàn cảnh P1 (M1-rong, M3-rong, M4-rong) | 20,0 % / 20,0 % / 19,7 % (M1-rong một ô 20,8 %) | ≤ 20 % (LOOK-2 T3: 8–20 %) | 0 … +4 % | sát mép trên — máy P1 giữ như BANG-SHOT-v1, không chỉnh để "đạt số" |
+| Bão hoà trung vị, ô M2-dem / M3-trung | 0,416 / 0,400 | ≥ 0,40 (§14.4) | +4 % / 0 % | khung đêm; khung ngày đều dưới ngưỡng xa (0,024–0,37) — quyết định L2 |
+| Nhà cháy (hình học) | 12 447 | dữ kiện ≈ 13 200 | −5,7 % (ngoài ±5 %) | bậc 5, không lên lời |
+| Diện tích vùng cháy (Doornick, đọc lại điểm khống chế) | 148,3 ha = 366 acre | dữ kiện "over 400 acres" | −8,5 % (ngoài ±5 %) | tiền kỳ 399 acre với bộ điểm cũ (đã mất); hình học không lên lời; đề xuất: thêm điểm khống chế trong vùng cháy (Guildhall, Royal Exchange) khi làm bản đồ hoạt hoá |
+| Khớp Doornick affine RMS | 49,9 m | tiền kỳ 44,2 m | +13 % | bộ điểm mới (11 + 3 kiểm) |
+| Nước trong khung | ≤ 30,2 % | ≤ 33,3 % (§11.4) | −9 % | ngoài ±5 % — ghi để rõ |
 
 ## §12. Quyết định đề xuất
 Xem `PHIEU-LOOK.md` §3 (L1–L6). Ba điểm chính: **L2** ngưỡng bão hoà ≥ 0,40 (§14.4) không hợp London ở biến thể A/B → đề xuất ngưỡng theo tập; **L3** người/xe cho khung trung/cận ở sản xuất; **L6** "estimated infill" ghi trong thẻ phương pháp thay vì tông khác.
