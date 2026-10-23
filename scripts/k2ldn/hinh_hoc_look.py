@@ -14,6 +14,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import hinh_hoc as H0                        # nạp OSM/LiDAR/Doornick, mặt nạ BUILT/WAT66/WAT26/BURN, t_chay, pho_1666 (không chạy main)
 from hinh_hoc import R, BB, E0, N0, G, GW, GH, to_g, poly_mask, at, t_chay, lidar, DTM, DSM, WAT26, WAT66, BURN, BUILT
 OUT = os.path.join(H0.DATA, 'look'); os.makedirs(OUT, exist_ok=True)
+# bờ bắc 1666 (Fleet → Tower): mặt nạ cháy Doornick bỏ mép sông và nét khắc ven sông thưa → dải ≤ 150 m từ mép nước là kho/bến/nhà dày đặc (Thames Street, Hollar Long View) — bậc 4
+_gE = BB[0] + (np.arange(GW) + 0.5) * G; _gN = BB[3] - (np.arange(GH) + 0.5) * G
+_dw = cv2.distanceTransform((WAT66 == 0).astype(np.uint8), cv2.DIST_L2, 5) * G
+BUILT[(_dw > 3) & (_dw < 150) & (_gE[None, :] > 531650) & (_gE[None, :] < 533450) & (_gN[:, None] > 180550) & (WAT66 == 0)] = 1
 REPO = H0.REPO
 RNG = np.random.default_rng(16661)
 def L(E, N): return (E - E0, -(N - N0))
@@ -136,7 +140,7 @@ def jit(c, a=10, rng=RNG):
 # bảng albedo (sRGB) — nhân với vân ảnh trong shader (vân mang cấu trúc + một phần sắc độ)
 PLASTER = [(214, 204, 182), (206, 192, 160), (196, 186, 168), (222, 214, 196), (190, 170, 138), (200, 178, 150), (176, 168, 156)]   # vôi trắng, vàng đất, xám bẩn
 TIMBER = (84, 64, 48); BRICK67 = [(150, 82, 58), (138, 74, 54), (160, 96, 70), (128, 78, 60)]; TILE = [(124, 80, 64), (110, 74, 62), (134, 90, 70), (98, 72, 64), (118, 94, 80), (142, 98, 74), (100, 94, 90)]   # ngói đất nung phong hoá + ám khói than (Evelyn, Fumifugium 1661); 1/7 xám (chì/đá phiến)
-STONE = (176, 166, 148); PORTLAND = (222, 216, 202); LEAD = (112, 118, 124); VICT = [(150, 110, 84), (176, 150, 116), (128, 92, 74), (196, 186, 166)]
+STONE = (150, 140, 124); PORTLAND = (222, 216, 202); LEAD = (112, 118, 124); VICT = [(150, 110, 84), (176, 150, 116), (128, 92, 74), (196, 186, 166)]   # STONE: đá Kent (ragstone) + đá Caen ám khói
 SLATE = (92, 96, 104)
 
 # ------------------------------------------------------------------ nhà 1666 + nhà xây lại 1667 (4 hạng) theo lô
@@ -183,6 +187,31 @@ def lots(streets):
             cv2.fillPoly(occ, [np.round(to_g(poly)).astype(np.int32)], 1)
             out.append({'c': c, 'u': udir, 'v': -vdir, 'w': w, 'd': d, 'hw': 1.5, 'front': False, 'pho': ''})
     return out, occ
+
+def kho_ven_song(occ):
+    """kho/bến/nhà ven sông bờ bắc 1666 (Fleet → Tower) và bờ nam (Bankside): dãy nhà sát kè, đầu hồi ra sông (Hollar Long View 1647; Doornick vẽ dãy nhà sát nước) — bậc 4 hình, bậc 5 lô."""
+    out = []; sm = cv2.GaussianBlur((WAT66 > 0).astype(np.float32), (0, 0), 3.0)
+    cs, _ = cv2.findContours((sm > 0.5).astype(np.uint8), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+    for cnt in cs:
+        if len(cnt) < 200: continue
+        P = cnt[:, 0, :].astype(float)[::2]; EN = np.stack([BB[0] + (P[:, 0] + 0.5) * G, BB[3] - (P[:, 1] + 0.5) * G], 1)
+        acc = 0.0; nxt = 0.0
+        for i in range(len(EN) - 1):
+            p0, p1 = EN[i], EN[i + 1]; sg = float(np.linalg.norm(p1 - p0)); acc += sg
+            if acc < nxt or sg < 0.5: continue
+            E, N = p0
+            north = 531650 < E < 533450 and N > 180560; south = 531300 < E < 533700 and N < 180560
+            if not (north or south): continue
+            u = (p1 - p0) / sg; v = np.array([-u[1], u[0]])
+            if at(WAT66, p0 + v * 6) == 1: v = -v                                 # v hướng vào đất
+            w = float(RNG.uniform(6.0, 12.0)); d = float(RNG.uniform(9.0, 15.0)); c = p0 + u * w / 2 + v * (d / 2 + 2.5)
+            nxt = acc + w + float(RNG.uniform(0.0, 1.5))
+            cs_ = [c + u * a * w / 2 + v * b * d / 2 for a in (-0.8, 0, 0.8) for b in (-0.8, 0, 0.8)]
+            if sum(at(occ, q) for q in cs_) > 1 or at(WAT66, c) == 1: continue
+            poly = np.array([c - u * w / 2 - v * d / 2, c + u * w / 2 - v * d / 2, c + u * w / 2 + v * d / 2, c - u * w / 2 + v * d / 2])
+            cv2.fillPoly(occ, [np.round(to_g(poly)).astype(np.int32)], 1)
+            out.append({'c': c, 'u': u, 'v': v, 'w': w, 'd': d, 'hw': 4.5, 'front': True, 'pho': 'ven sông'})
+    return out
 
 def nha(m, LOTS, chim):
     n = {'1666': 0, 'xay_lai': 0, 'phe_tich': 0, 'hang': {1: 0, 2: 0, 3: 0, 4: 0}}
@@ -259,8 +288,8 @@ def toa_start():
         if st is None: st = (1950.0 + rs.uniform(0, 70)) if at(BLITZ_M, c) else (1955.0 + rs.uniform(0, 65))
         if (b['h'] or 0) > 120: st = max(st, 1995.0 + rs.uniform(0, 25))
         st = max(st, 1667.5); START[b['id']] = st
-        if not b['part']:
-            m_ = np.zeros((GH, GW), np.uint8); cv2.fillPoly(m_, [np.round(to_g(r) * 4).astype(np.int32)], 1, shift=2); START_R[m_ == 1] = np.minimum(START_R[m_ == 1], st)
+    for b in sorted([b for b in R['toa'] if not b['part'] and b['id'] in START], key=lambda b: -START[b['id']]):   # vẽ từ muộn → sớm: ô giữ năm NHỎ nhất
+        cv2.fillPoly(START_R, [np.round(to_g(np.array(b['r'], float)) * 4).astype(np.int32)], float(START[b['id']]), shift=2)
 def special(name, c):
     if name == 'The Leadenhall Building' or np.hypot(c[0] - 533166, c[1] - 181190) < 35: return 'leadenhall'
     if name == '30 St Mary Axe' or np.hypot(c[0] - 533301, c[1] - 181252) < 25: return 'gherkin'
@@ -531,19 +560,29 @@ def nha_tho(m, sites):
         n += 1
     return n
 def cau_2026(m):
-    n = 0
+    """cầu hiện đại: MỘT mặt cầu cho mỗi cầu (OSM có nhiều đường song song — làn xe, lối bộ, đường ray — trước đây vẽ chồng thành tấm rộng), bề rộng + năm theo cầu; trụ mỗi ≈ 50 m (bậc 5 hình trụ)."""
+    W_ = {'London Bridge': (32, 1973.0, (172, 170, 164)), 'Southwark Bridge': (17, 1921.0, (118, 128, 104)), 'Blackfriars Bridge': (32, 1869.0, (150, 60, 52)),
+          'Millennium Bridge': (4, 2000.0, (186, 188, 190)), 'Cannon Street Railway Bridge': (30, 1866.0, (90, 92, 96)), 'Tower Bridge': (18, 1894.0, (130, 150, 170))}
+    best = {}
     for d in R['duong']:
         if d.get('bridge') != 'yes': continue
-        if not (d['name'] in ('London Bridge', 'Southwark Bridge', 'Blackfriars Bridge', 'Millennium Bridge', 'Cannon Street Railway Bridge', 'Tower Bridge') or d['hw'] == 'rail'): continue
+        nm = d['name'] if d['name'] in W_ else ('Cannon Street Railway Bridge' if d['hw'] == 'rail' else None)
+        if not nm: continue
         l = np.array(d['l'], float)
         if not at(WAT26, l.mean(0)): continue
-        t0 = {'London Bridge': 1973.0, 'Southwark Bridge': 1921.0, 'Blackfriars Bridge': 1869.0, 'Millennium Bridge': 2000.0}.get(d['name'], 1866.0)
-        wd = 4 if d['hw'] == 'footway' else 15
+        ln = float(np.linalg.norm(np.diff(l, axis=0), axis=1).sum())
+        if nm not in best or ln > best[nm][0]: best[nm] = (ln, l)
+    for nm, (ln, l) in best.items():
+        wd, t0, col = W_[nm]
         for i in range(len(l) - 1):
-            a, b = l[i], l[i + 1]; c = (a + b) / 2; x, z = L(*c)
-            m.box(x, z, float(np.linalg.norm(b - a)) + 0.5, wd, math.atan2(-(b - a)[1], (b - a)[0]), 5.0, 8.0, (160, 158, 152), (118, 118, 116), (t0, 9999.0, 0.0, -1.0), 7, 8, 12)
-        n += 1
-    return n
+            a, b = l[i], l[i + 1]; c = (a + b) / 2; x, z = L(*c); sl = float(np.linalg.norm(b - a))
+            m.box(x, z, sl + 0.5, wd, math.atan2(-(b - a)[1], (b - a)[0]), 6.0, 8.2, jit(col, 4), (104, 104, 102), (t0, 9999.0, 6.0, -1.0), 7, 8, 12)
+        tot = np.r_[0, np.cumsum(np.linalg.norm(np.diff(l, axis=0), axis=1))]
+        for sdist in np.arange(25, tot[-1] - 20, 50.0):
+            i = int(np.searchsorted(tot, sdist)) - 1; i = max(0, min(i, len(l) - 2)); f = (sdist - tot[i]) / max(tot[i + 1] - tot[i], 1e-3); p = l[i] + (l[i + 1] - l[i]) * f
+            if not at(WAT26, p): continue
+            x, z = L(*p); m.box(x, z, 6, wd * 0.8, math.atan2(-(l[i + 1] - l[i])[1], (l[i + 1] - l[i])[0]), -3.0, 6.0, (150, 146, 138), (150, 146, 138), (t0, 9999.0, -3.0, -1.0), 7, 5, 5)
+    return len(best)
 
 # ------------------------------------------------------------------ mặt đất: lớp phủ 2 m (1666 / 2026) → PNG (R = lớp)
 def lop_dat(streets):
@@ -580,22 +619,24 @@ def cay(c66, c26):
             else: y1_ = yr1
             x, z = L(E, N); out += [x, Hg(E, N), z, float(RNG.uniform(3.0, 6.5)), yr0, y1_, float(RNG.random())]
     return np.array(out, np.float32)
+CAMS = [(532330, 180250), (532690, 180290), (533250, 180480), (531300, 181160), (532990, 180750), (533800, 180600)]   # P1, P2, P6, P4, P3, P8 (BANG-SHOT-v1)
 def thuyen():
     """thuyền theo mốc (thưa, đúng thời kỳ — bậc 4–5): 1666 đò wherry (6 m), sà lan lighter (14 m), tàu buồm 2–3 cột dưới cầu (Pool of London);
     1940 sà lan + tàu kéo; 2026 tàu khách + sà lan. Vị trí rải trên mặt nước của năm, lệch về dòng chính."""
-    out = []
+    out = []; RB = np.random.default_rng(1667)                                # bộ sinh riêng: thuyền không đổi khi hình học đổi
     ws = {66: WAT66, 26: WAT26}
     for (y0, y1, key, kinds) in ((1500, 1830, 66, [('wherry', 70), ('lighter', 22), ('ship', 14)]), (1900, 1950, 26, [('barge', 26), ('tug', 6)]), (1990, 9999, 26, [('cruise', 9), ('barge', 6)])):
         W = ws[key]; ys, xs = np.where(W == 1)
         for kind, nn in kinds:
             k = 0
             while k < nn:
-                i = RNG.integers(len(ys)); E = BB[0] + xs[i] * G; N = BB[3] - ys[i] * G
+                i = RB.integers(len(ys)); E = BB[0] + xs[i] * G; N = BB[3] - ys[i] * G
                 if not (531200 < E < 534200 and 180150 < N < 180950): continue
                 dd = cv2.distanceTransform((W == 1).astype(np.uint8), cv2.DIST_L2, 5)[ys[i], xs[i]] * G if False else None
                 if kind == 'ship' and E < 532950: continue                 # tàu lớn không qua cầu: dưới cầu
+                if min(np.hypot(E - ce, N - cn) for ce, cn in CAMS) < 260: continue   # không đặt thuyền sát điểm máy (che khung)
                 if at(W, [E + 12, N]) == 0 or at(W, [E - 12, N]) == 0 or at(W, [E, N + 12]) == 0 or at(W, [E, N - 12]) == 0: continue
-                x, z = L(E, N); out.append({'k': kind, 'x': round(x, 1), 'z': round(z, 1), 'a': round(float(RNG.uniform(-0.4, 0.4)) + (math.pi if RNG.random() < 0.5 else 0), 3), 'y0': y0, 'y1': y1, 's': round(float(RNG.random()), 3)})
+                x, z = L(E, N); out.append({'k': kind, 'x': round(x, 1), 'z': round(z, 1), 'a': round(float(RB.uniform(-0.4, 0.4)) + (math.pi if RB.random() < 0.5 else 0), 3), 'y0': y0, 'y1': y1, 's': round(float(RB.random()), 3)})
                 k += 1
     return out
 
@@ -633,7 +674,7 @@ def main():
     meta = {'goc_EN': [E0, N0], 'bbox': BB, 'bac': {}, 'phien_ban': 'look-v2'}
     T = dia_hinh(step=4.0); meta['dia_hinh'] = {k: T[k] for k in ('nx', 'nz', 'x0', 'z0', 'step')}
     m = M(); streets = H0.pho_1666(); meta['pho_1666'] = len(streets); chim = []
-    LOTS, occ = lots(streets); meta['lo'] = len(LOTS); toa_start()
+    LOTS, occ = lots(streets); KHO = kho_ven_song(occ); LOTS = LOTS + KHO; meta['lo'] = len(LOTS); meta['kho_ven_song'] = len(KHO); toa_start()
     meta['nha'] = nha(m, LOTS, chim); meta['bac']['nha_1666'] = '5 (lô theo phố OSM còn giữ + mặt nạ Doornick bậc 1; kiểu nhà khung gỗ trát, tầng nhô, đầu hồi ra phố — bậc 4 theo Hollar)'
     meta['bac']['nha_1667'] = '4–5 (4 hạng Rebuilding Act 1667: 2/3/4/4 tầng theo hạng phố; tường gạch)'
     meta['toa'] = toa(m); meta['bac']['toa_2026'] = '1 (OSM ODbL + LiDAR EA OGL); vật liệu theo loại/độ cao — bậc 5'; meta['bac']['vict'] = '5 (khối 1840–1940 trên nền toà sau 1941)'
@@ -642,7 +683,7 @@ def main():
     meta['ke'] = {'go_1666': quays(m, WAT66, 1500.0, 1866.0, 'go'), 'embankment': quays(m, WAT26, 1868.0, 9999.0, 'da')}
     S = sites_nha_tho(); meta['nha_tho'] = nha_tho(m, S); meta['nha_tho_nguon'] = {k: sum(1 for s in S if s[3] == k) for k in ('wiki', 'osm')}
     meta['cau_2026'] = cau_2026(m)
-    meta['st_pauls_EN'] = c_new.tolist(); meta['old_st_pauls_EN'] = c_old.tolist(); meta['blitz_1940'] = BLITZ
+    meta['st_pauls_EN'] = c_new.tolist(); meta['old_st_pauls_EN'] = c_old.tolist(); _c, _ax, _ = axis_of("St Paul's Cathedral"); meta['old_st_pauls_truc'] = (_ax if _ax[0] > 0 else -_ax).tolist(); meta['blitz_1940'] = BLITZ
     P, C, TL, Kk, UV, MT, FL = m.arr(); meta['dinh'] = len(P); meta['tam_giac'] = len(P) // 3
     c66, c26 = lop_dat(streets); cv2.imwrite(os.path.join(OUT, 'cls66.png'), c66); cv2.imwrite(os.path.join(OUT, 'cls26.png'), c26)
     meta['lop_dat'] = {'w': GW, 'h': GH, 'buoc': G, 'E0': BB[0], 'N1': BB[3]}
@@ -660,8 +701,9 @@ def main():
     meta['luoi_chay'] = {'E0': 531000, 'N0': 181800, 'buoc': 20, 'nx': len(es), 'nz': len(ns)}
     tg.astype('<f4').tofile(os.path.join(OUT, 'luoi_chay.f32'))
     # lưới lửa 1940 (giờ kể từ 29/12/1940 18:00): ô ngẫu nhiên trong vùng bom ƯỚC LƯỢNG, bén 18:15–21:30 (bậc 5)
-    b40 = at(BLITZ_M, np.stack([EE, NN], -1)) == 1; t40 = np.where(b40 & (RNG.random(EE.shape) < 0.42), RNG.uniform(0.25, 3.5, EE.shape), -1.0)
+    b40 = at(BLITZ_M, np.stack([EE, NN], -1)) == 1; cl = cv2.GaussianBlur(RNG.random(EE.shape).astype(np.float32), (0, 0), 1.2)   # cụm cháy rời (nhiễu làm mịn), ≈ 20 % ô
+    t40 = np.where(b40 & (cl > np.quantile(cl[b40], 0.80)), RNG.uniform(0.25, 3.5, EE.shape), -1.0)
     t40.astype('<f4').tofile(os.path.join(OUT, 'luoi_1940.f32'))
     json.dump(meta, open(os.path.join(OUT, 'ldn2.json'), 'w'), ensure_ascii=False, indent=1)
-    print(json.dumps({k: meta[k] for k in ('pho_1666', 'lo', 'nha', 'toa', 'nha_tho', 'nha_tho_nguon', 'ke', 'cay', 'khoi_bep', 'dinh', 'tam_giac')}, ensure_ascii=False))
+    print(json.dumps({k: meta[k] for k in ('pho_1666', 'lo', 'kho_ven_song', 'nha', 'toa', 'nha_tho', 'nha_tho_nguon', 'ke', 'cay', 'khoi_bep', 'dinh', 'tam_giac')}, ensure_ascii=False))
 if __name__ == '__main__': main()

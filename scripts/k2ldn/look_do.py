@@ -3,6 +3,7 @@
   look_do.py <ảnh.jpg> [--mask <mặt nạ ID.png>] [--log <log.json của lượt dựng> --hero E,N,h]   → JSON ra stdout
 - bao_hoa_tv: bão hoà HSV trung vị (ảnh thu 640×360, như T3 §14.4 — T3 cắt y 60–300; ở đây đo cả khung và vùng giữa y 60–300).
 - colorfulness: Hasler–Süsstrunk (σ_rgyb + 0,3 μ_rgyb).   - chi_tiet: trung vị |Laplace| (thang xám 0–255, 640×360) — NC-CPU: không đo được độ thật, chỉ để theo dõi.
+- nuoc_pct: % mặt nước theo mặt nạ ('nuoc' 0,170,190) — BIBLE §11.4: nước/cỏ trống ≤ 1/3 ở shot thành phố.
 - troi_pct: % điểm ảnh trời theo mặt nạ ID (màu 'troi' 40,80,200).   - suong_pct: % điểm ảnh KHÔNG phải trời có độ lệch chuẩn cục bộ (9×9) < 2,5/255 và gần màu chân trời (ΔE76 < 12) — dải sương.
 - tieu_diem: vị trí chiếu của vật tiêu điểm (hero_EN) trên khung (% ngang, % dọc từ trên), khoảng cách tới giao điểm 1/3 gần nhất (% đường chéo),
   tương phản cục bộ quanh tiêu điểm (RMS luma trong hộp 6 % khung so với cả khung)."""
@@ -33,6 +34,7 @@ if mk:
     mu = cv2.blur(gray, (9, 9)); sd = np.sqrt(np.maximum(cv2.blur(gray * gray, (9, 9)) - mu * mu, 0))
     de = np.linalg.norm((lab - hc) * np.array([100 / 255, 1, 1]), axis=-1)
     fog = (~sky) & (sd < 2.5) & (de < 12)
+    water = (np.abs(m[..., 0] - 190) < 30) & (np.abs(m[..., 1] - 170) < 30) & (m[..., 2] < 40); out['nuoc_pct'] = round(float(water.mean() * 100), 1)
     out['troi_pct'] = round(float(sky.mean() * 100), 1); out['suong_pct'] = round(float(fog.mean() * 100), 1); out['troi_suong_pct'] = round(float((sky | fog).mean() * 100), 1)
 lg = opt('--log'); hero = opt('--hero')
 if lg and hero:
