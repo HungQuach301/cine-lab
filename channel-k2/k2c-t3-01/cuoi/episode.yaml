@@ -8,7 +8,7 @@ music: []
 sources: {}
 numbers: {}
 khung_sach: true
-so_ai: reports/animatic-t3-v2/so-ai-gemini.jsonl
+so_ai: ../../../reports/animatic-t3-v2/so-ai-gemini.jsonl
 giong_tong_hop: true
 phat_hanh:
   cong: phat_hanh
@@ -4149,9 +4149,9 @@ heroes:
         seed: 920
         alpha: 0.45
       - at:
-        - -433
-        - 11.4
-        - 1186
+        - -320
+        - 11.6
+        - 1108
         t:
         - 8.82
         - 13.82
@@ -4165,6 +4165,156 @@ heroes:
         seed: 7088
         alpha: 0.65
       campTuNhien: true
+      doiSong:
+      - kind: duong
+        pts: &id035
+        - - -760
+          - 1560
+        - - -520
+          - 1330
+        - - -330
+          - 1120
+        - - -180
+          - 930
+        w: 5
+        wY:
+          'on': 1779.0
+      - kind: xe
+        kieu: ngua
+        pts: *id035
+        n: 7
+        v: 1.6
+        hai_chieu: true
+        wY:
+          'on': 1779.0
+        seed: 1101
+      - kind: dong
+        at:
+        - -300
+        - 1080
+        r: 90
+        sx: 1.6
+        n: 34
+        wY:
+          'on': 1779.0
+        seed: 1102
+      - kind: giasuc
+        at:
+        - -520
+        - 1180
+        r: 80
+        n: 26
+        wY:
+          'on': 1779.0
+        seed: 1103
+      - kind: vuon
+        w: 40
+        h: 28
+        luong: 8
+        cao: 0.5
+        mau: &id036
+        - 5204782
+        - 8018490
+        - 9075264
+        - 6126133
+        at:
+        - -640
+        - 1060
+        r: 170
+        sx: 1.5
+        n: 34
+        wY:
+          'on': 1779.0
+        seed: 1104
+      - kind: vuon
+        w: 40
+        h: 28
+        luong: 8
+        cao: 0.5
+        mau: *id036
+        at:
+        - -200
+        - 1250
+        r: 120
+        sx: 1.4
+        n: 18
+        wY:
+          'on': 1779.0
+        seed: 1105
+      - kind: duong
+        pts: &id037
+        - - -880
+          - 3620
+        - - -1060
+          - 3380
+        - - -1230
+          - 3150
+        - - -1380
+          - 2930
+        w: 5
+        wY:
+          'on': 1779.0
+      - kind: xe
+        kieu: ngua
+        pts: *id037
+        n: 8
+        v: 1.6
+        hai_chieu: true
+        wY:
+          'on': 1779.0
+        seed: 1111
+      - kind: dong
+        at:
+        - -1180
+        - 3260
+        r: 110
+        sx: 1.6
+        n: 40
+        wY:
+          'on': 1779.53
+          full: 1779.75
+        seed: 1112
+      - kind: giasuc
+        at:
+        - -1020
+        - 3380
+        r: 90
+        n: 34
+        wY:
+          'on': 1779.53
+        seed: 1113
+      - kind: vuon
+        w: 40
+        h: 28
+        luong: 8
+        cao: 0.5
+        mau: *id036
+        at:
+        - -960
+        - 3300
+        r: 170
+        sx: 1.5
+        n: 36
+        wY:
+          'on': 1779.55
+          full: 1779.8
+        seed: 1114
+      - kind: vuon
+        w: 40
+        h: 28
+        luong: 8
+        cao: 0.5
+        mau: *id036
+        at:
+        - -1420
+        - 3380
+        r: 140
+        sx: 1.4
+        n: 24
+        wY:
+          'on': 1779.55
+          full: 1779.8
+        seed: 1115
       dur: 22.5
       shot: C1
       cau: diem-L-linea → T-trai-bac
@@ -4175,44 +4325,84 @@ heroes:
       cam:
       - t: 0.0
         p:
-        - -560
-        - 75
-        - 1330
+        - -430
+        - 28.1
+        - 1260
         l:
         - -120
-        - 15
+        - 48
         - 820
-        fov: 42
+        fov: 26
+      - t: 0.04
+        p:
+        - -429.96666666666664
+        - 28.1
+        - 1259.98
+        l:
+        - -120
+        - 48
+        - 820
+        fov: 26
+      - t: 11.94
+        p:
+        - -420.05
+        - 28.1
+        - 1254.03
+        l:
+        - -120
+        - 48
+        - 820
+        fov: 26
       - t: 11.98
         p:
-        - -545
-        - 73
-        - 1320
+        - -420
+        - 28.1
+        - 1254
         l:
         - -120
-        - 15
+        - 48
         - 820
-        fov: 42
+        fov: 26
       - t: 12.0
         p:
-        - -1150
-        - 96.7
-        - 3550
+        - -1200
+        - 33.0
+        - 3150
         l:
-        - -1300
-        - 11.0
-        - 2950
-        fov: 44
+        - -1215
+        - 50.0
+        - 2650
+        fov: 30
+      - t: 12.04
+        p:
+        - -1199.9847619047619
+        - 33.0
+        - 3149.9695238095237
+        l:
+        - -1215
+        - 50.0
+        - 2650
+        fov: 30
+      - t: 22.46
+        p:
+        - -1196.0152380952381
+        - 33.0
+        - 3142.0304761904763
+        l:
+        - -1215
+        - 50.0
+        - 2650
+        fov: 30
       - t: 22.5
         p:
-        - -1145
-        - 96.7
-        - 3540
+        - -1196
+        - 33.0
+        - 3142
         l:
-        - -1300
-        - 11.0
-        - 2950
-        fov: 44
+        - -1215
+        - 50.0
+        - 2650
+        fov: 30
       loai: trai
       td:
       - - trai
@@ -4391,7 +4581,7 @@ heroes:
         - -6300
         - 170
         - -1950
-        l: &id035
+        l: &id038
         - -500
         - 150
         - -1500
@@ -4401,7 +4591,7 @@ heroes:
         - -6250
         - 168
         - -1938
-        l: *id035
+        l: *id038
         fov: 30
       loai: vinh
       td:
@@ -5136,7 +5326,7 @@ heroes:
         seed: 533
         rim: false
       co:
-      - at: &id036
+      - at: &id039
         - -600
         - -1268
         kind: union1707
@@ -5154,7 +5344,7 @@ heroes:
         w: 6
         'on': 1704.591644
         toward: 110
-      - at: *id036
+      - at: *id039
         kind: burgundy
         scale: 1.5
         pole: 12
@@ -5239,7 +5429,7 @@ heroes:
         - -118
         - 93.3
         - -985
-        l: &id037
+        l: &id040
         - 40
         - 230
         - -1250
@@ -5249,14 +5439,14 @@ heroes:
         - -117
         - 93.6
         - -984
-        l: *id037
+        l: *id040
         fov: 38
       - t: 8.0
         p:
         - -117
         - 93.6
         - -984
-        l: *id037
+        l: *id040
         fov: 38
       - t: 10.0
         p:
@@ -5523,7 +5713,7 @@ heroes:
           - '#3d4a5a'
         seed: 1780
       co:
-      - at: &id038
+      - at: &id041
         - -600
         - -1268
         kind: union1707
@@ -5541,7 +5731,7 @@ heroes:
         w: 6
         'on': 1704.591644
         toward: 110
-      - at: *id038
+      - at: *id041
         kind: burgundy
         scale: 1.5
         pole: 12
@@ -6009,7 +6199,7 @@ heroes:
         - line: MAIN
           n: 110
           width: 4
-          colors: &id039
+          colors: &id042
           - '#e7e0cf'
           - '#5e4a38'
           - '#3d4a5a'
@@ -6039,7 +6229,7 @@ heroes:
         - line: SOUTH
           n: 160
           width: 10
-          colors: *id039
+          colors: *id042
           free: false
         lines:
           SOUTH:
@@ -6062,7 +6252,7 @@ heroes:
           h: 90
           n: 10
       co:
-      - at: &id040
+      - at: &id043
         - -600
         - -1268
         kind: union1707
@@ -6080,7 +6270,7 @@ heroes:
         w: 6
         'on': 1704.591644
         toward: 110
-      - at: *id040
+      - at: *id043
         kind: burgundy
         scale: 1.5
         pole: 12
@@ -6576,7 +6766,7 @@ heroes:
         fov: 44
       loai: neo
       td:
-      - &id073
+      - &id076
         - pho_hep
         - null
     dur: 8.0
@@ -6782,42 +6972,42 @@ heroes:
       - at:
         - -240
         - 455
-        wY: &id041
+        wY: &id044
         - 1782.685788
         - 1782.688356
         size: 40
       - at:
         - -120
         - 340
-        wY: &id042
+        wY: &id045
         - 1782.685908
         - 1782.688356
         size: 40
       - at:
         - 20
         - 380
-        wY: &id043
+        wY: &id046
         - 1782.686028
         - 1782.688356
         size: 40
       - at:
         - 180
         - 330
-        wY: &id044
+        wY: &id047
         - 1782.686148
         - 1782.688356
         size: 40
       - at:
         - 330
         - 280
-        wY: &id045
+        wY: &id048
         - 1782.686268
         - 1782.688356
         size: 40
       - at:
         - 520
         - 190
-        wY: &id046
+        wY: &id049
         - 1782.686388
         - 1782.688356
         size: 40
@@ -6871,7 +7061,7 @@ heroes:
         - -240
         - 8
         - 455
-        wY: *id041
+        wY: *id044
         n: 16
         size: 70
         rise: 130
@@ -6887,7 +7077,7 @@ heroes:
         - -120
         - 8
         - 340
-        wY: *id042
+        wY: *id045
         n: 16
         size: 70
         rise: 130
@@ -6903,7 +7093,7 @@ heroes:
         - 20
         - 8
         - 380
-        wY: *id043
+        wY: *id046
         n: 16
         size: 70
         rise: 130
@@ -6919,7 +7109,7 @@ heroes:
         - 180
         - 8
         - 330
-        wY: *id044
+        wY: *id047
         n: 16
         size: 70
         rise: 130
@@ -6935,7 +7125,7 @@ heroes:
         - 330
         - 8
         - 280
-        wY: *id045
+        wY: *id048
         n: 16
         size: 70
         rise: 130
@@ -6951,7 +7141,7 @@ heroes:
         - 520
         - 8
         - 190
-        wY: *id046
+        wY: *id049
         n: 16
         size: 70
         rise: 130
@@ -7016,7 +7206,7 @@ heroes:
         sun: real
         lab: dt
       fleets:
-      - &id057
+      - &id060
         n: 24
         center:
         - -4300
@@ -7030,7 +7220,7 @@ heroes:
         - 1783.1
         phe: es
         soai: 12
-      - &id058
+      - &id061
         n: 23
         center:
         - -4900
@@ -7267,7 +7457,7 @@ heroes:
       night: true
       fleets:
       - list:
-        - at: &id047
+        - at: &id050
           - -1517.679053604841
           - -706.1311166928107
           kind: battery
@@ -7278,7 +7468,7 @@ heroes:
           - - 1782.699715
             - -1517.679053604841
             - -706.1311166928107
-        - at: &id048
+        - at: &id051
           - -1498.194819470432
           - -844.7686463166306
           kind: battery
@@ -7289,7 +7479,7 @@ heroes:
           - - 1782.699715
             - -1498.194819470432
             - -844.7686463166306
-        - at: &id049
+        - at: &id052
           - -1478.7105853360229
           - -983.4061759404503
           kind: battery
@@ -7300,7 +7490,7 @@ heroes:
           - - 1782.699715
             - -1478.7105853360229
             - -983.4061759404503
-        - at: &id050
+        - at: &id053
           - -1459.2263512016136
           - -1122.04370556427
           kind: battery
@@ -7311,7 +7501,7 @@ heroes:
           - - 1782.699715
             - -1459.2263512016136
             - -1122.04370556427
-        - at: &id051
+        - at: &id054
           - -1439.7421170672046
           - -1260.68123518809
           kind: battery
@@ -7322,7 +7512,7 @@ heroes:
           - - 1782.699715
             - -1439.7421170672046
             - -1260.68123518809
-        - at: &id052
+        - at: &id055
           - -1420.2578829327954
           - -1399.31876481191
           kind: battery
@@ -7333,7 +7523,7 @@ heroes:
           - - 1782.699715
             - -1420.2578829327954
             - -1399.31876481191
-        - at: &id053
+        - at: &id056
           - -1400.7736487983864
           - -1537.95629443573
           kind: battery
@@ -7344,7 +7534,7 @@ heroes:
           - - 1782.699715
             - -1400.7736487983864
             - -1537.95629443573
-        - at: &id054
+        - at: &id057
           - -1381.2894146639771
           - -1676.5938240595497
           kind: battery
@@ -7355,7 +7545,7 @@ heroes:
           - - 1782.699715
             - -1381.2894146639771
             - -1676.5938240595497
-        - at: &id055
+        - at: &id058
           - -1361.805180529568
           - -1815.2313536833694
           kind: battery
@@ -7366,7 +7556,7 @@ heroes:
           - - 1782.699715
             - -1361.805180529568
             - -1815.2313536833694
-        - at: &id056
+        - at: &id059
           - -1342.320946395159
           - -1953.8688833071892
           kind: battery
@@ -7384,12 +7574,6 @@ heroes:
         phe: es
         coScale: 1.5
       - list:
-        - at: *id047
-          kind: battery
-        - at: *id048
-          kind: battery
-        - at: *id049
-          kind: battery
         - at: *id050
           kind: battery
         - at: *id051
@@ -7404,6 +7588,12 @@ heroes:
           kind: battery
         - at: *id056
           kind: battery
+        - at: *id057
+          kind: battery
+        - at: *id058
+          kind: battery
+        - at: *id059
+          kind: battery
         heading: 172
         wY:
         - 1782.7004
@@ -7411,8 +7601,8 @@ heroes:
         burning: true
         phe: es
         coScale: 1.5
-      - *id057
-      - *id058
+      - *id060
+      - *id061
       fires:
       - at:
         - -1517.679053604841
@@ -8298,23 +8488,23 @@ heroes:
       recl: false
       doiSong:
       - kind: duong
-        pts: &id059
-        - &id065
+        pts: &id062
+        - &id068
           - -150
           - -250
-        - &id066
+        - &id069
           - -110
           - 120
-        - &id060
+        - &id063
           - -60
           - 420
-        - &id061
+        - &id064
           - 10
           - 760
-        - &id062
+        - &id065
           - 70
           - 1060
-        - &id063
+        - &id066
           - 110
           - 1400
         w: 4
@@ -8352,7 +8542,7 @@ heroes:
         seed: 3101
       - kind: xe
         kieu: ngua
-        pts: *id059
+        pts: *id062
         n: 6
         v: 1.8
         hai_chieu: true
@@ -8511,7 +8701,7 @@ heroes:
         fov: 42
       loai: eo
       td:
-      - &id074
+      - &id077
         - linea
         - null
     dur: 27.25
@@ -8674,7 +8864,7 @@ heroes:
           - 1
       doiSong:
       - kind: duong
-        pts: *id059
+        pts: *id062
         w: 5
         wY:
           'on': 1849
@@ -8711,10 +8901,10 @@ heroes:
       - kind: xe
         kieu: ngua
         pts:
-        - *id060
-        - *id061
-        - *id062
         - *id063
+        - *id064
+        - *id065
+        - *id066
         - - 200
           - 1800
         - - 300
@@ -8877,7 +9067,7 @@ heroes:
         - line: CALLE
           n: 24
           width: 5
-          colors: &id064
+          colors: &id067
           - '#e7e0cf'
           - '#5e4a38'
           - '#3d4a5a'
@@ -8926,7 +9116,7 @@ heroes:
         fov: 40
       loai: neo
       td:
-      - &id070
+      - &id073
         - pho_la_linea
         - null
     dur: 7.0
@@ -8979,13 +9169,13 @@ heroes:
           - 1
       doiSong:
       - kind: duong
-        pts: *id059
+        pts: *id062
         w: 4
         wY:
           'on': 1900
       - kind: xe
         kieu: ngua
-        pts: *id059
+        pts: *id062
         n: 6
         v: 1.8
         hai_chieu: true
@@ -9119,14 +9309,14 @@ heroes:
         - line: EO
           n: 120
           width: 4
-          colors: *id064
+          colors: *id067
         lines:
           EO:
+          - *id068
+          - *id069
+          - *id063
+          - *id064
           - *id065
-          - *id066
-          - *id060
-          - *id061
-          - *id062
       smoke:
       - at:
         - 107
@@ -9213,7 +9403,7 @@ heroes:
         fov: 27
       loai: eo
       td:
-      - &id072
+      - &id075
         - hang_rao
         - null
     dur: 27.0
@@ -9283,7 +9473,7 @@ heroes:
           'on': 1909.5
         seed: 3502
       - kind: duong
-        pts: *id059
+        pts: *id062
         w: 5
         wY:
           'on': 1900
@@ -9377,7 +9567,7 @@ heroes:
           n: 40
           width: 5
           women: false
-          colors: &id067
+          colors: &id070
           - '#6b6a4a'
           - '#7a7656'
           - '#2f3d5c'
@@ -9403,7 +9593,7 @@ heroes:
         seed: 4101
       - kind: xe
         kieu: tai
-        pts: *id059
+        pts: *id062
         n: 6
         v: 7
         hai_chieu: true
@@ -9443,7 +9633,7 @@ heroes:
           'on': 1909.5
         seed: 4104
       - kind: duong
-        pts: *id059
+        pts: *id062
         w: 5
         wY:
           'on': 1900
@@ -10132,7 +10322,7 @@ heroes:
           n: 30
           width: 8
           women: false
-          colors: *id067
+          colors: *id070
         lines:
           SQ:
           - - -470
@@ -10174,7 +10364,7 @@ heroes:
         fov: 44
       loai: neo
       td:
-      - &id069
+      - &id072
         - quang_truong
         - null
     dur: 8.0
@@ -10406,7 +10596,7 @@ heroes:
           n: 160
           width: 6
           women: true
-          colors: &id068
+          colors: &id071
           - '#3d4a5a'
           - '#e7e0cf'
           - '#7a2f2a'
@@ -10422,7 +10612,7 @@ heroes:
           n: 120
           width: 6
           women: true
-          colors: *id068
+          colors: *id071
       - era: 2026
         wY:
           'on': 1969.433904
@@ -10435,12 +10625,12 @@ heroes:
           n: 70
           width: 14
           women: true
-          colors: *id068
+          colors: *id071
         - line: NAM
           n: 50
           width: 14
           women: true
-          colors: *id068
+          colors: *id071
         lines:
           BAC:
           - - 62
@@ -10731,7 +10921,7 @@ heroes:
           n: 40
           width: 8
           women: true
-          colors: *id068
+          colors: *id071
         lines:
           SQ:
           - - -470
@@ -10773,7 +10963,7 @@ heroes:
         fov: 44
       loai: neo
       td:
-      - *id069
+      - *id072
     dur: 9.5
   anim_N5_2:
     hero: tl/t3tl
@@ -10800,7 +10990,7 @@ heroes:
           n: 220
           width: 6
           women: true
-          colors: *id068
+          colors: *id071
         crowds:
         - line: WCA
           groups: 12
@@ -10808,7 +10998,7 @@ heroes:
           - 4
           - 12
           speed: 1.3
-          colors: *id068
+          colors: *id071
       nc:
         bakes:
         - *id013
@@ -10902,7 +11092,7 @@ heroes:
         fov: 38
       loai: eo
       td:
-      - &id071
+      - &id074
         - nguoi_qua_cong
         - null
     dur: 12.5
@@ -10931,7 +11121,7 @@ heroes:
           n: 20
           width: 5
           women: true
-          colors: *id068
+          colors: *id071
         lines:
           CALLE:
           - - 152
@@ -10975,7 +11165,7 @@ heroes:
         fov: 40
       loai: neo
       td:
-      - *id070
+      - *id073
     dur: 10.0
   anim_N5_3:
     hero: tl/t3tl
@@ -11018,7 +11208,7 @@ heroes:
           n: 260
           width: 6
           women: true
-          colors: *id068
+          colors: *id071
         crowds:
         - line: WCA
           groups: 14
@@ -11026,7 +11216,7 @@ heroes:
           - 4
           - 12
           speed: 1.3
-          colors: *id068
+          colors: *id071
       - era: 2026
         wY:
           'on': 2026.799258
@@ -11036,7 +11226,7 @@ heroes:
           n: 220
           width: 6
           women: true
-          colors: *id068
+          colors: *id071
       nc:
         bakes:
         - *id013
@@ -11170,7 +11360,7 @@ heroes:
         fov: 40
       loai: pho
       td:
-      - *id071
+      - *id074
     dur: 24.5
   anim_N5_4:
     hero: tl/t3tl
@@ -11213,7 +11403,7 @@ heroes:
           n: 220
           width: 6
           women: true
-          colors: *id068
+          colors: *id071
         crowds:
         - line: WCA
           groups: 10
@@ -11221,7 +11411,7 @@ heroes:
           - 4
           - 10
           speed: 1.3
-          colors: *id068
+          colors: *id071
       - era: 2026
         wY:
           'on': 2026.783562
@@ -11231,7 +11421,7 @@ heroes:
           n: 160
           width: 8
           women: true
-          colors: *id068
+          colors: *id071
       pho2026:
         box:
         - -700
@@ -11371,7 +11561,7 @@ heroes:
         fov: 42
       loai: eo
       td:
-      - *id072
+      - *id075
     dur: 31.4583
   anim_N5_5:
     hero: tl/t3tl
@@ -11552,7 +11742,7 @@ heroes:
           n: 30
           width: 4
           women: true
-          colors: *id068
+          colors: *id071
         lines:
           MAIN:
           - - -440
@@ -11594,7 +11784,7 @@ heroes:
         fov: 44
       loai: neo
       td:
-      - *id073
+      - *id076
     dur: 8.0
   anim_N5_6:
     hero: tl/t3tl
@@ -11680,7 +11870,7 @@ heroes:
           n: 100
           width: 6
           women: true
-          colors: *id068
+          colors: *id071
       nc:
         bakes:
         - *id029
@@ -11720,7 +11910,7 @@ heroes:
         fov: 42
       loai: eo
       td:
-      - *id074
+      - *id077
     dur: 20.0
   anim_PP:
     hero: tl/t3tl
@@ -11802,7 +11992,7 @@ heroes:
         - -535
         - 414
         - 1430
-        l: &id075
+        l: &id078
         - 80
         - 0
         - -350
@@ -11812,11 +12002,11 @@ heroes:
         - -527
         - 412
         - 1424
-        l: *id075
+        l: *id078
         fov: 42
       loai: eo
       td:
-      - *id074
+      - *id077
     dur: 17.0
 segments:
 - id: H1
@@ -12371,27 +12561,18 @@ segments:
   - t: 12.0
     k: xay
     s: trại TBN dựng lên từ 13/7/1779 (cận lều,
-  - t: 12.69
+  - t: 13.07
     k: bien_co_tu_dac_ta
-    s: nhóm người xuất hiện
-  - t: 13.4
-    k: bien_co_tu_dac_ta
-    s: nhóm người xuất hiện
+    s: khói xuất hiện
   - t: 14.12
     k: bien_co_tu_dac_ta
     s: nhóm người xuất hiện
-  - t: 14.75
-    k: bien_co_tu_dac_ta
-    s: nhóm người xuất hiện
-  - t: 15.28
+  - t: 15.55
     k: bien_co_tu_dac_ta
     s: nhóm người xuất hiện
   - t: 16.05
     k: xay
     s: '10/1779: toàn dải trại, Rock nền'
-  - t: 16.9
-    k: bien_co_tu_dac_ta
-    s: nhóm người xuất hiện
   - t: 17.43
     k: bien_co_tu_dac_ta
     s: nhóm người xuất hiện

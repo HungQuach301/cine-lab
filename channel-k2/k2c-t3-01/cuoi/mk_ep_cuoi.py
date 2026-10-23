@@ -60,7 +60,7 @@ def dur_of(ids): return round(sum(NH[i]['dur_moi'] for i in ids), 4)
 # BAN-CUOI-T3 (lệnh bổ sung 22/10, K-1.17.2): lượt Omni đã giữ + SHA tệp gốc (khớp sổ AI reports/animatic-t3-v2/so-ai-gemini.jsonl; reports/animatic-t3-v2/omni/goc720/GHI-CHU.md) + tệp kiểm
 LUOT = dict(M2=('M2-l3', 'd03dd5949de4d018fd4f9275568edc44690dcba4a65412c5d1130808d830fbe2'), M3=('M3-l1', '0ea8dd2d2590b8730b60c823accc451ce4a369d26d4d35475bb6547cba74f48c'),
             M4=('M4-l1', '7a72dac3bad46aa5cc83cdb6d1988e2b9fc4da6d1a62fa9931e872f56fe66070'), M5=('M5-l3', 'c683c4e9ac7d46a4484c0cbcad359bfc74972fd526f4aa3a92dc03c91e227b5b'))
-SO_AI = 'reports/animatic-t3-v2/so-ai-gemini.jsonl'
+SO_AI = '../../../reports/animatic-t3-v2/so-ai-gemini.jsonl'   # k2check đọc đường dẫn TƯƠNG ĐỐI theo thư mục episode.yaml (23/10: bản theo gốc repo → K-LAI-3/6, MINH-HOA (e) 'không đọc được')
 H1_DAO = [('To walk in from Spain, you cross an airport runway.', 3.413, 6.269, 0.5),   # BAN-CUOI-T3 1c (V2-D3): đảo 3 câu đầu, cắt từ master giọng theo mốc câu (T3-loi-moc.json), không tạo giọng mới
           ('Since July 2026, this gate has had no routine checks.', 6.943, 11.285, 3.756),
           ('Midnight at the Gibraltar frontier.', 0.0, 2.148, 9.75)]
@@ -116,6 +116,20 @@ DS_N41 = [dict(kind='xe', kieu='tai', pts=[[-700, -40], [-200, -30], [300, -20],
           dict(kind='leu', at=[-150, 200], r=90, sx=1.5, n=50, wY=dict(on=1909.5), seed=4104), dict(kind='duong', pts=ROAD_EO, w=5, wY=dict(on=1900)),
           dict(kind='vuon', w=40, h=28, luong=8, cao=0.5, mau=[0x4f6b2e, 0x7a5a3a, 0x8a7a40, 0x5d7a35], at=[150, 560], r=150, sx=1.6, n=36, wY=dict(on=1900), seed=4106), dict(kind='kho', at=[250, 620], r=120, n=12, wY=dict(on=1900), seed=4107),
           dict(kind='giasuc', loai='de', at=[0, 650], r=60, n=30, wY=dict(on=1900), seed=4108)]
+
+# BAN-CUOI-T3 1b (+C1, sửa 23/10 sau k2check 1.17.2 EO-DAT-R2: C1 trống 10,5 s liên tục) — vật đời sống chung bậc 5 quanh tuyến Línea (6/1779) và dải trại (7–10/1779).
+# KHÔNG thêm lều/kho: số lều dải trại theo dữ liệu bậc 1–2 (eo-dat-v7.json) giữ nguyên. Chỉ đường đất, xe kéo, đống vật tư, gia súc kéo, vườn rau — vị trí/số ước lượng.
+ROAD_C1A = [[-760, 1560], [-520, 1330], [-330, 1120], [-180, 930]]                       # lối tiếp tế San Roque → tuyến Línea (ước lượng)
+ROAD_C1B = [[-880, 3620], [-1060, 3380], [-1230, 3150], [-1380, 2930]]                   # lối dọc dải trại (ước lượng)
+VUON_MAU = [0x4f6b2e, 0x7a5a3a, 0x8a7a40, 0x5d7a35]
+DS_C1 = [dict(kind='duong', pts=ROAD_C1A, w=5, wY=dict(on=1779.0)), dict(kind='xe', kieu='ngua', pts=ROAD_C1A, n=7, v=1.6, hai_chieu=True, wY=dict(on=1779.0), seed=1101),
+         dict(kind='dong', at=[-300, 1080], r=90, sx=1.6, n=34, wY=dict(on=1779.0), seed=1102), dict(kind='giasuc', at=[-520, 1180], r=80, n=26, wY=dict(on=1779.0), seed=1103),
+         dict(kind='vuon', w=40, h=28, luong=8, cao=0.5, mau=VUON_MAU, at=[-640, 1060], r=170, sx=1.5, n=34, wY=dict(on=1779.0), seed=1104),
+         dict(kind='vuon', w=40, h=28, luong=8, cao=0.5, mau=VUON_MAU, at=[-200, 1250], r=120, sx=1.4, n=18, wY=dict(on=1779.0), seed=1105),
+         dict(kind='duong', pts=ROAD_C1B, w=5, wY=dict(on=1779.0)), dict(kind='xe', kieu='ngua', pts=ROAD_C1B, n=8, v=1.6, hai_chieu=True, wY=dict(on=1779.0), seed=1111),
+         dict(kind='dong', at=[-1180, 3260], r=110, sx=1.6, n=40, wY=dict(on=1779.53, full=1779.75), seed=1112), dict(kind='giasuc', at=[-1020, 3380], r=90, n=34, wY=dict(on=1779.53), seed=1113),
+         dict(kind='vuon', w=40, h=28, luong=8, cao=0.5, mau=VUON_MAU, at=[-960, 3300], r=170, sx=1.5, n=36, wY=dict(on=1779.55, full=1779.8), seed=1114),
+         dict(kind='vuon', w=40, h=28, luong=8, cao=0.5, mau=VUON_MAU, at=[-1420, 3380], r=140, sx=1.4, n=24, wY=dict(on=1779.55, full=1779.8), seed=1115)]
 
 C4_P1, C4_L1, C4_F1 = [-4500, 45, -700], [-600, 110, -1300], 40   # BAN-CUOI-T3 1a: máy góc 1 C4 (chọn bằng thử máy)
 
@@ -227,7 +241,8 @@ def shots():
     tAc = round(NH['2b']['bd_phim'] - NH['2a']['bd_phim'], 3); tBc = round(NH['2b']['cau'][1]['bd_phim'] - NH['2a']['bd_phim'], 3)
     o['time'] = [dict(t=0, at='1779-06-20 09:00', sun='real', lab='dt'), dict(t=tAc - 0.05, at='1779-06-22 16:00', sun='real', lab='dt'), dict(t=tAc, at='1779-07-13 12:00', sun=12.0, lab='d'),
                  dict(t=D, at='1779-10-28 12:00', sun=12.0, lab='d')]   # soát dựng: góc cận trại (B) không thấy lều ở 7–9/1779 → gộp vào góc dải trại (lều mọc 13/7 → 28/10); o['night'] = True
-    C1cam, ct = cuts(D, [dict(t1=tAc, p0=[-560, 75, 1330], l0=[-120, 15, 820], dp=(15, -2, -10), fov=42), dict(p0=A(-1150, 70, 3550), l0=A(-1300, 0, 2950), dp=(5, 0, -10), fov=44)])
+    o['doiSong'] = DS_C1   # 1b (+C1): máy thấp/tele hơn + vật đời sống chung (bản trước: [-560, 75, 1330] fov 42 · A(-1150, 70, 3550) fov 44 → trống 47–61 %)
+    C1cam, ct = cuts(D, [dict(t1=tAc, p0=A(-430, 22, 1260), l0=[-120, 48, 820], dp=(10, 0, -6), fov=26), dict(p0=A(-1200, 18, 3150), l0=A(-1215, 40, 2650), dp=(4, 0, -8), fov=30)], giu=True)
     add('C1', ['2a', '2b'], 'L-linea → T-trai-bac', 'lai', 'co-che', 'eo_dat', 'trai', o, C1cam, v['td'],
         [dict(t=0.4, k='the_chuong', s='1779 — The Great Siege'), dict(t=0.5, k='ngay_dem', s='20→21/6/1779: Línea và đồn — đường bộ bị cắt (ngày–đêm)'), dict(t=tAc, k='xay', s='trại TBN dựng lên từ 13/7/1779 (cận lều, ngựa, khói bếp)'),
          dict(t=tBc, k='xay', s='10/1779: toàn dải trại, Rock nền')],
@@ -561,8 +576,8 @@ def main():
                   lightmap=[b['dir'] for b in o['nc']['bakes']], tl_buoc=tb, tl_buoc_n=len(tb), cau=[dict(dong=x['dong'], t=round(x['bd'] - t_abs, 3), cau=x['cau']) for x in L], su_kien=sh['su_kien'],
                   moc=o['time'][0]['at'], bac='xem ghi + meta lớp của cảnh', nguon='mk_ep_anim.py ghi + reports/v7b/V7B-BAO-CAO.md §2–§5 + reports/v7c/V7C-BAO-CAO.md §2.4', chuong=sh.get('chuong'), ghi=sh['ghi'],
                   tieu_diem=[k2 for k2, _ in sh['td']], luot_thap=sh.get('luot_thap') or False, khung_neo=sh.get('khung_neo', False), ai_image=any((REPO / f"reports/animatic-t3-v2/omni/goc720/{m['ma']}.mp4").exists() for m in (sh.get('minh_hoa') or [])), ai_texture=False, nc=True, lan=sh.get('lan'), cat_trong_shot=list(sh.get('cat') or []),
-                  minh_hoa=[dict(m, minh_hoa=True, nguon='Gemini Omni (gemini-omni-1.1-flash) image-to-video, ảnh đầu = render của chính shot', bac='minh hoạ N2 (§14.1 c): không mang dữ kiện vị trí; dữ kiện do lời', so_ai='reports/animatic-t3-v2/so-ai-gemini.jsonl',
-                                luot=LUOT[m['ma']][0], sha_goc=LUOT[m['ma']][1], kiem=f"reports/animatic-t3-v2/omni/kiem/{LUOT[m['ma']][0]}/{LUOT[m['ma']][0]}-kiem.json",
+                  minh_hoa=[dict(m, minh_hoa=True, nguon='Gemini Omni (gemini-omni-1.1-flash) image-to-video, ảnh đầu = render của chính shot', bac='minh hoạ N2 (§14.1 c): không mang dữ kiện vị trí; dữ kiện do lời', so_ai='../../../reports/animatic-t3-v2/so-ai-gemini.jsonl',
+                                luot=LUOT[m['ma']][0], sha_goc=LUOT[m['ma']][1], kiem=f"../../../reports/animatic-t3-v2/omni/kiem/{LUOT[m['ma']][0]}/{LUOT[m['ma']][0]}-kiem.json",
                                 agl_m=round(max(0.0, BC.cam_tai(cm, m['t0'] + 0.05)[0][1] - max(0.0, hAt(BC.cam_tai(cm, m['t0'] + 0.05)[0][0], BC.cam_tai(cm, m['t0'] + 0.05)[0][2]))), 1), nhan_minh_hoa=None, nhan_ghi='bỏ nhãn — quyết định chủ dự án 22/10/2026 11:09') for m in (sh.get('minh_hoa') or [])])
         gm = [dict(t0=0.0, t1=round(float((sh.get('cat') or [d])[0]) if sh.get('cat') else d, 3))]
         cs = [0.0] + [float(c) for c in sh.get('cat') or []] + [d]; gm = [dict(t0=round(a, 3), t1=round(b, 3)) for a, b in zip(cs, cs[1:])]
