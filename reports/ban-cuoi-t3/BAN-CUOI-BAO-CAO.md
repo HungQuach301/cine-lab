@@ -55,7 +55,24 @@ episode.yaml bản cuối (không animatic); beats = biến cố hình, mốc l�
 
 ## 9. Việc 9 — kiểm cuối
 ### 9.1 k2check 1.17.2 `--cap` (LOCK KHỚP) — 3 lượt
-<!-- K2CHECK -->
+Lệnh: `k2check.py channel-k2/k2c-t3-01/cuoi/episode.yaml --tl …/timeline.json --master …/k2-t3-v1-master.mp4 [--logs …/sec] --cap` (có ASR). Selftest: k1172 **74/74** · k117 **130/130** · k116 **144/144**. `LOI-KHOA.sha256` **3/3 OK**. Kết quả tập: **TRƯỢT** (mã thoát 1) ở cả 3 lượt.
+
+| Hàng | Lượt 1 (master crf 16, khai lỗi) | Lượt 3 (master cuối, `--logs`) | Ghi chú |
+|---|---|---|---|
+| K-LAI-3 / K-LAI-6 | TRƯỢT (không đọc được tệp kiểm/sổ AI — đường dẫn sai) | **ĐẠT** (kiểm 4/4 · 11 lệnh AI · $11,25 · C2PA 11/11) | lỗi khai của phiên này, đã sửa |
+| MINH-HOA | TRƯỢT (e) ×4 | **ĐẠT** (4 đoạn, 3,6 %) | bỏ `so_ai` chuỗi ở mục đoạn |
+| EO-DAT-R2 | TRƯỢT (C1 trống 10,5 s; ch 1779 82 %) | **ĐẠT** (liên tục dài nhất 3,6 s; ch 2: 3,5 %) | dựng lại C1 |
+| XEM-CAM | TRƯỢT (không khai) | TRƯỢT **(b) chủ dự án chưa chấm** · AI 8,0 / 6,5 / 8,0 trên 8 | cổng chờ người |
+| K-LAI-2 / CONG-BO-1 | TRƯỢT / CẢNH BÁO (d)/(a) không `phat_hanh.mo_ta` | như cũ | được phép ở phiên này (lệnh 22/10); mô tả YouTube do phiên đóng gói |
+| SACH-1 | TRƯỢT (c) không log chữ | TRƯỢT (e) thẻ chương + thẻ PP "ngoài danh sách", (c) chữ PP2 | khiếu nại **A6** |
+| Q37 / NHIP-K2 / Q37 (1.13) | TRƯỢT 212 lỗi (a) | TRƯỢT 209 / 216 lỗi (a) | khiếu nại **A2** (mốc trong `heroes.<k>.opt` không được đọc) |
+| Q33-K2 / Q33 (1.13) | TRƯỢT N1_6 ×3 | như cũ | khiếu nại **A5** |
+| EO-DAT-R3 | TRƯỢT 7 | TRƯỢT 7: (a) N4_5, N5_6 một góc · (b) 5 shot khoảng biến cố | (a) → đề xuất **D1**; (b) khiếu nại **A3** (tính cắt góc thì ≤ 6 s) |
+| TL-3 | CẢNH BÁO (sập: `trong_pct` danh sách) | như cũ | khiếu nại **A1** |
+| PP-1 | CẢNH BÁO 3,4 từ/s | như cũ | khiếu nại **A4** / đề xuất **D2** |
+| TL-1, Q26b-K2, EO-DAT-R1, O2 | CẢNH BÁO | CẢNH BÁO | chỉ báo; O2 cần `--o2-api` (có phí) — không chạy |
+
+Tệp: `do/k2check-1.17.2-cap.txt` (lượt 1), `-l2.txt`, `-l3.txt`; khiếu nại `checks-appeal.md` (6 điểm).
 
 ### 9.2 Tự đo master (`do/tu-do-master.json`, `do/r2-tom-tat.json`)
 | Chỉ số | Giá trị |
