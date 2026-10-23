@@ -16,6 +16,9 @@ Phiên xưởng chỉ CHẠY (không đọc mã). Định nghĩa: checks/ll/RULE
              1.17.3 (tập từ T3; khiếu nại BAN-CUOI-T3 A1–A6): TL-3 nhận trong_pct [[t, %], …] · Q37/NHIP-K2/Q37 (1.13) (a) đọc mốc cảnh tl/*
              (opt.time + năm thế giới của lớp vật qua đường cong thời gian) · EO-DAT-R3 (b) ranh góc máy + lưới khung, (a) ngoại lệ có khai
              (`r3_ngoai_le` + dòng AUTHORSHIP) · Q33 miễn năm theo khoảng năm hiện (opt.time, bước năm) · SACH-1 chữ thẻ chương/PP theo đặc tả
+             1.17.4 (chủ dự án duyệt Q1–Q7 23/10/2026 21:45): BIEN-CO-V thước biến cố ĐO trên video (tập từ T3 có video; K117-D8) — tập từ T4 cộng
+             biến cố đo vào Q37/NHIP-K2/Q37 (1.13) (b)(c) khi thước đạt hiệu chuẩn · Q37 (c) miễn khối thẻ PP cuối phim (K1173-D6, từ T3) · tập từ T4:
+             MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU (§19), GEMINI-NGAN-SACH, GOC-CAO-60 (Q2); MINH-HOA (a) / N2P-6 (b) bỏ trần 20 % (Q2)
 
 Gọi: Q26b bối cảnh · Q32 footage/ảnh nguồn ngoài · Q33 lặp cảnh · Q34 loại shot · Q35 nhãn loại số (D5) · Q36 chữ trên màn hình ·
 Q37 nhịp thị giác · A1–A13 âm thanh · LOCK. Mã thoát 0 khi mọi mục ĐẠT (âm thanh của tập cũ: CHỈ BÁO, không tính).
@@ -40,7 +43,7 @@ Mặc định: timeline <out>/timeline.json, master <out>/<id>-v1-master.mp4 n�
 import glob, json, os, subprocess, sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
-from checks.ll import base, q_setting, q_footage, q_scene, q_types, q_chu, q_nhip, q_amthanh, q_mach, q_ftg, q_hinh, q_tl, q_k2var, cap112, q_k116, q_k117  # noqa: E402
+from checks.ll import base, q_setting, q_footage, q_scene, q_types, q_chu, q_nhip, q_amthanh, q_mach, q_ftg, q_hinh, q_tl, q_k2var, cap112, q_k116, q_k117, q_bcv, q_k1174  # noqa: E402
 from checks.cinecheck import VERSION  # noqa: E402
 
 
@@ -65,6 +68,15 @@ def main():
         try: TLB.append((json.load(open(bp)), os.path.dirname(os.path.abspath(bp))))
         except (OSError, ValueError): pass
 
+    # 1.17.4 (K117-D8): thước biến cố video — đo một lần (tập từ T3 có video); cộng vào Q37 (b)(c) chỉ tập từ T4 khi thước đạt hiệu chuẩn
+    mv0 = m if m and os.path.exists(m) else None
+    BCV = None
+    if V16 and mv0 and '--no-bcv' not in a:
+        try: BCV = q_bcv.do_video(mv0)
+        except Exception as e: BCV = e
+    BCVR = q_bcv.hang(E, TL, mv0, 'animatic' if E.get('animatic') else 'G2', MIEN, BCV if isinstance(BCV, dict) else None) if (V16 and isinstance(BCV, dict)) else None
+    BV = [(t, s_, k_, d_) for t, s_, k_, d_ in q_bcv.cho_q37(E, BCV if isinstance(BCV, dict) else None, bool(BCVR and BCVR.get('dat_hieu_chuan')))]
+
     def row(q, ten, r, nguong=''):
         kq = r.get('ket_qua') or ('ĐẠT' if r['ok'] else 'TRƯỢT')
         rows.append(dict(q=q, ten=ten, kq=kq, val=r.get('val', ''), nguong=nguong, sat='; '.join(r.get('sat_nguong') or []), loi=(r.get('loi') or []) + (r.get('thieu') or [])))
@@ -74,7 +86,7 @@ def main():
     row('Q34', 'Loại shot', q_types.q34(E, TL, ep_dir), 'type · map ±6 s · photo ±6 s · số neo 3D ≥ 60 % · document ≤ 3 s · record ≤ 12 s + dòng tô + nguồn')
     row('Q35', 'Nhãn loại số (D5)', q_chu.q35(E, TL, logs), 'ACTUAL ≤ 1/khung · ESTIMATE bắt buộc · số có năm rõ không cần ACTUAL')
     row('Q36', 'Chữ trên màn hình', q_chu.q36(E, TL, logs), 'nguồn ≥ 38 px, 1 dòng, ≤ 70 ký tự · Facts as of chỉ với luật hiệu lực (+ 1 lần trong câu miễn trừ 0:00–0:15)')
-    row('Q37', 'Nhịp thị giác' + (' (1.16: miễn khung neo/im lặng ≤ 10 s)' if V16 else ''), q_nhip.q37(E, TL, m if m and os.path.exists(m) else None, tl=TLB or None, mien=MIEN, tl_moc=V17),
+    row('Q37', 'Nhịp thị giác' + (' (1.16: miễn khung neo/im lặng ≤ 10 s; 1.17.4: + thẻ PP cuối phim)' if V16 else ''), q_nhip.q37(E, TL, m if m and os.path.exists(m) else None, tl=TLB or None, mien=MIEN, tl_moc=V17, bcv=BV),
         'TB ≤ 3,5 s · dài nhất ≤ 6 s · khung tĩnh ≤ 6 s')
     ra = q_amthanh.check(E, TL, master=m, MX=MX, vo=g('vo'), bed=g('bed'), asr='--no-asr' not in a, v116=V16)
     row('A1–A13', 'Âm thanh (' + ('MIX=audio' if ra['ap_dung'] else 'tập cũ — chỉ báo') + ')', ra, 'docs/AUDIO-THUOC-DO.md')
@@ -111,7 +123,7 @@ def main():
     if g('vang') and g('moi'): bao('KHOP1', 'Khớp cấu trúc khi đổi trình dựng', lambda: q_hinh.khop1(g('vang'), g('moi')), 'tần thấp ≤ 3 % · dịch ≤ 1 · PSNR¼ ≥ 40 · SSIM ≥ 0,90 · renderer ghi rõ, không trộn')
     # ---- 1.12.2: biến thể kênh 2 (NN2, NN3, khiếu nại Q14/Q15/Q17) — CHỈ BÁO cạnh luật cũ tới khi chủ dự án duyệt thay
     mv = m if m and os.path.exists(m) else None
-    bao('NHIP-K2', 'Nhịp kênh 2 (Q14–Q18 không áp → Q37)', lambda: q_k2var.nhip_k2(E, TL, mv, tl=TLB or None, mien=MIEN, tl_moc=V17), 'TB ≤ 3,5 s · dài nhất ≤ 6 s')
+    bao('NHIP-K2', 'Nhịp kênh 2 (Q14–Q18 không áp → Q37)', lambda: q_k2var.nhip_k2(E, TL, mv, tl=TLB or None, mien=MIEN, tl_moc=V17, bcv=BV), 'TB ≤ 3,5 s · dài nhất ≤ 6 s')
     bao('Q26b-K2', 'Đa dạng loại cảnh + vùng', lambda: q_k2var.q26b_k2(E, TL), '≥ 3 loại/nửa · loại ≤ 70 % · vùng ≤ 25 %, ≤ 90 s, nửa sau ≥ 3')
     bao('Q33-K2', 'Lặp cảnh (vùng, góc) + pHash L/ΔE', lambda: {k: v for k, v in q_k2var.q33_k2(E, TL, mv, nam_log=NL17).items() if k != 'aps'},
         '≤ 2 lần (miễn: khác chương + khác năm/lớp' + ('; 1.17.3: năm hiện (opt.time / log shot) không chồng — TL-1)' if NL17 else ')'))
@@ -161,7 +173,13 @@ def main():
     bao('Q33 (1.13)', 'Lặp cảnh — pHash bỏ lớp chữ cố định', lambda: q_scene.q33(E, TL, video=mv, k2=True, nam_log=NL17),
         '≤ 2 lần · pHash L vùng nội dung y 18–72 %, θ 16' + (' · 1.17.3: miễn cùng điểm máy năm khác (TL-1, năm hiện theo opt.time)' if NL17 else ''))
     bao('Q36 (1.13)', 'Chữ — câu miễn trừ nhận theo chữ', lambda: q_chu.q36(E, TL, logs, v113=True), '"This video explains… Facts as of" 1 lần trong 0:00–0:15 không đòi nguồn luật')
-    bao('Q37 (1.13)', 'Nhịp — khung tĩnh theo khung neo', lambda: q_nhip.q37(E, TL, mv, v113=True, tl=TLB or None, mien=MIEN, tl_moc=V17), 'khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s')
+    bao('Q37 (1.13)', 'Nhịp — khung tĩnh theo khung neo', lambda: q_nhip.q37(E, TL, mv, v113=True, tl=TLB or None, mien=MIEN, tl_moc=V17, bcv=BV), 'khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s')
+    if V16:   # 1.17.4 (K117-D8): thước biến cố ĐO trên video
+        def bcv_row():
+            if BCVR: return BCVR
+            if isinstance(BCV, Exception): return dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {BCV}'], val='—', cong='animatic' if E.get('animatic') else 'G2')
+            return q_bcv.hang(E, TL, None, 'animatic' if E.get('animatic') else 'G2', MIEN)
+        bao('BIEN-CO-V', 'Biến cố thấy được ĐO trên video (K117-D8)', bcv_row, 'TB khoảng biến cố đo ≤ 3,5 s · dài nhất ≤ 6 s (miễn khung neo/im lặng/thẻ PP ≤ 10 s) · bắt ≥ 95 % ranh shot')
     # ---- 1.14: BD-1…BD-8 bản đồ chiến lược/inset/ranh (NC-BD §3.4; chủ dự án duyệt B1–B8 17/10) + K-R1…K-R9 ĐỎ-K (NC-LS2 §5.3; YY5) — CHỈ BÁO
     from checks.ll import q_bando, q_dok
     BDT = {'BD-1': 'Bản đồ chiến lược: tỷ trọng + định nghĩa', 'BD-2': 'Bản đồ chiến lược: chuyển động', 'BD-3': 'Nhãn ranh "approx. borders c. YYYY — nguồn"',
@@ -273,6 +291,18 @@ def main():
             try: N2 = q_n2p.check(E, TL, ep_dir, LS17, vision='--n2p-vision' in a)
             except Exception as e: N2 = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in N2T}
             for k in N2T: bao(k, N2T[k], lambda k=k: N2[k], N2N[k])
+    # ---- 1.17.4: §19 + Q2 (tập từ T4) — CHỈ BÁO (cấp ở cap112, áp với --cap)
+    if V16:
+        K74T = {'MAY-19': 'Ngữ pháp máy §19 (a)', 'BAN-DO-12': 'Bản đồ ≤ 12 % §19 (b)', 'TU-LIEU-10': 'Tư liệu + khắc + thẻ ≤ 10 % §19 (c)', 'AI-TU-LIEU': 'Không AI lên tư liệu §19 (b)(c)',
+                'GEMINI-NGAN-SACH': 'Ngân sách Gemini của tập (Q2 i)', 'GOC-CAO-60': 'Góc cao timelapse ≥ 60 % (Q2 iii)'}
+        K74N = {'MAY-19': 'tốc độ theo cú máy (log khung) · N2+ = CODINH · KHOP ≤ 0,5 px · ≥ 4 loại/chương · ≤ 2 liền · THAP ≤ 12 %', 'BAN-DO-12': 'MAP + MAP3D ≤ 12 % · ≤ 10 s/lần',
+                'TU-LIEU-10': 'TL + KHAC + THE ≤ 10 %', 'AI-TU-LIEU': '0 shot tư liệu có AI · 0 dòng sổ AI có SHA tư liệu', 'GEMINI-NGAN-SACH': 'tổng usd sổ Gemini ≤ ngan_sach_gemini_usd',
+                'GOC-CAO-60': 'goc cao + tl (V7B-D1 theo log khung) ≥ 60 % thân phim'}
+        if not q_k1174.ap_1174(E): bao('1.17.4 (T4)', 'MAY-19 … GOC-CAO-60', lambda: dict(ok=True, loi=[], val='tập trước T4 — không hồi tố (Q2: T3 giữ luật cũ)', ket_qua='KHÔNG ÁP'))
+        else:
+            try: K74 = q_k1174.check(E, TL, ep_dir, LS17)
+            except Exception as e: K74 = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in K74T}
+            for k in K74T: bao(k, K74T[k], lambda k=k: K74[k], K74N[k])
     lk = subprocess.run([sys.executable, os.path.join(base.REPO, 'checks', 'lock.py'), '--verify'], capture_output=True, text=True)
     rows.append(dict(q='LOCK', ten=f'checks/ khớp LOCK ({VERSION})', kq='ĐẠT' if lk.returncode == 0 else 'TRƯỢT', val='KHỚP' if lk.returncode == 0 else 'KHÔNG KHỚP', nguong='', sat='', loi=[]))
     ok = all(r['kq'] in ('ĐẠT', 'CẢNH BÁO') or r['kq'].startswith('CHỈ BÁO') for r in rows)

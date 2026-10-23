@@ -1,0 +1,94 @@
+ĐÚNG [BIEN-CO-V] clip tĩnh 10 s → 0 biến cố đo (đo 0) — kỳ vọng sạch
+ĐÚNG [BIEN-CO-V] clip chỉ máy đi (trượt 2 %/s + phóng 1,5 %/s + quay 0,5°/s) → 0 biến cố (đo 0) — kỳ vọng sạch
+ĐÚNG [BIEN-CO-V] vật đổi cục bộ ở 5,0 s trên máy đi → bắt ±0,25 s ([5.0]) — kỳ vọng sạch
+ĐÚNG [BIEN-CO-V] cắt cứng ở 5,0 s → loại 'cat' ([5.0]) — kỳ vọng sạch
+ĐÚNG [BIEN-CO-V] 6 vật đổi mỗi 2 s → bắt 6/6 ([2.0, 4.0, 6.0, 8.0, 10.0, 12.0]) — kỳ vọng sạch
+ĐÚNG [BIEN-CO-V] nhịp 2 s, khoảng cuối 2 s → (b)(c) sạch (14.0 s · biến cố đo 6 (gộp 6; cắt 0) · TB 2.33 s · dài nhất …) — kỳ vọng sạch
+ĐÚNG [BIEN-CO-V] clip tĩnh 10 s → (b) TB > 3,5 s và (c) dài nhất 10 s > 6 s — kỳ vọng bắt lỗi
+ĐÚNG [BIEN-CO-V] 1.17.4 K1173-D6: cùng clip là thẻ PP cuối phim (≤ 10 s) → (c) miễn — kỳ vọng sạch
+ĐÚNG [BIEN-CO-V] (h) bắt ranh shot 5,0 s → 100 % ≥ 95 % — kỳ vọng sạch
+ĐÚNG [BIEN-CO-V] (h) ranh shot khai 3,0 s mà video không cắt → 0 % < 95 % (thước không tin trên tập) — kỳ vọng bắt lỗi
+ĐÚNG [cấp] BIEN-CO-V thước chưa đạt hiệu chuẩn → không Chặn (chỉ Cảnh báo) — kỳ vọng sạch
+ĐÚNG [cấp] BIEN-CO-V thước đạt + G2 → (b)(c) Chặn — kỳ vọng bắt lỗi
+ĐÚNG [cấp] BIEN-CO-V ở animatic → chỉ Cảnh báo — kỳ vọng sạch
+ĐÚNG [Q37] beat khai thưa (khoảng 4 → 26 s = 22 s) → (c) — kỳ vọng bắt lỗi
+ĐÚNG [Q37] 1.17.4: + biến cố ĐO trên video mỗi 2 s (tập T4, thước đạt) → (b)(c) sạch — kỳ vọng sạch
+ĐÚNG [Q37] tập T3: q_bcv.cho_q37 không trả biến cố (không cộng) → vẫn (c) — kỳ vọng bắt lỗi
+ĐÚNG [Q37] tập T4 nhưng thước chưa đạt hiệu chuẩn → không cộng → vẫn (c) — kỳ vọng bắt lỗi
+ĐÚNG [Q37] tập T4 + thước đạt → cho_q37 trả biến cố → (b)(c) sạch — kỳ vọng sạch
+ĐÚNG [Q37] su_kien tự khai trong đặc tả/log không được nhận (K117-D8) — kỳ vọng bắt lỗi
+ĐÚNG [Q37] K1173-D6: 2 thẻ PP × 9 s cuối phim → (c) miễn (miễn ['the_pp', 'the_pp']) — kỳ vọng sạch
+ĐÚNG [Q37] K1173-D6: trước 1.17.4 (không miễn thẻ PP) cùng tập → (c) 9 s — kỳ vọng bắt lỗi
+ĐÚNG [Q37] K1173-D6: thẻ PP 11 s → không miễn quá 10 s → (c) — kỳ vọng bắt lỗi
+ĐÚNG [Q37] K1173-D6: thẻ PP ở ĐẦU phim (không cuối) → không miễn → (c) — kỳ vọng bắt lỗi
+ĐÚNG [Q37] K1173-D6: 3 thẻ PP liền cuối phim → (c) > 2 thẻ — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] T3: minh hoạ 25 % > 20 % → (a) (không hồi tố) — kỳ vọng bắt lỗi
+ĐÚNG [MINH-HOA] T4 (Q2): minh hoạ 25 % → không (a) — kỳ vọng sạch
+ĐÚNG [N2P-6] T4 (Q2): minh hoạ 25 % → không (b) — kỳ vọng sạch
+ĐÚNG [N2P-6] tổng AI 75 % (50 + 25) > 70 % → (c) giữ — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] CODINH đạt (trôi máy + điểm nhìn 0,5 → 40 m/s) — kỳ vọng sạch
+ĐÚNG [MAY-19] CODINH trượt (trôi máy + điểm nhìn 0,5 → 40 m/s) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] DAY đạt (tiến 1 % → 3 % khoảng cách/s) — kỳ vọng sạch
+ĐÚNG [MAY-19] DAY trượt (tiến 1 % → 3 % khoảng cách/s) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] KEO đạt (lùi 1,5 % → 4 % khoảng cách/s) — kỳ vọng sạch
+ĐÚNG [MAY-19] KEO trượt (lùi 1,5 % → 4 % khoảng cách/s) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] CAU đạt (dọc 4 → 10 m/s) — kỳ vọng sạch
+ĐÚNG [MAY-19] CAU trượt (dọc 4 → 10 m/s) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] VONG đạt (vòng 2,5 → 5°/s) — kỳ vọng sạch
+ĐÚNG [MAY-19] VONG trượt (vòng 2,5 → 5°/s) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] TRUOT đạt (tiêu điểm dịch chậm → nhanh) — kỳ vọng sạch
+ĐÚNG [MAY-19] TRUOT trượt (tiêu điểm dịch chậm → nhanh) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] NGHIENG đạt (nghiêng 1,25 → 3,75°/s) — kỳ vọng sạch
+ĐÚNG [MAY-19] NGHIENG trượt (nghiêng 1,25 → 3,75°/s) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] THAP đạt (máy 40 m → 90 m) — kỳ vọng sạch
+ĐÚNG [MAY-19] THAP trượt (máy 40 m → 90 m) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] XUONG đạt (chuyển 6 s → 2 s) — kỳ vọng sạch
+ĐÚNG [MAY-19] XUONG trượt (chuyển 6 s → 2 s) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] (b) shot ai_nen khai VONG (không CODINH) → (b) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] (b) shot ai_nen CODINH trôi 0,05 %/s → sạch (b) — kỳ vọng sạch
+ĐÚNG [MAY-19] (c) KHOP cùng máy cùng FOV → 0 px — kỳ vọng sạch
+ĐÚNG [MAY-19] (c) KHOP lệch máy 2 m → > 0,5 px — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] (c) KHOP FOV khác 50 → 51° — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] (d) chương 4 loại (CODINH, DAY, VONG, CAU) → sạch — kỳ vọng sạch
+ĐÚNG [MAY-19] (d) chương 3 loại → (d) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] (e) 2 shot liền CODINH → sạch — kỳ vọng sạch
+ĐÚNG [MAY-19] (e) 3 shot liền CODINH → (e) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] (e) MD xen giữa ngắt chuỗi — kỳ vọng sạch
+ĐÚNG [MAY-19] (f) THAP 12 s / 100 s = 12 % (đúng trần) → sạch — kỳ vọng sạch
+ĐÚNG [MAY-19] (f) THAP 13 s / 101 s > 12 % → (f) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] (g) shot 3D không log máy → THIẾU — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] (g) shot không khai cu_may → THIẾU — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] (w) KEO không khai lo_ra → Cảnh báo, không Chặn — kỳ vọng sạch
+ĐÚNG [MAY-19] tiền kỳ T4 (t4-may.json): DAY tiêu điểm 1,06 %/s ≤ 1,5 → sạch — kỳ vọng sạch
+ĐÚNG [MAY-19] tiền kỳ T4: VONG quay 12,64°/s > 3 → (a) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] tiền kỳ T4: CAU 130,9 m/s, 4,77°/s → (a) — kỳ vọng bắt lỗi
+ĐÚNG [MAY-19] tiền kỳ T4: KHOP lệch neo 0,0 px → sạch (c) — kỳ vọng sạch
+ĐÚNG [MAY-19] bảng tóm tắt ở animatic: không THIẾU (g) — kỳ vọng sạch
+ĐÚNG [MAY-19] bảng tóm tắt ở G2: THIẾU (g) — phải đo từ log khung — kỳ vọng bắt lỗi
+ĐÚNG [cấp] MAY-19 ở animatic → chỉ Cảnh báo — kỳ vọng sạch
+ĐÚNG [cấp] MAY-19 ở G2 → Chặn — kỳ vọng bắt lỗi
+ĐÚNG [BAN-DO-12] bản đồ 12 s / 100 s = 12 % (đúng trần) → sạch — kỳ vọng sạch
+ĐÚNG [BAN-DO-12] bản đồ 13 % → (a) — kỳ vọng bắt lỗi
+ĐÚNG [BAN-DO-12] bản đồ cổ một lần 11 s → (b) — kỳ vọng bắt lỗi
+ĐÚNG [TU-LIEU-10] TL 4 + KHAC 3 + THE 3 = 10 % → sạch — kỳ vọng sạch
+ĐÚNG [TU-LIEU-10] TL 5 + KHAC 3 + THE 3 = 11 % → (a) — kỳ vọng bắt lỗi
+ĐÚNG [AI-TU-LIEU] shot bản đồ cổ không AI; sổ AI không có SHA tư liệu → sạch — kỳ vọng sạch
+ĐÚNG [AI-TU-LIEU] shot tranh khắc khai ai_image → (a) — kỳ vọng bắt lỗi
+ĐÚNG [AI-TU-LIEU] shot tấm nền N2+ + tư liệu không khai chồng sau AI → (a) — kỳ vọng bắt lỗi
+ĐÚNG [AI-TU-LIEU] tấm nền N2+ + tư liệu chồng SAU ghép (khai) → sạch — kỳ vọng sạch
+ĐÚNG [AI-TU-LIEU] sổ AI có đầu vào = SHA bản đồ cổ → (b) — kỳ vọng bắt lỗi
+ĐÚNG [GEMINI-NGAN-SACH] 24 lệnh × $1,02 = $24.48 ≤ $30 (bỏ dòng OpenAI) → sạch (a) — kỳ vọng sạch
+ĐÚNG [GEMINI-NGAN-SACH] vượt mốc theo dõi $25 → (m) Cảnh báo, không Chặn — kỳ vọng sạch
+ĐÚNG [GEMINI-NGAN-SACH] ngân sách $20 → (a) Chặn ở G2 — kỳ vọng bắt lỗi
+ĐÚNG [GEMINI-NGAN-SACH] ngân sách $20 ở animatic → chỉ Cảnh báo — kỳ vọng sạch
+ĐÚNG [GEMINI-NGAN-SACH] không khai ngân sách → (k) Cảnh báo (không Chặn) — kỳ vọng sạch
+ĐÚNG [GEMINI-NGAN-SACH] không khai ngân sách → có (k) — kỳ vọng bắt lỗi
+ĐÚNG [GEMINI-NGAN-SACH] dòng Gemini thiếu giá thật usd → (u) THIẾU — kỳ vọng bắt lỗi
+ĐÚNG [GOC-CAO-60] góc cao 60 s / 100 s = 60 % (đúng ngưỡng) → sạch — kỳ vọng sạch
+ĐÚNG [GOC-CAO-60] góc cao 59 % → (a) — kỳ vọng bắt lỗi
+ĐÚNG [GOC-CAO-60] thẻ PP không tính vào thân phim: 58 / (100 − 4) = 60,4 % → sạch — kỳ vọng sạch
+ĐÚNG [GOC-CAO-60] khai goc cao nhưng log khung: máy 30 m nhìn ngang (không đạt V7B-D1) → (a) — kỳ vọng bắt lỗi
+ĐÚNG [áp dụng] tập T3 → 6 hàng 1.17.4 KHÔNG ÁP — kỳ vọng sạch
+
+selftest_k1174: 91/91 ca đúng kỳ vọng — ĐẠT
+rc=0

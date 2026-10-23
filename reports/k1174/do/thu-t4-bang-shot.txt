@@ -1,0 +1,31 @@
+=== cổng animatic · đầu vào: BANG-SHOT-v1.json (sinh lại bằng bang_shot.py nguyên bản, MD trùng bản trong git) + so-ai-gemini.jsonl tiền kỳ + ngân sách Q1 ($30 / mốc $25)
+MAY-19: CẢNH BÁO · Chặn 0 · Cảnh báo 52 · 52 shot cú máy · log khung 0 · tóm tắt 0 · loại/chương HỒI 1:6, HỒI 2:9, HỒI 3:5, HỒI 4:7, HỒI 5:7, MÓC:4 · THAP 9.2 % · lỗi a 0 b 0 c 0 d 0 e 0 f 0 · cảnh báo w 2
+     (w) M02 KEO: không khai `lo_ra` (vật mang nghĩa mới lộ ra — §19 a)
+     (w) H5-08 KEO: không khai `lo_ra` (vật mang nghĩa mới lộ ra — §19 a)
+     (g) M01: không có `log_may` (log.json render_ldn.js) — không đo được §19 (a)
+     (g) M02: không có `log_may` (log.json render_ldn.js) — không đo được §19 (a)
+     (g) M03: không có `log_may` (log.json render_ldn.js) — không đo được §19 (a)
+     (g) H1-02: không có `log_may` (log.json render_ldn.js) — không đo được §19 (a)
+     … 46 mục nữa
+BAN-DO-12: ĐẠT · Chặn 0 · Cảnh báo 0 · 55.0 s / 720.0 s = 7.64 %
+TU-LIEU-10: ĐẠT · Chặn 0 · Cảnh báo 0 · 70.0 s / 720.0 s = 9.72 % (TL 14 · KHAC 13 · THE 43 s) · sát ngưỡng: tư liệu + khắc + thẻ % 9.72 (ngưỡng 10.0)
+AI-TU-LIEU: CẢNH BÁO · Chặn 0 · Cảnh báo 1 · 8 shot có tư liệu · 0 SHA tư liệu · 1 dòng sổ AI đối chiếu
+     (b) không khai `sha_tu_lieu` (danh sách SHA-256 tư liệu) — không đối chiếu được sổ AI
+GEMINI-NGAN-SACH: ĐẠT · Chặn 0 · Cảnh báo 0 · 1 lệnh Gemini · $1.02 / ngân sách $30 (mốc $25)
+GOC-CAO-60: ĐẠT · Chặn 0 · Cảnh báo 0 · 544.0 s / 704.0 s = 77.3 % (log khung V7B-D1: 0 shot)
+=== cổng G2 · đầu vào: BANG-SHOT-v1.json (sinh lại bằng bang_shot.py nguyên bản, MD trùng bản trong git) + so-ai-gemini.jsonl tiền kỳ + ngân sách Q1 ($30 / mốc $25)
+MAY-19: TRƯỢT · Chặn 50 · Cảnh báo 2 · 52 shot cú máy · log khung 0 · tóm tắt 0 · loại/chương HỒI 1:6, HỒI 2:9, HỒI 3:5, HỒI 4:7, HỒI 5:7, MÓC:4 · THAP 9.2 % · lỗi a 0 b 0 c 0 d 0 e 0 f 0 · cảnh báo w 2
+     (g) M01: không có `log_may` (log.json render_ldn.js) — không đo được §19 (a)
+     (g) M02: không có `log_may` (log.json render_ldn.js) — không đo được §19 (a)
+     (g) M03: không có `log_may` (log.json render_ldn.js) — không đo được §19 (a)
+     (g) H1-02: không có `log_may` (log.json render_ldn.js) — không đo được §19 (a)
+     (g) H1-03: không có `log_may` (log.json render_ldn.js) — không đo được §19 (a)
+     (g) H1-04: không có `log_may` (log.json render_ldn.js) — không đo được §19 (a)
+     … 46 mục nữa
+BAN-DO-12: ĐẠT · Chặn 0 · Cảnh báo 0 · 55.0 s / 720.0 s = 7.64 %
+TU-LIEU-10: ĐẠT · Chặn 0 · Cảnh báo 0 · 70.0 s / 720.0 s = 9.72 % (TL 14 · KHAC 13 · THE 43 s) · sát ngưỡng: tư liệu + khắc + thẻ % 9.72 (ngưỡng 10.0)
+AI-TU-LIEU: TRƯỢT · Chặn 1 · Cảnh báo 0 · 8 shot có tư liệu · 0 SHA tư liệu · 1 dòng sổ AI đối chiếu
+     (b) không khai `sha_tu_lieu` (danh sách SHA-256 tư liệu) — không đối chiếu được sổ AI
+GEMINI-NGAN-SACH: ĐẠT · Chặn 0 · Cảnh báo 0 · 1 lệnh Gemini · $1.02 / ngân sách $30 (mốc $25)
+GOC-CAO-60: ĐẠT · Chặn 0 · Cảnh báo 0 · 544.0 s / 704.0 s = 77.3 % (log khung V7B-D1: 0 shot)
+=== AI-TU-LIEU + sha_tu_lieu (licenses/SHA256-TU-LIEU.txt) + sổ AI OpenAI + Gemini tiền kỳ: ĐẠT · 8 shot có tư liệu · 13 SHA tư liệu · 4 dòng sổ AI đối chiếu [] []

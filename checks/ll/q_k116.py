@@ -846,6 +846,13 @@ def q37_mien(E, TL):
         P = dict(z['sh'].get('p') or {}, **(z['spec'].get('p') or {})); S = z['spec']
         if S.get('khung_neo') or S.get('neo') or P.get('khung_neo') or P.get('neo'): out.append((z['t0'], z['t1'], 'khung_neo', f"{z['seg']}/{z['i']}"))
         elif S.get('im_lang') or P.get('im_lang'): out.append((z['t0'], z['t1'], 'im_lang', f"{z['seg']}/{z['i']}"))
+    # 1.17.4 (K1173-D6, chủ dự án duyệt Q7 23/10/2026 21:45): đoạn thẻ phương pháp (D6: 2 thẻ × ≈ 8 s, cuối phim) miễn Q37 (c) như khung neo /
+    # tấm im lặng. Chỉ nhận khối thẻ PP liền nhau KẾT ở cuối phim (± PP_END); trần ≤ 10 s/thẻ (q37: MIEN_MAX) và ≤ 2 thẻ (q37: PP_MIEN_N).
+    PS = sorted(pp_spans(E, TL), key=lambda x: x[1]); T = tong(E, TL); khoi = []
+    for x in reversed(PS):
+        if (not khoi and abs(x[2] - T) <= PP_END) or (khoi and khoi[-1][1] - x[2] <= 0.05): khoi.append(x)
+        elif khoi: break
+    out += [(round(a, 3), round(b, 3), 'the_pp', str(sid)) for sid, a, b, _ in reversed(khoi)]
     return out
 
 

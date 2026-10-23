@@ -176,7 +176,7 @@ def LSx(nen, mh, n1=0.0, chong=False):
 
 
 for args, exp, muc, ten in (((50, 20), False, 'abcd', 'tấm nền 50 % · minh hoạ 20 % · tổng 70 % (đúng trần) → sạch'),
-                            ((51, 10), True, 'a', 'tấm nền 51 % → (a)'), ((30, 21), True, 'b', 'minh hoạ 21 % → (b)'),
+                            ((51, 10), True, 'a', 'tấm nền 51 % → (a)'), ((30, 21), False, 'b', 'minh hoạ 21 % → 1.17.4 (Q2, chủ dự án 23/10 21:45): bỏ trần 20 % cho T4 → không (b) [kỳ vọng 1.17.0 đổi]'),
                             ((45, 20, 6), True, 'c', 'tổng AI 71 % (45 + 20 + N1 6) → (c)'), ((40, 10, 0, True), True, 'd', 'một shot vừa ai_nen vừa minh_hoa → (d)')):
     case('N2P-6', ten, bad(N.n2p6(E5, LSx(*args)), *muc), exp)
 case('N2P-6', 'không log shot → THIẾU', kq(N.n2p6(E5, None), 'THIẾU'), False)

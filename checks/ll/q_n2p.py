@@ -29,7 +29,7 @@ Hàng (cấp ở cap112.py: Chặn ở cổng G2 · Cảnh báo ở animatic (`a
   N2P-5 (v) nhấp nháy + chuyển tấm (video shot tấm nền): (a) mỗi chuyển tấm khai `kieu: hoa` và `dur` ≥ 2 s; (b) bước nhảy chuyển tấm: max theo
         bước khung của ΔE76 TB trên lớp (c) ≤ 1,0 ΔE/khung; (c) nhấp nháy: TB |Δ xám|/khung trên lớp (c) ngoài cửa sổ hoà ≤ 1,5 × đối chứng render
         (sàn đo SAN_NHAP = 0,02 mức xám/khung khi đối chứng ≈ 0).
-  N2P-6 (vi) trần §15(d) (log shot): (a) tấm nền `ai_nen` ≤ 50 % thời lượng; (b) minh hoạ `minh_hoa` (M-d) ≤ 20 %; (c) tổng khung có AI (ai_nen ∪
+  N2P-6 (vi) trần §15(d) (log shot): (a) tấm nền `ai_nen` ≤ 50 % thời lượng; (b) minh hoạ `minh_hoa` (M-d) — 1.17.4 (Q2): KHÔNG trần cứng, chỉ ghi %; (c) tổng khung có AI (ai_nen ∪
         minh_hoa ∪ ai_image ∪ ai_texture) ≤ 70 %; (d) không chồng: một shot không vừa `ai_nen` vừa `minh_hoa`.
 Mô hình nhìn MẶC ĐỊNH TẮT (chi phí ≈ $0,2/khung + q_thoi_dai ≈ $0,04 × 2): `--vision` (k2check `--n2p-vision`) mới gọi; không cờ → đọc bộ đệm
 <out>/n2p-vision-cache.json; khung chưa soi → THIẾU (Chặn ở G2).
@@ -311,6 +311,8 @@ def _dur(s):
 
 
 def n2p6(E, LS, tong_s=None):
+    """1.17.4 (Q2, chủ dự án 23/10/2026 21:45): (b) trần minh hoạ 20 % BỎ cho tập từ T4 (mọi tập vào N2P đều từ T4) — chỉ ghi %; giới hạn thay thế:
+    GEMINI-NGAN-SACH (ngân sách Gemini của tập), (c) tổng AI ≤ 70 % (giữ), GOC-CAO-60 (q_k1174)."""
     if not LS: return r(thieu=['không có log shot (`log_shot`) — không đọc được ai_nen / minh_hoa'], val='—')
     T = float(tong_s) if tong_s else sum(_dur(s) for s in LS)
     nen = [s for s in LS if s.get('ai_nen')]; mh = [s for s in LS if s.get('minh_hoa')]
@@ -318,11 +320,10 @@ def n2p6(E, LS, tong_s=None):
     pn, pm, pt = (100 * sum(_dur(s) for s in x) / T if T else 0.0 for x in (nen, mh, ai))
     loi, near = [], []
     if pn > TRAN_NEN + 1e-9: loi.append(f'(a) tấm nền N2+ {pn:.1f} % > {TRAN_NEN:g} % thời lượng ({len(nen)} shot)')
-    if pm > TRAN_MH + 1e-9: loi.append(f'(b) minh hoạ (M-d) {pm:.1f} % > {TRAN_MH:g} % ({len(mh)} shot)')
     if pt > TRAN_TONG + 1e-9: loi.append(f'(c) tổng khung có AI {pt:.1f} % > {TRAN_TONG:g} % ({len(ai)} shot)')
     loi += [f"(d) {s.get('shot')}: vừa ai_nen vừa minh_hoa (chồng shot — mỗi shot một loại)" for s in LS if s.get('ai_nen') and s.get('minh_hoa')]
-    near += sat('tấm nền %', round(pn, 2), TRAN_NEN) + sat('minh hoạ %', round(pm, 2), TRAN_MH) + sat('tổng AI %', round(pt, 2), TRAN_TONG)
-    return r(loi, val=f'{T:.1f} s · tấm nền {pn:.1f} % ({len(nen)}) · minh hoạ {pm:.1f} % ({len(mh)}) · tổng AI {pt:.1f} % ({len(ai)})', sat_nguong=near,
+    near += sat('tấm nền %', round(pn, 2), TRAN_NEN) + sat('tổng AI %', round(pt, 2), TRAN_TONG)
+    return r(loi, val=f'{T:.1f} s · tấm nền {pn:.1f} % ({len(nen)}) · minh hoạ {pm:.1f} % ({len(mh)}; không trần cứng từ 1.17.4 — Q2) · tổng AI {pt:.1f} % ({len(ai)})', sat_nguong=near,
              muc={c: [x for x in loi if x.startswith(f'({c})')] for c in 'abcd'}, pct=dict(nen=round(pn, 2), minh_hoa=round(pm, 2), tong=round(pt, 2)))
 
 
