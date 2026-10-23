@@ -8,24 +8,25 @@ REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 OUT = os.path.join(REPO, 'channel-k2/k2c-t4-02/look/may'); os.makedirs(OUT, exist_ok=True)
 LMT = -0.098 / 15                                   # giờ địa phương trung bình London (1666): UTC = LMT − kinh độ/15
 P1 = dict(p=[532330, 180250, 230], l=[532420, 180980, 15], fov=50)
-P2 = dict(p=[532690, 180290, 70], l=[532727, 180990, 20], fov=60)   # bắc: cầu (bắc) ở 1/3 phải, Old St Paul's 1/3 trái — góc Hollar Long View
+P2 = dict(p=[532690, 180290, 70], l=[532786, 180554, 0], fov=50)   # từ tháp St Saviour nhìn bắc-đông bắc, cúi 14°: cầu London có nhà là tiêu điểm (1/3 phải), bờ bắc + City sau (trời ≈ 20 %)
 P6 = dict(p=[533250, 180480, 35], l=[532300, 180850, 30], fov=45)
-P4 = dict(p=[531300, 181160, 40], l=[532100, 181140, 60], fov=35)
+P4 = dict(p=[531260, 181158, 52], l=[532100, 181128, 72], fov=30)
+P4b = dict(p=[531560, 181176, 19.1], l=[532102, 181122, 87], fov=22)   # 2026: trục Fleet Street gần Ludgate Circus, cao độ TUYỆT ĐỐI = mặt phố 9,1 m + 10 m — tầm nhìn bảo vệ đo ở mặt phố: mái vòm còn nền trời
 # mốc: năm (thập phân), ngày giờ (lịch Gregory UTC qua tz) hoặc giờ cháy 1666 (kể từ 2/9 00:00 Julius) / 1940 (kể từ 29/12/1940 18:00)
 KHUNG = {
  'M1-rong': dict(P1, year=1666.666, date=[1666, 9, 11, 15.5], tz=LMT, leaf=1, wind=[0.6, -0.8], vai='1666 trước cháy, ngày 1/9 (J.) chiều — toàn cảnh xương sống từ Bankside (chỗ Pepys)'),
- 'M1-trung': dict(P2, year=1666.666, date=[1666, 9, 11, 16.0], tz=LMT, leaf=1, wind=[0.6, -0.8], vai='H1-03: góc Hollar từ tháp St Saviour — cầu London có nhà, bờ bắc, Old St Paul\'s'),
+ 'M1-trung': dict(P2, year=1666.666, date=[1666, 9, 11, 16.0], tz=LMT, leaf=1, wind=[0.6, -0.8], vai='H1-03: góc Hollar từ tháp St Saviour — cầu London có nhà (tiêu điểm), bờ bắc, City'),
  'M2-ngay': dict(P1, year=1666.67, hour=39.0, smokeSky=0.55, leaf=1, wind=[-1.0, 0.12], vai='3/9/1666 15:00 — ngày khói: cột khói theo gió đông, Cheapside/Cornhill cháy'),
  'M2-dem': dict(P6, year=1666.67, hour=23.0, leaf=1, wind=[-1.0, 0.12], moon=0.25, vai='2/9/1666 23:00 — đêm lửa từ giữa sông: bờ bắc cháy quanh cầu, phản chiếu sông'),
  'M3-rong': dict(P1, year=1940.99, h40=3.5, date=[1940, 12, 29, 21.5], tz=0, leaf=0, wind=[0.3, -1.0], vai='29/12/1940 21:30 — mưa bom cháy, nhiều đám cháy quanh St Paul\'s (ranh ƯỚC LƯỢNG, D15)'),
  'M3-trung': dict(P4, year=1940.99, h40=4.5, date=[1940, 12, 29, 22.5], tz=0, leaf=0, wind=[0.3, -1.0], vai='H4-04: mái vòm giữa khói lửa từ Fleet Street/Ludgate, 22:30 (dựng 3D, không ảnh Mason)'),
  'M4-rong': dict(P1, year=2026.67, date=[2026, 9, 2, 15.0], tz=1, leaf=1, wind=[0.7, 0.7], vai='2026 ngày — chân trời City: St Paul\'s + cụm tháp phía đông'),
- 'M4-trung': dict(P4, year=2026.67, date=[2026, 9, 2, 16.5], tz=1, leaf=1, wind=[0.7, 0.7], vai='H5-05: từ Fleet Street — Leadenhall vát, mái vòm còn nền trời (tầm nhìn bảo vệ)'),
+ 'M4-trung': dict(P4b, year=2026.67, date=[2026, 9, 2, 16.5], tz=1, leaf=1, wind=[0.7, 0.7], vai='H5-05: từ Fleet Street — Leadenhall vát, mái vòm còn nền trời (tầm nhìn bảo vệ)'),
 }
-# BIẾN THỂ (3D thuần; chỉ ánh sáng–màu–khí quyển–mật độ chi tiết). A theo LOOK-1 T3 (sương σ = 1/16 km, màu chân trời [0,66 0,74 0,84], LUT kênh v0,30).
+# BIẾN THỂ (3D thuần; chỉ ánh sáng–màu–khí quyển–mật độ chi tiết). A theo LOOK-1 T3 (sương σ = 1/16 km, trời T3 water.js: thiên đỉnh [0,13 0,33 0,70], chân trời ≈ [0,60 0,74 0,90]; LUT kênh v0,30).
 LOOK = {
- 'A': dict(ten='T3 kênh', haze=[1 / 16000, 0.66, 0.74, 0.84], hazeH=700, coal=[0, 0.5, 0.46, 0.40, 70], sunK=3.0, hemiK=0.62, sunTint=[1, 1, 1], skyTop=[0.20, 0.38, 0.74], skyHor=[0.62, 0.72, 0.86],
-           cloud=0.32, cloudCol=[1.0, 0.99, 0.96], water=[0.040, 0.050, 0.042], texK=1.0, chim=0.30, smokeK=0.85, smokeTint=[1, 1, 1], exposure=0.95, lut='k2c-t3-kenh-v030.cube'),
+ 'A': dict(ten='T3 kênh', haze=[1 / 16000, 0.60, 0.72, 0.88], hazeH=700, coal=[0, 0.5, 0.46, 0.40, 70], sunK=3.2, hemiK=0.62, sunTint=[1, 1, 1], skyTop=[0.13, 0.33, 0.70], skyHor=[0.56, 0.70, 0.90],
+           cloud=0.32, cloudCol=[1.0, 0.99, 0.96], water=[0.018, 0.050, 0.068], texK=1.0, chim=0.30, smokeK=0.85, smokeTint=[1, 1, 1], exposure=0.95, lut='k2c-t3-kenh-v030.cube'),
  'B': dict(ten='London sương', haze=[1 / 6000, 0.60, 0.63, 0.66], hazeH=420, coal=[1 / 4200, 0.46, 0.43, 0.39, 90], sunK=2.1, hemiK=0.78, sunTint=[0.96, 0.97, 1.02], skyTop=[0.42, 0.48, 0.58], skyHor=[0.66, 0.68, 0.70],
            cloud=0.78, cloudCol=[0.86, 0.87, 0.89], water=[0.036, 0.042, 0.040], texK=0.9, chim=0.85, smokeK=1.25, smokeTint=[0.92, 0.92, 0.95], exposure=1.0, lut='look-B-lanh.cube'),
  'C': dict(ten='tranh khắc ấm', haze=[1 / 10500, 0.84, 0.76, 0.62], hazeH=520, coal=[0, 0.5, 0.46, 0.40, 70], sunK=2.6, hemiK=0.72, sunTint=[1.06, 0.97, 0.84], skyTop=[0.40, 0.50, 0.64], skyHor=[0.88, 0.80, 0.66],
@@ -37,7 +38,7 @@ def look_for(v, k):
     if k.startswith('M4'): L['coal'] = [0, 0.5, 0.46, 0.40, 70]; L['chim'] = 0
     if k.startswith('M3') and v == 'B': L['coal'] = [1 / 6000, 0.40, 0.38, 0.36, 120]      # 1940: khói than + khói cháy (ước lượng)
     return L
-HERO = {'M1-rong': [532118, 181150, 40], 'M1-trung': [532118, 181150, 40], 'M2-ngay': [532118, 181150, 40], 'M2-dem': [532870, 180505, 15],
+HERO = {'M1-rong': [532118, 181150, 40], 'M1-trung': [532885, 180580, 15], 'M2-ngay': [532118, 181150, 40], 'M2-dem': [532870, 180505, 15],
         'M3-rong': [532102, 181122, 70], 'M3-trung': [532102, 181122, 70], 'M4-rong': [532102, 181122, 70], 'M4-trung': [532102, 181122, 70]}
 def main():
     rows = {}

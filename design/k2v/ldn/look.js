@@ -18,7 +18,7 @@ const U = { uYear: { value: 1666.5 }, uHour: { value: -1 }, uH40: { value: -1 },
   uCam: { value: V3() }, uFireK: { value: 1 }, uWin: { value: 0 }, uTexK: { value: 1 }, uCloud: { value: 0.35 }, uCloudCol: { value: new THREE.Color(1, 1, 1) },
   uWater: { value: new THREE.Color(0.06, 0.07, 0.055) }, uBake: { value: null }, uBakeBox: { value: new THREE.Vector4(0, 0, 1, 1) }, uBakeOn: { value: 0 }, uBakeK: { value: 1 },
   tVanD: { value: null }, uVanMean: { value: [] }, uVanS: { value: [] }, uWind: { value: new THREE.Vector2(-1, 0) }, uRefl: { value: null }, uReflVP: { value: new THREE.Matrix4() }, uReflOn: { value: 0 },
-  uMask: { value: 0 }, uWarm: { value: 0 } };
+  uMask: { value: 0 }, uWarm: { value: 0 }, uDbg: { value: 0 } };
 // lớp vân (thứ tự = scripts/k2ldn/tai_van.py) + cỡ thật (m)
 const VAN = [['plastered_wall_02', 2.23], ['medieval_wood', 2.0], ['brick_wall_02', 2.0], ['clay_roof_tiles_02', 2.5], ['roof_slates_02', 3.0], ['old_stone_wall', 2.0], ['white_sandstone_bricks', 2.0],
   ['concrete_wall_008', 2.71], ['metal_plate', 1.5], ['cobblestone_floor_01', 1.6], ['brown_mud_02', 2.6], ['aerial_asphalt_01', 30.0], ['granite_tile', 2.3], ['leafy_grass', 2.0], ['old_planks_02', 2.0], ['brick_wall_006', 3.0]];
@@ -37,7 +37,7 @@ const HAZE = `uniform vec3 uHaze, uCam, uSunDir, uSunCol, uCoalCol; uniform floa
   vec3 hazeApply(vec3 c, vec3 wp){ vec3 d = wp - uCam; float L = length(d); vec3 V = d / max(L, 1e-3);
     float tau = uHazeS * L * odL(uCam.y, wp.y, uHazeH); float tc = uCoal * L * odL(uCam.y, wp.y, uCoalH);
     float sd = max(dot(V, uSunDir), 0.0); vec3 hc = uHaze + uSunCol * 0.18 * pow(sd, 6.0) * (1.0 - uNight);
-    c = mix(c, hc, 1.0 - exp(-tau)); c = mix(c, uCoalCol * (0.6 + 0.4 * (1.0 - uNight)), 1.0 - exp(-tc)); return c; }`;
+    c = mix(c, hc, 1.0 - exp(-tau)); c = mix(c, uCoalCol * mix(1.0, 0.04, uNight), 1.0 - exp(-tc)); return c; }`;
 const VANG = `uniform highp sampler2DArray tVanD; uniform vec3 uVanMean[16]; uniform float uVanS[16]; uniform float uTexK;
   vec3 van(int L, vec2 p){ vec2 q = p / uVanS[L]; float k = vn(q * 0.37) * 6.0, ia = floor(k), f = fract(k); vec2 oa = sin(vec2(3.0, 7.0) * ia), ob = sin(vec2(3.0, 7.0) * (ia + 1.0));
     vec3 a = texture(tVanD, vec3(q + oa, float(L))).rgb, b = texture(tVanD, vec3(q + ob, float(L))).rgb;
@@ -102,7 +102,7 @@ function patchB(mat, depth) {
             float brace = step(abs(fract((p.x + y * 0.9) / bay) - 0.5), 0.035) * step(1.95, y) * step(y, st - 0.2) * step(0.5, rnd);
             vec3 c = pl; if (m == 0 && win) c = mix(c, tim, clamp(stud * 0.85 + rail + brace, 0.0, 1.0));
             if (win && lv >= 1.0) { float w = boxm(vec2(u, y), vec2(0.35, 0.85), vec2(bay - 0.35, 1.85)); float lead = step(fract(u / 0.28), 0.09) + step(fract(y / 0.34), 0.11);
-              vec3 g = mix(GLS * (0.8 + 0.6 * rnd), vec3(0.05, 0.045, 0.04), clamp(lead, 0.0, 1.0)); c = mix(c, g, w); glassK += w * (1.0 - clamp(lead, 0.0, 1.0)) * 0.5; }
+              vec3 g = mix(GLS * (0.8 + 0.6 * rnd), vec3(0.05, 0.045, 0.04), clamp(lead, 0.0, 1.0)); c = mix(c, g, w); glassK += w * (1.0 - clamp(lead, 0.0, 1.0)) * 0.15; }
             if (win && lv < 1.0 && shop && front) { float o = boxm(vec2(u, y), vec2(0.25, 0.25), vec2(bay - 0.25, 2.15)); c = mix(c, vec3(0.030, 0.022, 0.016), o);
               float sh = step(2.15, y) * step(y, 2.55); c = mix(c, tim * 0.9, sh); float st2 = boxm(vec2(u, y), vec2(0.25, 0.7), vec2(bay - 0.25, 0.85)); c = mix(c, tim * 1.4, st2); }
             else if (win && lv < 1.0) { float dw = boxm(vec2(fract(p.x / 4.8) * 4.8, y), vec2(1.6, 0.0), vec2(2.6, 2.1)); c = mix(c, tim * 0.7, dw); float w2 = boxm(vec2(u, y), vec2(0.5, 0.9), vec2(1.5, 1.7)); c = mix(c, GLS, w2 * step(0.5, 1.0 - dw)); }
@@ -118,20 +118,21 @@ function patchB(mat, depth) {
             alb = c * (1.0 - 0.2 * smoothstep(0.0, 1.0, 1.0 - p.y));
           } else if (m == 6 || m == 8) {                                             // đá Portland / văn phòng đá-bê tông
             vec3 c = m == 6 ? vanC(alb, 6, p, 0.25) : vanC(alb, 7, p, 0.2);
-            if (win && vK > 3.5 && vK < 4.5 || win && vK > 9.5) { float st = 3.8, bay = m == 8 ? 1.6 : 2.4; float y = mod(p.y, st), u = fract(p.x / bay) * bay;
+            if (win && vK > 3.5 && vK < 4.5 || win && vK > 9.5) { float st = 3.8, bay = m == 8 ? 3.0 : 2.4; float y = mod(p.y, st), u = fract(p.x / bay) * bay;
               float w = m == 8 ? step(0.9, y) * step(y, 3.1) * step(0.08, u) * step(u, bay - 0.08) : boxm(vec2(u, y), vec2(0.6, 0.8), vec2(bay - 0.6, 3.0));
-              float gl = 0.6 + 0.6 * h21(floor(vec2(p.x / bay, p.y / st)) + rnd); c = mix(c, GLS * gl * 1.3 + vec3(0.012), w); glassK += w * 0.18; }
+              float gl = 0.85 + 0.2 * h21(floor(vec2(p.x / (bay * 4.0), p.y / st)) + rnd); w = max(w - (m == 8 ? step(abs(u - bay * 0.5), 0.05) : 0.0), 0.0); c = mix(c, GLS * gl * 1.3 + vec3(0.012), w); glassK += w * 0.18; }
             else if (vK > 4.5 && vK < 5.5 || vK > 8.5 && vK < 9.5) { c *= 1.0 - 0.10 * step(fract(p.y / 0.62), 0.06); }
             alb = c;
           } else if (m == 7) {                                                       // tường kính rèm (2026): khung + kính phản trời
             float st = 3.9, bay = 1.5; float y = mod(p.y, st), u = mod(p.x, bay); vec2 cell = floor(vec2(p.x / bay, p.y / st));
             float mull = step(u, 0.07) + step(st - 0.10, y) + step(y, 0.05); float spand = step(3.15, y);
-            alb = mix(alb * (0.55 + 0.25 * h21(cell + rnd)), vec3(0.30, 0.32, 0.34), clamp(mull, 0.0, 1.0)); alb = mix(alb, alb * 0.6, spand * 0.6);
-            glassK = (1.0 - clamp(mull + spand, 0.0, 1.0)) * (0.55 + 0.25 * h21(cell * 1.7));
+            alb = mix(alb * (0.62 + 0.12 * h21(floor(cell / vec2(6.0, 3.0)) + rnd)), vec3(0.30, 0.32, 0.34), clamp(mull, 0.0, 1.0)); alb = mix(alb, alb * 0.6, spand * 0.6);
+            glassK = (1.0 - clamp(mull + spand, 0.0, 1.0)) * (0.6 + 0.12 * h21(floor(cell / vec2(6.0, 3.0)) * 1.7));
           } else if (m == 5) { alb = vanC(alb, 5, p, 0.3); alb *= 1.0 - 0.18 * smoothstep(0.0, 2.0, 2.0 - p.y); }
           else if (m == 10) { alb = vanC(alb, 5, p, 0.2) * mix(vec3(0.42), vec3(0.75), smoothstep(0.0, 4.0, p.y)) ; }
           else if (m == 9) { alb = vanC(alb, 8, p, 0.15); }
           else if (m == 13) { alb = GLS * 1.4; glassK = 0.5; }
+          if (vK > 1.5 && vK < 2.5) alb *= 0.38 + 0.15 * vn(vW.xz * 0.4);   // phế tích: than, tro, gạch ám (Evelyn 7/9: "the ground under my feet so hot")
           diffuseColor.rgb = alb; }`)
       .replace('#include <lights_fragment_end>', `#include <lights_fragment_end>
         { vec2 bu = (vec2(vW.x, -vW.z) - uBakeBox.xy) / (uBakeBox.zw - uBakeBox.xy);
@@ -150,7 +151,8 @@ function patchB(mat, depth) {
         gl_FragColor.rgb += alb * fireCol * uFireK * (fg.r * 2.2 * hfall + fg.g * 0.5 + fg.b * 0.06);
         float vb = vBurn; if (uH40 >= 0.0) { vec2 c40 = (vW.xz - uFireBox.xy) / uFireBox.zw; vb = fg.r * 1.6 * step(vK, 4.5) + fg.r * 1.2 * step(9.5, vK); }
         if (vb > 0.01) { float flk = fbm(vec2(vW.x * 0.35 + uT * 1.7, vW.y * 0.6 - uT * 3.1));
-          gl_FragColor.rgb = mix(gl_FragColor.rgb, gl_FragColor.rgb * 0.25, clamp(vb * 1.4, 0.0, 0.8)); gl_FragColor.rgb += vec3(1.0, 0.34, 0.07) * vb * (0.4 + 1.8 * smoothstep(0.45, 0.8, flk)) * 2.0 * (0.18 + 0.82 * uNight) * (glassK > 0.1 ? 1.6 : 1.0); }
+          gl_FragColor.rgb = mix(gl_FragColor.rgb, gl_FragColor.rgb * 0.15, clamp(vb * 1.6, 0.0, 0.9)); float hot = smoothstep(0.50, 0.80, flk) * (0.35 + 0.65 * step(0.25, glassK + 0.2 * h21(floor(vUvm * 0.7))));   // lửa theo mảng (ô cửa, khe mái), không phủ đều mặt tường
+          gl_FragColor.rgb += vec3(1.0, 0.30, 0.05) * vb * (0.10 + 1.5 * hot) * 1.4 * (0.45 + 0.55 * uNight); }
         if (uWin > 0.0 && glassK > 0.1 && (vK > 3.5 && vK < 4.5)) { float on = step(0.42, h21(floor(vUvm / vec2(1.5, 3.8)) + floor(vW.xz / 37.0))); gl_FragColor.rgb += vec3(1.0, 0.80, 0.55) * on * uWin * 1.1 * glassK; }
         gl_FragColor.rgb = hazeApply(gl_FragColor.rgb, vW);
         if (uMask > 0.5) gl_FragColor = vec4(s2l(vec3(235.0) / 255.0), 1.0);`);
@@ -198,7 +200,7 @@ async function build(cfg) {
       .replace('#include <begin_vertex>', `#include <begin_vertex>
         float k = smoothstep(1864.0, 1870.5, uYear); transformed.y = mix(h6, h2, k); vWet = smoothstep(1.2, -0.8, transformed.y); vW = (modelMatrix * vec4(transformed, 1.0)).xyz;`);
     s.fragmentShader = s.fragmentShader.replace('#include <common>', `#include <common>
-      varying vec3 vW; varying float vWet; uniform sampler2D uFire, uFire40, uBake, tC66, tC26; uniform vec4 uFireBox, uBakeBox, uLD; uniform float uFireK, uYear, uMask, uBakeOn, uBakeK, uHour, uH40; ${GLSL_N} ${VANG} ${HAZE}`)
+      varying vec3 vW; varying float vWet; uniform sampler2D uFire, uFire40, uBake, tC66, tC26; uniform vec4 uFireBox, uBakeBox, uLD; uniform float uFireK, uYear, uMask, uBakeOn, uBakeK, uHour, uH40, uDbg; ${GLSL_N} ${VANG} ${HAZE}`)
       .replace('vec4 diffuseColor = vec4( diffuse, opacity );', `vec2 en = vec2(vW.x + 532000.0, -vW.z + 180800.0); vec2 cu = vec2((en.x - uLD.x) / uLD.z, (uLD.y - en.y) / uLD.w);
         float c66 = floor(texture2D(tC66, cu).r * 255.0 + 0.5), c26 = floor(texture2D(tC26, cu).r * 255.0 + 0.5); bool modern = uYear > 1850.0; float cl = modern ? c26 : c66;
         vec2 p = vW.xz; float n = fbm3(p * 0.05); vec3 cc;
@@ -216,6 +218,8 @@ async function build(cfg) {
           reflectedLight.indirectDiffuse *= mix(1.0, sk, uBakeK); reflectedLight.directDiffuse *= mix(1.0, smoothstep(0.05, 0.6, sk) * 0.4 + 0.6, uBakeK * 0.5); } }`)
       .replace('#include <dithering_fragment>', `#include <dithering_fragment>
         vec2 fu = (vW.xz - uFireBox.xy) / uFireBox.zw; vec3 fg = uHour >= 0.0 ? texture2D(uFire, fu).rgb : texture2D(uFire40, fu).rgb;
+        if (uHour >= 0.0) { float ash = texture2D(uFire, fu).a; gl_FragColor.rgb *= mix(1.0, 0.20 + 0.10 * vn(vW.xz * 0.3), clamp(ash, 0.0, 1.0)); }
+        if (uDbg > 0.5) gl_FragColor = vec4(texture2D(uFire, fu).a, texture2D(uFire, fu).r, uHour >= 0.0 ? 1.0 : 0.0, 1.0);   // tro + than sau cháy
         gl_FragColor.rgb += diffuseColor.rgb * vec3(1.0, 0.42, 0.12) * uFireK * (fg.r * 2.0 + fg.g * 0.6 + fg.b * 0.08);
         gl_FragColor.rgb = hazeApply(gl_FragColor.rgb, vW); if (uMask > 0.5) gl_FragColor = vec4(s2l(vec3(200.0, 170.0, 90.0) / 255.0), 1.0);`); };
   TER = new THREE.Mesh(tg, tm); TER.receiveShadow = true; TER.frustumCulled = false; scene.add(TER);
@@ -255,10 +259,11 @@ async function build(cfg) {
       p.setY(i, inside ? -60 : h); } fg.computeVertexNormals(); }
   const FAR = new THREE.Mesh(fg, fm); FAR.receiveShadow = false; scene.add(FAR);
   // dãy nhà xa (thành phố ngoài hộp): hộp thấp thủ tục theo năm — để chân trời không phẳng (bậc 5)
-  { const n = 2600, gb = new THREE.BoxGeometry(1, 1, 1).translate(0, 0.5, 0); const ms = new THREE.InstancedMesh(gb, new THREE.MeshLambertMaterial({ color: 0xffffff }), n); let q = 0; const M4 = new THREE.Matrix4();
+  const ss3 = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };   // cùng hàm cao độ đồi xa
+  { const n = 9000, gb = new THREE.BoxGeometry(1, 1, 1).translate(0, 0.5, 0); const ms = new THREE.InstancedMesh(gb, new THREE.MeshLambertMaterial({ color: 0xffffff }), n); let q = 0; const M4 = new THREE.Matrix4();
     const rr = (i) => { const x = Math.sin(i * 12.9898) * 43758.5453; return x - Math.floor(x); };
     for (let i = 0; q < n && i < n * 6; i++) { const a = rr(i) * 6.283, r = 3200 + rr(i + 7) * 5000; const x = Math.cos(a) * r, z = Math.sin(a) * r * 0.8; if (x > T.x0 && x < T.x0 + TW && z > T.z0 && z < T.z0 + TD) continue;
-      const w = 40 + rr(i + 3) * 120, h = 10 + rr(i + 5) * 22; M4.compose(V3(x, 6, z), new THREE.Quaternion().setFromAxisAngle(V3(0, 1, 0), rr(i + 9) * 3), V3(w, h, w * (0.5 + rr(i + 11)))); ms.setMatrixAt(q, M4); ms.setColorAt(q, new THREE.Color(0.20 + rr(i + 13) * 0.08, 0.18 + rr(i + 13) * 0.06, 0.16 + rr(i + 13) * 0.05)); q++; }
+      const w = 18 + rr(i + 3) * 45, h = 6 + rr(i + 5) * 12; const n_ = 0.6 + 0.4 * Math.sin(x * 0.0007 + 1.3) * Math.cos(z * 0.0009 - 0.4); const gy = 9 + 95 * ss3(3500, 9000, -z) * n_ + 70 * ss3(4500, 10000, z) * (0.7 + 0.3 * Math.sin(x * 0.0005)) + 25 * ss3(6000, 14000, Math.abs(x)) * n_; M4.compose(V3(x, gy - 2, z), new THREE.Quaternion().setFromAxisAngle(V3(0, 1, 0), rr(i + 9) * 3), V3(w, h, w * (0.5 + rr(i + 11)))); ms.setMatrixAt(q, M4); ms.setColorAt(q, new THREE.Color(0.10 + rr(i + 13) * 0.05, 0.095 + rr(i + 13) * 0.04, 0.09 + rr(i + 13) * 0.035)); q++; }
     ms.count = q; ms.material.onBeforeCompile = (s) => { Object.assign(s.uniforms, U); s.vertexShader = s.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 vWf; uniform float uYear;')
         .replace('#include <begin_vertex>', `#include <begin_vertex>
           { vec3 ip = (instanceMatrix * vec4(0.0, 0.0, 0.0, 1.0)).xyz; float r = fract(sin(dot(ip.xz, vec2(12.9898, 78.233))) * 43758.5453); float era = smoothstep(1750.0, 1950.0, uYear);
@@ -267,7 +272,7 @@ async function build(cfg) {
       s.fragmentShader = s.fragmentShader.replace('#include <common>', `#include <common>\nvarying vec3 vWf; ${HAZE}`).replace('#include <dithering_fragment>', '#include <dithering_fragment>\n gl_FragColor.rgb = hazeApply(gl_FragColor.rgb, vWf);'); }; ms.material.customProgramCacheKey = () => 'far'; LG.farCity = ms; scene.add(ms); }
   const skm = new THREE.ShaderMaterial({ uniforms: U, side: THREE.BackSide, depthWrite: false, vertexShader: `varying vec3 vD; void main(){ vD = position; vec4 p = projectionMatrix * viewMatrix * vec4(position + cameraPosition, 1.0); gl_Position = p.xyww; }`,
     fragmentShader: `varying vec3 vD; uniform float uMask; ${GLSL_N} ${HAZE} ${SKYF} void main(){ vec3 d = normalize(vD); vec3 c = skyCol(d);
-      float hz = 1.0 - smoothstep(0.0, 0.10, d.y); c = mix(c, uHaze, hz * 0.35); c = mix(c, uCoalCol * (0.6 + 0.4 * (1.0 - uNight)), (1.0 - exp(-uCoal * 900.0)) * (1.0 - smoothstep(0.0, 0.12, d.y)));
+      float hz = 1.0 - smoothstep(0.0, 0.10, d.y); c = mix(c, uHaze, hz * 0.35); c = mix(c, uCoalCol * mix(1.0, 0.04, uNight), (1.0 - exp(-uCoal * 900.0)) * (1.0 - smoothstep(0.0, 0.12, d.y)));
       gl_FragColor = vec4(c, 1.0); if (uMask > 0.5) gl_FragColor = vec4(vec3(40.0, 80.0, 200.0) / 255.0, 1.0); }` });
   SKY = new THREE.Mesh(new THREE.SphereGeometry(5000, 48, 24), skm); SKY.frustumCulled = false; SKY.renderOrder = -1; scene.add(SKY);
   // ---- đèn
@@ -294,9 +299,9 @@ function blur1(src, nx, nz, r) { const o = new Float32Array(nx * nz), t = new Fl
 const ss = (e0, e1, x) => { const t = Math.min(1, Math.max(0, (x - e0) / (e1 - e0))); return t * t * (3 - 2 * t); };
 function burnIJS(ign, h) { if (ign < 0 || h < ign) return 0; const a = h - ign; return ss(0, 0.7, a) * (1 - ss(4, 9, a)) + (a >= 9 ? 0.025 * (1 - ss(9, 48, a)) : 0); }
 function burnI40JS(ign, h) { if (ign < 0 || h < ign) return 0; const a = h - ign; return ss(0, 0.4, a) * (1 - 0.6 * ss(3, 8, a)); }
-function updateFire(tex, grid, h, fn) { const { nx, nz } = FMAP, I = new Float32Array(nx * nz); if (h >= 0) for (let v = 0; v < nx * nz; v++) I[v] = fn(grid[v], h);
-  const a = blur1(I, nx, nz, 1), b = blur1(I, nx, nz, 4), c = blur1(I, nx, nz, 12), d = tex.image.data;
-  for (let v = 0; v < nx * nz; v++) { d[v * 4] = a[v]; d[v * 4 + 1] = b[v] * 3; d[v * 4 + 2] = c[v] * 8; d[v * 4 + 3] = 1; } tex.needsUpdate = true; let s = 0; for (let v = 0; v < nx * nz; v++) s += I[v]; return s; }
+function updateFire(tex, grid, h, fn, ash = 0) { const { nx, nz } = FMAP, I = new Float32Array(nx * nz), Bn = new Float32Array(nx * nz); if (h >= 0) for (let v = 0; v < nx * nz; v++) { I[v] = fn(grid[v], h); Bn[v] = (ash && grid[v] >= 0 && h - grid[v] > 4) ? 1 : 0; }
+  const a = blur1(I, nx, nz, 1), b = blur1(I, nx, nz, 4), c = blur1(I, nx, nz, 12), e = blur1(Bn, nx, nz, 1), d = tex.image.data;
+  for (let v = 0; v < nx * nz; v++) { d[v * 4] = a[v]; d[v * 4 + 1] = b[v] * 3; d[v * 4 + 2] = c[v] * 8; d[v * 4 + 3] = e[v]; }   /* A = tro (đã cháy > 4 h) */ tex.needsUpdate = true; let s = 0; for (let v = 0; v < nx * nz; v++) s += I[v]; return s; }
 let BUFREF = null;
 function groundAt(x, z) { const T = META.dia_hinh; const i = Math.round((x - T.x0) / T.step), j = Math.round((z - T.z0) / T.step); if (i < 0 || j < 0 || i >= T.nx || j >= T.nz) return 5;
   const l = META.bo_cuc.h66; return new Float32Array(BUFREF, l.off + 4 * (j * T.nx + i), 1)[0]; }
@@ -318,7 +323,7 @@ function buildParticles(LC, grid, hU, key) {
         : `float life = 40.0 + sd.y * 50.0; float age = mod(uT * 0.9 + sd.x * 97.0, life) / life; float I2 = max(I, 0.0);
         float size = (25.0 + age * 160.0 * (0.6 + sd.y)) * smoothstep(0.0, 0.08, I2);
         vec3 c = off.xyz + vec3(uWind.x * age * 520.0 * (0.7 + sd.x * 0.6), 18.0 + age * (240.0 + sd.y * 260.0), uWind.y * age * 520.0 * (0.7 + sd.x * 0.6) + (sd.y - 0.5) * age * 120.0);
-        vA = smoothstep(0.0, 0.08, I2) * (1.0 - age) * smoothstep(0.0, 0.05, age) * (0.35 + 0.65 * min(I2 * 3.0, 1.0)) * uSmokeK;`}
+        vA = smoothstep(0.0, 0.08, I2) * (1.0 - age) * smoothstep(0.0, 0.05, age) * (0.12 + 0.88 * smoothstep(0.05, 0.35, I2)) * uSmokeK;   // khói âm ỉ trên phế tích mỏng hơn khói đám cháy`}
       vH = clamp(age, 0.0, 1.0); vec3 toC = normalize(uCam - c); vec3 rt = normalize(cross(vec3(0.0, 1.0, 0.0), toC)); vec3 up = ${kind === 'flame' ? 'vec3(0.0, 1.0, 0.0)' : 'normalize(cross(toC, rt))'};
       float ar = uAtlas > 0.5 ? 2.0 : 1.3; float sz = uAtlas > 0.5 ? size * ${kind === 'flame' ? '0.75' : '0.8'} : size;
       float dcam = length(uCam - c); ${kind === 'flame' ? '' : 'vA *= smoothstep(60.0, 220.0, dcam);'}
@@ -327,7 +332,7 @@ function buildParticles(LC, grid, hU, key) {
   const ATL = `uniform sampler2D uAtF, uAtS; uniform float uAtlas; vec2 atl(vec2 uv, float age, float seed){ float idx = mod(floor(age * 63.0) + floor(seed * 64.0), 64.0); float c = mod(idx, 8.0), r = floor(idx / 8.0);
       return vec2((c + clamp(uv.x, 0.0, 1.0)) / 8.0, 1.0 - (r + 1.0 - clamp(uv.y, 0.0, 1.0)) / 8.0); }`;
   const FS_FLAME = `varying vec2 vUv; varying float vA; varying float vH; varying float vSeed; uniform float uT, uNight; ${GLSL_N} ${ATL}
-    void main(){ if (uAtlas > 0.5) { vec3 t = texture2D(uAtF, atl(vUv, fract(uT * 0.35 + vSeed), vSeed)).rgb; vec3 o = t * t * vec3(1.0, 0.62, 0.32); gl_FragColor = vec4(o * vA * (0.55 + 1.0 * uNight) * 1.6, 0.0); return; }
+    void main(){ if (uAtlas > 0.5) { vec3 t = texture2D(uAtF, atl(vUv, fract(uT * 0.35 + vSeed), vSeed)).rgb; vec3 o = t * t * vec3(1.0, 0.62, 0.32); gl_FragColor = vec4(o * vA * (1.1 + 0.45 * uNight) * 1.6, 0.0); return; }
       vec2 p = vUv - vec2(0.5, 0.0); float n = fbm(vec2(p.x * 3.0 + vSeed * 9.0, vUv.y * 2.2 - uT * 2.6));
       float sh = smoothstep(0.5, 0.0, abs(p.x) * (1.0 + vUv.y * 1.8) + (vUv.y - 0.25) * 0.45 - n * 0.35) * smoothstep(1.0, 0.25, vUv.y);
       vec3 c = mix(vec3(1.0, 0.85, 0.45), vec3(1.0, 0.32, 0.05), smoothstep(0.1, 0.8, vUv.y + n * 0.3)); gl_FragColor = vec4(c * sh * vA * 1.4 * (0.35 + 0.65 * uNight), 0.0); }`;
@@ -407,7 +412,7 @@ async function buildChimneySmoke(base) {
   CHIM = new THREE.Mesh(g, new THREE.ShaderMaterial({ uniforms: U, transparent: true, depthWrite: false, blending: THREE.CustomBlending, blendSrc: THREE.OneFactor, blendDst: THREE.OneMinusSrcAlphaFactor,
     vertexShader: `attribute vec4 off; attribute vec4 sd; uniform float uYear, uT, uChimK; uniform vec3 uCam; uniform vec2 uWind; varying vec2 vUv; varying float vA; varying float vS;
       void main(){ vUv = position.xy + vec2(0.5, 0.0); float on = (uYear >= sd.x && uYear < sd.y && sd.z < uChimK) ? 1.0 : 0.0; float age = fract(off.w + uT * 0.02 + sd.w * 0.1);
-        vec3 c = off.xyz + vec3(uWind.x * age * 70.0, age * 26.0 + 1.0, uWind.y * age * 70.0); float size = (1.5 + age * 13.0) * on; vA = on * (1.0 - age) * smoothstep(0.0, 0.15, age) * 0.30; vS = sd.w;
+        vec3 c = off.xyz + vec3(uWind.x * age * 70.0, age * 26.0 + 1.0, uWind.y * age * 70.0); float size = (1.5 + age * 13.0) * on; vA = on * (1.0 - age) * smoothstep(0.0, 0.15, age) * 0.30 * smoothstep(180.0, 520.0, length(uCam - c)); vS = sd.w;
         vec3 toC = normalize(uCam - c); vec3 rt = normalize(cross(vec3(0.0, 1.0, 0.0), toC)); vec3 up = normalize(cross(toC, rt)); vec3 w = c + (rt * position.x + up * (position.y - 0.5)) * size;
         if (size < 0.01) w = vec3(0.0, -1000.0, 0.0); gl_Position = projectionMatrix * viewMatrix * vec4(w, 1.0); }`,
     fragmentShader: `varying vec2 vUv; varying float vA; varying float vS; uniform vec3 uSunCol, uHaze; uniform float uNight; ${GLSL_N}
@@ -438,7 +443,7 @@ function setTime(f) {
   LG.hemi.intensity = (lk.hemiK ?? 0.6) * day + 0.16 * night; LG.hemi.color.setRGB(0.70 * day + 0.2 * night, 0.80 * day + 0.25 * night, 0.95 * day + 0.4 * night); LG.hemi.groundColor.setRGB(0.36, 0.30, 0.24);
   U.uWin.value = (hour < 0 && h40 < 0 && year > 1950) ? night : 0;
   const w = f.wind || [-1, 0.15]; U.uWind.value.set(w[0], w[1]).normalize();
-  const fs = updateFire(FTEX, FMAP.t, hour, burnIJS); const f4 = updateFire(F40TEX, F40, h40, burnI40JS); U.uFireK.value = (hour >= 0 || h40 >= 0) ? (0.5 + 1.2 * night) : 0;
+  const fs = updateFire(FTEX, FMAP.t, hour, burnIJS, 1); const f4 = updateFire(F40TEX, F40, h40, burnI40JS); U.uFireK.value = (hour >= 0 || h40 >= 0) ? (0.5 + 1.2 * night) : 0;
   U.uChimK.value = (U.uYear.value < 1960 && hour < 0 && h40 < 0) ? (lk.chim ?? 0.35) : (hour >= 0 ? (lk.chim ?? 0.35) * 0.3 : 0);
   U.uSmokeK.value = lk.smokeK ?? 1; const stt = lk.smokeTint || [1, 1, 1]; U.uSmokeTint.value.setRGB(...stt);
   if (U.uLeaf) U.uLeaf.value = f.leaf ?? 1;
@@ -457,7 +462,7 @@ function renderReflection() {   // gương phẳng y = 0,6: máy đối xứng +
   const y0 = 0.6; RCAM.copy(cam); RCAM.position.y = 2 * y0 - cam.position.y; const dir = new THREE.Vector3(); cam.getWorldDirection(dir); dir.y = -dir.y;
   RCAM.up.set(0, 1, 0); RCAM.lookAt(RCAM.position.clone().add(dir)); RCAM.updateMatrixWorld(); RCAM.updateProjectionMatrix();
   U.uReflVP.value.multiplyMatrices(RCAM.projectionMatrix, RCAM.matrixWorldInverse);
-  WATER.visible = false; const cp = R.clippingPlanes; R.clippingPlanes = [new THREE.Plane(V3(0, 1, 0), -y0 + 0.3)]; const sh = R.shadowMap.autoUpdate; R.shadowMap.autoUpdate = false;
+  WATER.visible = false; const cp = R.clippingPlanes; R.clippingPlanes = [new THREE.Plane(V3(0, 1, 0), -y0 + 0.3)]; const sh = R.shadowMap.autoUpdate;
   U.uCam.value.copy(RCAM.position); R.setRenderTarget(RT_REFL); R.setClearColor(0x000000, 0); R.clear(); R.render(scene, RCAM); R.setRenderTarget(null);
   U.uCam.value.copy(cam.position); R.clippingPlanes = cp; R.shadowMap.autoUpdate = sh; WATER.visible = true; U.uReflOn.value = 1;
 }
@@ -474,7 +479,7 @@ window.setBake = async (url, box) => { if (!url) { U.uBakeOn.value = 0; return f
   if (!t) { U.uBakeOn.value = 0; return false; } t.colorSpace = THREE.NoColorSpace; t.flipY = true; t.minFilter = t.magFilter = THREE.LinearFilter; t.generateMipmaps = false; U.uBake.value = t; U.uBakeBox.value.set(...box); U.uBakeOn.value = 1; return true; };
 // f: {cam:{p,l,fov}, year, hour (1666), h40 (1940: giờ kể từ 29/12 18:00), date:[y,m,d,giờ], tz, t, spp, look:{…}, smokeSky, wind, leaf, refl}
 window.renderFrame = async (f) => {
-  const t0 = performance.now(); setCam(f.cam); const L = setTime(f); U.uT.value = f.t || 0;
+  const t0 = performance.now(); setCam(f.cam); const L = setTime(f); U.uT.value = f.t || 0; U.uDbg.value = f.dbg ? 1 : 0;
   pipe.outMat.uniforms.uExp.value = (f.look && f.look.exposure) || CFG.exposure || 0.9;
   const fire66 = (f.hour ?? -1) >= 0, fire40 = (f.h40 ?? -1) >= 0;
   FIRE['66'].visible = fire66 && f.fire !== false; SMOKE['66'].visible = fire66 && f.smoke !== false; FIRE['40'].visible = fire40 && f.fire !== false; SMOKE['40'].visible = fire40 && f.smoke !== false;
@@ -483,8 +488,9 @@ window.renderFrame = async (f) => {
     const gl = R.getContext(), W = CFG.W, H = CFG.H, px = new Uint8Array(W * H * 4); gl.readPixels(0, 0, W, H, gl.RGBA, gl.UNSIGNED_BYTE, px);
     const rgb = new Uint8Array(W * H * 3); for (let i = 0, j = 0; i < px.length; i += 4, j += 3) { rgb[j] = px[i]; rgb[j + 1] = px[i + 1]; rgb[j + 2] = px[i + 2]; }
     let bin = ''; for (let i = 0; i < rgb.length; i += 0x8000) bin += String.fromCharCode.apply(null, rgb.subarray(i, i + 0x8000)); return { img: btoa(bin), ms: performance.now() - t0, sun_el: L.el, fire: L.fireSum, mask: true }; }
+  R.shadowMap.autoUpdate = false; R.shadowMap.needsUpdate = true;   // bản đồ bóng dựng MỘT lần mỗi khung (không lặp theo mẫu — mặt trời không jitter)
   if (f.refl !== false) renderReflection(); else U.uReflOn.value = 0;
-  const spp = f.spp || 4; pipe.accumulate(scene, cam, spp); const img = pipe.finalize(f.n || 0);
-  return { img, ms: performance.now() - t0, sun_el: L.el, sun_az: L.az, fire: L.fireSum, view: cam.matrixWorldInverse.elements.slice(), proj: cam.projectionMatrix.elements.slice() };
+  const spp = f.spp || 4; const tA = performance.now(); pipe.accumulate(scene, cam, spp); const msAcc = performance.now() - tA; const img = pipe.finalize(f.n || 0);
+  return { img, ms: performance.now() - t0, ms_acc: msAcc, sun_el: L.el, sun_az: L.az, fire: L.fireSum, view: cam.matrixWorldInverse.elements.slice(), proj: cam.projectionMatrix.elements.slice() };
 };
 window.ready = true;

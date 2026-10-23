@@ -220,6 +220,7 @@ def nha(m, LOTS, chim):
     for lo in LOTS:
         c, w, d, hw = lo['c'], lo['w'], lo['d'], lo['hw']
         x, z = L(*c); g = Hg(*c); burn = float(t_chay(c)[0])
+        if burn < 0 and at(RIV, c) == 1: burn = float(np.clip(H0.TFIT(np.atleast_2d(c)), 1.0, 90.0)[0])   # dải ven sông bờ bắc (Thames Street) CHÁY (Pepys/Relation: lửa men theo bờ sông) — mặt nạ Doornick bỏ mép sông
         u = (lo['u'][0], -lo['u'][1]); v = (lo['v'][0], -lo['v'][1])            # (E,N) → (x,z)
         main = hw >= 4.0; mid = hw >= 3.0
         st = int(RNG.choice([2, 3, 3, 4, 4, 5], p=[0.08, 0.27, 0.2, 0.25, 0.12, 0.08])) if main else int(RNG.choice([2, 3, 3, 4], p=[0.25, 0.4, 0.2, 0.15])) if mid else int(RNG.choice([2, 2, 3], p=[0.45, 0.3, 0.25]))
@@ -297,7 +298,10 @@ def special(name, c):
     if name == '30 St Mary Axe' or np.hypot(c[0] - 533301, c[1] - 181252) < 25: return 'gherkin'
     return None
 def toa(m):
-    n = {'2026': 0, 'vict': 0, 'lidar': 0}
+    """toà OSM: bỏ mọi đường bao/phần nằm trong St Paul's (dựng tham số riêng) và trong Tower of London (dựng riêng); nhà thờ/nhà nguyện OSM = đá, có từ trước (không thành khối văn phòng)."""
+    n = {'2026': 0, 'vict': 0, 'lidar': 0, 'bo_trung_cong_trinh': 0, 'nha_tho_osm': 0}
+    RT = np.random.default_rng(2027); jitT = lambda c, a=10: jit(c, a, RT)                                       # bộ sinh riêng: thứ tự toà không làm lệch phần hình học khác
+    spC = next(np.array(b["r"], float) for b in R["toa"] if b["name"] == "St Paul's Cathedral").astype(np.float32).reshape(-1, 1, 2)
     parts = [b for b in R['toa'] if b['part']]
     pc = np.array([np.mean(np.array(b['r'], float), 0) for b in parts]) if parts else np.zeros((0, 2))
     for b in R['toa']:
@@ -306,7 +310,8 @@ def toa(m):
         if len(r) < 3: continue
         c = r.mean(0)
         if not (BB[0] + 30 < c[0] < BB[2] - 30 and BB[1] + 30 < c[1] < BB[3] - 30): continue
-        if b['name'] in ("St Paul's Cathedral",): continue
+        if b['name'] in ("St Paul's Cathedral",) or cv2.pointPolygonTest(spC, (float(c[0]), float(c[1])), True) > -6 or np.hypot(c[0] - 533612, c[1] - 180555) < 60:
+            n['bo_trung_cong_trinh'] += 1; continue
         area = 0.5 * abs(np.dot(r[:, 0], np.roll(r[:, 1], 1)) - np.dot(r[:, 1], np.roll(r[:, 0], 1)))
         if area < 12: continue
         if not b['part'] and len(pc):                                             # đường bao có building:part bên trong → chỉ dựng phần (luật OSM 3D)
@@ -325,27 +330,31 @@ def toa(m):
         if sa < 0: ring = ring[::-1]
         start = START[b['id']]
         hs = (zlib.crc32(str(b['id']).encode()) % 1000) / 1000.0
+        if b['b'] in ('church', 'cathedral', 'chapel') and not b['part']:
+            burnt = at(BURN, c) == 1                                             # trong vùng cháy: nhà thờ OSM là bản dựng lại sau 1666 (Wren) — không có trong cảnh 1666
+            st0 = start if start < 1900 else ((1677.0 + RT.uniform(0, 25)) if burnt else 1200.0)
+            m.prism(ring[::-1], y0, g + min(h, 30.0), y0, jitT(PORTLAND if burnt else STONE, 8), jitT(LEAD, 6), (st0, 9999.0, y0, -1.0), 9 if burnt else 8, 6 if burnt else 5, 9, 0); n['nha_tho_osm'] += 1; continue
         tall = h > 60
-        if tall: mtw, colw = (7, jit((120, 138, 150), 8)) if hs < 0.8 else (8, jit((196, 192, 182), 8))
-        elif start < 1914: mtw, colw = (6, jit(PORTLAND, 6)) if hs < 0.45 else (11, jit(VICT[int(hs * 40) % 4], 8))
+        if tall: mtw, colw = (7, jitT((120, 138, 150), 8)) if hs < 0.8 else (8, jitT((196, 192, 182), 8))
+        elif start < 1914: mtw, colw = (6, jitT(PORTLAND, 6)) if hs < 0.45 else (11, jitT(VICT[int(hs * 40) % 4], 8))
         else:
             mtw = 8 if hs < 0.40 else 7 if hs < 0.62 else 11 if hs < 0.80 else 6
-            colw = jit([(190, 186, 176), (130, 146, 156), (150, 108, 84), PORTLAND][[8, 7, 11, 6].index(mtw)], 8)
+            colw = jitT([(190, 186, 176), (130, 146, 156), (150, 108, 84), PORTLAND][[8, 7, 11, 6].index(mtw)], 8)
         tl = (start, 9999.0, y0, -1.0)
         if sp == 'gherkin':
             cx, cz = L(*c); prof = [(24.5, g), (27.0, g + 40), (28.5, g + 70), (27.5, g + 100), (24.0, g + 130), (18.0, g + 155), (10.0, g + 172), (3.0, g + 179), (0.1, g + 180)]
-            m.lathe(cx, cz, prof, jit((90, 110, 124), 6), (2003.0, 9999.0, g, -1.0), 4, 7, 32, fl=8); n['2026'] += 1; continue
+            m.lathe(cx, cz, prof, jitT((90, 110, 124), 6), (2003.0, 9999.0, g, -1.0), 4, 7, 32, fl=8); n['2026'] += 1; continue
         if sp == 'leadenhall':
             Nmax = r[:, 1].max(); topH = g + h
             rh = lambda p: max(y0 + 6.0, min(topH, topH - (Nmax - (-(p[1]) + N0)) * 4.2))
-            m.prism(ring[::-1], y0, topH, y0, colw, jit((80, 86, 92), 6), tl, 4, 7, 7, 8, roof_h=rh); n['2026'] += 1; continue
-        m.prism(ring[::-1], y0, g + h, y0, colw, jit((112, 112, 110), 8), tl, 4, mtw, 12, 8)
+            m.prism(ring[::-1], y0, topH, y0, colw, jitT((80, 86, 92), 6), tl, 4, 7, 7, 8, roof_h=rh); n['2026'] += 1; continue
+        m.prism(ring[::-1], y0, g + h, y0, colw, jitT((112, 112, 110), 8), tl, 4, mtw, 12, 8)
         n['2026'] += 1
         # tiền nhiệm Victoria–Edward (1840–1940) trên cùng nền nếu toà 2026 dựng sau 1940 — thành phố 1940 dày đặc (bậc 5)
         if False:
-            hv = float(RNG.uniform(14, 24)); vstart = 1845.0 + float(RNG.uniform(0, 60))
+            hv = float(RT.uniform(14, 24)); vstart = 1845.0 + float(RT.uniform(0, 60))
             vdie = 1940.995 if at(BLITZ_M, c) else start
-            m.prism(ring[::-1], g, g + hv, g, jit(VICT[int(hs * 97) % 4], 10), jit(SLATE, 6), (vstart, max(vdie, vstart + 1), g, -1.0), 10, 11 if hs < 0.6 else 6, 4, 8)
+            m.prism(ring[::-1], g, g + hv, g, jitT(VICT[int(hs * 97) % 4], 10), jitT(SLATE, 6), (vstart, max(vdie, vstart + 1), g, -1.0), 10, 11 if hs < 0.6 else 6, 4, 8)
             n['vict'] += 1
     return n
 
@@ -380,10 +389,10 @@ def st_pauls_wren(m):
     m.cyl(x, z, 21.5, 21.5, g + 33.5, g + 36.0, pc, t2, 5, 6, 48)                               # chân trống
     for i in range(32):                                                                           # hàng 32 cột (peristyle)
         a = 2 * math.pi * i / 32; m.cyl(x + 21.0 * math.cos(a), z + 21.0 * math.sin(a), 0.9, 0.9, g + 36.0, g + 49.5, pc, t2, 5, 6, 6, cap=False)
-    m.cyl(x, z, 17.5, 17.5, g + 36.0, g + 49.5, (200, 194, 180), t2, 5, 6, 48, cap=False, fl=8)   # tường trống sau hàng cột
+    m.cyl(x, z, 17.5, 17.5, g + 36.0, g + 49.5, (150, 146, 138), t2, 5, 6, 48, cap=False, fl=0)   # tường trống sau hàng cột (trong bóng hàng cột)
     m.cyl(x, z, 21.8, 21.8, g + 49.5, g + 51.5, pc, t2, 5, 6, 48)                                # gờ + lan can
     m.cyl(x, z, 16.8, 16.8, g + 51.5, g + 60.0, pc, t2, 5, 6, 48, cap=False, fl=8)               # tầng gác (attic)
-    m.lathe(x, z, [(16.8, g + 60.0), (16.6, g + 64.0), (15.6, g + 70.0), (13.4, g + 76.0), (10.0, g + 81.5), (5.6, g + 85.5), (3.4, g + 86.6)], jit(LEAD, 2), t3, 5, 9, 48)
+    m.lathe(x, z, [(16.8, g + 60.0), (16.6, g + 64.0), (15.6, g + 70.0), (13.4, g + 76.0), (10.0, g + 81.5), (5.6, g + 85.5), (3.4, g + 86.6)], (78, 79, 77), t3, 5, 9, 48)   # chì phong hoá xám sẫm (không ngả lam)
     m.cyl(x, z, 3.6, 3.6, g + 86.6, g + 97.0, pc, t3, 5, 6, 16, fl=8)                            # đèn lồng
     m.lathe(x, z, [(3.6, g + 97.0), (2.6, g + 100.0), (1.2, g + 103.0), (0.5, g + 106.0)], jit(LEAD, 2), t3, 5, 9, 16)
     m.lathe(x, z, [(0.01, g + 106.0), (1.0, g + 106.6), (1.0, g + 107.4), (0.01, g + 108.0)], (214, 176, 84), t3, 5, 9, 12)   # quả cầu mạ vàng
