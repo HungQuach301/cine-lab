@@ -34,6 +34,8 @@ Trong ±5 % quanh 3,5 s và 6 s: nêu tên.
         frames_meta[f].clock) → log chữ của bộ (role clock, mẫu thưa; độ dài quãng tính theo bước mẫu). Biến cố = khung đầu quãng dừng.
       Ánh xạ khung cảnh → giây phim qua shot đặc tả/timeline có `p.hero` (hoặc `p.dir` = heroes[k].dir) = `canh`: t = đầu shot +
       (f_cảnh − frame0) / (24 · speed), chỉ trong khung shot. Campath không có `canh` → không ánh xạ (không thêm biến cố). Biến cố đo không qua (a).
+1.17.3 (khiếu nại A2 BAN-CUOI-T3; chỉ tập từ T3 — `tl_moc`): (a) đối chiếu thêm mốc thật của cảnh timelapse `tl/*` đọc từ đặc tả (tl_moc_canh: opt.time,
+      smoke.t, năm thế giới của lớp vật qua bản sao tl7.timeline) và thẻ chương `p.the_chuong.at`. (b)(c)(d) không đổi.
 """
 import json, os, subprocess, sys
 
@@ -53,8 +55,125 @@ def lst(v):
     return [x for x in v if isinstance(x, dict)] if isinstance(v, list) else []
 
 
-def spec_times(heroes, shots, dur):
-    """mọi mốc (giây trong đoạn) mà đặc tả làm xuất hiện/đổi cái gì đó. shots: [{at, p}] (at = đầu shot trong đoạn)."""
+# ---------------------------------------------------------------- 1.17.3 (khiếu nại A2 BAN-CUOI-T3): mốc thật của cảnh timelapse tl/*
+# Bản sao ĐỘC LẬP đường cong thời gian của trình dựng (design/k2v/tl/tl7.js timeline/jdOfKey/yearOfJD/crossings + sun.js jdOf/calOf, đọc 23/10/2026;
+# scenes/t3tl.js dựng cảnh bằng tl7.timeline(o.time, {tz: o.tz})): mốc [{t (giây cảnh), at ('YYYY-MM-DD HH:MM' giờ địa phương | năm thập phân), hold}]
+# → JD liên tục (Hermite đơn điệu Fritsch–Carlson; hold → tiếp tuyến 0) → năm thập phân. Đổi thước của xưởng không đổi nghĩa luật.
+GIB_LON = -5.35
+TL_YEAR_KEYS = ('wY', 'w', 'on', 'off', 'off0', 'off1', 'full', 'day', 'hoist', 'path', 't0', 't1')   # trường NĂM THẾ GIỚI (≥ 1000) của lớp vật
+
+
+def _jd(y, mo, d, h=0.0):
+    import math
+    if mo <= 2: y -= 1; mo += 12
+    A = math.floor(y / 100); B = 2 - A + math.floor(A / 4)
+    return math.floor(365.25 * (y + 4716)) + math.floor(30.6001 * (mo + 1)) + d + B - 1524.5 + h / 24
+
+
+def _cal_y(jd):
+    import math
+    Z = math.floor(jd + 0.5); al = math.floor((Z - 1867216.25) / 36524.25); A = Z + 1 + al - math.floor(al / 4)
+    B = A + 1524; C = math.floor((B - 122.1) / 365.25); D = math.floor(365.25 * C); E = math.floor((B - D) / 30.6001)
+    mo = E - 1 if E < 14 else E - 13
+    return C - 4716 if mo > 2 else C - 4715
+
+
+def _jd_key(a, tz=None):
+    import math, re
+    if num(a) is not None:
+        y = math.floor(a); j0, j1 = _jd(y, 1, 1), _jd(y + 1, 1, 1); return j0 + (a - y) * (j1 - j0)
+    m = re.match(r'^(-?\d+)-(\d+)-(\d+)(?:[ T](\d+):(\d+))?$', str(a).strip())
+    if not m: raise ValueError(f'mốc thời gian sai {a!r}')
+    h = int(m[4]) + int(m[5]) / 60 if m[4] else 12.0
+    return _jd(int(m[1]), int(m[2]), int(m[3]), h - (GIB_LON / 15 if tz is None else tz))
+
+
+def _year_of_jd(jd):
+    y = _cal_y(jd); j0, j1 = _jd(y, 1, 1), _jd(y + 1, 1, 1); return y + (jd - j0) / (j1 - j0)
+
+
+def tl_year(o):
+    """opt của cảnh tl → (hàm năm(t giây cảnh), [(t, năm) mỗi mốc]) | (None, []) khi không có opt.time"""
+    import math
+    keys = [x for x in lst(o.get('time')) if num(x.get('t')) is not None and x.get('at') is not None]
+    if not keys: return None, []
+    try: K = [dict(x, jd=_jd_key(x['at'], o.get('tz'))) for x in keys]
+    except (ValueError, TypeError): return None, []
+    if len(K) == 1: K.append(dict(K[0], t=K[0]['t'] + 1e3))
+    N = len(K); d = [(K[i + 1]['jd'] - K[i]['jd']) / ((K[i + 1]['t'] - K[i]['t']) or 1e-9) for i in range(N - 1)]; m = []
+    for i in range(N):
+        if K[i].get('hold'): m.append(0.0)
+        elif i == 0: m.append(d[0])
+        elif i == N - 1: m.append(d[N - 2])
+        else: a, b = d[i - 1], d[i]; m.append(0.0 if a * b <= 0 else 2 / (1 / a + 1 / b))
+    for i in range(N - 1):
+        if d[i] == 0: m[i] = m[i + 1] = 0.0; continue
+        a, b = m[i] / d[i], m[i + 1] / d[i]; q = a * a + b * b
+        if q > 9: tt = 3 / math.sqrt(q); m[i] = tt * a * d[i]; m[i + 1] = tt * b * d[i]
+
+    def jd_at(t):
+        if t <= K[0]['t']: return K[0]['jd']
+        if t >= K[-1]['t']: return K[-1]['jd']
+        i = 0
+        while i < N - 2 and t > K[i + 1]['t']: i += 1
+        h = K[i + 1]['t'] - K[i]['t']; u = (t - K[i]['t']) / h; u2 = u * u; u3 = u2 * u
+        return (2 * u3 - 3 * u2 + 1) * K[i]['jd'] + (u3 - 2 * u2 + u) * h * m[i] + (-2 * u3 + 3 * u2) * K[i + 1]['jd'] + (u3 - u2) * h * m[i + 1]
+    return (lambda t: _year_of_jd(jd_at(t))), [(float(x['t']), _year_of_jd(x['jd'])) for x in K[:len(keys)]]
+
+
+def _crossings(year, Y, T, fps=24):
+    """giây cảnh mà đường cong đi qua năm Y (cả hai chiều), quét theo khung (như tl7.crossings)"""
+    out = []; p_ = year(0)
+    for f in range(1, int(round(T * fps)) + 1):
+        t = f / fps; y = year(t)
+        if (p_ - Y) * (y - Y) <= 0 and p_ != y: out.append(round(t - (y - Y) / (y - p_) / fps, 3))
+        p_ = y
+    return out
+
+
+def _years(o, out):
+    """mọi năm thế giới (≥ 1000) ở trường TL_YEAR_KEYS của lớp vật (đệ quy; `hoist`/`path`: phần tử đầu mỗi mục)"""
+    def flat(v, k):
+        if isinstance(v, bool): return
+        if num(v) is not None:
+            if v >= 1000: out.add(float(v))
+        elif isinstance(v, dict):
+            for kk, x in v.items(): flat(x, kk) if kk in TL_YEAR_KEYS else walk(x)
+        elif isinstance(v, list):
+            for x in v:
+                if k in ('hoist', 'path'):
+                    if isinstance(x, list) and x: flat(x[0], k)
+                else: flat(x, k)
+
+    def walk(v):
+        if isinstance(v, dict):
+            for k, x in v.items():
+                if k in TL_YEAR_KEYS: flat(x, k)
+                elif k not in ('time', 'cam', 'nc') and isinstance(x, (dict, list)): walk(x)
+        elif isinstance(v, list):
+            for x in v: walk(x)
+    walk(o)
+    for b in lst((o.get('nc') or {}).get('bakes') if isinstance(o.get('nc'), dict) else None):   # đổi bộ nướng = phố đổi theo năm
+        flat(b.get('wY'), 'wY')
+
+
+def tl_moc_canh(o, T):
+    """1.17.3 (A2): mốc thật (giây CẢNH) của cảnh tl trong [0, T]: mốc `opt.time[].t`; khói `smoke[].t` [bắt đầu, tắt] (giây cảnh); mọi năm thế giới
+    của lớp vật (wY/w/on/off/full/day/hoist/path…) quy về giây cảnh qua đường cong opt.time (_crossings)."""
+    out = set()
+    yr, K = tl_year(o)
+    out.update(t for t, _ in K)
+    for x in lst(o.get('smoke')):
+        if isinstance(x.get('t'), list): out.update(float(v) for v in x['t'] if num(v) is not None)
+    if yr is not None:
+        Ys = set(); _years(o, Ys)
+        for Y in Ys: out.update(_crossings(yr, Y, T))
+    return {t for t in out if 0 <= t <= T + 1e-6}
+
+
+def spec_times(heroes, shots, dur, tl_moc=False):
+    """mọi mốc (giây trong đoạn) mà đặc tả làm xuất hiện/đổi cái gì đó. shots: [{at, p}] (at = đầu shot trong đoạn).
+    tl_moc (1.17.3, CHỈ tập từ T3 — k2check bật khi ap_117): thêm mốc cảnh timelapse (tl_moc_canh) và thẻ chương `p.the_chuong.at`."""
     T = {0.0}
     for j, sh in enumerate(shots):
         off = num(sh.get('at', 0)) or 0.0; T.add(off); p = sh.get('p') or {}; h = heroes.get(p.get('hero')) or {}; o = h.get('opt') or {}
@@ -81,6 +200,8 @@ def spec_times(heroes, shots, dur):
         for x in lst(o.get('arcs')): add(first(x.get('draw')))
         for x in lst(o.get('cols')):
             if isinstance(x.get('grow'), list): add(x['grow'][0])
+        if tl_moc:   # 1.17.3 (A2): mốc cảnh tl (giây cảnh → giây đoạn như mốc opt khác)
+            for v in tl_moc_canh(o, f0 + ((end if end is not None else off) - off) * sp): add(v)
 
         def add2(v):   # mốc lớp 2D (p.*) là giây TRONG ĐOẠN
             if num(v) is not None and v >= 0: T.add(v)
@@ -89,8 +210,8 @@ def spec_times(heroes, shots, dur):
                 if isinstance(x, dict): add2(x.get('at'))
         for c in p.get('cap', []) or []:
             if isinstance(c, dict): add2(c.get('at'))
-        for k in ('year', 'title'):
-            if isinstance(p.get(k), dict): add2(p[k].get('at'))
+        for k in ('year', 'title') + (('the_chuong',) if tl_moc else ()):
+            if isinstance(p.get(k), dict): add2(off + (num(p[k].get('at')) or 0.0) if k == 'the_chuong' else p[k].get('at'))
         sd = p.get('side') or {}
         add2(sd.get('at'))
         for l in sd.get('lines', []) or []: add2(l.get('at'))
@@ -287,14 +408,15 @@ def gaps_mien(ev, total, mien):
     return round(g, 2), f'{e[1]} {e[0]:.2f}s ({e[2]})', ex
 
 
-def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None):
+def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None, tl_moc=False):
     """v113=True: (d) khung tĩnh theo khung neo (1.13) — CHỈ BÁO (k2check hàng "Q37 (1.13)") tới khi chủ dự án duyệt; mặc định thước 1.11.0.
     tl = [(bộ timelapse, thư mục)] (1.15, I8): cộng biến cố đo trong cảnh tl vào (b), (c).
     mien = [(t0, t1 tuyệt đối, 'khung_neo'|'im_lang', tên)] (1.16, CHỈ tập từ T3 — khiếu nại A-G1B-5): (c) bỏ khoảng nằm trọn trong shot khung neo /
-    tấm im lặng khi ≤ 10 s (Kinh thánh §11.2); shot miễn > 10 s → (c); > 2 tấm im lặng/tập → (c). TB (b) và khung tĩnh (d) giữ nguyên."""
+    tấm im lặng khi ≤ 10 s (Kinh thánh §11.2); shot miễn > 10 s → (c); > 2 tấm im lặng/tập → (c). TB (b) và khung tĩnh (d) giữ nguyên.
+    tl_moc (1.17.3, CHỈ tập từ T3 — khiếu nại A2): (a) đối chiếu cả mốc thật của cảnh timelapse (spec_times tl_moc). (b)(c)(d) không đổi."""
     V = view(E, TL); bad, ev, mk, t_abs, nob = [], [], [], 0.0, []
     for sid, dur, HZ, shots, B in V:
-        T = spec_times(HZ, shots, dur); mk += [(t_abs + x, sid, 'mốc', '') for x in T if x < dur]
+        T = spec_times(HZ, shots, dur, tl_moc); mk += [(t_abs + x, sid, 'mốc', '') for x in T if x < dur]
         if not B: nob.append(sid)
         else:
             if not any(b.get('k') == 'cut' and num(b.get('t')) == 0 for b in B): bad.append(f'(a) {sid}: thiếu biến cố cut ở 0 (đầu đoạn = cắt cảnh)')
