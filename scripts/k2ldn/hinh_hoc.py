@@ -179,7 +179,7 @@ def pho_1666():
     return out
 
 COL = {'voi': (196, 182, 156), 'go': (92, 70, 52), 'ngoi': (128, 72, 52), 'ngoi2': (110, 82, 66), 'gach': (150, 78, 56), 'gach2': (124, 68, 52), 'ngoi_xam': (88, 80, 76),
-       'da': (170, 162, 146), 'portland': (214, 208, 194), 'chi': (120, 126, 132), 'pheTich': (150, 140, 128), 'den': (40, 36, 34), 'kinh': (120, 136, 150)}
+       'da': (170, 162, 146), 'portland': (214, 208, 194), 'chi': (120, 126, 132), 'pheTich': (118, 108, 98), 'den': (40, 36, 34), 'kinh': (120, 136, 150)}
 def jitter(c, a=10):
     k = RNG.integers(-a, a + 1)                     # lệch sáng chung + lệch màu nhỏ (tránh pastel hồng/xanh ngẫu nhiên)
     return tuple(int(np.clip(v + k + RNG.integers(-a // 4, a // 4 + 1), 0, 255)) for v in c)
@@ -219,7 +219,7 @@ def nha_1666(m, streets):
                         # phế tích: tường gạch/ống khói thấp (đá nung trắng — Evelyn b13) tới khi xây lại
                         reb = 1667.3 + float(RNG.exponential(1.2)); reb = min(reb, 1672.0)
                         m.box(x, z, w * 0.9, dd * 0.9, ang, g, g + RNG.uniform(1.0, 3.5), jitter(COL['pheTich'], 14), jitter(COL['pheTich'], 14), (die, reb, g, burn), 2)
-                        if RNG.random() < 0.5: m.box(x + u[0] * w * 0.3, z - u[1] * w * 0.3, 1.0, 1.4, ang, g, g + RNG.uniform(5, 9), jitter(COL['gach2'], 10), jitter(COL['gach2'], 10), (die, reb, g, burn), 2)
+                        if RNG.random() < 0.5: m.box(x + u[0] * w * 0.3, z - u[1] * w * 0.3, 1.0, 1.4, ang, g, g + RNG.uniform(5, 9), jitter((70, 58, 50), 8), jitter((70, 58, 50), 8), (die, reb, g, burn), 2)
                         n['phe_tich'] += 1
                         # nhà xây lại theo Rebuilding Act 1667: tường gạch; 2/3/4 tầng theo hạng phố (by-lane / phố đáng kể / phố lớn)
                         st2 = 4 if hw >= 5 else 3 if hw >= 3 else 2

@@ -32,14 +32,14 @@ function at(t) {
     res.writeHead(200, { 'content-type': p.endsWith('.js') ? 'text/javascript' : p.endsWith('.json') ? 'application/json' : 'application/octet-stream' }); fs.createReadStream(p).pipe(res); });
   await new Promise((r) => srv.listen(0, '127.0.0.1', r)); const PORT = srv.address().port;
   await page.goto(`http://127.0.0.1:${PORT}/ldn.html`); await page.waitForFunction(() => window.ready === true, null, { timeout: 60000 });
-  const info = await page.evaluate(async (c) => await window.setup(c), { W, H, data: '/data/canh/', exposure: S.exposure || 1.0 });
+  const info = await page.evaluate(async (c) => await window.setup(c), { W, H, data: '/data/canh/', exposure: S.exposure, fx: S.fx });
   await GLM.assertRenderer(GL, info.renderer, browser); console.error('[info]', JSON.stringify(info));
   const only = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
   const frames = only.length ? only : [...Array(+arg('to', N) - +arg('from', 0)).keys()].map((i) => i + +arg('from', 0));
   const ff = spawn('ffmpeg', ['-nostdin', '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', `${W}x${H}`, '-r', String(fps), '-i', '-', '-vf', 'vflip', '-q:v', '2', '-start_number', '0', path.join(OUT, 'tmp_%05d.jpg')]);
   const log = { renderer: info.renderer, W, H, shot: S, frames: [] }, t0 = Date.now();
   for (const f of frames) {
-    const k = at(f / fps); const fr = { cam: { p: k.p, l: k.l, fov: k.fov }, year: k.year ?? 1666.6, hour: k.hour ?? -1, hod: k.hod, t: f / fps, n: f, spp: +arg('spp', S.spp || 4), fire: k.fire, smoke: k.smoke, smokeSky: k.smokeSky };
+    const k = at(f / fps); const fr = { cam: { p: k.p, l: k.l, fov: k.fov }, year: k.year ?? 1666.6, hour: k.hour ?? -1, hod: k.hod, t: f / fps, n: f, spp: +arg('spp', S.spp || 4), fire: k.fire, smoke: k.smoke, smokeSky: k.smokeSky, mask: !!arg('mask') };
     const r = await page.evaluate(async (x) => await window.renderFrame(x), fr);
     const buf = Buffer.from(r.img, 'base64'); if (!ff.stdin.write(buf)) await new Promise((res) => ff.stdin.once('drain', res));
     delete r.img; log.frames.push(Object.assign({ f, year: fr.year, hour: fr.hour, cam: fr.cam }, r));
