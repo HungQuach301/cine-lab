@@ -7,10 +7,10 @@ Thứ tự khuyến nghị: đăng **phim chính trước** (theo `k2-t3-v1-dang
 ## 0. Tải tệp về máy
 | Tệp | Link tải công khai | Kiểm |
 |---|---|---|
-| Short `k2-t3-short-S1.mp4` ({SIZE}, LFS) | https://media.githubusercontent.com/media/HungQuach301/cine-lab/release-k2-t3-g2/k2-t3-short-S1.mp4 | SHA-256 `{SHA}` |
+| Short `k2-t3-short-S1.mp4` (118,7 MB, LFS) | https://media.githubusercontent.com/media/HungQuach301/cine-lab/release-k2-t3-g2/k2-t3-short-S1.mp4 | SHA-256 `e1632f934b494cccf9531c900e14e58a1a7b3264a71be064b1c7fa71bdc3a4c8` |
 | Tiêu đề / mô tả | `k2-t3-short-S1-title.txt`, `k2-t3-short-S1-description.txt` | mở bằng "Raw" trên GitHub rồi chép nguyên khối |
 
-Tệp: 1080×1920 (dọc 9:16), 24 fps, {DUR} s, H.264 High + AAC 48 kHz; −14 LUFS, đỉnh thật {TP} dBTP. Phụ đề lời đã cháy cứng trên hình (không cần tải tệp phụ đề riêng).
+Tệp: 1080×1920 (dọc 9:16), 24 fps, 48,5 s, H.264 High + AAC 48 kHz; −14 LUFS, đỉnh thật −1,4 dBTP. Phụ đề lời đã cháy cứng trên hình (không cần tải tệp phụ đề riêng).
 
 ## 1. Tải lên (YouTube Studio → Create → Upload videos)
 1. **[BẮT BUỘC]** Chọn `k2-t3-short-S1.mp4`. Video dọc ≤ 3 phút → YouTube tự xếp vào Shorts.
@@ -41,4 +41,9 @@ Tệp: 1080×1920 (dọc 9:16), 24 fps, {DUR} s, H.264 High + AAC 48 kHz; −14 
 ## Nội dung Short (để đối chiếu)
 | Giây | Điểm máy / nguồn hình | Bộ đếm | Lời (cắt từ master giọng T3, nguyên văn lời khoá v4.2) |
 |---|---|---|---|
-{BANG}
+| 0,0–4,2 | 3D cách A · D7 (eo đất + đường băng, Rock từ bắc), 15:00 → 15:40 | 2026 | To walk in from Spain, you cross an airport runway. |
+| 4,2–16,0 | 3D cách A · vịnh từ tây bắc (phố trong tường, hạm đội, khói vây 1705) | 1704 → 1705 → 1727 | The Rock sits at the western gate of the Mediterranean. / Historians on both sides count fourteen sieges of it, between 1309 and 1783. |
+| 16,0–20,3 | Cycles GPU · pin nổi cháy đêm 13–14/9/1782 (cắt dọc từ master N2.9, 347,0–351,3 s) | 1782 | In 1782, ten floating batteries came to break it. |
+| 20,3–26,3 | 3D cách A · Línea (Spanish Lines 1730 tiền cảnh) | 1783 | The last siege ended in 1783. / The argument didn't. |
+| 26,3–35,0 | 3D cách A · gần ranh giới (hàng rào 1909, đường băng 1941) | 1909 → 1941 | A fence in 1909. / A runway in 1941. |
+| 35,0–48,5 | 3D cách A · D7 (cùng điểm máy 0,0 s), 19:30 → 23:52, đèn bật | 2026 | Since July 2026, this gate has had no routine checks. / Midnight at the Gibraltar frontier. |

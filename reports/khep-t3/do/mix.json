@@ -1,0 +1,412 @@
+{
+"cong_cu": "scripts/k2tl/cuoi_mix.py (bước như scripts/audio/master.py finish)",
+"tham_so": {
+"smr": 15.0,
+"duck": -12.0,
+"duck_floor": -30.0,
+"merge_gap": 0.8,
+"attack": 0.25,
+"release": 0.45,
+"sfx_duck_ratio": 0.5,
+"vo_lufs": -17.0,
+"I": -14.0,
+"tp": -1.0,
+"tp_margin": 0.5,
+"fade_in": 0.3,
+"fade_out": 2.0,
+"aac": "256k"
+},
+"tong_s": 48.5,
+"loi_LUFS_truoc_chuan": -22.48,
+"duck": {
+"so_khoang": 7,
+"trung_vi_db": -13.8,
+"sau_nhat_db": -14.9
+},
+"loudness": [
+{
+"luot1": {
+"I": -18.05,
+"TP": -2.41,
+"LRA": 5.4
+},
+"gain_db": 4.05,
+"bu_db": 0.0,
+"tran_limiter_dbtp": -1.5,
+"luot2": {
+"I": -14.04,
+"TP": -1.49,
+"LRA": 5.3
+},
+"loudnorm": {
+"normalization_type": "linear",
+"output_i": -13.82,
+"output_tp": -1.46,
+"target_offset": -0.18
+},
+"aac": {
+"I": -13.8,
+"TP": -1.4
+},
+"ebur128": {
+"I": -13.8,
+"TP": -1.5
+}
+},
+{
+"luot1": {
+"I": -18.05,
+"TP": -2.41,
+"LRA": 5.4
+},
+"gain_db": 3.85,
+"bu_db": -0.2,
+"tran_limiter_dbtp": -1.5,
+"luot2": {
+"I": -14.23,
+"TP": -1.49,
+"LRA": 5.3
+},
+"loudnorm": {
+"normalization_type": "linear",
+"output_i": -14.02,
+"output_tp": -1.47,
+"target_offset": -0.18
+},
+"aac": {
+"I": -14.0,
+"TP": -1.4
+},
+"ebur128": {
+"I": -14.0,
+"TP": -1.5
+}
+}
+],
+"dau_ra": {
+"I": -14.0,
+"LRA": 3.8,
+"TP": -1.5,
+"TP_sau_aac": -1.4,
+"lang_pct": 0.21,
+"lang_bat_thuong": 0,
+"cham_tran": 0
+},
+"smr": {
+"cua_so": 10,
+"trung_vi": 20.95,
+"p10": 19.27,
+"min": 19.18,
+"duoi_nguong_pct": 0.0,
+"nguong": 15.0
+},
+"stem": {
+"he_so": 1.55836,
+"tre_mau": 48,
+"tuong_quan": 0.99941,
+"sai_khac_tong_stem_vs_master_dB": -27.7
+},
+"dat": {
+"I": true,
+"TP": true,
+"TP_sau_aac": true,
+"SMR_p10": true
+},
+"nhac": [
+{
+"id": "S1",
+"phim": [
+0.0,
+48.5
+],
+"bai": [
+0.0,
+48.5
+],
+"gain_db": -7.07
+}
+],
+"sfx": [
+{
+"uv": "GIO-1",
+"t": 0.0,
+"dai": 4.2,
+"db": -17.91,
+"muc": -43,
+"ghi": ""
+},
+{
+"uv": "PHO-1",
+"t": 0.0,
+"dai": 4.2,
+"db": -18.31,
+"muc": -43,
+"ghi": "phố 2026 ban ngày"
+},
+{
+"uv": "MAYBAY-1",
+"t": 0.6,
+"dai": 3.6,
+"db": -21.0,
+"muc": -44,
+"ghi": "đường băng"
+},
+{
+"uv": "SONG-1",
+"t": 4.2,
+"dai": 11.8,
+"db": -19.0,
+"muc": -42,
+"ghi": "vịnh 1704"
+},
+{
+"uv": "CHIM-1",
+"t": 4.4,
+"dai": 6.0,
+"db": -22.0,
+"muc": -45,
+"ghi": ""
+},
+{
+"uv": "PXA-1",
+"t": 9.1,
+"dai": 2.5,
+"db": -15.0,
+"muc": -38,
+"ghi": "vây 1705 (pháo xa, dưới lời)"
+},
+{
+"uv": "PXA-3",
+"t": 11.85,
+"dai": 2.5,
+"db": -10.45,
+"muc": -40,
+"ghi": "vây 1727 (khe lời 11,81–12,31)"
+},
+{
+"uv": "LUAL-1",
+"t": 16.0,
+"dai": 4.3,
+"db": 3.15,
+"muc": -36,
+"ghi": "pin nổi cháy"
+},
+{
+"uv": "NO-1",
+"t": 16.05,
+"dai": 4.2,
+"db": -8.0,
+"muc": -31,
+"ghi": "pin nổ"
+},
+{
+"uv": "GIO-2",
+"t": 20.3,
+"dai": 14.7,
+"db": -20.0,
+"muc": -43,
+"ghi": "eo đất"
+},
+{
+"uv": "CO-2",
+"t": 26.8,
+"dai": 3.0,
+"db": -15.4,
+"muc": -44,
+"ghi": "1909"
+},
+{
+"uv": "MAYBAY-1",
+"t": 30.3,
+"dai": 4.7,
+"db": -17.0,
+"muc": -40,
+"ghi": "đường băng 1941"
+},
+{
+"uv": "PHO-3",
+"t": 35.0,
+"dai": 13.5,
+"db": -20.0,
+"muc": -43,
+"ghi": "đêm 2026"
+},
+{
+"uv": "DEM-1",
+"t": 38.0,
+"dai": 10.5,
+"db": -19.0,
+"muc": -42,
+"ghi": "đêm biên giới"
+}
+],
+"su_kien": [
+{
+"uv": "GIO-1",
+"t": 0.0,
+"muc": -43,
+"dai": 4.2,
+"fi": 0.8,
+"fo": 0.6
+},
+{
+"uv": "PHO-1",
+"t": 0.0,
+"muc": -43,
+"dai": 4.2,
+"fi": 1.0,
+"fo": 0.6,
+"ghi": "phố 2026 ban ngày"
+},
+{
+"uv": "MAYBAY-1",
+"t": 0.6,
+"muc": -44,
+"dai": 3.6,
+"fi": 1.0,
+"fo": 1.0,
+"ghi": "đường băng"
+},
+{
+"uv": "SONG-1",
+"t": 4.2,
+"muc": -42,
+"dai": 11.8,
+"fi": 0.6,
+"fo": 0.8,
+"ghi": "vịnh 1704"
+},
+{
+"uv": "CHIM-1",
+"t": 4.4,
+"muc": -45,
+"dai": 6.0,
+"fi": 1.0,
+"fo": 1.0
+},
+{
+"uv": "PXA-1",
+"t": 9.1,
+"muc": -38,
+"dai": 2.5,
+"fo": 0.6,
+"pan": -0.3,
+"ghi": "vây 1705 (pháo xa, dưới lời)"
+},
+{
+"uv": "PXA-3",
+"t": 11.85,
+"muc": -40,
+"dai": 2.5,
+"fo": 0.8,
+"pan": 0.3,
+"ghi": "vây 1727 (khe lời 11,81–12,31)"
+},
+{
+"uv": "LUAL-1",
+"t": 16.0,
+"muc": -36,
+"dai": 4.3,
+"fi": 0.3,
+"fo": 0.6,
+"ghi": "pin nổi cháy"
+},
+{
+"uv": "NO-1",
+"t": 16.05,
+"muc": -31,
+"vao": 0.1,
+"dai": 4.2,
+"lp": 1800,
+"fo": 1.5,
+"ghi": "pin nổ"
+},
+{
+"uv": "GIO-2",
+"t": 20.3,
+"muc": -43,
+"dai": 14.7,
+"fi": 0.8,
+"fo": 0.8,
+"ghi": "eo đất"
+},
+{
+"uv": "CO-2",
+"t": 26.8,
+"muc": -44,
+"dai": 3.0,
+"fi": 0.4,
+"fo": 0.6,
+"ghi": "1909"
+},
+{
+"uv": "MAYBAY-1",
+"t": 30.3,
+"muc": -40,
+"dai": 4.7,
+"fi": 0.6,
+"fo": 1.2,
+"ghi": "đường băng 1941"
+},
+{
+"uv": "PHO-3",
+"t": 35.0,
+"muc": -43,
+"dai": 13.5,
+"fi": 0.8,
+"fo": 2.5,
+"ghi": "đêm 2026"
+},
+{
+"uv": "DEM-1",
+"t": 38.0,
+"muc": -42,
+"dai": 10.5,
+"fi": 1.5,
+"fo": 2.5,
+"ghi": "đêm biên giới"
+}
+],
+"khoang_loi": [
+[
+0.5,
+3.356
+],
+[
+4.7,
+7.533
+],
+[
+8.2,
+15.073
+],
+[
+16.25,
+20.127
+],
+[
+20.9,
+25.665
+],
+[
+27.3,
+29.146
+],
+[
+30.7,
+33.812
+],
+[
+36.0,
+40.342
+],
+[
+43.0,
+45.148
+]
+],
+"giong": {
+"tep": "channel-k2/k2c-t3-01/am-thanh/master/T3-loi-G1-v42-14LUFS.wav",
+"sha256": "ba50fba75aa956731226f7269adbffb6728853d6d2a7fc95b4eefba8e13b586d"
+}
+}

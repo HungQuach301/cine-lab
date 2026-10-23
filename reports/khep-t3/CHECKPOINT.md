@@ -35,3 +35,10 @@ Nhánh làm việc: `k2c-t3-khep` (từ origin/main @9852adf5). Nhánh bộ khun
 ## Trạng thái (09:10 UTC)
 - Lightmap đủ 4/4 (b1940 1 855 s, b1900 1 401 s). Ghép lượt 1 (SHA 4cfa5e25…, 48,5 s, −14,0 LUFS, −1,4 dBTP, 0 hộp chữ ngoài vùng an toàn).
 - Soát tờ khung lượt 1: (1) D không thấy hàng rào 1909 / đường băng 1941 khi lời nói tới (BAI-HOC K24) → D chia 2 góc, cắt 6,0 s sang góc gần ranh giới (thử G3–G6 không lightmap); góc 1 (1783, cỏ nhiều) còn 6,0 s (R2); (2) phụ đề nháy mờ giữa 2 thẻ cùng câu → thẻ liền nhau đổi tại chỗ. Đang dựng lại D (PGID 2738).
+
+## Trạng thái (09:45 UTC)
+- Short lượt 2 `e1632f93…` (48,5 s, −14,0 LUFS, −1,4 dBTP, 0 hộp chữ ngoài vùng an toàn) ở `release-k2-t3-g2` @6bf8d88b (chỉ thêm 4 tệp; LFS đẩy bằng `git lfs push`; tải công khai KHỚP SHA).
+- Sổ: RIGHTS (T3-SHORT-S1, T3-THUMB), COST-LEDGER KHEP-T3, BAI-HOC-K2 K32–K34. Báo cáo `KHEP-T3-BAO-CAO.md`. Kế tiếp: preflight --range, ff main.
+
+## Lệnh bổ sung đã áp
+- Không có lệnh bổ sung nào gửi tới phiên KHEP-T3 (đến 09:45 UTC).
