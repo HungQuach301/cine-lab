@@ -1,0 +1,456 @@
+{
+ "tag": "T6-l1",
+ "truoc": "/var/tmp/ldn/t6/ghep/T6-l1-render-khop.png",
+ "sau": "/var/tmp/ldn/t6/kiem/T6-l1-ghep.jpg",
+ "nam": "1666",
+ "prompt_sha": "7e6243f96757a293fc1963ddbdaf368eabbfcf9773c71364131e0c8572553e98",
+ "ket_qua": {
+  "gpt": {
+   "meta": {
+    "model": "gpt-6.1-sol",
+    "usd": 0.0663,
+    "usage": {
+     "input_tokens": 16515,
+     "input_tokens_details": {
+      "cache_write_tokens": 16512,
+      "cached_tokens": 0
+     },
+     "output_tokens": 3326,
+     "output_tokens_details": {
+      "reasoning_tokens": 730
+     },
+     "total_tokens": 19841
+    }
+   },
+   "secs": 68.3,
+   "json": {
+    "them": [
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small stack of barrels or bundled goods in the courtyard at the extreme left, behind the waterfront houses.",
+      "toa_do": [
+       0.0,
+       0.554,
+       0.008,
+       0.57
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.85
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Low pile of timber or bundled cargo on the left waterfront.",
+      "toa_do": [
+       0.014,
+       0.631,
+       0.034,
+       0.644
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.88
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Second low cargo pile immediately to the right of the leftmost waterfront pile.",
+      "toa_do": [
+       0.036,
+       0.628,
+       0.053,
+       0.643
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.86
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Cluster of barrels or bundles beside the waterfront house farther right.",
+      "toa_do": [
+       0.064,
+       0.623,
+       0.081,
+       0.639
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small dark pile of goods at the foot of the waterfront buildings.",
+      "toa_do": [
+       0.115,
+       0.631,
+       0.134,
+       0.645
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.82
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Row of barrels and bundled goods on the waterfront left of the inlet.",
+      "toa_do": [
+       0.165,
+       0.628,
+       0.188,
+       0.643
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small barrel or sack cluster near the waterfront, farther right of the preceding row.",
+      "toa_do": [
+       0.222,
+       0.634,
+       0.237,
+       0.649
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.88
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Loose lengths of timber beside the preceding cargo cluster.",
+      "toa_do": [
+       0.235,
+       0.635,
+       0.245,
+       0.647
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.78
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Cargo stacks at the left edge of the broad central waterfront clearing.",
+      "toa_do": [
+       0.489,
+       0.64,
+       0.508,
+       0.665
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Large foreground group of upright wooden barrels in the central waterfront clearing.",
+      "toa_do": [
+       0.506,
+       0.651,
+       0.537,
+       0.672
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Separate small barrel stack behind and left of the large foreground barrel group.",
+      "toa_do": [
+       0.519,
+       0.631,
+       0.533,
+       0.645
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small cargo stack against the rear-left houses bordering the central clearing.",
+      "toa_do": [
+       0.528,
+       0.611,
+       0.536,
+       0.624
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.9
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Second small stack of goods against the rear houses of the central clearing.",
+      "toa_do": [
+       0.541,
+       0.608,
+       0.551,
+       0.624
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.91
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Low stack of horizontal barrels near the rear middle of the central clearing.",
+      "toa_do": [
+       0.548,
+       0.622,
+       0.566,
+       0.638
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Separate horizontal barrel stack in the middle-right of the central clearing.",
+      "toa_do": [
+       0.575,
+       0.637,
+       0.594,
+       0.654
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.98
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Group of upright barrels near the front-right of the central clearing.",
+      "toa_do": [
+       0.561,
+       0.654,
+       0.584,
+       0.675
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Narrow vertical stack of crates or bundled goods against the right-rear house of the central clearing.",
+      "toa_do": [
+       0.606,
+       0.612,
+       0.613,
+       0.634
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.92
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Pile of long wooden poles or planks at the right side of the central clearing.",
+      "toa_do": [
+       0.583,
+       0.667,
+       0.605,
+       0.684
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Leaning casks and small goods immediately beside the central timber pile.",
+      "toa_do": [
+       0.603,
+       0.665,
+       0.616,
+       0.686
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small row of barrels at the water's edge to the right of the central clearing.",
+      "toa_do": [
+       0.627,
+       0.692,
+       0.641,
+       0.705
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Small barrel group at the foot of the waterfront houses farther right.",
+      "toa_do": [
+       0.765,
+       0.713,
+       0.78,
+       0.727
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.96
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Two adjacent stacks of barrels in the open waterfront gap on the right.",
+      "toa_do": [
+       0.83,
+       0.692,
+       0.849,
+       0.719
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Larger group of barrels and bundled goods near the water in the right-hand waterfront gap.",
+      "toa_do": [
+       0.854,
+       0.704,
+       0.877,
+       0.726
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.99
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Long timbers and loose cargo behind and to the right of the right-hand barrel group.",
+      "toa_do": [
+       0.873,
+       0.7,
+       0.895,
+       0.72
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.94
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Barrels and bundled goods beside the waterfront houses at the extreme right edge.",
+      "toa_do": [
+       0.978,
+       0.7,
+       1.0,
+       0.724
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+     }
+    ],
+    "bot_doi": [],
+    "doi_loai_vung": []
+   }
+  },
+  "claude": {
+   "meta": {
+    "model": [
+     "claude-haiku-5-5",
+     "claude-sonnet-5-5"
+    ],
+    "usd": 0.13968760000000002
+   },
+   "secs": 17.7,
+   "json": {
+    "them": [
+     {
+      "loai": "do_dac",
+      "mo_ta": "Stacks of barrels, logs and timber piled on the north-bank wharf (left of centre and along the shore, with a few more at the far right edge)",
+      "toa_do": [
+       0.0,
+       0.61,
+       0.6,
+       0.7
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+     },
+     {
+      "loai": "do_dac",
+      "mo_ta": "Timber and barrel piles on the right-hand wharf near the east edge of the frame",
+      "toa_do": [
+       0.82,
+       0.68,
+       1.0,
+       0.74
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.6
+     },
+     {
+      "loai": "cong_trinh",
+      "mo_ta": "The flat sandy shoreline is now a rocky, rubble-like riverbank edge, like wharves or foreshore",
+      "toa_do": [
+       0.0,
+       0.62,
+       1.0,
+       0.75
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.4
+     },
+     {
+      "loai": "cay",
+      "mo_ta": "Grass, scrub and a few tiny trees on the bare sand patches in the distant city and on the horizon",
+      "toa_do": [
+       0.0,
+       0.28,
+       1.0,
+       0.36
+      ],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.5
+     }
+    ],
+    "bot_doi": [],
+    "doi_loai_vung": []
+   }
+  }
+ }
+}
