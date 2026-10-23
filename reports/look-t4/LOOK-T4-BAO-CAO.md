@@ -3,7 +3,7 @@ Nhánh thật: `k2c-t4-02-look` (gốc `origin/k2c-t4-02-tienky` @888de179). Nh�
 # BÁO CÁO LOOK-T4 — khoá look tập K2C-T4-02 London (mốc M1b) · 23/10/2026
 
 ## §0. Nhánh, SHA, phạm vi
-- Nhánh `k2c-t4-02-look`, gốc `origin/k2c-t4-02-tienky` @888de179. Commit của phiên: [[COMMITS]]. Đã đẩy, **không merge**.
+- Nhánh `k2c-t4-02-look`, gốc `origin/k2c-t4-02-tienky` @888de179. Commit của phiên: 0e07c0d4, 56984287, 8de0b942, 6ad9918a, e05f5dbe, ac1821cf, 10b25a26, b6f2674a, 67bf3add + commit cuối "LOOK-T4: … — DỪNG chờ chủ dự án" (đỉnh nhánh). Đã đẩy, **không merge**.
 - Chỉ sửa trong vùng giao: `design/k2v/ldn/**` (mới: `look.js`), `scripts/k2ldn/**` (mới + sửa đường dẫn `du-lieu/` → `mo-hinh/` trong 4 tệp tiền kỳ), `channel-k2/k2c-t4-02/` (chỉ THÊM `look/`, `mo-hinh/`, `licenses/met-336038|336039|757299.json`, `licenses/SHA256-TU-LIEU-LOOK.txt`, `.gitignore` của thư mục tập; THÊM mục F vào cuối `RIGHTS-NHAP.md` theo lệnh "ghi RIGHTS-NHAP"), `reports/look-t4/**`. Không chạm `checks/`, `docs/`, sổ cái, `tools/`, `design/k2v/tl/**`, `design/cong3/shared/**`, `channel-k2/k2c-t3-01/**` (chỉ đọc LUT), `LOI-NHAP-v1.md`, `BANG-SHOT-v1.*`, `TREATMENT.md`, `main`.
 - Mọi commit qua preflight (`set -o pipefail`) "— ĐẠT" + `lock.py --verify` KHỚP; hook pre-commit + pre-push cài trước lần đẩy đầu. Không force-push, không amend.
 - Tệp lớn ngoài git ở `/var/tmp/ldn/` (OSM, LiDAR, tư liệu gốc, vân, hình học `ldn2.bin`, lightmap, khung thô, khung theo biến thể) — tái tạo bằng lệnh trong `scripts/k2ldn/`; mọi ĐẦU VÀO đọc tay (điểm khống chế, ranh cháy, toạ độ nhà thờ, máy, tham số look, LUT) nằm trong git.
@@ -28,10 +28,10 @@ Mã: `scripts/k2ldn/hinh_hoc_look.py` (hình học v2 → `ldn2.bin`, SHA trong 
 | Mặt đất | Lớp phủ 2 m theo năm: 1666 phố sỏi, sân đất, vườn trong khối (Doornick vẽ vườn), bến (sỏi + ván), bãi bùn; 2026 nhựa, vỉa hè, cỏ (OSM); tro tối trên vùng đã cháy > 4 h | `cls66.png`, `cls26.png` | 4–5 |
 | Cây, thuyền, khói bếp | Cây tán (vườn 1666 trong khối, công viên 2026; mùa đông 1940 trụi lá) 2 193 cây; thuyền theo mốc 153 (1666: đò wherry 70, sà lan 22, tàu buồm neo dưới cầu 14 — buồm cuộn; 1940: sà lan + tàu kéo; 2026: tàu khách + sà lan), không đặt sát điểm máy; khói bếp 2 360 ống khói (mật độ theo biến thể; 2026 không) | — | 4–5 |
 | Người / xe | **Chưa dựng** (khung look ở ≥ 19 m, người < 2 px ở khung rộng) → đề xuất L3 | — | — |
-| Ánh sáng nướng | Cycles **CPU** 1 m/texel, 32 spp, hộp 3,2 × 2,3 km, 3 mốc (1666 / 1940 / 2026): **93,8 · 88,3 · 109,1 s**; R = bức xạ trời có che khuất + nảy → AO phố + chân tường (tắt dần theo cao). GPU **không thuê**: CPU đã < 2 phút/mốc (đo), thuê pod chỉ để nướng tốn thời gian khởi động hơn | `bake_*.png.json` | — |
+| Ánh sáng nướng | Cycles **CPU** 1 m/texel, 32 spp, hộp 3,2 × 2,3 km, 3 mốc (1666 / 1940 / 2026): **86,4 · 87,6 · 107,5 s** (lượt cuối, hình học bản cuối); R = bức xạ trời có che khuất + nảy → AO phố + chân tường (tắt dần theo cao). GPU **không thuê**: CPU đã < 2 phút/mốc (đo), thuê pod chỉ để nướng tốn thời gian khởi động hơn | `bake_*.png.json` | — |
 | Khí quyển | Sương có độ cao (tích phân mật độ e^(−y/H) dọc tia máy) + lớp khói than thấp riêng (biến thể B) + đồi xa ngoài hộp (Hampstead/Highgate bắc, Sydenham/Norwood nam — bậc 5) + dãy nhà xa theo năm | — | 5 (đồi xa) |
 
-Hình học cuối: **2 270 425 tam giác** (`ldn2.bin` SHA-256 `11632ded53a0467b6c764ef2e9518f25ee7e766610a5f66483cb4f85f81ecd44`; mọi khung, clip, tranh khắc dựng trên đúng bản này; siêu dữ liệu: `channel-k2/k2c-t4-02/look/ldn2-meta.json`).
+Hình học cuối: **2 270 425 tam giác** (`ldn2.bin` SHA-256 `fef452941430a9163e1a4abe7d94c3cf3d8cee42c53bbb43aa8caff1ee80f518`; mọi khung, clip, tranh khắc dựng trên đúng bản này; siêu dữ liệu: `channel-k2/k2c-t4-02/look/ldn2-meta.json`).
 
 ## §2. Việc 2 — BỐN MỐC LOOK × 2 KHUNG
 Nguồn thật của máy/giờ/tham số: `channel-k2/k2c-t4-02/look/may/<hàng>-<A|B|C>.json` (sinh bằng `scripts/k2ldn/look_khung.py`). Cao độ máy là cao độ TUYỆT ĐỐI (ODN). Dựng 1920×1080, 16 spp, P = 2 (`scripts/k2ldn/look_chay.sh`).
@@ -105,10 +105,10 @@ Phạm vi bão hoà TV trên 24 ô: 0.024 – 0.584 (ngưỡng §14.4: 0,40). T�
 
 | Clip | Cú máy (§19 đề xuất) | Quay hướng nhìn °/s (TB/max) | Vòng quanh tiêu điểm °/s (TB/max) | Tiêu điểm trôi % khung/s (TB/max) | s/khung dựng (640×360, spp 4, P = 2) | MB |
 |---|---|---|---|---|---|---|
-| `clip/clip-M1-A.mp4` | VÒNG CUNG 18° / 8 s = 2,25°/s quanh City; thời gian chạy 15:00 → 16:30 | 2.17 / 2.52 | 1.69 / 1.99 | 0.73 / 0.85 | 5.92 | 3.24 |
-| `clip/clip-M2-A.mp4` | ĐẨY VÀO 16 % quãng tới tiêu điểm / 8 s; giờ cháy 3/9 12:00 → 18:00 (khói lớn dần) | 0.0 / 0.0 | 0.36 / 0.46 | 0.46 / 0.6 | 6.35 | 1.45 |
-| `clip/clip-M3-A.mp4` | ĐẨY VÀO chậm; 29/12/1940 20:00 → 23:00 (đám cháy lan) | 0.0 / 0.0 | 0.34 / 0.43 | 0.47 / 0.6 | 5.96 | 1.04 |
-| `clip/clip-M4-A.mp4` | VÒNG CUNG 16° / 8 s = 2°/s; 14:00 → 19:30 (chiều → hoàng hôn, cửa sổ sáng dần) | 1.92 / 2.24 | 1.52 / 1.8 | 0.63 / 0.74 | 6.28 | 2.75 |
+| `clip/clip-M1-A.mp4` | VÒNG CUNG 18° / 8 s = 2,25°/s quanh City; thời gian chạy 15:00 → 16:30 | 2.17 / 2.52 | 1.69 / 1.99 | 0.73 / 0.85 | 5.80 | 3.21 |
+| `clip/clip-M2-A.mp4` | ĐẨY VÀO 16 % quãng tới tiêu điểm / 8 s; giờ cháy 3/9 12:00 → 18:00 (khói lớn dần) | 0.0 / 0.0 | 0.36 / 0.46 | 0.46 / 0.6 | 6.20 | 1.43 |
+| `clip/clip-M3-A.mp4` | ĐẨY VÀO chậm; 29/12/1940 20:00 → 23:00 (đám cháy lan) | 0.0 / 0.0 | 0.34 / 0.43 | 0.47 / 0.6 | 5.88 | 1.03 |
+| `clip/clip-M4-A.mp4` | VÒNG CUNG 16° / 8 s = 2°/s; 14:00 → 19:30 (chiều → hoàng hôn, cửa sổ sáng dần) | 1.92 / 2.24 | 1.52 / 1.8 | 0.63 / 0.74 | 6.21 | 2.75 |
 
 Mọi clip trong giới hạn §19 đề xuất (quay ≤ 3°/s; tiêu điểm ≤ 1,5 %/s). Thời gian chạy trong khung ở cả 4 clip (giờ/giờ cháy nội suy theo khoá).
 
@@ -123,7 +123,9 @@ Làm lại bản thử T3 tiền kỳ với Old St Paul's mới: Hollar *Old St 
 | — trung vị | 50,9 | **33,8** |
 | — đỉnh tháp giao điểm | **232,5** | **23,7** |
 | Máy giải được | cách mặt đông 72 m, fov dọc 56° | cách mặt đông 247 m, cao 38,7 m, fov dọc 18,9° (khung cao 1002 → cắt 720; tranh gần phối cảnh trực giao — máy xa, ống kính dài hợp hơn) |
-[[T3KHOP]]
+| Khớp mặt đông, 7 điểm, trước uốn (px khung 720) — TB / max | — | 23,5 / 37,2 |
+| — sau uốn tỉ lệ/tịnh tiến — TB / max | — | 23,7 / 34,2 |
+| Điểm kiểm sau uốn: đỉnh tháp · chân cánh ngang nam · tâm cửa sổ hoa hồng | — | 9,9 · 14,0 · **39,9** px (cửa sổ hoa hồng của mô hình nay đứng đúng mặt đông, sân nhà thờ để trống; độ lệch còn lại chưa tách được nguyên nhân — giả thuyết chưa kiểm: tỉ lệ đầu hồi trong bản khắc khác kích thước Dugdale; không bóp hình học để khớp, mặt nạ 2,5D che ở bản hoà) |
 
 Tệp: `reports/look-t4/t3/T3-khac-hoa-look.mp4` (8 s) · tờ so trước/sau cùng thời điểm hoà (4,0 s): `reports/look-t4/t3/T3-so-truoc-sau.jpg` (trái: tiền kỳ `reports/tien-ky-t4/xem/T3-khac-hoa-1080.jpg`, phải: look). Số đo: `reports/look-t4/do/t3-may.json`, `t3-khop.json`.
 
@@ -132,11 +134,11 @@ Tệp: `reports/look-t4/t3/T3-khac-hoa-look.mp4` (8 s) · tờ so trước/sau c
 
 | Lớp / cấu hình | s/khung mỗi tiến trình (trung vị khung 1–23) | Ghi chú |
 |---|---|---|
-| Cách A look, 1080p, spp 4 — M1 ngày (vòng cung P1) | **7,55 / 7,66** | khung 0: 16,8 s; nạp cảnh 5,5–5,9 s |
-| Cách A look, 1080p, spp 4 — M3 đêm lửa 1940 (đẩy vào P1) | **7,74 / 7,84** | lửa + khói atlas không làm chậm đáng kể |
-| Cách A look, 640×360, spp 4 (4 clip) | 5,9–6,3 | nghẽn ở số đỉnh (2,28 tr. tam giác × bóng + gương + 4 mẫu), không ở điểm ảnh |
+| Cách A look, 1080p, spp 4 — M1 ngày (vòng cung P1) | **7,30 / 7,28** | khung 0: 12,4–13,2 s; nạp cảnh 4,8–5,2 s |
+| Cách A look, 1080p, spp 4 — M3 đêm lửa 1940 (đẩy vào P1) | **7,75 / 7,63** | khung 0: 13,7–14,0 s; lửa + khói atlas +5 % |
+| Cách A look, 640×360, spp 4 (4 clip) | 5,8–6,2 | nghẽn ở số đỉnh (2,28 tr. tam giác × bóng + gương + 4 mẫu), không ở điểm ảnh |
 | Khung look tĩnh 1080p, spp 16 | 37–46 (một khung, gồm nạp + biên dịch) | 24 khung ≈ 16 phút ở P = 2 |
-| Nướng lightmap Cycles CPU 1 m, 32 spp, 3,2 × 2,3 km | 88–109 s / mốc | 3 mốc trong phiên |
+| Nướng lightmap Cycles CPU 1 m, 32 spp, 3,2 × 2,3 km | 86–108 s / mốc | 3 mốc trong phiên |
 
 Tối ưu đã làm (không đổi hình, lệch TB 0,005/255): bản đồ bóng 1 lần/khung (trước: mỗi mẫu); chia hình học thành ô 300 m để loại theo khung nhìn (8,3 → 6,0 s/khung ở 640×360).
 
@@ -144,7 +146,7 @@ Tối ưu đã làm (không đổi hình, lệch TB 0,005/255): bản đồ bón
 
 | Khoản | UOC-VA-GHIM (tiền kỳ) | Ước mới (số đo look) | Lệch | Thay số? |
 |---|---|---|---|---|
-| Cách A 1080p (P = 2) | 8 s/khung/tiến trình → ≈ 14 h | 7,7 s → 12 312 × 7,7 / 2 ≈ **13,2 h** | −6 % | không (< 20 %) |
+| Cách A 1080p (P = 2) | 8 s/khung/tiến trình → ≈ 14 h | 7,5 s → 12 312 × 7,5 / 2 ≈ **12,8 h** | −9 % | không (< 20 %) |
 | Mặt nạ ID shot N2+ | ≈ 4 h ở P = 2 | ≈ 4 h (mặt nạ 1 lượt, không tích luỹ) | ≈ 0 | không |
 | Nướng ánh sáng theo mốc | ≈ 5 h (6–8 mốc × 40 phút) | 6–8 mốc × ≈ 100 s ≈ **0,2 h** | −96 % | **có** — thay bằng ≈ 0,2 h (CPU, không cần GPU) |
 | Tổng giờ máy container | ≈ 25–30 h | ≈ **20–25 h** (≈ 2 phiên ≤ 12 h) | −17…−20 % | ghi mới (biên dưới −20 %) |
@@ -188,9 +190,9 @@ Không force-push, không amend, không pod GPU nào được bật. Không lỗ
 |---|---|---|---|---|
 | Claude API | $5 | > $20 | **$0** (không gọi; không chấm/soi AI) | — |
 | OpenAI (chỉ soi/chấm) | $3 | > $10 | **$0** | — |
-| RunPod | $10 (số dư ≈ $21) | > $20 | **$0** — không bật pod: nướng Cycles CPU đo 88–109 s/mốc (1 m, 32 spp) nên GPU không "nhanh hơn rõ" khi tính cả khởi động pod | `bake_*.png.json` |
+| RunPod | $10 (số dư ≈ $21) | > $20 | **$0** — không bật pod: nướng Cycles CPU đo 86–108 s/mốc (1 m, 32 spp) nên GPU không "nhanh hơn rõ" khi tính cả khởi động pod | `bake_*.png.json` |
 | Gemini / ElevenLabs / YouTube | 0 | — | 0 / 0 / 0 | — |
-| Giờ máy container | 12 h | — | [[GIO_MAY]] | CHECKPOINT |
+| Giờ máy container | 12 h | — | **≈ 5,0 h** (10:53 → ≈ 15:50 UTC, gồm 2 lượt dựng toàn bộ do sửa hình học sau soát) | CHECKPOINT |
 | **Tổng tiền API/GPU** | | | **$0** | |
 
 Chi phí mô hình của chính phiên Claude Code không nằm trong bảng (không có số đo trong phiên).
