@@ -28,3 +28,6 @@ Nhánh làm việc: `k2c-t3-khep` (từ origin/main @9852adf5). Nhánh bộ khun
 - Lightmap b2026 XONG 07:00 (1 646 s; meta khớp bản cuối, p99,5 lệch ≤ 1,1e-5) → `reports/khep-t3/do/nuong-b2026.json`. Đang nướng b1704 → b1940 → b1900.
 - Dựng A (101 khung) + E (324 khung) 1080×1920 SPP 4 từ 07:00, ≈ 9 s/khung/luồng; hàng chờ: B sau A (cần b1704), D sau E (cần b1940, b1900). PGID: dung 11389/11479, hàng 14308/14309.
 - Sửa lệch ngoài vùng: `cuoi_cache.sh` ghi đè `reports/v7b/do/mau-nha.json` (osm_the_mau 47 → 54 do OSM tải lại hôm nay) → đã `git checkout` trả lại; ghi chênh lệch trong báo cáo.
+
+## Trạng thái (07:58 UTC)
+- Dựng xong: A 07:16 (946 s), E 07:37 (2 243 s), B 07:55 (1 166 s). Lightmap b1704 XONG (2 127 s). Đang nướng b1940 → b1900; D tự chạy khi đủ.
