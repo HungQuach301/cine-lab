@@ -1,0 +1,15 @@
+00:00.655  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+CY-DEV OPTIX ['NVIDIA GeForce RTX 5090']
+/w/gpu/cy_ldn.py:85: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True; nt = mat.node_tree; nt.nodes.clear(); return nt, nt.nodes, nt.links
+CY-B nha bắt đầu 0.3
+CY-B nha xong 0.8
+CY-B thể tích 291 1.8
+/w/gpu/cy_ldn.py:85: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True; nt = mat.node_tree; nt.nodes.clear(); return nt, nt.nodes, nt.links
+CY-CANH {"tam_giac": 655997, "o_chay": 291, "vat_the_tich": 2, "den": 0, "khung": [96, 96], "dung_s": 1.9, "dev": "OPTIX"}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+00:47.978  render           | Saved: '/w/out/ngay1080/00096.png'
+CY-XONG {"khung": 1, "s_khung": 45.57, "res": [1920, 1080], "spp": 32}
+
+Blender quit

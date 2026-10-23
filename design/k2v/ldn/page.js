@@ -180,7 +180,7 @@ function buildParticles(LC) {
   for (let j = 0; j < nz; j++) for (let i = 0; i < nx; i++) { const ig = t[j * nx + i]; if (ig < 0) continue; const x = LC.E0 - 532000 + i * LC.buoc, z = -(LC.N0 - 180800) + j * LC.buoc; cells.push([x, z, ig]); }
   const mk = (perCell, kind) => { const n = cells.length * perCell, off = new Float32Array(n * 4), sd = new Float32Array(n * 2); let q = 0;
     for (const [x, z, ig] of cells) for (let k = 0; k < perCell; k++) { const r1 = frac(Math.sin((x * 12.9 + z * 78.2 + k * 37.1)) * 43758.5), r2 = frac(Math.sin((x * 3.7 + z * 11.3 + k * 91.7)) * 24634.6);
-      off[q * 4] = x + (r1 - 0.5) * 18; off[q * 4 + 1] = groundAt(x, z); off[q * 4 + 2] = z + (r2 - 0.5) * 18; off[q * 4 + 3] = ig + r1 * 0.6; sd[q * 2] = r1; sd[q * 2 + 1] = r2; q++; }
+      const px = x + (r1 - 0.5) * 18, pz = z + (r2 - 0.5) * 18, gy = groundAt(px, pz); off[q * 4] = px; off[q * 4 + 1] = gy; off[q * 4 + 2] = pz; off[q * 4 + 3] = gy < 1.2 ? -1 : ig + r1 * 0.6; /* ô trên mặt sông 1666 (nước y 0,6) → không lửa/khói */ sd[q * 2] = r1; sd[q * 2 + 1] = r2; q++; }
     const g = new THREE.InstancedBufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(new Float32Array([-0.5, 0, 0, 0.5, 0, 0, 0.5, 1, 0, -0.5, 1, 0]), 3)); g.setIndex([0, 1, 2, 0, 2, 3]);
     g.setAttribute('off', new THREE.InstancedBufferAttribute(off, 4)); g.setAttribute('sd', new THREE.InstancedBufferAttribute(sd, 2)); g.instanceCount = n; return g; };
   const VS = (kind) => `attribute vec4 off; attribute vec2 sd; uniform float uHour, uT, uAtlas; uniform vec3 uCam; varying vec2 vUv; varying float vA; varying float vH; varying float vSeed; ${burnI}

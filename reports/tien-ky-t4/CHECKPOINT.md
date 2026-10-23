@@ -4,7 +4,7 @@
 
 ## Trạng thái
 - 23/10 ≈ 06:00 UTC: khởi động; verify.sh 10 PASS/5 FAIL → cài npm ci (k2v, cong3), OpenEXR/tifffile/pyshp; hook preflight pre-commit + pre-push đã cài.
-- 09:40 UTC: T1 Cycles ngày 120/120 về, đêm đang kéo (pod v4oswun6979dgd BẬT, tự tắt khi đủ); hàng A: T1 ngày (giờ 34–36) → khung 1080 T1/T2/T4; hàng D: sinh lại ldn.bin + T3. PHIEU-G1 nháp (D1–D17). Đang: tờ so T1/T3, báo cáo.
+- 10:05 UTC: pod T1 TẮT (1,62 h, $1,90; đủ 120 + 120 khung + 2 khung 1080). Kết luận T1: A tốt hơn (Cycles lộ mép miền thể tích ban ngày). Sửa lỗi hạt lửa trên sông (page.js) → hàng E dựng lại T1 A (PGID 5107). T3 v2: máy giải 9 điểm + uốn tranh lên mặt đông (PGID 6418 đang dựng). Báo cáo + tờ so + phiếu G1 (D1–D18) đang hoàn thiện.
 
 ## Lệnh bổ sung nhận được
 - (chưa có)
@@ -15,3 +15,4 @@
 - 08:05 UTC: T1 (i) cách A xong 2 × 120 khung 1280×720 (ngày 6,44 s/khung, đêm 5,32 s/khung, spp 4; lửa/khói = atlas thể tích nướng sẵn bằng mô phỏng numpy — Mantaflow trong bpy lỗi 2/2 lần). Cycles thử CPU: hình học/máy khớp; pod RTX 5090 `v4oswun6979dgd` BẬT 08:04 cho T1 (ii) (đo thử 2 s rồi mới chạy hết). Hàng dựng A (PGID 16284): T5 ảnh đầu, T6 tấm + mặt nạ, T2, T3, T4, T6 timelapse.
 - 09:15 UTC: T4 xong (4 đoạn, đo t4-may.json); T6 3 lượt OpenAI ($0,23): lượt 1–2 (iii) trượt (màu nước / dải biển giả ở chân trời cảnh dựng — đã sửa cảnh), lượt 3 trượt nặng (đổi vùng 20 %) → 0/3 đạt máy; ghép timelapse 6 s trên tấm lượt 2 (nhấp nháy (c) 0,078 so render 2,42). T5 Omni lượt 1 ĐẠT máy ($1,02). T1 Cycles: hộp thể tích theo ô ≈ 3 phút/khung → đổi sang miền thể tích duy nhất (bản đồ giờ bén lửa) 12,4 s/khung 960×540 spp 32; pod đang dựng hết. T2/T3 đang dựng lại (lỗi xoay máy thiên đỉnh; PnP tranh Hollar). RIGHTS-NHAP viết.
 - 09:40 UTC: PHIEU-G1 nháp; tờ so T1 (scripts/k2ldn/t1_so.sh); xem/T6-timelapse-n2p.mp4 640×360. Ghi nhận kiểm T5: ảnh đầu đọc như hoàng hôn (không ra 01:00 đêm) + một khối toà OSM sáng (năm bắt đầu sai) — đã kẹp ≥ 1667,5 trong hinh_hoc.py.
+- 10:05 UTC: báo cáo nháp, tờ so, UOC cập nhật số đo Cycles 1080p (ngày 45,6 s, đêm 15,3 s); T1 lỗi lửa trên sông sửa; T3 v2 (t3_may.py)

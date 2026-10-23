@@ -289,6 +289,7 @@ def toa_2026(m, skip_names=("St Paul's Cathedral",)):
         except Exception:
             pass
         if h > 120: start = max(start, 1995.0 + RNG.uniform(0, 30))
+        start = max(start, 1667.5)   # toà OSM có start_date trước 1667 (vd. công trình còn lại) KHÔNG hiện trong cảnh 1666 — đã có bản thủ tục/công trình có tên
         m.prism(ring, y0, g + h, colw, jitter((120, 120, 118), 8), (start, 9999.0, y0, -1.0), 4)
         n += 1
     return n, nl
