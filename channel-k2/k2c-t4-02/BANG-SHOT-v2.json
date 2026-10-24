@@ -1282,7 +1282,8 @@
    ],
    "vai": "lửa leo đồi Ludgate tới Old St Paul's bọc giàn giáo gỗ; nhà thờ bốc cháy",
    "lop": {
-    "A": 11.875
+    "A": 11.875,
+    "KHAC": 4
    },
    "goc": "thap",
    "tl": true,
@@ -1294,6 +1295,7 @@
     78
    ],
    "them": {
+    "khac": "ycba-266-0",
     "chuyen_s": -0.583,
     "tieu_diem_en": [
      532050,
@@ -1575,7 +1577,7 @@
    "lop": {
     "A": 16.292,
     "MAP3D": 5,
-    "THE": 3
+    "THE": 4
    },
    "goc": "cao",
    "tl": true,
@@ -2075,7 +2077,8 @@
    "vai": "Monument mọc; 202 ft = khoảng cách tới lò bánh",
    "lop": {
     "A": 12.0,
-    "THE": 2
+    "THE": 2.5,
+    "KHAC": 3
    },
    "goc": "cao",
    "tl": true,
@@ -2087,6 +2090,7 @@
     30
    ],
    "them": {
+    "khac": "rijks-monument-0",
     "vong_deg": 30,
     "tam": [
      532923,
@@ -2124,59 +2128,30 @@
     "Fire insurance begins here too.",
     "In 1680, Nicholas Barbon opens the Fire Office."
    ],
-   "diem_may": "P8",
-   "may": {
-    "ten": "TOWER-HILL (đông nhìn tây dọc Tower Street)",
-    "p": [
-     533800,
-     180600,
-     120
-    ],
-    "l": [
-     532900,
-     180800,
-     10
-    ],
-    "fov": 50
-   },
-   "cu_may": "CODINH",
-   "loai_may": "CODINH",
-   "thoi_gian": [
-    "y",
-    1680.0,
-    1680.4,
-    [
-     9,
-     1,
-     15.0
-    ],
-    0
-   ],
-   "vai": "Barbon lập Fire Office (1680)",
+   "diem_may": "—",
+   "may": null,
+   "cu_may": "MD",
+   "loai_may": "MD",
+   "thoi_gian": null,
+   "vai": "M-d (13) 1680: phố gạch mới, dấu bảo hiểm cháy kim loại gắn trên cửa (Fire Office, Barbon)",
    "lop": {
-    "A": 7.917,
+    "MD": 7.917,
     "THE": 4
    },
-   "goc": "cao",
-   "tl": true,
-   "minh_hoa": false,
+   "goc": "md",
+   "tl": false,
+   "minh_hoa": true,
    "ai_nen": false,
-   "tieu_diem_en": [
-    532900,
-    180800,
-    10
-   ],
+   "tieu_diem_en": null,
    "them": {
+    "md": 13,
     "the": [
      "Nicholas Barbon"
-    ],
-    "tieu_diem_en": [
-     532900,
-     180800,
-     10
     ]
    },
-   "loi_bd_s": 370.9501
+   "loi_bd_s": 370.9501,
+   "md_moc": 13,
+   "md_ten": "phố gạch 1680 + dấu bảo hiểm cháy (mới)"
   },
   {
    "ma": "H2-08",
@@ -2222,8 +2197,7 @@
    ],
    "vai": "chóp nhà thờ Wren mọc quanh City; nghiêng lên kết ở chóp",
    "lop": {
-    "A": 5.708,
-    "KHAC": 4
+    "A": 5.708
    },
    "goc": "cao",
    "tl": true,
@@ -2236,7 +2210,6 @@
    ],
    "them": {
     "nghieng_deg": 8,
-    "khac": "rijks-monument-0",
     "tieu_diem_en": [
      532500,
      181050,
@@ -2355,7 +2328,7 @@
    "vai": "đèn lồng hoàn tất; 365 ft — mái vòm anh hùng giờ vàng",
    "lop": {
     "A": 18.042,
-    "THE": 2
+    "THE": 2.5
    },
    "goc": "thap",
    "tl": true,
@@ -2692,52 +2665,16 @@
    "loi_bd_s": 440.2835
   },
   {
-   "ma": "H3-02a",
+   "ma": "H3-02",
    "phan": "HỒI 3",
    "chuong": "HỒI 3",
    "nhom_loi": "H3-02",
    "bat_dau_s": 446.251,
-   "giay": 6.0,
+   "giay": 10.125,
    "t0": 446.251,
-   "t1": 452.251,
-   "dur": 6.0,
-   "loi": "L52 (nhóm H3-02: H3-02a, H3-02b)",
-   "cau_loi": [
-    "On London Bridge, the houses and shops are pulled down in 1758.",
-    "By 1831, a new bridge has replaced the medieval one."
-   ],
-   "diem_may": "—",
-   "may": null,
-   "cu_may": "MD",
-   "loai_may": "MD",
-   "thoi_gian": null,
-   "vai": "M-d (13) 1758: thợ dỡ nhà trên cầu London (ảnh đầu từ render)",
-   "lop": {
-    "MD": 6.0
-   },
-   "goc": "md",
-   "tl": false,
-   "minh_hoa": true,
-   "ai_nen": false,
-   "tieu_diem_en": null,
-   "them": {
-    "md": 13
-   },
-   "loi_bd_s": 446.4502,
-   "md_moc": 13,
-   "md_ten": "dỡ nhà trên cầu 1758 (mới)"
-  },
-  {
-   "ma": "H3-02b",
-   "phan": "HỒI 3",
-   "chuong": "HỒI 3",
-   "nhom_loi": "H3-02",
-   "bat_dau_s": 452.251,
-   "giay": 4.125,
-   "t0": 452.251,
    "t1": 456.376,
-   "dur": 4.125,
-   "loi": "L52 (nhóm H3-02: H3-02a, H3-02b)",
+   "dur": 10.125,
+   "loi": "L52",
    "cau_loi": [
     "On London Bridge, the houses and shops are pulled down in 1758.",
     "By 1831, a new bridge has replaced the medieval one."
@@ -2761,7 +2698,7 @@
    "loai_may": "TRUOT",
    "thoi_gian": [
     "y",
-    1828.0,
+    1756.0,
     1832.0,
     [
      9,
@@ -2770,9 +2707,9 @@
     ],
     0
    ],
-   "vai": "cầu mới (1831) cạnh cầu cổ",
+   "vai": "nhà trên cầu London dỡ (1758, LMA); cầu mới (1831) thay cầu cổ",
    "lop": {
-    "A": 4.125
+    "A": 10.125
    },
    "goc": "thap",
    "tl": true,
@@ -3281,7 +3218,7 @@
    "them": {
     "cau_dz": -42,
     "dem": [
-     "100,000 bombs"
+     "100,000 incendiaries"
     ],
     "chuyen_s": 0.292,
     "tieu_diem_en": [
@@ -3587,7 +3524,7 @@
    "vai": "P1: vòng phế tích; bộ đếm 160",
    "lop": {
     "A": 10.208,
-    "THE": 2
+    "THE": 2.5
    },
    "goc": "cao",
    "tl": true,
@@ -4009,7 +3946,7 @@
    "vai": "P1: khoảng trống lấp dần; cụm toà cao phía đông mọc (thế kỷ này)",
    "lop": {
     "A": 10.417,
-    "N2P": 4.0
+    "N2P": 6.0
    },
    "goc": "cao",
    "tl": true,
@@ -4022,7 +3959,7 @@
    ],
    "them": {
     "tam_nen": [
-     6.417,
+     4.417,
      10.417
     ],
     "tam_nen_tu": "M01",
@@ -4032,7 +3969,7 @@
       1985.0
      ],
      [
-      6.417,
+      4.417,
       2026.67
      ],
      [
@@ -4242,23 +4179,19 @@
    ],
    "vai": "từ phía đông: mái vòm giữa cụm toà cao",
    "lop": {
-    "A": 6.0,
-    "N2P": 6.0
+    "A": 6.0
    },
    "goc": "cao",
    "tl": true,
    "minh_hoa": false,
-   "ai_nen": true,
+   "ai_nen": false,
    "tieu_diem_en": [
     532118,
     181150,
     111
    ],
    "them": {
-    "tam_nen": [
-     0,
-     6.0
-    ],
+    "tam_nen_truot": "P3-2026 trượt (iii) cả 3 lượt → 3D V2 (lệnh việc 5)",
     "tieu_diem_en": [
      532118,
      181150,
@@ -4499,37 +4432,37 @@
  "tong": {
   "thoi_luong_s": 730.083,
   "k1c1_s": 730.0834,
-  "so_shot": 74,
-  "shot_tb_s": 9.87,
+  "so_shot": 73,
+  "shot_tb_s": 10.0,
   "lop_s": {
-   "A": 552.333,
-   "N2P": 37.5,
-   "MD": 152.75,
-   "THE": 44,
-   "KHAC": 13,
+   "A": 550.416,
+   "N2P": 33.5,
+   "MD": 154.667,
+   "THE": 46.5,
+   "KHAC": 16,
    "MAP": 11.458,
    "MAP3D": 22.0,
    "TL": 8,
    "PP": 16.0
   },
   "lop_pct": {
-   "A": 75.65,
-   "N2P": 5.14,
-   "MD": 20.92,
-   "THE": 6.03,
-   "KHAC": 1.78,
+   "A": 75.39,
+   "N2P": 4.59,
+   "MD": 21.18,
+   "THE": 6.37,
+   "KHAC": 2.19,
    "MAP": 1.57,
    "MAP3D": 3.01,
    "TL": 1.1,
    "PP": 2.19
   },
-  "MD_pct": 20.92,
-  "N2P_pct": 5.14,
-  "AI_pct": 26.06,
+  "MD_pct": 21.18,
+  "N2P_pct": 4.59,
+  "AI_pct": 25.77,
   "MAP_ALL_pct": 4.58,
-  "TL_KHAC_THE_pct": 8.9,
+  "TL_KHAC_THE_pct": 9.66,
   "THAP_pct": 9.21,
-  "goc_cao_than_phim_pct": 67.21,
+  "goc_cao_than_phim_pct": 66.1,
   "than_phim_s": 714.083,
   "md_clip": 24,
   "md_moc": 17
@@ -4546,25 +4479,25 @@
   },
   {
    "chi_so": "Omni M-d % (Q1: 20–23 %)",
-   "gia_tri": 20.92,
+   "gia_tri": 21.18,
    "tran": 23,
    "san": 20,
    "dat": true,
-   "trong_5pct": true,
+   "trong_5pct": false,
    "ghi": ""
   },
   {
-   "chi_so": "Tấm nền N2+ % (V7: 5–15 %)",
-   "gia_tri": 5.14,
+   "chi_so": "Tấm nền N2+ % (V7: mục tiêu 5–15 %)",
+   "gia_tri": 4.59,
    "tran": 15,
    "san": 5,
-   "dat": true,
-   "trong_5pct": true,
-   "ghi": ""
+   "dat": false,
+   "trong_5pct": false,
+   "ghi": "P3-2026 (H5-06) trượt (iii) 3/3 lượt → 3D"
   },
   {
    "chi_so": "Tổng AI % (≤ 70)",
-   "gia_tri": 26.06,
+   "gia_tri": 25.77,
    "tran": 70,
    "san": null,
    "dat": true,
@@ -4582,16 +4515,16 @@
   },
   {
    "chi_so": "TU-LIEU-10: TL + KHAC + THE % (≤ 10)",
-   "gia_tri": 8.9,
+   "gia_tri": 9.66,
    "tran": 10,
    "san": null,
    "dat": true,
-   "trong_5pct": false,
+   "trong_5pct": true,
    "ghi": ""
   },
   {
    "chi_so": "GOC-CAO-60: góc cao có thời gian chạy / thân phim % (≥ 60)",
-   "gia_tri": 67.21,
+   "gia_tri": 66.1,
    "tran": null,
    "san": 60,
    "dat": true,
@@ -4641,7 +4574,7 @@
    "san": null,
    "dat": true,
    "trong_5pct": false,
-   "ghi": "H5-04: tấm nền chỉ ở 4 s cuối (năm 2026, ban ngày) — hoà ≥ 2 s"
+   "ghi": "H5-04: tấm nền chỉ ở 6 s cuối (năm 2026, ban ngày) — hoà ≥ 2 s"
   },
   {
    "chi_so": "N2P và MD không chồng",
@@ -4836,7 +4769,7 @@
   "10": "chia lô giữa tro 1667 (mới)",
   "11": "xây tường gạch 1667–68 (mới)",
   "12": "Thames 1711 (mới)",
-  "13": "dỡ nhà trên cầu 1758 (mới)",
+  "13": "phố gạch 1680 + dấu bảo hiểm cháy (mới)",
   "14": "hẻm City 1930s (mới)",
   "15": "City vắng chiều 29/12/1940 (mới)",
   "16": "vòi rồng trên bãi bùn triều thấp 29/12/1940 (mới)",

@@ -47,13 +47,13 @@ S = [
  ('H1-10', 'HỒI 1', 'H1-10', 7.083, '—', 'MD', None, 'M-d (4)+(6) Watling Street / Cheapside 3/9: xe chất đồ, người khiêng người bệnh', {'MD': 7.083}, {'md': 4, 'chuyen_s': 4.167}),
  ('H1-12', 'HỒI 1', 'H1-12', 6.458, '—', 'MD', None, 'M-d (3) Thames đêm 3/9: sà lan, đồ trôi, bờ bắc rực lửa (đổi chỗ với H1-11 theo thứ tự lời)', {'MD': 6.458}, {'md': 3}),
  ('H1-11', 'HỒI 1', 'H1-11', 14.417, 'P8', 'CODINH', ('h66', 38.0, 47.0), 'Royal Exchange cháy; trời "như miệng lò" — Evelyn', {'A': 14.417, 'THE': 4}, {'the': ['John Evelyn (người viết nhật ký)'], 'tieu_diem_en': [532800, 181120, 15]}),
- ('H1-13', 'HỒI 1', 'H1-13', 11.875, 'P4b', 'THAP', ('h66', 90.0, 93.0), "lửa leo đồi Ludgate tới Old St Paul's bọc giàn giáo gỗ; nhà thờ bốc cháy", {'A': 11.875}, {'chuyen_s': -0.583, 'tieu_diem_en': [532050, 181140, 78]}),
+ ('H1-13', 'HỒI 1', 'H1-13', 11.875, 'P4b', 'THAP', ('h66', 90.0, 93.0), "lửa leo đồi Ludgate tới Old St Paul's bọc giàn giáo gỗ; nhà thờ bốc cháy", {'A': 11.875, 'KHAC': 4}, {'khac': 'ycba-266-0', 'chuyen_s': -0.583, 'tieu_diem_en': [532050, 181140, 78]}),
  ('H1-14', 'HỒI 1', 'H1-14', 6.0, '—', 'MD', None, "M-d (5) chì chảy thành dòng trên phố quanh St Paul's đêm 4/9", {'MD': 6.0}, {'md': 5, 'chuyen_s': 0.583}),
  ('H1-15', 'HỒI 1', 'H1-15', 21.5, 'P8', 'CAU', ('h66', 92.0, 95.0), 'lửa vượt sông Fleet; nổ nhà bằng thuốc súng mở khoảng chặn (lớp a, render); Navy Office', {'A': 21.5}, {'cau_dz': 84, 'cau_h0': 150, 'tieu_diem_en': [533000, 180800, 10]}),
  ('H1-16', 'HỒI 1', 'H1-16', 7.25, 'P1', 'CODINH', ('h66', 94.0, 102.0), 'P1: gió dịu, lửa tàn → bình minh 6/9', {'A': 7.25}, {'tieu_diem_en': [532420, 180980, 15]}),
  ('H1-17a', 'HỒI 1', 'H1-17', 6.0, '—', 'MD', None, 'M-d (7) Moorfields: lều, chòi, đống đồ cứu được', {'MD': 6.0}, {'md': 7}),
  ('H1-17b', 'HỒI 1', 'H1-17', 6.292, '—', 'MD', None, 'M-d (7) Moorfields chạng vạng: gia đình quanh lửa nấu', {'MD': 6.292}, {'md': 7}),
- ('H1-18', 'HỒI 1', 'H1-18', 16.292, 'P7', 'XUONG', ('h66', 124.0, 130.0), 'phế tích bốc khói 7/9: ranh vùng cháy + bộ đếm 13 200 nhà / 87 nhà thờ', {'A': 16.292, 'MAP3D': 5, 'THE': 3}, {'xuong': {'tu': 0.0}, 'dem': ['13,200 houses', '87 churches'], 'tieu_diem_en': [532350, 181050, 10]}),
+ ('H1-18', 'HỒI 1', 'H1-18', 16.292, 'P7', 'XUONG', ('h66', 124.0, 130.0), 'phế tích bốc khói 7/9: ranh vùng cháy + bộ đếm 13 200 nhà / 87 nhà thờ', {'A': 16.292, 'MAP3D': 5, 'THE': 4}, {'xuong': {'tu': 0.0}, 'dem': ['13,200 houses', '87 churches'], 'tieu_diem_en': [532350, 181050, 10]}),
  ('H1-19', 'HỒI 1', 'H1-19', 6.0, '—', 'MD', None, 'M-d (8) phế tích bốc khói, ống khói gạch còn đứng', {'MD': 6.0}, {'md': 8}),
  ('H2-01a', 'HỒI 2', 'H2-01', 6.5, '—', 'MD', None, 'M-d (8) lối đi giữa tro còn nóng; tháp nhà thờ cháy dở làm mốc', {'MD': 6.5}, {'md': 8}),
  ('H2-01b', 'HỒI 2', 'H2-01', 6.667, '—', 'MD', None, 'M-d (8) người bới tro tìm lối, khói mỏng', {'MD': 6.667}, {'md': 8}),
@@ -63,18 +63,17 @@ S = [
  ('H2-04a', 'HỒI 2', 'H2-04', 6.0, '—', 'MD', None, 'M-d (11) Rebuilding Act: thợ xây tường gạch 1667–68', {'MD': 6.0}, {'md': 11}),
  ('H2-04b', 'HỒI 2', 'H2-04', 5.708, '—', 'MD', None, 'M-d (11) xe chở gạch, giàn giáo gỗ trên mặt phố', {'MD': 5.708}, {'md': 11}),
  ('H2-05', 'HỒI 2', 'H2-05', 18.833, 'P1', 'CODINH', ('y', 1668.0, 1671.0, [9, 1, 15.0], 0), 'P1: timelapse xây lại bằng gạch trên đúng lô cũ (≈ 6 000 nhà cuối 1670)', {'A': 18.833}, {'tieu_diem_en': [532420, 180980, 15]}),
- ('H2-06', 'HỒI 2', 'H2-06', 12.0, 'P3', 'VONG', ('y', 1671.0, 1677.0, [9, 1, 15.0], 0), 'Monument mọc; 202 ft = khoảng cách tới lò bánh', {'A': 12.0, 'THE': 2}, {'vong_deg': 30, 'tam': [532923, 180761, 30], 'p': [533190, 180600, 125], 'dem': ['202 ft'], 'tieu_diem_en': [532923, 180761, 30]}),
- ('H2-07', 'HỒI 2', 'H2-07', 7.917, 'P8', 'CODINH', ('y', 1680.0, 1680.4, [9, 1, 15.0], 0), 'Barbon lập Fire Office (1680)', {'A': 7.917, 'THE': 4}, {'the': ['Nicholas Barbon'], 'tieu_diem_en': [532900, 180800, 10]}),
- ('H2-08', 'HỒI 2', 'H2-08', 5.708, 'P2', 'NGHIENG', ('y', 1670.0, 1700.0, [9, 1, 15.0], 0), 'chóp nhà thờ Wren mọc quanh City; nghiêng lên kết ở chóp', {'A': 5.708, 'KHAC': 4}, {'nghieng_deg': 8, 'khac': 'rijks-monument-0', 'tieu_diem_en': [532500, 181050, 40]}),
+ ('H2-06', 'HỒI 2', 'H2-06', 12.0, 'P3', 'VONG', ('y', 1671.0, 1677.0, [9, 1, 15.0], 0), 'Monument mọc; 202 ft = khoảng cách tới lò bánh', {'A': 12.0, 'THE': 2.5, 'KHAC': 3}, {'khac': 'rijks-monument-0', 'vong_deg': 30, 'tam': [532923, 180761, 30], 'p': [533190, 180600, 125], 'dem': ['202 ft'], 'tieu_diem_en': [532923, 180761, 30]}),
+ ('H2-07', 'HỒI 2', 'H2-07', 7.917, '—', 'MD', None, 'M-d (13) 1680: phố gạch mới, dấu bảo hiểm cháy kim loại gắn trên cửa (Fire Office, Barbon)', {'MD': 7.917, 'THE': 4}, {'md': 13, 'the': ['Nicholas Barbon']}),
+ ('H2-08', 'HỒI 2', 'H2-08', 5.708, 'P2', 'NGHIENG', ('y', 1670.0, 1700.0, [9, 1, 15.0], 0), 'chóp nhà thờ Wren mọc quanh City; nghiêng lên kết ở chóp', {'A': 5.708}, {'nghieng_deg': 8, 'tieu_diem_en': [532500, 181050, 40]}),
  ('H2-09', 'HỒI 2', 'H2-09', 7.667, 'P1', 'CODINH', ('y', 1675.0, 1708.0, [9, 1, 15.0], 0), "P1: St Paul's mới mọc từ nền Old St Paul's", {'A': 7.667}, {'tieu_diem_en': DOME}),
- ('H2-10', 'HỒI 2', 'H2-10', 18.042, 'P4b', 'THAP', ('y', 1708.0, 1711.0, [9, 1, 17.5], 0), 'đèn lồng hoàn tất; 365 ft — mái vòm anh hùng giờ vàng', {'A': 18.042, 'THE': 2}, {'dem': ['365 ft'], 'tieu_diem_en': [532118, 181150, 100]}),
+ ('H2-10', 'HỒI 2', 'H2-10', 18.042, 'P4b', 'THAP', ('y', 1708.0, 1711.0, [9, 1, 17.5], 0), 'đèn lồng hoàn tất; 365 ft — mái vòm anh hùng giờ vàng', {'A': 18.042, 'THE': 2.5}, {'dem': ['365 ft'], 'tieu_diem_en': [532118, 181150, 100]}),
  ('H2-11', 'HỒI 2', 'H2-11', 6.0, 'P7', 'XUONG', ('y', 1676.0, 1676.0, [9, 1, 14.0], 0), 'nhìn xuống → xiên 1676: City gạch trên cùng tuyến phố 1666 (thay Ogilby — D13 không lên hình)', {'A': 6.0}, {'xuong': {'tu': 0.0}, 'tieu_diem_en': [532350, 181000, 10]}),
  ('H2-12', 'HỒI 2', 'H2-12', 12.0, 'P2', 'KHOP', ('khop', ('y', 1647.0, 1647.0, [9, 1, 15.0], 0), ('y', 1711.0, 1711.0, [9, 1, 15.0], 0), 6.0), 'then–now: cùng khung St Saviour 1647 ↔ 1711', {'A': 12.0, 'KHAC': 3}, {'khop_voi': 'H1-03', 'hoa_s': 1.0, 'khac': 'met-360649-0', 'tieu_diem_en': [532420, 180800, 15]}),
  ('H2-13', 'HỒI 2', 'H2-13', 6.0, '—', 'MD', None, 'M-d (12) Thames 1711: thuyền chèo chở khách, City gạch + mái vòm mới phía xa', {'MD': 6.0}, {'md': 12}),
  ('H2-14', 'HỒI 2', 'H2-14', 6.0, 'P5', 'CAU', ('y', 1709.0, 1711.0, [9, 1, 15.0], 0), 'cần cẩu hạ: City gạch đã kín lô, mái vòm hoàn tất', {'A': 6.0}, {'cau_dz': -24, 'tieu_diem_en': [532350, 180900, 10]}),
  ('H3-01', 'HỒI 3', 'H3-01', 6.167, 'P1', 'CODINH', ('y', 1711.0, 1860.0, [9, 1, 15.0], 0), 'P1: mái vòm cao nhất > 250 năm', {'A': 6.167}, {'tieu_diem_en': DOME}),
- ('H3-02a', 'HỒI 3', 'H3-02', 6.0, '—', 'MD', None, 'M-d (13) 1758: thợ dỡ nhà trên cầu London (ảnh đầu từ render)', {'MD': 6.0}, {'md': 13}),
- ('H3-02b', 'HỒI 3', 'H3-02', 4.125, 'P6', 'TRUOT', ('y', 1828.0, 1832.0, [9, 1, 15.0], 0), 'cầu mới (1831) cạnh cầu cổ', {'A': 4.125}, {'tieu_diem_en': [532800, 180600, 10]}),
+ ('H3-02', 'HỒI 3', 'H3-02', 10.125, 'P6', 'TRUOT', ('y', 1756.0, 1832.0, [9, 1, 15.0], 0), 'nhà trên cầu London dỡ (1758, LMA); cầu mới (1831) thay cầu cổ', {'A': 10.125}, {'tieu_diem_en': [532800, 180600, 10]}),
  ('H3-03', 'HỒI 3', 'H3-03', 12.458, 'P7', 'XUONG', ('y', 1860.0, 1871.0, [9, 1, 14.0], 0), 'Victoria Embankment đẩy bờ bắc ra sông (bờ 1666 ↔ nay)', {'A': 12.458, 'MAP3D': 4}, {'xuong': {'tu': 0.0}, 'tieu_diem_en': [531600, 180800, 0]}),
  ('H3-04a', 'HỒI 3', 'H3-04', 3.958, 'P5', 'CODINH', ('y', 1900.0, 1937.0, [9, 1, 15.0], 0), 'toà văn phòng 1930 cao dần quanh nhà thờ', {'A': 3.958}, {'tieu_diem_en': DOME}),
  ('H3-04b', 'HỒI 3', 'H3-04', 7.0, '—', 'MD', None, 'M-d (14) 1930s: hẻm City hẹp, người làm văn phòng đội mũ đi bộ — phố bên dưới không đổi', {'MD': 7.0}, {'md': 14}),
@@ -82,22 +81,22 @@ S = [
  ('H3-06', 'HỒI 3', 'H3-06', 8.0, 'P1', 'KHOP', ('khop', ('y', 1938.5, 1938.5, [9, 1, 15.0], 0), ('y', 1666.66, 1666.66, [9, 1, 15.0], 0), 4.0), 'P1 KHOP 1938 ↔ 1666', {'A': 8.0}, {'khop_voi': 'H3-01', 'hoa_s': 1.0, 'tieu_diem_en': DOME}),
  ('H4-01a', 'HỒI 4', 'H4-01', 6.0, 'P1', 'CODINH', ('d', [1940, 12, 29, 15.5], [1940, 12, 29, 16.6], 0), 'P1: Chủ nhật 29/12/1940 chạng vạng mùa đông', {'A': 6.0}, {'tieu_diem_en': DOME}),
  ('H4-01b', 'HỒI 4', 'H4-01', 6.0, '—', 'MD', None, 'M-d (15) phố City vắng chiều Chủ nhật 1940, khí cầu phòng không trên trời', {'MD': 6.0}, {'md': 15}),
- ('H4-02', 'HỒI 4', 'H4-02', 10.875, 'P5', 'CAU', ('h40', 0.6, 3.0), 'bom cháy rơi; ≈ 1 500 đám cháy; bộ đếm 100 000', {'A': 10.875, 'THE': 3}, {'cau_dz': -42, 'dem': ['100,000 bombs'], 'chuyen_s': 0.292, 'tieu_diem_en': [532300, 181100, 10]}),
+ ('H4-02', 'HỒI 4', 'H4-02', 10.875, 'P5', 'CAU', ('h40', 0.6, 3.0), 'bom cháy rơi; ≈ 1 500 đám cháy; bộ đếm 100 000', {'A': 10.875, 'THE': 3}, {'cau_dz': -42, 'dem': ['100,000 incendiaries'], 'chuyen_s': 0.292, 'tieu_diem_en': [532300, 181100, 10]}),
  ('H4-03', 'HỒI 4', 'H4-03', 8.0, '—', 'MD', None, 'M-d (16) lính cứu hoả kéo vòi trên bãi bùn Thames triều thấp, ống nước vỡ', {'MD': 8.0}, {'md': 16, 'chuyen_s': -0.292}),
  ('H4-04a', 'HỒI 4', 'H4-04', 8.5, 'P4b', 'THAP', ('h40', 4.0, 4.8), 'Paternoster Row cháy cạnh mái vòm', {'A': 8.5}, {'tieu_diem_en': [532118, 181150, 90]}),
  ('H4-04b', 'HỒI 4', 'H4-04', 6.5, '—', 'MD', None, "M-d (17) đội canh St Paul's Watch dập bom cháy trên mái chì bằng bơm tay, cát", {'MD': 6.5}, {'md': 17}),
  ('H4-04c', 'HỒI 4', 'H4-04', 13.25, 'P3', 'CODINH', ('h40', 5.0, 6.0), 'cả City cháy; mái Guildhall; mái vòm còn đứng giữa khói', {'A': 13.25}, {'tieu_diem_en': DOME}),
  ('H4-05', 'HỒI 4', 'H4-05', 4.542, 'P1', 'DAY', ('h40', 13.0, 13.5), 'P1: sáng ra mái vòm còn đứng giữa vòng phế tích', {'A': 4.542}, {'tieu_diem_en': DOME}),
- ('H4-06', 'HỒI 4', 'H4-06', 10.208, 'P1', 'CODINH', ('h40', 14.0, 40.0), 'P1: vòng phế tích; bộ đếm 160', {'A': 10.208, 'THE': 2}, {'dem': ['160 killed'], 'tieu_diem_en': DOME}),
+ ('H4-06', 'HỒI 4', 'H4-06', 10.208, 'P1', 'CODINH', ('h40', 14.0, 40.0), 'P1: vòng phế tích; bộ đếm 160', {'A': 10.208, 'THE': 2.5}, {'dem': ['160 killed'], 'tieu_diem_en': DOME}),
  ('H4-07', 'HỒI 4', 'H4-07', 5.458, 'P7', 'XUONG', ('y', 1941.3, 1941.3, [3, 1, 13.0], 0), 'vùng bom nặng Cripplegate / Paternoster (ước lượng)', {'A': 5.458, 'MAP3D': 5}, {'xuong': {'tu': 0.0}, 'tieu_diem_en': [532300, 181300, 10]}),
  ('H4-08', 'HỒI 4', 'H4-08', 12.0, 'P2', 'KHOP', ('khop', ('h66', 130.0, 132.0), ('y', 1941.3, 1941.3, [3, 1, 13.0], 0), 6.0), 'hai khoảng trống cùng một khung: 1666 ↔ 1941', {'A': 12.0}, {'khop_voi': 'H2-12', 'hoa_s': 1.0, 'tieu_diem_en': [532420, 180800, 15]}),
  ('H5-01', 'HỒI 5', 'H5-01', 12.542, 'P5', 'CODINH', ('y', 1946.0, 1951.0, [9, 1, 15.0], 1), 'Holden–Holford: quy hoạch lại vùng bom', {'A': 12.542, 'THE': 4}, {'the': ['Charles Holden', 'William Holford'], 'tieu_diem_en': [532300, 181300, 10]}),
  ('H5-02', 'HỒI 5', 'H5-02', 14.875, 'P5', 'CAU', ('y', 1957.0, 1976.0, [9, 1, 15.0], 1), 'London Wall (Route 11) + Barbican mọc trên Cripplegate', {'A': 14.875}, {'cau_dz': -58, 'tieu_diem_en': [532300, 181600, 10]}),
  ('H5-03', 'HỒI 5', 'H5-03', 6.458, 'P7', 'XUONG', ('y', 2026.67, 2026.67, [9, 2, 13.0], 1), 'lưới phố Doornick 1666 chồng lên 3D 2026: cùng tuyến', {'A': 6.458, 'MAP': 6.458}, {'ban_do_chong': True, 'xuong': {'tu': 0.0}, 'tieu_diem_en': [532350, 181000, 10]}),
- ('H5-04', 'HỒI 5', 'H5-04', 10.417, 'P1', 'CODINH', ('y', 1985.0, 2026.67, [9, 2, 14.0], 1), 'P1: khoảng trống lấp dần; cụm toà cao phía đông mọc (thế kỷ này)', {'A': 10.417, 'N2P': 4.0}, {'tam_nen': [6.417, 10.417], 'tam_nen_tu': 'M01', 'nam': [[0, 1985.0], [6.417, 2026.67], [10.417, 2026.67]], 'tieu_diem_en': [533150, 181150, 120]}),
+ ('H5-04', 'HỒI 5', 'H5-04', 10.417, 'P1', 'CODINH', ('y', 1985.0, 2026.67, [9, 2, 14.0], 1), 'P1: khoảng trống lấp dần; cụm toà cao phía đông mọc (thế kỷ này)', {'A': 10.417, 'N2P': 6.0}, {'tam_nen': [4.417, 10.417], 'tam_nen_tu': 'M01', 'nam': [[0, 1985.0], [4.417, 2026.67], [10.417, 2026.67]], 'tieu_diem_en': [533150, 181150, 120]}),
  ('H5-05a', 'HỒI 5', 'H5-05', 16.5, 'P9', 'CODINH', ('d', [2026, 9, 2, 17.0], [2026, 9, 2, 17.3], 1), 'tầm nhìn bảo vệ từ bờ nam: toà cao mọc trên phố cũ, mái vòm vẫn có nền trời', {'A': 16.5, 'N2P': 16.5}, {'tam_nen': [0, 16.5], 'tieu_diem_en': DOME}),
  ('H5-05b', 'HỒI 5', 'H5-05', 9.125, 'P4', 'THAP', ('d', [2026, 9, 2, 17.5], [2026, 9, 2, 17.6], 1), 'từ Fleet Street: Leadenhall vát — mái vòm còn nền trời', {'A': 9.125}, {'tieu_diem_en': DOME}),
- ('H5-06', 'HỒI 5', 'H5-06', 6.0, 'P3', 'CODINH', ('d', [2026, 9, 2, 16.0], [2026, 9, 2, 16.2], 1), 'từ phía đông: mái vòm giữa cụm toà cao', {'A': 6.0, 'N2P': 6.0}, {'tam_nen': [0, 6.0], 'tieu_diem_en': DOME}),
+ ('H5-06', 'HỒI 5', 'H5-06', 6.0, 'P3', 'CODINH', ('d', [2026, 9, 2, 16.0], [2026, 9, 2, 16.2], 1), 'từ phía đông: mái vòm giữa cụm toà cao', {'A': 6.0}, {'tam_nen_truot': 'P3-2026 trượt (iii) cả 3 lượt → 3D V2 (lệnh việc 5)', 'tieu_diem_en': DOME}),
  ('H5-07a', 'HỒI 5', 'H5-07', 6.0, '—', 'MD', None, 'M-d (18) 2026 đêm: người đứng tường sông Bankside nhìn sang City sáng đèn', {'MD': 6.0}, {'md': 18}),
  ('H5-07b', 'HỒI 5', 'H5-07', 15.333, 'P1', 'KHOP', ('khop', ('h66', 22.0, 22.5), ('d', [2026, 9, 2, 22.0], [2026, 9, 2, 22.3], 1), 7.5), 'KHÉP VÒNG: cùng khung Bankside — vòng cung lửa 1666 ↔ đèn City 2026', {'A': 15.333}, {'khop_voi': 'M03', 'hoa_s': 1.0, 'tieu_diem_en': DOME}),
  ('H5-08', 'HỒI 5', 'H5-08', 18.0, 'P1', 'KEO', ('d', [2026, 9, 2, 22.3], [2026, 9, 2, 22.8], 1), 'kéo lùi cuối: mái vòm giữa toà cao, sông, Bankside', {'A': 18.0}, {'lo_ra': 'bờ Bankside + sông + toàn cụm toà cao quanh mái vòm', 'tieu_diem_en': DOME}),
@@ -105,7 +104,7 @@ S = [
 ]
 MD_MOC = {1: 'Pudding Lane 01:00 2/9', 2: 'bờ sông gần cầu sáng 2/9', 3: 'Thames sà lan + đồ trôi, bờ bắc rực lửa', 4: 'Watling Street xe/người khiêng/người bệnh (+ (6) Cheapside cứu đồ lên xe)',
           5: "chì chảy quanh St Paul's đêm 4/9", 7: 'Moorfields lều/chòi/đống đồ', 8: 'phế tích bốc khói 7/9 (+ tro còn nóng 9/1666)',
-          9: 'quán bia Bankside 2/9 chạng vạng (mới)', 10: 'chia lô giữa tro 1667 (mới)', 11: 'xây tường gạch 1667–68 (mới)', 12: 'Thames 1711 (mới)', 13: 'dỡ nhà trên cầu 1758 (mới)',
+          9: 'quán bia Bankside 2/9 chạng vạng (mới)', 10: 'chia lô giữa tro 1667 (mới)', 11: 'xây tường gạch 1667–68 (mới)', 12: 'Thames 1711 (mới)', 13: 'phố gạch 1680 + dấu bảo hiểm cháy (mới)',
           14: 'hẻm City 1930s (mới)', 15: 'City vắng chiều 29/12/1940 (mới)', 16: 'vòi rồng trên bãi bùn triều thấp 29/12/1940 (mới)', 17: "St Paul's Watch trên mái (mới)", 18: 'Bankside đêm 2026 (mới)'}
 CAP = {'AI': 70, 'N2P': 50, 'MAP_ALL': 12, 'TL_KHAC_THE': 10, 'THAP': 12}
 GOC_CAO = {'P1', 'P2', 'P3', 'P5', 'P7', 'P8', 'P9'}   # ≥ 120 m (V7B-D1); P4/P4b/P6 thấp
@@ -164,7 +163,7 @@ def main():
                      (cap is not None and duoi is not None and isinstance(v, (int, float)) and abs(v - duoi) <= 0.05 * duoi), 'ghi': ghi})
     k_('Tổng = K1-C1 730,083 s', T, dat=abs(T - tong['k1c1_s']) < 1e-3 and not loi_nhom, ghi='; '.join(loi_nhom))
     k_('Omni M-d % (Q1: 20–23 %)', tong['MD_pct'], cap=23, duoi=20)
-    k_('Tấm nền N2+ % (V7: 5–15 %)', tong['N2P_pct'], cap=15, duoi=5)
+    k_('Tấm nền N2+ % (V7: mục tiêu 5–15 %)', tong['N2P_pct'], cap=15, duoi=5, ghi='P3-2026 (H5-06) trượt (iii) 3/3 lượt → 3D')
     k_('Tổng AI % (≤ 70)', tong['AI_pct'], cap=CAP['AI'])
     k_('BAN-DO-12: MAP + MAP3D % (≤ 12)', tong['MAP_ALL_pct'], cap=CAP['MAP_ALL'])
     k_('TU-LIEU-10: TL + KHAC + THE % (≤ 10)', tong['TL_KHAC_THE_pct'], cap=CAP['TL_KHAC_THE'])
@@ -174,7 +173,7 @@ def main():
     k_('MAP mỗi lần ≤ 10 s', max([r['lop'].get('MAP', 0) for r in rows]), cap=10.0)
     k_('N2P chỉ trên CODINH', '', dat=all(r['cu_may'] == 'CODINH' for r in rows if r['ai_nen']))
     k_('N2P chỉ 2026 ban ngày (V1)', '', dat=all(r['thoi_gian'][0] in ('d', 'y') and (r['thoi_gian'][2] if r['thoi_gian'][0] == 'd' else [r['thoi_gian'][2]])[0] >= 2026 for r in rows if r['ai_nen']),
-       ghi='H5-04: tấm nền chỉ ở 4 s cuối (năm 2026, ban ngày) — hoà ≥ 2 s')
+       ghi='H5-04: tấm nền chỉ ở 6 s cuối (năm 2026, ban ngày) — hoà ≥ 2 s')
     k_('N2P và MD không chồng', '', dat=all(not (r['ai_nen'] and r['minh_hoa']) for r in rows))
     k_('M-d kẹp giữa hai shot 3D (§15 f)', '', dat=all(rows[i - 1]['cu_may'] != 'PP' and i + 1 < len(rows) for i, r in enumerate(rows) if r['cu_may'] == 'MD'))
     by = collections.defaultdict(list)

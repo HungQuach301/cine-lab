@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-12-l2-360p-k25",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "b86ea4ebf585484def51699fb194ca3db214a219b7ef6aa689e07eead38b0b85",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "den",
+     "mo_ta": "Many small, evenly spaced warm-lit rectangular windows on the far-bank buildings, especially at the right. They look like lit interior windows.",
+     "ly_do": "These are most likely fire glow or candlelight, which would be plausible in 1666. They are only a weak suspect, because they could be read as dense, uniform lit windows like those of a later city.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1536,
+      162,
+      1920,
+      367
+     ],
+     "do_tin": 0.1
+    }
+   ],
+   "cost_usd": 0.0361417,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1034,
+     "cacheReadInputTokens": 2997,
+     "cacheCreationInputTokens": 10196,
+     "webSearchRequests": 0,
+     "costUSD": 0.0361417,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 209,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.4,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"den\",\"mo_ta\":\"Many small, evenly spaced warm-lit rectangular windows on the far-bank buildings, especially at the right. They look like lit interior windows.\",\"ly_do\":\"These are most likely fire glow or candlelight, which would be plausible in 1666. They are only a weak suspect, because they could be read as dense, uniform lit windows like those of a later city.\",\"nam_xuat_hien\":null,\"toa_do\":[0.8,0.15,1.0,0.34],\"do_tin\":0.1}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0361,
+ "chi_phi_tb": 0.0361,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

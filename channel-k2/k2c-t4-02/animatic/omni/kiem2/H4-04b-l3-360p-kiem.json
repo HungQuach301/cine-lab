@@ -1,0 +1,371 @@
+{
+ "tag": "H4-04b-l3-360p",
+ "clip": "/var/tmp/anim/omni/H4-04b/H4-04b-l3-360p.mp4",
+ "clip_sha": "3bd688d37ebc247071f4d7cda6e62ce8041a273954a1d514bca73acda1936e15",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H4-04b-dau.jpg",
+ "dau_sha": "800f0efea221aa21f102b9ef2fdfaf69a7c6131fd34a7aa2de4e3f2fd9b3d415",
+ "nam": "1940",
+ "canh": "volunteer fire-watchers on a lead roof at night, 29 December 1940",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H4-04b-l3-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0236,
+      "usage": {
+       "input_tokens": 9756,
+       "input_tokens_details": {
+        "cache_write_tokens": 9753,
+        "cached_tokens": 0
+       },
+       "output_tokens": 411,
+       "output_tokens_details": {
+        "reasoning_tokens": 179
+       },
+       "total_tokens": 10167
+      }
+     },
+     "secs": 11.4,
+     "mo_ta": "Bốn người đội mũ sắt canh lửa trên mái nhà ban đêm, dùng vòi nước và đổ vật liệu từ xô vào một đám cháy, phía sau là các dãy nhà đang cháy.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Đám cháy nhỏ trên mái trong ảnh tham chiếu bị khuếch đại thành một quầng lửa hoặc hơi sáng trắng lớn, kèm nhiều tia bắn.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.348,
+        0.488,
+        0.6,
+        0.784
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.89
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ô cửa sáng hình chữ nhật được thêm trên mặt tường phía dưới bên phải, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.864,
+        0.792,
+        0.883,
+        0.841
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Đám cháy nhỏ trên mái trong ảnh tham chiếu bị khuếch đại thành một quầng lửa hoặc hơi sáng trắng lớn, kèm nhiều tia bắn.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.348,
+        0.488,
+        0.6,
+        0.784
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.89
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ô cửa sáng hình chữ nhật được thêm trên mặt tường phía dưới bên phải, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.864,
+        0.792,
+        0.883,
+        0.841
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H4-04b-l3-360p-k25",
+      "nam": 1940,
+      "noi": "London",
+      "sha256": "6ef43df29acec26a942c7157a2d45d2446ca8f10ae5d4a3b34dc9e0329ff2e49",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 661,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0325,
+    "chi_phi_tb": 0.0325,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H4-04b-l3-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0234,
+      "usage": {
+       "input_tokens": 9756,
+       "input_tokens_details": {
+        "cache_write_tokens": 9753,
+        "cached_tokens": 0
+       },
+       "output_tokens": 388,
+       "output_tokens_details": {
+        "reasoning_tokens": 210
+       },
+       "total_tokens": 10144
+      }
+     },
+     "secs": 12.0,
+     "mo_ta": "Bốn người canh lửa đội mũ sắt đang dùng vòi nước và xô dập một đám cháy trên mái nhà giữa khói dày, phía sau là thành phố bốc cháy về đêm.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cấu trúc cửa sổ mái nhô ra ở góc dưới bên phải, có mái dốc và ô cửa sáng không che chắn; chi tiết kiến trúc này không có trong ảnh tham chiếu, và ánh sáng lọt ra không phù hợp với việc che sáng thời chiến.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.828,
+        0.59,
+        0.999,
+        0.914
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cấu trúc cửa sổ mái nhô ra ở góc dưới bên phải, có mái dốc và ô cửa sáng không che chắn; chi tiết kiến trúc này không có trong ảnh tham chiếu, và ánh sáng lọt ra không phù hợp với việc che sáng thời chiến.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.828,
+        0.59,
+        0.999,
+        0.914
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H4-04b-l3-360p-k55",
+      "nam": 1940,
+      "noi": "London",
+      "sha256": "e5887d19808287a462f4a1f65223d529bda68ae062959a2cbd92bf7255b247f2",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0338879,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 803,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0338879,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 142,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 12.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0339,
+    "chi_phi_tb": 0.0339,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H4-04b-l3-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0221,
+      "usage": {
+       "input_tokens": 9744,
+       "input_tokens_details": {
+        "cache_write_tokens": 9741,
+        "cached_tokens": 0
+       },
+       "output_tokens": 263,
+       "output_tokens_details": {
+        "reasoning_tokens": 107
+       },
+       "total_tokens": 10007
+      }
+     },
+     "secs": 10.5,
+     "mo_ta": "Bốn người đội mũ sắt canh lửa và dập cháy trên mái nhà ban đêm, phía sau là các dãy nhà đang cháy.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cửa sổ mái nhô có mái che và ô kính sáng đèn được thêm ở góc dưới bên phải, không thấy trong ảnh tham chiếu; ánh đèn không che chắn cũng không phù hợp với quy định phòng không ban đêm.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.866,
+        0.748,
+        0.952,
+        0.926
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cửa sổ mái nhô có mái che và ô kính sáng đèn được thêm ở góc dưới bên phải, không thấy trong ảnh tham chiếu; ánh đèn không che chắn cũng không phù hợp với quy định phòng không ban đêm.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.866,
+        0.748,
+        0.952,
+        0.926
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H4-04b-l3-360p-k90",
+      "nam": 1940,
+      "noi": "London",
+      "sha256": "c95beb6f96064e3b25e3f18f4c8ca75a101c3ad79010ee32449350c36dc346bf",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "den",
+        "mo_ta": "A dormer window on the lower right is brightly lit with warm light. Other windows in the burning skyline also glow.",
+        "ly_do": "London was under strict blackout in 1940, so lit windows would have been unusual. The glow could be reflected fire or interior fire, so this is only a weak concern and not a true anachronism.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1690,
+         875,
+         1786,
+         983
+        ],
+        "do_tin": 0.12
+       }
+      ],
+      "cost_usd": 0.0355379,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 968,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0355379,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 144,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 12.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"den\",\"mo_ta\":\"A dormer window on the lower right is brightly lit with warm light. Other windows in the burning skyline also glow.\",\"ly_do\":\"London was under strict blackout in 1940, so lit windows would have been unusual. The glow could be reflected fire or interior fire, so this is only a weak concern and not a true anachronism.\",\"nam_xuat_hien\":null,\"toa_do\":[0.88,0.81,0.93,0.91],\"do_tin\":0.12}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0355,
+    "chi_phi_tb": 0.0355,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

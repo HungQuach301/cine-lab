@@ -1,0 +1,99 @@
+{
+ "tag": "P9-2026-oai-l1",
+ "render": "/var/tmp/anim/tn/tn/P9-2026/P9-2026-oai-l1/render-khop.png",
+ "ai": "/var/tmp/anim/tn/tn/P9-2026/P9-2026-oai-l1/ghep.png",
+ "ghep": "/var/tmp/anim/tn/tn/P9-2026/P9-2026-oai-l1/P9-2026-oai-l1-ghep.png",
+ "sha_ghep": "851de80be9953e97225a698d990709f77f04ae6d6963c33847dbb8111fa4908e",
+ "nam": "2026",
+ "i_lop_a": {
+  "max_trong_a": 0,
+  "diem_lech_trong_a": 0,
+  "dien_tich_a_pct": 45.74,
+  "dai20_pct": 8.26,
+  "dai20_cum_dE30": 0,
+  "dai20_cum_lon": [],
+  "khop_anh_sang_vien": {
+   "so_cum": 10,
+   "dE_trung_vi": 3.99,
+   "dE_p90": 7.81
+  },
+  "khop_mau": false,
+  "dat_ghep": true,
+  "vat_lop_a": [],
+  "dat": true
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [],
+  "dat": true,
+  "q_thoi_dai": {
+   "ok": true,
+   "ket_qua": null,
+   "loi": [],
+   "thieu": [],
+   "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.030 (TB $0.030/khung) · gọi mới 1 · claude-sonnet-5-5",
+   "khung": [
+    {
+     "id": "ghep",
+     "nam": 2026,
+     "noi": "London",
+     "sha256": "851de80be9953e97225a698d990709f77f04ae6d6963c33847dbb8111fa4908e",
+     "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+     "model": "claude-sonnet-5-5",
+     "nghi_van": [],
+     "ghi_chu": [],
+     "cost_usd": 0.0303592,
+     "cost_buoc2": 0.0,
+     "model_usage": {
+      "claude-sonnet-5-5": {
+       "inputTokens": 6,
+       "outputTokens": 526,
+       "cacheReadInputTokens": 2847,
+       "cacheCreationInputTokens": 9921,
+       "webSearchRequests": 0,
+       "costUSD": 0.0303592,
+       "contextWindow": 1000000,
+       "maxOutputTokens": 128000,
+       "thinkingTokens": 0,
+       "canonicalModel": "claude-sonnet-5-5",
+       "provider": "firstParty",
+       "costBasis": "list"
+      }
+     },
+     "secs": 4.0,
+     "so_anh_doc": 5,
+     "loi": null,
+     "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+     "t": null
+    }
+   ],
+   "chi_phi_usd": 0.0304,
+   "chi_phi_tb": 0.0304,
+   "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+  }
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 7.25,
+  "nuoc_thanh_dat_pct": 3.06,
+  "t9b_dat_thanh_nuoc_pct": 7.25,
+  "t9b_nuoc_thanh_dat_pct": 0.0,
+  "dat": false,
+  "mo_hinh_bao": [],
+  "trong_hop_dia_hinh": {
+   "dat_thanh_nuoc_pct": 12.06,
+   "nuoc_thanh_dat_pct": 3.06,
+   "t9b_dat_thanh_nuoc_pct": 12.06,
+   "t9b_nuoc_thanh_dat_pct": 0.0,
+   "dat": false,
+   "ghi_chu": "cùng công thức T9/T9b, chỉ tính điểm thuộc hộp địa hình đã dựng (bỏ đất xa ngoài hộp và nhà xa) — phép (iii) đang được K-1.17.4 xét; KHÔNG dùng để tự nới"
+  }
+ },
+ "iv_dong_bang": {
+  "ap_dung": true,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}

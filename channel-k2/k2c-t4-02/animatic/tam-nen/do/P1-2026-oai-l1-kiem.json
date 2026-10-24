@@ -1,0 +1,163 @@
+{
+ "tag": "P1-2026-oai-l1",
+ "render": "/var/tmp/anim/tn/tn/P1-2026/P1-2026-oai-l1/render-khop.png",
+ "ai": "/var/tmp/anim/tn/tn/P1-2026/P1-2026-oai-l1/ghep.png",
+ "ghep": "/var/tmp/anim/tn/tn/P1-2026/P1-2026-oai-l1/P1-2026-oai-l1-ghep.png",
+ "sha_ghep": "4957ded5b2f3f72982cddcd32b7bf9bd57683ac026b2ae9cb909ba3fd5d7a7b2",
+ "nam": "2026",
+ "i_lop_a": {
+  "max_trong_a": 0,
+  "diem_lech_trong_a": 0,
+  "dien_tich_a_pct": 59.66,
+  "dai20_pct": 14.63,
+  "dai20_cum_dE30": 4,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     487,
+     708,
+     529,
+     756
+    ],
+    "px": 322
+   },
+   {
+    "hop": [
+     984,
+     751,
+     1005,
+     791
+    ],
+    "px": 300
+   },
+   {
+    "hop": [
+     1016,
+     636,
+     1034,
+     647
+    ],
+    "px": 90
+   },
+   {
+    "hop": [
+     1866,
+     839,
+     1874,
+     859
+    ],
+    "px": 82
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 21,
+   "dE_trung_vi": 4.06,
+   "dE_p90": 7.59
+  },
+  "khop_mau": false,
+  "dat_ghep": true,
+  "vat_lop_a": [],
+  "dat": true
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [],
+  "dat": true,
+  "q_thoi_dai": {
+   "ok": true,
+   "ket_qua": null,
+   "loi": [],
+   "thieu": [],
+   "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+   "khung": [
+    {
+     "id": "ghep",
+     "nam": 2026,
+     "noi": "London",
+     "sha256": "4957ded5b2f3f72982cddcd32b7bf9bd57683ac026b2ae9cb909ba3fd5d7a7b2",
+     "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+     "model": "claude-sonnet-5-5",
+     "nghi_van": [],
+     "ghi_chu": [
+      {
+       "muc": "kien_truc",
+       "mo_ta": "A long, straight, dark grey slab, like a pier or bridge deck, runs from the north embankment into the river. It ends abruptly mid-river and has no piers, railings or approach.",
+       "ly_do": "The central Thames has no structure like this in 2026. It is not a recognisable existing bridge or pier.",
+       "nam_xuat_hien": null,
+       "toa_do_px": [
+        826,
+        799,
+        1018,
+        1080
+       ],
+       "do_tin": 0.4
+      },
+      {
+       "muc": "kien_truc",
+       "mo_ta": "The skyline is a generic mass of blocky glass and brick towers around a St Paul's-like dome. It has no recognisable 2026 landmarks such as the Shard, the Gherkin or the Walkie-Talkie. The dense tall towers on the right are generic.",
+       "ly_do": "The 2026 City of London skyline looks different, with distinctive landmark towers and a different building mix.",
+       "nam_xuat_hien": null,
+       "toa_do_px": [
+        1056,
+        54,
+        1920,
+        378
+       ],
+       "do_tin": 0.25
+      }
+     ],
+     "cost_usd": 0.0355392,
+     "cost_buoc2": 0.0,
+     "model_usage": {
+      "claude-sonnet-5-5": {
+       "inputTokens": 6,
+       "outputTokens": 1044,
+       "cacheReadInputTokens": 2847,
+       "cacheCreationInputTokens": 9921,
+       "webSearchRequests": 0,
+       "costUSD": 0.0355392,
+       "contextWindow": 1000000,
+       "maxOutputTokens": 128000,
+       "thinkingTokens": 163,
+       "canonicalModel": "claude-sonnet-5-5",
+       "provider": "firstParty",
+       "costBasis": "list"
+      }
+     },
+     "secs": 11.7,
+     "so_anh_doc": 5,
+     "loi": null,
+     "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A long, straight, dark grey slab, like a pier or bridge deck, runs from the north embankment into the river. It ends abruptly mid-river and has no piers, railings or approach.\",\"ly_do\":\"The central Thames has no structure like this in 2026. It is not a recognisable existing bridge or pier.\",\"nam_xuat_hien\":null,\"toa_do\":[0.43,0.74,0.53,1.0],\"do_tin\":0.4},{\"muc\":\"kien_truc\",\"mo_ta\":\"The skyline is a generic mass of blocky glass and brick towers around a St Paul's-like dome. It has no recognisable 2026 landmarks such as the Shard, the Gherkin or the Walkie-Talkie. The dense tall towers on the right are generic.\",\"ly_do\":\"The 2026 City of London skyline looks different, with distinctive landmark towers and a different building mix.\",\"nam_xuat_hien\":null,\"toa_do\":[0.55,0.05,1.0,0.35],\"do_tin\":0.25}]}",
+     "t": null
+    }
+   ],
+   "chi_phi_usd": 0.0355,
+   "chi_phi_tb": 0.0355,
+   "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+  }
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 1.61,
+  "nuoc_thanh_dat_pct": 0.13,
+  "t9b_dat_thanh_nuoc_pct": 1.61,
+  "t9b_nuoc_thanh_dat_pct": 0.0,
+  "dat": true,
+  "mo_hinh_bao": [],
+  "trong_hop_dia_hinh": {
+   "dat_thanh_nuoc_pct": 2.33,
+   "nuoc_thanh_dat_pct": 0.13,
+   "t9b_dat_thanh_nuoc_pct": 2.32,
+   "t9b_nuoc_thanh_dat_pct": 0.0,
+   "dat": false,
+   "ghi_chu": "cùng công thức T9/T9b, chỉ tính điểm thuộc hộp địa hình đã dựng (bỏ đất xa ngoài hộp và nhà xa) — phép (iii) đang được K-1.17.4 xét; KHÔNG dùng để tự nới"
+  }
+ },
+ "iv_dong_bang": {
+  "ap_dung": true,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": true
+}

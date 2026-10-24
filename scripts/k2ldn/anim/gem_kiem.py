@@ -18,7 +18,7 @@ Check EVERY image (look closely at all corners and at small details) and list ev
 "chu" (any text, letters, numbers, signs, shop names, posters, logos, watermarks, captions or AI labels),
 "co" (flags, banners), "cong_trinh_ten" (identifiable famous landmark: dome, named cathedral, bridge, tower, monument) that is NOT in the reference image,
 "tau_lon" (sea-going ship larger than a small rowing boat or barge), "mat_meo" (distorted or melted faces, extra or missing limbs/fingers, merged bodies),
-"cam_hinh" (dead body, blood, wounded person, or a person inside flames shown close), "khong_khop" (the image does not illustrate the narration/scene), "khac" (anything else clearly wrong).
+"cam_hinh" (dead body, blood, wounded person, or a person inside flames shown close), "khong_khop" (the image contradicts the scene or the narration: wrong place, period, season, time of day or event; an image that illustrates the general situation around the narration is FINE and must not be listed), "khac" (anything else clearly wrong).
 Forbidden for this year (and your own knowledge): {cam}
 Ordinary period things are fine and must NOT be listed.
 Answer ONLY with one JSON object: {{"mo_ta": "<one sentence>", "muc": [{{"anh": <image number starting at 1>, "loai": "<key>", "mo_ta": "<what>", "nam_xuat_hien": <year or null>, "do_tin": <0-1>}}]}}"""

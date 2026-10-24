@@ -1,0 +1,172 @@
+{
+ "tag": "P3-2026-oai-l3",
+ "render": "/var/tmp/anim/tn/tn/P3-2026/P3-2026-oai-l3/render-khop.png",
+ "ai": "/var/tmp/anim/tn/tn/P3-2026/P3-2026-oai-l3/ghep.png",
+ "ghep": "/var/tmp/anim/tn/tn/P3-2026/P3-2026-oai-l3/P3-2026-oai-l3-ghep.png",
+ "sha_ghep": "5acdafd9936c16141b6eae1ece8ae6ca82b570ae153e37b6b8a437d2daec58ef",
+ "nam": "2026",
+ "i_lop_a": {
+  "max_trong_a": 0,
+  "diem_lech_trong_a": 0,
+  "dien_tich_a_pct": 54.51,
+  "dai20_pct": 6.24,
+  "dai20_cum_dE30": 8,
+  "dai20_cum_lon": [
+   {
+    "hop": [
+     0,
+     367,
+     839,
+     449
+    ],
+    "px": 13776
+   },
+   {
+    "hop": [
+     53,
+     644,
+     119,
+     683
+    ],
+    "px": 1348
+   },
+   {
+    "hop": [
+     18,
+     701,
+     81,
+     747
+    ],
+    "px": 1224
+   },
+   {
+    "hop": [
+     174,
+     647,
+     209,
+     663
+    ],
+    "px": 401
+   },
+   {
+    "hop": [
+     183,
+     619,
+     204,
+     636
+    ],
+    "px": 203
+   },
+   {
+    "hop": [
+     115,
+     718,
+     129,
+     730
+    ],
+    "px": 106
+   },
+   {
+    "hop": [
+     13,
+     721,
+     33,
+     731
+    ],
+    "px": 103
+   },
+   {
+    "hop": [
+     840,
+     429,
+     864,
+     437
+    ],
+    "px": 87
+   }
+  ],
+  "khop_anh_sang_vien": {
+   "so_cum": 1,
+   "dE_trung_vi": 15.4,
+   "dE_p90": 15.4
+  },
+  "khop_mau": false,
+  "dat_ghep": true,
+  "vat_lop_a": [],
+  "dat": true
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [],
+  "dat": true,
+  "q_thoi_dai": {
+   "ok": true,
+   "ket_qua": null,
+   "loi": [],
+   "thieu": [],
+   "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+   "khung": [
+    {
+     "id": "ghep",
+     "nam": 2026,
+     "noi": "London",
+     "sha256": "5acdafd9936c16141b6eae1ece8ae6ca82b570ae153e37b6b8a437d2daec58ef",
+     "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+     "model": "claude-sonnet-5-5",
+     "nghi_van": [],
+     "ghi_chu": [],
+     "cost_usd": 0.0312092,
+     "cost_buoc2": 0.0,
+     "model_usage": {
+      "claude-sonnet-5-5": {
+       "inputTokens": 6,
+       "outputTokens": 611,
+       "cacheReadInputTokens": 2847,
+       "cacheCreationInputTokens": 9921,
+       "webSearchRequests": 0,
+       "costUSD": 0.0312092,
+       "contextWindow": 1000000,
+       "maxOutputTokens": 128000,
+       "thinkingTokens": 85,
+       "canonicalModel": "claude-sonnet-5-5",
+       "provider": "firstParty",
+       "costBasis": "list"
+      }
+     },
+     "secs": 7.6,
+     "so_anh_doc": 5,
+     "loi": null,
+     "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+     "t": null
+    }
+   ],
+   "chi_phi_usd": 0.0312,
+   "chi_phi_tb": 0.0312,
+   "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+  }
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 0.61,
+  "nuoc_thanh_dat_pct": 74.01,
+  "t9b_dat_thanh_nuoc_pct": 0.61,
+  "t9b_nuoc_thanh_dat_pct": 39.47,
+  "dat": false,
+  "mo_hinh_bao": [],
+  "trong_hop_dia_hinh": {
+   "dat_thanh_nuoc_pct": 1.13,
+   "nuoc_thanh_dat_pct": 74.01,
+   "t9b_dat_thanh_nuoc_pct": 1.13,
+   "t9b_nuoc_thanh_dat_pct": 39.47,
+   "dat": false,
+   "ghi_chu": "cùng công thức T9/T9b, chỉ tính điểm thuộc hộp địa hình đã dựng (bỏ đất xa ngoài hộp và nhà xa) — phép (iii) đang được K-1.17.4 xét; KHÔNG dùng để tự nới"
+  }
+ },
+ "iv_dong_bang": {
+  "ap_dung": true,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": false
+}
