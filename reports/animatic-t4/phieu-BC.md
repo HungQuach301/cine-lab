@@ -49,4 +49,14 @@ Mỗi mục: phương án · ưu · nhược · tác động · rủi ro · **kh
 
 **C10 — Tấm Hollar sau cháy met-360649-0.** Đang không dùng (TU-LIEU 9,66 %, trần 10 %). (a) Thêm ≤ 2 s ở H2-02/H2-03 (TU-LIEU → ≈ 9,9 %, sát trần ±5 % — phải nêu tên) với chú thích "Wenceslaus Hollar, prospect of London after the Fire (etching, 1666) — The Met, CC0"; (b) không dùng. **Khuyến nghị (b)** cho tập này (biên quá hẹp); cân nhắc khi cắt bớt tư liệu khác.
 
-**C11 — K-LAI-1 đang 20,4 % > 20 %** (k2check thử). Nếu bản ghép cuối vẫn > 20: (a) rút 1 clip M-d ngắn nhất xuống 3D (M-d ≈ 19,9 % — dưới Q1 20 %); (b) giữ và ghi khiếu nại/giải thích. Số chốt điền ở báo cáo sau k2check có video. **Khuyến nghị: chờ số thật**, quyết sau.
+**C11 — K-LAI-1 = 20,4 % > 20 % (k2check 1.17.4, Chặn P2-2).** Q1 (chủ dự án) duyệt M-d 20–23 % và 1.17.4 (Q2) bỏ trần 20 % ở MINH-HOA, nhưng K-LAI-1 vẫn tính `ai_image` ≤ 20 % trên cùng 23 đoạn — hai luật mâu thuẫn ở đúng dải Q1 (số nằm trong ±5 % quanh ngưỡng: 20,36 %).
+- (a) Đề nghị K sửa K-LAI-1 theo Q2 (minh hoạ M-d tính ở MINH-HOA/N2P-6, không trần 20 %). Ưu: giữ đúng tỷ lệ chủ dự án duyệt. Nhược: chờ một vòng K. Rủi ro: không.
+- (b) Rút 1 clip M-d ≈ 3 s về 3D → 19,9 %. Nhược: dưới Q1 20 %; **thêm/bớt chỉ để vượt chỉ số — trái luật cứng**.
+- **Khuyến nghị (a)**; phiên không tự cắt.
+
+**C12 — Q4 XEM CÂM: "nhà thờ cũ trên đồi ra sao" vẫn mờ.** Sau sửa lỗi +24 h (H1-13 nay đúng tối 4/9, fov 30°), cả 3 người xem AI thấy "toà giống nhà thờ có tháp giữa đám cháy" nhưng trả lời "Not sure" về kết cục (P chấm tay 1/2; từ khoá chấm 2/2 — quá dễ dãi). Shot kể kết cục là H1-14 (M-d chì chảy) và H1-18 (phế tích) — chưa có khung nhà thờ sập/mái chì cháy rõ.
+- (a) Bản cuối: thêm 2–3 s cuối H1-13 nhà thờ sập mái (3D, lớp (a)) hoặc đổi lệnh M-d H1-14 cho thấy mái chì St Paul's cháy (≤ 3 lượt, ≈ $0,25). Ưu: câu chuyện câm đọc được. Nhược: thêm một khoảnh khắc dựng. 
+- (b) Giữ — lời kể đã nói rõ. Rủi ro: Q4 chủ dự án có thể trượt.
+- **Khuyến nghị (a)** — chủ dự án xem H1-13/H1-14 rồi quyết.
+
+**C13 — (thông tin, cần K trả lời) cách khai log máy và KHOP H5-07b.** (1) K1174 §5 nói `log_may` = log.json của `render_ldn.js` (ghi `cam.p` theo [E, N, h]), nhưng MAY-19 đọc `cam.p` theo hệ cảnh y-lên (như log T3) → phiên ghi thêm `cam` hệ cảnh, giữ `cam_en` gốc (cùng số liệu, đổi trục). (2) H5-07b KHOP báo lệch 62 139 px; tự chiếu điểm neo qua ma trận máy: 0 px giữa hai nửa và với khung đầu M03 — đề nghị K xem cách MAY-19 (c) chọn khung so khi `khop_voi` là shot DAY.
