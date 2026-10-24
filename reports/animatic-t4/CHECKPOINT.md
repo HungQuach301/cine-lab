@@ -11,7 +11,11 @@
 - Chi phí đến giờ: Gemini 0 · OpenAI 0 · Claude API 0 · ElevenLabs 0 · RunPod 0.
 
 ## Lệnh bổ sung đã áp
-- (chưa có)
+- **24/10/2026 12:55 (điều phối, chủ dự án dán vào phiên) — sửa nhầm tấm Hollar** — nhận lúc ≈ 05:50 UTC phiên (đồng hồ container). Trạng thái: **ĐÃ ÁP**.
+  1. Đọc trên chính bản khắc: met-360649-0 = tấm SAU cháy ("ANOTHER PROSPECT … AFTER THE SAD CALAMITIE …"), met-360649-1 = tấm TRƯỚC cháy ("A TRUE AND EXACT PROSPECT … BEFORE THE FIRE") — khớp lệnh. H1-03 và H2-12 đổi sang met-360649-1 (`scripts/k2ldn/anim/ghep.py` KHAC, `scripts/k2ldn/bang_shot_v2.py`); H1-03 dựng lại (đang trong hàng dựng 3 — cùng lúc hạ tốc TRUOT), H2-12 ghép lại lớp chồng ở lượt ghép cuối (khung 3D không chứa tư liệu).
+  2. Chú thích trên hình "Hollar: London before the Fire" (không năm); ghi công "Wenceslaus Hollar, prospect of London before the Fire (etching, published 1666) — The Met, CC0"; không gán 1647 cho bản khắc (lời H1-03 nói 1647 chỉ về việc Hollar vẽ từ tháp St Saviour's).
+  3. Bảng kiểm mọi tư liệu: `reports/animatic-t4/KIEM-TU-LIEU.md` — thêm một sửa: chú thích bản đồ Wren (LoC, in 1767) → "Wren's 1666 plan, engraved 1767".
+  4. Không thêm tư liệu mới; tấm sau cháy met-360649-0 → đề xuất ở PHIEU-XEM mục C.
 
 ### Lượt ĐO Omni (Q4) — 24/10 ≈ 02:30 UTC
 - Ảnh đầu: render 3D tầm người KHÔNG dùng được (mô hình look2 dựng cho máy ≥ 60 m; ở 2–3 m máy nằm trong khối tường — H1-02, H4-04b, H1-12). → ảnh đầu = ảnh tĩnh hoàn thiện OpenAI `gpt-image-2.5-sunburst-2026-09-08` (generations 2560×1440 high, $0,064/ảnh) + kiểm tầng 1 trước khi gửi Omni (Q3 điểm 2, "minh hoạ tĩnh có kiểm lỗi thời đại").

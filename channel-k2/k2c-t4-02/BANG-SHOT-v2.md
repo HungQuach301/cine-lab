@@ -30,7 +30,7 @@
 | H1-01a | 0:51.0 | 6.000 | L08 (nhóm H1-01: H1-01a, H1-01b) | — | MD | md | — | M-d (1) Pudding Lane 01:00 — lò bánh bén lửa, tàn lửa | MD (6), THE (3) | thẻ: Thomas Farriner (thợ làm bánh nhà vua) |
 | H1-01b | 0:57.0 | 5.875 | L08 (nhóm H1-01: H1-01a, H1-01b) | — | MD | md | — | M-d (1) tàn lửa bay lên con hẻm gỗ; hàng xóm thức dậy cầm đèn | MD (5.875) |  |
 | H1-02 | 1:02.8 | 8.000 | L09 | — | MD | md | — | M-d (1) hẻm nhà khung gỗ tầng nhô gần chạm nhau, lửa liếm mái hiên | MD (8) | chuyển hình -0.917 s với nhóm kề |
-| H1-03 | 1:10.8 | 16.792 | L10 | P2 | TRUOT | cao | 1647 | Hollar vẽ London từ tháp St Saviour's (1647): tranh khắc góc khung ≤ 1/3 rồi tan | A (16.792), KHAC (6) | chuyển hình +0.917 s với nhóm kề |
+| H1-03 | 1:10.8 | 16.792 | L10 | P2 | TRUOT | cao | 1647 | Hollar vẽ London từ tháp St Saviour's (lời: 1647); hiện bản khắc "prospect before the Fire" (xuất bản 1666, Met 360649 tấm -1) ở dải đáy khung | A (16.792), KHAC (6) | chuyển hình +0.917 s với nhóm kề |
 | H1-04 | 1:27.6 | 10.583 | L11–L12 | P2 | CODINH | cao | lửa 1666 giờ 7 → 12 (kể từ 2/9 00:00) | St Magnus + Fish Street cháy; gió đông (khói sang tây) | A (10.583) |  |
 | H1-05a | 1:38.2 | 5.500 | L13 (nhóm H1-05: H1-05a, H1-05b) | — | MD | md | — | M-d (2) bậc lên xuống bờ sông gần cầu sáng 2/9: ném đồ xuống sà lan | MD (5.5), THE (3) | thẻ: Samuel Pepys (người viết nhật ký) |
 | H1-05b | 1:43.7 | 5.167 | L13 (nhóm H1-05: H1-05a, H1-05b) | — | MD | md | — | M-d (2) sà lan đầy đồ đạc rời bến, khói trên mái | MD (5.167) |  |
