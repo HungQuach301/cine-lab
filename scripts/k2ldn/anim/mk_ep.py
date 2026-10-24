@@ -29,7 +29,7 @@ def main():
         if not j.exists(): j.write_bytes(gzip.decompress(gz.read_bytes()))
         gz.unlink()
     for d in Path('/var/tmp/anim/r').iterdir():
-        if (d / 'log.json').exists() and not (LG / f'{d.name}.json').exists(): shutil.copy(d / 'log.json', LG / f'{d.name}.json')
+        if (AN / 'may' / f'{d.name}.json').exists() and (d / 'log.json').exists() and not (LG / f'{d.name}.json').exists(): shutil.copy(d / 'log.json', LG / f'{d.name}.json')
     ls = []
     for r in B['shot']:
         x = {k: r[k] for k in ('ma', 't0', 't1', 'dur', 'chuong', 'goc', 'tl', 'cu_may', 'lop', 'ai_nen', 'minh_hoa', 'vai', 'tieu_diem_en', 'diem_may')}; x['shot'] = r['ma']
