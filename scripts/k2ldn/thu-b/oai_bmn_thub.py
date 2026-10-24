@@ -12,6 +12,11 @@ MODEL = 'gpt-image-2.5-sunburst-2026-09-08'; UA = 'CineLab-research (+https://gi
 MOC, CHAN = 4.0, 10.0
 CAM = ("Keep every building exactly where it is, with exactly the same outline, height, roof shape and the same number of buildings: do not add, remove, merge, "
        "split or move any building, and do not add or change any roof, chimney, dormer, storey, cornice or balcony. ")
+# lượt ≥ 2 (bmn-v2b): sau k2check lượt 1 (gpt (w): thêm ống khói/đổi đầu hồi; claude: thêm gờ/đá góc) — cấm rõ chi tiết kiến trúc AI tự thêm (Kinh thánh §11.3)
+CAM2 = ("Keep every building exactly where it is, with exactly the same outline, height, roof shape and the same number of buildings: do not add, remove, merge, "
+        "split or move any building. Do not add, remove or change any roof, gable, chimney, chimney pot, dormer, storey, cornice, balcony, bay or porch: the chimneys "
+        "already in the image are the only chimneys. Do not add architectural details that are not in the image (no new cornices, string courses, quoins, pediments, "
+        "brackets, extra windows or doors); keep every window and door opening where it is. Change only colour, material texture, weathering and dirt. ")
 KHONG = ("Do not add anything: no people, animals, vehicles, boats, carts, smoke, fire, flags, signs, lettering, lamps, street furniture, scaffolding, trees or plants. "
          "Do not paint any reflections on water or glass. ")
 KHUNG = {
@@ -45,14 +50,14 @@ def main():
     if usd >= MOC: print(f'CẢNH BÁO: OpenAI ${usd:.3f} ≥ mốc theo dõi ${MOC}', file=sys.stderr)
     if not a.khung.startswith('fac') and sum(1 for x in done if x.get('khung') == a.khung and x.get('http') == 200) >= 3: sys.exit('CHẶN: đã 3 lượt cho khung này (≤ 3 lượt/khung/cách)')
     if a.prompt_file: prompt = open(a.prompt_file).read().strip(); nam = None
-    else: prompt = KHUNG[a.khung]['p']; nam = KHUNG[a.khung]['nam']
+    else: prompt = KHUNG[a.khung]['p'] if a.luot < 2 else KHUNG[a.khung]['p'].replace(CAM, CAM2); nam = KHUNG[a.khung]['nam']
     W, H = map(int, a.size.split('x'))
     os.makedirs(a.out, exist_ok=True); buf = io.BytesIO(); Image.open(a.img).convert('RGB').resize((W, H), Image.LANCZOS).save(buf, 'PNG'); inp = buf.getvalue()
     params = {'model': MODEL, 'prompt': prompt, 'size': a.size, 'quality': 'high', 'n': '1', 'output_format': 'jpeg', 'output_compression': '92', 'stream': 'true', 'partial_images': '1'}
     bnd = uuid.uuid4().hex; parts = [f'--{bnd}\r\nContent-Disposition: form-data; name="{k}"\r\n\r\n{v}\r\n'.encode() for k, v in params.items()]
     parts.append(f'--{bnd}\r\nContent-Disposition: form-data; name="image[]"; filename="vao.png"\r\nContent-Type: image/png\r\n\r\n'.encode() + inp + b'\r\n'); parts.append(f'--{bnd}--\r\n'.encode())
     rq = urllib.request.Request('https://api.openai.com/v1/images/edits', data=b''.join(parts), headers={'Content-Type': f'multipart/form-data; boundary={bnd}', 'User-Agent': UA})
-    rec = dict(nha='openai', khung=a.khung, tag=a.tag, luot=a.luot, nam=nam, loi_nhac='bmn-v2-thub' if not a.prompt_file else os.path.basename(a.prompt_file), endpoint='POST /v1/images/edits',
+    rec = dict(nha='openai', khung=a.khung, tag=a.tag, luot=a.luot, nam=nam, loi_nhac=('bmn-v2-thub' if a.luot < 2 else 'bmn-v2b-thub') if not a.prompt_file else os.path.basename(a.prompt_file), endpoint='POST /v1/images/edits',
                model_req=MODEL, prompt=prompt, params={k: v for k, v in params.items() if k != 'prompt'}, mask=None,
                input=[dict(file=os.path.relpath(a.img, ROOT) if a.img.startswith(ROOT) else a.img, vai=f'image[] ({W}×{H} PNG Lanczos)', sha256_goc=sha(open(a.img, 'rb').read()), sha256_gui=sha(inp))],
                date_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()))

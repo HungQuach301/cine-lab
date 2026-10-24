@@ -49,6 +49,8 @@ NEW_SURF = r"""          if (vK > 1.5 && vK < 2.5) alb *= 0.38 + 0.15 * vn(vW.xz
               alb *= mix(0.50, 1.0, smoothstep(0.0, 2.4, p.y)); }   /* tiếp đất: chân tường ám bẩn + bóng tiếp xúc */
             else { float ms = fbm3(p * 0.55 + vHid * 0.37); alb = mix(alb, alb * vec3(0.74, 0.82, 0.66), 0.40 * smoothstep(0.50, 0.80, ms)); alb *= mix(0.66, 1.0, smoothstep(0.0, 0.7, p.y));
               alb *= 0.90 + 0.18 * vn(p * vec2(0.9, 3.2) + vHid); } }   /* rêu/ám khói loang + mép mái tối + hàng ngói lệch */
+          if (uD > 0.5 && !nt && ((vK > 5.5 && vK < 6.5) || (vK > 7.5 && vK < 8.5))) { float hs = h21(floor(vW.xz * 0.05) + 0.7); float sk = fbm3(vec2(p.x * 0.8 + hs * 7.0, p.y * 0.15));   /* THU-B D: đá ám khói than theo khối (nhà thờ giáo xứ, tường) — chỉ bề mặt */
+            alb *= mix(0.70, 0.95, hs) * (0.84 + 0.22 * sk); if (!roof) alb *= mix(0.62, 1.0, smoothstep(0.0, 3.0, p.y)); }
           if (uD2 > 0.5 && nt) { float tix = floor(h21(vec2(vHid * 0.0071, 5.3)) * 8.0); float era = vK < 1.5 ? 0.0 : (vK > 2.5 && vK < 3.5) ? 1.0 : (vK > 3.5 && vK < 4.5) ? 2.0 : -1.0;   /* THU-B D2: vân nướng mặt tiền/mái từ ảnh AI (8 mặt tiền/thời kỳ; nhà 1666 gạch và khối Victoria: giữ thủ tục) */
             if (!roof && era >= 0.0 && !(era < 0.5 && m == 2) && m != 14 && m != 7 && m != 13) { float off = h21(vec2(vHid * 0.013, 9.1)) * uFacN.z; vec2 fu = 0.01 + 0.98 * vec2(fract((p.x + off) / uFacN.z), fract(max(p.y, 0.0) / uFacN.w));
               float cl = mod(tix, 4.0), rw = era * 2.0 + floor(tix / 4.0); vec3 fc = texture2D(tFac, vec2((cl + fu.x) / uFacN.x, (rw + 1.0 - fu.y) / uFacN.y)).rgb; int ri = int(era);
@@ -80,9 +82,11 @@ rep("gl_FragColor = (vK > 4.5 && vK < 5.5 && id > 0.5) ? vec4(vec3(id * 20.0, 0.
     "        if (uMask > 3.5 && uMask < 4.5) gl_FragColor = vec4(vHid > 0.5 ? enc24(floor(vPid + 0.5)) : vec3(0.0), 1.0);\n"
     "        if (uMask > 5.5) gl_FragColor = vec4(l2s(diffuseColor.rgb), 1.0);`);")
 # --- địa hình: pass bóng xám đều
-rep("varying vec3 vW; varying float vWet; uniform sampler2D uFire, uFire40, uBake, tC66, tC26;", "uniform float uBong; varying vec3 vW; varying float vWet; uniform sampler2D uFire, uFire40, uBake, tC66, tC26;")
+rep("varying vec3 vW; varying float vWet; uniform sampler2D uFire, uFire40, uBake, tC66, tC26;", "uniform float uBong, uD; varying vec3 vW; varying float vWet; uniform sampler2D uFire, uFire40, uBake, tC66, tC26;")
 rep("cc = mix(cc, vec3(0.13, 0.115, 0.095), vWet * 0.85);\n        vec4 diffuseColor = vec4(cc, 1.0);`)",
-    "cc = mix(cc, vec3(0.13, 0.115, 0.095), vWet * 0.85); if (uBong > 0.5) cc = vec3(0.6);\n        vec4 diffuseColor = vec4(cc, 1.0);`)")
+    "cc = mix(cc, vec3(0.13, 0.115, 0.095), vWet * 0.85); if (uD > 0.5) cc *= 0.80 + 0.28 * fbm3(p * 0.31 + 3.3); if (uBong > 0.5) cc = vec3(0.6);\n        vec4 diffuseColor = vec4(cc, 1.0);`)")
+rep("reflectedLight.directDiffuse *= mix(1.0, smoothstep(0.05, 0.6, sk) * 0.4 + 0.6, uBakeK * 0.5); } }`)",
+    "reflectedLight.directDiffuse *= mix(1.0, smoothstep(0.05, 0.6, sk) * 0.4 + 0.6, uBakeK * 0.5);\n          if (uD > 0.5) { reflectedLight.directDiffuse *= smoothstep(0.15, 0.75, sk) * 0.35 + 0.65; reflectedLight.indirectDiffuse *= mix(1.0, sk, 0.5); } } }`)")
 # --- nạp hid/pid (nếu có) cùng các thuộc tính khác (trước khi chia ô 300 m)
 rep("  g.computeVertexNormals();\n  const m = new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide }); patchB(m, false);",
     "  { const nv = pos.length / 3; const ld32 = async (nm) => { try { const r = await fetch(base + LK + nm); if (!r.ok) return new Float32Array(nv); const a = new Float32Array(await r.arrayBuffer()); return a.length === nv ? a : new Float32Array(nv); } catch (e) { return new Float32Array(nv); } };\n"

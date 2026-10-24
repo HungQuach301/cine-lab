@@ -34,14 +34,24 @@ def kiem(ten, muc, vision=False):
         if cach in ('anh_tinh', 'chieu_3d') and os.path.exists(f'{t}/tl-{cach}.mp4'):
             e['be_mat_nha_video'] = dict(ghep=rel(f'{t}/tl-{cach}.mp4'), render=rel(f'{t}/tl-render.mp4'), cach=cach, **({'tam': rel(f'{t}/ghep.png')} if cach == 'chieu_3d' else {}))
         tam.append(e)
-    E = dict(id=f'thu-b-t4-{ten}', kenh=2, kenh2_tu_t4=True, animatic=False, out=f'/var/tmp/ldn/thub/k2c/{ten}', n2p=dict(noi='London', t4=True, tam=tam))
+    segs = [dict(id=f's{i}', dur=3.0, shots=[dict(id=x['shot'], at=0.0, tpl='scene3d')]) for i, x in enumerate(tam)]
+    E = dict(id=f'thu-b-t4-{ten}', title='THU-B-T4 vòng thử (không phải tập)', brand='MOVING PARTS', channel='k2', khung_sach=True, kenh2_tu_t4=True, animatic=False, out=f'/var/tmp/ldn/thub/k2c/{ten}', segments=segs, n2p=dict(noi='London', t4=True, tam=tam))
     import yaml
+    # log shot tối thiểu (trường theo RULES-LL 1.17.4 "Khai cho T4"): mỗi tấm một shot CODINH góc cao, lớp N2P = thời lượng, be_mat_nha_ai
+    LS = [dict(shot=x['shot'], t0=3.0 * i, t1=3.0 * i + 3.0, dur=3.0, chuong='thu-b', goc='cao', tl=True, cu_may='CODINH', lop={'N2P': 3.0}, ai_nen=False, be_mat_nha_ai=True) for i, x in enumerate(tam)]
+    json.dump(LS, open(os.path.join(o, 'log-shot.json'), 'w'), ensure_ascii=False, indent=1); E['log_shot'] = 'log-shot.json'
     yaml.safe_dump(E, open(os.path.join(o, 'episode.yaml'), 'w'), allow_unicode=True, sort_keys=False)
-    cmd = [sys.executable, os.path.join(REPO, 'checks/ll/k2check.py'), os.path.join(o, 'episode.yaml'), '--no-asr', '--cap'] + (['--n2p-vision'] if vision else [])
+    # timeline TỔNG HỢP tối thiểu (cùng cấu trúc reports/k1172/do/mk_tl.py của K): mỗi tấm một đoạn 3 s — chỉ để k2check chạy được hàng N2P/BE-MAT-NHA
+    TL = dict(id=E['id'], title=None, music=[], segments=[], heroes={}); t0 = 0.0
+    for sg in segs:
+        S = dict(id=sg['id'], dur=3.0, t0=t0, t1=t0 + 3.0, frames=72, speech=[], sfx=[], shots=[dict(sg['shots'][0], t0=0.0, t1=3.0)]); TL['segments'].append(S); t0 += 3.0
+    TL['tong_s'] = t0; TL['tong_khung'] = int(round(t0 * 24)); os.makedirs(E['out'], exist_ok=True); json.dump(TL, open(os.path.join(o, 'timeline.json'), 'w'), ensure_ascii=False)
+    cmd = [sys.executable, os.path.join(REPO, 'checks/ll/k2check.py'), os.path.join(o, 'episode.yaml'), '--tl', os.path.join(o, 'timeline.json'), '--no-asr', '--cap'] + (['--n2p-vision'] if vision else [])
     r = subprocess.run(cmd, capture_output=True, text=True, cwd=REPO)
     open(os.path.join(o, 'k2check.md'), 'w').write(r.stdout + ('\n\n<!-- stderr -->\n```\n' + r.stderr[-6000:] + '\n```\n' if r.stderr.strip() else ''))
     hang = [l for l in r.stdout.splitlines() if l.startswith('| BE-MAT-NHA') or l.startswith('| N2P-') or l.startswith('| LOCK') or l.startswith('| 1.17.5')]
     json.dump({'lenh': ' '.join(os.path.relpath(c, REPO) if c.startswith(REPO) else c for c in cmd), 'ma_thoat': r.returncode, 'hang': hang}, open(os.path.join(o, 'hang.json'), 'w'), ensure_ascii=False, indent=1)
+    if os.path.isdir(E['out']): shutil.copytree(E['out'], os.path.join(o, 'vision'), dirs_exist_ok=True, ignore=shutil.ignore_patterns('*.jpg', '*.png'))   # nguyên văn mô hình nhìn + bộ đệm + chi phí (D6)
     print('mã thoát', r.returncode); print('\n'.join(h[:900] for h in hang))
     if not hang: print(r.stdout[-3000:], r.stderr[-3000:])
 

@@ -170,3 +170,32 @@ if __name__ == '__main__':
     elif c == 'ghep': ghep(sys.argv[2], sys.argv[3], sys.argv[4])
     elif c == 'proj': proj(sys.argv[2], sys.argv[3], int(sys.argv[4]) if len(sys.argv) > 4 else 0)
     elif c == 'tl': tl(sys.argv[2], sys.argv[3])
+
+
+def soi(k, tag, n=8):
+    """tự soi (a): đỡ cạnh hình học từng nhà đo được (thước nháp của K: reports/k1175/do/ma/bmn.py::do_nha — chỉ để chọn ô phóng, KHÔNG thay k2check) → n nhà thấp nhất,
+    ô cắt phóng ×3 (render | ghép) → <tag>/soi-a.jpg + soi-a.json"""
+    sys.path.insert(0, os.path.join(REPO, 'reports/k1175/do/ma')); import bmn as KB
+    o = f'{BP}/{k}'; t = f'{o}/{tag}'
+    R = cv2.imread(f'{o}/render.png'); G = cv2.imread(f'{t}/ghep.png'); IID = dec24(cv2.imread(f'{o}/mat_na_nha.png')); PID = dec24(cv2.imread(f'{o}/mat_na_mat.png'))
+    BO = cv2.imread(f'{o}/bong.png'); rows = {r['id']: r for r in json.load(open(f'{o}/nha-chi-tiet.json'))}
+    meas = [i for i, r in rows.items() if r['do_duoc']]; nha = {i: {'px_m': rows[i]['px_m'], 'lo': rows[i]['lo']} for i in meas}
+    res = KB.do_nha(R, G, IID, nha, PID=PID, chi_id=set(meas), BONG=BO)
+    L = sorted([(v.get('sup0', 1.0), i, v) for i, v in res.items() if v.get('do')])[:n]
+    tiles = []
+    for s0, i, v in L:
+        ys, xs = np.nonzero(IID == i); y0, y1, x0, x1 = ys.min(), ys.max(), xs.min(), xs.max(); cy, cx = (y0 + y1) // 2, (x0 + x1) // 2
+        h = max(y1 - y0, x1 - x0, 40) // 2 + 12; yy0, xx0 = max(0, cy - h), max(0, cx - h); yy1, xx1 = min(R.shape[0], cy + h), min(R.shape[1], cx + h)
+        a = cv2.resize(R[yy0:yy1, xx0:xx1], (300, 300), interpolation=cv2.INTER_NEAREST); b = cv2.resize(G[yy0:yy1, xx0:xx1], (300, 300), interpolation=cv2.INTER_NEAREST)
+        cell = np.hstack([a, np.full((300, 6, 3), 255, np.uint8), b]); cv2.putText(cell, f'nha {i} do {s0:.2f} doi {v.get("dich_m", 0)} m', (6, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 255, 255), 2)
+        tiles.append(cell)
+    if tiles:
+        rowsimg = [np.hstack(tiles[j:j + 2]) if len(tiles[j:j + 2]) == 2 else np.hstack([tiles[j], np.zeros_like(tiles[j])]) for j in range(0, len(tiles), 2)]
+        cv2.imwrite(f'{t}/soi-a.jpg', np.vstack(rowsimg), [cv2.IMWRITE_JPEG_QUALITY, 88])
+    sup = [v['sup0'] for v in res.values() if v.get('do')]
+    out = dict(khung=k, tag=tag, n_do=len(sup), sup0_p5=round(float(np.percentile(sup, 5)), 3) if sup else None, sup0_tv=round(float(np.median(sup)), 3) if sup else None,
+               duoi_045=sum(1 for s_ in sup if s_ < 0.45), duoi_020=sum(1 for s_ in sup if s_ < 0.20), thap_nhat=[dict(id=i, sup0=s0, dich_m=v.get('dich_m'), loi=v.get('loi')) for s0, i, v in L])
+    json.dump(out, open(f'{t}/soi-a.json', 'w'), ensure_ascii=False, indent=1); print(json.dumps(out, ensure_ascii=False)[:600])
+
+
+if __name__ == '__main__' and sys.argv[1] == 'soi': soi(sys.argv[2], sys.argv[3])

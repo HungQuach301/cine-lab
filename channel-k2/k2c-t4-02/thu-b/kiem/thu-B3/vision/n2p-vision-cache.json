@@ -1,0 +1,690 @@
+{
+ "1c654ac5854102806db565ea082a2285": {
+  "ket_qua": {
+   "gpt": {
+    "meta": {
+     "model": "gpt-6.1-sol",
+     "usd": 0.0681,
+     "usage": {
+      "input_tokens": 16122,
+      "input_tokens_details": {
+       "cache_write_tokens": 16119,
+       "cached_tokens": 0
+      },
+      "output_tokens": 3585,
+      "output_tokens_details": {
+       "reasoning_tokens": 290
+      },
+      "total_tokens": 19707
+     },
+     "loi": null
+    },
+    "secs": 61.0,
+    "json": {
+     "them": [
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Sash-window frames, glazing bars, projecting sills and lintels added to the large pale foreground building and its lower left wing.",
+       "toa_do": [
+        0.103,
+        0.635,
+        0.293,
+        1.0
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Historically plausible in 1938, although these are added architectural details rather than preservation of the render.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Sash-window detailing, projecting surrounds and sills added to the red-brick building at lower left.",
+       "toa_do": [
+        0.022,
+        0.784,
+        0.103,
+        0.933
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Window frames, glazing bars, sills and lintels added to the partially cropped building along the left edge.",
+       "toa_do": [
+        0.0,
+        0.613,
+        0.023,
+        0.951
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Window surrounds, sash divisions and projecting sills added to the narrow brick building immediately right of the large pale foreground building.",
+       "toa_do": [
+        0.295,
+        0.671,
+        0.333,
+        0.947
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Framed sash windows and a dark ground-level doorway added to the pale building at the far end of the central alley.",
+       "toa_do": [
+        0.322,
+        0.6,
+        0.378,
+        0.818
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Projecting window sills, lintels, keystones and detailed sash frames added to the large central brown building.",
+       "toa_do": [
+        0.375,
+        0.642,
+        0.555,
+        0.939
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Gutters, downpipes and more elaborate eaves/cornice profiles added around the main foreground and alley-facing buildings.",
+       "toa_do": [
+        0.102,
+        0.621,
+        0.557,
+        1.0
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Such fittings existed by 1938; their invention remains an architectural addition.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Detailed sash frames, projecting sills and lintels added to the small brick house just right of the central foreground roofs.",
+       "toa_do": [
+        0.639,
+        0.696,
+        0.715,
+        0.809
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Framed sash windows, sills and lintels added to the narrow pale house in the right foreground.",
+       "toa_do": [
+        0.705,
+        0.674,
+        0.773,
+        0.853
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Projecting window surrounds and sills, sash divisions, eaves gutter and a vertical downpipe added to the large right-hand brick house.",
+       "toa_do": [
+        0.784,
+        0.647,
+        0.89,
+        0.87
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "A row of small roof windows/skylights added to the yellow house behind the small right-central brick house.",
+       "toa_do": [
+        0.656,
+        0.592,
+        0.693,
+        0.609
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Small rooflight added to the sloping roof behind the narrow pale right-foreground house.",
+       "toa_do": [
+        0.762,
+        0.652,
+        0.776,
+        0.671
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "New brick chimney stack with several pots on the rear roof immediately left of the tall central spire.",
+       "toa_do": [
+        0.539,
+        0.545,
+        0.551,
+        0.57
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Large brick chimney stack and pots on the nearer blue roof immediately left of the central spire.",
+       "toa_do": [
+        0.564,
+        0.577,
+        0.583,
+        0.64
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Brick chimney and pots at the left end of the small right-central house's roof.",
+       "toa_do": [
+        0.641,
+        0.613,
+        0.653,
+        0.643
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Chimney stacks and pots around the yellow rooflight house and its immediate rear neighbours.",
+       "toa_do": [
+        0.644,
+        0.559,
+        0.699,
+        0.607
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Brick chimney stack with pots behind the left slope of the narrow pale right-foreground house.",
+       "toa_do": [
+        0.705,
+        0.617,
+        0.715,
+        0.66
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Brick chimney stack and pots behind the right side of that pale house's roof.",
+       "toa_do": [
+        0.732,
+        0.6,
+        0.746,
+        0.635
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Tall chimney stack and pots at the left rear of the large right-hand brick house's roof.",
+       "toa_do": [
+        0.807,
+        0.56,
+        0.825,
+        0.613
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Additional chimney stacks and pots behind and to the right of the large right-hand house, including the stack partly hidden by the extreme-right foreground gable.",
+       "toa_do": [
+        0.853,
+        0.57,
+        0.936,
+        0.643
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "New chimney stacks and pots in the left-middle roofscape, including the prominent multi-pot stack behind the large pale foreground roof.",
+       "toa_do": [
+        0.224,
+        0.533,
+        0.246,
+        0.577
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Brick chimney and pots on the low roof to the left of the large pale foreground building.",
+       "toa_do": [
+        0.25,
+        0.589,
+        0.264,
+        0.618
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Brick chimney stack and pots behind the rear pale alley building.",
+       "toa_do": [
+        0.439,
+        0.539,
+        0.458,
+        0.571
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Additional small sash frames, window surrounds, cornice/eaves details and chimney pots distributed across the edited middle-distance houses on the left.",
+       "toa_do": [
+        0.0,
+        0.531,
+        0.322,
+        0.641
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Period-compatible architectural additions, not evidence of a post-1938 object.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Additional framed windows, projecting surrounds and chimney details on the middle-distance houses behind the central and right foreground roofs.",
+       "toa_do": [
+        0.556,
+        0.541,
+        0.786,
+        0.655
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      }
+     ],
+     "bot_doi": [
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "The large pale foreground building's triangular masonry gable is replaced by a front-facing sloping roof, changing the roof from a gabled form to a hipped/pyramidal-looking form.",
+       "toa_do": [
+        0.145,
+        0.553,
+        0.297,
+        0.645
+       ],
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "The triangular masonry gable of the pale rear building facing the central alley is replaced by a sloping roof face.",
+       "toa_do": [
+        0.319,
+        0.565,
+        0.386,
+        0.606
+       ],
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "The large central brown building's triangular brick pediment/gable becomes a sloping slate roof; its small horizontal gable openings become openings along the eaves.",
+       "toa_do": [
+        0.374,
+        0.546,
+        0.556,
+        0.639
+       ],
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "The large right-hand house's previously pale front wall is represented as exposed brick, with its upper parapet/eaves profile replaced by a more articulated cornice and gutter.",
+       "toa_do": [
+        0.833,
+        0.645,
+        0.889,
+        0.767
+       ],
+       "do_tin": 0.94
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "The low foreground parapet at bottom left loses its repeated small raised/notched coping pattern and receives a largely continuous projecting roof-edge/coping profile.",
+       "toa_do": [
+        0.056,
+        0.931,
+        0.237,
+        0.978
+       ],
+       "do_tin": 0.94
+      }
+     ],
+     "doi_loai_vung": []
+    }
+   },
+   "claude": {
+    "meta": {
+     "model": [
+      "claude-sonnet-5-5"
+     ],
+     "usd": 0.06535669999999999,
+     "loi": null
+    },
+    "secs": 13.3,
+    "json": {
+     "them": [
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Brick chimney stacks and pots added on many rooftops. The clearest are at centre-right near the spire base and on the right-hand gables.",
+       "toa_do": [
+        0.55,
+        0.57,
+        0.95,
+        0.68
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Chimneys are normal in 1938 London.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.6
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "The main facades gained sash windows with white frames and glazing bars, stone sills and lintels, string courses, quoins and corner stonework. The grey-white blocks on the left and centre are now weathered stone or brick.",
+       "toa_do": [
+        0.0,
+        0.55,
+        0.9,
+        1.0
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Sash windows and Georgian-style detail were common in 1938, so nothing here is out of period.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.6
+      },
+      {
+       "loai": "cong_trinho",
+       "mo_ta": "Roofs were re-textured as slate, with ridge lines and small dormer-like window details added along the upper facades.",
+       "toa_do": [
+        0.3,
+        0.55,
+        0.9,
+        0.7
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Slate roofs are period-appropriate for 1938.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      }
+     ],
+     "bot_doi": [],
+     "doi_loai_vung": []
+    }
+   }
+  },
+  "prompt_ver": "n2p-v1 (NC-N2P vision_kiem 21/10/2026 → K-1.17)",
+  "loi": null,
+  "chi_phi_usd": 0.1335
+ },
+ "qtd": {
+  "B3-p4-1938-l1-anh_tinh": {
+   "ghep": {
+    "id": "B3-p4-1938-l1-anh_tinh-ghep",
+    "nam": 1938,
+    "noi": "London",
+    "sha256": "10fc25c61a042e5b5d6a03f7e5eb1c58cbfc86ab5ce3bc00fff19e1c08a33c56",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [
+     {
+      "muc": "kien_truc",
+      "mo_ta": "Un grand bloc blanc à toit plat, de type barre moderne, se détache à l'horizon à droite, derrière les toits. Il est très petit et peu net.",
+      "ly_do": "Ce volume de type immeuble moderne pourrait être un bâtiment de béton ou d'acier postérieur à 1938. L'identification reste très incertaine à cause de la distance.",
+      "nam_xuat_hien": null,
+      "toa_do_px": [
+       1427,
+       572,
+       1494,
+       597
+      ],
+      "do_tin": 0.15
+     }
+    ],
+    "cost_usd": 0.03497209999999999,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 962,
+      "cacheReadInputTokens": 2901,
+      "cacheCreationInputTokens": 10020,
+      "webSearchRequests": 0,
+      "costUSD": 0.03497209999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 202,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 8.7,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":1938,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Un grand bloc blanc à toit plat, de type barre moderne, se détache à l'horizon à droite, derrière les toits. Il est très petit et peu net.\",\"ly_do\":\"Ce volume de type immeuble moderne pourrait être un bâtiment de béton ou d'acier postérieur à 1938. L'identification reste très incertaine à cause de la distance.\",\"nam_xuat_hien\":null,\"toa_do\":[0.743,0.53,0.778,0.553],\"do_tin\":0.15}]}"
+   },
+   "render": {
+    "id": "B3-p4-1938-l1-anh_tinh-render",
+    "nam": 1938,
+    "noi": "London",
+    "sha256": "782d8ddab8edb3c8dc0e520a1be2261e310e6cf8b752e2eb987634daa402ed11",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [
+     {
+      "muc": "kien_truc",
+      "mo_ta": "Có một khối nhà lớn, phẳng, kiểu tấm bản ở chân trời bên phải (khoảng x 0.76–0.80, y 0.52–0.55). Xa hơn nữa là dãy nhà cao đều nhau.",
+      "ly_do": "Khối này trông giống nhà cao tầng hiện đại. Hình ảnh quá nhỏ và mờ nên không chắc chắn, và nó có thể chỉ là một tòa nhà thời đó.",
+      "nam_xuat_hien": null,
+      "toa_do_px": [
+       1421,
+       562,
+       1555,
+       605
+      ],
+      "do_tin": 0.12
+     }
+    ],
+    "cost_usd": 0.0344459,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 915,
+      "cacheReadInputTokens": 2889,
+      "cacheCreationInputTokens": 9998,
+      "webSearchRequests": 0,
+      "costUSD": 0.0344459,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 124,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 8.8,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":1938,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Có một khối nhà lớn, phẳng, kiểu tấm bản ở chân trời bên phải (khoảng x 0.76–0.80, y 0.52–0.55). Xa hơn nữa là dãy nhà cao đều nhau.\",\"ly_do\":\"Khối này trông giống nhà cao tầng hiện đại. Hình ảnh quá nhỏ và mờ nên không chắc chắn, và nó có thể chỉ là một tòa nhà thời đó.\",\"nam_xuat_hien\":null,\"toa_do\":[0.74,0.52,0.81,0.56],\"do_tin\":0.12}]}"
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0694
+  }
+ },
+ "o2": {
+  "c932c23987e8f8727dbd0726219b3f95": {
+   "nam": 1938,
+   "noi": "London",
+   "sha256": "10fc25c61a042e5b5d6a03f7e5eb1c58cbfc86ab5ce3bc00fff19e1c08a33c56",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Un grand bloc blanc à toit plat, de type barre moderne, se détache à l'horizon à droite, derrière les toits. Il est très petit et peu net.",
+     "ly_do": "Ce volume de type immeuble moderne pourrait être un bâtiment de béton ou d'acier postérieur à 1938. L'identification reste très incertaine à cause de la distance.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1427,
+      572,
+      1494,
+      597
+     ],
+     "do_tin": 0.15
+    }
+   ],
+   "cost_usd": 0.03497209999999999,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 962,
+     "cacheReadInputTokens": 2901,
+     "cacheCreationInputTokens": 10020,
+     "webSearchRequests": 0,
+     "costUSD": 0.03497209999999999,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 202,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.7,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1938,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Un grand bloc blanc à toit plat, de type barre moderne, se détache à l'horizon à droite, derrière les toits. Il est très petit et peu net.\",\"ly_do\":\"Ce volume de type immeuble moderne pourrait être un bâtiment de béton ou d'acier postérieur à 1938. L'identification reste très incertaine à cause de la distance.\",\"nam_xuat_hien\":null,\"toa_do\":[0.743,0.53,0.778,0.553],\"do_tin\":0.15}]}"
+  },
+  "13500832cbeb8e3af6dd80cfd8dd85d6": {
+   "nam": 1938,
+   "noi": "London",
+   "sha256": "782d8ddab8edb3c8dc0e520a1be2261e310e6cf8b752e2eb987634daa402ed11",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Có một khối nhà lớn, phẳng, kiểu tấm bản ở chân trời bên phải (khoảng x 0.76–0.80, y 0.52–0.55). Xa hơn nữa là dãy nhà cao đều nhau.",
+     "ly_do": "Khối này trông giống nhà cao tầng hiện đại. Hình ảnh quá nhỏ và mờ nên không chắc chắn, và nó có thể chỉ là một tòa nhà thời đó.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1421,
+      562,
+      1555,
+      605
+     ],
+     "do_tin": 0.12
+    }
+   ],
+   "cost_usd": 0.0344459,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 915,
+     "cacheReadInputTokens": 2889,
+     "cacheCreationInputTokens": 9998,
+     "webSearchRequests": 0,
+     "costUSD": 0.0344459,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 124,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1938,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Có một khối nhà lớn, phẳng, kiểu tấm bản ở chân trời bên phải (khoảng x 0.76–0.80, y 0.52–0.55). Xa hơn nữa là dãy nhà cao đều nhau.\",\"ly_do\":\"Khối này trông giống nhà cao tầng hiện đại. Hình ảnh quá nhỏ và mờ nên không chắc chắn, và nó có thể chỉ là một tòa nhà thời đó.\",\"nam_xuat_hien\":null,\"toa_do\":[0.74,0.52,0.81,0.56],\"do_tin\":0.12}]}"
+  }
+ }
+}
