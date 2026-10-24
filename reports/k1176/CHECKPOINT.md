@@ -21,3 +21,7 @@ Nhánh harness gợi ý: `claude/beautiful-turing-rqkp8c` — không dùng để
 - 08:35: `git worktree add` toàn nhánh THU-B làm đầy đĩa (≈ 6 GB, còn 9,5 GB) → dừng theo PGID, xoá; thay bằng `git archive` chỉ thư mục cần (≈ 280 MB).
 - 08:40: vòng chờ `until ! pgrep -f "git reset …"` khớp chính dòng lệnh của nó (lặp bài học K-1.17.5 (1)) → dừng theo PGID; từ đây chờ bằng PID cụ thể (`kill -0 <pid>`), không `pgrep -f` với chuỗi có trong lệnh chờ.
 - 08:58: `open(…,'w')` trước khi đọc làm rỗng `checks/cinecheck/__init__.py` (lỗi thao tác) → khôi phục `git checkout --`, sửa VERSION bằng sed; không ảnh hưởng gì khác.
+| 09:15 | Video kiểm B3 l2 tái tạo: render, ảnh tĩnh, tỉ số bóng TRÙNG SHA video-sha.json; chiếu 3D khác SHA (PSNR so bản xem 34,73 dB ≈ nền mã hoá 35,23 dB; 1.17.5 cho đúng số THU-B 15,0 % · 4,6/12,6) | xong |
+| 09:20 | selftest_k1176 57/57 (sau 3 lần sửa CẢNH tổng hợp của chính bài: bão hoà 8 bit, mã sRGB tuyến tính, pass bóng phẳng — không sửa luật) | xong |
+| 09:25 | KN-5/6 B3 thật: tỉ số bóng 7,2 % → ĐẠT (d)(e); chiếu 3D (e) ĐẠT ở 640×360, (d) 15,0 → 9,4 % (tường sáng hơn render ~20 % khi nắng đổi — lệch ánh sáng thật của bản dựng); ảnh tĩnh TRƯỢT 85,5 % | xong |
+| 09:28– | k2check 1.17.5 trên T3 (cây origin/main, master LFS) chạy nền; tái tạo M4, M1 chạy nền | đang chạy |

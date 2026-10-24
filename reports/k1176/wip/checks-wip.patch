@@ -6,6 +6,36 @@ index 799fb44d..7f64a6f9 100644
  """Cine Lab — bộ máy kiểm L1 (phiên K). Phiên xưởng không đọc mã này; chỉ đọc checks/RUN.md."""
 -VERSION = "1.17.5"
 +VERSION = "1.17.6"
+diff --git a/checks/ll/RULES-LL.md b/checks/ll/RULES-LL.md
+index 3fa434f1..84831129 100644
+--- a/checks/ll/RULES-LL.md
++++ b/checks/ll/RULES-LL.md
+@@ -1,4 +1,4 @@
+-# Last Lamplighters — luật kênh khoá, bản LL v3 (phiên K, 07/10/2026; LL v2 06/10/2026; 1.10.0 12/10/2026, Q32 áp cả kênh 2; 1.10.1 12/10/2026: Q26b "the", Q33, Q34; 1.10.2 13/10/2026: Q26b đọc kênh 2, Q34c cột bản đồ; **1.11.0 15/10/2026: luật kênh 2 đợt 15/10 — âm thanh A1–A13, Q35 nhãn số, Q36 chữ, Q37 nhịp thị giác, Q32 DVIDS/giấy phép/20 %/< 720p, Q34d năm, Q14–Q18 không áp kênh 2**; **1.11.1 15/10/2026: Q34(e) loại `record` văn bản gốc, Q36(b) câu miễn trừ, D5 duyệt**; **1.12.0 16/10/2026: ML1–ML3 mạch truyện/lời, FT1 footage, BC1 bố cục, MAU1 màu, KHOP1 đổi trình dựng, TL-Q1…Q6 timelapse — CHỈ BÁO**; **1.12.1 17/10/2026: Q35 "≈" bộ đếm timelapse (HH3), TL-Q2 AGL theo loại tuyến (HH2), TL-Q1(c) tương phản cục bộ (MM3), TL-Q7 năm/s theo pha (MM2), TL-Q8 nội dung bay thấp (MM1), TL-Q9 tiết chế máy (JJ1/KK1), KHOP1 khai khung vàng (MM4), Q34 type timelapse; cấp Chặn/Cảnh báo ghi cạnh kết quả, `--cap` áp cấp**; **1.12.2 17/10/2026: biến thể kênh 2 NHIP-K2 (Q14–Q18 → Q37), Q26b-K2 (loại cảnh + vùng; bản đồ không còn trung tính), Q33-K2 (khoá vùng + pHash L/ΔE vùng nội dung), Q32b-K2 (ảnh có máy/chú thích ≤ 12 s) — CHỈ BÁO cạnh luật cũ, chờ duyệt**; **1.13 17/10/2026: NC-H1…NC-H5 luật hình nơi chốn (NC-LS §6), Q7/Q8-K2 estimate, Q33/Q36/Q37 (1.13) theo khiếu nại T2 G2 §13–§14 — CHỈ BÁO, chờ duyệt**; **1.14 17/10/2026: BD-1…BD-8 bản đồ chiến lược `strategic`/inset/ranh lịch sử (B1–B8), NC-H2/H3 loại strategic, K-R1…K-R9 ĐỎ-K (YY5) — CHỈ BÁO**; **1.15 18/10/2026: K-LAI-1…6 + K-LAI-B khung neo LAI (P2-2, P2-3), O2 máy soi lỗi thời đại (O-AI, lưới lọc thứ hai), BC2–BC4 bố cục (I3), Q37/TL-Q1 nhận biến cố cảnh tl và mốc dừng giờ (I8) — CHỈ BÁO**; **1.16 19/10/2026: luật T3 (SACH-1…PC-1, K-LAI-3V) + khiếu nại V6/G1b**; **1.16.1 19/10/2026: thước cắt cấu trúc (TL-1 (c)), chủ dự án duyệt K116-D1…D9 (18:48)**; **1.17.0 21/10/2026: N2+ (T4), minh hoạ, eo đất R1–R3, khiếu nại animatic T3 — CHỈ BÁO, cấp theo cổng**; **1.17.2 22/10/2026: MINH-HOA theo đoạn + bỏ nhãn, K-LAI đọc đoạn log shot, PP-1 (d) không câu AI, CONG-BO-1, TL-1 miễn cắt góc R3, EO-DAT-R1 chỉ báo + vùng nở; 1.17.3 23/10/2026: khiếu nại BAN-CUOI-T3 A1–A6 — TL-3 trong_pct danh sách, Q37 (a) mốc cảnh tl/*, EO-DAT-R3 ranh góc máy + ngoại lệ có khai, Q33 năm hiện, SACH-1 chữ thẻ theo đặc tả; 1.17.4 23/10/2026: D11 giữ N2P-3, BIEN-CO-V thước biến cố video, Q37 (c) miễn thẻ PP, Q2 (GEMINI-NGAN-SACH, GOC-CAO-60, bỏ trần 20 % M-d từ T4), §19 (MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU); 1.17.5 24/10/2026: khiếu nại A1–A5 — N2P-3 nước→đất = T9c (đường bờ đo, đối chứng render), N2P-1 (e) lớp sống, (d) vòng khớp màu cục bộ, BE-MAT-NHA (AI phủ bề mặt nhà thường)**)
++# Last Lamplighters — luật kênh khoá, bản LL v3 (phiên K, 07/10/2026; LL v2 06/10/2026; 1.10.0 12/10/2026, Q32 áp cả kênh 2; 1.10.1 12/10/2026: Q26b "the", Q33, Q34; 1.10.2 13/10/2026: Q26b đọc kênh 2, Q34c cột bản đồ; **1.11.0 15/10/2026: luật kênh 2 đợt 15/10 — âm thanh A1–A13, Q35 nhãn số, Q36 chữ, Q37 nhịp thị giác, Q32 DVIDS/giấy phép/20 %/< 720p, Q34d năm, Q14–Q18 không áp kênh 2**; **1.11.1 15/10/2026: Q34(e) loại `record` văn bản gốc, Q36(b) câu miễn trừ, D5 duyệt**; **1.12.0 16/10/2026: ML1–ML3 mạch truyện/lời, FT1 footage, BC1 bố cục, MAU1 màu, KHOP1 đổi trình dựng, TL-Q1…Q6 timelapse — CHỈ BÁO**; **1.12.1 17/10/2026: Q35 "≈" bộ đếm timelapse (HH3), TL-Q2 AGL theo loại tuyến (HH2), TL-Q1(c) tương phản cục bộ (MM3), TL-Q7 năm/s theo pha (MM2), TL-Q8 nội dung bay thấp (MM1), TL-Q9 tiết chế máy (JJ1/KK1), KHOP1 khai khung vàng (MM4), Q34 type timelapse; cấp Chặn/Cảnh báo ghi cạnh kết quả, `--cap` áp cấp**; **1.12.2 17/10/2026: biến thể kênh 2 NHIP-K2 (Q14–Q18 → Q37), Q26b-K2 (loại cảnh + vùng; bản đồ không còn trung tính), Q33-K2 (khoá vùng + pHash L/ΔE vùng nội dung), Q32b-K2 (ảnh có máy/chú thích ≤ 12 s) — CHỈ BÁO cạnh luật cũ, chờ duyệt**; **1.13 17/10/2026: NC-H1…NC-H5 luật hình nơi chốn (NC-LS §6), Q7/Q8-K2 estimate, Q33/Q36/Q37 (1.13) theo khiếu nại T2 G2 §13–§14 — CHỈ BÁO, chờ duyệt**; **1.14 17/10/2026: BD-1…BD-8 bản đồ chiến lược `strategic`/inset/ranh lịch sử (B1–B8), NC-H2/H3 loại strategic, K-R1…K-R9 ĐỎ-K (YY5) — CHỈ BÁO**; **1.15 18/10/2026: K-LAI-1…6 + K-LAI-B khung neo LAI (P2-2, P2-3), O2 máy soi lỗi thời đại (O-AI, lưới lọc thứ hai), BC2–BC4 bố cục (I3), Q37/TL-Q1 nhận biến cố cảnh tl và mốc dừng giờ (I8) — CHỈ BÁO**; **1.16 19/10/2026: luật T3 (SACH-1…PC-1, K-LAI-3V) + khiếu nại V6/G1b**; **1.16.1 19/10/2026: thước cắt cấu trúc (TL-1 (c)), chủ dự án duyệt K116-D1…D9 (18:48)**; **1.17.0 21/10/2026: N2+ (T4), minh hoạ, eo đất R1–R3, khiếu nại animatic T3 — CHỈ BÁO, cấp theo cổng**; **1.17.2 22/10/2026: MINH-HOA theo đoạn + bỏ nhãn, K-LAI đọc đoạn log shot, PP-1 (d) không câu AI, CONG-BO-1, TL-1 miễn cắt góc R3, EO-DAT-R1 chỉ báo + vùng nở; 1.17.3 23/10/2026: khiếu nại BAN-CUOI-T3 A1–A6 — TL-3 trong_pct danh sách, Q37 (a) mốc cảnh tl/*, EO-DAT-R3 ranh góc máy + ngoại lệ có khai, Q33 năm hiện, SACH-1 chữ thẻ theo đặc tả; 1.17.4 23/10/2026: D11 giữ N2P-3, BIEN-CO-V thước biến cố video, Q37 (c) miễn thẻ PP, Q2 (GEMINI-NGAN-SACH, GOC-CAO-60, bỏ trần 20 % M-d từ T4), §19 (MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU); 1.17.5 24/10/2026: khiếu nại A1–A5 — N2P-3 nước→đất = T9c (đường bờ đo, đối chứng render), N2P-1 (e) lớp sống, (d) vòng khớp màu cục bộ, BE-MAT-NHA (AI phủ bề mặt nhà thường); 1.17.6 24/10/2026: khiếu nại THU-B KN-1…KN-6 — N2P-3 khung không nước, N2P-1 trừ nhà đo được BMN, gọi lại mô hình nhìn, BE-MAT-NHA (d) theo điểm ảnh/(e) độ phân giải video/(w) cạnh màu mới/`be_mat_nha_px_m_min`, TU-LIEU-10 `tu_lieu_tran_pct` + mỗi lần ≤ 10 s, TU-LIEU-OMNI**)
+ 
+ LL v2: chủ dự án duyệt 06/10/2026. LL v3 (Q26–Q31, sửa Q14, Q16): chủ dự án duyệt 07/10/2026, kèm phán quyết Q-L27 = B, Q-L30 = B, Q-L31 = A có điều kiện, Q-L6v2 = B. **Q26–Q31 áp từ tập 7**; tập 6 v2 phát hành theo luật làm việc của P. **Bản 1.8.0 (K, 09/10/2026, sau tập 7):** sửa Q27, Q31; thêm Q26b (áp từ tập 8, không áp ngược tập 7). **1.8.1:** sửa quãng liên tục Q26b theo chủ dự án. **1.9.0 (K, 11/10/2026, chủ dự án duyệt hướng sửa):** Q28f bộ chuyển chữ→số (khiếu nại P 09/10); Q27 chấm theo manifest của lần chấm (khiếu nại P 10/10); người chấm mù Q27, Q31, G1 qua **Claude API** thay subagent. **1.9.1 (chủ dự án duyệt 1.9.0 và chọn Q27 = phương án A + đặt lại mốc, 11/10/2026):** Q27 chấm kèm mốc tập 8 bản phát hành. **1.10.0 (K, 12/10/2026; chủ dự án 12/10 cho phép footage/ảnh nguồn ngoài, ưu tiên miễn phí):** thêm **Q32** footage nguồn ngoài, áp **mọi tập LL và kênh 2** (`channel-k2/<tập>/`); footage tính là bối cảnh trong Q26b, cảnh toàn khung trong Q16, hình vật chất trong Q29. Chi tiết, mẫu sổ và nguyên văn giấy phép Pexels/Pixabay: `checks/ll/FOOTAGE.md`. **1.10.1 (chủ dự án duyệt 1.10.0 và giao sửa sau khi xem Steel, 12/10/2026):** Q26b tính thẻ/đồ hoạ phẳng là một bối cảnh riêng `the` (LL + kênh 2); thêm **Q33** lặp cảnh (LL từ tập 9, kênh 2 từ K2 tập 2) và **Q34** loại shot (kênh 2 từ K2 tập 2); Q34d cộng photo/document/footage vào trần 40 % của Q32. Đo hồi tố trên Steel không chặn. **1.10.2 (chủ dự án duyệt 13/10/2026; không đổi ngưỡng):** Q26b đọc định dạng kênh 2 (vshot/episode): CLI nhận `episode.yaml [--tl]` như Q33/Q34/Q32 (lỗi P 13/10: đưa `.yaml` cho CLI chỉ nhận timeline → JSONDecodeError), `type` đọc từ shot timeline hoặc đặc tả, `map`/`photo`/`document` là bản đồ / ảnh tư liệu → trung tính, `card` → `the`, `footage` → như footage; Q34(c) chấp nhận khiếu nại V 12/10: số bám đỉnh cột 3D của bản đồ tính là hiện bằng 3D (điều kiện ở dòng Q34). Áp cho mọi tập dựng bằng `scripts/ll/`, chạy qua `bash scripts/ll/qc.sh <episode.yaml>`.
+ 
+@@ -69,6 +69,19 @@ Một lệnh: `k2check.py <episode.yaml> … [--root <gốc repo có vo/*.align.
+ **Khai `mach`** (gốc episode.yaml hoặc tệp `--khai`): `tom_tat: {tu: "<đầu câu>", den: "<đầu câu>"}`, `luan_diem_chinh: [{claim: C22, cau: "<đầu câu>"}]` (mẫu: `fixtures/k112/t2-mach.yaml`).
+ **Đề xuất cho phiên V (ngoài vùng K):** mặt nạ `render.js --maskonly` ghi thêm `hero_pct` và chạy MỌI khung (BC1, TL-Q1c); log chữ mỗi khung có `role` thẻ ảnh; log lệch đầu đường dẫn ảnh neo (TL-Q4b).
+ 
++## 1.17.6 — khiếu nại THU-B-T4 KN-1…KN-6 + tư liệu T4 (chủ dự án 24/10 12:52) + B ≥ 4 px/m (24/10 15:25) — 24/10, CHỈ BÁO (cấp theo cổng)
++Căn cứ: lệnh mở phiên K-1.17.6; khiếu nại `reports/thu-b-t4/khieu-nai-K.md` (nhánh THU-B @353d0f0c) chép nguyên văn vào `checks-appeal.md`; phán quyết + số đo + tiêu chí đặt trước: `reports/k1176/K1176-BAO-CAO.md`. Mã: `q_k1176.py` (mới), `q_k1175.py`, `q_n2p.py`, `q_n2p_vision.py`, `q_k1174.py`. Chỉ tập từ T4 (`kenh2_tu_t4: true` | `n2p:`).
++- **N2P-3 khung không nước (KN-1):** tấm mà mặt nạ không có lớp nước hoặc nước < 0,2 % khung → T9c **KHÔNG ÁP** (không còn "không chạy được"); T9b đất→nước và mô hình (b) vẫn chạy; N2P-1/2/4 chạy bình thường. Mọi tấm không nước, không lỗi khác → hàng N2P-3 ghi KHÔNG ÁP.
++- **N2P-1 (i) với tấm `be_mat_nha_ai: true` (KN-2):** mặt nạ (a) của (i)(a) và dải 20 px của (i)(c) TRỪ vùng nhà ĐO ĐƯỢC nở 1 px (3×3) — cùng định nghĩa và cùng ngưỡng px/m với BE-MAT-NHA (a)(b), vùng này do BE-MAT-NHA kiểm. Mọi điểm (a) còn lại (công trình có tên, lớp (a) khác, nhà thường KHÔNG đo được) vẫn 0/255. Giá trị in thêm `tru_bmn_pct`, `max_trong_a_chua_tru`.
++- **Mô hình nhìn thiếu ảnh (KN-3):** Claude không đọc đủ ảnh đề bài → tự gọi lại MỘT lần (BE-MAT-NHA (c) và N2+); cả hai lần ghi vào `<out>/n2p-cost.jsonl` (dòng `ghi: "K-1.17.6 KN-3"`, `lan`, `doc_du`, `goi_lai`); thiếu cả hai lần → THIẾU như cũ. Lỗi API/mô hình khác: không gọi lại (fail-closed).
++- **BE-MAT-NHA — ngưỡng nhà đo được theo tập (15:25):** episode.yaml (gốc hoặc khối `n2p`) `be_mat_nha_px_m_min: <số>` — mặc định **2** (1.17.5); T4 khai **4**. Nhà dưới ngưỡng KHÔNG đo được → phải = render 0/255 ((b)), kể cả nhà 2–4 px/m khi khai 4. Khai < 2 hoặc không phải số → (w) và dùng 2.
++- **BE-MAT-NHA (d) theo điểm ảnh (KN-5):** khung đọc ở độ phân giải GỐC của video (thu INTER_AREA nếu rộng hơn W/2 của tấm); mặt nạ nhà thu NEAREST về cỡ video; mỗi điểm LÕI nhà (cùng mã với 4 điểm kề): d_p(t) = ln((Y_C(t)+10⁻³)/(Y_C(0)+10⁻³)) − ln((Y_R(t)+10⁻³)/(Y_R(0)+10⁻³)) (Y tuyến tính); m_h(t) = trung vị d_p trên lõi nhà h (nhà < 4 điểm lõi không tính, đếm `nha_nho_bo`); e_h = max_t |m_h(t)| > 0,10 ở > 2 % nhà → lỗi. Nhấp nháy bề mặt giữ nguyên 1.17.5 (≤ 0,012). Thước 1.17.5 (TB theo nhà) chỉ in (`pct_lech_1175`).
++- **BE-MAT-NHA (e) ở độ phân giải video (KN-6):** khung 0 video đọc ở cỡ gốc; `tam` (tấm đã duyệt) thu INTER_AREA về cỡ video; ΔE76 TB ≤ 4, p95 ≤ 12 trên nhà đo được (mặt nạ cỡ video). In `t0_co`.
++- **BE-MAT-NHA (w) cạnh màu mới (KN-4, CHỈ BÁO):** điểm cạnh ảnh ghép (kênh Lab mạnh nhất, mờ σ 1) ≥ 8 ΔE/px KHÔNG có cạnh render (Lab) hoặc pass bóng (L*) ≥ 5 cùng hướng (±15°, 12 ngăn) trong 2 px, trong lòng nhà đo được; cụm (đóng 3×3) dài ≥ 1 m và ≥ 0,5·px_m điểm → một dòng (w) mỗi tấm: số cụm + 8 hộp dài nhất. Hiệu chuẩn B3 (đáp án lập trước): bắt 15/20 ống khói thêm ở lượt 1; 23 cụm ở lượt 2 sạch (phần lớn cửa sổ AI lệch cửa sổ render) → không đạt điều kiện Chặn; người đọc soi các hộp.
++- **TU-LIEU-10 (12:52):** (a) TL + KHAC + THE ≤ `tu_lieu_tran_pct` % thời lượng (episode.yaml; mặc định **10**; T4 khai **15**); (b) **mỗi lần tư liệu ≤ 10 s** — lần = mục `tu_lieu_lan: [{t0, t1, lop?}]` (giây tuyệt đối trong phim) của log shot, không khai → một lần mỗi shot dài = tổng lớp TL + KHAC + THE + MAP; (k) khai > 15 hoặc không phải số → lỗi, dùng 10. Cấp: Chặn G2 · Cảnh báo animatic.
++- **TU-LIEU-OMNI (mới, 12:52):** (a) lần tư liệu (lớp TL/KHAC/THE/MAP) KHÔNG trùng thời gian clip M-d (`minh_hoa`, clip Omni) — kể cả shot vừa `minh_hoa` vừa có lớp tư liệu; (b) KHÔNG ghép liền: giữa lần tư liệu và clip M-d có ≥ 1 shot 3D (không tư liệu, không M-d) HOẶC ≥ 1 s 3D sạch (hoà qua 3D). Lần không khai `tu_lieu_lan` tính phủ cả shot (phần 3D còn lại trong shot không được tính) → muốn dùng hoà qua 3D trong cùng shot thì khai `tu_lieu_lan`. Cấp: Chặn G2 · Cảnh báo animatic.
++- Selftest: `checks/ll/selftest_k1176.py` (không mạng, không fixtures ngoài).
++
+ ## 1.17.5 — khiếu nại A1–A5 (K1174-D1 = A; LOOK-T4-V2 §11; PHIEU-LOOK-V2 V3/V4; phương án B) — 24/10, CHỈ BÁO (cấp theo cổng)
+ Căn cứ: lệnh mở phiên K-1.17.5 (chủ dự án 24/10/2026 06:21 "1. Chọn phương án A+B theo khuyến nghị"; K1174-D1 = A duyệt 24/10). Phán quyết: `checks-appeal.md` "Phán quyết K — checks 1.17.5". Số đo, khung đáp án, tiêu chí đặt trước: `reports/k1175/K1175-BAO-CAO.md`. Chỉ tập từ T4 (`kenh2_tu_t4: true` | `n2p:`).
+ - **N2P-3 (iii) chiều nước→đất = T9c** (`q_k1175.t9c`, gọi trong `q_n2p.do_tam`; T9b nước→đất vẫn in, không tính lỗi; T9b đất→nước (a) GIỮ): trên mỗi thành phần nước của mặt nạ, tấm ≈ T(render) — T = ánh xạ màu affine Lab (3×3 + hằng + hệ số hàng y) khớp bền (IRLS Huber); điểm "khác nước" = ΔE76 (mờ σ 1,5) > τ = max(6, 3 × σ lõi nước). (c) **bờ lấn**: bờ trên — cửa sổ 24 cột × dải 4 hàng từ bờ xuống (bỏ 2 px mép mềm; ≤ 2 dải đầu được giống nước — kè/bóng), độ sâu = các dải liền nhau ≥ 50 % điểm khác nước; lỗi khi sâu ≥ 6 px @1080 và dài ≥ 12 px; bờ khác (dưới/bên): cụm khác nước bám bờ sâu ≥ 6 px. (d) **giữa nước**: khác nước không bám bờ ≤ 2 % diện tích nước. Nghĩa: AI đổi sắc/độ sáng nước (xám, ô-liu, nâu) KHÔNG còn là lỗi (A2); phản chiếu có trong render 3D được giữ tự động; **phản chiếu do AI tự vẽ thêm KHÔNG được miễn** (A1 — không tách được khỏi bờ lấn ở độ nhạy 100 %). Mặt nạ phải đúng độ phân giải khung (mặt nạ thu nhỏ rồi phóng lệch bờ 1 px làm hỏng phép đo).
 diff --git a/checks/ll/cap112.py b/checks/ll/cap112.py
 index d160a3ca..252ea85f 100644
 --- a/checks/ll/cap112.py
@@ -667,3 +697,293 @@ index 00000000..298a2803
 +        try: out[k] = fn(E, TL, LS, cong)
 +        except Exception as e: out[k] = K.r(thieu=[f'không chạy được: {type(e).__name__}: {e}'], val='—', cong=cong)   # noqa: BLE001
 +    return out
+diff --git a/checks/ll/selftest_k1176.py b/checks/ll/selftest_k1176.py
+new file mode 100644
+index 00000000..c22f6061
+--- /dev/null
++++ b/checks/ll/selftest_k1176.py
+@@ -0,0 +1,284 @@
++#!/opt/cine/bin/python
++"""Tự kiểm luật 1.17.6 (phiên K-1.17.6, 24/10/2026). Mỗi luật đổi/mới ≥ 1 ca ĐẠT + ≥ 1 ca TRƯỢT. Không mạng, không API (mô hình nhìn giả lập).
++Cảnh tổng hợp có đáp án dựng trong bài (không fixtures ngoài): dãy nhà mái hồi (mã nhà 24 bit, mã mặt phẳng, pass bóng, lớp nha_thuong) như
++selftest_k1175, và cảnh nhà lớn 1080p cho (d)(e) có bóng quét qua nhà.
++  KN-1 N2P-3: khung KHÔNG NƯỚC → T9c KHÔNG ÁP (không KeyError), hàng N2P-3 KHÔNG ÁP; phép khác vẫn chạy (T9b đất→nước bắt nước AI vẽ lên đất);
++       trộn tấm có nước + bờ lấn vẫn trượt.
++  KN-2 N2P-1 (i): tấm be_mat_nha_ai — AI chỉ trong nhà đo được → (a) sạch; AI lấn nhà KHÔNG đo được / công trình có tên → (a) trượt.
++  KN-3 mô hình nhìn: thiếu ảnh lần 1, đủ lần 2 → không THIẾU, 2 dòng sổ; thiếu cả hai lần → THIẾU.
++  KN-4 (w): ống khói AI vẽ thêm → (w) cạnh màu mới; chỉ đổi bề mặt → không (w).
++  KN-5 (d): albedo AI phân bố lại + bóng quét, dựng lại ánh sáng đúng → ĐẠT (thước 1.17.5 trượt oan — in để so); dán tĩnh, nhiễu mỗi khung → TRƯỢT.
++  KN-6 (e): video 640×360 + tấm 1080p, khung 0 đúng → ĐẠT (so ở độ phân giải video); chồng sáng 2 lần → TRƯỢT.
++  px/m: khai be_mat_nha_px_m_min 4 → nhà 3 px/m phủ AI → (b) trượt; không khai (2) → đạt; khai 1,5 → (w) + dùng 2.
++  TU-LIEU-10 (tu_lieu_tran_pct, (b) ≤ 10 s/lần, (k)) · TU-LIEU-OMNI ((a) trùng, (b) ghép liền) · cấp · áp dụng.
++  /opt/cine/bin/python checks/ll/selftest_k1176.py        mã thoát 0 = mọi ca đúng kỳ vọng"""
++import copy, json, os, subprocess, sys, tempfile, types
++
++ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
++sys.path.insert(0, ROOT)
++import numpy as np  # noqa: E402
++import cv2  # noqa: E402
++from checks.ll import q_n2p as NP, q_k1175 as K, q_k1176 as K76, q_k1174 as K74, q_n2p_vision as QV, cap112  # noqa: E402
++
++TMP = tempfile.mkdtemp(prefix='k1176-'); R = []
++
++
++def case(rule, name, got, expect_fail):
++    got = list(got) if got else []
++    R.append((rule, name, 'bắt lỗi' if expect_fail else 'sạch', bool(got) == expect_fail, got[:2]))
++
++
++def bad(x, *muc):
++    L = (x.get('loi') or []) + (x.get('thieu') or [])
++    return [y for y in L if not muc or any(y.startswith(f'({m})') for m in muc)]
++
++
++def luu(nm, x): p_ = os.path.join(TMP, nm); cv2.imwrite(p_, x); return p_
++def ma24(M): return np.stack([M & 255, (M >> 8) & 255, (M >> 16) & 255], -1).astype(np.uint8)
++
++
++def mp4(nm, frames, wh=None):
++    """video kiểm KHÔNG MẤT (libx264 crf 0 yuv444p — như THU-B); wh: thu INTER_AREA về cỡ video trước khi mã hoá"""
++    p_ = os.path.join(TMP, nm); h_, w_ = frames[0].shape[:2]
++    if wh: w_, h_ = wh
++    pr = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', f'{w_}x{h_}', '-r', '24', '-i', '-', '-c:v', 'libx264', '-crf', '0',
++                           '-pix_fmt', 'yuv444p', p_], stdin=subprocess.PIPE)
++    for f_ in frames: pr.stdin.write((cv2.resize(f_, (w_, h_), interpolation=cv2.INTER_AREA) if wh else f_).tobytes())
++    pr.stdin.close(); pr.wait(); return p_
++
++
++# ====================================================================== cảnh A: dãy nhà mái hồi 4 px/m (như selftest_k1175), KHÔNG có nước
++H5, W5 = 540, 960
++I5 = np.zeros((H5, W5), np.int64); P5 = np.zeros((H5, W5), np.int64); S5 = np.full((H5, W5), 0.55, np.float32); L5 = np.zeros((H5, W5, 3), np.uint8)
++L5[:] = (200, 170, 90); nha5 = []; hid = 0
++for r_ in range(4):
++    for c_ in range(14):
++        hid += 1; x0, y0 = 40 + c_ * 62, 60 + r_ * 110; w_, hh = 44, 52
++        I5[y0:y0 + hh, x0:x0 + w_] = hid; P5[y0 + 22:y0 + hh, x0:x0 + w_] = hid * 10 + 1; S5[y0 + 22:y0 + hh, x0:x0 + w_] = 0.62
++        for yy in range(y0, y0 + 22):
++            k_ = (yy - y0) / 22.0; xa, xb = int(x0 + w_ / 2 - k_ * w_ / 2), int(x0 + w_ / 2 + k_ * w_ / 2)
++            I5[yy, x0:x0 + w_] = 0; I5[yy, xa:xb] = hid
++            P5[yy, xa:x0 + w_ // 2] = hid * 10 + 2; S5[yy, xa:x0 + w_ // 2] = 0.95; P5[yy, x0 + w_ // 2:xb] = hid * 10 + 3; S5[yy, x0 + w_ // 2:xb] = 0.35
++        nha5.append(dict(id=hid, lo=r_ + 1, px_m=3.0 if r_ == 3 else 4.0))   # hàng 4: 3 px/m (ca khai 4)
++L5[I5 > 0] = (215, 215, 215)
++TEN = (slice(20, 50), slice(870, 930)); L5[TEN] = (235, 235, 235)   # công trình có tên (lớp 'nha', (a) cứng)
++alb = lambda seed: np.random.default_rng(seed).uniform(0.35, 0.9, (hid + 1, 3))
++
++
++def anh(albedo, S=S5, nhieu=0.0, seed=0):
++    A_ = albedo[I5] * S[..., None]; A_[I5 == 0] = np.array([0.55, 0.62, 0.50]) * S[I5 == 0][:, None]
++    A_[TEN] = np.array([0.7, 0.7, 0.75]) * 0.6
++    if nhieu: A_ = A_ * (1 + np.random.default_rng(seed).normal(0, nhieu, A_.shape))
++    return np.clip(A_ * 255, 0, 255).astype(np.uint8)
++
++
++R5 = anh(alb(1)); B5 = np.clip(np.repeat(S5[..., None], 3, -1) * 0.6 * 255, 0, 255).astype(np.uint8)
++F5 = dict(render=luu('r5.png', R5), mat_na=luu('l5.png', L5[..., ::-1]), mat_na_nha=luu('i5.png', ma24(I5)), mat_na_mat=luu('p5.png', ma24(P5)), bong=luu('b5.png', B5))
++json.dump(nha5, open(os.path.join(TMP, 'n5.json'), 'w')); F5['nha'] = os.path.join(TMP, 'n5.json')
++AI5 = anh(alb(7), nhieu=0.03, seed=3)
++do4 = {h['id'] for h in nha5 if h['px_m'] >= 4}; do2 = {h['id'] for h in nha5}
++
++
++def ghep_vao(ids, src=AI5):
++    m = cv2.dilate(np.isin(I5, list(ids)).astype(np.uint8), np.ones((3, 3), np.uint8)) > 0
++    m[TEN] = False; G = R5.copy(); G[m] = src[m]; return G
++
++
++G5 = ghep_vao(do2)   # AI ở mọi nhà đo được ở ngưỡng 2
++t5 = dict(F5, id='t5', ghep=luu('g5.png', G5), nam=1938, be_mat_nha_ai=True)
++
++# ---------------------------------------------------------------------- KN-1: khung không nước
++Ln, nn = NP.idmap(F5['mat_na'], (W5, H5))
++c9 = K.t9c(R5, G5, Ln, nn)
++case('KN-1 N2P-3', 'khung không có lớp nước → T9c trả đủ khoá, ap False (không KeyError)', [] if (c9.get('ap') is False and all(k in c9 for k in ('so_doan_lan', 'sau_lon_nhat_px', 'giua_pct', 'lan'))) else ['thiếu khoá'], False)
++L_it = Ln.copy(); L_it[200:203, 5:8] = nn.index('nuoc')   # 9 điểm nước < 0,2 % khung (như B3: 213 px)
++case('KN-1 N2P-3', 'nước < 0,2 % khung → T9c KHÔNG ÁP', [] if K.t9c(R5, G5, L_it, nn).get('ap') is False else ['áp'], False)
++
++
++def KT(t_):
++    D = NP.do_tam(t_['render'], t_['ghep'], t_['mat_na'], NP.LOP_A, None, None)
++    return dict(id=t_['id'], shot='s', nam=1938, anh_tinh=True, do={k: v for k, v in D.items() if not k.startswith('_')}, V={}, L1=[], L2=[], L2b=[], L4=[], VUNG=[], Q=None, SONG=None, VONG=None)
++
++
++k_nn = KT(dict(F5, id='kn', ghep=F5['render']))
++T3 = NP.tong_tam([k_nn, KT(dict(F5, id='kn2', ghep=F5['render']))])
++case('KN-1 N2P-3', 'mọi tấm không nước, 0 lỗi khác → hàng N2P-3 KHÔNG ÁP (không "không chạy được")', [] if T3['N2P-3']['ket_qua'] == 'KHÔNG ÁP' else [T3['N2P-3']], False)
++case('KN-1 N2P-1/2/4', 'khung không nước: N2P-1, N2P-2, N2P-4 vẫn chạy (ĐẠT, không lỗi chạy)', [q for q in ('N2P-1', 'N2P-2', 'N2P-4') if not T3[q]['ok']], False)
++Gw = R5.copy(); Gw[300:420, 100:300] = (190, 150, 40)   # AI vẽ "nước" xanh lên đất (khung không nước)
++k_w = KT(dict(F5, id='kw', ghep=luu('gw.png', Gw)))
++case('KN-1 N2P-3', 'khung không nước, AI vẽ nước lên đất → T9b đất→nước vẫn bắt (a) — phép khác vẫn chạy', bad(NP.tong_tam([k_w])['N2P-3'], 'a'), True)
++# trộn với một tấm CÓ nước + bờ lấn (dải nước dưới, bờ trên lấn 12 px)
++Lw = L5.copy(); Lw[470:540, :] = (0, 170, 190); Rw = R5.copy()
++yw, xw = np.mgrid[470:540, 0:W5]; Rw[470:540, :] = np.clip(np.array([150, 110, 40]) + (18 * np.sin(xw / 7.0) * np.cos(yw / 3.0))[..., None] + (yw - 470)[..., None] * 0.6, 0, 255).astype(np.uint8)   # nước có gợn
++Gl = Rw.copy(); Gl[470:482, 200:500] = (60, 90, 120)
++kw2 = KT(dict(id='bo', render=luu('rw.png', Rw), ghep=luu('gl.png', Gl), mat_na=luu('lw.png', Lw[..., ::-1])))
++case('KN-1 N2P-3', 'trộn tấm không nước + tấm có nước bờ lấn 12 px → vẫn TRƯỢT (c)', bad(NP.tong_tam([k_nn, kw2])['N2P-3'], 'c'), True)
++case('KN-1 N2P-3', 'tấm có nước, render ↔ chính nó → ĐẠT', bad(NP.tong_tam([KT(dict(id='bo0', render=os.path.join(TMP, 'rw.png'), ghep=os.path.join(TMP, 'rw.png'), mat_na=os.path.join(TMP, 'lw.png')))])['N2P-3']), False)
++
++# ---------------------------------------------------------------------- KN-2: N2P-1 (i) với tấm be_mat_nha_ai
++def n2p1(t_, ppm=2.0):
++    kt = NP.kiem_tam(t_, '.', False, {}, None, 'London', True, ppm); return bad(NP.tong_tam([kt])['N2P-1'], 'a'), kt
++
++
++a1, kt1 = n2p1(t5)
++case('KN-2 N2P-1 (a)', f"BMN: AI chỉ trong nhà đo được nở 1 px → (a) 0/255 ({kt1['do']['i'].get('bmn')})", a1, False)
++case('KN-2 N2P-1 (a)', 'cùng tấm KHÔNG khai be_mat_nha_ai (luật cũ: nhà thường = (a)) → (a) trượt', n2p1(dict(t5, be_mat_nha_ai=False))[0], True)
++Gt = G5.copy(); Gt[TEN] = 0
++case('KN-2 N2P-1 (a)', 'BMN: AI lấn công trình có tên (lớp nha) → (a) trượt', n2p1(dict(t5, ghep=luu('gt.png', Gt)))[0], True)
++case('KN-2 N2P-1 (a)', 'BMN khai px/m ≥ 4: AI phủ cả nhà 3 px/m (không đo được) → (a) trượt (nhà không đo được giữ (a))', n2p1(t5, 4.0)[0], True)
++case('KN-2 N2P-1 (a)', 'BMN khai px/m ≥ 4: AI chỉ ở nhà ≥ 4 px/m → (a) sạch', n2p1(dict(t5, ghep=luu('g54.png', ghep_vao(do4))), 4.0)[0], False)
++vb, nd = K76.vung_bmn(t5, '.', 2.0)
++hk = K.hinh_khoi(R5, G5, np.where(L5[..., 0] == 215, I5, 0), {h['id']: h for h in nha5}, np.where(L5[..., 0] == 215, P5, 0), B5)
++case('KN-2 vung_bmn', f'tập nhà đo được của N2P-1 = của BE-MAT-NHA (a) ({nd} nhà)', [] if nd == sum(1 for x in hk.values() if x.get('do')) else [nd], False)
++
++# ---------------------------------------------------------------------- px/m (chủ dự án 15:25): BE-MAT-NHA (b) với be_mat_nha_px_m_min
++def bmn_row(E_extra, t_=t5):
++    E = dict(id='t4', kenh2_tu_t4=True, n2p=dict(noi='London', t4=True, tam=[t_]), **E_extra); return K.be_mat_nha(E, '.', False)
++
++
++r4 = bmn_row(dict(be_mat_nha_px_m_min=4))
++case('px/m', 'khai 4: AI phủ nhà 3 px/m → (b) trượt (nhà 2–4 px/m phải = render)', bad(r4, 'b'), True)
++case('px/m', 'không khai (mặc định 2): cùng tấm → (b) sạch', bad(bmn_row({}), 'b'), False)
++case('px/m', 'khai 4: AI chỉ ở nhà ≥ 4 px/m → (b) sạch', bad(bmn_row(dict(be_mat_nha_px_m_min=4), dict(t5, ghep=os.path.join(TMP, 'g54.png'))), 'b'), False)
++r15 = bmn_row(dict(be_mat_nha_px_m_min=1.5))
++case('px/m', 'khai 1,5 (< sàn 2) → (w) báo khai sai, dùng 2', [x for x in r15['loi'] if x.startswith('(w)') and 'be_mat_nha_px_m_min' in x], True)
++case('px/m', 'khai 1,5 → ngưỡng thực dùng = 2', [] if r15.get('px_m_min') == 2.0 else [r15.get('px_m_min')], False)
++
++# ---------------------------------------------------------------------- KN-4: (w) cạnh màu mới (ống khói AI vẽ thêm)
++P_ = dict(K.BMN, A_MIN=100, N_MIN=40)
++k_s = K.kiem_bmn(t5, '.', False, {}, None, 'London', True, P_)
++case('KN-4 (w)', 'chỉ đổi bề mặt (albedo + nhiễu 3 %) → không (w) cạnh màu mới', [x for x in k_s['canh_bao'] if 'cạnh màu mới' in x], False)
++Gc = G5.copy()
++for hc in (9, 23, 37):   # ống khói gạch 2,5 × 4 m giữa mái nắng, thêm chụp
++    ys, xs = np.nonzero(I5 == hc); xc, yc = int(xs.min()) + 9, int(ys.min()) + 9
++    Gc[yc:yc + 16, xc:xc + 10] = (40, 70, 150); Gc[yc:yc + 3, xc - 1:xc + 11] = (30, 40, 60)
++k_c = K.kiem_bmn(dict(t5, ghep=luu('gc.png', Gc)), '.', False, {}, None, 'London', True, P_)
++case('KN-4 (w)', 'AI vẽ thêm 3 ống khói trong lòng mái → (w) cạnh màu mới', [x for x in k_c['canh_bao'] if 'cạnh màu mới' in x], True)
++case('KN-4 (w)', f"ống khói thêm: hình khối (a) KHÔNG Chặn (lý do của KN-4) — {k_c['so'].get('canh_moi')} cụm", [x for x in k_c['loi'] if x.startswith('(a)')], False)
++case('cấp', 'BE-MAT-NHA (w) cạnh màu mới ở G2 → Cảnh báo (CHỈ BÁO)', cap112.cap('BE-MAT-NHA', dict(loi=['(w) tấm x: 3 cụm cạnh màu mới'], cong='G2'))[1], False)
++
++# ---------------------------------------------------------------------- KN-3: gọi lại Claude 1 lần khi không đọc đủ ảnh (mô hình nhìn giả lập)
++def gia_lap(reads_seq):
++    seq = list(reads_seq); log = []
++    def call_claude(pr, td, tag, out=None):
++        n = seq.pop(0); imgs = sorted(os.path.join(td, f) for f in os.listdir(td))
++        log.append(dict(tag=tag, so_anh_doc=n)); return '{"loi_thoi_dai": [], "hinh_khoi": []}', dict(model=[QV.CLAUDE], usd=0.05, reads=imgs[:n], loi=None)
++    def call_gpt(pr, imgs, tag, out=None): return '{"loi_thoi_dai": [], "hinh_khoi": []}', dict(model=QV.GPT, usd=0.03, loi=None)
++    return call_claude, call_gpt, log
++
++
++_cc, _cg = QV.call_claude, QV.call_gpt
++try:
++    for seq_, ex, nm in (([2, 10], False, 'lần 1 đọc 2/10, lần 2 đủ → không THIẾU'), ([6, 3], True, 'thiếu cả hai lần → THIẾU (c)'), ([10], False, 'đủ ngay lần 1 → không gọi lại')):
++        cc, cg, lg = gia_lap(seq_); QV.call_claude, QV.call_gpt = cc, cg
++        od = os.path.join(TMP, f'kn3-{len(seq_)}-{seq_[0]}'); V = K.soi_bmn(F5['render'], t5['ghep'], 1938, 'London', True, od, 'kn3', True, {})
++        case('KN-3 (c)', f"BMN: {nm} (gọi Claude {len(lg)} lần)", [V['loi']] if V.get('loi') else [], ex)
++        so = [json.loads(x) for x in open(os.path.join(od, 'n2p-cost.jsonl'))] if os.path.exists(os.path.join(od, 'n2p-cost.jsonl')) else []
++        case('KN-3 sổ', f"BMN: {nm} → sổ n2p-cost ghi {len(lg)} lần (dòng KN-3)", [] if len([x for x in so if x.get('ghi') == 'K-1.17.6 KN-3']) == len(lg) else [so], False)
++    cc, cg, lg = gia_lap([2, 10]); QV.call_claude, QV.call_gpt = cc, cg
++    Vn = QV.soi(F5['render'], t5['ghep'], 1938, 'London', True, os.path.join(TMP, 'kn3n'), 'kn3n', True, {})
++    case('KN-3 N2P', 'N2P (q_n2p_vision.soi): lần 1 thiếu ảnh, lần 2 đủ → không THIẾU', [Vn['loi']] if Vn.get('loi') else [], False)
++finally:
++    QV.call_claude, QV.call_gpt = _cc, _cg
++
++# ====================================================================== cảnh B: nhà lớn 1080p, bóng quét qua nhà, video 640×360 — KN-5, KN-6
++HB, WB = 1080, 1920
++IB = np.zeros((HB, WB), np.int64); PB = np.zeros((HB, WB), np.int64); LB = np.zeros((HB, WB, 3), np.uint8); LB[:] = (200, 170, 90)
++nhaB = []; k = 0
++for r_ in range(2):
++    for c_ in range(5):
++        k += 1; x0, y0 = 80 + c_ * 360, 120 + r_ * 470; IB[y0:y0 + 380, x0:x0 + 300] = k
++        PB[y0:y0 + 120, x0:x0 + 300] = k * 10 + 1; PB[y0 + 120:y0 + 380, x0:x0 + 300] = k * 10 + 2
++        nhaB.append(dict(id=k, lo=1, px_m=12.0))
++LB[IB > 0] = (215, 215, 215)
++yy, xx = np.mgrid[0:HB, 0:WB]
++rg = np.random.default_rng(11)
++ArB = np.ones((HB, WB, 3), np.float32) * np.array([0.45, 0.5, 0.55], np.float32)
++for h_ in range(1, k + 1): ArB[IB == h_] = rg.uniform(0.2, 0.4, 3)   # không bão hoà: albedo × bóng ≤ 1
++tex = (0.6 + 0.8 * ((xx // 2 + yy // 2) % 2)).astype(np.float32)[..., None]   # vân mịn 2 px tương phản cao (mất khi thu 1080 → 360)
++AaiB = ArB.copy()
++for h_ in range(1, k + 1):   # AI PHÂN BỐ LẠI độ sáng bề mặt: nửa trái sáng, nửa phải tối (cửa/tường khác chỗ render)
++    m = IB == h_; xm = xx[m].min() + 150; AaiB[m & (xx < xm)] *= 1.5; AaiB[m & (xx >= xm)] *= 0.55
++AaiB = np.clip(AaiB * tex, 0, 0.9)
++
++
++def SB(i, n=12):
++    """bóng quét: đường bóng chéo chạy ngang qua nhà; nắng tăng 20 % trong clip; mái (mặt 1) 0,55×, nền 0,6× (pass bóng thấy hình khối)"""
++    edge = 300 + i * (WB + 200) / (n - 1); lit = (xx + 0.6 * yy) < edge
++    S = cv2.GaussianBlur(np.where(lit, 0.9, 0.36).astype(np.float32), (0, 0), 1.5)   # mép bóng mềm; mép hình học sắc
++    S[PB % 10 == 1] *= 0.55; S[IB == 0] *= 0.6
++    return S * (1.0 + 0.2 * i / (n - 1))
++
++
++def l2s(x): x = np.clip(x, 0, 1); return np.where(x <= 0.0031308, x * 12.92, 1.055 * x ** (1 / 2.4) - 0.055)
++to8 = lambda A, S: np.round(l2s(A * S[..., None]) * 255).astype(np.uint8)   # ảnh = sRGB(albedo × bóng TUYẾN TÍNH)
++BB = to8(np.full((HB, WB, 3), 0.6, np.float32), SB(0))
++RtB = [to8(ArB, SB(i)) for i in range(12)]
++Mb = cv2.dilate((IB > 0).astype(np.uint8), np.ones((3, 3), np.uint8)) > 0
++gB = lambda fr: [np.where(Mb[..., None], c_, r_) for c_, r_ in zip(fr, RtB)]
++dungB = gB([to8(AaiB, SB(i)) for i in range(12)]); tinhB = gB([to8(AaiB, SB(0))] * 12)
++nhapB = gB([np.clip(to8(AaiB, SB(i)) * (1 + np.random.default_rng(i).normal(0, 0.08, (HB, WB, 1))), 0, 255).astype(np.uint8) for i in range(12)])
++chongB = gB([to8(AaiB * 0.6, SB(i)) for i in range(12)])   # ánh sáng chồng 2 lần ≈ tối hơn tấm
++FB = dict(render=luu('rb.png', RtB[0]), mat_na=luu('lb.png', LB[..., ::-1]), mat_na_nha=luu('ib.png', ma24(IB)), mat_na_mat=luu('pb.png', ma24(PB)), bong=luu('bb.png', BB),
++          ghep=luu('gb.png', dungB[0]), nam=1938, id='tb', be_mat_nha_ai=True)
++json.dump(nhaB, open(os.path.join(TMP, 'nb.json'), 'w')); FB['nha'] = os.path.join(TMP, 'nb.json')
++rvB = mp4('rb.mp4', RtB, (640, 360)); tamB = FB['ghep']   # tấm đã duyệt = khung 0 1080p
++PB_ = dict(K.BMN)
++for nm, fr, cach, ex, muc in (('albedo AI phân bố lại + bóng quét, dựng lại ánh sáng đúng (tỉ số bóng / chiếu 3D)', dungB, 'chieu_3d', False, 'de'),
++                              ('dán ảnh tĩnh khi nắng đổi', tinhB, 'anh_tinh', True, 'd'), ('nhiễu bề mặt mỗi khung', nhapB, 'chieu_3d', True, 'd'),
++                              ('chiếu 3D không khử sáng (khung 0 lệch tấm)', chongB, 'chieu_3d', True, 'e')):
++    gv = mp4('gb.mp4', fr, (640, 360))
++    kv = K.kiem_bmn(dict(FB, be_mat_nha_video=dict(ghep=gv, render=rvB, cach=cach, tam=tamB)), '.', False, {}, None, 'London', True, PB_)
++    vd = kv['so'].get('video') or {}
++    case(f'KN-5/6 ({muc})', f"{nm} → ({muc}) · % nhà lệch {vd.get('pct_lech')} (1.17.5: {vd.get('pct_lech_1175')}) · nhấp nháy {vd.get('nhap_be_mat')} · ΔE khung 0 {vd.get('t0_dE_tb')}/{vd.get('t0_dE_p95')} @{vd.get('t0_co')}",
++         [x for x in kv['loi'] if any(x.startswith(f'({m})') for m in muc)], ex)
++    if nm.startswith('albedo'):
++        case('KN-5 (d)', f"thước 1.17.5 (TB theo nhà) trên cùng video dựng đúng: {vd.get('pct_lech_1175')} % nhà lệch > 2 % → trượt oan (để so)", ['trượt'] if (vd.get('pct_lech_1175') or 0) > 2 else [], True)
++        # KN-6: thước 1.17.5 (video phóng lên W/2 so tấm thu W/2) trên cùng khung 0
++        C0o = K76.frames_video(gv, None, 1)[0][0]; C0u = cv2.resize(C0o, (960, 540), interpolation=cv2.INTER_LINEAR); T0u = cv2.resize(cv2.imread(tamB), (960, 540), interpolation=cv2.INTER_AREA)
++        I2u = cv2.resize(IB.astype(np.int32), (960, 540), interpolation=cv2.INTER_NEAREST); dEu = np.sqrt(((K._lab(C0u) - K._lab(T0u)) ** 2).sum(-1))[I2u > 0]
++        case('KN-6 (e)', f'thước 1.17.5 (video 640 phóng 960 ↔ tấm 1080 thu 960): ΔE TB {dEu.mean():.1f} p95 {np.percentile(dEu, 95):.1f} → trượt oan (để so)',
++             ['trượt'] if (dEu.mean() > K.BMN['T0_DE'] or np.percentile(dEu, 95) > K.BMN['T0_P95']) else [], True)
++qp = K76.quy_dao_px([f for f in dungB[:3]], [f for f in RtB[:3]], IB)
++case('KN-5 quy_dao_px', f"dựng đúng ở 1080p (không mã hoá): e lớn nhất {max(qp['e_h'].values()):.4f} ≈ 0", [] if max(qp['e_h'].values()) < 0.02 else [qp['e_h']], False)
++
++# ====================================================================== TU-LIEU-10 / TU-LIEU-OMNI (chủ dự án 24/10 12:52)
++def LS_(*sh):
++    out, t = [], 0.0
++    for nm, d, kw in sh: out.append(dict(dict(shot=nm, t0=t, t1=t + d, dur=d, cu_may='CODINH'), **kw)); t += d
++    return out
++
++
++E4 = dict(id='t4', kenh2_tu_t4=True); E15 = dict(E4, tu_lieu_tran_pct=15)
++L14 = LS_(('a', 8, dict(lop=dict(TL=7))), ('b', 30, {}), ('c', 8, dict(lop=dict(KHAC=7))), ('d', 54, {}))   # 14 %
++L16 = LS_(('a', 9, dict(lop=dict(TL=9))), ('b', 30, {}), ('c', 8, dict(lop=dict(KHAC=7))), ('d', 53, {}))   # 16 %
++case('TU-LIEU-10 (a)', 'khai 15: 14 % → sạch', bad(K76.tu_lieu_10(E15, None, L14), 'a'), False)
++case('TU-LIEU-10 (a)', 'khai 15: 16 % → (a)', bad(K76.tu_lieu_10(E15, None, L16), 'a'), True)
++case('TU-LIEU-10 (a)', 'không khai (mặc định 10): 14 % → (a)', bad(K76.tu_lieu_10(E4, None, L14), 'a'), True)
++case('TU-LIEU-10 (a)', 'không khai: 10 % → sạch (giữ hành vi 1.17.4)', bad(K76.tu_lieu_10(E4, None, LS_(('a', 6, dict(lop=dict(TL=4, KHAC=3, THE=3))), ('b', 94, {}))), 'a'), False)
++case('TU-LIEU-10 (k)', 'khai 20 (> 15 % đã duyệt) → (k) Chặn, dùng 10', bad(K76.tu_lieu_10(dict(E4, tu_lieu_tran_pct=20), None, L14), 'k'), True)
++case('TU-LIEU-10 (b)', 'một lần tư liệu 12 s → (b)', bad(K76.tu_lieu_10(E15, None, LS_(('a', 14, dict(lop=dict(TL=12))), ('b', 86, {}))), 'b'), True)
++case('TU-LIEU-10 (b)', 'một lần tư liệu 10 s → sạch', bad(K76.tu_lieu_10(E15, None, LS_(('a', 12, dict(lop=dict(TL=10))), ('b', 88, {}))), 'b'), False)
++case('TU-LIEU-10 (b)', 'tu_lieu_lan khai giờ: 2 lần 6 s trong một shot → sạch', bad(K76.tu_lieu_10(E15, None, LS_(('a', 20, dict(lop=dict(TL=12), tu_lieu_lan=[dict(t0=1, t1=7), dict(t0=12, t1=18)])), ('b', 80, {}))), 'b'), False)
++md = dict(minh_hoa=True, cu_may='MD')
++case('TU-LIEU-OMNI (a)', 'tư liệu trên chính clip M-d (shot vừa minh_hoa vừa TL) → (a)', bad(K76.tu_lieu_omni(E15, None, LS_(('a', 6, dict(md, lop=dict(TL=3))), ('b', 20, {}))), 'a'), True)
++case('TU-LIEU-OMNI (a)', 'tu_lieu_lan chồng giờ clip M-d kề → (a)', bad(K76.tu_lieu_omni(E15, None, LS_(('a', 10, dict(lop=dict(TL=4), tu_lieu_lan=[dict(t0=7, t1=11)])), ('m', 6, md), ('b', 20, {}))), 'a'), True)
++case('TU-LIEU-OMNI (b)', 'shot tư liệu liền trước clip M-d, không khai giờ → (b) ghép liền', bad(K76.tu_lieu_omni(E15, None, LS_(('a', 8, dict(lop=dict(TL=8))), ('m', 6, md), ('b', 20, {}))), 'b'), True)
++case('TU-LIEU-OMNI (b)', 'giữa tư liệu và clip M-d có 1 shot 3D → sạch', bad(K76.tu_lieu_omni(E15, None, LS_(('a', 8, dict(lop=dict(TL=8))), ('x', 4, {}), ('m', 6, md), ('b', 20, {}))), 'ab'), False)
++case('TU-LIEU-OMNI (b)', 'tư liệu kết thúc 1,5 s trước cuối shot 3D rồi tới clip M-d (hoà qua 3D ≥ 1 s) → sạch',
++     bad(K76.tu_lieu_omni(E15, None, LS_(('a', 10, dict(lop=dict(TL=6), tu_lieu_lan=[dict(t0=2, t1=8.5)])), ('m', 6, md))), 'ab'), False)
++case('TU-LIEU-OMNI (b)', 'tư liệu kết thúc 0,5 s trước clip M-d → (b)', bad(K76.tu_lieu_omni(E15, None, LS_(('a', 10, dict(lop=dict(TL=6), tu_lieu_lan=[dict(t0=3, t1=9.5)])), ('m', 6, md))), 'b'), True)
++case('TU-LIEU-OMNI (b)', 'clip M-d TRƯỚC, tư liệu ngay sau (thẻ) → (b)', bad(K76.tu_lieu_omni(E15, None, LS_(('m', 6, md), ('a', 5, dict(lop=dict(THE=5))), ('b', 20, {}))), 'b'), True)
++case('TU-LIEU-OMNI', 'không clip M-d → sạch', bad(K76.tu_lieu_omni(E15, None, L14)), False)
++out74 = K74.check(E15, None, '.', L14)
++case('TU-LIEU (q_k1174.check)', 'q_k1174.check trả TU-LIEU-10 theo trần tập (15) + hàng TU-LIEU-OMNI', [] if ('TU-LIEU-OMNI' in out74 and out74['TU-LIEU-10'].get('tran') == 15.0 and out74['TU-LIEU-10']['ok']) else [out74.get('TU-LIEU-10')], False)
++case('cấp', 'TU-LIEU-OMNI (b) ở G2 → Chặn', cap112.cap('TU-LIEU-OMNI', dict(loi=['(b) x'], cong='G2'))[1], True)
++case('cấp', 'TU-LIEU-OMNI ở animatic → Cảnh báo', cap112.cap('TU-LIEU-OMNI', dict(loi=['(b) x'], cong='animatic'))[1], False)
++case('cấp', 'TU-LIEU-10 (b) ở G2 → Chặn', cap112.cap('TU-LIEU-10', dict(loi=['(b) x'], cong='G2'))[1], True)
++case('áp dụng', 'tập T3 → TU-LIEU-10/OMNI (1.17.6) KHÔNG ÁP', [k_ for k_, v in K76.check_tu_lieu(dict(id='t3'), None, '.', L14).items() if v.get('ket_qua') != 'KHÔNG ÁP'], False)
++
++# ---------------------------------------------------------------------- in kết quả
++ok = all(x[3] for x in R)
++for rule, name, kv, good, got in R: print(f"{'ĐÚNG' if good else 'SAI '} [{rule}] {name} — kỳ vọng {kv}" + ('' if good else f' · được {got}'))
++print(f"\nselftest_k1176: {sum(x[3] for x in R)}/{len(R)} ca đúng kỳ vọng — {'ĐẠT' if ok else 'TRƯỢT'}")
++sys.exit(0 if ok else 1)
