@@ -19,23 +19,16 @@ segments:
   - id: M4-trung
     at: 0.0
     tpl: scene3d
+- id: s2
+  dur: 3.0
+  shots:
+  - id: M4-trung
+    at: 0.0
+    tpl: scene3d
 n2p:
   noi: London
   t4: true
   tam:
-  - id: M4-trung-l1-anh_tinh
-    shot: M4-trung
-    render: ../../tam/M4-trung/render.png
-    ghep: ../../tam/M4-trung/l1/ghep.png
-    mat_na: ../../tam/M4-trung/matna.png
-    nam: 2026
-    anh_tinh: true
-    be_mat_nha_ai: true
-    mat_na_nha: ../../tam/M4-trung/mat_na_nha.png
-    mat_na_mat: ../../tam/M4-trung/mat_na_mat.png
-    bong: ../../tam/M4-trung/bong.png
-    nha: ../../tam/M4-trung/nha.json
-    nen_ai: false
   - id: M4-trung-l2-anh_tinh
     shot: M4-trung
     render: ../../tam/M4-trung/render.png
@@ -49,4 +42,44 @@ n2p:
     bong: ../../tam/M4-trung/bong.png
     nha: ../../tam/M4-trung/nha.json
     nen_ai: false
+    be_mat_nha_video:
+      ghep: /var/tmp/ldn/thub/bp/M4-trung/l2/tl-anh_tinh.mp4
+      render: /var/tmp/ldn/thub/bp/M4-trung/l2/tl-render.mp4
+      cach: anh_tinh
+  - id: M4-trung-l2-chieu_3d
+    shot: M4-trung
+    render: ../../tam/M4-trung/render.png
+    ghep: ../../tam/M4-trung/l2/ghep.png
+    mat_na: ../../tam/M4-trung/matna.png
+    nam: 2026
+    anh_tinh: true
+    be_mat_nha_ai: true
+    mat_na_nha: ../../tam/M4-trung/mat_na_nha.png
+    mat_na_mat: ../../tam/M4-trung/mat_na_mat.png
+    bong: ../../tam/M4-trung/bong.png
+    nha: ../../tam/M4-trung/nha.json
+    nen_ai: false
+    be_mat_nha_video:
+      ghep: /var/tmp/ldn/thub/bp/M4-trung/l2/tl-chieu_3d.mp4
+      render: /var/tmp/ldn/thub/bp/M4-trung/l2/tl-render.mp4
+      cach: chieu_3d
+      tam: ../../tam/M4-trung/l2/ghep.png
+  - id: M4-trung-l2-chieu_tiso
+    shot: M4-trung
+    render: ../../tam/M4-trung/render.png
+    ghep: ../../tam/M4-trung/l2/ghep.png
+    mat_na: ../../tam/M4-trung/matna.png
+    nam: 2026
+    anh_tinh: true
+    be_mat_nha_ai: true
+    mat_na_nha: ../../tam/M4-trung/mat_na_nha.png
+    mat_na_mat: ../../tam/M4-trung/mat_na_mat.png
+    bong: ../../tam/M4-trung/bong.png
+    nha: ../../tam/M4-trung/nha.json
+    nen_ai: false
+    be_mat_nha_video:
+      ghep: /var/tmp/ldn/thub/bp/M4-trung/l2/tl-chieu_tiso.mp4
+      render: /var/tmp/ldn/thub/bp/M4-trung/l2/tl-render.mp4
+      cach: chieu_3d
+      tam: ../../tam/M4-trung/l2/ghep.png
 log_shot: log-shot.json

@@ -5,16 +5,16 @@
 | Q26b | Đa dạng bối cảnh (1.16: cảnh tl/* theo vùng) | **TRƯỢT** |  | 0 bối cảnh · lớn nhất — 0.0 % · liên tục dài nhất — 0.0 s · nửa sau 0 · trung tính 100.0 % | ≤ 25 % · ≤ 90 s · nửa sau ≥ 3 |  |
 | Q32 | Footage/ảnh nguồn ngoài | **ĐẠT** |  | không dùng footage ngoài | ≤ 40 % · footage ≤ 20 % · ≤ 8 s/clip · < 720p trong khung ≤ 1,5× |  |
 | Q33 | Lặp cảnh | **ĐẠT** |  | 0 góc máy · 0 lần xuất hiện · nhiều nhất — 0 lần · 0 góc > 2 · chưa đo pHash (không có master) | ≤ 2 lần |  |
-| Q34 | Loại shot | **TRƯỢT** |  | 0/2 shot có type ·  · số neo 3D 100 %, chỉ card 0 % (0 số) · địa danh 0 · nhân vật 0 | type · map ±6 s · photo ±6 s · số neo 3D ≥ 60 % · document ≤ 3 s · record ≤ 12 s + dòng tô + nguồn |  |
-| Q35 | Nhãn loại số (D5) | **ĐẠT** |  | mô hình đặc tả · 4 khung xét · ACTUAL nhiều nhất 0/khung · lỗi a 0 · b 0 · c 0 · d 0 | ACTUAL ≤ 1/khung · ESTIMATE bắt buộc · số có năm rõ không cần ACTUAL |  |
+| Q34 | Loại shot | **TRƯỢT** |  | 0/3 shot có type ·  · số neo 3D 100 %, chỉ card 0 % (0 số) · địa danh 0 · nhân vật 0 | type · map ±6 s · photo ±6 s · số neo 3D ≥ 60 % · document ≤ 3 s · record ≤ 12 s + dòng tô + nguồn |  |
+| Q35 | Nhãn loại số (D5) | **ĐẠT** |  | mô hình đặc tả · 6 khung xét · ACTUAL nhiều nhất 0/khung · lỗi a 0 · b 0 · c 0 · d 0 | ACTUAL ≤ 1/khung · ESTIMATE bắt buộc · số có năm rõ không cần ACTUAL |  |
 | Q36 | Chữ trên màn hình | **ĐẠT** |  | 0 dòng nguồn · dài nhất 0 ký tự · không có log (cỡ chữ THIẾU) · lỗi a 0 · b 0 · thiếu 0 | nguồn ≥ 38 px, 1 dòng, ≤ 70 ký tự · Facts as of chỉ với luật hiệu lực (+ 1 lần trong câu miễn trừ 0:00–0:15) |  |
-| Q37 | Nhịp thị giác (1.16: miễn khung neo/im lặng ≤ 10 s; 1.17.4: + thẻ PP cuối phim) | **TRƯỢT** |  | 6.0 s · không khai beats · khung tĩnh: không đo (không có master) · tham khảo mốc đặc tả: TB 3.0 s, dài nhất 3.0 s (s0 0.00s (mốc)) | TB ≤ 3,5 s · dài nhất ≤ 6 s · khung tĩnh ≤ 6 s |  |
+| Q37 | Nhịp thị giác (1.16: miễn khung neo/im lặng ≤ 10 s; 1.17.4: + thẻ PP cuối phim) | **TRƯỢT** |  | 9.0 s · không khai beats · khung tĩnh: không đo (không có master) · tham khảo mốc đặc tả: TB 3.0 s, dài nhất 3.0 s (s0 0.00s (mốc)) | TB ≤ 3,5 s · dài nhất ≤ 6 s · khung tĩnh ≤ 6 s |  |
 | A1–A13 | Âm thanh (tập cũ — chỉ báo) | **CHỈ BÁO** |  | CHỈ BÁO · A1 không có master · A2 không có master · A5 không có master · A7 không có master · A4 KHÔNG ÁP (không có lời — 1.16) · A8 KHÔNG ÁP (không có lời — 1.16) | docs/AUDIO-THUOC-DO.md |  |
-| ML1 | Mạch truyện | **CẢNH BÁO** | Chặn (b), (c) · Cảnh báo (a) ở T3 (Chặn từ T4) — lỗi Chặn 0, Cảnh báo 2 | 0/2 shot gắn (0 suy từ mốc @từ) · timelapse 0.0 s, trôi 0.0 % | mỗi shot gắn câu/claim · timelapse trôi ≤ 15 % |  |
+| ML1 | Mạch truyện | **CẢNH BÁO** | Chặn (b), (c) · Cảnh báo (a) ở T3 (Chặn từ T4) — lỗi Chặn 0, Cảnh báo 3 | 0/3 shot gắn (0 suy từ mốc @từ) · timelapse 0.0 s, trôi 0.0 % | mỗi shot gắn câu/claim · timelapse trôi ≤ 15 % |  |
 | ML2 | Lời lặp ý | **ĐẠT** | Chặn có giải trình (người quyết; không vào mã thoát tự động) — lỗi Chặn 0, Cảnh báo 0 | 0 câu · 0 cặp ứng viên (chấm 0) · 0 lặp ý · không khai tóm tắt | n-gram/IDF + chấm ngữ nghĩa ghim mô hình; ngoài tóm tắt cuối |  |
 | ML3 | Lời mời đăng ký | **ĐẠT** | Chặn — lỗi Chặn 0, Cảnh báo 0 | 0 câu mời: không có · 0 luận điểm chính khai | 60 s cuối hoặc ±5 s ranh chương · không trong 20 s trước luận điểm chính |  |
 | FT1 | Chỉ báo footage/ảnh | **ĐẠT** | Cảnh báo (20 % footage đã Chặn ở Q32 b2) — lỗi Chặn 0, Cảnh báo 0 | 0 shot footage/ảnh · tính 0.0 s = 0.0 % (miễn ảnh nhỏ 0.0 s) · khai lý do: 0/0 | ≤ 20 % (trần) · mỗi shot có lý do · ảnh ≤ 1/3 khung ≤ 6 s không tính |  |
-| NHIP-K2 | Nhịp kênh 2 (Q14–Q18 không áp → Q37) | **ĐẠT** | Chặn (như Q37) — lỗi Chặn 0, Cảnh báo 0 | Q14–Q18 không áp · chưa khai beats → mốc đặc tả (cận trên): TB 3.0 s, dài nhất 3.0 s (s0 0.00s (mốc)) · 2 mốc sau gộp | TB ≤ 3,5 s · dài nhất ≤ 6 s |  |
+| NHIP-K2 | Nhịp kênh 2 (Q14–Q18 không áp → Q37) | **ĐẠT** | Chặn (như Q37) — lỗi Chặn 0, Cảnh báo 0 | Q14–Q18 không áp · chưa khai beats → mốc đặc tả (cận trên): TB 3.0 s, dài nhất 3.0 s (s0 0.00s (mốc)) · 3 mốc sau gộp | TB ≤ 3,5 s · dài nhất ≤ 6 s |  |
 | Q26b-K2 | Đa dạng loại cảnh + vùng | **TRƯỢT** | Chặn (c), (d), (e) (như Q26b) · Cảnh báo (a), (b) — lỗi Chặn 1, Cảnh báo 3 | loại: khac 100.0 % · 0 vùng, lớn nhất — · nửa sau 0 vùng · không vùng 100.0 % | ≥ 3 loại/nửa · loại ≤ 70 % · vùng ≤ 25 %, ≤ 90 s, nửa sau ≥ 3 |  |
 | Q33-K2 | Lặp cảnh (vùng, góc) + pHash L/ΔE | **ĐẠT** | Chặn (như Q33) — lỗi Chặn 0, Cảnh báo 0 | 0 khoá (vùng, góc) · 0 lần xuất hiện · nhiều nhất — 0 · 0 khoá > 2 | ≤ 2 lần (miễn: khác chương + khác năm/lớp) |  |
 | Q32b-K2 | Trần clip/ảnh | **ĐẠT** | Chặn (như Q32b) — lỗi Chặn 0, Cảnh báo 0 | 0 clip/ảnh ·  | footage ≤ 8 s · ảnh có máy/chú thích đổi ≤ 12 s · ảnh tĩnh ≤ 8 s |  |
@@ -26,16 +26,16 @@
 | Q7/Q8-K2 | Nhãn/loại số nhận estimate (khiếu nại TT5 i) | **ĐẠT** | Chặn (thay Q7/Q8 cho kênh 2, như Q35) — lỗi Chặn 0, Cảnh báo 0 | Q7 nhận ESTIMATE: 0 lỗi (không log: chỉ kiểm kind khai) · Q8 loại số: 0 lỗi | kind ∈ actual/projection/estimate (kênh 2) · đủ nhãn, không thừa nhãn |  |
 | Q33 (1.13) | Lặp cảnh — pHash bỏ lớp chữ cố định | **ĐẠT** | Chặn (thay Q33 cho kênh 2) — lỗi Chặn 0, Cảnh báo 0 | 0 góc máy · 0 lần xuất hiện · nhiều nhất — 0 lần · 0 góc > 2 · chưa đo pHash (không có master) | ≤ 2 lần · pHash L vùng nội dung y 18–72 %, θ 16 |  |
 | Q36 (1.13) | Chữ — câu miễn trừ nhận theo chữ | **ĐẠT** | Chặn (thay Q36 cho kênh 2) — lỗi Chặn 0, Cảnh báo 0 | 0 dòng nguồn · dài nhất 0 ký tự · không có log (cỡ chữ THIẾU) · lỗi a 0 · b 0 · thiếu 0 | "This video explains… Facts as of" 1 lần trong 0:00–0:15 không đòi nguồn luật |  |
-| Q37 (1.13) | Nhịp — khung tĩnh theo khung neo | **TRƯỢT** | Chặn (thay Q37 cho kênh 2) — lỗi Chặn 1, Cảnh báo 0 | 6.0 s · không khai beats · khung tĩnh: không đo (không có master) · tham khảo mốc đặc tả: TB 3.0 s, dài nhất 3.0 s (s0 0.00s (mốc)) | khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s |  |
+| Q37 (1.13) | Nhịp — khung tĩnh theo khung neo | **TRƯỢT** | Chặn (thay Q37 cho kênh 2) — lỗi Chặn 1, Cảnh báo 0 | 9.0 s · không khai beats · khung tĩnh: không đo (không có master) · tham khảo mốc đặc tả: TB 3.0 s, dài nhất 3.0 s (s0 0.00s (mốc)) | khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s |  |
 | BIEN-CO-V | Biến cố thấy được ĐO trên video (K117-D8) | **CẢNH BÁO** | Chặn (b), (c), (h) ở G2 khi thước đạt hiệu chuẩn (q_bcv.HIEU_CHUAN + (h) trên tập) · Cảnh báo ở animatic hoặc khi chưa hiệu chuẩn — K117-D8 — lỗi Chặn 0, Cảnh báo 1 | — | TB khoảng biến cố đo ≤ 3,5 s · dài nhất ≤ 6 s (miễn khung neo/im lặng/thẻ PP ≤ 10 s) · bắt ≥ 95 % ranh shot |  |
 | BD-1…BD-8 | Bản đồ chiến lược / inset / ranh | **ĐẠT** | — — lỗi Chặn 0, Cảnh báo 0 | không có shot strategic, lớp ranh, tuyến hay inset |  |  |
 | K-R1…K-R9 | ĐỎ-K | **ĐẠT** | — — lỗi Chặn 0, Cảnh báo 0 | tập không khai rui_ro: do-k |  |  |
 | K-LAI-1…6 | Khung neo LAI | **ĐẠT** | — — lỗi Chặn 0, Cảnh báo 0 | tập không có khối lai: / shot AI / đoạn AI trong log shot |  |  |
 | O2 | Máy soi lỗi thời đại (lưới lọc thứ hai) | **CẢNH BÁO** | Cảnh báo (lưới lọc thứ hai — không thay kiểm nguồn) — lỗi Chặn 0, Cảnh báo 1 | — | 1 khung/5 s + khung neo · cờ/quân phục/tàu/đèn/xe/vật hiện đại/chữ/kiến trúc theo năm · không thay kiểm nguồn |  |
-| SACH-1 | Khung sạch §12.1 + TL-4 | **TRƯỢT** | Chặn (a)–(f) (K116-D1; (e) chữ bản đồ Chặn theo K116-D3: ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ) — lỗi Chặn 3, Cảnh báo 0 | 2 shot · tấm số/trích 0 · tư liệu đứng riêng 0 · không log chữ | chỉ bộ đếm · chip nơi ≤ 3 s · thẻ chương · thẻ phương pháp · bản đồ ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ (K116-D3); không tấm số/trích, không tư liệu đứng riêng (phủ ≤ 3 s) |  |
+| SACH-1 | Khung sạch §12.1 + TL-4 | **TRƯỢT** | Chặn (a)–(f) (K116-D1; (e) chữ bản đồ Chặn theo K116-D3: ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ) — lỗi Chặn 4, Cảnh báo 0 | 3 shot · tấm số/trích 0 · tư liệu đứng riêng 0 · không log chữ | chỉ bộ đếm · chip nơi ≤ 3 s · thẻ chương · thẻ phương pháp · bản đồ ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ (K116-D3); không tấm số/trích, không tư liệu đứng riêng (phủ ≤ 3 s) |  |
 | CHUONG-1 | Thẻ chương §13.3 | **ĐẠT** | Chặn (a)–(e) · Cảnh báo (f) vị trí/mờ (K116-D1) — lỗi Chặn 0, Cảnh báo 0 | 0 thẻ chương (không bắt buộc; ≤ 8/tập) | ≤ 8/tập · "năm — ≤ 6 từ" · ≤ 3 s · không trong móc · trung tính |  |
 | PP-1 | Thẻ phương pháp (D6) | **TRƯỢT** | Chặn (a)–(d) · Cảnh báo (e) tốc độ đọc ≤ 3 từ/s (K116-D1, D8: ≈ 8 s = 7–9 s) — lỗi Chặn 1, Cảnh báo 0 | 0 thẻ | 2 thẻ × 7–9 s, cuối phim · nguồn/bản đồ + chỗ ước tính (1.17.2: không đòi câu AI) · ≤ 3 từ/s |  |
-| TL-1 | Xương sống timelapse §13.6 | **CẢNH BÁO** | Cảnh báo (K116-D1; mục tiêu §13.6, hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 2 | thân phim 6.0 s · góc cao + tl 0.0 s (0.0 %) · đặc tả ≤ 10.00 cắt/phút (cận trên) · ngưỡng hiệu chỉnh sau V7-PILOT | góc cao + thời gian chạy ≥ 75 % · ≤ 5 cắt/phút (video: đổi cấu trúc; đối chiếu đặc tả ±0,5 s; 1.17.2: cắt góc R3 so_goc/goc_may không tính trần) · trôi ≤ 2 %/s · 6–8 điểm máy (hiệu chỉnh sau V7-PILOT) |  |
+| TL-1 | Xương sống timelapse §13.6 | **CẢNH BÁO** | Cảnh báo (K116-D1; mục tiêu §13.6, hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 2 | thân phim 9.0 s · góc cao + tl 0.0 s (0.0 %) · đặc tả ≤ 13.33 cắt/phút (cận trên) · ngưỡng hiệu chỉnh sau V7-PILOT | góc cao + thời gian chạy ≥ 75 % · ≤ 5 cắt/phút (video: đổi cấu trúc; đối chiếu đặc tả ±0,5 s; 1.17.2: cắt góc R3 so_goc/goc_may không tính trần) · trôi ≤ 2 %/s · 6–8 điểm máy (hiệu chỉnh sau V7-PILOT) |  |
 | TL-2 | Lướt thấp §13.6 | **ĐẠT** | Cảnh báo (K116-D1; hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 0 | lướt thấp 0 shot · 0.0 s = 0.0 % · ngưỡng hiệu chỉnh sau V7-PILOT | lướt thấp ≤ 10 % · có vai, phố/người (hiệu chỉnh sau V7-PILOT) |  |
 | TL-3 | Không shot trống §13.6 | **ĐẠT** | Cảnh báo (K116-D1; hiệu chỉnh sau V7-PILOT) — lỗi Chặn 0, Cảnh báo 0 | 0 shot 3D · không đổi 0 · trống 0 · thiếu trong_pct 0 | mỗi shot 3D: thời gian chạy hoặc biến cố · trống ≤ 60 % (hiệu chỉnh sau V7-PILOT) |  |
 | NHIP-NGHIA | Nhịp → vật mang nghĩa §13.2 | **TRƯỢT** | Chặn (K116-D1; §13.2) — lỗi Chặn 1, Cảnh báo 0 | — | ≥ 90 % nhịp chính |  |
@@ -47,19 +47,19 @@
 | EO-DAT-R3 | Eo đất R3 — góc + biến cố | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic (lệnh K-1.17; §14.7 R3) — lỗi Chặn 0, Cảnh báo 0 | không shot eo đất (noi: eo_dat) | shot eo đất > 15 s: ≥ 2 góc · biến cố cách ≤ 6 s |  |
 | EO-DAT-R4 | Eo đất R4 — câu lời không vật | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic (§14.7 R4 + TL-4; lệnh K-1.17.1) — lỗi Chặn 0, Cảnh báo 0 | không shot khai loi_khong_vat_eo_dat | loi_khong_vat_eo_dat: noi ∈ pho/lau_dai/cang hoặc bản đồ phủ ≤ 3 s (§14.7, TL-4) |  |
 | CONG-BO-1 | Công bố AI ở gói phát hành (1.17.2) | **ĐẠT** | Chặn ở gói phát hành (`cong: phat_hanh` | `phat_hanh.goi: true`) · chỉ báo (Cảnh báo) ở mọi cổng trước — §14.1 (f), YouTube "AI use" — lỗi Chặn 0, Cảnh báo 0 | tập không có khung AI (đoạn minh hoạ / ai_image) và không khai giọng tổng hợp | khung AI hoặc giọng tổng hợp → mô tả YouTube có câu "AI"/"synthetic" · phat_hanh.youtube_altered_content: true (Chặn ở gói phát hành) |  |
-| N2P-1 | N2+ (i) lớp (a) sau ghép | **TRƯỢT** | Chặn (a), (b), (d) vòng khớp màu cục bộ, (e) lớp sống ở G2 · Cảnh báo ở animatic · (c) cụm dải 20 px luôn Cảnh báo (người đọc tờ so) — §15 (c)(i); (d)(e) 1.17.5 — lỗi Chặn 2, Cảnh báo 0 | 2 tấm · max lệch (a) 218/255 · vật (a) mô hình 0 · cụm dải 20 px 0 | 0/255 trong (a) · 0 vật (a) thêm/bớt/đổi · cụm ΔE ≥ 30 trong dải 20 px → người đọc · (1.17.5) lớp sống cộng hiệu ≤ 1/255 · vòng khớp màu cục bộ |  |
-| N2P-2 | N2+ (ii) lỗi thời đại (2 mô hình + O2) | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(ii), K đề xuất — lỗi Chặn 0, Cảnh báo 0 | 2 tấm · lỗi có năm 0 · nghi vấn không năm 0 (người đọc) · q_thoi_dai mới 0 · giới hạn: cờ ~20 px không bảo đảm | 0 lỗi có năm (gpt ∪ claude) · O2 mới so render 0 |  |
-| N2P-3 | N2+ (iii) đổi loại vùng T9b | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iii); 1.17.5: nước→đất = T9c (c) bờ lấn, (d) giữa nước (đối chứng render) — lỗi Chặn 0, Cảnh báo 0 | 2 tấm · T9b lớn nhất 0.09 % · mô hình báo 0 · T9c (1.17.5): đoạn bờ lấn 0, sâu nhất 0.0 px, giữa nước ≤ 0.0 %; T9b nước→đất (chỉ in) 0.00 % | T9b đất→nước ≤ 2 % · (1.17.5) T9c: 0 bờ lấn ≥ 6 px · giữa nước ≤ 2 % · 0 báo mô hình |  |
-| N2P-4 | N2+ (iv) đóng băng trên tấm tĩnh | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iv), K đề xuất — lỗi Chặn 0, Cảnh báo 0 | 2 tấm (2 tĩnh) · vật chuyển động 0 | 0 vật chuyển động trên tấm tĩnh |  |
+| N2P-1 | N2+ (i) lớp (a) sau ghép | **TRƯỢT** | Chặn (a), (b), (d) vòng khớp màu cục bộ, (e) lớp sống ở G2 · Cảnh báo ở animatic · (c) cụm dải 20 px luôn Cảnh báo (người đọc tờ so) — §15 (c)(i); (d)(e) 1.17.5 — lỗi Chặn 3, Cảnh báo 0 | 3 tấm · max lệch (a) 218/255 · vật (a) mô hình 0 · cụm dải 20 px 0 | 0/255 trong (a) · 0 vật (a) thêm/bớt/đổi · cụm ΔE ≥ 30 trong dải 20 px → người đọc · (1.17.5) lớp sống cộng hiệu ≤ 1/255 · vòng khớp màu cục bộ |  |
+| N2P-2 | N2+ (ii) lỗi thời đại (2 mô hình + O2) | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(ii), K đề xuất — lỗi Chặn 0, Cảnh báo 0 | 3 tấm · lỗi có năm 0 · nghi vấn không năm 0 (người đọc) · q_thoi_dai mới 0 · giới hạn: cờ ~20 px không bảo đảm | 0 lỗi có năm (gpt ∪ claude) · O2 mới so render 0 |  |
+| N2P-3 | N2+ (iii) đổi loại vùng T9b | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iii); 1.17.5: nước→đất = T9c (c) bờ lấn, (d) giữa nước (đối chứng render) — lỗi Chặn 0, Cảnh báo 0 | 3 tấm · T9b lớn nhất 0.09 % · mô hình báo 0 · T9c (1.17.5): đoạn bờ lấn 0, sâu nhất 0.0 px, giữa nước ≤ 0.0 %; T9b nước→đất (chỉ in) 0.00 % | T9b đất→nước ≤ 2 % · (1.17.5) T9c: 0 bờ lấn ≥ 6 px · giữa nước ≤ 2 % · 0 báo mô hình |  |
+| N2P-4 | N2+ (iv) đóng băng trên tấm tĩnh | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iv), K đề xuất — lỗi Chặn 0, Cảnh báo 0 | 3 tấm (3 tĩnh) · vật chuyển động 0 | 0 vật chuyển động trên tấm tĩnh |  |
 | N2P-5 | N2+ (v) nhấp nháy + chuyển tấm | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (b), (c)(v), K đề xuất — lỗi Chặn 0, Cảnh báo 0 | không shot tấm nền (log ai_nen) và không khai n2p.video | hoà ≥ 2 s · ≤ 1 ΔE/khung · nhấp nháy ≤ 1,5 × đối chứng |  |
-| N2P-6 | N2+ (vi) trần §15(d) | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (d) trần, K đề xuất — lỗi Chặn 0, Cảnh báo 0 | 6.0 s · tấm nền 0.0 % (0) · minh hoạ 0.0 % (0; không trần cứng từ 1.17.4 — Q2) · tổng AI 0.0 % (0) | tấm nền ≤ 50 % · minh hoạ ≤ 20 % · tổng AI ≤ 70 % · không chồng shot |  |
-| MAY-19 | Ngữ pháp máy §19 (a) | **TRƯỢT** | Chặn (a)–(g) ở G2 · Cảnh báo ở animatic · (w) luôn Cảnh báo — §19 (a) — lỗi Chặn 3, Cảnh báo 0 | 2 shot cú máy · log khung 0 · tóm tắt 0 · loại/chương thu-b:1 · THAP 0.0 % · lỗi a 0 b 0 c 0 d 1 e 0 f 0 · cảnh báo w 0 | tốc độ theo cú máy (log khung) · N2+ = CODINH · KHOP ≤ 0,5 px · ≥ 4 loại/chương · ≤ 2 liền · THAP ≤ 12 % |  |
-| BAN-DO-12 | Bản đồ ≤ 12 % §19 (b) | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §19 (b) — lỗi Chặn 0, Cảnh báo 0 | 0.0 s / 6.0 s = 0.00 % | MAP + MAP3D ≤ 12 % · ≤ 10 s/lần |  |
-| TU-LIEU-10 | Tư liệu + khắc + thẻ ≤ 10 % §19 (c) | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §19 (c) — lỗi Chặn 0, Cảnh báo 0 | 0.0 s / 6.0 s = 0.00 % (TL 0 · KHAC 0 · THE 0 s) | TL + KHAC + THE ≤ 10 % |  |
+| N2P-6 | N2+ (vi) trần §15(d) | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (d) trần, K đề xuất — lỗi Chặn 0, Cảnh báo 0 | 9.0 s · tấm nền 0.0 % (0) · minh hoạ 0.0 % (0; không trần cứng từ 1.17.4 — Q2) · tổng AI 0.0 % (0) | tấm nền ≤ 50 % · minh hoạ ≤ 20 % · tổng AI ≤ 70 % · không chồng shot |  |
+| MAY-19 | Ngữ pháp máy §19 (a) | **TRƯỢT** | Chặn (a)–(g) ở G2 · Cảnh báo ở animatic · (w) luôn Cảnh báo — §19 (a) — lỗi Chặn 5, Cảnh báo 0 | 3 shot cú máy · log khung 0 · tóm tắt 0 · loại/chương thu-b:1 · THAP 0.0 % · lỗi a 0 b 0 c 0 d 1 e 1 f 0 · cảnh báo w 0 | tốc độ theo cú máy (log khung) · N2+ = CODINH · KHOP ≤ 0,5 px · ≥ 4 loại/chương · ≤ 2 liền · THAP ≤ 12 % |  |
+| BAN-DO-12 | Bản đồ ≤ 12 % §19 (b) | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §19 (b) — lỗi Chặn 0, Cảnh báo 0 | 0.0 s / 9.0 s = 0.00 % | MAP + MAP3D ≤ 12 % · ≤ 10 s/lần |  |
+| TU-LIEU-10 | Tư liệu + khắc + thẻ ≤ 10 % §19 (c) | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §19 (c) — lỗi Chặn 0, Cảnh báo 0 | 0.0 s / 9.0 s = 0.00 % (TL 0 · KHAC 0 · THE 0 s) | TL + KHAC + THE ≤ 10 % |  |
 | AI-TU-LIEU | Không AI lên tư liệu §19 (b)(c) | **TRƯỢT** | Chặn ở G2 · Cảnh báo ở animatic — §19 (b)(c) — lỗi Chặn 1, Cảnh báo 0 | 0 shot có tư liệu · 0 SHA tư liệu · 0 dòng sổ AI đối chiếu | 0 shot tư liệu có AI · 0 dòng sổ AI có SHA tư liệu |  |
 | GEMINI-NGAN-SACH | Ngân sách Gemini của tập (Q2 i) | **TRƯỢT** | Chặn (a) vượt ngân sách, (u) thiếu giá thật ở G2 · Cảnh báo (k) thiếu khai, (m) vượt mốc theo dõi · Cảnh báo ở animatic — Q2 (i) — lỗi Chặn 1, Cảnh báo 0 | — | tổng usd sổ Gemini ≤ ngan_sach_gemini_usd |  |
-| GOC-CAO-60 | Góc cao timelapse ≥ 60 % (Q2 iii) | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — Q2 (iii) — lỗi Chặn 0, Cảnh báo 0 | 6.0 s / 6.0 s = 100.0 % (log khung V7B-D1: 0 shot) | goc cao + tl (V7B-D1 theo log khung) ≥ 60 % thân phim |  |
-| BE-MAT-NHA | AI phủ bề mặt nhà thường (phương án B) | **TRƯỢT** | Chặn (a)–(e) ở G2 · Cảnh báo ở animatic · (w) mô hình nhìn không năm/hình khối luôn Cảnh báo — phương án B (AI phủ bề mặt nhà thường) — lỗi Chặn 1, Cảnh báo 3 | 2 tấm · M1-trung-l1-anh_tinh: 557/8510 nhà đo được, 0 lỗi, (b) 0/255 · M1-trung-l2-anh_tinh: 557/8510 nhà đo được, 0 lỗi, (b) 0/255 | (a) hình khối từng nhà đo được · (b) khoá 0/255 · (c) 0 lỗi thời đại · (d) quỹ đạo sáng/nhấp nháy · (e) khung 0 chiếu 3D |  |
+| GOC-CAO-60 | Góc cao timelapse ≥ 60 % (Q2 iii) | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — Q2 (iii) — lỗi Chặn 0, Cảnh báo 0 | 9.0 s / 9.0 s = 100.0 % (log khung V7B-D1: 0 shot) | goc cao + tl (V7B-D1 theo log khung) ≥ 60 % thân phim |  |
+| BE-MAT-NHA | AI phủ bề mặt nhà thường (phương án B) | **TRƯỢT** | Chặn (a)–(e) ở G2 · Cảnh báo ở animatic · (w) mô hình nhìn không năm/hình khối luôn Cảnh báo — phương án B (AI phủ bề mặt nhà thường) — lỗi Chặn 7, Cảnh báo 6 | 3 tấm · M1-trung-l2-anh_tinh: 557/8510 nhà đo được, 0 lỗi, (b) 0/255, video e TV 1.0287 · M1-trung-l2-chieu_3d: 557/8510 nhà đo được, 0 lỗi, (b) 0/255, video e TV 0.083 · M1-trung-l2-chieu_tiso: 557/8510 nhà đo được, 0 lỗi, (b) 0/255, video e TV 0.0729 | (a) hình khối từng nhà đo được · (b) khoá 0/255 · (c) 0 lỗi thời đại · (d) quỹ đạo sáng/nhấp nháy · (e) khung 0 chiếu 3D |  |
 | LOCK | checks/ khớp LOCK (1.17.5) | **ĐẠT** |  | KHỚP |  |  |
 
 ## Âm thanh A1–A13
@@ -81,26 +81,28 @@
 
 ## Chi tiết lỗi
 ### Q26b
-- nửa sau (0:03.0–0:06.0) chỉ có 0 bối cảnh (≥ 3 s): —
+- nửa sau (0:04.5–0:09.0) chỉ có 0 bối cảnh (≥ 3 s): —
 ### Q34
 - (0) s0/0 @0:00.0: thiếu type
 - (0) s1/0 @0:03.0: thiếu type
+- (0) s2/0 @0:06.0: thiếu type
 ### Q37
-- (a) 2/2 đoạn không khai beats (s0, s1)
+- (a) 3/3 đoạn không khai beats (s0, s1, s2)
 ### ML1
 - s0/0 @0:00.0 (None, 3.0 s): không gắn câu lời hay claim
 - s1/0 @0:03.0 (None, 3.0 s): không gắn câu lời hay claim
+- s2/0 @0:06.0 (None, 3.0 s): không gắn câu lời hay claim
 ### Q26b-K2
 - (a) nửa đầu: 0 loại cảnh ≥ 3 s (—) < 3
 - (a) nửa sau: 0 loại cảnh ≥ 3 s (—) < 3
 - (b) loại khac chiếm 100.0 % > 70 %
-- (e) nửa sau (0:03.0–0:06.0) 0 vùng ≥ 3 s (—) < 3
+- (e) nửa sau (0:04.5–0:09.0) 0 vùng ≥ 3 s (—) < 3
 ### NC-H2
 - không có shot bản đồ/địa cầu có máy quay đọc được
 ### NC-H3
 - không có thời lượng 3D địa lý
 ### Q37 (1.13)
-- (a) 2/2 đoạn không khai beats (s0, s1)
+- (a) 3/3 đoạn không khai beats (s0, s1, s2)
 ### BIEN-CO-V
 - (b) không có video (master/animatic)
 ### O2
@@ -108,21 +110,25 @@
 ### SACH-1
 - (f) s0/0 @0:00.0: shot không bật lọc khung sạch (p.sach)
 - (f) s1/0 @0:03.0: shot không bật lọc khung sạch (p.sach)
+- (f) s2/0 @0:06.0: shot không bật lọc khung sạch (p.sach)
 - (c) không có log chữ (--logs k2.js) — không đo được chữ thực hiện trên hình; (d) chip nơi chưa đo
 ### PP-1
 - (a) không có thẻ phương pháp cuối phim (cần 2 thẻ × ≈ 8 s — D6)
 ### TL-1
-- (a) góc cao có thời gian chạy 0.0 s = 0.0 % < 75 % thân phim (6.0 s)
-- (c)(d) không có video (master/--tl16-video) — cắt/phút và trôi máy chưa đo (đặc tả: cận trên 10.00 cắt/phút)
+- (a) góc cao có thời gian chạy 0.0 s = 0.0 % < 75 % thân phim (9.0 s)
+- (c)(d) không có video (master/--tl16-video) — cắt/phút và trôi máy chưa đo (đặc tả: cận trên 13.33 cắt/phút)
 ### NHIP-NGHIA
 - không khai `nhip_vat:` trong episode.yaml
 ### XEM-CAM
 - không khai `xem_cam:` trong episode.yaml — cổng XEM CÂM bắt buộc từ T3 (§13.4); K không tự chấm
 ### N2P-1
-- (a) tấm M1-trung-l1-anh_tinh (M1-trung): lớp (a) sau ghép lệch tối đa 192/255 ở 566433 điểm (cần 0)
 - (a) tấm M1-trung-l2-anh_tinh (M1-trung): lớp (a) sau ghép lệch tối đa 218/255 ở 566426 điểm (cần 0)
+- (a) tấm M1-trung-l2-chieu_3d (M1-trung): lớp (a) sau ghép lệch tối đa 218/255 ở 566426 điểm (cần 0)
+- (a) tấm M1-trung-l2-chieu_tiso (M1-trung): lớp (a) sau ghép lệch tối đa 218/255 ở 566426 điểm (cần 0)
 ### MAY-19
 - (d) chương thu-b: 1 loại cú máy (CODINH) < 4
+- (e) M1-trung: 3 shot liền cùng loại CODINH > 2
+- (g) M1-trung: không có `log_may` (log.json render_ldn.js) — không đo được §19 (a)
 - (g) M1-trung: không có `log_may` (log.json render_ldn.js) — không đo được §19 (a)
 - (g) M1-trung: không có `log_may` (log.json render_ldn.js) — không đo được §19 (a)
 ### AI-TU-LIEU
@@ -130,8 +136,17 @@
 ### GEMINI-NGAN-SACH
 - (u) không khai `so_ai_gemini` / `so_ai`
 ### BE-MAT-NHA
-- (w) tấm M1-trung-l1-anh_tinh nhà 87390 (lô 39042, 3.247 px/m): nghi dời 2.2 m (+0, -7 px; IoU 0.12; đỡ 0.67 → 1.00) — người đọc
+- (d) tấm M1-trung-l2-anh_tinh: 100.0 % nhà có quỹ đạo sáng lệch render > 0.1 (ln) — bề mặt không theo ánh sáng (dán ảnh tĩnh khi nắng đổi?)
+- (d) tấm M1-trung-l2-anh_tinh: nhấp nháy bề mặt 0.088 > 0.012 (ln/khung)
+- (d) tấm M1-trung-l2-chieu_3d: 39.3 % nhà có quỹ đạo sáng lệch render > 0.1 (ln) — bề mặt không theo ánh sáng (dán ảnh tĩnh khi nắng đổi?)
+- (d) tấm M1-trung-l2-chieu_3d: nhấp nháy bề mặt 0.0199 > 0.012 (ln/khung)
+- (e) tấm M1-trung-l2-chieu_3d: khung 0 chiếu 3D lệch tấm đã duyệt ΔE TB 4.9 / p95 12.9 (trần 4 / 12) — ánh sáng chồng 2 lần?
+- (d) tấm M1-trung-l2-chieu_tiso: 32.1 % nhà có quỹ đạo sáng lệch render > 0.1 (ln) — bề mặt không theo ánh sáng (dán ảnh tĩnh khi nắng đổi?)
+- (d) tấm M1-trung-l2-chieu_tiso: nhấp nháy bề mặt 0.0143 > 0.012 (ln/khung)
 - (w) tấm M1-trung-l2-anh_tinh nhà 24449 (lô 10296, 2.272 px/m): nghi dời 4.0 m (-1, +9 px; IoU 0.01; đỡ 0.47 → 1.00) — người đọc
 - (w) tấm M1-trung-l2-anh_tinh nhà 24555 (lô 10324, 2.388 px/m): nghi dời 4.9 m (-6, -10 px; IoU 0.06; đỡ 0.65 → 0.98) — người đọc
-- (c) tấm M1-trung-l2-anh_tinh: mô hình nhìn — claude: không đọc đủ ảnh: thiếu before_q1.jpg, before_q2.jpg, before_q3.jpg, before_q4.jpg, after_q1.jpg, after_q2.jpg, after_q3.jpg, after_q4.jpg
+- (w) tấm M1-trung-l2-chieu_3d nhà 24449 (lô 10296, 2.272 px/m): nghi dời 4.0 m (-1, +9 px; IoU 0.01; đỡ 0.47 → 1.00) — người đọc
+- (w) tấm M1-trung-l2-chieu_3d nhà 24555 (lô 10324, 2.388 px/m): nghi dời 4.9 m (-6, -10 px; IoU 0.06; đỡ 0.65 → 0.98) — người đọc
+- (w) tấm M1-trung-l2-chieu_tiso nhà 24449 (lô 10296, 2.272 px/m): nghi dời 4.0 m (-1, +9 px; IoU 0.01; đỡ 0.47 → 1.00) — người đọc
+- (w) tấm M1-trung-l2-chieu_tiso nhà 24555 (lô 10324, 2.388 px/m): nghi dời 4.9 m (-6, -10 px; IoU 0.06; đỡ 0.65 → 0.98) — người đọc
 

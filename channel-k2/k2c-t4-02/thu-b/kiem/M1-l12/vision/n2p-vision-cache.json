@@ -335,6 +335,298 @@
    "moi": [],
    "loi": null,
    "chi_phi_usd": 0.0869
+  },
+  "M1-trung-l2-chieu_3d": {
+   "ghep": {
+    "nam": 1666,
+    "noi": "London",
+    "sha256": "910ba16094982c9c1d796d11760100f0967d42c16f93fbb1b1e2ee5edb6e5805",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [
+     {
+      "muc": "kien_truc",
+      "mo_ta": "A very long, uniform brick block with regular window grids, a row of identical white gables and several pale domed cupolas runs along the right-hand waterfront. Stepped landing stages line its base. It looks like a planned, monumental, classical-style riverside range.",
+      "ly_do": "Pre-Fire London had no uniform brick waterfront range with domed cupolas. The waterfront was irregular timber-framed houses, wharves and Old London Bridge. This block looks like a later planned brick or warehouse/classical building. The match is uncertain.",
+      "nam_xuat_hien": 1700,
+      "toa_do_px": [
+       1267,
+       432,
+       1920,
+       756
+      ],
+      "do_tin": 0.4
+     },
+     {
+      "muc": "kien_truc",
+      "mo_ta": "Brick houses at the bottom right have white-framed, multi-pane windows that look like vertically sliding sashes.",
+      "ly_do": "Sash windows only spread in England from about the 1670s–1680s. Timber-framed London houses of 1666 would have casement or leaded windows.",
+      "nam_xuat_hien": 1680,
+      "toa_do_px": [
+       1824,
+       972,
+       1901,
+       1037
+      ],
+      "do_tin": 0.25
+     }
+    ],
+    "cost_usd": 0.0397778,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1451,
+      "cacheReadInputTokens": 2883,
+      "cacheCreationInputTokens": 9987,
+      "webSearchRequests": 0,
+      "costUSD": 0.0397778,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 498,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 16.0,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A very long, uniform brick block with regular window grids, a row of identical white gables and several pale domed cupolas runs along the right-hand waterfront. Stepped landing stages line its base. It looks like a planned, monumental, classical-style riverside range.\",\"ly_do\":\"Pre-Fire London had no uniform brick waterfront range with domed cupolas. The waterfront was irregular timber-framed houses, wharves and Old London Bridge. This block looks like a later planned brick or warehouse/classical building. The match is uncertain.\",\"nam_xuat_hien\":1700,\"toa_do\":[0.66,0.4,1.0,0.7],\"do_tin\":0.4},{\"mo_ta\":\"Brick houses at the bottom right have white-framed, multi-pane windows that look like vertically sliding sashes.\",\"muc\":\"kien_truc\",\"ly_do\":\"Sash windows only spread in England from about the 1670s–1680s. Timber-framed London houses of 1666 would have casement or leaded windows.\",\"nam_xuat_hien\":1680,\"toa_do\":[0.95,0.9,0.99,0.96],\"do_tin\":0.25}]}",
+    "id": "M1-trung-l2-chieu_3d-ghep",
+    "tu_bo_dem": true
+   },
+   "render": {
+    "nam": 1666,
+    "noi": "London",
+    "sha256": "d3745ae4407c12b3ff4a77de153a5413d9ebf53d737ecbddd4c50f4287cd2396",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [
+     {
+      "muc": "kien_truc",
+      "mo_ta": "Several red-brick houses in the foreground have white-framed, multi-pane vertical windows that look like sashes.",
+      "ly_do": "Red-brick terraced houses with sash windows were not typical of London in 1666. They became common after the Great Fire and the 1667 Rebuilding Act. Sash windows were only just appearing, from about the 1670s.",
+      "nam_xuat_hien": 1670,
+      "toa_do_px": [
+       1517,
+       853,
+       1594,
+       972
+      ],
+      "do_tin": 0.25
+     },
+     {
+      "muc": "kien_truc",
+      "mo_ta": "A very long, uniform brick range with regular rows of windows runs along the river. It has repeated gables and several pale domed cupolas on top. The river side is a continuous stone quay with stepped buttresses.",
+      "ly_do": "The uniform, planned classical-style brick block with domes does not match the timber-framed medieval London of 1666. Domed ranges like this belong to later buildings such as Greenwich Hospital, built from 1696. A continuous masonry embankment of this kind also did not exist on the Thames then.",
+      "nam_xuat_hien": 1696,
+      "toa_do_px": [
+       1229,
+       454,
+       1920,
+       778
+      ],
+      "do_tin": 0.5,
+      "xac_nhan": {
+       "vung_px": [
+        538,
+        0,
+        1920,
+        1080
+       ],
+       "phong": 0.49,
+       "tra_loi": {
+        "vat": "London Bridge, a long bridge lined with houses and seen from across the Thames",
+        "dac_diem": "A long, dense row of tall, narrow, brown-walled buildings runs diagonally out into the river on a stone embankment or piers. Pale domed or cupola turrets stand on top, and a tall-masted sailing ship lies beside it. The river is in front. Timber-framed houses with red and grey roofs and chimneys fill the foreground and the far bank. Many pale spires or towers rise in the hazy distance.",
+        "co_tu_nam": 1209,
+        "da_co_nam_1666": "yes",
+        "ly_do": "The stone London Bridge was completed in 1209, and by the 1600s it carried rows of houses. It still stood in 1666 and was partly burned in the Great Fire. The timber-framed houses and sailing ship also fit the period."
+       },
+       "da_co": "yes",
+       "giu": false,
+       "cost_usd": 0.007549,
+       "loi": null
+      },
+      "ly_do_ha": "phóng to 0.49×: da_co_nam = 'yes' — không xác nhận"
+     }
+    ],
+    "cost_usd": 0.047130599999999995,
+    "cost_buoc2": 0.00755,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1437,
+      "cacheReadInputTokens": 2871,
+      "cacheCreationInputTokens": 9965,
+      "webSearchRequests": 0,
+      "costUSD": 0.039581599999999995,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 479,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 14.4,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A very long, uniform brick range with regular rows of windows runs along the river. It has repeated gables and several pale domed cupolas on top. The river side is a continuous stone quay with stepped buttresses.\",\"ly_do\":\"The uniform, planned classical-style brick block with domes does not match the timber-framed medieval London of 1666. Domed ranges like this belong to later buildings such as Greenwich Hospital, built from 1696. A continuous masonry embankment of this kind also did not exist on the Thames then.\",\"nam_xuat_hien\":1696,\"toa_do\":[0.64,0.42,1.0,0.72],\"do_tin\":0.5},{\"muc\":\"kien_truc\",\"mo_ta\":\"Several red-brick houses in the foreground have white-framed, multi-pane vertical windows that look like sashes.\",\"ly_do\":\"Red-brick terraced houses with sash windows were not typical of London in 1666. They became common after the Great Fire and the 1667 Rebuilding Act. Sash windows were only just appearing, from about the 1670s.\",\"nam_xuat_hien\":1670,\"toa_do\":[0.79,0.79,0.83,0.9],\"do_tin\":0.25}]}",
+    "id": "M1-trung-l2-chieu_3d-render",
+    "tu_bo_dem": true
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0869
+  },
+  "M1-trung-l2-chieu_tiso": {
+   "ghep": {
+    "nam": 1666,
+    "noi": "London",
+    "sha256": "910ba16094982c9c1d796d11760100f0967d42c16f93fbb1b1e2ee5edb6e5805",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [
+     {
+      "muc": "kien_truc",
+      "mo_ta": "A very long, uniform brick block with regular window grids, a row of identical white gables and several pale domed cupolas runs along the right-hand waterfront. Stepped landing stages line its base. It looks like a planned, monumental, classical-style riverside range.",
+      "ly_do": "Pre-Fire London had no uniform brick waterfront range with domed cupolas. The waterfront was irregular timber-framed houses, wharves and Old London Bridge. This block looks like a later planned brick or warehouse/classical building. The match is uncertain.",
+      "nam_xuat_hien": 1700,
+      "toa_do_px": [
+       1267,
+       432,
+       1920,
+       756
+      ],
+      "do_tin": 0.4
+     },
+     {
+      "muc": "kien_truc",
+      "mo_ta": "Brick houses at the bottom right have white-framed, multi-pane windows that look like vertically sliding sashes.",
+      "ly_do": "Sash windows only spread in England from about the 1670s–1680s. Timber-framed London houses of 1666 would have casement or leaded windows.",
+      "nam_xuat_hien": 1680,
+      "toa_do_px": [
+       1824,
+       972,
+       1901,
+       1037
+      ],
+      "do_tin": 0.25
+     }
+    ],
+    "cost_usd": 0.0397778,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1451,
+      "cacheReadInputTokens": 2883,
+      "cacheCreationInputTokens": 9987,
+      "webSearchRequests": 0,
+      "costUSD": 0.0397778,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 498,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 16.0,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A very long, uniform brick block with regular window grids, a row of identical white gables and several pale domed cupolas runs along the right-hand waterfront. Stepped landing stages line its base. It looks like a planned, monumental, classical-style riverside range.\",\"ly_do\":\"Pre-Fire London had no uniform brick waterfront range with domed cupolas. The waterfront was irregular timber-framed houses, wharves and Old London Bridge. This block looks like a later planned brick or warehouse/classical building. The match is uncertain.\",\"nam_xuat_hien\":1700,\"toa_do\":[0.66,0.4,1.0,0.7],\"do_tin\":0.4},{\"mo_ta\":\"Brick houses at the bottom right have white-framed, multi-pane windows that look like vertically sliding sashes.\",\"muc\":\"kien_truc\",\"ly_do\":\"Sash windows only spread in England from about the 1670s–1680s. Timber-framed London houses of 1666 would have casement or leaded windows.\",\"nam_xuat_hien\":1680,\"toa_do\":[0.95,0.9,0.99,0.96],\"do_tin\":0.25}]}",
+    "id": "M1-trung-l2-chieu_tiso-ghep",
+    "tu_bo_dem": true
+   },
+   "render": {
+    "nam": 1666,
+    "noi": "London",
+    "sha256": "d3745ae4407c12b3ff4a77de153a5413d9ebf53d737ecbddd4c50f4287cd2396",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [
+     {
+      "muc": "kien_truc",
+      "mo_ta": "Several red-brick houses in the foreground have white-framed, multi-pane vertical windows that look like sashes.",
+      "ly_do": "Red-brick terraced houses with sash windows were not typical of London in 1666. They became common after the Great Fire and the 1667 Rebuilding Act. Sash windows were only just appearing, from about the 1670s.",
+      "nam_xuat_hien": 1670,
+      "toa_do_px": [
+       1517,
+       853,
+       1594,
+       972
+      ],
+      "do_tin": 0.25
+     },
+     {
+      "muc": "kien_truc",
+      "mo_ta": "A very long, uniform brick range with regular rows of windows runs along the river. It has repeated gables and several pale domed cupolas on top. The river side is a continuous stone quay with stepped buttresses.",
+      "ly_do": "The uniform, planned classical-style brick block with domes does not match the timber-framed medieval London of 1666. Domed ranges like this belong to later buildings such as Greenwich Hospital, built from 1696. A continuous masonry embankment of this kind also did not exist on the Thames then.",
+      "nam_xuat_hien": 1696,
+      "toa_do_px": [
+       1229,
+       454,
+       1920,
+       778
+      ],
+      "do_tin": 0.5,
+      "xac_nhan": {
+       "vung_px": [
+        538,
+        0,
+        1920,
+        1080
+       ],
+       "phong": 0.49,
+       "tra_loi": {
+        "vat": "London Bridge, a long bridge lined with houses and seen from across the Thames",
+        "dac_diem": "A long, dense row of tall, narrow, brown-walled buildings runs diagonally out into the river on a stone embankment or piers. Pale domed or cupola turrets stand on top, and a tall-masted sailing ship lies beside it. The river is in front. Timber-framed houses with red and grey roofs and chimneys fill the foreground and the far bank. Many pale spires or towers rise in the hazy distance.",
+        "co_tu_nam": 1209,
+        "da_co_nam_1666": "yes",
+        "ly_do": "The stone London Bridge was completed in 1209, and by the 1600s it carried rows of houses. It still stood in 1666 and was partly burned in the Great Fire. The timber-framed houses and sailing ship also fit the period."
+       },
+       "da_co": "yes",
+       "giu": false,
+       "cost_usd": 0.007549,
+       "loi": null
+      },
+      "ly_do_ha": "phóng to 0.49×: da_co_nam = 'yes' — không xác nhận"
+     }
+    ],
+    "cost_usd": 0.047130599999999995,
+    "cost_buoc2": 0.00755,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1437,
+      "cacheReadInputTokens": 2871,
+      "cacheCreationInputTokens": 9965,
+      "webSearchRequests": 0,
+      "costUSD": 0.039581599999999995,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 479,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 14.4,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A very long, uniform brick range with regular rows of windows runs along the river. It has repeated gables and several pale domed cupolas on top. The river side is a continuous stone quay with stepped buttresses.\",\"ly_do\":\"The uniform, planned classical-style brick block with domes does not match the timber-framed medieval London of 1666. Domed ranges like this belong to later buildings such as Greenwich Hospital, built from 1696. A continuous masonry embankment of this kind also did not exist on the Thames then.\",\"nam_xuat_hien\":1696,\"toa_do\":[0.64,0.42,1.0,0.72],\"do_tin\":0.5},{\"muc\":\"kien_truc\",\"mo_ta\":\"Several red-brick houses in the foreground have white-framed, multi-pane vertical windows that look like sashes.\",\"ly_do\":\"Red-brick terraced houses with sash windows were not typical of London in 1666. They became common after the Great Fire and the 1667 Rebuilding Act. Sash windows were only just appearing, from about the 1670s.\",\"nam_xuat_hien\":1670,\"toa_do\":[0.79,0.79,0.83,0.9],\"do_tin\":0.25}]}",
+    "id": "M1-trung-l2-chieu_tiso-render",
+    "tu_bo_dem": true
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0869
   }
  },
  "o2": {

@@ -86,6 +86,16 @@
    "moi": [],
    "loi": null,
    "chi_phi_usd": 0.0268
+  },
+  "M1-trung-l2-chieu_3d": {
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0268
+  },
+  "M1-trung-l2-chieu_tiso": {
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0268
   }
  },
  "o2": {
@@ -250,5 +260,82 @@
    "loi": null,
    "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A very long, uniform, flat-fronted brick block runs along the right-hand quay. It has regular window grids, a row of identical gables and white domed cupolas, and it sits on a stepped, regular embankment. It reads as a planned 18th-century warehouse or dock range.\",\"ly_do\":\"London in 1666 had no continuous, uniform brick waterfront block like this. Riverfront buildings were irregular timber-framed houses, wharves and stairs. A planned, regular classical range with domes looks later than 1666, though I can't be sure what it is meant to be.\",\"nam_xuat_hien\":1700,\"toa_do\":[0.66,0.41,1.0,0.7],\"do_tin\":0.35},{\"muc\":\"kien_truc\",\"mo_ta\":\"Some houses in the lower right have white-framed, multi-pane windows that look like vertical sashes, set in brick facades.\",\"ly_do\":\"Sash windows only reached England in the 1670s, after 1666. Houses in 1666 would have had casements or mullioned windows.\",\"nam_xuat_hien\":1675,\"toa_do\":[0.92,0.86,1.0,0.97],\"do_tin\":0.3}]}"
   }
+ },
+ "20d4dc1863fa9b48e9d19cedf939a5fc": {
+  "ket_qua": {
+   "gpt": {
+    "meta": {
+     "model": "gpt-6.1-sol",
+     "usd": 0.0348,
+     "usage": {
+      "input_tokens": 16018,
+      "input_tokens_details": {
+       "cache_write_tokens": 16015,
+       "cached_tokens": 0
+      },
+      "output_tokens": 281,
+      "output_tokens_details": {
+       "reasoning_tokens": 260
+      },
+      "total_tokens": 16299
+     },
+     "loi": null
+    },
+    "json": {
+     "loi_thoi_dai": [],
+     "hinh_khoi": []
+    }
+   },
+   "claude": {
+    "meta": {
+     "model": [
+      "claude-sonnet-5-5"
+     ],
+     "usd": 0.0629927,
+     "loi": null
+    },
+    "json": {
+     "loi_thoi_dai": [
+      {
+       "mo_ta": "Brick houses with white-framed, multi-pane windows that look like sash windows. The windows are regular, and the facades are Georgian in style. This is at the lower right.",
+       "toa_do": [
+        0.9,
+        0.79,
+        0.99,
+        0.95
+       ],
+       "nam_xuat_hien": 1670,
+       "do_tin": 0.3
+      },
+      {
+       "mo_ta": "Red brick house with white-framed, sash-like windows, centre foreground.",
+       "toa_do": [
+        0.72,
+        0.73,
+        0.77,
+        0.86
+       ],
+       "nam_xuat_hien": 1670,
+       "do_tin": 0.25
+      },
+      {
+       "mo_ta": "Red brick house with white-framed, sash-like windows, left of the lower-right cluster.",
+       "toa_do": [
+        0.37,
+        0.76,
+        0.41,
+        0.84
+       ],
+       "nam_xuat_hien": 1670,
+       "do_tin": 0.2
+      }
+     ],
+     "hinh_khoi": []
+    }
+   }
+  },
+  "prompt_ver": "bmn-v2 (K-1.17.5, 24/10/2026: năm bắt buộc)",
+  "loi": null,
+  "chi_phi_usd": 0.0978
  }
 }

@@ -1,0 +1,249 @@
+{
+ "goc_EN": [
+  532000.0,
+  180800.0
+ ],
+ "bbox": [
+  529500,
+  179500,
+  535500,
+  182500
+ ],
+ "bac": {
+  "nha_1666": "5 (lô theo phố OSM còn giữ + mặt nạ Doornick bậc 1; kiểu nhà khung gỗ trát, tầng nhô, đầu hồi ra phố — bậc 4 theo Hollar)",
+  "nha_1667": "4–5 (4 hạng Rebuilding Act 1667: 2/3/4/4 tầng theo hạng phố; tường gạch)",
+  "toa_2026": "1 (OSM ODbL + LiDAR EA OGL); vật liệu theo loại/độ cao — bậc 5",
+  "vict": "5 (khối 1840–1940 trên nền toà sau 1941)",
+  "old_st_pauls": "3 (kích thước Clifton-Taylor/Hooke) + 4 (tỉ lệ, khoang theo Hollar/Dugdale 1658)",
+  "wren": "3 (Fletcher 1962) + 4 (tháp tây, trống)"
+ },
+ "phien_ban": "look-v2 + cong-trinh-v2 (LOOK-T4-V2) — bản THU-B b",
+ "dia_hinh": {
+  "nx": 1501,
+  "nz": 751,
+  "x0": -2500.0,
+  "z0": -1700.0,
+  "step": 4.0
+ },
+ "pho_1666": 7247,
+ "lo": 42947,
+ "kho_ven_song": 111,
+ "nha": {
+  "1666": 42947,
+  "xay_lai": 12250,
+  "phe_tich": 12250,
+  "hang": {
+   "1": 6432,
+   "2": 4873,
+   "3": 750,
+   "4": 195
+  },
+  "vict": 27064
+ },
+ "toa": {
+  "2026": 16786,
+  "vict": 0,
+  "lidar": 7423,
+  "bo_trung_cong_trinh": 145,
+  "nha_tho_osm": 67
+ },
+ "ke": {
+  "go_1666": 1988,
+  "embankment": 1790
+ },
+ "nha_tho": 108,
+ "nha_tho_nguon": {
+  "wiki": 78,
+  "osm": 30
+ },
+ "cau_2026": 6,
+ "st_pauls_EN": [
+  532055.9474,
+  181142.28524000014
+ ],
+ "old_st_pauls_EN": [
+  532073.7582856527,
+  181144.8876143509
+ ],
+ "old_st_pauls_truc": [
+  0.9894936473799689,
+  0.14457635281983666
+ ],
+ "blitz_1940": [
+  [
+   531980,
+   181120
+  ],
+  [
+   531900,
+   181250
+  ],
+  [
+   531960,
+   181420
+  ],
+  [
+   532080,
+   181560
+  ],
+  [
+   532200,
+   181760
+  ],
+  [
+   532420,
+   181800
+  ],
+  [
+   532640,
+   181720
+  ],
+  [
+   532760,
+   181560
+  ],
+  [
+   532720,
+   181400
+  ],
+  [
+   532560,
+   181300
+  ],
+  [
+   532380,
+   181220
+  ],
+  [
+   532230,
+   181150
+  ],
+  [
+   532120,
+   181100
+  ]
+ ],
+ "dinh": 6827688,
+ "tam_giac": 2275896,
+ "lop_dat": {
+  "w": 3000,
+  "h": 1500,
+  "buoc": 2.0,
+  "E0": 529500,
+  "N1": 182500
+ },
+ "cay": 2235,
+ "khoi_bep": 2305,
+ "bo_cuc": {
+  "pos": {
+   "off": 0,
+   "len": 81932256,
+   "dtype": "float32",
+   "shape": [
+    6827688,
+    3
+   ]
+  },
+  "col": {
+   "off": 81932256,
+   "len": 20483064,
+   "dtype": "uint8",
+   "shape": [
+    6827688,
+    3
+   ]
+  },
+  "tl": {
+   "off": 102415320,
+   "len": 109243008,
+   "dtype": "float32",
+   "shape": [
+    6827688,
+    4
+   ]
+  },
+  "k": {
+   "off": 211658328,
+   "len": 6827688,
+   "dtype": "uint8",
+   "shape": [
+    6827688
+   ]
+  },
+  "uv": {
+   "off": 218486016,
+   "len": 54621504,
+   "dtype": "float32",
+   "shape": [
+    6827688,
+    2
+   ]
+  },
+  "mt": {
+   "off": 273107520,
+   "len": 6827688,
+   "dtype": "uint8",
+   "shape": [
+    6827688
+   ]
+  },
+  "fl": {
+   "off": 279935208,
+   "len": 6827688,
+   "dtype": "uint8",
+   "shape": [
+    6827688
+   ]
+  },
+  "h26": {
+   "off": 286762896,
+   "len": 4509004,
+   "dtype": "float32",
+   "shape": [
+    751,
+    1501
+   ]
+  },
+  "h66": {
+   "off": 291271900,
+   "len": 4509004,
+   "dtype": "float32",
+   "shape": [
+    751,
+    1501
+   ]
+  },
+  "xanh": {
+   "off": 295780904,
+   "len": 1127251,
+   "dtype": "uint8",
+   "shape": [
+    751,
+    1501
+   ]
+  }
+ },
+ "sha256_bin": "bd776509adf6659ac3e0e6cebaa76cf5658ee550219f2c0b2f4392412ed36dcd",
+ "luoi_chay": {
+  "E0": 531000,
+  "N0": 181800,
+  "buoc": 20,
+  "nx": 140,
+  "nz": 65
+ },
+ "thu_b": {
+  "che_do": "b",
+  "nha_thuong": 95548,
+  "theo_lop": {
+   "1": 42947,
+   "3": 12250,
+   "4": 13287,
+   "10": 27064
+  },
+  "mat_phang": 997396,
+  "toa_co_ten_bo": 3840,
+  "tam_giac": 2275896,
+  "sha_hid": "eca3459e1a04134ca45a6face7867c549f60a2c0c07e30d4194fd703b2bd3573",
+  "sha_pid": "9cdfac8b5e224f6f41f9a75dff8a5c6b96be7150563e8ab302cb1464dd7e142d"
+ }
+}

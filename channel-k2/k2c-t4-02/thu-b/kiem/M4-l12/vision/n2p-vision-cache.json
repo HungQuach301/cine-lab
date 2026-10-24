@@ -354,6 +354,148 @@
    "moi": [],
    "loi": null,
    "chi_phi_usd": 0.0632
+  },
+  "M4-trung-l2-chieu_3d": {
+   "ghep": {
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "337992486e90986b3fced54bc191d8852a4533a2bcaf7181b4171368798dc857",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.03256780000000001,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 730,
+      "cacheReadInputTokens": 2883,
+      "cacheCreationInputTokens": 9987,
+      "webSearchRequests": 0,
+      "costUSD": 0.03256780000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 174,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 7.1,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+    "id": "M4-trung-l2-chieu_3d-ghep",
+    "tu_bo_dem": true
+   },
+   "render": {
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "f92e08bf8afa48c46fd9bddd9a9a49aaeb77a288ba05505a164e47c46cff8a4a",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.0306716,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 546,
+      "cacheReadInputTokens": 2871,
+      "cacheCreationInputTokens": 9965,
+      "webSearchRequests": 0,
+      "costUSD": 0.0306716,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 5.5,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+    "id": "M4-trung-l2-chieu_3d-render",
+    "tu_bo_dem": true
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0632
+  },
+  "M4-trung-l2-chieu_tiso": {
+   "ghep": {
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "337992486e90986b3fced54bc191d8852a4533a2bcaf7181b4171368798dc857",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.03256780000000001,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 730,
+      "cacheReadInputTokens": 2883,
+      "cacheCreationInputTokens": 9987,
+      "webSearchRequests": 0,
+      "costUSD": 0.03256780000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 174,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 7.1,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+    "id": "M4-trung-l2-chieu_tiso-ghep",
+    "tu_bo_dem": true
+   },
+   "render": {
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "f92e08bf8afa48c46fd9bddd9a9a49aaeb77a288ba05505a164e47c46cff8a4a",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.0306716,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 546,
+      "cacheReadInputTokens": 2871,
+      "cacheCreationInputTokens": 9965,
+      "webSearchRequests": 0,
+      "costUSD": 0.0306716,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 5.5,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+    "id": "M4-trung-l2-chieu_tiso-render",
+    "tu_bo_dem": true
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0632
   }
  },
  "o2": {
