@@ -36,7 +36,10 @@ def kiem(ten, muc, vision=False):
         tv = os.path.join(BP, k, tag)   # video KIỂM không mất (crf 0 yuv444p, $THUB — ngoài git, SHA trong video-sha.json); bản xem crf 20 ≤ 5 MB trong git
         if cach in ('anh_tinh', 'chieu_3d', 'chieu_tiso') and os.path.exists(f'{tv}/tl-{cach}.mp4'):
             c2 = 'anh_tinh' if cach == 'anh_tinh' else 'chieu_3d'   # chieu_tiso = chiếu theo tỉ số bóng (tương đương chiếu camera khi máy cố định) → khai cach chieu_3d
-            e['be_mat_nha_video'] = dict(ghep=f'{tv}/tl-{cach}.mp4', render=f'{tv}/tl-render.mp4', cach=c2, **({'tam': rel(f'{t}/ghep.png')} if c2 == 'chieu_3d' else {}))
+            tam_p = f'{t}/ghep.png'
+            if os.environ.get('TAM640') == '1':   # tấm tham chiếu (e) ở ĐỘ PHÂN GIẢI VIDEO (thu INTER_AREA) — so cùng độ phân giải; ghi rõ trong báo cáo
+                import cv2; tam_p = f'{t}/ghep-640.png'; cv2.imwrite(tam_p, cv2.resize(cv2.imread(f'{t}/ghep.png'), (640, 360), interpolation=cv2.INTER_AREA))
+            e['be_mat_nha_video'] = dict(ghep=f'{tv}/tl-{cach}.mp4', render=f'{tv}/tl-render.mp4', cach=c2, **({'tam': rel(tam_p)} if c2 == 'chieu_3d' else {}))
         tam.append(e)
     segs = [dict(id=f's{i}', dur=3.0, shots=[dict(id=x['shot'], at=0.0, tpl='scene3d')]) for i, x in enumerate(tam)]
     E = dict(id=f'thu-b-t4-{ten}', title='THU-B-T4 vòng thử (không phải tập)', brand='MOVING PARTS', channel='k2', khung_sach=True, kenh2_tu_t4=True, animatic=False, out=f'/var/tmp/ldn/thub/k2c/{ten}', segments=segs, n2p=dict(noi='London', t4=True, tam=tam))
