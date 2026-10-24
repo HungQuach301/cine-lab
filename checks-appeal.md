@@ -285,3 +285,42 @@ Khung đáp án (tiêu chí đặt TRƯỚC khi đo, chọn tham số ở nửa 
 - **A3 (lớp sống cộng hiệu) — LỖI LUẬT, sửa (1.17.5).** Luật cũ không có phép cho lớp sống. Thêm N2P-1 (e): ghép == clip(nền + (render có − render không)) ≤ 1/255 ngoài vùng bảo vệ (đúng 0; dán nguyên kiểu T6 8–72; lệch 6 px 38–50; nửa cường độ 18–22 → trượt), và (iv) soi tấm nền. Ca (iv) của M1-rong-oai-l3h không tái hiện được trong phiên (tấm ghép ở /var/tmp phiên LOOK); số LOOK: biến thể nhà xa lớp (c) 0 báo (iv) → nguyên nhân (iv) là quầng (A4), không phải khói.
 - **A4 (khớp màu cục bộ vòng bảo vệ) — KHÔNG phải lỗi mã K; cần chủ dự án sửa chữ Kinh thánh §15 (a).** (i) của K chỉ đo TRONG mặt nạ (a) (không đo vòng nở 1/3 px) — ràng buộc vòng = render là chữ Kinh thánh. K thêm phép kiểm được (d) cho trường hợp chủ dự án cho phép (K1175-D3): vòng = render-khớp + một độ lệch/vật (phần dư ≤ 1/255, |độ lệch| ≤ 40); T6: (i) giữ 0/255, phần dư 1. Không tái hiện được quầng M1-rong (thiếu mặt nạ look2); trên T6 chênh tông cục bộ không giảm sau khớp (ΔE vòng↔AI 8,1–9,4 trước/sau) → lợi ích chưa có số đo trong phiên.
 - **A5 (BE-MAT-NHA) — luật MỚI, một phần đạt yêu cầu.** (b) khoá 0/255, (c) thời đại (v2: 5/5 vật hiện đại vẽ thêm bị cả hai mô hình + q_thoi_dai bắt; 0 báo trên 2 ảnh AI thật sạch), (d) quỹ đạo sáng/nhấp nháy, (e) khung 0 chiếu 3D: đạt tiêu chí ở cả hai nửa. **(a) hình khối KHÔNG đạt yêu cầu "bắt 100 % nhà dời ≥ 2 m hoặc đổi mái":** ở 1,4–4,8 px/m (máy P1/TRUNG), điểm bắt 100 % (nửa TRUNG, ≥ 3 px/m, ≥ 40 điểm cạnh) báo nhầm 3,4 % nhà chỉ đổi bề mặt; điểm 0 báo nhầm (đỡ cạnh < 0,20) chỉ bắt xoá nhà (3/3) — dời 0/11, đổi mái 0/9. → (a) Chặn chỉ phần thô; phần còn lại Cảnh báo người đọc; nhà không đo được phải giữ render (b). Quyết định cách đi tiếp: K1175-D5.
+
+## Khiếu nại cho K-1.17.6 (ghi 24/10/2026 08:34 UTC, TRƯỚC khi phán; nguồn nguyên văn: `origin/ccr-ce664665-996oyl` @353d0f0c `reports/thu-b-t4/khieu-nai-K.md` — phiên THU-B-T4; lệnh mở phiên K-1.17.6 kèm căn cứ chủ dự án 24/10 12:52 và 15:25, giờ Asia/Saigon)
+
+### Khiếu nại cho phiên K (THU-B-T4 → P chuyển vào `checks-appeal.md`; phiên xưởng không sửa `checks/`, không đọc mã `checks/`)
+
+> Căn cứ: chạy `checks/ll/k2check.py` 1.17.5 (LOCK `c7630b4a…` KHỚP) trên các tấm BE-MAT-NHA của vòng thử. Bằng chứng: `channel-k2/k2c-t4-02/thu-b/kiem/*/k2check.md` (nguyên văn đầu ra + stderr).
+> Ghi chú minh bạch: dòng mã trích dưới đây là **traceback Python in ra khi chạy** `q_n2p.py` (không mở tệp mã để đọc).
+
+#### KN-1 · N2P-1/2/3/4/5/6 "không chạy được: 'so_doan_lan'" khi khung KHÔNG có nước
+- Hiện tượng: tấm M4-trung (2026, mặt phố Fleet St) và B3-p4-1938 (Ludgate Hill) — khung không có điểm nước nào trong mặt nạ lớp. Cả 6 hàng N2P đều "không chạy được: 'so_doan_lan'" (Chặn ở G2). Chạy riêng `q_n2p.py episode.yaml --tl timeline.json` ra traceback: `q_n2p.py, line 276, in tong_tam … sum(c['so_doan_lan'] for c in c9s) … KeyError: 'so_doan_lan'`.
+- Tách theo nguyên nhân (BAI-HOC-K2 K48): cùng cách khai, tấm M1-trung (CÓ sông) chạy đủ N2P-3 (T9c: 0 đoạn bờ lấn, giữa nước 0 %). Lỗi chỉ xuất hiện khi một tấm không có nước → bản tóm tắt T9c gộp kết quả không có khoá `so_doan_lan`.
+- Đề nghị: T9c trả `so_doan_lan = 0, sau_lon_nhat_px = 0, giua_pct = 0` (hoặc "KHÔNG ÁP — không có nước") cho khung không nước; thêm 1 ca selftest khung không nước.
+
+#### KN-2 · N2P-1 (i) tính vùng nhà ĐO ĐƯỢC của tấm `be_mat_nha_ai` là lớp (a) → mọi tấm BMN trượt N2P-1 (a)
+- Hiện tượng: M1-trung lượt 1/2 — N2P-1 (a) "lớp (a) sau ghép lệch tối đa 192/255 (l1), 218/255 (l2) ở 566 433 / 566 426 điểm". Số điểm này trùng vùng AI được phép của BE-MAT-NHA: vùng ghép AI = nhà đo được nở 1 px = **27,67 % khung = 573 766 điểm** (`tam/M1-trung/l*/ghep.json`); 566 433 = số điểm trong vùng đó có giá trị khác render (phần còn lại trùng ngẫu nhiên).
+- Đo của phiên (ngoài k2check): trong mặt nạ (a) TRỪ lớp `nha_thuong` (215, 215, 215): max |ghép − render| = **0/255** ở cả 3 khung; BE-MAT-NHA (b) của chính k2check: **0/255** ở mọi tấm.
+- Thử khai `lop_a` (danh sách lớp (a) không gồm `nha_thuong`, trường có trong RULES 1.17.0): KHÔNG đổi kết quả (`kiem/M1-l1-lopa/`). Phiên không thử thêm cách khai nào khác (không đoán).
+- Đề nghị: với tấm `be_mat_nha_ai: true`, N2P-1 (i) loại vùng "nhà đo được nở 1 px" khỏi mặt nạ (a) (vùng đó do BE-MAT-NHA (a)(b) kiểm), giữ (i) cho mọi điểm (a) còn lại — đúng chữ RULES 1.17.5 "BE-MAT-NHA (b) mọi điểm ngoài nhà đo được (nở 1 px) = render 0/255".
+
+#### KN-3 · Mô hình nhìn Claude "không đọc đủ ảnh" ngẫu nhiên → (c) THIẾU (Chặn)
+- Số lần: B3 lượt 1 (lần chạy 2: đọc 6/10 ảnh), M4-trung lượt 1 và 2, M1-trung lượt 2 — cùng một lời gọi, có lần đọc đủ 10/10 (B3 lượt 2, M1 lượt 1). Chi phí mỗi lần ≈ $0,04–0,07.
+- Đúng thiết kế fail-closed (K-1.17.5 §5.2). Đề nghị: tự gọi lại 1 lần khi thiếu ảnh (như Q27/Q31 "sau 1 lần gọi lại"), ghi cả hai lần vào `n2p-cost.jsonl`.
+
+#### KN-4 (ghi nhận, không phải lỗi mã) · (a) hình khối KHÔNG bắt vật AI vẽ thêm TRONG bóng nhà
+- B3 lượt 1: k2check (a) 0 Chặn, 0 (w); nhưng gpt-6.1-sol báo 10 (w) "thêm ống khói/chụp ống, đổi đầu hồi" và ô phóng (`tam/B3-p4-1938/l1/soi-a.jpg`) thấy ống khói AI vẽ thêm. Đỡ cạnh hình học (biên nhà ∪ mặt phẳng) không giảm khi AI THÊM chi tiết bên trong bóng nhà. Hiện chỉ mô hình nhìn (w) + người đọc bắt được. Đề nghị K xét phép "cạnh màu MỚI không có ở render và pass bóng" trong lòng nhà (như (c) cụm ΔE của N2P-1) — chỉ báo.
+
+#### KN-5 · (d) quỹ đạo sáng theo nhà báo lỗi cả khi dựng lại ánh sáng ĐÚNG (chiếu theo tỉ số bóng)
+- Cách (ii-b) "chiếu theo tỉ số bóng render" (máy cố định): trong nhà đo được C(t) = tấm × R(t)/R(0) từng điểm ảnh (sRGB tuyến tính) — đúng bằng chiếu albedo AI đã khử sáng (tấm/bóng(0)) rồi nhân bóng(t); nhấp nháy 0 về lý thuyết.
+- k2check (video không mất, crf 0 yuv444p): B3-p4-1938 lượt 2 — nhấp nháy ĐẠT, (e) ĐẠT, nhưng (d) **7,2 % nhà** có e_h > 0,10 (trần 2 %). Phiên tính lại e_h trên khung PNG theo đúng chữ RULES 1.17.5 (d): **11/153 nhà = 7,2 %** (trùng k2check). Tách nguyên nhân (`tam/B3-p4-1938/l2/phan-tich-d.json`): nhà lệch có độ quét bóng trong nhà sd(ln q) trung vị **0,47** (nhà không lệch 0,26) và độ đổi albedo AI sd(ln I/R0) **0,48** (0,38) — tức lệch xảy ra khi đường bóng quét QUA một nhà mà AI đã phân bố lại độ sáng bề mặt (cửa tối/tường sáng ở chỗ khác render): trung bình theo nhà của ảnh đúng vật lý vẫn khác quỹ đạo của render.
+- Đề nghị: đo (d) theo TỪNG ĐIỂM ẢNH (ln(C(t)/C(0)) − ln(R(t)/R(0)), trung vị theo nhà) thay cho tỉ số trung bình theo nhà, hoặc giữ thước hiện tại nhưng chuẩn hoá theo độ quét bóng; thêm ca selftest "albedo phân bố lại + bóng quét" (khử sáng đúng phải đạt).
+
+#### KN-6 · (e) khung 0 chiếu 3D so video 640×360 với tấm 1080p → sai số phóng/thu chiếm ngân sách ΔE
+- B3-p4-1938 lượt 2, chiếu 3D (ii-a) sau 3 vòng hiệu chỉnh ở 640×360: khung 0 video (PNG trước mã hoá) so tấm thu INTER_AREA về 640×360 — trong nhà đo được ΔE76 TB **2,19 / p95 6,48** (`tam/B3-p4-1938/l2/khung0-360-de.json`); trên cả lớp nhà thường 2,32 / 7,21.
+- k2check (video không mất crf 0 yuv444p), `tam` = tấm 1080p: (e) **TRƯỢT 4,6 / 12,6**; cùng video, `tam` = tấm thu về 640×360 (INTER_AREA): (e) **ĐẠT** (`kiem/B3-l2-tam640/`). Cách (ii-b) tỉ số bóng (khung 0 = tấm thu về 640×360 từng điểm): (e) ĐẠT cả hai.
+- Đề nghị: RULES ghi rõ (e) so ở độ phân giải VIDEO (thu `tam` bằng INTER_AREA) hoặc bắt buộc video kiểm cùng độ phân giải tấm; selftest có ca video 640×360 + tấm 1080p.
+
+#### Yêu cầu kèm theo của lệnh K-1.17.6 (không phải khiếu nại; căn cứ chủ dự án, Asia/Saigon)
+- 24/10 12:52 "Duyệt cách kết hợp tư liệu theo khuyến nghị": trần tư liệu + khắc + thẻ của T4 = 15 % (thay 10 %); tư liệu chỉ chồng lên shot 3D, không chồng/ghép liền với clip Omni; mỗi lần ≤ 10 s → TU-LIEU-10 thành tham số theo tập `tu_lieu_tran_pct` + phép mới "không trùng/không ghép liền clip M-d" và "mỗi lần ≤ 10 s".
+- 24/10 15:25 trả lời phiếu THU-B "theo khuyến nghị": B chỉ ở nhà ≥ 4 px/m (cách tỉ số bóng khi máy cố định, chiếu 3D khi máy di chuyển; D 3D không vân nướng; nâng vật liệu 3D toà 2026 có tên) → BE-MAT-NHA (a) đọc `be_mat_nha_px_m_min` (mặc định 2; T4 khai 4).
