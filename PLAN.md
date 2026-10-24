@@ -22,6 +22,7 @@
 - qc nhà máy Q1–Q22 (Q21 gán nguồn, Q22 chữ tràn khung từ 06/10/2026). Thư viện tự thu cỡ chữ phủ trên khung từ tập 6.
 - Mẫu lệnh cho phiên: `playbook/prompts/` (P-G1-LO, P-SAN-XUAT, P-G3). Mẫu kế hoạch tập: `playbook/PLAN-TAP-MAU.md`.
 - Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện. Chỉ P merge vào `main`.
+- **Quy ước D6 (K1175-D6 = A; chủ dự án duyệt 24/10/2026, "Duyệt K1175-D1…D7 theo khuyến nghị"; P-2410b ghi):** mọi tấm N2+ (tấm nền AI) và mọi tấm phủ bề mặt nhà (BMN) phải có **mặt nạ ID + tấm ghép + JSON kiểm** trong git, nén ≤ 5 MB mỗi tệp (PNG/JPG nén hoặc gói nén), commit ≤ 10 phút sau khi tấm về; **không chỉ để ở `/var/tmp`**. Gốc lớn hơn để ngoài git kèm SHA-256 + lệnh tái tạo. Lý do: K-1.17.5 không tái hiện được số kiểm của look2 vì mặt nạ và tấm ghép chỉ nằm ở `/var/tmp` (`reports/k1175/K1175-BAO-CAO.md` §1, §12). Trường khai: Kinh thánh §13.6.
 
 ## Lịch sử
 - Trước 05/10/2026 (M0–M2, Cổng 1–6, tập thử, Mốc B, tập 2): `reports/archive/PLAN-LICH-SU-2026-10-05.md`.
