@@ -22,3 +22,6 @@
 
 - 02:37 UTC: dựng 3D 5/53 tệp máy xong (M01–M04, H1-04…), ước còn ≈ 5,3 h (P = 2, spp 2, 1,62 s/khung). M-d: 7/24 clip chọn (md-so-giay.jsonl). Tấm nền: P1-2026 l1 ĐẠT (i)–(v) (M01, H5-04), P9-2026 l2 ĐẠT (i)–(iv) (iii 1,98 % — sát ngưỡng 2 %), P3-2026 TRƯỢT (iii) 3/3 lượt → H5-06 dùng 3D V2; tấm nền còn 4,59 % (dưới mục tiêu 5 %). Âm thanh nháp −14,0 LUFS / −1,9 dBTP. Bộ ghép, xuất, khai k2check, XEM CÂM: mã sẵn sàng.
 - Chi phí đến giờ: Gemini T4 tổng $4.2047 (phiên này $2.77) · OpenAI $2.04 (ảnh + kiểm) · Claude (kiểm) $0.76 + q_thoi_dai.
+
+- 03:27 UTC: **SỰ CỐ** — commit "M-d 22/24…" (đã đẩy) mang theo ≈ 244 MB ảnh lát trung gian của bộ kiểm (`animatic/omni/kiem2/qtd-*/`, khung PNG). Mỗi tệp < 5 MB (preflight ĐẠT) nhưng không cần cho git. Không force-push/amend (K18): commit sau gỡ khỏi theo dõi (`git rm --cached`) + thêm .gitignore; lịch sử nhánh vẫn mang ≈ 244 MB — ghi vào báo cáo.
+- M-d: 22/24 đạt 2 tầng; H2-04a (mũ bowler/chóp tròn — lỗi thời đại, 3/3) và H5-07a (ảnh đầu 2026 có chữ/biển, 3/3) → 3D; thêm M-d (19) Toà Cháy 1667 (H2-03c, tách từ H2-03b) để giữ M-d ≥ 20 % (Q1). TRUOT hạ hệ số (1,4 %/s; H1-03 đo 2,99 %/s sát trần 3 → dựng lại).
