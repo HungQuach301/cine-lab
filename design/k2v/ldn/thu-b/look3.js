@@ -160,8 +160,10 @@ function patchB(mat, depth) {
               alb *= mix(0.50, 1.0, smoothstep(0.0, 2.4, p.y)); }   /* tiếp đất: chân tường ám bẩn + bóng tiếp xúc */
             else { float ms = fbm3(p * 0.55 + vHid * 0.37); alb = mix(alb, alb * vec3(0.74, 0.82, 0.66), 0.40 * smoothstep(0.50, 0.80, ms)); alb *= mix(0.66, 1.0, smoothstep(0.0, 0.7, p.y));
               alb *= 0.90 + 0.18 * vn(p * vec2(0.9, 3.2) + vHid); } }   /* rêu/ám khói loang + mép mái tối + hàng ngói lệch */
+          if (uD > 0.5 && !nt && ((vK > 5.5 && vK < 6.5) || (vK > 7.5 && vK < 8.5))) { float hs = h21(floor(vW.xz * 0.05) + 0.7); float sk = fbm3(vec2(p.x * 0.8 + hs * 7.0, p.y * 0.15));   /* THU-B D: đá ám khói than theo khối (nhà thờ giáo xứ, tường) — chỉ bề mặt */
+            alb *= mix(0.70, 0.95, hs) * (0.84 + 0.22 * sk); if (!roof) alb *= mix(0.62, 1.0, smoothstep(0.0, 3.0, p.y)); }
           if (uD2 > 0.5 && nt) { float tix = floor(h21(vec2(vHid * 0.0071, 5.3)) * 8.0); float era = vK < 1.5 ? 0.0 : (vK > 2.5 && vK < 3.5) ? 1.0 : (vK > 3.5 && vK < 4.5) ? 2.0 : -1.0;   /* THU-B D2: vân nướng mặt tiền/mái từ ảnh AI (8 mặt tiền/thời kỳ; nhà 1666 gạch và khối Victoria: giữ thủ tục) */
-            if (!roof && era >= 0.0 && !(era < 0.5 && m == 2) && m != 14 && m != 7 && m != 13) { float off = h21(vec2(vHid * 0.013, 9.1)) * uFacN.z; vec2 fu = 0.01 + 0.98 * vec2(fract((p.x + off) / uFacN.z), fract(max(p.y, 0.0) / uFacN.w));
+            if (!roof && era >= 0.0 && !(era < 0.5 && m == 2) && !(era > 1.5 && m == 11) && m != 14 && m != 7 && m != 13) { float off = h21(vec2(vHid * 0.013, 9.1)) * uFacN.z; vec2 fu = 0.01 + 0.98 * vec2(fract((p.x + off) / uFacN.z), fract(max(p.y, 0.0) / uFacN.w));
               float cl = mod(tix, 4.0), rw = era * 2.0 + floor(tix / 4.0); vec3 fc = texture2D(tFac, vec2((cl + fu.x) / uFacN.x, (rw + 1.0 - fu.y) / uFacN.y)).rgb; int ri = int(era);
               vec3 fm = ri == 0 ? uFacMean[0] : ri == 1 ? uFacMean[1] : uFacMean[2]; alb = mix(alb, fc / max(fm, vec3(0.02)) * dot(alb, vec3(0.333)), 0.92); glassK *= 0.35; }
             else if (roof) { float rr = (m == 3) ? 0.0 : (m == 4) ? 1.0 : 2.0; vec2 ru = 0.01 + 0.98 * fract((p + vec2(h21(vec2(vHid, 2.0)), h21(vec2(vHid, 4.0))) * 8.0) / vec2(8.0, 13.5));
@@ -255,7 +257,7 @@ async function build(cfg) {
       .replace('#include <begin_vertex>', `#include <begin_vertex>
         float k = smoothstep(1864.0, 1870.5, uYear); transformed.y = mix(h6, h2, k); vWet = smoothstep(1.2, -0.8, transformed.y); vW = (modelMatrix * vec4(transformed, 1.0)).xyz;`);
     s.fragmentShader = s.fragmentShader.replace('#include <common>', `#include <common>
-      uniform float uBong; varying vec3 vW; varying float vWet; uniform sampler2D uFire, uFire40, uBake, tC66, tC26; uniform vec4 uFireBox, uBakeBox, uLD; uniform float uFireK, uYear, uMask, uBakeOn, uBakeK, uHour, uH40, uDbg; ${GLSL_N} ${VANG} ${HAZE}`)
+      uniform float uBong, uD; varying vec3 vW; varying float vWet; uniform sampler2D uFire, uFire40, uBake, tC66, tC26; uniform vec4 uFireBox, uBakeBox, uLD; uniform float uFireK, uYear, uMask, uBakeOn, uBakeK, uHour, uH40, uDbg; ${GLSL_N} ${VANG} ${HAZE}`)
       .replace('vec4 diffuseColor = vec4( diffuse, opacity );', `vec2 en = vec2(vW.x + 532000.0, -vW.z + 180800.0); vec2 cu = vec2((en.x - uLD.x) / uLD.z, (uLD.y - en.y) / uLD.w);
         float c66 = floor(texture2D(tC66, cu).r * 255.0 + 0.5), c26 = floor(texture2D(tC26, cu).r * 255.0 + 0.5); bool modern = uYear > 1850.0; float cl = modern ? c26 : c66;
         vec2 p = vW.xz; float n = fbm3(p * 0.05); vec3 cc;
@@ -266,11 +268,12 @@ async function build(cfg) {
         else if (cl < 4.5) cc = vanC(vec3(0.24, 0.21, 0.17), 10, p, 0.3);
         else if (cl < 5.5) { float pl = step(0.55, vn(p * vec2(0.05, 0.3))); cc = mix(vanC(vec3(0.30, 0.27, 0.23), 9, p, 0.3), vanC(vec3(0.26, 0.20, 0.15), 14, p.yx, 0.4), pl * 0.6); }   // bến: sỏi + ván
         else cc = vanC(vec3(0.16, 0.14, 0.11), 10, p, 0.2);
-        cc = mix(cc, vec3(0.13, 0.115, 0.095), vWet * 0.85); if (uBong > 0.5) cc = vec3(0.6);
+        cc = mix(cc, vec3(0.13, 0.115, 0.095), vWet * 0.85); if (uD > 0.5) cc *= 0.80 + 0.28 * fbm3(p * 0.31 + 3.3); if (uBong > 0.5) cc = vec3(0.6);
         vec4 diffuseColor = vec4(cc, 1.0);`)
       .replace('#include <lights_fragment_end>', `#include <lights_fragment_end>
         { vec2 bu = (en - uBakeBox.xy) / (uBakeBox.zw - uBakeBox.xy); if (uBakeOn > 0.5 && bu.x > 0.0 && bu.y > 0.0 && bu.x < 1.0 && bu.y < 1.0) { float sk = texture2D(uBake, bu).r;
-          reflectedLight.indirectDiffuse *= mix(1.0, sk, uBakeK); reflectedLight.directDiffuse *= mix(1.0, smoothstep(0.05, 0.6, sk) * 0.4 + 0.6, uBakeK * 0.5); } }`)
+          reflectedLight.indirectDiffuse *= mix(1.0, sk, uBakeK); reflectedLight.directDiffuse *= mix(1.0, smoothstep(0.05, 0.6, sk) * 0.4 + 0.6, uBakeK * 0.5);
+          if (uD > 0.5) { reflectedLight.directDiffuse *= smoothstep(0.15, 0.75, sk) * 0.35 + 0.65; reflectedLight.indirectDiffuse *= mix(1.0, sk, 0.5); } } }`)
       .replace('#include <dithering_fragment>', `#include <dithering_fragment>
         vec2 fu = (vW.xz - uFireBox.xy) / uFireBox.zw; vec3 fg = uHour >= 0.0 ? texture2D(uFire, fu).rgb : texture2D(uFire40, fu).rgb;
         if (uHour >= 0.0) { float ash = texture2D(uFire, fu).a; gl_FragColor.rgb *= mix(1.0, 0.20 + 0.10 * vn(vW.xz * 0.3), clamp(ash, 0.0, 1.0)); }
@@ -569,7 +572,7 @@ window.renderFrame = async (f) => {
   for (const k of ['66', '40']) { const on = (k === '66' ? fire66 : fire40) && f.fire !== false; GLOW['e' + k].visible = on && f.embers !== false; GLOW['g' + k].visible = on && f.glow !== false; }
   U.uToy.value = f.look && f.look.toy != null ? f.look.toy : 1; CHIM.visible = f.chim !== false;
   U.uBong.value = f.bong ? 1 : 0; U.uD.value = f.d ? 1 : 0; U.uD2.value = (f.d2 && U.tFac.value) ? 1 : 0;
-  if (f.proj && PROJ.url !== f.proj.url) { PROJ.url = f.proj.url; U.uProj.value = await new Promise((r) => new THREE.TextureLoader().load(f.proj.url, (t) => { t.colorSpace = THREE.SRGBColorSpace; t.flipY = true; t.minFilter = t.magFilter = THREE.LinearFilter; t.generateMipmaps = false; r(t); }, undefined, () => r(null))); }
+  if (f.proj && PROJ.url !== f.proj.url) { PROJ.url = f.proj.url; U.uProj.value = await new Promise((r) => new THREE.TextureLoader().load(f.proj.url, (t) => { t.colorSpace = THREE.SRGBColorSpace; t.flipY = true; t.minFilter = THREE.LinearMipmapLinearFilter; t.magFilter = THREE.LinearFilter; t.generateMipmaps = true; r(t); }, undefined, () => r(null))); }
   if (f.proj && U.uProj.value) { U.uProjVP.value.fromArray(f.proj.vp); U.uProjOn.value = 1; } else U.uProjOn.value = 0;   // V2: chim=false → ảnh vào tấm nền không khói bếp (khói bếp = vật chuyển động, ghép lại từ render)
   LG.farCity.visible = true;
   if (f.mask) { U.uMask.value = f.mask; for (const k in FIRE) { FIRE[k].visible = SMOKE[k].visible = false; } for (const k in GLOW) GLOW[k].visible = false; CHIM.visible = false; R.setRenderTarget(null); R.render(scene, cam); U.uMask.value = 0; CHIM.visible = true;
