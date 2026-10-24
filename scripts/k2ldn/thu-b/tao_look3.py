@@ -10,7 +10,7 @@ Thêm (mọi thứ mặc định TẮT → với uD = uD2 = uProjOn = uBong = 0 
   · f.d2 (D + vân nướng): vân mặt tiền/mái nướng từ ảnh AI (tFac/tRoof) theo nhà thường, albedo phẳng hiệu chuẩn theo trung bình vân CC0."""
 import hashlib, os, re, sys
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-SRC = os.path.join(REPO, 'design/k2v/ldn/look2.js'); DST = os.path.join(REPO, 'design/k2v/ldn/thu-b/look3.js')
+SRC = os.path.join(REPO, 'design/k2v/ldn/look2.js'); DST = os.path.join(REPO, os.environ.get('LOOK3_DST', 'design/k2v/ldn/thu-b/look3.js'))
 s = open(SRC, encoding='utf-8').read(); sha = hashlib.sha256(s.encode()).hexdigest()
 
 
@@ -29,7 +29,7 @@ s = HEAD + s
 rep("uDomeC: { value: new THREE.Vector2(0, 0) }, uToy: { value: 1 } };",
     "uDomeC: { value: new THREE.Vector2(0, 0) }, uToy: { value: 1 },\n"
     "  uProjOn: { value: 0 }, uProj: { value: null }, uProjVP: { value: new THREE.Matrix4() }, uBong: { value: 0 }, uD: { value: 0 }, uD2: { value: 0 },\n"
-    "  tFac: { value: null }, tRoof: { value: null }, uFacN: { value: new THREE.Vector4(4, 3, 12, 11.2) }, uFacMean: { value: [V3(0.5, 0.5, 0.5), V3(0.5, 0.5, 0.5), V3(0.5, 0.5, 0.5), V3(0.5, 0.5, 0.5)] } };")
+    "  tFac: { value: null }, tRoof: { value: null }, uFacN: { value: new THREE.Vector4(4, 6, 12, 13.5) }, uFacMean: { value: [V3(0.5, 0.5, 0.5), V3(0.5, 0.5, 0.5), V3(0.5, 0.5, 0.5), V3(0.5, 0.5, 0.5)] } };")
 # --- thuộc tính + varying (bóng và màu dùng chung chuỗi đỉnh)
 rep("attribute vec4 tl; attribute float kk; attribute vec2 uvm; attribute float mt; attribute float fl; uniform float uYear, uHour;",
     "attribute vec4 tl; attribute float kk; attribute vec2 uvm; attribute float mt; attribute float fl; uniform float uYear, uHour; attribute float hid; attribute float pid; varying float vHid; varying float vPid;")
@@ -49,11 +49,11 @@ NEW_SURF = r"""          if (vK > 1.5 && vK < 2.5) alb *= 0.38 + 0.15 * vn(vW.xz
               alb *= mix(0.50, 1.0, smoothstep(0.0, 2.4, p.y)); }   /* tiếp đất: chân tường ám bẩn + bóng tiếp xúc */
             else { float ms = fbm3(p * 0.55 + vHid * 0.37); alb = mix(alb, alb * vec3(0.74, 0.82, 0.66), 0.40 * smoothstep(0.50, 0.80, ms)); alb *= mix(0.66, 1.0, smoothstep(0.0, 0.7, p.y));
               alb *= 0.90 + 0.18 * vn(p * vec2(0.9, 3.2) + vHid); } }   /* rêu/ám khói loang + mép mái tối + hàng ngói lệch */
-          if (uD2 > 0.5 && nt) { float tix = floor(h21(vec2(vHid * 0.0071, 5.3)) * uFacN.x); float row = (m == 0 || m == 1) ? 0.0 : (m == 2 || m == 11 || m == 14) ? 1.0 : 2.0;   /* THU-B D2: vân nướng mặt tiền/mái từ ảnh AI */
-            if (!roof && m != 14) { float off = h21(vec2(vHid * 0.013, 9.1)) * uFacN.z; vec2 fu = vec2(fract((p.x + off) / uFacN.z), fract(max(p.y, 0.0) / uFacN.w));
-              vec3 fc = texture2D(tFac, vec2((tix + fu.x) / uFacN.x, (row + 1.0 - fu.y) / uFacN.y)).rgb; int ri = int(row);
-              vec3 fm = ri == 0 ? uFacMean[0] : ri == 1 ? uFacMean[1] : uFacMean[2]; alb = mix(alb, fc / max(fm, vec3(0.02)) * dot(alb, vec3(0.333)) * 1.0, 0.92); glassK *= 0.35; }
-            else if (roof) { float rr = (m == 3) ? 0.0 : (m == 4 || m == 11) ? 1.0 : 2.0; vec2 ru = fract((p + vec2(h21(vec2(vHid, 2.0)), h21(vec2(vHid, 4.0))) * 8.0) / 8.0);
+          if (uD2 > 0.5 && nt) { float tix = floor(h21(vec2(vHid * 0.0071, 5.3)) * 8.0); float era = vK < 1.5 ? 0.0 : (vK > 2.5 && vK < 3.5) ? 1.0 : (vK > 3.5 && vK < 4.5) ? 2.0 : -1.0;   /* THU-B D2: vân nướng mặt tiền/mái từ ảnh AI (8 mặt tiền/thời kỳ; nhà 1666 gạch và khối Victoria: giữ thủ tục) */
+            if (!roof && era >= 0.0 && !(era < 0.5 && m == 2) && m != 14 && m != 7 && m != 13) { float off = h21(vec2(vHid * 0.013, 9.1)) * uFacN.z; vec2 fu = 0.01 + 0.98 * vec2(fract((p.x + off) / uFacN.z), fract(max(p.y, 0.0) / uFacN.w));
+              float cl = mod(tix, 4.0), rw = era * 2.0 + floor(tix / 4.0); vec3 fc = texture2D(tFac, vec2((cl + fu.x) / uFacN.x, (rw + 1.0 - fu.y) / uFacN.y)).rgb; int ri = int(era);
+              vec3 fm = ri == 0 ? uFacMean[0] : ri == 1 ? uFacMean[1] : uFacMean[2]; alb = mix(alb, fc / max(fm, vec3(0.02)) * dot(alb, vec3(0.333)), 0.92); glassK *= 0.35; }
+            else if (roof) { float rr = (m == 3) ? 0.0 : (m == 4) ? 1.0 : 2.0; vec2 ru = 0.01 + 0.98 * fract((p + vec2(h21(vec2(vHid, 2.0)), h21(vec2(vHid, 4.0))) * 8.0) / vec2(8.0, 13.5));
               vec3 rc = texture2D(tRoof, vec2((rr + ru.x) / 3.0, ru.y)).rgb; alb = mix(alb, rc / max(uFacMean[3], vec3(0.02)) * dot(alb, vec3(0.333)), 0.85); } }
           if (uProjOn > 0.5 && nt) { vec4 cp = uProjVP * vec4(vW, 1.0); vec2 q = cp.xy / cp.w * 0.5 + 0.5;   /* THU-B B (ii): ảnh AI đã khử sáng chiếu lên hình học */
             if (cp.w > 0.0 && q.x > 0.0 && q.y > 0.0 && q.x < 1.0 && q.y < 1.0) { vec4 pr = texture2D(uProj, q); if (pr.a > 0.5) { alb = pr.rgb; glassK = 0.0; } } }
@@ -76,8 +76,8 @@ rep("if (uMask > 1.5) { float id = 0.0;", "if (uMask > 1.5 && uMask < 2.5) { flo
 rep("gl_FragColor = (vK > 4.5 && vK < 5.5 && id > 0.5) ? vec4(vec3(id * 20.0, 0.0, 200.0) / 255.0, 1.0) : vec4(0.0, 0.0, 0.0, 1.0); }`);",
     "gl_FragColor = (vK > 4.5 && vK < 5.5 && id > 0.5) ? vec4(vec3(id * 20.0, 0.0, 200.0) / 255.0, 1.0) : vec4(0.0, 0.0, 0.0, 1.0); }\n"
     "        if (uMask > 0.5 && uMask < 1.5 && vHid > 0.5) gl_FragColor = vec4(vec3(215.0) / 255.0, 1.0);   /* THU-B: lớp nha_thuong (K-1.17.5) */\n"
-    "        if (uMask > 2.5 && uMask < 3.5) gl_FragColor = vec4(vHid > 0.5 ? enc24(vHid) : vec3(0.0), 1.0);\n"
-    "        if (uMask > 3.5 && uMask < 4.5) gl_FragColor = vec4(vHid > 0.5 ? enc24(vPid) : vec3(0.0), 1.0);\n"
+    "        if (uMask > 2.5 && uMask < 3.5) gl_FragColor = vec4(vHid > 0.5 ? enc24(floor(vHid + 0.5)) : vec3(0.0), 1.0);   /* làm tròn: nội suy varying lệch ε dưới số nguyên */\n"
+    "        if (uMask > 3.5 && uMask < 4.5) gl_FragColor = vec4(vHid > 0.5 ? enc24(floor(vPid + 0.5)) : vec3(0.0), 1.0);\n"
     "        if (uMask > 5.5) gl_FragColor = vec4(l2s(diffuseColor.rgb), 1.0);`);")
 # --- địa hình: pass bóng xám đều
 rep("varying vec3 vW; varying float vWet; uniform sampler2D uFire, uFire40, uBake, tC66, tC26;", "uniform float uBong; varying vec3 vW; varying float vWet; uniform sampler2D uFire, uFire40, uBake, tC66, tC26;")
