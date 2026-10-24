@@ -19,6 +19,8 @@ Phiên xưởng chỉ CHẠY (không đọc mã). Định nghĩa: checks/ll/RULE
              1.17.4 (chủ dự án duyệt Q1–Q7 23/10/2026 21:45): BIEN-CO-V thước biến cố ĐO trên video (tập từ T3 có video; K117-D8) — tập từ T4 cộng
              biến cố đo vào Q37/NHIP-K2/Q37 (1.13) (b)(c) khi thước đạt hiệu chuẩn · Q37 (c) miễn khối thẻ PP cuối phim (K1173-D6, từ T3) · tập từ T4:
              MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU (§19), GEMINI-NGAN-SACH, GOC-CAO-60 (Q2); MINH-HOA (a) / N2P-6 (b) bỏ trần 20 % (Q2)
+             1.17.5 (K1174-D1 = A; phương án B 24/10/2026): tập từ T4: N2P-3 nước→đất = T9c (đường bờ đo, đối chứng render — A1/A2) · N2P-1 (e) lớp
+             sống cộng hiệu (A3), (d) vòng bảo vệ khớp màu cục bộ khi khai (A4) · BE-MAT-NHA (AI phủ bề mặt nhà thường, tấm `be_mat_nha_ai`)
 
 Gọi: Q26b bối cảnh · Q32 footage/ảnh nguồn ngoài · Q33 lặp cảnh · Q34 loại shot · Q35 nhãn loại số (D5) · Q36 chữ trên màn hình ·
 Q37 nhịp thị giác · A1–A13 âm thanh · LOCK. Mã thoát 0 khi mọi mục ĐẠT (âm thanh của tập cũ: CHỈ BÁO, không tính).
@@ -43,7 +45,7 @@ Mặc định: timeline <out>/timeline.json, master <out>/<id>-v1-master.mp4 n�
 import glob, json, os, subprocess, sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
-from checks.ll import base, q_setting, q_footage, q_scene, q_types, q_chu, q_nhip, q_amthanh, q_mach, q_ftg, q_hinh, q_tl, q_k2var, cap112, q_k116, q_k117, q_bcv, q_k1174  # noqa: E402
+from checks.ll import base, q_setting, q_footage, q_scene, q_types, q_chu, q_nhip, q_amthanh, q_mach, q_ftg, q_hinh, q_tl, q_k2var, cap112, q_k116, q_k117, q_bcv, q_k1174, q_k1175  # noqa: E402
 from checks.cinecheck import VERSION  # noqa: E402
 
 
@@ -283,8 +285,9 @@ def main():
         from checks.ll import q_n2p
         N2T = {'N2P-1': 'N2+ (i) lớp (a) sau ghép', 'N2P-2': 'N2+ (ii) lỗi thời đại (2 mô hình + O2)', 'N2P-3': 'N2+ (iii) đổi loại vùng T9b',
                'N2P-4': 'N2+ (iv) đóng băng trên tấm tĩnh', 'N2P-5': 'N2+ (v) nhấp nháy + chuyển tấm', 'N2P-6': 'N2+ (vi) trần §15(d)'}
-        N2N = {'N2P-1': '0/255 trong (a) · 0 vật (a) thêm/bớt/đổi · cụm ΔE ≥ 30 trong dải 20 px → người đọc', 'N2P-2': '0 lỗi có năm (gpt ∪ claude) · O2 mới so render 0',
-               'N2P-3': 'T9b ≤ 2 % mỗi chiều · 0 báo mô hình', 'N2P-4': '0 vật chuyển động trên tấm tĩnh', 'N2P-5': 'hoà ≥ 2 s · ≤ 1 ΔE/khung · nhấp nháy ≤ 1,5 × đối chứng',
+        N2N = {'N2P-1': '0/255 trong (a) · 0 vật (a) thêm/bớt/đổi · cụm ΔE ≥ 30 trong dải 20 px → người đọc · (1.17.5) lớp sống cộng hiệu ≤ 1/255 · vòng khớp màu cục bộ',
+               'N2P-2': '0 lỗi có năm (gpt ∪ claude) · O2 mới so render 0',
+               'N2P-3': 'T9b đất→nước ≤ 2 % · (1.17.5) T9c: 0 bờ lấn ≥ 6 px · giữa nước ≤ 2 % · 0 báo mô hình', 'N2P-4': '0 vật chuyển động trên tấm tĩnh', 'N2P-5': 'hoà ≥ 2 s · ≤ 1 ΔE/khung · nhấp nháy ≤ 1,5 × đối chứng',
                'N2P-6': 'tấm nền ≤ 50 % · minh hoạ ≤ 20 % · tổng AI ≤ 70 % · không chồng shot'}
         if not q_n2p.ap_n2p(E): bao('N2P-1…6', 'Luật N2+ (§15, từ T4)', lambda: dict(ok=True, loi=[], val='tập trước T4 (không khai kenh2_tu_t4 / n2p)', ket_qua='KHÔNG ÁP'))
         else:
@@ -303,6 +306,12 @@ def main():
             try: K74 = q_k1174.check(E, TL, ep_dir, LS17)
             except Exception as e: K74 = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in K74T}
             for k in K74T: bao(k, K74T[k], lambda k=k: K74[k], K74N[k])
+    # ---- 1.17.5: BE-MAT-NHA (tập từ T4; tấm khai be_mat_nha_ai) — CHỈ BÁO (cấp ở cap112, áp với --cap)
+    if V16:
+        if not q_k1175.ap_1175(E): bao('1.17.5 (T4)', 'BE-MAT-NHA', lambda: dict(ok=True, loi=[], val='tập trước T4 — không hồi tố', ket_qua='KHÔNG ÁP'))
+        else:
+            bao('BE-MAT-NHA', 'AI phủ bề mặt nhà thường (phương án B)', lambda: q_k1175.be_mat_nha(E, ep_dir, vision='--n2p-vision' in a),
+                '(a) hình khối từng nhà đo được · (b) khoá 0/255 · (c) 0 lỗi thời đại · (d) quỹ đạo sáng/nhấp nháy · (e) khung 0 chiếu 3D')
     lk = subprocess.run([sys.executable, os.path.join(base.REPO, 'checks', 'lock.py'), '--verify'], capture_output=True, text=True)
     rows.append(dict(q='LOCK', ten=f'checks/ khớp LOCK ({VERSION})', kq='ĐẠT' if lk.returncode == 0 else 'TRƯỢT', val='KHỚP' if lk.returncode == 0 else 'KHÔNG KHỚP', nguong='', sat='', loi=[]))
     ok = all(r['kq'] in ('ĐẠT', 'CẢNH BÁO') or r['kq'].startswith('CHỈ BÁO') for r in rows)
