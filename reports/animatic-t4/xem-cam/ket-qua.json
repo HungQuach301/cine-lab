@@ -1,0 +1,192 @@
+{
+ "ghi": "THAM KHẢO — không phải chấm đạt; chủ dự án chấm cuối (§13.4)",
+ "may": "claude-sonnet-5-5 (claude -p, chỉ Read)",
+ "thang": "0/1/2 mỗi câu × 3 người = tối đa 6/câu",
+ "theo_cau": {
+  "Q1": 6,
+  "Q2": 6,
+  "Q3": 6,
+  "Q4": 6,
+  "Q5": 6,
+  "Q6": 6,
+  "Q7": 6,
+  "Q8": 6
+ },
+ "tong": 48,
+ "toi_da": 48,
+ "clarity_tb": 4.0,
+ "nguoi": {
+  "R1": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2,
+    "Q5": 2,
+    "Q6": 2,
+    "Q7": 2,
+    "Q8": 2
+   },
+   "clarity": 4,
+   "tra_loi": {
+    "Q1": "A huge fire. The on-screen text reads 'The Great Fire', '2 SEPT 1666' and later 'Great Fire'. It burns through the dense timber-framed old city and spreads for several days (2–7 Sept 1666).",
+    "Q2": "It starts in one small place. A baker's oven and fireplace are shown (captioned Thomas Farriner, baker to the King, 'The Great Fire'), then a single street of houses catches fire. A map highlights a small spot near Pudding Lane and London Bridge. From there it spreads over a large area and the river bank, over several days.",
+    "Q3": "People flee with what they can carry. They pile bundles, chests and bedding into rowing boats on the river and leave from the stairs and quays. They load carts and walk in crowds down the streets with sacks and belongings. They watch from the water or the bridge, and later camp in tents in open fields with fires. The Lord Mayor and the diarist appear as named figures, but the pictures don't show whether they fight the fire. The Lord Mayor's shot is just an aerial view.",
+    "Q4": "Not sure. I can't see the church clearly. The pictures show only general flames and smoke over the city, with no clear shot of a church on a hill burning or collapsing. Afterwards a ruined tower stands among the rubble, and the city lies in ruins with about 13,200 houses lost.",
+    "Q5": "Rebuilt in red brick, with scaffolding, bricklayers and horse carts. A planner (Christopher Wren, shown with a plan, an engraving of his plan, and surveyors with stakes) is shown, but the new layout follows the old street pattern rather than his grand plan. The aerial views show a dense mass of red-roofed brick houses on mostly the same crooked streets, with a few straightened or widened lanes. This is my reading of the pictures, and the match between the old and new street layouts is not fully clear.",
+    "Q6": "A large white building rises on the skyline between 1708 and 1711, which looks like a cathedral with a big dome (shown at '365 ft', captioned '1711 — The dome rules the skyline'). A tall stone column (the Monument, '202 ft', engraved picture) stands near the river in the 1670s.",
+    "Q7": "On 29 Dec 1940 the city is bombed (airships/planes in the sky, 'The second great fire', '100,000 incendiaries'). Firefighters work with hoses on the river mud and on roofs, and large areas burn. The big domed cathedral still stands lit among the flames. After the raid, the 1941 map shows a big burned area, which is later rebuilt from 1946 with modern blocks ('Second rebuilding, same streets').",
+    "Q8": "A modern city (2026) with glass and concrete office towers and tall skyscrapers by the river and a bridge. At dusk the buildings are lit. The old domed cathedral is still visible, small, among the towers, and so is a column or spire. A closing text card says how the film was made."
+   },
+   "lac": [
+    {
+     "frame": 10,
+     "why": "Nearly black frames with no visible content, so I can't tell what is happening."
+    },
+    {
+     "frame": 49,
+     "why": "Dark frames with a faint box and a tiny caption I can't read; unclear what is happening."
+    },
+    {
+     "frame": 18,
+     "why": "A 1647 flashback to a panorama engraving before the fire returns; the date jump is confusing."
+    },
+    {
+     "frame": 103,
+     "why": "Jumps back to 1676, then 1647 and 1711 in quick succession; the timeline is confusing."
+    },
+    {
+     "frame": 126,
+     "why": "Dates jump around (1938, then 1666) with no clear link."
+    },
+    {
+     "frame": 170,
+     "why": "Returns to 2 Sept 1666 flames right at the end; I'm not sure why."
+    }
+   ]
+  },
+  "R2": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2,
+    "Q5": 2,
+    "Q6": 2,
+    "Q7": 2,
+    "Q8": 2
+   },
+   "clarity": 4,
+   "tra_loi": {
+    "Q1": "A huge fire (captioned '1666 — The Great Fire', dated 2 Sept 1666) that burns through the crowded old city.",
+    "Q2": "It starts in one small place. The frames show a baker's oven and a burning house on a narrow street, with the caption 'Thomas Farriner, baker to the King'. A map marks a small area near Pudding Lane and London Bridge. The fire then spreads over days, 2 to 6 Sept, until a large area is burned.",
+    "Q3": "People flee on foot, carrying bundles. They load carts with belongings and crowd onto boats on the Thames with their goods. Later they camp in open fields in tents. The Lord Mayor is shown, but the pictures do not show him doing anything specific.",
+    "Q4": "Not sure. The pictures never clearly show the church on the hill. A tall tower stands among the ruins afterwards, but I can't say what happened to the church itself.",
+    "Q5": "The city is rebuilt in red brick. Builders on scaffolds are shown, along with a surveyor and officials with plans. A plan engraved in 1767 and a surveyor staking out ground suggest the old street layout was largely kept. The streets in the aerial views look much the same as before the fire, though they are widened and straightened in places. The pictures don't clearly say whether a new grid was proposed or rejected.",
+    "Q6": "A large white domed cathedral with towers (labelled '1711 — The dome rules the skyline', with a height marker of 365 ft). A tall free-standing column appears at about 1673–75 with a height marker of 202 ft; an engraving labelled 'The Monument' is shown beside it.",
+    "Q7": "On 29–30 Dec 1940 the city burns again, and the caption calls it 'The second great fire'. Airships or balloons hang over the street, firefighters work with hoses, and a '100,000 incendiaries' counter appears. The white domed cathedral still stands lit by flames, so it survives. A large area in the middle is flattened (highlighted in orange) and is rebuilt afterwards.",
+    "Q8": "A modern 2026 city of glass towers and concrete blocks, with the Thames, bridges and a lit-up night view. The domed cathedral is still visible among the towers."
+   },
+   "lac": [
+    {
+     "frame": 10,
+     "why": "Several dark, nearly black frames with nothing visible (10–11)."
+    },
+    {
+     "frame": 18,
+     "why": "Jumps to a 1647 panorama and engraving with no clear reason."
+    },
+    {
+     "frame": 53,
+     "why": "Long run of very dark frames (53–59), hard to follow."
+    },
+    {
+     "frame": 63,
+     "why": "'13,200 houses' on a black screen with little context."
+    },
+    {
+     "frame": 103,
+     "why": "Cuts back to 1676 and 1647 and then 1711, with the dates jumping around."
+    },
+    {
+     "frame": 127,
+     "why": "Jumps from 1938 back to 1666 and then to 1940 with no explanation."
+    },
+    {
+     "frame": 147,
+     "why": "A sudden cut to 7 Sept 1666 amid the 1941 frames."
+    },
+    {
+     "frame": 170,
+     "why": "A sudden return to the 1666 fire at the very end."
+    }
+   ]
+  },
+  "R3": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2,
+    "Q5": 2,
+    "Q6": 2,
+    "Q7": 2,
+    "Q8": 2
+   },
+   "clarity": 4,
+   "tra_loi": {
+    "Q1": "A great city fire: the Great Fire of 1666, dated 2 Sept 1666 on screen, with flames and smoke engulfing the timber houses. A bakery scene is shown at the start of it, and the fire then spreads for days through 3, 4 and 5 Sept.",
+    "Q2": "One small place. It starts in a baker's shop (a bakery oven, captioned 'Thomas Farriner, baker to the King'), then moves to burning houses in a narrow street. A map highlights a small patch near Pudding Lane, Royal Exchange and London Bridge, and the fire then grows across the dense timber city.",
+    "Q3": "They flee and carry their goods out. People load boats on the river with bundles and chests, push carts loaded with belongings through the streets, and crowd onto the bridge. They row out onto the Thames to watch and shelter, and afterwards camp in open fields with tents and campfires. Officials such as the Lord Mayor and John Evelyn are shown, but the pictures do not show how they fought the fire.",
+    "Q4": "Not sure. The pictures do not clearly show the hilltop church burning. At most I see a large church tower among ruins in the aftermath (around frames 69 to 71), and the flames reach the whole city. There is no clear shot of the church burning or collapsing.",
+    "Q5": "It is rebuilt in red brick, with scaffolding and brick carts shown, and houses of uniform brick. The layout seems to follow the old street pattern. Architect Christopher Wren's new plan is shown, but the rebuilt city appears to keep the old medieval street grid. The 1940s rebuild is captioned 'same streets'.",
+    "Q6": "A large white domed cathedral, a Wren-type church, is built on the skyline, shown rising 1708 to 1711 with a caption saying the dome rules the skyline. A tall stone column, labelled 202 ft and engraved as 'The Monument', is built on the street grid in 1673 to 1675.",
+    "Q7": "In 1940 (29 Dec) the city burns again, this time from bombing, with airships/balloons over the street and firefighters with hoses, at night. The big domed cathedral still stands lit amid the flames. Large areas are burned and flattened (an orange area on the map shows the damage), and are later rebuilt.",
+    "Q8": "A modern 2026 skyline of glass and concrete towers and big blocks along the Thames, with bridges. The domed cathedral is still visible among the towers. It looks the same at night with lit windows."
+   },
+   "lac": [
+    {
+     "frame": 10,
+     "why": "Several nearly black frames (10, 11) with no visible content"
+    },
+    {
+     "frame": 18,
+     "why": "Jump back to 1647 with an engraving inset; the time jump is unclear until the fire is shown again"
+    },
+    {
+     "frame": 39,
+     "why": "Map with small labels; hard to read what it shows"
+    },
+    {
+     "frame": 44,
+     "why": "Abstract swirl (probably a wind or fire-spread graphic) with no explanation"
+    },
+    {
+     "frame": 48,
+     "why": "Blocky, glitchy skyline with smoke, unclear what it is"
+    },
+    {
+     "frame": 53,
+     "why": "Long run of dark frames (53 to 59, 63) with a date counter jumping around"
+    },
+    {
+     "frame": 106,
+     "why": "Sudden cut to 1676, then back to 1647 and 1711; non-linear order is confusing"
+    },
+    {
+     "frame": 126,
+     "why": "Jump back to 1666 between 1938 and 1940 with no obvious reason"
+    },
+    {
+     "frame": 147,
+     "why": "Jump back to 7 Sept 1666 inside the 1941 sequence"
+    },
+    {
+     "frame": 170,
+     "why": "Sudden return to the 2 Sept 1666 fire at the very end, right after 2026, with no obvious reason"
+    }
+   ]
+  }
+ },
+ "chi_phi_usd": 0.382
+}

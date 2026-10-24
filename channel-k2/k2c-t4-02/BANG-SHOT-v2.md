@@ -42,10 +42,10 @@
 | H1-10 | 2:45.1 | 7.083 | L22 | — | MD | md | — | M-d (4)+(6) Watling Street / Cheapside 3/9: xe chất đồ, người khiêng người bệnh | MD (7.083) | chuyển hình +4.167 s với nhóm kề |
 | H1-12 | 2:52.2 | 6.458 | L22 | — | MD | md | — | M-d (3) Thames đêm 3/9: sà lan, đồ trôi, bờ bắc rực lửa (đổi chỗ với H1-11 theo thứ tự lời) | MD (6.458) |  |
 | H1-11 | 2:58.6 | 14.417 | L23 | P8 | CODINH | cao | lửa 1666 giờ 38 → 47 (kể từ 2/9 00:00) | Royal Exchange cháy; trời "như miệng lò" — Evelyn | A (14.417), THE (4) | thẻ: John Evelyn (người viết nhật ký) |
-| H1-13 | 3:13.0 | 11.875 | L24–L25 | P4b | THAP | thap | lửa 1666 giờ 90 → 93 (kể từ 2/9 00:00) | lửa leo đồi Ludgate tới Old St Paul's bọc giàn giáo gỗ; nhà thờ bốc cháy | A (11.875), KHAC (4) | chuyển hình -0.583 s với nhóm kề |
+| H1-13 | 3:13.0 | 11.875 | L24–L25 | P4b | THAP | thap | lửa 1666 giờ 66 → 69 (kể từ 2/9 00:00) | lửa leo đồi Ludgate tới Old St Paul's bọc giàn giáo gỗ; nhà thờ bốc cháy | A (11.875), KHAC (4) | chuyển hình -0.583 s với nhóm kề |
 | H1-14 | 3:24.9 | 6.000 | L25 | — | MD | md | — | M-d (5) chì chảy thành dòng trên phố quanh St Paul's đêm 4/9 | MD (6) | chuyển hình +0.583 s với nhóm kề |
-| H1-15 | 3:30.9 | 21.500 | L26–L28 | P8 | CAU | cao | lửa 1666 giờ 92 → 95 (kể từ 2/9 00:00) | lửa vượt sông Fleet; nổ nhà bằng thuốc súng mở khoảng chặn (lớp a, render); Navy Office | A (21.5) |  |
-| H1-16 | 3:52.4 | 7.250 | L29–L30 | P1 | CODINH | cao | lửa 1666 giờ 94 → 102 (kể từ 2/9 00:00) | P1: gió dịu, lửa tàn → bình minh 6/9 | A (7.25) |  |
+| H1-15 | 3:30.9 | 21.500 | L26–L28 | P8 | CAU | cao | lửa 1666 giờ 68 → 71 (kể từ 2/9 00:00) | lửa vượt sông Fleet; nổ nhà bằng thuốc súng mở khoảng chặn (lớp a, render); Navy Office | A (21.5) |  |
+| H1-16 | 3:52.4 | 7.250 | L29–L30 | P1 | CODINH | cao | lửa 1666 giờ 70 → 102 (kể từ 2/9 00:00) | P1: gió dịu, lửa tàn → bình minh 6/9 | A (7.25) |  |
 | H1-17a | 3:59.7 | 6.000 | L31 (nhóm H1-17: H1-17a, H1-17b) | — | MD | md | — | M-d (7) Moorfields: lều, chòi, đống đồ cứu được | MD (6) |  |
 | H1-17b | 4:05.7 | 6.292 | L31 (nhóm H1-17: H1-17a, H1-17b) | — | MD | md | — | M-d (7) Moorfields chạng vạng: gia đình quanh lửa nấu | MD (6.292) |  |
 | H1-18 | 4:12.0 | 16.292 | L10–L33 | P7 | XUONG | cao | lửa 1666 giờ 124 → 130 (kể từ 2/9 00:00) | phế tích bốc khói 7/9: ranh vùng cháy + bộ đếm 13 200 nhà / 87 nhà thờ | A (16.292), MAP3D (5), THE (4) | bộ đếm: 13,200 houses / 87 churches |

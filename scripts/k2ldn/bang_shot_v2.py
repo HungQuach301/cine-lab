@@ -47,10 +47,10 @@ S = [
  ('H1-10', 'HỒI 1', 'H1-10', 7.083, '—', 'MD', None, 'M-d (4)+(6) Watling Street / Cheapside 3/9: xe chất đồ, người khiêng người bệnh', {'MD': 7.083}, {'md': 4, 'chuyen_s': 4.167}),
  ('H1-12', 'HỒI 1', 'H1-12', 6.458, '—', 'MD', None, 'M-d (3) Thames đêm 3/9: sà lan, đồ trôi, bờ bắc rực lửa (đổi chỗ với H1-11 theo thứ tự lời)', {'MD': 6.458}, {'md': 3}),
  ('H1-11', 'HỒI 1', 'H1-11', 14.417, 'P8', 'CODINH', ('h66', 38.0, 47.0), 'Royal Exchange cháy; trời "như miệng lò" — Evelyn', {'A': 14.417, 'THE': 4}, {'the': ['John Evelyn (người viết nhật ký)'], 'tieu_diem_en': [532800, 181120, 15]}),
- ('H1-13', 'HỒI 1', 'H1-13', 11.875, 'P4b', 'THAP', ('h66', 90.0, 93.0), "lửa leo đồi Ludgate tới Old St Paul's bọc giàn giáo gỗ; nhà thờ bốc cháy", {'A': 11.875, 'KHAC': 4}, {'khac': 'ycba-266-0', 'chuyen_s': -0.583, 'tieu_diem_en': [532050, 181140, 78]}),
+ ('H1-13', 'HỒI 1', 'H1-13', 11.875, 'P4b', 'THAP', ('h66', 66.0, 69.0), "lửa leo đồi Ludgate tới Old St Paul's bọc giàn giáo gỗ; nhà thờ bốc cháy", {'A': 11.875, 'KHAC': 4}, {'khac': 'ycba-266-0', 'chuyen_s': -0.583, 'fov': 30, 'tieu_diem_en': [532050, 181140, 78]}),
  ('H1-14', 'HỒI 1', 'H1-14', 6.0, '—', 'MD', None, "M-d (5) chì chảy thành dòng trên phố quanh St Paul's đêm 4/9", {'MD': 6.0}, {'md': 5, 'chuyen_s': 0.583}),
- ('H1-15', 'HỒI 1', 'H1-15', 21.5, 'P8', 'CAU', ('h66', 92.0, 95.0), 'lửa vượt sông Fleet; nổ nhà bằng thuốc súng mở khoảng chặn (lớp a, render); Navy Office', {'A': 21.5}, {'cau_dz': 84, 'cau_h0': 150, 'tieu_diem_en': [533000, 180800, 10]}),
- ('H1-16', 'HỒI 1', 'H1-16', 7.25, 'P1', 'CODINH', ('h66', 94.0, 102.0), 'P1: gió dịu, lửa tàn → bình minh 6/9', {'A': 7.25}, {'tieu_diem_en': [532420, 180980, 15]}),
+ ('H1-15', 'HỒI 1', 'H1-15', 21.5, 'P8', 'CAU', ('h66', 68.0, 71.0), 'lửa vượt sông Fleet; nổ nhà bằng thuốc súng mở khoảng chặn (lớp a, render); Navy Office', {'A': 21.5}, {'cau_dz': 84, 'cau_h0': 150, 'tieu_diem_en': [533000, 180800, 10]}),
+ ('H1-16', 'HỒI 1', 'H1-16', 7.25, 'P1', 'CODINH', ('h66', 70.0, 102.0), 'P1: gió dịu, lửa tàn → bình minh 6/9', {'A': 7.25}, {'tieu_diem_en': [532420, 180980, 15]}),
  ('H1-17a', 'HỒI 1', 'H1-17', 6.0, '—', 'MD', None, 'M-d (7) Moorfields: lều, chòi, đống đồ cứu được', {'MD': 6.0}, {'md': 7}),
  ('H1-17b', 'HỒI 1', 'H1-17', 6.292, '—', 'MD', None, 'M-d (7) Moorfields chạng vạng: gia đình quanh lửa nấu', {'MD': 6.292}, {'md': 7}),
  ('H1-18', 'HỒI 1', 'H1-18', 16.292, 'P7', 'XUONG', ('h66', 124.0, 130.0), 'phế tích bốc khói 7/9: ranh vùng cháy + bộ đếm 13 200 nhà / 87 nhà thờ', {'A': 16.292, 'MAP3D': 5, 'THE': 4}, {'xuong': {'tu': 0.0}, 'dem': ['13,200 houses', '87 churches'], 'tieu_diem_en': [532350, 181050, 10]}),
@@ -131,7 +131,7 @@ def main():
         Ls = sorted({c['L'] for c in cau if c['L']}, key=lambda x: int(x[1:])) if cau else []
         r = {'ma': ma, 'phan': phan, 'chuong': phan, 'nhom_loi': nhom, 'bat_dau_s': round(t, 4), 'giay': dur, 't0': round(t, 4), 't1': round(t + dur, 4), 'dur': dur,
              'loi': (f"{Ls[0]}–{Ls[-1]}" if len(Ls) > 1 else (Ls[0] if Ls else ('(lặng)' if cu != 'PP' else '—'))) if not any(x['ma'] != ma and x[2] == nhom for x in [] ) else '',
-             'cau_loi': [c['khoa'] for c in cau], 'diem_may': dm, 'may': DM.get(dm), 'cu_may': cu, 'loai_may': cu, 'thoi_gian': tg, 'vai': vai, 'lop': lop,
+             'cau_loi': [c['khoa'] for c in cau], 'diem_may': dm, 'may': (dict(DM[dm], fov=them['fov']) if dm in DM and 'fov' in them else DM.get(dm)), 'cu_may': cu, 'loai_may': cu, 'thoi_gian': tg, 'vai': vai, 'lop': lop,
              'goc': 'cao' if dm in GOC_CAO else ('md' if cu == 'MD' else ('pp' if cu == 'PP' else 'thap')), 'tl': cu not in ('MD', 'PP'),
              'minh_hoa': cu == 'MD', 'ai_nen': 'N2P' in lop, 'tieu_diem_en': them.get('tieu_diem_en'), 'them': them}
         r['loi_bd_s'] = round(nhom_t0[nhom] + 0.2, 4) if cau else None
