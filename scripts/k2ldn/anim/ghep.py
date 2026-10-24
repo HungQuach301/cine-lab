@@ -6,7 +6,7 @@ Lớp chồng (§17, §19 b–c): bản đồ Doornick 1666 chiếu lên mặt �
 ranh vùng cháy 1666 (Doornick, bậc 1) / vùng bom 1940 (ước lượng, bậc 5) chiếu theo máy từng khung (log.json); tranh khắc/tư liệu ở góc khung ≤ 1/3 với chú thích ≤ 6 từ (không AI, chỉ đặt/mờ);
 thẻ nhân vật + bộ đếm theo mốc câu lời dựng; thẻ chương §13.3 (≤ 3 s, góc dưới trái, mờ dần); thẻ phương pháp. Ra: $ANIM_OUT/hinh.mp4 + channel-k2/k2c-t4-02/animatic/ghep-log.json.
   ghep.py [--tu 0 --den 730] [--nhap]   (--nhap: shot thiếu nguồn → tấm chờ có mã shot; mặc định dừng báo thiếu)"""
-import argparse, json, math, os, subprocess, sys
+import shutil, argparse, json, math, os, subprocess, sys
 from pathlib import Path
 import numpy as np, cv2
 from PIL import Image, ImageDraw, ImageFont
@@ -36,7 +36,8 @@ def mm(t): return f'{int(t // 60)}:{t % 60:04.1f}'
 
 
 def ensure_lut(src, dst):
-    if (dst / 'xong').exists(): return
+    if (dst / 'xong').exists() and (dst / 'xong').stat().st_mtime >= (src / 'log.json').stat().st_mtime: return   # shot dựng lại → làm lại đệm LUT
+    shutil.rmtree(dst, ignore_errors=True)
     dst.mkdir(parents=True, exist_ok=True)
     subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-start_number', '0', '-i', str(src / '%05d.jpg'), '-vf', f"lut3d=file='{LUT}':interp=tetrahedral", '-q:v', '2', '-start_number', '0', str(dst / '%05d.jpg')], check=True)
     (dst / 'xong').write_text('1')
