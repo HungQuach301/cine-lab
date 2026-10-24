@@ -11,9 +11,11 @@
 - [x] Thử phát âm 3 lượt (2 061 ký tự): chỉ Evelyn → alias 'Eevlin'; PLS `london-g1.pls` 6e11cae0…; LOI-KHOA.sha256 3/3 OK
 - [x] Thu G1 cả tập: 6 chương, 8 lệnh, 9 061 ký tự (tổng phiên 11 122); bộ đếm 151 745 → 155 731; gốc mp3 + alignment trong git `am-thanh/nguon/` (SHA256SUMS)
 - [x] Ghép stem (`gl_ghep.py`): 681,0 s; lời theo shot 633,1 s
-- [ ] ASR toàn tập: chạy nền PID 7625 (`gl_kiem_tap.py`, log /var/tmp/cine-out/giong-t4/kiem.log; ASR có cache theo SHA)
+- [x] ASR toàn tập: 210 mục → 209 ĐÚNG, 1 NGHI (St Saviour's, âm vị đúng), 0 SAI; thu lại 'I am spent' (chọn, +3,42 dB), St Saviour's (không chọn)
 - [x] Giãn shot (`gl_gian_shot.py`): K0 ≥ 782 s; K1-C1 (bỏ 7 câu + rút shot nối) 730 s → PHIẾU
-- [ ] master · mốc JSON · GIAN-SHOT.md · PHIEU · báo cáo
+- [x] Master −14,1 LUFS / −1,5 dBTP (WAV b9cec467…, FLAC e5d49871…; ngoài git, tái tạo bit-trùng bằng tai_tao.sh — đã kiểm OK); mốc `am-thanh/master/T4-loi-moc.json`; 3 bản nghe
+- [x] GIAN-SHOT.md · PHIEU-GIONG.md · GIONG-T4-BAO-CAO.md — **DỪNG chờ chủ dự án**
 
 ## Lệnh bổ sung đã áp
+- Không có lệnh bổ sung từ chủ dự án trong phiên.
 - Sự cố: `pkill -f` trong một lệnh dọn đã giết chính shell gọi (BAI-HOC #112) — không mất dữ liệu; từ đó chỉ dừng theo PID ghi ra tệp.
