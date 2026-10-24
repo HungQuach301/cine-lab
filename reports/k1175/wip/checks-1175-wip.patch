@@ -1,7 +1,14 @@
 diff --git a/checks/ll/cap112.py b/checks/ll/cap112.py
-index 5a298efc..8764a1f3 100644
+index 5a298efc..d160a3ca 100644
 --- a/checks/ll/cap112.py
 +++ b/checks/ll/cap112.py
+@@ -1,5 +1,5 @@
+ #!/opt/cine/bin/python
+-"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) + 1.16 (SACH-1…PC-1, K-LAI-3V; chỉ tập từ T3; chủ dự án duyệt K116-D1…D9 19/10 18:48 → 1.16.1) + 1.17 (MINH-HOA, EO-DAT-R1…R3 từ T3; N2P-1…6 từ T4) + 1.17.1 (EO-DAT ngưỡng §14.7, EO-DAT-R4) + 1.17.2 (EO-DAT-R1 chỉ báo mọi cổng — V2-D2; CONG-BO-1 Chặn ở gói phát hành) + 1.17.3 (khiếu nại BAN-CUOI-T3 A1–A6: không đổi cấp hàng nào) + 1.17.4 (BIEN-CO-V; từ T4: MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU, GEMINI-NGAN-SACH, GOC-CAO-60) (phiên K, 17–23/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
++"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) + 1.16 (SACH-1…PC-1, K-LAI-3V; chỉ tập từ T3; chủ dự án duyệt K116-D1…D9 19/10 18:48 → 1.16.1) + 1.17 (MINH-HOA, EO-DAT-R1…R3 từ T3; N2P-1…6 từ T4) + 1.17.1 (EO-DAT ngưỡng §14.7, EO-DAT-R4) + 1.17.2 (EO-DAT-R1 chỉ báo mọi cổng — V2-D2; CONG-BO-1 Chặn ở gói phát hành) + 1.17.3 (khiếu nại BAN-CUOI-T3 A1–A6: không đổi cấp hàng nào) + 1.17.4 (BIEN-CO-V; từ T4: MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU, GEMINI-NGAN-SACH, GOC-CAO-60) + 1.17.5 (từ T4: BE-MAT-NHA; N2P-1 (d)(e), N2P-3 T9c) (phiên K, 17–23/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
+ HH1) và các luật 1.12.1 (chủ dự án duyệt 16–17/10: HH2, HH3, MM1–MM4, JJ1–JJ2, KK1). Mặc định `k2check.py` vẫn CHỈ BÁO (ghi cấp cạnh kết quả);
+ `--cap` áp cấp vào mã thoát: hàng có lỗi thuộc phần Chặn → TRƯỢT, chỉ có lỗi phần Cảnh báo → CẢNH BÁO (không tính vào mã thoát).
+ 
 @@ -77,9 +77,9 @@ CAP = {
      'EO-DAT-R2': ('Chặn ở G2 · Cảnh báo ở animatic (§14.7 R2: trống > 50 % ≤ 6 s liên tục, ≤ 10 % thời lượng chương)', {'*'}, set()),
      'EO-DAT-R3': ('Chặn ở G2 · Cảnh báo ở animatic (lệnh K-1.17; §14.7 R3)', {'*'}, set()),
@@ -14,6 +21,54 @@ index 5a298efc..8764a1f3 100644
      'N2P-4': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iv), K đề xuất', {'*'}, set()),
      'N2P-5': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (b), (c)(v), K đề xuất', {'*'}, set()),
      'N2P-6': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (d) trần, K đề xuất', {'*'}, set()),
+@@ -93,9 +93,11 @@ CAP = {
+     'AI-TU-LIEU': ('Chặn ở G2 · Cảnh báo ở animatic — §19 (b)(c)', {'*'}, set()),
+     'GEMINI-NGAN-SACH': ('Chặn (a) vượt ngân sách, (u) thiếu giá thật ở G2 · Cảnh báo (k) thiếu khai, (m) vượt mốc theo dõi · Cảnh báo ở animatic — Q2 (i)', set('au'), set('km')),
+     'GOC-CAO-60': ('Chặn ở G2 · Cảnh báo ở animatic — Q2 (iii)', {'*'}, set()),
++    # 1.17.5 (phiên K-1.17.5, 24/10/2026; phương án B, chủ dự án 24/10 06:21; lệnh: "Chặn ở G2, Cảnh báo ở animatic")
++    'BE-MAT-NHA': ('Chặn (a)–(e) ở G2 · Cảnh báo ở animatic · (w) mô hình nhìn không năm/hình khối luôn Cảnh báo — phương án B (AI phủ bề mặt nhà thường)', set('abcde'), {'w'}),
+ }
+ CONG = {'K-LAI-3V', 'MINH-HOA', 'EO-DAT-R2', 'EO-DAT-R3', 'EO-DAT-R4', 'N2P-1', 'N2P-2', 'N2P-3', 'N2P-4', 'N2P-5', 'N2P-6',
+-        'BIEN-CO-V', 'MAY-19', 'BAN-DO-12', 'TU-LIEU-10', 'AI-TU-LIEU', 'GEMINI-NGAN-SACH', 'GOC-CAO-60'}   # cấp theo cổng (r['cong']); 1.17.4 thêm 7 hàng
++        'BIEN-CO-V', 'MAY-19', 'BAN-DO-12', 'TU-LIEU-10', 'AI-TU-LIEU', 'GEMINI-NGAN-SACH', 'GOC-CAO-60', 'BE-MAT-NHA'}   # cấp theo cổng (r['cong']); 1.17.4 thêm 7 hàng; 1.17.5 +1
+ _M = re.compile(r'^\((\w)\)')
+ 
+ 
+diff --git a/checks/ll/k2check.py b/checks/ll/k2check.py
+index 8921eef3..d3b9d0de 100644
+--- a/checks/ll/k2check.py
++++ b/checks/ll/k2check.py
+@@ -19,6 +19,8 @@ Phiên xưởng chỉ CHẠY (không đọc mã). Định nghĩa: checks/ll/RULE
+              1.17.4 (chủ dự án duyệt Q1–Q7 23/10/2026 21:45): BIEN-CO-V thước biến cố ĐO trên video (tập từ T3 có video; K117-D8) — tập từ T4 cộng
+              biến cố đo vào Q37/NHIP-K2/Q37 (1.13) (b)(c) khi thước đạt hiệu chuẩn · Q37 (c) miễn khối thẻ PP cuối phim (K1173-D6, từ T3) · tập từ T4:
+              MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU (§19), GEMINI-NGAN-SACH, GOC-CAO-60 (Q2); MINH-HOA (a) / N2P-6 (b) bỏ trần 20 % (Q2)
++             1.17.5 (K1174-D1 = A; phương án B 24/10/2026): tập từ T4: N2P-3 nước→đất = T9c (đường bờ đo, đối chứng render — A1/A2) · N2P-1 (e) lớp
++             sống cộng hiệu (A3), (d) vòng bảo vệ khớp màu cục bộ khi khai (A4) · BE-MAT-NHA (AI phủ bề mặt nhà thường, tấm `be_mat_nha_ai`)
+ 
+ Gọi: Q26b bối cảnh · Q32 footage/ảnh nguồn ngoài · Q33 lặp cảnh · Q34 loại shot · Q35 nhãn loại số (D5) · Q36 chữ trên màn hình ·
+ Q37 nhịp thị giác · A1–A13 âm thanh · LOCK. Mã thoát 0 khi mọi mục ĐẠT (âm thanh của tập cũ: CHỈ BÁO, không tính).
+@@ -43,7 +45,7 @@ Mặc định: timeline <out>/timeline.json, master <out>/<id>-v1-master.mp4 n
+ import glob, json, os, subprocess, sys
+ 
+ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
+-from checks.ll import base, q_setting, q_footage, q_scene, q_types, q_chu, q_nhip, q_amthanh, q_mach, q_ftg, q_hinh, q_tl, q_k2var, cap112, q_k116, q_k117, q_bcv, q_k1174  # noqa: E402
++from checks.ll import base, q_setting, q_footage, q_scene, q_types, q_chu, q_nhip, q_amthanh, q_mach, q_ftg, q_hinh, q_tl, q_k2var, cap112, q_k116, q_k117, q_bcv, q_k1174, q_k1175  # noqa: E402
+ from checks.cinecheck import VERSION  # noqa: E402
+ 
+ 
+@@ -303,6 +305,12 @@ def main():
+             try: K74 = q_k1174.check(E, TL, ep_dir, LS17)
+             except Exception as e: K74 = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in K74T}
+             for k in K74T: bao(k, K74T[k], lambda k=k: K74[k], K74N[k])
++    # ---- 1.17.5: BE-MAT-NHA (tập từ T4; tấm khai be_mat_nha_ai) — CHỈ BÁO (cấp ở cap112, áp với --cap)
++    if V16:
++        if not q_k1175.ap_1175(E): bao('1.17.5 (T4)', 'BE-MAT-NHA', lambda: dict(ok=True, loi=[], val='tập trước T4 — không hồi tố', ket_qua='KHÔNG ÁP'))
++        else:
++            bao('BE-MAT-NHA', 'AI phủ bề mặt nhà thường (phương án B)', lambda: q_k1175.be_mat_nha(E, ep_dir, vision='--n2p-vision' in a),
++                '(a) hình khối từng nhà đo được · (b) khoá 0/255 · (c) 0 lỗi thời đại · (d) quỹ đạo sáng/nhấp nháy · (e) khung 0 chiếu 3D')
+     lk = subprocess.run([sys.executable, os.path.join(base.REPO, 'checks', 'lock.py'), '--verify'], capture_output=True, text=True)
+     rows.append(dict(q='LOCK', ten=f'checks/ khớp LOCK ({VERSION})', kq='ĐẠT' if lk.returncode == 0 else 'TRƯỢT', val='KHỚP' if lk.returncode == 0 else 'KHÔNG KHỚP', nguong='', sat='', loi=[]))
+     ok = all(r['kq'] in ('ĐẠT', 'CẢNH BÁO') or r['kq'].startswith('CHỈ BÁO') for r in rows)
 diff --git a/checks/ll/q_n2p.py b/checks/ll/q_n2p.py
 index 25b0fa12..25999ffe 100644
 --- a/checks/ll/q_n2p.py
@@ -118,10 +173,10 @@ index 25b0fa12..25999ffe 100644
  
 diff --git a/checks/ll/q_k1175.py b/checks/ll/q_k1175.py
 new file mode 100644
-index 00000000..607ae276
+index 00000000..c34f05ff
 --- /dev/null
 +++ b/checks/ll/q_k1175.py
-@@ -0,0 +1,254 @@
+@@ -0,0 +1,377 @@
 +#!/opt/cine/bin/python
 +"""Luật 1.17.5 (phiên K-1.17.5, 24/10/2026) — CHỈ tập kênh 2 từ T4 (`kenh2_tu_t4: true` hoặc khối `n2p:`). T3 và trước: KHÔNG ÁP.
 +Căn cứ: khiếu nại A1–A5 (checks-appeal.md, mục K-1.17.5) — K1174-D1 = A (chủ dự án duyệt 24/10/2026); LOOK-T4-V2 §11 (2)(3), PHIEU-LOOK-V2 V3/V4;
@@ -376,3 +431,260 @@ index 00000000..607ae276
 +    eps = [cv2.GaussianBlur(np.log(Y(c) + 1e-3) - np.log(Y(r) + 1e-3), (0, 0), 1.0)[M] for c, r in zip(Cs, Rs)]
 +    nh = float(np.mean([np.abs(eps[i + 1] - eps[i]).mean() for i in range(len(eps) - 1)])) if len(eps) > 1 else 0.0
 +    return dict(e_h={int(h): round(float(v), 4) for h, v in zip(ids, e)}, nhap_be_mat=round(nh, 4))
++
++
++def _p(base_, x): return x if not x or os.path.isabs(x) else os.path.normpath(os.path.join(base_, x))
++
++
++def soi_bmn(truoc, sau, nam, noi='', t4=False, out=None, tag='bmn', api=False, cache=None):
++    """(c) hai mô hình nhìn với lời nhắc BMN (cùng hạ tầng q_n2p_vision: GPT ghim + Claude ghim judge.MODEL; UA cố định; không email)"""
++    import hashlib, shutil, tempfile, time
++    from checks.ll import q_n2p_vision as QV
++    k = hashlib.sha256(f'{QV.sha_file(truoc)}|{QV.sha_file(sau)}|{int(float(nam))}|{noi}|{bool(t4)}|{PROMPT_BMN_VER}|{QV.GPT}|{QV.CLAUDE}'.encode()).hexdigest()[:32]
++    if cache is not None and k in cache: return dict(cache[k], khoa=k, tu_bo_dem=True)
++    if not api: return dict(khoa=k, ket_qua={}, loi='chưa soi: không có trong bộ đệm và không chạy --vision')
++    td = tempfile.mkdtemp(prefix='bmnv-')
++    try:
++        T = QV.tiles(truoc, td, 'before'); S = QV.tiles(sau, td, 'after')
++        pr = PROMPT_BMN.format(noi=noi or 'the place', nam=int(float(nam)), truoc='\n'.join(f'- {x}' for x in T), sau='\n'.join(f'- {x}' for x in S),
++                               cam='; '.join(QV.cam_list(nam, t4)))
++        res, loi = {}, []
++        for mh in ('gpt', 'claude'):
++            if mh == 'gpt': txt, meta = QV.call_gpt(pr.replace(QV.GPT_LEAD, 'The images are attached in this order:'), T + S, f'{tag}-gpt', out)
++            else:
++                txt, meta = QV.call_claude(pr, td, f'{tag}-claude', out)
++                miss = [os.path.basename(x) for x in T + S if x not in meta.get('reads', [])]
++                if not meta.get('loi') and miss: meta['loi'] = f'không đọc đủ ảnh: thiếu {", ".join(miss)}'
++                meta.pop('reads', None)
++            j = QV.parse(txt) if not meta.get('loi') else None
++            if not meta.get('loi') and j is None: meta['loi'] = 'trả lời không đọc được (không phải JSON)'
++            if meta.get('loi'): loi.append(f"{mh}: {meta['loi']}")
++            if out: os.makedirs(out, exist_ok=True); open(os.path.join(out, f'{tag}-{mh}.raw.txt'), 'w').write(txt or '')
++            res[mh] = dict(meta=meta, json=j)
++    finally: shutil.rmtree(td, ignore_errors=True)
++    R = dict(khoa=k, ket_qua=res, prompt_ver=PROMPT_BMN_VER, loi='; '.join(loi) or None, chi_phi_usd=round(sum(float(v['meta'].get('usd') or 0) for v in res.values()), 4))
++    if cache is not None and not R['loi']: cache[k] = {a: b for a, b in R.items() if a != 'khoa'}
++    return R
++
++
++def _r(loi=(), thieu=(), val='', **kw):
++    loi, thieu = list(loi), list(thieu)
++    return dict(ok=not loi and not thieu, ket_qua='THIẾU' if thieu and not loi else None, loi=loi, thieu=thieu, val=val, **kw)
++
++
++def kiem_bmn(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False, p=None):
++    """một tấm be_mat_nha_ai → dict(loi[], thieu[], canh_bao[], so) — chữ cái mục: (a) hình khối, (b) 0/255, (c) thời đại, (d) quỹ đạo/nhấp nháy, (e) khung 0 chiếu 3D"""
++    import cv2, numpy as np
++    from checks.ll import q_n2p as N
++    p = dict(BMN, **(p or {})); tid = str(t.get('id') or t.get('ghep')); w = f'tấm {tid}'
++    f = {k: _p(ep_dir, t.get(k)) for k in ('render', 'ghep', 'mat_na', 'mat_na_nha', 'mat_na_mat', 'bong', 'nha')}
++    miss = [k for k in ('render', 'ghep', 'mat_na', 'mat_na_nha', 'bong', 'nha') if not f[k] or not os.path.exists(f[k])]
++    if miss or t.get('nam') is None: return dict(loi=[], thieu=[f"(a) {w}: thiếu {', '.join(miss) or 'nam'} (be_mat_nha_ai cần render, ghep, mat_na, mat_na_nha, bong, nha, nam)"], canh_bao=[], so={})
++    R, G, B = cv2.imread(f['render']), cv2.imread(f['ghep']), cv2.imread(f['bong']); H, W = R.shape[:2]
++    if G.shape != R.shape or B.shape != R.shape: return dict(loi=[], thieu=[f'(a) {w}: ghep/bong khác cỡ render'], canh_bao=[], so={})
++    L, names = N.idmap(f['mat_na'], (W, H), dict({'nha_thuong': NHA_THUONG}, **(t.get('bang') or {})))
++    I = _ma(f['mat_na_nha'], (W, H)); I[L != names.index('nha_thuong')] = 0
++    PID = _ma(f['mat_na_mat'], (W, H)) if f['mat_na_mat'] and os.path.exists(f['mat_na_mat']) else None
++    if PID is not None: PID[I == 0] = 0
++    nha = {int(x['id']): x for x in json.load(open(f['nha']))}
++    HK = hinh_khoi(R, G, I, nha, PID, B, p); loi, thieu, cb = [], [], []
++    do = {h: x for h, x in HK.items() if x.get('do')}
++    for h, x in sorted(do.items()):
++        loi += [f"(a) {w} nhà {h} (lô {nha.get(h, {}).get('lo')}, {x['px_m']} px/m): {e}" for e in x['loi']]
++    lo_ = {}
++    for h, x in do.items(): lo_.setdefault(nha.get(h, {}).get('lo'), [0, 0]); lo_[nha.get(h, {}).get('lo')][0] += 1; lo_[nha.get(h, {}).get('lo')][1] += int(not x['loi'])
++    # (b) lớp khoá 0/255: mọi điểm KHÔNG thuộc nhà đo được (nở 1 px — viền ghép)
++    Mdo = cv2.dilate(np.isin(I, list(do)).astype(np.uint8), np.ones((3, 3), np.uint8)) > 0
++    khoa = ~Mdo
++    if t.get('nen_ai'):   # tấm cũng là tấm nền N2+: lớp nền (trời, nước, đất, cây) theo N2P-1…5; khoá = lớp (a) còn lại + nhà không đo được
++        khoa &= np.isin(L, [names.index(n_) for n_ in N.LOP_A if n_ in names]) | ((I > 0) & ~Mdo)
++    d = np.abs(G.astype(np.int16) - R.astype(np.int16)).max(-1); mk = int(d[khoa].max()) if khoa.any() else 0
++    if mk > 0:
++        ys, xs = np.nonzero(khoa & (d > 0)); loi.append(f"(b) {w}: vùng khoá (lớp (a) còn lại, nhà không đo được{'' if t.get('nen_ai') else ', nước, bờ, nền'}) lệch tối đa {mk}/255 ở {len(ys)} điểm (hộp {[int(xs.min()), int(ys.min()), int(xs.max()), int(ys.max())]})")
++    # (c) thời đại vật liệu/chi tiết
++    V = soi_bmn(f['render'], f['ghep'], t['nam'], t.get('noi', noi), t.get('t4', t4), out, tid, vision, cache)
++    if V.get('loi'): thieu.append(f"(c) {w}: mô hình nhìn — {V['loi']}")
++    for mh, rr in sorted((V.get('ket_qua') or {}).items()):
++        j = rr.get('json') or {}
++        for x in j.get('loi_thoi_dai') or []:
++            if (x.get('do_tin') or 0) < 0.5: continue
++            ny = x.get('nam_xuat_hien')
++            if isinstance(ny, (int, float)) and ny > float(t['nam']): loi.append(f"(c) {w}: {mh} lỗi thời đại «{str(x.get('mo_ta'))[:70]}» năm {ny} @{x.get('toa_do')}")
++            else: cb.append(f"(w) {w}: {mh} nghi vấn thời đại không năm «{str(x.get('mo_ta'))[:70]}» @{x.get('toa_do')} (người đọc)")
++        cb += [f"(w) {w}: {mh} báo hình khối «{str(x.get('mo_ta'))[:70]}» @{x.get('toa_do')} (người đọc)" for x in j.get('hinh_khoi') or [] if (x.get('do_tin') or 0) >= 0.5]
++    # (d)(e) timelapse
++    vd = t.get('be_mat_nha_video') or {}; so_d = {}
++    if vd:
++        gv, rv = _p(ep_dir, vd.get('ghep')), _p(ep_dir, vd.get('render')); cach = vd.get('cach')
++        if cach not in ('anh_tinh', 'chieu_3d'): thieu.append(f"(e) {w}: be_mat_nha_video.cach phải là anh_tinh | chieu_3d")
++        if not (gv and rv and os.path.exists(gv) and os.path.exists(rv)): thieu.append(f'(d) {w}: be_mat_nha_video thiếu ghep/render')
++        else:
++            Cs, Rs = N._frames(gv, W // 2, H // 2), N._frames(rv, W // 2, H // 2); n_ = min(len(Cs), len(Rs))
++            I2 = cv2.resize(I.astype(np.int32), (W // 2, H // 2), interpolation=cv2.INTER_NEAREST); I2[~np.isin(I2, list(do))] = 0
++            q = quy_dao(list(Cs[:n_]), list(Rs[:n_]), I2, p); e = np.array(list(q['e_h'].values()) or [0.0])
++            pct = float((e > p['E_MAX']).mean() * 100); so_d = dict(khung=n_, nha=len(e), e_tv=round(float(np.median(e)), 4), pct_lech=round(pct, 2), nhap_be_mat=q['nhap_be_mat'])
++            if pct > p['NHA_LECH_PCT']: loi.append(f"(d) {w}: {pct:.1f} % nhà có quỹ đạo sáng lệch render > {p['E_MAX']:g} (ln) — bề mặt không theo ánh sáng (dán ảnh tĩnh khi nắng đổi?)")
++            if q['nhap_be_mat'] > p['NHAP_MAX']: loi.append(f"(d) {w}: nhấp nháy bề mặt {q['nhap_be_mat']} > {p['NHAP_MAX']:g} (ln/khung)")
++            if cach == 'chieu_3d':
++                tp = _p(ep_dir, vd.get('tam'))
++                if not (tp and os.path.exists(tp)): thieu.append(f'(e) {w}: chieu_3d cần `tam` (tấm AI đã duyệt) để kiểm khung 0')
++                else:
++                    T0 = cv2.resize(cv2.imread(tp), (W // 2, H // 2), interpolation=cv2.INTER_AREA); dE = np.sqrt(((_lab(Cs[0]) - _lab(T0)) ** 2).sum(-1))[I2 > 0]
++                    so_d.update(t0_dE_tb=round(float(dE.mean()), 2), t0_dE_p95=round(float(np.percentile(dE, 95)), 2))
++                    if dE.mean() > p['T0_DE'] or np.percentile(dE, 95) > p['T0_P95']: loi.append(f"(e) {w}: khung 0 chiếu 3D lệch tấm đã duyệt ΔE TB {dE.mean():.1f} / p95 {np.percentile(dE, 95):.1f} (trần {p['T0_DE']:g} / {p['T0_P95']:g}) — ánh sáng chồng 2 lần?")
++    elif t.get('cu_may_dong') or t.get('timelapse'): thieu.append(f'(d) {w}: shot timelapse nhưng chưa khai be_mat_nha_video')
++    so = dict(nha=len(HK), nha_do=len(do), nha_loi=sum(1 for x in do.values() if x['loi']), lo=len(lo_), b_max=mk, video=so_d, mo_hinh=V.get('chi_phi_usd'))
++    return dict(loi=loi, thieu=thieu, canh_bao=cb, so=so, lo=lo_)
++
++
++def be_mat_nha(E, ep_dir='.', vision=False, out=None):
++    """hàng BE-MAT-NHA (tập từ T4) — chỉ tấm n2p.tam khai `be_mat_nha_ai: true`"""
++    if not ap_1175(E): return dict(ok=True, ket_qua='KHÔNG ÁP', loi=[], val='tập trước T4 — không hồi tố')
++    N2 = E.get('n2p') or {}; tam = [t for t in N2.get('tam') or [] if t.get('be_mat_nha_ai')]
++    if not tam: return dict(ok=True, ket_qua='KHÔNG ÁP', loi=[], val='không tấm nào khai be_mat_nha_ai: true')
++    out = out or E.get('out'); cp = os.path.join(out, 'bmn-vision-cache.json') if out else None
++    cache = json.load(open(cp)) if cp and os.path.exists(cp) else {}
++    loi, thieu, cb, vals = [], [], [], []
++    for t in tam:
++        try: k = kiem_bmn(t, ep_dir, vision, cache, out, N2.get('noi', ''), bool(N2.get('t4')))
++        except Exception as e: thieu.append(f"(a) tấm {t.get('id')}: {type(e).__name__}: {e}"); continue   # noqa: BLE001
++        loi += k['loi']; thieu += k['thieu']; cb += k['canh_bao']; s = k['so']
++        vals.append(f"{t.get('id')}: {s.get('nha_do', 0)}/{s.get('nha', 0)} nhà đo được, {s.get('nha_loi', 0)} lỗi, (b) {s.get('b_max', '—')}/255" + (f", video e TV {s['video'].get('e_tv')}" if s.get('video') else ''))
++    if cp and vision: os.makedirs(out, exist_ok=True); json.dump(cache, open(cp, 'w'), ensure_ascii=False, indent=1)
++    cong = 'animatic' if E.get('animatic') else 'G2'
++    loi += cb   # (w) luôn Cảnh báo (cap112)
++    return dict(_r(loi, thieu, val=f"{len(tam)} tấm · " + ' · '.join(vals[:4])), cong=cong, muc={c: [x for x in loi + thieu if x.startswith(f'({c})')] for c in 'abcdew'})
+diff --git a/checks/ll/selftest_k1175.py b/checks/ll/selftest_k1175.py
+new file mode 100644
+index 00000000..98e4d0d2
+--- /dev/null
++++ b/checks/ll/selftest_k1175.py
+@@ -0,0 +1,128 @@
++#!/opt/cine/bin/python
++"""Tự kiểm luật 1.17.5 (phiên K-1.17.5, 24/10/2026). Mỗi luật đổi/mới ≥ 1 ca ĐẠT + ≥ 1 ca TRƯỢT. Không mạng, không API.
++Fixtures (checks/ll/fixtures/k1175/): T6 tiền kỳ T4 (render-khớp + ghép lượt 2, 960×540 JPEG q95 phóng lại 1920×1080; mặt nạ ID gốc 1920×1080 trong git)
++và cảnh Blender có đáp án (reports/k1175/do/canh_tong_hop.py: gốc, nước ô-liu, nhám 0,10, bờ lấn) — mặt nạ đúng độ phân giải khung.
++  N2P-3 T9c (A1/A2): render ↔ chính nó đạt; nước đổi sắc xám/ô-liu (bờ giữ) đạt dù T9b nước→đất > 2 %; bờ lấn 8/16/40 px trượt (c); T6 lượt 2 thật
++       (bờ bắc lấn — D11) trượt; Blender: phản chiếu VẬT LÝ + nước ô-liu đạt, bờ lấn hình học trượt; phản chiếu AI tự vẽ thêm (không có ở render) trượt.
++  N2P-1 (e) lớp sống (A3): cộng hiệu đúng đạt; dán nguyên / lệch 6 px / nửa cường độ trượt; (iv) soi tấm nền.
++  N2P-1 (d) vòng khớp màu cục bộ (A4): một độ lệch/vật đạt; đổi không đều / độ lệch > trần trượt.
++  BE-MAT-NHA (A5): (a) hình khối, (b) khoá 0/255, (c) đọc trả lời mô hình (bộ đệm), (d) quỹ đạo sáng + nhấp nháy, (e) khung 0 chiếu 3D; cấp; áp dụng.
++  /opt/cine/bin/python checks/ll/selftest_k1175.py        mã thoát 0 = mọi ca đúng kỳ vọng"""
++import copy, json, os, sys, tempfile
++
++ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
++sys.path.insert(0, ROOT)
++import numpy as np  # noqa: E402
++import cv2  # noqa: E402
++from checks.ll import q_n2p as NP, q_k1175 as K, cap112  # noqa: E402
++
++TMP = tempfile.mkdtemp(prefix='k1175-'); R = []; F = os.path.join(ROOT, 'checks/ll/fixtures/k1175')
++
++
++def case(rule, name, got, expect_fail):
++    got = list(got) if got else []
++    R.append((rule, name, 'bắt lỗi' if expect_fail else 'sạch', bool(got) == expect_fail, got[:2]))
++
++
++def bad(x, *muc):
++    L = (x.get('loi') or []) + (x.get('thieu') or [])
++    return [y for y in L if not muc or any(y.startswith(f'({m})') for m in muc)]
++
++
++up = lambda p: cv2.resize(cv2.imread(os.path.join(F, p)), (1920, 1080), interpolation=cv2.INTER_CUBIC)
++lan9c = lambda d: [f"bờ lấn sâu {x['sau_px']} px" for x in d['lan']] + ([f"giữa nước {d['giua_pct']} %"] if d['giua_pct'] > K.T9C['GIUA'] else [])
++
++# ====================================================================== N2P-3 T9c — T6 (mặt nạ trong git)
++R6 = up('t6-render.jpg'); L6, n6 = NP.idmap(os.path.join(F, 't6-matna.png'), (1920, 1080)); W6 = L6 == n6.index('nuoc')
++top6 = W6 & np.vstack([np.zeros((1, 1920), bool), ((L6 != n6.index('nuoc')) & (L6 != n6.index('troi')))[:-1]])
++
++
++def doi_mau(G, Wt, a, b, kl):
++    lab = cv2.cvtColor(G, cv2.COLOR_BGR2LAB).astype(np.float32); m = lab[..., 0][Wt].mean()
++    lab[..., 0][Wt] = np.clip((lab[..., 0][Wt] - m) * 0.9 + m * kl, 0, 255); lab[..., 1][Wt] = 128 + a + (lab[..., 1][Wt] - 128) * 0.25; lab[..., 2][Wt] = 128 + b + (lab[..., 2][Wt] - 128) * 0.25
++    X = cv2.cvtColor(np.clip(lab, 0, 255).astype(np.uint8), cv2.COLOR_LAB2BGR); al = cv2.GaussianBlur(Wt.astype(np.float32), (0, 0), 0.8)[..., None]
++    return np.clip(G * (1 - al) + X * al, 0, 255).astype(np.uint8)
++
++
++def lan(G, top, x0, x1, d, Wt):
++    out = G.copy(); ys, xs = np.nonzero(top[:, x0:x1 + 1]); xs = xs + x0; y0 = {}
++    for y, x in zip(ys, xs): y0[x] = min(y0.get(x, 9999), y)
++    for x, y in y0.items():
++        for j in range(d):
++            if y + j < G.shape[0] and Wt[y + j, x]: out[y + j, x] = G[max(0, y - 2 - (j * 3) % 9), min(G.shape[1] - 1, x + 23)]
++    return out
++
++
++case('N2P-3 T9c', 'T6 render ↔ chính nó → sạch', lan9c(K.t9c(R6, R6, L6, n6)), False)
++Gx = doi_mau(R6, W6, 0, 0, 0.6); Go = doi_mau(R6, W6, -6, 14, 0.7)
++case('N2P-3 T9c', 'A2: nước đổi XÁM, bờ giữ → sạch', lan9c(K.t9c(R6, Gx, L6, n6)), False)
++case('N2P-3 T9c', 'A2: nước đổi Ô-LIU, bờ giữ → sạch', lan9c(K.t9c(R6, Go, L6, n6)), False)
++b9 = NP.do_tam.__doc__ and None
++cv2.imwrite(os.path.join(TMP, 'r6.png'), R6); cv2.imwrite(os.path.join(TMP, 'go.png'), Go); MP6 = os.path.join(F, 't6-matna.png')
++D_o = NP.do_tam(os.path.join(TMP, 'r6.png'), os.path.join(TMP, 'go.png'), MP6)
++case('N2P-3 T9c', f"A2 đối chứng: luật cũ T9b nước→đất {D_o['iii']['t9b_nuoc_thanh_dat_pct']} % > 2 % (lỗi cũ có thật)", ['T9b > 2'] if D_o['iii']['t9b_nuoc_thanh_dat_pct'] > 2 else [], True)
++case('N2P-3 T9c', 'A2 qua tong_tam 1.17.5: nước ô-liu → N2P-3 không (a)/(c)/(d)', bad(NP.tong_tam([dict(id='o', do={k: v for k, v in D_o.items() if not k.startswith('_')}, V={}, L1=[], L2=[], L2b=[], L4=[], VUNG=[], Q=None)])['N2P-3'], 'a', 'c', 'd'), False)
++col = np.nonzero(top6.any(0))[0]; xs_ = [int(x) for x in (300, 900, 1500) if x in set(col.tolist())] or [int(col[len(col) // 2])]
++for dd in (8, 16, 40):
++    Gl = Go.copy()
++    for x0 in xs_: Gl = lan(Gl, top6, x0, x0 + 100, dd, W6)
++    case('N2P-3 T9c', f'bờ lấn {dd} px × 100 px (nước ô-liu) → (c)', lan9c(K.t9c(R6, Gl, L6, n6)), True)
++G2 = up('t6-l2-ghep.jpg'); d2 = K.t9c(R6, G2, L6, n6)
++case('N2P-3 T9c', f"T6 lượt 2 thật (D11: bờ bắc lấn) → trượt ({d2['so_doan_lan']} đoạn, sâu nhất {d2['sau_lon_nhat_px']} px)", lan9c(d2), True)
++# ---------------------------------------------------------------------- Blender: phản chiếu vật lý
++BL = {'nha_thuong': (215, 215, 215), 'troi': (110, 152, 229)}
++Rb = up('bl-goc.jpg'); Lb, nb = NP.idmap(os.path.join(F, 'bl-matna.png'), (1920, 1080), BL)
++case('N2P-3 T9c', 'Blender: render có phản chiếu vật lý ↔ chính nó → sạch', lan9c(K.t9c(Rb, Rb, Lb, nb)), False)
++case('N2P-3 T9c', 'Blender: phản chiếu vật lý + nước ô-liu (A1: phản chiếu có trong render) → sạch', lan9c(K.t9c(Rb, up('bl-oliu.jpg'), Lb, nb)), False)
++case('N2P-3 T9c', 'Blender: phản chiếu vật lý, mặt nước nhám 0,10 → sạch', lan9c(K.t9c(Rb, up('bl-pc1.jpg'), Lb, nb)), False)
++case('N2P-3 T9c', 'Blender: bờ lấn hình học (bãi/bến 10–80 m) → (c)', lan9c(K.t9c(Rb, up('bl-lan2.jpg'), Lb, nb)), True)
++# phản chiếu AI tự vẽ (không có ở render): lật nhà trên bờ xuống nước, tối 0,6
++Gr = R6.copy(); ys, xs = np.nonzero(top6)
++for y, x in zip(ys[::1], xs[::1]):
++    for j in range(30):
++        if y + j < 1080 and W6[y + j, x] and y - 14 - j >= 0: Gr[y + j, x] = (0.45 * Gr[y + j, x] + 0.55 * 0.6 * R6[y - 14 - j, x]).astype(np.uint8)
++case('N2P-3 T9c', 'A1: phản chiếu AI tự vẽ thêm (render không có) dọc bờ → trượt (không miễn)', lan9c(K.t9c(R6, Gr, L6, n6)), True)
++
++# ====================================================================== N2P-1 (e) lớp sống (A3) — T6
++A6 = NP.lop(L6, n6, NP.LOP_A); Ab = K.bao_ve(A6)
++rg = np.random.default_rng(1175); al = np.zeros((1080, 1920), np.float32)
++for _ in range(10):
++    x, y = int(rg.integers(200, 1700)), int(rg.integers(330, 640))
++    for j in range(40): cv2.circle(al, (int(x + j * 0.9), int(y - j * 2.2)), int(2 + j * 0.25), float(0.5 * (1 - j / 40)), -1)
++al = cv2.GaussianBlur(al, (0, 0), 2.0)[..., None]; Rk = R6; Rc = np.clip(R6 * (1 - al) + np.array([200, 200, 205], np.float32) * al, 0, 255).astype(np.uint8)
++Pn = Go.copy(); Pn[Ab] = Rc[Ab]
++Hd = Rc.astype(np.int16) - Rk.astype(np.int16)
++Gd = np.clip(Pn.astype(np.int16) + Hd * (~Ab)[..., None], 0, 255).astype(np.uint8)
++Gdan = Pn.copy(); m8 = (np.abs(Hd).max(-1) > 8) & ~Ab; Gdan[m8] = Rc[m8]
++Glech = np.clip(Pn.astype(np.int16) + np.roll(Hd, 6, 1) * (~Ab)[..., None], 0, 255).astype(np.uint8)
++Gnua = np.clip(Pn.astype(np.int16) + (Hd // 2) * (~Ab)[..., None], 0, 255).astype(np.uint8)
++for nm, G_, ex in (('cộng hiệu đúng', Gd, False), ('dán nguyên điểm render (cách T6)', Gdan, True), ('lớp sống lệch 6 px', Glech, True), ('nửa cường độ', Gnua, True)):
++    mx, cnt = K.kiem_song(G_, Pn, Rc, Rk, Ab); case('N2P-1 (e)', f'lớp sống: {nm} → sai lớn nhất {mx}/255', [f'{mx}'] if mx > 1 else [], ex)
++for p_, G_ in (('rc.png', Rc), ('rk.png', Rk), ('pn.png', Pn), ('gd.png', Gd), ('gdan.png', Gdan)): cv2.imwrite(os.path.join(TMP, p_), G_)
++cv2.imwrite(os.path.join(TMP, 'rkm.png'), Rc)
++song = dict(render_co=os.path.join(TMP, 'rc.png'), render_khong=os.path.join(TMP, 'rk.png'), nen=os.path.join(TMP, 'pn.png'))
++for g_, ex in (('gd.png', False), ('gdan.png', True)):
++    kt = NP.kiem_tam(dict(id='s', render=os.path.join(TMP, 'rkm.png'), ghep=os.path.join(TMP, g_), mat_na=MP6, nam=1666, song=song), '.', False, {}, None)
++    case('N2P-1 (e)', f'kiem_tam + tong_tam: {g_} → (e)', bad(NP.tong_tam([kt])['N2P-1'], 'e'), ex)
++case('N2P-1 (e)', 'mô hình nhìn (iv) soi TẤM NỀN khi khai lớp sống (khoá bộ đệm theo nen.png)', [] if kt['V'].get('khoa') == __import__('checks.ll.q_n2p_vision', fromlist=['x']).khoa(os.path.join(TMP, 'rkm.png'), song['nen'], 1666, '', False, ('gpt', 'claude')) else ['khoá sai'], False)
++kt2 = NP.kiem_tam(dict(id='s2', render=os.path.join(TMP, 'rkm.png'), ghep=os.path.join(TMP, 'gd.png'), mat_na=MP6, nam=1666, song=dict(song, nen=None)), '.', False, {}, None)
++case('N2P-1 (e)', 'khai song thiếu nen → THIẾU (e)', bad(NP.tong_tam([kt2])['N2P-1'], 'e'), True)
++
++# ====================================================================== N2P-1 (d) vòng bảo vệ khớp màu cục bộ (A4)
++n_, cc = cv2.connectedComponents(Ab.astype(np.uint8), 8); Gv = Rc.copy().astype(np.int16)
++for i in range(1, min(n_, 400)):
++    ring = (cc == i) & ~A6; Gv[ring] += np.array([int(rg.integers(-12, 13)) for _ in range(3)], np.int16)
++Gv = np.clip(Gv, 0, 255).astype(np.uint8); res, off, k_ = K.kiem_vong(Gv, Rc, A6, Ab)
++case('N2P-1 (d)', f'vòng = render-khớp + một độ lệch/vật ({k_} vòng, phần dư {res:.0f}) → sạch', [res] if res > 1 or off > K.VONG_MAX else [], False)
++Gw = Gv.copy(); ys, xs = np.nonzero(Ab & ~A6); Gw[ys[::3], xs[::3]] = 255
++res2, _, _ = K.kiem_vong(Gw, Rc, A6, Ab); case('N2P-1 (d)', f'vòng đổi KHÔNG đều (vẽ lại mép) → phần dư {res2:.0f}', [res2] if res2 > 1 else [], True)
++Gz = Rc.astype(np.int16); Gz[Ab & ~A6] += 60; Gz = np.clip(Gz, 0, 255).astype(np.uint8)
++_, off3, _ = K.kiem_vong(Gz, Rc, A6, Ab); case('N2P-1 (d)', f'độ lệch {off3:.0f} > trần {K.VONG_MAX} → lỗi', [off3] if off3 > K.VONG_MAX else [], True)
++cv2.imwrite(os.path.join(TMP, 'gv.png'), Gv); cv2.imwrite(os.path.join(TMP, 'gw.png'), Gw)
++for g_, ex in (('gv.png', False), ('gw.png', True)):
++    kt = NP.kiem_tam(dict(id='v', render=os.path.join(TMP, 'rkm.png'), ghep=os.path.join(TMP, g_), mat_na=MP6, nam=1666, khop_mau_cuc_bo=True), '.', False, {}, None)
++    case('N2P-1 (d)', f'kiem_tam khop_mau_cuc_bo: {g_} → (d)', bad(NP.tong_tam([kt])['N2P-1'], 'd'), ex)
++kt = NP.kiem_tam(dict(id='v0', render=os.path.join(TMP, 'rkm.png'), ghep=os.path.join(TMP, 'gw.png'), mat_na=MP6, nam=1666), '.', False, {}, None)
++case('N2P-1 (d)', 'không khai khop_mau_cuc_bo → không đo vòng (luật cũ: (i) chỉ trong mặt nạ)', bad(NP.tong_tam([kt])['N2P-1'], 'd'), False)
++case('cấp', 'N2P-1 (e) lớp sống ở G2 → Chặn', cap112.cap('N2P-1', dict(loi=['(e) x'], cong='G2'))[1], True)
++case('cấp', 'N2P-1 (e) ở animatic → Cảnh báo', cap112.cap('N2P-1', dict(loi=['(e) x'], cong='animatic'))[1], False)
