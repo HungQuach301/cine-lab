@@ -10,8 +10,10 @@ sys.path.insert(0, str(R / 'reports/casting-giong')); import kiem_lib as KL   # 
 txt = (EP / 'loi-khoa.txt').read_text()
 TEN = json.loads((PA / 'ten-chon.json').read_text())   # mục tên chốt sau nghe thử: [{viet, doc, ipa, loai, ghi_chu}]
 D = []
+TENS = r'(twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety) (one|two|three|four|five|six|seven|eight|nine)\b'
+gach = lambda w: re.sub(r'\boh (\w+)', r'oh-\1', re.sub(TENS, r'\1-\2', w))   # 'sixteen sixty-six', 'seventeen oh-eight' (như T3)
 for y in sorted(set(re.findall(r'\b(1[0-9]{3}|20[0-9]{2})\b(?!s)', txt))):
-    D.append(dict(viet=y, doc=KL.year(int(y)), ipa='', loai='năm', ghi_chu='năm đọc kiểu Anh (kiem_lib.year, như T3)'))
+    D.append(dict(viet=y, doc=gach(KL.year(int(y))), ipa='', loai='năm', ghi_chu='năm đọc kiểu Anh (kiem_lib.year, như T3)'))
 for m in re.findall(r'\b(?:mid-)?(?:1[0-9]{3})s\b', txt):
     if any(d['viet'] == m for d in D): continue
     y = int(re.search(r'\d{4}', m).group()); w = KL.year(y)

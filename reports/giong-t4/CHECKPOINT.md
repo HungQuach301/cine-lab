@@ -7,7 +7,10 @@
 - [x] Đọc BAI-HOC-LL, KL42, PHIEU-G1 + AUTHORSHIP dòng 397 (D3 = GIỮ "burned to the ground twice"), Kinh thánh §3, §12, §14, §19
 - [x] Nguồn web cho 22 mục [cần kiểm]: `reports/giong-t4/nguon/*.txt` (bản chữ + SHA gốc; gốc ngoài git `/var/tmp/cine-out/giong-t4/nguon/`, tái tạo: `scripts/k2ldn/giong/tai_nguon.py <mã> <url>`)
 - [x] Lời v2: `khoa-loi/sua-v2.json` (27 mục), `doan-shot.json`, `scripts/k2ldn/giong/lam_loi_khoa.py` → `loi-khoa.txt` (1 553 từ)
-- [ ] KIEM-LOI.md · thử phát âm + PLS · thu G1 · ASR · mốc câu · master · GIAN-SHOT · báo cáo
+- [x] KIEM-LOI.md (22 mục; trích máy kiểm khớp)
+- [x] Thử phát âm 3 lượt (2 061 ký tự): chỉ Evelyn → alias 'Eevlin'; PLS `london-g1.pls` 6e11cae0…; LOI-KHOA.sha256 3/3 OK
+- [ ] Thu G1 cả tập: đang chạy nền PID/PGID 6053 (`gl_thu.py all`, log /var/tmp/cine-out/giong-t4/thu.log; cache theo băm → chạy lại = 0 ký tự)
+- [ ] ASR · mốc câu · master · GIAN-SHOT · báo cáo
 
 ## Lệnh bổ sung đã áp
-- (chưa có)
+- Sự cố: `pkill -f` trong một lệnh dọn đã giết chính shell gọi (BAI-HOC #112) — không mất dữ liệu; từ đó chỉ dừng theo PID ghi ra tệp.
