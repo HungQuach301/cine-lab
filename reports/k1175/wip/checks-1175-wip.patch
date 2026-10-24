@@ -1,0 +1,378 @@
+diff --git a/checks/ll/cap112.py b/checks/ll/cap112.py
+index 5a298efc..8764a1f3 100644
+--- a/checks/ll/cap112.py
++++ b/checks/ll/cap112.py
+@@ -77,9 +77,9 @@ CAP = {
+     'EO-DAT-R2': ('Chặn ở G2 · Cảnh báo ở animatic (§14.7 R2: trống > 50 % ≤ 6 s liên tục, ≤ 10 % thời lượng chương)', {'*'}, set()),
+     'EO-DAT-R3': ('Chặn ở G2 · Cảnh báo ở animatic (lệnh K-1.17; §14.7 R3)', {'*'}, set()),
+     'EO-DAT-R4': ('Chặn ở G2 · Cảnh báo ở animatic (§14.7 R4 + TL-4; lệnh K-1.17.1)', {'*'}, set()),
+-    'N2P-1': ('Chặn (a), (b) ở G2 · Cảnh báo ở animatic · (c) cụm dải 20 px luôn Cảnh báo (người đọc tờ so) — §15 (c)(i), K đề xuất', set('ab'), set('c')),
++    'N2P-1': ('Chặn (a), (b), (d) vòng khớp màu cục bộ, (e) lớp sống ở G2 · Cảnh báo ở animatic · (c) cụm dải 20 px luôn Cảnh báo (người đọc tờ so) — §15 (c)(i); (d)(e) 1.17.5', set('abde'), set('c')),
+     'N2P-2': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(ii), K đề xuất', {'*'}, set()),
+-    'N2P-3': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iii), K đề xuất', {'*'}, set()),
++    'N2P-3': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iii); 1.17.5: nước→đất = T9c (c) bờ lấn, (d) giữa nước (đối chứng render)', {'*'}, set()),
+     'N2P-4': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iv), K đề xuất', {'*'}, set()),
+     'N2P-5': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (b), (c)(v), K đề xuất', {'*'}, set()),
+     'N2P-6': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (d) trần, K đề xuất', {'*'}, set()),
+diff --git a/checks/ll/q_n2p.py b/checks/ll/q_n2p.py
+index 25b0fa12..25999ffe 100644
+--- a/checks/ll/q_n2p.py
++++ b/checks/ll/q_n2p.py
+@@ -57,6 +57,7 @@ T9B_MAX, BO_PX = 2.0, 8                          # (iii) ≤ 2 % mỗi chiều;
+ HOA_MIN, BUOC_MAX, NHAP_K, SAN_NHAP = 2.0, 1.0, 1.5, 0.02   # (v)
+ TRAN_NEN, TRAN_MH, TRAN_TONG = 50.0, 20.0, 70.0  # (vi) §15(d) theo lệnh K-1.17
+ ROWS = ('N2P-1', 'N2P-2', 'N2P-3', 'N2P-4', 'N2P-5', 'N2P-6')
++K75_GIUA, K75_VONG_MAX = 2.0, 40   # = q_k1175.T9C['GIUA'], q_k1175.VONG_MAX (1.17.5)
+ 
+ 
+ def ap_n2p(E): return bool(E.get('kenh2_tu_t4') or E.get('n2p'))
+@@ -134,9 +135,11 @@ def do_tam(render_p, ghep_p, mat_na_p, lop_a=LOP_A, bang=None):
+     hs = cv2.cvtColor(G, cv2.COLOR_BGR2HSV); loe = (hs[..., 2] >= 217) & (hs[..., 1] <= 64); k = 2 * max(1, int(round(BO_PX * s))) + 1
+     bo = cv2.dilate((cv2.morphologyEx(Wt.astype(np.uint8), cv2.MORPH_GRADIENT, np.ones((3, 3), np.uint8)) > 0).astype(np.uint8), np.ones((k, k), np.uint8)) > 0
+     d2n_b = float((D & bg & ~br & ~bo).sum() / max(1, D.sum()) * 100); n2d_b = float((Wt & br & ~bg & ~loe & ~bo).sum() / max(1, (Wt & br).sum()) * 100)
++    from checks.ll import q_k1175 as K75
++    t9c = K75.t9c(R, G, L, names); t9c.pop('win', None)   # 1.17.5 (A1/A2): đường bờ đo, đối chứng render — thay T9b chiều nước→đất
+     return dict(i=dict(max_trong_a=int(dif[A].max()) if A.any() else 0, diem_lech_trong_a=int((dif[A] > 0).sum()), dien_tich_a_pct=round(float(A.mean() * 100), 2),
+                        dai20_pct=round(float(band.mean() * 100), 2), dai20_cum_dE30=len(cum), dai20_cum_lon=cum[:15]),
+-                iii=dict(t9_dat_thanh_nuoc_pct=round(d2n, 2), t9_nuoc_thanh_dat_pct=round(n2d, 2), t9b_dat_thanh_nuoc_pct=round(d2n_b, 2), t9b_nuoc_thanh_dat_pct=round(n2d_b, 2)),
++                iii=dict(t9_dat_thanh_nuoc_pct=round(d2n, 2), t9_nuoc_thanh_dat_pct=round(n2d, 2), t9b_dat_thanh_nuoc_pct=round(d2n_b, 2), t9b_nuoc_thanh_dat_pct=round(n2d_b, 2), t9c=t9c),
+                 _band=band, _A=A, W=R.shape[1], H=R.shape[0])
+ 
+ 
+@@ -188,7 +191,23 @@ def kiem_tam(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False
+     nam = t.get('nam'); tid = str(t.get('id') or os.path.basename(gp or '?'))
+     if not (rp and gp and mp and nam is not None): return dict(id=tid, loi_chay=f'tấm {tid}: thiếu render/ghep/mat_na/nam')
+     D = do_tam(rp, gp, mp, t.get('lop_a') or LOP_A, t.get('bang'))
+-    V = QV.soi(rp, gp, nam, t.get('noi', noi), t.get('t4', t4), out=out, tag=tid, api=vision, cache=cache)
++    SONG, VONG = None, None
++    sg = t.get('song') or {}
++    if sg or t.get('khop_mau_cuc_bo'):
++        import cv2
++        from checks.ll import q_k1175 as K75
++        R_, G_ = cv2.imread(rp), cv2.imread(gp); Ab = K75.bao_ve(D['_A'])
++        if sg:   # 1.17.5 (A3): lớp sống ghép bằng cộng hiệu render có/không — ngoài vùng bảo vệ ghép == clip(nền + (có − không))
++            fs = {k: _p(ep_dir, sg.get(k)) for k in ('render_co', 'render_khong', 'nen')}
++            if not all(fs.values()): SONG = dict(thieu='song: cần render_co, render_khong, nen')
++            else:
++                Rc, Rk, Pn = (cv2.imread(fs[k]) for k in ('render_co', 'render_khong', 'nen'))
++                if any(x is None or x.shape != G_.shape for x in (Rc, Rk, Pn)): SONG = dict(thieu='song: ảnh thiếu hoặc khác cỡ ghép')
++                else: mx, cnt = K75.kiem_song(G_, Pn, Rc, Rk, Ab); SONG = dict(max=mx, diem=cnt)
++        if t.get('khop_mau_cuc_bo'):   # 1.17.5 (A4, cần K1175-D3): vòng bảo vệ = render-khớp + một độ lệch màu/vật
++            res, off, k = K75.kiem_vong(G_, R_, D['_A'], Ab); VONG = dict(du=res, lech=off, vong=k)
++    gv = _p(ep_dir, sg.get('nen')) if sg.get('nen') else gp   # (iv): lớp sống từ render không phải vật AI thêm → mô hình soi tấm nền (chưa cộng lớp sống)
++    V = QV.soi(rp, gv, nam, t.get('noi', noi), t.get('t4', t4), out=out, tag=tid, api=vision, cache=cache)
+     L1, L2, L2b, L4, VUNG = ket_luan(V.get('ket_qua') or {}, D['_band'], D['_A'], bool(t.get('anh_tinh', True)), nam)
+     Q = None
+     if vision or (cache or {}).get('qtd', {}).get(tid):
+@@ -201,7 +220,7 @@ def kiem_tam(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False
+                      chi_phi_usd=round(float(Qg.get('cost_usd') or 0) + float(Qr.get('cost_usd') or 0), 4))
+             if cache is not None and not Q['loi']: cache['qtd'][tid] = Q
+     return dict(id=tid, shot=t.get('shot'), nam=nam, anh_tinh=bool(t.get('anh_tinh', True)), do={k: v for k, v in D.items() if not k.startswith('_')},
+-                V=V, L1=L1, L2=L2, L2b=L2b, L4=L4, VUNG=VUNG, Q=Q)
++                V=V, L1=L1, L2=L2, L2b=L2b, L4=L4, VUNG=VUNG, Q=Q, SONG=SONG, VONG=VONG)
+ 
+ 
+ def tong_tam(KT):
+@@ -221,14 +240,26 @@ def tong_tam(KT):
+         if i['dai20_cum_dE30']:
+             cum += i['dai20_cum_dE30']; L['N2P-1'].append(f"(c) {w}: {i['dai20_cum_dE30']} cụm ΔE ≥ {CUM_DE:g} trong dải {DAI_PX} px quanh (a) (người đọc tờ so): "
+                                                          + ', '.join(f"{c['hop']} {c['px']} px" for c in i['dai20_cum_lon'][:4]))
++        sg, vg = k.get('SONG'), k.get('VONG')
++        if sg is not None:
++            if sg.get('thieu'): T['N2P-1'].append(f"(e) {w}: {sg['thieu']}")
++            elif sg['max'] > 1: L['N2P-1'].append(f"(e) {w}: lớp sống ≠ clip(nền + (render có − render không)) — sai lớn nhất {sg['max']}/255 ở {sg['diem']} điểm (dán nguyên/lệch khung/sai cường độ)")
++        if vg is not None and (vg['du'] > 1 or vg['lech'] > K75_VONG_MAX):
++            L['N2P-1'].append(f"(d) {w}: vòng bảo vệ không phải render-khớp + một độ lệch/vật — phần dư {vg['du']:.0f}/255, độ lệch {vg['lech']:.0f} (trần {K75_VONG_MAX})")
+         L['N2P-2'] += [f"(a) {w}: lỗi thời đại — {m(x)} — năm {x.get('nam')} · {str(x.get('ly_do') or '')[:80]}" for x in k['L2']]
+         nv0 += len(k['L2b'])
+         if k.get('Q') is not None:
+             if k['Q'].get('loi'): T['N2P-2'].append(f"(b) {w}: q_thoi_dai: {k['Q']['loi']}")
+             L['N2P-2'] += [f"(b) {w}: q_thoi_dai nghi vấn mới (không có ở render): [{x.get('muc')}] {str(x.get('mo_ta'))[:70]} @px {x.get('toa_do_px')}" for x in k['Q']['moi']]
++        c9 = iii.get('t9c')
+         for nm, v in (('đất→nước', iii['t9b_dat_thanh_nuoc_pct']), ('nước→đất', iii['t9b_nuoc_thanh_dat_pct'])):
++            if c9 is not None and nm == 'nước→đất': continue   # 1.17.5: chiều nước→đất đo bằng T9c (đường bờ + đối chứng render); T9b chỉ in
+             t9.append(v); near['N2P-3'] += sat(f'{w} T9b {nm} %', v, T9B_MAX)
+             if v > T9B_MAX: L['N2P-3'].append(f'(a) {w}: T9b {nm} {v} % > {T9B_MAX:g} %')
++        if c9 is not None:
++            L['N2P-3'] += [f"(c) {w}: bờ lấn ({x['kieu']}) sâu {x['sau_px']} px @1080" + (f", dài {x['dai_px']} px, x {x['x0']}–{x['x1']}" if 'x0' in x else f", hộp {x['hop']}") for x in c9['lan'][:8]]
++            if c9['giua_pct'] > K75_GIUA: L['N2P-3'].append(f"(d) {w}: khác nước (đối chứng render) không bám bờ {c9['giua_pct']} % > {K75_GIUA:g} %")
++            near['N2P-3'] += sat(f'{w} T9c giữa nước %', c9['giua_pct'], K75_GIUA)
+         L['N2P-3'] += [f"(b) {w}: {x['mh']} báo đổi loại vùng «{str(x.get('mo_ta') or '')[:70]}»" for x in k['VUNG']]
+         L['N2P-4'] += [f'(a) {w}: vật chuyển động trên tấm tĩnh — {m(x)}' for x in k['L4']]
+         if vl:
+@@ -237,10 +268,13 @@ def tong_tam(KT):
+     out['N2P-1'] = r(L['N2P-1'], T['N2P-1'], val=f"{n} tấm · max lệch (a) {max([k['do']['i']['max_trong_a'] for k in KT if not k.get('loi_chay')] or [0])}/255 · vật (a) mô hình {sum(len(k.get('L1') or []) for k in KT)} · cụm dải 20 px {cum}")
+     out['N2P-2'] = r(L['N2P-2'], T['N2P-2'], val=f"{n} tấm · lỗi có năm {sum(len(k.get('L2') or []) for k in KT)} · nghi vấn không năm {nv0} (người đọc) · q_thoi_dai mới "
+                                                   + str(sum(len(k['Q']['moi']) for k in KT if k.get('Q'))) + ' · giới hạn: cờ ~20 px không bảo đảm')
+-    out['N2P-3'] = r(L['N2P-3'], T['N2P-3'], val=f"{n} tấm · T9b lớn nhất {max(t9 or [0]):.2f} % · mô hình báo {sum(len(k.get('VUNG') or []) for k in KT)}", sat_nguong=near['N2P-3'])
++    c9s = [k['do']['iii']['t9c'] for k in KT if not k.get('loi_chay') and k['do']['iii'].get('t9c') is not None]
++    out['N2P-3'] = r(L['N2P-3'], T['N2P-3'], val=f"{n} tấm · T9b lớn nhất {max(t9 or [0]):.2f} % · mô hình báo {sum(len(k.get('VUNG') or []) for k in KT)}"
++                     + (f" · T9c (1.17.5): đoạn bờ lấn {sum(c['so_doan_lan'] for c in c9s)}, sâu nhất {max([c['sau_lon_nhat_px'] for c in c9s] or [0])} px, giữa nước ≤ {max([c['giua_pct'] for c in c9s] or [0])} %"
++                        + f"; T9b nước→đất (chỉ in) {max([k['do']['iii']['t9b_nuoc_thanh_dat_pct'] for k in KT if not k.get('loi_chay')] or [0]):.2f} %" if c9s else ''), sat_nguong=near['N2P-3'])
+     out['N2P-4'] = r(L['N2P-4'], T['N2P-4'], val=f"{n} tấm ({sum(1 for k in KT if k.get('anh_tinh'))} tĩnh) · vật chuyển động {sum(len(k.get('L4') or []) for k in KT)}")
+     for q in ROWS[:4]:
+-        out[q]['muc'] = {c: [x for x in out[q]['loi'] if x.startswith(f'({c})')] for c in 'abc'}
++        out[q]['muc'] = {c: [x for x in out[q]['loi'] if x.startswith(f'({c})')] for c in 'abcde'}
+     return out
+ 
+ 
+diff --git a/checks/ll/q_k1175.py b/checks/ll/q_k1175.py
+new file mode 100644
+index 00000000..607ae276
+--- /dev/null
++++ b/checks/ll/q_k1175.py
+@@ -0,0 +1,254 @@
++#!/opt/cine/bin/python
++"""Luật 1.17.5 (phiên K-1.17.5, 24/10/2026) — CHỈ tập kênh 2 từ T4 (`kenh2_tu_t4: true` hoặc khối `n2p:`). T3 và trước: KHÔNG ÁP.
++Căn cứ: khiếu nại A1–A5 (checks-appeal.md, mục K-1.17.5) — K1174-D1 = A (chủ dự án duyệt 24/10/2026); LOOK-T4-V2 §11 (2)(3), PHIEU-LOOK-V2 V3/V4;
++phương án B "AI phủ bề mặt nhà thường" (chủ dự án 24/10/2026 06:21 "1. Chọn phương án A+B theo khuyến nghị"). Số đo + khung đáp án: reports/k1175/.
++
++(iii) T9c — ĐƯỜNG BỜ ĐO, ĐỐI CHỨNG RENDER (thay T9b chiều nước→đất trong N2P-3 (a); T9b vẫn tính và in để so):
++    trên mỗi thành phần nước của mặt nạ, tấm ≈ T(render) với T = ánh xạ màu affine Lab (3×3 + hằng + hệ số hàng y) khớp BỀN (IRLS Huber) — hấp thụ
++    việc AI đổi sắc/độ sáng nước (A2: xám/ô-liu vẫn là nước) và giữ mọi thứ render 3D có sẵn (phản chiếu vật lý, bóng); điểm "khác nước" = ΔE76
++    (ảnh mờ σ 1,5) tới T(render) > τ = max(TAU0, TAU_K × σ lõi). Bờ trên (đất phía trên nước trong ảnh): cửa sổ WIN cột × dải BAND hàng từ bờ
++    xuống (bỏ SKIP px mép mềm; cho phép ≤ GAP_B dải đầu giống nước — kè/bóng); độ sâu lấn = các dải liền nhau ≥ 50 % điểm khác nước.
++    Lỗi: (a2) đoạn bờ lấn sâu ≥ D_LOI px @1080, dài ≥ L_MIN px; bờ khác (dưới/bên): cụm khác nước bám bờ sâu ≥ D_LOI; (a3) khác nước KHÔNG bám bờ
++    (giữa nước) > GIUA % diện tích nước. PHẢN CHIẾU do AI tự vẽ (không có trong render) KHÔNG được miễn (A1: không tách được khỏi bờ lấn ở độ
++    nhạy 100 % — số đo reports/k1175 §1); phản chiếu đúng phải có trong render 3D.
++(i-s) LỚP SỐNG (A3, PHIEU V3 a): tấm khai `song: {render_co, render_khong, nen}` (render CÓ/KHÔNG khói bếp — vật chuyển động — và tấm nền đã
++    ghép lớp (a) CHƯA cộng lớp sống) → ngoài vùng bảo vệ: ghép == clip(nen + (render_co − render_khong)) sai ≤ 1/255; trong vùng bảo vệ: (i) như cũ.
++    (iv) đóng băng soi trên `nen` (lớp sống từ render không phải vật AI thêm); thiếu `nen` → soi ghép như cũ.
++(i)(d) KHỚP MÀU CỤC BỘ VÒNG BẢO VỆ (A4, PHIEU V4 b) — chỉ khi tấm khai `khop_mau_cuc_bo: true` (cần chủ dự án sửa chữ Kinh thánh §15 (a),
++    K1175-D3): vòng bảo vệ (vùng bảo vệ − mặt nạ (a)) mỗi vật = render-khớp + MỘT độ lệch màu không đổi: phần dư sau khi trừ trung vị độ lệch
++    ≤ 1/255, |độ lệch| ≤ VONG_MAX mỗi kênh; trong mặt nạ (a) vẫn 0/255.
++BE-MAT-NHA (A5, phương án B; chỉ tấm khai `be_mat_nha_ai: true` trong n2p.tam): xem hàm be_mat_nha().
++"""
++import json, os, sys
++
++sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
++
++T9C = dict(SIG=1.5, D_IN=48, TAU0=6.0, TAU_K=3.0, SKIP=2, GAP_B=2, WIN=24, BAND=4, D_MAX=72, D_LOI=6, L_MIN=12, GIUA=2.0)
++VONG_MAX = 40
++
++
++def ap_1175(E): return bool(E.get('kenh2_tu_t4') or E.get('n2p'))
++
++
++def _lab(b):
++    import cv2, numpy as np
++    return cv2.cvtColor(b, cv2.COLOR_BGR2LAB).astype(np.float32) * np.array([100 / 255, 1, 1], np.float32) - np.array([0, 128, 128], np.float32)
++
++
++# ================================================================ (iii) T9c
++def t9c(R, G, L, names, p=None, dbg=False):
++    """R render (khớp màu), G tấm đã ghép, L/names mặt nạ → dict(lan[], giua_pct, tau, dat, ...)"""
++    import cv2, numpy as np
++    p = dict(T9C, **(p or {})); H, W = R.shape[:2]; s = H / 1080.0; ix = {n: i for i, n in enumerate(names)}
++    if 'nuoc' not in ix: return dict(dat=True, lan=[], giua_pct=0.0, tau=None, ghi='không có lớp nước')
++    Wt = L == ix['nuoc']; sky = (L == ix['troi']) if 'troi' in ix else np.zeros_like(Wt)
++    n, cc, st, _ = cv2.connectedComponentsWithStats(Wt.astype(np.uint8), 4)
++    Wt = np.isin(cc, [i for i in range(1, n) if st[i, 4] >= 0.002 * H * W])
++    if not Wt.any(): return dict(dat=True, lan=[], giua_pct=0.0, tau=None, ghi='nước < 0,2 % khung')
++    land = ~Wt & ~sky
++    Gl = _lab(cv2.GaussianBlur(G, (0, 0), p['SIG'] * s)); Rl = _lab(cv2.GaussianBlur(R, (0, 0), p['SIG'] * s))
++    dw = cv2.distanceTransform(Wt.astype(np.uint8), cv2.DIST_L2, 5)
++    dE = np.zeros((H, W), np.float32); cc2 = cv2.connectedComponents(Wt.astype(np.uint8), 4)[1]; sig = []
++    for c in np.unique(cc2[Wt]):
++        mc = cc2 == c; yy, _xx = np.nonzero(mc)
++        X = np.c_[Rl[mc], (yy / H).astype(np.float32), np.ones(len(yy), np.float32)]; Y = Gl[mc]
++        sel = np.random.default_rng(0).choice(len(Y), 60000, replace=False) if len(Y) > 60000 else np.arange(len(Y))
++        w = np.ones(len(sel), np.float32); sc = 1.0
++        for _ in range(4):
++            B = np.linalg.lstsq(X[sel] * w[:, None], Y[sel] * w[:, None], rcond=None)[0]
++            e = np.sqrt(((X[sel] @ B - Y[sel]) ** 2).sum(-1)); sc = 1.4826 * float(np.median(e)) + 1e-3; w = np.minimum(1.0, 2.0 * sc / np.maximum(e, 1e-6))
++        dE[mc] = np.sqrt(((X @ B - Y) ** 2).sum(-1)); sig.append(sc)
++    inn = Wt & (dw >= p['D_IN'] * s)
++    if inn.sum() < 2000: inn = Wt & (dw >= p['D_IN'] * s / 2)
++    sw = 1.4826 * float(np.median(dE[inn])) + 1e-3 if inn.any() else float(np.median(sig))
++    tau = max(p['TAU0'], p['TAU_K'] * sw)
++    hs = cv2.cvtColor(G, cv2.COLOR_BGR2HSV); loe = (hs[..., 2] >= 217) & (hs[..., 1] <= 64)
++    NW = Wt & (dE > tau) & ~loe
++    top = Wt & np.vstack([np.zeros((1, W), bool), land[:-1]])
++    ysh = np.full(W, -1, np.int64); ty, tx = np.nonzero(top)
++    for y, x in zip(ty, tx):
++        if ysh[x] < 0 or y < ysh[x]: ysh[x] = y
++    dmax = int(p['D_MAX'] * s); WIN = max(8, int(p['WIN'] * s)); BAND = max(2, int(p['BAND'] * s)); SK = max(1, int(round(p['SKIP'] * s)))
++    cov = np.zeros_like(Wt); win = []
++    for wx in range(0, W - WIN + 1, max(4, WIN // 3)):
++        xs = np.arange(wx, wx + WIN); yv = ysh[xs]; ok = yv >= 0
++        if ok.sum() < WIN * 0.7: continue
++        xs, ys0 = xs[ok], yv[ok]; K = np.arange(dmax); YA = np.minimum(H - 1, ys0[None, :] + K[:, None]); XA = np.broadcast_to(xs[None, :], YA.shape)
++        nw = NW[YA, XA] & Wt[YA, XA]
++        if nw[SK:SK + (1 + p['GAP_B']) * BAND].mean(1).max() < 0.5: continue
++        depth, gap = 0, 0
++        for b0 in range(SK, dmax - BAND + 1, BAND):
++            f = nw[b0:b0 + BAND].mean()
++            if f < 0.5:
++                if depth == 0 and b0 < SK + p['GAP_B'] * BAND: gap = b0 + BAND - SK; continue
++                break
++            depth += BAND
++        for c in range(len(xs)):
++            col = nw[:, c]; e = int(np.argmin(col)) if (~col).any() else len(col); cov[ys0[c]:ys0[c] + e, xs[c]] = True
++            if depth: cov[ys0[c]:ys0[c] + SK + gap + depth, xs[c]] |= NW[ys0[c]:ys0[c] + SK + gap + depth, xs[c]]
++        d_ = (depth + SK + gap) if depth else 0
++        win.append(dict(x0=int(xs.min()), x1=int(xs.max()), y=int(np.median(ys0)), sau_px=round(d_ / s, 1)))
++    segs = []
++    for w_ in sorted([x for x in win if x['sau_px'] >= p['D_LOI']], key=lambda z: z['x0']):
++        if segs and w_['x0'] <= segs[-1]['x1'] + 2: segs[-1]['x1'] = max(segs[-1]['x1'], w_['x1']); segs[-1]['sau_px'] = max(segs[-1]['sau_px'], w_['sau_px'])
++        else: segs.append(dict(x0=w_['x0'], x1=w_['x1'], y=w_['y'], sau_px=w_['sau_px']))
++    for sg in segs: sg['dai_px'] = round((sg['x1'] - sg['x0'] + 1) / s, 1); sg['lan'] = sg['dai_px'] >= p['L_MIN']; sg['kieu'] = 'bờ trên'
++    rest = NW & ~cov; n2, c2, s2, _ = cv2.connectedComponentsWithStats(rest.astype(np.uint8), 8); edge = Wt & (dw <= 1.5)
++    khac, giua = [], 0
++    for i in range(1, n2):
++        m = c2 == i
++        if (m & edge).any():
++            if (m & top).any(): continue
++            dep = float(dw[m].max()) / s
++            if dep >= p['D_LOI'] and s2[i, 4] / s / s >= p['L_MIN'] * p['D_LOI']:
++                khac.append(dict(hop=[int(s2[i, 0]), int(s2[i, 1]), int(s2[i, 0] + s2[i, 2]), int(s2[i, 1] + s2[i, 3])], sau_px=round(dep, 1), px=int(s2[i, 4]), lan=True, kieu='bờ khác'))
++        else: giua += int(s2[i, 4])
++    giua_pct = 100.0 * giua / max(1, int(Wt.sum()))
++    lan = sorted([x for x in segs if x['lan']] + khac, key=lambda z: -z['sau_px'])
++    r = dict(tau=round(tau, 2), sigma_nuoc=round(sw, 2), khac_nuoc_pct=round(100.0 * NW.sum() / max(1, Wt.sum()), 2), giua_pct=round(giua_pct, 2),
++             lan=lan[:20], so_doan_lan=len(lan), sau_lon_nhat_px=max([x['sau_px'] for x in lan] or [0.0]), dat=(not lan) and giua_pct <= p['GIUA'], win=win)
++    if dbg: r['_NW'] = NW
++    return r
++
++
++# ================================================================ (i-s) lớp sống — A3
++def kiem_song(G, P, Rc, Rk, Ab):
++    """→ (sai lớn nhất ngoài vùng bảo vệ, số điểm sai > 1). G ghép · P nền (chưa lớp sống) · Rc/Rk render có/không lớp sống · Ab vùng bảo vệ"""
++    import numpy as np
++    exp = np.clip(P.astype(np.int16) + (Rc.astype(np.int16) - Rk.astype(np.int16)), 0, 255)
++    d = np.abs(G.astype(np.int16) - exp).max(-1); d[Ab] = 0
++    return int(d.max()), int((d > 1).sum())
++
++
++def bao_ve(A, no=1, nho_px=60, no_nho=3):
++    """vùng bảo vệ §15 (a): mặt nạ (a) nở 1 px, vật < 60 px nở thêm (no_nho) px — như n2p_lib.bao_ve phía dựng (nho_px theo 1080p)"""
++    import cv2, numpy as np
++    s = A.shape[0] / 1080.0; no = max(1, int(round(no * s))); no_nho = max(1, int(round(no_nho * s)))
++    P = cv2.dilate(A.astype(np.uint8), cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * no + 1,) * 2)) > 0
++    n, cc, st, _ = cv2.connectedComponentsWithStats(A.astype(np.uint8), 8)
++    small = np.isin(cc, [i for i in range(1, n) if st[i, cv2.CC_STAT_AREA] < nho_px * s * s])
++    if small.any(): P |= cv2.dilate(small.astype(np.uint8), cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * (no + no_nho) + 1,) * 2)) > 0
++    return P
++
++
++# ================================================================ (i)(d) vòng bảo vệ khớp màu cục bộ — A4
++def kiem_vong(G, RK, A, Ab):
++    """→ (phần dư lớn nhất sau khi trừ độ lệch trung vị mỗi vòng, |độ lệch| lớn nhất, số vòng). Một vòng = (thành phần vùng bảo vệ) − (a)."""
++    import cv2, numpy as np
++    n, cc = cv2.connectedComponents(Ab.astype(np.uint8), 8); D = G.astype(np.int16) - RK.astype(np.int16); res, off, k = 0.0, 0.0, 0
++    for i in range(1, n):
++        ring = (cc == i) & ~A
++        if ring.sum() < 2: continue
++        o = np.median(D[ring], 0); k += 1
++        res = max(res, float(np.abs(D[ring] - o).max())); off = max(off, float(np.abs(o).max()))
++    return res, off, k
++
++
++# ================================================================ BE-MAT-NHA (A5) — AI phủ BỀ MẶT nhà thường không tên, giữ hình khối
++# Tấm (mục n2p.tam) khai `be_mat_nha_ai: true` + `mat_na_nha` (PNG mã nhà 24 bit R<<16|G<<8|B, 0 = không phải nhà thường), `mat_na_mat` (PNG mã
++# mặt phẳng — mỗi mặt lưới một mã; biên = sống/hông/mép mái, góc tường), `bong` (render cùng máy/giờ với albedo xám đều, không vân = PASS BÓNG),
++# `nha` (JSON [{id, lo, px_m}] — px_m = điểm ảnh/mét ngang ở tâm nhà, lo = mã lô/khối phố), lớp 'nha_thuong' trong mặt nạ lớp (màu 215,215,215).
++#   (a) hình khối từng nhà ĐO ĐƯỢC (px_m ≥ PPM_MIN và ≥ A_MIN px thấy): cạnh HÌNH HỌC (biên nhà ∪ biên mặt phẳng, thấy được ở render VÀ pass bóng)
++#       phải được cạnh màu của ảnh ghép đỡ (≤ R_DO px): đỡ ở chỗ (sup0) ≥ SUP_MIN; dời tốt nhất trong ±S_M m: nếu dời ≥ D_M m và đỡ tăng ≥ G_MIN
++#       → nhà dời; IoU từng nhà = IoU(mặt nạ, mặt nạ dời theo phép dời đo được). Số nhà theo lô = số nhà đo được còn đỡ cạnh ≥ SUP_MIN.
++#   (b) nhà KHÔNG đo được + mọi lớp (a) còn lại (công trình có tên 'nha', lửa/khói 'lua', tường/kè 'congsu', thuyền 'tau', 'khac', 'pho', cờ…)
++#       + nước 'nuoc' + dải bờ ±BO_PX (trừ khi tấm cũng là tấm nền N2+ `nen_ai: true` — khi đó nước/bờ theo N2P-3) = 0/255 so render sau ghép.
++#   (c) lỗi thời đại vật liệu/chi tiết bề mặt (kính tấm, biển hiệu chữ, điều hoà, ăng-ten, máng nhựa…): 2 mô hình nhìn (lời nhắc BMN) + q_thoi_dai
++#       (O2) — chỉ khi chạy --vision (k2check --n2p-vision); không có bộ đệm → THIẾU.
++#   (d) ổn định theo thời gian (timelapse CODINH, `be_mat_nha_video: {ghep, render, cach}`): mỗi nhà, quỹ đạo độ sáng ghép phải theo render:
++#       e_h = max_t |ln(C_h(t)/C_h(0)) − ln(R_h(t)/R_h(0))| ≤ E_MAX ở ≥ (100 − NHA_LECH_PCT) % nhà đo được; nhấp nháy vùng nhà ≤ 1,5 × đối chứng (sàn 0,02).
++#   (e) cách dùng: `cach: anh_tinh` (ghép ảnh tĩnh theo mặt nạ — chỉ CODINH; (d) bắt khi ánh sáng đổi mà bề mặt đứng yên) | `chieu_3d` (chiếu
++#       ảnh AI lên hình học rồi dựng lại ánh sáng — thêm: khung 0 phải khớp tấm đã duyệt: ΔE76 TB vùng nhà ≤ T0_DE, p95 ≤ T0_P95 — bắt ánh sáng
++#       chồng 2 lần khi không khử sáng ảnh AI). Mức: Chặn ở G2 · Cảnh báo ở animatic.
++BMN = dict(SIG=1.0, T_VIS=3.0, T_AI=3.0, R_DO=1.5, S_M=4.0, PPM_MIN=1.5, A_MIN=120, D_M=1.5, G_MIN=0.10, SUP_MIN=0.45, BO_PX=8,
++           E_MAX=0.10, NHA_LECH_PCT=2.0, NHAP_MAX=0.012, T0_DE=2.0, T0_P95=6.0)
++NHA_THUONG = (215, 215, 215)
++PROMPT_BMN_VER = 'bmn-v1 (K-1.17.5, 24/10/2026)'
++PROMPT_BMN = """You are a strict inspector for a historical documentary. The scene depicts {noi} in the year {nam}. An AI tool repainted ONLY the SURFACES
++(walls, roofs, windows, doors, chimneys) of ordinary houses; the shapes of buildings are fixed by our 3D model.
++Read ALL the image files below with the Read tool before answering (paths are absolute):
++BEFORE = our own 3D render:
++{truoc}
++AFTER = the version with AI-painted house surfaces (same camera):
++{sau}
++The quarter images are 1.5x enlargements: q1 top-left, q2 top-right, q3 bottom-left, q4 bottom-right of the full frame.
++Task: list every MATERIAL or SURFACE DETAIL on the houses in AFTER that could not exist in the year {nam} — for example large plate glass or glass
++curtain walls, modern window frames, shop signs or any lettering, air-conditioning units, satellite dishes or antennas, solar panels, plastic gutters
++or pipes, electric lights or neon, corrugated metal, concrete render, painted road markings, and anything in this list: {cam}.
++Also list any building that looks ADDED, REMOVED, MERGED, MOVED or reshaped (new tower, new storey, different roof shape) compared with BEFORE.
++Give each item's bounding box in FULL-frame normalized coordinates [x0, y0, x1, y1] (0-1, origin top-left).
++Answer with ONLY one JSON object, no other text:
++{{"loi_thoi_dai": [{{"mo_ta": "<what>", "toa_do": [x0, y0, x1, y1], "nam_xuat_hien": <year or null>, "do_tin": <0-1>}}],
++ "hinh_khoi": [{{"mo_ta": "<what changed>", "toa_do": [x0, y0, x1, y1], "do_tin": <0-1>}}]}}"""
++
++
++def _ma(png, size=None):
++    import cv2, numpy as np
++    c = cv2.imread(png, cv2.IMREAD_COLOR)
++    if c is None: raise FileNotFoundError(png)
++    if size and (c.shape[1], c.shape[0]) != size: c = cv2.resize(c, size, interpolation=cv2.INTER_NEAREST)
++    return (c[..., 2].astype(np.int64) << 16) | (c[..., 1].astype(np.int64) << 8) | c[..., 0]
++
++
++def _grad(b, sig, mau=False):
++    import cv2, numpy as np
++    x = cv2.GaussianBlur(cv2.cvtColor(b, cv2.COLOR_BGR2LAB).astype(np.float32) * np.array([100 / 255, 1, 1], np.float32), (0, 0), sig)
++    return np.sqrt(sum((cv2.Sobel(x[..., c], cv2.CV_32F, 1, 0, ksize=3) / 8) ** 2 + (cv2.Sobel(x[..., c], cv2.CV_32F, 0, 1, ksize=3) / 8) ** 2 for c in (range(3) if mau else (0,))))
++
++
++def _bien(M):
++    import numpy as np
++    b = np.zeros(M.shape, bool)
++    b[:-1] |= M[:-1] != M[1:]; b[1:] |= M[1:] != M[:-1]; b[:, :-1] |= M[:, :-1] != M[:, 1:]; b[:, 1:] |= M[:, 1:] != M[:, :-1]
++    return b
++
++
++def hinh_khoi(R, C, IID, nha, PID=None, BONG=None, p=None):
++    """(a) → {id: dict(do, px, px_m, n_canh, sup0, sup, dx, dy, dich_m, iou, loi[])}"""
++    import cv2, numpy as np
++    p = dict(BMN, **(p or {})); H, W = IID.shape; s = H / 1080.0
++    gR = _grad(R, p['SIG'] * s, True); gB = _grad(BONG, p['SIG'] * s) if BONG is not None else gR; gA = _grad(C, p['SIG'] * s, True)
++    DT = cv2.distanceTransform((~(gA >= p['T_AI'])).astype(np.uint8), cv2.DIST_L2, 3)
++    GE = (_bien(IID) | (_bien(PID) if PID is not None else False)) & (gR >= p['T_VIS']) & (gB >= p['T_VIS'])
++    ys, xs = np.nonzero(GE); gid = IID[ys, xs]; o = np.argsort(gid, kind='stable'); gs = gid[o]
++    ids, cnt = np.unique(IID.ravel(), return_counts=True); out = {}
++    for h, a in zip(ids.tolist(), cnt.tolist()):
++        if h == 0: continue
++        ppm = float((nha.get(h) or {}).get('px_m') or 0)
++        if a < p['A_MIN'] * s * s or ppm < p['PPM_MIN']: out[h] = dict(do=False, px=a, px_m=ppm); continue
++        lo, hi = np.searchsorted(gs, h), np.searchsorted(gs, h, 'right'); yy, xx = ys[o[lo:hi]], xs[o[lo:hi]]
++        if len(yy) < 8: out[h] = dict(do=False, px=a, px_m=ppm, ly_do='< 8 điểm cạnh hình học thấy được'); continue
++        S = int(np.ceil(p['S_M'] * ppm)) + 1; best = (-1.0, 0, 0); s0 = 0.0
++        for dy in range(-S, S + 1):
++            y2 = np.clip(yy + dy, 0, H - 1)
++            for dx in range(-S, S + 1):
++                v = float((DT[y2, np.clip(xx + dx, 0, W - 1)] <= p['R_DO'] * s).mean())
++                if dx == 0 and dy == 0: s0 = v
++                if v > best[0] + 1e-9 or (abs(v - best[0]) <= 1e-9 and dx * dx + dy * dy < best[1] ** 2 + best[2] ** 2): best = (v, dx, dy)
++        v, dx, dy = best; dm = float(np.hypot(dx, dy)) / ppm
++        m = IID == h; x0, y0, w_, h_ = cv2.boundingRect(m.astype(np.uint8)); sl = (slice(max(0, y0 - S), y0 + h_ + S), slice(max(0, x0 - S), x0 + w_ + S))
++        ms = m[sl]; sh = np.roll(np.roll(ms, dy, 0), dx, 1); iou = float((ms & sh).sum() / max(1, (ms | sh).sum()))
++        loi = []
++        if dm >= p['D_M'] and v - s0 >= p['G_MIN']: loi.append(f'dời {dm:.1f} m ({dx:+d}, {dy:+d} px; IoU {iou:.2f})')
++        if s0 < p['SUP_MIN']: loi.append(f'đỡ cạnh hình học {s0:.2f} < {p["SUP_MIN"]:g} (mái/khối đổi, nhà mất hoặc gộp)')
++        out[h] = dict(do=True, px=a, px_m=round(ppm, 3), n_canh=int(len(yy)), sup0=round(s0, 3), sup=round(v, 3), dx=dx, dy=dy, dich_m=round(dm, 2), iou=round(iou, 3), loi=loi)
++    return out
++
++
++def quy_dao(Cs, Rs, IID, p=None):
++    """(d) Cs, Rs: danh sách khung BGR (cùng cỡ mặt nạ) → dict(e_h{id: e}, nhap_ghep, nhap_render). Độ sáng tuyến tính (sRGB → Y) TB mỗi nhà."""
++    import cv2, numpy as np
++    p = dict(BMN, **(p or {}))
++    def Y(f):
++        x = f.astype(np.float32) / 255; x = np.where(x <= 0.04045, x / 12.92, ((x + 0.055) / 1.055) ** 2.4); return 0.0722 * x[..., 0] + 0.7152 * x[..., 1] + 0.2126 * x[..., 2]
++    ids = [h for h in np.unique(IID) if h]; idx = np.searchsorted(ids, IID.ravel()); okm = IID.ravel() > 0
++    def mean_h(f):
++        y = Y(f).ravel(); return np.bincount(idx[okm], y[okm], len(ids)) / np.maximum(1, np.bincount(idx[okm], None, len(ids)))
++    Lc = np.array([mean_h(f) for f in Cs]) + 1e-4; Lr = np.array([mean_h(f) for f in Rs]) + 1e-4
++    e = np.abs(np.log(Lc / Lc[0]) - np.log(Lr / Lr[0])).max(0)
++    M = cv2.erode((IID > 0).astype(np.uint8), np.ones((3, 3), np.uint8)) > 0
++    # nhấp nháy BỀ MẶT: ε_t = ln Y(ghép_t) − ln Y(render_t) (mờ σ 1) — dựng lại ánh sáng đúng thì ε gần như không đổi theo t (tỉ số albedo);
++    # AI khác nhau mỗi khung / nhiễu bề mặt làm ε nhảy. Đối chứng = cùng phép trên render với chính nó dời 1 khung KHÔNG có (ε ≡ 0) → dùng sàn tuyệt đối.
++    eps = [cv2.GaussianBlur(np.log(Y(c) + 1e-3) - np.log(Y(r) + 1e-3), (0, 0), 1.0)[M] for c, r in zip(Cs, Rs)]
++    nh = float(np.mean([np.abs(eps[i + 1] - eps[i]).mean() for i in range(len(eps) - 1)])) if len(eps) > 1 else 0.0
++    return dict(e_h={int(h): round(float(v), 4) for h, v in zip(ids, e)}, nhap_be_mat=round(nh, 4))
