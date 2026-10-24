@@ -90,6 +90,7 @@ if cfg.get('bang_mau') == 'khac':   # bề mặt "AI" khác hẳn: tông lạnh/
 for hh in houses:
     hh['c_tuong'] = TUONG[int(mr.integers(len(TUONG)))]; hh['c_mai'] = MAI[int(mr.integers(len(MAI)))]
     hh['van'] = float(mr.uniform(0.2, 1.0))
+    if cfg.get('bang_mau') == 'bong': hh['c_tuong'] = hh['c_mai'] = (0.6, 0.6, 0.6); hh['van'] = 0.0   # PASS BÓNG: albedo xám đều, không vân → chỉ còn bậc sáng do hình học
 
 # ------------------------------------------------------------------ lưới
 V, F, FC, FK, FI, FT = [], [], [], [], [], []   # đỉnh, mặt, màu albedo, lớp, mã nhà, vân
@@ -128,8 +129,8 @@ poly([(-2500, SHORE + 0.0, Z_BANK), (2500, SHORE, Z_BANK), (2500, 3000, Z_BANK),
 for a, b in bai: poly([(a, SHORE - 0.4, Z_BANK + 0.01), (b, SHORE - 0.4, Z_BANK + 0.01), (b, SHORE + 13, Z_BANK + 0.01), (a, SHORE + 13, Z_BANK + 0.01)], (0.62, 0.55, 0.42), 'suon')
 poly([(-2500, -3000, Z_BANK), (2500, -3000, Z_BANK), (2500, -6, Z_BANK), (-2500, -6, Z_BANK)], (0.46, 0.41, 0.32), 'bang')
 # bờ dốc (kè) hai bờ: dải đứng từ nước lên mặt đất
-poly([(-2500, SHORE - 0.4, Z_W - 0.5), (2500, SHORE - 0.4, Z_W - 0.5), (2500, SHORE - 0.4, Z_BANK), (-2500, SHORE - 0.4, Z_BANK)], (0.35, 0.31, 0.25), 'suon')
-poly([(2500, -6, Z_W - 0.5), (-2500, -6, Z_W - 0.5), (-2500, -6, Z_BANK), (2500, -6, Z_BANK)], (0.35, 0.31, 0.25), 'suon')
+poly([(-2500, SHORE - 0.4, Z_W - 0.5), (2500, SHORE - 0.4, Z_W - 0.5), (2500, SHORE - 0.4, Z_BANK), (-2500, SHORE - 0.4, Z_BANK)], (0.35, 0.31, 0.25), 'congsu')   # kè đứng (vật CAO, lớp (a)) — phản chiếu được
+poly([(2500, -6, Z_W - 0.5), (-2500, -6, Z_W - 0.5), (-2500, -6, Z_BANK), (2500, -6, Z_BANK)], (0.35, 0.31, 0.25), 'congsu')
 # lớp (a): nhà thờ + tháp, cầu, tường thành, thuyền
 nt = NHA_THO; box(nt['x0'], nt['y0'], nt['x1'], nt['y1'], Z_BANK, Z_BANK + nt['h'], (0.80, 0.78, 0.72), 'nha'); tx = nt['thap']
 box(tx[0], tx[1], tx[2], tx[3], Z_BANK, Z_BANK + tx[4], (0.78, 0.76, 0.70), 'nha')
@@ -200,6 +201,7 @@ sc.render.resolution_x, sc.render.resolution_y, sc.render.resolution_percentage 
 sc.render.image_settings.file_format = 'PNG'; sc.render.image_settings.color_mode = 'RGB'
 
 # ------------------------------------------------------------------ nhà: tâm, px/m, vùng thấy (tính ở bước đo)
+bpy.context.view_layer.update()   # ma trận máy phải cập nhật trước khi chiếu (không thì px/m sai)
 def px(pw):
     v = world_to_camera_view(sc, cam, Vector(pw)); return (v.x * W, (1 - v.y) * H, v.z)
 right = (cam.matrix_world.to_3x3() @ Vector((1, 0, 0))).normalized()

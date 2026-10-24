@@ -9,8 +9,13 @@ Nhánh harness gợi ý: `ccr-be60bd61-3pu9td` (đã fast-forward tới cùng g�
 | 23:48 | Nhánh `checks-1-17-5` từ origin/checks-1-17-4 @f4a3d9ca; hook pre-commit + pre-push (tools/preflight.sh) cài trước lần đẩy đầu; `lock.py --verify` KHỚP | xong |
 | 23:55 | D11 tái hiện lại trên T6 (d11_tai_hien.py của K-1.17.4): SHA ghép l1/l2/l3 trùng từng bit; T9b như cũ (42,24 / 2,42 / 15,02 %) | xong |
 | 00:00 | Mặt nạ ID look2 KHÔNG có trong git (ở /var/tmp phiên LOOK) → khung đáp án dùng T6 (mặt nạ trong git) + cảnh tổng hợp Blender `do/canh_tong_hop.py` (mặt nạ lớp + mã nhà + mã mặt phẳng chính xác từng bit, phản chiếu nước vật lý Cycles, biến đổi hình học có kiểm soát) | xong |
-| 00:05–00:40 | A1/A2: thước đường bờ T9c (mẫu nước của chính tấm theo thành phần + dải hàng; độ sâu lấn theo cửa sổ 24 cột × dải 4 hàng; phản chiếu chỉ khi điểm đối xứng qua trục gương rơi vào VẬT CAO + α + tương quan) — đang chỉnh trên nửa A | đang làm |
-| 00:00–00:40 | Render Blender A1 (20 cảnh, nền, P ≤ 1 tiến trình nặng) | nửa A xong, nửa B đang chạy |
+| 00:05–00:25 | A1/A2 lượt 1–3: thước đường bờ T9c với mẫu nước của chính tấm + phép thử gương (trục gương, vật cao, α, phần dư) — phân biệt phản chiếu AI ↔ bờ lấn KHÔNG đạt (dải chồng lấn; luật 0 lọt chỉ miễn ≈ 48 % dải phản chiếu 2D, 0 % phản chiếu vật lý Blender: phần dư màu 0,6–0,9) | bỏ hướng |
+| 00:25–00:48 | A1/A2 lượt 4: ĐỐI CHỨNG RENDER — tấm ≈ T(render), T affine Lab khớp bền trên vùng nước → phản chiếu có trong render 3D giữ tự động, AI đổi sắc nước hấp thụ. Blender: 11/11 ca âm (phản chiếu vật lý, nhám, xám/ô-liu/nâu) ĐẠT; bờ lấn ≥ 8 px 29/32 → sửa mép bờ (kè/bóng ≤ 2 dải) + bờ dốc | đang làm |
+| 00:00–00:48 | Render Blender: A1 20 cảnh xong; A5 (2 gốc + 34 biến thể + 2 pass bóng + 24 khung timelapse 960×540) đang chạy nền, ≤ 2 tiến trình nặng | đang chạy |
+| 00:30–00:45 | A3 (lớp sống cộng hiệu) trên T6 + khói tổng hợp: phép (i-s) G = clip(nền + (R − N)) — đúng: lệch 0; dán nguyên kiểu T6: 72; lệch 6 px: 50; nửa cường độ: 22 | xong (số đo) |
+| 00:30–00:45 | A4 (vòng bảo vệ): (i) của K chỉ đo trong mặt nạ (a), KHÔNG đo vòng nở — ràng buộc vòng = render là chữ Kinh thánh §15 (a); khớp màu cục bộ (một độ lệch/vật) giữ (i) 0/255, phần dư vòng ≤ 1; T6 không tái hiện được quầng của M1-rong (cần mặt nạ look2) | xong (số đo) |
 
 ## Lệnh bổ sung đã áp
-- (chưa có)
+- 00:37: `pkill -f cho2.sh` khớp chính shell (exit 144) — lặp bài học LL #24/#41 (đã nêu ở K-1.17.4); không mất dữ liệu; từ đây dừng tiến trình theo PGID (`kill -TERM -<PGID>`).
+- 00:35: hàng đợi Blender A1 chạy hai bản song song vài phút (tôi xoá thư mục B-mau-nau khi tiến trình gốc còn sống) — dừng bản thứ hai theo PGID 5177; P nặng ≤ 2 giữ.
+- Lỗi của chính phiên đã sửa: canh_tong_hop.py chiếu px/m khi ma trận máy chưa cập nhật (px/m 229–327 sai) → thêm view_layer.update(), sinh lại cấu hình A5; kè đứng gán 'congsu' (vật cao) thay 'suon'.
