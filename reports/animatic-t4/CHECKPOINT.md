@@ -19,3 +19,6 @@
 - Số đo: Omni 360p **1 931 token video/s ≈ $0,034/s** (720p theo bảng giá $0,10/s); clip đúng độ dài yêu cầu (8,000 s / 6 s); thời gian chờ 25–27 s. Flash tầng 1 ≈ $0,003–0,008/lượt; tầng 2 ≈ $0,068 (OpenAI) + $0,10 (Claude qua q_thoi_dai) mỗi clip.
 - Gemini phiên đến giờ **$0,72** (≤ $3 lượt ĐO); tổng T4 **$2,16** / $35 (mốc $30).
 - **Chốt danh sách:** cả 24 clip / 17 khoảnh khắc của BANG-SHOT-v2 (152,7 s ≈ 21,2 %) ở 360p: ước 1 lượt $5,3, ≤ 3 lượt/khoảnh khắc → trần ước ≈ $9 + Flash ≈ $0,3 → tổng T4 ước ≈ $12 ≪ $30. Bản cuối: sinh lại 720p các lệnh đã chọn (Q3 điểm 8) ≈ 155 s × $0,10 ≈ $16.
+
+- 02:37 UTC: dựng 3D 5/53 tệp máy xong (M01–M04, H1-04…), ước còn ≈ 5,3 h (P = 2, spp 2, 1,62 s/khung). M-d: 7/24 clip chọn (md-so-giay.jsonl). Tấm nền: P1-2026 l1 ĐẠT (i)–(v) (M01, H5-04), P9-2026 l2 ĐẠT (i)–(iv) (iii 1,98 % — sát ngưỡng 2 %), P3-2026 TRƯỢT (iii) 3/3 lượt → H5-06 dùng 3D V2; tấm nền còn 4,59 % (dưới mục tiêu 5 %). Âm thanh nháp −14,0 LUFS / −1,9 dBTP. Bộ ghép, xuất, khai k2check, XEM CÂM: mã sẵn sàng.
+- Chi phí đến giờ: Gemini T4 tổng $4.2047 (phiên này $2.77) · OpenAI $2.04 (ảnh + kiểm) · Claude (kiểm) $0.76 + q_thoi_dai.

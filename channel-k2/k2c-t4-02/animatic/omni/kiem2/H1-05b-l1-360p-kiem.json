@@ -1,0 +1,316 @@
+{
+ "tag": "H1-05b-l1-360p",
+ "clip": "/var/tmp/anim/omni/H1-05b/H1-05b-l1-360p.mp4",
+ "clip_sha": "1ed1cd9bb10e6e94cfe44109db36c16f4e1cde85e396ba2a4112f12f0bec4151",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H1-05b-dau.jpg",
+ "dau_sha": "c5f6fb588d50c58cbdbb0ddd00af7a2405470404ca598dd548997ef746b00287",
+ "nam": "1666",
+ "canh": "loaded lighters pushing off from the riverbank, London, morning of 2 September 1666",
+ "so_khung": 120,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-05b-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0236,
+      "usage": {
+       "input_tokens": 10146,
+       "input_tokens_details": {
+        "cache_write_tokens": 10143,
+        "cached_tokens": 0
+       },
+       "output_tokens": 333,
+       "output_tokens_details": {
+        "reasoning_tokens": 197
+       },
+       "total_tokens": 10479
+      }
+     },
+     "secs": 9.2,
+     "mo_ta": "Những thuyền gỗ chở đầy đồ đạc rời bến sông, phía sau là nhà cửa ven bờ cùng lửa và khói dày đặc.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm có cột buồm cao và thân dài ở hậu cảnh, phía sau thuyền chở hàng bên phải.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.673,
+        0.303,
+        0.803,
+        0.592
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05b-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "ff0b5b93e83c2c79f343887fe4706476198f4d2c5c814eeca9cf19cde235b442",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 661,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0325,
+    "chi_phi_tb": 0.0325,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-05b-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0267,
+      "usage": {
+       "input_tokens": 10134,
+       "input_tokens_details": {
+        "cache_write_tokens": 10131,
+        "cached_tokens": 0
+       },
+       "output_tokens": 639,
+       "output_tokens_details": {
+        "reasoning_tokens": 483
+       },
+       "total_tokens": 10773
+      }
+     },
+     "secs": 19.6,
+     "mo_ta": "Các thuyền gỗ chở đầy đồ đạc rời bến sông London, phía sau là nhà ven bờ đang cháy và một tàu buồm neo gần bến.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm có cột buồm cao và thân lớn nằm ngang ở hậu cảnh, phía sau thuyền chở đồ bên phải; cột buồm tương ứng đã hiện diện trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.632,
+        0.302,
+        0.777,
+        0.59
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.82
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05b-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "3927c5c2003dfa6c07189e2ac9bea7adac820feb20b3cf0af330a5c492f21021",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0337379,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 788,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0337379,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 127,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0337,
+    "chi_phi_tb": 0.0337,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-05b-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0272,
+      "usage": {
+       "input_tokens": 10134,
+       "input_tokens_details": {
+        "cache_write_tokens": 10131,
+        "cached_tokens": 0
+       },
+       "output_tokens": 698,
+       "output_tokens_details": {
+        "reasoning_tokens": 405
+       },
+       "total_tokens": 10832
+      }
+     },
+     "secs": 20.0,
+     "mo_ta": "Các thuyền gỗ chở đầy đồ đạc rời bến sông London, phía sau là cầu tàu đông người, tàu buồm và những dãy nhà đang cháy.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm lớn ở trung cảnh, phía sau hai thuyền chở đồ; cột buồm và tàu tương ứng đã hiện diện trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.575,
+        0.302,
+        0.751,
+        0.59
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Các đám cháy và cột khói lớn trên dãy nhà ven sông; cảnh cháy đã có trong ảnh tham chiếu, không phải yếu tố hoàn toàn mới.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.285,
+        0.0,
+        0.968,
+        0.461
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Các đám cháy và cột khói lớn trên dãy nhà ven sông; cảnh cháy đã có trong ảnh tham chiếu, không phải yếu tố hoàn toàn mới.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.285,
+        0.0,
+        0.968,
+        0.461
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05b-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "2e1d0f0e9c2de5f70236f0e1416311c98ff0dcbf9cc3d4ec28b24a3602c30a84",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0332379,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 738,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0332379,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 77,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0332,
+    "chi_phi_tb": 0.0332,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}
