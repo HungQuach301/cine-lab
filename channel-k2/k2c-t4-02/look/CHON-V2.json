@@ -1,0 +1,278 @@
+{
+ "tap": "K2C-T4-02 London",
+ "vong": "LOOK-T4-V2 (nhánh k2c-t4-02-look2 @c4079595)",
+ "ghi_boi": "P-2410",
+ "can_cu": [
+  "24/10/2026 06:21 (Asia/Saigon) \"1. Chọn phương án A+B theo khuyến nghị 2. Lấy cột theo khuyến nghị\"",
+  "24/10/2026 (tin nhắn ngay trước lệnh P-2410) \"Duyệt V1–V7 và K1174-D1…D6 theo khuyến nghị\"",
+  "23/10/2026 23:27 \"1. xác nhận look hợp nhất Quyết L2–L6 (gồm L5 = bỏ GPU sau khi xem clip M2): “theo khuyến nghị”\""
+ ],
+ "phieu": "reports/look-t4-v2/PHIEU-LOOK-V2.md",
+ "to_so": "reports/look-t4-v2/to-so-v2.jpg",
+ "hang": [
+  {
+   "hang": 1,
+   "khung": "M1-rong",
+   "vai": "1666 trước cháy, ngày 1/9 (J.) chiều — toàn cảnh xương sống từ Bankside (chỗ Pepys)",
+   "cot": "v2-3d",
+   "o_1080p": "reports/look-t4-v2/khung/M1-rong-v2-3d.jpg",
+   "o_1080p_sha256": "44e56662695195f59ab439071d85335b7af617467b35963ea30857d38e74b7ba",
+   "may": "channel-k2/k2c-t4-02/look/may-v2/M1-rong.json",
+   "may_sha256": "a65c442aee80b4cb7715e28cc66a03bce7d64fcf51d4e9b8d8d94e3070a8bf6c",
+   "diem_may": [
+    532330,
+    180250,
+    230
+   ],
+   "nhin": [
+    532420,
+    180980,
+    15
+   ],
+   "fov_tep": 50,
+   "look": {
+    "lut": "k2c-t3-kenh-v030.cube",
+    "suong_sigma_per_m": 0.0001,
+    "kieu": "A"
+   },
+   "p1": true,
+   "v5_fov_san_xuat": 36,
+   "may_fov36": "channel-k2/k2c-t4-02/look/may-v2/M1-rong-hep.json",
+   "may_fov36_sha256": "ec12f0d3d08669725c37e9e0a55c0d90e03f8a8a1ee69704fe932fb30e24aba7",
+   "o_fov36": "reports/look-t4-v2/khung/M1-rong-p1-hep36.jpg"
+  },
+  {
+   "hang": 2,
+   "khung": "M1-trung",
+   "vai": "H1-03: góc Hollar từ tháp St Saviour — cầu London có nhà (tiêu điểm), bờ bắc, City",
+   "cot": "v2-3d",
+   "o_1080p": "reports/look-t4-v2/khung/M1-trung-v2-3d.jpg",
+   "o_1080p_sha256": "955ea68d7ed7e0903bffec4c4a4cecc3ef7ab6899ebf9737c7deb045f63899ec",
+   "may": "channel-k2/k2c-t4-02/look/may-v2/M1-trung.json",
+   "may_sha256": "4b3ab7ec41cc6c79a68cffd10bb89a2e2876ff18b6cb4ff9d40d2cd51293a8ac",
+   "diem_may": [
+    532690,
+    180290,
+    70
+   ],
+   "nhin": [
+    532786,
+    180554,
+    0
+   ],
+   "fov_tep": 50,
+   "look": {
+    "lut": "k2c-t3-kenh-v030.cube",
+    "suong_sigma_per_m": 0.0001,
+    "kieu": "A"
+   },
+   "p1": false
+  },
+  {
+   "hang": 3,
+   "khung": "M2-ngay",
+   "vai": "3/9/1666 15:00 — ngày khói: cột khói theo gió đông, Cheapside/Cornhill cháy",
+   "cot": "v2-3d",
+   "o_1080p": "reports/look-t4-v2/khung/M2-ngay-v2-3d.jpg",
+   "o_1080p_sha256": "885a2b1bea10356b4dd9600e038ef5cd5299bc7a4d8c4034727eb9fedf34d9a0",
+   "may": "channel-k2/k2c-t4-02/look/may-v2/M2-ngay.json",
+   "may_sha256": "2017d9211532ad459ec01f3bf2b014d8c61080b562e58c41a4b5da5d8192df9a",
+   "diem_may": [
+    532330,
+    180250,
+    230
+   ],
+   "nhin": [
+    532420,
+    180980,
+    15
+   ],
+   "fov_tep": 50,
+   "look": {
+    "lut": "k2c-t3-kenh-v030.cube",
+    "suong_sigma_per_m": 0.0001,
+    "kieu": "A + ấm kiểu C"
+   },
+   "p1": true,
+   "v5_fov_san_xuat": 36,
+   "may_fov36": null,
+   "ghi_chu_fov36": "chưa có tệp máy fov 36° cho hàng này (LOOK-T4-V2 chỉ dựng M1-rong, M3-rong, M4-rong hẹp); sản xuất đặt fov 36° cùng vị trí/hướng"
+  },
+  {
+   "hang": 4,
+   "khung": "M2-dem",
+   "vai": "2/9/1666 23:00 — đêm lửa từ giữa sông: bờ bắc cháy quanh cầu, phản chiếu sông",
+   "cot": "v2-3d",
+   "o_1080p": "reports/look-t4-v2/khung/M2-dem-v2-3d.jpg",
+   "o_1080p_sha256": "196bd141bd95311fb4bf8df0e2cdd4c81439ac763261bf73870cf675aa7d26eb",
+   "may": "channel-k2/k2c-t4-02/look/may-v2/M2-dem.json",
+   "may_sha256": "28716ee5a0211d507e1f4892f3a6c50a5b42fc589c1031ff12d67467ca883aba",
+   "diem_may": [
+    533250,
+    180480,
+    35
+   ],
+   "nhin": [
+    532300,
+    180850,
+    30
+   ],
+   "fov_tep": 45,
+   "look": {
+    "lut": "k2c-t3-kenh-v030.cube",
+    "suong_sigma_per_m": 0.00016666666666666666,
+    "kieu": "A + khói than dày kiểu B"
+   },
+   "p1": false
+  },
+  {
+   "hang": 5,
+   "khung": "M3-rong",
+   "vai": "29/12/1940 21:30 — mưa bom cháy, nhiều đám cháy quanh St Paul's (ranh ƯỚC LƯỢNG, D15)",
+   "cot": "v2-3d",
+   "o_1080p": "reports/look-t4-v2/khung/M3-rong-v2-3d.jpg",
+   "o_1080p_sha256": "28ba3722e17e3e9b89148d9e96e700f3b2ad9d2b0f709b761c1c79be7e193743",
+   "may": "channel-k2/k2c-t4-02/look/may-v2/M3-rong.json",
+   "may_sha256": "87b59de6cbf6daf2c9cdf156cd4ffe17cf3b759f3ebd84687daa6db61e404947",
+   "diem_may": [
+    532330,
+    180250,
+    230
+   ],
+   "nhin": [
+    532420,
+    180980,
+    15
+   ],
+   "fov_tep": 50,
+   "look": {
+    "lut": "k2c-t3-kenh-v030.cube",
+    "suong_sigma_per_m": 0.0001,
+    "kieu": "A + ấm kiểu C"
+   },
+   "p1": true,
+   "v5_fov_san_xuat": 36,
+   "may_fov36": "channel-k2/k2c-t4-02/look/may-v2/M3-rong-hep.json",
+   "may_fov36_sha256": "5dce4eb06ae6c2812d305ff07a95951172e5a2d3fa8c37b45583ca9cde94a264",
+   "o_fov36": "reports/look-t4-v2/khung/M3-rong-p1-hep36.jpg"
+  },
+  {
+   "hang": 6,
+   "khung": "M3-trung",
+   "vai": "H4-04: mái vòm giữa khói lửa từ Fleet Street/Ludgate, 22:30 (dựng 3D, không ảnh Mason)",
+   "cot": "v2-3d",
+   "o_1080p": "reports/look-t4-v2/khung/M3-trung-v2-3d.jpg",
+   "o_1080p_sha256": "6c3bacd4b79a3ee1a41d85322b603c77f277f654702c3207b368b8544b2f456f",
+   "may": "channel-k2/k2c-t4-02/look/may-v2/M3-trung.json",
+   "may_sha256": "49627063a461eab54ac1a0047824969f946039c35d3051827d704e360d7a160e",
+   "diem_may": [
+    531260,
+    181158,
+    52
+   ],
+   "nhin": [
+    532100,
+    181128,
+    72
+   ],
+   "fov_tep": 30,
+   "look": {
+    "lut": "k2c-t3-kenh-v030.cube",
+    "suong_sigma_per_m": 0.0001,
+    "kieu": "A + ấm kiểu C"
+   },
+   "p1": false
+  },
+  {
+   "hang": 7,
+   "khung": "M4-rong",
+   "vai": "2026 ngày — chân trời City: St Paul's + cụm tháp phía đông",
+   "cot": "v2-openai",
+   "o_1080p": "reports/look-t4-v2/khung/M4-rong-v2-openai.jpg",
+   "o_1080p_sha256": "2afb2dad2859bf6ef5b72def576efcea083f280e8141cd41e1180800021c6f83",
+   "may": "channel-k2/k2c-t4-02/look/may-v2/M4-rong.json",
+   "may_sha256": "d5908595e8696045f44221c03ff7c8df9f76278921c6bd46cb330ea1afa8c16a",
+   "diem_may": [
+    532330,
+    180250,
+    230
+   ],
+   "nhin": [
+    532420,
+    180980,
+    15
+   ],
+   "fov_tep": 50,
+   "look": {
+    "lut": "k2c-t3-kenh-v030.cube",
+    "suong_sigma_per_m": 0.0001,
+    "kieu": "A"
+   },
+   "p1": true,
+   "v5_fov_san_xuat": 36,
+   "may_fov36": "channel-k2/k2c-t4-02/look/may-v2/M4-rong-hep.json",
+   "may_fov36_sha256": "f15970f44bdcd90f958f959b057d78035256a9bacebc17ccbe869e1d848321c7",
+   "o_fov36": "reports/look-t4-v2/khung/M4-rong-p1-hep36.jpg",
+   "tam_nen": {
+    "cong_cu": "OpenAI gpt-image-2.5-sunburst-2026-09-08 (edits, không mặt nạ, high)",
+    "tam": "M4-rong-oai-l3",
+    "anh_ai": "channel-k2/k2c-t4-02/ai/goc-v2/M4-rong-oai-l3-ai.jpg",
+    "anh_ai_sha256": "ed8bc3ffaa61dfcf990ca279e790bac4a1653a07b59d5c05bc09abbdc5abeb25",
+    "timelapse_may": "channel-k2/k2c-t4-02/look/may-v2/tl-M4-rong.json",
+    "cong_i_v": "ĐẠT (LOOK-T4-V2 §3)",
+    "so_ai": "reports/look-t4-v2/so-ai.jsonl",
+    "luu_y": "tấm thử dựng ở fov 50°; theo V5 (fov 36°) bản sản xuất phải làm lại tấm nền và qua lại cổng (i)–(v). Tấm nền chỉ cho cảnh 2026 ban ngày (V1 = d + b)."
+   }
+  },
+  {
+   "hang": 8,
+   "khung": "M4-trung",
+   "vai": "H5-05: từ Fleet Street — Leadenhall vát, mái vòm còn nền trời (tầm nhìn bảo vệ)",
+   "cot": "v2-3d",
+   "o_1080p": "reports/look-t4-v2/khung/M4-trung-v2-3d.jpg",
+   "o_1080p_sha256": "ac24a3e41fb6e94c6ff11523036f1148d7f05f6d48afe712bce50f09063ef65f",
+   "may": "channel-k2/k2c-t4-02/look/may-v2/M4-trung.json",
+   "may_sha256": "c6932c2256939236954dc2fb8bd63d832aca7305f27aa69e28538d892fd39f26",
+   "diem_may": [
+    531560,
+    181176,
+    19.1
+   ],
+   "nhin": [
+    532102,
+    181122,
+    87
+   ],
+   "fov_tep": 22,
+   "look": {
+    "lut": "k2c-t3-kenh-v030.cube",
+    "suong_sigma_per_m": 0.0001,
+    "kieu": "A"
+   },
+   "p1": false
+  }
+ ],
+ "V5": {
+  "quyet": "(b) P1 fov 36° cùng vị trí/hướng",
+  "diem_may_P1": [
+   532330,
+   180250,
+   230
+  ],
+  "nhin_P1": [
+   532420,
+   180980,
+   15
+  ],
+  "fov_cu": 50,
+  "fov_moi": 36,
+  "so_do": "vòm St Paul's 46 px (fov 50°) → 67 px (fov 36°), ngưỡng ≥ 60 px (LOOK-T4-V2 §1); Monument/Tower vẫn ngoài khung P1",
+  "kinh_thanh": "§14.7 Look T4; §19 (a) luật 3 (điểm máy xương sống)"
+ },
+ "V6": {
+  "quyet": "(b) sương phối cảnh σ = 1/10 km (look.haze[0] = 1e-4 /m)",
+  "ap": "mọi khung look A và ấm kiểu C (ngày 1666, 1940, 2026)",
+  "ngoai_le": "M2-dem (đêm cháy 1666, kiểu B) giữ sương σ 1/6 km + lớp khói than σ 1/4,2 km như LOOK-T4 B",
+  "cu": "σ 1/16 km (A gốc LOOK-T4)"
+ }
+}
