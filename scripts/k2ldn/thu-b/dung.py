@@ -51,6 +51,11 @@ def nhom(g):
         fac = f'{THUB}/fac/fac.json'
         for f in DK: J.append(job(f'{f}-d2', f, 'thu-b/look3', 'look3d/', key={'d': True, 'd2': True}, png=False, fac=fac))
         J.append(job('tl-M1-rong-hep-d2', 'tl-M1-rong-hep', 'thu-b/look3', 'look3d/', key={'d': True, 'd2': True}, png=False, fac=fac))
+    elif g == 'uoc':
+        for f in sorted(x[:-5] for x in os.listdir(MAY) if x.startswith('uoc-')):
+            J.append(job(f'{f}-v2', f, spp=8))
+            for mk in (1, 3, 4): J.append(job(f'{f}-m{mk}', f, 'thu-b/look3', 'look3b/', mask=mk))
+            J.append(job(f'{f}-bong', f, 'thu-b/look3', 'look3b/', key={'bong': True, 'chim': False}, spp=8))
     elif g.startswith('bp:'):
         _, f, tag = g.split(':'); pj = json.load(open(f'{THUB}/bp/{f}/{tag}/proj.json'))
         pr = {'proj': {'url': f'/data/thub/bp/{f}/{tag}/proj.png', 'vp': pj['vp']}}

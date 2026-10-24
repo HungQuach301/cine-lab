@@ -29,3 +29,15 @@ sh['hero_EN'] = [532100, 181140, 60]; sh['vai'] = 'B3 = H3-05 (BANG-SHOT-v1): P4
 sh['bake'] = {'url': '/data/look2/bake_1938.7.png', 'box': [530800, 179700, 534000, 182000]}; sh['nguon_may'] = 'BANG-SHOT-v1 H3-05 (P4) + look/may-v2/M4-trung.json (look A V2)'
 dump('B3-p4-1938', sh); n += 1; dump('tl-B3-p4-1938', tl(sh)); n += 1
 print(n, 'tệp máy →', OUT)
+# ƯỚC TÁC ĐỘNG (việc 5): điểm máy xương sống BANG-SHOT-v1 (P1 fov 36° theo LOOK-T4-4; P3, P5, P6, P8 như bảng) ở hai mốc ban ngày (1666 trước cháy 11/9 16:00 LMT; 2026 2/9 16:30 BST)
+# — chỉ để đo % nhà ĐO ĐƯỢC theo điểm máy (mặt nạ mã nhà/mặt phẳng + bóng), không phải khung so.
+import importlib.util
+spec = importlib.util.spec_from_file_location('bang_shot', os.path.join(REPO, 'scripts/k2ldn/bang_shot.py')); BS = importlib.util.module_from_spec(spec); spec.loader.exec_module(BS)
+m1, m4 = ld('M1-trung'), ld('M4-trung')
+for pm in ('P1', 'P3', 'P5', 'P6', 'P8'):
+    for era, base in (('1666', m1), ('2026', m4)):
+        if pm in ('P3', 'P6', 'P8') and era == '2026': continue
+        sh = copy.deepcopy(base); k = sh['keys'][0]; d = BS.DM[pm]; k.update(p=d['p'], l=d['l'], fov=36 if pm == 'P1' else d['fov'])
+        sh['vai'] = f'ƯỚC: {pm} ({d["ten"][:40]}) · {era} ngày'; sh['spp'] = 8; sh['nguon_may'] = 'scripts/k2ldn/bang_shot.py DM + look/may-v2 (' + ('M1-trung' if era == '1666' else 'M4-trung') + ')'
+        dump(f'uoc-{pm}-{era}', sh); n += 1
+print(n, 'tệp máy (gồm ước) →', OUT)

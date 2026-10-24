@@ -1,0 +1,167 @@
+{
+ "2aac3a4dac3b3a4f7d33eb1466f08bd3": {
+  "ket_qua": {
+   "gpt": {
+    "meta": {
+     "model": "gpt-6.1-sol",
+     "usd": 0.0324,
+     "usage": {
+      "input_tokens": 15648,
+      "input_tokens_details": {
+       "cache_write_tokens": 15645,
+       "cached_tokens": 0
+      },
+      "output_tokens": 109,
+      "output_tokens_details": {
+       "reasoning_tokens": 88
+      },
+      "total_tokens": 15757
+     },
+     "loi": null
+    },
+    "json": {
+     "loi_thoi_dai": [],
+     "hinh_khoi": []
+    }
+   },
+   "claude": {
+    "meta": {
+     "model": [
+      "claude-sonnet-5-5"
+     ],
+     "usd": 0.06045129999999999,
+     "loi": null
+    },
+    "json": {
+     "loi_thoi_dai": [
+      {
+       "mo_ta": "Pale grey pipe or gutter along the base of the right foreground gable. It looks like a modern plastic or metal gutter.",
+       "toa_do": [
+        0.72,
+        0.93,
+        0.78,
+        1.0
+       ],
+       "nam_xuat_hien": 1950,
+       "do_tin": 0.25
+      },
+      {
+       "mo_ta": "Light, ribbed roof panels at the top-right corner of the foreground gable. They may be corrugated or sheet metal.",
+       "toa_do": [
+        0.96,
+        0.57,
+        1.0,
+        0.61
+       ],
+       "nam_xuat_hien": 1900,
+       "do_tin": 0.2
+      }
+     ],
+     "hinh_khoi": []
+    }
+   }
+  },
+  "prompt_ver": "bmn-v2 (K-1.17.5, 24/10/2026: năm bắt buộc)",
+  "loi": null,
+  "chi_phi_usd": 0.0929
+ },
+ "qtd": {
+  "B3-p4-1938-l2-anh_tinh": {
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0212
+  }
+ },
+ "o2": {
+  "97f715ef481fb15a9b1b9315b2f274e5": {
+   "nam": 1938,
+   "noi": "London",
+   "sha256": "5362d04d93001e6e0ec1b99600c58521f2d315979006df92337aacb08a40737f",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Several large, plain, flat-roofed rectangular blocks stand on the distant skyline. One is a wide pale slab at the right of centre. The other is a row of uniform blocks at the far right edge.",
+     "ly_do": "They look like postwar slab-style or high-rise housing and office blocks. They don't match the brick and slate terraces of 1938 London. This is low confidence, because they may just be large Victorian or interwar blocks seen from far away.",
+     "nam_xuat_hien": 1950,
+     "toa_do_px": [
+      1421,
+      567,
+      1498,
+      599
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.0111641,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 986,
+     "cacheReadInputTokens": 12921,
+     "cacheCreationInputTokens": 0,
+     "webSearchRequests": 0,
+     "costUSD": 0.0111641,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 204,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1938,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Several large, plain, flat-roofed rectangular blocks stand on the distant skyline. One is a wide pale slab at the right of centre. The other is a row of uniform blocks at the far right edge.\",\"ly_do\":\"They look like postwar slab-style or high-rise housing and office blocks. They don't match the brick and slate terraces of 1938 London. This is low confidence, because they may just be large Victorian or interwar blocks seen from far away.\",\"nam_xuat_hien\":1950,\"toa_do\":[0.74,0.525,0.78,0.555],\"do_tin\":0.2}]}"
+  },
+  "13500832cbeb8e3af6dd80cfd8dd85d6": {
+   "nam": 1938,
+   "noi": "London",
+   "sha256": "782d8ddab8edb3c8dc0e520a1be2261e310e6cf8b752e2eb987634daa402ed11",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Near the right horizon there is a wide, flat-roofed, slab-like pale building. Beyond it is a band of uniform blocks of flats. Both look like modern mid-rise blocks, not London roofs of terraced houses and spires.",
+     "ly_do": "The slab block is a weak candidate for a post-1938 building, because large uniform blocks like this are more typical of postwar development. Interwar flats and offices of this scale did exist in London in 1938, so this could be period-correct.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1421,
+      562,
+      1536,
+      605
+     ],
+     "do_tin": 0.12
+    }
+   ],
+   "cost_usd": 0.0100607,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 876,
+     "cacheReadInputTokens": 12887,
+     "cacheCreationInputTokens": 0,
+     "webSearchRequests": 0,
+     "costUSD": 0.0100607,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 94,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.9,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1938,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Near the right horizon there is a wide, flat-roofed, slab-like pale building. Beyond it is a band of uniform blocks of flats. Both look like modern mid-rise blocks, not London roofs of terraced houses and spires.\",\"ly_do\":\"The slab block is a weak candidate for a post-1938 building, because large uniform blocks like this are more typical of postwar development. Interwar flats and offices of this scale did exist in London in 1938, so this could be period-correct.\",\"nam_xuat_hien\":null,\"toa_do\":[0.74,0.52,0.8,0.56],\"do_tin\":0.12}]}"
+  }
+ }
+}

@@ -81,7 +81,7 @@ def prep(k):
     MM = np.isin(IID, np.array(meas, np.int64)); cv2.imwrite(f'{o}/do-duoc.png', (MM * 255).astype(np.uint8))
     json.dump([{kk: r[kk] for kk in ('id', 'lo', 'px_m')} for r in rows], open(f'{o}/nha.json', 'w'))
     json.dump(rows, open(f'{o}/nha-chi-tiet.json', 'w'))
-    st = dict(khung=k, nam=NAM[k], nha_thay=len(rows), nha_do_duoc=len(meas), pct_nha_do_duoc=round(100 * len(meas) / max(1, len(rows)), 1),
+    st = dict(khung=k, nam=NAM.get(k, int(k.split('-')[-1]) if k.startswith('uoc') else None), nha_thay=len(rows), nha_do_duoc=len(meas), pct_nha_do_duoc=round(100 * len(meas) / max(1, len(rows)), 1),
               px_nha_thuong_pct=round(float((IID > 0).mean() * 100), 2), px_nha_do_duoc_pct=round(float(MM.mean() * 100), 2),
               pct_dien_tich_nha_do_duoc=round(100 * float(MM.sum()) / max(1, float((IID > 0).sum())), 1), lech_ma_nha_vs_lop=lech, ma_la_px=n_la,
               px_m_trung_vi=round(float(np.median(ppm)), 2), px_m_trung_vi_do_duoc=round(float(np.median([r['px_m'] for r in rows if r['do_duoc']] or [0])), 2),
