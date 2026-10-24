@@ -9,8 +9,11 @@
 - [x] Lời v2: `khoa-loi/sua-v2.json` (27 mục), `doan-shot.json`, `scripts/k2ldn/giong/lam_loi_khoa.py` → `loi-khoa.txt` (1 553 từ)
 - [x] KIEM-LOI.md (22 mục; trích máy kiểm khớp)
 - [x] Thử phát âm 3 lượt (2 061 ký tự): chỉ Evelyn → alias 'Eevlin'; PLS `london-g1.pls` 6e11cae0…; LOI-KHOA.sha256 3/3 OK
-- [ ] Thu G1 cả tập: đang chạy nền PID/PGID 6053 (`gl_thu.py all`, log /var/tmp/cine-out/giong-t4/thu.log; cache theo băm → chạy lại = 0 ký tự)
-- [ ] ASR · mốc câu · master · GIAN-SHOT · báo cáo
+- [x] Thu G1 cả tập: 6 chương, 8 lệnh, 9 061 ký tự (tổng phiên 11 122); bộ đếm 151 745 → 155 731; gốc mp3 + alignment trong git `am-thanh/nguon/` (SHA256SUMS)
+- [x] Ghép stem (`gl_ghep.py`): 681,0 s; lời theo shot 633,1 s
+- [ ] ASR toàn tập: chạy nền PID 7625 (`gl_kiem_tap.py`, log /var/tmp/cine-out/giong-t4/kiem.log; ASR có cache theo SHA)
+- [x] Giãn shot (`gl_gian_shot.py`): K0 ≥ 782 s; K1-C1 (bỏ 7 câu + rút shot nối) 730 s → PHIẾU
+- [ ] master · mốc JSON · GIAN-SHOT.md · PHIEU · báo cáo
 
 ## Lệnh bổ sung đã áp
 - Sự cố: `pkill -f` trong một lệnh dọn đã giết chính shell gọi (BAI-HOC #112) — không mất dữ liệu; từ đó chỉ dừng theo PID ghi ra tệp.

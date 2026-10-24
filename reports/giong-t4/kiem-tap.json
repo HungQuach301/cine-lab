@@ -1,0 +1,152 @@
+{
+ "ghi": "ASR M=medium.en beam5, S=small.en beam1, không hotwords; theo câu ±0,4 s",
+ "chuong": {
+  "00 HOOK": {
+   "nghe": {
+    "medium.en": {
+     "asr": "This is the city of London, seen from bankside across the Thames. Among the towers stands one dome, and much of this skyline is shaped to keep it in view. We are standing near where Samuel Pepys stood on the second night of the Great Fire. London has burned to the ground twice. Twice it got the chance to start over, and twice it rebuilt itself on its old crooked streets. Look closely, and the old street pattern is still there, threading between the towers. To see why, we go back to a Sunday night in September 1666, to a bakery about a kilometer from here.",
+     "tu_dung": 0.9907,
+     "loi": 1,
+     "so_tu": 108,
+     "cho_lech": [
+      [
+       "kilometre",
+       "kilometer"
+      ]
+     ]
+    },
+    "small.en": {
+     "asr": "This is the city of London, seen from Bankside across the Thames. Among the towers stands one dome, and much of this skyline is shaped to keep it in view. We are standing near where Samuel Peeps stood on the second night of the Great Fire. London has burned to the ground twice. Twice it got the chance to start over, and twice it rebuilt itself on its old crooked streets. Look closely, and the old street pattern is still there, threading between the towers. To see why, we go back to a Sunday night in September 1666, to a bakery about a kilometre from here.",
+     "tu_dung": 0.9907,
+     "loi": 1,
+     "so_tu": 108,
+     "cho_lech": [
+      [
+       "pepys",
+       "peeps"
+      ]
+     ]
+    }
+   },
+   "cau": [
+    {
+     "shot": "M01",
+     "i": 0,
+     "khoa": "This is the City of London, seen from Bankside, across the Thames.",
+     "bd": 0.0,
+     "kt": 4.574,
+     "muc": {
+      "ten:Bankside": "DUNG",
+      "ten:London": "DUNG",
+      "ten:Thames": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "This is the city of London, seen from bankside across the Thames.",
+      "small.en": "This is the city of London, seen from Bankside across the Thames."
+     }
+    },
+    {
+     "shot": "M01",
+     "i": 1,
+     "khoa": "Among the towers stands one dome — and much of this skyline is shaped to keep it in view.",
+     "bd": 5.84,
+     "kt": 11.714,
+     "muc": {
+      "so:1": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "Among the towers stands one dome, and much of this skyline is shaped to keep it in view.",
+      "small.en": "Among the towers stands one dome, and much of this skyline is shaped to keep it in view."
+     }
+    },
+    {
+     "shot": "M01",
+     "i": 2,
+     "khoa": "We are standing near where Samuel Pepys stood on the second night of the Great Fire.",
+     "bd": 12.643,
+     "kt": 17.461,
+     "muc": {
+      "ten:Fire": "DUNG",
+      "ten:Great": "DUNG",
+      "ten:Pepys": "DUNG",
+      "ten:Samuel": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "We are standing near where Samuel Pepys stood on the second night of the Great Fire.",
+      "small.en": "We are standing near where Samuel Peeps stood on the second night of the Great Fire."
+     }
+    },
+    {
+     "shot": "M02",
+     "i": 0,
+     "khoa": "London has burned to the ground twice.",
+     "bd": 18.251,
+     "kt": 20.491,
+     "muc": {},
+     "nghe": {
+      "medium.en": "London has burned to the ground twice.",
+      "small.en": "London has burned to the ground twice."
+     }
+    },
+    {
+     "shot": "M02",
+     "i": 1,
+     "khoa": "Twice, it got the chance to start over.",
+     "bd": 21.165,
+     "kt": 23.487,
+     "muc": {},
+     "nghe": {
+      "medium.en": "Twice it got the chance to start over,",
+      "small.en": "Twice it got the chance to start over,"
+     }
+    },
+    {
+     "shot": "M02",
+     "i": 2,
+     "khoa": "And twice, it rebuilt itself on its old, crooked streets.",
+     "bd": 23.986,
+     "kt": 27.91,
+     "muc": {},
+     "nghe": {
+      "medium.en": "and twice it rebuilt itself on its old crooked streets.",
+      "small.en": "and twice it rebuilt itself on its old crooked streets."
+     }
+    },
+    {
+     "shot": "M03",
+     "i": 0,
+     "khoa": "Look closely, and the old street pattern is still there, threading between the towers.",
+     "bd": 28.7,
+     "kt": 34.261,
+     "muc": {},
+     "nghe": {
+      "medium.en": "Look closely, and the old street pattern is still there, threading between the towers.",
+      "small.en": "Look closely, and the old street pattern is still there, threading between the towers."
+     }
+    },
+    {
+     "shot": "M04",
+     "i": 0,
+     "khoa": "To see why, we go back to a Sunday night in September 1666 — to a bakery about a kilometre from here.",
+     "bd": 35.527,
+     "kt": 43.003,
+     "muc": {
+      "so:1666": "DUNG",
+      "ten:September": "DUNG",
+      "ten:Sunday": "DUNG"
+     },
+     "nghe": {
+      "medium.en": "To see why, we go back to a Sunday night in September 1666, to a bakery about a kilometer from here.",
+      "small.en": "To see why, we go back to a Sunday night in September 1666, to a bakery about a kilometre from here."
+     }
+    }
+   ],
+   "tong": {
+    "muc": 11,
+    "dung": 11,
+    "nghi": 0,
+    "sai": 0
+   }
+  }
+ }
+}
