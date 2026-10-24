@@ -8,5 +8,10 @@
 - 04:50: đang dựng hình học look3b (mã nhà/mặt phẳng) + nướng 1938.7; viết `look3.js` (sinh từ look2.js bằng `tao_look3.py`), máy thử `channel-k2/k2c-t4-02/thu-b/may/`.
 - Chi phí đến giờ: OpenAI 0 · Claude API 0 · Gemini 0 (không gọi) · ElevenLabs/RunPod/YouTube 0.
 
+- 05:25: look3.js ≡ look2.js từng điểm ảnh (M4-trung 640×360, sai khác 0). Hình học look3b SHA = look2 (`bd776509…`); look3d (D) 4 777 768 tam giác (V2 2 275 896), 95 548 nhà thường, số lô giữ nguyên 42 947. Nướng look3d 1666.6/2026.7, look2 1938.7.
+- Sự cố đã sửa: mã nhà 24 bit lệch −1 ở mã bội 256 (nội suy varying) → làm tròn trong shader; dựng lại mặt nạ 3/4 khung B.
+- AI: D2 4 atlas (mặt tiền 1666/gạch/2026 + mái) $0,303; B lượt 1 cả 3 khung $0,228. Ảnh AI + ảnh vào trong `channel-k2/k2c-t4-02/thu-b/ai/`.
+- Đang: dựng khung D (V2/D/mặt nạ), timelapse V2 khung B, rồi mặt nạ 3/4 khung B; tiếp: ghép B, chiếu 3D, k2check.
+
 ## Lệnh bổ sung đã áp
 - (chưa có)

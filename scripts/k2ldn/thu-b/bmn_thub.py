@@ -102,13 +102,20 @@ def ghep(k, tag, ai):
     o = f'{BP}/{k}'; t = f'{o}/{tag}'; os.makedirs(t, exist_ok=True)
     R = cv2.imread(f'{o}/render.png'); H, W = R.shape[:2]; A = cv2.resize(cv2.imread(ai), (W, H), interpolation=cv2.INTER_LANCZOS4)
     MA = vung_ai(o); base = cv2.imread(f'{o}/render-khong.png') if k in SONG else R
-    NEN = np.where(MA[..., None], A, base)
+    # khớp tông AI VÀO tông render đã duyệt (Lab: trung bình + độ lệch chuẩn trong vùng AI, k = 0,7 — một phép toàn cục, tất định; ngược chiều tấm nền §15 b vì ở đây render là nền)
+    lab = lambda x: cv2.cvtColor(x, cv2.COLOR_BGR2LAB).astype(np.float32); Al, Bl = lab(A), lab(base); kk = 0.7
+    ma, sa = Al[MA].mean(0), Al[MA].std(0) + 1e-3; mb, sb = Bl[MA].mean(0), Bl[MA].std(0) + 1e-3
+    AK = cv2.cvtColor(np.clip((Al - ma) * (1 + kk * (sb / sa - 1)) + ma + kk * (mb - ma), 0, 255).astype(np.uint8), cv2.COLOR_LAB2BGR)
+    # viền mềm 2 px PHÍA TRONG vùng AI (ngoài vùng vẫn đúng render 0/255)
+    al = np.clip(cv2.distanceTransform(MA.astype(np.uint8), cv2.DIST_L2, 3) / 2.0, 0, 1)[..., None]
+    NEN = np.where(MA[..., None], np.round(al * AK + (1 - al) * base), base).astype(np.uint8); A = AK
     if k in SONG:
         cv2.imwrite(f'{t}/nen.png', NEN); G = np.clip(NEN.astype(np.int16) + (R.astype(np.int16) - base.astype(np.int16)), 0, 255).astype(np.uint8)
     else: G = NEN
     cv2.imwrite(f'{t}/ghep.png', G); cv2.imwrite(f'{t}/ghep.jpg', G, [cv2.IMWRITE_JPEG_QUALITY, 93]); cv2.imwrite(f'{t}/ai-1080.png', A)
     out = ~MA; b = int(np.abs(G.astype(int) - R.astype(int))[out].max()) if out.any() else 0
     rec = dict(khung=k, tag=tag, ai=os.path.relpath(ai, REPO) if ai.startswith(REPO) else ai, pct_diem_anh_ai=round(float(MA.mean() * 100), 2), b_ngoai_vung_max=b,
+               khop_tong=dict(k=kk, mean_ai=ma.round(2).tolist(), mean_render=mb.round(2).tolist(), std_ai=sa.round(2).tolist(), std_render=sb.round(2).tolist()), vien_mem_px=2,
                sha_ghep=__import__('hashlib').sha256(open(f'{t}/ghep.png', 'rb').read()).hexdigest())
     json.dump(rec, open(f'{t}/ghep.json', 'w'), ensure_ascii=False, indent=1); print(json.dumps(rec, ensure_ascii=False))
 
