@@ -1,14 +1,14 @@
 {
  "animatic": {
   "tep": "/var/tmp/anim/out/k2c-t4-02-animatic-640.mp4",
-  "sha256": "a5add42a093fcf77573feabf6687a63e5ef52887b619e057fbd7455c0ba7c8f6",
-  "bytes": 198688792,
+  "sha256": "ae7dadbbf00a443199d2d70c5142508f7fd9e80fe8ea3a12521e2809b937414a",
+  "bytes": 205049076,
   "giay": 730.083,
   "ngoai_git": true,
   "tai_tao": "scripts/k2ldn/anim/du_lieu.sh → dung.sh (tệp máy animatic/may) → md (omni/chon + clip) → tn_tl.sh → am.py → ghep.py → xuat.py"
  },
  "hinh": {
-  "sha256": "091b5b5da66a9055a517983f08e7549e4c707271467847e56c9816b2df2f7e3b"
+  "sha256": "26259adedf4b104131ba5aa74927811bd550857a7c24f5eb226701bfba003dff"
  },
  "am": {
   "sha256": "0bbeac33ac3f5f521e0f18a892b23f7174087885d764f4af5fd3c5ed860f7ce2"
@@ -18,16 +18,16 @@
    "tep": "reports/animatic-t4/xem/k2c-t4-02-animatic-xem-1.mp4",
    "tu_s": 0.0,
    "den_s": 245.666,
-   "bytes": 4814381,
-   "sha256": "c749020ca50693212e0203a7d96043e7e050e43e713a1cf8d16ad95b8ad0c06c",
+   "bytes": 4840329,
+   "sha256": "380275238024c38f4084a49c4495dec3369e04002af4660ed803af8aecbc2b0a",
    "video_bps": 103481
   },
   {
    "tep": "reports/animatic-t4/xem/k2c-t4-02-animatic-xem-2.mp4",
    "tu_s": 245.666,
    "den_s": 479.792,
-   "bytes": 4806595,
-   "sha256": "f8b676de08367b1423e192b9f0256e9e14158fe00310239abcecef0461166243",
+   "bytes": 4806497,
+   "sha256": "3ea92b4d12bcfe41aa0ad1c44234919e7035ab25c72af86c0e3d190740635c45",
    "video_bps": 110876
   },
   {
@@ -41,6 +41,6 @@
  ],
  "to_khung": {
   "tep": "reports/animatic-t4/to-khung.jpg",
-  "bytes": 1000455
+  "bytes": 1019705
  }
 }
