@@ -1078,8 +1078,8 @@
    ],
    "vai": "BẢN ĐỒ CỔ HOẠT HOÁ Doornick 1666: lửa lan theo ngày 2→3/9 → chuyển 3D cùng toạ độ, nhìn xuống → xiên",
    "lop": {
-    "MAP": 5.0,
-    "MAP3D": 4.0
+    "MAP": 3.5,
+    "MAP3D": 5.5
    },
    "goc": "cao",
    "tl": true,
@@ -1092,12 +1092,13 @@
    ],
    "them": {
     "ban_do": {
-     "s": 5.0,
+     "s": 3.5,
      "h0": 1.0,
      "h1": 40.0
     },
     "xuong": {
-     "tu": 5.0
+     "tu": 3.5,
+     "de": "thang"
     },
     "chuyen_s": -4.167,
     "tieu_diem_en": [
@@ -3674,7 +3675,8 @@
    ],
    "them": {
     "xuong": {
-     "tu": 0.0
+     "tu": 0.0,
+     "de": "thang"
     },
     "tieu_diem_en": [
      532300,
@@ -4544,8 +4546,8 @@
    "MD": 148.667,
    "THE": 46.5,
    "KHAC": 16,
-   "MAP": 11.458,
-   "MAP3D": 22.0,
+   "MAP": 9.958,
+   "MAP3D": 23.5,
    "TL": 8,
    "PP": 16.0
   },
@@ -4555,8 +4557,8 @@
    "MD": 20.36,
    "THE": 6.37,
    "KHAC": 2.19,
-   "MAP": 1.57,
-   "MAP3D": 3.01,
+   "MAP": 1.36,
+   "MAP3D": 3.22,
    "TL": 1.1,
    "PP": 2.19
   },
@@ -4566,7 +4568,7 @@
   "MAP_ALL_pct": 4.58,
   "TL_KHAC_THE_pct": 9.66,
   "THAP_pct": 9.21,
-  "goc_cao_than_phim_pct": 66.1,
+  "goc_cao_than_phim_pct": 66.52,
   "than_phim_s": 714.083,
   "md_clip": 23,
   "md_moc": 17
@@ -4628,7 +4630,7 @@
   },
   {
    "chi_so": "GOC-CAO-60: góc cao có thời gian chạy / thân phim % (≥ 60)",
-   "gia_tri": 66.1,
+   "gia_tri": 66.52,
    "tran": null,
    "san": 60,
    "dat": true,

@@ -214,7 +214,16 @@
    "THE": 3
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H1-01a",
+    "t0": 0.0,
+    "t1": 6.0,
+    "luot": "H1-01a-l1-360p",
+    "kiem": "omni/kiem2/H1-01a-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (1) Pudding Lane 01:00 — lò bánh bén lửa, tàn lửa",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -249,7 +258,16 @@
    "MD": 5.875
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H1-01b",
+    "t0": 0.0,
+    "t1": 5.875,
+    "luot": "H1-01b-l1-360p",
+    "kiem": "omni/kiem2/H1-01b-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (1) tàn lửa bay lên con hẻm gỗ; hàng xóm thức dậy cầm đèn",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -275,7 +293,16 @@
    "MD": 8.0
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H1-02",
+    "t0": 0.0,
+    "t1": 8.0,
+    "luot": "H1-02-l1-360p",
+    "kiem": "omni/kiem2/H1-02-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (1) hẻm nhà khung gỗ tầng nhô gần chạm nhau, lửa liếm mái hiên",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -398,7 +425,16 @@
    "THE": 3
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H1-05a",
+    "t0": 0.0,
+    "t1": 5.5,
+    "luot": "H1-05a-l3-360p",
+    "kiem": "omni/kiem2/H1-05a-l3-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (2) bậc lên xuống bờ sông gần cầu sáng 2/9: ném đồ xuống sà lan",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -429,7 +465,16 @@
    "MD": 5.167
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H1-05b",
+    "t0": 0.0,
+    "t1": 5.167,
+    "luot": "H1-05b-l1-360p",
+    "kiem": "omni/kiem2/H1-05b-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (2) sà lan đầy đồ đạc rời bến, khói trên mái",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -557,7 +602,16 @@
    "MD": 6.0
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H1-08a",
+    "t0": 0.0,
+    "t1": 6.0,
+    "luot": "H1-08a-l2-360p",
+    "kiem": "omni/kiem2/H1-08a-l2-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (9) quán bia nhỏ bên Bankside chạng vạng: người đứng xem ánh lửa bên kia sông (nhìn từ sau, không nhân vật chính)",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -677,7 +731,16 @@
    "MD": 7.083
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H1-10",
+    "t0": 0.0,
+    "t1": 7.083,
+    "luot": "H1-10-l1-360p",
+    "kiem": "omni/kiem2/H1-10-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (4)+(6) Watling Street / Cheapside 3/9: xe chất đồ, người khiêng người bệnh",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -708,7 +771,16 @@
    "MD": 6.458
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H1-12",
+    "t0": 0.0,
+    "t1": 6.458,
+    "luot": "H1-12-l2-360p",
+    "kiem": "omni/kiem2/H1-12-l2-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (3) Thames đêm 3/9: sà lan, đồ trôi, bờ bắc rực lửa (đổi chỗ với H1-11 theo thứ tự lời)",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -829,7 +901,16 @@
    "MD": 6.0
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H1-14",
+    "t0": 0.0,
+    "t1": 6.0,
+    "luot": "H1-14-l3-360p",
+    "kiem": "omni/kiem2/H1-14-l3-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (5) chì chảy thành dòng trên phố quanh St Paul's đêm 4/9",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -948,7 +1029,16 @@
    "MD": 6.0
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H1-17a",
+    "t0": 0.0,
+    "t1": 6.0,
+    "luot": "H1-17a-l1-360p",
+    "kiem": "omni/kiem2/H1-17a-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (7) Moorfields: lều, chòi, đống đồ cứu được",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -979,7 +1069,16 @@
    "MD": 6.292
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H1-17b",
+    "t0": 0.0,
+    "t1": 6.292,
+    "luot": "H1-17b-l1-360p",
+    "kiem": "omni/kiem2/H1-17b-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (7) Moorfields chạng vạng: gia đình quanh lửa nấu",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -1065,7 +1164,16 @@
    "MD": 6.0
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H1-19",
+    "t0": 0.0,
+    "t1": 6.0,
+    "luot": "H1-19-l2-360p",
+    "kiem": "omni/kiem2/H1-19-l2-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (8) phế tích bốc khói, ống khói gạch còn đứng",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -1091,7 +1199,16 @@
    "MD": 6.5
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H2-01a",
+    "t0": 0.0,
+    "t1": 6.5,
+    "luot": "H2-01a-l1-360p",
+    "kiem": "omni/kiem2/H2-01a-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (8) lối đi giữa tro còn nóng; tháp nhà thờ cháy dở làm mốc",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -1126,7 +1243,16 @@
    "MD": 6.667
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H2-01b",
+    "t0": 0.0,
+    "t1": 6.667,
+    "luot": "H2-01b-l1-360p",
+    "kiem": "omni/kiem2/H2-01b-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (8) người bới tro tìm lối, khói mỏng",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -1211,7 +1337,16 @@
    "MD": 8.0
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H2-03a",
+    "t0": 0.0,
+    "t1": 8.0,
+    "luot": "H2-03a-l1-360p",
+    "kiem": "omni/kiem2/H2-03a-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (10) 1667: thợ đo căng dây, cắm cọc chia lô giữa tro; chủ đất tranh cãi",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -1290,7 +1425,16 @@
    "MD": 6.0
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H2-03c",
+    "t0": 0.0,
+    "t1": 6.0,
+    "luot": "H2-03c-l1-360p",
+    "kiem": "omni/kiem2/H2-03c-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (19) Toà Cháy 1667: phiên xử ở một sảnh gỗ, thẩm phán vô danh, chủ đất và người thuê trình giấy (mới)",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -1365,7 +1509,16 @@
    "MD": 5.708
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H2-04b",
+    "t0": 0.0,
+    "t1": 5.708,
+    "luot": "H2-04b-l1-360p",
+    "kiem": "omni/kiem2/H2-04b-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (11) xe chở gạch, giàn giáo gỗ trên mặt phố",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -1503,7 +1656,16 @@
    "THE": 4
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H2-07",
+    "t0": 0.0,
+    "t1": 7.917,
+    "luot": "H2-07-l2-360p",
+    "kiem": "omni/kiem2/H2-07-l2-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (13) 1680: phố gạch mới, dấu bảo hiểm cháy kim loại gắn trên cửa (Fire Office, Barbon)",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -1776,7 +1938,16 @@
    "MD": 6.0
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H2-13",
+    "t0": 0.0,
+    "t1": 6.0,
+    "luot": "H2-13-l2-360p",
+    "kiem": "omni/kiem2/H2-13-l2-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (12) Thames 1711: thuyền chèo chở khách, City gạch + mái vòm mới phía xa",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -2030,7 +2201,16 @@
    "MD": 7.0
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H3-04b",
+    "t0": 0.0,
+    "t1": 7.0,
+    "luot": "H3-04b-l1-360p",
+    "kiem": "omni/kiem2/H3-04b-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (14) 1930s: hẻm City hẹp, người làm văn phòng đội mũ đi bộ — phố bên dưới không đổi",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -2228,7 +2408,16 @@
    "MD": 6.0
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H4-01b",
+    "t0": 0.0,
+    "t1": 6.0,
+    "luot": "H4-01b-l1-360p",
+    "kiem": "omni/kiem2/H4-01b-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (15) phố City vắng chiều Chủ nhật 1940, khí cầu phòng không trên trời",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -2306,7 +2495,16 @@
    "MD": 8.0
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H4-03",
+    "t0": 0.0,
+    "t1": 8.0,
+    "luot": "H4-03-l1-360p",
+    "kiem": "omni/kiem2/H4-03-l1-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (16) lính cứu hoả kéo vòi trên bãi bùn Thames triều thấp, ống nước vỡ",
   "tieu_diem_en": null,
   "diem_may": "—",
@@ -2379,7 +2577,16 @@
    "MD": 6.5
   },
   "ai_nen": false,
-  "minh_hoa": true,
+  "minh_hoa": [
+   {
+    "ma": "H4-04b",
+    "t0": 0.0,
+    "t1": 6.5,
+    "luot": "H4-04b-l3-360p",
+    "kiem": "omni/kiem2/H4-04b-l3-360p-kiem.json",
+    "so_ai": "so-ai-gemini-t4.jsonl"
+   }
+  ],
   "vai": "M-d (17) đội canh St Paul's Watch dập bom cháy trên mái chì bằng bơm tay, cát",
   "tieu_diem_en": null,
   "diem_may": "—",

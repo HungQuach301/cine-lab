@@ -38,7 +38,7 @@
 | H1-07 | 2:02.4 | 15.458 | L16–L17 | P2 | VONG | cao | lửa 1666 giờ 17 → 18 (kể từ 2/9 00:00) | khoảng trống 1633 trên cầu chặn lửa sang Southwark; gió đẩy lửa sang tây | A (15.458) |  |
 | H1-08a | 2:17.9 | 6.000 | L18–L19 (nhóm H1-08: H1-08a, H1-08b) | — | MD | md | — | M-d (9) quán bia nhỏ bên Bankside chạng vạng: người đứng xem ánh lửa bên kia sông (nhìn từ sau, không nhân vật chính) | MD (6) |  |
 | H1-08b | 2:23.9 | 12.208 | L18–L19 (nhóm H1-08: H1-08a, H1-08b) | P1 | CODINH | cao | lửa 1666 giờ 18 → 22 (kể từ 2/9 00:00) | P1 tái xuất: chạng vạng → vòng cung lửa (cùng khung M03) | A (12.208) |  |
-| H1-09 | 2:36.1 | 9.000 | L20–L21 | P7 | XUONG | cao | lửa 1666 giờ 38 → 40 (kể từ 2/9 00:00) | BẢN ĐỒ CỔ HOẠT HOÁ Doornick 1666: lửa lan theo ngày 2→3/9 → chuyển 3D cùng toạ độ, nhìn xuống → xiên | MAP (5), MAP3D (4) | chuyển hình -4.167 s với nhóm kề |
+| H1-09 | 2:36.1 | 9.000 | L20–L21 | P7 | XUONG | cao | lửa 1666 giờ 38 → 40 (kể từ 2/9 00:00) | BẢN ĐỒ CỔ HOẠT HOÁ Doornick 1666: lửa lan theo ngày 2→3/9 → chuyển 3D cùng toạ độ, nhìn xuống → xiên | MAP (3.5), MAP3D (5.5) | chuyển hình -4.167 s với nhóm kề |
 | H1-10 | 2:45.1 | 7.083 | L22 | — | MD | md | — | M-d (4)+(6) Watling Street / Cheapside 3/9: xe chất đồ, người khiêng người bệnh | MD (7.083) | chuyển hình +4.167 s với nhóm kề |
 | H1-12 | 2:52.2 | 6.458 | L22 | — | MD | md | — | M-d (3) Thames đêm 3/9: sà lan, đồ trôi, bờ bắc rực lửa (đổi chỗ với H1-11 theo thứ tự lời) | MD (6.458) |  |
 | H1-11 | 2:58.6 | 14.417 | L23 | P8 | CODINH | cao | lửa 1666 giờ 38 → 47 (kể từ 2/9 00:00) | Royal Exchange cháy; trời "như miệng lò" — Evelyn | A (14.417), THE (4) | thẻ: John Evelyn (người viết nhật ký) |
@@ -101,7 +101,7 @@
 ## Tổng + kiểm trước dựng
 
 - Thời lượng **730.083 s** (K1-C1 730.083 s) · **74 shot** · TB 9.87 s · M-d 23 clip / 17 khoảnh khắc.
-- Lớp (s): {'A': 556.416, 'N2P': 33.5, 'MD': 148.667, 'THE': 46.5, 'KHAC': 16, 'MAP': 11.458, 'MAP3D': 22.0, 'TL': 8, 'PP': 16.0}
+- Lớp (s): {'A': 556.416, 'N2P': 33.5, 'MD': 148.667, 'THE': 46.5, 'KHAC': 16, 'MAP': 9.958, 'MAP3D': 23.5, 'TL': 8, 'PP': 16.0}
 
 | Chỉ số | Giá trị | Trần | Sàn | Đạt | ±5 % quanh ngưỡng | Ghi |
 |---|---|---|---|---|---|---|
@@ -111,7 +111,7 @@
 | Tổng AI % (≤ 70) | 24.95 | 70 |  | ĐẠT |  |  |
 | BAN-DO-12: MAP + MAP3D % (≤ 12) | 4.58 | 12 |  | ĐẠT |  |  |
 | TU-LIEU-10: TL + KHAC + THE % (≤ 10) | 9.66 | 10 |  | ĐẠT | **CÓ** |  |
-| GOC-CAO-60: góc cao có thời gian chạy / thân phim % (≥ 60) | 66.1 |  | 60 | ĐẠT |  | ước trước dựng theo điểm máy; số đo thật theo log khung V7B-D1 ở k2check |
+| GOC-CAO-60: góc cao có thời gian chạy / thân phim % (≥ 60) | 66.52 |  | 60 | ĐẠT |  | ước trước dựng theo điểm máy; số đo thật theo log khung V7B-D1 ở k2check |
 | THAP % (≤ 12) | 9.21 | 12 |  | ĐẠT |  |  |
 | M-d mỗi clip ≤ 8 s | 8.0 | 8.0 |  | ĐẠT | **CÓ** |  |
 | MAP mỗi lần ≤ 10 s | 6.458 | 10.0 |  | ĐẠT |  |  |

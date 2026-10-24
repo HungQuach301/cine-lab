@@ -1,53 +1,45 @@
 {
- "Q1": "A great city fire: the Great Fire of 1666, dated 2 Sept 1666 on screen, with flames and smoke engulfing the timber houses. A bakery scene is shown at the start of it, and the fire then spreads for days through 3, 4 and 5 Sept.",
- "Q2": "One small place. It starts in a baker's shop (a bakery oven, captioned 'Thomas Farriner, baker to the King'), then moves to burning houses in a narrow street. A map highlights a small patch near Pudding Lane, Royal Exchange and London Bridge, and the fire then grows across the dense timber city.",
- "Q3": "They flee and carry their goods out. People load boats on the river with bundles and chests, push carts loaded with belongings through the streets, and crowd onto the bridge. They row out onto the Thames to watch and shelter, and afterwards camp in open fields with tents and campfires. Officials such as the Lord Mayor and John Evelyn are shown, but the pictures do not show how they fought the fire.",
- "Q4": "Not sure. The pictures do not clearly show the hilltop church burning. At most I see a large church tower among ruins in the aftermath (around frames 69 to 71), and the flames reach the whole city. There is no clear shot of the church burning or collapsing.",
- "Q5": "It is rebuilt in red brick, with scaffolding and brick carts shown, and houses of uniform brick. The layout seems to follow the old street pattern. Architect Christopher Wren's new plan is shown, but the rebuilt city appears to keep the old medieval street grid. The 1940s rebuild is captioned 'same streets'.",
- "Q6": "A large white domed cathedral, a Wren-type church, is built on the skyline, shown rising 1708 to 1711 with a caption saying the dome rules the skyline. A tall stone column, labelled 202 ft and engraved as 'The Monument', is built on the street grid in 1673 to 1675.",
- "Q7": "In 1940 (29 Dec) the city burns again, this time from bombing, with airships/balloons over the street and firefighters with hoses, at night. The big domed cathedral still stands lit amid the flames. Large areas are burned and flattened (an orange area on the map shows the damage), and are later rebuilt.",
- "Q8": "A modern 2026 skyline of glass and concrete towers and big blocks along the Thames, with bridges. The domed cathedral is still visible among the towers. It looks the same at night with lit windows.",
+ "Q1": "A great city fire. A caption reads 'The Great Fire' (1666). Flames spread through the dense wooden, half-timbered houses over several days, from 2 to 5 Sept 1666.",
+ "Q2": "One small place. It starts in a single bakery with an oven fire (a baker is named on screen). It then shows a narrow street with a few houses burning, and only afterwards the fire spreading across the wider district. A map near the river marks the small start area (a lane near the bridge).",
+ "Q3": "They flee on foot and in carts piled with bundles and furniture. They load belongings into rowing boats and escape across the Thames. Crowds also cross the bridge. Survivors end up camping in open fields in tents beside small fires. The pictures show no organised firefighting in 1666.",
+ "Q4": "Not sure. Around frames 49–50 (196–200s) a large church-like building with a tower stands in the glowing, burning city. The pictures do not clearly show it burning or collapsing. Later a ruined church tower stands among the rubble (frame 69).",
+ "Q5": "In brick, with scaffolding and brick-laying shown, and some stone. It is rebuilt largely on the old street layout. A surveyor with stakes marks out plots, and a court-like hearing is held, apparently about plots or boundaries. A plan with a new regular grid is shown, but the finished city has an irregular layout like the old one.",
+ "Q6": "A large white domed cathedral rises over the red-brick roofs, with its dome completed around 1710–11. A caption reads 'The dome rules the skyline'. A tall stone column (the Monument, labelled 202 ft) stands near the river and is shown with an engraving.",
+ "Q7": "Bombing sets the city on fire again. Dated 29–30 Dec 1940 and captioned 'The second great fire', the night sky glows with fire, firefighters work at the river and on rooftops, and a count of incendiaries appears. The big domed cathedral still stands lit amid the flames. A large area is burnt and marked in orange.",
+ "Q8": "A modern city, 2026, of glass and concrete towers and office blocks beside the river with bridges. By night the windows are lit. The old domed cathedral is still visible among the towers.",
  "clarity": 4,
  "lost": [
   {
    "frame": 10,
-   "why": "Several nearly black frames (10, 11) with no visible content"
+   "why": "Several nearly black frames (10–12, 59–63) with no clear content."
+  },
+  {
+   "frame": 5,
+   "why": "Opening jumps between 2026, 1881 and 1738 with no clear link."
   },
   {
    "frame": 18,
-   "why": "Jump back to 1647 with an engraving inset; the time jump is unclear until the fire is shown again"
+   "why": "Sudden jump to 1647 with an engraving inset, then back to 2 Sept 1666."
   },
   {
-   "frame": 39,
-   "why": "Map with small labels; hard to read what it shows"
+   "frame": 49,
+   "why": "Church on the hill is hard to make out in the glowing fire, and its fate is not clearly shown."
   },
   {
-   "frame": 44,
-   "why": "Abstract swirl (probably a wind or fire-spread graphic) with no explanation"
+   "frame": 85,
+   "why": "Indoor hearing scene: unclear what is being decided."
   },
   {
-   "frame": 48,
-   "why": "Blocky, glitchy skyline with smoke, unclear what it is"
+   "frame": 107,
+   "why": "Timeline jumps back (1676, 1647, 1710) between frames 107–113."
   },
   {
-   "frame": 53,
-   "why": "Long run of dark frames (53 to 59, 63) with a date counter jumping around"
-  },
-  {
-   "frame": 106,
-   "why": "Sudden cut to 1676, then back to 1647 and 1711; non-linear order is confusing"
-  },
-  {
-   "frame": 126,
-   "why": "Jump back to 1666 between 1938 and 1940 with no obvious reason"
-  },
-  {
-   "frame": 147,
-   "why": "Jump back to 7 Sept 1666 inside the 1941 sequence"
+   "frame": 125,
+   "why": "Jump to 1938 and then 1666 before 1940, with no clear reason."
   },
   {
    "frame": 170,
-   "why": "Sudden return to the 2 Sept 1666 fire at the very end, right after 2026, with no obvious reason"
+   "why": "Flashes back to 2 Sept 1666 after the modern city."
   }
  ]
 }

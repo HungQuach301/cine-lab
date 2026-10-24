@@ -1961,6 +1961,12 @@ segments:
     p:
       sach: true
       tl: false
+      card:
+        type: list
+        title: How this film was made
+        items:
+        - s: Streets and buildings are rebuilt in 3D from the 1666 Doornick survey, Hollar's engravings and modern maps. Sources are in the description.
+          at: 0.3
 - id: PP2
   part: HỒI 5
   chuong: HỒI 5
@@ -1989,3 +1995,10 @@ segments:
     p:
       sach: true
       tl: false
+      card:
+        type: list
+        title: How this film was made
+        items:
+        - s: 'Estimated: the fire''s daily extent, 1940 damage, 1666 block interiors (about 42% of built area) and 1940 City blocks.'
+          at: 0.3
+xem_cam: xem-cam.json

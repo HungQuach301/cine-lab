@@ -30,6 +30,12 @@ def main():
         gz.unlink()
     for d in Path('/var/tmp/anim/r').iterdir():
         if (AN / 'may' / f'{d.name}.json').exists() and (d / 'log.json').exists() and (not (LG / f'{d.name}.json').exists() or (d / 'log.json').stat().st_mtime > (LG / f'{d.name}.json').stat().st_mtime): shutil.copy(d / 'log.json', LG / f'{d.name}.json')
+    for j in LG.glob('*.json'):   # MAY-19 đọc cam theo hệ cảnh (x = E − 532000, y = h, z = −(N − 180800); như log T3 và look2.js); bản [E, N, h] giữ ở cam_en
+        L = json.loads(j.read_text())
+        if L.get('he_toa_do') == 'canh': continue
+        sc = lambda e: [round(e[0] - 532000, 3), round(e[2], 3), round(-(e[1] - 180800), 3)]
+        for f in L['frames']: c = f['cam']; f['cam_en'] = dict(c); f['cam'] = dict(c, p=sc(c['p']), l=sc(c['l']))
+        L['he_toa_do'] = 'canh'; L['goc_toa_do'] = [532000, 180800]; j.write_text(json.dumps(L))
     ls = []
     for r in B['shot']:
         x = {k: r[k] for k in ('ma', 't0', 't1', 'dur', 'chuong', 'goc', 'tl', 'cu_may', 'lop', 'ai_nen', 'minh_hoa', 'vai', 'tieu_diem_en', 'diem_may')}; x['shot'] = r['ma']
@@ -45,6 +51,7 @@ def main():
         if r['minh_hoa']: x['md_moc'] = r['md_moc']; x['ai_image'] = True
         if r['minh_hoa']:
             tg = (AN / 'omni/chon' / f"{r['ma']}.txt"); x['kiem'] = f"omni/kiem2/{tg.read_text().strip()}-kiem.json" if tg.exists() else None
+            if tg.exists(): x['minh_hoa'] = [{'ma': r['ma'], 't0': 0.0, 't1': r['dur'], 'luot': tg.read_text().strip(), 'kiem': x['kiem'], 'so_ai': 'so-ai-gemini-t4.jsonl'}]   # mục đoạn (K1172: kiem/so_ai/luot đọc ở mục đoạn)
         if r['ai_nen']:
             k = {'M01': 'P1-2026-oai-l1', 'H5-04': 'P1-2026-oai-l1', 'H5-05a': 'P9-2026-oai-l2'}.get(r['ma'])
             x['n2p'] = {'tam': [{'tag': k, 'kiem': f'tam-nen/do/{k}-kiem.json', 'ghep': f'tam-nen/do/{k}-ghep.json', 'v': f"tam-nen/do/{r['ma']}-v.json", 'khoang_s': r['them']['tam_nen']}]}
@@ -92,7 +99,7 @@ def main():
             for j, c in enumerate(PPd):
                 segs.append({'id': f'PP{j + 1}', 'part': r['chuong'], 'chuong': r['chuong'], 'dur': c['giay'], 'fadeIn': 0, 'fadeOut': 0, 'moc_loi': [], 'beats': [{'t': 0.0, 'k': 'cut', 's': f'PP{j + 1}'}],
                              'title': c['tieu_de'] or 'How this film was made', 'the_phuong_phap': True,
-                             'shots': [{'at': 0, 'type': 'card', 'tpl': 'card', 'role': 'the_phuong_phap', 'id': 'PP', 'title': c['tieu_de'] or '', 'dong': c['dong'], 'chu': ' '.join(([c['tieu_de']] if c['tieu_de'] else []) + c['dong']), 'text': ' '.join(c['dong']), 'lines': c['dong'], 'p': {'sach': True, 'tl': False}}]})
+                             'shots': [{'at': 0, 'type': 'card', 'tpl': 'card', 'role': 'the_phuong_phap', 'id': 'PP', 'title': c['tieu_de'] or '', 'dong': c['dong'], 'chu': ' '.join(([c['tieu_de']] if c['tieu_de'] else []) + c['dong']), 'text': ' '.join(c['dong']), 'lines': c['dong'], 'p': {'sach': True, 'tl': False, 'card': {'type': 'list', 'title': c['tieu_de'] or 'How this film was made', 'items': [{'s': d, 'at': 0.3 + 0.5 * i} for i, d in enumerate(c['dong'])]}}}]})   # chữ thẻ theo khuôn T3 (p.card.items)
             continue
         segs.append(s)
         if c1: nhip.append({'id': r['ma'], 'chinh': True, 'cau': c1[:40], 'vat': ([{'loai': 'the_chuong', 'shot': r['ma']}] if any(x['k'] == 'the_chuong' for x in bt) else []) + [{'loai': 'su_kien', 'shot': r['ma']}]})

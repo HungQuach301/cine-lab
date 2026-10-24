@@ -90,7 +90,9 @@ def path(r, dur):
             v = l0 - p0; dist = np.linalg.norm(v); hz = math.hypot(v[0], v[1]); el = math.atan2(v[2], hz) + math.radians(them['nghieng_deg']) * (t / dur - 0.5)
             l = p0 + np.array([v[0] / hz * math.cos(el) * dist, v[1] / hz * math.cos(el) * dist, math.sin(el) * dist])
         elif cu == 'XUONG':
-            c = td.copy(); c[2] = 0; tu = them['xuong']['tu']; tl = min(6.0, max(4.0, dur - tu)); u = min(1, max(0, (t - tu) / tl)); u = u * u * (3 - 2 * u) if tl > 0 else 1
+            c = td.copy(); c[2] = 0; tu = them['xuong']['tu']; tl = min(6.0, max(4.0, dur - tu)); u = min(1, max(0, (t - tu) / tl))
+            if them['xuong'].get('de') == 'thang': r = 0.1; u = u * u / (2 * r * (1 - r)) if u < r else 1 - (1 - u) ** 2 / (2 * r * (1 - r)) if u > 1 - r else (u - r / 2) / (1 - r)   # vận tốc hình thang: −85° → −35° trong 0,78·tl (§19 a XUONG 4–8 s khi shot ngắn)
+            else: u = u * u * (3 - 2 * u) if tl > 0 else 1
             el = math.radians(-88 + (88 - 30) * u); D0, D1 = 2200.0, 1600.0; D = D0 + (D1 - D0) * u
             hz = D * math.cos(el); p = c + np.array([0, -hz, D * math.sin(-el)]); l = c + np.array([0, 0.0001, 0])
         elif cu == 'LAN':
