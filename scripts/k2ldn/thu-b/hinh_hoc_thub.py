@@ -120,12 +120,22 @@ def house2(s, c, u, v, w, d, y0, y1, colw, colr, tl, k, mtw, mtr, roof='front', 
     return top
 
 
+_TEN = []
+def co_ten(ring):
+    """vòng (x, z) chứa tâm một toà OSM có tên? (cùng phép với sau_main)"""
+    import cv2
+    if not _TEN: _TEN.append(np.array([(a, b) for a, b, _, _ in ten_toa()] or [(1e9, 1e9)], np.float64))
+    T = _TEN[0]; rr = np.array(ring, np.float32).reshape(-1, 1, 2); xs = rr[:, 0, 0]; zs = rr[:, 0, 1]
+    c = T[(T[:, 0] >= xs.min()) & (T[:, 0] <= xs.max()) & (T[:, 1] >= zs.min()) & (T[:, 1] <= zs.max())]
+    return any(cv2.pointPolygonTest(rr, (float(a), float(b)), False) >= 0 for a, b in c)
+
+
 def prism2(s, ring, y0, y1, ybase, colw, colr, tl, k, mtw, mtr, flw=8, roof_h=None):
     CUR[0] = NEXT[0]; NEXT[0] += 1; hid = CUR[0]
     xs = [p[0] for p in ring]; zs = [p[1] for p in ring]
     INFO[hid] = dict(k=int(k), x=float(np.mean(xs)), z=float(np.mean(zs)), y0=float(y0), y1=float(y1), ring=[[round(p[0], 2), round(p[1], 2)] for p in ring])
     out = _prism(s, ring, y0, y1, ybase, colw, colr, tl, k, mtw, mtr, flw, roof_h)
-    if MODE == 'd' and k == 4 and roof_h is None and mtw in (6, 8, 11, 7):
+    if MODE == 'd' and k == 4 and roof_h is None and mtw in (6, 8, 11, 7) and not co_ten(ring):   # toà OSM CÓ TÊN = lớp (a): không thêm lan can/thiết bị
         x, z = float(np.mean(xs)), float(np.mean(zs)); h = y1 - y0
         # lan can mái 1,1 m (mặt tường cao thêm, mặt trong tối) + 1–4 khối phòng máy/thiết bị + dải lam (kính) theo băm toà
         pc = tuple(int(v * 0.86) for v in colw)
