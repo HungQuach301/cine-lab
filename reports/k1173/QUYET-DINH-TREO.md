@@ -33,3 +33,30 @@
 
 ## C. Việc của chủ dự án không phải quyết định K (nhắc)
 - Cổng XEM CÂM §13.4 của T3: K báo "chủ dự án chưa chấm" (BAN-CUOI §9.1). T3 đã phát hành (23/10 10:45) — nếu muốn hồ sơ đủ cổng, chấm tắt tiếng 8 câu (`channel-k2/k2c-t3-01/cuoi/xem-cam-cuoi.json`).
+
+## D. Cập nhật 24/10/2026 (P-2410 ghi)
+
+**Đã quyết** (nguyên văn + giờ ở `AUTHORSHIP.md`; văn bản ở Kinh thánh `docs/BIBLE-KENH2.md` 24/10/2026):
+
+| # | Quyết định | Khi nào | Áp ở |
+|---|---|---|---|
+| K117-D8 | A — Q37 không nhận biến cố tự khai; thước biến cố đo trên video | 23/10 17:42 ("đồng ý theo đề xuất") | K-1.17.4 viết BIEN-CO-V (θ 8/255, k 2); Kinh thánh §13.6 |
+| K1173-D6 | A — Q37 (c) miễn khối thẻ PP cuối phim (≤ 2 × ≤ 10 s) | 23/10 17:42 | K-1.17.4 (`q37_mien`) |
+| D11 | LỖI ẢNH — phép (iii) giữ T9b ≤ 2 % (lỗi ở tấm AI: bờ lấn sông) | phán quyết K-1.17.4 (Q7 23/10 21:45) | `checks-appeal.md` "Phán quyết K — checks 1.17.4 · D11"; Kinh thánh §15 (d) |
+| Q2 | bỏ trần cứng 20 % M-d từ T4; ngân sách Gemini/tập (T4 $35, mốc $30 — 23:45); tổng AI ≤ 70 %; góc cao ≥ 60 % | 23/10 21:45 ("Duyệt Q1–Q7"), 23:45 | 1.17.4 (MINH-HOA, N2P-6, GEMINI-NGAN-SACH, GOC-CAO-60); Kinh thánh §15 (d) |
+| K1174-D1 | A — phiên K dựng khung đáp án phản chiếu ↔ bãi lấn rồi mới xét miễn; luật giữ | 24/10 ("Duyệt V1–V7 và K1174-D1…D6 theo khuyến nghị") | việc của K-1.17.5 (còn treo bên dưới) |
+| K1174-D2 | A — duyệt BIEN-CO-V; hiệu chuẩn lại trên animatic T4 (log máy thật) trước G2 | 24/10 | Kinh thánh §13.6 |
+| K1174-D3…D6 | A — cách đọc §19 (a); log máy mỗi khung ở G2; khai `sha_tu_lieu`; mẫu số GOC-CAO-60 = thân phim | 24/10 | Kinh thánh §13.6 |
+| V1–V7 | V1 d + b (tấm nền chỉ OpenAI, chỉ 2026 ngày) · V2 a (lửa cách A, không GPU) · V3 a (khói bếp cộng hiệu, K định đo) · V4 b (K xét khớp màu cục bộ vòng bảo vệ) · V5 b (P1 fov 36°) · V6 b (sương σ 1/10 km) · V7 b (tấm nền 5–15 % cho animatic) | 24/10 | Kinh thánh §14.2, §14.7, §15 (d), §19; `channel-k2/k2c-t4-02/look/CHON-V2.json` |
+| Mục A còn lại (K117-D1, D3, D5, D6; K1171-D2…D4; K1173-D1…D5) | theo khuyến nghị, trừ K1173-D1 = B | 23/10 17:42 | AUTHORSHIP (P-2310b) |
+
+**Còn treo — giao phiên K-1.17.5** (đang chạy song song, nhánh `checks-1-17-5`; khiếu nại gốc: `reports/look-t4-v2/LOOK-T4-V2-BAO-CAO.md` §11):
+
+| # | Nội dung | Căn cứ | Chặn gì |
+|---|---|---|---|
+| K1175-a | Khung đáp án phản chiếu thật ↔ bãi/bờ lấn cho N2P-3 (iii) (K1174-D1 = A) | K1174 §1, §9 | tấm nền có mặt nước |
+| K1175-b | Phép (iii) T9b với sắc nước: Gemini/OpenAI đổi nước sang xám/ô-liu bị tính "nước→đất" dù vẫn là nước | LOOK-T4-V2 §3, §11 (2) | tấm nền 1666 ngày, công cụ Gemini |
+| K1175-c | Phép (i)/(iv) cho lớp sống: khói bếp ghép bằng cộng hiệu không thuộc lớp (a) nên không qua (i) 0/255 (V3 = a) | LOOK-T4-V2 §3, V3 | mọi tấm 1666 |
+| K1175-d | Vòng bảo vệ vật nhỏ (< 60 px, nở 3 px): khớp màu cục bộ (V4 = b) | LOOK-T4-V2 §3, sự cố 11 | tấm 1666 có nhà xa |
+| K1175-e | Phép kiểm phủ bề mặt nhà thường bằng AI (giữ hình khối, vị trí, số nhà) — điều kiện (1) của Kinh thánh §15 (j) | 24/10 06:21 (B) | vòng thử B, bản cuối T4 |
+| (sau animatic) | Hiệu chuẩn lại BIEN-CO-V trên animatic T4 (K1174-D2) | K1174 §13 mục 4 | G2 T4 |
