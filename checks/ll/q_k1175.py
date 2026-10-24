@@ -40,11 +40,12 @@ def t9c(R, G, L, names, p=None, dbg=False):
     """R render (khớp màu), G tấm đã ghép, L/names mặt nạ → dict(lan[], giua_pct, tau, dat, ...)"""
     import cv2, numpy as np
     p = dict(T9C, **(p or {})); H, W = R.shape[:2]; s = H / 1080.0; ix = {n: i for i, n in enumerate(names)}
-    if 'nuoc' not in ix: return dict(dat=True, lan=[], giua_pct=0.0, tau=None, ghi='không có lớp nước')
+    KA = dict(dat=True, ap=False, lan=[], so_doan_lan=0, sau_lon_nhat_px=0.0, khac_nuoc_pct=0.0, giua_pct=0.0, tau=None)   # 1.17.6 (KN-1): khung không nước → KHÔNG ÁP, đủ khoá
+    if 'nuoc' not in ix: return dict(KA, ghi='không có lớp nước')
     Wt = L == ix['nuoc']; sky = (L == ix['troi']) if 'troi' in ix else np.zeros_like(Wt)
     n, cc, st, _ = cv2.connectedComponentsWithStats(Wt.astype(np.uint8), 4)
     Wt = np.isin(cc, [i for i in range(1, n) if st[i, 4] >= 0.002 * H * W])
-    if not Wt.any(): return dict(dat=True, lan=[], giua_pct=0.0, tau=None, ghi='nước < 0,2 % khung')
+    if not Wt.any(): return dict(KA, ghi='nước < 0,2 % khung')
     land = ~Wt & ~sky
     Gl = _lab(cv2.GaussianBlur(G, (0, 0), p['SIG'] * s)); Rl = _lab(cv2.GaussianBlur(R, (0, 0), p['SIG'] * s))
     dw = cv2.distanceTransform(Wt.astype(np.uint8), cv2.DIST_L2, 5)
@@ -105,7 +106,7 @@ def t9c(R, G, L, names, p=None, dbg=False):
         else: giua += int(s2[i, 4])
     giua_pct = 100.0 * giua / max(1, int(Wt.sum()))
     lan = sorted([x for x in segs if x['lan']] + khac, key=lambda z: -z['sau_px'])
-    r = dict(tau=round(tau, 2), sigma_nuoc=round(sw, 2), khac_nuoc_pct=round(100.0 * NW.sum() / max(1, Wt.sum()), 2), giua_pct=round(giua_pct, 2),
+    r = dict(ap=True, tau=round(tau, 2), sigma_nuoc=round(sw, 2), khac_nuoc_pct=round(100.0 * NW.sum() / max(1, Wt.sum()), 2), giua_pct=round(giua_pct, 2),
              lan=lan[:20], so_doan_lan=len(lan), sau_lon_nhat_px=max([x['sau_px'] for x in lan] or [0.0]), dat=(not lan) and giua_pct <= p['GIUA'], win=win)
     if dbg: r['_NW'] = NW
     return r
@@ -276,11 +277,9 @@ def soi_bmn(truoc, sau, nam, noi='', t4=False, out=None, tag='bmn', api=False, c
         res, loi = {}, []
         for mh in ('gpt', 'claude'):
             if mh == 'gpt': txt, meta = QV.call_gpt(pr.replace(QV.GPT_LEAD, 'The images are attached in this order:'), T + S, f'{tag}-gpt', out)
-            else:
-                txt, meta = QV.call_claude(pr, td, f'{tag}-claude', out)
-                miss = [os.path.basename(x) for x in T + S if x not in meta.get('reads', [])]
-                if not meta.get('loi') and miss: meta['loi'] = f'không đọc đủ ảnh: thiếu {", ".join(miss)}'
-                meta.pop('reads', None)
+            else:   # 1.17.6 (KN-3): không đọc đủ ảnh → tự gọi lại MỘT lần; cả hai lần vào n2p-cost.jsonl
+                from checks.ll import q_k1176 as K76
+                txt, meta = K76.goi_claude_du(QV, pr, td, T + S, f'{tag}-claude', out)
             j = QV.parse(txt) if not meta.get('loi') else None
             if not meta.get('loi') and j is None: meta['loi'] = 'trả lời không đọc được (không phải JSON)'
             if meta.get('loi'): loi.append(f"{mh}: {meta['loi']}")
@@ -317,6 +316,11 @@ def kiem_bmn(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False
     for h, x in sorted(do.items()):
         loi += [f"(a) {w} nhà {h} (lô {nha.get(h, {}).get('lo')}, {x['px_m']} px/m): {e}" for e in x['loi']]
         cb += [f"(w) {w} nhà {h} (lô {nha.get(h, {}).get('lo')}, {x['px_m']} px/m): {e}" for e in x.get('canh_bao') or []]
+    # 1.17.6 (KN-4): (w) cạnh màu mới trong lòng nhà đo được — ống khói/đầu hồi AI vẽ thêm mà (a) không bắt; CHỈ BÁO (người đọc soi các hộp)
+    from checks.ll import q_k1176 as K76
+    CMo = K76.canh_moi(R, G, B, I, set(do), nha)
+    if CMo: cb.append(f"(w) {w}: {len(CMo)} cụm cạnh màu mới không có ở render/pass bóng (nghi ống khói/đầu hồi/chi tiết AI vẽ thêm — người đọc) — dài nhất: "
+                      + ', '.join(f"{c['hop']} {c['m']} m" for c in CMo[:K76.CM['IN_TOP']]))
     lo_ = {}
     for h, x in do.items(): lo_.setdefault(nha.get(h, {}).get('lo'), [0, 0]); lo_[nha.get(h, {}).get('lo')][0] += 1; lo_[nha.get(h, {}).get('lo')][1] += int(not x['loi'])
     # (b) lớp khoá 0/255: mọi điểm KHÔNG thuộc nhà đo được (nở 1 px — viền ghép)
@@ -350,28 +354,37 @@ def kiem_bmn(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False
         if Q:
             if Q.get('loi'): thieu.append(f"(c) {w}: q_thoi_dai: {Q['loi']}")
             loi += [f"(c) {w}: q_thoi_dai nghi vấn mới (không có ở render): [{x.get('muc')}] {str(x.get('mo_ta'))[:70]} @px {x.get('toa_do_px')}" for x in Q.get('moi') or []]
-    # (d)(e) timelapse
+    # (d)(e) timelapse — 1.17.6: (d) theo ĐIỂM ẢNH (KN-5), (e) ở ĐỘ PHÂN GIẢI VIDEO (KN-6); khung đọc ở cỡ gốc video (thu INTER_AREA nếu rộng hơn W/2)
+    from checks.ll import q_k1176 as K76
     vd = t.get('be_mat_nha_video') or {}; so_d = {}
     if vd:
         gv, rv = _p(ep_dir, vd.get('ghep')), _p(ep_dir, vd.get('render')); cach = vd.get('cach')
         if cach not in ('anh_tinh', 'chieu_3d'): thieu.append(f"(e) {w}: be_mat_nha_video.cach phải là anh_tinh | chieu_3d")
         if not (gv and rv and os.path.exists(gv) and os.path.exists(rv)): thieu.append(f'(d) {w}: be_mat_nha_video thiếu ghep/render')
         else:
-            Cs, Rs = N._frames(gv, W // 2, H // 2), N._frames(rv, W // 2, H // 2); n_ = min(len(Cs), len(Rs))
-            I2 = cv2.resize(I.astype(np.int32), (W // 2, H // 2), interpolation=cv2.INTER_NEAREST); I2[~np.isin(I2, list(do))] = 0
-            q = quy_dao(list(Cs[:n_]), list(Rs[:n_]), I2, p); e = np.array(list(q['e_h'].values()) or [0.0])
-            pct = float((e > p['E_MAX']).mean() * 100); so_d = dict(khung=n_, nha=len(e), e_tv=round(float(np.median(e)), 4), pct_lech=round(pct, 2), nhap_be_mat=q['nhap_be_mat'])
-            if pct > p['NHA_LECH_PCT']: loi.append(f"(d) {w}: {pct:.1f} % nhà có quỹ đạo sáng lệch render > {p['E_MAX']:g} (ln) — bề mặt không theo ánh sáng (dán ảnh tĩnh khi nắng đổi?)")
-            if q['nhap_be_mat'] > p['NHAP_MAX']: loi.append(f"(d) {w}: nhấp nháy bề mặt {q['nhap_be_mat']} > {p['NHAP_MAX']:g} (ln/khung)")
-            if cach == 'chieu_3d':
-                tp = _p(ep_dir, vd.get('tam'))
-                if not (tp and os.path.exists(tp)): thieu.append(f'(e) {w}: chieu_3d cần `tam` (tấm AI đã duyệt) để kiểm khung 0')
-                else:
-                    T0 = cv2.resize(cv2.imread(tp), (W // 2, H // 2), interpolation=cv2.INTER_AREA); dE = np.sqrt(((_lab(Cs[0]) - _lab(T0)) ** 2).sum(-1))[I2 > 0]
-                    so_d.update(t0_dE_tb=round(float(dE.mean()), 2), t0_dE_p95=round(float(np.percentile(dE, 95)), 2))
-                    if dE.mean() > p['T0_DE'] or np.percentile(dE, 95) > p['T0_P95']: loi.append(f"(e) {w}: khung 0 chiếu 3D lệch tấm đã duyệt ΔE TB {dE.mean():.1f} / p95 {np.percentile(dE, 95):.1f} (trần {p['T0_DE']:g} / {p['T0_P95']:g}) — ánh sáng chồng 2 lần?")
+            Cs, (vw, vh) = K76.frames_video(gv, W // 2); Rs, rwh = K76.frames_video(rv, W // 2); n_ = min(len(Cs), len(Rs))
+            if rwh != (vw, vh): thieu.append(f'(d) {w}: video ghép {vw}×{vh} khác cỡ video render {rwh[0]}×{rwh[1]}')
+            else:
+                I2 = cv2.resize(I.astype(np.int32), (vw, vh), interpolation=cv2.INTER_NEAREST); I2[~np.isin(I2, list(do))] = 0
+                qp = K76.quy_dao_px(list(Cs[:n_]), list(Rs[:n_]), I2); e = np.array(list(qp['e_h'].values()) or [0.0])
+                q = quy_dao(list(Cs[:n_]), list(Rs[:n_]), I2, p); e5 = np.array(list(q['e_h'].values()) or [0.0])   # thước 1.17.5 (TB nhà) — chỉ in
+                pct = float((e > p['E_MAX']).mean() * 100) if len(qp['e_h']) else 0.0
+                so_d = dict(khung=n_, co=f'{vw}×{vh}', nha=len(qp['e_h']), nha_nho_bo=len(qp['bo_nho']), e_tv=round(float(np.median(e)), 4), pct_lech=round(pct, 2),
+                            pct_lech_1175=round(float((e5 > p['E_MAX']).mean() * 100), 2), nhap_be_mat=q['nhap_be_mat'],
+                            lech=sorted(([h, v] for h, v in qp['e_h'].items() if v > p['E_MAX']), key=lambda z: -z[1])[:12])
+                if pct > p['NHA_LECH_PCT']: loi.append(f"(d) {w}: {pct:.1f} % nhà có quỹ đạo sáng (trung vị theo điểm ảnh) lệch render > {p['E_MAX']:g} (ln) — bề mặt không theo ánh sáng (dán ảnh tĩnh khi nắng đổi?)")
+                if q['nhap_be_mat'] > p['NHAP_MAX']: loi.append(f"(d) {w}: nhấp nháy bề mặt {q['nhap_be_mat']} > {p['NHAP_MAX']:g} (ln/khung)")
+                if cach == 'chieu_3d':
+                    tp = _p(ep_dir, vd.get('tam'))
+                    if not (tp and os.path.exists(tp)): thieu.append(f'(e) {w}: chieu_3d cần `tam` (tấm AI đã duyệt) để kiểm khung 0')
+                    else:
+                        C0 = K76.frames_video(gv, None, 1)[0][0]; I0 = cv2.resize(I.astype(np.int32), (C0.shape[1], C0.shape[0]), interpolation=cv2.INTER_NEAREST); I0[~np.isin(I0, list(do))] = 0
+                        de_tb, de_95 = K76.khung0_de(C0, cv2.imread(tp), I0)
+                        so_d.update(t0_co=f'{C0.shape[1]}×{C0.shape[0]}', t0_dE_tb=round(de_tb, 2), t0_dE_p95=round(de_95, 2))
+                        if de_tb > p['T0_DE'] or de_95 > p['T0_P95']: loi.append(f"(e) {w}: khung 0 chiếu 3D lệch tấm đã duyệt (so ở {C0.shape[1]}×{C0.shape[0]} — độ phân giải video) ΔE TB {de_tb:.1f} / p95 {de_95:.1f} (trần {p['T0_DE']:g} / {p['T0_P95']:g}) — ánh sáng chồng 2 lần?")
     elif t.get('cu_may_dong') or t.get('timelapse'): thieu.append(f'(d) {w}: shot timelapse nhưng chưa khai be_mat_nha_video')
-    so = dict(nha=len(HK), nha_do=len(do), nha_loi=sum(1 for x in do.values() if x['loi']), lo=len(lo_), b_max=mk, video=so_d, mo_hinh=V.get('chi_phi_usd'))
+    so = dict(nha=len(HK), nha_do=len(do), nha_loi=sum(1 for x in do.values() if x['loi']), lo=len(lo_), b_max=mk, video=so_d, mo_hinh=V.get('chi_phi_usd'),
+              canh_moi=len(CMo), canh_moi_m=round(sum(c['m'] for c in CMo), 1))
     return dict(loi=loi, thieu=thieu, canh_bao=cb, so=so, lo=lo_)
 
 
@@ -383,12 +396,15 @@ def be_mat_nha(E, ep_dir='.', vision=False, out=None):
     out = out or E.get('out'); cp = os.path.join(out, 'bmn-vision-cache.json') if out else None
     cache = json.load(open(cp)) if cp and os.path.exists(cp) else {}
     loi, thieu, cb, vals = [], [], [], []
+    from checks.ll import q_k1176 as K76
+    ppm, lk = K76.ppm_min(E)   # 1.17.6 (15:25): ngưỡng nhà đo được theo tập (`be_mat_nha_px_m_min`, mặc định 2; T4 khai 4)
+    if lk: cb.append(f'(w) {lk}')
     for t in tam:
-        try: k = kiem_bmn(t, ep_dir, vision, cache, out, N2.get('noi', ''), bool(N2.get('t4')))
+        try: k = kiem_bmn(t, ep_dir, vision, cache, out, N2.get('noi', ''), bool(N2.get('t4')), dict(PPM_MIN=ppm))
         except Exception as e: thieu.append(f"(a) tấm {t.get('id')}: {type(e).__name__}: {e}"); continue   # noqa: BLE001
         loi += k['loi']; thieu += k['thieu']; cb += k['canh_bao']; s = k['so']
         vals.append(f"{t.get('id')}: {s.get('nha_do', 0)}/{s.get('nha', 0)} nhà đo được, {s.get('nha_loi', 0)} lỗi, (b) {s.get('b_max', '—')}/255" + (f", video e TV {s['video'].get('e_tv')}" if s.get('video') else ''))
     if cp and vision: os.makedirs(out, exist_ok=True); json.dump(cache, open(cp, 'w'), ensure_ascii=False, indent=1)
     cong = 'animatic' if E.get('animatic') else 'G2'
     loi += cb   # (w) luôn Cảnh báo (cap112)
-    return dict(_r(loi, thieu, val=f"{len(tam)} tấm · " + ' · '.join(vals[:4])), cong=cong, muc={c: [x for x in loi + thieu if x.startswith(f'({c})')] for c in 'abcdew'})
+    return dict(_r(loi, thieu, val=f"{len(tam)} tấm · nhà đo được ≥ {ppm:g} px/m · " + ' · '.join(vals[:4])), cong=cong, px_m_min=ppm, muc={c: [x for x in loi + thieu if x.startswith(f'({c})')] for c in 'abcdew'})
