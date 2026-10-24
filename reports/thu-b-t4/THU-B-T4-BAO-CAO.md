@@ -156,6 +156,7 @@ C2PA: 10/10 ảnh AI có chuỗi C2PA (`c2pa_co_chuoi` trong sổ).
 | 11 | Thông điệp commit `9bea2b19` ghi "CHECKPOINT 06:35" (đúng 06:05) | không amend; ghi ở đây | — |
 | 12 | Dừng chuỗi ước (uoc) theo PGID để ưu tiên chiếu B | chạy lại, bỏ qua việc đã xong | không mất dữ liệu |
 | 13 | Lỗi mã của phiên: biến `TP` thiếu ở `tiso`; khai 30 phút thiếu bước `luu` | sửa, chạy lại | — |
+| 14 | `design/k2v/ldn/thu-b/look3.js` không nằm trong lệnh `git add` từ commit 3 → bản trong git cũ hơn bản đã dùng tới commit cuối | phát hiện khi kiểm `git status` sau commit cuối; commit `89ceec70` đưa đúng bản đã dùng (sinh lại bằng `tao_look3.py` khớp từng byte, sha256 `5b726c5a…`) | mọi số đo trong báo cáo là của bản này |
 Không lỗi nào lặp ≥ 3 lần cùng cách. Không `pkill -f`.
 
 ## 9. Chỉ số trong ±5 % quanh ngưỡng (luật cứng — nêu tên)
