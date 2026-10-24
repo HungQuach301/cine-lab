@@ -1,0 +1,114 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.052 (TB $0.052/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-03c-l1-360p-k90",
+   "nam": 1667,
+   "noi": "London",
+   "sha256": "ece8b19ec7559917e87bb572b61790e16f2bac1e5fe26e8dcf42ac1c63694aca",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "Two seated judges wear tall, full-bottomed grey curled wigs with white linen bands (barrister-style neckbands) and black robes.",
+     "ly_do": "Full-bottomed wigs only became fashionable in England in the 1670s–80s and were standard court dress later. In 1667 wigs were smaller and less voluminous, and this judicial wig style is later.",
+     "nam_xuat_hien": 1685,
+     "toa_do_px": [
+      845,
+      389,
+      1670,
+      670
+     ],
+     "do_tin": 0.6,
+     "xac_nhan": {
+      "vung_px": [
+       20,
+       0,
+       1920,
+       1080
+      ],
+      "phong": 0.35,
+      "tra_loi": {
+       "vat": "Judges' full-bottomed wigs and black robes with white bands (a court scene)",
+       "dac_diem": "Two seated men at the centre wear long, voluminous, curled grey-white wigs that fall past the shoulders. They also wear dark robes and white neck bands or bibs. A younger man on the right has a white cravat and a dark buttoned coat and waistcoat. A man in the foreground, seen from behind, has shoulder-length natural hair and a dark coat. The room has wood panelling and a table with open books and a large unrolled paper.",
+       "co_tu_nam": 1660,
+       "da_co_nam_1667": "yes",
+       "ly_do": "Large periwigs became fashionable in the 1660s, after Charles II's court adopted them around 1660, and Pepys wore one in 1663. Judicial robes and bands were also in use by then. Full-bottomed wigs for judges were therefore plausible in 1667, though the very large ones seen here were more typical of the 1680s and later."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.0073063,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 0.35×: da_co_nam = 'yes' — không xác nhận"
+    },
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "The standing man at right wears a fitted dark knee-length coat with a buttoned waistcoat, a white cravat or jabot, white stockings, and hair tied back in a queue.",
+     "ly_do": "This is early-to-mid 18th-century dress. In 1667 men wore a loose coat, a falling band or early cravat, petticoat breeches, and a wig or long loose hair. A fitted coat with a long buttoned waistcoat and a queue is later.",
+     "nam_xuat_hien": 1720,
+     "toa_do_px": [
+      1709,
+      270,
+      1920,
+      1058
+     ],
+     "do_tin": 0.55,
+     "xac_nhan": {
+      "vung_px": [
+       632,
+       0,
+       1920,
+       1080
+      ],
+      "phong": 0.52,
+      "tra_loi": {
+       "vat": "Judges' full-bottomed wigs, black robes and white bands (neck bands), seen in a courtroom scene",
+       "dac_diem": "Two seated men wear tall, voluminous grey-white curled wigs that fall past the shoulders. They wear black gowns with white rectangular neck bands. They sit at a table covered in dark cloth, with open books and papers in front of them. A standing man at right wears a dark coat, a waistcoat and a white cravat.",
+       "co_tu_nam": 1660,
+       "da_co_nam_1667": "yes",
+       "ly_do": "Full-bottomed periwigs became fashionable in England after Charles II's Restoration in 1660. Black robes and white bands were already standard legal dress. A wig of this size and style is plausible, though somewhat late-looking, for 1667."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.0071263,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 0.52×: da_co_nam = 'yes' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.0523405,
+   "cost_buoc2": 0.01443,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1205,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0379079,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 142,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.0,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"Two seated judges wear tall, full-bottomed grey curled wigs with white linen bands (barrister-style neckbands) and black robes.\",\"ly_do\":\"Full-bottomed wigs only became fashionable in England in the 1670s–80s and were standard court dress later. In 1667 wigs were smaller and less voluminous, and this judicial wig style is later.\",\"nam_xuat_hien\":1685,\"toa_do\":[0.44,0.36,0.87,0.62],\"do_tin\":0.6},{\"muc\":\"quan_phuc\",\"mo_ta\":\"The standing man at right wears a fitted dark knee-length coat with a buttoned waistcoat, a white cravat or jabot, white stockings, and hair tied back in a queue.\",\"ly_do\":\"This is early-to-mid 18th-century dress. In 1667 men wore a loose coat, a falling band or early cravat, petticoat breeches, and a wig or long loose hair. A fitted coat with a long buttoned waistcoat and a queue is later.\",\"nam_xuat_hien\":1720,\"toa_do\":[0.89,0.25,1.0,0.98],\"do_tin\":0.55}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0523,
+ "chi_phi_tb": 0.0523,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}
