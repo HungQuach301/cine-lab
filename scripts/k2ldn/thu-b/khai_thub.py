@@ -27,13 +27,13 @@ def kiem(ten, muc, vision=False):
     o = os.path.join(KI, ten); os.makedirs(o, exist_ok=True); rel = lambda p: os.path.relpath(p, o)
     tam = []
     for m in muc:
-        k, tag, cach = m.split(':'); d = os.path.join(G, k); t = os.path.join(d, tag)
+        k, tag, cach = m.split(':'); d = os.path.join(G, k); t = os.path.join(d, tag.split('-')[0])   # tag 'l2-30p' = cùng tấm l2, video khác
         e = dict(id=f'{k}-{tag}-{cach}', shot=k, render=rel(f'{d}/render.png'), ghep=rel(f'{t}/ghep.png'), mat_na=rel(f'{d}/matna.png'), nam=NAM[k], anh_tinh=True,
                  be_mat_nha_ai=True, mat_na_nha=rel(f'{d}/mat_na_nha.png'), mat_na_mat=rel(f'{d}/mat_na_mat.png'), bong=rel(f'{d}/bong.png'), nha=rel(f'{d}/nha.json'), nen_ai=False)
         if os.environ.get('LOP_A_KHAI') == '1':   # khai lớp (a) KHÔNG gồm nha_thuong (BE-MAT-NHA (b) giữ nhà không đo được = render) — chỉ để đo N2P-1 cho tấm BMN, ghi rõ trong báo cáo
             e['lop_a'] = ['pho', 'nha', 'trai', 'congsu', 'tau', 'co', 'pin', 'lua', 'nguoi', 'khac']
         if k in SONG: e['song'] = dict(render_co=rel(f'{d}/render.png'), render_khong=rel(f'{d}/render-khong.png'), nen=rel(f'{t}/nen.png'))
-        tv = os.path.join(BP, k, tag)   # video KIỂM không mất (crf 0 yuv444p, $THUB — ngoài git, SHA trong video-sha.json); bản xem crf 20 ≤ 5 MB trong git
+        tv = os.path.join(BP, k, tag)   # video theo đúng tag   # video KIỂM không mất (crf 0 yuv444p, $THUB — ngoài git, SHA trong video-sha.json); bản xem crf 20 ≤ 5 MB trong git
         if cach in ('anh_tinh', 'chieu_3d', 'chieu_tiso') and os.path.exists(f'{tv}/tl-{cach}.mp4'):
             c2 = 'anh_tinh' if cach == 'anh_tinh' else 'chieu_3d'   # chieu_tiso = chiếu theo tỉ số bóng (tương đương chiếu camera khi máy cố định) → khai cach chieu_3d
             tam_p = f'{t}/ghep.png'

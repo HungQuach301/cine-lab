@@ -163,16 +163,16 @@ def mp4(frames_glob, dst, extra_vf=''):
 
 def tl(k, tag):
     o = f'{BP}/{k}'; t = f'{o}/{tag}'; tmp = f'{t}/tl-tmp'; os.makedirs(tmp, exist_ok=True)
-    mp4(f'{RR}/tl-{k}-v2/%05d.png', f'{t}/tl-render.mp4')
-    mp4(f'{RR}/tl-{k}-bp-{tag}/%05d.png', f'{t}/tl-chieu_3d.mp4')
+    TP = os.environ.get('TL_PREFIX', 'tl'); mp4(f'{RR}/{TP}-{k}-v2/%05d.png', f'{t}/tl-render.mp4')
+    if TP == 'tl': mp4(f'{RR}/tl-{k}-bp-{tag}/%05d.png', f'{t}/tl-chieu_3d.mp4')
     # (i) ảnh tĩnh: tấm AI dán cố định mọi khung trong nhà đo được (640×360), ngoài = render khung đó (1666: cộng hiệu khói bếp)
     MA = cv2.resize(vung_ai(o).astype(np.uint8), (640, 360), interpolation=cv2.INTER_NEAREST) > 0
     A = cv2.resize(cv2.imread(f'{t}/ai-1080.png'), (640, 360), interpolation=cv2.INTER_AREA)
-    n = len([x for x in os.listdir(f'{RR}/tl-{k}-v2') if x.endswith('.png')])
+    n = len([x for x in os.listdir(f'{RR}/{TP}-{k}-v2') if x.endswith('.png')])
     for i in range(n):
-        lut(f'{RR}/tl-{k}-v2/{i:05d}.png', f'{tmp}/r.png'); Rt = cv2.imread(f'{tmp}/r.png')
+        lut(f'{RR}/{TP}-{k}-v2/{i:05d}.png', f'{tmp}/r.png'); Rt = cv2.imread(f'{tmp}/r.png')
         if k in SONG:
-            lut(f'{RR}/tl-{k}-v2-kk/{i:05d}.png', f'{tmp}/rk.png'); Rk = cv2.imread(f'{tmp}/rk.png')
+            lut(f'{RR}/{TP}-{k}-v2-kk/{i:05d}.png', f'{tmp}/rk.png'); Rk = cv2.imread(f'{tmp}/rk.png')
             G = np.clip(np.where(MA[..., None], A, Rk).astype(np.int16) + Rt.astype(np.int16) - Rk.astype(np.int16), 0, 255).astype(np.uint8)
         else: G = np.where(MA[..., None], A, Rt)
         cv2.imwrite(f'{tmp}/{i:05d}.png', G)
@@ -224,14 +224,14 @@ def tiso(k, tag):
     o = f'{BP}/{k}'; t = f'{o}/{tag}'; tmp = f'{t}/tiso-tmp'; os.makedirs(tmp, exist_ok=True)
     MA = cv2.resize(vung_ai(o).astype(np.uint8), (640, 360), interpolation=cv2.INTER_NEAREST) > 0
     I = cv2.resize(cv2.imread(f'{t}/nen.png' if k in SONG else f'{t}/ghep.png'), (640, 360), interpolation=cv2.INTER_AREA).astype(np.float64)
-    src = f'{RR}/tl-{k}-v2-kk' if k in SONG else f'{RR}/tl-{k}-v2'
+    TP = os.environ.get('TL_PREFIX', 'tl'); src = f'{RR}/{TP}-{k}-v2-kk' if k in SONG else f'{RR}/{TP}-{k}-v2'
     n = len([x for x in os.listdir(src) if x.endswith('.png')]); R0 = None
     for i in range(n):
         lut(f'{src}/{i:05d}.png', f'{tmp}/r.png'); Rb = cv2.imread(f'{tmp}/r.png').astype(np.float64)
         if R0 is None: R0 = Rb.copy()
         q = (s2l(Rb) + 1e-3) / (s2l(R0) + 1e-3); C = np.round(l2s(s2l(I) * q)); G = np.where(MA[..., None], C, Rb)
         if k in SONG:
-            lut(f'{RR}/tl-{k}-v2/{i:05d}.png', f'{tmp}/rs.png'); Rs = cv2.imread(f'{tmp}/rs.png').astype(np.float64); G = G + Rs - Rb
+            lut(f'{RR}/{TP}-{k}-v2/{i:05d}.png', f'{tmp}/rs.png'); Rs = cv2.imread(f'{tmp}/rs.png').astype(np.float64); G = G + Rs - Rb
         cv2.imwrite(f'{tmp}/{i:05d}.png', np.clip(G, 0, 255).astype(np.uint8))
     subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-framerate', '24', '-i', f'{tmp}/%05d.png', '-c:v', 'libx264', '-preset', 'slow'] + MA_HOA + [f'{t}/tl-chieu_tiso.mp4'], check=True)
     subprocess.run(['rm', '-rf', tmp]); print('tiso', k, tag, n, 'khung')
