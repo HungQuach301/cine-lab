@@ -18,7 +18,8 @@ Nhánh harness gợi ý: `ccr-be60bd61-3pu9td` (đã fast-forward tới cùng g�
 | 01:30–01:40 | (c) thật: lời nhắc BMN v2 (năm bắt buộc) 5/5 vật hiện đại + q_thoi_dai; 0 báo trên 2 ảnh AI sạch ($0,45 nhìn + $0,24 O2) | xong |
 | 01:15 / 01:45 | checks-appeal.md: khiếu nại A1–A5 (trước) → phán quyết (sau) | xong |
 | 01:52:26 | `lock.py` (không `--verify`, MỘT lần) → **1.17.5 `c7630b4a…`**; `--verify` KHỚP; selftest sau khoá đạt hết (k1175 52/52) | xong |
-| 02:05 | k2check 1.17.5 trên T3 (719 s); 1.17.4 chạy lại từ worktree mở rộng (lượt đầu hỏng: worktree thưa thiếu RIGHTS.md — lỗi của phiên) | đang chạy |
+| 02:05–02:30 | k2check 1.17.5 trên T3 (719 s); 1.17.4 chạy lại từ worktree mở rộng (643 s; lượt đầu hỏng: worktree thưa thiếu RIGHTS.md — lỗi của phiên): 55/55 hàng chung giống hệt, + hàng 1.17.5 (T4) KHÔNG ÁP; 1.17.4 trùng hệt bảng K-1.17.4 | xong |
+| 02:35 | Báo cáo `K1175-BAO-CAO.md` (§0–§14), quyết định K1175-D1…D7 | xong — **DỪNG chờ chủ dự án** |
 
 ## Lệnh bổ sung đã áp
 - 00:37: `pkill -f cho2.sh` khớp chính shell (exit 144) — lặp bài học LL #24/#41 (đã nêu ở K-1.17.4); không mất dữ liệu; từ đây dừng tiến trình theo PGID (`kill -TERM -<PGID>`).

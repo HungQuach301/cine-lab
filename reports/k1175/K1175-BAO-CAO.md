@@ -116,7 +116,12 @@ Cạnh HÌNH HỌC = biên nhà ∪ biên mặt phẳng (mã ID), thấy đượ
 - Tệp đổi trong `checks/`: `LOCK`, `cinecheck/__init__.py`, `ll/RULES-LL.md`, `ll/cap112.py`, `ll/k2check.py`, `ll/q_n2p.py`; mới `ll/q_k1175.py`, `ll/selftest_k1175.py`, `ll/fixtures/k1175/` (8 tệp).
 
 ## 9. So k2check 1.17.4 ↔ 1.17.5 trên bản cuối T3
-(xem §9 bổ sung bên dưới — điền sau lượt chạy)
+Đầu vào như K-1.17.4 §7: `git archive origin/main channel-k2/k2c-t3-01 reports/animatic-t3-v2 AUTHORSHIP.md RIGHTS.md` (thư mục tạm), timeline tổng hợp (`reports/k1172/do/mk_tl.py`, 761,9998 s), log chữ tổng hợp (`reports/k1173/do/mk_log_chu.py`), master thật LFS `release-k2-t3-g2` (tải qua media.githubusercontent.com với UA CineLab-research; SHA-256 `5b9f0bcc…` khớp; một lần đứt kết nối, nối tiếp `curl -C -`). Lệnh: `k2check.py <tạm>/…/cuoi/episode.yaml --tl timeline.json --master <tuyệt đối>/k2-t3-v1-master.mp4 --cap --no-asr`. 1.17.4 chạy từ worktree `origin/checks-1-17-4` (LOCK 1.17.4 KHỚP) — **trùng hệt bảng K-1.17.4** (`reports/k1174/do/k2check-1.17.4-t3.md`) ở mọi dòng trừ tiêu đề. Bảng đủ: `do/k2check-1.17.4-t3.md`, `do/k2check-1.17.5-t3.md`.
+| Hàng | 1.17.4 | 1.17.5 | Lý do |
+|---|---|---|---|
+| 55 hàng chung (Q26b … Q37, NHIP-K2, BIEN-CO-V, N2P-1…6 "KHÔNG ÁP", MINH-HOA, EO-DAT-R1…R4, 1.17.4 (T4), LOCK, A1–A13) | — | **giống hệt** (kết quả + giá trị + danh sách lỗi) | — |
+| **1.17.5 (T4)** (mới) | — | KHÔNG ÁP (tập trước T4 — không hồi tố) | luật 1.17.5 chỉ tập từ T4 |
+Mã thoát cả hai: 1 (TRƯỢT như K-1.17.4 — Q37 (a)(c)(d), EO-DAT-R3 (a), XEM-CAM, K-LAI-2 (d), BIEN-CO-V). Thời gian: 10 m 43 s (1.17.4) · 11 m 59 s (1.17.5).
 
 ## 10. Chỉ số trong ±5 % quanh ngưỡng (luật cứng — nêu tên)
 - Không chỉ số phim nào trong ±5 % (phiên không sửa phim). Trên khung đáp án: selftest BE-MAT-NHA nhà 20 dời 2,5 m — đỡ cạnh **0,44 so ngưỡng Cảnh báo 0,45 (−2,2 %)** (dữ liệu tổng hợp); τ0 = 6 cách điểm hỏng (5) một nấc lưới.
@@ -128,7 +133,7 @@ Cạnh HÌNH HỌC = biên nhà ∪ biên mặt phẳng (mã ID), thấy đượ
 | OpenAI | **$0,343** = ảnh gpt-image-2.5 edits 2 × $0,0756 (sổ AI `reports/k1175/so-ai.jsonl`) + mô hình nhìn gpt-6.1-sol 5 lần $0,192 |
 | Claude API | **$0,497** = mô hình nhìn claude-sonnet-5-5 5 lần $0,259 + q_thoi_dai (O2) 5 khung duy nhất $0,239 |
 | Gemini / ElevenLabs / RunPod / YouTube | 0 |
-| Giờ máy | ≈ 2,9 h đồng hồ container (23:40 → ≈ 02:35): Blender ≈ 80 cảnh (≈ 1,7 h CPU nền, ≤ 2 tiến trình nặng), đánh giá A1 ≈ 25 phút, A5 ≈ 15 phút, selftest 2 lượt ≈ 20 phút, k2check 2 lượt ≈ 11 + ? phút |
+| Giờ máy | ≈ 2,9 h đồng hồ container (23:40 → ≈ 02:35): Blender ≈ 80 cảnh (≈ 1,7 h CPU nền, ≤ 2 tiến trình nặng), đánh giá A1 ≈ 25 phút, A5 ≈ 15 phút, selftest 2 lượt ≈ 20 phút, k2check 3 lượt ≈ 28 phút (1.17.4 hỏng 5,5 + 10,7; 1.17.5 12,0) |
 | Băng thông | master T3 1,79 GB (LFS `release-k2-t3-g2`, SHA `5b9f0bcc…` khớp) |
 | Token phiên chính | không đo được từ container |
 
