@@ -11,7 +11,7 @@
 | Vùng sửa | `design/k2v/ldn/thu-b/**`, `scripts/k2ldn/thu-b/**`, `channel-k2/k2c-t4-02/thu-b/**`, `reports/thu-b-t4/**` | đúng. Không sửa `checks/`, `docs/`, sổ, `tools/`, tệp của ANIMATIC-T4/P-2410b. `look2.js`, `render_look.js` chỉ ĐỌC/CHÉP: `look3.js` sinh từ `look2.js` bằng `tao_look3.py` (thay chuỗi có kiểm), `render_thub.js` = bản sao `render_look.js` + `--fac`. Thêm `channel-k2/k2c-t4-02/thu-b/.gitignore` (`!*.json`) để JSON máy/kiểm vào git (BAI-HOC-K2 K39) |
 | Preflight | `set -o pipefail`, chỉ commit khi "— ĐẠT"; hook trước lần đẩy đầu | hook pre-commit + pre-push cài 04:50 (trước lần đẩy đầu 04:52); mọi commit qua `scripts/k2ldn/thu-b/cam.sh` (pipefail + kiểm "PREFLIGHT ĐẠT"). 1 lần preflight CHẶN (video kiểm 11 MB lọt vào thư mục git) → gỡ, không commit (sự cố 8) |
 | Force/amend/dừng hỏi | không | không |
-| Đẩy ≤ 30 phút + CHECKPOINT | bắt buộc | 15 lần đẩy; `reports/thu-b-t4/CHECKPOINT.md` |
+| Đẩy ≤ 30 phút + CHECKPOINT | bắt buộc | 17 lần đẩy; `reports/thu-b-t4/CHECKPOINT.md` |
 | Tiến trình nền | PGID, một vòng nặng một lúc, P ≤ 2, RAM ≥ 5 GB | hàng đợi `dung.py` (chờ RAM ≥ 5 GB, P ≤ 2); dừng theo PGID 2 lần (sự cố 9, 12). Một lần dựng hình học D (đơn luồng, `nice 10`) chạy cạnh 2 tiến trình dựng (sự cố 6) |
 | D6 lưu | mặt nạ ID, tấm ghép, ảnh AI, JSON kiểm vào git ≤ 10 phút | ảnh AI vào git 3–8 phút sau khi về (`channel-k2/k2c-t4-02/thu-b/ai/`); tấm/mặt nạ/bóng/albedo/JSON: `thu-b/tam/<khung>/`; khai + k2check + nguyên văn mô hình nhìn: `thu-b/kiem/`; video kiểm không mất (crf 0, 6–12 MB) NGOÀI git, SHA trong `video-sha.json` + lệnh tái tạo |
 
@@ -102,9 +102,14 @@ Ghi: "—" = không khai/không áp. Hàng BE-MAT-NHA tổng của mỗi lần c
 - Tờ so: `reports/thu-b-t4/to-so-thu-b.jpg` (2944 × 5120, nhãn rõ, KHÔNG mù): B1–B3 cột **V2 đã chọn · B ảnh tĩnh · B chiếu 3D (khung 0)** + dải "+2 h" (V2 · (i) · (ii-a) · (ii-b)); D1–D2 cột **V2 · D 3D · D + vân nướng** (+ dải "+2 h" D1). Dòng kết quả kiểm dưới mỗi ô. Cấu hình: `reports/thu-b-t4/do/to-so-cau-hinh.json`.
 - Ô 1080p JPG ≤ 2 MB: `reports/thu-b-t4/khung/<khung>-{v2,B-anh-tinh,B-chieu-3d,D,D2}.jpg` (15 ô).
 - Clip 3 s 640×360 (≤ 0,5–1 MB): `reports/thu-b-t4/clip/<khung>-B-{anh_tinh,chieu_3d,chieu_tiso}.mp4`, `<khung>-V2-render.mp4`; D: `M1-rong-D-{v2,d,d2}.mp4`.
-- **Tốc độ dựng** (đo KHÔNG chạy chồng, `scripts/k2ldn/thu-b/bench.sh`, s/khung sau nạp cảnh): {{BENCH}}
+- **Tốc độ dựng** (đo KHÔNG chạy chồng, `scripts/k2ldn/thu-b/bench.sh`, s/khung sau nạp cảnh): một tiến trình, sau nạp cảnh (nạp: V2 ≈ 8 s, D ≈ 15–16 s):
+| Khung | Biến thể | 1080p spp 24 (s/khung) | 640×360 spp 4 (s/khung, 12 khung timelapse) | × V2 |
+|---|---|---|---|---|
+| D1 M1-rong-hep | V2 · D · D2 | 48,4 · 75,5 · 72,6 | 8,49 · 13,08 · 13,01 | D ×1,56 / ×1,54 |
+| D2 M4-rong-hep | V2 · D · D2 | 49,1 · 79,4 · 78,2 | 8,75 · 14,68 · 14,53 | D ×1,62 / ×1,68 |
+Số đo khi chạy chồng (P = 2, ghi trên tờ so ở lượt đầu) cao hơn 15–40 % — không dùng để ước. Tốc độ bị giới hạn bởi số đỉnh (llvmpipe), D2 không chậm thêm.
 
-## 5. Việc 5 — ước tác động cả tập (BANG-SHOT-v1; ANIMATIC-T4 chưa đẩy bảng v2 — `git ls-remote` 06:15 không có nhánh animatic T4)
+## 5. Việc 5 — ước tác động cả tập (BANG-SHOT-v1; ANIMATIC-T4 chưa đẩy bảng v2 — `git ls-remote` 06:00 không có nhánh animatic T4)
 **% nhà đo được theo điểm máy** (đo thật, mặt nạ + bóng, `channel-k2/k2c-t4-02/thu-b/uoc/`):
 | Điểm máy | Mốc | Nhà thấy | % số nhà đo được | % diện tích nhà | % khung | px/m TV nhà đo được |
 |---|---|---|---|---|---|---|
@@ -118,7 +123,7 @@ Ghi: "—" = không khai/không áp. Hàng BE-MAT-NHA tổng của mỗi lần c
 | P7 (2 200 m) | — | — | 0 (px/m ≤ 0,7, tính hình học) | 0 | 0 | — |
 **Shot áp được** (luật đặt trước khi đếm: shot 3D lớp A; ban ngày suốt shot; không trong cháy 1666/đêm bom 1940; không có nhà mọc/mất trong shot — `do/uoc-tac-dong.json`, bảng đủ `do/uoc-tac-dong.md`): **9/60 shot, 108 s = 15,0 % thời lượng** (H1-03, H2-07, H2-12, H2-13, H3-05, H3-06, H4-08, H5-05, H5-06); có nhà đo được trong khung ≈ **26 s-khung (3,6 %)**. Ngược với giả định K1175-D5 "P1 gần như không được phủ": ở P1 fov 36° vẫn có ≈ 20 % khung là nhà đo được (Bankside + bờ bắc gần), nhưng px/m TV 2,5 — **đúng vùng AI nhoè** (§2.4).
 **$/tấm thật:** ảnh $0,0757–0,0765 (sổ AI); kiểm/tấm/lượt: gpt-6.1-sol $0,045–0,068 + claude-sonnet-5-5 $0,040–0,065 + O2 ≈ $0,011 × 2 → ≈ $0,14. **Cả tập** (≈ 11 tấm: 9 shot, 2 shot KHOP hai mốc) × 2 lượt × ($0,076 + $0,14) ≈ **$4,8**; + video kiểm (máy). Giờ máy B: (ii-b) chỉ cần thêm render KHÔNG khói bếp (1666) + 5 mặt nạ/bóng/albedo ≈ 2–4 phút/shot; (ii-a) dựng lại cả shot (+100 % giờ dựng shot đó) + 6 khung hiệu chỉnh.
-**Giờ dựng thêm của D cả tập:** {{GIO_D}}
+**Giờ dựng thêm của D cả tập:** lớp A cả tập 12 312 khung (ước LOOK-T4-V2 §5); D chậm hơn V2 ×1,54–1,68 (đo ở trên) → **+≈ 6,5–8 h giờ máy ở P = 2** (V2 ≈ 12,1 h → D ≈ 19–20 h); thêm nướng lightmap D 3 mốc ≈ 3 phút. Bộ nhớ: hình học D 590 MB (V2 297 MB) — P = 2 vẫn còn ≥ 5 GB RAM trong phiên.
 **Rủi ro dữ kiện còn lại:** (1) chi tiết kiến trúc AI tự thêm trong bóng nhà (ống khói, đầu hồi, gờ) — chỉ mô hình nhìn (w) + người đọc bắt; (2) AI đổi bản sắc vật liệu (gạch ↔ khung gỗ; màu sơn — §11.3 "màu sơn do AI đổi chỉ tạm chấp nhận"); (3) ranh nhà đo được/không đo được thấy được trong khung (chất lượng, không phải dữ kiện); (4) N2P-* không chạy trên khung không nước và N2P-1 trượt mọi tấm BMN tới khi K sửa (KN-1, KN-2) → **chưa có tấm nào qua đủ cổng (c)**; (5) (d) trượt ở nắng đổi 2 h với mọi cách — áp B cho timelapse cần K quyết KN-5 hoặc giới hạn tốc độ nắng đổi.
 
 ## 6. Việc 6 — phiếu
@@ -131,7 +136,7 @@ Ghi: "—" = không khai/không áp. Hàng BE-MAT-NHA tổng của mỗi lần c
 | Claude API | $4 | $12 | **$0,82** | mô hình nhìn claude-sonnet-5-5 14 lần $0,684 + q_thoi_dai (O2) ≈ 11 lần $0,139 |
 | Gemini | 0 | — | **$0** | không gọi (ngân sách T4 dành animatic) |
 | ElevenLabs / RunPod / YouTube | 0 | — | 0 | |
-| Giờ máy | 8 h | — | ≈ 3,6 h đồng hồ container (04:35 → ≈ 08:10) | dựng lại dữ liệu nền 11 phút; ≈ 120 lượt dựng llvmpipe |
+| Giờ máy | 8 h | — | ≈ 3,6 h đồng hồ container (04:35 → ≈ 08:10) | dựng lại dữ liệu nền 11 phút; ≈ 100 lượt dựng llvmpipe |
 | Token phiên chính | — | — | không đo được từ container | |
 C2PA: 10/10 ảnh AI có chuỗi C2PA (`c2pa_co_chuoi` trong sổ).
 

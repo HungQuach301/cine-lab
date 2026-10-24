@@ -16,5 +16,7 @@
 - 06:05: k2check 1.17.5 chạy được trên tấm BMN (khai `channel: k2`, `khung_sach`, log shot tối thiểu). Kết quả lượt 1/2: BE-MAT-NHA (a) 0 Chặn ở cả 3 khung; (b) 0/255; (w) B3 l2 1, M1 l1 1, M1 l2 2; M4 0. Hai lỗi phía K: N2P-* KeyError 'so_doan_lan' khi khung không có nước (M4, B3); N2P-1 (a) tính vùng BMN là lớp (a) → `reports/thu-b-t4/khieu-nai-K.md`. Chọn lượt 2 (bmn-v2b) cả 3 khung.
 - Chiếu 3D (B ii): B3 khung 0 ΔE 2,36 / p95 9,77 sau 3 vòng; M4 4,62 / 14,06 → thêm vòng 3–4 đang chạy. Đang: timelapse chiếu B3, vòng thêm M4; tiếp: M1 chiếu, D dựng lại (hình học D bỏ lan can/thiết bị ở toà OSM có tên — 4 601 432 tam giác), D2, đo ước tác động (P1/P3/P5/P6/P8).
 
+- 08:10 UTC: **XONG — DỪNG chờ chủ dự án.** B 3 khung × (i)/(ii-a)/(ii-b) + k2check 1.17.5 từng tấm; D/D2 2 khung + đo tốc độ không chạy chồng; ước tác động (9/60 shot, 108 s); tờ so, ô 1080p, clip; báo cáo `THU-B-T4-BAO-CAO.md`, phiếu `PHIEU-THU-B.md`, khiếu nại K `khieu-nai-K.md` (KN-1…KN-6). Không còn tiến trình nền. Chi phí: OpenAI $1,33 · Claude API $0,82 · Gemini $0.
+
 ## Lệnh bổ sung đã áp
-- (chưa có)
+- Không có lệnh bổ sung trong phiên.
