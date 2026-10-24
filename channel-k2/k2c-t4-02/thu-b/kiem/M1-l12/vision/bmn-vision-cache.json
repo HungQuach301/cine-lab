@@ -1,0 +1,254 @@
+{
+ "136dc640e19e67a1870d0f9b57003c8a": {
+  "ket_qua": {
+   "gpt": {
+    "meta": {
+     "model": "gpt-6.1-sol",
+     "usd": 0.0335,
+     "usage": {
+      "input_tokens": 16018,
+      "input_tokens_details": {
+       "cache_write_tokens": 16015,
+       "cached_tokens": 0
+      },
+      "output_tokens": 145,
+      "output_tokens_details": {
+       "reasoning_tokens": 124
+      },
+      "total_tokens": 16163
+     },
+     "loi": null
+    },
+    "json": {
+     "loi_thoi_dai": [],
+     "hinh_khoi": []
+    }
+   },
+   "claude": {
+    "meta": {
+     "model": [
+      "claude-sonnet-5-5"
+     ],
+     "usd": 0.05908510000000001,
+     "loi": null
+    },
+    "json": {
+     "loi_thoi_dai": [
+      {
+       "mo_ta": "White-framed sash-style windows with regular glazing bars on the brick-fronted foreground houses. These look like Georgian sash windows.",
+       "toa_do": [
+        0.78,
+        0.82,
+        0.92,
+        0.96
+       ],
+       "nam_xuat_hien": 1680,
+       "do_tin": 0.45
+      },
+      {
+       "mo_ta": "Regular rows of bright white-framed, multi-pane windows on the foreground half-timbered houses. They look like modern or sash glazing.",
+       "toa_do": [
+        0.55,
+        0.78,
+        0.82,
+        1.0
+       ],
+       "nam_xuat_hien": 1680,
+       "do_tin": 0.3
+      },
+      {
+       "mo_ta": "Brick house facade with sash windows at the front right, in a regular Georgian pattern.",
+       "toa_do": [
+        0.58,
+        0.72,
+        0.66,
+        0.85
+       ],
+       "nam_xuat_hien": 1700,
+       "do_tin": 0.3
+      }
+     ],
+     "hinh_khoi": []
+    }
+   }
+  },
+  "prompt_ver": "bmn-v2 (K-1.17.5, 24/10/2026: năm bắt buộc)",
+  "loi": null,
+  "chi_phi_usd": 0.0926
+ },
+ "qtd": {
+  "M1-trung-l1-anh_tinh": {
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0259
+  },
+  "M1-trung-l2-anh_tinh": {
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0268
+  }
+ },
+ "o2": {
+  "eab96bba59586c09d38b5d69906eaf7c": {
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "f863bf39bd2f28563e0f1a2d84ad7cc52994e5c31f30c91564340fe79e200bf2",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A very long, uniform, regular brick block runs along the right bank. It has a rigid grid of identical windows, a row of identical gables, white domed cupolas and stepped stone buttress piers. It looks like a planned Georgian or Victorian warehouse or terrace, or an embankment.",
+     "ly_do": "Nothing like this existed in 1666. The Thames bank was a jumble of irregular timber-framed buildings, wharves and stairs, and Old London Bridge had a different form. A uniform brick quay frontage with domed cupolas is a later type of building. It could be a mis-modelled Old London Bridge, but it doe",
+     "nam_xuat_hien": 1750,
+     "toa_do_px": [
+      1210,
+      464,
+      1920,
+      778
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "The foreground houses have regular grids of white-framed, multi-pane windows that look like vertical sash windows.",
+     "ly_do": "Sash windows reached England only in the 1670s, so 1666 houses would have had casements or mullioned windows. The windows are small and hard to identify with certainty.",
+     "nam_xuat_hien": 1675,
+     "toa_do_px": [
+      1056,
+      810,
+      1920,
+      1080
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.013759,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1246,
+     "cacheReadInputTokens": 12870,
+     "cacheCreationInputTokens": 0,
+     "webSearchRequests": 0,
+     "costUSD": 0.013759,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 255,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A very long, uniform, regular brick block runs along the right bank. It has a rigid grid of identical windows, a row of identical gables, white domed cupolas and stepped stone buttress piers. It looks like a planned Georgian or Victorian warehouse or terrace, or an embankment.\",\"ly_do\":\"Nothing like this existed in 1666. The Thames bank was a jumble of irregular timber-framed buildings, wharves and stairs, and Old London Bridge had a different form. A uniform brick quay frontage with domed cupolas is a later type of building. It could be a mis-modelled Old London Bridge, but it does not look like one.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.63,0.43,1.0,0.72],\"do_tin\":0.4},{\"muc\":\"kien_truc\",\"mo_ta\":\"The foreground houses have regular grids of white-framed, multi-pane windows that look like vertical sash windows.\",\"ly_do\":\"Sash windows reached England only in the 1670s, so 1666 houses would have had casements or mullioned windows. The windows are small and hard to identify with certainty.\",\"nam_xuat_hien\":1675,\"toa_do\":[0.55,0.75,1.0,1.0],\"do_tin\":0.2}]}"
+  },
+  "e0fc72e44933fae076e2697f7bed44ad": {
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "d3745ae4407c12b3ff4a77de153a5413d9ebf53d737ecbddd4c50f4287cd2396",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A very long, uniform, multi-storey brick range runs along the right-hand riverfront. It has a regular grid of windows, a repeating row of gables, a stepped stone embankment, and several white domes or cupolas on top. It looks like a planned institutional or palace-scale block, similar to Greenwich H",
+     "ly_do": "London's riverfront in 1666 was a jumble of irregular timber-framed houses, wharves and stairs. It had no continuous, planned, monolithic brick range with a dome-topped skyline and a straight stone embankment. The Thames embankments came in the 1800s, and Greenwich Hospital was built from 1696. The ",
+     "nam_xuat_hien": 1696,
+     "toa_do_px": [
+      1210,
+      432,
+      1920,
+      756
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.0121256,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1083,
+     "cacheReadInputTokens": 12836,
+     "cacheCreationInputTokens": 0,
+     "webSearchRequests": 0,
+     "costUSD": 0.0121256,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 228,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A very long, uniform, multi-storey brick range runs along the right-hand riverfront. It has a regular grid of windows, a repeating row of gables, a stepped stone embankment, and several white domes or cupolas on top. It looks like a planned institutional or palace-scale block, similar to Greenwich Hospital or a later Thames-side development.\",\"ly_do\":\"London's riverfront in 1666 was a jumble of irregular timber-framed houses, wharves and stairs. It had no continuous, planned, monolithic brick range with a dome-topped skyline and a straight stone embankment. The Thames embankments came in the 1800s, and Greenwich Hospital was built from 1696. The sandstone Tower turrets don't fit this form either.\",\"nam_xuat_hien\":1696,\"toa_do\":[0.63,0.4,1.0,0.7],\"do_tin\":0.4}]}"
+  },
+  "2015564a409bc894aaefe25cd027414d": {
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "910ba16094982c9c1d796d11760100f0967d42c16f93fbb1b1e2ee5edb6e5805",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A very long, uniform, flat-fronted brick block runs along the right-hand quay. It has regular window grids, a row of identical gables and white domed cupolas, and it sits on a stepped, regular embankment. It reads as a planned 18th-century warehouse or dock range.",
+     "ly_do": "London in 1666 had no continuous, uniform brick waterfront block like this. Riverfront buildings were irregular timber-framed houses, wharves and stairs. A planned, regular classical range with domes looks later than 1666, though I can't be sure what it is meant to be.",
+     "nam_xuat_hien": 1700,
+     "toa_do_px": [
+      1267,
+      443,
+      1920,
+      756
+     ],
+     "do_tin": 0.35
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Some houses in the lower right have white-framed, multi-pane windows that look like vertical sashes, set in brick facades.",
+     "ly_do": "Sash windows only reached England in the 1670s, after 1666. Houses in 1666 would have had casements or mullioned windows.",
+     "nam_xuat_hien": 1675,
+     "toa_do_px": [
+      1766,
+      929,
+      1920,
+      1048
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.014679000000000001,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1338,
+     "cacheReadInputTokens": 12870,
+     "cacheCreationInputTokens": 0,
+     "webSearchRequests": 0,
+     "costUSD": 0.014679000000000001,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 378,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A very long, uniform, flat-fronted brick block runs along the right-hand quay. It has regular window grids, a row of identical gables and white domed cupolas, and it sits on a stepped, regular embankment. It reads as a planned 18th-century warehouse or dock range.\",\"ly_do\":\"London in 1666 had no continuous, uniform brick waterfront block like this. Riverfront buildings were irregular timber-framed houses, wharves and stairs. A planned, regular classical range with domes looks later than 1666, though I can't be sure what it is meant to be.\",\"nam_xuat_hien\":1700,\"toa_do\":[0.66,0.41,1.0,0.7],\"do_tin\":0.35},{\"muc\":\"kien_truc\",\"mo_ta\":\"Some houses in the lower right have white-framed, multi-pane windows that look like vertical sashes, set in brick facades.\",\"ly_do\":\"Sash windows only reached England in the 1670s, after 1666. Houses in 1666 would have had casements or mullioned windows.\",\"nam_xuat_hien\":1675,\"toa_do\":[0.92,0.86,1.0,0.97],\"do_tin\":0.3}]}"
+  }
+ }
+}

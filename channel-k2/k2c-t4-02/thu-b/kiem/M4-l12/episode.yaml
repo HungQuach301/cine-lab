@@ -1,0 +1,52 @@
+id: thu-b-t4-M4-l12
+title: THU-B-T4 vòng thử (không phải tập)
+brand: MOVING PARTS
+channel: k2
+khung_sach: true
+kenh2_tu_t4: true
+animatic: false
+out: /var/tmp/ldn/thub/k2c/M4-l12
+segments:
+- id: s0
+  dur: 3.0
+  shots:
+  - id: M4-trung
+    at: 0.0
+    tpl: scene3d
+- id: s1
+  dur: 3.0
+  shots:
+  - id: M4-trung
+    at: 0.0
+    tpl: scene3d
+n2p:
+  noi: London
+  t4: true
+  tam:
+  - id: M4-trung-l1-anh_tinh
+    shot: M4-trung
+    render: ../../tam/M4-trung/render.png
+    ghep: ../../tam/M4-trung/l1/ghep.png
+    mat_na: ../../tam/M4-trung/matna.png
+    nam: 2026
+    anh_tinh: true
+    be_mat_nha_ai: true
+    mat_na_nha: ../../tam/M4-trung/mat_na_nha.png
+    mat_na_mat: ../../tam/M4-trung/mat_na_mat.png
+    bong: ../../tam/M4-trung/bong.png
+    nha: ../../tam/M4-trung/nha.json
+    nen_ai: false
+  - id: M4-trung-l2-anh_tinh
+    shot: M4-trung
+    render: ../../tam/M4-trung/render.png
+    ghep: ../../tam/M4-trung/l2/ghep.png
+    mat_na: ../../tam/M4-trung/matna.png
+    nam: 2026
+    anh_tinh: true
+    be_mat_nha_ai: true
+    mat_na_nha: ../../tam/M4-trung/mat_na_nha.png
+    mat_na_mat: ../../tam/M4-trung/mat_na_mat.png
+    bong: ../../tam/M4-trung/bong.png
+    nha: ../../tam/M4-trung/nha.json
+    nen_ai: false
+log_shot: log-shot.json

@@ -30,6 +30,8 @@ def kiem(ten, muc, vision=False):
         k, tag, cach = m.split(':'); d = os.path.join(G, k); t = os.path.join(d, tag)
         e = dict(id=f'{k}-{tag}-{cach}', shot=k, render=rel(f'{d}/render.png'), ghep=rel(f'{t}/ghep.png'), mat_na=rel(f'{d}/matna.png'), nam=NAM[k], anh_tinh=True,
                  be_mat_nha_ai=True, mat_na_nha=rel(f'{d}/mat_na_nha.png'), mat_na_mat=rel(f'{d}/mat_na_mat.png'), bong=rel(f'{d}/bong.png'), nha=rel(f'{d}/nha.json'), nen_ai=False)
+        if os.environ.get('LOP_A_KHAI') == '1':   # khai lớp (a) KHÔNG gồm nha_thuong (BE-MAT-NHA (b) giữ nhà không đo được = render) — chỉ để đo N2P-1 cho tấm BMN, ghi rõ trong báo cáo
+            e['lop_a'] = ['pho', 'nha', 'trai', 'congsu', 'tau', 'co', 'pin', 'lua', 'nguoi', 'khac']
         if k in SONG: e['song'] = dict(render_co=rel(f'{d}/render.png'), render_khong=rel(f'{d}/render-khong.png'), nen=rel(f'{t}/nen.png'))
         if cach in ('anh_tinh', 'chieu_3d') and os.path.exists(f'{t}/tl-{cach}.mp4'):
             e['be_mat_nha_video'] = dict(ghep=rel(f'{t}/tl-{cach}.mp4'), render=rel(f'{t}/tl-render.mp4'), cach=cach, **({'tam': rel(f'{t}/ghep.png')} if cach == 'chieu_3d' else {}))

@@ -1,0 +1,78 @@
+{
+ "qtd": {
+  "M4-trung-l1-anh_tinh": {
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0152
+  },
+  "M4-trung-l2-anh_tinh": {
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0406
+  }
+ },
+ "o2": {
+  "3bc92bcc618d8d5c2c2f5fdd7d5b340e": {
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "337992486e90986b3fced54bc191d8852a4533a2bcaf7181b4171368798dc857",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.008909,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 761,
+     "cacheReadInputTokens": 12870,
+     "cacheCreationInputTokens": 0,
+     "webSearchRequests": 0,
+     "costUSD": 0.008909,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 205,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+  },
+  "4a07495d48a7704a6a381b4233b65bf9": {
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "f92e08bf8afa48c46fd9bddd9a9a49aaeb77a288ba05505a164e47c46cff8a4a",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.0316516,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 644,
+     "cacheReadInputTokens": 2871,
+     "cacheCreationInputTokens": 9965,
+     "webSearchRequests": 0,
+     "costUSD": 0.0316516,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 98,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 6.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+  }
+ }
+}
