@@ -38,3 +38,4 @@
 - 08:48 UTC: hàng 2 (look2d, 4,2–4,3 s/khung): 4/7 shot.
 - 10:26 UTC: dựng 3D toàn tập XONG 09:30 (hàng 2 7/7, hàng 3 H1-03 + H5-07a); kiem_may trên 60 log.json thật: 0 TRƯỢT (H1-03 2,10 %/s). SỰ CỐ nhỏ: trình chờ `pgrep -f` tự khớp chính nó → ngồi chờ 09:30–10:26 (≈ 56 phút máy rỗi). Bắt đầu ghép toàn tập.
 - 10:51 UTC: ghép toàn tập lần 1 XONG (17 522 khung, 730,083 s, 0 thiếu; −14,0 LUFS); tờ khung cho thấy bộ đếm 1647 (lời L10) cạnh tấm Hollar → chú thích trong khung thêm '(pub. 1666)'; ghép + xuất lại (lần ghép nền đầu bị ngắt khi shell thoát).
+- 10:53 UTC: ghép + xuất lại XONG — animatic 640 SHA a5add42a… (198,7 MB, ngoài git); 3 bản xem 4,81/4,81/4,85 MB vào git; tờ khung. Tiếp: k2check 1.17.4 có video, XEM CÂM AI.
