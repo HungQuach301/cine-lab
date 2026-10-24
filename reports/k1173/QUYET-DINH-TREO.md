@@ -60,3 +60,32 @@
 | K1175-d | Vòng bảo vệ vật nhỏ (< 60 px, nở 3 px): khớp màu cục bộ (V4 = b) | LOOK-T4-V2 §3, sự cố 11 | tấm 1666 có nhà xa |
 | K1175-e | Phép kiểm phủ bề mặt nhà thường bằng AI (giữ hình khối, vị trí, số nhà) — điều kiện (1) của Kinh thánh §15 (j) | 24/10 06:21 (B) | vòng thử B, bản cuối T4 |
 | (sau animatic) | Hiệu chuẩn lại BIEN-CO-V trên animatic T4 (K1174-D2) | K1174 §13 mục 4 | G2 T4 |
+
+## E. Cập nhật 24/10/2026 sau K-1.17.5 và GIONG-T4 (P-2410b ghi)
+
+**Đã quyết** (nguyên văn + giờ ở `AUTHORSHIP.md`; văn bản ở Kinh thánh `docs/BIBLE-KENH2.md` `0ab7a06b…`):
+
+| # | Quyết định | Khi nào | Áp ở |
+|---|---|---|---|
+| G-1 | (c) K1-C1 — phim 730,1 s; bỏ 7 câu trong dựng (0 ký tự), rút shot nối/lặng | 24/10 08:31 ("Duyệt G-1, G-2, G-3 theo khuyến nghị") | animatic T4 (`reports/giong-t4/GIAN-SHOT.md`) |
+| G-2 | (a) duyệt các vế bỏ/làm mềm như bản khoá | 24/10 08:31 | lời khoá v2 `loi-khoa.txt` |
+| G-3 | St Saviour's giữ bản gốc; Wenceslaus giữ; alias Evelyn "Eevlin" | 24/10 08:31 | master giọng T4 (không thu lại) |
+| K1175-D1 (K1175-a) | A — phản chiếu chỉ từ render 3D; lệnh AI không vẽ phản chiếu | 24/10 ("Duyệt K1175-D1…D7 theo khuyến nghị …") | Kinh thánh §15 (b) |
+| K1175-D2 (K1175-b) | A — T9c thay T9b chiều nước→đất | 24/10 | Kinh thánh §15 (c) (iii); RULES-LL 1.17.5 |
+| K1175-D3 (K1175-d) | A — khớp màu cục bộ vòng bảo vệ, một độ lệch/vật, K kiểm (d) | 24/10 | Kinh thánh §15 (a) |
+| K1175-D4 (K1175-c) | A — lớp sống cộng hiệu, khai `song` | 24/10 | Kinh thánh §15 (b), §13.6 |
+| K1175-D5 (K1175-e) | A + D — phủ bề mặt nhà chỉ ở nhà đo được (≥ 2 px/m, ≥ 40 điểm cạnh); toàn cảnh xa giữ render, nâng bằng 3D | 24/10 | Kinh thánh §15 (j) (vẫn ĐANG THỬ) |
+| K1175-D6 | A — mặt nạ ID + tấm ghép + JSON kiểm vào git ≤ 5 MB nén | 24/10 | PLAN.md quy ước D6 |
+| K1175-D7 | A — lời nhắc BMN v2 năm bắt buộc + q_thoi_dai | 24/10 | Kinh thánh §15 (j) |
+| LFS | lưu master giọng T4 vào LFS | 24/10 (cùng tin nhắn) | `tools/lfs-allow.txt`, `.gitattributes`; master `b9cec467…` / `e5d49871…` |
+| (giờ) | tin "Duyệt V1–V7 và K1174-D1…D6" lúc 24/10 06:42 | lệnh P-2410b | AUTHORSHIP dòng bổ sung |
+
+**Còn treo:**
+
+| # | Nội dung | Căn cứ | Chặn gì |
+|---|---|---|---|
+| THU-B-T4 | Vòng thử phương án B (phủ bề mặt nhà) qua BE-MAT-NHA + cổng (c), rồi chủ dự án duyệt — điều kiện (2)(3) của Kinh thánh §15 (j) | K1175-D5 = A + D | áp B ở bản cuối T4 |
+| LOOK-T9c | Phiên LOOK đo lại 24 tấm look2 bằng T9c (mặt nạ của họ; lưu mặt nạ + tấm ghép theo D6); đo lại M1-rong-oai-l3h với khớp màu cục bộ | K1175 §12 D2, D3; §14 mục 3 | dùng lại tấm look2 / M4-rong |
+| BIEN-CO-V | Hiệu chuẩn lại BIEN-CO-V trên animatic T4 (log máy thật) | K1174-D2 | G2 T4 |
+| V1-1666 | Mở tấm nền cho cảnh 1666 ban ngày sau khi luật đo đã có (V1 hiện giữ: chỉ 2026 ban ngày) | Kinh thánh §15 (d) cập nhật 24/10 | tấm nền 1666 |
+| Đ5 | Quyền giọng G1 cho bản phát hành (chờ thư ElevenLabs) | RIGHTS P1910-G1 | phát hành T4 |
