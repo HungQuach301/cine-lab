@@ -26,10 +26,10 @@ def main():
     LG = AN / 'log-may'; LG.mkdir(exist_ok=True)
     for gz in LG.glob('*.json.gz'):   # log.json đầy đủ (không nén) — mỗi tệp < 1 MB; bản .gz cũ bỏ
         j = LG / gz.name[:-3]
-        if not j.exists(): j.write_bytes(gzip.decompress(gz.read_bytes()))
+        if not j.exists() or gz.stat().st_mtime > j.stat().st_mtime: j.write_bytes(gzip.decompress(gz.read_bytes()))   # shot dựng lại → log mới thay log cũ
         gz.unlink()
     for d in Path('/var/tmp/anim/r').iterdir():
-        if (AN / 'may' / f'{d.name}.json').exists() and (d / 'log.json').exists() and not (LG / f'{d.name}.json').exists(): shutil.copy(d / 'log.json', LG / f'{d.name}.json')
+        if (AN / 'may' / f'{d.name}.json').exists() and (d / 'log.json').exists() and (not (LG / f'{d.name}.json').exists() or (d / 'log.json').stat().st_mtime > (LG / f'{d.name}.json').stat().st_mtime): shutil.copy(d / 'log.json', LG / f'{d.name}.json')
     ls = []
     for r in B['shot']:
         x = {k: r[k] for k in ('ma', 't0', 't1', 'dur', 'chuong', 'goc', 'tl', 'cu_may', 'lop', 'ai_nen', 'minh_hoa', 'vai', 'tieu_diem_en', 'diem_may')}; x['shot'] = r['ma']
