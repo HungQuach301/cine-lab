@@ -1,5 +1,5 @@
 #!/opt/cine/bin/python
-"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) + 1.16 (SACH-1…PC-1, K-LAI-3V; chỉ tập từ T3; chủ dự án duyệt K116-D1…D9 19/10 18:48 → 1.16.1) + 1.17 (MINH-HOA, EO-DAT-R1…R3 từ T3; N2P-1…6 từ T4) + 1.17.1 (EO-DAT ngưỡng §14.7, EO-DAT-R4) + 1.17.2 (EO-DAT-R1 chỉ báo mọi cổng — V2-D2; CONG-BO-1 Chặn ở gói phát hành) + 1.17.3 (khiếu nại BAN-CUOI-T3 A1–A6: không đổi cấp hàng nào) + 1.17.4 (BIEN-CO-V; từ T4: MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU, GEMINI-NGAN-SACH, GOC-CAO-60) (phiên K, 17–23/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
+"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) + 1.16 (SACH-1…PC-1, K-LAI-3V; chỉ tập từ T3; chủ dự án duyệt K116-D1…D9 19/10 18:48 → 1.16.1) + 1.17 (MINH-HOA, EO-DAT-R1…R3 từ T3; N2P-1…6 từ T4) + 1.17.1 (EO-DAT ngưỡng §14.7, EO-DAT-R4) + 1.17.2 (EO-DAT-R1 chỉ báo mọi cổng — V2-D2; CONG-BO-1 Chặn ở gói phát hành) + 1.17.3 (khiếu nại BAN-CUOI-T3 A1–A6: không đổi cấp hàng nào) + 1.17.4 (BIEN-CO-V; từ T4: MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU, GEMINI-NGAN-SACH, GOC-CAO-60) + 1.17.5 (từ T4: BE-MAT-NHA; N2P-1 (d)(e), N2P-3 T9c) (phiên K, 17–23/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
 HH1) và các luật 1.12.1 (chủ dự án duyệt 16–17/10: HH2, HH3, MM1–MM4, JJ1–JJ2, KK1). Mặc định `k2check.py` vẫn CHỈ BÁO (ghi cấp cạnh kết quả);
 `--cap` áp cấp vào mã thoát: hàng có lỗi thuộc phần Chặn → TRƯỢT, chỉ có lỗi phần Cảnh báo → CẢNH BÁO (không tính vào mã thoát).
 
@@ -77,9 +77,9 @@ CAP = {
     'EO-DAT-R2': ('Chặn ở G2 · Cảnh báo ở animatic (§14.7 R2: trống > 50 % ≤ 6 s liên tục, ≤ 10 % thời lượng chương)', {'*'}, set()),
     'EO-DAT-R3': ('Chặn ở G2 · Cảnh báo ở animatic (lệnh K-1.17; §14.7 R3)', {'*'}, set()),
     'EO-DAT-R4': ('Chặn ở G2 · Cảnh báo ở animatic (§14.7 R4 + TL-4; lệnh K-1.17.1)', {'*'}, set()),
-    'N2P-1': ('Chặn (a), (b) ở G2 · Cảnh báo ở animatic · (c) cụm dải 20 px luôn Cảnh báo (người đọc tờ so) — §15 (c)(i), K đề xuất', set('ab'), set('c')),
+    'N2P-1': ('Chặn (a), (b), (d) vòng khớp màu cục bộ, (e) lớp sống ở G2 · Cảnh báo ở animatic · (c) cụm dải 20 px luôn Cảnh báo (người đọc tờ so) — §15 (c)(i); (d)(e) 1.17.5', set('abde'), set('c')),
     'N2P-2': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(ii), K đề xuất', {'*'}, set()),
-    'N2P-3': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iii), K đề xuất', {'*'}, set()),
+    'N2P-3': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iii); 1.17.5: nước→đất = T9c (c) bờ lấn, (d) giữa nước (đối chứng render)', {'*'}, set()),
     'N2P-4': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iv), K đề xuất', {'*'}, set()),
     'N2P-5': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (b), (c)(v), K đề xuất', {'*'}, set()),
     'N2P-6': ('Chặn ở G2 · Cảnh báo ở animatic — §15 (d) trần, K đề xuất', {'*'}, set()),
@@ -93,9 +93,11 @@ CAP = {
     'AI-TU-LIEU': ('Chặn ở G2 · Cảnh báo ở animatic — §19 (b)(c)', {'*'}, set()),
     'GEMINI-NGAN-SACH': ('Chặn (a) vượt ngân sách, (u) thiếu giá thật ở G2 · Cảnh báo (k) thiếu khai, (m) vượt mốc theo dõi · Cảnh báo ở animatic — Q2 (i)', set('au'), set('km')),
     'GOC-CAO-60': ('Chặn ở G2 · Cảnh báo ở animatic — Q2 (iii)', {'*'}, set()),
+    # 1.17.5 (phiên K-1.17.5, 24/10/2026; phương án B, chủ dự án 24/10 06:21; lệnh: "Chặn ở G2, Cảnh báo ở animatic")
+    'BE-MAT-NHA': ('Chặn (a)–(e) ở G2 · Cảnh báo ở animatic · (w) mô hình nhìn không năm/hình khối luôn Cảnh báo — phương án B (AI phủ bề mặt nhà thường)', set('abcde'), {'w'}),
 }
 CONG = {'K-LAI-3V', 'MINH-HOA', 'EO-DAT-R2', 'EO-DAT-R3', 'EO-DAT-R4', 'N2P-1', 'N2P-2', 'N2P-3', 'N2P-4', 'N2P-5', 'N2P-6',
-        'BIEN-CO-V', 'MAY-19', 'BAN-DO-12', 'TU-LIEU-10', 'AI-TU-LIEU', 'GEMINI-NGAN-SACH', 'GOC-CAO-60'}   # cấp theo cổng (r['cong']); 1.17.4 thêm 7 hàng
+        'BIEN-CO-V', 'MAY-19', 'BAN-DO-12', 'TU-LIEU-10', 'AI-TU-LIEU', 'GEMINI-NGAN-SACH', 'GOC-CAO-60', 'BE-MAT-NHA'}   # cấp theo cổng (r['cong']); 1.17.4 thêm 7 hàng; 1.17.5 +1
 _M = re.compile(r'^\((\w)\)')
 
 

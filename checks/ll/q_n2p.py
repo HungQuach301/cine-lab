@@ -16,6 +16,7 @@ Hàng (cấp ở cap112.py: Chặn ở cổng G2 · Cảnh báo ở animatic (`a
   N2P-1 (i) lớp (a) sau ghép: (a) max |ghép − render| trong mặt nạ (a) = 0/255 (8 bit; ⇔ < 1/255); (b) 0 vật loại lớp (a) (cờ, công trình,
         công sự, tàu lớn, chữ, đèn, lửa lớn) THÊM/BỚT/ĐỔI ở BẤT KỲ đâu theo ít nhất một mô hình (do_tin ≥ 0,5; trong dải 20 px quanh (a) ghi
         'dải (a)'); (c) máy: cụm ΔE76 ≥ 30 (ảnh mờ σ 1,5) ≥ 80 px trong DẢI 20 px quanh (a) (px quy về 1080p) — CẢNH BÁO cho người đọc tờ so.
+        1.17.5: (d) vòng bảo vệ khớp màu cục bộ (khai `khop_mau_cuc_bo`), (e) lớp sống cộng hiệu (khai `song: {render_co, render_khong, nen}`) — q_k1175.
   N2P-2 (ii) lỗi thời đại: (a) vật THÊM có thoi_dai_sai (do_tin ≥ 0,5) VÀ (năm xuất hiện mô hình nêu > năm khung, hoặc loại máy bay/xe máy ở
         cảnh < 1900) ở ÍT NHẤT MỘT trong hai mô hình; không kèm năm → 'nghi vấn không năm' (ghi, người đọc; không tính lỗi);
         (b) q_thoi_dai.py (O2, khi --vision): nghi vấn trên khung ghép KHÔNG trùng nghi vấn của chính render (đối chứng) → lỗi.
@@ -24,6 +25,8 @@ Hàng (cấp ở cap112.py: Chặn ở cổng G2 · Cảnh báo ở animatic (`a
   N2P-3 (iii) đổi loại vùng: (a) T9b mỗi chiều ≤ 2 % (đất→nước: % điểm đất của mặt nạ có 'màu nước' HSV H 85–130, S ≥ 40, V ≥ 30 ở ghép mà render
         không; nước→đất: % điểm nước-màu-nước của render mất màu nước; bỏ loé nắng V ≥ 0,85 & S ≤ 0,25 và dải 8 px quanh bờ — px quy về 1080p);
         (b) 0 báo đổi đất↔nước của mô hình (do_tin ≥ 0,5).
+        1.17.5 (A1/A2, q_k1175.t9c): chiều nước→đất đo bằng T9c (đường bờ đo, đối chứng render — AI đổi sắc nước không còn là lỗi; phản chiếu có
+        trong render giữ; phản chiếu AI tự vẽ không miễn): (c) bờ lấn sâu ≥ 6 px @1080, dài ≥ 12 px; (d) khác nước giữa nước > 2 %. T9b nước→đất chỉ in.
   N2P-4 (iv) đóng băng (tấm tĩnh, `anh_tinh` mặc định true): (a) 0 vật THÊM loại chuyển động (người, động vật, chim, thuyền nhỏ, xe chạy, khói,
         lửa trại, máy bay, xe máy) theo ít nhất một mô hình — người/động vật luôn là chuyển động (B3).
   N2P-5 (v) nhấp nháy + chuyển tấm (video shot tấm nền): (a) mỗi chuyển tấm khai `kieu: hoa` và `dur` ≥ 2 s; (b) bước nhảy chuyển tấm: max theo
@@ -57,6 +60,7 @@ T9B_MAX, BO_PX = 2.0, 8                          # (iii) ≤ 2 % mỗi chiều; 
 HOA_MIN, BUOC_MAX, NHAP_K, SAN_NHAP = 2.0, 1.0, 1.5, 0.02   # (v)
 TRAN_NEN, TRAN_MH, TRAN_TONG = 50.0, 20.0, 70.0  # (vi) §15(d) theo lệnh K-1.17
 ROWS = ('N2P-1', 'N2P-2', 'N2P-3', 'N2P-4', 'N2P-5', 'N2P-6')
+K75_GIUA, K75_VONG_MAX = 2.0, 40   # = q_k1175.T9C['GIUA'], q_k1175.VONG_MAX (1.17.5)
 
 
 def ap_n2p(E): return bool(E.get('kenh2_tu_t4') or E.get('n2p'))
@@ -134,9 +138,11 @@ def do_tam(render_p, ghep_p, mat_na_p, lop_a=LOP_A, bang=None):
     hs = cv2.cvtColor(G, cv2.COLOR_BGR2HSV); loe = (hs[..., 2] >= 217) & (hs[..., 1] <= 64); k = 2 * max(1, int(round(BO_PX * s))) + 1
     bo = cv2.dilate((cv2.morphologyEx(Wt.astype(np.uint8), cv2.MORPH_GRADIENT, np.ones((3, 3), np.uint8)) > 0).astype(np.uint8), np.ones((k, k), np.uint8)) > 0
     d2n_b = float((D & bg & ~br & ~bo).sum() / max(1, D.sum()) * 100); n2d_b = float((Wt & br & ~bg & ~loe & ~bo).sum() / max(1, (Wt & br).sum()) * 100)
+    from checks.ll import q_k1175 as K75
+    t9c = K75.t9c(R, G, L, names); t9c.pop('win', None)   # 1.17.5 (A1/A2): đường bờ đo, đối chứng render — thay T9b chiều nước→đất
     return dict(i=dict(max_trong_a=int(dif[A].max()) if A.any() else 0, diem_lech_trong_a=int((dif[A] > 0).sum()), dien_tich_a_pct=round(float(A.mean() * 100), 2),
                        dai20_pct=round(float(band.mean() * 100), 2), dai20_cum_dE30=len(cum), dai20_cum_lon=cum[:15]),
-                iii=dict(t9_dat_thanh_nuoc_pct=round(d2n, 2), t9_nuoc_thanh_dat_pct=round(n2d, 2), t9b_dat_thanh_nuoc_pct=round(d2n_b, 2), t9b_nuoc_thanh_dat_pct=round(n2d_b, 2)),
+                iii=dict(t9_dat_thanh_nuoc_pct=round(d2n, 2), t9_nuoc_thanh_dat_pct=round(n2d, 2), t9b_dat_thanh_nuoc_pct=round(d2n_b, 2), t9b_nuoc_thanh_dat_pct=round(n2d_b, 2), t9c=t9c),
                 _band=band, _A=A, W=R.shape[1], H=R.shape[0])
 
 
@@ -188,7 +194,23 @@ def kiem_tam(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False
     nam = t.get('nam'); tid = str(t.get('id') or os.path.basename(gp or '?'))
     if not (rp and gp and mp and nam is not None): return dict(id=tid, loi_chay=f'tấm {tid}: thiếu render/ghep/mat_na/nam')
     D = do_tam(rp, gp, mp, t.get('lop_a') or LOP_A, t.get('bang'))
-    V = QV.soi(rp, gp, nam, t.get('noi', noi), t.get('t4', t4), out=out, tag=tid, api=vision, cache=cache)
+    SONG, VONG = None, None
+    sg = t.get('song') or {}
+    if sg or t.get('khop_mau_cuc_bo'):
+        import cv2
+        from checks.ll import q_k1175 as K75
+        R_, G_ = cv2.imread(rp), cv2.imread(gp); Ab = K75.bao_ve(D['_A'])
+        if sg:   # 1.17.5 (A3): lớp sống ghép bằng cộng hiệu render có/không — ngoài vùng bảo vệ ghép == clip(nền + (có − không))
+            fs = {k: _p(ep_dir, sg.get(k)) for k in ('render_co', 'render_khong', 'nen')}
+            if not all(fs.values()): SONG = dict(thieu='song: cần render_co, render_khong, nen')
+            else:
+                Rc, Rk, Pn = (cv2.imread(fs[k]) for k in ('render_co', 'render_khong', 'nen'))
+                if any(x is None or x.shape != G_.shape for x in (Rc, Rk, Pn)): SONG = dict(thieu='song: ảnh thiếu hoặc khác cỡ ghép')
+                else: mx, cnt = K75.kiem_song(G_, Pn, Rc, Rk, Ab); SONG = dict(max=mx, diem=cnt)
+        if t.get('khop_mau_cuc_bo'):   # 1.17.5 (A4, cần K1175-D3): vòng bảo vệ = render-khớp + một độ lệch màu/vật
+            res, off, k = K75.kiem_vong(G_, R_, D['_A'], Ab); VONG = dict(du=res, lech=off, vong=k)
+    gv = _p(ep_dir, sg.get('nen')) if sg.get('nen') else gp   # (iv): lớp sống từ render không phải vật AI thêm → mô hình soi tấm nền (chưa cộng lớp sống)
+    V = QV.soi(rp, gv, nam, t.get('noi', noi), t.get('t4', t4), out=out, tag=tid, api=vision, cache=cache)
     L1, L2, L2b, L4, VUNG = ket_luan(V.get('ket_qua') or {}, D['_band'], D['_A'], bool(t.get('anh_tinh', True)), nam)
     Q = None
     if vision or (cache or {}).get('qtd', {}).get(tid):
@@ -201,7 +223,7 @@ def kiem_tam(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False
                      chi_phi_usd=round(float(Qg.get('cost_usd') or 0) + float(Qr.get('cost_usd') or 0), 4))
             if cache is not None and not Q['loi']: cache['qtd'][tid] = Q
     return dict(id=tid, shot=t.get('shot'), nam=nam, anh_tinh=bool(t.get('anh_tinh', True)), do={k: v for k, v in D.items() if not k.startswith('_')},
-                V=V, L1=L1, L2=L2, L2b=L2b, L4=L4, VUNG=VUNG, Q=Q)
+                V=V, L1=L1, L2=L2, L2b=L2b, L4=L4, VUNG=VUNG, Q=Q, SONG=SONG, VONG=VONG)
 
 
 def tong_tam(KT):
@@ -221,14 +243,26 @@ def tong_tam(KT):
         if i['dai20_cum_dE30']:
             cum += i['dai20_cum_dE30']; L['N2P-1'].append(f"(c) {w}: {i['dai20_cum_dE30']} cụm ΔE ≥ {CUM_DE:g} trong dải {DAI_PX} px quanh (a) (người đọc tờ so): "
                                                          + ', '.join(f"{c['hop']} {c['px']} px" for c in i['dai20_cum_lon'][:4]))
+        sg, vg = k.get('SONG'), k.get('VONG')
+        if sg is not None:
+            if sg.get('thieu'): T['N2P-1'].append(f"(e) {w}: {sg['thieu']}")
+            elif sg['max'] > 1: L['N2P-1'].append(f"(e) {w}: lớp sống ≠ clip(nền + (render có − render không)) — sai lớn nhất {sg['max']}/255 ở {sg['diem']} điểm (dán nguyên/lệch khung/sai cường độ)")
+        if vg is not None and (vg['du'] > 1 or vg['lech'] > K75_VONG_MAX):
+            L['N2P-1'].append(f"(d) {w}: vòng bảo vệ không phải render-khớp + một độ lệch/vật — phần dư {vg['du']:.0f}/255, độ lệch {vg['lech']:.0f} (trần {K75_VONG_MAX})")
         L['N2P-2'] += [f"(a) {w}: lỗi thời đại — {m(x)} — năm {x.get('nam')} · {str(x.get('ly_do') or '')[:80]}" for x in k['L2']]
         nv0 += len(k['L2b'])
         if k.get('Q') is not None:
             if k['Q'].get('loi'): T['N2P-2'].append(f"(b) {w}: q_thoi_dai: {k['Q']['loi']}")
             L['N2P-2'] += [f"(b) {w}: q_thoi_dai nghi vấn mới (không có ở render): [{x.get('muc')}] {str(x.get('mo_ta'))[:70]} @px {x.get('toa_do_px')}" for x in k['Q']['moi']]
+        c9 = iii.get('t9c')
         for nm, v in (('đất→nước', iii['t9b_dat_thanh_nuoc_pct']), ('nước→đất', iii['t9b_nuoc_thanh_dat_pct'])):
+            if c9 is not None and nm == 'nước→đất': continue   # 1.17.5: chiều nước→đất đo bằng T9c (đường bờ + đối chứng render); T9b chỉ in
             t9.append(v); near['N2P-3'] += sat(f'{w} T9b {nm} %', v, T9B_MAX)
             if v > T9B_MAX: L['N2P-3'].append(f'(a) {w}: T9b {nm} {v} % > {T9B_MAX:g} %')
+        if c9 is not None:
+            L['N2P-3'] += [f"(c) {w}: bờ lấn ({x['kieu']}) sâu {x['sau_px']} px @1080" + (f", dài {x['dai_px']} px, x {x['x0']}–{x['x1']}" if 'x0' in x else f", hộp {x['hop']}") for x in c9['lan'][:8]]
+            if c9['giua_pct'] > K75_GIUA: L['N2P-3'].append(f"(d) {w}: khác nước (đối chứng render) không bám bờ {c9['giua_pct']} % > {K75_GIUA:g} %")
+            near['N2P-3'] += sat(f'{w} T9c giữa nước %', c9['giua_pct'], K75_GIUA)
         L['N2P-3'] += [f"(b) {w}: {x['mh']} báo đổi loại vùng «{str(x.get('mo_ta') or '')[:70]}»" for x in k['VUNG']]
         L['N2P-4'] += [f'(a) {w}: vật chuyển động trên tấm tĩnh — {m(x)}' for x in k['L4']]
         if vl:
@@ -237,10 +271,13 @@ def tong_tam(KT):
     out['N2P-1'] = r(L['N2P-1'], T['N2P-1'], val=f"{n} tấm · max lệch (a) {max([k['do']['i']['max_trong_a'] for k in KT if not k.get('loi_chay')] or [0])}/255 · vật (a) mô hình {sum(len(k.get('L1') or []) for k in KT)} · cụm dải 20 px {cum}")
     out['N2P-2'] = r(L['N2P-2'], T['N2P-2'], val=f"{n} tấm · lỗi có năm {sum(len(k.get('L2') or []) for k in KT)} · nghi vấn không năm {nv0} (người đọc) · q_thoi_dai mới "
                                                   + str(sum(len(k['Q']['moi']) for k in KT if k.get('Q'))) + ' · giới hạn: cờ ~20 px không bảo đảm')
-    out['N2P-3'] = r(L['N2P-3'], T['N2P-3'], val=f"{n} tấm · T9b lớn nhất {max(t9 or [0]):.2f} % · mô hình báo {sum(len(k.get('VUNG') or []) for k in KT)}", sat_nguong=near['N2P-3'])
+    c9s = [k['do']['iii']['t9c'] for k in KT if not k.get('loi_chay') and k['do']['iii'].get('t9c') is not None]
+    out['N2P-3'] = r(L['N2P-3'], T['N2P-3'], val=f"{n} tấm · T9b lớn nhất {max(t9 or [0]):.2f} % · mô hình báo {sum(len(k.get('VUNG') or []) for k in KT)}"
+                     + (f" · T9c (1.17.5): đoạn bờ lấn {sum(c['so_doan_lan'] for c in c9s)}, sâu nhất {max([c['sau_lon_nhat_px'] for c in c9s] or [0])} px, giữa nước ≤ {max([c['giua_pct'] for c in c9s] or [0])} %"
+                        + f"; T9b nước→đất (chỉ in) {max([k['do']['iii']['t9b_nuoc_thanh_dat_pct'] for k in KT if not k.get('loi_chay')] or [0]):.2f} %" if c9s else ''), sat_nguong=near['N2P-3'])
     out['N2P-4'] = r(L['N2P-4'], T['N2P-4'], val=f"{n} tấm ({sum(1 for k in KT if k.get('anh_tinh'))} tĩnh) · vật chuyển động {sum(len(k.get('L4') or []) for k in KT)}")
     for q in ROWS[:4]:
-        out[q]['muc'] = {c: [x for x in out[q]['loi'] if x.startswith(f'({c})')] for c in 'abc'}
+        out[q]['muc'] = {c: [x for x in out[q]['loi'] if x.startswith(f'({c})')] for c in 'abcde'}
     return out
 
 
