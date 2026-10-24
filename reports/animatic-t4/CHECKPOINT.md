@@ -25,3 +25,4 @@
 
 - 03:27 UTC: **SỰ CỐ** — commit "M-d 22/24…" (đã đẩy) mang theo ≈ 244 MB ảnh lát trung gian của bộ kiểm (`animatic/omni/kiem2/qtd-*/`, khung PNG). Mỗi tệp < 5 MB (preflight ĐẠT) nhưng không cần cho git. Không force-push/amend (K18): commit sau gỡ khỏi theo dõi (`git rm --cached`) + thêm .gitignore; lịch sử nhánh vẫn mang ≈ 244 MB — ghi vào báo cáo.
 - M-d: 22/24 đạt 2 tầng; H2-04a (mũ bowler/chóp tròn — lỗi thời đại, 3/3) và H5-07a (ảnh đầu 2026 có chữ/biển, 3/3) → 3D; thêm M-d (19) Toà Cháy 1667 (H2-03c, tách từ H2-03b) để giữ M-d ≥ 20 % (Q1). TRUOT hạ hệ số (1,4 %/s; H1-03 đo 2,99 %/s sát trần 3 → dựng lại).
+- 04:29 UTC: dựng 3D tới H1-18 (cảnh lửa 4,4–5,0 s/khung mỗi tiến trình); ước xong hàng 1 ≈ 09:30, hàng 2 (máy thấp look2d) + H1-03/H5-07a ≈ 10:45. Bổ sung bộ đếm năm (§11.2) vào bộ ghép; khai k2check thử (không video) — bảng ở báo cáo.
