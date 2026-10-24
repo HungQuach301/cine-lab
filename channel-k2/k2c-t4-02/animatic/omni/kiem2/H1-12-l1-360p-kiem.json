@@ -1,0 +1,283 @@
+{
+ "tag": "H1-12-l1-360p",
+ "clip": "/var/tmp/anim/omni/H1-12/H1-12-l1-360p.mp4",
+ "clip_sha": "cc240a581904f67901fcdf29659f47a7e9f5a6773a888bce479ff1cfcd439cf4",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H1-12-dau.jpg",
+ "dau_sha": "569e3fc0b97a1e804ecc542584eaee1c1da3d4daa62c9ded94443ad215024feb",
+ "nam": "1666",
+ "canh": "the River Thames at night, 3 September 1666, the north bank on fire",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-12-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0248,
+      "usage": {
+       "input_tokens": 10138,
+       "input_tokens_details": {
+        "cache_write_tokens": 10135,
+        "cached_tokens": 0
+       },
+       "output_tokens": 450,
+       "output_tokens_details": {
+        "reasoning_tokens": 268
+       },
+       "total_tokens": 10588
+      }
+     },
+     "secs": 14.3,
+     "mo_ta": "Cảnh đêm trên sông Thames với nhiều thuyền chèo chở người và hành lý, phía sau là dãy nhà ven bờ đang cháy.",
+     "muc": [
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "Mũ của người chèo thuyền ở tiền cảnh có dáng gấp ba góc giống mũ tricorn, kiểu xuất hiện khoảng thập niên 1680 và phổ biến từ thập niên 1690; trong ảnh tham chiếu, cùng người này đội mũ vành rộng không có dáng ba góc rõ như vậy.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.343,
+        0.509,
+        0.427,
+        0.589
+       ],
+       "nam_xuat_hien": 1680,
+       "do_tin": 0.79
+      }
+     ],
+     "loi": [
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "Mũ của người chèo thuyền ở tiền cảnh có dáng gấp ba góc giống mũ tricorn, kiểu xuất hiện khoảng thập niên 1680 và phổ biến từ thập niên 1690; trong ảnh tham chiếu, cùng người này đội mũ vành rộng không có dáng ba góc rõ như vậy.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.343,
+        0.509,
+        0.427,
+        0.589
+       ],
+       "nam_xuat_hien": 1680,
+       "do_tin": 0.79
+      }
+     ],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-12-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "8800542fbc97586c3d6e37d407359c43e7ef96417e337be1c71d82e56204cb75",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0336017,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 780,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0336017,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 129,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0336,
+    "chi_phi_tb": 0.0336,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-12-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0227,
+      "usage": {
+       "input_tokens": 10132,
+       "input_tokens_details": {
+        "cache_write_tokens": 10129,
+        "cached_tokens": 0
+       },
+       "output_tokens": 243,
+       "output_tokens_details": {
+        "reasoning_tokens": 199
+       },
+       "total_tokens": 10375
+      }
+     },
+     "secs": 9.6,
+     "mo_ta": "Nighttime view of the Thames with people and belongings in small rowing boats, floating debris, and burning waterfront buildings beneath smoke and drifting embers.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-12-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "966ac28991c0add5cb00f08e6409a593cd1021a8f3c6309a598e046e45a876ba",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0336417,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 784,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0336417,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 133,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0336,
+    "chi_phi_tb": 0.0336,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-12-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0225,
+      "usage": {
+       "input_tokens": 10138,
+       "input_tokens_details": {
+        "cache_write_tokens": 10135,
+        "cached_tokens": 0
+       },
+       "output_tokens": 225,
+       "output_tokens_details": {
+        "reasoning_tokens": 165
+       },
+       "total_tokens": 10363
+      }
+     },
+     "secs": 7.4,
+     "mo_ta": "Cảnh đêm trên sông Thames với những thuyền chèo chở người và đồ đạc, phía sau là dãy nhà ven bờ đang cháy và khói lửa phủ bầu trời.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-12-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "ac64d8ba816d965c40cba51f6bb38b0f12312fa9cdfd9e51900327ae4f4db56c",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0337417,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 794,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0337417,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 143,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0337,
+    "chi_phi_tb": 0.0337,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 1,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "LOẠI",
+  "chi_tiet": [
+   {
+    "u": 0.25,
+    "mo_hinh": "gpt",
+    "loai": "thoi_dai",
+    "mo_ta": "Mũ của người chèo thuyền ở tiền cảnh có dáng gấp ba góc giống mũ tricorn, kiểu xuất hiện khoảng thập niên 1680 và phổ biến từ thập niên 1690; trong ảnh tham chiếu, cùng người này đội mũ vành rộng không có dáng ba góc rõ như vậy.",
+    "nam": 1680
+   }
+  ]
+ }
+}
