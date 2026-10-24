@@ -1,5 +1,104 @@
+diff --git a/checks/cinecheck/__init__.py b/checks/cinecheck/__init__.py
+index 799fb44d..7f64a6f9 100644
+--- a/checks/cinecheck/__init__.py
++++ b/checks/cinecheck/__init__.py
+@@ -1,2 +1,2 @@
+ """Cine Lab — bộ máy kiểm L1 (phiên K). Phiên xưởng không đọc mã này; chỉ đọc checks/RUN.md."""
+-VERSION = "1.17.5"
++VERSION = "1.17.6"
+diff --git a/checks/ll/cap112.py b/checks/ll/cap112.py
+index d160a3ca..252ea85f 100644
+--- a/checks/ll/cap112.py
++++ b/checks/ll/cap112.py
+@@ -1,5 +1,5 @@
+ #!/opt/cine/bin/python
+-"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) + 1.16 (SACH-1…PC-1, K-LAI-3V; chỉ tập từ T3; chủ dự án duyệt K116-D1…D9 19/10 18:48 → 1.16.1) + 1.17 (MINH-HOA, EO-DAT-R1…R3 từ T3; N2P-1…6 từ T4) + 1.17.1 (EO-DAT ngưỡng §14.7, EO-DAT-R4) + 1.17.2 (EO-DAT-R1 chỉ báo mọi cổng — V2-D2; CONG-BO-1 Chặn ở gói phát hành) + 1.17.3 (khiếu nại BAN-CUOI-T3 A1–A6: không đổi cấp hàng nào) + 1.17.4 (BIEN-CO-V; từ T4: MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU, GEMINI-NGAN-SACH, GOC-CAO-60) + 1.17.5 (từ T4: BE-MAT-NHA; N2P-1 (d)(e), N2P-3 T9c) (phiên K, 17–23/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
++"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) + 1.16 (SACH-1…PC-1, K-LAI-3V; chỉ tập từ T3; chủ dự án duyệt K116-D1…D9 19/10 18:48 → 1.16.1) + 1.17 (MINH-HOA, EO-DAT-R1…R3 từ T3; N2P-1…6 từ T4) + 1.17.1 (EO-DAT ngưỡng §14.7, EO-DAT-R4) + 1.17.2 (EO-DAT-R1 chỉ báo mọi cổng — V2-D2; CONG-BO-1 Chặn ở gói phát hành) + 1.17.3 (khiếu nại BAN-CUOI-T3 A1–A6: không đổi cấp hàng nào) + 1.17.4 (BIEN-CO-V; từ T4: MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU, GEMINI-NGAN-SACH, GOC-CAO-60) + 1.17.5 (từ T4: BE-MAT-NHA; N2P-1 (d)(e), N2P-3 T9c) + 1.17.6 (từ T4: TU-LIEU-OMNI; TU-LIEU-10 (b)(k); khiếu nại THU-B KN-1…KN-6 không đổi cấp) (phiên K, 17–23/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
+ HH1) và các luật 1.12.1 (chủ dự án duyệt 16–17/10: HH2, HH3, MM1–MM4, JJ1–JJ2, KK1). Mặc định `k2check.py` vẫn CHỈ BÁO (ghi cấp cạnh kết quả);
+ `--cap` áp cấp vào mã thoát: hàng có lỗi thuộc phần Chặn → TRƯỢT, chỉ có lỗi phần Cảnh báo → CẢNH BÁO (không tính vào mã thoát).
+ 
+@@ -89,7 +89,8 @@ CAP = {
+     'BIEN-CO-V': ('Chặn (b), (c), (h) ở G2 khi thước đạt hiệu chuẩn (q_bcv.HIEU_CHUAN + (h) trên tập) · Cảnh báo ở animatic hoặc khi chưa hiệu chuẩn — K117-D8', set('bch'), set()),
+     'MAY-19': ('Chặn (a)–(g) ở G2 · Cảnh báo ở animatic · (w) luôn Cảnh báo — §19 (a)', set('abcdefg'), {'w'}),
+     'BAN-DO-12': ('Chặn ở G2 · Cảnh báo ở animatic — §19 (b)', {'*'}, set()),
+-    'TU-LIEU-10': ('Chặn ở G2 · Cảnh báo ở animatic — §19 (c)', {'*'}, set()),
++    'TU-LIEU-10': ('Chặn (a) trần theo tập `tu_lieu_tran_pct` (mặc định 10 %, ≤ 15 %), (b) mỗi lần ≤ 10 s, (k) khai sai trần ở G2 · Cảnh báo ở animatic — §19 (c); 1.17.6 (chủ dự án 24/10 12:52)', {'*'}, set()),
++    'TU-LIEU-OMNI': ('Chặn (a) tư liệu trùng clip M-d, (b) ghép liền clip M-d (< 1 shot / < 1 s 3D) ở G2 · Cảnh báo ở animatic — 1.17.6 (chủ dự án 24/10 12:52)', {'*'}, set()),
+     'AI-TU-LIEU': ('Chặn ở G2 · Cảnh báo ở animatic — §19 (b)(c)', {'*'}, set()),
+     'GEMINI-NGAN-SACH': ('Chặn (a) vượt ngân sách, (u) thiếu giá thật ở G2 · Cảnh báo (k) thiếu khai, (m) vượt mốc theo dõi · Cảnh báo ở animatic — Q2 (i)', set('au'), set('km')),
+     'GOC-CAO-60': ('Chặn ở G2 · Cảnh báo ở animatic — Q2 (iii)', {'*'}, set()),
+@@ -97,7 +98,7 @@ CAP = {
+     'BE-MAT-NHA': ('Chặn (a)–(e) ở G2 · Cảnh báo ở animatic · (w) mô hình nhìn không năm/hình khối luôn Cảnh báo — phương án B (AI phủ bề mặt nhà thường)', set('abcde'), {'w'}),
+ }
+ CONG = {'K-LAI-3V', 'MINH-HOA', 'EO-DAT-R2', 'EO-DAT-R3', 'EO-DAT-R4', 'N2P-1', 'N2P-2', 'N2P-3', 'N2P-4', 'N2P-5', 'N2P-6',
+-        'BIEN-CO-V', 'MAY-19', 'BAN-DO-12', 'TU-LIEU-10', 'AI-TU-LIEU', 'GEMINI-NGAN-SACH', 'GOC-CAO-60', 'BE-MAT-NHA'}   # cấp theo cổng (r['cong']); 1.17.4 thêm 7 hàng; 1.17.5 +1
++        'BIEN-CO-V', 'MAY-19', 'BAN-DO-12', 'TU-LIEU-10', 'AI-TU-LIEU', 'GEMINI-NGAN-SACH', 'GOC-CAO-60', 'BE-MAT-NHA', 'TU-LIEU-OMNI'}   # cấp theo cổng (r['cong']); 1.17.4 thêm 7 hàng; 1.17.5 +1; 1.17.6 +1
+ _M = re.compile(r'^\((\w)\)')
+ 
+ 
+diff --git a/checks/ll/k2check.py b/checks/ll/k2check.py
+index 461cbbff..df2c834f 100644
+--- a/checks/ll/k2check.py
++++ b/checks/ll/k2check.py
+@@ -21,6 +21,8 @@ Phiên xưởng chỉ CHẠY (không đọc mã). Định nghĩa: checks/ll/RULE
+              MAY-19, BAN-DO-12, TU-LIEU-10, AI-TU-LIEU (§19), GEMINI-NGAN-SACH, GOC-CAO-60 (Q2); MINH-HOA (a) / N2P-6 (b) bỏ trần 20 % (Q2)
+              1.17.5 (K1174-D1 = A; phương án B 24/10/2026): tập từ T4: N2P-3 nước→đất = T9c (đường bờ đo, đối chứng render — A1/A2) · N2P-1 (e) lớp
+              sống cộng hiệu (A3), (d) vòng bảo vệ khớp màu cục bộ khi khai (A4) · BE-MAT-NHA (AI phủ bề mặt nhà thường, tấm `be_mat_nha_ai`)
++             1.17.6 (khiếu nại THU-B KN-1…KN-6; chủ dự án 24/10 12:52, 15:25): N2P-3 khung không nước KHÔNG ÁP · N2P-1 trừ nhà đo được của tấm BMN ·
++             BE-MAT-NHA (d) theo điểm ảnh, (e) ở độ phân giải video, `be_mat_nha_px_m_min`, (w) cạnh màu mới · TU-LIEU-10 `tu_lieu_tran_pct` + (b) · TU-LIEU-OMNI
+ 
+ Gọi: Q26b bối cảnh · Q32 footage/ảnh nguồn ngoài · Q33 lặp cảnh · Q34 loại shot · Q35 nhãn loại số (D5) · Q36 chữ trên màn hình ·
+ Q37 nhịp thị giác · A1–A13 âm thanh · LOCK. Mã thoát 0 khi mọi mục ĐẠT (âm thanh của tập cũ: CHỈ BÁO, không tính).
+@@ -285,9 +287,9 @@ def main():
+         from checks.ll import q_n2p
+         N2T = {'N2P-1': 'N2+ (i) lớp (a) sau ghép', 'N2P-2': 'N2+ (ii) lỗi thời đại (2 mô hình + O2)', 'N2P-3': 'N2+ (iii) đổi loại vùng T9b',
+                'N2P-4': 'N2+ (iv) đóng băng trên tấm tĩnh', 'N2P-5': 'N2+ (v) nhấp nháy + chuyển tấm', 'N2P-6': 'N2+ (vi) trần §15(d)'}
+-        N2N = {'N2P-1': '0/255 trong (a) · 0 vật (a) thêm/bớt/đổi · cụm ΔE ≥ 30 trong dải 20 px → người đọc · (1.17.5) lớp sống cộng hiệu ≤ 1/255 · vòng khớp màu cục bộ',
++        N2N = {'N2P-1': '0/255 trong (a) · 0 vật (a) thêm/bớt/đổi · cụm ΔE ≥ 30 trong dải 20 px → người đọc · (1.17.5) lớp sống cộng hiệu ≤ 1/255 · vòng khớp màu cục bộ · (1.17.6) tấm BMN: trừ nhà đo được nở 1 px',
+                'N2P-2': '0 lỗi có năm (gpt ∪ claude) · O2 mới so render 0',
+-               'N2P-3': 'T9b đất→nước ≤ 2 % · (1.17.5) T9c: 0 bờ lấn ≥ 6 px · giữa nước ≤ 2 % · 0 báo mô hình', 'N2P-4': '0 vật chuyển động trên tấm tĩnh', 'N2P-5': 'hoà ≥ 2 s · ≤ 1 ΔE/khung · nhấp nháy ≤ 1,5 × đối chứng',
++               'N2P-3': 'T9b đất→nước ≤ 2 % · (1.17.5) T9c: 0 bờ lấn ≥ 6 px · giữa nước ≤ 2 % · 0 báo mô hình · (1.17.6) khung không nước: T9c KHÔNG ÁP', 'N2P-4': '0 vật chuyển động trên tấm tĩnh', 'N2P-5': 'hoà ≥ 2 s · ≤ 1 ΔE/khung · nhấp nháy ≤ 1,5 × đối chứng',
+                'N2P-6': 'tấm nền ≤ 50 % · minh hoạ ≤ 20 % · tổng AI ≤ 70 % · không chồng shot'}
+         if not q_n2p.ap_n2p(E): bao('N2P-1…6', 'Luật N2+ (§15, từ T4)', lambda: dict(ok=True, loi=[], val='tập trước T4 (không khai kenh2_tu_t4 / n2p)', ket_qua='KHÔNG ÁP'))
+         else:
+@@ -296,10 +298,10 @@ def main():
+             for k in N2T: bao(k, N2T[k], lambda k=k: N2[k], N2N[k])
+     # ---- 1.17.4: §19 + Q2 (tập từ T4) — CHỈ BÁO (cấp ở cap112, áp với --cap)
+     if V16:
+-        K74T = {'MAY-19': 'Ngữ pháp máy §19 (a)', 'BAN-DO-12': 'Bản đồ ≤ 12 % §19 (b)', 'TU-LIEU-10': 'Tư liệu + khắc + thẻ ≤ 10 % §19 (c)', 'AI-TU-LIEU': 'Không AI lên tư liệu §19 (b)(c)',
+-                'GEMINI-NGAN-SACH': 'Ngân sách Gemini của tập (Q2 i)', 'GOC-CAO-60': 'Góc cao timelapse ≥ 60 % (Q2 iii)'}
++        K74T = {'MAY-19': 'Ngữ pháp máy §19 (a)', 'BAN-DO-12': 'Bản đồ ≤ 12 % §19 (b)', 'TU-LIEU-10': 'Tư liệu + khắc + thẻ ≤ trần tập §19 (c)', 'AI-TU-LIEU': 'Không AI lên tư liệu §19 (b)(c)',
++                'GEMINI-NGAN-SACH': 'Ngân sách Gemini của tập (Q2 i)', 'GOC-CAO-60': 'Góc cao timelapse ≥ 60 % (Q2 iii)', 'TU-LIEU-OMNI': 'Tư liệu không chồng/ghép liền clip M-d (1.17.6)'}
+         K74N = {'MAY-19': 'tốc độ theo cú máy (log khung) · N2+ = CODINH · KHOP ≤ 0,5 px · ≥ 4 loại/chương · ≤ 2 liền · THAP ≤ 12 %', 'BAN-DO-12': 'MAP + MAP3D ≤ 12 % · ≤ 10 s/lần',
+-                'TU-LIEU-10': 'TL + KHAC + THE ≤ 10 %', 'AI-TU-LIEU': '0 shot tư liệu có AI · 0 dòng sổ AI có SHA tư liệu', 'GEMINI-NGAN-SACH': 'tổng usd sổ Gemini ≤ ngan_sach_gemini_usd',
++                'TU-LIEU-10': 'TL + KHAC + THE ≤ tu_lieu_tran_pct (mặc định 10 %, ≤ 15 %) · mỗi lần ≤ 10 s', 'TU-LIEU-OMNI': 'không trùng clip M-d · cách ≥ 1 shot 3D hoặc ≥ 1 s 3D', 'AI-TU-LIEU': '0 shot tư liệu có AI · 0 dòng sổ AI có SHA tư liệu', 'GEMINI-NGAN-SACH': 'tổng usd sổ Gemini ≤ ngan_sach_gemini_usd',
+                 'GOC-CAO-60': 'goc cao + tl (V7B-D1 theo log khung) ≥ 60 % thân phim'}
+         if not q_k1174.ap_1174(E): bao('1.17.4 (T4)', 'MAY-19 … GOC-CAO-60', lambda: dict(ok=True, loi=[], val='tập trước T4 — không hồi tố (Q2: T3 giữ luật cũ)', ket_qua='KHÔNG ÁP'))
+         else:
+@@ -311,7 +313,7 @@ def main():
+         if not q_k1175.ap_1175(E): bao('1.17.5 (T4)', 'BE-MAT-NHA', lambda: dict(ok=True, loi=[], val='tập trước T4 — không hồi tố', ket_qua='KHÔNG ÁP'))
+         else:
+             bao('BE-MAT-NHA', 'AI phủ bề mặt nhà thường (phương án B)', lambda: q_k1175.be_mat_nha(E, ep_dir, vision='--n2p-vision' in a),
+-                '(a) hình khối từng nhà đo được · (b) khoá 0/255 · (c) 0 lỗi thời đại · (d) quỹ đạo sáng/nhấp nháy · (e) khung 0 chiếu 3D')
++                '(a) hình khối từng nhà đo được (≥ be_mat_nha_px_m_min px/m, mặc định 2) · (b) khoá 0/255 · (c) 0 lỗi thời đại · (d) quỹ đạo sáng theo điểm ảnh/nhấp nháy · (e) khung 0 chiếu 3D ở độ phân giải video · (w) cạnh màu mới')
+     lk = subprocess.run([sys.executable, os.path.join(base.REPO, 'checks', 'lock.py'), '--verify'], capture_output=True, text=True)
+     rows.append(dict(q='LOCK', ten=f'checks/ khớp LOCK ({VERSION})', kq='ĐẠT' if lk.returncode == 0 else 'TRƯỢT', val='KHỚP' if lk.returncode == 0 else 'KHÔNG KHỚP', nguong='', sat='', loi=[]))
+     ok = all(r['kq'] in ('ĐẠT', 'CẢNH BÁO') or r['kq'].startswith('CHỈ BÁO') for r in rows)
+diff --git a/checks/ll/q_k1174.py b/checks/ll/q_k1174.py
+index a9efb60d..24af7e01 100644
+--- a/checks/ll/q_k1174.py
++++ b/checks/ll/q_k1174.py
+@@ -418,6 +418,8 @@ def check(E, TL=None, ep_dir='.', LS=None):
+                   ('GOC-CAO-60', lambda: goc_cao_60(E, TL, LS, ep_dir, cong))):
+         try: out[k] = fn()
+         except Exception as e: out[k] = r(thieu=[f'không chạy được: {type(e).__name__}: {e}'], val='—', cong=cong)   # noqa: BLE001
++    from checks.ll import q_k1176 as K76   # 1.17.6 (chủ dự án 24/10 12:52): TU-LIEU-10 theo trần của tập + (b) mỗi lần ≤ 10 s; TU-LIEU-OMNI mới
++    out.update(K76.check_tu_lieu(E, TL, ep_dir, LS))
+     return out
+ 
+ 
 diff --git a/checks/ll/q_k1175.py b/checks/ll/q_k1175.py
-index 9e7a3502..1683a393 100644
+index 9e7a3502..4c34026d 100644
 --- a/checks/ll/q_k1175.py
 +++ b/checks/ll/q_k1175.py
 @@ -40,11 +40,12 @@ def t9c(R, G, L, names, p=None, dbg=False):
@@ -41,7 +140,19 @@ index 9e7a3502..1683a393 100644
              j = QV.parse(txt) if not meta.get('loi') else None
              if not meta.get('loi') and j is None: meta['loi'] = 'trả lời không đọc được (không phải JSON)'
              if meta.get('loi'): loi.append(f"{mh}: {meta['loi']}")
-@@ -350,26 +349,34 @@ def kiem_bmn(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False
+@@ -317,6 +316,11 @@ def kiem_bmn(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False
+     for h, x in sorted(do.items()):
+         loi += [f"(a) {w} nhà {h} (lô {nha.get(h, {}).get('lo')}, {x['px_m']} px/m): {e}" for e in x['loi']]
+         cb += [f"(w) {w} nhà {h} (lô {nha.get(h, {}).get('lo')}, {x['px_m']} px/m): {e}" for e in x.get('canh_bao') or []]
++    # 1.17.6 (KN-4): (w) cạnh màu mới trong lòng nhà đo được — ống khói/đầu hồi AI vẽ thêm mà (a) không bắt; CHỈ BÁO (người đọc soi các hộp)
++    from checks.ll import q_k1176 as K76
++    CMo = K76.canh_moi(R, G, B, I, set(do), nha)
++    if CMo: cb.append(f"(w) {w}: {len(CMo)} cụm cạnh màu mới không có ở render/pass bóng (nghi ống khói/đầu hồi/chi tiết AI vẽ thêm — người đọc) — dài nhất: "
++                      + ', '.join(f"{c['hop']} {c['m']} m" for c in CMo[:K76.CM['IN_TOP']]))
+     lo_ = {}
+     for h, x in do.items(): lo_.setdefault(nha.get(h, {}).get('lo'), [0, 0]); lo_[nha.get(h, {}).get('lo')][0] += 1; lo_[nha.get(h, {}).get('lo')][1] += int(not x['loi'])
+     # (b) lớp khoá 0/255: mọi điểm KHÔNG thuộc nhà đo được (nở 1 px — viền ghép)
+@@ -350,28 +354,37 @@ def kiem_bmn(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False
          if Q:
              if Q.get('loi'): thieu.append(f"(c) {w}: q_thoi_dai: {Q['loi']}")
              loi += [f"(c) {w}: q_thoi_dai nghi vấn mới (không có ở render): [{x.get('muc')}] {str(x.get('mo_ta'))[:70]} @px {x.get('toa_do_px')}" for x in Q.get('moi') or []]
@@ -88,9 +199,13 @@ index 9e7a3502..1683a393 100644
 +                        so_d.update(t0_co=f'{C0.shape[1]}×{C0.shape[0]}', t0_dE_tb=round(de_tb, 2), t0_dE_p95=round(de_95, 2))
 +                        if de_tb > p['T0_DE'] or de_95 > p['T0_P95']: loi.append(f"(e) {w}: khung 0 chiếu 3D lệch tấm đã duyệt (so ở {C0.shape[1]}×{C0.shape[0]} — độ phân giải video) ΔE TB {de_tb:.1f} / p95 {de_95:.1f} (trần {p['T0_DE']:g} / {p['T0_P95']:g}) — ánh sáng chồng 2 lần?")
      elif t.get('cu_may_dong') or t.get('timelapse'): thieu.append(f'(d) {w}: shot timelapse nhưng chưa khai be_mat_nha_video')
-     so = dict(nha=len(HK), nha_do=len(do), nha_loi=sum(1 for x in do.values() if x['loi']), lo=len(lo_), b_max=mk, video=so_d, mo_hinh=V.get('chi_phi_usd'))
+-    so = dict(nha=len(HK), nha_do=len(do), nha_loi=sum(1 for x in do.values() if x['loi']), lo=len(lo_), b_max=mk, video=so_d, mo_hinh=V.get('chi_phi_usd'))
++    so = dict(nha=len(HK), nha_do=len(do), nha_loi=sum(1 for x in do.values() if x['loi']), lo=len(lo_), b_max=mk, video=so_d, mo_hinh=V.get('chi_phi_usd'),
++              canh_moi=len(CMo), canh_moi_m=round(sum(c['m'] for c in CMo), 1))
      return dict(loi=loi, thieu=thieu, canh_bao=cb, so=so, lo=lo_)
-@@ -383,12 +390,15 @@ def be_mat_nha(E, ep_dir='.', vision=False, out=None):
+ 
+ 
+@@ -383,12 +396,15 @@ def be_mat_nha(E, ep_dir='.', vision=False, out=None):
      out = out or E.get('out'); cp = os.path.join(out, 'bmn-vision-cache.json') if out else None
      cache = json.load(open(cp)) if cp and os.path.exists(cp) else {}
      loi, thieu, cb, vals = [], [], [], []
@@ -239,10 +354,10 @@ index f20bb580..b2255aa8 100644
              if meta.get('loi'): loi.append(f"{mh}: {meta['loi']}")
 diff --git a/checks/ll/q_k1176.py b/checks/ll/q_k1176.py
 new file mode 100644
-index 00000000..9c74c656
+index 00000000..298a2803
 --- /dev/null
 +++ b/checks/ll/q_k1176.py
-@@ -0,0 +1,267 @@
+@@ -0,0 +1,309 @@
 +#!/opt/cine/bin/python
 +"""Luật 1.17.6 (phiên K-1.17.6, 24/10/2026) — CHỈ tập kênh 2 từ T4 (`kenh2_tu_t4: true` hoặc khối `n2p:`). T3 và trước: KHÔNG ÁP (không hồi tố).
 +Căn cứ: khiếu nại THU-B-T4 KN-1…KN-6 (checks-appeal.md, mục K-1.17.6; nguồn `reports/thu-b-t4/khieu-nai-K.md` @353d0f0c); chủ dự án
@@ -333,6 +448,48 @@ index 00000000..9c74c656
 +    if D is None: return None, 'thiếu tệp be_mat_nha (render/ghep/mat_na/mat_na_nha/bong/nha) hoặc khác cỡ'
 +    do = nha_do(D['R'], D['B'], D['I'], D['PID'], D['nha'], dict(K75.BMN, PPM_MIN=ppm))
 +    return cv2.dilate(np.isin(D['I'], list(do)).astype(np.uint8), np.ones((3, 3), np.uint8)) > 0, len(do)
++
++
++# ================================================================ KN-4: (w) cạnh màu mới trong lòng nhà (ống khói/đầu hồi AI vẽ thêm) — CHỈ BÁO
++CM = dict(SIG=1.0, NB=12, T_A=8.0, T_O=5.0, RAD=2, L_M=1.0, A_M=0.5, IN_TOP=8)   # điểm vận hành chọn trên B3 l1/l2 (reports/k1176 §KN-4)
++
++
++def _gxy(b, sig, mau=True):
++    """độ lớn gradient (kênh Lab mạnh nhất, mờ σ) + hướng 0–180° của kênh đó"""
++    import cv2, numpy as np
++    x = cv2.GaussianBlur(cv2.cvtColor(b, cv2.COLOR_BGR2LAB).astype(np.float32) * np.array([100 / 255, 1, 1], np.float32), (0, 0), sig)
++    G = np.zeros(x.shape[:2], np.float32); GX = np.zeros_like(G); GY = np.zeros_like(G)
++    for c in (range(3) if mau else (0,)):
++        sx = cv2.Sobel(x[..., c], cv2.CV_32F, 1, 0, ksize=3) / 8; sy = cv2.Sobel(x[..., c], cv2.CV_32F, 0, 1, ksize=3) / 8; m = np.sqrt(sx * sx + sy * sy)
++        u = m > G; GX[u] = sx[u]; GY[u] = sy[u]; G = np.maximum(G, m)
++    return G, np.degrees(np.arctan2(GY, GX)) % 180
++
++
++def canh_moi(R, G, B, I, do, nha, p=None):
++    """KN-4 → danh sách thành phần [{hop, px, m, nha, ppm}] sắp theo độ dài cạnh (m). Điểm cạnh MỚI = cạnh màu ảnh ghép ≥ T_A (ΔE/px, mờ σ 1)
++    KHÔNG được giải thích bởi cạnh render (Lab) hay pass bóng (L*) ≥ T_O CÙNG HƯỚNG (±1 ngăn 15°) trong RAD px, trong lòng nhà đo được (co 1 px).
++    Thành phần (đóng 3×3) giữ khi cạnh dài ≥ L_M m và ≥ A_M·px_m điểm. Không theo mã nhà: ống khói AI vẽ đè lên nhiều nhà ở xa (3D phía sau)."""
++    import cv2, numpy as np
++    p = dict(CM, **(p or {})); s = I.shape[0] / 1080.0; NB = p['NB']; sig = p['SIG'] * s
++    M = np.isin(I, list(do)); Mi = cv2.erode(M.astype(np.uint8), np.ones((3, 3), np.uint8)) > 0
++    gA, tA = _gxy(G, sig); bA = (tA / (180 / NB)).astype(int) % NB
++    ER = [np.zeros(I.shape, bool) for _ in range(NB)]
++    for g, t in (_gxy(R, sig), _gxy(B, sig, False)):
++        b = (t / (180 / NB)).astype(int) % NB
++        for k in range(NB): ER[k] |= (g >= p['T_O']) & (b == k)
++    ker = np.ones((2 * p['RAD'] + 1,) * 2, np.uint8); expl = np.zeros(I.shape, bool)
++    for k in range(NB): expl |= (bA == k) & (cv2.dilate((ER[k] | ER[(k - 1) % NB] | ER[(k + 1) % NB]).astype(np.uint8), ker) > 0)
++    new = cv2.morphologyEx(((gA >= p['T_A']) & ~expl & Mi).astype(np.uint8), cv2.MORPH_CLOSE, np.ones((3, 3), np.uint8)) > 0
++    PPM = np.zeros(I.shape, np.float32)
++    for h in do: PPM[I == h] = float((nha.get(h) or {}).get('px_m') or 0)
++    n, cc, st, _ = cv2.connectedComponentsWithStats(new.astype(np.uint8), 8); out = []
++    for i in range(1, n):
++        x, y, w, h, a = (int(v) for v in st[i]); mm = cc == i; pp = PPM[mm]; pp = pp[pp > 0]
++        if not len(pp): continue
++        ppm = float(np.median(pp))
++        if max(w, h) >= p['L_M'] * ppm and a >= p['A_M'] * ppm:
++            out.append(dict(hop=[x, y, x + w, y + h], px=a, m=round(a / ppm, 1), ppm=round(ppm, 2), nha=int(np.bincount(I[mm]).argmax())))
++    return sorted(out, key=lambda z: -z['m'])
 +
 +
 +# ================================================================ KN-5: (d) quỹ đạo sáng theo điểm ảnh
