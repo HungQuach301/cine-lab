@@ -35,3 +35,4 @@
 - 06:15 UTC: dựng 3D tới H4-04c (Hồi 4); ước hàng 1 xong ≈ 07:20, hàng 2 ≈ 08:30, hàng 3 ≈ 08:50.
 - 06:53 UTC: dựng 3D tới H5-01 (Hồi 5).
 - 07:55 UTC: hàng dựng 1 XONG (47 tệp máy); tấm nền H5-04, H5-05a ghép + (v) đạt; hàng 2 (máy thấp, look2d) bắt đầu.
+- 08:48 UTC: hàng 2 (look2d, 4,2–4,3 s/khung): 4/7 shot.
