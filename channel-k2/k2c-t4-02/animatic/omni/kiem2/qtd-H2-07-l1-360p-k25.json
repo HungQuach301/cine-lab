@@ -1,0 +1,93 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.050 (TB $0.050/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-07-l1-360p-k25",
+   "nam": 1680,
+   "noi": "London",
+   "sha256": "da1bbe6e8f64d14b9ce3b1aebc4f1d2209fa29ffd622dba4504d64fdadfef8d6",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Several windows on the brick houses are tall, narrow, white-framed multi-pane windows that look like vertical sashes. One is at left-center, near x 0.36, y 0.3. Another is at x 0.31, y 0.15.",
+     "ly_do": "Sash windows were only just appearing in London in the 1670s and 1680s. They were not common on ordinary street houses until the early 18th century.",
+     "nam_xuat_hien": 1700,
+     "toa_do_px": [
+      576,
+      194,
+      730,
+      670
+     ],
+     "do_tin": 0.2
+    },
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "The man walking in the foreground wears a tall, straight-sided, narrow-brimmed black top hat. His coat is a plain, long, dark frock-style coat.",
+     "ly_do": "This hat shape is a late 18th to 19th century top hat. Around 1680 men wore broad-brimmed, lower-crowned or sugar-loaf hats, and fashionable men wore periwigs.",
+     "nam_xuat_hien": 1790,
+     "toa_do_px": [
+      538,
+      529,
+      720,
+      994
+     ],
+     "do_tin": 0.55,
+     "xac_nhan": {
+      "vung_px": [
+       0,
+       64,
+       1326,
+       1080
+      ],
+      "phong": 0.51,
+      "tra_loi": {
+       "vat": "Tall black crowned hat worn by a man walking in the street (headgear)",
+       "dac_diem": "The hat is dark and tall with a flat top, a slightly tapered crown and a narrow brim. It looks like a plain, buckle-less sugarloaf or capotain hat. The man also wears a long dark coat with a belt and dark boots. The image is blurry, so I can't make out a hat band or buckle.",
+       "co_tu_nam": 1590,
+       "da_co_nam_1680": "yes",
+       "ly_do": "Tall-crowned black hats (capotain/sugarloaf style) were worn in England from about the late 16th century, and Puritan-style plain versions were still common around 1680. Nothing visible, such as a top-hat silhouette or a buckle, points to a later design."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.0100879,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 0.51×: da_co_nam = 'yes' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.050489599999999996,
+   "cost_buoc2": 0.01009,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1460,
+     "cacheReadInputTokens": 2997,
+     "cacheCreationInputTokens": 10196,
+     "webSearchRequests": 0,
+     "costUSD": 0.0404017,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 422,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 13.7,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1680,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The man walking in the foreground wears a tall, straight-sided, narrow-brimmed black top hat. His coat is a plain, long, dark frock-style coat.\",\"ly_do\":\"This hat shape is a late 18th to 19th century top hat. Around 1680 men wore broad-brimmed, lower-crowned or sugar-loaf hats, and fashionable men wore periwigs.\",\"nam_xuat_hien\":1790,\"toa_do\":[0.28,0.49,0.375,0.92],\"do_tin\":0.55},{\"muc\":\"kien_truc\",\"mo_ta\":\"Several windows on the brick houses are tall, narrow, white-framed multi-pane windows that look like vertical sashes. One is at left-center, near x 0.36, y 0.3. Another is at x 0.31, y 0.15.\",\"ly_do\":\"Sash windows were only just appearing in London in the 1670s and 1680s. They were not common on ordinary street houses until the early 18th century.\",\"nam_xuat_hien\":1700,\"toa_do\":[0.30,0.18,0.38,0.62],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0505,
+ "chi_phi_tb": 0.0505,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

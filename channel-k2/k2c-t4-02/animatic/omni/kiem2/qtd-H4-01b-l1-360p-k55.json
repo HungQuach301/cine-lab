@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H4-01b-l1-360p-k55",
+   "nam": 1940,
+   "noi": "London",
+   "sha256": "bc5203acf74e8f615d33c521b97679685b2e32ac15ae3b1e13cc86671e9e20ba",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "den",
+     "mo_ta": "Several street lamps in the middle distance show a warm glow, and a vehicle in the distance has a bright headlamp. This is a street in the early morning or dusk.",
+     "ly_do": "Britain's blackout was in force from September 1939. Street lamps were unlit or dimmed and vehicle headlamps were masked. Visible glowing lamps are therefore questionable, although they could be dim.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      749,
+      540,
+      1190,
+      778
+     ],
+     "do_tin": 0.15
+    }
+   ],
+   "cost_usd": 0.0357779,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 992,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0357779,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 144,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"den\",\"mo_ta\":\"Several street lamps in the middle distance show a warm glow, and a vehicle in the distance has a bright headlamp. This is a street in the early morning or dusk.\",\"ly_do\":\"Britain's blackout was in force from September 1939. Street lamps were unlit or dimmed and vehicle headlamps were masked. Visible glowing lamps are therefore questionable, although they could be dim.\",\"nam_xuat_hien\":null,\"toa_do\":[0.39,0.5,0.62,0.72],\"do_tin\":0.15}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0358,
+ "chi_phi_tb": 0.0358,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

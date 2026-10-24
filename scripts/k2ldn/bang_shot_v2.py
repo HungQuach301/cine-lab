@@ -59,8 +59,9 @@ S = [
  ('H2-01b', 'HỒI 2', 'H2-01', 6.667, '—', 'MD', None, 'M-d (8) người bới tro tìm lối, khói mỏng', {'MD': 6.667}, {'md': 8}),
  ('H2-02', 'HỒI 2', 'H2-02', 14.625, 'P7', 'XUONG', ('y', 1666.72, 1666.72, [9, 20, 12.0], 0), 'phương án Wren (bản in LoC) đặt khớp lên City cháy — không được dựng', {'A': 14.625, 'TL': 8, 'MAP3D': 4, 'THE': 7}, {'tl': 'loc-wren-plan-0', 'xuong': {'tu': 8.0}, 'the': ['Christopher Wren', 'Robert Hooke'], 'tieu_diem_en': [532350, 181000, 10]}),
  ('H2-03a', 'HỒI 2', 'H2-03', 8.0, '—', 'MD', None, 'M-d (10) 1667: thợ đo căng dây, cắm cọc chia lô giữa tro; chủ đất tranh cãi', {'MD': 8.0}, {'md': 10}),
- ('H2-03b', 'HỒI 2', 'H2-03', 18.167, 'P5', 'CODINH', ('y', 1667.15, 1667.45, [3, 10, 13.0], 0), 'lô đất rối; Toà Cháy ở Clifford\'s Inn (vùng không cháy)', {'A': 18.167}, {'tieu_diem_en': [531600, 181150, 10]}),
- ('H2-04a', 'HỒI 2', 'H2-04', 6.0, '—', 'MD', None, 'M-d (11) Rebuilding Act: thợ xây tường gạch 1667–68', {'MD': 6.0}, {'md': 11}),
+ ('H2-03b', 'HỒI 2', 'H2-03', 12.167, 'P5', 'CODINH', ('y', 1667.15, 1667.45, [3, 10, 13.0], 0), 'lô đất rối trên đúng lưới phố cũ', {'A': 12.167}, {'tieu_diem_en': [532300, 181000, 10]}),
+ ('H2-03c', 'HỒI 2', 'H2-03', 6.0, '—', 'MD', None, "M-d (19) Toà Cháy 1667: phiên xử ở một sảnh gỗ, thẩm phán vô danh, chủ đất và người thuê trình giấy (mới)", {'MD': 6.0}, {'md': 19}),
+ ('H2-04a', 'HỒI 2', 'H2-04', 6.0, 'P4', 'TRUOT', ('y', 1667.6, 1668.4, [6, 1, 11.0], 0), 'Rebuilding Act: nhà gạch mọc dọc Fleet Street (M-d (11) trượt 3 lượt — mũ lỗi thời đại → 3D)', {'A': 6.0}, {'md_truot': 'H2-04a 3/3 lượt LOẠI (mũ bowler/chóp tròn — lỗi thời đại) → 3D', 'tieu_diem_en': [531700, 181150, 20]}),
  ('H2-04b', 'HỒI 2', 'H2-04', 5.708, '—', 'MD', None, 'M-d (11) xe chở gạch, giàn giáo gỗ trên mặt phố', {'MD': 5.708}, {'md': 11}),
  ('H2-05', 'HỒI 2', 'H2-05', 18.833, 'P1', 'CODINH', ('y', 1668.0, 1671.0, [9, 1, 15.0], 0), 'P1: timelapse xây lại bằng gạch trên đúng lô cũ (≈ 6 000 nhà cuối 1670)', {'A': 18.833}, {'tieu_diem_en': [532420, 180980, 15]}),
  ('H2-06', 'HỒI 2', 'H2-06', 12.0, 'P3', 'VONG', ('y', 1671.0, 1677.0, [9, 1, 15.0], 0), 'Monument mọc; 202 ft = khoảng cách tới lò bánh', {'A': 12.0, 'THE': 2.5, 'KHAC': 3}, {'khac': 'rijks-monument-0', 'vong_deg': 30, 'tam': [532923, 180761, 30], 'p': [533190, 180600, 125], 'dem': ['202 ft'], 'tieu_diem_en': [532923, 180761, 30]}),
@@ -97,7 +98,7 @@ S = [
  ('H5-05a', 'HỒI 5', 'H5-05', 16.5, 'P9', 'CODINH', ('d', [2026, 9, 2, 17.0], [2026, 9, 2, 17.3], 1), 'tầm nhìn bảo vệ từ bờ nam: toà cao mọc trên phố cũ, mái vòm vẫn có nền trời', {'A': 16.5, 'N2P': 16.5}, {'tam_nen': [0, 16.5], 'tieu_diem_en': DOME}),
  ('H5-05b', 'HỒI 5', 'H5-05', 9.125, 'P4', 'THAP', ('d', [2026, 9, 2, 17.5], [2026, 9, 2, 17.6], 1), 'từ Fleet Street: Leadenhall vát — mái vòm còn nền trời', {'A': 9.125}, {'tieu_diem_en': DOME}),
  ('H5-06', 'HỒI 5', 'H5-06', 6.0, 'P3', 'CODINH', ('d', [2026, 9, 2, 16.0], [2026, 9, 2, 16.2], 1), 'từ phía đông: mái vòm giữa cụm toà cao', {'A': 6.0}, {'tam_nen_truot': 'P3-2026 trượt (iii) cả 3 lượt → 3D V2 (lệnh việc 5)', 'tieu_diem_en': DOME}),
- ('H5-07a', 'HỒI 5', 'H5-07', 6.0, '—', 'MD', None, 'M-d (18) 2026 đêm: người đứng tường sông Bankside nhìn sang City sáng đèn', {'MD': 6.0}, {'md': 18}),
+ ('H5-07a', 'HỒI 5', 'H5-07', 6.0, 'P9', 'CODINH', ('d', [2026, 9, 2, 22.0], [2026, 9, 2, 22.1], 1), 'bờ nam đêm 2026: City sáng đèn quanh mái vòm (M-d (18) trượt 3 lượt ở ảnh đầu → 3D)', {'A': 6.0}, {'md_truot': 'H5-07a ảnh đầu LOẠI 3/3 lượt → 3D', 'tieu_diem_en': DOME}),
  ('H5-07b', 'HỒI 5', 'H5-07', 15.333, 'P1', 'KHOP', ('khop', ('h66', 22.0, 22.5), ('d', [2026, 9, 2, 22.0], [2026, 9, 2, 22.3], 1), 7.5), 'KHÉP VÒNG: cùng khung Bankside — vòng cung lửa 1666 ↔ đèn City 2026', {'A': 15.333}, {'khop_voi': 'M03', 'hoa_s': 1.0, 'tieu_diem_en': DOME}),
  ('H5-08', 'HỒI 5', 'H5-08', 18.0, 'P1', 'KEO', ('d', [2026, 9, 2, 22.3], [2026, 9, 2, 22.8], 1), 'kéo lùi cuối: mái vòm giữa toà cao, sông, Bankside', {'A': 18.0}, {'lo_ra': 'bờ Bankside + sông + toàn cụm toà cao quanh mái vòm', 'tieu_diem_en': DOME}),
  ('H5-09', 'HỒI 5', 'H5-09', 16.0, '—', 'PP', None, 'hai thẻ "How this film was made" × 8 s (§12.1 b)', {'PP': 16.0}, {}),
@@ -105,7 +106,7 @@ S = [
 MD_MOC = {1: 'Pudding Lane 01:00 2/9', 2: 'bờ sông gần cầu sáng 2/9', 3: 'Thames sà lan + đồ trôi, bờ bắc rực lửa', 4: 'Watling Street xe/người khiêng/người bệnh (+ (6) Cheapside cứu đồ lên xe)',
           5: "chì chảy quanh St Paul's đêm 4/9", 7: 'Moorfields lều/chòi/đống đồ', 8: 'phế tích bốc khói 7/9 (+ tro còn nóng 9/1666)',
           9: 'quán bia Bankside 2/9 chạng vạng (mới)', 10: 'chia lô giữa tro 1667 (mới)', 11: 'xây tường gạch 1667–68 (mới)', 12: 'Thames 1711 (mới)', 13: 'phố gạch 1680 + dấu bảo hiểm cháy (mới)',
-          14: 'hẻm City 1930s (mới)', 15: 'City vắng chiều 29/12/1940 (mới)', 16: 'vòi rồng trên bãi bùn triều thấp 29/12/1940 (mới)', 17: "St Paul's Watch trên mái (mới)", 18: 'Bankside đêm 2026 (mới)'}
+          14: 'hẻm City 1930s (mới)', 15: 'City vắng chiều 29/12/1940 (mới)', 16: 'vòi rồng trên bãi bùn triều thấp 29/12/1940 (mới)', 17: "St Paul's Watch trên mái (mới)", 18: 'Bankside đêm 2026 (mới)', 19: 'Toà Cháy 1667 (mới)'}
 CAP = {'AI': 70, 'N2P': 50, 'MAP_ALL': 12, 'TL_KHAC_THE': 10, 'THAP': 12}
 GOC_CAO = {'P1', 'P2', 'P3', 'P5', 'P7', 'P8', 'P9'}   # ≥ 120 m (V7B-D1); P4/P4b/P6 thấp
 

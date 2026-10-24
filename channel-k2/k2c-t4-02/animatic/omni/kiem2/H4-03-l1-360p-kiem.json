@@ -1,0 +1,342 @@
+{
+ "tag": "H4-03-l1-360p",
+ "clip": "/var/tmp/anim/omni/H4-03/H4-03-l1-360p.mp4",
+ "clip_sha": "7237b6ecabc001a1d240cc0c2c60fb471ec2f9148dfa8396b18ced5da423c715",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H4-03-dau.jpg",
+ "dau_sha": "19c8d121f1872c589572de5a4525d61985df64c5a7a5cd8d067dbb7b066538de",
+ "nam": "1940",
+ "canh": "firefighters on the Thames foreshore at low tide, night of 29 December 1940",
+ "so_khung": 192,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H4-03-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0239,
+      "usage": {
+       "input_tokens": 9758,
+       "input_tokens_details": {
+        "cache_write_tokens": 9755,
+        "cached_tokens": 0
+       },
+       "output_tokens": 443,
+       "output_tokens_details": {
+        "reasoning_tokens": 189
+       },
+       "total_tokens": 10201
+      }
+     },
+     "secs": 12.0,
+     "mo_ta": "Lính cứu hỏa kéo vòi trên bãi bùn ven sông Thames lúc thủy triều thấp, với các thuyền trên sông và những đám cháy phía bờ đối diện vào ban đêm.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm lớn với một cánh buồm tối màu ở phía trái giữa khung hình, đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.276,
+        0.119,
+        0.446,
+        0.4
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu công vụ hoặc tàu chở hàng nhỏ ở bên phải, có thân dài, cột và kết cấu trên boong; có vẻ lớn hơn thuyền chèo hoặc thuyền đánh cá nhỏ, đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.836,
+        0.346,
+        0.998,
+        0.459
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.78
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H4-03-l1-360p-k25",
+      "nam": 1940,
+      "noi": "London",
+      "sha256": "52ba76a1f969861f949b84f7329925a8178725b3ba70a12af37437e350dcf809",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "den",
+        "mo_ta": "A lit gas-style lantern on the riverside wall, plus several bright point lights and lit windows on the far skyline.",
+        "ly_do": "The lamp type fits 1940. London was under strict blackout then, so bright street and window lights would be unlikely. This is a blackout-accuracy issue, not an object that didn't exist yet.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         240,
+         119,
+         307,
+         184
+        ],
+        "do_tin": 0.12
+       }
+      ],
+      "cost_usd": 0.0356217,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 982,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0356217,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 163,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"den\",\"mo_ta\":\"A lit gas-style lantern on the riverside wall, plus several bright point lights and lit windows on the far skyline.\",\"ly_do\":\"The lamp type fits 1940. London was under strict blackout then, so bright street and window lights would be unlikely. This is a blackout-accuracy issue, not an object that didn't exist yet.\",\"nam_xuat_hien\":null,\"toa_do\":[0.125,0.11,0.16,0.17],\"do_tin\":0.12}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0356,
+    "chi_phi_tb": 0.0356,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H4-03-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0241,
+      "usage": {
+       "input_tokens": 9758,
+       "input_tokens_details": {
+        "cache_write_tokens": 9755,
+        "cached_tokens": 0
+       },
+       "output_tokens": 454,
+       "output_tokens_details": {
+        "reasoning_tokens": 233
+       },
+       "total_tokens": 10212
+      }
+     },
+     "secs": 13.5,
+     "mo_ta": "Lính cứu hỏa kéo và nối vòi trên bãi bùn ven sông Thames lúc thủy triều xuống, phía sau là các tàu thuyền và bờ đối diện đang cháy trong đêm.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm có thân lớn và khoang thấp, neo sát bờ bên trái; cánh buồm tối màu không phải cờ.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.137,
+        0.157,
+        0.365,
+        0.447
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu thân dài màu tối nằm sát bờ đối diện, phía bên phải khung hình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.589,
+        0.27,
+        0.966,
+        0.357
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.82
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H4-03-l1-360p-k55",
+      "nam": 1940,
+      "noi": "London",
+      "sha256": "109301fca07d572dbf59b2c7ecbcc1dc558400b24778becfee328e6f5afc1c83",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.033361699999999994,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 756,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.033361699999999994,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 105,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0334,
+    "chi_phi_tb": 0.0334,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H4-03-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0255,
+      "usage": {
+       "input_tokens": 9752,
+       "input_tokens_details": {
+        "cache_write_tokens": 9749,
+        "cached_tokens": 0
+       },
+       "output_tokens": 596,
+       "output_tokens_details": {
+        "reasoning_tokens": 382
+       },
+       "total_tokens": 10348
+      }
+     },
+     "secs": 15.9,
+     "mo_ta": "Lính cứu hỏa kéo vòi trên bãi bùn ven sông Thames lúc thủy triều xuống, phía sau là thuyền và các dãy nhà chìm trong ánh cháy cùng khói đêm.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm có thân lớn và cánh buồm tối màu, neo gần bờ bên trái.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.173,
+        0.176,
+        0.3,
+        0.459
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu thân dài, tối màu neo sát bờ đối diện, phía trước các tòa nhà.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.511,
+        0.304,
+        0.915,
+        0.378
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.78
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H4-03-l1-360p-k90",
+      "nam": 1940,
+      "noi": "London",
+      "sha256": "a777bc5d343ff5097a9278f02aed45d4c3212e21e186227620fe5ac097ce6c0f",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0323117,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 651,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0323117,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 5.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0323,
+    "chi_phi_tb": 0.0323,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

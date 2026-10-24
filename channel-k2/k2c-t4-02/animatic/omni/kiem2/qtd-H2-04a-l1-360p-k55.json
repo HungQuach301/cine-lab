@@ -1,0 +1,116 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung H2-04a-l1-360p-k55 năm 1667: [quan_phuc] The man in the foreground wears a grey flat peaked cap and a buttoned grey waistcoat or vest over a white shirt. The cut is Victorian or Edwardian. — The peaked flat cap and the cut of the waistcoat are 19th-century. A man in 1667 would wear a doublet or jerkin and a different kind of hat. (xuất hiện 1850) @px [1248, 886, 1459, 1080] tin 0.65"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.052 (TB $0.052/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-04a-l1-360p-k55",
+   "nam": 1667,
+   "noi": "London",
+   "sha256": "ccd76b3a0bc09291f8de9e93dff5c66ce844284d36a694e1fdda5de51d2f7146",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "The man in the foreground wears a grey flat peaked cap and a buttoned grey waistcoat or vest over a white shirt. The cut is Victorian or Edwardian.",
+     "ly_do": "The peaked flat cap and the cut of the waistcoat are 19th-century. A man in 1667 would wear a doublet or jerkin and a different kind of hat.",
+     "nam_xuat_hien": 1850,
+     "toa_do_px": [
+      1248,
+      886,
+      1459,
+      1080
+     ],
+     "do_tin": 0.65,
+     "xac_nhan": {
+      "vung_px": [
+       1037,
+       666,
+       1670,
+       1080
+      ],
+      "phong": 1.06,
+      "tra_loi": {
+       "vat": "Flat cap (newsboy/baker-boy style cap) worn by a man seen from behind",
+       "dac_diem": "Soft grey, rounded cap with a short stiff brim and a panelled crown that sits close to the head. The man also wears a grey waistcoat over a light shirt. He stands in front of a brick building with a timber post and a doorway.",
+       "co_tu_nam": null,
+       "da_co_nam_1667": "no",
+       "ly_do": "The panelled, peaked flat cap with a stitched crown is a late 19th to early 20th century style. Flat woollen caps existed in 16th-century England, but this design did not. In 1667 men wore wide-brimmed hats, caps or coifs. The waistcoat cut also looks later than 1667."
+      },
+      "da_co": "no",
+      "giu": true,
+      "cost_usd": 0.0066411,
+      "loi": null
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "The bricklayer on the scaffold wears a soft, peaked flat cap, a baker-boy or newsboy style. His collarless work shirt and braces-style apron also look 19th-century.",
+     "ly_do": "Peaked flat caps like this are 19th-century working-class headgear. In 1667 a London labourer would wear a knit or felt cap, a broad-brimmed hat or a coif.",
+     "nam_xuat_hien": 1800,
+     "toa_do_px": [
+      1229,
+      259,
+      1382,
+      367
+     ],
+     "do_tin": 0.6,
+     "xac_nhan": {
+      "vung_px": [
+       1076,
+       83,
+       1535,
+       542
+      ],
+      "phong": 1.46,
+      "tra_loi": {
+       "vat": "A bricklayer's dark, soft, round cap (headgear) worn by a workman on scaffolding",
+       "dac_diem": "Dark grey rounded, soft cap with a small brim at the front, worn by a man in a pale shirt and dark apron or trousers who is laying bricks with a trowel. No insignia, badge or uniform details are visible.",
+       "co_tu_nam": null,
+       "da_co_nam_1667": "yes",
+       "ly_do": "Plain soft brimmed caps were ordinary working-class headgear in 17th-century England, so a cap like this is plausible for 1667. The blur means I can't confirm the exact cut."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.0067511,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 1.46×: da_co_nam = 'yes' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.0524501,
+   "cost_buoc2": 0.01339,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1320,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0390579,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 278,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The bricklayer on the scaffold wears a soft, peaked flat cap, a baker-boy or newsboy style. His collarless work shirt and braces-style apron also look 19th-century.\",\"ly_do\":\"Peaked flat caps like this are 19th-century working-class headgear. In 1667 a London labourer would wear a knit or felt cap, a broad-brimmed hat or a coif.\",\"nam_xuat_hien\":1800,\"toa_do\":[0.64,0.24,0.72,0.34],\"do_tin\":0.6},{\"muc\":\"quan_phuc\",\"mo_ta\":\"The man in the foreground wears a grey flat peaked cap and a buttoned grey waistcoat or vest over a white shirt. The cut is Victorian or Edwardian.\",\"ly_do\":\"The peaked flat cap and the cut of the waistcoat are 19th-century. A man in 1667 would wear a doublet or jerkin and a different kind of hat.\",\"nam_xuat_hien\":1850,\"toa_do\":[0.65,0.82,0.76,1.0],\"do_tin\":0.65}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0525,
+ "chi_phi_tb": 0.0525,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

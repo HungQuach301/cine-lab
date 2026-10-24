@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H4-03-l1-360p-k25",
+   "nam": 1940,
+   "noi": "London",
+   "sha256": "52ba76a1f969861f949b84f7329925a8178725b3ba70a12af37437e350dcf809",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "den",
+     "mo_ta": "A lit gas-style lantern on the riverside wall, plus several bright point lights and lit windows on the far skyline.",
+     "ly_do": "The lamp type fits 1940. London was under strict blackout then, so bright street and window lights would be unlikely. This is a blackout-accuracy issue, not an object that didn't exist yet.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      240,
+      119,
+      307,
+      184
+     ],
+     "do_tin": 0.12
+    }
+   ],
+   "cost_usd": 0.0356217,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 982,
+     "cacheReadInputTokens": 2997,
+     "cacheCreationInputTokens": 10196,
+     "webSearchRequests": 0,
+     "costUSD": 0.0356217,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 163,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.4,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"den\",\"mo_ta\":\"A lit gas-style lantern on the riverside wall, plus several bright point lights and lit windows on the far skyline.\",\"ly_do\":\"The lamp type fits 1940. London was under strict blackout then, so bright street and window lights would be unlikely. This is a blackout-accuracy issue, not an object that didn't exist yet.\",\"nam_xuat_hien\":null,\"toa_do\":[0.125,0.11,0.16,0.17],\"do_tin\":0.12}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0356,
+ "chi_phi_tb": 0.0356,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

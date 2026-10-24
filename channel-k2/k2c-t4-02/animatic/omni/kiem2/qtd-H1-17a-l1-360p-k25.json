@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-17a-l1-360p-k25",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "4fc032af15c8a74690736ae7d45857e9d25469cc4e80a3967551c557f23660f4",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A tall, thin Gothic needle spire stands in the middle of the burning skyline. It looks like a cathedral spire. Beside it is a continuous, uniform high city wall.",
+     "ly_do": "Old St Paul's had lost its spire after a lightning strike in 1561, so in 1666 it had a square central tower and no spire. A spire in this position is probably wrong. The long, intact wall is also doubtful, because London's wall was partly ruined and built over by 1666. The skyline is blurred, so thi",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      826,
+      194,
+      902,
+      356
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.0366679,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1081,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0366679,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 184,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.2,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall, thin Gothic needle spire stands in the middle of the burning skyline. It looks like a cathedral spire. Beside it is a continuous, uniform high city wall.\",\"ly_do\":\"Old St Paul's had lost its spire after a lightning strike in 1561, so in 1666 it had a square central tower and no spire. A spire in this position is probably wrong. The long, intact wall is also doubtful, because London's wall was partly ruined and built over by 1666. The skyline is blurred, so this is a weak call.\",\"nam_xuat_hien\":null,\"toa_do\":[0.43,0.18,0.47,0.33],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0367,
+ "chi_phi_tb": 0.0367,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

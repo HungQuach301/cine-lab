@@ -1,0 +1,95 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung H2-04a-l2-360p-k25 năm 1667: [khác:None] In the street background there is a boxy, enclosed vehicle with a flat roof and square glass windows. It looks like an early 20th-century motor car or taxi, with a horse-drawn cart beside it. — Motor vehicles did not exist in 1667. Coaches of the period were rounded, hung on leather straps, and had no flat roof or large square glass panes. (xuất hiện 1900) @px [282, 556, 361, 661] tin 0.8"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.045 (TB $0.045/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-04a-l2-360p-k25",
+   "nam": 1667,
+   "noi": "London",
+   "sha256": "617d06947c767f9cee2cdddc2f02d513a05ec7796c6ce9f726c5c3b39ee5f95f",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [
+    {
+     "muc": "khác:None",
+     "mo_ta": "In the street background there is a boxy, enclosed vehicle with a flat roof and square glass windows. It looks like an early 20th-century motor car or taxi, with a horse-drawn cart beside it.",
+     "ly_do": "Motor vehicles did not exist in 1667. Coaches of the period were rounded, hung on leather straps, and had no flat roof or large square glass panes.",
+     "nam_xuat_hien": 1900,
+     "toa_do_px": [
+      282,
+      556,
+      361,
+      661
+     ],
+     "do_tin": 0.8,
+     "xac_nhan": {
+      "vung_px": [
+       164,
+       451,
+       479,
+       766
+      ],
+      "phong": 2.13,
+      "tra_loi": {
+       "vat": "A boxy, enclosed motor car (early-1900s style) standing in the street behind a woman and a horse",
+       "dac_diem": "Square, upright cabin with a flat white-topped roof. Two small windows at the front or rear. Dark body. It looks like a Model T-era automobile. A horse and several people in long dresses and caps stand around it. Tall brick buildings line the street.",
+       "co_tu_nam": 1908,
+       "da_co_nam_1667": "no",
+       "ly_do": "The enclosed, box-bodied automobile appears to be an early-20th-century design (Model T era, about 1908–1920s). Motor cars did not exist in 1667, so it is an anachronism. Horse-drawn coaches were the only vehicles of that kind then."
+      },
+      "da_co": "no",
+      "giu": true,
+      "cost_usd": 0.007079500000000001,
+      "loi": null
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "khác:None",
+     "mo_ta": "The mason at lower right wears a soft flat cap with a stitched crown and short peak. He also wears a tailored grey waistcoat and a rolled-sleeve shirt, in a Victorian style.",
+     "ly_do": "The flat cap is a 19th-century style of working-class headgear. In 1667 London workmen wore knitted or felt caps, or broad-brimmed hats.",
+     "nam_xuat_hien": 1850,
+     "toa_do_px": [
+      1571,
+      630,
+      1670,
+      702
+     ],
+     "do_tin": 0.45
+    }
+   ],
+   "cost_usd": 0.0451174,
+   "cost_buoc2": 0.00708,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1218,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0380379,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 198,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 13.7,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"mo_ta\":\"In the street background there is a boxy, enclosed vehicle with a flat roof and square glass windows. It looks like an early 20th-century motor car or taxi, with a horse-drawn cart beside it.\",\"ly_do\":\"Motor vehicles did not exist in 1667. Coaches of the period were rounded, hung on leather straps, and had no flat roof or large square glass panes.\",\"nam_xuat_hien\":1900,\"toa_do\":[0.147,0.515,0.188,0.612],\"do_tin\":0.8},{\"mo_ta\":\"The mason at lower right wears a soft flat cap with a stitched crown and short peak. He also wears a tailored grey waistcoat and a rolled-sleeve shirt, in a Victorian style.\",\"ly_do\":\"The flat cap is a 19th-century style of working-class headgear. In 1667 London workmen wore knitted or felt caps, or broad-brimmed hats.\",\"nam_xuat_hien\":1850,\"toa_do\":[0.818,0.583,0.87,0.65],\"do_tin\":0.45}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0451,
+ "chi_phi_tb": 0.0451,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

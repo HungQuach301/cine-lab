@@ -1,0 +1,85 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 3 · chi phí $0.040 (TB $0.040/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-17a-l1-360p-k55",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "8801fc81f4f22448dc51e6a1ffc78fcfb4260af17d110316feca80614fc3ee73",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "The man at the far left wears a black hat with a wide brim that looks turned up, close to a tricorn.",
+     "ly_do": "The tricorn became fashionable in the 1690s and later. In 1666 men wore broad-brimmed, high-crowned hats that were not cocked into three corners.",
+     "nam_xuat_hien": 1690,
+     "toa_do_px": [
+      0,
+      410,
+      125,
+      486
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "The skyline on the right has tall, flat-topped, boxy tower blocks with a square tower and a thin spire. They look like Victorian or modern rectangular buildings.",
+     "ly_do": "The skyline of London in 1666 was medieval and Tudor, made up of timber-framed houses and church steeples. It had no tall, uniform, multi-storey block towers.",
+     "nam_xuat_hien": 1850,
+     "toa_do_px": [
+      1536,
+      194,
+      1920,
+      378
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "The central skyline has slender Gothic needle spires, one of them a very tall pointed spire at about x=0.45.",
+     "ly_do": "Old St Paul's had lost its spire in 1561. A tall, thin Gothic spire of this kind does not match the 1666 skyline, and the look is more Victorian Gothic Revival.",
+     "nam_xuat_hien": 1850,
+     "toa_do_px": [
+      826,
+      108,
+      902,
+      335
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.0397879,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1393,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0397879,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 215,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 16.2,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The man at the far left wears a black hat with a wide brim that looks turned up, close to a tricorn.\",\"ly_do\":\"The tricorn became fashionable in the 1690s and later. In 1666 men wore broad-brimmed, high-crowned hats that were not cocked into three corners.\",\"nam_xuat_hien\":1690,\"toa_do\":[0.0,0.38,0.065,0.45],\"do_tin\":0.4},{\"muc\":\"kien_truc\",\"mo_ta\":\"The skyline on the right has tall, flat-topped, boxy tower blocks with a square tower and a thin spire. They look like Victorian or modern rectangular buildings.\",\"ly_do\":\"The skyline of London in 1666 was medieval and Tudor, made up of timber-framed houses and church steeples. It had no tall, uniform, multi-storey block towers.\",\"nam_xuat_hien\":1850,\"toa_do\":[0.8,0.18,1.0,0.35],\"do_tin\":0.4},{\"muc\":\"kien_truc\",\"mo_ta\":\"The central skyline has slender Gothic needle spires, one of them a very tall pointed spire at about x=0.45.\",\"ly_do\":\"Old St Paul's had lost its spire in 1561. A tall, thin Gothic spire of this kind does not match the 1666 skyline, and the look is more Victorian Gothic Revival.\",\"nam_xuat_hien\":1850,\"toa_do\":[0.43,0.1,0.47,0.31],\"do_tin\":0.25}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0398,
+ "chi_phi_tb": 0.0398,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

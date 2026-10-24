@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-17a-l1-360p-k90",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "5bf577b7e257ac2916a7a0dd8a442d41fd5941cc3e6ae24e57dff0ce5da8cdb3",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "The skyline has a tall slender spire with a cupola at the left, a tall square tower at the right, and a long crenellated wall. None of these clearly matches Old St Paul's, which had a massive square central tower. The skyline looks generic rather than like London.",
+     "ly_do": "The skyline does not clearly show Old St Paul's or the London church steeples of 1666. The shapes are too small and blurred to call any one structure post-1666, so this is only a weak suspicion.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      384,
+      194,
+      442,
+      324
+     ],
+     "do_tin": 0.12
+    }
+   ],
+   "cost_usd": 0.036757899999999996,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1090,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.036757899999999996,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 213,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The skyline has a tall slender spire with a cupola at the left, a tall square tower at the right, and a long crenellated wall. None of these clearly matches Old St Paul's, which had a massive square central tower. The skyline looks generic rather than like London.\",\"ly_do\":\"The skyline does not clearly show Old St Paul's or the London church steeples of 1666. The shapes are too small and blurred to call any one structure post-1666, so this is only a weak suspicion.\",\"nam_xuat_hien\":null,\"toa_do\":[0.2,0.18,0.23,0.3],\"do_tin\":0.12}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0368,
+ "chi_phi_tb": 0.0368,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

@@ -1,0 +1,488 @@
+{
+ "tag": "H4-01b-l1-360p",
+ "clip": "/var/tmp/anim/omni/H4-01b/H4-01b-l1-360p.mp4",
+ "clip_sha": "2a3f094637e4e1d2301dbb3d1a218c071e55d2157c533674c79f94131eff437b",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H4-01b-dau.jpg",
+ "dau_sha": "fc52b567434635478e6220ed3fa5e1a5493f5126a75b81f41596a6a211198741",
+ "nam": "1940",
+ "canh": "an empty City of London street on Sunday afternoon, 29 December 1940",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H4-01b-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0272,
+      "usage": {
+       "input_tokens": 9743,
+       "input_tokens_details": {
+        "cache_write_tokens": 9740,
+        "cached_tokens": 0
+       },
+       "output_tokens": 774,
+       "output_tokens_details": {
+        "reasoning_tokens": 398
+       },
+       "total_tokens": 10517
+      }
+     },
+     "secs": 20.7,
+     "mo_ta": "Phố lát đá ở London với vài người đi bộ, khinh khí cầu trên trời, mái vòm St Paul ở phía xa và một số đốm màu cam trên mặt đường.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Mái vòm và phần thân phía trên của Nhà thờ St Paul ở cuối phố.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.673,
+        0.218,
+        0.742,
+        0.471
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Chi tiết ban công hoặc lan can trang trí nhô ra ở mép phải phía trên, không thấy trong khung tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.963,
+        0.169,
+        1.0,
+        0.301
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.77
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đốm màu cam giống ngọn lửa nhỏ được thêm trên mặt đường phía trước; hình ảnh chưa đủ rõ để loại trừ lá khô.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.57,
+        0.813,
+        0.594,
+        0.867
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.57
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm màu cam giống lửa nhỏ trên mặt đường phía bên phải; cũng có thể là lá khô đang bay.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.655,
+        0.751,
+        0.685,
+        0.8
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.55
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Chi tiết ban công hoặc lan can trang trí nhô ra ở mép phải phía trên, không thấy trong khung tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.963,
+        0.169,
+        1.0,
+        0.301
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.77
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đốm màu cam giống ngọn lửa nhỏ được thêm trên mặt đường phía trước; hình ảnh chưa đủ rõ để loại trừ lá khô.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.57,
+        0.813,
+        0.594,
+        0.867
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.57
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm màu cam giống lửa nhỏ trên mặt đường phía bên phải; cũng có thể là lá khô đang bay.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.655,
+        0.751,
+        0.685,
+        0.8
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.55
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H4-01b-l1-360p-k25",
+      "nam": 1940,
+      "noi": "London",
+      "sha256": "72fa3d969bdd711361cb6e928f280df7a2cc41e299109d47cd839209cd7e1485",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 661,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0325,
+    "chi_phi_tb": 0.0325,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H4-01b-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0242,
+      "usage": {
+       "input_tokens": 9749,
+       "input_tokens_details": {
+        "cache_write_tokens": 9746,
+        "cached_tokens": 0
+       },
+       "output_tokens": 470,
+       "output_tokens_details": {
+        "reasoning_tokens": 168
+       },
+       "total_tokens": 10219
+      }
+     },
+     "secs": 13.0,
+     "mo_ta": "Khung hình cho thấy một con phố lát đá ở London với vài người đi bộ, các tòa nhà cổ, bóng bay phòng không và mái vòm Nhà thờ St Paul ở phía xa.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ St Paul với mái vòm lớn và tháp đèn đặc trưng ở cuối phố.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.587,
+        0.221,
+        0.663,
+        0.49
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Lan can ban công bằng kim loại được thêm trước cửa sổ tầng trên của tòa nhà bên phải; không thấy chi tiết tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.867,
+        0.177,
+        0.929,
+        0.325
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Một lan can ban công bằng kim loại khác ở sát mép phải phía trên, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.945,
+        0.074,
+        1.0,
+        0.245
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Lan can ban công bằng kim loại được thêm trước cửa sổ tầng trên của tòa nhà bên phải; không thấy chi tiết tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.867,
+        0.177,
+        0.929,
+        0.325
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Một lan can ban công bằng kim loại khác ở sát mép phải phía trên, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.945,
+        0.074,
+        1.0,
+        0.245
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H4-01b-l1-360p-k55",
+      "nam": 1940,
+      "noi": "London",
+      "sha256": "bc5203acf74e8f615d33c521b97679685b2e32ac15ae3b1e13cc86671e9e20ba",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "den",
+        "mo_ta": "Several street lamps in the middle distance show a warm glow, and a vehicle in the distance has a bright headlamp. This is a street in the early morning or dusk.",
+        "ly_do": "Britain's blackout was in force from September 1939. Street lamps were unlit or dimmed and vehicle headlamps were masked. Visible glowing lamps are therefore questionable, although they could be dim.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         749,
+         540,
+         1190,
+         778
+        ],
+        "do_tin": 0.15
+       }
+      ],
+      "cost_usd": 0.0357779,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 992,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0357779,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 144,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"den\",\"mo_ta\":\"Several street lamps in the middle distance show a warm glow, and a vehicle in the distance has a bright headlamp. This is a street in the early morning or dusk.\",\"ly_do\":\"Britain's blackout was in force from September 1939. Street lamps were unlit or dimmed and vehicle headlamps were masked. Visible glowing lamps are therefore questionable, although they could be dim.\",\"nam_xuat_hien\":null,\"toa_do\":[0.39,0.5,0.62,0.72],\"do_tin\":0.15}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0358,
+    "chi_phi_tb": 0.0358,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H4-01b-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0264,
+      "usage": {
+       "input_tokens": 9743,
+       "input_tokens_details": {
+        "cache_write_tokens": 9740,
+        "cached_tokens": 0
+       },
+       "output_tokens": 692,
+       "output_tokens_details": {
+        "reasoning_tokens": 299
+       },
+       "total_tokens": 10435
+      }
+     },
+     "secs": 16.6,
+     "mo_ta": "Khung hình cho thấy một phố lát đá ở London với vài người đi bộ, các khinh khí cầu trên trời và mái vòm Nhà thờ St Paul ở phía xa.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ St Paul với mái vòm và tháp đèn đặc trưng ở cuối phố.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.497,
+        0.222,
+        0.568,
+        0.475
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dãy ban công hoặc lan can sắt trang trí trước các cửa sổ tầng trên bên phải được thêm vào, không có trên mặt tiền tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.758,
+        0.0,
+        1.0,
+        0.354
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Phần mặt tiền tầng trệt ngoài cùng bên phải bị biến đổi thành hệ cửa kính lớn, các ô ốp tối màu và cửa ra vào có bậc cùng gờ trang trí mới.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.766,
+        0.223,
+        1.0,
+        0.812
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Dãy ban công hoặc lan can sắt trang trí trước các cửa sổ tầng trên bên phải được thêm vào, không có trên mặt tiền tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.758,
+        0.0,
+        1.0,
+        0.354
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Phần mặt tiền tầng trệt ngoài cùng bên phải bị biến đổi thành hệ cửa kính lớn, các ô ốp tối màu và cửa ra vào có bậc cùng gờ trang trí mới.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.766,
+        0.223,
+        1.0,
+        0.812
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H4-01b-l1-360p-k90",
+      "nam": 1940,
+      "noi": "London",
+      "sha256": "4aab1898fb72707215d12b21bd6d005d75304d798f4abd0d8a96d945b7bbc7bc",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 661,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 5.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0325,
+    "chi_phi_tb": 0.0325,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

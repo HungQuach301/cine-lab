@@ -53,9 +53,10 @@
 | H2-01a | 4:34.2 | 6.500 | L34–L35 (nhóm H2-01: H2-01a, H2-01b) | — | MD | md | — | M-d (8) lối đi giữa tro còn nóng; tháp nhà thờ cháy dở làm mốc | MD (6.5) |  |
 | H2-01b | 4:40.8 | 6.667 | L34–L35 (nhóm H2-01: H2-01a, H2-01b) | — | MD | md | — | M-d (8) người bới tro tìm lối, khói mỏng | MD (6.667) |  |
 | H2-02 | 4:47.4 | 14.625 | L36–L37 | P7 | XUONG | cao | 1666.72 | phương án Wren (bản in LoC) đặt khớp lên City cháy — không được dựng | A (14.625), TL (8), MAP3D (4), THE (7) | thẻ: Christopher Wren; Robert Hooke |
-| H2-03a | 5:02.0 | 8.000 | L39–L40 (nhóm H2-03: H2-03a, H2-03b) | — | MD | md | — | M-d (10) 1667: thợ đo căng dây, cắm cọc chia lô giữa tro; chủ đất tranh cãi | MD (8) |  |
-| H2-03b | 5:10.0 | 18.167 | L39–L40 (nhóm H2-03: H2-03a, H2-03b) | P5 | CODINH | cao | 1667.15 → 1667.45 | lô đất rối; Toà Cháy ở Clifford's Inn (vùng không cháy) | A (18.167) |  |
-| H2-04a | 5:28.2 | 6.000 | L41–L42 (nhóm H2-04: H2-04a, H2-04b) | — | MD | md | — | M-d (11) Rebuilding Act: thợ xây tường gạch 1667–68 | MD (6) |  |
+| H2-03a | 5:02.0 | 8.000 | L39–L40 (nhóm H2-03: H2-03a, H2-03b, H2-03c) | — | MD | md | — | M-d (10) 1667: thợ đo căng dây, cắm cọc chia lô giữa tro; chủ đất tranh cãi | MD (8) |  |
+| H2-03b | 5:10.0 | 12.167 | L39–L40 (nhóm H2-03: H2-03a, H2-03b, H2-03c) | P5 | CODINH | cao | 1667.15 → 1667.45 | lô đất rối trên đúng lưới phố cũ | A (12.167) |  |
+| H2-03c | 5:22.2 | 6.000 | L39–L40 (nhóm H2-03: H2-03a, H2-03b, H2-03c) | — | MD | md | — | M-d (19) Toà Cháy 1667: phiên xử ở một sảnh gỗ, thẩm phán vô danh, chủ đất và người thuê trình giấy (mới) | MD (6) |  |
+| H2-04a | 5:28.2 | 6.000 | L41–L42 (nhóm H2-04: H2-04a, H2-04b) | P4 | TRUOT | thap | 1667.6 → 1668.4 | Rebuilding Act: nhà gạch mọc dọc Fleet Street (M-d (11) trượt 3 lượt — mũ lỗi thời đại → 3D) | A (6) |  |
 | H2-04b | 5:34.2 | 5.708 | L41–L42 (nhóm H2-04: H2-04a, H2-04b) | — | MD | md | — | M-d (11) xe chở gạch, giàn giáo gỗ trên mặt phố | MD (5.708) |  |
 | H2-05 | 5:39.9 | 18.833 | L43–L44 | P1 | CODINH | cao | 1668 → 1671 | P1: timelapse xây lại bằng gạch trên đúng lô cũ (≈ 6 000 nhà cuối 1670) | A (18.833) |  |
 | H2-06 | 5:58.8 | 12.000 | L46 | P3 | VONG | cao | 1671 → 1677 | Monument mọc; 202 ft = khoảng cách tới lò bánh | A (12), THE (2.5), KHAC (3) | bộ đếm: 202 ft |
@@ -92,22 +93,22 @@
 | H5-05a | 10:43.1 | 16.500 | L79–L82 (nhóm H5-05: H5-05a, H5-05b) | P9 | CODINH | cao | 2/9/2026 17h → 17.3h | tầm nhìn bảo vệ từ bờ nam: toà cao mọc trên phố cũ, mái vòm vẫn có nền trời | A (16.5), N2P (16.5) | tấm nền 0–16.5 s |
 | H5-05b | 10:59.6 | 9.125 | L79–L82 (nhóm H5-05: H5-05a, H5-05b) | P4 | THAP | thap | 2/9/2026 17.5h → 17.6h | từ Fleet Street: Leadenhall vát — mái vòm còn nền trời | A (9.125) |  |
 | H5-06 | 11:08.8 | 6.000 | (lặng) | P3 | CODINH | cao | 2/9/2026 16h → 16.2h | từ phía đông: mái vòm giữa cụm toà cao | A (6) |  |
-| H5-07a | 11:14.8 | 6.000 | L83–L86 (nhóm H5-07: H5-07a, H5-07b) | — | MD | md | — | M-d (18) 2026 đêm: người đứng tường sông Bankside nhìn sang City sáng đèn | MD (6) |  |
+| H5-07a | 11:14.8 | 6.000 | L83–L86 (nhóm H5-07: H5-07a, H5-07b) | P9 | CODINH | cao | 2/9/2026 22h → 22.1h | bờ nam đêm 2026: City sáng đèn quanh mái vòm (M-d (18) trượt 3 lượt ở ảnh đầu → 3D) | A (6) |  |
 | H5-07b | 11:20.8 | 15.333 | L83–L86 (nhóm H5-07: H5-07a, H5-07b) | P1 | KHOP | cao | KHOP: lửa 1666 giờ 22 → 22.5 (kể từ 2/9 00:00) ↔ 2/9/2026 22h → 22.3h (cắt ở 7.5 s) | KHÉP VÒNG: cùng khung Bankside — vòng cung lửa 1666 ↔ đèn City 2026 | A (15.333) | KHOP với M03, hoà 1 s |
 | H5-08 | 11:36.1 | 18.000 | (lặng) | P1 | KEO | cao | 2/9/2026 22.3h → 22.8h | kéo lùi cuối: mái vòm giữa toà cao, sông, Bankside | A (18) | lộ ra: bờ Bankside + sông + toàn cụm toà cao quanh mái vòm |
 | H5-09 | 11:54.1 | 16.000 | — | — | PP | pp | — | hai thẻ "How this film was made" × 8 s (§12.1 b) | PP (16) |  |
 
 ## Tổng + kiểm trước dựng
 
-- Thời lượng **730.083 s** (K1-C1 730.083 s) · **73 shot** · TB 10.0 s · M-d 24 clip / 17 khoảnh khắc.
-- Lớp (s): {'A': 550.416, 'N2P': 33.5, 'MD': 154.667, 'THE': 46.5, 'KHAC': 16, 'MAP': 11.458, 'MAP3D': 22.0, 'TL': 8, 'PP': 16.0}
+- Thời lượng **730.083 s** (K1-C1 730.083 s) · **74 shot** · TB 9.87 s · M-d 23 clip / 17 khoảnh khắc.
+- Lớp (s): {'A': 556.416, 'N2P': 33.5, 'MD': 148.667, 'THE': 46.5, 'KHAC': 16, 'MAP': 11.458, 'MAP3D': 22.0, 'TL': 8, 'PP': 16.0}
 
 | Chỉ số | Giá trị | Trần | Sàn | Đạt | ±5 % quanh ngưỡng | Ghi |
 |---|---|---|---|---|---|---|
 | Tổng = K1-C1 730,083 s | 730.083 |  |  | ĐẠT |  |  |
-| Omni M-d % (Q1: 20–23 %) | 21.18 | 23 | 20 | ĐẠT |  |  |
+| Omni M-d % (Q1: 20–23 %) | 20.36 | 23 | 20 | ĐẠT | **CÓ** |  |
 | Tấm nền N2+ % (V7: mục tiêu 5–15 %) | 4.59 | 15 | 5 | **TRƯỢT** |  | P3-2026 (H5-06) trượt (iii) 3/3 lượt → 3D |
-| Tổng AI % (≤ 70) | 25.77 | 70 |  | ĐẠT |  |  |
+| Tổng AI % (≤ 70) | 24.95 | 70 |  | ĐẠT |  |  |
 | BAN-DO-12: MAP + MAP3D % (≤ 12) | 4.58 | 12 |  | ĐẠT |  |  |
 | TU-LIEU-10: TL + KHAC + THE % (≤ 10) | 9.66 | 10 |  | ĐẠT | **CÓ** |  |
 | GOC-CAO-60: góc cao có thời gian chạy / thân phim % (≥ 60) | 66.1 |  | 60 | ĐẠT |  | ước trước dựng theo điểm máy; số đo thật theo log khung V7B-D1 ở k2check |
@@ -124,7 +125,7 @@
 | HỒI 1: số loại cú máy ≥ 4 | 6 |  | 4 | ĐẠT |  |  |
 | HỒI 1: chuỗi cùng loại ≤ 2 | 1 | 2 |  | ĐẠT |  |  |
 | HỒI 1: P1 tái xuất (fov 36°) |  |  |  | ĐẠT |  |  |
-| HỒI 2: số loại cú máy ≥ 4 | 7 |  | 4 | ĐẠT |  |  |
+| HỒI 2: số loại cú máy ≥ 4 | 8 |  | 4 | ĐẠT |  |  |
 | HỒI 2: chuỗi cùng loại ≤ 2 | 1 | 2 |  | ĐẠT |  |  |
 | HỒI 2: P1 tái xuất (fov 36°) |  |  |  | ĐẠT |  |  |
 | HỒI 3: số loại cú máy ≥ 4 | 5 |  | 4 | ĐẠT |  |  |
@@ -150,11 +151,11 @@
 | 8 | phế tích bốc khói 7/9 (+ tro còn nóng 9/1666) | H1-19, H2-01a, H2-01b | 19.167 |
 | 9 | quán bia Bankside 2/9 chạng vạng (mới) | H1-08a | 6.000 |
 | 10 | chia lô giữa tro 1667 (mới) | H2-03a | 8.000 |
-| 11 | xây tường gạch 1667–68 (mới) | H2-04a, H2-04b | 11.708 |
+| 11 | xây tường gạch 1667–68 (mới) | H2-04b | 5.708 |
 | 12 | Thames 1711 (mới) | H2-13 | 6.000 |
 | 13 | phố gạch 1680 + dấu bảo hiểm cháy (mới) | H2-07 | 7.917 |
 | 14 | hẻm City 1930s (mới) | H3-04b | 7.000 |
 | 15 | City vắng chiều 29/12/1940 (mới) | H4-01b | 6.000 |
 | 16 | vòi rồng trên bãi bùn triều thấp 29/12/1940 (mới) | H4-03 | 8.000 |
 | 17 | St Paul's Watch trên mái (mới) | H4-04b | 6.500 |
-| 18 | Bankside đêm 2026 (mới) | H5-07a | 6.000 |
+| 19 | Toà Cháy 1667 (mới) | H2-03c | 6.000 |

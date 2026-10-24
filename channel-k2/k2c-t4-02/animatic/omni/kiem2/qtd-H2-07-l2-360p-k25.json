@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-07-l2-360p-k25",
+   "nam": 1680,
+   "noi": "London",
+   "sha256": "c0450f6b18a37105f77e83a0141037a27abe6949546bb8f047cf73a2021fe56f",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Narrow brick house windows on the left have thin white glazing bars and look like vertical sliding sash windows, with a cast-iron-style drainpipe running down beside them.",
+     "ly_do": "Sash windows were only just appearing in 1680 and were very rare, mostly in elite buildings. On ordinary brick houses in this street the windows would be leaded casements like the diamond-pane ones nearby. This is a weak finding.",
+     "nam_xuat_hien": 1685,
+     "toa_do_px": [
+      595,
+      184,
+      672,
+      389
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.0368917,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1109,
+     "cacheReadInputTokens": 2997,
+     "cacheCreationInputTokens": 10196,
+     "webSearchRequests": 0,
+     "costUSD": 0.0368917,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 254,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.0,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1680,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Narrow brick house windows on the left have thin white glazing bars and look like vertical sliding sash windows, with a cast-iron-style drainpipe running down beside them.\",\"ly_do\":\"Sash windows were only just appearing in 1680 and were very rare, mostly in elite buildings. On ordinary brick houses in this street the windows would be leaded casements like the diamond-pane ones nearby. This is a weak finding.\",\"nam_xuat_hien\":1685,\"toa_do\":[0.31,0.17,0.35,0.36],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0369,
+ "chi_phi_tb": 0.0369,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

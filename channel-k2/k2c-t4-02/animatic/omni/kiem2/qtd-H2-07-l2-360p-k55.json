@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-07-l2-360p-k55",
+   "nam": 1680,
+   "noi": "London",
+   "sha256": "40308df45c14c0e715556c8ca823bc8eadfe975695e43cc5f2453163543cb3c6",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "khác:None",
+     "mo_ta": "Several windows on the neighbouring brick houses at left are multi-pane vertical sliding sashes with thin white glazing bars. The main house has leaded diamond casements.",
+     "ly_do": "Sash windows were only just appearing in England in the 1670s and 1680s. They were rare and mostly limited to high-status buildings. Using them on ordinary brick terrace houses in 1680 is probably too early.",
+     "nam_xuat_hien": 1685,
+     "toa_do_px": [
+      115,
+      173,
+      211,
+      767
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.0366717,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1087,
+     "cacheReadInputTokens": 2997,
+     "cacheCreationInputTokens": 10196,
+     "webSearchRequests": 0,
+     "costUSD": 0.0366717,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 249,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1680,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"mo_ta\":\"Several windows on the neighbouring brick houses at left are multi-pane vertical sliding sashes with thin white glazing bars. The main house has leaded diamond casements.\",\"ly_do\":\"Sash windows were only just appearing in England in the 1670s and 1680s. They were rare and mostly limited to high-status buildings. Using them on ordinary brick terrace houses in 1680 is probably too early.\",\"nam_xuat_hien\":1685,\"toa_do\":[0.06,0.16,0.11,0.71],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0367,
+ "chi_phi_tb": 0.0367,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

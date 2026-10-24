@@ -1,0 +1,355 @@
+{
+ "tag": "H1-19-l2-360p",
+ "clip": "/var/tmp/anim/omni/H1-19/H1-19-l2-360p.mp4",
+ "clip_sha": "ea73d39d16e95d6d0748d215df78b39e1bf2571bdcd27c6dfe7a6f637823e01f",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H1-19-dau.jpg",
+ "dau_sha": "09fd62a06e92507cc247d81324b54ab3c9ece6f76296fefde3d1819bd06af5ca",
+ "nam": "1666",
+ "canh": "the burnt City of London, 7 September 1666, smoking ruins",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-19-l2-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0213,
+      "usage": {
+       "input_tokens": 10135,
+       "input_tokens_details": {
+        "cache_write_tokens": 10132,
+        "cached_tokens": 0
+       },
+       "output_tokens": 98,
+       "output_tokens_details": {
+        "reasoning_tokens": 40
+       },
+       "total_tokens": 10233
+      }
+     },
+     "secs": 5.0,
+     "mo_ta": "Khung hình cho thấy những bức tường và ống khói còn sót lại giữa gạch vụn, gỗ cháy và khói âm ỉ trong khu phố đổ nát.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-19-l2-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "f1c44bcd85967e980e0357763a9208345313cac1ee23dbfd2ce9123720a355a0",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0323117,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 651,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0323117,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0323,
+    "chi_phi_tb": 0.0323,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-19-l2-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0259,
+      "usage": {
+       "input_tokens": 10135,
+       "input_tokens_details": {
+        "cache_write_tokens": 10132,
+        "cached_tokens": 0
+       },
+       "output_tokens": 567,
+       "output_tokens_details": {
+        "reasoning_tokens": 318
+       },
+       "total_tokens": 10702
+      }
+     },
+     "secs": 15.4,
+     "mo_ta": "Khung hình cho thấy những bức tường và ống khói còn đứng giữa đống gạch, gỗ cháy và khói âm ỉ của khu phố đổ nát.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt tường hai tầng với các ô cửa sổ hình chữ nhật xuất hiện phía sau bức tường gạch bên trái; các chi tiết cửa này không nhìn thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.098,
+        0.276,
+        0.177,
+        0.557
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm gờ và khối xây nhô ra dưới cửa sổ của phế tích chính giữa có thêm các lớp chìa xuống, khác với dải gờ đơn giản trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.488,
+        0.398,
+        0.532,
+        0.492
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.79
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt tường hai tầng với các ô cửa sổ hình chữ nhật xuất hiện phía sau bức tường gạch bên trái; các chi tiết cửa này không nhìn thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.098,
+        0.276,
+        0.177,
+        0.557
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm gờ và khối xây nhô ra dưới cửa sổ của phế tích chính giữa có thêm các lớp chìa xuống, khác với dải gờ đơn giản trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.488,
+        0.398,
+        0.532,
+        0.492
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.79
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-19-l2-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "2967bb6b7cc202529eb4d5ddc0ae2f739274bac5a5fb51ea2dbd8814159cdefb",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0332417,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 744,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0332417,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 93,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0332,
+    "chi_phi_tb": 0.0332,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-19-l2-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0241,
+      "usage": {
+       "input_tokens": 10129,
+       "input_tokens_details": {
+        "cache_write_tokens": 10126,
+        "cached_tokens": 0
+       },
+       "output_tokens": 389,
+       "output_tokens_details": {
+        "reasoning_tokens": 156
+       },
+       "total_tokens": 10518
+      }
+     },
+     "secs": 11.0,
+     "mo_ta": "Khung hình cho thấy những bức tường và ống khói còn đứng giữa gạch vụn, gỗ cháy và khói âm ỉ trong khu phố London bị thiêu rụi.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mảng mặt tiền bên trái có nhiều ô cửa sổ chữ nhật được thêm vào; phần tường tương ứng trong ảnh tham chiếu không có các ô cửa này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.052,
+        0.271,
+        0.166,
+        0.568
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Hốc cửa vòm tối được thêm ở chân phía phải cụm tường và ống khói trung tâm, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.52,
+        0.457,
+        0.566,
+        0.593
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mảng mặt tiền bên trái có nhiều ô cửa sổ chữ nhật được thêm vào; phần tường tương ứng trong ảnh tham chiếu không có các ô cửa này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.052,
+        0.271,
+        0.166,
+        0.568
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Hốc cửa vòm tối được thêm ở chân phía phải cụm tường và ống khói trung tâm, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.52,
+        0.457,
+        0.566,
+        0.593
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-19-l2-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "821954d2e249d2f397f7425bebcc3f01c8c77fc24d39a3751247c2a7e8097c8d",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0341617,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 836,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0341617,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 185,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0342,
+    "chi_phi_tb": 0.0342,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-01b-l1-360p-k55",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "011d453008d48d1c10edf694ce61e017e28cda69989b566e825df68beb929797",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "In the background skyline there is a tall, slender pointed tower with a clock-like stage and a Gothic-revival spire. It looks like a Victorian clock tower, similar to the Elizabeth Tower at Westminster. It stands among the hazy distant buildings, just right of centre-left.",
+     "ly_do": "A Victorian Gothic-revival clock tower did not exist in 1666. The Elizabeth Tower and the Palace of Westminster rebuild date from the 1840s–1850s. The skyline of the burnt city should show medieval church steeples, Old St Paul's with its squat tower and no spire, and timber-framed houses.",
+     "nam_xuat_hien": 1859,
+     "toa_do_px": [
+      816,
+      205,
+      874,
+      367
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.0375779,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1172,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0375779,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 236,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"In the background skyline there is a tall, slender pointed tower with a clock-like stage and a Gothic-revival spire. It looks like a Victorian clock tower, similar to the Elizabeth Tower at Westminster. It stands among the hazy distant buildings, just right of centre-left.\",\"ly_do\":\"A Victorian Gothic-revival clock tower did not exist in 1666. The Elizabeth Tower and the Palace of Westminster rebuild date from the 1840s–1850s. The skyline of the burnt city should show medieval church steeples, Old St Paul's with its squat tower and no spire, and timber-framed houses.\",\"nam_xuat_hien\":1859,\"toa_do\":[0.425,0.19,0.455,0.34],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0376,
+ "chi_phi_tb": 0.0376,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

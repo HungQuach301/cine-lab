@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-03a-l1-360p-k25",
+   "nam": 1667,
+   "noi": "London",
+   "sha256": "ac495e1f2f771318bf897c8bfe25ffb4a28b58e14b9719135654d201b058a84b",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A tall, slender Gothic-style tower with a pinnacled top and a tall arched belfry window stands in the centre-right skyline. It looks like a 19th-century Gothic Revival clock or bell tower. Several thin Gothic spires also rise in the distance.",
+     "ly_do": "After the 1666 Great Fire, the City's skyline was ruins. Wren's classical steeples were built from the 1670s onward. Old St Paul's had no spire, because it was lost in 1561. A Victorian-style Gothic tower would not have been standing in 1667.",
+     "nam_xuat_hien": 1850,
+     "toa_do_px": [
+      1363,
+      0,
+      1478,
+      227
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.038097900000000004,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1224,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.038097900000000004,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 314,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 12.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall, slender Gothic-style tower with a pinnacled top and a tall arched belfry window stands in the centre-right skyline. It looks like a 19th-century Gothic Revival clock or bell tower. Several thin Gothic spires also rise in the distance.\",\"ly_do\":\"After the 1666 Great Fire, the City's skyline was ruins. Wren's classical steeples were built from the 1670s onward. Old St Paul's had no spire, because it was lost in 1561. A Victorian-style Gothic tower would not have been standing in 1667.\",\"nam_xuat_hien\":1850,\"toa_do\":[0.71,0.0,0.77,0.21],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0381,
+ "chi_phi_tb": 0.0381,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

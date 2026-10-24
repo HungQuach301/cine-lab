@@ -1,7 +1,7 @@
 #!/opt/cine/bin/python
 """ANIMATIC-T4 · tệp máy dựng cho từng shot 3D của BANG-SHOT-v2.json → channel-k2/k2c-t4-02/animatic/may/<ma>[-a|-b].json (đầu vào render_look.js --page look2).
 Cú máy §19 (a) dựng bằng khoá dày (mỗi 0,25 s) theo đúng quỹ đạo, easeKeys = false → tốc độ đều, không đỉnh do nội suy (bản thử tiền kỳ trượt vì nén 3 s + ease):
-  CODINH tĩnh · DAY tiến 1,0 %/s khoảng cách tiêu điểm · KEO lùi 1,4 %/s · CAU dọc theo `cau_dz` (≤ 4 m/s) · VONG quanh `tam` theo `vong_deg` (≤ 2,5°/s) · TRUOT tịnh tiến ngang để tiêu điểm dịch 2 %/s bề ngang
+  CODINH tĩnh · DAY tiến 1,0 %/s khoảng cách tiêu điểm · KEO lùi 1,4 %/s · CAU dọc theo `cau_dz` (≤ 4 m/s) · VONG quanh `tam` theo `vong_deg` (≤ 2,5°/s) · TRUOT tịnh tiến ngang (hệ số 1,4 % bề ngang/s; đo thật ≈ 2,1 %/s ≤ 3)
   · NGHIENG ngửa `nghieng_deg` (≤ 1,5°/s) · THAP máy thấp ngửa 5–15° (tĩnh) · XUONG chúc −88° → −30° trong 4–6 s từ `xuong.tu` · KHOP hai nửa cùng máy (a: năm A, b: năm B, chồng 0,5 s để hoà 1 s) · LAN quỹ đạo khoá tay.
 Look theo mốc (CHON-V2.json, LOOK-T4-1…3): 1666 cháy ngày = M2-ngay (ấm C) · 1666 cháy đêm = M2-dem (khói than B) · 1940 = M3-rong (ấm C) · ≥ 1960 = M4-rong · còn lại = M1-rong (A, σ 1/10 km).
 Lightmap: mốc nướng gần nhất (scripts/k2ldn/anim/du_lieu.sh NAM)."""
@@ -84,7 +84,7 @@ def path(r, dur):
             R = np.array([[math.cos(a), -math.sin(a), 0], [math.sin(a), math.cos(a), 0], [0, 0, 1]]); p = c + R @ v; l = c
         elif cu == 'TRUOT':
             d = np.linalg.norm(td - p0); hf = 2 * math.atan(math.tan(math.radians(fov) / 2) * W / H); fw = 2 * d * math.tan(hf / 2)
-            fwd = look_dir(p0, l0); side = np.cross(fwd, [0, 0, 1]); side /= np.linalg.norm(side); s = 0.020 * fw * (t - dur / 2)
+            fwd = look_dir(p0, l0); side = np.cross(fwd, [0, 0, 1]); side /= np.linalg.norm(side); s = 0.014 * fw * (t - dur / 2)
             p, l = p0 + side * s, l0 + side * s
         elif cu == 'NGHIENG':
             v = l0 - p0; dist = np.linalg.norm(v); hz = math.hypot(v[0], v[1]); el = math.atan2(v[2], hz) + math.radians(them['nghieng_deg']) * (t / dur - 0.5)

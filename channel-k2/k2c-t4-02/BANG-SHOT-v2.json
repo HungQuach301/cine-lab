@@ -1797,7 +1797,7 @@
    "t0": 302.042,
    "t1": 310.042,
    "dur": 8.0,
-   "loi": "L39–L40 (nhóm H2-03: H2-03a, H2-03b)",
+   "loi": "L39–L40 (nhóm H2-03: H2-03a, H2-03b, H2-03c)",
    "cau_loi": [
     "Every plot in the burnt City has its owners — and the people who have lost their homes cannot afford to wait years for it all to be redrawn.",
     "So Parliament moves faster.",
@@ -1831,11 +1831,11 @@
    "chuong": "HỒI 2",
    "nhom_loi": "H2-03",
    "bat_dau_s": 310.042,
-   "giay": 18.167,
+   "giay": 12.167,
    "t0": 310.042,
-   "t1": 328.209,
-   "dur": 18.167,
-   "loi": "L39–L40 (nhóm H2-03: H2-03a, H2-03b)",
+   "t1": 322.209,
+   "dur": 12.167,
+   "loi": "L39–L40 (nhóm H2-03: H2-03a, H2-03b, H2-03c)",
    "cau_loi": [
     "Every plot in the burnt City has its owners — and the people who have lost their homes cannot afford to wait years for it all to be redrawn.",
     "So Parliament moves faster.",
@@ -1870,27 +1870,65 @@
     ],
     0
    ],
-   "vai": "lô đất rối; Toà Cháy ở Clifford's Inn (vùng không cháy)",
+   "vai": "lô đất rối trên đúng lưới phố cũ",
    "lop": {
-    "A": 18.167
+    "A": 12.167
    },
    "goc": "cao",
    "tl": true,
    "minh_hoa": false,
    "ai_nen": false,
    "tieu_diem_en": [
-    531600,
-    181150,
+    532300,
+    181000,
     10
    ],
    "them": {
     "tieu_diem_en": [
-     531600,
-     181150,
+     532300,
+     181000,
      10
     ]
    },
    "loi_bd_s": 302.2418
+  },
+  {
+   "ma": "H2-03c",
+   "phan": "HỒI 2",
+   "chuong": "HỒI 2",
+   "nhom_loi": "H2-03",
+   "bat_dau_s": 322.209,
+   "giay": 6.0,
+   "t0": 322.209,
+   "t1": 328.209,
+   "dur": 6.0,
+   "loi": "L39–L40 (nhóm H2-03: H2-03a, H2-03b, H2-03c)",
+   "cau_loi": [
+    "Every plot in the burnt City has its owners — and the people who have lost their homes cannot afford to wait years for it all to be redrawn.",
+    "So Parliament moves faster.",
+    "From late February 1667, a special Fire Court sits at Clifford's Inn, settling disputes between landlords and tenants.",
+    "In its first year, it decides three hundred and seventy-four cases."
+   ],
+   "diem_may": "—",
+   "may": null,
+   "cu_may": "MD",
+   "loai_may": "MD",
+   "thoi_gian": null,
+   "vai": "M-d (19) Toà Cháy 1667: phiên xử ở một sảnh gỗ, thẩm phán vô danh, chủ đất và người thuê trình giấy (mới)",
+   "lop": {
+    "MD": 6.0
+   },
+   "goc": "md",
+   "tl": false,
+   "minh_hoa": true,
+   "ai_nen": false,
+   "tieu_diem_en": null,
+   "them": {
+    "md": 19
+   },
+   "loi_bd_s": 302.2418,
+   "md_moc": 19,
+   "md_ten": "Toà Cháy 1667 (mới)"
   },
   {
    "ma": "H2-04a",
@@ -1907,26 +1945,56 @@
     "A Rebuilding Act sets the rules: outside walls of brick or stone, not timber.",
     "And a new duty on coal pays for the City's public buildings."
    ],
-   "diem_may": "—",
-   "may": null,
-   "cu_may": "MD",
-   "loai_may": "MD",
-   "thoi_gian": null,
-   "vai": "M-d (11) Rebuilding Act: thợ xây tường gạch 1667–68",
+   "diem_may": "P4",
+   "may": {
+    "ten": "FLEET-STREET (trục nhìn đông lên mái vòm, 40 m)",
+    "p": [
+     531300,
+     181160,
+     40
+    ],
+    "l": [
+     532118,
+     181150,
+     118
+    ],
+    "fov": 35
+   },
+   "cu_may": "TRUOT",
+   "loai_may": "TRUOT",
+   "thoi_gian": [
+    "y",
+    1667.6,
+    1668.4,
+    [
+     6,
+     1,
+     11.0
+    ],
+    0
+   ],
+   "vai": "Rebuilding Act: nhà gạch mọc dọc Fleet Street (M-d (11) trượt 3 lượt — mũ lỗi thời đại → 3D)",
    "lop": {
-    "MD": 6.0
+    "A": 6.0
    },
-   "goc": "md",
-   "tl": false,
-   "minh_hoa": true,
+   "goc": "thap",
+   "tl": true,
+   "minh_hoa": false,
    "ai_nen": false,
-   "tieu_diem_en": null,
+   "tieu_diem_en": [
+    531700,
+    181150,
+    20
+   ],
    "them": {
-    "md": 11
+    "md_truot": "H2-04a 3/3 lượt LOẠI (mũ bowler/chóp tròn — lỗi thời đại) → 3D",
+    "tieu_diem_en": [
+     531700,
+     181150,
+     20
+    ]
    },
-   "loi_bd_s": 328.4085,
-   "md_moc": 11,
-   "md_ten": "xây tường gạch 1667–68 (mới)"
+   "loi_bd_s": 328.4085
   },
   {
    "ma": "H2-04b",
@@ -4218,26 +4286,61 @@
     "Twice, it kept its old streets.",
     "And the skyline it built still bends around the one building it chose, again and again, to keep in view."
    ],
-   "diem_may": "—",
-   "may": null,
-   "cu_may": "MD",
-   "loai_may": "MD",
-   "thoi_gian": null,
-   "vai": "M-d (18) 2026 đêm: người đứng tường sông Bankside nhìn sang City sáng đèn",
+   "diem_may": "P9",
+   "may": {
+    "ten": "BANKSIDE gần Cầu Millennium (bờ nam, 130 m) nhìn mái vòm — tầm nhìn LVMF",
+    "p": [
+     532080,
+     180380,
+     130
+    ],
+    "l": [
+     532118,
+     181150,
+     111
+    ],
+    "fov": 32
+   },
+   "cu_may": "CODINH",
+   "loai_may": "CODINH",
+   "thoi_gian": [
+    "d",
+    [
+     2026,
+     9,
+     2,
+     22.0
+    ],
+    [
+     2026,
+     9,
+     2,
+     22.1
+    ],
+    1
+   ],
+   "vai": "bờ nam đêm 2026: City sáng đèn quanh mái vòm (M-d (18) trượt 3 lượt ở ảnh đầu → 3D)",
    "lop": {
-    "MD": 6.0
+    "A": 6.0
    },
-   "goc": "md",
-   "tl": false,
-   "minh_hoa": true,
+   "goc": "cao",
+   "tl": true,
+   "minh_hoa": false,
    "ai_nen": false,
-   "tieu_diem_en": null,
+   "tieu_diem_en": [
+    532118,
+    181150,
+    111
+   ],
    "them": {
-    "md": 18
+    "md_truot": "H5-07a ảnh đầu LOẠI 3/3 lượt → 3D",
+    "tieu_diem_en": [
+     532118,
+     181150,
+     111
+    ]
    },
-   "loi_bd_s": 674.9501,
-   "md_moc": 18,
-   "md_ten": "Bankside đêm 2026 (mới)"
+   "loi_bd_s": 674.9501
   },
   {
    "ma": "H5-07b",
@@ -4432,12 +4535,12 @@
  "tong": {
   "thoi_luong_s": 730.083,
   "k1c1_s": 730.0834,
-  "so_shot": 73,
-  "shot_tb_s": 10.0,
+  "so_shot": 74,
+  "shot_tb_s": 9.87,
   "lop_s": {
-   "A": 550.416,
+   "A": 556.416,
    "N2P": 33.5,
-   "MD": 154.667,
+   "MD": 148.667,
    "THE": 46.5,
    "KHAC": 16,
    "MAP": 11.458,
@@ -4446,9 +4549,9 @@
    "PP": 16.0
   },
   "lop_pct": {
-   "A": 75.39,
+   "A": 76.21,
    "N2P": 4.59,
-   "MD": 21.18,
+   "MD": 20.36,
    "THE": 6.37,
    "KHAC": 2.19,
    "MAP": 1.57,
@@ -4456,15 +4559,15 @@
    "TL": 1.1,
    "PP": 2.19
   },
-  "MD_pct": 21.18,
+  "MD_pct": 20.36,
   "N2P_pct": 4.59,
-  "AI_pct": 25.77,
+  "AI_pct": 24.95,
   "MAP_ALL_pct": 4.58,
   "TL_KHAC_THE_pct": 9.66,
   "THAP_pct": 9.21,
   "goc_cao_than_phim_pct": 66.1,
   "than_phim_s": 714.083,
-  "md_clip": 24,
+  "md_clip": 23,
   "md_moc": 17
  },
  "kiem": [
@@ -4479,11 +4582,11 @@
   },
   {
    "chi_so": "Omni M-d % (Q1: 20–23 %)",
-   "gia_tri": 21.18,
+   "gia_tri": 20.36,
    "tran": 23,
    "san": 20,
    "dat": true,
-   "trong_5pct": false,
+   "trong_5pct": true,
    "ghi": ""
   },
   {
@@ -4497,7 +4600,7 @@
   },
   {
    "chi_so": "Tổng AI % (≤ 70)",
-   "gia_tri": 25.77,
+   "gia_tri": 24.95,
    "tran": 70,
    "san": null,
    "dat": true,
@@ -4650,7 +4753,7 @@
   },
   {
    "chi_so": "HỒI 2: số loại cú máy ≥ 4",
-   "gia_tri": 7,
+   "gia_tri": 8,
    "tran": null,
    "san": 4,
    "dat": true,
@@ -4774,7 +4877,8 @@
   "15": "City vắng chiều 29/12/1940 (mới)",
   "16": "vòi rồng trên bãi bùn triều thấp 29/12/1940 (mới)",
   "17": "St Paul's Watch trên mái (mới)",
-  "18": "Bankside đêm 2026 (mới)"
+  "18": "Bankside đêm 2026 (mới)",
+  "19": "Toà Cháy 1667 (mới)"
  },
  "mo_ta_lop": "giây trong shot; THE/KHAC/TL/MAP3D chồng trên A"
 }
