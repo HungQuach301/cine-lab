@@ -3,6 +3,7 @@
 > Nhánh thật: `ccr-21ab5d6f-7l1yln` (harness buộc tên này; lệnh ghi `k2c-t4-02-animatic`). Gốc `origin/main` @2414d1d3 + merge (không squash) `origin/claude/k2c-t4-02-giong-a24udn` @5e5e02ce → merge commit `b0ff47c9`.
 
 ## Trạng thái
+- **13:10 UTC: XONG — DỪNG chờ chủ dự án.** Báo cáo `ANIMATIC-T4-BAO-CAO.md`, phiếu `PHIEU-XEM.md`, k2check `k2check-1.17.4-animatic.md`, animatic SHA e4a4b09a… (ngoài git), bản xem `xem/`.
 - 24/10 ≈ 01:35 UTC: khởi động; verify.sh 10 ĐẠT/5 TRƯỢT → cài OpenEXR/tifffile/pyshp, npm ci (cong3, k2v), pyproj 3.8.0 + OSTN15 (SHA 5d6ed64d…) → 14 ĐẠT/1 TRƯỢT (Freesound, tuỳ chọn). Hook pre-commit/pre-push cài trước lần đẩy đầu. `lock.py --verify` KHỚP 08486eb2….
 - ≈ 01:52: dữ liệu nền tái tạo (OSM, vector, LiDAR, tư liệu, vân, atlas lửa, hình học V2, 14 lightmap) — `scripts/k2ldn/anim/du_lieu.sh`.
 - Việc 1: master giọng tái tạo bit-trùng (`tai_tao.sh`, 0 ký tự): WAV `b9cec467…` OK, FLAC `e5d49871…` OK.

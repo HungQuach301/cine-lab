@@ -13,3 +13,5 @@ Cách kiểm: đọc chữ ngay trên bản gốc tải về (`$LDN_SRC`, SHA tr
 | nga-wren-0 (ảnh thẻ Wren) | "Christopherus Wren Eques …" (dòng chữ dưới chân dung) | NGA (CC0) | H2-02 thẻ nhân vật | ĐÚNG | thẻ "Christopher Wren · architect" | như RIGHTS-NHAP |
 
 TU-LIEU-10 sau sửa: **9,66 %** (không đổi — chỉ thay tấm cùng thời lượng). Không thêm tư liệu mới (lệnh mục 4).
+
+**Bổ sung sau ghép toàn tập (24/10, ≈ 10:40 UTC):** tờ khung cho thấy bộ đếm năm ở H1-03/H2-12 đọc **1647** (năm của lời L10 — Hollar *Long View* vẽ từ St Saviour's — lời đã khoá) đặt cạnh tấm met-360649-1. Để không gán 1647 cho tấm, chú thích trên hình đổi thành **"Hollar: London before the Fire (pub. 1666)"** (vẫn ≤ 6 từ + năm). Kiểm bằng mắt khung 1:15 (H1-03): dải tiêu đề "…BEFORE THE FIRE" đọc được, chú thích đúng.

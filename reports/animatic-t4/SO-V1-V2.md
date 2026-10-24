@@ -16,21 +16,21 @@
 | H1-06 | 12 · P5 · CAU · A (12), THE (6) | H1-06 · 13.542 · P5 · CAU · A 13.542, THE 3 | +1.542 |  |
 | H1-07 | 8 · P2 · VONG · A (8) | H1-07 · 15.458 · P2 · VONG · A 15.458 | +7.458 | P2 nâng ≥ 120 m (GOC-CAO-60) |
 | H1-08 | 16 · P1 · CODINH · A (16), N2P (16) | H1-08a · 6.000 · — · MD · MD 6<br>H1-08b · 12.208 · P1 · CODINH · A 12.208 | +2.208 | tách 2 shot; thêm M-d (Q1 20–23 %); P1 fov 36° (V5); bỏ tấm nền (V1: chỉ 2026 ngày) |
-| H1-09 | 14 · P7 · XUONG · MAP (9), MAP3D (5) | H1-09 · 9.000 · P7 · XUONG · MAP 5, MAP3D 4 | -5.000 |  |
+| H1-09 | 14 · P7 · XUONG · MAP (9), MAP3D (5) | H1-09 · 9.000 · P7 · XUONG · MAP 3.5, MAP3D 5.5 | -5.000 | bản đồ 2D 5 → 3,5 s để XUONG chuyển ≥ 4 s (§19 a, k2check MAY-19) |
 | H1-10 | 8 · — · MD · MD (8) | H1-10 · 7.083 · — · MD · MD 7.083 | -0.917 |  |
 | H1-12 | 8 · — · MD · MD (8) | H1-12 · 6.458 · — · MD · MD 6.458 | -1.542 | đổi chỗ H1-11 ↔ H1-12 (GIAN-SHOT §6) |
 | H1-11 | 12 · P8 · CODINH · A (12), N2P (12), THE (4) | H1-11 · 14.417 · P8 · CODINH · A 14.417, THE 4 | +2.417 | bỏ tấm nền (V1: chỉ 2026 ngày); đổi chỗ H1-11 ↔ H1-12 (GIAN-SHOT §6) |
-| H1-13 | 16 · P4 · THAP · B (16) | H1-13 · 11.875 · P4b · THAP · A 11.875, KHAC 4 | -4.125 | Cycles → cách A look2.js (V2 = a, §14.2) |
+| H1-13 | 16 · P4 · THAP · B (16) | H1-13 · 11.875 · P4b · THAP · A 11.875, KHAC 4 | -4.125 | Cycles → cách A look2.js (V2 = a, §14.2); fov 42° → 30° (Old St Paul's đọc rõ; XEM CÂM Q4); giờ 4/9 18:00–21:00 như v1 (sửa lỗi +24 h trong phiên) |
 | H1-14 | 7 · — · MD · MD (7) | H1-14 · 6.000 · — · MD · MD 6 | -1.000 |  |
-| H1-15 | 12 · P8 · CAU · A (12) | H1-15 · 21.500 · P8 · CAU · A 21.5 | +9.500 |  |
-| H1-16 | 10 · P1 · CODINH · A (10), N2P (10) | H1-16 · 7.250 · P1 · CODINH · A 7.25 | -2.750 | P1 fov 36° (V5); bỏ tấm nền (V1: chỉ 2026 ngày) |
+| H1-15 | 12 · P8 · CAU · A (12) | H1-15 · 21.500 · P8 · CAU · A 21.5 | +9.500 | giờ như v1 (sửa lỗi +24 h trong phiên) |
+| H1-16 | 10 · P1 · CODINH · A (10), N2P (10) | H1-16 · 7.250 · P1 · CODINH · A 7.25 | -2.750 | P1 fov 36° (V5); bỏ tấm nền (V1: chỉ 2026 ngày); giờ như v1 (sửa lỗi +24 h trong phiên) |
 | H1-17 | 7 · — · MD · MD (7) | H1-17a · 6.000 · — · MD · MD 6<br>H1-17b · 6.292 · — · MD · MD 6.292 | +5.292 | tách 2 shot; M-d > 8 s tách (GIAN-SHOT §6) |
 | H1-18 | 9 · P7 · XUONG · A (9), MAP3D (5), THE (3) | H1-18 · 16.292 · P7 · XUONG · A 16.292, MAP3D 5, THE 4 | +7.292 |  |
 | H1-19 | 6 · — · MD · MD (6) | H1-19 · 6.000 · — · MD · MD 6 | +0.000 |  |
 | H2-01 | 10 · P3 · LAN · B (10) | H2-01a · 6.500 · — · MD · MD 6.5<br>H2-01b · 6.667 · — · MD · MD 6.667 | +3.167 | tách 2 shot; thêm M-d (Q1 20–23 %); Cycles → cách A look2.js (V2 = a, §14.2) |
 | H2-02 | 12 · P7 · XUONG · A (4), TL (8), MAP3D (4), THE (4) | H2-02 · 14.625 · P7 · XUONG · A 14.625, TL 8, MAP3D 4, THE 7 | +2.625 | thẻ Hooke → H2-02 (L45 bỏ) |
-| H2-03 | 12 · P5 · CODINH · A (12), N2P (12) | H2-03a · 8.000 · — · MD · MD 8<br>H2-03b · 18.167 · P5 · CODINH · A 18.167 | +14.167 | tách 2 shot; thêm M-d (Q1 20–23 %); bỏ tấm nền (V1: chỉ 2026 ngày) |
-| H2-04 | 12 · P4 · TRUOT · A (12) | H2-04a · 6.000 · — · MD · MD 6<br>H2-04b · 5.708 · — · MD · MD 5.708 | -0.292 | tách 2 shot; thêm M-d (Q1 20–23 %) |
+| H2-03 | 12 · P5 · CODINH · A (12), N2P (12) | H2-03a · 8.000 · — · MD · MD 8<br>H2-03b · 12.167 · P5 · CODINH · A 12.167<br>H2-03c · 6.000 · — · MD · MD 6 | +14.167 | tách 3 shot; thêm M-d (Q1 20–23 %); bỏ tấm nền (V1: chỉ 2026 ngày) |
+| H2-04 | 12 · P4 · TRUOT · A (12) | H2-04a · 6.000 · P4 · TRUOT · A 6<br>H2-04b · 5.708 · — · MD · MD 5.708 | -0.292 | tách 2 shot; thêm M-d (Q1 20–23 %) |
 | H2-05 | 14 · P1 · CODINH · A (14), N2P (14), THE (3) | H2-05 · 18.833 · P1 · CODINH · A 18.833 | +4.833 | P1 fov 36° (V5); bỏ tấm nền (V1: chỉ 2026 ngày) |
 | H2-06 | 12 · P3 · VONG · A (12), THE (2) | H2-06 · 12.000 · P3 · VONG · A 12, THE 2.5, KHAC 3 | +0.000 | P3 nâng ≥ 120 m (GOC-CAO-60) |
 | H2-07 | 8 · P8 · CODINH · A (8), THE (4) | H2-07 · 7.917 · — · MD · MD 7.917, THE 4 | -0.083 | thêm M-d (Q1 20–23 %) |
@@ -53,7 +53,7 @@
 | H4-04 | 16 · P4 · THAP · B (16) | H4-04a · 8.500 · P4b · THAP · A 8.5<br>H4-04b · 6.500 · — · MD · MD 6.5<br>H4-04c · 13.250 · P3 · CODINH · A 13.25 | +12.250 | tách 3 shot; thêm M-d (Q1 20–23 %); Cycles → cách A look2.js (V2 = a, §14.2); P3 nâng ≥ 120 m (GOC-CAO-60) |
 | H4-05 | 8 · P1 · DAY · A (8), TL (6) | H4-05 · 4.542 · P1 · DAY · A 4.542 | -3.458 | P1 fov 36° (V5) |
 | H4-06 | 14 · P1 · CODINH · A (14), N2P (14), THE (2) | H4-06 · 10.208 · P1 · CODINH · A 10.208, THE 2.5 | -3.792 | P1 fov 36° (V5); bỏ tấm nền (V1: chỉ 2026 ngày) |
-| H4-07 | 16 · P7 · XUONG · A (10), MAP3D (6) | H4-07 · 5.458 · P7 · XUONG · A 5.458, MAP3D 5 | -10.542 |  |
+| H4-07 | 16 · P7 · XUONG · A (10), MAP3D (6) | H4-07 · 5.458 · P7 · XUONG · A 5.458, MAP3D 5 | -10.542 | XUONG vận tốc hình thang: chuyển ≥ 4 s (§19 a) |
 | H4-08 | 20 · P2 · KHOP · A (20) | H4-08 · 12.000 · P2 · KHOP · A 12 | -8.000 | P2 nâng ≥ 120 m (GOC-CAO-60) |
 | H5-01 | 12 · P5 · CODINH · A (12), N2P (12), THE (4) | H5-01 · 12.542 · P5 · CODINH · A 12.542, THE 4 | +0.542 | bỏ tấm nền (V1: chỉ 2026 ngày) |
 | H5-02 | 16 · P5 · CAU · A (16) | H5-02 · 14.875 · P5 · CAU · A 14.875 | -1.125 |  |
@@ -61,8 +61,8 @@
 | H5-04 | 14 · P1 · CODINH · A (14), N2P (14) | H5-04 · 10.417 · P1 · CODINH · A 10.417, N2P 6 | -3.583 | P1 fov 36° (V5) |
 | H5-05 | 14 · P4 · THAP · A (14) | H5-05a · 16.500 · P9 · CODINH · A 16.5, N2P 16.5<br>H5-05b · 9.125 · P4 · THAP · A 9.125 | +11.625 | tách 2 shot; tách 2 cú máy (GIAN-SHOT §6); P9 nâng ≥ 120 m (GOC-CAO-60) |
 | H5-06 | 12 · P3 · VONG · A (12) | H5-06 · 6.000 · P3 · CODINH · A 6 | -6.000 | P3 nâng ≥ 120 m (GOC-CAO-60) |
-| H5-07 | 20 · P1 · KHOP · B (10), A (10) | H5-07a · 6.000 · — · MD · MD 6<br>H5-07b · 15.333 · P1 · KHOP · A 15.333 | +1.333 | tách 2 shot; thêm M-d (Q1 20–23 %); P1 fov 36° (V5); Cycles → cách A look2.js (V2 = a, §14.2) |
+| H5-07 | 20 · P1 · KHOP · B (10), A (10) | H5-07a · 6.000 · P9 · CODINH · A 6<br>H5-07b · 15.333 · P1 · KHOP · A 15.333 | +1.333 | tách 2 shot; P1 fov 36° (V5); Cycles → cách A look2.js (V2 = a, §14.2); P9 nâng ≥ 120 m (GOC-CAO-60) |
 | H5-08 | 28 · P1 · KEO · A (28) | H5-08 · 18.000 · P1 · KEO · A 18 | -10.000 | P1 fov 36° (V5) |
 | H5-09 | 16 · — · PP · PP (16) | H5-09 · 16.000 · — · PP · PP 16 | +0.000 |  |
 
-**Tổng:** v1 720 s · 60 shot → v2 730.083 s · 73 shot (K1-C1 730,083 s, +1,40 % so 720 s).
+**Tổng:** v1 720 s · 60 shot → v2 730.083 s · 74 shot (K1-C1 730,083 s, +1,40 % so 720 s).

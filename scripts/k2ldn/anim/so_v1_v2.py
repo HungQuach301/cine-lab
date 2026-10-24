@@ -29,6 +29,10 @@ for r in v2:
     if g == 'H3-02': doi.append('năm 1758 (LMA, V09)')
     if g == 'H5-05': doi.append('tách 2 cú máy (GIAN-SHOT §6)')
     if g == 'H2-11': doi.append('Ogilby không lên hình (D13) → 3D XUONG 1676')
+    if g == 'H1-09': doi.append('bản đồ 2D 5 → 3,5 s để XUONG chuyển ≥ 4 s (§19 a, k2check MAY-19)')
+    if g == 'H1-13': doi.append("fov 42° → 30° (Old St Paul's đọc rõ; XEM CÂM Q4); giờ 4/9 18:00–21:00 như v1 (sửa lỗi +24 h trong phiên)")
+    if g in ('H1-15', 'H1-16'): doi.append('giờ như v1 (sửa lỗi +24 h trong phiên)')
+    if g == 'H4-07': doi.append('XUONG vận tốc hình thang: chuyển ≥ 4 s (§19 a)')
     for x in bs:
         if x['diem_may'] in ('P2', 'P3', 'P9') : doi.append(f"{x['diem_may']} nâng ≥ 120 m (GOC-CAO-60)"); break
     s2 = '<br>'.join(f"{x['ma']} · {x['dur']:.3f} · {x['diem_may']} · {x['cu_may']} · {', '.join(f'{k} {v:g}' for k, v in x['lop'].items())}" for x in bs)

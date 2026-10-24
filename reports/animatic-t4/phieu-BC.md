@@ -1,4 +1,19 @@
 
+### A2. Phiên đã thấy khi rà tờ khung/khung mẫu (ghi để chủ dự án đối chiếu — không phải chấm)
+
+| Mã | Ghi chú |
+|---|---|
+| H1-09 | khói nhìn từ trên xuống thành vệt/tấm hình quạt (billboard) — thấy rõ ở 2:41–2:44; có thể lặp ở các shot chúc sâu khác (H1-18, H2-02) |
+| H1-01a | vệt khói cuộn trắng trong clip M-d |
+| M03, M04, H1-15, H1-16 | cảnh đêm 1666 tối — chi tiết thành phố gần như mất (C9) |
+| H1-13 | (đã sửa trong phiên) Old St Paul's giữa tường lửa tối 4/9, fov 30°; tiền cảnh mái sáng gắt do ánh lửa |
+| H1-03, H2-12 | bộ đếm 1647 (lời L10, Long View) cạnh tấm Hollar "before the Fire (pub. 1666)" — chú thích có năm xuất bản để không gán 1647 cho tấm |
+| H2-03a | chóp nhà thờ ở xa trong M-d 1667 — xem có đúng nhà thờ còn đứng sau cháy |
+| H3-04b | M-d 1930s: xe ngựa trên phố — hợp lý nhưng hiếm; xem có lệch thời |
+| P1 (M01, H1-16, H2-…, H5-07b) | fov 36°: mái vòm St Paul's ở mép trái khung (x ≈ 18 %) (C6) |
+| THAP (H2-10, H3-05, H4-04a, H5-05b) | máy 40 m ODN sát mái; người/xe lớp L3 nhỏ (C7) |
+| H5-07b | KHÉP VÒNG 1666 ↔ 2026 cùng khung P1 — xem nhịp hoà 1 s |
+
 ## B. XEM CÂM (§13.4) — chủ dự án chấm, ngưỡng ≥ 6/8
 
 Cách xem: tắt tiếng, **không phụ đề**, xem 3 tệp `xem-1…3` một lượt; sau đó (không xem lại, không đọc bảng shot) trả lời 8 câu bằng 1–2 câu tiếng Anh hoặc tiếng Việt. Mỗi câu chấm 0 / 1 / 2 (2 = đúng cả hai ý chính, 1 = đúng một ý); **đạt một câu khi ≥ 1**; ngưỡng §13.4: **≥ 6/8 câu đạt**. Ghi kèm giây nào trong phim làm câu trả lời rõ ra (nếu nhớ).
@@ -60,3 +75,9 @@ Mỗi mục: phương án · ưu · nhược · tác động · rủi ro · **kh
 - **Khuyến nghị (a)** — chủ dự án xem H1-13/H1-14 rồi quyết.
 
 **C13 — (thông tin, cần K trả lời) cách khai log máy và KHOP H5-07b.** (1) K1174 §5 nói `log_may` = log.json của `render_ldn.js` (ghi `cam.p` theo [E, N, h]), nhưng MAY-19 đọc `cam.p` theo hệ cảnh y-lên (như log T3) → phiên ghi thêm `cam` hệ cảnh, giữ `cam_en` gốc (cùng số liệu, đổi trục). (2) H5-07b KHOP báo lệch 62 139 px; tự chiếu điểm neo qua ma trận máy: 0 px giữa hai nửa và với khung đầu M03 — đề nghị K xem cách MAY-19 (c) chọn khung so khi `khop_voi` là shot DAY.
+
+**C14 — Nhịp Q37 (c)(d): khung tĩnh 10,4 s / khoảng không biến cố 16,5 s từ 10:43 (H5-05a tấm nền 2026 → H5-05b).** Tấm nền N2+ phải tĩnh (MAY-19 (b), N2P (iv)), nên đoạn này không có biến cố thấy được.
+- (a) Bản cuối: cắt H5-05a còn ≤ 6 s tấm nền + chèn biến cố thật (đèn/thuyền lớp (a) chạy trên sông, đổi giờ chiều) — Ưu: đạt Q37. Nhược: giảm N2P (4,59 % → ≈ 4,0 %). Rủi ro: thấp.
+- (b) Giữ khoảng lặng chiêm nghiệm trước KHÉP VÒNG (miễn khung neo ≤ 10 s nếu khai "neo"). Nhược: 10,4 s vẫn > 10.
+- **Khuyến nghị (a)**.
+- Ghi thêm cho K: Q37 (a) không nhận 12 mốc lớp chồng đã khai (thẻ nhân vật, bộ đếm, tư liệu) — lớp chồng mờ vào 0,4–0,5 s nên biến cố đo trên video trễ > 0,3 s so với mốc khai; phiên không dịch mốc khai để khớp thước.
