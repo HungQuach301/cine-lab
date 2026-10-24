@@ -25,3 +25,8 @@ Nhánh harness gợi ý: `claude/beautiful-turing-rqkp8c` — không dùng để
 | 09:20 | selftest_k1176 57/57 (sau 3 lần sửa CẢNH tổng hợp của chính bài: bão hoà 8 bit, mã sRGB tuyến tính, pass bóng phẳng — không sửa luật) | xong |
 | 09:25 | KN-5/6 B3 thật: tỉ số bóng 7,2 % → ĐẠT (d)(e); chiếu 3D (e) ĐẠT ở 640×360, (d) 15,0 → 9,4 % (tường sáng hơn render ~20 % khi nắng đổi — lệch ánh sáng thật của bản dựng); ảnh tĩnh TRƯỢT 85,5 % | xong |
 | 09:28– | k2check 1.17.5 trên T3 (cây origin/main, master LFS) chạy nền; tái tạo M4, M1 chạy nền | đang chạy |
+| 09:58 | Tái tạo M4 (khác SHA, 1.17.5 cho đúng số THU-B) + M1 (trùng SHA 3/4); T3 1.17.5 chạy lại có git cục bộ → TRÙNG HỆT bảng K-1.17.5 | xong |
+| 10:00–10:15 | KN-5 M1: tỉ số bóng 5,8 % do lượng tử 8 bit khung gần đen (không do khói) → sàn Y ≥ 0,01 (chọn trên M1, ghi rõ) → 1,6 %; ảnh tĩnh vẫn trượt; selftest +2 ca sàn | xong |
+| 10:15–10:25 | Thử k2check B3 trước khoá: N2P-1 (b) mô hình báo khung cửa sổ trong vùng BMN → (c) người đọc (cùng nguyên tắc KN-2), selftest +3 ca qua kiem_tam; selftest cũ trước khoá đạt hết | xong |
+| 10:26:29 | `lock.py` (MỘT lần) → 1.17.6 `513c9442…`; `--verify` KHỚP; commit 7a35dd86 | xong |
+| 10:30– | selftest sau khoá; k2check 1.17.6 T3 (cây tạm có git); k2check THU-B (gốc + px4) | đang chạy |
