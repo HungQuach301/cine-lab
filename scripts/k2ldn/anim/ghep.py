@@ -25,8 +25,8 @@ THE = [(57.5, 3.0, 'Thomas Farriner', 'baker to the King', None), (98.4, 3.0, 'S
        (178.8, 4.0, 'John Evelyn', 'diarist', None), (287.6, 3.5, 'Christopher Wren', 'architect', 'nga-wren-0'), (298.4, 3.5, 'Robert Hooke', 'City surveyor', None),
        (374.2, 4.0, 'Nicholas Barbon', 'founder, Fire Office', None), (480.0, 4.0, 'Godfrey Allen', "St Paul's surveyor", None), (603.8, 4.0, 'Charles Holden · William Holford', 'planners, 1946–47', None)]
 DEM = [(252.2, 2.0, '13,200', 'houses'), (255.1, 2.0, '87', 'churches'), (364.0, 2.5, '202 ft', ''), (396.9, 2.5, '365 ft', ''), (523.0, 3.0, '100,000', 'incendiaries'), (571.4, 2.5, '160', 'killed')]
-KHAC = {'H1-03': ('met-360649-1', 'Hollar: London before the Fire', 1.0, 6.0, 'dai'), 'H1-13': ('ycba-266-0', 'The fire at Ludgate, c. 1670', 1.0, 4.0, 'goc'),
-        'H2-06': ('rijks-monument-0', 'The Monument, engraving', 1.5, 3.0, 'goc'), 'H2-12': ('met-360649-1', 'Hollar: London before the Fire', 0.5, 3.0, 'dai'),
+KHAC = {'H1-03': ('met-360649-1', 'Hollar: London before the Fire (pub. 1666)', 1.0, 6.0, 'dai'), 'H1-13': ('ycba-266-0', 'The fire at Ludgate, c. 1670', 1.0, 4.0, 'goc'),
+        'H2-06': ('rijks-monument-0', 'The Monument, engraving', 1.5, 3.0, 'goc'), 'H2-12': ('met-360649-1', 'Hollar: London before the Fire (pub. 1666)', 0.5, 3.0, 'dai'),
         'H2-02': ('loc-wren-plan-0', "Wren's 1666 plan, engraved 1767", 0.2, 8.0, 'goc')}
 # Lệnh bổ sung 24/10/2026 12:55: met-360649-1 = tấm TRƯỚC cháy ("A TRUE AND EXACT PROSPECT … FROM S.T MARIE OVERS STEEPLE … BEFORE THE FIRE"); -0 = tấm SAU cháy — không dùng ở H1-03/H2-12.
 NHAN_MAP = [('Pudding Lane', 532905, 180800), ('London Bridge', 532800, 180560), ('Royal Exchange', 532900, 181120)]
