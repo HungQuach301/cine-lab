@@ -20,3 +20,8 @@
 
 ## KN-4 (ghi nhận, không phải lỗi mã) · (a) hình khối KHÔNG bắt vật AI vẽ thêm TRONG bóng nhà
 - B3 lượt 1: k2check (a) 0 Chặn, 0 (w); nhưng gpt-6.1-sol báo 10 (w) "thêm ống khói/chụp ống, đổi đầu hồi" và ô phóng (`tam/B3-p4-1938/l1/soi-a.jpg`) thấy ống khói AI vẽ thêm. Đỡ cạnh hình học (biên nhà ∪ mặt phẳng) không giảm khi AI THÊM chi tiết bên trong bóng nhà. Hiện chỉ mô hình nhìn (w) + người đọc bắt được. Đề nghị K xét phép "cạnh màu MỚI không có ở render và pass bóng" trong lòng nhà (như (c) cụm ΔE của N2P-1) — chỉ báo.
+
+## KN-5 · (d) quỹ đạo sáng theo nhà báo lỗi cả khi dựng lại ánh sáng ĐÚNG (chiếu theo tỉ số bóng)
+- Cách (ii-b) "chiếu theo tỉ số bóng render" (máy cố định): trong nhà đo được C(t) = tấm × R(t)/R(0) từng điểm ảnh (sRGB tuyến tính) — đúng bằng chiếu albedo AI đã khử sáng (tấm/bóng(0)) rồi nhân bóng(t); nhấp nháy 0 về lý thuyết.
+- k2check (video không mất, crf 0 yuv444p): B3-p4-1938 lượt 2 — nhấp nháy ĐẠT, (e) ĐẠT, nhưng (d) **7,2 % nhà** có e_h > 0,10 (trần 2 %). Phiên tính lại e_h trên khung PNG theo đúng chữ RULES 1.17.5 (d): **11/153 nhà = 7,2 %** (trùng k2check). Tách nguyên nhân (`tam/B3-p4-1938/l2/phan-tich-d.json`): nhà lệch có độ quét bóng trong nhà sd(ln q) trung vị **0,47** (nhà không lệch 0,26) và độ đổi albedo AI sd(ln I/R0) **0,48** (0,38) — tức lệch xảy ra khi đường bóng quét QUA một nhà mà AI đã phân bố lại độ sáng bề mặt (cửa tối/tường sáng ở chỗ khác render): trung bình theo nhà của ảnh đúng vật lý vẫn khác quỹ đạo của render.
+- Đề nghị: đo (d) theo TỪNG ĐIỂM ẢNH (ln(C(t)/C(0)) − ln(R(t)/R(0)), trung vị theo nhà) thay cho tỉ số trung bình theo nhà, hoặc giữ thước hiện tại nhưng chuẩn hoá theo độ quét bóng; thêm ca selftest "albedo phân bố lại + bóng quét" (khử sáng đúng phải đạt).

@@ -13,6 +13,9 @@ REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.a
 THUB = os.environ.get('THUB', '/var/tmp/ldn/thub'); RR = f'{THUB}/r'; BP = f'{THUB}/bp'; D = os.environ.get('LDN_DATA', '/var/tmp/ldn')
 LUT = os.path.join(REPO, 'channel-k2/k2c-t3-01/mau/k2c-t3-kenh-v030.cube')
 NAM = {'M1-trung': 1666, 'M4-trung': 2026, 'B3-p4-1938': 1938}
+CAO360 = os.environ.get('CAO360') == '1'
+# mã hoá video kiểm: mặc định crf 10 yuv420p (xem); MA_HOA_KIEM=1 → không mất (crf 0, yuv444p) để phép (d)(e) không đo nhiễu mã hoá
+MA_HOA = ['-crf', '0', '-pix_fmt', 'yuv444p'] if os.environ.get('MA_HOA_KIEM') == '1' else ['-crf', '10', '-pix_fmt', 'yuv420p']
 SONG = {'M1-trung'}                       # khung có khói bếp (lớp sống, ghép cộng hiệu render có/không khói)
 PAL = {'troi': (40, 80, 200), 'nuoc': (0, 170, 190), 'bang': (200, 170, 90), 'suon': (150, 120, 70), 'nha': (235, 235, 235), 'nha_thuong': (215, 215, 215),
        'tau': (255, 0, 0), 'khac': (128, 128, 128), 'cay': (60, 140, 60)}
@@ -130,9 +133,15 @@ def proj(k, tag, vong=0):
         Q = (s2l(base.astype(np.float64)) + 2e-3) / (s2l(R0.astype(np.float64)) + 2e-3); A = ALB * np.clip(Q, 0.2, 5.0)
     else:
         prev = cv2.imread(f'{t}/proj.png', cv2.IMREAD_UNCHANGED); Ap = s2l(prev[..., :3].astype(np.float64))
-        lut(f'{RR}/{k}-bp-{tag}/00000.png', f'{t}/khung0-v{vong - 1}.png'); C0 = cv2.imread(f'{t}/khung0-v{vong - 1}.png')
-        if k in SONG: C0 = np.clip(C0.astype(np.int16) - (cv2.imread(f'{o}/render.png').astype(np.int16) - R0.astype(np.int16)), 0, 255).astype(np.uint8)
-        Q = (s2l(base.astype(np.float64)) + 2e-3) / (s2l(C0.astype(np.float64)) + 2e-3); A = Ap * np.clip(Q, 0.5, 2.0)
+        if CAO360:   # hiệu chỉnh theo khung 0 ở ĐỘ PHÂN GIẢI VIDEO 640×360 (phép (e) đo trên video): so tấm thu nhỏ (INTER_AREA), tỉ số phóng lại 1080 (song tuyến)
+            lut(f'{RR}/{k}-bp360-{tag}/00000.png', f'{t}/khung0-360-v{vong - 1}.png'); C0 = cv2.imread(f'{t}/khung0-360-v{vong - 1}.png')
+            G0 = cv2.resize(cv2.imread(f'{t}/ghep.png'), (640, 360), interpolation=cv2.INTER_AREA)
+            Q = (s2l(G0.astype(np.float64)) + 2e-3) / (s2l(C0.astype(np.float64)) + 2e-3); Q = cv2.resize(Q, (Ap.shape[1], Ap.shape[0]), interpolation=cv2.INTER_LINEAR)
+        else:
+            lut(f'{RR}/{k}-bp-{tag}/00000.png', f'{t}/khung0-v{vong - 1}.png'); C0 = cv2.imread(f'{t}/khung0-v{vong - 1}.png')
+            if k in SONG: C0 = np.clip(C0.astype(np.int16) - (cv2.imread(f'{o}/render.png').astype(np.int16) - R0.astype(np.int16)), 0, 255).astype(np.uint8)
+            Q = (s2l(base.astype(np.float64)) + 2e-3) / (s2l(C0.astype(np.float64)) + 2e-3)
+        A = Ap * np.clip(Q, 0.5, 2.0)
     A = np.clip(A, 0.004, 0.95); out = np.zeros(MM.shape + (4,), np.uint8); out[..., :3] = np.round(l2s(A)).astype(np.uint8); out[..., 3] = MM * 255
     cv2.imwrite(f'{t}/proj.png', out)
     V, P = cam(f'{RR}/{k}-v2/log.json'); VP = P @ V
@@ -142,7 +151,7 @@ def proj(k, tag, vong=0):
 
 def mp4(frames_glob, dst, extra_vf=''):
     vf = f"lut3d=file='{LUT}':interp=tetrahedral" + (',' + extra_vf if extra_vf else '')
-    subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-framerate', '24', '-i', frames_glob, '-vf', vf, '-c:v', 'libx264', '-preset', 'slow', '-crf', '10', '-pix_fmt', 'yuv420p', dst], check=True)
+    subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-framerate', '24', '-i', frames_glob, '-vf', vf, '-c:v', 'libx264', '-preset', 'slow'] + MA_HOA + [dst], check=True)
 
 
 def tl(k, tag):
@@ -160,7 +169,7 @@ def tl(k, tag):
             G = np.clip(np.where(MA[..., None], A, Rk).astype(np.int16) + Rt.astype(np.int16) - Rk.astype(np.int16), 0, 255).astype(np.uint8)
         else: G = np.where(MA[..., None], A, Rt)
         cv2.imwrite(f'{tmp}/{i:05d}.png', G)
-    subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-framerate', '24', '-i', f'{tmp}/%05d.png', '-c:v', 'libx264', '-preset', 'slow', '-crf', '10', '-pix_fmt', 'yuv420p', f'{t}/tl-anh_tinh.mp4'], check=True)
+    subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-framerate', '24', '-i', f'{tmp}/%05d.png', '-c:v', 'libx264', '-preset', 'slow'] + MA_HOA + [f'{t}/tl-anh_tinh.mp4'], check=True)
     subprocess.run(['rm', '-rf', tmp]); print('tl', k, tag, n, 'khung')
 
 
@@ -199,3 +208,42 @@ def soi(k, tag, n=8):
 
 
 if __name__ == '__main__' and sys.argv[1] == 'soi': soi(sys.argv[2], sys.argv[3])
+
+
+def tiso(k, tag):
+    """(B ii-b) chiếu theo TỈ SỐ BÓNG render (máy cố định): trong nhà đo được C(t) = tấm × R(t) / R(0) (sRGB tuyến tính, từng điểm ảnh); ngoài = render khung t.
+    Với máy cố định và bóng khuếch tán, đây đúng bằng chiếu ảnh AI đã khử sáng (albedo = tấm / bóng(0)) lên hình học rồi dựng lại ánh sáng (× bóng(t)) — không lấy mẫu lại kết cấu.
+    1666: tỉ số tính trên render KHÔNG khói bếp, khói bếp cộng hiệu lại từng khung (lớp sống)."""
+    o = f'{BP}/{k}'; t = f'{o}/{tag}'; tmp = f'{t}/tiso-tmp'; os.makedirs(tmp, exist_ok=True)
+    MA = cv2.resize(vung_ai(o).astype(np.uint8), (640, 360), interpolation=cv2.INTER_NEAREST) > 0
+    I = cv2.resize(cv2.imread(f'{t}/nen.png' if k in SONG else f'{t}/ghep.png'), (640, 360), interpolation=cv2.INTER_AREA).astype(np.float64)
+    src = f'{RR}/tl-{k}-v2-kk' if k in SONG else f'{RR}/tl-{k}-v2'
+    n = len([x for x in os.listdir(src) if x.endswith('.png')]); R0 = None
+    for i in range(n):
+        lut(f'{src}/{i:05d}.png', f'{tmp}/r.png'); Rb = cv2.imread(f'{tmp}/r.png').astype(np.float64)
+        if R0 is None: R0 = Rb.copy()
+        q = (s2l(Rb) + 1e-3) / (s2l(R0) + 1e-3); C = np.round(l2s(s2l(I) * q)); G = np.where(MA[..., None], C, Rb)
+        if k in SONG:
+            lut(f'{RR}/tl-{k}-v2/{i:05d}.png', f'{tmp}/rs.png'); Rs = cv2.imread(f'{tmp}/rs.png').astype(np.float64); G = G + Rs - Rb
+        cv2.imwrite(f'{tmp}/{i:05d}.png', np.clip(G, 0, 255).astype(np.uint8))
+    subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-framerate', '24', '-i', f'{tmp}/%05d.png', '-c:v', 'libx264', '-preset', 'slow'] + MA_HOA + [f'{t}/tl-chieu_tiso.mp4'], check=True)
+    subprocess.run(['rm', '-rf', tmp]); print('tiso', k, tag, n, 'khung')
+
+
+if __name__ == '__main__' and sys.argv[1] == 'tiso': tiso(sys.argv[2], sys.argv[3])
+
+
+def xem(k, tag):
+    """bản XEM (crf 20 yuv420p, ≤ 5 MB) của mọi video kiểm + SHA video kiểm (không mất) → <tag>/video-sha.json"""
+    import hashlib
+    t = f'{BP}/{k}/{tag}'; rec = {}
+    for v in ('render', 'anh_tinh', 'chieu_3d', 'chieu_tiso'):
+        f_ = f'{t}/tl-{v}.mp4'
+        if not os.path.exists(f_): continue
+        rec[f'tl-{v}.mp4'] = dict(sha256=hashlib.sha256(open(f_, 'rb').read()).hexdigest(), bytes=os.path.getsize(f_), ma_hoa='libx264 crf 0 yuv444p (kiểm)' if os.environ.get('MA_HOA_KIEM') == '1' else 'libx264 crf 10 yuv420p')
+        subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-i', f_, '-c:v', 'libx264', '-preset', 'slow', '-crf', '20', '-pix_fmt', 'yuv420p', f'{t}/tl-{v}-xem.mp4'], check=True)
+        rec[f'tl-{v}.mp4']['xem'] = dict(tep=f'tl-{v}-xem.mp4', bytes=os.path.getsize(f'{t}/tl-{v}-xem.mp4'))
+    json.dump(rec, open(f'{t}/video-sha.json', 'w'), indent=1); print(json.dumps(rec)[:300])
+
+
+if __name__ == '__main__' and sys.argv[1] == 'xem': xem(sys.argv[2], sys.argv[3])

@@ -64,6 +64,9 @@ def nhom(g):
     elif g.startswith('bp0:'):
         _, f, tag = g.split(':'); pj = json.load(open(f'{THUB}/bp/{f}/{tag}/proj.json'))
         J.append(job(f'{f}-bp-{tag}', f, 'thu-b/look3', 'look3b/', key={'proj': {'url': f'/data/thub/bp/{f}/{tag}/proj.png', 'vp': pj['vp']}}))
+    elif g.startswith('bp360:'):
+        _, f, tag = g.split(':'); pj = json.load(open(f'{THUB}/bp/{f}/{tag}/proj.json'))
+        J.append(job(f'{f}-bp360-{tag}', f, 'thu-b/look3', 'look3b/', key={'proj': {'url': f'/data/thub/bp/{f}/{tag}/proj.png', 'vp': pj['vp']}}, top={'W': 640, 'H': 360}, spp=4))
     elif g.startswith('bptl:'):
         _, f, tag = g.split(':'); pj = json.load(open(f'{THUB}/bp/{f}/{tag}/proj.json'))
         J.append(job(f'tl-{f}-bp-{tag}', 'tl-' + f, 'thu-b/look3', 'look3b/', key={'proj': {'url': f'/data/thub/bp/{f}/{tag}/proj.png', 'vp': pj['vp']}}))

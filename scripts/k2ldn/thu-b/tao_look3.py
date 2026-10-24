@@ -97,7 +97,7 @@ rep("if (f.mask) { U.uMask.value = f.mask === 2 ? 2 : 1;", "if (f.mask) { U.uMas
 rep("  U.uToy.value = f.look && f.look.toy != null ? f.look.toy : 1; CHIM.visible = f.chim !== false;",
     "  U.uToy.value = f.look && f.look.toy != null ? f.look.toy : 1; CHIM.visible = f.chim !== false;\n"
     "  U.uBong.value = f.bong ? 1 : 0; U.uD.value = f.d ? 1 : 0; U.uD2.value = (f.d2 && U.tFac.value) ? 1 : 0;\n"
-    "  if (f.proj && PROJ.url !== f.proj.url) { PROJ.url = f.proj.url; U.uProj.value = await new Promise((r) => new THREE.TextureLoader().load(f.proj.url, (t) => { t.colorSpace = THREE.SRGBColorSpace; t.flipY = true; t.minFilter = t.magFilter = THREE.LinearFilter; t.generateMipmaps = false; r(t); }, undefined, () => r(null))); }\n"
+    "  if (f.proj && PROJ.url !== f.proj.url) { PROJ.url = f.proj.url; U.uProj.value = await new Promise((r) => new THREE.TextureLoader().load(f.proj.url, (t) => { t.colorSpace = THREE.SRGBColorSpace; t.flipY = true; t.minFilter = THREE.LinearMipmapLinearFilter; t.magFilter = THREE.LinearFilter; t.generateMipmaps = true; r(t); }, undefined, () => r(null))); }\n"
     "  if (f.proj && U.uProj.value) { U.uProjVP.value.fromArray(f.proj.vp); U.uProjOn.value = 1; } else U.uProjOn.value = 0;")
 rep("window.ready = true;",
     "const PROJ = { url: null };\n"

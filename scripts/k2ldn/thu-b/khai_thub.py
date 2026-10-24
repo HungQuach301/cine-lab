@@ -9,7 +9,7 @@ THUB = os.environ.get('THUB', '/var/tmp/ldn/thub'); BP = f'{THUB}/bp'
 G = os.path.join(REPO, 'channel-k2/k2c-t4-02/thu-b/tam'); KI = os.path.join(REPO, 'channel-k2/k2c-t4-02/thu-b/kiem')
 NAM = {'M1-trung': 1666, 'M4-trung': 2026, 'B3-p4-1938': 1938}; SONG = {'M1-trung'}
 CHUNG = ['render.png', 'matna.png', 'mat_na_nha.png', 'mat_na_mat.png', 'bong.png', 'albedo.png', 'nha.json', 'nha-chi-tiet.json', 'prep.json', 'do-duoc.png', 'vao.jpg', 'render-khong.png']
-RIENG = ['ghep.png', 'nen.png', 'ghep.json', 'ai-1080.png', 'proj.png', 'proj.json', 'tl-anh_tinh.mp4', 'tl-chieu_3d.mp4', 'tl-render.mp4', 'khung0-v0.png', 'khung0-v1.png', 'khung0-v2.png', 'khung0-cuoi.png']
+RIENG = ['ghep.png', 'nen.png', 'ghep.json', 'ai-1080.png', 'proj.png', 'proj.json', 'tl-anh_tinh-xem.mp4', 'tl-chieu_3d-xem.mp4', 'tl-chieu_tiso-xem.mp4', 'tl-render-xem.mp4', 'video-sha.json', 'phan-tich-d.json', 'proj-1080.png', 'soi-a.json', 'khung0-de.json', 'khung0-de-lich-su.jsonl', 'khung0-v0.png', 'khung0-v1.png', 'khung0-v2.png', 'khung0-cuoi.png']
 
 
 def luu(k, tag):
@@ -33,8 +33,10 @@ def kiem(ten, muc, vision=False):
         if os.environ.get('LOP_A_KHAI') == '1':   # khai lớp (a) KHÔNG gồm nha_thuong (BE-MAT-NHA (b) giữ nhà không đo được = render) — chỉ để đo N2P-1 cho tấm BMN, ghi rõ trong báo cáo
             e['lop_a'] = ['pho', 'nha', 'trai', 'congsu', 'tau', 'co', 'pin', 'lua', 'nguoi', 'khac']
         if k in SONG: e['song'] = dict(render_co=rel(f'{d}/render.png'), render_khong=rel(f'{d}/render-khong.png'), nen=rel(f'{t}/nen.png'))
-        if cach in ('anh_tinh', 'chieu_3d') and os.path.exists(f'{t}/tl-{cach}.mp4'):
-            e['be_mat_nha_video'] = dict(ghep=rel(f'{t}/tl-{cach}.mp4'), render=rel(f'{t}/tl-render.mp4'), cach=cach, **({'tam': rel(f'{t}/ghep.png')} if cach == 'chieu_3d' else {}))
+        tv = os.path.join(BP, k, tag)   # video KIỂM không mất (crf 0 yuv444p, $THUB — ngoài git, SHA trong video-sha.json); bản xem crf 20 ≤ 5 MB trong git
+        if cach in ('anh_tinh', 'chieu_3d', 'chieu_tiso') and os.path.exists(f'{tv}/tl-{cach}.mp4'):
+            c2 = 'anh_tinh' if cach == 'anh_tinh' else 'chieu_3d'   # chieu_tiso = chiếu theo tỉ số bóng (tương đương chiếu camera khi máy cố định) → khai cach chieu_3d
+            e['be_mat_nha_video'] = dict(ghep=f'{tv}/tl-{cach}.mp4', render=f'{tv}/tl-render.mp4', cach=c2, **({'tam': rel(f'{t}/ghep.png')} if c2 == 'chieu_3d' else {}))
         tam.append(e)
     segs = [dict(id=f's{i}', dur=3.0, shots=[dict(id=x['shot'], at=0.0, tpl='scene3d')]) for i, x in enumerate(tam)]
     E = dict(id=f'thu-b-t4-{ten}', title='THU-B-T4 vòng thử (không phải tập)', brand='MOVING PARTS', channel='k2', khung_sach=True, kenh2_tu_t4=True, animatic=False, out=f'/var/tmp/ldn/thub/k2c/{ten}', segments=segs, n2p=dict(noi='London', t4=True, tam=tam))
