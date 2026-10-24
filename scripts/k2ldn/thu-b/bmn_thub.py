@@ -47,6 +47,13 @@ def bien(M):
     return b
 
 
+def lo_int(lo):
+    """mã lô số nguyên: lô 1666 = chỉ số lô; toà OSM 'osm:<id>' = id (way), quan hệ 'osm:r<id>' = 10^12 + id"""
+    s_ = str(lo)
+    if not s_.startswith('osm:'): return lo
+    s_ = s_[4:]; return 10 ** 12 + int(s_[1:]) if s_.startswith('r') else int(s_.lstrip('w'))
+
+
 def cam(logp):
     f = json.load(open(logp))['frames'][0]; V = np.array(f['view']).reshape(4, 4).T; P = np.array(f['proj']).reshape(4, 4).T; return V, P
 
@@ -64,7 +71,7 @@ def prep(k):
     M1 = cv2.imread(f'{RR}/{k}-m1/00000.png'); IID = dec24(cv2.imread(f'{RR}/{k}-m3/00000.png')); PID = dec24(cv2.imread(f'{RR}/{k}-m4/00000.png'))
     nha = json.load(open(f'{D}/look3b/nha.json')); la = ~np.isin(IID, np.array([int(x) for x in nha], np.int64)) & (IID > 0); n_la = int(la.sum()); IID[la] = 0; PID[la] = 0   # mã không có trong bảng nhà (vài điểm ảnh lẻ) → 0
     cv2.imwrite(f'{o}/matna.png', M1); cv2.imwrite(f'{o}/mat_na_nha.png', enc24(IID)); cv2.imwrite(f'{o}/mat_na_mat.png', enc24(PID))
-    cv2.imwrite(f'{o}/bong.png', cv2.imread(f'{RR}/{k}-bong/00000.png')); cv2.imwrite(f'{o}/albedo.png', cv2.imread(f'{RR}/{k}-m6/00000.png'))
+    cv2.imwrite(f'{o}/bong.png', cv2.imread(f'{RR}/{k}-bong/00000.png')); (cv2.imwrite(f'{o}/albedo.png', cv2.imread(f'{RR}/{k}-m6/00000.png')) if os.path.exists(f'{RR}/{k}-m6/00000.png') else None)
     R = cv2.imread(f'{o}/render.png'); BO = cv2.imread(f'{o}/bong.png'); H, W = IID.shape; s = H / 1080.0
     # nhất quán mặt nạ: điểm mã nhà > 0 phải là lớp nha_thuong
     nt = lop(M1, 'nha_thuong'); lech = int(((IID > 0) != nt).sum())
@@ -78,7 +85,7 @@ def prep(k):
     rows = []; meas = []
     for i, c, pm in zip(ids, cnt, ppm):
         e = int(ec[i]); d = bool(pm >= 2.0 and c >= 100 * s * s and e >= 40)
-        rows.append({'id': int(i), 'lo': nha[str(i)]['lo'] if not str(nha[str(i)]['lo']).startswith('osm:') else int(str(nha[str(i)]['lo'])[4:]), 'px_m': round(float(pm), 3),
+        rows.append({'id': int(i), 'lo': lo_int(nha[str(i)]['lo']), 'px_m': round(float(pm), 3),
                      'px': int(c), 'n_canh': e, 'do_duoc': d, 'k': nha[str(i)]['k']})
         if d: meas.append(int(i))
     MM = np.isin(IID, np.array(meas, np.int64)); cv2.imwrite(f'{o}/do-duoc.png', (MM * 255).astype(np.uint8))

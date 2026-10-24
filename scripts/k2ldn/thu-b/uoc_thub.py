@@ -19,7 +19,7 @@ CAM = {('P1', '1666'): 'uoc-P1-1666', ('P1', '2026'): 'uoc-P1-2026', ('P2', '166
 # phân loại từng shot (đặt TRƯỚC khi đếm, theo cột "Mốc" của BANG-SHOT-v1) — lý do ghi kèm
 DEM = {'M01': 'đêm (14:00 → 21:30: nửa sau tối)', 'M03': 'đêm lửa', 'M04': 'đêm', 'H1-02': 'đêm → bình minh, cháy', 'H1-04': 'đang cháy', 'H1-06': 'đang cháy', 'H1-07': 'đang cháy',
        'H1-08': 'đêm, cháy', 'H1-11': 'cháy', 'H1-13': 'đêm cháy', 'H1-15': 'đêm cháy', 'H1-16': 'đêm → tàn lửa', 'H1-18': 'phế tích bốc khói', 'H2-01': 'phế tích (nhà mất)',
-       'H4-01': 'chạng vạng 15:30 → 18:15', 'H4-02': 'đêm bom', 'H4-03': 'đêm bom', 'H4-04': 'đêm bom', 'H4-06': 'phế tích 1940 → 1941', 'H5-07': 'đêm', 'H5-08': 'đêm'}
+       'H4-01': 'chạng vạng 15:30 → 18:15', 'H4-02': 'đêm bom', 'H4-03': 'đêm bom', 'H4-04': 'đêm bom', 'H4-06': 'phế tích 1940 → 1941', 'H4-05': '30/12/1940 07:00 trước bình minh (mặt trời mọc ≈ 08:06), khói sau bom', 'H5-07': 'đêm', 'H5-08': 'đêm'}
 DOI = {'M02': '2026 → 1666 tua ngược (nhà mất/mọc)', 'H2-02': 'phương án Wren chồng (TL)', 'H2-03': '1667 lô rối (phế tích + dựng lại)', 'H2-04': '1667–1668 xây lại (nhà mọc)',
        'H2-05': '1668 → 1671 xây lại', 'H2-06': '1671 → 1677 Monument mọc (nhà quanh ổn định?) — tính không áp', 'H2-08': '1670 → 1700 chóp Wren mọc', 'H2-09': '1675 → 1708 St Paul\'s mọc',
        'H2-14': '1700 → 1711', 'H3-01': '1711 → 1860 (Victoria thay nhà)', 'H3-02': '1757 → 1832 nhà trên cầu dỡ', 'H3-03': '1860 → 1871 Embankment', 'H3-04': '1900 → 1937 toà văn phòng chen',
