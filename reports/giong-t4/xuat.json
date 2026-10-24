@@ -1,0 +1,134 @@
+{
+ "nguon_tho": {
+  "tep": "/var/tmp/cine-out/giong-t4/stem/T4-loi-tho.wav",
+  "sha256": "7551d52b13c33e6c3f9adfcf053115deb43d6653ced1250afe36d2a8e1b129bc",
+  "I": -18.8,
+  "LRA": 3.3,
+  "TP": -1.2,
+  "LRA_low": -21.2,
+  "LRA_high": -17.9
+ },
+ "vong": [
+  {
+   "gain_db": 4.8,
+   "I": -14.3,
+   "LRA": 3.2,
+   "TP": -1.5,
+   "LRA_low": -16.6,
+   "LRA_high": -13.4
+  },
+  {
+   "gain_db": 5.1,
+   "I": -14.1,
+   "LRA": 3.2,
+   "TP": -1.5,
+   "LRA_low": -16.3,
+   "LRA_high": -13.1
+  }
+ ],
+ "master": {
+  "wav": "/var/tmp/cine-out/giong-t4/xuat/T4-loi-G1-v2-14LUFS.wav",
+  "wav_sha256": "b9cec46777a02085561f0cdcfc858e5e8890d26382bd24b4bb8a6bcdb810200b",
+  "flac": "/var/tmp/cine-out/giong-t4/xuat/T4-loi-G1-v2-14LUFS.flac",
+  "flac_sha256": "e5d49871807109760622d03da7d77884b349fb913cb2aa6c5af48c5f8bacf273",
+  "giay": 680.76,
+  "gain_db": 5.1,
+  "I": -14.1,
+  "LRA": 3.2,
+  "TP": -1.5,
+  "LRA_low": -16.3,
+  "LRA_high": -13.1
+ },
+ "ban_xem": [
+  {
+   "tep": "channel-k2/k2c-t4-02/am-thanh/nghe/T4-loi-G1-v2-xem-1-ch00-01.mp3",
+   "sha256": "cdc770d6e8dde237671f4601239ee693f72c08e8fb0594aefa223508c1d4fa01",
+   "tu": 0.0,
+   "den": 267.712,
+   "kbps": 96,
+   "mb": 3.21,
+   "vong": [
+    {
+     "gain_db": 0.0,
+     "tran": 0.84,
+     "I": -14.7,
+     "LRA": 3.4,
+     "TP": -1.1,
+     "LRA_low": -16.9,
+     "LRA_high": -13.5
+    },
+    {
+     "gain_db": 0.7,
+     "tran": 0.84,
+     "I": -14.2,
+     "LRA": 3.3,
+     "TP": -1.5,
+     "LRA_low": -16.4,
+     "LRA_high": -13.1
+    }
+   ],
+   "I": -14.2,
+   "LRA": 3.3,
+   "TP": -1.5,
+   "LRA_low": -16.4,
+   "LRA_high": -13.1
+  },
+  {
+   "tep": "channel-k2/k2c-t4-02/am-thanh/nghe/T4-loi-G1-v2-xem-2-ch02-03.mp3",
+   "sha256": "17a9def7c131cc434e92da9514688761caec1d5a54c37d916927260d63356652",
+   "tu": 267.712,
+   "den": 493.858,
+   "kbps": 96,
+   "mb": 2.71,
+   "vong": [
+    {
+     "gain_db": 0.0,
+     "tran": 0.84,
+     "I": -14.6,
+     "LRA": 2.8,
+     "TP": -1.6,
+     "LRA_low": -16.6,
+     "LRA_high": -13.8
+    },
+    {
+     "gain_db": 0.6,
+     "tran": 0.84,
+     "I": -14.2,
+     "LRA": 2.8,
+     "TP": -1.5,
+     "LRA_low": -16.2,
+     "LRA_high": -13.4
+    }
+   ],
+   "I": -14.2,
+   "LRA": 2.8,
+   "TP": -1.5,
+   "LRA_low": -16.2,
+   "LRA_high": -13.4
+  },
+  {
+   "tep": "channel-k2/k2c-t4-02/am-thanh/nghe/T4-loi-G1-v2-xem-3-ch04-05.mp3",
+   "sha256": "1e9d6af0594a369db2610372de1095767a6f2f9d493270f6994682f6f4130179",
+   "tu": 493.858,
+   "den": 680.76,
+   "kbps": 96,
+   "mb": 2.24,
+   "vong": [
+    {
+     "gain_db": 0.0,
+     "tran": 0.84,
+     "I": -14.2,
+     "LRA": 3.2,
+     "TP": -1.6,
+     "LRA_low": -16.6,
+     "LRA_high": -13.4
+    }
+   ],
+   "I": -14.2,
+   "LRA": 3.2,
+   "TP": -1.6,
+   "LRA_low": -16.6,
+   "LRA_high": -13.4
+  }
+ ]
+}

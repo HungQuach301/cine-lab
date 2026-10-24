@@ -8,6 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import gl_lib as K
 sys.path.insert(0, str(K.R / 'scripts/audio')); import lib   # noqa: E402
+TT = os.environ.get('GIONG_TAI_TAO') == '1'   # tái tạo: chỉ master, không ghi bản xem/xuat.json trong repo
 X = K.OUT / 'xuat'; X.mkdir(exist_ok=True); NG = K.EP / 'am-thanh/nghe'; NG.mkdir(parents=True, exist_ok=True)
 SRC = K.OUT / 'stem/T4-loi-tho.wav'; WAV = X / 'T4-loi-G1-v2-14LUFS.wav'; FLAC = X / 'T4-loi-G1-v2-14LUFS.flac'
 I_T, TP_T, CEIL = -14.0, -1.0, 0.84   # 0.84 ≈ −1,5 dBFS
@@ -25,11 +26,12 @@ for k in range(4):
     g += I_T - m['I']
 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(WAV), '-c:a', 'flac', '-compression_level', '8', str(FLAC)], check=True)
 dur = K.dur(WAV); M = json.loads((K.OUT / 'stem/moc.json').read_text()); C = M['chuong']
-# bản xem: 2 tệp MP3 96 kb/s (mỗi tệp ≤ 5 MB) — chương 00–02 và 03–05, cắt ở giữa khoảng lặng 2 s giữa chương 02 và 03.
+# bản xem: 3 tệp MP3 96 kb/s (mỗi tệp ≤ 5 MB), cắt ở giữa khoảng lặng 2 s giữa chương.
 # MP3 làm vọt đỉnh thật (BAI-HOC #69) → đo trên CHÍNH tệp MP3; đỉnh > −1 dBTP thì hạ trần limiter; I lệch > 0,3 LU thì bù tuyến tính (≤ 6 vòng).
-cat = C[3]['bd_stem'] - M['gap_chuong'] / 2; PH = [('T4-loi-G1-v2-xem-1-ch00-02.mp3', 0.0, cat), ('T4-loi-G1-v2-xem-2-ch03-05.mp3', cat, dur)]
+c2, c4 = (C[k]['bd_stem'] - M['gap_chuong'] / 2 for k in (2, 4))   # GIONG-T4: 3 tệp (chương 00–02 dài 429 s → 5,15 MB > 5 MB ở 96 kb/s)
+PH = [('T4-loi-G1-v2-xem-1-ch00-01.mp3', 0.0, c2), ('T4-loi-G1-v2-xem-2-ch02-03.mp3', c2, c4), ('T4-loi-G1-v2-xem-3-ch04-05.mp3', c4, dur)]
 xem = []
-for ten, t0, t1 in PH:
+for ten, t0, t1 in ([] if TT else PH):
     f = NG / ten; gx, cx, vx = 0.0, CEIL, []
     for k in range(6):
         subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', f'{t0:.3f}', '-to', f'{t1:.3f}', '-i', str(WAV), '-af',
@@ -43,4 +45,4 @@ for ten, t0, t1 in PH:
 out = dict(nguon_tho=dict(tep=str(SRC), sha256=lib.sha256(str(SRC)), **m0), vong=vong,
            master=dict(wav=str(WAV), wav_sha256=lib.sha256(str(WAV)), flac=str(FLAC), flac_sha256=lib.sha256(str(FLAC)), giay=round(dur, 3), **vong[-1]),
            ban_xem=xem)
-json.dump(out, open(K.G / 'xuat.json', 'w'), ensure_ascii=False, indent=1); print(json.dumps(out, ensure_ascii=False, indent=1))
+json.dump(out, open(X / 'xuat.json' if TT else K.G / 'xuat.json', 'w'), ensure_ascii=False, indent=1); print(json.dumps(out, ensure_ascii=False, indent=1))

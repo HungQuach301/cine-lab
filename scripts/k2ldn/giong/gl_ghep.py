@@ -46,13 +46,21 @@ def ghep_cau(out, doan, t):
     C = [c for d in doan for c in d['cau']]; c = [c for d in doan if d['shot'] == t['shot'] for c in d['cau']][t['i']]; k = C.index(c)
     pe = C[k - 1]['kt'] if k else 0.0; nb = C[k + 1]['bd'] if k + 1 < len(C) else len(out) / SR
     pre, post = min(0.25, (c['bd'] - pe) / 2), min(0.25, (nb - c['kt']) / 2)
-    y = mono(t['tep']); seg = y[max(0, int((t['bd'] - pre) * SR)):int((t['kt'] + post) * SR)].copy(); f = int(FADE * SR)
+    y = mono(K.OUT / 'raw' / Path(t['tep']).name); seg = y[max(0, int((t['bd'] - pre) * SR)):int((t['kt'] + post) * SR)].copy(); f = int(FADE * SR)
     seg[:f] *= np.linspace(0, 1, f); seg[-f:] *= np.linspace(1, 0, f)
     a, b = int(round((c['bd'] - pre) * SR)), int(round((c['kt'] + post) * SR)); delta = (len(seg) - (b - a)) / SR
+    g = muc_noi(out[int(c['bd'] * SR):int(c['kt'] * SR)]) - muc_noi(y[int(t['bd'] * SR):int(t['kt'] * SR)])   # GIONG-T4: khớp mức tiếng nói câu thay với câu bị thay
+    g = max(-6.0, min(6.0, g)); seg *= 10 ** (g / 20); t['khop_muc_db'] = round(g, 2)
     out = np.concatenate([out[:a], seg, out[b:]])
     c['bd'] = round(a / SR + pre, 3); c['kt'] = round(c['bd'] + t['kt'] - t['bd'], 3); c['thu_lai'] = dict(seed=t['seed'], tep=t['tep'])
     for x in C[k + 1:]: x['bd'] = round(x['bd'] + delta, 3); x['kt'] = round(x['kt'] + delta, 3)
     return out
+
+
+def muc_noi(x, n=960):
+    """mức RMS (dBFS) của các khung 20 ms trong 25 dB dưới khung to nhất — mức tiếng nói, bỏ lặng"""
+    fr = x[:len(x) // n * n].reshape(-1, n).astype(np.float64); r = np.sqrt((fr ** 2).mean(1)); db = 20 * np.log10(r + 1e-9); m = db > db.max() - 25
+    return float(20 * np.log10(np.sqrt((fr[m] ** 2).mean()) + 1e-12))
 
 
 THAY = json.loads((K.G / 'thay.json').read_text()) if (K.G / 'thay.json').exists() else []
@@ -68,5 +76,6 @@ if __name__ == '__main__':
         M['chuong'].append(dict(chuong=cid, bd_stem=round(t0, 3), giay=round(len(x) / SR, 3), ngung_noi=round(g, 3), so_phan=len(rec['phan']),
                                 doan=[dict(dd, bd_stem=round(dd['bd'] + t0, 3), kt_stem=round(dd['kt'] + t0, 3)) for dd in doan]))
     lib.write(str(d / 'T4-loi-tho.wav'), full[:, None]); M['giay_stem'] = round(len(full) / SR, 3)
+    M['thu_lai'] = [dict(chuong=t['chuong'], shot=t['shot'], i=t['i'], seed=t['seed'], khop_muc_db=t.get('khop_muc_db')) for t in THAY if t['chon']]
     json.dump(M, open(d / 'moc.json', 'w'), ensure_ascii=False, indent=1)
     print('stem', M['giay_stem'], 's;', [(c['chuong'], c['giay'], c['ngung_noi']) for c in M['chuong']])
