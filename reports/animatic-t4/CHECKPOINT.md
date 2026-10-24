@@ -32,3 +32,4 @@
 - 04:29 UTC: dựng 3D tới H1-18 (cảnh lửa 4,4–5,0 s/khung mỗi tiến trình); ước xong hàng 1 ≈ 09:30, hàng 2 (máy thấp look2d) + H1-03/H5-07a ≈ 10:45. Bổ sung bộ đếm năm (§11.2) vào bộ ghép; khai k2check thử (không video) — bảng ở báo cáo.
 - 05:00 UTC: dựng 3D tới H2-06 (Hồi 2). (`LỖI H2-07` trong log hàng 1 là đúng: H2-07 đã chuyển thành M-d, tệp máy bị gỡ.)
 - 05:37 UTC: dựng 3D tới H3-01 (Hồi 3).
+- 06:15 UTC: dựng 3D tới H4-04c (Hồi 4); ước hàng 1 xong ≈ 07:20, hàng 2 ≈ 08:30, hàng 3 ≈ 08:50.
