@@ -14,8 +14,15 @@ Nhánh harness gợi ý: `ccr-be60bd61-3pu9td` (đã fast-forward tới cùng g�
 | 00:00–00:48 | Render Blender: A1 20 cảnh xong; A5 (2 gốc + 34 biến thể + 2 pass bóng + 24 khung timelapse 960×540) đang chạy nền, ≤ 2 tiến trình nặng | đang chạy |
 | 00:30–00:45 | A3 (lớp sống cộng hiệu) trên T6 + khói tổng hợp: phép (i-s) G = clip(nền + (R − N)) — đúng: lệch 0; dán nguyên kiểu T6: 72; lệch 6 px: 50; nửa cường độ: 22 | xong (số đo) |
 | 00:30–00:45 | A4 (vòng bảo vệ): (i) của K chỉ đo trong mặt nạ (a), KHÔNG đo vòng nở — ràng buộc vòng = render là chữ Kinh thánh §15 (a); khớp màu cục bộ (một độ lệch/vật) giữ (i) 0/255, phần dư vòng ≤ 1; T6 không tái hiện được quầng của M1-rong (cần mặt nạ look2) | xong (số đo) |
+| 00:50–01:25 | A5: 34 biến thể Blender + pass bóng + 24 khung timelapse; 2 ảnh AI thật (OpenAI edits, sổ AI); (d)(e) đạt cả hai nửa; (a) KHÔNG đạt 100 % ở 1,4–4,8 px/m — Chặn chỉ phần thô (đỡ < 0,20: 0/4 248 báo nhầm, xoá 3/3) | xong |
+| 01:30–01:40 | (c) thật: lời nhắc BMN v2 (năm bắt buộc) 5/5 vật hiện đại + q_thoi_dai; 0 báo trên 2 ảnh AI sạch ($0,45 nhìn + $0,24 O2) | xong |
+| 01:15 / 01:45 | checks-appeal.md: khiếu nại A1–A5 (trước) → phán quyết (sau) | xong |
+| 01:52:26 | `lock.py` (không `--verify`, MỘT lần) → **1.17.5 `c7630b4a…`**; `--verify` KHỚP; selftest sau khoá đạt hết (k1175 52/52) | xong |
+| 02:05 | k2check 1.17.5 trên T3 (719 s); 1.17.4 chạy lại từ worktree mở rộng (lượt đầu hỏng: worktree thưa thiếu RIGHTS.md — lỗi của phiên) | đang chạy |
 
 ## Lệnh bổ sung đã áp
 - 00:37: `pkill -f cho2.sh` khớp chính shell (exit 144) — lặp bài học LL #24/#41 (đã nêu ở K-1.17.4); không mất dữ liệu; từ đây dừng tiến trình theo PGID (`kill -TERM -<PGID>`).
 - 00:35: hàng đợi Blender A1 chạy hai bản song song vài phút (tôi xoá thư mục B-mau-nau khi tiến trình gốc còn sống) — dừng bản thứ hai theo PGID 5177; P nặng ≤ 2 giữ.
+- 01:45: cất `checks/` bằng stash để commit khi selftest cũ đang chạy nền — lặp bài học K-1.17.4 (2); selftest đó vẫn đạt; mọi selftest chạy lại sau khoá đạt.
+- 02:00: worktree thưa 1.17.4 thiếu tệp gốc (RIGHTS.md) → lượt k2check 1.17.4 đầu lỗi; mở rộng worktree (mọi tệp gốc, bỏ channel-k2/design/reports/assets) và chạy lại.
 - Lỗi của chính phiên đã sửa: canh_tong_hop.py chiếu px/m khi ma trận máy chưa cập nhật (px/m 229–327 sai) → thêm view_layer.update(), sinh lại cấu hình A5; kè đứng gán 'congsu' (vật cao) thay 'suon'.

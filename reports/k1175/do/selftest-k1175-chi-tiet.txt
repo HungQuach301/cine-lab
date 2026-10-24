@@ -1,0 +1,54 @@
+ĐÚNG [N2P-3 T9c] T6 render ↔ chính nó → sạch — kỳ vọng sạch
+ĐÚNG [N2P-3 T9c] A2: nước đổi XÁM, bờ giữ → sạch — kỳ vọng sạch
+ĐÚNG [N2P-3 T9c] A2: nước đổi Ô-LIU, bờ giữ → sạch — kỳ vọng sạch
+ĐÚNG [N2P-3 T9c] A2 đối chứng: luật cũ T9b nước→đất 91.12 % > 2 % (lỗi cũ có thật) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-3 T9c] A2 qua tong_tam 1.17.5: nước ô-liu → N2P-3 không (a)/(c)/(d) — kỳ vọng sạch
+ĐÚNG [N2P-3 T9c] bờ lấn 8 px × 100 px (nước ô-liu) → (c) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-3 T9c] bờ lấn 16 px × 100 px (nước ô-liu) → (c) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-3 T9c] bờ lấn 40 px × 100 px (nước ô-liu) → (c) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-3 T9c] T6 lượt 2 thật (D11: bờ bắc lấn) → trượt (13 đoạn, sâu nhất 22.0 px) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-3 T9c] Blender: render có phản chiếu vật lý ↔ chính nó → sạch — kỳ vọng sạch
+ĐÚNG [N2P-3 T9c] Blender: phản chiếu vật lý + nước ô-liu (A1: phản chiếu có trong render) → sạch — kỳ vọng sạch
+ĐÚNG [N2P-3 T9c] Blender: phản chiếu vật lý, mặt nước nhám 0,10 → sạch — kỳ vọng sạch
+ĐÚNG [N2P-3 T9c] Blender: bờ lấn hình học (bãi/bến 10–80 m) → (c) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-3 T9c] A1: phản chiếu AI tự vẽ thêm (render không có) dọc bờ → trượt (không miễn) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-1 (e)] lớp sống: cộng hiệu đúng → sai lớn nhất 0/255 — kỳ vọng sạch
+ĐÚNG [N2P-1 (e)] lớp sống: dán nguyên điểm render (cách T6) → sai lớn nhất 8/255 — kỳ vọng bắt lỗi
+ĐÚNG [N2P-1 (e)] lớp sống: lớp sống lệch 6 px → sai lớn nhất 38/255 — kỳ vọng bắt lỗi
+ĐÚNG [N2P-1 (e)] lớp sống: nửa cường độ → sai lớn nhất 18/255 — kỳ vọng bắt lỗi
+ĐÚNG [N2P-1 (e)] kiem_tam + tong_tam: gd.png → (e) — kỳ vọng sạch
+ĐÚNG [N2P-1 (e)] kiem_tam + tong_tam: gdan.png → (e) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-1 (e)] mô hình nhìn (iv) soi TẤM NỀN khi khai lớp sống (khoá bộ đệm theo nen.png) — kỳ vọng sạch
+ĐÚNG [N2P-1 (e)] khai song thiếu nen → THIẾU (e) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-1 (d)] vòng = render-khớp + một độ lệch/vật (5 vòng, phần dư 0) → sạch — kỳ vọng sạch
+ĐÚNG [N2P-1 (d)] vòng đổi KHÔNG đều (vẽ lại mép) → phần dư 222 — kỳ vọng bắt lỗi
+ĐÚNG [N2P-1 (d)] độ lệch 60 > trần 40 → lỗi — kỳ vọng bắt lỗi
+ĐÚNG [N2P-1 (d)] kiem_tam khop_mau_cuc_bo: gv.png → (d) — kỳ vọng sạch
+ĐÚNG [N2P-1 (d)] kiem_tam khop_mau_cuc_bo: gw.png → (d) — kỳ vọng bắt lỗi
+ĐÚNG [N2P-1 (d)] không khai khop_mau_cuc_bo → không đo vòng (luật cũ: (i) chỉ trong mặt nạ) — kỳ vọng sạch
+ĐÚNG [cấp] N2P-1 (e) lớp sống ở G2 → Chặn — kỳ vọng bắt lỗi
+ĐÚNG [cấp] N2P-1 (e) ở animatic → Cảnh báo — kỳ vọng sạch
+ĐÚNG [BE-MAT-NHA (a)] bề mặt mới (albedo khác + nhiễu 3 %), hình khối giữ → không Chặn (a) (56 nhà đo) — kỳ vọng sạch
+ĐÚNG [BE-MAT-NHA (b)] bề mặt mới, ngoài vùng nhà = render → (b) sạch — kỳ vọng sạch
+ĐÚNG [BE-MAT-NHA (a)] xoá một nhà (thay bằng nền) → Chặn (a) — kỳ vọng bắt lỗi
+ĐÚNG [BE-MAT-NHA (a)] ảnh AI dời một nhà 2,5 m (10 px), ghép theo mặt nạ → cờ (a) Chặn hoặc (w) người đọc — kỳ vọng bắt lỗi
+ĐÚNG [BE-MAT-NHA (b)] đổi 200 điểm ngoài vùng nhà đo được (lớp khoá) → (b) — kỳ vọng bắt lỗi
+ĐÚNG [BE-MAT-NHA (b)] nen_ai: true (tấm cũng là tấm nền N2+) → nền không khoá ở đây — kỳ vọng sạch
+ĐÚNG [BE-MAT-NHA (b)] nhà dưới ngưỡng đo (px/m < PPM_MIN) mà vẫn phủ AI → (b) (không đo được thì giữ render) — kỳ vọng bắt lỗi
+ĐÚNG [BE-MAT-NHA (c)] mô hình báo điều hoà (năm 1950 > 1666) → (c) — kỳ vọng bắt lỗi
+ĐÚNG [BE-MAT-NHA (c)] mô hình không báo gì → (c) sạch — kỳ vọng sạch
+ĐÚNG [BE-MAT-NHA (c)] nghi vấn không năm → (w) người đọc, không (c) — kỳ vọng sạch
+ĐÚNG [BE-MAT-NHA (c)] không bộ đệm, không --vision → THIẾU (c) — kỳ vọng bắt lỗi
+ĐÚNG [BE-MAT-NHA (de)] dựng lại ánh sáng đúng (chiếu 3D) → (de) — kỳ vọng sạch
+ĐÚNG [BE-MAT-NHA (d)] ảnh tĩnh dán khi nắng đổi → (d) — kỳ vọng bắt lỗi
+ĐÚNG [BE-MAT-NHA (d)] nhiễu bề mặt mỗi khung → (d) — kỳ vọng bắt lỗi
+ĐÚNG [BE-MAT-NHA (e)] chiếu 3D không khử sáng (khung 0 lệch tấm) → (e) — kỳ vọng bắt lỗi
+ĐÚNG [BE-MAT-NHA (e)] cach không hợp lệ → THIẾU (e) — kỳ vọng bắt lỗi
+ĐÚNG [cấp] BE-MAT-NHA (a) ở G2 → Chặn — kỳ vọng bắt lỗi
+ĐÚNG [cấp] BE-MAT-NHA (a) ở animatic → Cảnh báo — kỳ vọng sạch
+ĐÚNG [cấp] BE-MAT-NHA (w) ở G2 → Cảnh báo — kỳ vọng sạch
+ĐÚNG [áp dụng] tập T3 → BE-MAT-NHA KHÔNG ÁP — kỳ vọng sạch
+ĐÚNG [áp dụng] tập T4 không tấm be_mat_nha_ai → KHÔNG ÁP — kỳ vọng sạch
+ĐÚNG [áp dụng] tập T4 có tấm be_mat_nha_ai → hàng chạy (THIẾU (c) khi chưa soi) — kỳ vọng bắt lỗi
+
+selftest_k1175: 52/52 ca đúng kỳ vọng — ĐẠT
