@@ -21,6 +21,7 @@ goc_toa_do:
 - 180800
 loi_khoa: ../loi-khoa.txt
 log_shot: log-shot.json
+nhip_vat: nhip-vat.json
 segments:
 - id: M01
   part: MÓC
@@ -42,8 +43,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: This is the City of London, seen from Bankside, across the Thames. Among the towers stands one dome — and much of this skyline is shaped to keep it in view. We are standing near where Samuel Pepys
-      stood on the second night of the Great Fire.
+    cau: Among the towers stands one dome — and much of this skyline is shaped to keep it in view.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: M01
 - id: M02
   part: MÓC
   chuong: MÓC
@@ -64,7 +70,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: London has burned to the ground twice. Twice, it got the chance to start over. And twice, it rebuilt itself on its old, crooked streets.
+    cau: And twice, it rebuilt itself on its old, crooked streets.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: M02
 - id: M03
   part: MÓC
   chuong: MÓC
@@ -82,6 +94,12 @@ segments:
       sach: true
       tl: true
     cau: Look closely, and the old street pattern is still there, threading between the towers.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: M03
 - id: M04
   part: MÓC
   chuong: MÓC
@@ -99,6 +117,12 @@ segments:
       sach: true
       tl: true
     cau: To see why, we go back to a Sunday night in September 1666 — to a bakery about a kilometre from here.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: M04
 - id: H1-01a
   part: HỒI 1
   chuong: HỒI 1
@@ -117,7 +141,23 @@ segments:
     p:
       sach: true
       tl: false
-    cau: Sunday, the second of September 1666. At about one in the morning, fire breaks out in Pudding Lane, in the house of Thomas Farriner, baker to the King.
+      the_chuong: &id001
+        s: 1666 — The Great Fire
+        at: 0.5
+        dur: 3.0
+      chuong: *id001
+    cau: Sunday, the second of September 1666.
+    noi: minh_hoa
+    kiem: omni/kiem2/H1-01a-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H1-01a-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-01a
+  - t: 0.5
+    k: the_chuong
+    s: 1666 — The Great Fire
 - id: H1-01b
   part: HỒI 1
   chuong: HỒI 1
@@ -132,7 +172,18 @@ segments:
     p:
       sach: true
       tl: false
-    cau: Sunday, the second of September 1666. At about one in the morning, fire breaks out in Pudding Lane, in the house of Thomas Farriner, baker to the King.
+    cau: At about one in the morning, fire breaks out in Pudding Lane, in the house of Thomas Farriner, baker to the King.
+    noi: minh_hoa
+    kiem: omni/kiem2/H1-01b-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H1-01b-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-01b
+  - t: 0.542
+    k: the_nhan_vat
+    s: Thomas Farriner
 - id: H1-02
   part: HỒI 1
   chuong: HỒI 1
@@ -151,7 +202,15 @@ segments:
     p:
       sach: true
       tl: false
-    cau: London is a city of timber. Its houses are packed so tight that their upper storeys almost touch across the lanes.
+    cau: Its houses are packed so tight that their upper storeys almost touch across the lanes.
+    noi: minh_hoa
+    kiem: omni/kiem2/H1-02-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H1-02-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-02
 - id: H1-03
   part: HỒI 1
   chuong: HỒI 1
@@ -170,6 +229,15 @@ segments:
       tl: true
     cau: 'Nineteen years earlier, the engraver Wenceslaus Hollar had published a long view of this skyline, drawn from St Saviour''s church, just along the bank: a forest of church towers, and above them
       all, the long roof of Old St Paul''s.'
+    noi: cau_london
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-03
+  - t: 1.0
+    k: tu_lieu
+    s: 'Hollar: London before the Fire'
 - id: H1-04
   part: HỒI 1
   chuong: HỒI 1
@@ -188,7 +256,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: The summer has been dry, and a fierce east wind is blowing. By morning, the fire has taken the church of St Magnus and most of Fish Street, at the foot of London Bridge.
+    cau: By morning, the fire has taken the church of St Magnus and most of Fish Street, at the foot of London Bridge.
+    noi: cau_london
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-04
 - id: H1-05a
   part: HỒI 1
   chuong: HỒI 1
@@ -205,7 +279,18 @@ segments:
     p:
       sach: true
       tl: false
-    cau: Samuel Pepys hurries to Whitehall and tells the King that unless houses are pulled down, nothing can stop the fire. The King sends him to the Lord Mayor with that order.
+    cau: Samuel Pepys hurries to Whitehall and tells the King that unless houses are pulled down, nothing can stop the fire.
+    noi: minh_hoa
+    kiem: omni/kiem2/H1-05a-l3-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H1-05a-l3-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-05a
+  - t: 0.192
+    k: the_nhan_vat
+    s: Samuel Pepys
 - id: H1-05b
   part: HỒI 1
   chuong: HỒI 1
@@ -222,7 +307,15 @@ segments:
     p:
       sach: true
       tl: false
-    cau: Samuel Pepys hurries to Whitehall and tells the King that unless houses are pulled down, nothing can stop the fire. The King sends him to the Lord Mayor with that order.
+    cau: The King sends him to the Lord Mayor with that order.
+    noi: minh_hoa
+    kiem: omni/kiem2/H1-05b-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H1-05b-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-05b
 - id: H1-06
   part: HỒI 1
   chuong: HỒI 1
@@ -245,7 +338,16 @@ segments:
     p:
       sach: true
       tl: true
-    cau: 'The Lord Mayor, Sir Thomas Bludworth, is overwhelmed. Pepys finds him in Cannon Street, a handkerchief round his neck: "Lord, what can I do? I am spent. People will not obey me."'
+    cau: 'Pepys finds him in Cannon Street, a handkerchief round his neck: "Lord, what can I do?'
+    noi: thanh_pho_bac
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-06
+  - t: 0.225
+    k: the_nhan_vat
+    s: Sir Thomas Bludworth
 - id: H1-07
   part: HỒI 1
   chuong: HỒI 1
@@ -266,7 +368,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: London Bridge survives. A gap left by an earlier fire, in 1633, stops the flames from crossing to Southwark. Instead, the wind drives the fire west, along the waterfront, and up the hill.
+    cau: A gap left by an earlier fire, in 1633, stops the flames from crossing to Southwark.
+    noi: cau_london
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-07
 - id: H1-08a
   part: HỒI 1
   chuong: HỒI 1
@@ -283,8 +391,15 @@ segments:
     p:
       sach: true
       tl: false
-    cau: That evening, Pepys takes shelter in "a little ale-house on the Bankside" — about where we are standing. As it grows dark, he sees "one entire arch of fire" — more than a mile long. "It made me
-      weep to see it."
+    cau: That evening, Pepys takes shelter in "a little ale-house on the Bankside" — about where we are standing.
+    noi: minh_hoa
+    kiem: omni/kiem2/H1-08a-l2-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H1-08a-l2-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-08a
 - id: H1-08b
   part: HỒI 1
   chuong: HỒI 1
@@ -303,8 +418,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: That evening, Pepys takes shelter in "a little ale-house on the Bankside" — about where we are standing. As it grows dark, he sees "one entire arch of fire" — more than a mile long. "It made me
-      weep to see it."
+    cau: As it grows dark, he sees "one entire arch of fire" — more than a mile long.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-08b
 - id: H1-09
   part: HỒI 1
   chuong: HỒI 1
@@ -325,7 +445,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: Monday. The fire spreads up Gracechurch Street to Lombard Street, and west to Cannon Street. At two in the afternoon, it takes the Royal Exchange — the City's trading floor.
+    cau: The fire spreads up Gracechurch Street to Lombard Street, and west to Cannon Street.
+    noi: thien_dinh
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-09
 - id: H1-10
   part: HỒI 1
   chuong: HỒI 1
@@ -342,7 +468,15 @@ segments:
     p:
       sach: true
       tl: false
-    cau: The roads are jammed with carts.
+    cau: At two in the afternoon, it takes the Royal Exchange — the City's trading floor.
+    noi: minh_hoa
+    kiem: omni/kiem2/H1-10-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H1-10-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-10
 - id: H1-12
   part: HỒI 1
   chuong: HỒI 1
@@ -360,6 +494,14 @@ segments:
       sach: true
       tl: false
     cau: The river fills with boats — and with goods floating on the water.
+    noi: minh_hoa
+    kiem: omni/kiem2/H1-12-l2-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H1-12-l2-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-12
 - id: H1-11
   part: HỒI 1
   chuong: HỒI 1
@@ -378,8 +520,16 @@ segments:
     p:
       sach: true
       tl: true
-    cau: John Evelyn walks the burning streets that night. The sky, he writes, is "like the top of a burning oven"; the noise is "like a hideous storm" — the cracking of the flames, the fall of towers,
-      houses and churches.
+    cau: The sky, he writes, is "like the top of a burning oven"; the noise is "like a hideous storm" — the cracking of the flames, the fall of towers, houses and churches.
+    noi: tower_hill
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-11
+  - t: 0.176
+    k: the_nhan_vat
+    s: John Evelyn
 - id: H1-13
   part: HỒI 1
   chuong: HỒI 1
@@ -400,7 +550,16 @@ segments:
     p:
       sach: true
       tl: true
-    cau: Tuesday, the fourth. The fire climbs Ludgate Hill to St Paul's Cathedral, wrapped in wooden scaffolding for repairs. By evening, the great church is ablaze.
+    cau: The fire climbs Ludgate Hill to St Paul's Cathedral, wrapped in wooden scaffolding for repairs.
+    noi: ludgate
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-13
+  - t: 1.0
+    k: tu_lieu
+    s: The fire at Ludgate, c. 1670
 - id: H1-14
   part: HỒI 1
   chuong: HỒI 1
@@ -418,6 +577,14 @@ segments:
       sach: true
       tl: false
     cau: John Evelyn watches its lead run down the streets "in a stream".
+    noi: minh_hoa
+    kiem: omni/kiem2/H1-14-l3-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H1-14-l3-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-14
 - id: H1-15
   part: HỒI 1
   chuong: HỒI 1
@@ -438,8 +605,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: In the west, the fire crosses the Fleet and runs down Fleet Street, as far as the Temple. Only now are houses blown up with gunpowder to open firebreaks — first in Tower Street, near the Tower.
-      At the Navy Office, Pepys and a colleague dig a pit in the garden for their wine — and Pepys buries his Pa
+    cau: At the Navy Office, Pepys and a colleague dig a pit in the garden for their wine — and Pepys buries his Parmesan cheese.
+    noi: tower_hill
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-15
 - id: H1-16
   part: HỒI 1
   chuong: HỒI 1
@@ -458,7 +630,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: That night, the wind finally drops. By Thursday, the fire is out.
+    cau: That night, the wind finally drops.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-16
 - id: H1-17a
   part: HỒI 1
   chuong: HỒI 1
@@ -476,6 +654,14 @@ segments:
       sach: true
       tl: false
     cau: Homeless Londoners camp in the fields outside the walls — Moorfields, St George's Fields, as far as Highgate — "some under tents, some under miserable huts and hovels."
+    noi: minh_hoa
+    kiem: omni/kiem2/H1-17a-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H1-17a-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-17a
 - id: H1-17b
   part: HỒI 1
   chuong: HỒI 1
@@ -491,6 +677,14 @@ segments:
       sach: true
       tl: false
     cau: Homeless Londoners camp in the fields outside the walls — Moorfields, St George's Fields, as far as Highgate — "some under tents, some under miserable huts and hovels."
+    noi: minh_hoa
+    kiem: omni/kiem2/H1-17b-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H1-17b-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-17b
 - id: H1-18
   part: HỒI 1
   chuong: HỒI 1
@@ -517,8 +711,19 @@ segments:
     p:
       sach: true
       tl: true
-    cau: About thirteen thousand two hundred houses. Eighty-seven parish churches. St Paul's. Roughly four-fifths of the City — over four hundred acres. Fewer than ten deaths were recorded. The real toll
-      is unknown.
+    cau: Roughly four-fifths of the City — over four hundred acres.
+    noi: thien_dinh
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-18
+  - t: 0.242
+    k: bo_dem
+    s: 13,200 houses
+  - t: 3.142
+    k: bo_dem
+    s: 87 churches
 - id: H1-19
   part: HỒI 1
   chuong: HỒI 1
@@ -534,6 +739,14 @@ segments:
       sach: true
       tl: false
     cau: ''
+    noi: minh_hoa
+    kiem: omni/kiem2/H1-19-l2-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H1-19-l2-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-19
 - id: H2-01a
   part: HỒI 2
   chuong: HỒI 2
@@ -552,7 +765,23 @@ segments:
     p:
       sach: true
       tl: false
-    cau: The ashes are still warm when the plans arrive. When Evelyn walks through the ruins, he cannot tell where he is — except by the shell of some church or hall, with a tower still standing.
+      the_chuong: &id002
+        s: 1666 — Rebuilding on the old streets
+        at: 0.5
+        dur: 3.0
+      chuong: *id002
+    cau: The ashes are still warm when the plans arrive.
+    noi: minh_hoa
+    kiem: omni/kiem2/H2-01a-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H2-01a-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-01a
+  - t: 0.5
+    k: the_chuong
+    s: 1666 — Rebuilding on the old streets
 - id: H2-01b
   part: HỒI 2
   chuong: HỒI 2
@@ -567,7 +796,15 @@ segments:
     p:
       sach: true
       tl: false
-    cau: The ashes are still warm when the plans arrive. When Evelyn walks through the ruins, he cannot tell where he is — except by the shell of some church or hall, with a tower still standing.
+    cau: When Evelyn walks through the ruins, he cannot tell where he is — except by the shell of some church or hall, with a tower still standing.
+    noi: minh_hoa
+    kiem: omni/kiem2/H2-01b-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H2-01b-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-01b
 - id: H2-02
   part: HỒI 2
   chuong: HỒI 2
@@ -590,7 +827,22 @@ segments:
     p:
       sach: true
       tl: true
-    cau: Within days, Christopher Wren hands the King a new City on paper — straight avenues, open squares, a grid. John Evelyn draws another. Robert Hooke, a third. None of them is built.
+    cau: Within days, Christopher Wren hands the King a new City on paper — straight avenues, open squares, a grid.
+    noi: thien_dinh
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-02
+  - t: 0.183
+    k: the_nhan_vat
+    s: Christopher Wren
+  - t: 0.2
+    k: tu_lieu
+    s: Wren's plan for the City, 1666
+  - t: 10.983
+    k: the_nhan_vat
+    s: Robert Hooke
 - id: H2-03a
   part: HỒI 2
   chuong: HỒI 2
@@ -607,8 +859,15 @@ segments:
     p:
       sach: true
       tl: false
-    cau: Every plot in the burnt City has its owners — and the people who have lost their homes cannot afford to wait years for it all to be redrawn. So Parliament moves faster. From late February 1667,
-      a special Fire Court sits at Clifford's Inn, settling disputes between landlords and tenants. In its first
+    cau: Every plot in the burnt City has its owners — and the people who have lost their homes cannot afford to wait years for it all to be redrawn.
+    noi: minh_hoa
+    kiem: omni/kiem2/H2-03a-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H2-03a-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-03a
 - id: H2-03b
   part: HỒI 2
   chuong: HỒI 2
@@ -627,8 +886,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: Every plot in the burnt City has its owners — and the people who have lost their homes cannot afford to wait years for it all to be redrawn. So Parliament moves faster. From late February 1667,
-      a special Fire Court sits at Clifford's Inn, settling disputes between landlords and tenants. In its first
+    cau: From late February 1667, a special Fire Court sits at Clifford's Inn, settling disputes between landlords and tenants.
+    noi: thanh_pho_bac
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-03b
 - id: H2-03c
   part: HỒI 2
   chuong: HỒI 2
@@ -645,8 +909,15 @@ segments:
     p:
       sach: true
       tl: false
-    cau: Every plot in the burnt City has its owners — and the people who have lost their homes cannot afford to wait years for it all to be redrawn. So Parliament moves faster. From late February 1667,
-      a special Fire Court sits at Clifford's Inn, settling disputes between landlords and tenants. In its first
+    cau: In its first year, it decides three hundred and seventy-four cases.
+    noi: minh_hoa
+    kiem: omni/kiem2/H2-03c-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H2-03c-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-03c
 - id: H2-04a
   part: HỒI 2
   chuong: HỒI 2
@@ -663,7 +934,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: 'A Rebuilding Act sets the rules: outside walls of brick or stone, not timber. And a new duty on coal pays for the City''s public buildings.'
+    cau: 'A Rebuilding Act sets the rules: outside walls of brick or stone, not timber.'
+    noi: fleet_street
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-04a
 - id: H2-04b
   part: HỒI 2
   chuong: HỒI 2
@@ -680,7 +957,15 @@ segments:
     p:
       sach: true
       tl: false
-    cau: 'A Rebuilding Act sets the rules: outside walls of brick or stone, not timber. And a new duty on coal pays for the City''s public buildings.'
+    cau: And a new duty on coal pays for the City's public buildings.
+    noi: minh_hoa
+    kiem: omni/kiem2/H2-04b-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H2-04b-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-04b
 - id: H2-05
   part: HỒI 2
   chuong: HỒI 2
@@ -703,8 +988,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: The old street plan stays. Two new streets — King Street and Queen Street — are cut down from the Guildhall toward the river. Rebuilding gets going in 1668. By the end of 1670, about six thousand
-      new houses are up — on the same lanes, in brick.
+    cau: By the end of 1670, about six thousand new houses are up — on the same lanes, in brick.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-05
 - id: H2-06
   part: HỒI 2
   chuong: HỒI 2
@@ -723,7 +1013,19 @@ segments:
     p:
       sach: true
       tl: true
-    cau: 'Near the bakery, Wren and Hooke raise a column: the Monument. Two hundred and two feet high — exactly the distance to the spot in Pudding Lane where the fire began.'
+    cau: Two hundred and two feet high — exactly the distance to the spot in Pudding Lane where the fire began.
+    noi: thanh_pho_dong
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-06
+  - t: 1.5
+    k: tu_lieu
+    s: The Monument, engraving
+  - t: 5.25
+    k: bo_dem
+    s: 202 ft
 - id: H2-07
   part: HỒI 2
   chuong: HỒI 2
@@ -742,7 +1044,18 @@ segments:
     p:
       sach: true
       tl: false
-    cau: Fire insurance begins here too. In 1680, Nicholas Barbon opens the Fire Office.
+    cau: In 1680, Nicholas Barbon opens the Fire Office.
+    noi: minh_hoa
+    kiem: omni/kiem2/H2-07-l2-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H2-07-l2-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-07
+  - t: 3.45
+    k: the_nhan_vat
+    s: Nicholas Barbon
 - id: H2-08
   part: HỒI 2
   chuong: HỒI 2
@@ -760,6 +1073,12 @@ segments:
       sach: true
       tl: true
     cau: Wren's office rebuilds fifty-one of the City's churches.
+    noi: cau_london
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-08
 - id: H2-09
   part: HỒI 2
   chuong: HỒI 2
@@ -777,6 +1096,12 @@ segments:
       sach: true
       tl: true
     cau: And on Ludgate Hill, where Old St Paul's stood, work starts in 1675 on a new cathedral.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-09
 - id: H2-10
   part: HỒI 2
   chuong: HỒI 2
@@ -795,7 +1120,16 @@ segments:
     p:
       sach: true
       tl: true
-    cau: The last stone of the lantern is set in 1708. In 1711, Parliament declares St Paul's complete — three hundred and sixty-five feet, to the top of the cross.
+    cau: In 1711, Parliament declares St Paul's complete — three hundred and sixty-five feet, to the top of the cross.
+    noi: ludgate
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-10
+  - t: 4.858
+    k: bo_dem
+    s: 365 ft
 - id: H2-11
   part: HỒI 2
   chuong: HỒI 2
@@ -811,6 +1145,12 @@ segments:
       sach: true
       tl: true
     cau: ''
+    noi: thien_dinh
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-11
 - id: H2-12
   part: HỒI 2
   chuong: HỒI 2
@@ -826,6 +1166,15 @@ segments:
       sach: true
       tl: true
     cau: ''
+    noi: cau_london
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-12
+  - t: 0.5
+    k: tu_lieu
+    s: 'Hollar: London before the Fire'
 - id: H2-13
   part: HỒI 2
   chuong: HỒI 2
@@ -841,6 +1190,14 @@ segments:
       sach: true
       tl: false
     cau: ''
+    noi: minh_hoa
+    kiem: omni/kiem2/H2-13-l2-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H2-13-l2-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-13
 - id: H2-14
   part: HỒI 2
   chuong: HỒI 2
@@ -856,6 +1213,12 @@ segments:
       sach: true
       tl: true
     cau: ''
+    noi: thanh_pho_bac
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H2-14
 - id: H3-01
   part: HỒI 3
   chuong: HỒI 3
@@ -872,7 +1235,21 @@ segments:
     p:
       sach: true
       tl: true
+      the_chuong: &id003
+        s: 1711 — The dome rules the skyline
+        at: 0.5
+        dur: 3.0
+      chuong: *id003
     cau: For more than two and a half centuries, nothing in London stands taller than the dome.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H3-01
+  - t: 0.5
+    k: the_chuong
+    s: 1711 — The dome rules the skyline
 - id: H3-02
   part: HỒI 3
   chuong: HỒI 3
@@ -891,7 +1268,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: On London Bridge, the houses and shops are pulled down in 1758. By 1831, a new bridge has replaced the medieval one.
+    cau: On London Bridge, the houses and shops are pulled down in 1758.
+    noi: song
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H3-02
 - id: H3-03
   part: HỒI 3
   chuong: HỒI 3
@@ -912,7 +1295,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: Wren's steeples ring the dome. Even the river moves. Between 1864 and 1870, the Victoria Embankment pushes the north bank out into the Thames.
+    cau: Between 1864 and 1870, the Victoria Embankment pushes the north bank out into the Thames.
+    noi: thien_dinh
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H3-03
 - id: H3-04a
   part: HỒI 3
   chuong: HỒI 3
@@ -929,7 +1318,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: In the 1930s, taller office blocks begin to rise near the cathedral, blocking some of its best-known views. But the lanes underneath hardly shift.
+    cau: In the 1930s, taller office blocks begin to rise near the cathedral, blocking some of its best-known views.
+    noi: thanh_pho_bac
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H3-04a
 - id: H3-04b
   part: HỒI 3
   chuong: HỒI 3
@@ -946,7 +1341,15 @@ segments:
     p:
       sach: true
       tl: false
-    cau: In the 1930s, taller office blocks begin to rise near the cathedral, blocking some of its best-known views. But the lanes underneath hardly shift.
+    cau: In the 1930s, taller office blocks begin to rise near the cathedral, blocking some of its best-known views.
+    noi: minh_hoa
+    kiem: omni/kiem2/H3-04b-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H3-04b-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H3-04b
 - id: H3-05
   part: HỒI 3
   chuong: HỒI 3
@@ -967,8 +1370,16 @@ segments:
     p:
       sach: true
       tl: true
-    cau: 'In 1937, the cathedral''s surveyor, Godfrey Allen, proposes a rule: new buildings must stay low enough to keep the dome in sight from the Thames bridges and the south bank. From 1938, the City
-      applies it. It is called the St Paul''s Heights.'
+    cau: 'In 1937, the cathedral''s surveyor, Godfrey Allen, proposes a rule: new buildings must stay low enough to keep the dome in sight from the Thames bridges and the south bank.'
+    noi: ludgate
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H3-05
+  - t: 0.208
+    k: the_nhan_vat
+    s: Godfrey Allen
 - id: H3-06
   part: HỒI 3
   chuong: HỒI 3
@@ -984,6 +1395,12 @@ segments:
       sach: true
       tl: true
     cau: ''
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H3-06
 - id: H4-01a
   part: HỒI 4
   chuong: HỒI 4
@@ -1002,7 +1419,21 @@ segments:
     p:
       sach: true
       tl: true
-    cau: Sunday, the twenty-ninth of December, 1940. In 1666, the fire took four days. This time, the worst of it comes in a single night.
+      the_chuong: &id004
+        s: 1940 — The second great fire
+        at: 0.5
+        dur: 3.0
+      chuong: *id004
+    cau: Sunday, the twenty-ninth of December, 1940.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H4-01a
+  - t: 0.5
+    k: the_chuong
+    s: 1940 — The second great fire
 - id: H4-01b
   part: HỒI 4
   chuong: HỒI 4
@@ -1019,7 +1450,15 @@ segments:
     p:
       sach: true
       tl: false
-    cau: Sunday, the twenty-ninth of December, 1940. In 1666, the fire took four days. This time, the worst of it comes in a single night.
+    cau: This time, the worst of it comes in a single night.
+    noi: minh_hoa
+    kiem: omni/kiem2/H4-01b-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H4-01b-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H4-01b
 - id: H4-02
   part: HỒI 4
   chuong: HỒI 4
@@ -1040,7 +1479,16 @@ segments:
     p:
       sach: true
       tl: true
-    cau: As dusk falls, German bombers begin dropping incendiaries on the City — at least a hundred thousand of them. Around fifteen hundred fires.
+    cau: As dusk falls, German bombers begin dropping incendiaries on the City — at least a hundred thousand of them.
+    noi: thanh_pho_bac
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H4-02
+  - t: 3.5
+    k: bo_dem
+    s: 100,000 incendiaries
 - id: H4-03
   part: HỒI 4
   chuong: HỒI 4
@@ -1059,7 +1507,15 @@ segments:
     p:
       sach: true
       tl: false
-    cau: It is a Sunday. Many offices are locked and unattended. The water mains are broken, and the Thames is at low tide.
+    cau: The water mains are broken, and the Thames is at low tide.
+    noi: minh_hoa
+    kiem: omni/kiem2/H4-03-l1-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H4-03-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H4-03
 - id: H4-04a
   part: HỒI 4
   chuong: HỒI 4
@@ -1076,8 +1532,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: Next to St Paul's, the booksellers' street, Paternoster Row, burns — and with it as many as five million books. Fire crews and volunteers of the St Paul's Watch fight the bombs that land on the
-      cathedral itself. Across the City, the Guildhall's roof burns, and nineteen churches are destroyed. Winsto
+    cau: Next to St Paul's, the booksellers' street, Paternoster Row, burns — and with it as many as five million books.
+    noi: ludgate
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H4-04a
 - id: H4-04b
   part: HỒI 4
   chuong: HỒI 4
@@ -1094,8 +1555,15 @@ segments:
     p:
       sach: true
       tl: false
-    cau: Next to St Paul's, the booksellers' street, Paternoster Row, burns — and with it as many as five million books. Fire crews and volunteers of the St Paul's Watch fight the bombs that land on the
-      cathedral itself. Across the City, the Guildhall's roof burns, and nineteen churches are destroyed. Winsto
+    cau: Fire crews and volunteers of the St Paul's Watch fight the bombs that land on the cathedral itself.
+    noi: minh_hoa
+    kiem: omni/kiem2/H4-04b-l3-360p-kiem.json
+    ai_image: true
+  kiem: omni/kiem2/H4-04b-l3-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H4-04b
 - id: H4-04c
   part: HỒI 4
   chuong: HỒI 4
@@ -1114,8 +1582,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: Next to St Paul's, the booksellers' street, Paternoster Row, burns — and with it as many as five million books. Fire crews and volunteers of the St Paul's Watch fight the bombs that land on the
-      cathedral itself. Across the City, the Guildhall's roof burns, and nineteen churches are destroyed. Winsto
+    cau: Across the City, the Guildhall's roof burns, and nineteen churches are destroyed.
+    noi: thanh_pho_dong
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H4-04c
 - id: H4-05
   part: HỒI 4
   chuong: HỒI 4
@@ -1133,6 +1606,12 @@ segments:
       sach: true
       tl: true
     cau: By morning, the dome is still standing, in a ring of ruins.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H4-05
 - id: H4-06
   part: HỒI 4
   chuong: HỒI 4
@@ -1150,6 +1629,15 @@ segments:
       sach: true
       tl: true
     cau: About a hundred and sixty people are killed that night — at least twelve of them firefighters.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H4-06
+  - t: 0.233
+    k: bo_dem
+    s: 160 killed
 - id: H4-07
   part: HỒI 4
   chuong: HỒI 4
@@ -1167,6 +1655,12 @@ segments:
       sach: true
       tl: true
     cau: For the second time in three centuries, a great stretch of the City lies in ruins.
+    noi: thien_dinh
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H4-07
 - id: H4-08
   part: HỒI 4
   chuong: HỒI 4
@@ -1182,6 +1676,12 @@ segments:
       sach: true
       tl: true
     cau: ''
+    noi: cau_london
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H4-08
 - id: H5-01
   part: HỒI 5
   chuong: HỒI 5
@@ -1200,7 +1700,24 @@ segments:
     p:
       sach: true
       tl: true
-    cau: And for the second time, the planners arrive with a clean sheet. In 1946 and 1947, Charles Holden and William Holford draw up a new plan for the City.
+      the_chuong: &id005
+        s: 1946 — Second rebuilding, same streets
+        at: 0.5
+        dur: 3.0
+      chuong: *id005
+    cau: In 1946 and 1947, Charles Holden and William Holford draw up a new plan for the City.
+    noi: thanh_pho_bac
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H5-01
+  - t: 0.5
+    k: the_chuong
+    s: 1946 — Second rebuilding, same streets
+  - t: 4.967
+    k: the_nhan_vat
+    s: Charles Holden · William Holford
 - id: H5-02
   part: HỒI 5
   chuong: HỒI 5
@@ -1218,6 +1735,12 @@ segments:
       sach: true
       tl: true
     cau: 'Where the bombs hit hardest, it is bold: a new road, London Wall, built in the 1950s; and on the ruins of Cripplegate, from the mid-1960s, the towers of the Barbican.'
+    noi: thanh_pho_bac
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H5-02
 - id: H5-03
   part: HỒI 5
   chuong: HỒI 5
@@ -1236,7 +1759,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: Everywhere else, it keeps most of the old street lines. The lanes come back.
+    cau: Everywhere else, it keeps most of the old street lines.
+    noi: thien_dinh
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H5-03
 - id: H5-04
   part: HỒI 5
   chuong: HỒI 5
@@ -1255,7 +1784,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: Slowly, the gaps fill again. And in this century, a cluster of towers climbs to the east, around Bishopsgate and Leadenhall Street.
+    cau: And in this century, a cluster of towers climbs to the east, around Bishopsgate and Leadenhall Street.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H5-04
 - id: H5-05a
   part: HỒI 5
   chuong: HỒI 5
@@ -1274,8 +1809,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: So when the towers arrive, they rise on the old street pattern — and under the dome's rules. The St Paul's Heights still apply, alongside a set of protected views across London — the farthest from
-      a hill in Richmond Park, ten miles away. The Leadenhall Building tapers as it rises, so that from Fleet
+    cau: The St Paul's Heights still apply, alongside a set of protected views across London — the farthest from a hill in Richmond Park, ten miles away.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H5-05a
 - id: H5-05b
   part: HỒI 5
   chuong: HỒI 5
@@ -1292,8 +1832,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: So when the towers arrive, they rise on the old street pattern — and under the dome's rules. The St Paul's Heights still apply, alongside a set of protected views across London — the farthest from
-      a hill in Richmond Park, ten miles away. The Leadenhall Building tapers as it rises, so that from Fleet
+    cau: The Leadenhall Building tapers as it rises, so that from Fleet Street, the dome still has open sky behind it.
+    noi: fleet_street
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H5-05b
 - id: H5-06
   part: HỒI 5
   chuong: HỒI 5
@@ -1309,6 +1854,12 @@ segments:
       sach: true
       tl: true
     cau: ''
+    noi: thanh_pho_dong
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H5-06
 - id: H5-07a
   part: HỒI 5
   chuong: HỒI 5
@@ -1325,8 +1876,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: From Bankside tonight, you can stand roughly where Pepys stood, and look across at the same streets. London burned twice. Twice, it could have started over. Twice, it kept its old streets. And
-      the skyline it built still bends around the one building it chose, again and again, to keep in view.
+    cau: From Bankside tonight, you can stand roughly where Pepys stood, and look across at the same streets.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H5-07a
 - id: H5-07b
   part: HỒI 5
   chuong: HỒI 5
@@ -1349,8 +1905,13 @@ segments:
     p:
       sach: true
       tl: true
-    cau: From Bankside tonight, you can stand roughly where Pepys stood, and look across at the same streets. London burned twice. Twice, it could have started over. Twice, it kept its old streets. And
-      the skyline it built still bends around the one building it chose, again and again, to keep in view.
+    cau: And the skyline it built still bends around the one building it chose, again and again, to keep in view.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H5-07b
 - id: H5-08
   part: HỒI 5
   chuong: HỒI 5
@@ -1366,22 +1927,65 @@ segments:
       sach: true
       tl: true
     cau: ''
-- id: H5-09
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H5-08
+- id: PP1
   part: HỒI 5
   chuong: HỒI 5
-  dur: 16.0
+  dur: 9.0
   fadeIn: 0
   fadeOut: 0
   moc_loi: []
+  beats:
+  - t: 0.0
+    k: cut
+    s: PP1
+  title: How this film was made
+  the_phuong_phap: true
   shots:
   - at: 0
     type: card
-    tpl: plate
+    tpl: card
+    role: the_phuong_phap
+    id: PP
+    title: How this film was made
+    dong: &id006
+    - Streets and buildings are rebuilt in 3D from the 1666 Doornick survey, Hollar's engravings and modern maps. Sources are in the description.
+    chu: How this film was made Streets and buildings are rebuilt in 3D from the 1666 Doornick survey, Hollar's engravings and modern maps. Sources are in the description.
+    text: Streets and buildings are rebuilt in 3D from the 1666 Doornick survey, Hollar's engravings and modern maps. Sources are in the description.
+    lines: *id006
     p:
       sach: true
       tl: false
-    cau: ''
-    role: the_phuong_phap
-    id: PP
+- id: PP2
+  part: HỒI 5
+  chuong: HỒI 5
+  dur: 7.0
+  fadeIn: 0
+  fadeOut: 0
+  moc_loi: []
+  beats:
+  - t: 0.0
+    k: cut
+    s: PP2
   title: How this film was made
   the_phuong_phap: true
+  shots:
+  - at: 0
+    type: card
+    tpl: card
+    role: the_phuong_phap
+    id: PP
+    title: ''
+    dong: &id007
+    - 'Estimated: the fire''s daily extent, 1940 damage, 1666 block interiors (about 42% of built area) and 1940 City blocks.'
+    chu: 'Estimated: the fire''s daily extent, 1940 damage, 1666 block interiors (about 42% of built area) and 1940 City blocks.'
+    text: 'Estimated: the fire''s daily extent, 1940 damage, 1666 block interiors (about 42% of built area) and 1940 City blocks.'
+    lines: *id007
+    p:
+      sach: true
+      tl: false

@@ -43,30 +43,70 @@ def main():
         if r['cu_may'] == 'KEO': x['lo_ra'] = r['lo_ra']
         if (LG / f"{r['ma']}.json").exists(): x['log_may'] = f"log-may/{r['ma']}.json"
         if r['minh_hoa']: x['md_moc'] = r['md_moc']; x['ai_image'] = True
-        x['tu_lieu_chong_sau_ai'] = False
+        if r['minh_hoa']:
+            tg = (AN / 'omni/chon' / f"{r['ma']}.txt"); x['kiem'] = f"omni/kiem2/{tg.read_text().strip()}-kiem.json" if tg.exists() else None
+        if r['ai_nen']:
+            k = {'M01': 'P1-2026-oai-l1', 'H5-04': 'P1-2026-oai-l1', 'H5-05a': 'P9-2026-oai-l2'}.get(r['ma'])
+            x['n2p'] = {'tam': [{'tag': k, 'kiem': f'tam-nen/do/{k}-kiem.json', 'ghep': f'tam-nen/do/{k}-ghep.json', 'v': f"tam-nen/do/{r['ma']}-v.json", 'khoang_s': r['them']['tam_nen']}]}
+        x['tu_lieu_chong_sau_ai'] = False; x['ai_image'] = bool(r['minh_hoa']); x['noi'] = 'minh_hoa' if r['cu_may'] == 'MD' else r['diem_may']
         ls.append(x)
     (AN / 'log-shot.json').write_text(json.dumps(ls, ensure_ascii=False, indent=1))
     R = REPO / 'reports'
     ng = gop([R / 'tien-ky-t4/so-ai-gemini.jsonl', R / 'look-t4-v2/so-ai.jsonl', R / 'animatic-t4/so-ai-gemini.jsonl'], lambda r: 'gemini' in json.dumps(r.get('model_req', '') + str(r.get('nha', ''))).lower(), AN / 'so-ai-gemini-t4.jsonl')
     no = gop([R / 'tien-ky-t4/so-ai.jsonl', R / 'look-t4-v2/so-ai.jsonl', R / 'animatic-t4/so-ai.jsonl'], lambda r: r.get('nha') == 'openai', AN / 'so-ai-openai-t4.jsonl')
     sha = AN / 'sha-tu-lieu-t4.txt'; sha.write_text((EP / 'licenses/SHA256-TU-LIEU.txt').read_text() + (EP / 'licenses/SHA256-TU-LIEU-LOOK.txt').read_text())
-    segs = []
+    import importlib.util as IU
+    spec = IU.spec_from_file_location('ghep', str(Path(__file__).parent / 'ghep.py')); G = IU.module_from_spec(spec); spec.loader.exec_module(G)
+    NOI = {'P1': 'bo_nam_bankside', 'P2': 'cau_london', 'P3': 'thanh_pho_dong', 'P4': 'fleet_street', 'P4b': 'ludgate', 'P5': 'thanh_pho_bac', 'P6': 'song', 'P7': 'thien_dinh', 'P8': 'tower_hill', 'P9': 'bo_nam_bankside'}
+    chon = {q.stem: q.read_text().strip() for q in (AN / 'omni/chon').glob('*.txt')}
+    ch_t0 = {}
+    for r in B['shot']: ch_t0.setdefault(r['phan'], r['t0'])
+    def cau1(r):   # câu lời trùng nhiều nhất với khoảng shot (đúng nguyên văn một câu)
+        best, bo = None, 0.0
+        for c in M['cau']:
+            if c['bo']: continue
+            ov = min(c['kt'], r['t1']) - max(c['bd'], r['t0'])
+            if ov > bo: best, bo = c['khoa'], ov
+        return best
+    segs = []; nhip = []
     for r in B['shot']:
         tp = {'MD': 'minh_hoa', 'PP': 'card'}.get(r['cu_may'], 'scene3d')
         s = {'id': r['ma'], 'part': r['chuong'], 'chuong': r['chuong'], 'dur': r['dur'], 'fadeIn': 0, 'fadeOut': 0,
              'moc_loi': [{'t': round(c['bd'] - r['t0'], 3), 's': c['khoa'][:28]} for c in M['cau'] if not c['bo'] and r['t0'] <= c['bd'] < r['t1']],
              'shots': [{'at': 0, 'type': tp, 'tpl': 'plate', 'p': {'sach': True, 'tl': r['tl']}, 'cau': ' '.join(r['cau_loi'])[:300]}]}
-        if r['cu_may'] == 'PP': s['shots'][0].update(role='the_phuong_phap', id='PP'); s['title'] = 'How this film was made'; s['the_phuong_phap'] = True
+        sh = s['shots'][0]; sh['noi'] = 'minh_hoa' if r['cu_may'] == 'MD' else NOI.get(r['diem_may'], 'thanh_pho'); c1 = cau1(r)
+        if c1: sh['cau'] = c1
+        if r['minh_hoa'] and r['ma'] in chon: s['kiem'] = f"omni/kiem2/{chon[r['ma']]}-kiem.json"; sh['kiem'] = s['kiem']
+        sh['ai_image'] = bool(r['minh_hoa'])
+        bt = [{'t': 0.0, 'k': 'cut', 's': r['ma']}]
+        if r['phan'] in G.CHUONG and abs(ch_t0[r['phan']] - r['t0']) < 1e-6:
+            y, ph = G.CHUONG[r['phan']]; sh['p']['the_chuong'] = {'s': f'{y} — {ph}', 'at': 0.5, 'dur': 3.0}; sh['p']['chuong'] = sh['p']['the_chuong']; bt.append({'t': 0.5, 'k': 'the_chuong', 's': f'{y} — {ph}'})
+        for (t0_, d_, n1, n2, th) in G.THE:
+            if r['t0'] <= t0_ < r['t1']: bt.append({'t': round(t0_ - r['t0'], 3), 'k': 'the_nhan_vat', 's': n1})
+        for (t0_, d_, n1, n2) in G.DEM:
+            if r['t0'] <= t0_ < r['t1']: bt.append({'t': round(t0_ - r['t0'], 3), 'k': 'bo_dem', 's': f'{n1} {n2}'.strip()})
+        if r['ma'] in G.KHAC: bt.append({'t': G.KHAC[r['ma']][2], 'k': 'tu_lieu', 's': G.KHAC[r['ma']][1]})
+        s['beats'] = sorted(bt, key=lambda x: x['t'])
+        if r['cu_may'] == 'PP':
+            PPd = json.loads((AN / 'the-phuong-phap.json').read_text())['the']
+            for j, c in enumerate(PPd):
+                segs.append({'id': f'PP{j + 1}', 'part': r['chuong'], 'chuong': r['chuong'], 'dur': c['giay'], 'fadeIn': 0, 'fadeOut': 0, 'moc_loi': [], 'beats': [{'t': 0.0, 'k': 'cut', 's': f'PP{j + 1}'}],
+                             'title': c['tieu_de'] or 'How this film was made', 'the_phuong_phap': True,
+                             'shots': [{'at': 0, 'type': 'card', 'tpl': 'card', 'role': 'the_phuong_phap', 'id': 'PP', 'title': c['tieu_de'] or '', 'dong': c['dong'], 'chu': ' '.join(([c['tieu_de']] if c['tieu_de'] else []) + c['dong']), 'text': ' '.join(c['dong']), 'lines': c['dong'], 'p': {'sach': True, 'tl': False}}]})
+            continue
         segs.append(s)
+        if c1: nhip.append({'id': r['ma'], 'chinh': True, 'cau': c1[:40], 'vat': ([{'loai': 'the_chuong', 'shot': r['ma']}] if any(x['k'] == 'the_chuong' for x in bt) else []) + [{'loai': 'su_kien', 'shot': r['ma']}]})
     E = {'id': 'k2c-t4-02-anim', 'title': 'London — T4 animatic (whole episode, 640×360, G1 v2 narration, K1-C1)', 'brand': 'MOVING PARTS', 'channel': 'k2', 'out': '/var/tmp/cine-out/k2c-t4-02-anim',
          'music': [], 'sources': {}, 'numbers': {}, 'khung_sach': True, 'kenh2_tu_t4': True, 'animatic': True,
          'ngan_sach_gemini_usd': 35, 'ngan_sach_gemini_moc_usd': 30, 'so_ai_gemini': 'so-ai-gemini-t4.jsonl', 'so_ai': 'so-ai-openai-t4.jsonl', 'so_ai_openai': 'so-ai-openai-t4.jsonl',
-         'sha_tu_lieu': 'sha-tu-lieu-t4.txt', 'goc_toa_do': [532000, 180800], 'loi_khoa': '../loi-khoa.txt', 'log_shot': 'log-shot.json', 'segments': segs}
+         'sha_tu_lieu': 'sha-tu-lieu-t4.txt', 'goc_toa_do': [532000, 180800], 'loi_khoa': '../loi-khoa.txt', 'log_shot': 'log-shot.json', 'nhip_vat': 'nhip-vat.json', 'segments': segs}
+    if (AN / 'xem-cam.json').exists(): E['xem_cam'] = 'xem-cam.json'
+    (AN / 'nhip-vat.json').write_text(json.dumps({'nhip': nhip}, ensure_ascii=False, indent=1))
     (AN / 'episode.yaml').write_text('# TỆP SINH TỰ ĐỘNG bởi scripts/k2ldn/anim/mk_ep.py (ANIMATIC-T4). Đừng sửa tay.\n' + yaml.safe_dump(E, allow_unicode=True, sort_keys=False, width=200))
     tl = {'id': E['id'], 'title': E['title'], 'music': [], 'segments': [], 'heroes': {}}; t = 0.0
     for s in segs:
         d = float(s['dur']); S = {k: v for k, v in s.items() if k != 'shots'}
-        S.update(t0=round(t, 4), t1=round(t + d, 4), frames=int(round(d * 24)), sfx=[], speech=[{'t0': round(c['bd'] - t, 3), 't1': round(c['kt'] - t, 3), 'text': c['khoa']} for c in M['cau'] if not c['bo'] and t <= c['bd'] < t + d])
+        S.update(t0=round(t, 4), t1=round(t + d, 4), frames=int(round(d * 24)), sfx=[], speech=[[round(c['bd'] - t, 3), round(c['kt'] - t, 3)] for c in M['cau'] if not c['bo'] and t <= c['bd'] < t + d])
         S['shots'] = [dict(x, t0=0.0, t1=d) for x in s['shots']]; tl['segments'].append(S); t += d
     tl['tong_s'] = round(t, 4); tl['tong_khung'] = int(round(t * 24)); (AN / 'timeline.json').write_text(json.dumps(tl, ensure_ascii=False))
     print(json.dumps({'shot': len(ls), 'co_log_may': sum(1 for x in ls if 'log_may' in x), 'so_ai_gemini': ng, 'so_ai_openai': no, 'tong_s': tl['tong_s']}, ensure_ascii=False))

@@ -134,10 +134,10 @@ def corner(img, key, cap, a, kind):
     if a <= 0: return img
     src = cv2.imread(str(TL_DIR / f'{key}.jpg'))
     if kind == 'dai':   # dải ngang trên cùng (tranh toàn cảnh rất dài) — diện tích ≤ 1/3 khung
-        hh = int(W * src.shape[0] / src.shape[1]); hh = min(hh, int(H * 0.26)); s = cv2.resize(src, (W - 20, hh), interpolation=cv2.INTER_AREA); x0, y0 = 10, 10
+        hh = int(W * src.shape[0] / src.shape[1]); hh = min(hh, int(H * 0.26)); s = cv2.resize(src, (W - 20, hh), interpolation=cv2.INTER_AREA); x0, y0 = 10, H - hh - 34
     else:
         mx = (int(W * 0.33), int(H * 0.52)); r = min(mx[0] / src.shape[1], mx[1] / src.shape[0]); s = cv2.resize(src, (int(src.shape[1] * r), int(src.shape[0] * r)), interpolation=cv2.INTER_AREA)
-        x0, y0 = W - s.shape[1] - 14, 14
+        x0, y0 = W - s.shape[1] - 14, H - s.shape[0] - 34
     o = img.copy(); reg = o[y0:y0 + s.shape[0], x0:x0 + s.shape[1]]
     o[y0:y0 + s.shape[0], x0:x0 + s.shape[1]] = (a * s + (1 - a) * reg).astype(np.uint8)
     cv2.rectangle(o, (x0 - 1, y0 - 1), (x0 + s.shape[1], y0 + s.shape[0]), (235, 235, 235), 1)
@@ -177,6 +177,33 @@ def card(img, l1, l2, a, kind='the', thumb=None):
             t = Image.open(TL_DIR / f'{thumb}.jpg').convert('RGB'); t.thumbnail((40, 52)); t = t.convert('RGBA'); t.putalpha(A(255)); ov.alpha_composite(t, (x, y - 4)); tx = x + pw
         d.text((tx, y - b1[1]), l1, font=f1, fill=(255, 255, 255, A(255))); d.text((tx, y + 25 - b2[1]), l2, font=f2, fill=(220, 214, 200, A(255)))
     return cv2.cvtColor(np.array(Image.alpha_composite(pil, ov).convert('RGB')), cv2.COLOR_RGB2BGR)
+
+
+THANG = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUNE', 'JULY', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC']
+MD_NGAY = {1: '2 SEPT 1666', 2: '2 SEPT 1666', 3: '3 SEPT 1666', 4: '3 SEPT 1666', 5: '4 SEPT 1666', 7: '5 SEPT 1666', 8: 'SEPT 1666', 9: '2 SEPT 1666', 10: '1667', 11: '1668',
+           12: '1711', 13: '1680', 14: '1930s', 15: '29 DEC 1940', 16: '29 DEC 1940', 17: '29 DEC 1940', 18: '2026', 19: '1667'}
+
+
+def nhan_nam(r, lf, t):
+    """bộ đếm năm (Kinh thánh §11.2: chữ chính, góc cố định, suốt tập): năm của khung (log máy) · ngày–tháng trong các ngày cháy 1666 (giờ kể từ 2/9) và 29–30/12/1940."""
+    tg = r['thoi_gian']
+    if r['cu_may'] == 'MD': return MD_NGAY.get(r.get('md_moc'))
+    if r['cu_may'] == 'PP' or tg is None: return None
+    if tg[0] == 'khop': tg = tg[1] if t < tg[3] else tg[2]
+    if tg[0] == 'h66' or (lf is not None and lf.get('hour') is not None and lf.get('hour', -1) >= 0 and tg[0] == 'h66'):
+        h = (lf.get('hour') if lf is not None and lf.get('hour') is not None else tg[1]); return f"{2 + int(h // 24)} SEPT 1666"
+    if tg[0] == 'h40':
+        h = lf.get('h40') if lf is not None and lf.get('h40') is not None else tg[1]; return f"{29 + int((18 + h) // 24)} DEC 1940"
+    y = lf.get('year') if lf is not None and lf.get('year') is not None else tg[1] if tg[0] == 'y' else tg[1][0]
+    return str(int(round(y)) if tg[0] == 'y' and abs(tg[2] - tg[1]) > 0.5 else int(y))
+
+
+def dem_nam(img, txt):
+    if not txt: return img
+    pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)); d = ImageDraw.Draw(pil); f = F('B', 24 if len(txt) <= 6 else 19)
+    w = d.textlength(txt, font=f); x, y = W - 18 - w, 14
+    d.text((x + 1, y + 1), txt, font=f, fill=(0, 0, 0)); d.text((x, y), txt, font=f, fill=(250, 244, 232))
+    return cv2.cvtColor(np.array(pil), cv2.COLOR_RGB2BGR)
 
 
 def fade(t, t0, d, f=0.4): return 0.0 if t < t0 or t > t0 + d else min(1.0, (t - t0) / f, (t0 + d - t) / f)
@@ -261,7 +288,6 @@ def main():
                     for nm, e, nn in NHAN_MAP:
                         q = project(lf0, [(e, nn, 12)])[0]
                         if not np.isnan(q).any(): cv2.circle(mp, (int(q[0]), int(q[1])), 3, (255, 255, 255), -1, cv2.LINE_AA); mp = text_box(mp, nm, (int(q[0]) + 6, int(q[1]) - 9), F('m', 11), 1.0)
-                    ngay = '2 September 1666' if hr < 24 else '3 September 1666'; mp = text_box(mp, ngay, (22, 20), F('b', 15), 1.0)
                     u = 1.0 if t < s - 1.0 else (s - t) / 1.0; img = cv2.addWeighted(mp, u, img, 1 - u, 0)
             if not miss and them.get('ban_do_chong') and lf is not None: img = warp_map(lf, 0.5, img)
             if not miss and lf is not None and ma in ('H1-18', 'H2-02') and (ma == 'H1-18' and 257.0 <= tt <= 262.4 or ma == 'H2-02' and t >= r['dur'] - 4.0):
@@ -284,6 +310,10 @@ def main():
                 if t0_ - 0.5 <= tt <= t0_ + d_ + 0.5: img = card(img, n1, n2, fade(tt, t0_, d_, 0.3), 'dem')
             for ph, t0_ in chuong_t0.items():
                 if t0_ - 0.5 <= tt <= t0_ + 3.5: y, ph_ = CHUONG[ph]; img = card(img, y, ph_, fade(tt, t0_, 3.0, 0.6), 'chuong')
+            if not miss:
+                lab = nhan_nam(r, lf, t)
+                if them.get('ban_do') and t < them['ban_do']['s']: hr = them['ban_do']['h0'] + (them['ban_do']['h1'] - them['ban_do']['h0']) * min(1, t / (them['ban_do']['s'] - 1.0)); lab = f"{2 + int(hr // 24)} SEPT 1666"
+                img = dem_nam(img, lab)
             ff.stdin.write(np.ascontiguousarray(img, np.uint8).tobytes()); prev = img
             if cu not in ('MD', 'PP') and not miss: last3d = img
         logg['shot'].append(info)
