@@ -1,0 +1,824 @@
+{
+ "tinh": [
+  [
+   688.416,
+   693.416,
+   "H5-05a"
+  ],
+  [
+   704.916,
+   713.041,
+   "H5-05b"
+  ],
+  [
+   714.041,
+   719.041,
+   "H5-06"
+  ]
+ ],
+ "chi_may": [
+  [
+   96.25,
+   104.125,
+   "H1-03"
+  ],
+  [
+   460.458,
+   465.458,
+   "H2-11"
+  ],
+  [
+   664.541,
+   670.541,
+   "H5-02s"
+  ],
+  [
+   720.041,
+   725.041,
+   "H5-07a"
+  ]
+ ],
+ "bang": [
+  {
+   "shot": "M00",
+   "cu": "DAY",
+   "lop": {
+    "A": 17.0
+   },
+   "dy": 0.0001,
+   "dfire": 3.95,
+   "dsun": 8.15,
+   "move_m": 52.7,
+   "loai": null
+  },
+  {
+   "shot": "M01",
+   "cu": "DAY",
+   "lop": {
+    "A": 17.875
+   },
+   "dy": 0.0005,
+   "dfire": 0,
+   "dsun": 29.12,
+   "move_m": 99.8,
+   "loai": null
+  },
+  {
+   "shot": "M02",
+   "cu": "KEO",
+   "lop": {
+    "A": 10.083
+   },
+   "dy": 358.5342,
+   "dfire": 0,
+   "dsun": 32.98,
+   "move_m": 131.3,
+   "loai": null
+  },
+  {
+   "shot": "M03",
+   "cu": "DAY",
+   "lop": {
+    "A": 11.0
+   },
+   "dy": 0.0002,
+   "dfire": 1.41,
+   "dsun": 8.46,
+   "move_m": 85.2,
+   "loai": null
+  },
+  {
+   "shot": "M04",
+   "cu": "LAN",
+   "lop": {
+    "A": 12.0
+   },
+   "dy": 0.0,
+   "dfire": 0.7,
+   "dsun": 1.03,
+   "move_m": 734.5,
+   "loai": null
+  },
+  {
+   "shot": "H1-01h",
+   "cu": "DAY",
+   "lop": {
+    "A": 3.0
+   },
+   "dy": 0.0,
+   "dfire": 0.08,
+   "dsun": 0.44,
+   "move_m": 16.5,
+   "loai": "may"
+  },
+  {
+   "shot": "H1-02h",
+   "cu": "DAY",
+   "lop": {
+    "A": 2.0
+   },
+   "dy": 0.0,
+   "dfire": 2.23,
+   "dsun": 1.02,
+   "move_m": 8.5,
+   "loai": null
+  },
+  {
+   "shot": "H1-03",
+   "cu": "TRUOT",
+   "lop": {
+    "A": 15.875,
+    "KHAC": 6
+   },
+   "dy": 0,
+   "dfire": 0,
+   "dsun": 0.0,
+   "move_m": 118.0,
+   "loai": "may"
+  },
+  {
+   "shot": "H1-04",
+   "cu": "DAY",
+   "lop": {
+    "A": 10.5833
+   },
+   "dy": 0.0006,
+   "dfire": 19.32,
+   "dsun": 29.39,
+   "move_m": 27.9,
+   "loai": null
+  },
+  {
+   "shot": "H1-05h",
+   "cu": "DAY",
+   "lop": {
+    "A": 2.0
+   },
+   "dy": 0.0,
+   "dfire": 0.29,
+   "dsun": 1.3,
+   "move_m": 7.6,
+   "loai": null
+  },
+  {
+   "shot": "H1-06",
+   "cu": "CAU",
+   "lop": {
+    "A": 19.5,
+    "THE": 3
+   },
+   "dy": 0.0005,
+   "dfire": 18.1,
+   "dsun": 21.65,
+   "move_m": 51.9,
+   "loai": null
+  },
+  {
+   "shot": "H1-07",
+   "cu": "VONG",
+   "lop": {
+    "A": 9.4583
+   },
+   "dy": 0.0001,
+   "dfire": 3.77,
+   "dsun": 9.28,
+   "move_m": 117.3,
+   "loai": null
+  },
+  {
+   "shot": "H1-08b",
+   "cu": "CODINH",
+   "lop": {
+    "A": 18.2083
+   },
+   "dy": 0.0005,
+   "dfire": 3.94,
+   "dsun": 39.22,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H1-09",
+   "cu": "XUONG",
+   "lop": {
+    "MAP": 3.5,
+    "MAP3D": 5.5
+   },
+   "dy": 0.0002,
+   "dfire": 22.35,
+   "dsun": 15.03,
+   "move_m": 2017.7,
+   "loai": null
+  },
+  {
+   "shot": "H1-11",
+   "cu": "CODINH",
+   "lop": {
+    "A": 8.4167,
+    "THE": 4
+   },
+   "dy": 0.0006,
+   "dfire": 59.41,
+   "dsun": 42.45,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H1-13a",
+   "cu": "THAP",
+   "lop": {
+    "A": 7.0
+   },
+   "dy": 0.0001,
+   "dfire": 81.89,
+   "dsun": 11.84,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H1-12x",
+   "cu": "DAY",
+   "lop": {
+    "A": 7.5,
+    "KHAC": 5.0,
+    "THE": 4.0
+   },
+   "dy": 0.0001,
+   "dfire": 0,
+   "dsun": 0.0,
+   "move_m": 34.2,
+   "loai": "may"
+  },
+  {
+   "shot": "H1-13c",
+   "cu": "THAP",
+   "lop": {
+    "A": 6.2083
+   },
+   "dy": 0.0002,
+   "dfire": 98.46,
+   "dsun": 11.01,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H1-15",
+   "cu": "CAU",
+   "lop": {
+    "A": 8.0
+   },
+   "dy": 0.0002,
+   "dfire": 91.42,
+   "dsun": 10.4,
+   "move_m": 39.9,
+   "loai": null
+  },
+  {
+   "shot": "H1-15h",
+   "cu": "DAY",
+   "lop": {
+    "A": 11.625
+   },
+   "dy": 0.0002,
+   "dfire": 66.43,
+   "dsun": 5.1,
+   "move_m": 70.6,
+   "loai": null
+  },
+  {
+   "shot": "H1-16",
+   "cu": "CODINH",
+   "lop": {
+    "A": 7.25
+   },
+   "dy": 0.0036,
+   "dfire": 886.54,
+   "dsun": 77.16,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H1-18a",
+   "cu": "XUONG",
+   "lop": {
+    "A": 6.0,
+    "THE": 4
+   },
+   "dy": 0.0002,
+   "dfire": 0.03,
+   "dsun": 11.35,
+   "move_m": 2014.7,
+   "loai": null
+  },
+  {
+   "shot": "H1-18b",
+   "cu": "CODINH",
+   "lop": {
+    "A": 5.2917,
+    "MAP3D": 5.0
+   },
+   "dy": 0.0002,
+   "dfire": 0.01,
+   "dsun": 7.14,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H2-00",
+   "cu": "DAY",
+   "lop": {
+    "A": 3.0
+   },
+   "dy": 0.0,
+   "dfire": 0,
+   "dsun": 0.0,
+   "move_m": 16.7,
+   "loai": "may"
+  },
+  {
+   "shot": "H2-02",
+   "cu": "XUONG",
+   "lop": {
+    "A": 14.625,
+    "TL": 8,
+    "MAP3D": 4,
+    "THE": 7
+   },
+   "dy": 0.0,
+   "dfire": 0,
+   "dsun": 0.0,
+   "move_m": 2018.5,
+   "loai": null
+  },
+  {
+   "shot": "H2-03b",
+   "cu": "DAY",
+   "lop": {
+    "A": 20.1667
+   },
+   "dy": 0.3992,
+   "dfire": 0,
+   "dsun": 0.0,
+   "move_m": 150.5,
+   "loai": null
+  },
+  {
+   "shot": "H2-04h",
+   "cu": "NGHIENG",
+   "lop": {
+    "A": 2.5
+   },
+   "dy": 0.295,
+   "dfire": 0,
+   "dsun": 0.0,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H2-04a",
+   "cu": "TRUOT",
+   "lop": {
+    "A": 3.5
+   },
+   "dy": 0.494,
+   "dfire": 0,
+   "dsun": 42.88,
+   "move_m": 21.8,
+   "loai": null
+  },
+  {
+   "shot": "H2-05",
+   "cu": "CODINH",
+   "lop": {
+    "A": 11.0
+   },
+   "dy": 2.1917,
+   "dfire": 0,
+   "dsun": 39.73,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H2-05s",
+   "cu": "TRUOT",
+   "lop": {
+    "A": 7.8333
+   },
+   "dy": 0.7957,
+   "dfire": 0,
+   "dsun": 12.63,
+   "move_m": 40.4,
+   "loai": null
+  },
+  {
+   "shot": "H2-06",
+   "cu": "VONG",
+   "lop": {
+    "A": 17.2917,
+    "THE": 2.5,
+    "KHAC": 3
+   },
+   "dy": 5.9855,
+   "dfire": 0,
+   "dsun": 39.73,
+   "move_m": 141.1,
+   "loai": null
+  },
+  {
+   "shot": "H2-08",
+   "cu": "NGHIENG",
+   "lop": {
+    "A": 5.708
+   },
+   "dy": 29.7828,
+   "dfire": 0,
+   "dsun": 39.74,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H2-09",
+   "cu": "CODINH",
+   "lop": {
+    "A": 10.0
+   },
+   "dy": 32.8625,
+   "dfire": 0,
+   "dsun": 39.86,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H2-10",
+   "cu": "THAP",
+   "lop": {
+    "A": 18.042,
+    "THE": 2.5
+   },
+   "dy": 2.993,
+   "dfire": 0,
+   "dsun": 35.79,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H2-11",
+   "cu": "XUONG",
+   "lop": {
+    "A": 6.0
+   },
+   "dy": 0,
+   "dfire": 0,
+   "dsun": 0.0,
+   "move_m": 2014.7,
+   "loai": "may"
+  },
+  {
+   "shot": "H2-12",
+   "cu": "KHOP",
+   "lop": {
+    "A": 10.5,
+    "KHAC": 3
+   },
+   "dy": 64,
+   "dfire": 0,
+   "dsun": 0.17,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H2-14",
+   "cu": "CAU",
+   "lop": {
+    "A": 6.0
+   },
+   "dy": 1.9861,
+   "dfire": 0,
+   "dsun": 39.79,
+   "move_m": 23.9,
+   "loai": null
+  },
+  {
+   "shot": "H3-01",
+   "cu": "CODINH",
+   "lop": {
+    "A": 3.0
+   },
+   "dy": 87.7639,
+   "dfire": 0,
+   "dsun": 39.84,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H3-02",
+   "cu": "TRUOT",
+   "lop": {
+    "A": 6.7917
+   },
+   "dy": 75.5334,
+   "dfire": 0,
+   "dsun": 33.06,
+   "move_m": 66.8,
+   "loai": null
+  },
+  {
+   "shot": "H3-03",
+   "cu": "XUONG",
+   "lop": {
+    "A": 9.4583,
+    "MAP3D": 4,
+    "KHAC": 3.0,
+    "THE": 3.5
+   },
+   "dy": 10.9516,
+   "dfire": 0,
+   "dsun": 42.68,
+   "move_m": 2016.7,
+   "loai": null
+  },
+  {
+   "shot": "H3-04a",
+   "cu": "CODINH",
+   "lop": {
+    "A": 5.0
+   },
+   "dy": 36.6917,
+   "dfire": 0,
+   "dsun": 40.0,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H3-05",
+   "cu": "DAY",
+   "lop": {
+    "A": 13.7083,
+    "THE": 4
+   },
+   "dy": 1.4954,
+   "dfire": 0,
+   "dsun": 37.65,
+   "move_m": 63.3,
+   "loai": null
+  },
+  {
+   "shot": "H3-06",
+   "cu": "KHOP",
+   "lop": {
+    "A": 8.0
+   },
+   "dy": 271.84,
+   "dfire": 0,
+   "dsun": 0.36,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H4-01a",
+   "cu": "CODINH",
+   "lop": {
+    "A": 6.0
+   },
+   "dy": 0.0,
+   "dfire": 0,
+   "dsun": 8.1,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H4-02",
+   "cu": "CAU",
+   "lop": {
+    "A": 10.875,
+    "THE": 3
+   },
+   "dy": 0.0,
+   "dfire": 140.73,
+   "dsun": 21.96,
+   "move_m": 41.9,
+   "loai": null
+  },
+  {
+   "shot": "H4-04a",
+   "cu": "DAY",
+   "lop": {
+    "A": 7.5
+   },
+   "dy": 0.0,
+   "dfire": 3.42,
+   "dsun": 5.05,
+   "move_m": 47.7,
+   "loai": null
+  },
+  {
+   "shot": "H4-04c",
+   "cu": "CODINH",
+   "lop": {
+    "A": 4.0
+   },
+   "dy": 0.0,
+   "dfire": 4.2,
+   "dsun": 1.49,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H4-05",
+   "cu": "DAY",
+   "lop": {
+    "A": 4.542
+   },
+   "dy": 0.0,
+   "dfire": 0.0,
+   "dsun": 4.08,
+   "move_m": 42.0,
+   "loai": null
+  },
+  {
+   "shot": "H4-06",
+   "cu": "CODINH",
+   "lop": {
+    "A": 5.2083,
+    "THE": 2.5
+   },
+   "dy": 0.0,
+   "dfire": 0.0,
+   "dsun": 16.94,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H4-07",
+   "cu": "XUONG",
+   "lop": {
+    "A": 5.458,
+    "MAP3D": 5
+   },
+   "dy": 0.0,
+   "dfire": 0,
+   "dsun": 0.0,
+   "move_m": 2014.2,
+   "loai": null
+  },
+  {
+   "shot": "H4-08",
+   "cu": "KHOP",
+   "lop": {
+    "A": 10.5
+   },
+   "dy": 274.6139,
+   "dfire": 0.01,
+   "dsun": 10.46,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H5-01",
+   "cu": "DAY",
+   "lop": {
+    "A": 12.542,
+    "THE": 4
+   },
+   "dy": 4.9833,
+   "dfire": 0,
+   "dsun": 42.74,
+   "move_m": 48.8,
+   "loai": null
+  },
+  {
+   "shot": "H5-02",
+   "cu": "CAU",
+   "lop": {
+    "A": 7.875
+   },
+   "dy": 13.9259,
+   "dfire": 0,
+   "dsun": 42.72,
+   "move_m": 39.9,
+   "loai": null
+  },
+  {
+   "shot": "H5-02s",
+   "cu": "TRUOT",
+   "lop": {
+    "A": 7.0
+   },
+   "dy": 0,
+   "dfire": 0,
+   "dsun": 0.0,
+   "move_m": 65.0,
+   "loai": "may"
+  },
+  {
+   "shot": "H5-03",
+   "cu": "XUONG",
+   "lop": {
+    "A": 6.458,
+    "MAP": 6.458
+   },
+   "dy": 0.0,
+   "dfire": 0,
+   "dsun": 0.0,
+   "move_m": 2016.7,
+   "loai": null
+  },
+  {
+   "shot": "H5-04",
+   "cu": "CODINH",
+   "lop": {
+    "A": 10.417
+   },
+   "dy": 41.67,
+   "dfire": 0,
+   "dsun": 44.98,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H5-05a",
+   "cu": "CODINH",
+   "lop": {
+    "A": 6.0,
+    "N2P": 6.0
+   },
+   "dy": 0.0,
+   "dfire": 0,
+   "dsun": 0.88,
+   "move_m": 0.0,
+   "loai": "tinh"
+  },
+  {
+   "shot": "H5-05c",
+   "cu": "VONG",
+   "lop": {
+    "A": 10.5
+   },
+   "dy": 0.0,
+   "dfire": 0,
+   "dsun": 3.59,
+   "move_m": 359.6,
+   "loai": null
+  },
+  {
+   "shot": "H5-05b",
+   "cu": "THAP",
+   "lop": {
+    "A": 9.125
+   },
+   "dy": 0.0,
+   "dfire": 0,
+   "dsun": 0.91,
+   "move_m": 0.0,
+   "loai": "tinh"
+  },
+  {
+   "shot": "H5-06",
+   "cu": "CODINH",
+   "lop": {
+    "A": 6.0
+   },
+   "dy": 0.0,
+   "dfire": 0,
+   "dsun": 1.57,
+   "move_m": 0.0,
+   "loai": "tinh"
+  },
+  {
+   "shot": "H5-07a",
+   "cu": "DAY",
+   "lop": {
+    "A": 6.0
+   },
+   "dy": 0.0,
+   "dfire": 0,
+   "dsun": 1.02,
+   "move_m": 27.6,
+   "loai": "may"
+  },
+  {
+   "shot": "H5-07b",
+   "cu": "KHOP",
+   "lop": {
+    "A": 15.333
+   },
+   "dy": 359.9946,
+   "dfire": 88.22,
+   "dsun": 12.04,
+   "move_m": 0.0,
+   "loai": null
+  },
+  {
+   "shot": "H5-08",
+   "cu": "KEO",
+   "lop": {
+    "A": 14.0
+   },
+   "dy": 0.0001,
+   "dfire": 0,
+   "dsun": 3.0,
+   "move_m": 182.4,
+   "loai": null
+  }
+ ]
+}

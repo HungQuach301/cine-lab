@@ -136,16 +136,23 @@ def call_claude(prompt, cwd, tag, out=None):
     return x.get('result'), dict(model=sorted(x.get('model_usage') or {}), usd=x.get('cost_usd'), reads=x.get('reads') or [], loi='; '.join(e) or None)
 
 
-def soi(truoc, sau, nam, noi='', t4=False, out=None, tag='khung', api=False, cache=None, mo_hinh=('gpt', 'claude')):
-    """→ dict(ket_qua={mh: {json, meta}}, khoa, tu_bo_dem, loi). Không api và không có trong bộ đệm → loi='chưa soi'."""
-    k = khoa(truoc, sau, nam, noi, t4, mo_hinh)
+def khoa_de(truoc, sau, nam, de, mo_hinh):
+    """1.17.8: khoá bộ đệm cho đề bài riêng (LUẬT E) — SHA ảnh + năm + phiên bản + SHA đề bài đã điền (danh sách mốc) + hai mô hình"""
+    return hashlib.sha256(f"{sha_file(truoc)}|{sha_file(sau)}|{int(float(nam))}|{de['ver']}|{hashlib.sha256(de['prompt'].encode()).hexdigest()}|{','.join(mo_hinh)}|{GPT}|{CLAUDE}".encode()).hexdigest()[:32]
+
+
+def soi(truoc, sau, nam, noi='', t4=False, out=None, tag='khung', api=False, cache=None, mo_hinh=('gpt', 'claude'), de=None):
+    """→ dict(ket_qua={mh: {json, meta}}, khoa, tu_bo_dem, loi). Không api và không có trong bộ đệm → loi='chưa soi'.
+    de (1.17.8, LUẬT E): dict(prompt=<đề bài đã điền trừ {truoc}/{sau}>, ver=<phiên bản>) thay PROMPT n2p-v1."""
+    k = khoa_de(truoc, sau, nam, de, mo_hinh) if de else khoa(truoc, sau, nam, noi, t4, mo_hinh)
     if cache is not None and k in cache: return dict(cache[k], khoa=k, tu_bo_dem=True)
     if not api: return dict(khoa=k, ket_qua={}, loi='chưa soi: không có trong bộ đệm và không chạy --vision (mô hình nhìn có chi phí ≈ $0,2/khung)')
     td = tempfile.mkdtemp(prefix='n2pv-')
     try:
         T = tiles(truoc, td, 'before'); S = tiles(sau, td, 'after')
-        pr = PROMPT.format(noi=noi or 'the place', nam=int(float(nam)), truoc='\n'.join(f'- {p}' for p in T), sau='\n'.join(f'- {p}' for p in S),
-                           cam='\n'.join(f'- {x}' for x in cam_list(nam, t4)), loai=', '.join(f'"{a}" ({b})' for a, b in LOAI.items()))
+        if de: pr = de['prompt'].replace('{truoc}', '\n'.join(f'- {p}' for p in T)).replace('{sau}', '\n'.join(f'- {p}' for p in S))
+        else: pr = PROMPT.format(noi=noi or 'the place', nam=int(float(nam)), truoc='\n'.join(f'- {p}' for p in T), sau='\n'.join(f'- {p}' for p in S),
+                                 cam='\n'.join(f'- {x}' for x in cam_list(nam, t4)), loai=', '.join(f'"{a}" ({b})' for a, b in LOAI.items()))
         res, loi = {}, []
         for mh in mo_hinh:
             t0 = time.time()
@@ -160,6 +167,6 @@ def soi(truoc, sau, nam, noi='', t4=False, out=None, tag='khung', api=False, cac
                 os.makedirs(out, exist_ok=True); open(os.path.join(out, f'{tag}-{mh}.raw.txt'), 'w').write(txt or '')
             res[mh] = dict(meta=meta, secs=round(time.time() - t0, 1), json=j)
     finally: shutil.rmtree(td, ignore_errors=True)
-    R = dict(khoa=k, ket_qua=res, prompt_ver=PROMPT_VER, loi='; '.join(loi) or None, chi_phi_usd=round(sum(float(v['meta'].get('usd') or 0) for v in res.values()), 4))
+    R = dict(khoa=k, ket_qua=res, prompt_ver=de['ver'] if de else PROMPT_VER, loi='; '.join(loi) or None, chi_phi_usd=round(sum(float(v['meta'].get('usd') or 0) for v in res.values()), 4))
     if cache is not None and not R['loi']: cache[k] = {a: b for a, b in R.items() if a != 'khoa'}
     return R

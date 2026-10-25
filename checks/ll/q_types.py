@@ -15,6 +15,8 @@ TRƯỢT khi:
   (0) shot thiếu `type` hoặc `type` ngoài TYPES; số shot đặc tả ≠ timeline. 1.12.1 (chủ dự án 16–17/10): thêm `timelapse` (cảnh xương sống
       thời gian `tl/<cảnh>`); số trên shot timelapse là lớp chữ 2D (bộ đếm), KHÔNG tính là hiện bằng 3D ở (c). ML1 vẫn nhận `tl: true`.
       1.14 (chủ dự án duyệt B3 17/10): thêm `strategic` (bản đồ chiến lược 2D/2.5D; luật riêng BD-1…BD-8, q_bando.py); tính là shot bản đồ ở (a).
+      1.17.8 (khiếu nại ANIMATIC-T4-V2 §8, CHỈ tập từ T4 — `kenh2_tu_t4`/`n2p`): thêm `minh_hoa` (đoạn M-d, luật MINH-HOA/N2P/KIEM-2-MUC), `tu_lieu`
+      (tư liệu/khắc toàn khung, luật TU-LIEU-10/OMNI), `that` (ảnh/footage thật, TU-LIEU-THAT). Không tính vào (c) 3D, không vào EXT của Q32.
   (a) một địa danh không có shot `map` giao [t − 6 s, t + 6 s], t = lần đầu lời nhắc tên; tên không có trong lời
   (b) một nhân vật có ảnh hợp lệ (rid trong RIGHTS.md hoặc clip_id trong sổ footage) mà không có shot `photo` ảnh đó giao ±6 s quanh lần nhắc đầu;
       không có ảnh hợp lệ mà không ghi `ly_do` (≥ 20 ký tự)
@@ -132,10 +134,18 @@ def hl_in_shot(p, HE, t0, t1):
     return False
 
 
+def types_tap(E):
+    """1.17.8: danh mục `type` của tập — từ T4 thêm minh_hoa, tu_lieu, that (q_k1178.TYPES_T4); tập trước giữ TYPES"""
+    if E.get('kenh2_tu_t4') or E.get('n2p'):
+        from checks.ll import q_k1178
+        return TYPES + q_k1178.TYPES_T4
+    return TYPES
+
+
 def q34(E, TL, ep_dir=None):
     from checks.ll import q_rights, q_footage
-    S, P0 = typed(E, TL); P = {k: [] for k in 'abcde'}
-    P0 += [f"{sid}/{i} @{mmss(a)}: thiếu type" if not t else f"{sid}/{i}: type {t} ngoài {'/'.join(TYPES)}" for sid, i, a, b, t, *_ in S if t not in TYPES]
+    S, P0 = typed(E, TL); P = {k: [] for k in 'abcde'}; TY = types_tap(E)
+    P0 += [f"{sid}/{i} @{mmss(a)}: thiếu type" if not t else f"{sid}/{i}: type {t} ngoài {'/'.join(TY)}" for sid, i, a, b, t, *_ in S if t not in TY]
     W = None
     # (a) địa danh → map ±6 s
     for pl in E.get('places') or []:
@@ -196,13 +206,13 @@ def q34(E, TL, ep_dir=None):
             is_law = k in law or str(v.get('loai') or '') in POLICY
             if is_law and (str(v.get('loai') or '') not in POLICY or v.get('hieu_luc') in (None, False, '')):
                 P['e'].append(f'{w}: nguồn luật {k} thiếu loai (luat/chinh_sach/quy_dinh) hoặc hieu_luc')
-    T = float(TL['tong_s']); dur = {t: 0.0 for t in TYPES}
+    T = float(TL['tong_s']); dur = {t: 0.0 for t in TY}
     for _, _, a, b, ty, *_ in S:
         if ty in dur: dur[ty] += b - a
     loi = [f'(0) {x}' for x in P0] + [f'({k}) {x}' for k in 'abcde' for x in P[k]]
     return dict(ok=not loi, loi=loi, muc=dict(P, **{'0': P0}), sat_nguong=near, note='; '.join(loi[:6]),
                 ty_le={t: round(100 * v / T, 1) for t, v in dur.items() if v}, so_neo=dict(n=len(A), ba_d=n3, card=nc),
-                val=f"{sum(1 for x in S if x[4] in TYPES)}/{len(S)} shot có type · " + ' · '.join(f'{t} {100 * v / T:.1f} %' for t, v in dur.items() if v)
+                val=f"{sum(1 for x in S if x[4] in TY)}/{len(S)} shot có type · " + ' · '.join(f'{t} {100 * v / T:.1f} %' for t, v in dur.items() if v)
                     + f" · số neo 3D {s3:.0f} %, chỉ card {sc:.0f} % ({len(A)} số) · địa danh {len(E.get('places') or [])} · nhân vật {len(E.get('people') or [])}")
 
 

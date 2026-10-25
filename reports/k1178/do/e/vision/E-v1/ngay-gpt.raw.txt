@@ -1,0 +1,69 @@
+{
+  "moc": [
+    {"ten":"st_pauls","co_mat":true,"nhan_doi":false,"mo_ta":"Present in the same position with the same dome, lantern, towers and main silhouette. No clear ghosting, cutting or misalignment.","do_tin":0.99},
+    {"ten":"toa_1","co_mat":true,"nhan_doi":false,"mo_ta":"Same rectangular tower and position; no clear doubling, cutting or misalignment.","do_tin":0.99},
+    {"ten":"toa_2","co_mat":true,"nhan_doi":false,"mo_ta":"Same rectangular tower and position; no clear doubling, cutting or misalignment.","do_tin":0.99},
+    {"ten":"toa_3","co_mat":true,"nhan_doi":false,"mo_ta":"Same tall rectangular silhouette and position; no clear doubling, cutting or misalignment.","do_tin":0.99},
+    {"ten":"toa_4","co_mat":true,"nhan_doi":false,"mo_ta":"Present at the same position with the same outline; no clear doubling, cutting or misalignment.","do_tin":0.98},
+    {"ten":"toa_5","co_mat":true,"nhan_doi":false,"mo_ta":"Present at the same position with the same narrow rectangular outline; no clear doubling or misalignment.","do_tin":0.98},
+    {"ten":"toa_6","co_mat":true,"nhan_doi":false,"mo_ta":"Same position and stepped tower silhouette; no clear doubling, cutting or misalignment.","do_tin":0.98},
+    {"ten":"toa_7","co_mat":true,"nhan_doi":false,"mo_ta":"Same position and broad stepped silhouette; no clear doubling, cutting or misalignment.","do_tin":0.97}
+  ],
+  "thap_bia": [],
+  "them": [
+    {
+      "loai":"xe_may",
+      "mo_ta":"Added row of small motor vehicles, including a white van and several dark, red, white and silver cars, on the street beneath the foreground church at lower right.",
+      "toa_do":[0.814,0.929,0.89,0.951],
+      "thoi_dai_sai":false,
+      "ly_do_thoi_dai":"",
+      "nam_xuat_hien":null,
+      "do_tin":0.95
+    },
+    {
+      "loai":"nguoi",
+      "mo_ta":"Added tiny pedestrian figures scattered along the foreground riverside promenade.",
+      "toa_do":[0.104,0.951,0.379,0.977],
+      "thoi_dai_sai":false,
+      "ly_do_thoi_dai":"",
+      "nam_xuat_hien":null,
+      "do_tin":0.76
+    },
+    {
+      "loai":"nguoi",
+      "mo_ta":"Added tiny pedestrian figures on the narrow bridge entering the bottom edge near the centre-left.",
+      "toa_do":[0.386,0.943,0.399,1.0],
+      "thoi_dai_sai":false,
+      "ly_do_thoi_dai":"",
+      "nam_xuat_hien":null,
+      "do_tin":0.79
+    }
+  ],
+  "bot_doi": [
+    {
+      "loai":"cong_trinh",
+      "mo_ta":"The foreground riverbank has been repainted with a different quay edge; brown water reaches higher into the former bank immediately outside the blue composited river patch.",
+      "toa_do":[0.0,0.975,0.384,1.0],
+      "do_tin":0.83
+    }
+  ],
+  "chu": [
+    {
+      "mo_ta":"Small added white facade sign or lettering panel on the dark narrow foreground building; characters are illegible.",
+      "toa_do":[0.695,0.953,0.707,0.965],
+      "do_tin":0.77
+    }
+  ],
+  "doi_loai_vung": [
+    {
+      "mo_ta":"Land/bank to water: a narrow strip beneath the left foreground quay is brown water in AFTER, above and beside the retained blue river patch.",
+      "toa_do":[0.0,0.979,0.383,0.995],
+      "do_tin":0.81
+    },
+    {
+      "mo_ta":"Water to built surface: the small blue-water opening at the bottom-right edge is covered by a pale roof-like surface in AFTER.",
+      "toa_do":[0.855,0.984,0.951,1.0],
+      "do_tin":0.86
+    }
+  ]
+}
