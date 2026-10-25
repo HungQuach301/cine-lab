@@ -19,7 +19,9 @@ Giờ UTC theo đồng hồ container (giờ commit git); dòng 02:36–03:00 c�
 | 03:15–03:36 | k2check 1.17.7 (chưa khoá) T4 + bản khai thử: K-LAI-1 ĐẠT, MAY-19 (c) 0, TL-1 6,22 → 2,94 cắt/phút; khai: GOC-CAO (a) 3 + (c) 4, NHAN-VAT-TEN THIẾU (k)(u), KIEM-2-MUC (d) H2-13. Hai vòng chờ `pgrep -f` tự khớp chính lệnh chờ (lặp bài học) → dừng theo PGID; từ đây chờ theo PID | xong |
 | 03:37:32 | `lock.py` lần 1 → 6c320eeb; commit bị preflight CHẶN (email tác giả trong LICENSE-yunet, MIT bên thứ ba) — KHÔNG commit | sự cố |
 | 03:38:17 | Che email trong bản chép LICENSE-yunet → `lock.py` lần 2 → **1.17.7 3a53574c…**, --verify KHỚP; commit 3315c440, đẩy | xong |
-| 03:38 | k2check 1.17.7 sau khoá: T3 (PID 29931) + T4 (PID 29933) song song | đang chạy |
+| 03:38–03:48 | k2check 1.17.7 sau khoá: T3 (PID 29931) + T4 (PID 29933) song song — T3: 55/56 hàng giống hệt 1.17.6, TL-1 chỉ đổi chữ cột "Ngưỡng"; T4: 14 hàng đổi (K-LAI-1 TRƯỢT → ĐẠT, MAY-19 (c) 1 → 0, TL-1 (c), GOC-CAO + 3 hàng mới, N2P thông báo) | xong |
+| 03:48–03:53 | k2check 1.17.7 khai thử T4 (PID theo dõi) + selftest toàn bộ sau khoá: **0 SAI** (k1177 87/87), LOCK KHỚP | xong |
+| 03:53–04:00 | Báo cáo K1177 §0–§15; bảng `do/k2check-*.md`, `.json.gz`, `do/so-*.md`; commit cuối "DỪNG chờ chủ dự án" | xong — **DỪNG chờ chủ dự án** |
 | 03:40 | Báo cáo K1177 (bản nháp §0–§7, §11), phán quyết vào checks-appeal.md | xong |
 
 ## Lệnh bổ sung đã áp
