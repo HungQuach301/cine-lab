@@ -14,8 +14,16 @@ Giờ UTC theo đồng hồ container (giờ commit git); dòng 02:36–03:00 c�
 | 02:46–02:52 | Hiệu chuẩn YuNet trên 23 clip M-d (347 hộp ≥ 4 % khung; đáp án bằng mắt → ngưỡng 0,75; bắt 8/18 mặt thấy được ≥ 3,5 %) | xong (`do/mat/DAP-AN.md`) |
 | 02:47–02:58 | Mã 1.17.7: q_k1177 (mới), q_k1174 (A1/A2/THAT), q_k1176 (trần 20, THAT), q_k116 (TL-1), q_nhip (lop_chong), q_n2p (A5), q_k1175 + q_k1176 (sàn Y nhấp nháy), cap112, k2check, VERSION 1.17.7, RULES-LL §1.17.7; selftest_k1177 **85/85** (sau 2 lần sửa chính bài thử); selftest_k1176: ca (k) "khai 20" đổi thành "khai 25" (trần duyệt 15 → 20) | xong |
 | 02:54–03:00 | k2check thử 1.17.7 trên animatic T4 (không video): chạy được; GOC-CAO 67,2 %, K-LAI-1 ĐẠT (M-d 20,4 % không tính), MAY-19 (c) 0 | xong |
-| 03:03 | Cất `checks/` sửa dở (stash + tgz `/var/tmp/k1177/wip`) → cây 1.17.6 KHỚP; master T3 LFS tải (SHA 5b9f0bcc… khớp); đầu vào T3 tái tạo (git archive + mk_tl + mk_log_chu); chạy đối chứng 1.17.6 trên T4 (video nối 3 bản xem, SHA 4263d29d…) và T3 song song (P = 2) | đang chạy |
+| 03:03 | Cất `checks/` sửa dở (stash + tgz `/var/tmp/k1177/wip`) → cây 1.17.6 KHỚP; master T3 LFS tải (SHA 5b9f0bcc… khớp); đầu vào T3 tái tạo; đối chứng 1.17.6 trên T4 (video nối 3 bản xem, SHA 4263d29d…) và T3 song song (P = 2) | xong 03:13 / 03:14 — T3 1.17.6 TRÙNG HỆT bảng K-1.17.6 |
+| 03:14 | Lấy lại mã 1.17.7; `so_luot` (đoạn M-d) thay `luot` (tag) cho KIEM-2-MUC (c), cận dưới từ tag; selftest_k1177 87/87; selftest toàn bộ trước khoá đạt hết (k1176 62/62 với ca (k) 20 → 25) | xong |
+| 03:15–03:36 | k2check 1.17.7 (chưa khoá) T4 + bản khai thử: K-LAI-1 ĐẠT, MAY-19 (c) 0, TL-1 6,22 → 2,94 cắt/phút; khai: GOC-CAO (a) 3 + (c) 4, NHAN-VAT-TEN THIẾU (k)(u), KIEM-2-MUC (d) H2-13. Hai vòng chờ `pgrep -f` tự khớp chính lệnh chờ (lặp bài học) → dừng theo PGID; từ đây chờ theo PID | xong |
+| 03:37:32 | `lock.py` lần 1 → 6c320eeb; commit bị preflight CHẶN (email tác giả trong LICENSE-yunet, MIT bên thứ ba) — KHÔNG commit | sự cố |
+| 03:38:17 | Che email trong bản chép LICENSE-yunet → `lock.py` lần 2 → **1.17.7 3a53574c…**, --verify KHỚP; commit 3315c440, đẩy | xong |
+| 03:38 | k2check 1.17.7 sau khoá: T3 (PID 29931) + T4 (PID 29933) song song | đang chạy |
+| 03:40 | Báo cáo K1177 (bản nháp §0–§7, §11), phán quyết vào checks-appeal.md | xong |
 
 ## Lệnh bổ sung đã áp
 - (không có lệnh bổ sung từ chủ dự án trong phiên)
+- 03:37–03:38: `lock.py` không `--verify` gọi 2 lần (lệch lệnh "đúng một lần") — lần 1 bị preflight chặn vì email bên thứ ba trong giấy phép MIT của YuNet; che email (luật cứng) bắt buộc khoá lại. Báo cáo §7.
+- 03:15, 03:30: vòng chờ `until ! pgrep -f …` / `kill -0 $(pgrep -f …)` tự khớp chính dòng lệnh chờ (lặp BAI-HOC K-1.17.6 (1)) → dừng theo PGID; chờ theo PID ghi lúc khởi chạy.
 - Ghi chú vận hành: mã `checks/` chưa khoá không commit được (preflight `lock.py --verify`) → bản vá WIP ở `reports/k1177/wip/checks-wip.patch`; đẩy bằng `reports/k1177/day.sh` (cất checks/ khi đẩy).
