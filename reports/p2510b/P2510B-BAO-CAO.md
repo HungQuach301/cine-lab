@@ -1,5 +1,3 @@
-> **NHÁP — selftest ll chưa xong; số ll 317/317 trong bản này chưa xác nhận. Bản cuối thay dòng này.**
-
 Nhánh thật: **`ccr-d463992e-9fq13a`**. Harness buộc tên này; lệnh ghi `p-2510b`. Gốc `origin/main` @`2a49e3ca`, đúng gốc lệnh. `main` được cập nhật bằng fast-forward lên đỉnh nhánh này (commit "… DỪNG chờ chủ dự án").
 
 # P-2510b — Kinh thánh và sổ cho gói "50 % tiết kiệm" + phiếu NC-T4 P1–P10, gộp NC-T4 vào main. BÁO CÁO. DỪNG chờ chủ dự án
@@ -10,7 +8,7 @@ Nhánh thật: **`ccr-d463992e-9fq13a`**. Harness buộc tên này; lệnh ghi `
 | Nhánh | `p-2510b` từ origin/main @2a49e3ca | harness buộc `ccr-d463992e-9fq13a` (ghi ở dòng đầu); gốc đúng 2a49e3ca |
 | Song song | ANIMATIC-T4-V2, K-1.17.7: không đụng | không fetch, không đọc, không sửa nhánh của họ. Diff phiên không chạm `checks/`, `checks-appeal.md`, `scripts/`, `design/`, `tools/` |
 | Vùng sửa | docs/BIBLE-KENH2.md, AUTHORSHIP.md, RIGHTS.md, COST-LEDGER.csv, channel-k2/BAI-HOC-K2.md, QUYET-DINH-TREO (chỉ thêm mục cuối), reports/p2510b/**, main | đúng. Ngoài merge, phiên đổi 6 tệp sổ/Kinh thánh + `reports/p2510b/**` (`git diff --name-only 2a49e3ca HEAD` trừ phần merge). `channel-k2/k2c-t4-02/nc/**`, `scripts/k2ldn/nc/**`, `reports/nc-t4/**` chỉ đổi qua merge |
-| Chi phí | API 0; giờ máy mốc 1,5 h | Claude API / OpenAI / Gemini / ElevenLabs / RunPod / YouTube **$0**, không gọi lần nào. 0 tác tử phụ. Không tải LFS, không gọi mạng ngoài git. Giờ máy ≈ **0,3 h** (02:33 → ≈ 02:55 UTC), phần lớn là selftest |
+| Chi phí | API 0; giờ máy mốc 1,5 h | Claude API / OpenAI / Gemini / ElevenLabs / RunPod / YouTube **$0**, không gọi lần nào. 0 tác tử phụ. Không tải LFS, không gọi mạng ngoài git. Giờ máy ≈ **0,3 h** (02:33 → ≈ 03:00 UTC), phần lớn là selftest |
 | Preflight | `set -o pipefail`; chỉ commit khi có "— ĐẠT" | `reports/p2510b/cam_commit.sh` chỉ commit khi có cả "— ĐẠT" và "PREFLIGHT ĐẠT"; hook pre-commit chạy lại. Mọi commit ĐẠT |
 | Hook | cài trước lần đẩy đầu | `pre-commit` + `pre-push` → `tools/preflight.sh`, cài 02:33 UTC; lần đẩy đầu 02:36 UTC |
 | Force / amend | không | 0 force, 0 amend |

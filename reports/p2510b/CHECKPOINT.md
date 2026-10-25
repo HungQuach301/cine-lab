@@ -10,3 +10,4 @@ Nhánh thật: `ccr-d463992e-9fq13a` (harness buộc tên này; lệnh ghi `p-25
 ## Lệnh bổ sung đã áp
 - (không có)
 - 02:50 UTC: báo cáo P2510B-BAO-CAO.md soạn xong (chưa commit — chờ selftest ll); selftest 14/15 bộ đạt, ll đang chạy (PGID 1953).
+- ≈ 03:00 UTC: selftest 15/15 bộ đạt (ll 317/317, `== tổng rc=0`). Báo cáo bản cuối; COST-LEDGER P-2510b; kiểm cuối lock KHỚP + preflight --range; main ff 2a49e3ca → đỉnh nhánh (commit "… DỪNG chờ chủ dự án"). DỪNG chờ chủ dự án.
