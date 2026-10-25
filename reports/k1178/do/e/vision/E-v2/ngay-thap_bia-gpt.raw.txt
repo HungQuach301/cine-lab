@@ -1,0 +1,34 @@
+{
+  "moc": [
+    {"ten":"st_pauls","co_mat":true,"nhan_doi":false,"mo_ta":"Present in the same position with the same dome, lantern, towers and main silhouette. No clear doubling, ghosting, cutting or misalignment.","do_tin":0.99},
+    {"ten":"toa_1","co_mat":true,"nhan_doi":false,"mo_ta":"Same rectangular tower and skyline position; no clear compositing displacement or duplicate.","do_tin":0.99},
+    {"ten":"toa_2","co_mat":true,"nhan_doi":false,"mo_ta":"Present with the same height, width and position; no clear ghosting or cutting.","do_tin":0.99},
+    {"ten":"toa_3","co_mat":true,"nhan_doi":false,"mo_ta":"Present with the same rectangular silhouette and position. The much taller tower to its left is a separate addition.","do_tin":0.99},
+    {"ten":"toa_4","co_mat":true,"nhan_doi":false,"mo_ta":"Present in the same position with the same horizontally striped silhouette; no clear doubling or misalignment.","do_tin":0.98},
+    {"ten":"toa_5","co_mat":true,"nhan_doi":false,"mo_ta":"Present with the same narrow rectangular outline and skyline position; no clear duplicate.","do_tin":0.98},
+    {"ten":"toa_6","co_mat":true,"nhan_doi":false,"mo_ta":"Present with the same striped upper tower, height and position; no clear cutting or misalignment.","do_tin":0.98},
+    {"ten":"toa_7","co_mat":true,"nhan_doi":false,"mo_ta":"Present in the same position with the same stepped glass-building silhouette; no clear ghosting or doubling.","do_tin":0.97}
+  ],
+  "thap_bia": [
+    {"mo_ta":"Added very tall, narrow, flat-topped rectangular tower between toa_2 and toa_3. BEFORE has only substantially lower buildings at this position. Its top is clearly higher in the frame than either adjacent named tower.","toa_do":[0.615,0.370,0.638,0.558],"cao_hon_moc_gan":true,"do_tin":0.99}
+  ],
+  "them": [
+    {"loai":"xe_may","mo_ta":"Several added parked motor vehicles along the street beneath the white, spired building at lower right, including white vehicles and darker vehicles.","toa_do":[0.814,0.928,0.884,0.947],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.96},
+    {"loai":"xe_may","mo_ta":"Small light-colored vehicle on the diagonal street beside the central-right garden.","toa_do":[0.735,0.823,0.743,0.833],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.78},
+    {"loai":"nguoi","mo_ta":"Scattered tiny pedestrian figures along the foreground left-bank promenade, absent from the empty rendered promenade.","toa_do":[0.015,0.949,0.383,0.980],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.8},
+    {"loai":"nguoi","mo_ta":"Tiny pedestrian figures on the narrow bridge or approach near the bottom center-left.","toa_do":[0.386,0.945,0.403,0.999],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.75}
+  ],
+  "bot_doi": [
+    {"loai":"cong_trinh","mo_ta":"The protected foreground riverbank is not consistently preserved: the AFTER photographic quay and river edge remain visible around an abruptly bounded strip of the original blue rendered water.","toa_do":[0.0,0.969,0.727,1.0],"do_tin":0.94},
+    {"loai":"khac","mo_ta":"The small visible water inlet at the extreme lower right in BEFORE is covered by foreground land or building imagery in AFTER.","toa_do":[0.865,0.991,0.951,1.0],"do_tin":0.86}
+  ],
+  "chu": [
+    {"mo_ta":"Small white facade plaque or sign with illegible dark markings on the upper-right portion of the large foreground glass building; absent from BEFORE.","toa_do":[0.336,0.889,0.369,0.901],"do_tin":0.77},
+    {"mo_ta":"Apparent pale rooftop lettering or sign-like marks on the dark roof of the middle-right white building; illegible at the supplied resolution and absent from BEFORE.","toa_do":[0.815,0.660,0.852,0.675],"do_tin":0.64}
+  ],
+  "doi_loai_vung": [
+    {"mo_ta":"Land to water: photographic river water extends above the BEFORE waterline at the extreme lower-left edge.","toa_do":[0.0,0.981,0.072,1.0],"do_tin":0.88},
+    {"mo_ta":"Land to water: the photographic river edge exposes a narrow additional water strip beneath the central foreground quay, beside the preserved blue-water patch.","toa_do":[0.402,0.982,0.637,1.0],"do_tin":0.8},
+    {"mo_ta":"Water to land: the small lower-right water crescent visible in BEFORE is replaced or obscured by land/building imagery.","toa_do":[0.865,0.991,0.951,1.0],"do_tin":0.86}
+  ]
+}

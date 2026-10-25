@@ -21,3 +21,8 @@ Giờ UTC theo đồng hồ container.
 - (không có lệnh bổ sung từ chủ dự án trong phiên)
 - Ghi chú vận hành: mã `checks/` chưa khoá không commit được (preflight `lock.py --verify`) → bản vá WIP `reports/k1178/wip/checks-wip.patch` + tệp mới `wip/checks-moi.tgz`; đẩy bằng `reports/k1178/day.sh` (cất checks/ khi commit/đẩy).
 - Chờ tiến trình nền theo PID ghi lúc khởi chạy (`setsid … & echo $!`), không `pgrep -f`.
+| 17:59–18:14 | Đối chứng 1.17.7 (cất mã mới): T4 v2 (bản xem nối) RC 1, 10 TRƯỢT; T3 **TRÙNG HỆT** bảng K-1.17.7 (đầu vào tái tạo: timeline 0ff3f0da…, log chữ 17053dff…, master 5b9f0bcc… khớp) | xong |
+| 17:52–18:00 | Mô hình nhìn E v2: 18 lần gpt/claude + 12 lần q_thoi_dai (Claude 10/10 ảnh); sổ AI 57 dòng; chi phí E: OpenAI $0,855, Claude $1,42 | xong |
+| 18:14–18:38 | k2check 1.17.8 (chưa khoá): T4 13 hàng đổi (Q26b KHÔNG ÁP, Q34 ĐẠT, K-LAI-3 2→1 Chặn, TU-LIEU-OMNI 18→11, Q37 (1.13) miễn thẻ PP, BIEN-CO-V T4 chưa hiệu chuẩn → Q37 không cộng biến cố đo) + N2P-E mới; T3 giống hệt ngoài LOCK; khai thử (log chữ khoảng + tu_lieu_lan) | xong |
+| 18:28–18:50 | Selftest toàn bộ trước khoá: 17/17 bộ checks/ll — 1 SAI ở selftest_k1174 (ca bật/tắt HIEU_CHUAN trên tập T4 — T4 nay dùng HIEU_CHUAN_T4) → sửa cơ chế ca (kỳ vọng giữ), 91/91; SACH-1 (g) gộp một dòng mỗi chữ | xong |
+| 18:52 | Đẩy WIP muộn ≈ 22 phút so mốc 30 phút (không stash được khi selftest đọc tệp) — nêu ở báo cáo | xong |

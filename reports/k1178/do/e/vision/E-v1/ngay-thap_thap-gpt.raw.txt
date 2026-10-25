@@ -1,0 +1,128 @@
+{
+  "moc": [
+    {
+      "ten": "st_pauls",
+      "co_mat": true,
+      "nhan_doi": false,
+      "mo_ta": "Clearly present in the same position with the same dome, lantern, left tower and main building silhouette. No clear cutting, ghosting or misalignment.",
+      "do_tin": 0.99
+    },
+    {
+      "ten": "toa_1",
+      "co_mat": true,
+      "nhan_doi": false,
+      "mo_ta": "Same rectangular tower in the same position; no clear duplication or displacement.",
+      "do_tin": 0.99
+    },
+    {
+      "ten": "toa_2",
+      "co_mat": true,
+      "nhan_doi": false,
+      "mo_ta": "Same tall rectangular tower and silhouette; no clear cutting, ghosting or misalignment.",
+      "do_tin": 0.99
+    },
+    {
+      "ten": "toa_3",
+      "co_mat": true,
+      "nhan_doi": false,
+      "mo_ta": "Clearly retained in the same position and shape, without duplication.",
+      "do_tin": 0.99
+    },
+    {
+      "ten": "toa_4",
+      "co_mat": true,
+      "nhan_doi": false,
+      "mo_ta": "Same striped rectangular tower, with no clear displacement or duplicated outline.",
+      "do_tin": 0.98
+    },
+    {
+      "ten": "toa_5",
+      "co_mat": true,
+      "nhan_doi": false,
+      "mo_ta": "Same narrow tower in the same position; no clear ghosting or cutting.",
+      "do_tin": 0.98
+    },
+    {
+      "ten": "toa_6",
+      "co_mat": true,
+      "nhan_doi": false,
+      "mo_ta": "Same striped tower and silhouette; no clear duplication or misalignment.",
+      "do_tin": 0.98
+    },
+    {
+      "ten": "toa_7",
+      "co_mat": true,
+      "nhan_doi": false,
+      "mo_ta": "Same broad, stepped glass tower in the same position. No clear duplication or cutting.",
+      "do_tin": 0.98
+    }
+  ],
+  "thap_bia": [
+    {
+      "mo_ta": "Added narrow, pale high-rise with closely spaced horizontal floors between toa_2 and toa_3. BEFORE has substantially lower buildings at this location. Its top is lower in the frame than the top of the nearest named landmark, toa_2.",
+      "toa_do": [0.613, 0.498, 0.639, 0.56],
+      "cao_hon_moc_gan": false,
+      "do_tin": 0.97
+    }
+  ],
+  "them": [
+    {
+      "loai": "xe_may",
+      "mo_ta": "Added row of small motor vehicles, including several white cars and darker vehicles, on the street below the foreground church at lower right.",
+      "toa_do": [0.814, 0.929, 0.887, 0.953],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.97
+    },
+    {
+      "loai": "xe_may",
+      "mo_ta": "Small pale vehicle on the diagonal road immediately left of the tree-filled churchyard.",
+      "toa_do": [0.701, 0.82, 0.709, 0.831],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.8
+    },
+    {
+      "loai": "nguoi",
+      "mo_ta": "Added tiny pedestrian figures distributed along the foreground riverside promenade.",
+      "toa_do": [0.051, 0.947, 0.389, 0.967],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.87
+    },
+    {
+      "loai": "nguoi",
+      "mo_ta": "Added small pedestrian figures on the narrow bridge entering the bottom edge near the centre-left.",
+      "toa_do": [0.389, 0.963, 0.405, 1.0],
+      "thoi_dai_sai": false,
+      "ly_do_thoi_dai": "",
+      "nam_xuat_hien": null,
+      "do_tin": 0.82
+    }
+  ],
+  "bot_doi": [
+    {
+      "loai": "cong_trinh",
+      "mo_ta": "The narrow foreground bridge is retained, but its visible deck and edges appear shifted slightly right relative to the plain dark bridge in BEFORE; AFTER also introduces detailed railings.",
+      "toa_do": [0.381, 0.951, 0.406, 1.0],
+      "do_tin": 0.78
+    }
+  ],
+  "chu": [
+    {
+      "mo_ta": "Added small horizontal pale sign or nameplate with dark, illegible markings on the upper portion of the foreground glass office facade.",
+      "toa_do": [0.335, 0.89, 0.351, 0.9],
+      "do_tin": 0.82
+    }
+  ],
+  "doi_loai_vung": [
+    {
+      "mo_ta": "At the bottom-right edge, a small curved blue water opening visible in BEFORE is largely replaced by a grey roof-like solid surface in AFTER.",
+      "toa_do": [0.86, 0.984, 0.943, 1.0],
+      "do_tin": 0.86
+    }
+  ]
+}
