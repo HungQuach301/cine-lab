@@ -403,8 +403,12 @@ def check(E, TL=None, ep_dir='.', LS=None, vision=False, out=None, KT=None, vids
     if KT: res.update(tong_tam(KT))
     else:
         nen = [s for s in LS or [] if s.get('ai_nen')]
+        # 1.17.7 (A5): nêu khuôn đúng — tấm kiểm khai ở episode.yaml khối n2p.tam (không phải log shot)
+        lg = [str(s.get('shot')) for s in nen if isinstance(s.get('n2p'), dict) and s['n2p'].get('tam')]
+        goi_y = (f" — log shot {', '.join(lg[:4])} có `n2p.tam` (khuôn log) nhưng k2check đọc episode.yaml `n2p: {{tam: [{{id, shot, render, ghep, mat_na, nam, anh_tinh?, lop_a?}}]}}`"
+                 " (PNG render đối chứng + ảnh ghép + mặt nạ lớp — RULES-LL 1.17.0)") if lg else ''
         for k in ROWS[:4]:
-            res[k] = (r(thieu=[('(a) ' if k == 'N2P-1' else '') + f"{len(nen)} shot ai_nen nhưng chưa khai tấm kiểm (n2p.tam)"], val='—') if nen
+            res[k] = (r(thieu=[('(a) ' if k == 'N2P-1' else '') + f"{len(nen)} shot ai_nen nhưng chưa khai tấm kiểm (n2p.tam){goi_y}"], val='—') if nen
                       else na('không có tấm nền AI (n2p.tam / log ai_nen)'))
     res['N2P-5'] = n2p5(E, LS, ep_dir, vids)
     res['N2P-6'] = n2p6(E, LS, (TL or {}).get('tong_s'))

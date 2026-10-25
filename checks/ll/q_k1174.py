@@ -40,6 +40,18 @@ Hàng:
      (k) thiếu khai ngân sách → Cảnh báo; (m) vượt mốc theo dõi → Cảnh báo; (u) dòng Gemini thiếu `usd` → THIẾU (chưa cộng được giá thật).
   GOC-CAO-60 (Q2 (iii)): thời lượng góc cao có thời gian chạy ≥ 60 % thân phim (trừ thẻ PP), đo theo định nghĩa hiện hành: shot `goc: cao` và
      `tl: true` (TL-1, q_k116.tl1); có log máy → mỗi khung đạt V7B-D1 (cao trên đất ≥ 120 m HOẶC chúc ≥ 15° với cao ≥ 50 m) mới tính.
+     1.17.7: k2check thay hàng này bằng GOC-CAO (q_k1177.goc_cao: `goc_cao_min_pct` + 5 chốt cấu trúc); hàm goc_cao_60 giữ nguyên.
+
+1.17.7 (phiên K-1.17.7, 25/10/2026; khiếu nại ANIMATIC-T4 A1, A2 / PHIEU-XEM C13 — chủ dự án 25/10 06:56 "C11, C13 theo khuyến nghị"):
+  HỆ TOẠ ĐỘ (A1): log_may, tieu_diem, diem_neo đọc theo HỆ CẢNH y lên: x = E − E0, y = h, z = −(N − N0) (E0, N0 = `goc_toa_do`, mặc định 532000,
+     180800). Log ghi [E, N, h] được nhận khi: log khai `toa_do: EN` (hoặc `he_toa_do: EN`), hoặc khung chỉ có `cam_en` (không `cam`) → đổi bằng
+     goc_toa_do; điểm khai theo [E, N, h] dùng trường `*_en` (`tieu_diem_en`, `diem_neo_en`). Toạ độ cảnh có |x| hay |z| > 100 km (ngoài mọi cảnh
+     tập) là [E, N, h] khai nhầm trường → đổi theo goc_toa_do + (w) nhắc dùng `*_en` (đo, không đoán: cảnh London ≤ vài km quanh gốc).
+  KHOP (A2): (c) so khung ĐẦU shot KHOP với khung GẦN NHẤT của shot `khop_voi` (mọi khung, thước 7 điểm như cũ) — "cùng khung" là bất kỳ khung
+     đã thấy của shot tham chiếu, không chỉ khung cuối (shot tham chiếu DAY/TRUOT di chuyển); khai `khop_khung: dau | cuoi | <giây trong shot>`
+     để ghim một khung. In khung khớp (`khop_khung_ref`). Không `khop_voi`: đầu ↔ cuối cùng shot như cũ.
+  THAT (ảnh chụp/footage thật toàn khung, chủ dự án 25/10 09:15): shot khai `that: {…}` hoặc lớp `THAT` phủ cả shot → không phải cú máy 3D
+     (như MD/PP/THE: MAY-19 không đòi log máy, ngắt chuỗi (e)); ảnh có chuyển động máy 2D là shot hợp lệ.
 """
 import json, math, os, re, sys
 
@@ -47,7 +59,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'
 from checks.ll import q_k116 as K6  # noqa: E402
 
 CU_MAY = ('CODINH', 'DAY', 'KEO', 'CAU', 'VONG', 'TRUOT', 'NGHIENG', 'THAP', 'XUONG', 'LAN', 'KHOP')
-KHONG_MAY = ('MD', 'PP', 'THE')
+KHONG_MAY = ('MD', 'PP', 'THE', 'THAT')   # 1.17.7: + THAT (ảnh/footage thật toàn khung)
 LIM = dict(CODINH_TD=2.0, DAY_TD=1.5, DAY_TIEN=1.5, DAY_PHONG=1.5, KEO_LUI=2.0, CAU_MS=6.0, CAU_MS_MIN=2.0, CAU_CAO=(150.0, 300.0), CAU_CHUC=1.5,
            VONG_DS=3.0, VONG_TONG=45.0, TRUOT_TD=3.0, NGHIENG_DS=2.0, THAP_CAO=(20.0, 60.0), THAP_NGUA=(5.0, 15.0), XUONG_DAU=-85.0, XUONG_CUOI=(-35.0, -20.0),
            XUONG_S=(4.0, 8.0), KHOP_PX=0.5, KHOP_HOA=1.0, THAP_PCT=12.0, LOAI_CHUONG=4, LIEN_MAX=2)
@@ -86,9 +98,17 @@ def _lop(s, *k):
     return sum(float(L.get(x) or 0) for x in k if isinstance(L.get(x), (int, float)))
 
 
+def la_that(s):
+    """1.17.7: shot ảnh chụp/footage thật toàn khung — khai `that: {…}` (dict/True) hoặc lớp THAT phủ cả shot"""
+    if s.get('that'): return True
+    d = _dur(s); v = _lop(s, 'THAT')
+    return bool(v > 0 and d > 0 and v >= d - 0.05)
+
+
 def _cu(s):
     c = str(s.get('cu_may') or '').upper()
     if not c and s.get('minh_hoa'): c = 'MD'
+    if (not c or c in ('THAT', 'ANH', 'FOOTAGE')) and la_that(s): c = 'THAT'
     return c
 
 
@@ -122,6 +142,30 @@ def _tb1s(v, fps):
 
 def _en(x, goc):
     return [float(x[0]) - goc[0], float(x[2]), -(float(x[1]) - goc[1])]
+
+
+XA_M = 1e5   # 1.17.7 (A1): toạ độ cảnh |x| hoặc |z| > 100 km = [E, N, h] khai nhầm trường
+
+
+def _la_en(x):
+    return x is not None and len(x) >= 3 and (abs(float(x[0])) > XA_M or abs(float(x[1])) > XA_M)
+
+
+def chuan_log(L, goc, w=None, M=None):
+    """1.17.7 (A1): log máy về hệ cảnh y lên. Đổi khi log khai `toa_do`/`he_toa_do` = EN, hoặc khung chỉ có `cam_en` (không `cam`), hoặc cam.p
+    dạng [E, N, h] (> 100 km khỏi gốc cảnh — khai nhầm: (w)). Ma trận view/proj (hệ của trình dựng) bỏ khi đổi — dựng lại từ p, l, fov."""
+    if not isinstance(L, dict) or not L.get('frames'): return L
+    he = str(L.get('toa_do') or L.get('he_toa_do') or '').upper().replace(',', '').replace(' ', '')
+    f0 = L['frames'][0]; cam0 = f0.get('cam') or {}
+    khai_en = he in ('EN', 'ENH'); chi_en = not cam0 and bool(f0.get('cam_en')); nham = bool(cam0) and _la_en(cam0.get('p'))
+    if not (khai_en or chi_en or nham): return L
+    if nham and not khai_en and M is not None:
+        M['w'].append(f'(w) {w}: log_may ghi cam.p theo [E, N, h] (> 100 km khỏi gốc cảnh) — khai `toa_do: EN` hoặc ghi hệ cảnh (x = E − E0, y = h, z = −(N − N0)); đã đổi theo goc_toa_do')
+    FR = []
+    for fr in L['frames']:
+        c = (fr.get('cam') if fr.get('cam') and not chi_en else fr.get('cam_en')) or {}
+        FR.append(dict({k: v for k, v in fr.items() if k not in ('view', 'proj', 'cam', 'cam_en')}, cam=dict(c, p=_en(c['p'], goc), l=_en(c['l'], goc))))
+    return dict(L, frames=FR, toa_do='canh (đổi từ EN — 1.17.7)')
 
 
 def do_shot(L, F=None, mat_dat=0.0):
@@ -165,8 +209,22 @@ def _ld(base, x):
 
 def _tieu_diem(s, E):
     goc = tuple(E.get('goc_toa_do') or GOC0)
-    if s.get('tieu_diem') is not None: return [float(v) for v in s['tieu_diem']]
+    if s.get('tieu_diem') is not None:
+        if _la_en(s['tieu_diem']): return _en(s['tieu_diem'], goc)   # 1.17.7 (A1): [E, N, h] khai nhầm trường (> 100 km) → đổi
+        return [float(v) for v in s['tieu_diem']]
     if s.get('tieu_diem_en') is not None: return _en(s['tieu_diem_en'], goc)
+    return None
+
+
+def _diem_neo(s, E, M=None, w=''):
+    """1.17.7 (A1/A2): điểm neo KHOP — `diem_neo_en` [E, N, h] | `diem_neo` hệ cảnh; diem_neo dạng [E, N, h] (> 100 km) → đổi + (w)"""
+    goc = tuple(E.get('goc_toa_do') or GOC0)
+    if s.get('diem_neo_en') is not None: return _en(s['diem_neo_en'], goc)
+    if s.get('diem_neo') is not None:
+        if _la_en(s['diem_neo']):
+            if M is not None: M['w'].append(f'(w) {w} KHOP: diem_neo {list(s["diem_neo"])} là [E, N, h] (> 100 km khỏi gốc cảnh) — khai `diem_neo_en`; đã đổi theo goc_toa_do')
+            return _en(s['diem_neo'], goc)
+        return [float(v) for v in s['diem_neo']]
     return None
 
 
@@ -230,7 +288,7 @@ def may19(E, TL, LS, ep_dir='.', cong='G2'):
         if c not in CU_MAY: M['g'].append(f'(g) {w}: cu_may {c!r} không thuộc §19 (a) ({", ".join(CU_MAY)})'); continue
         if s.get('ai_nen') and c != 'CODINH': M['b'].append(f'(b) {w}: shot tấm nền N2+ (ai_nen) phải CODINH, khai {c}')
         Lg = None
-        try: Lg = _ld(ep_dir, s.get('log_may'))
+        try: Lg = chuan_log(_ld(ep_dir, s.get('log_may')), tuple(E.get('goc_toa_do') or GOC0), w, M)   # 1.17.7 (A1): log [E, N, h] → hệ cảnh
         except Exception as e: M['g'].append(f'(g) {w}: không đọc được log_may: {e}')   # noqa: BLE001
         if Lg:
             nlog += 1; D = do_shot(Lg, _tieu_diem(s, E), float(s.get('mat_dat_m') or E.get('mat_dat_m') or 0)); DO[w] = D
@@ -240,20 +298,31 @@ def may19(E, TL, LS, ep_dir='.', cong='G2'):
                               ('quay °/s', D['quay'], 2.0 if c == 'NGHIENG' else None)):
                 if ng: near += sat(f'{w} {nm}', v, ng)
             if c == 'KHOP':
-                Fn = s.get('diem_neo'); Fn = ([float(v) for v in Fn] if Fn else None) or _tieu_diem(s, E) or Lg['frames'][0]['cam']['l']
+                Fn = _diem_neo(s, E, M, w) or _tieu_diem(s, E) or Lg['frames'][0]['cam']['l']   # 1.17.7 (A1): diem_neo_en / diem_neo [E, N, h] đổi hệ cảnh
                 ref = next((x for x in LS if str(x.get('shot')) == str(s.get('khop_voi'))), None) if s.get('khop_voi') else None
-                try: LR = _ld(ep_dir, ref.get('log_may')) if ref else Lg
+                try: LR = chuan_log(_ld(ep_dir, ref.get('log_may')), tuple(E.get('goc_toa_do') or GOC0)) if ref else Lg
                 except Exception as e: LR = None; M['g'].append(f'(g) {w}: không đọc được log_may của {s.get("khop_voi")}: {e}')   # noqa: BLE001
                 if LR:
-                    fa = sorted(LR['frames'], key=lambda x: x.get('f', 0))[-1]; fb = sorted(Lg['frames'], key=lambda x: x.get('f', 0))[0 if ref else -1]
-                    if not ref: fa = sorted(Lg['frames'], key=lambda x: x.get('f', 0))[0]
+                    FRb = sorted(Lg['frames'], key=lambda x: x.get('f', 0)); FRa = sorted(LR['frames'], key=lambda x: x.get('f', 0))
+                    fb = FRb[0 if ref else -1]
                     Wd, Hd = float(Lg.get('W') or 1920), float(Lg.get('H') or 1080); np = _np()
-                    # điểm neo + 6 điểm lệch ±25 % khoảng cách (ngang, dọc, trước/sau theo máy tham chiếu): khớp "cùng máy, cùng FOV" cả khung,
-                    # không chỉ điểm nhìn (điểm nhìn luôn ở giữa khung dù máy dời)
-                    pa, la = np.array(fa['cam']['p'], float), np.array(fa['cam']['l'], float); f_ = (la - pa) / np.linalg.norm(la - pa)
-                    sx = np.cross(f_, [0.0, 1.0, 0.0]); sx = sx / (np.linalg.norm(sx) or 1.0); uy = np.cross(sx, f_); dd = 0.25 * float(np.linalg.norm(np.asarray(Fn, float) - pa))
-                    P5 = [np.asarray(Fn, float)] + [np.asarray(Fn, float) + q * dd * v for v in (sx, uy, f_) for q in (-1.0, 1.0)]   # + trước/sau tiêu điểm (thị sai)
-                    dpx = max(float(np.linalg.norm(chieu(fa, Wd, Hd, X) - chieu(fb, Wd, Hd, X))) for X in P5); D['khop_px'] = round(dpx, 3)
+
+                    def lech(fa):
+                        # điểm neo + 6 điểm lệch ±25 % khoảng cách (ngang, dọc, trước/sau theo máy tham chiếu): khớp "cùng máy, cùng FOV" cả khung,
+                        # không chỉ điểm nhìn (điểm nhìn luôn ở giữa khung dù máy dời)
+                        pa, la = np.array(fa['cam']['p'], float), np.array(fa['cam']['l'], float); f_ = (la - pa) / np.linalg.norm(la - pa)
+                        sx = np.cross(f_, [0.0, 1.0, 0.0]); sx = sx / (np.linalg.norm(sx) or 1.0); uy = np.cross(sx, f_); dd = 0.25 * float(np.linalg.norm(np.asarray(Fn, float) - pa))
+                        P5 = [np.asarray(Fn, float)] + [np.asarray(Fn, float) + q * dd * v for v in (sx, uy, f_) for q in (-1.0, 1.0)]   # + trước/sau tiêu điểm (thị sai)
+                        return max(float(np.linalg.norm(chieu(fa, Wd, Hd, X) - chieu(fb, Wd, Hd, X))) for X in P5)
+                    if not ref: cand = [(0, FRb[0])]
+                    else:   # 1.17.7 (A2): khung gần nhất của shot tham chiếu (mọi khung) — hoặc khung ghim `khop_khung`
+                        kk = s.get('khop_khung'); fpsr = float((LR.get('shot') or {}).get('fps') or LR.get('fps') or 24)
+                        if kk == 'dau': cand = [(0, FRa[0])]
+                        elif kk == 'cuoi': cand = [(len(FRa) - 1, FRa[-1])]
+                        elif isinstance(kk, (int, float)) and not isinstance(kk, bool): j = min(len(FRa) - 1, max(0, int(round(float(kk) * fpsr)))); cand = [(j, FRa[j])]
+                        else: cand = list(enumerate(FRa))
+                    dpx, jk = min((lech(fa), j) for j, fa in cand); fa = FRa[jk] if ref else FRb[0]
+                    D['khop_px'] = round(dpx, 3); D['khop_khung_ref'] = (f'{jk}/{len(FRa)}' if ref else 'đầu ↔ cuối cùng shot')
                     if dpx > LIM['KHOP_PX'] + 1e-9: M['c'].append(f"(c) {w} KHOP: lệch điểm neo {dpx:.2f} px > {LIM['KHOP_PX']:g} px (0 px ở lưới điểm ảnh)")
                     if abs(float(fa['cam'].get('fov') or 0) - float(fb['cam'].get('fov') or 0)) > 1e-6: M['c'].append(f"(c) {w} KHOP: FOV khác ({fa['cam'].get('fov')} ↔ {fb['cam'].get('fov')})")
                 if isinstance(s.get('hoa_s'), (int, float)) and s['hoa_s'] > LIM['KHOP_HOA'] + 1e-9: M['c'].append(f"(c) {w} KHOP: hoà {s['hoa_s']:g} s > {LIM['KHOP_HOA']:g} s")
@@ -406,7 +475,7 @@ def chuan_ls(LS):
     return out
 
 
-def check(E, TL=None, ep_dir='.', LS=None):
+def check(E, TL=None, ep_dir='.', LS=None, video=None):
     if not ap_1174(E): return {k: na('tập trước T4 (không khai kenh2_tu_t4 / n2p) — 1.17.4 không hồi tố') for k in ROWS}
     cong = 'animatic' if E.get('animatic') else 'G2'; out = {}
     if not LS and E.get('log_shot'):   # log_shot là bảng shot tiền kỳ (dict {shot: […]}) — K6.log_shot chỉ đọc khoá `shots`
@@ -420,6 +489,8 @@ def check(E, TL=None, ep_dir='.', LS=None):
         except Exception as e: out[k] = r(thieu=[f'không chạy được: {type(e).__name__}: {e}'], val='—', cong=cong)   # noqa: BLE001
     from checks.ll import q_k1176 as K76   # 1.17.6 (chủ dự án 24/10 12:52): TU-LIEU-10 theo trần của tập + (b) mỗi lần ≤ 10 s; TU-LIEU-OMNI mới
     out.update(K76.check_tu_lieu(E, TL, ep_dir, LS))
+    from checks.ll import q_k1177 as K77   # 1.17.7 (chủ dự án 25/10 09:15): GOC-CAO thay GOC-CAO-60; TU-LIEU-THAT, NHAN-VAT-TEN, KIEM-2-MUC mới
+    out.pop('GOC-CAO-60', None); out.update(K77.check(E, TL, ep_dir, LS, video))
     return out
 
 

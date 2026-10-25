@@ -228,7 +228,7 @@ def minh_hoa(E, TL, LS, ep_dir='.', TX=None, step=12, why=None):
         if not dl: M['e'].append(f"(e) {w}: sổ AI không có dòng cho đoạn (so_ai của đoạn/shot, hoặc tệp so_ai: có shot/doan/ma = {d['ma']} hoặc tag = luot)")
         elif not any(_dong_ok(x) for x in dl): M['e'].append(f'(e) {w}: dòng sổ AI thiếu model / lệnh / SHA đầu ra')
     return K6.r(loi=sum(M.values(), []), thieu=th, muc=M, sat_nguong=near,
-                val=f"{len(DS)} đoạn minh hoạ ({', '.join(d['id'] for d in DS[:6])}) · {tot:.1f} s = {pct:.1f} %" + (' (từ T4: không trần cứng — Q2; xem GEMINI-NGAN-SACH, N2P-6 (c), GOC-CAO-60)' if t4 else '')
+                val=f"{len(DS)} đoạn minh hoạ ({', '.join(d['id'] for d in DS[:6])}) · {tot:.1f} s = {pct:.1f} %" + (' (từ T4: không trần cứng — Q2; xem GEMINI-NGAN-SACH, N2P-6 (c), GOC-CAO (1.17.7; trước: GOC-CAO-60))' if t4 else '')
                     + f" · lỗi kẹp {len(M['c'])} · AGL {len(M['d'])} · sổ AI {len(M['e'])}"
                     + ' · nhãn: không bắt buộc (1.17.2)' + mt)
 
