@@ -356,14 +356,14 @@ function buildParticles(LC, grid, hU, key) {
   const ATL = `uniform sampler2D uAtF, uAtS; uniform float uAtlas; vec2 atl(vec2 uv, float age, float seed){ float idx = mod(floor(age * 63.0) + floor(seed * 64.0), 64.0); float c = mod(idx, 8.0), r = floor(idx / 8.0);
       return vec2((c + clamp(uv.x, 0.0, 1.0)) / 8.0, 1.0 - (r + 1.0 - clamp(uv.y, 0.0, 1.0)) / 8.0); }`;
   const FS_FLAME = `varying vec2 vUv; varying float vA; varying float vH; varying float vSeed; uniform float uT, uNight; ${GLSL_N} ${ATL}
-    void main(){ if (uAtlas > 0.5) { vec3 t = texture2D(uAtF, atl(vUv, fract(uT * 0.35 + vSeed), vSeed)).rgb; vec3 o = t * t * vec3(1.0, 0.58, 0.28) + vec3(1.0, 0.86, 0.58) * pow(clamp(t.r * 1.2 - 0.45, 0.0, 1.0), 2.0) * 1.8; gl_FragColor = vec4(o * vA * (1.1 + 0.45 * uNight) * 1.7, 0.0); return; }   /* V2: lõi vàng trắng */
+    void main(){ if (uAtlas > 0.5) { vec3 t = texture2D(uAtF, atl(vUv, fract(uT * 0.35 + vSeed), vSeed)).rgb; vec3 o = t * t * vec3(1.0, 0.58, 0.28) + vec3(1.0, 0.86, 0.58) * pow(clamp(t.r * 1.2 - 0.45, 0.0, 1.0), 2.0) * 1.8; o *= smoothstep(0.0, 0.25, min(vUv.x, 1.0 - vUv.x)) * smoothstep(0.0, 0.10, vUv.y) * smoothstep(1.0, 0.65, vUv.y); /* ANIMATIC-T4-V2 F4: mép ô atlas mềm — hết khối vuông */ gl_FragColor = vec4(o * vA * (1.1 + 0.45 * uNight) * 1.7, 0.0); return; }   /* V2: lõi vàng trắng */
       vec2 p = vUv - vec2(0.5, 0.0); float n = fbm(vec2(p.x * 3.0 + vSeed * 9.0, vUv.y * 2.2 - uT * 2.6));
       float sh = smoothstep(0.5, 0.0, abs(p.x) * (1.0 + vUv.y * 1.8) + (vUv.y - 0.25) * 0.45 - n * 0.35) * smoothstep(1.0, 0.25, vUv.y);
       vec3 c = mix(vec3(1.0, 0.85, 0.45), vec3(1.0, 0.32, 0.05), smoothstep(0.1, 0.8, vUv.y + n * 0.3)); gl_FragColor = vec4(c * sh * vA * 1.4 * (0.35 + 0.65 * uNight), 0.0); }`;
   const FS_SMOKE = `varying vec2 vUv; varying float vA; varying float vH; varying float vSeed; varying float vY; uniform float uT, uNight, uFireK; uniform vec3 uSunCol, uHaze; uniform vec3 uSmokeTint; ${GLSL_N} ${ATL}
     void main(){ float d; float tg;
       if (uAtlas > 0.5) { vec3 t = texture2D(uAtS, atl(vUv, vH, vSeed)).rgb; d = t.r * vA * 0.55 * smoothstep(0.0, 0.08, vUv.y) * smoothstep(1.0, 0.6, vUv.y) * smoothstep(0.0, 0.18, min(vUv.x, 1.0 - vUv.x)); tg = t.g;
-        d = smoothstep(0.04, 0.55, t.r) * vA * 0.85 * smoothstep(0.0, 0.10, vUv.y) * smoothstep(1.0, 0.45, vUv.y) * smoothstep(0.0, 0.24, min(vUv.x, 1.0 - vUv.x));   /* V2: khói đặc khối, mép rõ */
+        d = smoothstep(0.04, 0.55, t.r) * vA * 0.85 * smoothstep(0.0, 0.32, vUv.y) * smoothstep(1.0, 0.45, vUv.y) * smoothstep(0.0, 0.40, min(vUv.x, 1.0 - vUv.x));   /* ANIMATIC-T4-V2 F4: mép dưới/bên mềm hơn (0,10/0,24 → 0,32/0,40) — hết khối vuông sáng ở chân cột */   /* V2: khói đặc khối, mép rõ */
         float young = 1.0 - smoothstep(0.0, 0.45, vH); vec3 dk = mix(vec3(0.042, 0.037, 0.033), vec3(0.13, 0.12, 0.108), vH); d *= mix(1.0, 0.72, smoothstep(0.5, 1.0, vH));
         vec3 day = mix(dk, vec3(0.50, 0.46, 0.41) * (0.55 + 0.45 * uSunCol), pow(tg, 1.25)) * uSmokeTint; day = mix(day, uHaze * 0.8, vH * 0.15);
         day += vec3(0.95, 0.40, 0.10) * t.b * young * young * 0.30 * uFireK;   /* chân cột hắt lửa cả ban ngày */
