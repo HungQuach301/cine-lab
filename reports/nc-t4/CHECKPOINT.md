@@ -9,3 +9,4 @@
 - 00:24 UTC: 3 luồng nền (quyền tư liệu 1940; footage 2026; chân dung + ảnh 1850–1950) đang chạy. Việc 1: nguồn đã đọc lưu `reports/nc-t4/nguon/web/dn-*.txt` (St Paul's timeline, Monument, London Museum, BHO, All Souls, Parentalia 1750, City SPD 2012, Barbican). Bố trí phương án A: `reports/nc-t4/bo-tri/` (script `scripts/k2ldn/nc/bo_tri.py`): 760,0 s, M-d 27,98 %, góc cao 60,57 %, Gemini T4 ước $44,81.
 - Trang chặn: historicengland.org.uk (403, cả WebFetch), london.gov.uk LVMF (403).
 - 00:27 UTC: DIEM-NHAN.json/.md (15 mục; trích 43/43 khớp nguyên văn — `scripts/k2ldn/nc/kiem_trich.py`), loi-moi-nhap.json (9 câu mới/sửa + 1 bỏ, 868 ký tự thu), MO-DAU.md (A/B/C + 16 shot đứng), bo-tri B/C. Chờ 3 luồng nền.
+- 00:55 UTC: CUỐI — 3 luồng xong và đã kiểm; PHIEU-NC-T4.md (P1–P10), NC-T4-BAO-CAO.md (§0–§14). Chi phí API $0 mọi nhà cung cấp. DỪNG chờ chủ dự án.
