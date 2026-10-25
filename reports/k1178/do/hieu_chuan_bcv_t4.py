@@ -23,7 +23,7 @@ from checks.ll import q_bcv as B, base  # noqa: E402
 import hieu_chuan_bcv as H  # noqa: E402  (tham_chieu, _clip, _chay, LUOI — K-1.17.4)
 
 DY, DF, DS, MOVE_M, LE = 0.01, 0.1, 2.0, 3.0, 0.5
-FR_T = (20.0, 150.0, 260.0, 400.0, 560.0, 690.0)
+FR_T = (20.0, 150.0, 260.0, 400.0, 520.0, 640.0)   # t + 97 s < 770 s (khung đổi lấy từ +97 s)
 
 
 def _log(p):
