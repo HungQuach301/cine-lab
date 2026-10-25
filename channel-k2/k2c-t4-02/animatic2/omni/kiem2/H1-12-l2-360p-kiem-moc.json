@@ -1,0 +1,464 @@
+{
+ "tag": "H1-12-l2-360p",
+ "clip": "/var/tmp/anim/omni/H1-12/H1-12-l2-360p.mp4",
+ "clip_sha": "74aef6a9fedf23f566ed919b18e981a057effe2520c84d2569981b63cec402a5",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H1-12-dau.jpg",
+ "dau_sha": "569e3fc0b97a1e804ecc542584eaee1c1da3d4daa62c9ded94443ad215024feb",
+ "nam": "1666",
+ "canh": "the River Thames at night, 3 September 1666, the north bank on fire",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-12-l2-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0223,
+      "usage": {
+       "input_tokens": 10132,
+       "input_tokens_details": {
+        "cache_write_tokens": 10129,
+        "cached_tokens": 0
+       },
+       "output_tokens": 206,
+       "output_tokens_details": {
+        "reasoning_tokens": 167
+       },
+       "total_tokens": 10338
+      }
+     },
+     "secs": 8.3,
+     "mo_ta": "The frame shows people and belongings in wooden rowing boats on the Thames at night, with waterfront buildings burning beneath heavy smoke.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-12-l2-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "7bfeb331c06f2602d7faff4d2c0097abec56ecf442ea7dcd41a8558f35d69ce5",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+       "Old London Bridge lined with houses",
+       "NO Monument column (built 1671-77)",
+       "NO Wren dome or Wren steeples"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "The burning skyline is a row of generic Tudor or Jacobean-style gabled houses with tall chimneys. I can't pick out Old St Paul's long Gothic nave with its square crossing tower. I also can't see Old London Bridge with its houses. Only one vague tower stands in the middle of the skyline.",
+        "ly_do": "Old St Paul's and its long nave should dominate the skyline of the City in 1666, and Old London Bridge lined with houses should cross the river. Neither is clearly present in the view.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         576,
+         108,
+         1440,
+         378
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0367049,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 943,
+        "cacheReadInputTokens": 2429,
+        "cacheCreationInputTokens": 10808,
+        "webSearchRequests": 0,
+        "costUSD": 0.0367049,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 235,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The burning skyline is a row of generic Tudor or Jacobean-style gabled houses with tall chimneys. I can't pick out Old St Paul's long Gothic nave with its square crossing tower. I also can't see Old London Bridge with its houses. Only one vague tower stands in the middle of the skyline.\",\"ly_do\":\"Old St Paul's and its long nave should dominate the skyline of the City in 1666, and Old London Bridge lined with houses should cross the river. Neither is clearly present in the view.\",\"nam_xuat_hien\":null,\"toa_do\":[0.3,0.1,0.75,0.35],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0367,
+    "chi_phi_tb": 0.0367,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-12-l2-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "b86ea4ebf585484def51699fb194ca3db214a219b7ef6aa689e07eead38b0b85",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "den",
+        "mo_ta": "Many small, evenly spaced warm-lit rectangular windows on the far-bank buildings, especially at the right. They look like lit interior windows.",
+        "ly_do": "These are most likely fire glow or candlelight, which would be plausible in 1666. They are only a weak suspect, because they could be read as dense, uniform lit windows like those of a later city.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1536,
+         162,
+         1920,
+         367
+        ],
+        "do_tin": 0.1
+       }
+      ],
+      "cost_usd": 0.0361417,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1034,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0361417,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 209,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"den\",\"mo_ta\":\"Many small, evenly spaced warm-lit rectangular windows on the far-bank buildings, especially at the right. They look like lit interior windows.\",\"ly_do\":\"These are most likely fire glow or candlelight, which would be plausible in 1666. They are only a weak suspect, because they could be read as dense, uniform lit windows like those of a later city.\",\"nam_xuat_hien\":null,\"toa_do\":[0.8,0.15,1.0,0.34],\"do_tin\":0.1}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0361,
+    "chi_phi_tb": 0.0361,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H1-12-l2-360p-k25.json"
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-12-l2-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0214,
+      "usage": {
+       "input_tokens": 10144,
+       "input_tokens_details": {
+        "cache_write_tokens": 10141,
+        "cached_tokens": 0
+       },
+       "output_tokens": 107,
+       "output_tokens_details": {
+        "reasoning_tokens": 62
+       },
+       "total_tokens": 10251
+      }
+     },
+     "secs": 4.2,
+     "mo_ta": "Nighttime view of the Thames with people and belongings in small rowing boats, while waterfront buildings on the north bank burn beneath smoke and drifting embers.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-12-l2-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "fbb5db25eb5320185f43dd37dc0b3ad938babf006e329337aa2eb6cda5503703",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+       "Old London Bridge lined with houses",
+       "NO Monument column (built 1671-77)",
+       "NO Wren dome or Wren steeples"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "The burning waterfront skyline is a low row of houses with chimneys and gables. It shows no Old St Paul's, meaning no long Gothic nave and no square crossing tower. Old London Bridge with its houses is also not visible.",
+        "ly_do": "Old St Paul's Cathedral was a huge landmark on the London skyline in 1666, and it was burning in the Great Fire. It should dominate the view, but nothing like it is shown.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         192,
+         54,
+         1536,
+         378
+        ],
+        "do_tin": 0.35
+       }
+      ],
+      "cost_usd": 0.0341309,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 850,
+        "cacheReadInputTokens": 3114,
+        "cacheCreationInputTokens": 10123,
+        "webSearchRequests": 0,
+        "costUSD": 0.0341309,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 167,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The burning waterfront skyline is a low row of houses with chimneys and gables. It shows no Old St Paul's, meaning no long Gothic nave and no square crossing tower. Old London Bridge with its houses is also not visible.\",\"ly_do\":\"Old St Paul's Cathedral was a huge landmark on the London skyline in 1666, and it was burning in the Great Fire. It should dominate the view, but nothing like it is shown.\",\"nam_xuat_hien\":null,\"toa_do\":[0.1,0.05,0.8,0.35],\"do_tin\":0.35}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0341,
+    "chi_phi_tb": 0.0341,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-12-l2-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "b83962e1af06b5ec70884175d5593ae067d7120ce49a5c0a24d218fc5b16118e",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0332717,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 747,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0332717,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 96,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 13.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0333,
+    "chi_phi_tb": 0.0333,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H1-12-l2-360p-k55.json"
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-12-l2-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0224,
+      "usage": {
+       "input_tokens": 10138,
+       "input_tokens_details": {
+        "cache_write_tokens": 10135,
+        "cached_tokens": 0
+       },
+       "output_tokens": 212,
+       "output_tokens_details": {
+        "reasoning_tokens": 149
+       },
+       "total_tokens": 10350
+      }
+     },
+     "secs": 8.1,
+     "mo_ta": "Cảnh đêm trên sông Thames với các thuyền chèo chở người và đồ đạc, phía sau là dãy nhà bên bờ bắc đang bốc cháy dưới khói và tàn lửa.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-12-l2-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "967be7d4e586dbf9bffca51a91b7bdec3ddbef01026467394a295b69b43a47cc",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+       "Old London Bridge lined with houses",
+       "NO Monument column (built 1671-77)",
+       "NO Wren dome or Wren steeples"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "The burning skyline is a continuous row of gabled and chimneyed townhouses. I can't make out Old St Paul's, which should have a very long Gothic nave and a square crossing tower. I also can't make out Old London Bridge with its houses.",
+        "ly_do": "Old St Paul's should dominate the City skyline in 1666, and it is missing or not recognisable. Old London Bridge should also be visible, lined with houses.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         576,
+         108,
+         1248,
+         410
+        ],
+        "do_tin": 0.35
+       }
+      ],
+      "cost_usd": 0.0337109,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 808,
+        "cacheReadInputTokens": 3114,
+        "cacheCreationInputTokens": 10123,
+        "webSearchRequests": 0,
+        "costUSD": 0.0337109,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 130,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The burning skyline is a continuous row of gabled and chimneyed townhouses. I can't make out Old St Paul's, which should have a very long Gothic nave and a square crossing tower. I also can't make out Old London Bridge with its houses.\",\"ly_do\":\"Old St Paul's should dominate the City skyline in 1666, and it is missing or not recognisable. Old London Bridge should also be visible, lined with houses.\",\"nam_xuat_hien\":null,\"toa_do\":[0.3,0.1,0.65,0.38],\"do_tin\":0.35}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0337,
+    "chi_phi_tb": 0.0337,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-12-l2-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "c3193d3feb9fa27bd2503789b7843fd110b5c579659865a49f70d89921c8684b",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0323117,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 651,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0323117,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0323,
+    "chi_phi_tb": 0.0323,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H1-12-l2-360p-k90.json"
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": [],
+  "q_thoi_dai_nghi_van_moc": 0
+ },
+ "gop": {
+  "tang2": "channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-12-l2-360p-kiem.json",
+  "lop_moc": "qmoc_v3.sh (lệnh bổ sung #2 bước 4, K1177-D4)"
+ }
+}

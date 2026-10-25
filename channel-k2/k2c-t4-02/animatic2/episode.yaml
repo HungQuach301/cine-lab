@@ -60,7 +60,7 @@ segments:
     p:
       sach: true
       tl: true
-    cau: September 1666. From an alehouse on this bank, a man watches the City burn.
+    cau: From an alehouse on this bank, a man watches the City burn.
     noi: bo_nam_bankside
     ai_image: false
   beats:
@@ -387,9 +387,9 @@ segments:
         mo_vao_s: 0.3
     cau: Samuel Pepys hurries to Whitehall and tells the King that unless houses are pulled down, nothing can stop the fire.
     noi: minh_hoa
-    kiem: omni/kiem2/H1-05a-l2-360p-kiem.json
+    kiem: omni/kiem2/H1-05a-l2-360p-kiem-moc.json
     ai_image: true
-  kiem: omni/kiem2/H1-05a-l2-360p-kiem.json
+  kiem: omni/kiem2/H1-05a-l2-360p-kiem-moc.json
   beats:
   - t: 0.0
     k: cut
@@ -548,9 +548,9 @@ segments:
       tl: false
     cau: Instead, the wind drives the fire west, along the waterfront, and up the hill.
     noi: minh_hoa
-    kiem: omni/kiem2/H1-07b-l1-360p-kiem.json
+    kiem: omni/kiem2/H1-07b-l1-360p-kiem-moc.json
     ai_image: true
-  kiem: omni/kiem2/H1-07b-l1-360p-kiem.json
+  kiem: omni/kiem2/H1-07b-l1-360p-kiem-moc.json
   beats:
   - t: 0.0
     k: cut
@@ -660,9 +660,9 @@ segments:
       tl: false
     cau: The river fills with boats — and with goods floating on the water.
     noi: minh_hoa
-    kiem: ../animatic/omni/kiem2/H1-12-l1-360p-kiem.json
+    kiem: omni/kiem2/H1-12-l2-360p-kiem-moc.json
     ai_image: true
-  kiem: ../animatic/omni/kiem2/H1-12-l1-360p-kiem.json
+  kiem: omni/kiem2/H1-12-l2-360p-kiem-moc.json
   beats:
   - t: 0.0
     k: cut
@@ -716,9 +716,9 @@ segments:
       tl: false
     cau: The sky, he writes, is "like the top of a burning oven"; the noise is "like a hideous storm" — the cracking of the flames, the fall of towers, houses and churches.
     noi: minh_hoa
-    kiem: omni/kiem2/H1-11b-l1-360p-kiem.json
+    kiem: omni/kiem2/H1-11b-l1-360p-kiem-moc.json
     ai_image: true
-  kiem: omni/kiem2/H1-11b-l1-360p-kiem.json
+  kiem: omni/kiem2/H1-11b-l1-360p-kiem-moc.json
   beats:
   - t: 0.0
     k: cut
@@ -827,9 +827,9 @@ segments:
       tl: false
     cau: John Evelyn watches its lead run down the streets "in a stream".
     noi: minh_hoa
-    kiem: omni/kiem2/H1-14-l1-360p-kiem.json
+    kiem: omni/kiem2/H1-14-l1-360p-kiem-moc.json
     ai_image: true
-  kiem: omni/kiem2/H1-14-l1-360p-kiem.json
+  kiem: omni/kiem2/H1-14-l1-360p-kiem-moc.json
   beats:
   - t: 0.0
     k: cut
@@ -900,9 +900,9 @@ segments:
       tl: false
     cau: At the Navy Office, Pepys and a colleague dig a pit in the garden for their wine — and Pepys buries his Parmesan cheese.
     noi: minh_hoa
-    kiem: omni/kiem2/H1-15b-l1-360p-kiem.json
+    kiem: omni/kiem2/H1-15b-l1-360p-kiem-moc.json
     ai_image: true
-  kiem: omni/kiem2/H1-15b-l1-360p-kiem.json
+  kiem: omni/kiem2/H1-15b-l1-360p-kiem-moc.json
   beats:
   - t: 0.0
     k: cut
@@ -1167,9 +1167,9 @@ segments:
       tl: false
     cau: When Evelyn walks through the ruins, he cannot tell where he is — except by the shell of some church or hall, with a tower still standing.
     noi: minh_hoa
-    kiem: ../animatic/omni/kiem2/H2-01a-l1-360p-kiem.json
+    kiem: omni/kiem2/H2-01a-l1-360p-kiem-moc.json
     ai_image: true
-  kiem: ../animatic/omni/kiem2/H2-01a-l1-360p-kiem.json
+  kiem: omni/kiem2/H2-01a-l1-360p-kiem-moc.json
   beats:
   - t: 0.0
     k: cut
@@ -1190,9 +1190,9 @@ segments:
       tl: false
     cau: When Evelyn walks through the ruins, he cannot tell where he is — except by the shell of some church or hall, with a tower still standing.
     noi: minh_hoa
-    kiem: omni/kiem2/H2-01b-l1-360p-kiem.json
+    kiem: omni/kiem2/H2-01b-l1-360p-kiem-moc.json
     ai_image: true
-  kiem: omni/kiem2/H2-01b-l1-360p-kiem.json
+  kiem: omni/kiem2/H2-01b-l1-360p-kiem-moc.json
   beats:
   - t: 0.0
     k: cut
@@ -1493,9 +1493,9 @@ segments:
         mo_vao_s: 0.3
     cau: In 1680, Nicholas Barbon opens the Fire Office.
     noi: minh_hoa
-    kiem: ../animatic/omni/kiem2/H2-07-l1-360p-kiem.json
+    kiem: ../animatic/omni/kiem2/H2-07-l2-360p-kiem.json
     ai_image: true
-  kiem: ../animatic/omni/kiem2/H2-07-l1-360p-kiem.json
+  kiem: ../animatic/omni/kiem2/H2-07-l2-360p-kiem.json
   beats:
   - t: 0.0
     k: cut
@@ -1646,11 +1646,11 @@ segments:
     p:
       sach: true
       tl: false
-    cau: ''
+    cau: For more than two and a half centuries, nothing in London stands taller than the dome.
     noi: minh_hoa
-    kiem: omni/kiem2/H2-13-l1-360p-kiem.json
+    kiem: omni/kiem2/H2-13-l1-360p-kiem-moc.json
     ai_image: true
-  kiem: omni/kiem2/H2-13-l1-360p-kiem.json
+  kiem: omni/kiem2/H2-13-l1-360p-kiem-moc.json
   beats:
   - t: 0.0
     k: cut
@@ -1669,7 +1669,7 @@ segments:
     p:
       sach: true
       tl: true
-    cau: ''
+    cau: For more than two and a half centuries, nothing in London stands taller than the dome.
     noi: thanh_pho_bac
     ai_image: false
   beats:
@@ -1947,9 +1947,9 @@ segments:
       tl: false
     cau: 'In 1937, the cathedral''s surveyor, Godfrey Allen, proposes a rule: new buildings must stay low enough to keep the dome in sight from the Thames bridges and the south bank.'
     noi: minh_hoa
-    kiem: omni/kiem2/H3-05b-l1-360p-kiem.json
+    kiem: omni/kiem2/H3-05b-l1-360p-kiem-moc.json
     ai_image: true
-  kiem: omni/kiem2/H3-05b-l1-360p-kiem.json
+  kiem: omni/kiem2/H3-05b-l1-360p-kiem-moc.json
   beats:
   - t: 0.0
     k: cut
@@ -2001,7 +2001,7 @@ segments:
     p:
       sach: true
       tl: true
-    cau: ''
+    cau: Sunday, the twenty-ninth of December, 1940.
     noi: bo_nam_bankside
     ai_image: false
   beats:
@@ -2220,9 +2220,9 @@ segments:
       tl: false
     cau: Across the City, the Guildhall's roof burns, and nineteen churches are destroyed.
     noi: minh_hoa
-    kiem: omni/kiem2/H4-04d-l3-360p-kiem.json
+    kiem: omni/kiem2/H4-04d-l3-360p-kiem-moc.json
     ai_image: true
-  kiem: omni/kiem2/H4-04d-l3-360p-kiem.json
+  kiem: omni/kiem2/H4-04d-l3-360p-kiem-moc.json
   beats:
   - t: 0.0
     k: cut
@@ -2352,7 +2352,7 @@ segments:
     p:
       sach: true
       tl: true
-    cau: ''
+    cau: And for the second time, the planners arrive with a clean sheet.
     noi: cau_london
     ai_image: false
   beats:
@@ -2588,7 +2588,7 @@ segments:
     p:
       sach: true
       tl: true
-    cau: ''
+    cau: From Bankside tonight, you can stand roughly where Pepys stood, and look across at the same streets.
     noi: thanh_pho_dong
     ai_image: false
   beats:

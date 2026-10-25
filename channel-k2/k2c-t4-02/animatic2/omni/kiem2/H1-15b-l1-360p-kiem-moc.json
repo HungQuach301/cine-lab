@@ -1,0 +1,518 @@
+{
+ "tag": "H1-15b-l1-360p",
+ "clip": "/var/tmp/anim/omni3/H1-15b/H1-15b-l1-360p.mp4",
+ "clip_sha": "9f871ab10eac5624cb65b83a70e6b41fa6d1ade56f9fb80a9c04ce05230b395e",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic2/omni/dau/H1-15b-dau.jpg",
+ "dau_sha": "a8a98ce11bf31d11c9be4449abca28b31cbd88f4e335c0b3780234b63808359d",
+ "nam": "1666",
+ "canh": "the garden of the Navy Office, London, 4 September 1666: burying wine and a cheese",
+ "so_khung": 168,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/anim/kiem2/H1-15b-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0232,
+      "usage": {
+       "input_tokens": 10136,
+       "input_tokens_details": {
+        "cache_write_tokens": 10133,
+        "cached_tokens": 0
+       },
+       "output_tokens": 293,
+       "output_tokens_details": {
+        "reasoning_tokens": 228
+       },
+       "total_tokens": 10429
+      }
+     },
+     "secs": 10.7,
+     "mo_ta": "Hai người mặc trang phục cổ đang đào hố trong vườn cạnh những chai rượu và một bánh pho mát, phía sau là tường gạch và đường chân trời thành phố đang cháy như trong ảnh tham chiếu.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-15b-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "06b8dfe9ed3203bd76c44a4384d52f33caa24955f4db860c89d87f411a9fa6fb",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+       "Old London Bridge lined with houses",
+       "NO Monument column (built 1671-77)",
+       "NO Wren dome or Wren steeples"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "In the burning skyline there is a rounded, lantern-topped tower at the right. It could read as a Wren-style steeple. The large square pinnacled tower in the centre is plausibly Old St Paul's crossing tower, with no spire and no dome.",
+        "ly_do": "Wren's steeples and domes did not exist in 1666. The rounded tower is small and blurred, so it may just be a medieval church tower. I am not confident it is anachronistic.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1536,
+         270,
+         1613,
+         367
+        ],
+        "do_tin": 0.15
+       }
+      ],
+      "cost_usd": 0.034909,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 925,
+        "cacheReadInputTokens": 3120,
+        "cacheCreationInputTokens": 10134,
+        "webSearchRequests": 0,
+        "costUSD": 0.034909,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 234,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"In the burning skyline there is a rounded, lantern-topped tower at the right. It could read as a Wren-style steeple. The large square pinnacled tower in the centre is plausibly Old St Paul's crossing tower, with no spire and no dome.\",\"ly_do\":\"Wren's steeples and domes did not exist in 1666. The rounded tower is small and blurred, so it may just be a medieval church tower. I am not confident it is anachronistic.\",\"nam_xuat_hien\":null,\"toa_do\":[0.8,0.25,0.84,0.34],\"do_tin\":0.15}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0349,
+    "chi_phi_tb": 0.0349,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-15b-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "a46dbec7298d903584bb9196a523f550daeddd5ee02a95f3e9b66674f8a5a5dc",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "Both men wear long, plain dark knee-length coats with a row of buttons. They also wear white stockings, low shoes and a full powdered-style wig with a plain cravat. This silhouette looks closer to the early 18th century than to 1666 fashion. In 1666 men wore a shorter doublet or a coat with petticoa",
+        "ly_do": "The coat cut and the wig style look later than 1666 fashion. This is a low-confidence finding.",
+        "nam_xuat_hien": 1700,
+        "toa_do_px": [
+         576,
+         421,
+         1171,
+         842
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0343016,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 909,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0343016,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 137,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"mo_ta\":\"Both men wear long, plain dark knee-length coats with a row of buttons. They also wear white stockings, low shoes and a full powdered-style wig with a plain cravat. This silhouette looks closer to the early 18th century than to 1666 fashion. In 1666 men wore a shorter doublet or a coat with petticoat breeches, ribbons and a lace band.\",\"ly_do\":\"The coat cut and the wig style look later than 1666 fashion. This is a low-confidence finding.\",\"muc\":\"quan_phuc\",\"nam_xuat_hien\":1700,\"toa_do\":[0.3,0.39,0.61,0.78],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0343,
+    "chi_phi_tb": 0.0343,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H1-15b-l1-360p-k25.json"
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/anim/kiem2/H1-15b-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0223,
+      "usage": {
+       "input_tokens": 10130,
+       "input_tokens_details": {
+        "cache_write_tokens": 10127,
+        "cached_tokens": 0
+       },
+       "output_tokens": 203,
+       "output_tokens_details": {
+        "reasoning_tokens": 159
+       },
+       "total_tokens": 10333
+      }
+     },
+     "secs": 8.0,
+     "mo_ta": "Two men in period clothing prepare to bury baskets of wine beside a wheel of cheese in a walled garden, with a burning city skyline beyond.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-15b-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "86c3c098b239aff5304ed881cc90e70a2c10f565e7b62622fe92fccbee746eac",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+       "Old London Bridge lined with houses",
+       "NO Monument column (built 1671-77)",
+       "NO Wren dome or Wren steeples"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "A thin needle spire rises on the skyline left of the big Gothic tower. The big tower has four corner pinnacles and sits on a short, low body. No very long nave is visible.",
+        "ly_do": "The skyline is meant to show Old St Paul's, which had a square crossing tower, a very long nave and no spire after 1561. The needle spire looks like a later spire or Wren-style steeple, and the short church body does not match Old St Paul's. This is a low-confidence reading.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         922,
+         205,
+         1325,
+         335
+        ],
+        "do_tin": 0.3
+       },
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "A tall tower with a rounded, lantern-like top stands among the burning buildings on the right of the skyline.",
+        "ly_do": "It could be read as a Wren-style steeple. Wren's City steeples were built only after the Great Fire, from the 1670s onward. It is small and unclear, so this is a low-confidence reading.",
+        "nam_xuat_hien": 1677,
+        "toa_do_px": [
+         1536,
+         238,
+         1632,
+         335
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.036979,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1132,
+        "cacheReadInputTokens": 3120,
+        "cacheCreationInputTokens": 10134,
+        "webSearchRequests": 0,
+        "costUSD": 0.036979,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 258,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 15.0,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A thin needle spire rises on the skyline left of the big Gothic tower. The big tower has four corner pinnacles and sits on a short, low body. No very long nave is visible.\",\"ly_do\":\"The skyline is meant to show Old St Paul's, which had a square crossing tower, a very long nave and no spire after 1561. The needle spire looks like a later spire or Wren-style steeple, and the short church body does not match Old St Paul's. This is a low-confidence reading.\",\"nam_xuat_hien\":null,\"toa_do\":[0.48,0.19,0.69,0.31],\"do_tin\":0.3},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A tall tower with a rounded, lantern-like top stands among the burning buildings on the right of the skyline.\",\"ly_do\":\"It could be read as a Wren-style steeple. Wren's City steeples were built only after the Great Fire, from the 1670s onward. It is small and unclear, so this is a low-confidence reading.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.8,0.22,0.85,0.31],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.037,
+    "chi_phi_tb": 0.037,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-15b-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "286af75f34f62180b2e31b86cfe7a273ee2a57a3f66f1afe972b3a1c2dbcca1f",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The digging figure on the right wears flat, glossy black slip-on shoes. They look like modern loafers and have no clear period buckle or heel. The figure also has a short skirt-like coat and plain white stockings.",
+        "ly_do": "Shoes in 1666 were normally square-toed with a raised heel, a tongue and a buckle or ribbon tie. These look like modern loafers. This is a low-confidence finding because the image is small and dark.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1056,
+         821,
+         1190,
+         875
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.034891599999999995,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 968,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.034891599999999995,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 213,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The digging figure on the right wears flat, glossy black slip-on shoes. They look like modern loafers and have no clear period buckle or heel. The figure also has a short skirt-like coat and plain white stockings.\",\"ly_do\":\"Shoes in 1666 were normally square-toed with a raised heel, a tongue and a buckle or ribbon tie. These look like modern loafers. This is a low-confidence finding because the image is small and dark.\",\"nam_xuat_hien\":null,\"toa_do\":[0.55,0.76,0.62,0.81],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0349,
+    "chi_phi_tb": 0.0349,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H1-15b-l1-360p-k55.json"
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/anim/kiem2/H1-15b-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0234,
+      "usage": {
+       "input_tokens": 10142,
+       "input_tokens_details": {
+        "cache_write_tokens": 10139,
+        "cached_tokens": 0
+       },
+       "output_tokens": 314,
+       "output_tokens_details": {
+        "reasoning_tokens": 255
+       },
+       "total_tokens": 10456
+      }
+     },
+     "secs": 10.0,
+     "mo_ta": "Hai người mặc trang phục cổ đang đào hố và chuẩn bị chôn rượu cùng phô mai trong vườn có tường bao, phía xa là các mái nhà giữa lửa và khói.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-15b-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "55d9abba12479d4fdd90e6c0fb3cd72228b9d6eeb7f0f334a57d6502bc6cb78e",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+       "Old London Bridge lined with houses",
+       "NO Monument column (built 1671-77)",
+       "NO Wren dome or Wren steeples"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "On the burning skyline at the right there is a slender tower with a rounded, cupola-like top. It looks like a later classical church steeple.",
+        "ly_do": "Wren's classical steeples and domes did not exist in 1666. They were built after the Great Fire. A medieval tower would have a Gothic or square top. The shape is small and blurred, so this is uncertain.",
+        "nam_xuat_hien": 1680,
+        "toa_do_px": [
+         1546,
+         216,
+         1603,
+         346
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.034149,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 849,
+        "cacheReadInputTokens": 3120,
+        "cacheCreationInputTokens": 10134,
+        "webSearchRequests": 0,
+        "costUSD": 0.034149,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 186,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"On the burning skyline at the right there is a slender tower with a rounded, cupola-like top. It looks like a later classical church steeple.\",\"ly_do\":\"Wren's classical steeples and domes did not exist in 1666. They were built after the Great Fire. A medieval tower would have a Gothic or square top. The shape is small and blurred, so this is uncertain.\",\"nam_xuat_hien\":1680,\"toa_do\":[0.805,0.2,0.835,0.32],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0341,
+    "chi_phi_tb": 0.0341,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-15b-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "a76e3b183ea663f990a14f346c73c780c9591b5317cafb7de75e1dc851ec3b90",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "vat_hien_dai",
+        "mo_ta": "Wine bottles in the baskets are tall and cylindrical with long necks and upright shoulders. This is the later shape.",
+        "ly_do": "Bottles in 1666 were squat, onion- or mallet-shaped, made of dark green glass. Tall cylindrical bottles that could be binned and laid down came in around the 1730s–1760s.",
+        "nam_xuat_hien": 1740,
+        "toa_do_px": [
+         0,
+         756,
+         250,
+         864
+        ],
+        "do_tin": 0.4
+       },
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "Both men wear plain dark knee-length coats with no visible cuffs, white stockings and low black slip-on shoes. One has a bag-style or short powdered wig.",
+        "ly_do": "The cut looks like mid-18th-century dress. In 1666 men wore the early justaucorps or coat with a cravat, and either a long full-bottomed wig or their own hair. The low shoes without the period's high tongues and square toes are also later in style.",
+        "nam_xuat_hien": 1730,
+        "toa_do_px": [
+         422,
+         421,
+         1286,
+         886
+        ],
+        "do_tin": 0.25
+       }
+      ],
+      "cost_usd": 0.036541599999999994,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1133,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.036541599999999994,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 197,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 12.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"Wine bottles in the baskets are tall and cylindrical with long necks and upright shoulders. This is the later shape.\",\"ly_do\":\"Bottles in 1666 were squat, onion- or mallet-shaped, made of dark green glass. Tall cylindrical bottles that could be binned and laid down came in around the 1730s–1760s.\",\"nam_xuat_hien\":1740,\"toa_do\":[0.0,0.7,0.13,0.8],\"do_tin\":0.4},{\"muc\":\"quan_phuc\",\"mo_ta\":\"Both men wear plain dark knee-length coats with no visible cuffs, white stockings and low black slip-on shoes. One has a bag-style or short powdered wig.\",\"ly_do\":\"The cut looks like mid-18th-century dress. In 1666 men wore the early justaucorps or coat with a cravat, and either a long full-bottomed wig or their own hair. The low shoes without the period's high tongues and square toes are also later in style.\",\"nam_xuat_hien\":1730,\"toa_do\":[0.22,0.39,0.67,0.82],\"do_tin\":0.25}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0365,
+    "chi_phi_tb": 0.0365,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H1-15b-l1-360p-k90.json"
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": [],
+  "q_thoi_dai_nghi_van_moc": 0
+ },
+ "gop": {
+  "tang2": "channel-k2/k2c-t4-02/animatic2/omni/kiem2/H1-15b-l1-360p-kiem.json",
+  "lop_moc": "qmoc_v3.sh (lệnh bổ sung #2 bước 4, K1177-D4)"
+ }
+}

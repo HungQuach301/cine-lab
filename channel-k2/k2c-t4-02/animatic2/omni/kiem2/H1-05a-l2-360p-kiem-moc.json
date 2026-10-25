@@ -1,0 +1,598 @@
+{
+ "tag": "H1-05a-l2-360p",
+ "clip": "/var/tmp/anim/omni3/H1-05a/H1-05a-l2-360p.mp4",
+ "clip_sha": "300f20a42b6692de38d00612c5070898c6f268c690d65d467483d1b1b2714b57",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic2/omni/dau/H1-05a-dau.jpg",
+ "dau_sha": "312f38a1f5b19aec6ce395afe0c9636388407fa7eb84849771c86e1ccc0e42a0",
+ "nam": "1666",
+ "canh": "Whitehall Palace, 2 September 1666: the diarist reports the fire to the King",
+ "so_khung": 120,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/anim/kiem2/H1-05a-l2-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0215,
+      "usage": {
+       "input_tokens": 10140,
+       "input_tokens_details": {
+        "cache_write_tokens": 10137,
+        "cached_tokens": 0
+       },
+       "output_tokens": 120,
+       "output_tokens_details": {
+        "reasoning_tokens": 78
+       },
+       "total_tokens": 10260
+      }
+     },
+     "secs": 4.8,
+     "mo_ta": "Ba người đàn ông mặc trang phục cổ trong một căn phòng cung điện, với cột khói xa phía ngoài cửa sổ.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05a-l2-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "8452b6b9a6c8f14c389bc921156ebf2dea04f3bb20b51803258cd2a4adb8ad20",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+       "Old London Bridge lined with houses",
+       "NO Monument column (built 1671-77)",
+       "NO Wren dome or Wren steeples"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The men wear long, full-skirted knee-length coats with wide embroidered front borders. They also wear very large full-bottomed wigs, tight knee breeches, white stockings and buckled shoes. The standing man at the right has a sword hanging at his hip.",
+        "ly_do": "This silhouette looks like the 1690s–1710s. In 1666 men wore the short Restoration doublet or jacket with petticoat breeches and a shorter, lighter wig. The long coat and vest only came in after the 1666 fashion change, and the full-bottomed wig was not yet common.",
+        "nam_xuat_hien": 1690,
+        "toa_do_px": [
+         576,
+         281,
+         1267,
+         929
+        ],
+        "do_tin": 0.4
+       },
+       {
+        "muc": "khác:cong_trinho_moc",
+        "mo_ta": "The skyline seen through the window shows a dense town with thin pointed Gothic spires. No long Gothic nave with a square crossing tower (Old St Paul's) can be made out. The view is tiny and blurred.",
+        "ly_do": "Old St Paul's should dominate the City skyline, with a square crossing tower and no spire. The pointed spires shown do not match that form.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1536,
+         346,
+         1766,
+         562
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.038149,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1249,
+        "cacheReadInputTokens": 3120,
+        "cacheCreationInputTokens": 10134,
+        "webSearchRequests": 0,
+        "costUSD": 0.038149,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 331,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The men wear long, full-skirted knee-length coats with wide embroidered front borders. They also wear very large full-bottomed wigs, tight knee breeches, white stockings and buckled shoes. The standing man at the right has a sword hanging at his hip.\",\"ly_do\":\"This silhouette looks like the 1690s–1710s. In 1666 men wore the short Restoration doublet or jacket with petticoat breeches and a shorter, lighter wig. The long coat and vest only came in after the 1666 fashion change, and the full-bottomed wig was not yet common.\",\"nam_xuat_hien\":1690,\"toa_do\":[0.3,0.26,0.66,0.86],\"do_tin\":0.4},{\"muc\":\"cong_trinho_moc\",\"mo_ta\":\"The skyline seen through the window shows a dense town with thin pointed Gothic spires. No long Gothic nave with a square crossing tower (Old St Paul's) can be made out. The view is tiny and blurred.\",\"ly_do\":\"Old St Paul's should dominate the City skyline, with a square crossing tower and no spire. The pointed spires shown do not match that form.\",\"nam_xuat_hien\":null,\"toa_do\":[0.8,0.32,0.92,0.52],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0381,
+    "chi_phi_tb": 0.0381,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05a-l2-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "95730fbf635fb042b972868b700f8edf83c0bf5afad7d90facb8c8bd92d4ecad",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The man in the brown knee-length coat has a full-skirted coat with wide cuffs. The attendant and the standing man wear long, buttoned, embroidered coats with deep cuffs. These look like the late-1680s to 1700s justaucorps. The shoes have buckle fastenings.",
+        "ly_do": "The long justaucorps was only introduced by Charles II in October 1666. Buckled shoes and deep-cuffed, button-fronted coats became fashionable in the 1670s to 1690s. Shoes in 1666 would have ties or ribbons, and the coat silhouette would be shorter, like a doublet with petticoat breeches.",
+        "nam_xuat_hien": 1680,
+        "toa_do_px": [
+         576,
+         292,
+         826,
+         929
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0356616,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1045,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0356616,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 221,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 12.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The man in the brown knee-length coat has a full-skirted coat with wide cuffs. The attendant and the standing man wear long, buttoned, embroidered coats with deep cuffs. These look like the late-1680s to 1700s justaucorps. The shoes have buckle fastenings.\",\"ly_do\":\"The long justaucorps was only introduced by Charles II in October 1666. Buckled shoes and deep-cuffed, button-fronted coats became fashionable in the 1670s to 1690s. Shoes in 1666 would have ties or ribbons, and the coat silhouette would be shorter, like a doublet with petticoat breeches.\",\"nam_xuat_hien\":1680,\"toa_do\":[0.3,0.27,0.43,0.86],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0357,
+    "chi_phi_tb": 0.0357,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H1-05a-l2-360p-k25.json"
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/anim/kiem2/H1-05a-l2-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.022,
+      "usage": {
+       "input_tokens": 10128,
+       "input_tokens_details": {
+        "cache_write_tokens": 10125,
+        "cached_tokens": 0
+       },
+       "output_tokens": 171,
+       "output_tokens_details": {
+        "reasoning_tokens": 118
+       },
+       "total_tokens": 10299
+      }
+     },
+     "secs": 6.3,
+     "mo_ta": "Ba người đàn ông mặc trang phục cổ trong phòng cung điện, với đồ nội thất trang trí và cột khói phía xa ngoài cửa sổ đã có trong ảnh tham chiếu.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05a-l2-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "9ac810e52299d16a3206cadbc2841e80eb81470d13a35e23cf88f9d9e34efc77",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+       "Old London Bridge lined with houses",
+       "NO Monument column (built 1671-77)",
+       "NO Wren dome or Wren steeples"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The men wear long knee-length buttoned coats (justaucorps style) with white linen cravats, and knee breeches with white stockings. Their wigs are full and long.",
+        "ly_do": "This looks like 1680s dress. In 1666 men wore short doublets or jackets with loose petticoat breeches and falling bands. The vest and coat fashion was only introduced by Charles II in October 1666. Full-bottomed wigs and lace cravats became common in the 1670s and 1680s.",
+        "nam_xuat_hien": 1680,
+        "toa_do_px": [
+         326,
+         259,
+         1210,
+         929
+        ],
+        "do_tin": 0.4
+       },
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "The window skyline shows low roofs and one small pointed spire, with a smoke column rising. There is no large Old St Paul's, with its long Gothic nave and square crossing tower, in the view.",
+        "ly_do": "If the view is toward the City, Old St Paul's should dominate the skyline as a massive Gothic church with a square tower. It appears to be absent or not identifiable. This finding is low confidence.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1382,
+         594,
+         1766,
+         810
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.037299,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1164,
+        "cacheReadInputTokens": 3120,
+        "cacheCreationInputTokens": 10134,
+        "webSearchRequests": 0,
+        "costUSD": 0.037299,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 263,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 14.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The men wear long knee-length buttoned coats (justaucorps style) with white linen cravats, and knee breeches with white stockings. Their wigs are full and long.\",\"ly_do\":\"This looks like 1680s dress. In 1666 men wore short doublets or jackets with loose petticoat breeches and falling bands. The vest and coat fashion was only introduced by Charles II in October 1666. Full-bottomed wigs and lace cravats became common in the 1670s and 1680s.\",\"nam_xuat_hien\":1680,\"toa_do\":[0.17,0.24,0.63,0.86],\"do_tin\":0.4},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The window skyline shows low roofs and one small pointed spire, with a smoke column rising. There is no large Old St Paul's, with its long Gothic nave and square crossing tower, in the view.\",\"ly_do\":\"If the view is toward the City, Old St Paul's should dominate the skyline as a massive Gothic church with a square tower. It appears to be absent or not identifiable. This finding is low confidence.\",\"nam_xuat_hien\":null,\"toa_do\":[0.72,0.55,0.92,0.75],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0373,
+    "chi_phi_tb": 0.0373,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05a-l2-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "bd8426887b56934e1e7574d210fa4d820313fb26388a14d7b100dcb8fb1f1ea9",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "Three men in long, full-skirted knee-length coats with wide turned-back cuffs and heavy embroidered front edging. They wear full, long curled wigs, lace cravats, white stockings and buckled black shoes with a squared look.",
+        "ly_do": "This is the look of the 1680s–1700s. In 1666 men wore shorter doublets or the newly introduced coat and vest, with petticoat breeches, ribbons, and shoulder-length natural hair or smaller wigs. The very large full-bottomed wigs and the long, fitted, heavily trimmed coats with big cuffs came later. T",
+        "nam_xuat_hien": 1680,
+        "toa_do_px": [
+         326,
+         259,
+         1210,
+         940
+        ],
+        "do_tin": 0.45
+       }
+      ],
+      "cost_usd": 0.0353816,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1017,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0353816,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 189,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 12.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"Three men in long, full-skirted knee-length coats with wide turned-back cuffs and heavy embroidered front edging. They wear full, long curled wigs, lace cravats, white stockings and buckled black shoes with a squared look.\",\"ly_do\":\"This is the look of the 1680s–1700s. In 1666 men wore shorter doublets or the newly introduced coat and vest, with petticoat breeches, ribbons, and shoulder-length natural hair or smaller wigs. The very large full-bottomed wigs and the long, fitted, heavily trimmed coats with big cuffs came later. The lace cravat also became fashionable after the 1660s.\",\"nam_xuat_hien\":1680,\"toa_do\":[0.17,0.24,0.63,0.87],\"do_tin\":0.45}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0354,
+    "chi_phi_tb": 0.0354,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H1-05a-l2-360p-k55.json"
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/anim/kiem2/H1-05a-l2-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0248,
+      "usage": {
+       "input_tokens": 10128,
+       "input_tokens_details": {
+        "cache_write_tokens": 10125,
+        "cached_tokens": 0
+       },
+       "output_tokens": 458,
+       "output_tokens_details": {
+        "reasoning_tokens": 230
+       },
+       "total_tokens": 10586
+      }
+     },
+     "secs": 11.2,
+     "mo_ta": "Ba người đàn ông mặc trang phục cổ đứng trong một phòng cung điện, phía ngoài cửa sổ là các mái nhà và một cột khói lớn.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cột khói lớn bốc lên trên thành phố ngoài cửa sổ; cột khói đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.756,
+        0.079,
+        0.884,
+        0.389
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Tháp có đỉnh vòm tròn trên đường chân trời bên phải cửa sổ, khác với các tháp nhọn trong ảnh tham chiếu; không đủ chi tiết để xác định là công trình nổi tiếng nào.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.855,
+        0.347,
+        0.876,
+        0.417
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cột khói lớn bốc lên trên thành phố ngoài cửa sổ; cột khói đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.756,
+        0.079,
+        0.884,
+        0.389
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Tháp có đỉnh vòm tròn trên đường chân trời bên phải cửa sổ, khác với các tháp nhọn trong ảnh tham chiếu; không đủ chi tiết để xác định là công trình nổi tiếng nào.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.855,
+        0.347,
+        0.876,
+        0.417
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05a-l2-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "bddc40d03c15eaa59cf0b50717a7a71d209fb7e4d83af19617c26f0fa942596d",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+       "Old London Bridge lined with houses",
+       "NO Monument column (built 1671-77)",
+       "NO Wren dome or Wren steeples"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "khác:None",
+        "mo_ta": "The skyline seen through the window has a domed building with a small lantern. It stands among the spires, to the right of the smoke column.",
+        "ly_do": "Old St Paul's had a square crossing tower, no spire and no dome. A Wren-type dome and steeples did not exist in 1666. The Great Fire smoke suggests this is meant to be September 1666. The old Gothic cathedral is not clearly visible, and a dome-like landmark appears in its place.",
+        "nam_xuat_hien": 1710,
+        "toa_do_px": [
+         1632,
+         367,
+         1690,
+         432
+        ],
+        "do_tin": 0.4
+       },
+       {
+        "muc": "khác:None",
+        "mo_ta": "Two men wear long knee-length coats with a cravat and a lace jabot, a waistcoat, and white stockings. They also wear full, long curled wigs.",
+        "ly_do": "This is the late-1660s to 1670s justaucorps and cravat look. Charles II only introduced the vest and long coat in October 1666. Cravats and full-bottom wigs became widespread after the 1670s, so the outfits look slightly too late for 1666.",
+        "nam_xuat_hien": 1675,
+        "toa_do_px": [
+         960,
+         194,
+         1210,
+         950
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.037319000000000005,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1166,
+        "cacheReadInputTokens": 3120,
+        "cacheCreationInputTokens": 10134,
+        "webSearchRequests": 0,
+        "costUSD": 0.037319000000000005,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 288,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"mo_ta\":\"The skyline seen through the window has a domed building with a small lantern. It stands among the spires, to the right of the smoke column.\",\"ly_do\":\"Old St Paul's had a square crossing tower, no spire and no dome. A Wren-type dome and steeples did not exist in 1666. The Great Fire smoke suggests this is meant to be September 1666. The old Gothic cathedral is not clearly visible, and a dome-like landmark appears in its place.\",\"nam_xuat_hien\":1710,\"toa_do\":[0.85,0.34,0.88,0.4],\"do_tin\":0.4},{\"mo_ta\":\"Two men wear long knee-length coats with a cravat and a lace jabot, a waistcoat, and white stockings. They also wear full, long curled wigs.\",\"ly_do\":\"This is the late-1660s to 1670s justaucorps and cravat look. Charles II only introduced the vest and long coat in October 1666. Cravats and full-bottom wigs became widespread after the 1670s, so the outfits look slightly too late for 1666.\",\"nam_xuat_hien\":1675,\"toa_do\":[0.5,0.18,0.63,0.88],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0373,
+    "chi_phi_tb": 0.0373,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05a-l2-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "849d35f446f51bc99498c1c1917e74903ca978e2da9d6ffbaddcdc3353e9e385",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The two main men wear long, knee-length fitted coats (justaucorps style) with a lace or linen cravat, a full-bottomed wig, and white stockings. The coat on the right has broad braided trim down the front.",
+        "ly_do": "This silhouette belongs to the 1680s and later. Around 1666 men wore short doublets or the new vest-and-coat ensemble, which Charles II only introduced in October 1666. A cravat tied this way and the long coat are somewhat early for the date.",
+        "nam_xuat_hien": 1680,
+        "toa_do_px": [
+         576,
+         259,
+         1210,
+         950
+        ],
+        "do_tin": 0.3
+       },
+       {
+        "muc": "kien_truc",
+        "mo_ta": "The tall window has slim glazing bars and a large, regular grid of panes.",
+        "ly_do": "This looks like a later sash window, which became common in London from the 1670s and 1680s. Windows in 1666 were more often leaded or timber-mullioned casements.",
+        "nam_xuat_hien": 1685,
+        "toa_do_px": [
+         1306,
+         0,
+         1766,
+         583
+        ],
+        "do_tin": 0.15
+       }
+      ],
+      "cost_usd": 0.0366616,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1145,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0366616,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 224,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The two main men wear long, knee-length fitted coats (justaucorps style) with a lace or linen cravat, a full-bottomed wig, and white stockings. The coat on the right has broad braided trim down the front.\",\"ly_do\":\"This silhouette belongs to the 1680s and later. Around 1666 men wore short doublets or the new vest-and-coat ensemble, which Charles II only introduced in October 1666. A cravat tied this way and the long coat are somewhat early for the date.\",\"nam_xuat_hien\":1680,\"toa_do\":[0.3,0.24,0.63,0.88],\"do_tin\":0.3},{\"muc\":\"kien_truc\",\"mo_ta\":\"The tall window has slim glazing bars and a large, regular grid of panes.\",\"ly_do\":\"This looks like a later sash window, which became common in London from the 1670s and 1680s. Windows in 1666 were more often leaded or timber-mullioned casements.\",\"nam_xuat_hien\":1685,\"toa_do\":[0.68,0.0,0.92,0.54],\"do_tin\":0.15}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0367,
+    "chi_phi_tb": 0.0367,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H1-05a-l2-360p-k90.json"
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": [],
+  "q_thoi_dai_nghi_van_moc": 0
+ },
+ "gop": {
+  "tang2": "channel-k2/k2c-t4-02/animatic2/omni/kiem2/H1-05a-l2-360p-kiem.json",
+  "lop_moc": "qmoc_v3.sh (lệnh bổ sung #2 bước 4, K1177-D4)"
+ }
+}

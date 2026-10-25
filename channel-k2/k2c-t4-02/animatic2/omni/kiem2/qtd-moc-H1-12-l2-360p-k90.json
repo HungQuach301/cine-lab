@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-12-l2-360p-k90",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "967be7d4e586dbf9bffca51a91b7bdec3ddbef01026467394a295b69b43a47cc",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+    "Old London Bridge lined with houses",
+    "NO Monument column (built 1671-77)",
+    "NO Wren dome or Wren steeples"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The burning skyline is a continuous row of gabled and chimneyed townhouses. I can't make out Old St Paul's, which should have a very long Gothic nave and a square crossing tower. I also can't make out Old London Bridge with its houses.",
+     "ly_do": "Old St Paul's should dominate the City skyline in 1666, and it is missing or not recognisable. Old London Bridge should also be visible, lined with houses.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      576,
+      108,
+      1248,
+      410
+     ],
+     "do_tin": 0.35
+    }
+   ],
+   "cost_usd": 0.0337109,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 808,
+     "cacheReadInputTokens": 3114,
+     "cacheCreationInputTokens": 10123,
+     "webSearchRequests": 0,
+     "costUSD": 0.0337109,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 130,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The burning skyline is a continuous row of gabled and chimneyed townhouses. I can't make out Old St Paul's, which should have a very long Gothic nave and a square crossing tower. I also can't make out Old London Bridge with its houses.\",\"ly_do\":\"Old St Paul's should dominate the City skyline in 1666, and it is missing or not recognisable. Old London Bridge should also be visible, lined with houses.\",\"nam_xuat_hien\":null,\"toa_do\":[0.3,0.1,0.65,0.38],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0337,
+ "chi_phi_tb": 0.0337,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

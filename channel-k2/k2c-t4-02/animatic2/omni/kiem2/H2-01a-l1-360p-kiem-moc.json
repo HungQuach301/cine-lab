@@ -1,0 +1,517 @@
+{
+ "tag": "H2-01a-l1-360p",
+ "clip": "/var/tmp/anim/omni/H2-01a/H2-01a-l1-360p.mp4",
+ "clip_sha": "dd96b14ff698416942168e35f8d9cc6ac7c1fb3ccee04ac8df3296f3ed365580",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H2-01a-dau.jpg",
+ "dau_sha": "0da68f1fcb74674ca2b6d7d80eccd0b9068fa090bcb6ca20d5646289c5bcd8a2",
+ "nam": "1666",
+ "canh": "a path through the still-warm ruins of London, September 1666",
+ "so_khung": 168,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-01a-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0213,
+      "usage": {
+       "input_tokens": 10135,
+       "input_tokens_details": {
+        "cache_write_tokens": 10132,
+        "cached_tokens": 0
+       },
+       "output_tokens": 98,
+       "output_tokens_details": {
+        "reasoning_tokens": 44
+       },
+       "total_tokens": 10233
+      }
+     },
+     "secs": 5.4,
+     "mo_ta": "Một lối đi phủ gạch đá và gỗ cháy giữa những bức tường đổ nát, với khói âm ỉ và các tháp mờ phía xa.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01a-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "4ac47a182e59e91bdbbd2182517a09962bb22136e3a1ada7e62e2086e4cbd271",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
+       "NO Wren dome",
+       "NO Monument column"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "In the middle distance there is a plain, low stone arched bridge. It has no houses on it and looks like a modern or Georgian viaduct.",
+        "ly_do": "In 1666 London Bridge was a medieval bridge with narrow pointed arches and rows of timber-framed houses along it. The northern end was burnt in the Great Fire. A smooth, house-free arched bridge is not its 1666 form.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         902,
+         540,
+         1325,
+         626
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.033529800000000005,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 798,
+        "cacheReadInputTokens": 3078,
+        "cacheCreationInputTokens": 10092,
+        "webSearchRequests": 0,
+        "costUSD": 0.033529800000000005,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 122,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"In the middle distance there is a plain, low stone arched bridge. It has no houses on it and looks like a modern or Georgian viaduct.\",\"ly_do\":\"In 1666 London Bridge was a medieval bridge with narrow pointed arches and rows of timber-framed houses along it. The northern end was burnt in the Great Fire. A smooth, house-free arched bridge is not its 1666 form.\",\"nam_xuat_hien\":null,\"toa_do\":[0.47,0.5,0.69,0.58],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0335,
+    "chi_phi_tb": 0.0335,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01a-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "2ad4899ce4f3115bdd7c276c9415e58b12c0353f80706d1f605c2b6952f0c8f0",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A plain, low, multi-arched stone bridge crosses the middle distance. It has no houses or buildings on it.",
+        "ly_do": "London Bridge in 1666 was a medieval stone bridge lined with houses and structures. The fire destroyed only the northern section of those. A bare, modern-looking arched bridge is therefore probably wrong. This is a low-confidence call, because the bridge is small and hazy and could be read as a dama",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         902,
+         540,
+         1344,
+         648
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.036877900000000005,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1102,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.036877900000000005,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 228,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A plain, low, multi-arched stone bridge crosses the middle distance. It has no houses or buildings on it.\",\"ly_do\":\"London Bridge in 1666 was a medieval stone bridge lined with houses and structures. The fire destroyed only the northern section of those. A bare, modern-looking arched bridge is therefore probably wrong. This is a low-confidence call, because the bridge is small and hazy and could be read as a damaged London Bridge.\",\"nam_xuat_hien\":null,\"toa_do\":[0.47,0.50,0.70,0.60],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0369,
+    "chi_phi_tb": 0.0369,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H2-01a-l1-360p-k25.json"
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-01a-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0213,
+      "usage": {
+       "input_tokens": 10135,
+       "input_tokens_details": {
+        "cache_write_tokens": 10132,
+        "cached_tokens": 0
+       },
+       "output_tokens": 104,
+       "output_tokens_details": {
+        "reasoning_tokens": 43
+       },
+       "total_tokens": 10239
+      }
+     },
+     "secs": 5.2,
+     "mo_ta": "Khung hình cho thấy một lối đi giữa đống gạch đá, xà gỗ cháy và các công trình đổ nát còn bốc khói, tương ứng với cảnh trong ảnh tham chiếu.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01a-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "5e732a30bc2dba83bf10194ab5837f93819bab67ec6cd3bf68a873a6148275f2",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
+       "NO Wren dome",
+       "NO Monument column"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "A plain multi-arched stone bridge crosses the middle distance. It has no houses or buildings on it and looks like a later, open-parapet bridge.",
+        "ly_do": "London Bridge in 1666 was lined with timber-framed houses. Part of it burned in the Great Fire. A bare arched bridge does not match its 1666 form.",
+        "nam_xuat_hien": 1831,
+        "toa_do_px": [
+         902,
+         540,
+         1344,
+         648
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.034159800000000004,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 861,
+        "cacheReadInputTokens": 3078,
+        "cacheCreationInputTokens": 10092,
+        "webSearchRequests": 0,
+        "costUSD": 0.034159800000000004,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 205,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A plain multi-arched stone bridge crosses the middle distance. It has no houses or buildings on it and looks like a later, open-parapet bridge.\",\"ly_do\":\"London Bridge in 1666 was lined with timber-framed houses. Part of it burned in the Great Fire. A bare arched bridge does not match its 1666 form.\",\"nam_xuat_hien\":1831,\"toa_do\":[0.47,0.5,0.7,0.6],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0342,
+    "chi_phi_tb": 0.0342,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01a-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "4d400528d322ffb18f33c58d9a8e106d158bfa3b9eb56f9f542d65f5f0ce6551",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "In the distance there is a plain, low stone multi-arched bridge. It has no houses or buildings on it and looks like a later viaduct or bridge.",
+        "ly_do": "The only Thames crossing in London in 1666 was medieval London Bridge. It was lined with houses and shops, and part of it burned in the Great Fire. A clean, bare arched bridge does not match how it looked then. This is a weak finding because the bridge is distant and hazy.",
+        "nam_xuat_hien": 1750,
+        "toa_do_px": [
+         902,
+         540,
+         1344,
+         648
+        ],
+        "do_tin": 0.25
+       }
+      ],
+      "cost_usd": 0.0371879,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1133,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0371879,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 261,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"In the distance there is a plain, low stone multi-arched bridge. It has no houses or buildings on it and looks like a later viaduct or bridge.\",\"ly_do\":\"The only Thames crossing in London in 1666 was medieval London Bridge. It was lined with houses and shops, and part of it burned in the Great Fire. A clean, bare arched bridge does not match how it looked then. This is a weak finding because the bridge is distant and hazy.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.47,0.5,0.7,0.6],\"do_tin\":0.25}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0372,
+    "chi_phi_tb": 0.0372,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H2-01a-l1-360p-k55.json"
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-01a-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0247,
+      "usage": {
+       "input_tokens": 10135,
+       "input_tokens_details": {
+        "cache_write_tokens": 10132,
+        "cached_tokens": 0
+       },
+       "output_tokens": 439,
+       "output_tokens_details": {
+        "reasoning_tokens": 290
+       },
+       "total_tokens": 10574
+      }
+     },
+     "secs": 13.2,
+     "mo_ta": "Một lối đi phủ gạch vụn và gỗ cháy xuyên qua những phế tích còn bốc khói, với các tháp đá ở hậu cảnh.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Luồng khói mới bốc lên ngay trên các thùng gỗ đổ cạnh bức tường tiền cảnh bên phải; tại vị trí tương ứng trong ảnh tham chiếu không có luồng khói này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.641,
+        0.608,
+        0.757,
+        0.801
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Luồng khói mới bốc lên ngay trên các thùng gỗ đổ cạnh bức tường tiền cảnh bên phải; tại vị trí tương ứng trong ảnh tham chiếu không có luồng khói này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.641,
+        0.608,
+        0.757,
+        0.801
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01a-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "19df8eb63efa31175b54a9e82e5eabbc284655ed0bd88642cae593d33a5445de",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
+       "NO Wren dome",
+       "NO Monument column"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "A plain multi-arched stone bridge crosses the middle of the view. It has no houses or buildings along its deck.",
+        "ly_do": "London Bridge in 1666 was a medieval stone bridge lined with houses, and the fire burned only part of them. A bare, regular-arched bridge may not match its 1666 form. This is a weak finding.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         902,
+         540,
+         1402,
+         626
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.0341698,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 862,
+        "cacheReadInputTokens": 3078,
+        "cacheCreationInputTokens": 10092,
+        "webSearchRequests": 0,
+        "costUSD": 0.0341698,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 206,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A plain multi-arched stone bridge crosses the middle of the view. It has no houses or buildings along its deck.\",\"ly_do\":\"London Bridge in 1666 was a medieval stone bridge lined with houses, and the fire burned only part of them. A bare, regular-arched bridge may not match its 1666 form. This is a weak finding.\",\"nam_xuat_hien\":null,\"toa_do\":[0.47,0.5,0.73,0.58],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0342,
+    "chi_phi_tb": 0.0342,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01a-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "c805c766f263d3d29c3d92bb6e2d6bc8d85ef8e0ebbfb475737232246b05430e",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A low, plain multi-arch stone bridge crosses the middle distance. It has no houses or buildings on it.",
+        "ly_do": "The only Thames crossing in London in 1666 was Old London Bridge. It was a medieval bridge with narrow arches and rows of houses along it, and it is unlikely to have looked like this open, regular arcade. Houses on the bridge were largely lost in the fire, so this is a weak finding. The next bridge,",
+        "nam_xuat_hien": 1750,
+        "toa_do_px": [
+         883,
+         540,
+         1402,
+         648
+        ],
+        "do_tin": 0.25
+       }
+      ],
+      "cost_usd": 0.036307900000000004,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1045,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.036307900000000004,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 161,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A low, plain multi-arch stone bridge crosses the middle distance. It has no houses or buildings on it.\",\"ly_do\":\"The only Thames crossing in London in 1666 was Old London Bridge. It was a medieval bridge with narrow arches and rows of houses along it, and it is unlikely to have looked like this open, regular arcade. Houses on the bridge were largely lost in the fire, so this is a weak finding. The next bridge, Westminster, opened in 1750.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.46,0.5,0.73,0.6],\"do_tin\":0.25}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0363,
+    "chi_phi_tb": 0.0363,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H2-01a-l1-360p-k90.json"
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": [],
+  "q_thoi_dai_nghi_van_moc": 0
+ },
+ "gop": {
+  "tang2": "channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-01a-l1-360p-kiem.json",
+  "lop_moc": "qmoc_v3.sh (lệnh bổ sung #2 bước 4, K1177-D4)"
+ }
+}

@@ -563,7 +563,7 @@
     "so_ai": "so-ai-gemini-t4.jsonl",
     "muc_kiem": "day_du",
     "kiem_t1": "omni/kiem/H1-05a-l2-360p-t1.json",
-    "kiem": "omni/kiem2/H1-05a-l2-360p-kiem.json",
+    "kiem": "omni/kiem2/H1-05a-l2-360p-kiem-moc.json",
     "nhan_vat_ten": [
      "Samuel Pepys",
      "Charles II"
@@ -580,13 +580,14 @@
      "omni/kiem2/qtd-moc-H1-05a-l2-360p-k55.json",
      "omni/kiem2/qtd-moc-H1-05a-l2-360p-k90.json"
     ],
+    "kiem_o2v2": "omni/kiem2/H1-05a-l2-360p-kiem.json",
     "chan_dung_tham_chieu": [
      {
-      "tep": "channel-k2/k2c-t4-02/nc/anh/met-435943-charles2-cooper.jpg",
+      "tep": "../nc/anh/met-435943-charles2-cooper.jpg",
       "sha256": "ba1980e9df74171cdc5044c8fdd731f5a3e4d4cc9f910e1a05aa0b359cbcf696"
      },
      {
-      "tep": "channel-k2/k2c-t4-02/nc/anh/wellcome-puwvaf8q-pepys.jpg",
+      "tep": "../nc/anh/wellcome-puwvaf8q-pepys.jpg",
       "sha256": "dd36b39c95f3f1074d1d14b388cc9c35d9c6c852572a333e2833c0b73a279605"
      }
     ],
@@ -606,7 +607,7 @@
   ],
   "md_moc": 21,
   "ai_image": true,
-  "kiem": "omni/kiem2/H1-05a-l2-360p-kiem.json",
+  "kiem": "omni/kiem2/H1-05a-l2-360p-kiem-moc.json",
   "muc_kiem": "day_du",
   "nhan_vat_ten": [
    "Samuel Pepys",
@@ -780,7 +781,8 @@
     "nhan_vat_ten": [],
     "cong_trinh_moc": [],
     "chan_troi_city": false,
-    "to_khung": "omni/kiem-mat.json#H1-06b-l2-360p"
+    "to_khung": "omni/to-khung/H1-06b-l2-360p.jpg",
+    "to_khung_ghi": "omni/kiem-mat.json#H1-06b-l2-360p"
    }
   ],
   "vai": "M-d (23) DN03 móc sắt dài kéo đổ mặt nhà gỗ (\"pull down houses apace\")",
@@ -863,7 +865,7 @@
     "so_ai": "so-ai-gemini-t4.jsonl",
     "muc_kiem": "day_du",
     "kiem_t1": "omni/kiem/H1-07b-l1-360p-t1.json",
-    "kiem": "omni/kiem2/H1-07b-l1-360p-kiem.json",
+    "kiem": "omni/kiem2/H1-07b-l1-360p-kiem-moc.json",
     "nhan_vat_ten": [],
     "cong_trinh_moc": [
      "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
@@ -876,7 +878,8 @@
      "omni/kiem2/qtd-moc-H1-07b-l1-360p-k25.json",
      "omni/kiem2/qtd-moc-H1-07b-l1-360p-k55.json",
      "omni/kiem2/qtd-moc-H1-07b-l1-360p-k90.json"
-    ]
+    ],
+    "kiem_o2v2": "omni/kiem2/H1-07b-l1-360p-kiem.json"
    }
   ],
   "vai": "M-d (24) THÊM GÓC: khoảng trống 1633 trên cầu London — lửa dừng ở chỗ trống giữa hai dãy nhà trên cầu",
@@ -892,7 +895,7 @@
   ],
   "md_moc": 24,
   "ai_image": true,
-  "kiem": "omni/kiem2/H1-07b-l1-360p-kiem.json",
+  "kiem": "omni/kiem2/H1-07b-l1-360p-kiem-moc.json",
   "muc_kiem": "day_du",
   "nhan_vat_ten": [],
   "tu_lieu_chong_sau_ai": false,
@@ -1065,13 +1068,13 @@
     "ma": "H1-12",
     "t0": 0.0,
     "t1": 6.4583,
-    "luot": "H1-12-l1-360p",
+    "luot": "H1-12-l2-360p",
     "so_luot": 2,
-    "clip": "../animatic/omni/clip/H1-12-l1-360p.mp4",
+    "clip": "../animatic/omni/clip/H1-12-l2-360p.mp4",
     "so_ai": "so-ai-gemini-t4.jsonl",
     "muc_kiem": "day_du",
-    "kiem_t1": "../animatic/omni/kiem/H1-12-l1-360p-t1.json",
-    "kiem": "../animatic/omni/kiem2/H1-12-l1-360p-kiem.json",
+    "kiem_t1": "../animatic/omni/kiem/H1-12-l2-360p-t1.json",
+    "kiem": "omni/kiem2/H1-12-l2-360p-kiem-moc.json",
     "nhan_vat_ten": [],
     "cong_trinh_moc": [
      "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
@@ -1081,10 +1084,11 @@
     ],
     "chan_troi_city": true,
     "kiem_moc": [
-     "omni/kiem2/qtd-moc-H1-12-l1-360p-k25.json",
-     "omni/kiem2/qtd-moc-H1-12-l1-360p-k55.json",
-     "omni/kiem2/qtd-moc-H1-12-l1-360p-k90.json"
-    ]
+     "omni/kiem2/qtd-moc-H1-12-l2-360p-k25.json",
+     "omni/kiem2/qtd-moc-H1-12-l2-360p-k55.json",
+     "omni/kiem2/qtd-moc-H1-12-l2-360p-k90.json"
+    ],
+    "kiem_o2v2": "../animatic/omni/kiem2/H1-12-l2-360p-kiem.json"
    }
   ],
   "vai": "M-d (3) Thames đêm 3/9: sà lan, đồ trôi, bờ bắc rực lửa",
@@ -1100,7 +1104,7 @@
   ],
   "md_moc": 3,
   "ai_image": true,
-  "kiem": "../animatic/omni/kiem2/H1-12-l1-360p-kiem.json",
+  "kiem": "omni/kiem2/H1-12-l2-360p-kiem-moc.json",
   "muc_kiem": "day_du",
   "nhan_vat_ten": [],
   "tu_lieu_chong_sau_ai": false,
@@ -1173,7 +1177,7 @@
     "so_ai": "so-ai-gemini-t4.jsonl",
     "muc_kiem": "day_du",
     "kiem_t1": "omni/kiem/H1-11b-l1-360p-t1.json",
-    "kiem": "omni/kiem2/H1-11b-l1-360p-kiem.json",
+    "kiem": "omni/kiem2/H1-11b-l1-360p-kiem-moc.json",
     "nhan_vat_ten": [],
     "cong_trinh_moc": [
      "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
@@ -1186,7 +1190,8 @@
      "omni/kiem2/qtd-moc-H1-11b-l1-360p-k25.json",
      "omni/kiem2/qtd-moc-H1-11b-l1-360p-k55.json",
      "omni/kiem2/qtd-moc-H1-11b-l1-360p-k90.json"
-    ]
+    ],
+    "kiem_o2v2": "omni/kiem2/H1-11b-l1-360p-kiem.json"
    }
   ],
   "vai": "M-d (25) DN06 sân Royal Exchange cháy: hàng tượng vua trong hốc, mái đổ",
@@ -1197,7 +1202,7 @@
   "cau": [],
   "md_moc": 25,
   "ai_image": true,
-  "kiem": "omni/kiem2/H1-11b-l1-360p-kiem.json",
+  "kiem": "omni/kiem2/H1-11b-l1-360p-kiem-moc.json",
   "muc_kiem": "day_du",
   "nhan_vat_ten": [],
   "tu_lieu_chong_sau_ai": false,
@@ -1360,7 +1365,7 @@
     "so_ai": "so-ai-gemini-t4.jsonl",
     "muc_kiem": "day_du",
     "kiem_t1": "omni/kiem/H1-14-l1-360p-t1.json",
-    "kiem": "omni/kiem2/H1-14-l1-360p-kiem.json",
+    "kiem": "omni/kiem2/H1-14-l1-360p-kiem-moc.json",
     "nhan_vat_ten": [],
     "cong_trinh_moc": [
      "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
@@ -1373,7 +1378,8 @@
      "omni/kiem2/qtd-moc-H1-14-l1-360p-k25.json",
      "omni/kiem2/qtd-moc-H1-14-l1-360p-k55.json",
      "omni/kiem2/qtd-moc-H1-14-l1-360p-k90.json"
-    ]
+    ],
+    "kiem_o2v2": "omni/kiem2/H1-14-l1-360p-kiem.json"
    }
   ],
   "vai": "M-d (5) DN05 + C12: mái nhà thờ lớn sập, chì chảy thành dòng xuống phố",
@@ -1389,7 +1395,7 @@
   ],
   "md_moc": 5,
   "ai_image": true,
-  "kiem": "omni/kiem2/H1-14-l1-360p-kiem.json",
+  "kiem": "omni/kiem2/H1-14-l1-360p-kiem-moc.json",
   "muc_kiem": "day_du",
   "nhan_vat_ten": [],
   "tu_lieu_chong_sau_ai": false,
@@ -1465,7 +1471,8 @@
     "nhan_vat_ten": [],
     "cong_trinh_moc": [],
     "chan_troi_city": false,
-    "to_khung": "omni/kiem-mat.json#H1-15m-l1-360p"
+    "to_khung": "omni/to-khung/H1-15m-l1-360p.jpg",
+    "to_khung_ghi": "omni/kiem-mat.json#H1-15m-l1-360p"
    }
   ],
   "vai": "M-d (27) THÊM GÓC: nổ thuốc súng mở khoảng chặn lửa trên phố (Tower Street)",
@@ -1511,7 +1518,7 @@
     "so_ai": "so-ai-gemini-t4.jsonl",
     "muc_kiem": "day_du",
     "kiem_t1": "omni/kiem/H1-15b-l1-360p-t1.json",
-    "kiem": "omni/kiem2/H1-15b-l1-360p-kiem.json",
+    "kiem": "omni/kiem2/H1-15b-l1-360p-kiem-moc.json",
     "nhan_vat_ten": [
      "Samuel Pepys"
     ],
@@ -1527,8 +1534,9 @@
      "omni/kiem2/qtd-moc-H1-15b-l1-360p-k55.json",
      "omni/kiem2/qtd-moc-H1-15b-l1-360p-k90.json"
     ],
+    "kiem_o2v2": "omni/kiem2/H1-15b-l1-360p-kiem.json",
     "chan_dung_tham_chieu": {
-     "tep": "channel-k2/k2c-t4-02/nc/anh/wellcome-puwvaf8q-pepys.jpg",
+     "tep": "../nc/anh/wellcome-puwvaf8q-pepys.jpg",
      "sha256": "dd36b39c95f3f1074d1d14b388cc9c35d9c6c852572a333e2833c0b73a279605"
     },
     "duyet_chu_du_an": ""
@@ -1542,7 +1550,7 @@
   "cau": [],
   "md_moc": 28,
   "ai_image": true,
-  "kiem": "omni/kiem2/H1-15b-l1-360p-kiem.json",
+  "kiem": "omni/kiem2/H1-15b-l1-360p-kiem-moc.json",
   "muc_kiem": "day_du",
   "nhan_vat_ten": [
    "Samuel Pepys"
@@ -1931,7 +1939,7 @@
     "so_ai": "so-ai-gemini-t4.jsonl",
     "muc_kiem": "day_du",
     "kiem_t1": "../animatic/omni/kiem/H2-01a-l1-360p-t1.json",
-    "kiem": "../animatic/omni/kiem2/H2-01a-l1-360p-kiem.json",
+    "kiem": "omni/kiem2/H2-01a-l1-360p-kiem-moc.json",
     "nhan_vat_ten": [],
     "cong_trinh_moc": [
      "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
@@ -1943,7 +1951,8 @@
      "omni/kiem2/qtd-moc-H2-01a-l1-360p-k25.json",
      "omni/kiem2/qtd-moc-H2-01a-l1-360p-k55.json",
      "omni/kiem2/qtd-moc-H2-01a-l1-360p-k90.json"
-    ]
+    ],
+    "kiem_o2v2": "../animatic/omni/kiem2/H2-01a-l1-360p-kiem.json"
    }
   ],
   "vai": "M-d (8) lối đi giữa tro còn nóng",
@@ -1959,7 +1968,7 @@
   ],
   "md_moc": 8,
   "ai_image": true,
-  "kiem": "../animatic/omni/kiem2/H2-01a-l1-360p-kiem.json",
+  "kiem": "omni/kiem2/H2-01a-l1-360p-kiem-moc.json",
   "muc_kiem": "day_du",
   "nhan_vat_ten": [],
   "tu_lieu_chong_sau_ai": false,
@@ -1989,7 +1998,7 @@
     "so_ai": "so-ai-gemini-t4.jsonl",
     "muc_kiem": "day_du",
     "kiem_t1": "omni/kiem/H2-01b-l1-360p-t1.json",
-    "kiem": "omni/kiem2/H2-01b-l1-360p-kiem.json",
+    "kiem": "omni/kiem2/H2-01b-l1-360p-kiem-moc.json",
     "nhan_vat_ten": [],
     "cong_trinh_moc": [
      "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
@@ -2001,7 +2010,8 @@
      "omni/kiem2/qtd-moc-H2-01b-l1-360p-k25.json",
      "omni/kiem2/qtd-moc-H2-01b-l1-360p-k55.json",
      "omni/kiem2/qtd-moc-H2-01b-l1-360p-k90.json"
-    ]
+    ],
+    "kiem_o2v2": "omni/kiem2/H2-01b-l1-360p-kiem.json"
    }
   ],
   "vai": "M-d (30) DN06 tượng Gresham rơi khỏi hốc còn nguyên giữa tro Royal Exchange (Evelyn 7/9)",
@@ -2012,7 +2022,7 @@
   "cau": [],
   "md_moc": 30,
   "ai_image": true,
-  "kiem": "omni/kiem2/H2-01b-l1-360p-kiem.json",
+  "kiem": "omni/kiem2/H2-01b-l1-360p-kiem-moc.json",
   "muc_kiem": "day_du",
   "nhan_vat_ten": [],
   "tu_lieu_chong_sau_ai": false,
@@ -2492,13 +2502,13 @@
     "ma": "H2-07",
     "t0": 0.0,
     "t1": 7.9167,
-    "luot": "H2-07-l1-360p",
+    "luot": "H2-07-l2-360p",
     "so_luot": 2,
-    "clip": "../animatic/omni/clip/H2-07-l1-360p.mp4",
+    "clip": "../animatic/omni/clip/H2-07-l2-360p.mp4",
     "so_ai": "so-ai-gemini-t4.jsonl",
     "muc_kiem": "day_du",
-    "kiem_t1": "../animatic/omni/kiem/H2-07-l1-360p-t1.json",
-    "kiem": "../animatic/omni/kiem2/H2-07-l1-360p-kiem.json",
+    "kiem_t1": "../animatic/omni/kiem/H2-07-l2-360p-t1.json",
+    "kiem": "../animatic/omni/kiem2/H2-07-l2-360p-kiem.json",
     "nhan_vat_ten": [],
     "cong_trinh_moc": [],
     "chan_troi_city": false
@@ -2521,7 +2531,7 @@
   ],
   "md_moc": 13,
   "ai_image": true,
-  "kiem": "../animatic/omni/kiem2/H2-07-l1-360p-kiem.json",
+  "kiem": "../animatic/omni/kiem2/H2-07-l2-360p-kiem.json",
   "muc_kiem": "day_du",
   "nhan_vat_ten": [],
   "tu_lieu_chong_sau_ai": false,
@@ -2796,7 +2806,7 @@
     "so_ai": "so-ai-gemini-t4.jsonl",
     "muc_kiem": "day_du",
     "kiem_t1": "omni/kiem/H2-13-l1-360p-t1.json",
-    "kiem": "omni/kiem2/H2-13-l1-360p-kiem.json",
+    "kiem": "omni/kiem2/H2-13-l1-360p-kiem-moc.json",
     "nhan_vat_ten": [],
     "cong_trinh_moc": [
      "St Paul's Cathedral, Wren's dome with lantern and cross (completed 1710)",
@@ -2808,7 +2818,8 @@
      "omni/kiem2/qtd-moc-H2-13-l1-360p-k25.json",
      "omni/kiem2/qtd-moc-H2-13-l1-360p-k55.json",
      "omni/kiem2/qtd-moc-H2-13-l1-360p-k90.json"
-    ]
+    ],
+    "kiem_o2v2": "omni/kiem2/H2-13-l1-360p-kiem.json"
    }
   ],
   "vai": "M-d (12) F1 Thames 1711: đò chở khách; chân trời có MÁI VÒM St Paul's mới (không chóp Gothic)",
@@ -2819,7 +2830,7 @@
   "cau": [],
   "md_moc": 12,
   "ai_image": true,
-  "kiem": "omni/kiem2/H2-13-l1-360p-kiem.json",
+  "kiem": "omni/kiem2/H2-13-l1-360p-kiem-moc.json",
   "muc_kiem": "day_du",
   "nhan_vat_ten": [],
   "tu_lieu_chong_sau_ai": false,
@@ -3255,7 +3266,7 @@
     "so_ai": "so-ai-gemini-t4.jsonl",
     "muc_kiem": "day_du",
     "kiem_t1": "omni/kiem/H3-05b-l1-360p-t1.json",
-    "kiem": "omni/kiem2/H3-05b-l1-360p-kiem.json",
+    "kiem": "omni/kiem2/H3-05b-l1-360p-kiem-moc.json",
     "nhan_vat_ten": [
      "Godfrey Allen"
     ],
@@ -3269,6 +3280,7 @@
      "omni/kiem2/qtd-moc-H3-05b-l1-360p-k55.json",
      "omni/kiem2/qtd-moc-H3-05b-l1-360p-k90.json"
     ],
+    "kiem_o2v2": "omni/kiem2/H3-05b-l1-360p-kiem.json",
     "chan_dung_tham_chieu": null,
     "chan_dung_tham_chieu_ghi": "không có chân dung xác thực/sạch quyền (NHAN-VAT-ANH.md) — tạo không tham chiếu, khung xa",
     "duyet_chu_du_an": ""
@@ -3287,7 +3299,7 @@
   ],
   "md_moc": 35,
   "ai_image": true,
-  "kiem": "omni/kiem2/H3-05b-l1-360p-kiem.json",
+  "kiem": "omni/kiem2/H3-05b-l1-360p-kiem-moc.json",
   "muc_kiem": "day_du",
   "nhan_vat_ten": [
    "Godfrey Allen"
@@ -3756,7 +3768,7 @@
     "so_ai": "so-ai-gemini-t4.jsonl",
     "muc_kiem": "day_du",
     "kiem_t1": "omni/kiem/H4-04d-l3-360p-t1.json",
-    "kiem": "omni/kiem2/H4-04d-l3-360p-kiem.json",
+    "kiem": "omni/kiem2/H4-04d-l3-360p-kiem-moc.json",
     "nhan_vat_ten": [],
     "cong_trinh_moc": [
      "medieval Guildhall with Gothic front",
@@ -3768,7 +3780,8 @@
      "omni/kiem2/qtd-moc-H4-04d-l3-360p-k25.json",
      "omni/kiem2/qtd-moc-H4-04d-l3-360p-k55.json",
      "omni/kiem2/qtd-moc-H4-04d-l3-360p-k90.json"
-    ]
+    ],
+    "kiem_o2v2": "omni/kiem2/H4-04d-l3-360p-kiem.json"
    }
   ],
   "vai": "M-d (38) THÊM GÓC DN13: mái Guildhall cháy",
@@ -3779,7 +3792,7 @@
   "cau": [],
   "md_moc": 38,
   "ai_image": true,
-  "kiem": "omni/kiem2/H4-04d-l3-360p-kiem.json",
+  "kiem": "omni/kiem2/H4-04d-l3-360p-kiem-moc.json",
   "muc_kiem": "day_du",
   "nhan_vat_ten": [],
   "tu_lieu_chong_sau_ai": false,

@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-12-l2-360p-k55",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "fbb5db25eb5320185f43dd37dc0b3ad938babf006e329337aa2eb6cda5503703",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+    "Old London Bridge lined with houses",
+    "NO Monument column (built 1671-77)",
+    "NO Wren dome or Wren steeples"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The burning waterfront skyline is a low row of houses with chimneys and gables. It shows no Old St Paul's, meaning no long Gothic nave and no square crossing tower. Old London Bridge with its houses is also not visible.",
+     "ly_do": "Old St Paul's Cathedral was a huge landmark on the London skyline in 1666, and it was burning in the Great Fire. It should dominate the view, but nothing like it is shown.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      192,
+      54,
+      1536,
+      378
+     ],
+     "do_tin": 0.35
+    }
+   ],
+   "cost_usd": 0.0341309,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 850,
+     "cacheReadInputTokens": 3114,
+     "cacheCreationInputTokens": 10123,
+     "webSearchRequests": 0,
+     "costUSD": 0.0341309,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 167,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The burning waterfront skyline is a low row of houses with chimneys and gables. It shows no Old St Paul's, meaning no long Gothic nave and no square crossing tower. Old London Bridge with its houses is also not visible.\",\"ly_do\":\"Old St Paul's Cathedral was a huge landmark on the London skyline in 1666, and it was burning in the Great Fire. It should dominate the view, but nothing like it is shown.\",\"nam_xuat_hien\":null,\"toa_do\":[0.1,0.05,0.8,0.35],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0341,
+ "chi_phi_tb": 0.0341,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

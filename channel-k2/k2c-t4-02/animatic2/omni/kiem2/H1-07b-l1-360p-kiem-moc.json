@@ -1,0 +1,703 @@
+{
+ "tag": "H1-07b-l1-360p",
+ "clip": "/var/tmp/anim/omni3/H1-07b/H1-07b-l1-360p.mp4",
+ "clip_sha": "edd59626b242edbdf0be5ffe9349f8121498588a148570c5da7940347ea8944e",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic2/omni/dau/H1-07b-dau.jpg",
+ "dau_sha": "24d83128385ca460f8be57cb3047686a4c7b7a2fab106d2e5e969fec535a9a3f",
+ "nam": "1666",
+ "canh": "London Bridge on the evening of 2 September 1666: the fire stops at the gap",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/anim/kiem2/H1-07b-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0258,
+      "usage": {
+       "input_tokens": 10145,
+       "input_tokens_details": {
+        "cache_write_tokens": 10142,
+        "cached_tokens": 0
+       },
+       "output_tokens": 548,
+       "output_tokens_details": {
+        "reasoning_tokens": 149
+       },
+       "total_tokens": 10693
+      }
+     },
+     "secs": 10.7,
+     "mo_ta": "Cầu London với dãy nhà bên trái đang cháy, khoảng trống giữa cầu, nhà thờ phía xa và các thuyền trên sông trong ánh chiều tối.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu London cổ với các nhịp vòm đá và nhà xây trên cầu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.151,
+        0.939,
+        0.662
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Công trình nhà thờ Gothic nổi bật ở hậu cảnh bên phải, có tháp vuông với các đỉnh nhọn và một tháp chóp bên cạnh; chưa đủ rõ để xác định tên.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.839,
+        0.263,
+        0.933,
+        0.441
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm bằng gỗ lớn hơn thuyền chèo, bị cắt bởi mép trái khung hình, có cột buồm và dây chằng.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.103,
+        0.156,
+        0.771
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu gỗ lớn ở tiền cảnh bên phải, chỉ thấy một phần thân tàu, cột và người trên boong.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.896,
+        0.589,
+        1.0,
+        0.94
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-07b-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "e67a82badad0184db35b4f0d23a0d63d8847ee756f04003912883589f4327879",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+       "Old London Bridge lined with houses",
+       "NO Monument column (built 1671-77)",
+       "NO Wren dome or Wren steeples"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "On the skyline at right, a Gothic church with a tall square crenellated tower has a separate slender pointed spire beside it. It looks like a generic cathedral. It does not show Old St Paul's very long nave with a squat crossing tower.",
+        "ly_do": "Old St Paul's had a square crossing tower with no spire, because the spire was lost in 1561. It also had a very long nave. The pointed spire and the tower shape here do not match its 1666 form.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1613,
+         281,
+         1805,
+         432
+        ],
+        "do_tin": 0.4
+       }
+      ],
+      "cost_usd": 0.035509,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 985,
+        "cacheReadInputTokens": 3120,
+        "cacheCreationInputTokens": 10134,
+        "webSearchRequests": 0,
+        "costUSD": 0.035509,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 292,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"On the skyline at right, a Gothic church with a tall square crenellated tower has a separate slender pointed spire beside it. It looks like a generic cathedral. It does not show Old St Paul's very long nave with a squat crossing tower.\",\"ly_do\":\"Old St Paul's had a square crossing tower with no spire, because the spire was lost in 1561. It also had a very long nave. The pointed spire and the tower shape here do not match its 1666 form.\",\"nam_xuat_hien\":null,\"toa_do\":[0.84,0.26,0.94,0.4],\"do_tin\":0.4}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0355,
+    "chi_phi_tb": 0.0355,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-07b-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "2a242de6cf0ccdf661d3f7b58232ab6bc35523d2213b2c8c46d6e72f294dc5de",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A tall square Gothic tower with corner pinnacles and a slim spire stands on the skyline behind the bridge. It looks like a generic cathedral or college tower. It does not look like Old St Paul's, which had a central crossing tower, or like Westminster Abbey.",
+        "ly_do": "The skyline does not match the known London skyline of 1666. It may be an invented or wrongly placed landmark, but it is not clearly anachronistic.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1613,
+         281,
+         1786,
+         432
+        ],
+        "do_tin": 0.12
+       }
+      ],
+      "cost_usd": 0.0348416,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 963,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0348416,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 209,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall square Gothic tower with corner pinnacles and a slim spire stands on the skyline behind the bridge. It looks like a generic cathedral or college tower. It does not look like Old St Paul's, which had a central crossing tower, or like Westminster Abbey.\",\"ly_do\":\"The skyline does not match the known London skyline of 1666. It may be an invented or wrongly placed landmark, but it is not clearly anachronistic.\",\"nam_xuat_hien\":null,\"toa_do\":[0.84,0.26,0.93,0.4],\"do_tin\":0.12}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0348,
+    "chi_phi_tb": 0.0348,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H1-07b-l1-360p-k25.json"
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/anim/kiem2/H1-07b-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0276,
+      "usage": {
+       "input_tokens": 10133,
+       "input_tokens_details": {
+        "cache_write_tokens": 10130,
+        "cached_tokens": 0
+       },
+       "output_tokens": 732,
+       "output_tokens_details": {
+        "reasoning_tokens": 235
+       },
+       "total_tokens": 10865
+      }
+     },
+     "secs": 16.5,
+     "mo_ta": "Khung hình minh họa cầu London với dãy nhà bên trái đang cháy dữ dội, nhà thờ ở hậu cảnh, thuyền trên sông và người đứng quan sát từ bến.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu London cổ với các nhịp vòm đá và nhà xây trên mặt cầu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.154,
+        0.94,
+        0.663
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Công trình nhà thờ Gothic nổi bật ở hậu cảnh bên phải, có tháp vuông với các chóp nhọn; không đủ chi tiết để xác định chắc tên.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.836,
+        0.258,
+        0.929,
+        0.436
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm lớn bị cắt một phần ở mép trái, thấy cột buồm, dây chằng và thân tàu cạnh bến.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.102,
+        0.166,
+        0.779
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu gỗ lớn bị cắt ở mép phải, có người đứng trên boong.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.913,
+        0.607,
+        1.0,
+        0.954
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đoạn nhà cháy sát khoảng trống giữa cầu có vẻ đang sụp đổ, với nhiều mảnh cháy và tàn lửa rơi xuống mặt sông; trạng thái sụp đổ này không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.334,
+        0.192,
+        0.491,
+        0.649
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Đoạn nhà cháy sát khoảng trống giữa cầu có vẻ đang sụp đổ, với nhiều mảnh cháy và tàn lửa rơi xuống mặt sông; trạng thái sụp đổ này không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.334,
+        0.192,
+        0.491,
+        0.649
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-07b-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "e4582cd6d43b8a737be478230026acba5c0c1ec59fa3dbd618a5ca18fcdf4650",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+       "Old London Bridge lined with houses",
+       "NO Monument column (built 1671-77)",
+       "NO Wren dome or Wren steeples"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "In the right-hand skyline there is a Gothic church with a square pinnacled tower. A separate slender pointed spire stands beside it. The building is short and compact. It does not read as the very long nave of Old St Paul's with a central crossing tower.",
+        "ly_do": "Old St Paul's in 1666 had a very long nave and a square crossing tower with no spire, because the spire was lost in 1561. A spired, compact church in this position is the wrong form for the landmark. Old St Paul's is not otherwise recognisable in the view.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1594,
+         281,
+         1805,
+         454
+        ],
+        "do_tin": 0.4
+       }
+      ],
+      "cost_usd": 0.034949,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 929,
+        "cacheReadInputTokens": 3120,
+        "cacheCreationInputTokens": 10134,
+        "webSearchRequests": 0,
+        "costUSD": 0.034949,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 212,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"In the right-hand skyline there is a Gothic church with a square pinnacled tower. A separate slender pointed spire stands beside it. The building is short and compact. It does not read as the very long nave of Old St Paul's with a central crossing tower.\",\"ly_do\":\"Old St Paul's in 1666 had a very long nave and a square crossing tower with no spire, because the spire was lost in 1561. A spired, compact church in this position is the wrong form for the landmark. Old St Paul's is not otherwise recognisable in the view.\",\"nam_xuat_hien\":null,\"toa_do\":[0.83,0.26,0.94,0.42],\"do_tin\":0.4}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0349,
+    "chi_phi_tb": 0.0349,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-07b-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "7860e9a5d19b998a1849515376f693e43bf4c8fa5b333244a3ff304c5327f7e2",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0306716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 546,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0306716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0307,
+    "chi_phi_tb": 0.0307,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H1-07b-l1-360p-k55.json"
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/anim/kiem2/H1-07b-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0291,
+      "usage": {
+       "input_tokens": 10145,
+       "input_tokens_details": {
+        "cache_write_tokens": 10142,
+        "cached_tokens": 0
+       },
+       "output_tokens": 878,
+       "output_tokens_details": {
+        "reasoning_tokens": 155
+       },
+       "total_tokens": 11023
+      }
+     },
+     "secs": 13.7,
+     "mo_ta": "Cầu London với dãy nhà bên trái đang cháy, khói và tàn lửa bay lên, người dân đứng trên bến cùng các thuyền trên sông lúc hoàng hôn.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu London cổ với các nhịp vòm đá và nhà dựng trên cầu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.146,
+        1.0,
+        0.658
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ Gothic nổi bật phía sau đầu cầu bên phải, có tháp vuông với các chóp nhọn.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.826,
+        0.261,
+        0.92,
+        0.435
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm lớn bị cắt bởi mép trái khung hình, thấy thân tàu, cột buồm và dây chằng.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.095,
+        0.18,
+        0.758
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Phần thân và boong của tàu gỗ lớn ở mép phải, có người đứng trên boong.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.931,
+        0.622,
+        1.0,
+        0.943
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ngọn lửa mới xuất hiện sát mặt nước ở chân trụ bên phải nhịp vòm lớn bên trái, trông như đá hoặc mặt nước đang cháy; vị trí này không có lửa trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.274,
+        0.561,
+        0.299,
+        0.662
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm lửa mới sát mặt nước dưới trụ cầu gần giữa khung hình, kèm tàn lửa rơi xuống; không thấy đám cháy tại vị trí này trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.445,
+        0.59,
+        0.471,
+        0.658
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Ngọn lửa mới xuất hiện sát mặt nước ở chân trụ bên phải nhịp vòm lớn bên trái, trông như đá hoặc mặt nước đang cháy; vị trí này không có lửa trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.274,
+        0.561,
+        0.299,
+        0.662
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm lửa mới sát mặt nước dưới trụ cầu gần giữa khung hình, kèm tàn lửa rơi xuống; không thấy đám cháy tại vị trí này trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.445,
+        0.59,
+        0.471,
+        0.658
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-07b-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "d44c240405b982c82a9afc1fcf65068b667541dec107e4c366c0924dbf6e76c9",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+       "Old London Bridge lined with houses",
+       "NO Monument column (built 1671-77)",
+       "NO Wren dome or Wren steeples"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "The skyline behind the bridge shows a square pinnacled Gothic tower. A separate slender stone spire stands beside it, and the church mass is short. It does not look like the very long nave of Old St Paul's. The cathedral's form is not rendered correctly.",
+        "ly_do": "Old St Paul's in 1666 had a very long Gothic nave and a square crossing tower with no spire. The spire was lost in 1561. A spire next to the tower, with no long nave, is the wrong form for the cathedral.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1459,
+         281,
+         1766,
+         443
+        ],
+        "do_tin": 0.4
+       }
+      ],
+      "cost_usd": 0.034829,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 917,
+        "cacheReadInputTokens": 3120,
+        "cacheCreationInputTokens": 10134,
+        "webSearchRequests": 0,
+        "costUSD": 0.034829,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 207,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The skyline behind the bridge shows a square pinnacled Gothic tower. A separate slender stone spire stands beside it, and the church mass is short. It does not look like the very long nave of Old St Paul's. The cathedral's form is not rendered correctly.\",\"ly_do\":\"Old St Paul's in 1666 had a very long Gothic nave and a square crossing tower with no spire. The spire was lost in 1561. A spire next to the tower, with no long nave, is the wrong form for the cathedral.\",\"nam_xuat_hien\":null,\"toa_do\":[0.76,0.26,0.92,0.41],\"do_tin\":0.4}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0348,
+    "chi_phi_tb": 0.0348,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-07b-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "796d6b2b301cc64208292d9d821e2dd39592748fb0284f773d70247d9650b195",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324116,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 720,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324116,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 174,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0324,
+    "chi_phi_tb": 0.0324,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H1-07b-l1-360p-k90.json"
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": [],
+  "q_thoi_dai_nghi_van_moc": 0
+ },
+ "gop": {
+  "tang2": "channel-k2/k2c-t4-02/animatic2/omni/kiem2/H1-07b-l1-360p-kiem.json",
+  "lop_moc": "qmoc_v3.sh (lệnh bổ sung #2 bước 4, K1177-D4)"
+ }
+}

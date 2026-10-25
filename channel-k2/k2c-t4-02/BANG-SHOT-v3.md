@@ -48,7 +48,7 @@
 | H1-08b | 2:45.2 | 18.208 | L18–L19 | P1 | CODINH | cao | lửa 1666 giờ 17.2 → 22 | P1 tái xuất: chạng vạng → vòng cung lửa (cùng khung M03) | A (18.2083) | góc khung: ycba-40597-0; M-d H1-08a (clip v1) trượt lớp CÔNG TRÌNH MỐC q_thoi_dai 1.17.7 (chân trời 1666 thiếu Old St Paul's) → 3D P1 cả nhóm |
 | H1-09 | 3:03.4 | 9.000 | L20–L21 | P7 | XUONG | cao | lửa 1666 giờ 38 → 40 | BẢN ĐỒ CỔ HOẠT HOÁ Doornick 1666: lửa lan theo ngày 2→3/9 → chuyển 3D cùng toạ độ, nhìn xuống → xiên | MAP (3.5), MAP3D (5.5) | chuyển -4.167 s |
 | H1-10 | 3:12.4 | 7.083 | L22 | — | MD | md | — | M-d (4)+(6) Watling Street / Cheapside 3/9 | MD (7.083) | clip v1 H1-10-l1-360p; chuyển +4.167 s |
-| H1-12 | 3:19.5 | 6.458 | L22 | — | MD | md | — | M-d (3) Thames đêm 3/9: sà lan, đồ trôi, bờ bắc rực lửa | MD (6.4583) | clip v1 H1-12-l1-360p |
+| H1-12 | 3:19.5 | 6.458 | L22 | — | MD | md | — | M-d (3) Thames đêm 3/9: sà lan, đồ trôi, bờ bắc rực lửa | MD (6.4583) | clip v1 H1-12-l2-360p |
 | H1-11 | 3:25.9 | 8.417 | L23 (nhóm H1-11: H1-11, H1-11b) | P8 | CODINH | cao | lửa 1666 giờ 38 → 43 | Royal Exchange cháy; trời "như miệng lò" — Evelyn | A (8.4167), THE (4) | thẻ: John Evelyn (người viết nhật ký) |
 | H1-11b | 3:34.3 | 6.000 | L23 (nhóm H1-11: H1-11, H1-11b) | — | MD | md | — | M-d (25) DN06 sân Royal Exchange cháy: hàng tượng vua trong hốc, mái đổ | MD (6) | MỚI · kiểm day_du |
 | H1-13a | 3:40.3 | 7.000 | L24–L25 + N1 (nhóm H1-13: H1-13a, H1-12x, H1-13c) | P4b | THAP | thap | lửa 1666 giờ 66 → 67.3 | lửa leo đồi Ludgate tới Old St Paul's bọc giàn giáo gỗ (3D thấp) | A (7) |  |
@@ -77,7 +77,7 @@
 | H2-05 | 6:22.2 | 11.000 | L43–L44 (nhóm H2-05: H2-05, H2-05s) | P1 | CODINH | cao | 1668 → 1670.2 | P1: timelapse xây lại bằng gạch trên đúng lô cũ (≈ 6 000 nhà cuối 1670) | A (11) |  |
 | H2-05s | 6:33.2 | 7.833 | L43–L44 (nhóm H2-05: H2-05, H2-05s) | P10 | TRUOT | thap | 1670.2 → 1671 | 3D TẦM PHỐ (look2d): King Street mới cắt về Guildhall — xe ngựa, người, nhà gạch | A (7.8333) | look2d (người/xe) |
 | H2-06 | 6:41.0 | 17.292 | L46 + N9 | P3 | VONG | cao | 1671 → 1677 | Monument mọc; 202 ft = khoảng cách tới lò bánh | A (17.2917), THE (2.5), KHAC (3) | bộ đếm: 202 ft; góc khung: rijks-monument-0; M-d H2-06b (DN09 đá Portland) TRƯỢT 3/3 ở ảnh đầu (mái vòm St Paul's năm 1675 — lỗi thời đại) → 3D VONG cả nhóm |
-| H2-07 | 6:58.3 | 7.917 | L47 | — | MD | md | — | M-d (13) phố gạch 1680 + dấu bảo hiểm cháy | MD (7.9167) | thẻ: Nicholas Barbon; clip v1 H2-07-l1-360p |
+| H2-07 | 6:58.3 | 7.917 | L47 | — | MD | md | — | M-d (13) phố gạch 1680 + dấu bảo hiểm cháy | MD (7.9167) | thẻ: Nicholas Barbon; clip v1 H2-07-l2-360p |
 | H2-08 | 7:06.2 | 5.708 | L48 | P2 | NGHIENG | cao | 1670 → 1700 | chóp nhà thờ Wren mọc quanh City; nghiêng lên kết ở chóp | A (5.708) |  |
 | H2-09 | 7:11.9 | 10.000 | L49 | P1 | CODINH | cao | 1675 → 1708 | P1: St Paul's mới mọc từ nền Old St Paul's | A (10) | M-d H2-09x (DN08 viên đá đầu tiên 1675) TRƯỢT 3/3 (tay/người biến dạng — Flash) → 3D P1 cả nhóm |
 | H2-10 | 7:21.9 | 18.042 | L50 + N4 | P4b | THAP | thap | 1708 → 1711 | đèn lồng hoàn tất; 365 ft — mái vòm anh hùng giờ vàng | A (18.042), THE (2.5) | bộ đếm: 365 ft; M-d H2-10b (DN10) TRƯỢT 3/3 ở ảnh đầu (cầu đá chưa có năm 1708, tàu lớn) → 3D cả nhóm |

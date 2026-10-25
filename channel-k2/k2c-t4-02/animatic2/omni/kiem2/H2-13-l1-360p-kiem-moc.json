@@ -1,0 +1,593 @@
+{
+ "tag": "H2-13-l1-360p",
+ "clip": "/var/tmp/anim/omni3/H2-13/H2-13-l1-360p.mp4",
+ "clip_sha": "8113230507e6f0f71dbff9e1a592c75229ef51b31972635cd1b238e5b6d96652",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic2/omni/dau/H2-13-dau.jpg",
+ "dau_sha": "869bdf0001090bfe921663574a4b8ffe15b2f02aa6ef5860d6fa8a01700e303d",
+ "nam": "1711",
+ "canh": "the River Thames in 1711, wherries carrying passengers, the new dome of St Paul's on the skyline",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/anim/kiem2/H2-13-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0282,
+      "usage": {
+       "input_tokens": 10136,
+       "input_tokens_details": {
+        "cache_write_tokens": 10133,
+        "cached_tokens": 0
+       },
+       "output_tokens": 792,
+       "output_tokens_details": {
+        "reasoning_tokens": 351
+       },
+       "total_tokens": 10928
+      }
+     },
+     "secs": 18.5,
+     "mo_ta": "Các thuyền chèo chở khách đi trên sông Thames, với tàu buồm gần bờ và mái vòm Nhà thờ St Paul's nổi bật trên đường chân trời London.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ St Paul's với mái vòm lớn và các tháp hai bên.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.506,
+        0.058,
+        0.795,
+        0.442
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm thân gỗ lớn, bị cắt một phần ở mép trái khung hình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.169,
+        0.183,
+        0.668
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm có buồm màu kem, neo gần bờ bên phải.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.753,
+        0.364,
+        0.839,
+        0.603
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm thân tối màu nằm sát bến, bên phải tàu có buồm màu kem.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.843,
+        0.406,
+        0.91,
+        0.601
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền hàng hoặc sà lan thân dài sát bờ đối diện, gần giữa khung hình, lớn hơn các thuyền chèo chở khách.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.371,
+        0.546,
+        0.483,
+        0.595
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-13-l1-360p-k25",
+      "nam": 1711,
+      "noi": "London",
+      "sha256": "c2c48a948b00b522db3e09e5fbe8128d34f0eb11e6dc54bb1942826b9e6f26d1",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "St Paul's Cathedral, Wren's dome with lantern and cross (completed 1710)",
+       "City church steeples by Wren (1670s-1700s)",
+       "no Gothic spire on St Paul's (Old St Paul's destroyed 1666)",
+       "no Monument-era-later buildings"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0323754,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 496,
+        "cacheReadInputTokens": 2459,
+        "cacheCreationInputTokens": 10863,
+        "webSearchRequests": 0,
+        "costUSD": 0.0323754,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 5.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0324,
+    "chi_phi_tb": 0.0324,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-13-l1-360p-k25",
+      "nam": 1711,
+      "noi": "London",
+      "sha256": "c2c48a948b00b522db3e09e5fbe8128d34f0eb11e6dc54bb1942826b9e6f26d1",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0312454,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 609,
+        "cacheReadInputTokens": 2859,
+        "cacheCreationInputTokens": 9943,
+        "webSearchRequests": 0,
+        "costUSD": 0.0312454,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 73,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0312,
+    "chi_phi_tb": 0.0312,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H2-13-l1-360p-k25.json"
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/anim/kiem2/H2-13-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0258,
+      "usage": {
+       "input_tokens": 10130,
+       "input_tokens_details": {
+        "cache_write_tokens": 10127,
+        "cached_tokens": 0
+       },
+       "output_tokens": 557,
+       "output_tokens_details": {
+        "reasoning_tokens": 188
+       },
+       "total_tokens": 10687
+      }
+     },
+     "secs": 10.8,
+     "mo_ta": "Khung hình minh họa sông Thames tại London với các thuyền chèo chở khách, tàu buồm ven bờ và Nhà thờ St Paul nổi bật trên đường chân trời.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ St Paul với mái vòm lớn và các tháp hai bên.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.501,
+        0.059,
+        0.791,
+        0.439
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm thân gỗ lớn bị cắt một phần ở mép trái, có cột buồm cao và buồm màu kem.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.165,
+        0.174,
+        0.669
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm lớn neo gần bờ bên phải, có buồm màu kem.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.757,
+        0.363,
+        0.832,
+        0.603
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm thân tối màu sát bờ bên phải, phía sau và bên phải tàu có buồm màu kem.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.827,
+        0.393,
+        0.905,
+        0.605
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-13-l1-360p-k55",
+      "nam": 1711,
+      "noi": "London",
+      "sha256": "a0b508ea17bf81206ecaf754e864285737e6944d159dd8b6cd6d15f1a021b559",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "St Paul's Cathedral, Wren's dome with lantern and cross (completed 1710)",
+       "City church steeples by Wren (1670s-1700s)",
+       "no Gothic spire on St Paul's (Old St Paul's destroyed 1666)",
+       "no Monument-era-later buildings"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0307314,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 496,
+        "cacheReadInputTokens": 3144,
+        "cacheCreationInputTokens": 10178,
+        "webSearchRequests": 0,
+        "costUSD": 0.0307314,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0307,
+    "chi_phi_tb": 0.0307,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-13-l1-360p-k55",
+      "nam": 1711,
+      "noi": "London",
+      "sha256": "a0b508ea17bf81206ecaf754e864285737e6944d159dd8b6cd6d15f1a021b559",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0315954,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 644,
+        "cacheReadInputTokens": 2859,
+        "cacheCreationInputTokens": 9943,
+        "webSearchRequests": 0,
+        "costUSD": 0.0315954,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 108,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0316,
+    "chi_phi_tb": 0.0316,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H2-13-l1-360p-k55.json"
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/anim/kiem2/H2-13-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0263,
+      "usage": {
+       "input_tokens": 10142,
+       "input_tokens_details": {
+        "cache_write_tokens": 10139,
+        "cached_tokens": 0
+       },
+       "output_tokens": 600,
+       "output_tokens_details": {
+        "reasoning_tokens": 199
+       },
+       "total_tokens": 10742
+      }
+     },
+     "secs": 12.7,
+     "mo_ta": "Passenger wherries cross the Thames before London's waterfront, with St Paul's Cathedral dominating the skyline and larger sailing vessels near the banks.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "St Paul's Cathedral, recognizable by its large dome, lantern and cross.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.493,
+        0.057,
+        0.785,
+        0.442
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Large wooden sailing vessel with a tall mast and tan sail, cropped by the left edge.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.158,
+        0.153,
+        0.669
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Moored sailing vessel with a prominent tan sail near the right-hand waterfront.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.758,
+        0.365,
+        0.82,
+        0.605
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Dark-hulled sailing vessel with a mast and rigging immediately to the right of the tan-sailed vessel.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.835,
+        0.425,
+        0.903,
+        0.604
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Partially visible wooden sailing vessel at the far-right edge, with a long tan hull and upright mast.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.942,
+        0.447,
+        1.0,
+        0.617
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-13-l1-360p-k90",
+      "nam": 1711,
+      "noi": "London",
+      "sha256": "6d67cdf29cb52cffcc91cb21a7a6d5b5b9435b1251f4b6d6533ad2560d75c1ba",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "St Paul's Cathedral, Wren's dome with lantern and cross (completed 1710)",
+       "City church steeples by Wren (1670s-1700s)",
+       "no Gothic spire on St Paul's (Old St Paul's destroyed 1666)",
+       "no Monument-era-later buildings"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0314614,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 569,
+        "cacheReadInputTokens": 3144,
+        "cacheCreationInputTokens": 10178,
+        "webSearchRequests": 0,
+        "costUSD": 0.0314614,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 73,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0315,
+    "chi_phi_tb": 0.0315,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-13-l1-360p-k90",
+      "nam": 1711,
+      "noi": "London",
+      "sha256": "6d67cdf29cb52cffcc91cb21a7a6d5b5b9435b1251f4b6d6533ad2560d75c1ba",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.031485400000000004,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 633,
+        "cacheReadInputTokens": 2859,
+        "cacheCreationInputTokens": 9943,
+        "webSearchRequests": 0,
+        "costUSD": 0.031485400000000004,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 97,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0315,
+    "chi_phi_tb": 0.0315,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H2-13-l1-360p-k90.json"
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": [],
+  "q_thoi_dai_nghi_van_moc": 0
+ },
+ "gop": {
+  "tang2": "channel-k2/k2c-t4-02/animatic2/omni/kiem2/H2-13-l1-360p-kiem.json",
+  "lop_moc": "qmoc_v3.sh (lệnh bổ sung #2 bước 4, K1177-D4)"
+ }
+}

@@ -5,7 +5,7 @@ Gốc: ANIMATIC-T4 · việc 8 — khai cho k2check 1.17.4 (Kinh thánh §13.6 "
 episode.yaml: kenh2_tu_t4, animatic, ngan_sach_gemini_usd 35 / moc 30 (chủ dự án 23/10/2026 23:45), so_ai_gemini (gộp sổ Gemini T4: tiền kỳ + LOOK-T4-V2 + phiên này, mỗi dòng `usd` thật),
 so_ai / so_ai_openai (gộp OpenAI T4), sha_tu_lieu (licenses/SHA256-TU-LIEU.txt + -LOOK), goc_toa_do [532000, 180800], log_shot. Log shot từng shot: cu_may, log_may (log.json render_look.js,
 giữ trong git — K1174-D4), tieu_diem_en, khop_voi/diem_neo/hoa_s, lo_ra, lop, ai_nen, minh_hoa, goc, tl, chuong. Timeline: một đoạn mỗi shot (cách mk_tl.py của K-1.17.2), speech = mốc câu lời dựng."""
-import gzip, hashlib, json, re, shutil
+import gzip, hashlib, json, os, re, shutil
 from pathlib import Path
 import yaml
 REPO = Path(__file__).resolve().parents[3]; EP = REPO / 'channel-k2/k2c-t4-02'; AN = EP / 'animatic2'; AN1 = EP / 'animatic'
@@ -32,6 +32,21 @@ def _moc():
     MOC_CITY.setdefault('H2-13-l1-360p', "St Paul's Cathedral, Wren's dome with lantern and cross (completed 1710); City church steeples by Wren; no Gothic spire on St Paul's")
 
 
+def kiem_moc(tag, src):
+    """tầng 2 + lớp công trình mốc (K1177-D4): chép tệp tầng 2 (gpt + q_thoi_dai o2-v2), thay `q_thoi_dai` mỗi khung bằng lần chạy THẬT `q_thoi_dai --lop-moc --moc`
+    (qmoc_v3.sh, cùng vị trí 25/55/90 %), giữ bản o2-v2 ở `q_thoi_dai_o2v2`; kết luận máy tính lại theo nghi vấn lớp mốc. Không gọi mô hình mới."""
+    K = json.loads(src.read_text()); nv = 0
+    for k in K['khung']:
+        q = AN / 'omni/kiem2' / f"qtd-moc-{tag}-k{int(round(k['u'] * 100))}.json"
+        if not q.exists(): continue
+        Q = json.loads(q.read_text()); k['q_thoi_dai_o2v2'] = k.get('q_thoi_dai'); k['q_thoi_dai'] = Q; k['q_thoi_dai_moc_tep'] = str(q.relative_to(AN))
+        nv += sum(len(x.get('nghi_van') or []) for x in Q.get('khung', []))
+    km = dict(K.get('ket_luan_may') or {}); km['q_thoi_dai_nghi_van_moc'] = nv
+    if nv: km['ket_qua'] = 'LOẠI'
+    K['ket_luan_may'] = km; K['gop'] = {'tang2': str(src.relative_to(REPO)), 'lop_moc': 'qmoc_v3.sh (lệnh bổ sung #2 bước 4, K1177-D4)'}
+    ra = AN / 'omni/kiem2' / f'{tag}-kiem-moc.json'; ra.write_text(json.dumps(K, ensure_ascii=False, indent=1)); return f'omni/kiem2/{tag}-kiem-moc.json'
+
+
 def md_doan(r):
     """mục đoạn M-d theo K1177 §4 (muc_kiem, so_luot, kiem_t1, kiem, to_khung, clip, nhan_vat_ten, chan_dung_tham_chieu, duyet_chu_du_an, cong_trinh_moc, chan_troi_city)."""
     if not MOC_CITY: _moc()
@@ -44,13 +59,15 @@ def md_doan(r):
          'muc_kiem': (r.get('muc_kiem') if v3 else 'day_du'), 'kiem_t1': f'{base}/kiem/{tag}-t1.json',
          'kiem': k2 if (EP / ('animatic2' if v3 else 'animatic') / 'omni/kiem2' / f'{tag}-kiem.json').exists() else None,
          'nhan_vat_ten': r.get('nhan_vat_ten') or [], 'cong_trinh_moc': [], 'chan_troi_city': tag in MOC_CITY}
-    if d['muc_kiem'] == 'nen': d['to_khung'] = f'omni/kiem-mat.json#{tag}'
+    if d['muc_kiem'] == 'nen':   # tờ 8 khung soi tay (ảnh thật) + ghi chép soi ở kiem-mat.json
+        d['to_khung'] = f'omni/to-khung/{tag}.jpg' if (AN / 'omni/to-khung' / f'{tag}.jpg').exists() else None; d['to_khung_ghi'] = f'omni/kiem-mat.json#{tag}'
     if tag in MOC_CITY:
         d['cong_trinh_moc'] = [x.strip() for x in MOC_CITY[tag].split(';') if x.strip()]
         d['kiem_moc'] = [f'omni/kiem2/qtd-moc-{tag}-k{u}.json' for u in (25, 55, 90)]
+        if d['kiem']: d['kiem_o2v2'] = d['kiem']; d['kiem'] = kiem_moc(tag, EP / ('animatic2' if v3 else 'animatic') / 'omni/kiem2' / f'{tag}-kiem.json')
     if d['nhan_vat_ten']:
         MC = json.loads((AN / 'omni/lenh/muc-luc.json').read_text()).get(r['ma'], {})
-        refs = [{'tep': p_, 'sha256': hashlib.sha256((REPO / p_).read_bytes()).hexdigest()} for p_ in MC.get('tham_chieu', [])]
+        refs = [{'tep': os.path.relpath(REPO / p_, AN), 'sha256': hashlib.sha256((REPO / p_).read_bytes()).hexdigest()} for p_ in MC.get('tham_chieu', [])]
         d['chan_dung_tham_chieu'] = refs[0] if len(refs) == 1 else (refs or None)
         if not refs: d['chan_dung_tham_chieu_ghi'] = 'không có chân dung xác thực/sạch quyền (NHAN-VAT-ANH.md) — tạo không tham chiếu, khung xa'
         d['duyet_chu_du_an'] = ''
@@ -118,12 +135,17 @@ def main():
     ch_t0 = {}
     for r in B['shot']: ch_t0.setdefault(r['phan'], r['t0'])
     G.CHUONG = G.GH.CHUONG
-    def cau1(r):   # câu lời trùng nhiều nhất với khoảng shot (đúng nguyên văn một câu)
+    def cau1(r):   # câu lời trùng nhiều nhất với khoảng shot (đúng nguyên văn một câu); shot trong quãng lặng → câu kế tiếp ≤ 8 s (câu shot minh hoạ, vd H2-13 → "…taller than the dome.")
         best, bo = None, 0.0
         for c in M['cau']:
             if c['bo']: continue
             ov = min(c['kt'], r['t1']) - max(c['bd'], r['t0'])
             if ov > bo: best, bo = c['khoa'], ov
+        if best is None and r['cu_may'] != 'PP':
+            sau = [c for c in M['cau'] if not c['bo'] and r['t1'] <= c['bd'] <= r['t1'] + 8.0]
+            if sau: best = min(sau, key=lambda c: c['bd'])['khoa']
+        if best:   # câu khoá chứa nhiều câu ngữ pháp ("September 1666. From an alehouse…") → phần dài nhất, nguyên văn
+            best = max(re.split(r'(?<=[.!?])\s+', best), key=len)
         return best
     segs = []; nhip = []
     for r in B['shot']:

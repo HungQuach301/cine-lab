@@ -84,7 +84,7 @@ S = [
  md('H1-07b', 'HỒI 1', 'H1-07', R_, 24, 'M-d (24) THÊM GÓC: khoảng trống 1633 trên cầu London — lửa dừng ở chỗ trống giữa hai dãy nhà trên cầu', kiem='day_du'),
  v2('H1-08b', dur=R_, tg=('h66', 17.2, 22.0), them={'khac': 'ycba-40597-0', 'dung_sua': 'M-d H1-08a (clip v1) trượt lớp CÔNG TRÌNH MỐC q_thoi_dai 1.17.7 (chân trời 1666 thiếu Old St Paul\'s) → 3D P1 cả nhóm'}),
  v2('H1-09'), md('H1-10', 'HỒI 1', 'H1-10', 7.083, 4, 'M-d (4)+(6) Watling Street / Cheapside 3/9', clip='H1-10-l1-360p', chuyen_s=4.167),
- md('H1-12', 'HỒI 1', 'H1-12', 6.4583, 3, 'M-d (3) Thames đêm 3/9: sà lan, đồ trôi, bờ bắc rực lửa', clip='H1-12-l1-360p'),
+ md('H1-12', 'HỒI 1', 'H1-12', 6.4583, 3, 'M-d (3) Thames đêm 3/9: sà lan, đồ trôi, bờ bắc rực lửa', clip='H1-12-l2-360p'),
  v2('H1-11', dur=8.4167, tg=('h66', 38.0, 43.0), them={'the': ['John Evelyn (người viết nhật ký)'], 'the_anh': {'John Evelyn': 'wellcome-b6zd76cd-evelyn-nanteuil'}}),
  md('H1-11b', 'HỒI 1', 'H1-11', R_, 25, "M-d (25) DN06 sân Royal Exchange cháy: hàng tượng vua trong hốc, mái đổ", kiem='day_du'),
  v2('H1-13', ma='H1-13a', dur=7.0, tg=('h66', 66.0, 67.3), vai="lửa leo đồi Ludgate tới Old St Paul's bọc giàn giáo gỗ (3D thấp)", lop={'A': 7.0}, them={'chuyen_s': 0.0, 'khac': None}),
@@ -118,7 +118,7 @@ S = [
  moi('H2-05s', 'HỒI 2', 'H2-05', R_, 'P10', 'TRUOT', ('y', 1670.2, 1671.0, [9, 1, 14.0], 0), '3D TẦM PHỐ (look2d): King Street mới cắt về Guildhall — xe ngựa, người, nhà gạch', {'A': 7.8333},
      {'page': 'look2d', 'tieu_diem_en': [532550, 181400, 20]}),
  v2('H2-06', dur=R_, them={'vong_deg': 26, 'dung_sua': 'M-d H2-06b (DN09 đá Portland) TRƯỢT 3/3 ở ảnh đầu (mái vòm St Paul\'s năm 1675 — lỗi thời đại) → 3D VONG cả nhóm'}),
- md('H2-07', 'HỒI 2', 'H2-07', 7.9167, 13, 'M-d (13) phố gạch 1680 + dấu bảo hiểm cháy', clip='H2-07-l1-360p', the=['Nicholas Barbon']),
+ md('H2-07', 'HỒI 2', 'H2-07', 7.9167, 13, 'M-d (13) phố gạch 1680 + dấu bảo hiểm cháy', clip='H2-07-l2-360p', the=['Nicholas Barbon']),
  v2('H2-08'),
  v2('H2-09', dur=R_, them={'dung_sua': 'M-d H2-09x (DN08 viên đá đầu tiên 1675) TRƯỢT 3/3 (tay/người biến dạng — Flash) → 3D P1 cả nhóm'}),
  v2('H2-10', them={'thap_nghieng_deg': 3, 'dung_sua': 'M-d H2-10b (DN10) TRƯỢT 3/3 ở ảnh đầu (cầu đá chưa có năm 1708, tàu lớn) → 3D cả nhóm'}),
@@ -209,6 +209,8 @@ def main():
         if cu == 'KHOP': r.update(khop_voi=them['khop_voi'], hoa_s=them['hoa_s'], diem_neo=them.get('tieu_diem_en'))
         if cu == 'KEO': r['lo_ra'] = them['lo_ra']
         if cu == 'MD': r.update(md_moc=them['md'], md_ten=MD_MOC[them['md']], nhan_vat_ten=them['nhan_vat_ten'], muc_kiem=them['muc_kiem'], md_clip=them['md_clip'])
+        if cu == 'MD' and them['md_clip']:   # clip v1 giữ phải đúng lượt v1 đã chọn (sự cố 25/10: H1-12, H2-07 lấy nhầm l1 LOẠI)
+            _c = open(os.path.join(REPO, 'channel-k2/k2c-t4-02/animatic/omni/chon', ma + '.txt')).read().strip(); assert them['md_clip'] == _c, (ma, them['md_clip'], _c)
         if cu == 'TL': r.update(tl_anh=them['tl_anh'], lop_tl=list(s['lop'])[0])
         rows.append(r); t += s['dur']
     for r in rows:
