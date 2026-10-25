@@ -6,7 +6,7 @@ import hashlib, json, os, subprocess
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 REPO = Path(__file__).resolve().parents[3]; EP = REPO / 'channel-k2/k2c-t4-02'; RP = REPO / 'reports/animatic-t4-v2'; OUT = Path(os.environ.get('ANIM_OUT', '/var/tmp/anim/out3'))
-A_KBPS, MAXB, PHAN = 128, 4_950_000, 4
+A_KBPS, MAXB, PHAN = 132, 4_950_000, 4   # đặt 132 k để tốc độ âm ĐO trên tệp ≥ 128 kb/s (lượt 1 với 128 k: một phần đo 127,97 k)
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def mm(t): return f'{int(t // 60)}:{t % 60:04.1f}'
 def run(c): subprocess.run(c, check=True)
@@ -18,8 +18,9 @@ def do(p, extra=''):
 def main():
     B = json.loads((EP / 'BANG-SHOT-v3.json').read_text()); T = B['tong']['thoi_luong_s']; hinh, am = OUT / 'hinh.mp4', OUT / 'am-nhap.wav'
     du = OUT / 'k2c-t4-02-animatic-v3-640.mp4'
-    run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-i', str(hinh), '-i', str(am), '-map', '0:v', '-map', '1:a', '-c:v', 'libx264', '-crf', '20', '-preset', 'slow', '-pix_fmt', 'yuv420p',
-         '-c:a', 'aac', '-b:a', '192k', '-t', f'{T:.3f}', '-movflags', '+faststart', str(du)])
+    if not (os.environ.get('XEM_CHI') and du.exists()):   # XEM_CHI=1: giữ animatic đủ đã xuất, chỉ làm lại bản xem
+        run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-i', str(hinh), '-i', str(am), '-map', '0:v', '-map', '1:a', '-c:v', 'libx264', '-crf', '20', '-preset', 'slow', '-pix_fmt', 'yuv420p',
+             '-c:a', 'aac', '-b:a', '192k', '-t', f'{T:.3f}', '-movflags', '+faststart', str(du)])
     I_du, TP_du = do(du)
     xem = RP / 'xem'; xem.mkdir(parents=True, exist_ok=True)
     t0s = [r['t0'] for r in B['shot']]; cuts = [0.0] + [min(t0s, key=lambda x: abs(x - T * k / PHAN)) for k in range(1, PHAN)] + [T]; parts = []
