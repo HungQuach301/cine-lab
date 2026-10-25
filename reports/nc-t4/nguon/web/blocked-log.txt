@@ -1,0 +1,24 @@
+Nhật ký trang không mở được — truy cập 25/10/2026 (curl UA "CineLab-research (+https://github.com/HungQuach301/cine-lab)" và/hoặc WebFetch)
+Không thử vượt chặn (không dùng bản lưu Wayback, không đổi UA giả trình duyệt).
+
+403 (Cloudflare "Just a moment...") — curl:
+  https://www.iwm.org.uk/corporate/policies/licensing            (WebFetch cũng 403)
+  https://www.iwm.org.uk/corporate/policies/terms-of-use
+  https://www.iwm.org.uk/corporate/policies/copyright             (WebFetch cũng 403)
+  https://www.iwm.org.uk/corporate/policies/non-commercial-licence (WebFetch cũng 403)
+  https://www.iwm.org.uk/commercial/film-licensing
+  https://www.iwm.org.uk/commercial/collections-sales-licensing/film/rate-card
+  https://www.iwm.org.uk/collections/item/object/205019543       (mẫu; mọi trang object www.iwm.org.uk coi như bị chặn,
+                                                                   gồm 1060022009 = COI 943 LONDON CAN TAKE IT, 205018772 = HU 36220A)
+403:
+  https://images.nationalarchives.gov.uk/                          (TNA Image Library)
+  https://www.fleetstreetsfinest.com/artist/herbert-mason/         (nguồn tiểu sử Mason do Wikidata dẫn)
+Proxy 502 (CONNECT tunnel failed):
+  https://film.iwm.org.uk/
+Trang chỉ là khung JavaScript (HTTP 200 nhưng không có nội dung; WebFetch xác nhận chỉ có tiêu đề):
+  https://archive.org/about/terms
+Sai địa chỉ (404, đã thay bằng trang đúng):
+  https://www.bfi.org.uk/archive-collections/using-archive/licensing-footage -> dùng /archive-content-sales-licensing/archive-footage-sales
+  https://player.bfi.org.uk/free/film/watch-christmas-under-fire-1941-online (không tìm thấy phim trên BFI Player)
+Kết quả tìm kiếm của IWM Film (film.iwmcollections.org.uk/search/results) render bằng JS -> không đọc được danh sách; không tìm ra record_id của COI 943.
+Wikimedia Commons API: nhiều lần 429 (rate limit), đã chờ và thử lại thành công.
