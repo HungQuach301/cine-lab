@@ -1,0 +1,615 @@
+{
+ "thiet_lap": {
+  "voice": "VDLncRBHDjLHBqLhQ1Qt",
+  "model": "eleven_multilingual_v2",
+  "settings": {
+   "stability": 0.5,
+   "similarity_boost": 0.75,
+   "speed": 1.03
+  },
+  "seed_goc": 19102026,
+  "tu_dien": "khoa-loi/phat-am/london-g1.pls (alias trong chữ gửi)"
+ },
+ "cau": [
+  {
+   "N": "N0a",
+   "nhom": "M00",
+   "khoa": "September 1666. From an alehouse on this bank, a man watches the City burn.",
+   "gui": "September sixteen sixty-six. From an alehouse on this bank, a man watches the City burn.",
+   "tep": "/var/tmp/cine-out/giong-v3/raw/629f21be52e51375.mp3",
+   "sha256": "7685cf71af1c301e2600a68df98ec466f7e848b9c7d8c11349df840a7c76f2e7",
+   "ky_tu": 88,
+   "giay": 7.602,
+   "bd": 0.0,
+   "kt": 7.57,
+   "nghe": {
+    "medium.en": {
+     "asr": "September 1666, from an alehouse on this bank a man watches the city burn.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [
+      1666.0
+     ],
+     "ten": []
+    },
+    "small.en": {
+     "asr": "September 1666. From an ale house on this bank, a man watches the city burn.",
+     "tu_dung": 0.9286,
+     "cho_lech": [
+      [
+       "alehouse",
+       "ale house"
+      ]
+     ],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [
+      1666.0
+     ],
+     "ten": []
+    }
+   },
+   "seed": 19102026,
+   "tep_git": "channel-k2/k2c-t4-02/am-thanh/nguon-v3/N0a-s19102026.mp3"
+  },
+  {
+   "N": "N0b",
+   "nhom": "M00",
+   "khoa": "“A most horrid malicious bloody flame,” he writes, “not like the fine flame of an ordinary fire.”",
+   "gui": "“A most horrid malicious bloody flame,” he writes, “not like the fine flame of an ordinary fire.”",
+   "tep": "/var/tmp/cine-out/giong-v3/raw/52ebfca48db2218c.mp3",
+   "sha256": "1ce3ded3f23d311a4f375611211f8c85cb09d3ccc470a4e4e3024d7f1b4f9103",
+   "ky_tu": 97,
+   "giay": 7.419,
+   "bd": 0.0,
+   "kt": 7.384,
+   "nghe": {
+    "medium.en": {
+     "asr": "A most horrid, malicious, bloody flame, he writes, not like the fine flame of an ordinary fire.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [],
+     "ten": []
+    },
+    "small.en": {
+     "asr": "A most horrid, malicious, bloody flame, he writes. Not like the fine flame of an ordinary fire.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [],
+     "ten": []
+    }
+   },
+   "seed": 19102026,
+   "tep_git": "channel-k2/k2c-t4-02/am-thanh/nguon-v3/N0b-s19102026.mp3"
+  },
+  {
+   "N": "N2",
+   "nhom": "H1-06",
+   "khoa": "That afternoon, the King and his brother James, Duke of York, take to the river in the royal barge, ordering houses pulled down “apace”.",
+   "gui": "That afternoon, the King and his brother James, Duke of York, take to the river in the royal barge, ordering houses pulled down “apace”.",
+   "tep": "/var/tmp/cine-out/giong-v3/raw/e166543c705c38a1.mp3",
+   "sha256": "7c6029fa40cb5256a176831cb199ea994e73f3293f469cc0e979f13c5ed17511",
+   "ky_tu": 136,
+   "giay": 8.594,
+   "bd": 0.0,
+   "kt": 8.545,
+   "nghe": {
+    "medium.en": {
+     "asr": "That afternoon the King and his brother James, Duke of York, take to the river in the Royal Barge, ordering houses pulled down apace.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [],
+     "ten": [
+      "Duke",
+      "James",
+      "York"
+     ]
+    },
+    "small.en": {
+     "asr": "That afternoon, the King and his brother James, Duke of York, take to the river in the royal barge, ordering houses pull down a pace.",
+     "tu_dung": 0.9167,
+     "cho_lech": [
+      [
+       "pulled",
+       "pull"
+      ],
+      [
+       "apace",
+       "a pace"
+      ]
+     ],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [],
+     "ten": [
+      "Duke",
+      "James",
+      "York"
+     ]
+    }
+   },
+   "seed": 19102026,
+   "tep_git": "channel-k2/k2c-t4-02/am-thanh/nguon-v3/N2-s19102026.mp3"
+  },
+  {
+   "N": "N1",
+   "nhom": "H1-13",
+   "khoa": "Six days before the fire, John Evelyn and Christopher Wren had surveyed its decay — and proposed crowning it with a dome.",
+   "gui": "Six days before the fire, John Eevlin and Christopher Wren had surveyed its decay — and proposed crowning it with a dome.",
+   "tep": "/var/tmp/cine-out/giong-v3/raw/71086980ada61a4e.mp3",
+   "sha256": "4d823597f75ae59a2335e6215dd14f38e19006f673d4b74571dc1b923d2869c6",
+   "ky_tu": 121,
+   "giay": 7.549,
+   "bd": 0.0,
+   "kt": 7.523,
+   "nghe": {
+    "medium.en": {
+     "asr": "Six days before the fire, John Evelyn and Christopher Wren had surveyed its decay and proposed crowning it with a dome.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [
+      6.0
+     ],
+     "ten": [
+      "Christopher",
+      "Evelyn",
+      "John",
+      "Wren"
+     ]
+    },
+    "small.en": {
+     "asr": "Six days before the fire, John Evelyn and Christopher Wren had surveyed its decay and proposed crowning it with a dome.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [
+      6.0
+     ],
+     "ten": [
+      "Christopher",
+      "Evelyn",
+      "John",
+      "Wren"
+     ]
+    }
+   },
+   "seed": 19102026,
+   "tep_git": "channel-k2/k2c-t4-02/am-thanh/nguon-v3/N1-s19102026.mp3"
+  },
+  {
+   "N": "N3",
+   "nhom": "H1-15",
+   "khoa": "In the last days of the fire, the King and the Duke work the fire-lines themselves — “even laboring in person,” Evelyn writes.",
+   "gui": "In the last days of the fire, the King and the Duke work the fire-lines themselves — “even laboring in person,” Eevlin writes.",
+   "tep": "/var/tmp/cine-out/giong-v3/raw/faab707f8905eb0a.mp3",
+   "sha256": "f8b1b04dcfc759c298f2c185cb31b1e6bd40cd50103833a86be1855e4abde12b",
+   "ky_tu": 126,
+   "giay": 8.725,
+   "bd": 0.0,
+   "kt": 8.684,
+   "nghe": {
+    "medium.en": {
+     "asr": "In the last days of the fire, the king and the duke worked the fire lines themselves. Even laboring in person, Evelyn writes.",
+     "tu_dung": 0.9091,
+     "cho_lech": [
+      [
+       "work",
+       "worked"
+      ],
+      [
+       "fire-lines",
+       "fire lines"
+      ]
+     ],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [],
+     "ten": [
+      "Duke",
+      "Evelyn"
+     ]
+    },
+    "small.en": {
+     "asr": "In the last days of the fire, the King and the Duke worked the fire lines themselves. Even laboring in person, Evelyn writes.",
+     "tu_dung": 0.9091,
+     "cho_lech": [
+      [
+       "work",
+       "worked"
+      ],
+      [
+       "fire-lines",
+       "fire lines"
+      ]
+     ],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [],
+     "ten": [
+      "Duke",
+      "Evelyn"
+     ]
+    }
+   },
+   "seed": 19102026,
+   "tep_git": "channel-k2/k2c-t4-02/am-thanh/nguon-v3/N3-s19102026.mp3"
+  },
+  {
+   "N": "N9",
+   "nhom": "H2-06",
+   "khoa": "Portland stone is so hard to come by that the column takes six years.",
+   "gui": "Portland stone is so hard to come by that the column takes six years.",
+   "tep": "/var/tmp/cine-out/giong-v3/raw/da0cb5aa5ad3a5bf.mp3",
+   "sha256": "d8b964cb12be32999d107e93351573e8aac5d532786f11daac84d771ef8c0314",
+   "ky_tu": 69,
+   "giay": 4.493,
+   "bd": 0.0,
+   "kt": 4.458,
+   "nghe": {
+    "medium.en": {
+     "asr": "Portland stone is so hard to come by that the column takes six years.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [
+      6.0
+     ],
+     "ten": []
+    },
+    "small.en": {
+     "asr": "Portland stone is so hard to come by that the column takes six years.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [
+      6.0
+     ],
+     "ten": []
+    }
+   },
+   "seed": 19102026,
+   "tep_git": "channel-k2/k2c-t4-02/am-thanh/nguon-v3/N9-s19102026.mp3"
+  },
+  {
+   "N": "N4",
+   "nhom": "H2-10",
+   "khoa": "The last stone of the lantern is set in 1708 — by Wren's son, Christopher.",
+   "gui": "The last stone of the lantern is set in seventeen oh-eight — by Wren's son, Christopher.",
+   "tep": "/var/tmp/cine-out/giong-v3/raw/f91ff587d3f5fdda.mp3",
+   "sha256": "386db36700d98c22cea28c02c8e03ab2422fbf6911f562c2adafd52d3d7f7a29",
+   "ky_tu": 88,
+   "giay": 7.471,
+   "bd": 0.0,
+   "kt": 7.43,
+   "nghe": {
+    "medium.en": {
+     "asr": "The last stone of the lantern is set in 1708 by Wren's son, Christopher.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [
+      1708.0
+     ],
+     "ten": [
+      "Christopher",
+      "Wren"
+     ]
+    },
+    "small.en": {
+     "asr": "The Last Stone of the Lantern is set in 1708 by Wren's son, Christopher.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [
+      1708.0
+     ],
+     "ten": [
+      "Christopher",
+      "Wren"
+     ]
+    }
+   },
+   "seed": 19102026,
+   "tep_git": "channel-k2/k2c-t4-02/am-thanh/nguon-v3/N4-s19102026.mp3"
+  },
+  {
+   "N": "N5",
+   "nhom": "H3-02",
+   "khoa": "On London Bridge, the houses and shops are pulled down from 1758.",
+   "gui": "On London Bridge, the houses and shops are pulled down from seventeen fifty-eight.",
+   "tep": "/var/tmp/cine-out/giong-v3/raw/3a9dc502be117fac.mp3",
+   "sha256": "3a7123b654ca5033af5108b3145775e63f36c02ede7a7631bf29e1cc52793ce7",
+   "ky_tu": 82,
+   "giay": 5.329,
+   "bd": 0.0,
+   "kt": 5.294,
+   "nghe": {
+    "medium.en": {
+     "asr": "On London Bridge, the houses and shops are pulled down from 1758.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [
+      1758.0
+     ],
+     "ten": [
+      "Bridge",
+      "London"
+     ]
+    },
+    "small.en": {
+     "asr": "On London Bridge, the houses and shops are pulled down from 1758.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [
+      1758.0
+     ],
+     "ten": [
+      "Bridge",
+      "London"
+     ]
+    }
+   },
+   "seed": 19102026,
+   "tep_git": "channel-k2/k2c-t4-02/am-thanh/nguon-v3/N5-s19102026.mp3"
+  },
+  {
+   "N": "N6",
+   "nhom": "H3-03",
+   "khoa": "Between 1864 and 1870, Joseph Bazalgette's Victoria Embankment pushes the north bank out into the Thames.",
+   "gui": "Between eighteen sixty-four and eighteen seventy, Joseph Bazalgette's Victoria Embankment pushes the north bank out into the Thames.",
+   "tep": "/var/tmp/cine-out/giong-v3/raw/4c14253440468281.mp3",
+   "sha256": "d67a09aaa9f40f6c6d5d452f4590f2cc8c01a63de0fd2bf70be04278c89492f9",
+   "ky_tu": 132,
+   "giay": 8.673,
+   "bd": 0.0,
+   "kt": 8.638,
+   "nghe": {
+    "medium.en": {
+     "asr": "Between 1864 and 1870, Joseph Bazalgette's Victoria Embankment pushes the North Bank out into the Thames.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [
+      1864.0,
+      1870.0
+     ],
+     "ten": [
+      "Bazalgette",
+      "Embankment",
+      "Joseph",
+      "Thames",
+      "Victoria"
+     ]
+    },
+    "small.en": {
+     "asr": "Between 1864 and 1870, Joseph Basil Getz, Victoria Embankment, pushes the North Bank out into the Thames.",
+     "tu_dung": 0.9375,
+     "cho_lech": [
+      [
+       "bazalgette's",
+       "basil getz"
+      ]
+     ],
+     "so_sai": [],
+     "ten_sai": [
+      "Bazalgette"
+     ],
+     "so": [
+      1864.0,
+      1870.0
+     ],
+     "ten": [
+      "Bazalgette",
+      "Embankment",
+      "Joseph",
+      "Thames",
+      "Victoria"
+     ]
+    }
+   },
+   "seed": 19102026,
+   "tep_git": "channel-k2/k2c-t4-02/am-thanh/nguon-v3/N6-s19102026.mp3"
+  },
+  {
+   "seed": 19102027,
+   "N": "N2",
+   "nhom": "H1-06",
+   "khoa": "That afternoon, the King and his brother James, Duke of York, take to the river in the royal barge, ordering houses pulled down “apace”.",
+   "gui": "That afternoon, the King and his brother James, Duke of York, take to the river in the royal barge, ordering houses pulled down “apace”.",
+   "tep": "/var/tmp/cine-out/giong-v3/raw/7e969657f9c873e5.mp3",
+   "sha256": "2e7b747372240e230bfe9733125b52bb7db6454ac7e1c078c305af30cc63df50",
+   "ky_tu": 136,
+   "giay": 9.038,
+   "bd": 0.0,
+   "kt": 9.009,
+   "nghe": {
+    "medium.en": {
+     "asr": "That afternoon the King and his brother James, Duke of York, take to the river in the Royal Barge, ordering houses pulled down apace.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [],
+     "ten": [
+      "Duke",
+      "James",
+      "York"
+     ]
+    },
+    "small.en": {
+     "asr": "That afternoon, the King and his brother James, Duke of York, take to the river in the Royal Barge, ordering houses pulled down apace.",
+     "tu_dung": 1.0,
+     "cho_lech": [],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [],
+     "ten": [
+      "Duke",
+      "James",
+      "York"
+     ]
+    }
+   },
+   "tep_git": "channel-k2/k2c-t4-02/am-thanh/nguon-v3/N2-s19102027.mp3"
+  },
+  {
+   "seed": 19102027,
+   "N": "N3",
+   "nhom": "H1-15",
+   "khoa": "In the last days of the fire, the King and the Duke work the fire-lines themselves — “even laboring in person,” Evelyn writes.",
+   "gui": "In the last days of the fire, the King and the Duke work the fire-lines themselves — “even laboring in person,” Eevlin writes.",
+   "tep": "/var/tmp/cine-out/giong-v3/raw/cffacea61048c67f.mp3",
+   "sha256": "fda2a6c2f9c3915493beff5d7c76bff235d1764bc4af44d41690f1148a8e880c",
+   "ky_tu": 126,
+   "giay": 10.449,
+   "bd": 0.0,
+   "kt": 10.403,
+   "nghe": {
+    "medium.en": {
+     "asr": "In the last days of the fire, the King and the Duke work the fire lines themselves. Even laboring in person, Evelyn writes.",
+     "tu_dung": 0.9545,
+     "cho_lech": [
+      [
+       "fire-lines",
+       "fire lines"
+      ]
+     ],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [],
+     "ten": [
+      "Duke",
+      "Evelyn"
+     ]
+    },
+    "small.en": {
+     "asr": "In the last days of the fire, the king and the duke work the fire lines themselves. Even laboring in person, Evelyn writes.",
+     "tu_dung": 0.9545,
+     "cho_lech": [
+      [
+       "fire-lines",
+       "fire lines"
+      ]
+     ],
+     "so_sai": [],
+     "ten_sai": [],
+     "so": [],
+     "ten": [
+      "Duke",
+      "Evelyn"
+     ]
+    }
+   },
+   "tep_git": "channel-k2/k2c-t4-02/am-thanh/nguon-v3/N3-s19102027.mp3"
+  },
+  {
+   "seed": 19102027,
+   "N": "N6",
+   "nhom": "H3-03",
+   "khoa": "Between 1864 and 1870, Joseph Bazalgette's Victoria Embankment pushes the north bank out into the Thames.",
+   "gui": "Between eighteen sixty-four and eighteen seventy, Joseph Bazalgette's Victoria Embankment pushes the north bank out into the Thames.",
+   "tep": "/var/tmp/cine-out/giong-v3/raw/f9a2d8c0bfcb96c8.mp3",
+   "sha256": "0b9bc21fbe46fe765bce1d94484f56b868de5f041c0731b154fb76467b7d5c64",
+   "ky_tu": 132,
+   "giay": 9.273,
+   "bd": 0.0,
+   "kt": 9.242,
+   "nghe": {
+    "medium.en": {
+     "asr": "Between 1864 and 1870, Joseph Basil Getz' Victoria Embankment pushes the North Bank out into the Thames.",
+     "tu_dung": 0.9375,
+     "cho_lech": [
+      [
+       "bazalgette's",
+       "basil getz'"
+      ]
+     ],
+     "so_sai": [],
+     "ten_sai": [
+      "Bazalgette"
+     ],
+     "so": [
+      1864.0,
+      1870.0
+     ],
+     "ten": [
+      "Bazalgette",
+      "Embankment",
+      "Joseph",
+      "Thames",
+      "Victoria"
+     ]
+    },
+    "small.en": {
+     "asr": "Between 1864 and 1870, Joseph Basil Getz Victoria Embankment pushes the North Bank out into the Thames.",
+     "tu_dung": 0.9375,
+     "cho_lech": [
+      [
+       "bazalgette's",
+       "basil getz"
+      ]
+     ],
+     "so_sai": [],
+     "ten_sai": [
+      "Bazalgette"
+     ],
+     "so": [
+      1864.0,
+      1870.0
+     ],
+     "ten": [
+      "Bazalgette",
+      "Embankment",
+      "Joseph",
+      "Thames",
+      "Victoria"
+     ]
+    }
+   },
+   "tep_git": "channel-k2/k2c-t4-02/am-thanh/nguon-v3/N6-s19102027.mp3"
+  }
+ ],
+ "bo_dem": [
+  {
+   "luot": "ANIMATIC-T4-V2 lời v3",
+   "gui": 939,
+   "dem_truoc": 159749,
+   "dem_sau": 160162,
+   "tang": 413,
+   "ty_le": 0.44,
+   "tong_gui_phien": 939,
+   "luc": "2026-10-25T02:44:01Z"
+  },
+  {
+   "luot": "ANIMATIC-T4-V2 lời v3 thu lại ['N2', 'N3', 'N6'] seed 19102027",
+   "gui": 394,
+   "dem_truoc": 160162,
+   "dem_sau": 160335,
+   "tang": 173,
+   "ty_le": 0.439,
+   "tong_gui_phien": 1333,
+   "luc": "2026-10-25T02:47:07Z"
+  }
+ ],
+ "tong_gui_phien": 1333
+}
