@@ -310,14 +310,12 @@ segments:
 - id: H1-03
   part: HỒI 1
   chuong: HỒI 1
-  dur: 16.792
+  dur: 15.875
   fadeIn: 0
   fadeOut: 0
   moc_loi:
   - t: 0.2
     s: 'Nineteen years earlier, the '
-  - t: 16.075
-    s: The summer has been dry, and
   shots:
   - at: 0
     type: scene3d
@@ -348,10 +346,10 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 3.126
+  - t: 0.2
+    s: The summer has been dry, and
+  - t: 4.043
     s: By morning, the fire has tak
-  - t: 9.866
-    s: Samuel Pepys hurries to Whit
   shots:
   - at: 0
     type: scene3d
@@ -372,7 +370,9 @@ segments:
   dur: 5.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi: []
+  moc_loi:
+  - t: 0.2
+    s: Samuel Pepys hurries to Whit
   shots:
   - at: 0
     type: minh_hoa
@@ -403,9 +403,7 @@ segments:
   dur: 2.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 1.631
-    s: The King sends him to the Lo
+  moc_loi: []
   shots:
   - at: 0
     type: scene3d
@@ -427,8 +425,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 2.95
-    s: The Lord Mayor, Sir Thomas B
+  - t: 0.548
+    s: The King sends him to the Lo
   shots:
   - at: 0
     type: minh_hoa
@@ -452,13 +450,15 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 3.544
+  - t: 0.2
+    s: The Lord Mayor, Sir Thomas B
+  - t: 4.461
     s: Pepys finds him in Cannon St
-  - t: 9.709
+  - t: 10.626
     s: I am spent.
-  - t: 10.956
+  - t: 11.873
     s: People will not obey me."
-  - t: 13.258
+  - t: 14.175
     s: That afternoon, the King and
   shots:
   - at: 0
@@ -472,7 +472,7 @@ segments:
         k: the_nhan_vat
         s: Sir Thomas Bludworth
         mo_vao_s: 0.3
-    cau: That afternoon, the King and his brother James, Duke of York, take to the river in the royal barge, ordering houses pulled down “apace”.
+    cau: 'Pepys finds him in Cannon Street, a handkerchief round his neck: "Lord, what can I do?'
     noi: thanh_pho_bac
     ai_image: false
   beats:
@@ -488,9 +488,7 @@ segments:
   dur: 4.3333
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 3.616
-    s: London Bridge survives.
+  moc_loi: []
   shots:
   - at: 0
     type: minh_hoa
@@ -514,10 +512,10 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 2.162
+  - t: 0.2
+    s: London Bridge survives.
+  - t: 3.079
     s: A gap left by an earlier fir
-  - t: 8.965
-    s: Instead, the wind drives the
   shots:
   - at: 0
     type: scene3d
@@ -539,8 +537,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 5.284
-    s: That evening, Pepys takes sh
+  - t: 0.424
+    s: Instead, the wind drives the
   shots:
   - at: 0
     type: minh_hoa
@@ -564,12 +562,12 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 6.646
+  - t: 0.201
+    s: That evening, Pepys takes sh
+  - t: 7.563
     s: As it grows dark, he sees "o
-  - t: 12.23
+  - t: 13.147
     s: '"It made me weep to see it."'
-  - t: 17.492
-    s: Monday.
   shots:
   - at: 0
     type: scene3d
@@ -599,9 +597,11 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 0.398
+  - t: 0.2
+    s: Monday.
+  - t: 1.315
     s: The fire spreads up Gracechu
-  - t: 6.91
+  - t: 7.827
     s: 'At two in the afternoon, it '
   shots:
   - at: 0
@@ -624,10 +624,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 3.45
+  - t: 4.367
     s: The roads are jammed with ca
-  - t: 6.366
-    s: The river fills with boats —
   shots:
   - at: 0
     type: minh_hoa
@@ -651,8 +649,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 5.742
-    s: John Evelyn walks the burnin
+  - t: 0.2
+    s: The river fills with boats —
   shots:
   - at: 0
     type: minh_hoa
@@ -676,7 +674,9 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 2.442
+  - t: 0.201
+    s: John Evelyn walks the burnin
+  - t: 3.359
     s: The sky, he writes, is "like
   shots:
   - at: 0
@@ -706,9 +706,7 @@ segments:
   dur: 6.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 5.283
-    s: Tuesday, the fourth.
+  moc_loi: []
   shots:
   - at: 0
     type: minh_hoa
@@ -732,7 +730,9 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 1.419
+  - t: 0.2
+    s: Tuesday, the fourth.
+  - t: 2.336
     s: The fire climbs Ludgate Hill
   shots:
   - at: 0
@@ -755,7 +755,7 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 1.156
+  - t: 2.073
     s: Six days before the fire, Jo
   shots:
   - at: 0
@@ -765,7 +765,7 @@ segments:
       sach: true
       tl: true
       lop_chong:
-      - at: 1.456
+      - at: 2.373
         k: the_nhan_vat
         s: John Evelyn · Christopher Wren
         mo_vao_s: 0.3
@@ -783,7 +783,7 @@ segments:
   - t: 1.0
     k: tu_lieu
     s: 'Hollar: Old St Paul''s from the east'
-  - t: 1.456
+  - t: 2.373
     k: the_nhan_vat
     s: John Evelyn · Christopher Wren
 - id: H1-13c
@@ -793,10 +793,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 2.029
+  - t: 2.946
     s: By evening, the great church
-  - t: 5.492
-    s: John Evelyn watches its lead
   shots:
   - at: 0
     type: scene3d
@@ -818,8 +816,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 5.784
-    s: In the west, the fire crosse
+  - t: 0.201
+    s: John Evelyn watches its lead
   shots:
   - at: 0
     type: minh_hoa
@@ -843,7 +841,9 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 4.543
+  - t: 0.201
+    s: In the west, the fire crosse
+  - t: 5.46
     s: Only now are houses blown up
   shots:
   - at: 0
@@ -866,7 +866,7 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 4.472
+  - t: 5.389
     s: At the Navy Office, Pepys an
   shots:
   - at: 0
@@ -890,9 +890,7 @@ segments:
   dur: 7.5
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 7.228
-    s: In the last days of the fire
+  moc_loi: []
   shots:
   - at: 0
     type: minh_hoa
@@ -916,8 +914,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 10.909
-    s: That night, the wind finally
+  - t: 0.645
+    s: In the last days of the fire
   shots:
   - at: 0
     type: scene3d
@@ -939,10 +937,10 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 3.081
+  - t: 0.201
+    s: That night, the wind finally
+  - t: 3.998
     s: By Thursday, the fire is out
-  - t: 6.534
-    s: Homeless Londoners camp in t
   shots:
   - at: 0
     type: scene3d
@@ -955,7 +953,7 @@ segments:
         k: tu_lieu
         s: 'Luyken: the Great Fire, 1698'
         mo_vao_s: 0.5
-    cau: By Thursday, the fire is out.
+    cau: That night, the wind finally drops.
     noi: bo_nam_bankside
     ai_image: false
   beats:
@@ -971,7 +969,9 @@ segments:
   dur: 6.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi: []
+  moc_loi:
+  - t: 0.201
+    s: Homeless Londoners camp in t
   shots:
   - at: 0
     type: minh_hoa
@@ -994,9 +994,7 @@ segments:
   dur: 6.2917
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 5.575
-    s: 'About thirteen thousand two '
+  moc_loi: []
   shots:
   - at: 0
     type: minh_hoa
@@ -1004,11 +1002,6 @@ segments:
     p:
       sach: true
       tl: false
-      lop_chong:
-      - at: 5.775
-        k: bo_dem
-        s: 13,200 houses
-        mo_vao_s: 0.3
     cau: Homeless Londoners camp in the fields outside the walls — Moorfields, St George's Fields, as far as Highgate — "some under tents, some under miserable huts and hovels."
     noi: minh_hoa
     kiem: ../animatic/omni/kiem2/H1-17b-l1-360p-kiem.json
@@ -1018,9 +1011,6 @@ segments:
   - t: 0.0
     k: cut
     s: H1-17b
-  - t: 5.775
-    k: bo_dem
-    s: 13,200 houses
 - id: H1-18a
   part: HỒI 1
   chuong: HỒI 1
@@ -1028,12 +1018,12 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 2.209
+  - t: 0.2
+    s: 'About thirteen thousand two '
+  - t: 3.126
     s: Eighty-seven parish churches
-  - t: 4.113
+  - t: 5.03
     s: St Paul's.
-  - t: 5.599
-    s: Roughly four-fifths of the C
   shots:
   - at: 0
     type: scene3d
@@ -1042,7 +1032,11 @@ segments:
       sach: true
       tl: true
       lop_chong:
-      - at: 2.309
+      - at: 0.4
+        k: bo_dem
+        s: 13,200 houses
+        mo_vao_s: 0.3
+      - at: 3.226
         k: bo_dem
         s: 87 churches
         mo_vao_s: 0.3
@@ -1053,7 +1047,10 @@ segments:
   - t: 0.0
     k: cut
     s: H1-18a
-  - t: 2.309
+  - t: 0.4
+    k: bo_dem
+    s: 13,200 houses
+  - t: 3.226
     k: bo_dem
     s: 87 churches
 - id: H1-18t
@@ -1063,8 +1060,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 4.626
-    s: Fewer than ten deaths were r
+  - t: 0.516
+    s: Roughly four-fifths of the C
   shots:
   - at: 0
     type: tu_lieu
@@ -1098,10 +1095,10 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 2.343
+  - t: 0.543
+    s: Fewer than ten deaths were r
+  - t: 3.26
     s: The real toll is unknown.
-  - t: 4.575
-    s: The ashes are still warm whe
   shots:
   - at: 0
     type: scene3d
@@ -1109,7 +1106,7 @@ segments:
     p:
       sach: true
       tl: true
-    cau: The real toll is unknown.
+    cau: Fewer than ten deaths were recorded.
     noi: thien_dinh
     ai_image: false
   beats:
@@ -1122,7 +1119,9 @@ segments:
   dur: 3.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi: []
+  moc_loi:
+  - t: 0.201
+    s: The ashes are still warm whe
   shots:
   - at: 0
     type: scene3d
@@ -1157,7 +1156,7 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 0.22
+  - t: 1.137
     s: When Evelyn walks through th
   shots:
   - at: 0
@@ -1181,9 +1180,7 @@ segments:
   dur: 5.1667
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 4.451
-    s: Within days, Christopher Wre
+  moc_loi: []
   shots:
   - at: 0
     type: minh_hoa
@@ -1207,14 +1204,14 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 8.073
+  - t: 0.201
+    s: Within days, Christopher Wre
+  - t: 8.99
     s: John Evelyn draws another.
-  - t: 10.128
+  - t: 11.045
     s: Robert Hooke, a third.
-  - t: 12.345
+  - t: 13.262
     s: None of them is built.
-  - t: 13.909
-    s: Every plot in the burnt City
   shots:
   - at: 0
     type: scene3d
@@ -1265,9 +1262,11 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 8.386
+  - t: 0.201
+    s: Every plot in the burnt City
+  - t: 9.303
     s: So Parliament moves faster.
-  - t: 11.091
+  - t: 12.008
     s: From late February 1667, a s
   shots:
   - at: 0
@@ -1276,7 +1275,7 @@ segments:
     p:
       sach: true
       tl: true
-    cau: From late February 1667, a special Fire Court sits at Clifford's Inn, settling disputes between landlords and tenants.
+    cau: Every plot in the burnt City has its owners — and the people who have lost their homes cannot afford to wait years for it all to be redrawn.
     noi: thanh_pho_bac
     ai_image: false
   beats:
@@ -1290,10 +1289,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 0.56
+  - t: 1.477
     s: In its first year, it decide
-  - t: 5.283
-    s: A Rebuilding Act sets the ru
   shots:
   - at: 0
     type: minh_hoa
@@ -1316,7 +1313,9 @@ segments:
   dur: 2.5
   fadeIn: 0
   fadeOut: 0
-  moc_loi: []
+  moc_loi:
+  - t: 0.2
+    s: A Rebuilding Act sets the ru
   shots:
   - at: 0
     type: scene3d
@@ -1359,10 +1358,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 0.295
+  - t: 1.212
     s: 'And a new duty on coal pays '
-  - t: 4.992
-    s: The old street plan stays.
   shots:
   - at: 0
     type: minh_hoa
@@ -1386,12 +1383,12 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 2.245
+  - t: 0.201
+    s: The old street plan stays.
+  - t: 3.162
     s: Two new streets — King Stree
-  - t: 7.841
+  - t: 8.758
     s: Rebuilding gets going in 166
-  - t: 10.766
-    s: By the end of 1670, about si
   shots:
   - at: 0
     type: scene3d
@@ -1413,8 +1410,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 7.117
-    s: Near the bakery, Wren and Ho
+  - t: 0.683
+    s: By the end of 1670, about si
   shots:
   - at: 0
     type: scene3d
@@ -1436,12 +1433,12 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 4.299
+  - t: 0.201
+    s: Near the bakery, Wren and Ho
+  - t: 5.216
     s: Two hundred and two feet hig
-  - t: 11.303
+  - t: 12.22
     s: Portland stone is so hard to
-  - t: 16.576
-    s: Fire insurance begins here t
   shots:
   - at: 0
     type: scene3d
@@ -1450,7 +1447,7 @@ segments:
       sach: true
       tl: true
       lop_chong:
-      - at: 4.499
+      - at: 5.416
         k: bo_dem
         s: 202 ft
         mo_vao_s: 0.3
@@ -1468,7 +1465,7 @@ segments:
   - t: 1.5
     k: tu_lieu
     s: The Monument, engraving
-  - t: 4.499
+  - t: 5.416
     k: bo_dem
     s: 202 ft
 - id: H2-07
@@ -1478,10 +1475,10 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 2.5
+  - t: 0.201
+    s: Fire insurance begins here t
+  - t: 3.417
     s: In 1680, Nicholas Barbon ope
-  - t: 7.2
-    s: Wren's office rebuilds fifty
   shots:
   - at: 0
     type: minh_hoa
@@ -1490,7 +1487,7 @@ segments:
       sach: true
       tl: false
       lop_chong:
-      - at: 2.8
+      - at: 3.717
         k: the_nhan_vat
         s: Nicholas Barbon
         mo_vao_s: 0.3
@@ -1503,7 +1500,7 @@ segments:
   - t: 0.0
     k: cut
     s: H2-07
-  - t: 2.8
+  - t: 3.717
     k: the_nhan_vat
     s: Nicholas Barbon
 - id: H2-08
@@ -1513,8 +1510,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 4.992
-    s: And on Ludgate Hill, where O
+  - t: 0.2
+    s: Wren's office rebuilds fifty
   shots:
   - at: 0
     type: scene3d
@@ -1536,8 +1533,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 9.284
-    s: The last stone of the lanter
+  - t: 0.201
+    s: And on Ludgate Hill, where O
   shots:
   - at: 0
     type: scene3d
@@ -1559,7 +1556,9 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 7.564
+  - t: 0.201
+    s: The last stone of the lanter
+  - t: 8.481
     s: In 1711, Parliament declares
   shots:
   - at: 0
@@ -1569,7 +1568,7 @@ segments:
       sach: true
       tl: true
       lop_chong:
-      - at: 10.564
+      - at: 11.481
         k: bo_dem
         s: 365 ft
         mo_vao_s: 0.3
@@ -1580,7 +1579,7 @@ segments:
   - t: 0.0
     k: cut
     s: H2-10
-  - t: 10.564
+  - t: 11.481
     k: bo_dem
     s: 365 ft
 - id: H2-11
@@ -1662,9 +1661,7 @@ segments:
   dur: 6.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 5.283
-    s: For more than two and a half
+  moc_loi: []
   shots:
   - at: 0
     type: scene3d
@@ -1672,7 +1669,7 @@ segments:
     p:
       sach: true
       tl: true
-    cau: For more than two and a half centuries, nothing in London stands taller than the dome.
+    cau: ''
     noi: thanh_pho_bac
     ai_image: false
   beats:
@@ -1682,12 +1679,12 @@ segments:
 - id: H3-01
   part: HỒI 3
   chuong: HỒI 3
-  dur: 6.167
+  dur: 3.0
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 5.45
-    s: On London Bridge, the houses
+  - t: 0.2
+    s: For more than two and a half
   shots:
   - at: 0
     type: scene3d
@@ -1715,6 +1712,40 @@ segments:
   - t: 0.5
     k: the_chuong
     s: 1711 — The dome rules the skyline
+- id: H3-01t
+  part: HỒI 3
+  chuong: HỒI 3
+  dur: 3.1667
+  fadeIn: 0
+  fadeOut: 0
+  moc_loi: []
+  shots:
+  - at: 0
+    type: tu_lieu
+    tpl: plate
+    p:
+      sach: true
+      tl: false
+      tu_lieu:
+        anh: rijks-200323435-theems-stpauls-1892
+        lop: THAT
+        chu: St Paul's from the Thames, 1892
+      lop_chong:
+      - at: 0.0
+        k: tu_lieu
+        s: St Paul's from the Thames, 1892
+        mo_vao_s: 0.5
+      that: true
+    cau: For more than two and a half centuries, nothing in London stands taller than the dome.
+    noi: tu_lieu
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H3-01t
+  - t: 0.0
+    k: tu_lieu
+    s: St Paul's from the Thames, 1892
 - id: H3-02
   part: HỒI 3
   chuong: HỒI 3
@@ -1722,7 +1753,9 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 5.427
+  - t: 0.201
+    s: On London Bridge, the houses
+  - t: 6.345
     s: By 1831, a new bridge has re
   shots:
   - at: 0
@@ -1744,9 +1777,7 @@ segments:
   dur: 4.5
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 3.784
-    s: Wren's steeples ring the dom
+  moc_loi: []
   shots:
   - at: 0
     type: tu_lieu
@@ -1781,9 +1812,11 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 2.14
+  - t: 0.201
+    s: Wren's steeples ring the dom
+  - t: 3.057
     s: Even the river moves.
-  - t: 4.291
+  - t: 5.208
     s: Between 1864 and 1870, Josep
   shots:
   - at: 0
@@ -1793,7 +1826,7 @@ segments:
       sach: true
       tl: true
       lop_chong:
-      - at: 4.591
+      - at: 5.508
         k: the_nhan_vat
         s: Joseph Bazalgette
         mo_vao_s: 0.3
@@ -1808,21 +1841,19 @@ segments:
   - t: 0.0
     k: cut
     s: H3-03
-  - t: 4.591
-    k: the_nhan_vat
-    s: Joseph Bazalgette
   - t: 5.5
     k: tu_lieu
     s: Embankment works, 1865 drawing
+  - t: 5.508
+    k: the_nhan_vat
+    s: Joseph Bazalgette
 - id: H3-03t
   part: HỒI 3
   chuong: HỒI 3
   dur: 5.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 4.283
-    s: 'In the 1930s, taller office '
+  moc_loi: []
   shots:
   - at: 0
     type: tu_lieu
@@ -1856,7 +1887,9 @@ segments:
   dur: 5.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi: []
+  moc_loi:
+  - t: 0.201
+    s: 'In the 1930s, taller office '
   shots:
   - at: 0
     type: scene3d
@@ -1878,10 +1911,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 1.62
+  - t: 2.538
     s: But the lanes underneath har
-  - t: 5.241
-    s: In 1937, the cathedral's sur
   shots:
   - at: 0
     type: minh_hoa
@@ -1904,7 +1935,9 @@ segments:
   dur: 6.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi: []
+  moc_loi:
+  - t: 0.2
+    s: In 1937, the cathedral's sur
   shots:
   - at: 0
     type: minh_hoa
@@ -1928,9 +1961,9 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 6.6
+  - t: 7.517
     s: 'From 1938, the City applies '
-  - t: 9.665
+  - t: 10.582
     s: It is called the St Paul's H
   shots:
   - at: 0
@@ -1960,9 +1993,7 @@ segments:
   dur: 8.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 7.284
-    s: 'Sunday, the twenty-ninth of '
+  moc_loi: []
   shots:
   - at: 0
     type: scene3d
@@ -1970,7 +2001,7 @@ segments:
     p:
       sach: true
       tl: true
-    cau: Sunday, the twenty-ninth of December, 1940.
+    cau: ''
     noi: bo_nam_bankside
     ai_image: false
   beats:
@@ -1984,7 +2015,9 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 3.754
+  - t: 0.201
+    s: 'Sunday, the twenty-ninth of '
+  - t: 4.671
     s: 'In 1666, the fire took four '
   shots:
   - at: 0
@@ -2020,10 +2053,8 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 1.632
+  - t: 2.549
     s: This time, the worst of it c
-  - t: 5.284
-    s: As dusk falls, German bomber
   shots:
   - at: 0
     type: minh_hoa
@@ -2047,9 +2078,11 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 6.749
+  - t: 0.201
+    s: As dusk falls, German bomber
+  - t: 7.666
     s: Around fifteen hundred fires
-  - t: 9.867
+  - t: 10.784
     s: It is a Sunday.
   shots:
   - at: 0
@@ -2059,7 +2092,7 @@ segments:
       sach: true
       tl: true
       lop_chong:
-      - at: 2.284
+      - at: 3.201
         k: bo_dem
         s: 100,000 incendiaries
         mo_vao_s: 0.3
@@ -2070,7 +2103,7 @@ segments:
   - t: 0.0
     k: cut
     s: H4-02
-  - t: 2.284
+  - t: 3.201
     k: bo_dem
     s: 100,000 incendiaries
 - id: H4-03
@@ -2080,12 +2113,10 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 0.606
+  - t: 1.523
     s: 'Many offices are locked and '
-  - t: 3.404
+  - t: 4.321
     s: 'The water mains are broken, '
-  - t: 7.284
-    s: Next to St Paul's, the books
   shots:
   - at: 0
     type: minh_hoa
@@ -2108,7 +2139,9 @@ segments:
   dur: 7.5
   fadeIn: 0
   fadeOut: 0
-  moc_loi: []
+  moc_loi:
+  - t: 0.201
+    s: Next to St Paul's, the books
   shots:
   - at: 0
     type: scene3d
@@ -2130,7 +2163,7 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 1.141
+  - t: 2.058
     s: Fire crews and volunteers of
   shots:
   - at: 0
@@ -2155,7 +2188,7 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 1.619
+  - t: 2.536
     s: Across the City, the Guildha
   shots:
   - at: 0
@@ -2177,9 +2210,7 @@ segments:
   dur: 5.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 4.284
-    s: By morning, the dome is stil
+  moc_loi: []
   shots:
   - at: 0
     type: minh_hoa
@@ -2203,7 +2234,30 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 3.825
+  - t: 0.201
+    s: By morning, the dome is stil
+  shots:
+  - at: 0
+    type: scene3d
+    tpl: plate
+    p:
+      sach: true
+      tl: true
+    cau: By morning, the dome is still standing, in a ring of ruins.
+    noi: bo_nam_bankside
+    ai_image: false
+  beats:
+  - t: 0.0
+    k: cut
+    s: H4-05
+- id: H4-06
+  part: HỒI 4
+  chuong: HỒI 4
+  dur: 5.2083
+  fadeIn: 0
+  fadeOut: 0
+  moc_loi:
+  - t: 0.2
     s: About a hundred and sixty pe
   shots:
   - at: 0
@@ -2213,34 +2267,10 @@ segments:
       sach: true
       tl: true
       lop_chong:
-      - at: 4.025
+      - at: 0.4
         k: bo_dem
         s: 160 killed
         mo_vao_s: 0.3
-    cau: By morning, the dome is still standing, in a ring of ruins.
-    noi: bo_nam_bankside
-    ai_image: false
-  beats:
-  - t: 0.0
-    k: cut
-    s: H4-05
-  - t: 4.025
-    k: bo_dem
-    s: 160 killed
-- id: H4-06
-  part: HỒI 4
-  chuong: HỒI 4
-  dur: 5.2083
-  fadeIn: 0
-  fadeOut: 0
-  moc_loi: []
-  shots:
-  - at: 0
-    type: scene3d
-    tpl: plate
-    p:
-      sach: true
-      tl: true
     cau: About a hundred and sixty people are killed that night — at least twelve of them firefighters.
     noi: bo_nam_bankside
     ai_image: false
@@ -2248,15 +2278,16 @@ segments:
   - t: 0.0
     k: cut
     s: H4-06
+  - t: 0.4
+    k: bo_dem
+    s: 160 killed
 - id: H4-06t
   part: HỒI 4
   chuong: HỒI 4
   dur: 5.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 4.283
-    s: For the second time in three
+  moc_loi: []
   shots:
   - at: 0
     type: tu_lieu
@@ -2274,7 +2305,7 @@ segments:
         s: St Paul's, January 1942
         mo_vao_s: 0.5
       that: true
-    cau: For the second time in three centuries, a great stretch of the City lies in ruins.
+    cau: About a hundred and sixty people are killed that night — at least twelve of them firefighters.
     noi: tu_lieu
     ai_image: false
   beats:
@@ -2290,7 +2321,9 @@ segments:
   dur: 5.458
   fadeIn: 0
   fadeOut: 0
-  moc_loi: []
+  moc_loi:
+  - t: 0.201
+    s: For the second time in three
   shots:
   - at: 0
     type: scene3d
@@ -2311,9 +2344,7 @@ segments:
   dur: 10.5
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 9.783
-    s: And for the second time, the
+  moc_loi: []
   shots:
   - at: 0
     type: scene3d
@@ -2321,7 +2352,7 @@ segments:
     p:
       sach: true
       tl: true
-    cau: And for the second time, the planners arrive with a clean sheet.
+    cau: ''
     noi: cau_london
     ai_image: false
   beats:
@@ -2335,10 +2366,10 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 4.066
+  - t: 0.201
+    s: And for the second time, the
+  - t: 4.984
     s: In 1946 and 1947, Charles Ho
-  - t: 11.825
-    s: Where the bombs hit hardest,
   shots:
   - at: 0
     type: scene3d
@@ -2386,7 +2417,9 @@ segments:
   dur: 7.875
   fadeIn: 0
   fadeOut: 0
-  moc_loi: []
+  moc_loi:
+  - t: 0.201
+    s: Where the bombs hit hardest,
   shots:
   - at: 0
     type: scene3d
@@ -2407,9 +2440,7 @@ segments:
   dur: 7.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 6.283
-    s: Everywhere else, it keeps mo
+  moc_loi: []
   shots:
   - at: 0
     type: scene3d
@@ -2431,10 +2462,10 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 3.254
+  - t: 0.201
+    s: Everywhere else, it keeps mo
+  - t: 4.172
     s: The lanes come back.
-  - t: 5.741
-    s: Slowly, the gaps fill again.
   shots:
   - at: 0
     type: scene3d
@@ -2456,10 +2487,10 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 2.72
+  - t: 0.201
+    s: Slowly, the gaps fill again.
+  - t: 3.638
     s: And in this century, a clust
-  - t: 9.7
-    s: So when the towers arrive, t
   shots:
   - at: 0
     type: scene3d
@@ -2480,7 +2511,9 @@ segments:
   dur: 6.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi: []
+  moc_loi:
+  - t: 0.201
+    s: So when the towers arrive, t
   shots:
   - at: 0
     type: scene3d
@@ -2502,7 +2535,7 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 0.737
+  - t: 1.655
     s: 'The St Paul''s Heights still '
   shots:
   - at: 0
@@ -2525,7 +2558,7 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 0.163
+  - t: 1.081
     s: The Leadenhall Building tape
   shots:
   - at: 0
@@ -2547,9 +2580,7 @@ segments:
   dur: 6.0
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 5.283
-    s: From Bankside tonight, you c
+  moc_loi: []
   shots:
   - at: 0
     type: scene3d
@@ -2557,7 +2588,7 @@ segments:
     p:
       sach: true
       tl: true
-    cau: From Bankside tonight, you can stand roughly where Pepys stood, and look across at the same streets.
+    cau: ''
     noi: thanh_pho_dong
     ai_image: false
   beats:
@@ -2571,35 +2602,22 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 5.53
-    s: London burned twice.
+  - t: 0.201
+    s: From Bankside tonight, you c
   shots:
   - at: 0
-    type: tu_lieu
+    type: scene3d
     tpl: plate
     p:
       sach: true
-      tl: false
-      tu_lieu:
-        anh: footage-h5-07a
-        lop: THAT
-        chu: Bankside at night, 2026 (footage)
-      lop_chong:
-      - at: 0.0
-        k: tu_lieu
-        s: Bankside at night, 2026 (footage)
-        mo_vao_s: 0.5
-      that: true
+      tl: true
     cau: From Bankside tonight, you can stand roughly where Pepys stood, and look across at the same streets.
-    noi: tu_lieu
+    noi: bo_nam_bankside
     ai_image: false
   beats:
   - t: 0.0
     k: cut
     s: H5-07a
-  - t: 0.0
-    k: tu_lieu
-    s: Bankside at night, 2026 (footage)
 - id: H5-07b
   part: HỒI 5
   chuong: HỒI 5
@@ -2607,11 +2625,13 @@ segments:
   fadeIn: 0
   fadeOut: 0
   moc_loi:
-  - t: 1.991
+  - t: 0.448
+    s: London burned twice.
+  - t: 2.909
     s: Twice, it could have started
-  - t: 4.208
+  - t: 5.126
     s: Twice, it kept its old stree
-  - t: 7.251
+  - t: 8.169
     s: And the skyline it built sti
   shots:
   - at: 0

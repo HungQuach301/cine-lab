@@ -448,14 +448,14 @@
  {
   "ma": "H1-03",
   "t0": 88.7497,
-  "t1": 105.5417,
-  "dur": 16.792,
+  "t1": 104.6247,
+  "dur": 15.875,
   "chuong": "HỒI 1",
   "goc": "cao",
   "tl": true,
   "cu_may": "TRUOT",
   "lop": {
-   "A": 16.792,
+   "A": 15.875,
    "KHAC": 6
   },
   "ai_nen": false,
@@ -483,10 +483,6 @@
    {
     "t": 0.2,
     "cau": "Nineteen years earlier, the engraver Wenceslaus Hollar had published a long view of this skyline, drawn from St Saviour's church, just along the bank: a forest of church towers, and above them all, the long roof of Old St Paul's."
-   },
-   {
-    "t": 16.075,
-    "cau": "The summer has been dry, and a fierce east wind is blowing."
    }
   ],
   "log_may": "log-may/H1-03.json",
@@ -503,8 +499,8 @@
  },
  {
   "ma": "H1-04",
-  "t0": 105.5417,
-  "t1": 116.125,
+  "t0": 104.6247,
+  "t1": 115.208,
   "dur": 10.5833,
   "chuong": "HỒI 1",
   "goc": "cao",
@@ -530,12 +526,12 @@
   ],
   "cau": [
    {
-    "t": 3.126,
-    "cau": "By morning, the fire has taken the church of St Magnus and most of Fish Street, at the foot of London Bridge."
+    "t": 0.2,
+    "cau": "The summer has been dry, and a fierce east wind is blowing."
    },
    {
-    "t": 9.866,
-    "cau": "Samuel Pepys hurries to Whitehall and tells the King that unless houses are pulled down, nothing can stop the fire."
+    "t": 4.043,
+    "cau": "By morning, the fire has taken the church of St Magnus and most of Fish Street, at the foot of London Bridge."
    }
   ],
   "log_may": "log-may/H1-04.json",
@@ -545,8 +541,8 @@
  },
  {
   "ma": "H1-05a",
-  "t0": 116.125,
-  "t1": 121.125,
+  "t0": 115.208,
+  "t1": 120.208,
   "dur": 5.0,
   "chuong": "HỒI 1",
   "goc": "md",
@@ -602,7 +598,12 @@
   "diem_may": "—",
   "shot": "H1-05a",
   "thoi_gian": null,
-  "cau": [],
+  "cau": [
+   {
+    "t": 0.2,
+    "cau": "Samuel Pepys hurries to Whitehall and tells the King that unless houses are pulled down, nothing can stop the fire."
+   }
+  ],
   "md_moc": 21,
   "ai_image": true,
   "kiem": "omni/kiem2/H1-05a-l2-360p-kiem.json",
@@ -616,8 +617,8 @@
  },
  {
   "ma": "H1-05h",
-  "t0": 121.125,
-  "t1": 123.125,
+  "t0": 120.208,
+  "t1": 122.208,
   "dur": 2.0,
   "chuong": "HỒI 1",
   "goc": "cao",
@@ -641,12 +642,7 @@
    9.4,
    9.6
   ],
-  "cau": [
-   {
-    "t": 1.631,
-    "cau": "The King sends him to the Lord Mayor with that order."
-   }
-  ],
+  "cau": [],
   "log_may": "log-may/H1-05h.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
@@ -654,8 +650,8 @@
  },
  {
   "ma": "H1-05b",
-  "t0": 123.125,
-  "t1": 126.7917,
+  "t0": 122.208,
+  "t1": 125.8747,
   "dur": 3.6667,
   "chuong": "HỒI 1",
   "goc": "md",
@@ -689,8 +685,8 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 2.95,
-    "cau": "The Lord Mayor, Sir Thomas Bludworth, is overwhelmed."
+    "t": 0.548,
+    "cau": "The King sends him to the Lord Mayor with that order."
    }
   ],
   "md_moc": 2,
@@ -703,8 +699,8 @@
  },
  {
   "ma": "H1-06",
-  "t0": 126.7917,
-  "t1": 146.2917,
+  "t0": 125.8747,
+  "t1": 145.3747,
   "dur": 19.5,
   "chuong": "HỒI 1",
   "goc": "cao",
@@ -731,30 +727,35 @@
   ],
   "cau": [
    {
-    "t": 3.544,
+    "t": 0.2,
+    "cau": "The Lord Mayor, Sir Thomas Bludworth, is overwhelmed."
+   },
+   {
+    "t": 4.461,
     "cau": "Pepys finds him in Cannon Street, a handkerchief round his neck: \"Lord, what can I do?"
    },
    {
-    "t": 9.709,
+    "t": 10.626,
     "cau": "I am spent."
    },
    {
-    "t": 10.956,
+    "t": 11.873,
     "cau": "People will not obey me.\""
    },
    {
-    "t": 13.258,
+    "t": 14.175,
     "cau": "That afternoon, the King and his brother James, Duke of York, take to the river in the royal barge, ordering houses pulled down “apace”."
    }
   ],
+  "log_may": "log-may/H1-06.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P5"
  },
  {
   "ma": "H1-06b",
-  "t0": 146.2917,
-  "t1": 150.625,
+  "t0": 145.3747,
+  "t1": 149.708,
   "dur": 4.3333,
   "chuong": "HỒI 1",
   "goc": "md",
@@ -787,12 +788,7 @@
   "diem_may": "—",
   "shot": "H1-06b",
   "thoi_gian": null,
-  "cau": [
-   {
-    "t": 3.616,
-    "cau": "London Bridge survives."
-   }
-  ],
+  "cau": [],
   "md_moc": 23,
   "ai_image": true,
   "kiem": null,
@@ -803,8 +799,8 @@
  },
  {
   "ma": "H1-07",
-  "t0": 150.625,
-  "t1": 160.0833,
+  "t0": 149.708,
+  "t1": 159.1663,
   "dur": 9.4583,
   "chuong": "HỒI 1",
   "goc": "cao",
@@ -830,22 +826,23 @@
   ],
   "cau": [
    {
-    "t": 2.162,
-    "cau": "A gap left by an earlier fire, in 1633, stops the flames from crossing to Southwark."
+    "t": 0.2,
+    "cau": "London Bridge survives."
    },
    {
-    "t": 8.965,
-    "cau": "Instead, the wind drives the fire west, along the waterfront, and up the hill."
+    "t": 3.079,
+    "cau": "A gap left by an earlier fire, in 1633, stops the flames from crossing to Southwark."
    }
   ],
+  "log_may": "log-may/H1-07.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P2"
  },
  {
   "ma": "H1-07b",
-  "t0": 160.0833,
-  "t1": 166.0833,
+  "t0": 159.1663,
+  "t1": 165.1663,
   "dur": 6.0,
   "chuong": "HỒI 1",
   "goc": "md",
@@ -889,8 +886,8 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 5.284,
-    "cau": "That evening, Pepys takes shelter in \"a little ale-house on the Bankside\" — about where we are standing."
+    "t": 0.424,
+    "cau": "Instead, the wind drives the fire west, along the waterfront, and up the hill."
    }
   ],
   "md_moc": 24,
@@ -903,8 +900,8 @@
  },
  {
   "ma": "H1-08b",
-  "t0": 166.0833,
-  "t1": 184.2916,
+  "t0": 165.1663,
+  "t1": 183.3746,
   "dur": 18.2083,
   "chuong": "HỒI 1",
   "goc": "cao",
@@ -930,22 +927,23 @@
   ],
   "cau": [
    {
-    "t": 6.646,
+    "t": 0.201,
+    "cau": "That evening, Pepys takes shelter in \"a little ale-house on the Bankside\" — about where we are standing."
+   },
+   {
+    "t": 7.563,
     "cau": "As it grows dark, he sees \"one entire arch of fire\" — more than a mile long."
    },
    {
-    "t": 12.23,
+    "t": 13.147,
     "cau": "\"It made me weep to see it.\""
-   },
-   {
-    "t": 17.492,
-    "cau": "Monday."
    }
   ],
+  "log_may": "log-may/H1-08b.json",
   "tu_lieu_lan": [
    {
-    "t0": 170.083,
-    "t1": 175.083,
+    "t0": 169.166,
+    "t1": 174.166,
     "lop": "KHAC"
    }
   ],
@@ -955,8 +953,8 @@
  },
  {
   "ma": "H1-09",
-  "t0": 184.2916,
-  "t1": 193.2916,
+  "t0": 183.3746,
+  "t1": 192.3746,
   "dur": 9.0,
   "chuong": "HỒI 1",
   "goc": "cao",
@@ -983,22 +981,27 @@
   ],
   "cau": [
    {
-    "t": 0.398,
+    "t": 0.2,
+    "cau": "Monday."
+   },
+   {
+    "t": 1.315,
     "cau": "The fire spreads up Gracechurch Street to Lombard Street, and west to Cannon Street."
    },
    {
-    "t": 6.91,
+    "t": 7.827,
     "cau": "At two in the afternoon, it takes the Royal Exchange — the City's trading floor."
    }
   ],
+  "log_may": "log-may/H1-09.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P7"
  },
  {
   "ma": "H1-10",
-  "t0": 193.2916,
-  "t1": 200.3746,
+  "t0": 192.3746,
+  "t1": 199.4576,
   "dur": 7.083,
   "chuong": "HỒI 1",
   "goc": "md",
@@ -1032,12 +1035,8 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 3.45,
+    "t": 4.367,
     "cau": "The roads are jammed with carts."
-   },
-   {
-    "t": 6.366,
-    "cau": "The river fills with boats — and with goods floating on the water."
    }
   ],
   "md_moc": 4,
@@ -1050,8 +1049,8 @@
  },
  {
   "ma": "H1-12",
-  "t0": 200.3746,
-  "t1": 206.8329,
+  "t0": 199.4576,
+  "t1": 205.9159,
   "dur": 6.4583,
   "chuong": "HỒI 1",
   "goc": "md",
@@ -1095,8 +1094,8 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 5.742,
-    "cau": "John Evelyn walks the burning streets that night."
+    "t": 0.2,
+    "cau": "The river fills with boats — and with goods floating on the water."
    }
   ],
   "md_moc": 3,
@@ -1109,8 +1108,8 @@
  },
  {
   "ma": "H1-11",
-  "t0": 206.8329,
-  "t1": 215.2496,
+  "t0": 205.9159,
+  "t1": 214.3326,
   "dur": 8.4167,
   "chuong": "HỒI 1",
   "goc": "cao",
@@ -1137,18 +1136,23 @@
   ],
   "cau": [
    {
-    "t": 2.442,
+    "t": 0.201,
+    "cau": "John Evelyn walks the burning streets that night."
+   },
+   {
+    "t": 3.359,
     "cau": "The sky, he writes, is \"like the top of a burning oven\"; the noise is \"like a hideous storm\" — the cracking of the flames, the fall of towers, houses and churches."
    }
   ],
+  "log_may": "log-may/H1-11.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P8"
  },
  {
   "ma": "H1-11b",
-  "t0": 215.2496,
-  "t1": 221.2496,
+  "t0": 214.3326,
+  "t1": 220.3326,
   "dur": 6.0,
   "chuong": "HỒI 1",
   "goc": "md",
@@ -1190,12 +1194,7 @@
   "diem_may": "—",
   "shot": "H1-11b",
   "thoi_gian": null,
-  "cau": [
-   {
-    "t": 5.283,
-    "cau": "Tuesday, the fourth."
-   }
-  ],
+  "cau": [],
   "md_moc": 25,
   "ai_image": true,
   "kiem": "omni/kiem2/H1-11b-l1-360p-kiem.json",
@@ -1206,8 +1205,8 @@
  },
  {
   "ma": "H1-13a",
-  "t0": 221.2496,
-  "t1": 228.2496,
+  "t0": 220.3326,
+  "t1": 227.3326,
   "dur": 7.0,
   "chuong": "HỒI 1",
   "goc": "thap",
@@ -1233,18 +1232,23 @@
   ],
   "cau": [
    {
-    "t": 1.419,
+    "t": 0.2,
+    "cau": "Tuesday, the fourth."
+   },
+   {
+    "t": 2.336,
     "cau": "The fire climbs Ludgate Hill to St Paul's Cathedral, wrapped in wooden scaffolding for repairs."
    }
   ],
+  "log_may": "log-may/H1-13a.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P4b"
  },
  {
   "ma": "H1-12x",
-  "t0": 228.2496,
-  "t1": 235.7496,
+  "t0": 227.3326,
+  "t1": 234.8326,
   "dur": 7.5,
   "chuong": "HỒI 1",
   "goc": "cao",
@@ -1266,31 +1270,27 @@
   "diem_may": "P9",
   "shot": "H1-12x",
   "thoi_gian": [
-   "d",
+   "y",
+   1666.655,
+   1666.6551,
    [
-    1666,
     8,
     27,
     15.0
-   ],
-   [
-    1666,
-    8,
-    27,
-    16.0
    ],
    0
   ],
   "cau": [
    {
-    "t": 1.156,
+    "t": 2.073,
     "cau": "Six days before the fire, John Evelyn and Christopher Wren had surveyed its decay — and proposed crowning it with a dome."
    }
   ],
+  "log_may": "log-may/H1-12x.json",
   "tu_lieu_lan": [
    {
-    "t0": 229.25,
-    "t1": 234.25,
+    "t0": 228.333,
+    "t1": 233.333,
     "lop": "KHAC"
    }
   ],
@@ -1300,8 +1300,8 @@
  },
  {
   "ma": "H1-13c",
-  "t0": 235.7496,
-  "t1": 241.9579,
+  "t0": 234.8326,
+  "t1": 241.0409,
   "dur": 6.2083,
   "chuong": "HỒI 1",
   "goc": "thap",
@@ -1327,22 +1327,19 @@
   ],
   "cau": [
    {
-    "t": 2.029,
+    "t": 2.946,
     "cau": "By evening, the great church is ablaze."
-   },
-   {
-    "t": 5.492,
-    "cau": "John Evelyn watches its lead run down the streets \"in a stream\"."
    }
   ],
+  "log_may": "log-may/H1-13c.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P4b"
  },
  {
   "ma": "H1-14",
-  "t0": 241.9579,
-  "t1": 248.4579,
+  "t0": 241.0409,
+  "t1": 247.5409,
   "dur": 6.5,
   "chuong": "HỒI 1",
   "goc": "md",
@@ -1386,8 +1383,8 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 5.784,
-    "cau": "In the west, the fire crosses the Fleet and runs down Fleet Street, as far as the Temple."
+    "t": 0.201,
+    "cau": "John Evelyn watches its lead run down the streets \"in a stream\"."
    }
   ],
   "md_moc": 5,
@@ -1400,8 +1397,8 @@
  },
  {
   "ma": "H1-15",
-  "t0": 248.4579,
-  "t1": 256.4579,
+  "t0": 247.5409,
+  "t1": 255.5409,
   "dur": 8.0,
   "chuong": "HỒI 1",
   "goc": "cao",
@@ -1427,18 +1424,23 @@
   ],
   "cau": [
    {
-    "t": 4.543,
+    "t": 0.201,
+    "cau": "In the west, the fire crosses the Fleet and runs down Fleet Street, as far as the Temple."
+   },
+   {
+    "t": 5.46,
     "cau": "Only now are houses blown up with gunpowder to open firebreaks — first in Tower Street, near the Tower."
    }
   ],
+  "log_may": "log-may/H1-15.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P8"
  },
  {
   "ma": "H1-15m",
-  "t0": 256.4579,
-  "t1": 262.4579,
+  "t0": 255.5409,
+  "t1": 261.5409,
   "dur": 6.0,
   "chuong": "HỒI 1",
   "goc": "md",
@@ -1473,7 +1475,7 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 4.472,
+    "t": 5.389,
     "cau": "At the Navy Office, Pepys and a colleague dig a pit in the garden for their wine — and Pepys buries his Parmesan cheese."
    }
   ],
@@ -1487,8 +1489,8 @@
  },
  {
   "ma": "H1-15b",
-  "t0": 262.4579,
-  "t1": 269.9579,
+  "t0": 261.5409,
+  "t1": 269.0409,
   "dur": 7.5,
   "chuong": "HỒI 1",
   "goc": "md",
@@ -1537,12 +1539,7 @@
   "diem_may": "—",
   "shot": "H1-15b",
   "thoi_gian": null,
-  "cau": [
-   {
-    "t": 7.228,
-    "cau": "In the last days of the fire, the King and the Duke work the fire-lines themselves — “even laboring in person,” Evelyn writes."
-   }
-  ],
+  "cau": [],
   "md_moc": 28,
   "ai_image": true,
   "kiem": "omni/kiem2/H1-15b-l1-360p-kiem.json",
@@ -1555,8 +1552,8 @@
  },
  {
   "ma": "H1-15h",
-  "t0": 269.9579,
-  "t1": 281.5829,
+  "t0": 269.0409,
+  "t1": 280.6659,
   "dur": 11.625,
   "chuong": "HỒI 1",
   "goc": "cao",
@@ -1582,18 +1579,19 @@
   ],
   "cau": [
    {
-    "t": 10.909,
-    "cau": "That night, the wind finally drops."
+    "t": 0.645,
+    "cau": "In the last days of the fire, the King and the Duke work the fire-lines themselves — “even laboring in person,” Evelyn writes."
    }
   ],
+  "log_may": "log-may/H1-15h.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P3"
  },
  {
   "ma": "H1-16",
-  "t0": 281.5829,
-  "t1": 288.8329,
+  "t0": 280.6659,
+  "t1": 287.9159,
   "dur": 7.25,
   "chuong": "HỒI 1",
   "goc": "cao",
@@ -1619,18 +1617,19 @@
   ],
   "cau": [
    {
-    "t": 3.081,
-    "cau": "By Thursday, the fire is out."
+    "t": 0.201,
+    "cau": "That night, the wind finally drops."
    },
    {
-    "t": 6.534,
-    "cau": "Homeless Londoners camp in the fields outside the walls — Moorfields, St George's Fields, as far as Highgate — \"some under tents, some under miserable huts and hovels.\""
+    "t": 3.998,
+    "cau": "By Thursday, the fire is out."
    }
   ],
+  "log_may": "log-may/H1-16.json",
   "tu_lieu_lan": [
    {
-    "t0": 282.583,
-    "t1": 286.583,
+    "t0": 281.666,
+    "t1": 285.666,
     "lop": "KHAC"
    }
   ],
@@ -1640,8 +1639,8 @@
  },
  {
   "ma": "H1-17a",
-  "t0": 288.8329,
-  "t1": 294.8329,
+  "t0": 287.9159,
+  "t1": 293.9159,
   "dur": 6.0,
   "chuong": "HỒI 1",
   "goc": "md",
@@ -1673,7 +1672,12 @@
   "diem_may": "—",
   "shot": "H1-17a",
   "thoi_gian": null,
-  "cau": [],
+  "cau": [
+   {
+    "t": 0.201,
+    "cau": "Homeless Londoners camp in the fields outside the walls — Moorfields, St George's Fields, as far as Highgate — \"some under tents, some under miserable huts and hovels.\""
+   }
+  ],
   "md_moc": 7,
   "ai_image": true,
   "kiem": "../animatic/omni/kiem2/H1-17a-l1-360p-kiem.json",
@@ -1684,8 +1688,8 @@
  },
  {
   "ma": "H1-17b",
-  "t0": 294.8329,
-  "t1": 301.1246,
+  "t0": 293.9159,
+  "t1": 300.2076,
   "dur": 6.2917,
   "chuong": "HỒI 1",
   "goc": "md",
@@ -1717,12 +1721,7 @@
   "diem_may": "—",
   "shot": "H1-17b",
   "thoi_gian": null,
-  "cau": [
-   {
-    "t": 5.575,
-    "cau": "About thirteen thousand two hundred houses."
-   }
-  ],
+  "cau": [],
   "md_moc": 7,
   "ai_image": true,
   "kiem": "../animatic/omni/kiem2/H1-17b-l1-360p-kiem.json",
@@ -1733,8 +1732,8 @@
  },
  {
   "ma": "H1-18a",
-  "t0": 301.1246,
-  "t1": 307.1246,
+  "t0": 300.2076,
+  "t1": 306.2076,
   "dur": 6.0,
   "chuong": "HỒI 1",
   "goc": "cao",
@@ -1756,31 +1755,32 @@
   "shot": "H1-18a",
   "thoi_gian": [
    "h66",
-   124.0,
-   130.0
+   128.0,
+   129.5
   ],
   "cau": [
    {
-    "t": 2.209,
+    "t": 0.2,
+    "cau": "About thirteen thousand two hundred houses."
+   },
+   {
+    "t": 3.126,
     "cau": "Eighty-seven parish churches."
    },
    {
-    "t": 4.113,
+    "t": 5.03,
     "cau": "St Paul's."
-   },
-   {
-    "t": 5.599,
-    "cau": "Roughly four-fifths of the City — over four hundred acres."
    }
   ],
+  "log_may": "log-may/H1-18a.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P7"
  },
  {
   "ma": "H1-18t",
-  "t0": 307.1246,
-  "t1": 312.1246,
+  "t0": 306.2076,
+  "t1": 311.2076,
   "dur": 5.0,
   "chuong": "HỒI 1",
   "goc": "phang",
@@ -1798,14 +1798,14 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 4.626,
-    "cau": "Fewer than ten deaths were recorded."
+    "t": 0.516,
+    "cau": "Roughly four-fifths of the City — over four hundred acres."
    }
   ],
   "tu_lieu_lan": [
    {
-    "t0": 307.1246,
-    "t1": 312.1246,
+    "t0": 306.2076,
+    "t1": 311.2076,
     "lop": "KHAC"
    }
   ],
@@ -1822,8 +1822,8 @@
  },
  {
   "ma": "H1-18b",
-  "t0": 312.1246,
-  "t1": 317.4163,
+  "t0": 311.2076,
+  "t1": 316.4993,
   "dur": 5.2917,
   "chuong": "HỒI 1",
   "goc": "cao",
@@ -1845,27 +1845,28 @@
   "shot": "H1-18b",
   "thoi_gian": [
    "h66",
-   128.0,
-   130.0
+   129.5,
+   131.0
   ],
   "cau": [
    {
-    "t": 2.343,
-    "cau": "The real toll is unknown."
+    "t": 0.543,
+    "cau": "Fewer than ten deaths were recorded."
    },
    {
-    "t": 4.575,
-    "cau": "The ashes are still warm when the plans arrive."
+    "t": 3.26,
+    "cau": "The real toll is unknown."
    }
   ],
+  "log_may": "log-may/H1-18b.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P7"
  },
  {
   "ma": "H2-00",
-  "t0": 317.4163,
-  "t1": 320.4163,
+  "t0": 316.4993,
+  "t1": 319.4993,
   "dur": 3.0,
   "chuong": "HỒI 2",
   "goc": "cao",
@@ -1895,15 +1896,21 @@
    ],
    0
   ],
-  "cau": [],
+  "cau": [
+   {
+    "t": 0.201,
+    "cau": "The ashes are still warm when the plans arrive."
+   }
+  ],
+  "log_may": "log-may/H2-00.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P5"
  },
  {
   "ma": "H2-01a",
-  "t0": 320.4163,
-  "t1": 325.4163,
+  "t0": 319.4993,
+  "t1": 324.4993,
   "dur": 5.0,
   "chuong": "HỒI 2",
   "goc": "md",
@@ -1946,7 +1953,7 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 0.22,
+    "t": 1.137,
     "cau": "When Evelyn walks through the ruins, he cannot tell where he is — except by the shell of some church or hall, with a tower still standing."
    }
   ],
@@ -1960,8 +1967,8 @@
  },
  {
   "ma": "H2-01b",
-  "t0": 325.4163,
-  "t1": 330.583,
+  "t0": 324.4993,
+  "t1": 329.666,
   "dur": 5.1667,
   "chuong": "HỒI 2",
   "goc": "md",
@@ -2002,12 +2009,7 @@
   "diem_may": "—",
   "shot": "H2-01b",
   "thoi_gian": null,
-  "cau": [
-   {
-    "t": 4.451,
-    "cau": "Within days, Christopher Wren hands the King a new City on paper — straight avenues, open squares, a grid."
-   }
-  ],
+  "cau": [],
   "md_moc": 30,
   "ai_image": true,
   "kiem": "omni/kiem2/H2-01b-l1-360p-kiem.json",
@@ -2018,8 +2020,8 @@
  },
  {
   "ma": "H2-02",
-  "t0": 330.583,
-  "t1": 345.208,
+  "t0": 329.666,
+  "t1": 344.291,
   "dur": 14.625,
   "chuong": "HỒI 2",
   "goc": "cao",
@@ -2054,26 +2056,27 @@
   ],
   "cau": [
    {
-    "t": 8.073,
+    "t": 0.201,
+    "cau": "Within days, Christopher Wren hands the King a new City on paper — straight avenues, open squares, a grid."
+   },
+   {
+    "t": 8.99,
     "cau": "John Evelyn draws another."
    },
    {
-    "t": 10.128,
+    "t": 11.045,
     "cau": "Robert Hooke, a third."
    },
    {
-    "t": 12.345,
+    "t": 13.262,
     "cau": "None of them is built."
-   },
-   {
-    "t": 13.909,
-    "cau": "Every plot in the burnt City has its owners — and the people who have lost their homes cannot afford to wait years for it all to be redrawn."
    }
   ],
+  "log_may": "log-may/H2-02.json",
   "tu_lieu_lan": [
    {
-    "t0": 330.783,
-    "t1": 338.783,
+    "t0": 329.866,
+    "t1": 337.866,
     "lop": "TL"
    }
   ],
@@ -2083,8 +2086,8 @@
  },
  {
   "ma": "H2-03b",
-  "t0": 345.208,
-  "t1": 365.3747,
+  "t0": 344.291,
+  "t1": 364.4577,
   "dur": 20.1667,
   "chuong": "HỒI 2",
   "goc": "cao",
@@ -2116,22 +2119,27 @@
   ],
   "cau": [
    {
-    "t": 8.386,
+    "t": 0.201,
+    "cau": "Every plot in the burnt City has its owners — and the people who have lost their homes cannot afford to wait years for it all to be redrawn."
+   },
+   {
+    "t": 9.303,
     "cau": "So Parliament moves faster."
    },
    {
-    "t": 11.091,
+    "t": 12.008,
     "cau": "From late February 1667, a special Fire Court sits at Clifford's Inn, settling disputes between landlords and tenants."
    }
   ],
+  "log_may": "log-may/H2-03b.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P5"
  },
  {
   "ma": "H2-03c",
-  "t0": 365.3747,
-  "t1": 371.3747,
+  "t0": 364.4577,
+  "t1": 370.4577,
   "dur": 6.0,
   "chuong": "HỒI 2",
   "goc": "md",
@@ -2165,12 +2173,8 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 0.56,
+    "t": 1.477,
     "cau": "In its first year, it decides three hundred and seventy-four cases."
-   },
-   {
-    "t": 5.283,
-    "cau": "A Rebuilding Act sets the rules: outside walls of brick or stone, not timber."
    }
   ],
   "md_moc": 19,
@@ -2183,8 +2187,8 @@
  },
  {
   "ma": "H2-04h",
-  "t0": 371.3747,
-  "t1": 373.8747,
+  "t0": 370.4577,
+  "t1": 372.9577,
   "dur": 2.5,
   "chuong": "HỒI 2",
   "goc": "cao",
@@ -2214,15 +2218,21 @@
    ],
    0
   ],
-  "cau": [],
+  "cau": [
+   {
+    "t": 0.2,
+    "cau": "A Rebuilding Act sets the rules: outside walls of brick or stone, not timber."
+   }
+  ],
+  "log_may": "log-may/H2-04h.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P2"
  },
  {
   "ma": "H2-04a",
-  "t0": 373.8747,
-  "t1": 377.3747,
+  "t0": 372.9577,
+  "t1": 376.4577,
   "dur": 3.5,
   "chuong": "HỒI 2",
   "goc": "thap",
@@ -2253,14 +2263,15 @@
    0
   ],
   "cau": [],
+  "log_may": "log-may/H2-04a.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P4"
  },
  {
   "ma": "H2-04b",
-  "t0": 377.3747,
-  "t1": 383.083,
+  "t0": 376.4577,
+  "t1": 382.166,
   "dur": 5.7083,
   "chuong": "HỒI 2",
   "goc": "md",
@@ -2294,12 +2305,8 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 0.295,
+    "t": 1.212,
     "cau": "And a new duty on coal pays for the City's public buildings."
-   },
-   {
-    "t": 4.992,
-    "cau": "The old street plan stays."
    }
   ],
   "md_moc": 11,
@@ -2312,8 +2319,8 @@
  },
  {
   "ma": "H2-05",
-  "t0": 383.083,
-  "t1": 394.083,
+  "t0": 382.166,
+  "t1": 393.166,
   "dur": 11.0,
   "chuong": "HỒI 2",
   "goc": "cao",
@@ -2345,26 +2352,27 @@
   ],
   "cau": [
    {
-    "t": 2.245,
+    "t": 0.201,
+    "cau": "The old street plan stays."
+   },
+   {
+    "t": 3.162,
     "cau": "Two new streets — King Street and Queen Street — are cut down from the Guildhall toward the river."
    },
    {
-    "t": 7.841,
+    "t": 8.758,
     "cau": "Rebuilding gets going in 1668."
-   },
-   {
-    "t": 10.766,
-    "cau": "By the end of 1670, about six thousand new houses are up — on the same lanes, in brick."
    }
   ],
+  "log_may": "log-may/H2-05.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P1"
  },
  {
   "ma": "H2-05s",
-  "t0": 394.083,
-  "t1": 401.9163,
+  "t0": 393.166,
+  "t1": 400.9993,
   "dur": 7.8333,
   "chuong": "HỒI 2",
   "goc": "thap",
@@ -2396,18 +2404,19 @@
   ],
   "cau": [
    {
-    "t": 7.117,
-    "cau": "Near the bakery, Wren and Hooke raise a column: the Monument."
+    "t": 0.683,
+    "cau": "By the end of 1670, about six thousand new houses are up — on the same lanes, in brick."
    }
   ],
+  "log_may": "log-may/H2-05s.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P10"
  },
  {
   "ma": "H2-06",
-  "t0": 401.9163,
-  "t1": 419.208,
+  "t0": 400.9993,
+  "t1": 418.291,
   "dur": 17.2917,
   "chuong": "HỒI 2",
   "goc": "cao",
@@ -2441,22 +2450,23 @@
   ],
   "cau": [
    {
-    "t": 4.299,
+    "t": 0.201,
+    "cau": "Near the bakery, Wren and Hooke raise a column: the Monument."
+   },
+   {
+    "t": 5.216,
     "cau": "Two hundred and two feet high — exactly the distance to the spot in Pudding Lane where the fire began."
    },
    {
-    "t": 11.303,
+    "t": 12.22,
     "cau": "Portland stone is so hard to come by that the column takes six years."
-   },
-   {
-    "t": 16.576,
-    "cau": "Fire insurance begins here too."
    }
   ],
+  "log_may": "log-may/H2-06.json",
   "tu_lieu_lan": [
    {
-    "t0": 403.416,
-    "t1": 406.416,
+    "t0": 402.499,
+    "t1": 405.499,
     "lop": "KHAC"
    }
   ],
@@ -2466,8 +2476,8 @@
  },
  {
   "ma": "H2-07",
-  "t0": 419.208,
-  "t1": 427.1247,
+  "t0": 418.291,
+  "t1": 426.2077,
   "dur": 7.9167,
   "chuong": "HỒI 2",
   "goc": "md",
@@ -2501,12 +2511,12 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 2.5,
-    "cau": "In 1680, Nicholas Barbon opens the Fire Office."
+    "t": 0.201,
+    "cau": "Fire insurance begins here too."
    },
    {
-    "t": 7.2,
-    "cau": "Wren's office rebuilds fifty-one of the City's churches."
+    "t": 3.417,
+    "cau": "In 1680, Nicholas Barbon opens the Fire Office."
    }
   ],
   "md_moc": 13,
@@ -2519,8 +2529,8 @@
  },
  {
   "ma": "H2-08",
-  "t0": 427.1247,
-  "t1": 432.8327,
+  "t0": 426.2077,
+  "t1": 431.9157,
   "dur": 5.708,
   "chuong": "HỒI 2",
   "goc": "cao",
@@ -2552,18 +2562,19 @@
   ],
   "cau": [
    {
-    "t": 4.992,
-    "cau": "And on Ludgate Hill, where Old St Paul's stood, work starts in 1675 on a new cathedral."
+    "t": 0.2,
+    "cau": "Wren's office rebuilds fifty-one of the City's churches."
    }
   ],
+  "log_may": "log-may/H2-08.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P2"
  },
  {
   "ma": "H2-09",
-  "t0": 432.8327,
-  "t1": 442.8327,
+  "t0": 431.9157,
+  "t1": 441.9157,
   "dur": 10.0,
   "chuong": "HỒI 2",
   "goc": "cao",
@@ -2595,18 +2606,19 @@
   ],
   "cau": [
    {
-    "t": 9.284,
-    "cau": "The last stone of the lantern is set in 1708 — by Wren's son, Christopher."
+    "t": 0.201,
+    "cau": "And on Ludgate Hill, where Old St Paul's stood, work starts in 1675 on a new cathedral."
    }
   ],
+  "log_may": "log-may/H2-09.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P1"
  },
  {
   "ma": "H2-10",
-  "t0": 442.8327,
-  "t1": 460.8747,
+  "t0": 441.9157,
+  "t1": 459.9577,
   "dur": 18.042,
   "chuong": "HỒI 2",
   "goc": "thap",
@@ -2639,18 +2651,23 @@
   ],
   "cau": [
    {
-    "t": 7.564,
+    "t": 0.201,
+    "cau": "The last stone of the lantern is set in 1708 — by Wren's son, Christopher."
+   },
+   {
+    "t": 8.481,
     "cau": "In 1711, Parliament declares St Paul's complete — three hundred and sixty-five feet, to the top of the cross."
    }
   ],
+  "log_may": "log-may/H2-10.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P4b"
  },
  {
   "ma": "H2-11",
-  "t0": 460.8747,
-  "t1": 466.8747,
+  "t0": 459.9577,
+  "t1": 465.9577,
   "dur": 6.0,
   "chuong": "HỒI 2",
   "goc": "cao",
@@ -2681,14 +2698,15 @@
    0
   ],
   "cau": [],
+  "log_may": "log-may/H2-11.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P7"
  },
  {
   "ma": "H2-12",
-  "t0": 466.8747,
-  "t1": 477.3747,
+  "t0": 465.9577,
+  "t1": 476.4577,
   "dur": 10.5,
   "chuong": "HỒI 2",
   "goc": "cao",
@@ -2742,10 +2760,11 @@
    15
   ],
   "hoa_s": 1.0,
+  "log_may": "log-may/H2-12.json",
   "tu_lieu_lan": [
    {
-    "t0": 467.375,
-    "t1": 470.375,
+    "t0": 466.458,
+    "t1": 469.458,
     "lop": "KHAC"
    }
   ],
@@ -2755,8 +2774,8 @@
  },
  {
   "ma": "H2-13",
-  "t0": 477.3747,
-  "t1": 483.3747,
+  "t0": 476.4577,
+  "t1": 482.4577,
   "dur": 6.0,
   "chuong": "HỒI 2",
   "goc": "md",
@@ -2808,8 +2827,8 @@
  },
  {
   "ma": "H2-14",
-  "t0": 483.3747,
-  "t1": 489.3747,
+  "t0": 482.4577,
+  "t1": 488.4577,
   "dur": 6.0,
   "chuong": "HỒI 2",
   "goc": "cao",
@@ -2839,27 +2858,23 @@
    ],
    0
   ],
-  "cau": [
-   {
-    "t": 5.283,
-    "cau": "For more than two and a half centuries, nothing in London stands taller than the dome."
-   }
-  ],
+  "cau": [],
+  "log_may": "log-may/H2-14.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P5"
  },
  {
   "ma": "H3-01",
-  "t0": 489.3747,
-  "t1": 495.5417,
-  "dur": 6.167,
+  "t0": 488.4577,
+  "t1": 491.4577,
+  "dur": 3.0,
   "chuong": "HỒI 3",
   "goc": "cao",
   "tl": true,
   "cu_may": "CODINH",
   "lop": {
-   "A": 6.167
+   "A": 3.0
   },
   "ai_nen": false,
   "minh_hoa": false,
@@ -2874,7 +2889,7 @@
   "thoi_gian": [
    "y",
    1711.0,
-   1860.0,
+   1800.0,
    [
     9,
     1,
@@ -2884,18 +2899,59 @@
   ],
   "cau": [
    {
-    "t": 5.45,
-    "cau": "On London Bridge, the houses and shops are pulled down from 1758."
+    "t": 0.2,
+    "cau": "For more than two and a half centuries, nothing in London stands taller than the dome."
    }
   ],
+  "log_may": "log-may/H3-01.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P1"
  },
  {
+  "ma": "H3-01t",
+  "t0": 491.4577,
+  "t1": 494.6244,
+  "dur": 3.1667,
+  "chuong": "HỒI 3",
+  "goc": "phang",
+  "tl": false,
+  "cu_may": "THAT",
+  "lop": {
+   "THAT": 3.1667
+  },
+  "ai_nen": false,
+  "minh_hoa": false,
+  "vai": "ẢNH THẬT toàn khung (P6): mái vòm vẫn cao nhất chân trời (Rijksmuseum, PDM) — thay phần footage H5-07a không tải được",
+  "tieu_diem_en": null,
+  "diem_may": "—",
+  "shot": "H3-01t",
+  "thoi_gian": null,
+  "cau": [],
+  "that": {
+   "loai": "anh",
+   "nguon": "rijks-200323435-theems-stpauls-1892",
+   "hien_dai": false,
+   "giay_phep": {
+    "tep": "nc/licenses/rijks-200323435-theems-stpauls-1892.json",
+    "sha256": "6fe6e88110610f807b9097c6d7108958259060a9b4a14ece36853c7f6b51f152"
+   }
+  },
+  "tu_lieu_toan_khung": {
+   "anh": "rijks-200323435-theems-stpauls-1892",
+   "lop": "THAT",
+   "chu": "St Paul's from the Thames, 1892",
+   "chuyen_dong": "2D chậm (Ken Burns) — không AI chạm",
+   "ghi_cong": "ghi-cong.json"
+  },
+  "tu_lieu_chong_sau_ai": false,
+  "ai_image": false,
+  "noi": "—"
+ },
+ {
   "ma": "H3-02",
-  "t0": 495.5417,
-  "t1": 502.3334,
+  "t0": 494.6244,
+  "t1": 501.4161,
   "dur": 6.7917,
   "chuong": "HỒI 3",
   "goc": "cao",
@@ -2927,18 +2983,23 @@
   ],
   "cau": [
    {
-    "t": 5.427,
+    "t": 0.201,
+    "cau": "On London Bridge, the houses and shops are pulled down from 1758."
+   },
+   {
+    "t": 6.345,
     "cau": "By 1831, a new bridge has replaced the medieval one."
    }
   ],
+  "log_may": "log-may/H3-02.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P6h"
  },
  {
   "ma": "H3-02t",
-  "t0": 502.3334,
-  "t1": 506.8334,
+  "t0": 501.4161,
+  "t1": 505.9161,
   "dur": 4.5,
   "chuong": "HỒI 3",
   "goc": "phang",
@@ -2954,12 +3015,7 @@
   "diem_may": "—",
   "shot": "H3-02t",
   "thoi_gian": null,
-  "cau": [
-   {
-    "t": 3.784,
-    "cau": "Wren's steeples ring the dome."
-   }
-  ],
+  "cau": [],
   "that": {
    "loai": "anh",
    "nguon": "loc-2002696930-londonbridge-pc",
@@ -2982,8 +3038,8 @@
  },
  {
   "ma": "H3-03",
-  "t0": 506.8334,
-  "t1": 516.2917,
+  "t0": 505.9161,
+  "t1": 515.3744,
   "dur": 9.4583,
   "chuong": "HỒI 3",
   "goc": "cao",
@@ -3018,18 +3074,23 @@
   ],
   "cau": [
    {
-    "t": 2.14,
+    "t": 0.201,
+    "cau": "Wren's steeples ring the dome."
+   },
+   {
+    "t": 3.057,
     "cau": "Even the river moves."
    },
    {
-    "t": 4.291,
+    "t": 5.208,
     "cau": "Between 1864 and 1870, Joseph Bazalgette's Victoria Embankment pushes the north bank out into the Thames."
    }
   ],
+  "log_may": "log-may/H3-03.json",
   "tu_lieu_lan": [
    {
-    "t0": 512.333,
-    "t1": 515.333,
+    "t0": 511.416,
+    "t1": 514.416,
     "lop": "KHAC"
    }
   ],
@@ -3039,8 +3100,8 @@
  },
  {
   "ma": "H3-03t",
-  "t0": 516.2917,
-  "t1": 521.2917,
+  "t0": 515.3744,
+  "t1": 520.3744,
   "dur": 5.0,
   "chuong": "HỒI 3",
   "goc": "phang",
@@ -3056,12 +3117,7 @@
   "diem_may": "—",
   "shot": "H3-03t",
   "thoi_gian": null,
-  "cau": [
-   {
-    "t": 4.283,
-    "cau": "In the 1930s, taller office blocks begin to rise near the cathedral, blocking some of its best-known views."
-   }
-  ],
+  "cau": [],
   "that": {
    "loai": "anh",
    "nguon": "loc-2002696941-embankment-pc",
@@ -3084,8 +3140,8 @@
  },
  {
   "ma": "H3-04a",
-  "t0": 521.2917,
-  "t1": 526.2917,
+  "t0": 520.3744,
+  "t1": 525.3744,
   "dur": 5.0,
   "chuong": "HỒI 3",
   "goc": "cao",
@@ -3115,15 +3171,21 @@
    ],
    0
   ],
-  "cau": [],
+  "cau": [
+   {
+    "t": 0.201,
+    "cau": "In the 1930s, taller office blocks begin to rise near the cathedral, blocking some of its best-known views."
+   }
+  ],
+  "log_may": "log-may/H3-04a.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P5"
  },
  {
   "ma": "H3-04b",
-  "t0": 526.2917,
-  "t1": 532.25,
+  "t0": 525.3744,
+  "t1": 531.3327,
   "dur": 5.9583,
   "chuong": "HỒI 3",
   "goc": "md",
@@ -3157,12 +3219,8 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 1.62,
+    "t": 2.538,
     "cau": "But the lanes underneath hardly shift."
-   },
-   {
-    "t": 5.241,
-    "cau": "In 1937, the cathedral's surveyor, Godfrey Allen, proposes a rule: new buildings must stay low enough to keep the dome in sight from the Thames bridges and the south bank."
    }
   ],
   "md_moc": 14,
@@ -3175,8 +3233,8 @@
  },
  {
   "ma": "H3-05b",
-  "t0": 532.25,
-  "t1": 538.25,
+  "t0": 531.3327,
+  "t1": 537.3327,
   "dur": 6.0,
   "chuong": "HỒI 3",
   "goc": "md",
@@ -3221,7 +3279,12 @@
   "diem_may": "—",
   "shot": "H3-05b",
   "thoi_gian": null,
-  "cau": [],
+  "cau": [
+   {
+    "t": 0.2,
+    "cau": "In 1937, the cathedral's surveyor, Godfrey Allen, proposes a rule: new buildings must stay low enough to keep the dome in sight from the Thames bridges and the south bank."
+   }
+  ],
   "md_moc": 35,
   "ai_image": true,
   "kiem": "omni/kiem2/H3-05b-l1-360p-kiem.json",
@@ -3234,8 +3297,8 @@
  },
  {
   "ma": "H3-05",
-  "t0": 538.25,
-  "t1": 551.9583,
+  "t0": 537.3327,
+  "t1": 551.041,
   "dur": 13.7083,
   "chuong": "HỒI 3",
   "goc": "cao",
@@ -3268,22 +3331,23 @@
   ],
   "cau": [
    {
-    "t": 6.6,
+    "t": 7.517,
     "cau": "From 1938, the City applies it."
    },
    {
-    "t": 9.665,
+    "t": 10.582,
     "cau": "It is called the St Paul's Heights."
    }
   ],
+  "log_may": "log-may/H3-05.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P9"
  },
  {
   "ma": "H3-06",
-  "t0": 551.9583,
-  "t1": 559.9583,
+  "t0": 551.041,
+  "t1": 559.041,
   "dur": 8.0,
   "chuong": "HỒI 3",
   "goc": "cao",
@@ -3328,12 +3392,7 @@
    ],
    4.0
   ],
-  "cau": [
-   {
-    "t": 7.284,
-    "cau": "Sunday, the twenty-ninth of December, 1940."
-   }
-  ],
+  "cau": [],
   "khop_voi": "H3-01",
   "diem_neo_en": [
    532118,
@@ -3341,14 +3400,15 @@
    111
   ],
   "hoa_s": 1.0,
+  "log_may": "log-may/H3-06.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P1"
  },
  {
   "ma": "H4-01a",
-  "t0": 559.9583,
-  "t1": 565.9583,
+  "t0": 559.041,
+  "t1": 565.041,
   "dur": 6.0,
   "chuong": "HỒI 4",
   "goc": "cao",
@@ -3385,18 +3445,23 @@
   ],
   "cau": [
    {
-    "t": 3.754,
+    "t": 0.201,
+    "cau": "Sunday, the twenty-ninth of December, 1940."
+   },
+   {
+    "t": 4.671,
     "cau": "In 1666, the fire took four days."
    }
   ],
+  "log_may": "log-may/H4-01a.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P1"
  },
  {
   "ma": "H4-01b",
-  "t0": 565.9583,
-  "t1": 571.9583,
+  "t0": 565.041,
+  "t1": 571.041,
   "dur": 6.0,
   "chuong": "HỒI 4",
   "goc": "md",
@@ -3430,12 +3495,8 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 1.632,
+    "t": 2.549,
     "cau": "This time, the worst of it comes in a single night."
-   },
-   {
-    "t": 5.284,
-    "cau": "As dusk falls, German bombers begin dropping incendiaries on the City — at least a hundred thousand of them."
    }
   ],
   "md_moc": 15,
@@ -3448,8 +3509,8 @@
  },
  {
   "ma": "H4-02",
-  "t0": 571.9583,
-  "t1": 582.8333,
+  "t0": 571.041,
+  "t1": 581.916,
   "dur": 10.875,
   "chuong": "HỒI 4",
   "goc": "cao",
@@ -3476,22 +3537,27 @@
   ],
   "cau": [
    {
-    "t": 6.749,
+    "t": 0.201,
+    "cau": "As dusk falls, German bombers begin dropping incendiaries on the City — at least a hundred thousand of them."
+   },
+   {
+    "t": 7.666,
     "cau": "Around fifteen hundred fires."
    },
    {
-    "t": 9.867,
+    "t": 10.784,
     "cau": "It is a Sunday."
    }
   ],
+  "log_may": "log-may/H4-02.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P5"
  },
  {
   "ma": "H4-03",
-  "t0": 582.8333,
-  "t1": 590.8333,
+  "t0": 581.916,
+  "t1": 589.916,
   "dur": 8.0,
   "chuong": "HỒI 4",
   "goc": "md",
@@ -3525,16 +3591,12 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 0.606,
+    "t": 1.523,
     "cau": "Many offices are locked and unattended."
    },
    {
-    "t": 3.404,
+    "t": 4.321,
     "cau": "The water mains are broken, and the Thames is at low tide."
-   },
-   {
-    "t": 7.284,
-    "cau": "Next to St Paul's, the booksellers' street, Paternoster Row, burns — and with it as many as five million books."
    }
   ],
   "md_moc": 16,
@@ -3547,8 +3609,8 @@
  },
  {
   "ma": "H4-04a",
-  "t0": 590.8333,
-  "t1": 598.3333,
+  "t0": 589.916,
+  "t1": 597.416,
   "dur": 7.5,
   "chuong": "HỒI 4",
   "goc": "cao",
@@ -3572,15 +3634,21 @@
    4.0,
    4.8
   ],
-  "cau": [],
+  "cau": [
+   {
+    "t": 0.201,
+    "cau": "Next to St Paul's, the booksellers' street, Paternoster Row, burns — and with it as many as five million books."
+   }
+  ],
+  "log_may": "log-may/H4-04a.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P5"
  },
  {
   "ma": "H4-04b",
-  "t0": 598.3333,
-  "t1": 604.8333,
+  "t0": 597.416,
+  "t1": 603.916,
   "dur": 6.5,
   "chuong": "HỒI 4",
   "goc": "md",
@@ -3614,7 +3682,7 @@
   "thoi_gian": null,
   "cau": [
    {
-    "t": 1.141,
+    "t": 2.058,
     "cau": "Fire crews and volunteers of the St Paul's Watch fight the bombs that land on the cathedral itself."
    }
   ],
@@ -3628,8 +3696,8 @@
  },
  {
   "ma": "H4-04c",
-  "t0": 604.8333,
-  "t1": 608.8333,
+  "t0": 603.916,
+  "t1": 607.916,
   "dur": 4.0,
   "chuong": "HỒI 4",
   "goc": "cao",
@@ -3655,18 +3723,19 @@
   ],
   "cau": [
    {
-    "t": 1.619,
+    "t": 2.536,
     "cau": "Across the City, the Guildhall's roof burns, and nineteen churches are destroyed."
    }
   ],
+  "log_may": "log-may/H4-04c.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P3"
  },
  {
   "ma": "H4-04d",
-  "t0": 608.8333,
-  "t1": 613.8333,
+  "t0": 607.916,
+  "t1": 612.916,
   "dur": 5.0,
   "chuong": "HỒI 4",
   "goc": "md",
@@ -3707,12 +3776,7 @@
   "diem_may": "—",
   "shot": "H4-04d",
   "thoi_gian": null,
-  "cau": [
-   {
-    "t": 4.284,
-    "cau": "By morning, the dome is still standing, in a ring of ruins."
-   }
-  ],
+  "cau": [],
   "md_moc": 38,
   "ai_image": true,
   "kiem": "omni/kiem2/H4-04d-l3-360p-kiem.json",
@@ -3723,8 +3787,8 @@
  },
  {
   "ma": "H4-05",
-  "t0": 613.8333,
-  "t1": 618.3753,
+  "t0": 612.916,
+  "t1": 617.458,
   "dur": 4.542,
   "chuong": "HỒI 4",
   "goc": "cao",
@@ -3750,18 +3814,19 @@
   ],
   "cau": [
    {
-    "t": 3.825,
-    "cau": "About a hundred and sixty people are killed that night — at least twelve of them firefighters."
+    "t": 0.201,
+    "cau": "By morning, the dome is still standing, in a ring of ruins."
    }
   ],
+  "log_may": "log-may/H4-05.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P1"
  },
  {
   "ma": "H4-06",
-  "t0": 618.3753,
-  "t1": 623.5836,
+  "t0": 617.458,
+  "t1": 622.6663,
   "dur": 5.2083,
   "chuong": "HỒI 4",
   "goc": "cao",
@@ -3786,15 +3851,21 @@
    14.0,
    18.0
   ],
-  "cau": [],
+  "cau": [
+   {
+    "t": 0.2,
+    "cau": "About a hundred and sixty people are killed that night — at least twelve of them firefighters."
+   }
+  ],
+  "log_may": "log-may/H4-06.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P1"
  },
  {
   "ma": "H4-06t",
-  "t0": 623.5836,
-  "t1": 628.5836,
+  "t0": 622.6663,
+  "t1": 627.6663,
   "dur": 5.0,
   "chuong": "HỒI 4",
   "goc": "phang",
@@ -3810,19 +3881,14 @@
   "diem_may": "—",
   "shot": "H4-06t",
   "thoi_gian": null,
-  "cau": [
-   {
-    "t": 4.283,
-    "cau": "For the second time in three centuries, a great stretch of the City lies in ruins."
-   }
-  ],
+  "cau": [],
   "that": {
    "loai": "anh",
    "nguon": "commons-iwm-d6418",
    "hien_dai": false,
    "giay_phep": {
-    "tep": null,
-    "sha256": null
+    "tep": "animatic2/tu-lieu/giay-phep/commons-iwm-d6418.json",
+    "sha256": "d0435bfbaa844120b2754430760ccbaa2942b19de710470273899cdff1ba8a1a"
    }
   },
   "tu_lieu_toan_khung": {
@@ -3838,8 +3904,8 @@
  },
  {
   "ma": "H4-07",
-  "t0": 628.5836,
-  "t1": 634.0416,
+  "t0": 627.6663,
+  "t1": 633.1243,
   "dur": 5.458,
   "chuong": "HỒI 4",
   "goc": "cao",
@@ -3870,15 +3936,21 @@
    ],
    0
   ],
-  "cau": [],
+  "cau": [
+   {
+    "t": 0.201,
+    "cau": "For the second time in three centuries, a great stretch of the City lies in ruins."
+   }
+  ],
+  "log_may": "log-may/H4-07.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P7"
  },
  {
   "ma": "H4-08",
-  "t0": 634.0416,
-  "t1": 644.5416,
+  "t0": 633.1243,
+  "t1": 643.6243,
   "dur": 10.5,
   "chuong": "HỒI 4",
   "goc": "cao",
@@ -3917,12 +3989,7 @@
    ],
    5.25
   ],
-  "cau": [
-   {
-    "t": 9.783,
-    "cau": "And for the second time, the planners arrive with a clean sheet."
-   }
-  ],
+  "cau": [],
   "khop_voi": "H2-12",
   "diem_neo_en": [
    532420,
@@ -3930,14 +3997,15 @@
    15
   ],
   "hoa_s": 1.0,
+  "log_may": "log-may/H4-08.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P2"
  },
  {
   "ma": "H5-01",
-  "t0": 644.5416,
-  "t1": 657.0836,
+  "t0": 643.6243,
+  "t1": 656.1663,
   "dur": 12.542,
   "chuong": "HỒI 5",
   "goc": "cao",
@@ -3970,22 +4038,23 @@
   ],
   "cau": [
    {
-    "t": 4.066,
-    "cau": "In 1946 and 1947, Charles Holden and William Holford draw up a new plan for the City."
+    "t": 0.201,
+    "cau": "And for the second time, the planners arrive with a clean sheet."
    },
    {
-    "t": 11.825,
-    "cau": "Where the bombs hit hardest, it is bold: a new road, London Wall, built in the 1950s; and on the ruins of Cripplegate, from the mid-1960s, the towers of the Barbican."
+    "t": 4.984,
+    "cau": "In 1946 and 1947, Charles Holden and William Holford draw up a new plan for the City."
    }
   ],
+  "log_may": "log-may/H5-01.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P5"
  },
  {
   "ma": "H5-02",
-  "t0": 657.0836,
-  "t1": 664.9586,
+  "t0": 656.1663,
+  "t1": 664.0413,
   "dur": 7.875,
   "chuong": "HỒI 5",
   "goc": "cao",
@@ -4015,15 +4084,21 @@
    ],
    1
   ],
-  "cau": [],
+  "cau": [
+   {
+    "t": 0.201,
+    "cau": "Where the bombs hit hardest, it is bold: a new road, London Wall, built in the 1950s; and on the ruins of Cripplegate, from the mid-1960s, the towers of the Barbican."
+   }
+  ],
+  "log_may": "log-may/H5-02.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P5"
  },
  {
   "ma": "H5-02s",
-  "t0": 664.9586,
-  "t1": 671.9586,
+  "t0": 664.0413,
+  "t1": 671.0413,
   "dur": 7.0,
   "chuong": "HỒI 5",
   "goc": "thap",
@@ -4053,20 +4128,16 @@
    ],
    1
   ],
-  "cau": [
-   {
-    "t": 6.283,
-    "cau": "Everywhere else, it keeps most of the old street lines."
-   }
-  ],
+  "cau": [],
+  "log_may": "log-may/H5-02s.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P11"
  },
  {
   "ma": "H5-03",
-  "t0": 671.9586,
-  "t1": 678.4166,
+  "t0": 671.0413,
+  "t1": 677.4993,
   "dur": 6.458,
   "chuong": "HỒI 5",
   "goc": "cao",
@@ -4099,22 +4170,23 @@
   ],
   "cau": [
    {
-    "t": 3.254,
-    "cau": "The lanes come back."
+    "t": 0.201,
+    "cau": "Everywhere else, it keeps most of the old street lines."
    },
    {
-    "t": 5.741,
-    "cau": "Slowly, the gaps fill again."
+    "t": 4.172,
+    "cau": "The lanes come back."
    }
   ],
+  "log_may": "log-may/H5-03.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P7"
  },
  {
   "ma": "H5-04",
-  "t0": 678.4166,
-  "t1": 688.8336,
+  "t0": 677.4993,
+  "t1": 687.9163,
   "dur": 10.417,
   "chuong": "HỒI 5",
   "goc": "cao",
@@ -4146,22 +4218,23 @@
   ],
   "cau": [
    {
-    "t": 2.72,
-    "cau": "And in this century, a cluster of towers climbs to the east, around Bishopsgate and Leadenhall Street."
+    "t": 0.201,
+    "cau": "Slowly, the gaps fill again."
    },
    {
-    "t": 9.7,
-    "cau": "So when the towers arrive, they rise on the old street pattern — and under the dome's rules."
+    "t": 3.638,
+    "cau": "And in this century, a cluster of towers climbs to the east, around Bishopsgate and Leadenhall Street."
    }
   ],
+  "log_may": "log-may/H5-04.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P1"
  },
  {
   "ma": "H5-05a",
-  "t0": 688.8336,
-  "t1": 694.8336,
+  "t0": 687.9163,
+  "t1": 693.9163,
   "dur": 6.0,
   "chuong": "HỒI 5",
   "goc": "cao",
@@ -4197,7 +4270,13 @@
    ],
    1
   ],
-  "cau": [],
+  "cau": [
+   {
+    "t": 0.201,
+    "cau": "So when the towers arrive, they rise on the old street pattern — and under the dome's rules."
+   }
+  ],
+  "log_may": "log-may/H5-05a.json",
   "n2p_tam": "P9-2026",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
@@ -4205,8 +4284,8 @@
  },
  {
   "ma": "H5-05c",
-  "t0": 694.8336,
-  "t1": 705.3336,
+  "t0": 693.9163,
+  "t1": 704.4163,
   "dur": 10.5,
   "chuong": "HỒI 5",
   "goc": "cao",
@@ -4243,18 +4322,19 @@
   ],
   "cau": [
    {
-    "t": 0.737,
+    "t": 1.655,
     "cau": "The St Paul's Heights still apply, alongside a set of protected views across London — the farthest from a hill in Richmond Park, ten miles away."
    }
   ],
+  "log_may": "log-may/H5-05c.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P2"
  },
  {
   "ma": "H5-05b",
-  "t0": 705.3336,
-  "t1": 714.4586,
+  "t0": 704.4163,
+  "t1": 713.5413,
   "dur": 9.125,
   "chuong": "HỒI 5",
   "goc": "thap",
@@ -4291,18 +4371,19 @@
   ],
   "cau": [
    {
-    "t": 0.163,
+    "t": 1.081,
     "cau": "The Leadenhall Building tapers as it rises, so that from Fleet Street, the dome still has open sky behind it."
    }
   ],
+  "log_may": "log-may/H5-05b.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P4"
  },
  {
   "ma": "H5-06",
-  "t0": 714.4586,
-  "t1": 720.4586,
+  "t0": 713.5413,
+  "t1": 719.5413,
   "dur": 6.0,
   "chuong": "HỒI 5",
   "goc": "cao",
@@ -4337,65 +4418,65 @@
    ],
    1
   ],
-  "cau": [
-   {
-    "t": 5.283,
-    "cau": "From Bankside tonight, you can stand roughly where Pepys stood, and look across at the same streets."
-   }
-  ],
+  "cau": [],
+  "log_may": "log-may/H5-06.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P3"
  },
  {
   "ma": "H5-07a",
-  "t0": 720.4586,
-  "t1": 726.4586,
+  "t0": 719.5413,
+  "t1": 725.5413,
   "dur": 6.0,
   "chuong": "HỒI 5",
-  "goc": "phang",
-  "tl": false,
-  "cu_may": "THAT",
+  "goc": "cao",
+  "tl": true,
+  "cu_may": "DAY",
   "lop": {
-   "THAT": 6.0
+   "A": 6.0
   },
   "ai_nen": false,
   "minh_hoa": false,
-  "vai": "FOOTAGE THẬT 2026 (P7): bờ nam đêm, đèn City quanh mái vòm",
-  "tieu_diem_en": null,
-  "diem_may": "—",
+  "vai": "bờ nam đêm 2026: City sáng đèn quanh mái vòm (M-d (18) trượt 3 lượt ở ảnh đầu → 3D)",
+  "tieu_diem_en": [
+   532118,
+   181150,
+   111
+  ],
+  "diem_may": "P9",
   "shot": "H5-07a",
-  "thoi_gian": null,
+  "thoi_gian": [
+   "d",
+   [
+    2026,
+    9,
+    2,
+    22.0
+   ],
+   [
+    2026,
+    9,
+    2,
+    22.15
+   ],
+   1
+  ],
   "cau": [
    {
-    "t": 5.53,
-    "cau": "London burned twice."
+    "t": 0.201,
+    "cau": "From Bankside tonight, you can stand roughly where Pepys stood, and look across at the same streets."
    }
   ],
-  "that": {
-   "loai": "footage_hien_dai",
-   "nguon": "footage-h5-07a",
-   "hien_dai": true,
-   "giay_phep": {
-    "tep": null,
-    "sha256": null
-   }
-  },
-  "tu_lieu_toan_khung": {
-   "anh": "footage-h5-07a",
-   "lop": "THAT",
-   "chu": "Bankside at night, 2026 (footage)",
-   "chuyen_dong": "2D chậm (Ken Burns) — không AI chạm",
-   "ghi_cong": "ghi-cong.json"
-  },
+  "log_may": "log-may/H5-07a.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
-  "noi": "—"
+  "noi": "P9"
  },
  {
   "ma": "H5-07b",
-  "t0": 726.4586,
-  "t1": 741.7916,
+  "t0": 725.5413,
+  "t1": 740.8743,
   "dur": 15.333,
   "chuong": "HỒI 5",
   "goc": "cao",
@@ -4441,15 +4522,19 @@
   ],
   "cau": [
    {
-    "t": 1.991,
+    "t": 0.448,
+    "cau": "London burned twice."
+   },
+   {
+    "t": 2.909,
     "cau": "Twice, it could have started over."
    },
    {
-    "t": 4.208,
+    "t": 5.126,
     "cau": "Twice, it kept its old streets."
    },
    {
-    "t": 7.251,
+    "t": 8.169,
     "cau": "And the skyline it built still bends around the one building it chose, again and again, to keep in view."
    }
   ],
@@ -4460,14 +4545,15 @@
    111
   ],
   "hoa_s": 1.0,
+  "log_may": "log-may/H5-07b.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P1"
  },
  {
   "ma": "H5-08",
-  "t0": 741.7916,
-  "t1": 755.7916,
+  "t0": 740.8743,
+  "t1": 754.8743,
   "dur": 14.0,
   "chuong": "HỒI 5",
   "goc": "cao",
@@ -4504,14 +4590,15 @@
   ],
   "cau": [],
   "lo_ra": "bờ Bankside + sông + toàn cụm toà cao quanh mái vòm",
+  "log_may": "log-may/H5-08.json",
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P1"
  },
  {
   "ma": "H5-09",
-  "t0": 755.7916,
-  "t1": 771.7916,
+  "t0": 754.8743,
+  "t1": 770.8743,
   "dur": 16.0,
   "chuong": "HỒI 5",
   "goc": "pp",
