@@ -117,3 +117,37 @@
 | KN THU-B → appeal | THU-B-T4 §11 mục 2 đề nghị P chuyển `reports/thu-b-t4/khieu-nai-K.md` (KN-1…KN-6) vào `checks-appeal.md`; P-2510 không được sửa tệp đó. K-1.17.6 đã xử lý KN-1…KN-6 (K1176 §2) | lệnh P-2510 (vùng sửa) | không (hồ sơ) |
 | LOOK-T9c | (từ mục E) đo lại 24 tấm look2 bằng T9c | K1175 §12 | dùng lại tấm look2 |
 | Đ5 | Quyền giọng G1 cho bản phát hành (chờ thư ElevenLabs) | RIGHTS P1910-G1 | phát hành T4 |
+
+## G. Cập nhật 25/10/2026 sau NC-T4 và gói "50 % tiết kiệm" (P-2510b ghi)
+
+**Đã quyết** (nguyên văn + giờ + nghĩa: `AUTHORSHIP.md`, các dòng P-2510b):
+
+| # | Quyết định | Khi nào (Asia/Saigon) | Áp ở |
+|---|---|---|---|
+| Gói 50 % | góc cao T4 ≥ 50 % thân phim (thay 60 %, N2 07:01) + 5 chốt (chương mở/kết góc cao; P1 tái xuất mỗi hồi; ≤ 2 shot thấp/cận/M-d/ảnh thật liền nhau; mỗi chương ≥ 40 % góc cao; TL-1 mục tiêu 60 %); ≈ 80 s = ≈ 25 s ảnh/tư liệu thật + ≈ 15 s 3D tầm phố + ≈ 40 s Omni; kiểm 2 mức; 720p chỉ sinh lại lệnh đã đạt 360p, không dự trữ; 1 clip cho 2 shot; Gemini T4 trần $55, mốc $50 (thay mốc $45) | hỏi 08:15, 08:21; tiêu chí 09:08; duyệt 09:15 | Kinh thánh §15 (d) cập nhật 25/10 09:15; RULES-LL 1.17.7 (đang làm) |
+| P1 | A — mở lạnh lửa 1666 (N0a, N0b) | 09:15 | ANIMATIC-T4-V2 |
+| P2 | (b) nhân vật lịch sử có tên trong M-d: khung trung/xa, không cận mặt, trang phục theo chân dung thật, chủ dự án duyệt từng clip; Hooke chỉ thẻ chữ | 09:15 | Kinh thánh §15 (f) nới hẹp; RULES-LL 1.17.7 |
+| P3 | 15 điểm nhấn DN01–DN15 ✓ | 09:15 | ANIMATIC-T4-V2; AUTHORSHIP |
+| P4 | (a) bỏ câu Churchill (L66) | 09:15 | lời T4 |
+| P5 | lời mới 868 ký tự (N0a, N0b, N1, N2, N3, N9, N4, N5, N6; N7 bỏ) | 09:15 | thu giọng (Đ5 vẫn chặn phát hành) |
+| P6 | tư liệu: 6 chân dung + 15 ảnh 1850–1930 + ảnh Blitz Crown (chú thích đúng năm 1941–44); LOẠI "St Paul's Survives"; (a) không dùng phim 1940 | 09:15 | RIGHTS mục NC-T4; Kinh thánh §19 (c) cập nhật 25/10 09:15 (6) |
+| P7 | (a) 1 clip footage đêm H5-07a + (b) tham chiếu cho phần còn lại | 09:15 | RIGHTS mục NC-T4 (ứng viên X1, P3, P4, C3) |
+| P8 | (a) sửa: TL + KHAC + THE + THAT ≤ 20 %; THAT không tính AI/góc cao; ảnh thật toàn khung có chuyển động máy là shot hợp lệ; không ghép liền Omni; footage hiện đại chỉ giấy phép không share-alike | 09:15 | Kinh thánh §19 (c) cập nhật 25/10 09:15; RULES-LL 1.17.7 |
+| P9 | (a) nhịp cắt (miễn ranh M-d/tư liệu ở TL-1 (c)) giao K | 09:15 | RULES-LL 1.17.7 |
+| P10 | ước Gemini T4 ≈ $50–52 (theo gói: không dự trữ 720p) dưới trần $55 | 09:15 | ANIMATIC-T4-V2, bản cuối |
+| NC-T4 (mục F còn treo) | **đã quyết** bằng P1–P10 | 09:15 | — |
+
+**Còn treo:**
+
+| # | Nội dung | Căn cứ | Chặn gì |
+|---|---|---|---|
+| K-1.17.7 | (đang chạy song song) luật kiểm cho gói 50 % (góc cao ≥ 50 % + 5 chốt; kiểm 2 mức; 1 clip/2 shot; Gemini $55/$50), lớp THAT + trần 20 %, nhân vật có tên (P2 b), nhịp cắt (P9), Q33 khung P1 lặp ở mở lạnh A; cộng các mục cũ mục F: K-LAI-1 theo Q2 (C11), A1–A5 + C13, sàn Y nhấp nháy (K1176-D6) | gói 09:15; P2, P8, P9; mục F | ANIMATIC-T4-V2 (kiểm), bản cuối |
+| ANIMATIC-T4-V2 | (đang chạy song song) dựng theo P1–P10 + gói 50 % + nhận xét 1–4, C/F; ≤ 13:00 | 09:15; 06:56–07:01 | bản cuối T4 |
+| Duyệt từng clip nhân vật có tên | chủ dự án duyệt từng clip M-d có Charles II, James, Pepys, Evelyn, Wren (P2 b) trước khi vào bản dựng | Kinh thánh §15 (f) nới hẹp | clip đó |
+| Chân dung duyệt riêng | Pepys (sau 1685), James (năm chưa rõ), Churchill (1943; câu Churchill đã bỏ) — PHIEU P6 "cần duyệt riêng" | RIGHTS T4-NC-* | thẻ nhân vật đó |
+| PDF giấy phép footage | chủ dự án mở tay + lưu PDF trang giấy phép Pexels/Pixabay vào `licenses/`; xem khung clip X1/P3/P4/C3 trước khi chọn clip H5-07a | RIGHTS T4-NC-FT-*; K77 | clip H5-07a |
+| Bằng chứng JSON 21 tệp NC | tải lại `nc/licenses/<id>.json` (siêu dữ liệu nguyên văn) bằng `scripts/k2ldn/nc/tai_nc.py`, đối chiếu `SHA256-NC.txt` — 0/21 có trong git | K79 | bản cuối (RIGHTS) |
+| Ảnh Blitz Crown | tải bản Commons C01–C05 + ghi SHA vào RIGHTS khi dùng | RIGHTS T4-NC-1940-* | shot H4 tư liệu |
+| Đo lại BMN + BIEN-CO-V | đo lại tấm BMN ≥ 4 px/m (+ chiếu 3D sau khi sửa, K1176-D3) và hiệu chuẩn BIEN-CO-V trên animatic T4 — **trước bản cuối** | mục F; K1174-D2 | bản cuối |
+| Đ5 | quyền giọng G1 cho bản phát hành | RIGHTS P1910-G1 | phát hành T4 |
+| LUAN-2, LOOK-T9c, KN THU-B → appeal | giữ như mục F | mục F | như mục F |
