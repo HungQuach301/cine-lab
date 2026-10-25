@@ -151,3 +151,37 @@
 | Đo lại BMN + BIEN-CO-V | đo lại tấm BMN ≥ 4 px/m (+ chiếu 3D sau khi sửa, K1176-D3) và hiệu chuẩn BIEN-CO-V trên animatic T4 — **trước bản cuối** | mục F; K1174-D2 | bản cuối |
 | Đ5 | quyền giọng G1 cho bản phát hành | RIGHTS P1910-G1 | phát hành T4 |
 | LUAN-2, LOOK-T9c, KN THU-B → appeal | giữ như mục F | mục F | như mục F |
+
+## H. Cập nhật 26/10/2026 sau K-1.17.7, ANIMATIC-T4-V2 và hướng phần hiện đại (P-2610 ghi)
+
+**Đã quyết** (nguyên văn + giờ + nghĩa: `AUTHORSHIP.md`, các dòng P-2610):
+
+| # | Quyết định | Khi nào (Asia/Saigon) | Áp ở |
+|---|---|---|---|
+| K1177-D1 | A — duyệt luật 1.17.7 (LOCK `3a53574c…`); mục G "K-1.17.7 (đang chạy)" → **xong, đã merge vào main** | 25/10 11:58 | `checks/` (merge P-2610); Kinh thánh dẫn RULES-LL 1.17.7 |
+| K1177-D2 | A — 5 chốt góc cao ở mức Chặn G2 khi khai sàn 50 % | 25/10 11:58 | Kinh thánh §15 (d) cập nhật 25/10 11:58; bản cuối T4 |
+| K1177-D3 | A — mặt nhân vật có tên đo bằng YuNet, ≤ 1/8 chiều cao khung | 25/10 11:58 | Kinh thánh §15 (f) cập nhật 25/10 11:58 |
+| K1177-D4 | A + khai `chan_troi_city` cho mọi M-d thấy chân trời City — lớp công trình mốc q_thoi_dai | 25/10 11:58 | Kinh thánh §15 (f) cập nhật 25/10 11:58 (2) |
+| K1177-D5 | A — lớp chồng ghi vào đặc tả `p.lop_chong` | 25/10 11:58 | Kinh thánh §17 (4) |
+| K1177-D6 | A — sàn Y nhấp nháy BE-MAT-NHA theo tập; T4 0,01 | 25/10 11:58 | Kinh thánh §15 (j) cập nhật 25/10 11:58 (1) |
+| K1177-D7 | A — TL-1 (c) miễn ranh M-d/tư liệu | 25/10 11:58 | Kinh thánh §19 (a)/(c) cập nhật 25/10 11:58 |
+| Lệnh bổ sung ANIMATIC-T4-V2 #1, #2 | #1 bằng chứng giấy phép NC 21/21; #2 chuyển checks 1.17.7 | 25/10 10:05, 12:05 | ANIMATIC-T4-V2 (đã merge P-2610) |
+| Phần hiện đại A+B+E | (A) ≈ 30–40 s 3D trung/cận hiện đại → Omni; (B) ảnh thật CC BY/PD hiện đại; (E) ảnh nền AI toàn khung góc rộng 2026 máy cố định (sông, bờ, mái vòm, toà tháp có tên ghép từ 3D), BE-MAT-NHA px/m nới riêng cho năm ≥ 2020; thử 2 khung trước; đêm 2026 trượt → 3D; không footage trả phí (C) | hỏi 26/10 00:02; chọn 00:07 | Kinh thánh §14.7 LOOK-T4-8 cập nhật, §15 (j) cập nhật, §15 (k); luật E chờ K-1.17.8 |
+| Bằng chứng JSON 21 tệp NC (mục G) | **xong** — 21/21 trong git, SHA gốc khớp 21/21 (P-2610 kiểm bằng máy) | 25/10 10:05 (lệnh #1) | RIGHTS mục ANIMATIC-T4-V2 |
+| PDF giấy phép footage (mục G) | **không cần cho T4 animatic v2** — footage đêm H5-07a không tải được, giữ 3D P9 đêm; chỉ cần lại nếu bản cuối dùng footage (phiếu v2 C2) | — | RIGHTS mục ANIMATIC-T4-V2 |
+
+**Còn treo:**
+
+| # | Nội dung | Căn cứ | Chặn gì |
+|---|---|---|---|
+| Phiếu xem v2 — A1 | duyệt **từng clip** có nhân vật có tên: H1-05a (Pepys/Charles II), H1-15b (Pepys — mặt 0,162 khung > 1/8 ở 1/84 khung, NHAN-VAT-TEN (a): cắt/thay ở bản cuối), H3-05b (Godfrey Allen — không chân dung, (k)); ngoại lệ H1-06b (Flash LOẠI, soi mắt ĐẠT) | `reports/animatic-t4-v2/PHIEU-XEM-V2.md` A1; Kinh thánh §15 (f) | các clip đó ở bản cuối |
+| Phiếu xem v2 — B | XEM CÂM chỉ câu có đổi Q2, Q3, Q4, Q6 (XEM CÂM AI 48/48 chỉ tham khảo; hàng XEM-CAM cần điểm chủ dự án) | PHIEU-XEM-V2 B | XEM-CAM, G2 |
+| Phiếu xem v2 — C | C1 (Omni 20,7 % so ≈ 30–35 %), C2 (D 6418 gốc + footage tải tay hay bỏ), C3 (xoay P1 4°), C4 (tấm nền H5-04), C5 (âm/hình bản xem), C6 (thẻ Pepys/James), C7 (hàng k2check còn TRƯỢT/CẢNH BÁO thuộc luật kênh/khai) | PHIEU-XEM-V2 C | bản cuối T4 |
+| Xung đột K-LAI-3 ↔ KIEM-2-MUC | 2 clip mức NỀN (H1-06b, H1-15m) không có tệp tầng 2 — đúng thiết kế kiểm 2 mức nhưng K-LAI-3 vẫn đòi; ANIMATIC-T4-V2 đề nghị P ghi `checks-appeal.md` — **phiên P-2610 không được sửa tệp đó** → giao phiên sau (P hoặc chủ dự án chuyển K-1.17.8) | ANIMATIC-T4-V2 §8, §14 (3) | K-LAI-3 ở G2 |
+| K-1.17.8 | (đang chạy song song, nhánh riêng) luật kiểm cho E (ảnh nền AI toàn khung góc rộng 2026; BE-MAT-NHA px/m riêng cho năm ≥ 2020) + các hàng còn lại của T4; P-2610 không đụng | 26/10 00:07; Kinh thánh §15 (k) | thử 2 khung E, bản cuối |
+| Thử 2 khung E | sau khi K-1.17.8 khoá: làm thử 2 khung góc rộng 2026 máy cố định, qua bộ kiểm mới; đạt mới dựng hết; trượt (nhất là đêm 2026) → giữ 3D | Kinh thánh §15 (k) | phần hiện đại bản cuối |
+| BAN-CUOI-T4 | bản cuối T4 theo gói 50 %, K1177-D1…D7, A+B+E, phiếu v2 A1/B/C; khai đủ K1177 §4 | mục G; mục H | phát hành T4 |
+| Ảnh thật hiện đại (B) | danh sách ảnh CC BY/PD (Barbican đang xây, St Paul's 1950s, cụm tháp) + bằng chứng `licenses/` trước khi lên hình | Kinh thánh §15 (k) (B), §19 (c) | bản cuối |
+| IWM D 6418 gốc | v2 dùng bản thu Commons 500×667; muốn bản lớn hơn thì tải tay bản Commons 600×800 (không tải bản IWM theo hợp đồng phi thương mại) | RIGHTS T4-TL-IWM-D6418 | H4-06t bản cuối |
+| Sổ AI q_thoi_dai lớp mốc | `reports/animatic-t4-v2/qtd-moc.jsonl` không có usage/giá → ≈ $1,55 chưa kiểm được bằng máy | BAI-HOC-K2 K86 | không chặn; ghi đủ từ phiên sau |
+| Đo lại BMN + BIEN-CO-V; Ảnh Blitz Crown C01–C03, C05; Đ5; LUAN-2, LOOK-T9c, KN THU-B → appeal | giữ như mục G | mục G | như mục G |
