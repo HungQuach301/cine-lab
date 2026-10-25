@@ -371,3 +371,35 @@ Tái hiện trên dữ liệu thật của ANIMATIC-T4 trong `main` (`channel-k2
 - **A4 (= ghi chú C14) — KHÔNG phải lỗi thước; chẩn đoán của phiên chưa đúng; bổ sung khuôn.** Q37 (a) đối chiếu beats khai với mốc của ĐẶC TẢ (spec_times), không với biến cố đo trên video — độ trễ mờ vào 0,4–0,5 s không tham gia (a). 12 mốc (thẻ nhân vật, bộ đếm, tư liệu) do `ghep.py` đặt nhưng KHÔNG có trong đặc tả `shots[].p` → (a) đúng định nghĩa (chống tự khai biến cố). 1.17.7: đặc tả nhận `p.lop_chong: [{at, k, s, mo_vao_s?}]` — mốc `at` và `at + mo_vao_s`; phía dựng ghi lớp chồng vào đặc tả (ghép đọc từ đó). Beats tự do vẫn không nhận.
 - **A5 — KHAI SAI KHUÔN (luật rõ ở RULES 1.17.0), không đổi luật; sửa thông báo.** k2check đọc tấm kiểm ở episode.yaml `n2p: {tam: [{id, shot, render, ghep, mat_na, nam, …}]}` (ảnh PNG render đối chứng + ghép + mặt nạ lớp để đo (i)–(iv)); `n2p.tam` của log shot là KẾT QUẢ kiểm của phiên ({tag, kiem, ghep, v, khoang_s}) — không đo lại được. Thông báo THIẾU nay nêu khuôn đúng khi thấy khuôn log.
 - **Gói "50 % tiết kiệm" + P1–P10 (09:15) — luật mới/đổi (chi tiết RULES-LL §1.17.7):** GOC-CAO (`goc_cao_min_pct` 50–100, mặc định 60) + 5 chốt cấu trúc (mở/kết chương góc cao; P1 mỗi hồi cùng khung; ≤ 2 liền {thấp, cận, M-d, THAT}; chương ≥ `goc_cao_chuong_min_pct`; TL-1 `tl1_muc_tieu_pct`) · TU-LIEU trần tới 20 % + lớp THAT + TU-LIEU-THAT (giấy phép footage hiện đại có SHA) · TL-1 (c) miễn ranh M-d/tư liệu/ảnh thật · NHAN-VAT-TEN (YuNet ≤ 1/8; chân dung + duyệt) · KIEM-2-MUC (day_du/nen; bắt buộc day_du khi có nhân vật/công trình có tên/chân trời City) · q_thoi_dai lớp công trình mốc (H2-13 bắt 3/3, khung đúng 0/3) · BE-MAT-NHA sàn Y nhấp nháy (K1176-D6) `be_mat_nha_y_san_nhap`.
+
+## Khiếu nại cho K-1.17.8 (ghi 25/10/2026 ≈ 17:20 UTC, TRƯỚC khi phán; nguồn nguyên văn: `origin/claude/animatic-t4-v2-revision-hwh8jp` @1a911a01 `reports/animatic-t4-v2/ANIMATIC-T4-V2-BAO-CAO.md` §8 (sha256 `342a07ad…`) và `reports/animatic-t4-v2/PHIEU-XEM-V2.md` C7 (sha256 `26bce156…`), bảng `reports/animatic-t4-v2/k2check-1.17.7-animatic.md` (lượt 2) — phiên ANIMATIC-T4-V2; lệnh mở phiên K-1.17.8 kèm căn cứ chủ dự án, giờ Asia/Saigon)
+
+### ANIMATIC-T4-V2 §8 — bảng "Hàng TRƯỢT" (nguyên văn)
+| Hàng TRƯỢT | Trên v1 (1.17.4) | Nguyên nhân | Ai xử lý |
+|---|---|---|---|
+| Q34, Q26b, Q26b-K2 | TRƯỢT | khai `type` minh_hoa/tu_lieu ngoài danh mục (Q34); vùng/loại cảnh (3D 74,2 % > 70 %; nửa sau 0 vùng) | luật kênh — K/P xác nhận cách khai loại/vùng cho kênh 2 T4 (C7) |
+| Q37, Q37 (1.13), NHIP-K2 | TRƯỢT | khoảng dài nhất 14,87 s (H1-06, 2:10.5) > 6 s; khung tĩnh 8,96 s ở thẻ PP cuối (miễn ≤ 10 s cho thẻ PP chưa áp ở Q37) | H1-06: bản cuối thêm biến cố; thẻ PP: K |
+| SACH-1 | TRƯỢT | không có log chữ (`--logs k2.js`) — đường ghép Python không xuất log chữ | K/P: cách khai log chữ cho đường ghép Python |
+| K-LAI-2 | TRƯỢT | chưa khai `phat_hanh.mo_ta` (mô tả + bình luận ghim) — thuộc gói phát hành | bản cuối |
+| K-LAI-3 | ĐẠT (v1) | 2 clip mức NỀN (H1-06b, H1-15m) không có tệp tầng 2 — đúng thiết kế kiểm 2 mức (nen: Flash + tờ khung) nhưng K-LAI-3 vẫn đòi tệp kiểm | **xung đột luật K-LAI-3 ↔ KIEM-2-MUC** — đề xuất K (P ghi `checks-appeal.md`) |
+| XEM-CAM | TRƯỢT | chưa khai `xem_cam:` — cổng cần điểm chủ dự án (K không tự chấm) | chủ dự án chấm phiếu B |
+
+### ANIMATIC-T4-V2 §8 — đoạn CẢNH BÁO (trích nguyên văn câu liên quan)
+- "TU-LIEU-OMNI 18 ghép liền (tư liệu góc khung trong shot 3D kề M-d — khai `tu_lieu_lan` chưa đủ hẹp)."
+
+### PHIEU-XEM-V2 C7 (nguyên văn)
+**C7 — Hàng k2check 1.17.7 còn TRƯỢT/CẢNH BÁO thuộc luật kênh/khai** (xem báo cáo §8): xin K/P xác nhận trước bản cuối.
+
+### Lỗi đo (k2check 1.17.7 lượt 2, nguyên văn dòng lỗi liên quan)
+- K-LAI-3: "H1-06b/H1-06b: không có tệp kiểm (mục đoạn `kiem` hoặc lai.kiem_minh_hoa.H1-06b)"; "H1-15m/H1-15m: không có tệp kiểm (mục đoạn `kiem` hoặc lai.kiem_minh_hoa.H1-15m)".
+- Q34: 32 dòng "(0) <shot>/0: type minh_hoa | tu_lieu ngoài scene3d/map/chart3d/photo/document/footage/card/record/timelapse/strategic".
+- Q26b: "nửa sau (6:25.4–12:50.9) chỉ có 0 bối cảnh (≥ 3 s): —". Q26b-K2: "(a) nửa đầu: 1 loại cảnh ≥ 3 s (3d) < 3 · (a) nửa sau: 2 loại cảnh ≥ 3 s (3d, the_so) < 3 · (b) loại 3d chiếm 74.2 % > 70 % · (e) nửa sau (6:25.4–12:50.9) 0 vùng ≥ 3 s (—) < 3".
+- SACH-1: "(c) không có log chữ (--logs k2.js) — không đo được chữ thực hiện trên hình; (d) chip nơi chưa đo".
+- Q37: "(d) khung tĩnh 8.96 s > 6.0 s (từ 12:34.9)"; Q37 (1.13): "(d) khung tĩnh 8.88 s > 6.0 s (từ 12:35.0) · 7.42 s (từ 12:13.5) · 6.88 s (từ 12:44.0)".
+- TU-LIEU-OMNI: 18 dòng "(b) <shot tư liệu> ↔ clip M-d <shot>: ghép liền — không shot 3D xen giữa, 3D sạch 0.00 s < 1 s (không khai tu_lieu_lan: lần tư liệu tính phủ cả shot)".
+
+### Yêu cầu kèm theo của lệnh K-1.17.8 (không phải khiếu nại; căn cứ chủ dự án, Asia/Saigon, nguyên văn)
+- 26/10 00:07 "Chọn hướng cho cảnh hiện đại: A+B+E (khuyến nghị)" — E = ảnh nền AI TOÀN KHUNG cho góc rộng 2026 máy cố định; AI vẽ lại cả nhà thường; sông, đường bờ, mái vòm St Paul's, toà tháp có tên ghép lại từ 3D; nới ngưỡng px/m riêng cảnh năm ≥ 2020.
+- 25/10 09:08 "…các vấn đề khác đều có thể nới để tăng chất lượng và độ chân thực của hình ảnh / Người xem cũng không phải là người chuyên về khảo cổ…".
+- 25/10 21:35 "Các hình 3D hiện đại đang rất yếu so với hình từ Omni".
+- Việc theo lệnh: (1) LUẬT E — N2+ toàn khung hiện đại (`n2p_toan_khung_hien_dai`, `nam_min`; giữ (i) lớp (a), (iii) T9c, (iv), (v); thêm (f) chân trời mốc, (g) đêm không chữ/biển/logo AI); (2) K-LAI-3 ↔ KIEM-2-MUC; (3) Q34, Q26b/Q26b-K2, SACH-1, Q37 (d) khung tĩnh thẻ PP cuối, TU-LIEU-OMNI; (4) hiệu chuẩn lại BIEN-CO-V trên animatic T4 v2 (K1174-D2).
