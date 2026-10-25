@@ -94,11 +94,12 @@ Hc = B.hang(E4, TLx(10.0, [dict(t0=0.0, t1=5.0), dict(t0=5.0, t1=10.0)]), V_CAT,
 case('BIEN-CO-V', '(h) bắt ranh shot 5,0 s → 100 % ≥ 95 %', bad(Hc, 'h'), False)
 Hh = B.hang(E4, TLx(10.0, [dict(t0=0.0, t1=3.0), dict(t0=3.0, t1=10.0)]), V_TINH, 'G2', [], Dt)
 case('BIEN-CO-V', '(h) ranh shot khai 3,0 s mà video không cắt → 0 % < 95 % (thước không tin trên tập)', bad(Hh, 'h'), True)
-HC0 = dict(B.HIEU_CHUAN)
-B.HIEU_CHUAN.update(dat=False); r0 = B.hang(E4, TLx(10.0), V_TINH, 'G2', [], Dt)
+HCX = B.hc_tap_nay(E4)[0] if hasattr(B, 'hc_tap_nay') else B.HIEU_CHUAN   # 1.17.8: tập T4 dùng HIEU_CHUAN_T4 — bật/tắt hiệu chuẩn CỦA TẬP (kỳ vọng không đổi)
+HC0 = dict(B.HIEU_CHUAN); HCX0 = dict(HCX)
+HCX.update(dat=False); r0 = B.hang(E4, TLx(10.0), V_TINH, 'G2', [], Dt)
 mo, ch, cb = cap112.cap('BIEN-CO-V', r0)
 case('cấp', 'BIEN-CO-V thước chưa đạt hiệu chuẩn → không Chặn (chỉ Cảnh báo)', ch, False)
-B.HIEU_CHUAN.update(dat=True); r1 = B.hang(E4, TLx(10.0), V_TINH, 'G2', [], Dt); mo, ch, cb = cap112.cap('BIEN-CO-V', r1)
+HCX.update(dat=True); r1 = B.hang(E4, TLx(10.0), V_TINH, 'G2', [], Dt); mo, ch, cb = cap112.cap('BIEN-CO-V', r1)
 case('cấp', 'BIEN-CO-V thước đạt + G2 → (b)(c) Chặn', ch, True)
 mo, ch, cb = cap112.cap('BIEN-CO-V', dict(r1, cong='animatic'))
 case('cấp', 'BIEN-CO-V ở animatic → chỉ Cảnh báo', ch, False)
@@ -273,7 +274,7 @@ case('GOC-CAO-60', 'khai goc cao nhưng log khung: máy 30 m nhìn ngang (không
 
 # ====================================================================== áp dụng
 case('áp dụng', 'tập T3 → 6 hàng 1.17.4 KHÔNG ÁP', [k for k, v in K.check(dict(id='t3', khung_sach=True), None, '.', []).items() if v.get('ket_qua') != 'KHÔNG ÁP'], False)
-B.HIEU_CHUAN.clear(); B.HIEU_CHUAN.update(HC0)
+B.HIEU_CHUAN.clear(); B.HIEU_CHUAN.update(HC0); HCX.clear(); HCX.update(HCX0)
 
 # ---------------------------------------------------------------------- in kết quả
 ok = all(x[3] for x in R)

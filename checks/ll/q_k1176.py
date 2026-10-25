@@ -314,12 +314,17 @@ def tu_lieu_omni(E, TL, LS, cong='G2'):
             if b <= cur: continue
             phu += b - max(a, cur); cur = b
         return (hi - lo) - phu
+    bo_trung = 0
     for x in LT:
         a, b = (x['t0'], x['t1']) if x['co_gio'] else gio[x['i']]
+        # 1.17.8 (khiếu nại ANIMATIC-T4-V2 §8): (b) chỉ xét clip M-d GẦN NHẤT mỗi phía — clip xa hơn đã có clip M-d gần hơn chắn giữa (không đếm trùng)
+        tr = [gio[j][1] for j, _ in md if gio[j][1] <= a + 1e-6]; sa = [gio[j][0] for j, _ in md if gio[j][0] >= b - 1e-6]
+        gan = ({j for j, _ in md if tr and abs(gio[j][1] - max(tr)) < 1e-6} | {j for j, _ in md if sa and abs(gio[j][0] - min(sa)) < 1e-6})
         for j, s in md:
             c, d = gio[j]
             if j == x['i'] or (a < d - 1e-6 and c < b - 1e-6):
                 M['a'].append(f"(a) {x['shot']}: tư liệu ({x['lop']}) {a:.1f}–{b:.1f} s trùng clip M-d {s.get('shot')} {c:.1f}–{d:.1f} s — tư liệu chỉ chồng lên shot 3D"); continue
+            if j not in gan: bo_trung += 1; continue
             lo, hi = (b, c) if b <= c else (d, a)
             xen = [z for k, z in enumerate(LS) if lo - 1e-6 <= gio[k][0] and gio[k][1] <= hi + 1e-6 and not z.get('minh_hoa') and K._lop(z, *LOP_TU_LIEU) <= 0
                    and not z.get('tu_lieu_lan') and gio[k][1] - gio[k][0] > 1e-6]
@@ -327,7 +332,8 @@ def tu_lieu_omni(E, TL, LS, cong='G2'):
             if not xen and g3 < GHEP_LIEN_S - 1e-6:
                 M['b'].append(f"(b) {x['shot']} ({a:.1f}–{b:.1f} s) ↔ clip M-d {s.get('shot')} ({c:.1f}–{d:.1f} s): ghép liền — không shot 3D xen giữa, 3D sạch {g3:.2f} s < {GHEP_LIEN_S:g} s"
                               + ('' if x['co_gio'] else ' (không khai tu_lieu_lan: lần tư liệu tính phủ cả shot)'))
-    return K.r(sum(M.values(), []), val=f'{len(LT)} lần tư liệu · {len(md)} clip M-d · trùng {len(M["a"])} · ghép liền {len(M["b"])}', muc=M, cong=cong)
+    return K.r(sum(M.values(), []), val=f'{len(LT)} lần tư liệu · {len(md)} clip M-d · trùng {len(M["a"])} · ghép liền {len(M["b"])}'
+               + (f' · 1.17.8: bỏ {bo_trung} cặp với clip M-d không gần nhất' if bo_trung else ''), muc=M, cong=cong)
 
 
 def check_tu_lieu(E, TL=None, ep_dir='.', LS=None):

@@ -454,11 +454,16 @@ def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None, tl_moc=Fal
         if S['dai_nhat'] > GAP_MAX: bad.append(f"(c) khoảng dài nhất {S['dai_nhat']} s > {GAP_MAX} s (từ {S['dai_nhat_tu']})")
         near += [f"TB {S['tb']} s (ngưỡng {MEAN_MAX})"] if abs(S['tb'] - MEAN_MAX) <= 0.05 * MEAN_MAX else []
         near += [f"khoảng dài nhất {S['dai_nhat']} s (ngưỡng {GAP_MAX})"] if abs(S['dai_nhat'] - GAP_MAX) <= 0.05 * GAP_MAX else []
-    st = None; troi = []; st_cu = None
+    st = None; troi = []; st_cu = None; mien_d = []
     if mp4 and os.path.exists(mp4) or F is not None:
         F = gray160(mp4) if F is None else F
         st_cu = static_run(None, F); A = static_anchor(F) if v113 else [st_cu]; st = A[0] if A else (0.0, 0.0)
+        T4 = bool(E.get('kenh2_tu_t4') or E.get('n2p')); mien_d = []   # 1.17.8 (khiếu nại ANIMATIC-T4-V2 §8, từ T4): (d) miễn thẻ PP cuối phim như (c) (K1173-D6)
         for L, a in A:
+            if T4 and L > STATIC_MAX and mien is not None:
+                from checks.ll import q_k1178 as K78
+                n_ = K78.mien_d(mien, L, a)
+                if n_: mien_d.append(f'{L} s từ {int(a // 60)}:{a % 60:04.1f} (thẻ PP {n_})'); continue
             if L > STATIC_MAX: bad.append(f'(d) khung tĩnh {L} s > {STATIC_MAX} s (từ {int(a // 60)}:{a % 60:04.1f})')
             elif abs(L - STATIC_MAX) <= 0.05 * STATIC_MAX: near.append(f'khung tĩnh {L} s từ {int(a // 60)}:{a % 60:04.1f} (ngưỡng {STATIC_MAX})')
         troi = [x for x in _runs_cu(F, STATIC_MAX) if not any(L > STATIC_MAX and a <= x[1] + x[0] and x[1] <= a + L for L, a in A)] if v113 else []
@@ -469,7 +474,8 @@ def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None, tl_moc=Fal
            + (f" · tham khảo mốc đặc tả: TB {M['tb']} s, dài nhất {M['dai_nhat']} s ({M['dai_nhat_tu']})" if M and not S else '')
            + (f" · miễn khung neo/im lặng (1.16): {len(S.get('mien') or [])} khoảng, dài nhất trước miễn {S.get('dai_nhat_goc')} s" if S and mien is not None else '')
            + (f" · biến cố cảnh tl (đo, I8): {len(TE)} (" + ', '.join(f'{k[3:]} {sum(1 for x in TE if x[2] == k)}' for k in sorted({x[2] for x in TE})) + ')' if TE else '')
-           + (f" · biến cố đo trên video (1.17.4, q_bcv): {len(BV)}" if BV else ''))
+           + (f" · biến cố đo trên video (1.17.4, q_bcv): {len(BV)}" if BV else '')
+           + (f" · (d) miễn thẻ PP cuối (1.17.8): {'; '.join(mien_d)}" if st and mien_d else ''))
     return dict(ok=not bad, loi=bad, val=val, note='; '.join(bad[:5]), sat_nguong=near, bien_co=S, moc_dac_ta=M, khung_tinh=st, khung_tinh_cu=st_cu,
                 troi_cham=troi, tong_s=round(t_abs, 2), bien_co_tl=TE)
 

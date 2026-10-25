@@ -42,6 +42,22 @@ HIEU_CHUAN = dict(dat=True, master_sha='5b9f0bccd88830ab212a6747259ac597328ae87b
                   nua_dau=dict(R_cat=100.0, R_beat=90.8, dt_tv=0.05, bao_nham_tinh=0), nua_sau=dict(R_cat=100.0, R_beat=98.2, dt_tv=0.042, bao_nham_tinh=0, tinh_s=16.1),
                   tong_hop=dict(bao_nham_chi_may=0, bat_vat_doi='6/6'), nguon='reports/k1174/do/hieu-chuan-bcv.json',
                   ghi='ĐẠT (T3 5b9f0bcc…: θ 8, k 2; R cắt 100/100 %, R beat 90,8/98,2 %, Δt TV 0,05/0,04 s, báo nhầm 0)')
+# 1.17.8 (K1174-D2 "A, kèm hiệu chuẩn lại trên animatic T4 (log máy thật) trước G2"): hiệu chuẩn lại trên animatic T4 v2 — bản xem 4 phần nối
+# (SHA d4b5d486…, 640×360, ≈ 66 kb/s hình) + log máy thật (animatic2/log-may): tập TĨNH THẬT / CHỈ MÁY THẬT lấy từ log máy (năm, lửa, mặt trời không
+# đổi), cùng tiêu chí K-1.17.4 §2. KHÔNG lưới (θ, k) nào đạt: ở θ 8, k 2 — R cắt 100/97,9 %, R beat 94,4/100 %, Δt 0,04 s đạt; báo nhầm TĨNH THẬT 0 / 9,9
+# phút⁻¹ (nửa sau, 3 trong 18,1 s), CHỈ MÁY THẬT 7,6 / 127,5 phút⁻¹ (TRUOT tầm phố H5-02s, XUONG H2-11: thị sai mạnh — giới hạn (3) K-1.17.4), clip tổng hợp
+# chỉ máy 5 báo nhầm, vật đổi 5/6 (khung bản xem phóng 3× — mã hoá thấp). → Tập từ T4: thước CHƯA ĐẠT hiệu chuẩn — BIEN-CO-V chỉ Cảnh báo (cả G2) và
+# Q37/NHIP-K2/Q37 (1.13) KHÔNG cộng biến cố đo (cho_q37) tới khi hiệu chuẩn lại đạt trên master/animatic đủ bitrate + xử lý thị sai (reports/k1178 §5).
+HIEU_CHUAN_T4 = dict(dat=False, video_sha='d4b5d486e9bcdb9c33b334ea0dc30c66ccc0056db6097dea3e4c8f4e2b94fbb2', ngay='2026-10-25', theta=8.0, k=2.0,
+                     nua_dau=dict(R_cat=100.0, R_beat=94.4, dt_tv=0.042, tinh_that_phut=0.0, chi_may_that_phut=7.62),
+                     nua_sau=dict(R_cat=97.9, R_beat=100.0, dt_tv=0.043, tinh_that_phut=9.93, chi_may_that_phut=127.5),
+                     tong_hop=dict(bao_nham_chi_may=5, bat_vat_doi='5/6'), nguon='reports/k1178/do/hieu-chuan-bcv-t4.json',
+                     ghi='KHÔNG ĐẠT (T4 v2 bản xem d4b5d486…, θ 8 k 2: báo nhầm tĩnh thật 9,9/phút, chỉ máy thật 127,5/phút — thị sai TRUOT/XUONG; tổng hợp 5; vật đổi 5/6)')
+
+
+def hc_tap_nay(E):
+    """1.17.8: hiệu chuẩn áp cho tập — từ T4 (kenh2_tu_t4 | n2p) dùng HIEU_CHUAN_T4; tập trước dùng HIEU_CHUAN (T3)"""
+    return (HIEU_CHUAN_T4, 'T4 (1.17.8)') if (E or {}).get('kenh2_tu_t4') or (E or {}).get('n2p') else (HIEU_CHUAN, 'T3')
 
 
 def _frames(mp4, w=None, h=None):
@@ -169,11 +185,12 @@ def hang(E, TL, mp4, cong='G2', mien=None, ket=None, tl_ev=()):
     if not hc_tap: loi.append(f'(h) thước trên tập này: bắt {nr}/{len(rs)} ranh shot = {rcat:.1f} % < {HC_R_CAT:g} % — chưa tin để Chặn')
     for v, ng, ten in ((tb or 0, MEAN_MAX, 'TB'), (dn, GAP_MAX, 'dài nhất')):
         if abs(v - ng) <= 0.05 * ng: near.append(f'{ten} {v} s (ngưỡng {ng:g})')
-    dat_hc = bool(HIEU_CHUAN.get('dat')) and hc_tap
+    HC, hc_ten = hc_tap_nay(E)
+    dat_hc = bool(HC.get('dat')) and hc_tap
     if not dat_hc: muc = {'chua_hieu_chuan': list(loi)}
     val = (f"{T:.1f} s · biến cố đo {len(D['su_kien'])} (gộp {len(gop(ev))}; cắt {len(D['cat'])}"
            + (f'; + cảnh tl {len(tl_ev)}' if tl_ev else '') + f") · TB {tb} s · dài nhất {dn} s · miễn {len(ex)} khoảng ({', '.join(sorted({x[2] for x in ex}))})"
-           + f" · ranh shot bắt {nr}/{len(rs)} ({rcat:.1f} %) · hiệu chuẩn T3: {HIEU_CHUAN.get('ghi')}")
+           + f" · ranh shot bắt {nr}/{len(rs)} ({rcat:.1f} %) · hiệu chuẩn {hc_ten}: {HC.get('ghi')}")
     return dict(ok=not loi, loi=loi, val=val, sat_nguong=near, cong=cong, muc=muc, dat_hieu_chuan=dat_hc, bien_co=sorted(ev), mien=ex, tb=tb, dai_nhat=dn, r_cat=round(rcat, 1))
 
 
