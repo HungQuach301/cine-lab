@@ -15,8 +15,8 @@
 | DN09 | 1671–1677 | Fish Street Hill (Monument) | Christopher Wren; Robert Hooke | dựng cột Monument; 6 năm vì khó có đá Portland đủ cỡ và chiến tranh Hà Lan 1672–74 | **GIỮ** | tách H2-06 (VONG 12 → 6 + M-d 6) + VONG dài thêm 5 s cho N9 | MD +6, A cao +5 | Monument · 1671–1677 | N9 |
 | DN10 | 10/1708 (đá cuối); 25/12/1711 (Nghị viện tuyên bố hoàn thành) | đỉnh đèn lồng St Paul's | Christopher Wren con; Edward Strong (thợ cả) | đặt viên đá cuối của đèn lồng | **GIỮ 1708 theo St Paul's (cơ quan); ghi lệch: Parentalia 'compleat … in the Year 1710', Thornbury 'In 1710' — không nêu ngày 20/26/10 trên hình** | tách H2-10 (THAP 18 → 12 + M-d 6) + 2 s cho N4 | MD +6, A thấp +2 | Christopher Wren Jr · 1708 | N4 |
 | DN11 | 11/4/1758 (cầu tạm cháy); 1758–1762 (dỡ nhà) | London Bridge | Corporation of London (Đạo luật 1756) | dỡ nhà, cửa hàng trên cầu; gộp hai nhịp giữa cho thuyền qua; cầu gỗ tạm cháy 11/4/1758 | **SỬA lời L52 'in 1758' → 'from 1758' (N5)** | H3-02 + chồng KHAC 4 s | KHAC chồng 4 | London Bridge, before 1758 | N5 |
-| DN12 | 2/1864 → 13/7/1870 | Victoria Embankment (Westminster → Blackfriars) | Sir Joseph Bazalgette (kỹ sư trưởng Metropolitan Board of Works) | đắp kè, đường, cống thoát chính và đường ngầm dưới bờ bắc | **GIỮ (thêm tên Bazalgette — N6)** | H3-03 + chồng ảnh thật 5 s + THE 3 s + 1,5 s lời | THAT chồng 5, THE 3 | Joseph Bazalgette · engineer | N6 |
-| DN13 | 29–30/12/1940 | St Paul's và City | St Paul's Watch (lập lại 1939, Godfrey Allen); Herbert Mason (ảnh — LOẠI); Churchill (câu — BỎ) | 28 quả bom/thiết bị rơi trên và quanh nhà thờ; đội canh dập lửa bằng bơm nước và bao cát; sáng ra mái vòm còn đứng | **GIỮ (Watch); BỎ câu Churchill: không tìm thấy văn bản sơ cấp/cơ quan (St Paul's timeline 1940 không nhắc; Historic England 403; mọi trang khác thứ cấp, không dẫn tài liệu gốc)** | H4-04b giữ; tách H4-06 ảnh thật 5 s; H4-04c rút 5,5 s | THAT 5 | St Paul's Watch · volunteers | N7 (bỏ câu) |
+| DN12 | 2/1864 → 13/7/1870 | Victoria Embankment (Westminster → Blackfriars) | Sir Joseph Bazalgette (kỹ sư trưởng Metropolitan Board of Works) | đắp kè, đường, cống thoát chính và đường ngầm dưới bờ bắc | **GIỮ (thêm tên Bazalgette — N6)** | H3-03 + chồng KHAC 5 s + THE 3 s + 1,5 s lời | KHAC chồng 5, THE 3 | Joseph Bazalgette · engineer | N6 |
+| DN13 | 29–30/12/1940 | St Paul's và City | St Paul's Watch (lập lại 1939, Godfrey Allen); Herbert Mason (ảnh — LOẠI); Churchill (câu — BỎ) | 28 quả bom/thiết bị rơi trên và quanh nhà thờ; đội canh dập lửa bằng bơm nước và bao cát; sáng ra mái vòm còn đứng | **GIỮ (Watch); BỎ câu Churchill: không tìm thấy văn bản sơ cấp/cơ quan (St Paul's timeline 1940 không nhắc; Historic England 403; mọi trang khác thứ cấp, không dẫn tài liệu gốc)** | H4-04b giữ; H4-06 chồng ảnh thật 5 s; H4-04c rút 5,5 s | THAT chồng 5 | St Paul's, January 1942 | N7 (bỏ câu) |
 | DN14 | 1952 (bàn) → 1965–1976 (xây) | Cripplegate → Barbican; London Wall | Chamberlin, Powell and Bon (kiến trúc sư) | Cripplegate gần như bị xoá; 1951 chỉ còn 48 cư dân; Barbican Estate khởi công 1965, 11 năm | **GIỮ (lời L74 'from the mid-1960s' khớp)** | H5-02 giữ | — | — | — |
 | DN15 | 1937/1938 → nay | bờ nam, Fleet Street, cụm tháp Bishopsgate/Leadenhall | W. Godfrey Allen | St Paul's Heights (đề xuất 1937, áp từ 1938 bằng thoả thuận); tầm nhìn bảo vệ tới King Henry's Mound, Richmond Park | **GIỮ (L58 khớp); LVMF (london.gov.uk) 403 — giữ câu 'King Henry's Mound' theo SPD 2012** | H5-07a THAT 6; H5-05a rút 4,5; H3-05 M-d 6 + rút 3,7 | THAT 6, MD +6 | St Paul's Heights · 1938 | — |
 
@@ -110,7 +110,7 @@
   > rickety houses were not removed till 1757–60
 
 ### DN12 — 2/1864 → 13/7/1870 · Victoria Embankment (Westminster → Blackfriars)
-- **Hình:** H3-03 XUONG giữ; chồng góc khung 5 s ảnh chụp thi công 1860s (ảnh thật PD — NHAN-VAT-ANH §3); thẻ chân dung Bazalgette 3 s
+- **Hình:** H3-03 XUONG giữ; chồng góc khung 5 s bản vẽ thi công Embankment 1865 (Wellcome uv3mugch, PDM — `nc/anh/wellcome-uv3mugch-embankment-1865.jpg`; không tìm được ảnh chụp thi công 1860s sạch quyền); thẻ chân dung Bazalgette 3 s (Rijksmuseum RP-F-F25409-Q, PDM/CC0)
 - Nguồn: `reports/nc-t4/nguon/web/dn-bho-embankment.txt` · <https://www.british-history.ac.uk/node/37832> · đọc 25/10/2026 · bậc **TC (Thornbury 1878, gần thời)**
   > It was commenced in February, 1864,
   > and completed in July, 1870
@@ -118,7 +118,7 @@
   > Sir Joseph W. Bazalgette
 
 ### DN13 — 29–30/12/1940 · St Paul's và City
-- **Hình:** H4-04b M-d (giữ); ảnh thật Crown 1940 sau trận (toàn khung 5 s, tách H4-06) — xem TU-LIEU-1940; bỏ câu Churchill → H4-04c rút 5,5 s (hết khung tĩnh 9,2 s)
+- **Hình:** H4-04b M-d (giữ, mái chì + bơm tay + cát); H4-06: chồng góc khung 5 s ảnh MoI Crown St Paul's giữa phế tích (IWM D 4325 hoặc D 6418 qua Commons, 1/1942) chú thích có năm — KHÔNG có ảnh Crown sạch quyền của đêm 29–30/12/1940 (TU-LIEU-1940); Mason LOẠI, không dựng lại bố cục bằng AI; bỏ câu Churchill → H4-04c rút 5,5 s
 - Nguồn: `reports/nc-t4/nguon/web/dn-stpauls-our-timeline.txt` · <https://www.stpauls.co.uk/our-timeline> · đọc 25/10/2026 · bậc **TC-CQ (St Paul's)**
   > On the same night that Herbert Mason took his now iconic photograph, 28 small explosive devices fell on and around the Cathedral, hitting the Dome, and destroying the nearby Chapter House.
   > It was thanks to their courageous efforts in patrolling, and using water pumps and sandbags to put out fires, that St Paul’s did not fall victim to flames once again.

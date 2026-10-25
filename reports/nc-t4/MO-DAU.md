@@ -25,7 +25,7 @@ Lời L01–L03 giữ nguyên ở cả ba phương án; chỉ A thêm hai câu m
 | 23–33 | M02 tua ngược (giữ) | KEO | L04–L05 |
 | 33–44 | M03 vòng cung lửa (giữ — nay là "trả lời" mở lạnh) | DAY | L06 |
 
-Nhịp: biến cố mạnh ở giây 0 (lửa), giây 10 (khớp năm), giây 23 (tua ngược). Ưu: móc mạnh nhất ngay giây 0, không cần Gemini, dùng render đã có, KHOP 1666 ↔ 2026 ở đầu phim báo trước KHÉP VÒNG H5-07b (cùng khung). Nhược: +10 s; tấm nền N2P giảm 11 s (N2P 2,37 % — vốn đã dưới mục tiêu V7 5–15 %); mở bằng câu trích nên phải đọc rõ (giọng G1). Tác động (ước `uoc-A.json`): 760,0 s · M-d 27,98 % · góc cao 60,57 %. Rủi ro: M03 và M00 cùng khung lửa — phải khác giờ (21 vs 22,5) và khác cú máy để không thành lặp (Q33-K2 lặp cảnh "≤ 2 lần" theo pHash: M00, M03, H1-08b, H5-07b sẽ cùng khung P1 lửa — animatic chưa đo pHash (k2check: "chưa đo pHash (không có master)") nên **chưa biết** có vượt không; cần K xác nhận cách tính với KHOP/xương sống, hoặc M00 lấy giờ 20 khi lửa còn hẹp).
+Nhịp: biến cố mạnh ở giây 0 (lửa), giây 10 (khớp năm), giây 23 (tua ngược). Ưu: móc mạnh nhất ngay giây 0, không cần Gemini, dùng render đã có, KHOP 1666 ↔ 2026 ở đầu phim báo trước KHÉP VÒNG H5-07b (cùng khung). Nhược: +10 s; tấm nền N2P giảm 11 s (N2P 2,37 % — vốn đã dưới mục tiêu V7 5–15 %); mở bằng câu trích nên phải đọc rõ (giọng G1). Tác động (ước `uoc-A.json`): 760,0 s · M-d 27,98 % · góc cao 61,24 %. Rủi ro: M03 và M00 cùng khung lửa — phải khác giờ (21 vs 22,5) và khác cú máy để không thành lặp (Q33-K2 lặp cảnh "≤ 2 lần" theo pHash: M00, M03, H1-08b, H5-07b sẽ cùng khung P1 lửa — animatic chưa đo pHash (k2check: "chưa đo pHash (không có master)") nên **chưa biết** có vượt không; cần K xác nhận cách tính với KHOP/xương sống, hoặc M00 lấy giờ 20 khi lửa còn hẹp).
 
 ### B — "2026 có máy + chớp lửa"
 
@@ -36,7 +36,7 @@ Nhịp: biến cố mạnh ở giây 0 (lửa), giây 10 (khớp năm), giây 23
 | 14–24 | M02 tua ngược | KEO | L04–L05 |
 | 24–35 | M03 | DAY | L06 |
 
-Ưu: không thêm lời; giữ thứ tự đã khoá; 0 Gemini. Nhược: 2026 ban ngày vẫn là hình mở (kém kịch tính hơn A); chớp lửa < 1 s dễ bị TL-1 (c) tính thêm cắt và có thể gây cảm giác "giật". Tác động (`uoc-B.json`): 754,0 s · M-d 28,20 % · góc cao 60,25 %. Rủi ro: chớp sáng mạnh — phải kiểm nhấp nháy (WCAG ≤ 3 lần/s).
+Ưu: không thêm lời; giữ thứ tự đã khoá; 0 Gemini. Nhược: 2026 ban ngày vẫn là hình mở (kém kịch tính hơn A); chớp lửa < 1 s dễ bị TL-1 (c) tính thêm cắt và có thể gây cảm giác "giật". Tác động (`uoc-B.json`): 754,0 s · M-d 28,20 % · góc cao 60,93 %. Rủi ro: chớp sáng mạnh — phải kiểm nhấp nháy (WCAG ≤ 3 lần/s).
 
 ### C — "Footage thật trước"
 
@@ -47,7 +47,7 @@ Nhịp: biến cố mạnh ở giây 0 (lửa), giây 10 (khớp năm), giây 23
 | 18–28 | M02 | KEO | L04–L05 |
 | 28–39 | M03 | DAY | L06 |
 
-Ưu: "thật" ngay giây 0, đáp nhận xét 4 (ảnh/footage thật). Nhược: hình đầu là footage người khác quay (khó làm thumbnail/nhận diện kênh); phụ thuộc giấy phép clip. Tác động (`uoc-C.json`): 756,0 s · M-d 28,13 % · **góc cao 59,55 % < 60 % — TRƯỢT GOC-CAO-60**, phải rút thêm ≈ 4 s M-d hoặc thấp. Rủi ro: CC BY-SA → điều kiện chia sẻ tương tự (xem FOOTAGE-2026 §2).
+Ưu: "thật" ngay giây 0, đáp nhận xét 4 (ảnh/footage thật). Nhược: hình đầu là footage người khác quay (khó làm thumbnail/nhận diện kênh); phụ thuộc giấy phép clip. Tác động (`uoc-C.json`): 756,0 s · M-d 28,13 % · góc cao 60,22 % (sát ngưỡng ±5 %). Rủi ro: CC BY-SA → điều kiện chia sẻ tương tự (xem FOOTAGE-2026 §2).
 
 **Khuyến nghị: A**, kèm điều kiện M00 lấy giờ khác M03 và K xác nhận Q33 với KHOP.
 
