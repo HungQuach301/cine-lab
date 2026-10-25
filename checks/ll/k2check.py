@@ -23,6 +23,10 @@ Phiên xưởng chỉ CHẠY (không đọc mã). Định nghĩa: checks/ll/RULE
              sống cộng hiệu (A3), (d) vòng bảo vệ khớp màu cục bộ khi khai (A4) · BE-MAT-NHA (AI phủ bề mặt nhà thường, tấm `be_mat_nha_ai`)
              1.17.6 (khiếu nại THU-B KN-1…KN-6; chủ dự án 24/10 12:52, 15:25): N2P-3 khung không nước KHÔNG ÁP · N2P-1 trừ nhà đo được của tấm BMN ·
              BE-MAT-NHA (d) theo điểm ảnh, (e) ở độ phân giải video, `be_mat_nha_px_m_min`, (w) cạnh màu mới · TU-LIEU-10 `tu_lieu_tran_pct` + (b) · TU-LIEU-OMNI
+             1.17.7 (chủ dự án 25/10 09:15 gói "50 % tiết kiệm" + P1–P10; 06:56 C11, C13; khiếu nại ANIMATIC-T4 A1–A5): tập từ T4: GOC-CAO (thay GOC-CAO-60:
+             `goc_cao_min_pct` + 5 chốt cấu trúc) · TU-LIEU trần tới 20 % + lớp THAT, hàng TU-LIEU-THAT · K-LAI-1 không tính M-d (Q2) · TL-1 (a)
+             `tl1_muc_tieu_pct`, (c) miễn ranh M-d/tư liệu · NHAN-VAT-TEN (đo mặt YuNet ≤ 1/8) · KIEM-2-MUC · MAY-19 hệ toạ độ + khung KHOP gần nhất ·
+             Q37 (a) `p.lop_chong` · BE-MAT-NHA (d) sàn Y nhấp nháy `be_mat_nha_y_san_nhap` · q_thoi_dai lớp công trình mốc (`--moc`)
 
 Gọi: Q26b bối cảnh · Q32 footage/ảnh nguồn ngoài · Q33 lặp cảnh · Q34 loại shot · Q35 nhãn loại số (D5) · Q36 chữ trên màn hình ·
 Q37 nhịp thị giác · A1–A13 âm thanh · LOCK. Mã thoát 0 khi mọi mục ĐẠT (âm thanh của tập cũ: CHỈ BÁO, không tính).
@@ -47,7 +51,7 @@ Mặc định: timeline <out>/timeline.json, master <out>/<id>-v1-master.mp4 n�
 import glob, json, os, subprocess, sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
-from checks.ll import base, q_setting, q_footage, q_scene, q_types, q_chu, q_nhip, q_amthanh, q_mach, q_ftg, q_hinh, q_tl, q_k2var, cap112, q_k116, q_k117, q_bcv, q_k1174, q_k1175  # noqa: E402
+from checks.ll import base, q_setting, q_footage, q_scene, q_types, q_chu, q_nhip, q_amthanh, q_mach, q_ftg, q_hinh, q_tl, q_k2var, cap112, q_k116, q_k117, q_bcv, q_k1174, q_k1175, q_k1177  # noqa: E402,F401
 from checks.cinecheck import VERSION  # noqa: E402
 
 
@@ -232,6 +236,11 @@ def main():
         try: LA = q_lai.check116(E, TL, ep_dir, logs, LS17) if V16 else q_lai.check(E, TL, ep_dir, logs)
         except Exception as e: LA = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in LAT}
         if V16 and 'K-LAI-3V' in LA: LA['K-LAI-3V'] = dict(LA['K-LAI-3V'], cong='animatic' if E.get('animatic') else 'G2')   # K116-D5
+        from checks.ll import q_k1177
+        if q_k1177.ap_1177(E) and (LA.get('K-LAI-1') or {}).get('ket_qua') != 'KHÔNG ÁP':   # 1.17.7 (Q2/C11): tập từ T4 — M-d không tính trần 20 %
+            try: LA['K-LAI-1'] = q_k1177.klai1_t4(E, TL, LS17, ep_dir)
+            except Exception as e: LA['K-LAI-1'] = dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—')
+            LAN = dict(LAN, **{'K-LAI-1': 'ai_image/ai_texture NGOÀI minh hoạ M-d ≤ 20 % thời lượng (1.17.7, tập từ T4: M-d tính ở MINH-HOA/N2P-6 — Q2/C11)'})
         for k in LAT: bao(k, LAT[k], lambda k=k: LA[k], LAN[k])
 
     def o2():
@@ -262,7 +271,7 @@ def main():
            'PC-1': 'Thước phục chế §12.3'}
     K6N = {'SACH-1': 'chỉ bộ đếm · chip nơi ≤ 3 s · thẻ chương · thẻ phương pháp · bản đồ ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ (K116-D3); không tấm số/trích, không tư liệu đứng riêng (phủ ≤ 3 s)',
            'CHUONG-1': '≤ 8/tập · "năm — ≤ 6 từ" · ≤ 3 s · không trong móc · trung tính', 'PP-1': '2 thẻ × 7–9 s, cuối phim · nguồn/bản đồ + chỗ ước tính (1.17.2: không đòi câu AI) · ≤ 3 từ/s',
-           'TL-1': 'góc cao + thời gian chạy ≥ 75 % · ≤ 5 cắt/phút (video: đổi cấu trúc; đối chiếu đặc tả ±0,5 s; 1.17.2: cắt góc R3 so_goc/goc_may không tính trần) · trôi ≤ 2 %/s · 6–8 điểm máy (hiệu chỉnh sau V7-PILOT)',
+           'TL-1': 'góc cao + thời gian chạy ≥ 75 % (1.17.7: `tl1_muc_tieu_pct` theo tập) · ≤ 5 cắt/phút (video: đổi cấu trúc; đối chiếu đặc tả ±0,5 s; 1.17.2: cắt góc R3 so_goc/goc_may không tính trần; 1.17.7 từ T4: ranh vào/ra M-d, tư liệu, ảnh thật không tính) · trôi ≤ 2 %/s · 6–8 điểm máy (hiệu chỉnh sau V7-PILOT)',
            'TL-2': 'lướt thấp ≤ 10 % · có vai, phố/người (hiệu chỉnh sau V7-PILOT)', 'TL-3': 'mỗi shot 3D: thời gian chạy hoặc biến cố · trống ≤ 60 % (hiệu chỉnh sau V7-PILOT)',
            'NHIP-NGHIA': '≥ 90 % nhịp chính', 'XEM-CAM': '8 câu · 3 AI + chủ dự án · tắt tiếng · chủ dự án ≥ 6/8 VÀ TB AI ≥ 6/8 (K116-D2)', 'PC-1': 'Δ cạnh mới so bicubic ≤ 1,0 điểm % · PSNR ≥ bicubic'}
     if not V16: bao('1.16', 'Luật T3 (SACH-1…PC-1)', lambda: dict(ok=True, loi=[], val='tập trước T3: giữ hành vi 1.15', ket_qua='KHÔNG ÁP'))
@@ -299,13 +308,17 @@ def main():
     # ---- 1.17.4: §19 + Q2 (tập từ T4) — CHỈ BÁO (cấp ở cap112, áp với --cap)
     if V16:
         K74T = {'MAY-19': 'Ngữ pháp máy §19 (a)', 'BAN-DO-12': 'Bản đồ ≤ 12 % §19 (b)', 'TU-LIEU-10': 'Tư liệu + khắc + thẻ ≤ trần tập §19 (c)', 'AI-TU-LIEU': 'Không AI lên tư liệu §19 (b)(c)',
-                'GEMINI-NGAN-SACH': 'Ngân sách Gemini của tập (Q2 i)', 'GOC-CAO-60': 'Góc cao timelapse ≥ 60 % (Q2 iii)', 'TU-LIEU-OMNI': 'Tư liệu không chồng/ghép liền clip M-d (1.17.6)'}
+                'GEMINI-NGAN-SACH': 'Ngân sách Gemini của tập (Q2 i)', 'GOC-CAO': 'Góc cao timelapse + 5 chốt cấu trúc (Q2 iii; 1.17.7)', 'TU-LIEU-OMNI': 'Tư liệu không chồng/ghép liền clip M-d (1.17.6)',
+                'TU-LIEU-THAT': 'Ảnh chụp/footage thật (1.17.7)', 'NHAN-VAT-TEN': 'Nhân vật có tên trong M-d (1.17.7, P2 b)', 'KIEM-2-MUC': 'Kiểm 2 mức day_du/nen (1.17.7)'}
         K74N = {'MAY-19': 'tốc độ theo cú máy (log khung) · N2+ = CODINH · KHOP ≤ 0,5 px · ≥ 4 loại/chương · ≤ 2 liền · THAP ≤ 12 %', 'BAN-DO-12': 'MAP + MAP3D ≤ 12 % · ≤ 10 s/lần',
-                'TU-LIEU-10': 'TL + KHAC + THE ≤ tu_lieu_tran_pct (mặc định 10 %, ≤ 15 %) · mỗi lần ≤ 10 s', 'TU-LIEU-OMNI': 'không trùng clip M-d · cách ≥ 1 shot 3D hoặc ≥ 1 s 3D', 'AI-TU-LIEU': '0 shot tư liệu có AI · 0 dòng sổ AI có SHA tư liệu', 'GEMINI-NGAN-SACH': 'tổng usd sổ Gemini ≤ ngan_sach_gemini_usd',
-                'GOC-CAO-60': 'goc cao + tl (V7B-D1 theo log khung) ≥ 60 % thân phim'}
+                'TU-LIEU-10': 'TL + KHAC + THE (+ THAT) ≤ tu_lieu_tran_pct (mặc định 10 %, ≤ 20 % từ 1.17.7) · mỗi lần ≤ 10 s', 'TU-LIEU-OMNI': 'không trùng clip M-d · cách ≥ 1 shot 3D hoặc ≥ 1 s 3D', 'AI-TU-LIEU': '0 shot tư liệu có AI · 0 dòng sổ AI có SHA tư liệu', 'GEMINI-NGAN-SACH': 'tổng usd sổ Gemini ≤ ngan_sach_gemini_usd',
+                'GOC-CAO': 'goc cao + tl (V7B-D1 theo log khung, trừ THAT) ≥ goc_cao_min_pct (mặc định 60, ≥ 50) · khi < 60 / khai cấu trúc: chương mở+kết góc cao · P1 mỗi hồi (cùng khung) · ≤ 2 liền {thấp, cận, M-d, THAT} · mỗi chương ≥ goc_cao_chuong_min_pct (40)',
+                'TU-LIEU-THAT': 'THAT không AI · không tính góc cao · footage hiện đại có giay_phep {tep, sha256}',
+                'NHAN-VAT-TEN': 'chan_dung_tham_chieu (SHA) · duyet_chu_du_an · mặt lớn nhất ≤ 1/8 chiều cao khung (YuNet ≥ 0,75)',
+                'KIEM-2-MUC': 'muc_kiem mỗi đoạn · nhân vật/công trình có tên, chân trời City → day_du · nen: Flash + tờ khung, ≤ 2 lượt · day_du: 2 tầng + q_thoi_dai (lớp mốc khi có mốc), ≤ 3 lượt'}
         if not q_k1174.ap_1174(E): bao('1.17.4 (T4)', 'MAY-19 … GOC-CAO-60', lambda: dict(ok=True, loi=[], val='tập trước T4 — không hồi tố (Q2: T3 giữ luật cũ)', ket_qua='KHÔNG ÁP'))
         else:
-            try: K74 = q_k1174.check(E, TL, ep_dir, LS17)
+            try: K74 = q_k1174.check(E, TL, ep_dir, LS17, video=mv)
             except Exception as e: K74 = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in K74T}
             for k in K74T: bao(k, K74T[k], lambda k=k: K74[k], K74N[k])
     # ---- 1.17.5: BE-MAT-NHA (tập từ T4; tấm khai be_mat_nha_ai) — CHỈ BÁO (cấp ở cap112, áp với --cap)

@@ -7,6 +7,7 @@ phóng to, không chấm thẩm mỹ.
   q_thoi_dai.py --video <master.mp4> --nam 1782 [--nam-theo 0-9.5:1782,11.5-20:1943] [--neo 4.5,13.0] [--buoc 5] --out <thư mục>
                 [--noi "Gibraltar"] [--api] [--cache cache.json] [--json ra.json]
   q_thoi_dai.py --anh <ảnh.png> [--anh …] --nam 1782 --out <thư mục> [--api] [--cache …]
+                1.17.7: [--lop-moc] [--moc "St Paul's Cathedral, Wren's dome (completed 1710); …"] — lớp dữ kiện công trình mốc (mục 9)
 
 Lấy mẫu: 1 khung mỗi BUOC (5) giây ở giữa cửa sổ (2,5 s, 7,5 s, …) + MỌI khung neo (--neo, giây). Mỗi khung (1920×1080) thành 5 ảnh: toàn khung
 (1568×882) + 4 ô phần tư phóng 1,5× (1440×810). Mỗi khung MỘT lần gọi `claude -p` (judge.call: --bare --restricted, chỉ công cụ Read, không MCP,
@@ -23,6 +24,11 @@ Bộ đệm: khoá = sha256(ảnh 1080p) + năm + nơi + PROMPT_VER + MODEL; kh�
 Chi phí: total_cost_usd của từng lần gọi (ghi mỗi khung + tổng + TB/khung).
 Kết quả hàng O2: ĐẠT khi 0 nghi vấn trên mọi khung mẫu; có nghi vấn → lỗi (mức Cảnh báo, người kiểm từng toạ độ); khung lỗi API/không đọc
 được → THIẾU (Cảnh báo).
+1.17.7 (K-1.17.7, 25/10/2026; chủ dự án 25/10 09:15 gói "50 % tiết kiệm" — bài học H2-13 1711 thiếu mái vòm St Paul's): LỚP DỮ KIỆN CÔNG TRÌNH MỐC,
+CHỈ khi người gọi bật (`--lop-moc` và/hoặc `--moc "A; B"`; hàm: moc=[…], [] = lớp chung không danh sách): thêm mục 9 `cong_trinh_moc` — (1) công
+trình mốc đã có ở năm khung mà nằm trong khung phải có mặt đúng dạng năm đó (vắng/sai dạng → báo); (2) không có công trình chưa tồn tại. Đề bài
+PROMPT_VER_MOC, khoá bộ đệm gồm danh sách mốc; nghi vấn `cong_trinh_moc` KHÔNG qua bước 2 (vật VẮNG không phóng to được — câu hỏi "đã có ở năm
+khung?" về vật đang thấy sẽ hạ nhầm). Không bật → đề bài, khoá bộ đệm, kết quả GIỐNG HỆT 1.15 (T3 và mọi lệnh cũ không đổi).
 """
 import hashlib, json, os, shutil, subprocess, sys, tempfile
 
@@ -30,6 +36,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'
 from checks.ll import judge  # noqa: E402
 
 PROMPT_VER = 'o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)'
+PROMPT_VER_MOC = 'o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)'
 MODEL = judge.MODEL
 BUOC = 5.0
 TIN_MIN = 0.5
@@ -48,6 +55,10 @@ MUC = (('co', 'flags and ensigns — identify each flag design and the year that
        ('chu', 'writing and signage IN THE SCENE — painted signs, shop fronts, numbers, typefaces'),
        ('kien_truc', 'architecture and landmark terrain — buildings, fortifications, harbour works, land reclamation, coastline, any structure '
                      'built after {nam}'))
+MUC_MOC = ('cong_trinh_moc', 'landmark layer of {nam} — (1) every landmark building (cathedral, dome, tower, spire, bridge, monument) that '
+           'stood in {nam} and lies inside this view must be PRESENT in its {nam} form; report it if it is missing, or shown in an earlier '
+           'or later form (for example a medieval spire where a dome stood in {nam}); (2) report any landmark or major structure shown that '
+           'did not yet exist in {nam}.{ds}')
 O_TILES = (('o1', 'top-left quarter', (0.0, 0.0)), ('o2', 'top-right quarter', (0.5, 0.0)), ('o3', 'bottom-left quarter', (0.0, 0.5)),
            ('o4', 'bottom-right quarter', (0.5, 0.5)))
 
@@ -75,11 +86,21 @@ Answer with ONLY one JSON object, no other text:
 Use "nghi_van": [] when nothing is anachronistic."""
 
 
-def prompt_for(d, nam, noi=''):
+def _moc_ds(moc):
+    return (' Landmarks expected inside this view in {nam}: ' + '; '.join(str(x) for x in moc) + '.') if moc else ''
+
+
+def prompt_for(d, nam, noi='', moc=None):
+    """moc None → đề bài 1.15 (giữ nguyên từng chữ); moc = [] | [tên…] → thêm mục 9 lớp công trình mốc (1.17.7)"""
     tiles = '\n'.join(f'- {d}/{k}.jpg — {nm} of the frame, enlarged 1.5× (covers x {ox:.1f}–{ox + 0.5:.1f}, y {oy:.1f}–{oy + 0.5:.1f} of the full frame)'
                       for k, nm, (ox, oy) in O_TILES)
     muc = '\n'.join(f'{i + 1}. {k} — {v.format(nam=nam)}' for i, (k, v) in enumerate(MUC))
-    return PROMPT.format(nam=int(nam), noi=f' at {noi}' if noi else '', d=d, tiles=tiles, muc=muc)
+    if moc is None: return PROMPT.format(nam=int(nam), noi=f' at {noi}' if noi else '', d=d, tiles=tiles, muc=muc)
+    muc += f'\n{len(MUC) + 1}. {MUC_MOC[0]} — ' + MUC_MOC[1].format(nam=int(nam), ds=_moc_ds(moc).format(nam=int(nam)))
+    P = PROMPT.replace('"chu", "kien_truc"]', '"chu", "kien_truc", "cong_trinh_moc"]').replace(
+        'do not report it.\n', 'do not report it.\n- Item 9 (1) is the only exception: a landmark that should stand inside this view but is ABSENT (or replaced by '
+        'something else) IS a finding — box the part of the view where it should stand. Do not report a landmark that is simply outside this view.\n')
+    return P.format(nam=int(nam), noi=f' at {noi}' if noi else '', d=d, tiles=tiles, muc=muc)
 
 
 def lay_mau(T, buoc=BUOC, neo=()):
@@ -117,13 +138,15 @@ def chuan_bi(img_path, d):
     return h
 
 
-def _khoa(h, nam, noi): return hashlib.sha256(f'{h}|{int(nam)}|{noi}|{PROMPT_VER}|{MODEL}'.encode()).hexdigest()[:32]
+def _khoa(h, nam, noi, moc=None):
+    if moc is None: return hashlib.sha256(f'{h}|{int(nam)}|{noi}|{PROMPT_VER}|{MODEL}'.encode()).hexdigest()[:32]
+    return hashlib.sha256(f'{h}|{int(nam)}|{noi}|{PROMPT_VER_MOC}|{"; ".join(str(x) for x in moc)}|{MODEL}'.encode()).hexdigest()[:32]
 
 
-def _chuan(rep):
-    """JSON trả lời → (nghi vấn ≥ TIN_MIN, ghi chú) với toạ độ px @1920×1080; lỗi định dạng → ValueError"""
+def _chuan(rep, moc=False):
+    """JSON trả lời → (nghi vấn ≥ TIN_MIN, ghi chú) với toạ độ px @1920×1080; lỗi định dạng → ValueError. moc: nhận thêm mục cong_trinh_moc (1.17.7)"""
     if not isinstance(rep, dict) or not isinstance(rep.get('nghi_van'), list): raise ValueError('không có danh sách nghi_van')
-    keys = {k for k, _ in MUC}; nv, gc = [], []
+    keys = {k for k, _ in MUC} | ({MUC_MOC[0]} if moc else set()); nv, gc = [], []
     for x in rep['nghi_van']:
         if not isinstance(x, dict): continue
         b = x.get('toa_do'); px = None
@@ -162,12 +185,12 @@ def xac_nhan(img1080, x, nam, noi, d, cache_key=None):
     return dict(vung_px=[X0, Y0, X1, Y1], phong=round(k, 2), tra_loi=rep, da_co=v, giu=(v == 'no'), cost_usd=y.get('cost_usd'), loi='; '.join(e) or None)
 
 
-def soi_khung(img_path, nam, out_dir, kid, noi='', api=False, cache=None):
-    """một khung → dict(id, nam, nghi_van, ghi_chu, cost_usd, model_usage, secs, loi?)"""
-    d = os.path.abspath(os.path.join(out_dir, kid)); h = chuan_bi(img_path, d); k = _khoa(h, nam, noi)
+def soi_khung(img_path, nam, out_dir, kid, noi='', api=False, cache=None, moc=None):
+    """một khung → dict(id, nam, nghi_van, ghi_chu, cost_usd, model_usage, secs, loi?). moc (1.17.7): None = đề bài 1.15; list = + lớp công trình mốc"""
+    d = os.path.abspath(os.path.join(out_dir, kid)); h = chuan_bi(img_path, d); k = _khoa(h, nam, noi, moc)
     if cache is not None and k in cache: return dict(cache[k], id=kid, tu_bo_dem=True)
     if not api: return dict(id=kid, nam=nam, sha256=h, loi='chưa có trong bộ đệm và không chạy --api', nghi_van=[], ghi_chu=[], cost_usd=None)
-    p = prompt_for(d, nam, noi); x = judge.call(p, d, CAP_USD)
+    p = prompt_for(d, nam, noi, moc); x = judge.call(p, d, CAP_USD)
     open(os.path.join(d, 'run.jsonl'), 'w').write(x['transcript'])
     e = ([f"lỗi API: {x['error']}"] if x['is_error'] else []) + judge.model_errors(x['model_usage'])
     need = [os.path.join(d, f) for f in ('full.jpg', 'o1.jpg', 'o2.jpg', 'o3.jpg', 'o4.jpg')]
@@ -175,7 +198,7 @@ def soi_khung(img_path, nam, out_dir, kid, noi='', api=False, cache=None):
     if not x['is_error'] and miss: e.append(f'không đọc đủ ảnh: thiếu {", ".join(miss)}')
     nv, gc = [], []
     if not e:
-        try: nv, gc = _chuan(judge.parse_json(x['result']))
+        try: nv, gc = _chuan(judge.parse_json(x['result']), moc is not None)
         except ValueError as ex: e.append(f'trả lời không đọc được ({ex})')
     c2 = 0.0
     if nv:   # bước 2: xác nhận phóng to từng nghi vấn có toạ độ
@@ -185,12 +208,13 @@ def soi_khung(img_path, nam, out_dir, kid, noi='', api=False, cache=None):
         giu = []
         for i, q in enumerate(nv):
             if not q.get('toa_do_px'): q['xac_nhan'] = dict(loi='không có toạ độ — giữ nghi vấn, không phóng được'); giu.append(q); continue
+            if q.get('muc') == MUC_MOC[0]: q['xac_nhan'] = dict(loi=None, ghi='lớp công trình mốc: không qua bước 2 (vật vắng không phóng được) — giữ'); giu.append(q); continue
             z = xac_nhan(im, q, nam, noi, os.path.join(d, f'z{i + 1}')); q['xac_nhan'] = z; c2 += z.get('cost_usd') or 0.0
             if z['loi']: e.append(f"bước 2 nghi vấn {i + 1}: {z['loi']}"); giu.append(q)
             elif z['giu']: giu.append(q)
             else: q['ly_do_ha'] = f"phóng to {z['phong']}×: da_co_nam = {z['da_co']!r} — không xác nhận"; gc.append(q)
         nv = giu
-    R = dict(id=kid, nam=int(nam), noi=noi, sha256=h, prompt_ver=PROMPT_VER, model=MODEL, nghi_van=nv, ghi_chu=gc,
+    R = dict(id=kid, nam=int(nam), noi=noi, sha256=h, prompt_ver=PROMPT_VER if moc is None else PROMPT_VER_MOC, model=MODEL, **({} if moc is None else dict(moc=list(moc))), nghi_van=nv, ghi_chu=gc,
              cost_usd=(x.get('cost_usd') or 0.0) + c2 if x.get('cost_usd') is not None else None, cost_buoc2=round(c2, 5),
              model_usage=x.get('model_usage'), secs=x.get('secs'), so_anh_doc=len(x.get('reads') or []), loi='; '.join(e) or None,
              tra_loi=(x.get('result') or '')[:4000])
@@ -200,7 +224,7 @@ def soi_khung(img_path, nam, out_dir, kid, noi='', api=False, cache=None):
 
 def soi(mau, out_dir, api=False, cache=None):
     """mau: [{id, anh, nam, noi?, t?}] → kết quả hàng O2"""
-    KQ = [dict(soi_khung(m['anh'], m['nam'], out_dir, m['id'], m.get('noi', ''), api, cache), t=m.get('t')) for m in mau]
+    KQ = [dict(soi_khung(m['anh'], m['nam'], out_dir, m['id'], m.get('noi', ''), api, cache, m.get('moc')), t=m.get('t')) for m in mau]
     return tong_hop(KQ)
 
 
@@ -220,14 +244,14 @@ def tong_hop(KQ):
                 chi_phi_tb=round(sum(cs) / len(cs), 4) if cs else None, ghi_chu_luat='lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)')
 
 
-def check_video(video, T, out_dir, nam=None, nam_theo=(), neo=(), buoc=BUOC, noi='', api=False, cache=None):
+def check_video(video, T, out_dir, nam=None, nam_theo=(), neo=(), buoc=BUOC, noi='', api=False, cache=None, moc=None):
     mau = []
     tmp = tempfile.mkdtemp(prefix='o2-')
     try:
         for t in lay_mau(T, buoc, neo):
             y = nam_tai(t, nam, nam_theo)
             if y is None: continue
-            mau.append(dict(id=f't{t:07.2f}'.replace('.', '_'), anh=tach_khung(video, t, os.path.join(tmp, f'{t:.3f}.png')), nam=y, noi=noi, t=t))
+            mau.append(dict(id=f't{t:07.2f}'.replace('.', '_'), anh=tach_khung(video, t, os.path.join(tmp, f'{t:.3f}.png')), nam=y, noi=noi, t=t, moc=moc))
         return soi(mau, out_dir, api, cache)
     finally: shutil.rmtree(tmp, ignore_errors=True)
 
@@ -244,11 +268,12 @@ if __name__ == '__main__':
     cp = g('cache'); cache = json.load(open(cp)) if cp and os.path.exists(cp) else ({} if cp else None)
     nt = [(float(x.split(':')[0].split('-')[0]), float(x.split(':')[0].split('-')[1]), int(x.split(':')[1])) for x in (g('nam-theo') or '').split(',') if x]
     nam = int(g('nam')) if g('nam') else None
+    moc = [x.strip() for x in (g('moc') or '').split(';') if x.strip()] if ('--moc' in a or '--lop-moc' in a) else None   # 1.17.7: lớp công trình mốc
     if g('video'):
-        R = check_video(g('video'), _dur(g('video')), g('out'), nam, nt, [float(x) for x in (g('neo') or '').split(',') if x], float(g('buoc') or BUOC), g('noi') or '', '--api' in a, cache)
+        R = check_video(g('video'), _dur(g('video')), g('out'), nam, nt, [float(x) for x in (g('neo') or '').split(',') if x], float(g('buoc') or BUOC), g('noi') or '', '--api' in a, cache, moc)
     else:
         imgs = [a[i + 1] for i, x in enumerate(a) if x == '--anh']
-        R = soi([dict(id=os.path.splitext(os.path.basename(p))[0], anh=p, nam=nam, noi=g('noi') or '') for p in imgs], g('out'), '--api' in a, cache)
+        R = soi([dict(id=os.path.splitext(os.path.basename(p))[0], anh=p, nam=nam, noi=g('noi') or '', moc=moc) for p in imgs], g('out'), '--api' in a, cache)
     if cp and cache is not None: json.dump(cache, open(cp, 'w'), ensure_ascii=False, indent=1)
     print('O2 ' + (R['ket_qua'] or ('ĐẠT' if R['ok'] else 'CẢNH BÁO')) + ' · ' + R['val'] + ''.join('\n  ' + x for x in (R['loi'] + R['thieu'])[:40]))
     if g('json'): json.dump(R, open(g('json'), 'w'), ensure_ascii=False, indent=1)

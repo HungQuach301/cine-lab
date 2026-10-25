@@ -8,3 +8,6 @@
 - Chạy bằng `onnxruntime` (CPU) có sẵn trong `/opt/cine`. Không cần mạng khi chạy.
 - Đây là công cụ kiểm, không phải tài sản của phim; không đưa vào sản phẩm phát hành.
 - Đổi mô hình = đổi luật: chỉ phiên K, chạy lại selftest, khoá lại SHA.
+| `face_detection_yunet_2023mar.onnx` | YuNet (OpenCV Zoo), tải từ Hugging Face `opencv/face_detection_yunet` (rev `3cc26e7f`, 25/10/2026, UA CineLab-research); gốc ShiqiYu/libfacedetection.train | MIT (`LICENSE-yunet.txt` — bản chép, email tác giả đã che theo luật repo; bản gốc SHA-256 `c83b8120…`) | `8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4` |
+
+- YuNet (luật NHAN-VAT-TEN, 1.17.7): chạy bằng `cv2.FaceDetectorYN` (OpenCV 5.0, CPU) trong `/opt/cine`; ngưỡng điểm 0,75 hiệu chuẩn trên 23 clip M-d animatic T4 (`reports/k1177/`).
