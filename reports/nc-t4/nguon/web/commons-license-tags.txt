@@ -1,0 +1,56 @@
+URL: https://commons.wikimedia.org/wiki/Template:PD-UKGov/en?action=raw ; Template:PD-UK-unknown/en ; Template:PD-scan/en ; Template:Simultaneous_US_publication ; Template:PD-old-auto-1964
+Truy cập: 25/10/2026 (curl, UA CineLab-research), HTTP 200
+Ghi chú: wikitext nguyên văn mẫu giấy phép
+----
+{{PD-UKGov/layout
+|text=''This work [[w:Crown copyright|created by the United Kingdom Government]] is in the '''[[w:public domain|public domain]]'''''.
+
+''This is because it is one of the following'':
+
+# It is a photograph taken prior to 1 June 1957; or
+# It was published prior to {{ #expr:{{CURRENTYEAR}}-50}}; or
+# It is an artistic work other than a photograph or engraving (e.g. a painting) which was created prior to {{#expr:{{CURRENTYEAR}}-50}}.
+
+HMSO has declared that the expiry of Crown Copyrights applies worldwide (ref: [https://lists.wikimedia.org/pipermail/wikipedia-l/2005-May/022055.html HMSO Email Reply])<br />[https://www.nationalarchives.gov.uk/information-management/our-services/crown-copyright.htm More information].  
+
+''See also [[:en:Copyright|Copyright]] and [https://web.archive.org/web/20090317005703/http://www.museumscopyright.org.uk/crown-a.pdf Crown copyright artistic works]''.
+|lang=en
+}}<noinclude>
+{{translated tag|license}}
+</noinclude>
+== PD-UK-unknown/en
+{{PD-UK-unknown/layout
+| text = This UK artistic or literary work, of which the author is '''unknown''' and cannot be ascertained by reasonable enquiry, is in the '''[[w:public domain|public domain]]''' because it is one of the following:
+
+* A photograph, which has never previously been made available to the public (e.g. by publication or display at an exhibition) and which was taken more than 70 years ago (before 1 January {{ #expr: {{CURRENTYEAR}} - 70 }}); or
+
+* A photograph, which was made available to the public (e.g. by publication or display at an exhibition) more than 70 years ago (before 1 January {{ #expr: {{CURRENTYEAR}} - 70 }}); or
+
+* An artistic work other than a photograph (e.g. a painting), or a literary work, which was made available to the public (e.g. by publication or display at an exhibition) more than 70 years ago (before 1 January {{ #expr: {{CURRENTYEAR}} - 70 }}).
+
+<small>[[File:Dialog-warning.svg|20px|link=|alt=Warning sign]] This tag can be used only when the author cannot be ascertained by reasonable enquiry. If you wish to rely on it, please specify in the image description the research you have carried out to find who the author was. The above is all subject to any overriding [[w:Publication right|publication right]] which may exist. In practice, publication right will often override the first of the bullet points listed.</small>
+
+''Unpublished anonymous paintings remain in copyright until at least 1 January 2040. This tag does not apply to engravings or musical works. [https://web.archive.org/web/20070710010006/http://www.museumscopyright.org.uk/private.pdf More information]''
+| lang = en
+}}<noinclude>{{translated tag|license}}</noinclude>
+== PD-scan/en
+{{PD-scan/layout
+|text=This file is in the '''[[w:public domain|public domain]]''' because it is a mere mechanical scan or photocopy of a public domain original, or – from the available evidence – is so similar to such a scan or photocopy that no copyright protection can be expected to arise. The original itself is in the public domain for the following reason: {{ {{{1|PD-old}}}|{{#if: {{{2|}}}|{{{2}}} }}|deathyear={{{deathyear|}}}|country={{{country|}}}|reason={{{reason|}}} }}
+----
+<small>This tag is designed for use where there may be a need to assert that any enhancements (eg brightness, contrast, colour-matching, sharpening) are in themselves insufficiently creative to generate a new copyright.  It can be used where it is unknown whether any enhancements have been made, as well as when the enhancements are clear but insufficient.  For known raw unenhanced scans you can use an appropriate {{t|PD-old}} tag instead. For usage, see [[Commons:When to use the PD-scan tag]].</small>
+----
+[[Image:Dialog-warning.svg|left|link=|25px]] <small>Note: This tag applies to scans and photocopies only. For photographs of public domain originals taken from afar, {{t|PD-Art}} may be applicable. See [[Commons:When to use the PD-Art tag]].</small>
+|lang=en
+}}<noinclude>
+{{translated tag|license}}
+</noinclude>
+== Simultaneous US publication
+{{Template:Simultaneous US publication/layout
+|image=[[Image:Red copyright.svg|64px|link=]]
+|text=This work was simultaneously published {{#if: {{{publication year|}}}|in {{{publication year|}}} in|in}} the United States and {{#if: {{{country1|}}}|*{{{country1|}}}|one or more other countries.}}{{#if: {{{country2|}}}|*{{{country2|}}}|}}{{#if: {{{country3|}}}|*{{{country3|}}}|}} 
+|note=Wikimedia Commons normally treats works published simultaneously in the U.S. and elsewhere in the same way as works first published in the U.S. </br>While the U.S. copyright has been shown to have expired, the copyright in one or more of the other source countries remains. Reusers of this file outside of the U.S. should take care that restrictions on usage may remain in their country. 
+{{#if: {{{DR|}}}|</br>This work was previously discussed by the Wikimedia Commons community and a decision was taken to keep the file here. The previous discussion can be found at [[{{{DR|}}}]]|}}
+}}<noinclude>
+{{Documentation}}
+[[Category:Restriction tags|{{PAGENAME}}]]
+</noinclude>
