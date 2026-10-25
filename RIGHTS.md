@@ -699,7 +699,7 @@ Nguồn: `reports/nc-t4/NC-T4-BAO-CAO.md` §2–§5, §13; `reports/nc-t4/NHAN-V
 | T4-NC-LOAI-PHIM1940 | *London Can Take It!* (1940; C15–C18) và *Christmas Under Fire* (1941; C19) | Chủ dự án P6 = (a): **không dùng phim 1940 trong T4** (bản IA SD, nhãn PD tự gán; lời bình Reynolds còn nghi vấn; bản HD trả phí) | `reports/nc-t4/TU-LIEU-1940.md` §3.2–§3.3 | 2026-10-25 |
 | T4-NC-LOAI-BYSA | Footage Commons CC BY-SA: C4, C5, C6, C7, C9 | share-alike → phim phải mang BY-SA, không DRM; Kinh thánh §19 (c) cập nhật 25/10 09:15 (5) chỉ cho phép giấy phép không share-alike | `reports/nc-t4/FOOTAGE-2026.md` §2; `reports/nc-t4/nguon/web/footage-cc-by-sa-4-legalcode.txt` | 2026-10-25 |
 
-### Footage London 2026 — ứng viên cho **1 clip đêm H5-07a (≈ 6 s)** (P7 = (a) cho H5-07a + (b) tham chiếu cho phần còn lại); **chưa chọn, chưa tải, chưa lên hình**
+### Footage London 2026 — ứng viên cho **1 clip đêm H5-07a (≈ 6 s)** (P7 = (a) cho H5-07a + (b) tham chiếu cho phần còn lại); **chưa chọn, chưa tải, chưa lên hình** — **BỎ ở T4** (phiếu xem v2 C2, 26/10/2026 00:12; P-2610b): không dùng footage nào ở T4; các dòng dưới giữ làm hồ sơ nghiên cứu
 | Mã | Tài sản | Loại | Nguồn/URL | Tác giả | Giấy phép (trích nguyên câu + link) | Được dùng: YouTube / bán phim / LHP | Ghi công | SHA-256 | Ngày thêm |
 |---|---|---|---|---|---|---|---|---|---|
 | T4-NC-FT-X1 | Pixabay X1 — 1920x1080, 23 fps, 2023-08-17; tags South Bank, St Pauls, Night; frames not checked — **ứng viên chính H5-07a** | Footage (người quay, không AI) | https://pixabay.com/videos/river-london-south-bank-st-pauls-176408/ | Whitechappel79 | Pixabay Content License — trích qua WebFetch: "Use Content for free"; "Modify or adapt Content into new works"; "You cannot sell or distribute Content … on a Standalone basis." (https://pixabay.com/service/license-summary/) — **CHƯA ĐỐI CHIẾU BẢN GỐC** (curl 403); bằng chứng tạm `reports/nc-t4/nguon/web/footage-licence-webfetch.txt` | Chờ: chủ dự án lưu PDF trang giấy phép vào `licenses/` + xem khung clip trước khi dùng | không bắt buộc; ghi "Whitechappel79 / Pixabay" | (chưa tải) | 2026-10-25 |
@@ -736,9 +736,25 @@ Nguồn: `reports/animatic-t4-v2/ANIMATIC-T4-V2-BAO-CAO.md` §5, §6, §13; `cha
 - Từ nay cột "Giấy phép" của 21 dòng T4-NC-* (loc ×6, met ×2, rijks ×10, wellcome ×3) dẫn `nc/licenses/<id>.json`; `reports/nc-t4/nhan-vat-anh.json` giữ làm bản tóm tắt. QUYET-DINH-TREO mục G "Bằng chứng JSON 21 tệp NC" → đã xong.
 
 ### Footage đêm H5-07a — KHÔNG dùng ở T4 animatic v2
-- Ứng viên T4-NC-FT-X1 (Pixabay), P3, P4 (Pexels), C3 (Commons) **không tải được** (Commons 429/404; Pixabay/Pexels 403 Cloudflare); H5-07a giữ **3D P9 đêm**. Không footage nào lên hình ⇒ **không cần PDF trang giấy phép Pexels/Pixabay** cho T4 animatic v2. Nếu bản cuối dùng footage (chủ dự án tải tay) thì phải lưu PDF giấy phép vào `licenses/` trước khi lên hình (Kinh thánh §19 (c) cập nhật 25/10 09:15 (5); K77).
+- Ứng viên T4-NC-FT-X1 (Pixabay), P3, P4 (Pexels), C3 (Commons) **không tải được** (Commons 429/404; Pixabay/Pexels 403 Cloudflare); H5-07a giữ **3D P9 đêm**. Không footage nào lên hình ⇒ **không cần PDF trang giấy phép Pexels/Pixabay** cho T4 animatic v2. ~~Nếu bản cuối dùng footage (chủ dự án tải tay) thì phải lưu PDF giấy phép vào `licenses/` trước khi lên hình~~ — **bỏ (P-2610b): chủ dự án bỏ footage đêm 2026 ở T4** (phiếu xem v2 C2, duyệt 26/10/2026 00:12) ⇒ không còn mục chờ PDF Pexels/Pixabay; xem mục "K-1.17.8 và phiếu xem v2" cuối tệp.
 - Footage trả phí (phương án C, 26/10/2026 00:07): **không làm**.
 
 ### Không đổi
 - Nhạc: 5 bản Scott Buckley CC BY 4.0 (đã có trong sổ, LFS). Tranh khắc/bản đồ 1666–1767 ở v2 (Hollar met-360649-0/1, met-395057, YCBA 40597, Doornick, Luyken, Monument, kế hoạch Wren LoC, chân dung Evelyn/Wren/Charles II/Bazalgette) đã có dòng ở mục ANIMATIC-T4 và NC-T4; ghi công đủ ở `animatic2/ghi-cong-youtube.txt`.
 - AI trên hình: OpenAI gpt-image-2.5 (ảnh đầu), Gemini Omni (clip M-d, SynthID), ElevenLabs (giọng G1 — quyền phát hành vẫn chờ Đ5) — sổ AI `reports/animatic-t4-v2/so-ai*.jsonl`, `animatic2/so-ai-*-t4.jsonl`.
+
+## K-1.17.8 và phiếu xem v2 (P-2610b ghi 26/10/2026)
+Nguồn: `reports/k1178/K1178-BAO-CAO.md` §1.2, §11, §14; sổ AI `reports/k1178/so-ai.jsonl` (merge `claude/k1178-t4-london-rules-pdjfmz` @297eb070). Căn cứ: chủ dự án 26/10/2026 00:12 "Duyệt phiếu xem v2 theo khuyến nghị" (C2); 26/10/2026 06:28 (giờ dán lệnh P-2610b, "K1178-D1…D6 theo khuyến nghị").
+
+### Ảnh đáp án bộ kiểm LUẬT E — CHỈ DÙNG KIỂM, KHÔNG VÀO SẢN PHẨM
+| Mã | Tài sản | Loại | Nguồn | Tác giả | Giấy phép / điều khoản | Được dùng: YouTube / bán phim / LHP | Ghi công | SHA-256 | Ngày thêm |
+|---|---|---|---|---|---|---|---|---|---|
+| K1178-E-NGAY | `reports/k1178/do/e/ai/P9-2026-E-ngay-ai.jpg` — tấm E ban ngày, 2560×1440 | Ảnh AI (đáp án kiểm) | OpenAI `gpt-image-2.5-sunburst-2026-09-08` (`POST /v1/images/edits`), đầu vào = **render V2 P9-2026 của dự án** (@1a911a01, SHA gốc `04cc8142…`); lệnh nguyên văn trong `so-ai.jsonl` và `do/e/lenh-*.txt` | dự án (sinh bằng AI) | điều khoản OpenAI (nguyên văn đọc ở `reports/pt/giay-phep/openai.md`, như dòng P1810-AI); đầu vào là tài sản của dự án | **Không / Không / Không** — chỉ đáp án cho N2P-E trong `reports/k1178/`; không lên hình | — | `d19b78479479469fbf7d2920f6676dc7e25153dcc466edeef27b2f78fd7b9b76` | 2026-10-26 |
+| K1178-E-DEM | `reports/k1178/do/e/ai/P9-2026-E-dem-ai.jpg` — tấm E đêm (từ render ngày giảm sáng), 2560×1440 | Ảnh AI (đáp án kiểm) | như trên | dự án (sinh bằng AI) | như trên | **Không / Không / Không** | — | `80b6da4aec7b71b8b6868daf8476fb9dfab3dbe1698643992ad1eda53773a29c` | 2026-10-26 |
+| K1178-E-XAU | `reports/k1178/do/e/ai/P9-2026-E-xau-ai.jpg` — tấm E "xấu" (lệnh cố ý đòi tháp mới + biển quảng cáo; có chữ/logo thương hiệu do mô hình vẽ — citi, SAMSUNG, Spotify, Coca-Cola…) | Ảnh AI (đáp án kiểm, mẫu lỗi) | như trên | dự án (sinh bằng AI) | như trên; **chứa nhãn hiệu bên thứ ba → tuyệt đối không dùng ngoài kiểm** | **Không / Không / Không** | — | `121fa2b06c2fe0a07fc34d112c28db4f06a52f8a7e3ec0d314af506c4f0f3cb3` | 2026-10-26 |
+- SHA ba tệp trong git khớp `sha_ra` trong `so-ai.jsonl` (P-2610b kiểm bằng `sha256sum`). Biến đổi tổng hợp (`ghep_e.py --bien`) và mặt nạ E là sản phẩm phái sinh của cùng render dự án, cùng phạm vi "chỉ kiểm".
+
+### Ảnh/footage thật T4 ở bản cuối (phiếu xem v2 C2)
+- **Footage đêm 2026: BỎ ở T4** — không footage nào lên hình; **không cần PDF trang giấy phép Pexels/Pixabay** (mục chờ ở "Footage đêm H5-07a" phía trên đã gạch). Các dòng T4-NC-FT-* giữ làm hồ sơ nghiên cứu, không phải tài sản phim.
+- **IWM D 6418 (T4-TL-IWM-D6418): phiên bản cuối tự tải lại ảnh gốc** — bản gốc trên Commons (600×800), **không tải từ trang IWM** (điều khoản phi thương mại; QUYET-DINH-TREO mục H), thay bản thu 500×667; khi tải phải thêm SHA gốc + bằng chứng `licenses/` và cập nhật dòng T4-TL-IWM-D6418 (ghi sổ: phiên P merge bản cuối).
+

@@ -185,3 +185,34 @@
 | IWM D 6418 gốc | v2 dùng bản thu Commons 500×667; muốn bản lớn hơn thì tải tay bản Commons 600×800 (không tải bản IWM theo hợp đồng phi thương mại) | RIGHTS T4-TL-IWM-D6418 | H4-06t bản cuối |
 | Sổ AI q_thoi_dai lớp mốc | `reports/animatic-t4-v2/qtd-moc.jsonl` không có usage/giá → ≈ $1,55 chưa kiểm được bằng máy | BAI-HOC-K2 K86 | không chặn; ghi đủ từ phiên sau |
 | Đo lại BMN + BIEN-CO-V; Ảnh Blitz Crown C01–C03, C05; Đ5; LUAN-2, LOOK-T9c, KN THU-B → appeal | giữ như mục G | mục G | như mục G |
+
+## I. Cập nhật 26/10/2026 sau phiếu xem v2 và K-1.17.8 (P-2610b ghi)
+
+**Đã quyết** (nguyên văn + giờ + nghĩa: `AUTHORSHIP.md`, các dòng P-2610b):
+
+| # | Quyết định | Khi nào (Asia/Saigon) | Áp ở |
+|---|---|---|---|
+| Phiếu xem v2 — A1 | H1-05a (Pepys + Charles II) ✓; H1-15b (Pepys) ✓, bản cuối cắt khung mặt ≤ 1/8; H3-05b (Godfrey Allen, khung xa) ✓ | 26/10 00:12 | Kinh thánh §15 (f) cập nhật 26/10 |
+| Phiếu xem v2 — C1 | (b) gộp vào bản cuối: 6 clip điểm nhấn (H1-06x, H1-15x, H2-02b, H2-06b, H2-09x, H2-10b) ≤ 2 lượt, lệnh theo lỗi đo, ảnh đầu từ render 3D cùng năm | 26/10 00:12 | §15 (d) cập nhật 26/10 (1); BAN-CUOI-T4 |
+| Phiếu xem v2 — C2 | phiên bản cuối tự tải lại ảnh gốc IWM D 6418 (bản Commons 600×800); BỎ footage đêm 2026 ở T4 → không cần PDF Pexels/Pixabay. Mục H "PDF giấy phép footage" và "IWM D 6418 gốc" → **đã quyết** | 26/10 00:12 | §19 (c) cập nhật 26/10; RIGHTS |
+| Phiếu xem v2 — C3, C4, C5, C6, C9b, mở lạnh | C3 (a) animatic / bản cuối thử (c) dời P1 tây 60–80 m; C4 (b) tấm P1-2026 mới; C5 (b) bản xem 5–6 phần; C6 (a) thẻ Pepys/James chỉ chữ; C9b (b) M04 +0,5 EV; mở lạnh dùng góc lửa khác M03 | 26/10 00:12 | §14.7 LOOK-T4-9 cập nhật, §15 (k) cập nhật, §6, §17 (5) |
+| Phiếu xem v2 — C7 | → K-1.17.8 (đã phán ở K1178 §2) | 26/10 00:12 | §13.6 hàng 1.17.8 |
+| K1178-D1 | A — duyệt luật 1.17.8 (LOCK `045b7bb7…`), **đã merge vào main** (P-2610b). Mục H "K-1.17.8 (đang chạy)" → **xong** | 26/10 06:28 (giờ dán lệnh) | `checks/` (merge P-2610b); Kinh thánh dẫn RULES-LL 1.17.8 |
+| K1178-D2 | A — báo nhầm "bờ sông bị vẽ lại" trên tấm E: giữ Chặn, ngoại lệ vào phiếu cho chủ dự án cùng khung E; B để phiên K sau nếu lặp | 26/10 06:28 | §15 (k) cập nhật 26/10 |
+| K1178-D3 | A — (f2) tháp bịa mức Cảnh báo | 26/10 06:28 | §15 (k) cập nhật 26/10 |
+| K1178-D4 | A — BIEN-CO-V T4 chỉ Cảnh báo, Q37 không cộng biến cố đo; phía dựng khai beats đủ | 26/10 06:28 | §13.6 cập nhật 26/10 |
+| K1178-D5 | A — ngoại lệ H1-06b ở animatic; bản cuối 720p kiểm lại, còn đọc ra chữ → sinh lại ≤ 2 lượt hoặc 3D | 26/10 06:28 | §15 (d) cập nhật 26/10 (2) |
+| K1178-D6 | A — khai `vung` từng shot | 26/10 06:28 | §13.6 cách khai 1.17.8 |
+| Xung đột K-LAI-3 ↔ KIEM-2-MUC (mục H) | **xong** — K-1.17.8 phán LỖI LUẬT, sửa (mức nen nhận Flash + tờ khung); H1-15m ĐẠT; H1-06b theo D5 | 26/10 06:28 | §13.6 hàng 1.17.8 |
+| Sổ AI q_thoi_dai lớp mốc (mục H) | phía K đóng (K93): sổ K-1.17.8 26/26 dòng q_thoi_dai có usage + usd. Phần ≈ $1,55 của ANIMATIC-T4-V2 vẫn không kiểm được (sổ cũ) | — | BAI-HOC-K2 K93 |
+
+**Còn treo:**
+
+| # | Nội dung | Căn cứ | Chặn gì |
+|---|---|---|---|
+| Thử 2 khung E | điều kiện (2) của §15 (k): làm thử 2 khung góc rộng 2026 máy cố định, qua N2P-E (RULES-LL 1.17.8); đạt mới dựng hết; trượt (nhất là đêm 2026) → giữ 3D. Đáp án K-1.17.8 chỉ có P9-2026 (P1-2026 chưa có render V2 trong git). Ngoại lệ báo nhầm bờ sông (D2) đưa vào phiếu cùng khung E | Kinh thánh §15 (k) cập nhật 26/10 | phần hiện đại bản cuối |
+| PHIẾU-A của BAN-CUOI-T4-A | phiếu của phiên bản cuối T4 (đang chạy song song, nhánh riêng; tự merge K-1.17.8 vào nhánh của nó) — P-2610b không đụng | lệnh P-2610b | bản cuối T4 |
+| XEM CÂM Q2/Q3/Q4/Q6 | chủ dự án chấm trên bản cuối (cổng XEM-CAM ở G2); các câu khác giữ điểm v1 | phiếu xem v2 B; Kinh thánh §13.4 bổ sung 26/10 | XEM-CAM, G2 |
+| Đ5 quyền giọng G1 | quyền phát hành giọng G1 (ElevenLabs) vẫn chờ | mục G | phát hành T4 |
+| H3-05b ↔ NHAN-VAT-TEN (k) — **phát hiện của P-2610b** | chủ dự án duyệt H3-05b (Godfrey Allen, khung xa) nhưng clip không có chân dung tham chiếu; NHAN-VAT-TEN (RULES-LL 1.17.7) đòi `chan_dung_tham_chieu` có thật → (k), **Chặn ở G2** (mục H đã ghi "(k)"). Duyệt A1 không thay được trường này. Hướng: phía dựng/K xem ở bản cuối (khiếu nại `checks-appeal.md` hoặc bỏ nhân vật có tên khỏi khai) — P-2610b không quyết, không sửa `checks-appeal.md` | Kinh thánh §15 (f) cập nhật 26/10; RULES-LL NHAN-VAT-TEN | G2 T4 |
+| Ảnh thật hiện đại (B); đo lại BMN; ảnh Blitz Crown C01–C03, C05; LUAN-2, LOOK-T9c, KN THU-B → appeal; đề xuất K85 (chặn `pgrep -f` bằng công cụ) | giữ như mục G/H | mục G, H | như mục G/H |
