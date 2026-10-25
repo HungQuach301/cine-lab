@@ -1,0 +1,116 @@
+{
+ "fps": 24,
+ "dur": 0.041666666666666664,
+ "W": 1920,
+ "H": 1080,
+ "spp": 2,
+ "easeKeys": false,
+ "shadow": 2048,
+ "look": {
+  "ten": "V2 (A + điều chỉnh theo mốc)",
+  "haze": [
+   0.0001,
+   0.84,
+   0.76,
+   0.62
+  ],
+  "hazeH": 520,
+  "coal": [
+   0,
+   0.5,
+   0.46,
+   0.4,
+   70
+  ],
+  "sunK": 3.2,
+  "hemiK": 0.62,
+  "sunTint": [
+   1.06,
+   0.97,
+   0.84
+  ],
+  "skyTop": [
+   0.4,
+   0.5,
+   0.64
+  ],
+  "skyHor": [
+   0.88,
+   0.8,
+   0.66
+  ],
+  "cloud": 0.32,
+  "cloudCol": [
+   1.0,
+   0.94,
+   0.84
+  ],
+  "water": [
+   0.046,
+   0.046,
+   0.036
+  ],
+  "texK": 1.0,
+  "chim": 0.3,
+  "smokeK": 0.85,
+  "smokeTint": [
+   1.04,
+   0.98,
+   0.9
+  ],
+  "exposure": 0.95,
+  "lut": "k2c-t3-kenh-v030.cube",
+  "toy": 1
+ },
+ "look_ten": "M2-ngay",
+ "keys": [
+  {
+   "t": 0.0,
+   "p": [
+    532330,
+    180655,
+    4
+   ],
+   "l": [
+    532760,
+    180760,
+    12
+   ],
+   "fov": 40,
+   "leaf": 1,
+   "wind": [
+    -1.0,
+    0.12
+   ],
+   "hour": 14.0,
+   "year": 1666.672602739726,
+   "moon": 0.25,
+   "smokeSky": 0.55
+  }
+ ],
+ "bake": {
+  "url": "/data/look2/bake_1666.6.png",
+  "box": [
+   530800,
+   179700,
+   534000,
+   182000
+  ]
+ },
+ "shot": "H1-06",
+ "cu_may": "CAU",
+ "tieu_diem_en": [
+  532600,
+  180900,
+  10
+ ],
+ "hero_EN": [
+  532600,
+  180900,
+  10
+ ],
+ "vai": "Thị trưởng bất lực ở Cannon Street; lửa vượt sức phá nhà",
+ "page": "look2",
+ "vai_md": "sà lan hoàng gia trên Thames chiều 2/9/1666: bờ bắc cháy (Three Cranes → cầu)",
+ "nguon_may": "animatic2/may/H1-06.json (look/bake)"
+}
