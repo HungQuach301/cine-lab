@@ -126,7 +126,8 @@ S = [
  md('H2-13', 'HỒI 2', 'H2-13', 6.0, 12, "M-d (12) F1 Thames 1711: đò chở khách; chân trời có MÁI VÒM St Paul's mới (không chóp Gothic)", kiem='day_du'),
  v2('H2-14'),
  # ---------------- HỒI 3
- v2('H3-01'),
+ v2('H3-01', dur=3.0, tg=('y', 1711.0, 1800.0, [9, 1, 15.0], 0)),
+ tl('H3-01t', 'HỒI 3', 'H3-01', R_, 'rijks-200323435-theems-stpauls-1892', 'THAT', "St Paul's from the Thames, 1892", 'ẢNH THẬT toàn khung (P6): mái vòm vẫn cao nhất chân trời (Rijksmuseum, PDM) — thay phần footage H5-07a không tải được', {'tu': [0.5, 0.5, 1.0], 'den': [0.5, 0.45, 1.12]}, '1892'),
  v2('H3-02', dm='P6h', dur=6.7917, tg=('y', 1756.0, 1832.0, [9, 1, 15.0], 0), them={'dung_sua': 'P6 nâng 35 → 125 m (góc cao)'}),
  tl('H3-02t', 'HỒI 3', 'H3-02', R_, 'loc-2002696930-londonbridge-pc', 'THAT', 'London Bridge (1831), c. 1890–1900', 'ẢNH THẬT toàn khung: cầu London mới (photochrom LoC)', {'tu': [0.5, 0.5, 1.0], 'den': [0.55, 0.48, 1.12]}, '1900'),
  v2('H3-03', dur=9.4583, lop={'A': 9.4583, 'MAP3D': 4, 'KHAC': 3.0, 'THE': 3.5}, them={'khac': 'wellcome-uv3mugch-embankment-1865', 'the': ['Joseph Bazalgette (kỹ sư)'], 'the_anh': {'Joseph Bazalgette (kỹ sư)': 'rijks-200348829-bazalgette'}}),
@@ -159,7 +160,7 @@ S = [
      {'A': 10.5}, {'vong_deg': 20, 'tam': DOME, 'tieu_diem_en': DOME}),
  v2('H5-05b', dur=R_, them={'thap_nghieng_deg': 3}),
  v2('H5-06'),
- tl('H5-07a', 'HỒI 5', 'H5-07', 6.0, 'footage-h5-07a', 'THAT', 'Bankside at night, 2026 (footage)', 'FOOTAGE THẬT 2026 (P7): bờ nam đêm, đèn City quanh mái vòm', {'video': True}, '2026'),
+ v2('H5-07a', cu='DAY', tg=('d', [2026, 9, 2, 22.0], [2026, 9, 2, 22.15], 1), them={'day_k': 0.006, 'dung_sua': 'P7 footage C3 (Commons CC BY 3.0) KHÔNG tải được (Commons 429 ≈ 2 h; Pixabay X1/Pexels 403 Cloudflare) → 3D P9 đêm, DAY chậm; chủ dự án tải tay'}),
  v2('H5-07b'), v2('H5-08', dur=14.0), v2('H5-09'),
 ]
 MD_MOC = dict(V2.MD_MOC); MD_MOC.update({5: "mái nhà thờ lớn sập, chì chảy (DN05 + C12)", 12: "Thames 1711 + mái vòm mới (F1)", 20: 'Fish Street Hill sáng 2/9', 21: 'Whitehall: Pepys báo Vua (DN02)', 22: 'sà lan hoàng gia (DN03)',

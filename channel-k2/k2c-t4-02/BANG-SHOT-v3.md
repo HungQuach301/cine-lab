@@ -85,7 +85,8 @@
 | H2-12 | 7:46.0 | 10.500 | (lặng) | P2 | KHOP | cao | KHOP: 1647 ↔ 1711 (cắt 5.25 s) | then–now: cùng khung St Saviour 1647 ↔ 1711 | A (10.5), KHAC (3) | góc khung: met-360649-1; KHOP với H1-03 |
 | H2-13 | 7:56.5 | 6.000 | (lặng) | — | MD | md | — | M-d (12) F1 Thames 1711: đò chở khách; chân trời có MÁI VÒM St Paul's mới (không chóp Gothic) | MD (6) | MỚI · kiểm day_du |
 | H2-14 | 8:02.5 | 6.000 | (lặng) | P5 | CAU | cao | 1709 → 1711 | cần cẩu hạ: City gạch đã kín lô, mái vòm hoàn tất | A (6) |  |
-| H3-01 | 8:08.5 | 6.167 | L51 | P1 | CODINH | cao | 1711 → 1860 | P1: mái vòm cao nhất > 250 năm | A (6.167) |  |
+| H3-01 | 8:08.5 | 3.000 | L51 (nhóm H3-01: H3-01, H3-01t) | P1 | CODINH | cao | 1711 → 1800 | P1: mái vòm cao nhất > 250 năm | A (3) |  |
+| H3-01t | 8:11.5 | 3.167 | L51 (nhóm H3-01: H3-01, H3-01t) | — | TL | tl | — | ẢNH THẬT toàn khung (P6): mái vòm vẫn cao nhất chân trời (Rijksmuseum, PDM) — thay phần footage H5-07a không tải được | THAT (3.1667) | THAT: rijks-200323435-theems-stpauls-1892 — "St Paul's from the Thames, 1892" |
 | H3-02 | 8:14.6 | 6.792 | L52 + N5 (nhóm H3-02: H3-02, H3-02t) | P6h | TRUOT | cao | 1756 → 1832 | nhà trên cầu London dỡ (1758, LMA); cầu mới (1831) thay cầu cổ | A (6.7917) | P6 nâng 35 → 125 m (góc cao) |
 | H3-02t | 8:21.4 | 4.500 | L52 + N5 (nhóm H3-02: H3-02, H3-02t) | — | TL | tl | — | ẢNH THẬT toàn khung: cầu London mới (photochrom LoC) | THAT (4.5) | THAT: loc-2002696930-londonbridge-pc — "London Bridge (1831), c. 1890–1900" |
 | H3-03 | 8:25.9 | 9.458 | L53–L55 + N6 (nhóm H3-03: H3-03, H3-03t) | P7 | XUONG | cao | 1860 → 1871 | Victoria Embankment đẩy bờ bắc ra sông (bờ 1666 ↔ nay) | A (9.4583), MAP3D (4), KHAC (3), THE (3.5) | thẻ: Joseph Bazalgette (kỹ sư); góc khung: wellcome-uv3mugch-embankment-1865 |
@@ -117,32 +118,32 @@
 | H5-05c | 11:33.9 | 10.500 | L79–L82 (nhóm H5-05: H5-05a, H5-05c, H5-05b) | P2 | VONG | cao | 2/9/2026 17.1h → 17.5h | C14 biến cố thật: vòng quanh mái vòm từ bờ nam, nắng chiều dịch — tầm nhìn bảo vệ | A (10.5) |  |
 | H5-05b | 11:44.4 | 9.125 | L79–L82 (nhóm H5-05: H5-05a, H5-05c, H5-05b) | P4 | THAP | thap | 2/9/2026 17.5h → 17.6h | từ Fleet Street: Leadenhall vát — mái vòm còn nền trời | A (9.125) |  |
 | H5-06 | 11:53.5 | 6.000 | (lặng) | P3 | CODINH | cao | 2/9/2026 16h → 16.2h | từ phía đông: mái vòm giữa cụm toà cao | A (6) |  |
-| H5-07a | 11:59.5 | 6.000 | L83–L86 (nhóm H5-07: H5-07a, H5-07b) | — | TL | tl | — | FOOTAGE THẬT 2026 (P7): bờ nam đêm, đèn City quanh mái vòm | THAT (6) | THAT: footage-h5-07a — "Bankside at night, 2026 (footage)" |
+| H5-07a | 11:59.5 | 6.000 | L83–L86 (nhóm H5-07: H5-07a, H5-07b) | P9 | DAY | cao | 2/9/2026 22h → 22.15h | bờ nam đêm 2026: City sáng đèn quanh mái vòm (M-d (18) trượt 3 lượt ở ảnh đầu → 3D) | A (6) | P7 footage C3 (Commons CC BY 3.0) KHÔNG tải được (Commons 429 ≈ 2 h; Pixabay X1/Pexels 403 Cloudflare) → 3D P9 đêm, DAY chậm; chủ dự án tải tay |
 | H5-07b | 12:05.5 | 15.333 | L83–L86 (nhóm H5-07: H5-07a, H5-07b) | P1 | KHOP | cao | KHOP: lửa 1666 giờ 22 → 22.5 ↔ 2/9/2026 22h → 22.3h (cắt 7.5 s) | KHÉP VÒNG: cùng khung Bankside — vòng cung lửa 1666 ↔ đèn City 2026 | A (15.333) | KHOP với M03 |
 | H5-08 | 12:20.9 | 14.000 | (lặng) | P1 | KEO | cao | 2/9/2026 22.3h → 22.8h | kéo lùi cuối: mái vòm giữa toà cao, sông, Bankside | A (14) |  |
 | H5-09 | 12:34.9 | 16.000 | — | — | PP | pp | — | hai thẻ "How this film was made" × 8 s (§12.1 b) | PP (16) |  |
 
 ## Tổng + tự kiểm trước dựng
 
-- Thời lượng **770.875 s** · **95 shot** · TB 8.11 s · Omni 27 clip (11 mới/đổi, 63.5 s).
-- Lớp (s): {'A': 560.5, 'MD': 159.875, 'KHAC': 25.0, 'THE': 44.0, 'MAP': 9.958, 'MAP3D': 23.5, 'TL': 8, 'THAT': 20.5, 'N2P': 6.0, 'PP': 16.0}
-- Góc cao từng chương %: {'MÓC': 100.0, 'HỒI 1': 56.41, 'HỒI 2': 62.1, 'HỒI 3': 69.6, 'HỒI 4': 63.94, 'HỒI 5': 80.11}
+- Thời lượng **770.875 s** · **96 shot** · TB 8.03 s · Omni 27 clip (11 mới/đổi, 63.5 s).
+- Lớp (s): {'A': 563.333, 'MD': 159.875, 'KHAC': 25.0, 'THE': 44.0, 'MAP': 9.958, 'MAP3D': 23.5, 'TL': 8, 'THAT': 17.667, 'N2P': 6.0, 'PP': 16.0}
+- Góc cao từng chương %: {'MÓC': 100.0, 'HỒI 1': 56.41, 'HỒI 2': 62.1, 'HỒI 3': 65.11, 'HỒI 4': 63.94, 'HỒI 5': 85.51}
 
 | Chỉ số | Giá trị | Trần | Sàn | Đạt | ±5 % quanh ngưỡng | Ghi |
 |---|---|---|---|---|---|---|
 | Nhóm lời khớp, lời vừa nhóm | 0 | 0 |  | ĐẠT |  |  |
 | Thời lượng ≤ 780 s | 770.875 | 780 |  | ĐẠT | **CÓ** |  |
-| Góc cao / thân phim % (gói 50 %: ≥ 50) | 67.2 |  | 50 | ĐẠT |  | ước theo điểm máy (≥ 120 m); số đo thật: k2check theo log khung |
-| Mục tiêu cảnh báo TL-1: góc cao ≥ 60 % (chốt 5, không chặn) | 67.2 |  | 60 | ĐẠT |  | chỉ cảnh báo (gói 50 %) |
+| Góc cao / thân phim % (gói 50 %: ≥ 50) | 67.58 |  | 50 | ĐẠT |  | ước theo điểm máy (≥ 120 m); số đo thật: k2check theo log khung |
+| Mục tiêu cảnh báo TL-1: góc cao ≥ 60 % (chốt 5, không chặn) | 67.58 |  | 60 | ĐẠT |  | chỉ cảnh báo (gói 50 %) |
 | Omni % (≈ 30–35, mục tiêu gần đúng) | 20.74 | 35 | 30 | **TRƯỢT** |  | ≈: đạt khi trong ±5 % quanh dải; dưới 30 vì 11 clip v3 trượt hết lượt + 2 clip v1 trượt lớp mốc 1.17.7 (H1-08a, H2-03a) về 3D (H1-03b, H1-04b, H1-06x, H1-13c, H1-15x, H2-02b, H2-06b, H2-09x, H2-10b, H4-02b, H5-01b) — không thêm clip chỉ để vượt ngưỡng; xem PHIEU-XEM-V2 C |
-| TL + KHAC + THE + THAT % (≤ 20, chủ dự án duyệt — chờ K-1.17.7) | 12.65 | 20 |  | ĐẠT |  |  |
-| TU-LIEU 1.17.6: TL + KHAC + THE + THAT % (≤ 15) | 12.65 | 15 |  | ĐẠT |  | chờ K-1.17.7 (20 %) |
+| TL + KHAC + THE + THAT % (≤ 20, chủ dự án duyệt — chờ K-1.17.7) | 12.28 | 20 |  | ĐẠT |  |  |
+| TU-LIEU 1.17.6: TL + KHAC + THE + THAT % (≤ 15) | 12.28 | 15 |  | ĐẠT |  | chờ K-1.17.7 (20 %) |
 | Tổng AI % (≤ 70) | 21.52 | 70 |  | ĐẠT |  |  |
 | Bản đồ MAP + MAP3D % (≤ 12) | 4.34 | 12 |  | ĐẠT |  |  |
 | THAP % (≤ 12) | 7.62 | 12 |  | ĐẠT |  |  |
 | M-d mỗi clip ≤ 8 s | 8.0 | 8.0 |  | ĐẠT | **CÓ** |  |
-| Ảnh/tư liệu toàn khung mỗi lần ≤ 10 s | 6.0 | 10.0 |  | ĐẠT |  |  |
-| Ảnh/tư liệu thật toàn khung ≈ 25 s | 25.5 | 30 | 20 | ĐẠT |  |  |
+| Ảnh/tư liệu toàn khung mỗi lần ≤ 10 s | 5.0 | 10.0 |  | ĐẠT |  |  |
+| Ảnh/tư liệu thật toàn khung ≈ 25 s | 22.667 | 30 | 20 | ĐẠT |  |  |
 | 3D tầm phố mới (look2d) ≈ 15 s | 14.833 | 18 | 12 | ĐẠT |  |  |
 | Ảnh/tư liệu toàn khung KHÔNG liền clip Omni |  |  |  | ĐẠT |  |  |
 | N2P chỉ trên CODINH, chỉ 2026 ban ngày |  |  |  | ĐẠT |  |  |
@@ -160,7 +161,7 @@
 | Chốt 2 HỒI 2: P1 tái xuất (fov 36°, cùng khung) | H2-05, H2-09 |  |  | ĐẠT |  |  |
 | HỒI 2: số loại cú máy ≥ 4 | 9 |  | 4 | ĐẠT |  |  |
 | Chốt 1 HỒI 3: mở và kết bằng góc cao | H3-01 / H3-06 |  |  | ĐẠT |  |  |
-| Chốt 4 HỒI 3: góc cao ≥ 40 % | 69.6 |  | 40 | ĐẠT |  |  |
+| Chốt 4 HỒI 3: góc cao ≥ 40 % | 65.11 |  | 40 | ĐẠT |  |  |
 | Chốt 2 HỒI 3: P1 tái xuất (fov 36°, cùng khung) | H3-01, H3-06 |  |  | ĐẠT |  |  |
 | HỒI 3: số loại cú máy ≥ 4 | 5 |  | 4 | ĐẠT |  |  |
 | Chốt 1 HỒI 4: mở và kết bằng góc cao | H4-01a / H4-08 |  |  | ĐẠT |  |  |
@@ -168,7 +169,7 @@
 | Chốt 2 HỒI 4: P1 tái xuất (fov 36°, cùng khung) | H4-01a, H4-05, H4-06 |  |  | ĐẠT |  |  |
 | HỒI 4: số loại cú máy ≥ 4 | 5 |  | 4 | ĐẠT |  |  |
 | Chốt 1 HỒI 5: mở và kết bằng góc cao | H5-01 / H5-08 |  |  | ĐẠT |  |  |
-| Chốt 4 HỒI 5: góc cao ≥ 40 % | 80.11 |  | 40 | ĐẠT |  |  |
+| Chốt 4 HỒI 5: góc cao ≥ 40 % | 85.51 |  | 40 | ĐẠT |  |  |
 | Chốt 2 HỒI 5: P1 tái xuất (fov 36°, cùng khung) | H5-04, H5-07b, H5-08 |  |  | ĐẠT |  |  |
 | HỒI 5: số loại cú máy ≥ 4 | 9 |  | 4 | ĐẠT |  |  |
 
