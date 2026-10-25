@@ -6,3 +6,5 @@
 
 ## Lệnh bổ sung đã áp
 - (chưa có)
+- 00:24 UTC: 3 luồng nền (quyền tư liệu 1940; footage 2026; chân dung + ảnh 1850–1950) đang chạy. Việc 1: nguồn đã đọc lưu `reports/nc-t4/nguon/web/dn-*.txt` (St Paul's timeline, Monument, London Museum, BHO, All Souls, Parentalia 1750, City SPD 2012, Barbican). Bố trí phương án A: `reports/nc-t4/bo-tri/` (script `scripts/k2ldn/nc/bo_tri.py`): 760,0 s, M-d 27,98 %, góc cao 60,57 %, Gemini T4 ước $44,81.
+- Trang chặn: historicengland.org.uk (403, cả WebFetch), london.gov.uk LVMF (403).

@@ -1,0 +1,255 @@
+{
+ "ten": "Phương án mở đầu A (lửa trước) + 15 điểm nhấn",
+ "cat_hien": 76,
+ "chi_phi": {
+  "da_tieu_usd": 8.54,
+  "nhap_360p_usd_s": 0.035,
+  "luot_nhap_toi_da": 3,
+  "cuoi_720p_usd_s": 0.1,
+  "ty_le_lam_lai_720p": 0.3
+ },
+ "thao_tac": [
+  {
+   "dn": "MO",
+   "shot": "M00",
+   "loai": "them",
+   "lop": "A_cao",
+   "s": 10,
+   "ghi": "mở lạnh 1666: khung P1 vòng cung lửa (render M03 có sẵn), DAY chậm; lời N0; hoà 1 s KHOP sang M01"
+  },
+  {
+   "dn": "MO",
+   "shot": "M01",
+   "loai": "rut",
+   "s": 5.875,
+   "ghi": "M01 17.875 → 12 s, đổi CODINH → DAY; bỏ tấm nền tĩnh 0–11 s"
+  },
+  {
+   "dn": "MO",
+   "shot": "M01",
+   "loai": "bo_n2p",
+   "s": 11,
+   "ghi": "tấm nền chỉ cho CODINH (§15 d) → bỏ ở M01"
+  },
+  {
+   "dn": "DN01",
+   "shot": "H1-12x",
+   "loai": "them",
+   "lop": "A_cao",
+   "s": 8,
+   "ghi": "shot mới P2 cao: Old St Paul's bọc giàn giáo, chiều 1/9/1666 (trước cháy) — lời N1; Hollar met-395057 chồng góc khung"
+  },
+  {
+   "dn": "DN01",
+   "shot": "H1-12x",
+   "loai": "chong",
+   "lop": "KHAC",
+   "s": 5,
+   "ghi": "Hollar Old St Paul's (met-395057) góc khung ≤ 1/3"
+  },
+  {
+   "dn": "DN01",
+   "shot": "H1-13",
+   "loai": "chong",
+   "lop": "THE",
+   "s": 4,
+   "ghi": "thẻ chân dung Wren (NGA) + Evelyn"
+  },
+  {
+   "dn": "DN02",
+   "shot": "H1-04",
+   "loai": "tach",
+   "lop": "MD",
+   "s": 6,
+   "ghi": "M-d: người đứng trên chỗ cao của Tower nhìn đầu cầu cháy (Pepys 2/9 sáng)"
+  },
+  {
+   "dn": "DN02",
+   "shot": "H1-05a",
+   "loai": "doi",
+   "s": 5.5,
+   "ghi": "M-d Whitehall: người báo tin trong phòng nguyện của Vua (khớp lời L13 thay cảnh sà lan)"
+  },
+  {
+   "dn": "DN03",
+   "shot": "H1-06",
+   "loai": "tach",
+   "lop": "MD",
+   "s": 6,
+   "ghi": "M-d cận: móc sắt dài kéo đổ mặt nhà gỗ (thư Coventry 2/9)"
+  },
+  {
+   "dn": "DN03",
+   "shot": "H1-06x",
+   "loai": "them",
+   "lop": "MD",
+   "s": 8,
+   "ghi": "M-d: sà lan hoàng gia trên Thames gần Queenhithe, khói; lời N2"
+  },
+  {
+   "dn": "DN04",
+   "shot": "H1-15x",
+   "loai": "them",
+   "lop": "MD",
+   "s": 8,
+   "ghi": "M-d: kỵ binh cận vệ + hàng người chuyền xô da trên phố khói; lời N3"
+  },
+  {
+   "dn": "DN05",
+   "shot": "H1-14",
+   "loai": "doi",
+   "s": 6,
+   "ghi": "M-d: mái chì Old St Paul's chảy thành dòng (ảnh đầu từ render — công trình có tên)"
+  },
+  {
+   "dn": "DN06",
+   "shot": "H1-11",
+   "loai": "tach",
+   "lop": "MD",
+   "s": 6,
+   "ghi": "M-d: sân Royal Exchange cháy, hàng tượng vua trong hốc (ảnh đầu từ render)"
+  },
+  {
+   "dn": "DN06",
+   "shot": "H2-01b",
+   "loai": "doi",
+   "s": 6.667,
+   "ghi": "M-d cận: tượng Gresham rơi khỏi hốc còn nguyên giữa tro (Evelyn 7/9)"
+  },
+  {
+   "dn": "DN07",
+   "shot": "H2-02",
+   "loai": "tach",
+   "lop": "MD",
+   "s": 5,
+   "ghi": "M-d cận: bản vẽ mực nâu trải trên bàn, tay chỉ đại lộ (không mặt) — Wren trình 11/9"
+  },
+  {
+   "dn": "DN08",
+   "shot": "H2-09x",
+   "loai": "them",
+   "lop": "MD",
+   "s": 7,
+   "ghi": "M-d: thợ đá hạ khối đá đầu tiên trên đồi Ludgate cạnh tàn tích nhà thờ cũ, 1675"
+  },
+  {
+   "dn": "DN09",
+   "shot": "H2-06",
+   "loai": "tach",
+   "lop": "MD",
+   "s": 6,
+   "ghi": "M-d: tời gỗ nâng khối đá Portland lên cột đang xây (ảnh đầu từ render)"
+  },
+  {
+   "dn": "DN09",
+   "shot": "H2-06",
+   "loai": "them",
+   "lop": "A_cao",
+   "s": 5,
+   "cat": 0,
+   "ghi": "VONG dài thêm cho lời N9"
+  },
+  {
+   "dn": "DN10",
+   "shot": "H2-10",
+   "loai": "tach",
+   "lop": "MD",
+   "s": 6,
+   "ghi": "M-d: viên đá cuối trên đỉnh đèn lồng, 10/1708 (người con + thợ cả)"
+  },
+  {
+   "dn": "DN10",
+   "shot": "H2-10",
+   "loai": "them",
+   "lop": "A_thap",
+   "s": 2,
+   "cat": 0,
+   "ghi": "lời N4 +2 s"
+  },
+  {
+   "dn": "DN11",
+   "shot": "H3-02",
+   "loai": "chong",
+   "lop": "KHAC",
+   "s": 4,
+   "ghi": "bản khắc cầu London có nhà (PD) ở góc khung; lời N5 sửa 'from 1758'"
+  },
+  {
+   "dn": "DN12",
+   "shot": "H3-03",
+   "loai": "chong",
+   "lop": "THAT_CHONG",
+   "s": 5,
+   "ghi": "ảnh chụp thi công Embankment 1860s ở góc khung"
+  },
+  {
+   "dn": "DN12",
+   "shot": "H3-03",
+   "loai": "chong",
+   "lop": "THE",
+   "s": 3,
+   "ghi": "thẻ Bazalgette"
+  },
+  {
+   "dn": "DN12",
+   "shot": "H3-03",
+   "loai": "them",
+   "lop": "A_cao",
+   "s": 1.5,
+   "cat": 0,
+   "ghi": "lời N6 +1,5 s"
+  },
+  {
+   "dn": "DN13",
+   "shot": "H4-04c",
+   "loai": "xoa_loi",
+   "s": 5.5,
+   "ghi": "bỏ câu Churchill (không nguồn sơ cấp/cơ quan) → H4-04c 13,25 → 7,75 s (hết đứng)"
+  },
+  {
+   "dn": "DN13",
+   "shot": "H4-06",
+   "loai": "tach",
+   "lop": "THAT",
+   "s": 5,
+   "ghi": "ảnh Crown 30/12/1940 St Paul's giữa phế tích (toàn khung, đẩy nhẹ)"
+  },
+  {
+   "dn": "DN15",
+   "shot": "H5-07a",
+   "loai": "tach",
+   "lop": "THAT",
+   "s": 6,
+   "ghi": "footage thật 2026 đêm Bankside (thay 3D tĩnh)"
+  },
+  {
+   "dn": "DN15",
+   "shot": "H5-05a",
+   "loai": "rut",
+   "s": 4.5,
+   "ghi": "H5-05a 16,5 → 12 s (đo khung tĩnh 14 s)"
+  },
+  {
+   "dn": "DN15",
+   "shot": "H5-05a",
+   "loai": "bo_n2p",
+   "s": 4.5,
+   "ghi": "phần tấm nền bị rút"
+  },
+  {
+   "dn": "DUNG",
+   "shot": "H3-05",
+   "loai": "tach",
+   "lop": "MD",
+   "s": 6,
+   "ghi": "M-d: người khảo sát 1937 ngắm mái vòm từ mái nhà bằng máy kinh vĩ (vô danh) — sửa khung tĩnh 8,8 s"
+  },
+  {
+   "dn": "DUNG",
+   "shot": "H3-05",
+   "loai": "rut",
+   "s": 3.7,
+   "ghi": "H3-05 THAP 19,7 − 6 (M-d) → rút thêm 3,7 → 10 s (khung tĩnh đo 8,8 s)"
+  }
+ ]
+}
