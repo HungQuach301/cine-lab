@@ -2,7 +2,7 @@
 
 **Nhánh thật: `claude/animatic-t4-v2-revision-hwh8jp`** (harness buộc; lệnh ghi `k2c-t4-02-animatic2`). Đẩy nhánh, KHÔNG merge, KHÔNG tạo PR.
 
-> Căn cứ (giờ Asia/Saigon, 25/10/2026): 06:56 nhận xét animatic v1; 07:01 N1–N6; 09:08 chi phí là mối lo chính; 09:15 "Duyệt gói 50 % tiết kiệm + P1–P10 theo khuyến nghị"; 10:05 lệnh bổ sung #1 (bằng chứng giấy phép NC-T4); 12:05 lệnh bổ sung #2 (checks 1.17.7). Phiên chạy 02:30 → ≈ 13:30 UTC.
+> Căn cứ (giờ Asia/Saigon, 25/10/2026): 06:56 nhận xét animatic v1; 07:01 N1–N6; 09:08 chi phí là mối lo chính; 09:15 "Duyệt gói 50 % tiết kiệm + P1–P10 theo khuyến nghị"; 10:05 lệnh bổ sung #1 (bằng chứng giấy phép NC-T4); 12:05 lệnh bổ sung #2 (checks 1.17.7). Phiên chạy 02:30 → ≈ 14:20 UTC.
 
 ## 0. Nhánh và SHA
 
@@ -52,12 +52,12 @@ Không sửa `checks/`, `checks-appeal.md`, `docs/`, sổ, `tools/`, `channel-k2
 | Clip sinh ra | 30 · 179,5 s |
 | Chi phí Omni | $6,139 → **$0,034 / s sinh**; tính cả kiểm Flash ($0,388) $0,036 / s |
 | Chọn dùng | **11 clip · 63,5 s** (37 % số clip, 35 % số giây) → **$0,10 / s dùng được** |
-| Mức ĐỦ (day_du) | 15 mã: 8 chọn (H1-05a, H1-07b, H1-11b, H1-14, H1-15b, H2-01b, H2-13, H3-05b); trượt 7 |
-| Mức NỀN (nen) | 7 mã: 3 chọn (H1-06b, H1-15m soi mắt; H4-04d); trượt 4 |
+| Mức ĐỦ (day_du) | 18 mã: **9 chọn** (H1-05a, H1-07b, H1-11b, H1-14, H1-15b, H2-01b, H2-13, H3-05b, H4-04d); trượt 9 |
+| Mức NỀN (nen) | 4 mã: **2 chọn** (H1-06b — Flash LOẠI vì hoạ tiết tròn "giống chữ P" trên dầm, soi mắt ĐẠT, xem C/§8; H1-15m); trượt 2 (H1-04b, H4-02b) |
 | Trượt → 3D | H1-03b, H1-04b, H1-06x, H1-13c, H1-15x, H2-02b, H2-06b, H2-09x, H2-10b, H4-02b, H5-01b |
 
 - Lỗi thật bộ kiểm bắt: mái vòm St Paul's năm 1666/1675, cầu đá chưa có 1708, mũ tricorn 1690+, tháp kiểu Big Ben, đèn đường giữa giờ tắt đèn 1940, mặt/tay méo. Một số mã trượt ngay ở ảnh đầu (OpenAI) nên không gọi Omni.
-- Lớp công trình mốc 1.17.7 (`q_thoi_dai --lop-moc --moc`, 3 khung/clip, 42 lần đo, ≈ $1,45): ĐẠT cả clip v3; bắt 2 clip v1 đang giữ (H1-08a thiếu Old St Paul's ở chân trời 1666; H2-03a thiếu tàn tích) → về 3D. H2-13 (mái vòm 1711): ĐẠT 3/3.
+- Lớp công trình mốc 1.17.7 (`q_thoi_dai --lop-moc --moc`, 3 khung/clip, 45 lần đo, ≈ $1,55): ĐẠT cả clip v3; bắt 2 clip v1 đang giữ (H1-08a thiếu Old St Paul's ở chân trời 1666; H2-03a thiếu tàn tích) → về 3D. H2-13 (mái vòm 1711): ĐẠT 3/3.
 - Ảnh đầu: OpenAI gpt-image-2.5 (generations; edits với chân dung tham chiếu Charles II/James/Pepys cho clip có nhân vật có tên — chỉ trang phục/dáng, khung trung/xa, P2 = (b)). Không dự trữ lượt; không thêm clip để bù tỷ lệ.
 
 ## 4. Việc 4 — Dựng 3D
@@ -80,15 +80,29 @@ Không sửa `checks/`, `checks-appeal.md`, `docs/`, sổ, `tools/`, `channel-k2
 
 - Ghép 2 phần nối concat → `hinh.mp4` 18 501 khung = 770,875 s; LUT kênh v030, KHOP, M-d khớp màu Lab, γ nâng tối (M00/M04/H1-01h/H1-02h), Ken Burns tư liệu.
 - Animatic đủ 640×360 (ngoài git, `/var/tmp/anim/out3/k2c-t4-02-animatic-v3-640.mp4`, SHA + lệnh tái tạo trong `xuat.json`).
-- Bản xem: __XEM__
+- Bản xem 4 phần `reports/animatic-t4-v2/xem/` (lần xuất cuối, animatic đủ SHA `a9c16c6b…`): 4 898 808 / 4 895 425 / 4 911 470 / 4 897 190 byte (≤ 5 MB); âm AAC đặt 132 k, **đo trên tệp 132,6 / 132,4 / 131,9 / 132,2 kb/s** (≥ 128, F5); **đỉnh thật −3,0 / −3,1 / −3,2 / −3,0 dBTP đo trên tệp xem** (≤ −1); I ≈ −14 LUFS. Hình còn ≈ 70–80 kb/s (C5).
 - `animatic2/episode.yaml` khai theo K1177 §4 (`mk_ep_v3.py`).
 
 ## 8. Việc 8 — Kiểm
 
-__K2CHECK__
+**k2check 1.17.7 chế độ animatic** (`checks/ll/k2check.py … --master <animatic đủ> --cap`; chỉ chạy, không đọc mã). Chưa chạy 1.17.6 trên v3 → chỉ có bảng 1.17.7 (lệnh bổ sung #2 bước 5). Hai lượt:
+- Lượt 1 (`k2check-1.17.7-animatic-luot1.md`): 12 TRƯỢT / 20 CẢNH BÁO / 37 ĐẠT. Đọc K-LAI-3 lộ **sự cố thật**: bảng v3 gán clip v1 **lượt 1 (LOẠI)** cho H1-12 và H2-07 (v1 đã chọn lượt 2) → sửa bảng + thêm kiểm tự động, ghép lại phần 1, xuất lại. Cùng lượt sửa khai 1.17.7 còn thiếu (tầng 2 + lớp mốc, tờ khung soi tay, chân dung tương đối, gắn câu, `noi` điểm mới).
+- **Lượt 2 (`k2check-1.17.7-animatic.md`, bản đang nộp): RC=1 — 10 TRƯỢT / 20 CẢNH BÁO / 39 ĐẠT.** So lượt 1: ML1 TRƯỢT → CẢNH BÁO (chỉ còn PP1/PP2 không gắn câu — thẻ phương pháp), NC-H1 TRƯỢT → ĐẠT, K-LAI-3 lỗi Chặn 4 → 2, KIEM-2-MUC cảnh báo 16 → 1, NHAN-VAT-TEN 9 → 6.
+
+| Hàng TRƯỢT | Trên v1 (1.17.4) | Nguyên nhân | Ai xử lý |
+|---|---|---|---|
+| Q34, Q26b, Q26b-K2 | TRƯỢT | khai `type` minh_hoa/tu_lieu ngoài danh mục (Q34); vùng/loại cảnh (3D 74,2 % > 70 %; nửa sau 0 vùng) | luật kênh — K/P xác nhận cách khai loại/vùng cho kênh 2 T4 (C7) |
+| Q37, Q37 (1.13), NHIP-K2 | TRƯỢT | khoảng dài nhất 14,87 s (H1-06, 2:10.5) > 6 s; khung tĩnh 8,96 s ở thẻ PP cuối (miễn ≤ 10 s cho thẻ PP chưa áp ở Q37) | H1-06: bản cuối thêm biến cố; thẻ PP: K |
+| SACH-1 | TRƯỢT | không có log chữ (`--logs k2.js`) — đường ghép Python không xuất log chữ | K/P: cách khai log chữ cho đường ghép Python |
+| K-LAI-2 | TRƯỢT | chưa khai `phat_hanh.mo_ta` (mô tả + bình luận ghim) — thuộc gói phát hành | bản cuối |
+| K-LAI-3 | ĐẠT (v1) | 2 clip mức NỀN (H1-06b, H1-15m) không có tệp tầng 2 — đúng thiết kế kiểm 2 mức (nen: Flash + tờ khung) nhưng K-LAI-3 vẫn đòi tệp kiểm | **xung đột luật K-LAI-3 ↔ KIEM-2-MUC** — đề xuất K (P ghi `checks-appeal.md`) |
+| XEM-CAM | TRƯỢT | chưa khai `xem_cam:` — cổng cần điểm chủ dự án (K không tự chấm) | chủ dự án chấm phiếu B |
+
+CẢNH BÁO đáng chú ý (chặn ở G2): **NHAN-VAT-TEN (a) H1-15b Pepys mặt cao 0,162 khung > 1/8 ở 1/84 khung (khung 124)** + (w) 6 hộp 0,6–0,75 — chủ dự án xem ở A1, bản cuối cắt/thay; (k) H3-05b không có chân dung (Godfrey Allen — không có ảnh xác thực/sạch quyền); (u) 3 clip chờ dòng AUTHORSHIP duyệt. KIEM-2-MUC (b) H1-06b Flash LOẠI (soi mắt ĐẠT — xin chủ dự án duyệt ngoại lệ ở A1/C). GOC-CAO 66,1 % (log khung) / 50 %, chương ≥ 53 %; (a) "HỒI 1 mở bằng H1-01h" bị đo không đủ cao. TU-LIEU-OMNI 18 ghép liền (tư liệu góc khung trong shot 3D kề M-d — khai `tu_lieu_lan` chưa đủ hẹp). MAY-19: H2-10, H5-05b THAP ngửa 4–7° (< 5°); MÓC 3 loại cú máy < 4. TL-1 68,0 % góc cao + tl so mục tiêu 60 %; cắt 3,10/phút tính trần. MINH-HOA 20,7 % so 20 % (cảnh báo animatic). PP-1 thẻ PP2 3,4 từ/s > 3.
 
 - XEM CÂM AI (3 người đọc claude -p, chỉ tham khảo, §13.4): **48/48**, rõ ràng TB 4,0/5; Q2 cả 3 đáp "một nơi nhỏ (lò bánh)". Chi phí $0,40. `reports/animatic-t4-v2/xem-cam/`.
-- Soi tờ khung mỗi 10 s (`to-khung-10s.jpg`) và 1 khung/shot (`to-khung.jpg`) — __SOI__
+- Soi tờ khung mỗi 10 s (`to-khung-10s.jpg`) và 1 khung/shot (`to-khung.jpg`) — soi bằng mắt: không còn khung "đứng" ngoài H5-09 (thẻ PP); H1-12/H2-07 sau sửa khớp bố cục lượt 2 (so ảnh 3 cột); **đêm 1666 tối**: M04 giữa shot độ sáng TB ≈ 26/255, H1-01h/H1-02h/H1-15h ≈ 32/255 (phiếu C9b); H2-12 bộ đếm "1647" là cặp then–now 1647↔1711 (đúng thiết kế); H1-15m: 2 người tiền cảnh mặc quần ống rộng trông như váy (lỗi trang phục nhỏ, mức nền).
+- XEM CÂM lượt 2 (sau ghép lại): 48/48, rõ ràng 4,0 — như lượt 1.
 
 ## 9. Việc 9 — Phiếu xem v2
 
@@ -100,10 +114,10 @@ __K2CHECK__
 |---|---|---|---|
 | Gemini (Omni $6,139 + Flash $0,388) | **$6,53** | T4 TỔNG **$15,07** / mốc $50 / chặn $55 | trước phiên $8,54 |
 | OpenAI (ảnh đầu $2,036 + kiểm gpt-6.1-sol $1,231) | **$3,27** | mốc $6 / chặn $10 | 31 ảnh |
-| Claude API (q_thoi_dai lớp mốc $1,45 + XEM CÂM $0,40) | **≈ $1,85** | mốc $4 / chặn $10 | |
+| Claude API (q_thoi_dai lớp mốc $1,55 + XEM CÂM 2 lượt $0,77) | **≈ $2,32** | mốc $4 / chặn $10 | |
 | ElevenLabs | **1 333 ký tự gửi** (bộ đếm +586) | mốc 1 500 / chặn 2 500 | |
 | RunPod | $0 | 0 | |
-| Giờ máy | ≈ 11 h | 16 h | 02:30 → ≈ 13:30 UTC |
+| Giờ máy | ≈ 11,8 h | 16 h | 02:30 → ≈ 14:20 UTC |
 
 ## 11. Sự cố
 
@@ -117,22 +131,35 @@ __K2CHECK__
 8. Commons 429 ≈ 2 h; Pixabay/Pexels 403 → D 6418 thu nhỏ, footage bỏ.
 9. Nhạc LFS là con trỏ → `git lfs pull`.
 10. Âm bản xem đo 127,97 kb/s < 128 → đặt 132 k, mã lại.
-11. `git add -f scripts/k2ldn` đưa `__pycache__/*.pyc` vào git → gỡ khỏi theo dõi (commit riêng, không amend).
-12. Làn song song 3–4 (lệnh P ≤ 2) khi dựng 3D, có chờ RAM ≥ 5 GB; một lần crash do RAM (mục 7).
+11. **Bảng v3 gán clip v1 lượt 1 (LOẠI) cho H1-12 và H2-07** (gõ tay tên clip thay vì đọc `animatic/omni/chon/`) — lọt qua tự kiểm bảng, lộ ở k2check K-LAI-3 lượt 1 → sửa, thêm assert, q_thoi_dai lớp mốc lại cho H1-12-l2 ($0,105), ghép lại phần 1, xuất lại, XEM CÂM + k2check lượt 2. Bản xem ở commit trước `ba0abe9e` chứa clip sai.
+12. `git add -f scripts/k2ldn` đưa `__pycache__/*.pyc` vào git → gỡ khỏi theo dõi (commit riêng, không amend).
+13. Làn song song 3–4 (lệnh P ≤ 2) khi dựng 3D, có chờ RAM ≥ 5 GB; một lần crash do RAM (mục 7).
 
 ## 12. Chỉ số trong ±5 % quanh ngưỡng (luật cứng)
 
-__PM5__
+| Chỉ số | Số đo | Ngưỡng | Lệch |
+|---|---|---|---|
+| Thời lượng | 770,875 s | ≤ 780 s | −1,2 % |
+| M-d mỗi clip | 8,0 s (dài nhất) | ≤ 8 s | 0 % (đúng trần) |
+| Chốt 3: shot thấp/M-d/ảnh thật liền | 2 | ≤ 2 | 0 % |
+| MÓC: loại cú máy | 3 | ≥ 4 | −25 % (**trượt** — MAY-19 cảnh báo) |
+| MINH-HOA (cảnh báo animatic) | 20,74 % | ≤ 20 % | +3,7 % |
+| Q37 (1.13) khung tĩnh (neo) | 5,92 s (11:22.0; 11:28.0) | ≤ 6,0 s | −1,3 % |
+| Thẻ chương (5 thẻ) | 3,0 s | 3,0 s | 0 % |
+| Thẻ PP1 / PP2 | 9,0 s / 7,0 s | 7–9 s | đúng cận |
+| A1 độ to | −14,0 LUFS | −15…−13,8 | cách cận trên 0,2 LU |
+| ElevenLabs | 1 333 ký tự | mốc 1 500 | −11 % (ngoài ±5 %) |
 
 ## 13. Dòng sổ đề xuất (P ghi — phiên xưởng không sửa sổ)
 
 - **RIGHTS.md**: T4-TL-IWM-D6418 (Commons thumb 500×667, PD-UKGov, SHA `d98e4829…`); T4-TL-RIJKS-200323435 (1892, PDM); photochrom London Bridge; Wellcome Embankment 1865; SFX CHUONG-1, COI-40 (BigSoundBank CC0); 21 mục NC-T4 (bằng chứng `nc/licenses/`). Ghi chú: trang giấy phép Pexels/Pixabay chưa lưu được.
 - **AUTHORSHIP.md**: chủ dự án 25/10 06:56 nhận xét (mở lạnh, điểm nhấn, cận/trung, ảnh thật); 09:15 duyệt gói 50 % + P1–P10; 12:52 năm vị trí tư liệu; duyệt A1 (clip nhân vật có tên) — chờ.
-- **COST-LEDGER**: Gemini +$6,53 (T4 $15,07); OpenAI +$3,27; Claude API +$1,85; ElevenLabs 1 333 ký tự; RunPod $0.
-- **BAI-HOC-LL**: (a) mô hình ảnh/video tự vẽ mái vòm St Paul's cho mọi năm — lệnh phải nói "no dome" + ảnh đầu từ render 3D cùng năm; (b) `channel-k2/.gitignore *.json` → mọi JSON kênh phải `git add -f` có chọn lọc (không `-f` cả thư mục script); (c) Commons 429 kéo dài — tải tư liệu thật ngay đầu phiên; (d) tỷ lệ dùng được Omni ≈ 35 % số giây → dự toán $/s dùng được ≈ $0,10.
+- **COST-LEDGER**: Gemini +$6,53 (T4 $15,07); OpenAI +$3,27; Claude API +$2,32; ElevenLabs 1 333 ký tự; RunPod $0.
+- **BAI-HOC-LL**: (a) mô hình ảnh/video tự vẽ mái vòm St Paul's cho mọi năm — lệnh phải nói "no dome" + ảnh đầu từ render 3D cùng năm; (b) `channel-k2/.gitignore *.json` → mọi JSON kênh phải `git add -f` có chọn lọc (không `-f` cả thư mục script); (c) Commons 429 kéo dài — tải tư liệu thật ngay đầu phiên; (e) clip v1 giữ lại phải đọc từ tệp chọn, không gõ tay (sự cố 11); (d) tỷ lệ dùng được Omni ≈ 35 % số giây → dự toán $/s dùng được ≈ $0,10.
 
 ## 14. Việc chờ chủ dự án
 
 1. Xem 4 tệp `reports/animatic-t4-v2/xem/k2c-t4-02-animatic-v3-xem-{1..4}.mp4` + `PHIEU-XEM-V2.md`: đánh dấu A, **duyệt từng clip A1** (H1-05a Pepys/Charles II; H1-15b Pepys; H3-05b Godfrey Allen — không chân dung), chấm B (Q2, Q3, Q4, Q6), chọn C1–C7.
 2. Tải tay: IWM D 6418 bản gốc; footage đêm (Pixabay X1 kèm PDF giấy phép hoặc Commons C3 CC BY 3.0); lưu PDF trang giấy phép Pexels/Pixabay.
-3. Duyệt dòng sổ §13 (P ghi) và hàng k2check còn TRƯỢT/CẢNH BÁO (§8) với K/P.
+3. Duyệt dòng sổ §13 (P ghi) và hàng k2check còn TRƯỢT/CẢNH BÁO (§8) với K/P; P ghi `checks-appeal.md` cho xung đột K-LAI-3 ↔ KIEM-2-MUC (clip mức nền).
+4. Duyệt ngoại lệ H1-06b (Flash LOẠI, soi mắt ĐẠT) và quyết định H1-15b (mặt Pepys > 1/8 ở 1 khung).
