@@ -418,6 +418,8 @@ def check(E, TL=None, ep_dir='.', LS=None):
                   ('GOC-CAO-60', lambda: goc_cao_60(E, TL, LS, ep_dir, cong))):
         try: out[k] = fn()
         except Exception as e: out[k] = r(thieu=[f'không chạy được: {type(e).__name__}: {e}'], val='—', cong=cong)   # noqa: BLE001
+    from checks.ll import q_k1176 as K76   # 1.17.6 (chủ dự án 24/10 12:52): TU-LIEU-10 theo trần của tập + (b) mỗi lần ≤ 10 s; TU-LIEU-OMNI mới
+    out.update(K76.check_tu_lieu(E, TL, ep_dir, LS))
     return out
 
 

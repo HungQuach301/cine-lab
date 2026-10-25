@@ -151,10 +151,8 @@ def soi(truoc, sau, nam, noi='', t4=False, out=None, tag='khung', api=False, cac
             t0 = time.time()
             if mh == 'gpt': txt, meta = call_gpt(pr.replace(GPT_LEAD, 'The images are attached in this order:'), T + S, f'{tag}-gpt', out)
             else:
-                txt, meta = call_claude(pr, td, f'{tag}-claude', out)
-                miss = [os.path.basename(p) for p in T + S if p not in meta.get('reads', [])]
-                if not meta.get('loi') and miss: meta['loi'] = f'không đọc đủ ảnh: thiếu {", ".join(miss)}'
-                meta.pop('reads', None)
+                from checks.ll import q_k1176 as K76   # 1.17.6 (KN-3): không đọc đủ ảnh → gọi lại MỘT lần; cả hai lần vào n2p-cost.jsonl
+                txt, meta = K76.goi_claude_du(sys.modules[__name__], pr, td, T + S, f'{tag}-claude', out)
             j = parse(txt) if not meta.get('loi') else None
             if not meta.get('loi') and j is None: meta['loi'] = 'trả lời không đọc được (không phải JSON)'
             if meta.get('loi'): loi.append(f"{mh}: {meta['loi']}")

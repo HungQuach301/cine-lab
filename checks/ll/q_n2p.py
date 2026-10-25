@@ -119,16 +119,20 @@ def _blue(bgr):
     h = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV); return (h[..., 0] >= 85) & (h[..., 0] <= 130) & (h[..., 1] >= 40) & (h[..., 2] >= 30)
 
 
-def do_tam(render_p, ghep_p, mat_na_p, lop_a=LOP_A, bang=None):
-    """số đo máy một tấm: (i) lệch trong (a), dải 20 px, cụm ΔE; (iii) T9 + T9b. Px ngưỡng quy theo chiều cao khung / 1080."""
+def do_tam(render_p, ghep_p, mat_na_p, lop_a=LOP_A, bang=None, tru=None):
+    """số đo máy một tấm: (i) lệch trong (a), dải 20 px, cụm ΔE; (iii) T9 + T9b. Px ngưỡng quy theo chiều cao khung / 1080.
+    1.17.6 (KN-2): `tru` = vùng loại khỏi (a) và khỏi dải 20 px (nhà đo được nở 1 px của tấm be_mat_nha_ai — do BE-MAT-NHA (a)(b) kiểm)."""
     import cv2, numpy as np
     R = cv2.imread(render_p, cv2.IMREAD_COLOR); G = cv2.imread(ghep_p, cv2.IMREAD_COLOR)
     if R is None: raise FileNotFoundError(render_p)
     if G is None: raise FileNotFoundError(ghep_p)
     if G.shape != R.shape: G = cv2.resize(G, (R.shape[1], R.shape[0]), interpolation=cv2.INTER_AREA)
     L, names = idmap(mat_na_p, (R.shape[1], R.shape[0]), bang); A = lop(L, names, lop_a); s = R.shape[0] / 1080.0
+    A0 = A
+    if tru is not None: A = A & ~tru
     dif = np.abs(G.astype(np.int16) - R.astype(np.int16)).max(-1)
     rad = max(1, int(round(DAI_PX * s))); band = (cv2.dilate(A.astype(np.uint8), cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * rad + 1,) * 2)) > 0) & ~A
+    if tru is not None: band &= ~tru
     dE = np.sqrt(((_lab(cv2.GaussianBlur(G, (0, 0), 1.5)) - _lab(cv2.GaussianBlur(R, (0, 0), 1.5))) ** 2).sum(-1))
     n, cc, st, _ = cv2.connectedComponentsWithStats(((dE >= CUM_DE) & band).astype(np.uint8), 8); amin = max(1, int(round(CUM_PX * s * s)))
     cum = sorted([dict(hop=[int(st[i, 0]), int(st[i, 1]), int(st[i, 0] + st[i, 2]), int(st[i, 1] + st[i, 3])], px=int(st[i, 4])) for i in range(1, n) if st[i, 4] >= amin], key=lambda x: -x['px'])
@@ -141,7 +145,8 @@ def do_tam(render_p, ghep_p, mat_na_p, lop_a=LOP_A, bang=None):
     from checks.ll import q_k1175 as K75
     t9c = K75.t9c(R, G, L, names); t9c.pop('win', None)   # 1.17.5 (A1/A2): đường bờ đo, đối chứng render — thay T9b chiều nước→đất
     return dict(i=dict(max_trong_a=int(dif[A].max()) if A.any() else 0, diem_lech_trong_a=int((dif[A] > 0).sum()), dien_tich_a_pct=round(float(A.mean() * 100), 2),
-                       dai20_pct=round(float(band.mean() * 100), 2), dai20_cum_dE30=len(cum), dai20_cum_lon=cum[:15]),
+                       dai20_pct=round(float(band.mean() * 100), 2), dai20_cum_dE30=len(cum), dai20_cum_lon=cum[:15],
+                       **(dict(tru_bmn_pct=round(float((A0 & tru).mean() * 100), 2), max_trong_a_chua_tru=int(dif[A0].max()) if A0.any() else 0) if tru is not None else {})),
                 iii=dict(t9_dat_thanh_nuoc_pct=round(d2n, 2), t9_nuoc_thanh_dat_pct=round(n2d, 2), t9b_dat_thanh_nuoc_pct=round(d2n_b, 2), t9b_nuoc_thanh_dat_pct=round(n2d_b, 2), t9c=t9c),
                 _band=band, _A=A, W=R.shape[1], H=R.shape[0])
 
@@ -187,13 +192,19 @@ def qtd_moi(Qg, Qr, W=1920, H=1080):
     return [x for x in (Qg or {}).get('nghi_van') or [] if not any(_trung(nb(x), y) for y in rr if y)]
 
 
-def kiem_tam(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False):
-    """một tấm (mục n2p.tam) → dict(do, V, ket luận, qtd, loi_chay)"""
+def kiem_tam(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False, ppm=None):
+    """một tấm (mục n2p.tam) → dict(do, V, ket luận, qtd, loi_chay). ppm: ngưỡng px/m nhà đo được của tập (1.17.6, tấm be_mat_nha_ai)"""
     from checks.ll import q_n2p_vision as QV
     rp, gp, mp = _p(ep_dir, t.get('render')), _p(ep_dir, t.get('ghep')), _p(ep_dir, t.get('mat_na'))
     nam = t.get('nam'); tid = str(t.get('id') or os.path.basename(gp or '?'))
     if not (rp and gp and mp and nam is not None): return dict(id=tid, loi_chay=f'tấm {tid}: thiếu render/ghep/mat_na/nam')
-    D = do_tam(rp, gp, mp, t.get('lop_a') or LOP_A, t.get('bang'))
+    TRU, TRU_GHI = None, None
+    if t.get('be_mat_nha_ai'):   # 1.17.6 (KN-2): vùng nhà đo được nở 1 px do BE-MAT-NHA (a)(b) kiểm — loại khỏi (i)(a)(c); (a) còn lại giữ 0/255
+        from checks.ll import q_k1176 as K76
+        TRU, nd = K76.vung_bmn(t, ep_dir, ppm if ppm is not None else K76.PPM_MAC_DINH)
+        TRU_GHI = f'{nd} nhà đo được (≥ {ppm if ppm is not None else K76.PPM_MAC_DINH:g} px/m) loại khỏi (a)' if TRU is not None else f'không tính được vùng BMN ({nd}) — (a) đo đủ'
+    D = do_tam(rp, gp, mp, t.get('lop_a') or LOP_A, t.get('bang'), TRU)
+    if TRU_GHI: D['i']['bmn'] = TRU_GHI
     SONG, VONG = None, None
     sg = t.get('song') or {}
     if sg or t.get('khop_mau_cuc_bo'):
@@ -212,6 +223,10 @@ def kiem_tam(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False
     gv = _p(ep_dir, sg.get('nen')) if sg.get('nen') else gp   # (iv): lớp sống từ render không phải vật AI thêm → mô hình soi tấm nền (chưa cộng lớp sống)
     V = QV.soi(rp, gv, nam, t.get('noi', noi), t.get('t4', t4), out=out, tag=tid, api=vision, cache=cache)
     L1, L2, L2b, L4, VUNG = ket_luan(V.get('ket_qua') or {}, D['_band'], D['_A'], bool(t.get('anh_tinh', True)), nam)
+    L1b = []
+    if TRU is not None:   # 1.17.6 (KN-2): vật (a) mô hình báo có TÂM hộp trong vùng nhà đo được BMN → (c) người đọc (BE-MAT-NHA (c)/(w) kiểm vùng này)
+        H_, W_ = TRU.shape; tam_ = lambda b: TRU[min(H_ - 1, max(0, int((b[1] + b[3]) / 2 * H_))), min(W_ - 1, max(0, int((b[0] + b[2]) / 2 * W_)))]
+        L1b = [x for x in L1 if tam_(x['toa_do'])]; L1 = [x for x in L1 if not tam_(x['toa_do'])]
     Q = None
     if vision or (cache or {}).get('qtd', {}).get(tid):
         Q = (cache or {}).setdefault('qtd', {}).get(tid)
@@ -223,7 +238,7 @@ def kiem_tam(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False
                      chi_phi_usd=round(float(Qg.get('cost_usd') or 0) + float(Qr.get('cost_usd') or 0), 4))
             if cache is not None and not Q['loi']: cache['qtd'][tid] = Q
     return dict(id=tid, shot=t.get('shot'), nam=nam, anh_tinh=bool(t.get('anh_tinh', True)), do={k: v for k, v in D.items() if not k.startswith('_')},
-                V=V, L1=L1, L2=L2, L2b=L2b, L4=L4, VUNG=VUNG, Q=Q, SONG=SONG, VONG=VONG)
+                V=V, L1=L1, L1b=L1b, L2=L2, L2b=L2b, L4=L4, VUNG=VUNG, Q=Q, SONG=SONG, VONG=VONG)
 
 
 def tong_tam(KT):
@@ -231,7 +246,7 @@ def tong_tam(KT):
     out = {}
     m = lambda x: f"{x['mh']}: {x.get('loai')} «{str(x.get('mo_ta') or '')[:70]}» @{[round(v, 3) for v in x['toa_do']]}" + (' dải (a)' if x.get('dai_a') else '')
     L, T = {k: [] for k in ROWS[:4]}, {k: [] for k in ROWS[:4]}; M = {k: {} for k in ROWS[:4]}; near = {k: [] for k in ROWS[:4]}
-    nv0, cum, t9 = 0, 0, []
+    nv0, cum, t9, kn = 0, 0, [], 0
     for k in KT:
         w = f"tấm {k['id']}" + (f" ({k['shot']})" if k.get('shot') else '')
         if k.get('loi_chay'):
@@ -240,6 +255,7 @@ def tong_tam(KT):
         i = k['do']['i']; iii = k['do']['iii']; vl = (k['V'] or {}).get('loi')
         if i['max_trong_a'] > 0: L['N2P-1'].append(f"(a) {w}: lớp (a) sau ghép lệch tối đa {i['max_trong_a']}/255 ở {i['diem_lech_trong_a']} điểm (cần 0)")
         L['N2P-1'] += [f'(b) {w}: {x["kieu"]} — {m(x)}' for x in k['L1']]
+        L['N2P-1'] += [f'(c) {w}: {x["kieu"]} trong vùng nhà đo được BMN (BE-MAT-NHA kiểm; người đọc) — {m(x)}' for x in k.get('L1b') or []]
         if i['dai20_cum_dE30']:
             cum += i['dai20_cum_dE30']; L['N2P-1'].append(f"(c) {w}: {i['dai20_cum_dE30']} cụm ΔE ≥ {CUM_DE:g} trong dải {DAI_PX} px quanh (a) (người đọc tờ so): "
                                                          + ', '.join(f"{c['hop']} {c['px']} px" for c in i['dai20_cum_lon'][:4]))
@@ -255,11 +271,12 @@ def tong_tam(KT):
             if k['Q'].get('loi'): T['N2P-2'].append(f"(b) {w}: q_thoi_dai: {k['Q']['loi']}")
             L['N2P-2'] += [f"(b) {w}: q_thoi_dai nghi vấn mới (không có ở render): [{x.get('muc')}] {str(x.get('mo_ta'))[:70]} @px {x.get('toa_do_px')}" for x in k['Q']['moi']]
         c9 = iii.get('t9c')
+        if c9 is not None and c9.get('ap') is False: kn += 1   # 1.17.6 (KN-1): tấm không nước → T9c KHÔNG ÁP, phép khác vẫn chạy
         for nm, v in (('đất→nước', iii['t9b_dat_thanh_nuoc_pct']), ('nước→đất', iii['t9b_nuoc_thanh_dat_pct'])):
             if c9 is not None and nm == 'nước→đất': continue   # 1.17.5: chiều nước→đất đo bằng T9c (đường bờ + đối chứng render); T9b chỉ in
             t9.append(v); near['N2P-3'] += sat(f'{w} T9b {nm} %', v, T9B_MAX)
             if v > T9B_MAX: L['N2P-3'].append(f'(a) {w}: T9b {nm} {v} % > {T9B_MAX:g} %')
-        if c9 is not None:
+        if c9 is not None and c9.get('ap') is not False:
             L['N2P-3'] += [f"(c) {w}: bờ lấn ({x['kieu']}) sâu {x['sau_px']} px @1080" + (f", dài {x['dai_px']} px, x {x['x0']}–{x['x1']}" if 'x0' in x else f", hộp {x['hop']}") for x in c9['lan'][:8]]
             if c9['giua_pct'] > K75_GIUA: L['N2P-3'].append(f"(d) {w}: khác nước (đối chứng render) không bám bờ {c9['giua_pct']} % > {K75_GIUA:g} %")
             near['N2P-3'] += sat(f'{w} T9c giữa nước %', c9['giua_pct'], K75_GIUA)
@@ -271,10 +288,12 @@ def tong_tam(KT):
     out['N2P-1'] = r(L['N2P-1'], T['N2P-1'], val=f"{n} tấm · max lệch (a) {max([k['do']['i']['max_trong_a'] for k in KT if not k.get('loi_chay')] or [0])}/255 · vật (a) mô hình {sum(len(k.get('L1') or []) for k in KT)} · cụm dải 20 px {cum}")
     out['N2P-2'] = r(L['N2P-2'], T['N2P-2'], val=f"{n} tấm · lỗi có năm {sum(len(k.get('L2') or []) for k in KT)} · nghi vấn không năm {nv0} (người đọc) · q_thoi_dai mới "
                                                   + str(sum(len(k['Q']['moi']) for k in KT if k.get('Q'))) + ' · giới hạn: cờ ~20 px không bảo đảm')
-    c9s = [k['do']['iii']['t9c'] for k in KT if not k.get('loi_chay') and k['do']['iii'].get('t9c') is not None]
+    c9s = [k['do']['iii']['t9c'] for k in KT if not k.get('loi_chay') and k['do']['iii'].get('t9c') is not None and k['do']['iii']['t9c'].get('ap') is not False]
     out['N2P-3'] = r(L['N2P-3'], T['N2P-3'], val=f"{n} tấm · T9b lớn nhất {max(t9 or [0]):.2f} % · mô hình báo {sum(len(k.get('VUNG') or []) for k in KT)}"
                      + (f" · T9c (1.17.5): đoạn bờ lấn {sum(c['so_doan_lan'] for c in c9s)}, sâu nhất {max([c['sau_lon_nhat_px'] for c in c9s] or [0])} px, giữa nước ≤ {max([c['giua_pct'] for c in c9s] or [0])} %"
-                        + f"; T9b nước→đất (chỉ in) {max([k['do']['iii']['t9b_nuoc_thanh_dat_pct'] for k in KT if not k.get('loi_chay')] or [0]):.2f} %" if c9s else ''), sat_nguong=near['N2P-3'])
+                        + f"; T9b nước→đất (chỉ in) {max([k['do']['iii']['t9b_nuoc_thanh_dat_pct'] for k in KT if not k.get('loi_chay')] or [0]):.2f} %" if c9s else '')
+                     + (f" · T9c KHÔNG ÁP ở {kn} tấm không nước (1.17.6 KN-1)" if kn else ''), sat_nguong=near['N2P-3'])
+    if kn and kn == n and out['N2P-3']['ok']: out['N2P-3']['ket_qua'] = 'KHÔNG ÁP'   # mọi tấm không nước, T9b đất→nước + mô hình 0 lỗi
     out['N2P-4'] = r(L['N2P-4'], T['N2P-4'], val=f"{n} tấm ({sum(1 for k in KT if k.get('anh_tinh'))} tĩnh) · vật chuyển động {sum(len(k.get('L4') or []) for k in KT)}")
     for q in ROWS[:4]:
         out[q]['muc'] = {c: [x for x in out[q]['loi'] if x.startswith(f'({c})')] for c in 'abcde'}
@@ -372,10 +391,12 @@ def check(E, TL=None, ep_dir='.', LS=None, vision=False, out=None, KT=None, vids
     cache = json.load(open(cp)) if cp and os.path.exists(cp) else {}
     res = {}
     tam = list(N.get('tam') or [])
+    from checks.ll import q_k1176 as K76
+    ppm = K76.ppm_min(E)[0]
     if KT is None and tam:
         KT = []
         for t in tam:
-            try: KT.append(kiem_tam(t, ep_dir, vision, cache, out, N.get('noi', ''), bool(N.get('t4'))))
+            try: KT.append(kiem_tam(t, ep_dir, vision, cache, out, N.get('noi', ''), bool(N.get('t4')), ppm))
             except Exception as e: KT.append(dict(id=str(t.get('id')), loi_chay=f"tấm {t.get('id')}: {type(e).__name__}: {e}"))   # noqa: BLE001
         if cp and vision:
             os.makedirs(out, exist_ok=True); json.dump(cache, open(cp, 'w'), ensure_ascii=False, indent=1)
