@@ -1,0 +1,349 @@
+{
+ "id": "wellcome-puwvaf8q-pepys",
+ "nhom": "A",
+ "chu_de": "Samuel Pepys",
+ "source_url": "https://wellcomecollection.org/works/puwvaf8q",
+ "api_url": "https://api.wellcomecollection.org/catalogue/v2/works/puwvaf8q?include=notes,contributors,production,items,images,subjects",
+ "accessed": "2026-10-25",
+ "holder": "Wellcome Collection, puwvaf8q / V0004604",
+ "title": "Samuel Pepys. Colour process print.",
+ "date": null,
+ "creator": null,
+ "licence": "Public Domain Mark (Wellcome Collection)",
+ "licence_quote_verbatim": "{\"id\": \"pdm\", \"type\": \"License\", \"label\": \"Public Domain Mark\", \"url\": \"https://creativecommons.org/share-your-work/public-domain/pdm/\"}",
+ "original": {
+  "url": "https://iiif.wellcomecollection.org/image/V0004604/full/max/0/default.jpg",
+  "file": "/var/tmp/nc-t4/goc/wellcome-puwvaf8q-pepys/goc.jpg",
+  "bytes": 1896786,
+  "sha256": "02f5249ac1af8f62cfb0aeedfa13a4fda272537bef378a95c3847c9534305d0e",
+  "px": [
+   2480,
+   2944
+  ]
+ },
+ "derivative": {
+  "file": "channel-k2/k2c-t4-02/nc/anh/wellcome-puwvaf8q-pepys.jpg",
+  "bytes": 1532933,
+  "px": [
+   2022,
+   2400
+  ]
+ },
+ "raw_metadata_verbatim": {
+  "work": {
+   "production": [],
+   "physicalDescription": "1 print",
+   "subjects": [
+    {
+     "label": "Samuel Pepys",
+     "concepts": [
+      {
+       "id": "nfyjzn84",
+       "label": "Samuel Pepys",
+       "type": "Person"
+      }
+     ],
+     "id": "nfyjzn84",
+     "type": "Subject"
+    }
+   ],
+   "items": [
+    {
+     "id": "expt7xqs",
+     "locations": [
+      {
+       "locationType": {
+        "id": "closed-stores",
+        "type": "LocationType",
+        "label": "Closed stores"
+       },
+       "accessConditions": [
+        {
+         "method": {
+          "id": "online-request",
+          "type": "AccessMethod",
+          "label": "Online request"
+         },
+         "status": {
+          "id": "open",
+          "type": "AccessStatus",
+          "label": "Open"
+         },
+         "type": "AccessCondition"
+        }
+       ],
+       "label": "Closed stores",
+       "type": "PhysicalLocation"
+      },
+      {
+       "url": "https://iiif.wellcomecollection.org/image/V0004604/info.json",
+       "credit": "Wellcome Collection",
+       "license": {
+        "id": "pdm",
+        "type": "License",
+        "label": "Public Domain Mark",
+        "url": "https://creativecommons.org/share-your-work/public-domain/pdm/"
+       },
+       "accessConditions": [
+        {
+         "method": {
+          "id": "view-online",
+          "type": "AccessMethod",
+          "label": "View online"
+         },
+         "status": {
+          "id": "open",
+          "type": "AccessStatus",
+          "label": "Open"
+         },
+         "type": "AccessCondition"
+        }
+       ],
+       "locationType": {
+        "id": "iiif-image",
+        "type": "LocationType",
+        "label": "IIIF Image API"
+       },
+       "type": "DigitalLocation"
+      }
+     ],
+     "type": "Item"
+    }
+   ],
+   "workType": {
+    "id": "k",
+    "type": "Format",
+    "label": "Pictures"
+   },
+   "thumbnail": {
+    "url": "https://iiif.wellcomecollection.org/image/V0004604/full/300,/0/default.jpg",
+    "license": {
+     "id": "pdm",
+     "type": "License",
+     "label": "Public Domain Mark",
+     "url": "https://creativecommons.org/share-your-work/public-domain/pdm/"
+    },
+    "accessConditions": [],
+    "locationType": {
+     "id": "thumbnail-image",
+     "type": "LocationType",
+     "label": "Thumbnail image"
+    },
+    "type": "DigitalLocation"
+   },
+   "alternativeTitles": [],
+   "id": "puwvaf8q",
+   "notes": [
+    {
+     "contents": [
+      "R. Burgess, Portraits of doctors & scientists in the Wellcome Institute, London 1973, hors catalogue no. 2272 B",
+      "John Ingamells, National Portrait Gallery: later Stuart portraits, 1685-1714, London 2009, p. 213 (does not mention this print)"
+     ],
+     "noteType": {
+      "id": "references-note",
+      "type": "NoteType",
+      "label": "References note"
+     },
+     "type": "Note"
+    },
+    {
+     "contents": [
+      "Wellcome Collection 7777i"
+     ],
+     "noteType": {
+      "id": "reference",
+      "type": "NoteType",
+      "label": "Reference"
+     },
+     "type": "Note"
+    },
+    {
+     "contents": [
+      "After a painting that exists in two versions, one of which belonged to Mrs Ronald Crichton in 1970 (Ingamells, loc. cit.), when it was lent to the National Portrait Gallery for the exhibition 'Samuel Pepys Esquire: Secretary of the Admiralty to King Charles & King James the Second' (catalogue no. 4)"
+     ],
+     "noteType": {
+      "id": "reproduction-note",
+      "type": "NoteType",
+      "label": "Reproduction note"
+     },
+     "type": "Note"
+    }
+   ],
+   "title": "Samuel Pepys. Colour process print.",
+   "type": "Work",
+   "contributors": [],
+   "images": [
+    {
+     "id": "e5kzmnr8",
+     "type": "Image"
+    }
+   ],
+   "availabilities": [
+    {
+     "id": "closed-stores",
+     "type": "Availability",
+     "label": "Closed stores"
+    },
+    {
+     "id": "online",
+     "type": "Availability",
+     "label": "Online"
+    }
+   ],
+   "referenceNumber": "7777i"
+  },
+  "image": {
+   "locations": [
+    {
+     "url": "https://iiif.wellcomecollection.org/image/V0004604/info.json",
+     "credit": "Wellcome Collection",
+     "license": {
+      "id": "pdm",
+      "type": "License",
+      "label": "Public Domain Mark",
+      "url": "https://creativecommons.org/share-your-work/public-domain/pdm/"
+     },
+     "accessConditions": [
+      {
+       "method": {
+        "id": "view-online",
+        "type": "AccessMethod",
+        "label": "View online"
+       },
+       "status": {
+        "id": "open",
+        "type": "AccessStatus",
+        "label": "Open"
+       },
+       "type": "AccessCondition"
+      }
+     ],
+     "locationType": {
+      "id": "iiif-image",
+      "type": "LocationType",
+      "label": "IIIF Image API"
+     },
+     "type": "DigitalLocation"
+    }
+   ],
+   "source": {
+    "id": "puwvaf8q",
+    "title": "Samuel Pepys. Colour process print.",
+    "type": "Work"
+   },
+   "aspectRatio": 0.8425,
+   "thumbnail": {
+    "url": "https://iiif.wellcomecollection.org/image/V0004604/info.json",
+    "credit": "Wellcome Collection",
+    "license": {
+     "id": "pdm",
+     "type": "License",
+     "label": "Public Domain Mark",
+     "url": "https://creativecommons.org/share-your-work/public-domain/pdm/"
+    },
+    "accessConditions": [
+     {
+      "method": {
+       "id": "view-online",
+       "type": "AccessMethod",
+       "label": "View online"
+      },
+      "status": {
+       "id": "open",
+       "type": "AccessStatus",
+       "label": "Open"
+      },
+      "type": "AccessCondition"
+     }
+    ],
+    "locationType": {
+     "id": "iiif-image",
+     "type": "LocationType",
+     "label": "IIIF Image API"
+    },
+    "type": "DigitalLocation"
+   },
+   "averageColor": "#26241d",
+   "id": "e5kzmnr8",
+   "type": "Image"
+  },
+  "iiif_info": {
+   "@context": "http://iiif.io/api/image/2/context.json",
+   "@id": "https://iiif.wellcomecollection.org/image/V0004604",
+   "@type": "iiif:Image",
+   "profile": [
+    "http://iiif.io/api/image/2/level2.json",
+    {
+     "formats": [
+      "tif",
+      "jpg",
+      "gif",
+      "png"
+     ],
+     "qualities": [
+      "bitonal",
+      "default",
+      "gray",
+      "color"
+     ],
+     "supports": [
+      "regionByPx",
+      "sizeByW",
+      "sizeByWhListed",
+      "cors",
+      "regionSquare",
+      "sizeByDistortedWh",
+      "canonicalLinkHeader",
+      "sizeByConfinedWh",
+      "sizeByPct",
+      "jsonldMediaType",
+      "regionByPct",
+      "rotationArbitrary",
+      "sizeByH",
+      "baseUriRedirect",
+      "rotationBy90s",
+      "profileLinkHeader",
+      "sizeByForcedWh",
+      "sizeByWh",
+      "mirroring"
+     ]
+    }
+   ],
+   "protocol": "http://iiif.io/api/image",
+   "width": 2480,
+   "height": 2944,
+   "sizes": [
+    {
+     "width": 863,
+     "height": 1024
+    },
+    {
+     "width": 337,
+     "height": 400
+    },
+    {
+     "width": 168,
+     "height": 200
+    },
+    {
+     "width": 84,
+     "height": 100
+    }
+   ],
+   "tiles": [
+    {
+     "width": 512,
+     "height": 512,
+     "scaleFactors": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+     ]
+    }
+   ]
+  }
+ }
+}
