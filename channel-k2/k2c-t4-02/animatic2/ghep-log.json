@@ -1,53 +1,85 @@
 {
  "shot": [
   {
-   "ma": "H1-12",
-   "f0": 4787,
-   "f1": 4942,
-   "nguon": "MD",
-   "tag": "H1-12-l1-360p",
-   "clip": "channel-k2/k2c-t4-02/animatic/omni/clip/H1-12-l1-360p.mp4",
-   "keo_dai": 1.0764,
-   "v1": true
-  },
-  {
-   "ma": "H1-11",
-   "f0": 4942,
-   "f1": 5144,
-   "nguon": "CODINH"
-  },
-  {
-   "ma": "H1-11b",
-   "f0": 5144,
-   "f1": 5288,
-   "nguon": "MD",
-   "tag": "H1-11b-l1-360p",
-   "clip": "channel-k2/k2c-t4-02/animatic2/omni/clip/H1-11b-l1-360p.mp4",
-   "keo_dai": 1.0,
-   "v1": false
-  },
-  {
-   "ma": "H1-13a",
-   "f0": 5288,
-   "f1": 5456,
-   "nguon": "THAP"
-  },
-  {
-   "ma": "H1-12x",
-   "f0": 5456,
-   "f1": 5636,
+   "ma": "M00",
+   "f0": 0,
+   "f1": 408,
    "nguon": "DAY"
   },
   {
-   "ma": "H1-13c",
-   "f0": 5636,
-   "f1": 5785,
-   "nguon": "THAP"
+   "ma": "M01",
+   "f0": 408,
+   "f1": 837,
+   "nguon": "DAY"
+  },
+  {
+   "ma": "M02",
+   "f0": 837,
+   "f1": 1079,
+   "nguon": "KEO"
+  },
+  {
+   "ma": "M03",
+   "f0": 1079,
+   "f1": 1343,
+   "nguon": "DAY"
+  },
+  {
+   "ma": "M04",
+   "f0": 1343,
+   "f1": 1631,
+   "nguon": "LAN"
+  },
+  {
+   "ma": "H1-01h",
+   "f0": 1631,
+   "f1": 1703,
+   "nguon": "DAY"
+  },
+  {
+   "ma": "H1-01a",
+   "f0": 1703,
+   "f1": 1823,
+   "nguon": "MD",
+   "tag": "H1-01a-l1-360p",
+   "clip": "channel-k2/k2c-t4-02/animatic/omni/clip/H1-01a-l1-360p.mp4",
+   "keo_dai": 1.0,
+   "v1": true
+  },
+  {
+   "ma": "H1-01b",
+   "f0": 1823,
+   "f1": 1916,
+   "nguon": "MD",
+   "tag": "H1-01b-l1-360p",
+   "clip": "channel-k2/k2c-t4-02/animatic/omni/clip/H1-01b-l1-360p.mp4",
+   "keo_dai": 1.0,
+   "v1": true
+  },
+  {
+   "ma": "H1-02h",
+   "f0": 1916,
+   "f1": 1964,
+   "nguon": "DAY"
+  },
+  {
+   "ma": "H1-02",
+   "f0": 1964,
+   "f1": 2130,
+   "nguon": "MD",
+   "tag": "H1-02-l1-360p",
+   "clip": "channel-k2/k2c-t4-02/animatic/omni/clip/H1-02-l1-360p.mp4",
+   "keo_dai": 1.0,
+   "v1": true
+  },
+  {
+   "ma": "H1-03",
+   "f0": 2130,
+   "f1": 2511,
+   "nguon": "TRUOT"
   }
  ],
- "thieu": [
-  "H1-13c"
- ],
+ "thieu": [],
  "the": [
   [
    71.858,

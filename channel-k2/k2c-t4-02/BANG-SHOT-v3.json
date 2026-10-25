@@ -364,6 +364,7 @@
    "them": {
     "day_k": 0.004,
     "hoa_ra": 1.0,
+    "nang_toi": 0.8,
     "tieu_diem_en": [
      532700,
      180900,
@@ -646,7 +647,9 @@
      532905,
      180810,
      6
-    ]
+    ],
+    "nang_toi": 0.7,
+    "dung_sua": "nâng tối γ 0,7 ở bước ghép (đêm 1 giờ sáng gần đen trên tờ khung)"
    },
    "trang": "look2",
    "nguon_v2": "M04",
@@ -704,6 +707,7 @@
    ],
    "them": {
     "day_k": 0.006,
+    "nang_toi": 0.7,
     "tieu_diem_en": [
      532905,
      180810,
@@ -851,6 +855,7 @@
    ],
    "them": {
     "day_k": 0.008,
+    "nang_toi": 0.7,
     "tieu_diem_en": [
      532880,
      180780,
@@ -2380,8 +2385,8 @@
    "loai_may": "XUONG",
    "thoi_gian": [
     "h66",
-    124.0,
-    130.0
+    128.0,
+    129.5
    ],
    "vai": "phế tích 7/9 nhìn thẳng xuống → xiên; bộ đếm 13 200 nhà / 87 nhà thờ",
    "lop": {
@@ -2446,15 +2451,16 @@
     "chu": "Hollar: London after the Fire, 1666",
     "kb": {
      "tu": [
-      0.0,
+      0.3,
       0.5,
       1.0
      ],
      "den": [
-      1.0,
+      0.7,
       0.5,
-      1.6
-     ]
+      1.0
+     ],
+     "phu": true
     },
     "nam_nhan": "1666"
    },
@@ -2495,8 +2501,8 @@
    "loai_may": "CODINH",
    "thoi_gian": [
     "h66",
-    128.0,
-    130.0
+    129.5,
+    131.0
    ],
    "vai": "ranh vùng cháy 1666 chiếu trên phế tích (kết chương góc cao)",
    "lop": {

@@ -62,15 +62,15 @@ D = DOME
 S = [
  # ---------------- MÓC — P1 mở lạnh (P1 = A): lửa 1666 trước, hoà 1 s sang 2026 cùng khung
  moi('M00', 'MÓC', 'M00', 17.0, 'P1', 'DAY', ('h66', 19.6, 20.6), 'MỞ LẠNH (P1 = A): Bankside đêm 2/9/1666 — vòng cung lửa đang mở; N0a/N0b (Pepys)', {'A': 17.0},
-     {'day_k': 0.004, 'hoa_ra': 1.0, 'tieu_diem_en': [532700, 180900, 20], 'dung_sua': 'mới'}),
+     {'day_k': 0.004, 'hoa_ra': 1.0, 'nang_toi': 0.8, 'tieu_diem_en': [532700, 180900, 20], 'dung_sua': 'mới'}),
  v2('M01', cu='DAY', tg=('d', [2026, 9, 2, 14.0], [2026, 9, 2, 18.0], 1), vai='nhận ra nơi chốn: City 2026 chiều — mái vòm giữa toà cao (bỏ tấm nền tĩnh 0–11 s; cú máy DAY chậm)',
     lop={'A': 17.875}, them={'tam_nen': None, 'gio': None, 'day_k': 0.006, 'dung_sua': 'MO-DAU §3: CODINH + tấm nền → DAY, bỏ tấm nền'}),
- v2('M02'), v2('M03'), v2('M04'),
+ v2('M02'), v2('M03'), v2('M04', them={'nang_toi': 0.7, 'dung_sua': 'nâng tối γ 0,7 ở bước ghép (đêm 1 giờ sáng gần đen trên tờ khung)'}),
  # ---------------- HỒI 1
- moi('H1-01h', 'HỒI 1', 'H1-01', 3.0, 'P8', 'DAY', ('h66', 0.9, 1.05), 'mở chương (góc cao): City ngủ, đốm lửa đầu ở Pudding Lane 01:00', {'A': 3.0}, {'day_k': 0.006, 'tieu_diem_en': [532905, 180810, 6]}),
+ moi('H1-01h', 'HỒI 1', 'H1-01', 3.0, 'P8', 'DAY', ('h66', 0.9, 1.05), 'mở chương (góc cao): City ngủ, đốm lửa đầu ở Pudding Lane 01:00', {'A': 3.0}, {'day_k': 0.006, 'nang_toi': 0.7, 'tieu_diem_en': [532905, 180810, 6]}),
  md('H1-01a', 'HỒI 1', 'H1-01', 5.0, 1, 'M-d (1) lò bánh bén lửa', clip='H1-01a-l1-360p', the=['Thomas Farriner (thợ làm bánh nhà vua)']),
  md('H1-01b', 'HỒI 1', 'H1-01', R_, 1, 'M-d (1) tàn lửa bay lên hẻm gỗ; hàng xóm cầm đèn', clip='H1-01b-l1-360p'),
- moi('H1-02h', 'HỒI 1', 'H1-02', 2.0, 'P2', 'DAY', ('h66', 1.8, 2.0), 'kẹp 3D (C8): lửa nhỏ giữa mái gỗ phía bắc cầu', {'A': 2.0}, {'day_k': 0.008, 'tieu_diem_en': [532880, 180780, 10]}),
+ moi('H1-02h', 'HỒI 1', 'H1-02', 2.0, 'P2', 'DAY', ('h66', 1.8, 2.0), 'kẹp 3D (C8): lửa nhỏ giữa mái gỗ phía bắc cầu', {'A': 2.0}, {'day_k': 0.008, 'nang_toi': 0.7, 'tieu_diem_en': [532880, 180780, 10]}),
  md('H1-02', 'HỒI 1', 'H1-02', R_, 1, 'M-d (1) hẻm nhà khung gỗ tầng nhô, lửa liếm mái hiên', clip='H1-02-l1-360p'),
  v2('H1-03', dur=15.875, them={'chuyen_s': 0.0, 'dung_sua': 'M-d H1-03b (Hollar vẽ trên tháp 1647) TRƯỢT 3/3 → 3D TRUOT như v1'}),
  v2('H1-04', dur=R_, cu='DAY', tg=('h66', 7.0, 12.0), them={'day_k': 0.006, 'dung_sua': 'MO-DAU §3: CODINH → DAY chậm; M-d H1-04b (nền) trượt 2/2 ở ảnh đầu (tàu lớn, đèn, mái vòm) → 3D'}),
@@ -100,9 +100,9 @@ S = [
  v2('H1-16', them={'khac': 'rijks-luyken-0'}),
  md('H1-17a', 'HỒI 1', 'H1-17', 6.0, 7, 'M-d (7) Moorfields: lều, chòi, đống đồ cứu được', clip='H1-17a-l1-360p'),
  md('H1-17b', 'HỒI 1', 'H1-17', R_, 7, 'M-d (7) Moorfields chạng vạng', clip='H1-17b-l1-360p'),
- v2('H1-18', ma='H1-18a', dur=6.0, lop={'A': 6.0, 'THE': 4}, vai='phế tích 7/9 nhìn thẳng xuống → xiên; bộ đếm 13 200 nhà / 87 nhà thờ', them={'xuong': {'tu': 0.0}}),
- tl('H1-18t', 'HỒI 1', 'H1-18', 5.0, 'met-360649-0', 'KHAC', 'Hollar: London after the Fire, 1666', 'tư liệu toàn khung (12:52): tấm Hollar SAU cháy — dải phế tích', {'tu': [0.0, 0.5, 1.0], 'den': [1.0, 0.5, 1.6]}, '1666'),
- v2('H1-18', ma='H1-18b', dur=R_, cu='CODINH', tg=('h66', 128.0, 130.0), lop={'A': 5.2917, 'MAP3D': 5.0}, vai='ranh vùng cháy 1666 chiếu trên phế tích (kết chương góc cao)', them={'xuong': None, 'xuong_cuoi': True, 'ranh66': True}),
+ v2('H1-18', ma='H1-18a', dur=6.0, tg=('h66', 128.0, 129.5), lop={'A': 6.0, 'THE': 4}, vai='phế tích 7/9 nhìn thẳng xuống → xiên; bộ đếm 13 200 nhà / 87 nhà thờ', them={'xuong': {'tu': 0.0}}),
+ tl('H1-18t', 'HỒI 1', 'H1-18', 5.0, 'met-360649-0', 'KHAC', 'Hollar: London after the Fire, 1666', 'tư liệu toàn khung (12:52): tấm Hollar SAU cháy — dải phế tích', {'tu': [0.3, 0.5, 1.0], 'den': [0.7, 0.5, 1.0], 'phu': True}, '1666'),
+ v2('H1-18', ma='H1-18b', dur=R_, cu='CODINH', tg=('h66', 129.5, 131.0), lop={'A': 5.2917, 'MAP3D': 5.0}, vai='ranh vùng cháy 1666 chiếu trên phế tích (kết chương góc cao)', them={'xuong': None, 'xuong_cuoi': True, 'ranh66': True}),
  # ---------------- HỒI 2
  moi('H2-00', 'HỒI 2', 'H2-01', 3.0, 'P5', 'DAY', ('y', 1666.72, 1666.72, [9, 16, 11.0], 0), 'mở chương (góc cao): City cháy trụi, khói mỏng, tháp nhà thờ cháy dở', {'A': 3.0}, {'day_k': 0.006, 'tieu_diem_en': [532300, 181000, 10]}),
  md('H2-01a', 'HỒI 2', 'H2-01', 5.0, 8, 'M-d (8) lối đi giữa tro còn nóng', clip='H2-01a-l1-360p'),

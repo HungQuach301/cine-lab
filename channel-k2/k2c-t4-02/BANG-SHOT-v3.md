@@ -30,7 +30,7 @@
 | M01 | 0:17.0 | 17.875 | L01–L03 | P1 | DAY | cao | 2/9/2026 14h → 18h | nhận ra nơi chốn: City 2026 chiều — mái vòm giữa toà cao (bỏ tấm nền tĩnh 0–11 s; cú máy DAY chậm) | A (17.875) | MO-DAU §3: CODINH + tấm nền → DAY, bỏ tấm nền |
 | M02 | 0:34.9 | 10.083 | L04–L05 | P1 | KEO | cao | 2026.67 → 1666.66 | luận đề: tua ngược — toà cao lún, mái vòm tan, Old St Paul's hiện lại | A (10.083) |  |
 | M03 | 0:45.0 | 11.000 | L06 | P1 | DAY | cao | lửa 1666 giờ 21 → 22.5 | KHOẢNH KHẮC GIÁ TRỊ NHẤT ≤ 30 s: "one entire arch of fire" từ chỗ Pepys đứng | A (11) |  |
-| M04 | 0:56.0 | 12.000 | L07 | P1 | LAN | cao | lửa 1666 giờ 0.8 → 1.15 | cú lặn từ Bankside xuống Pudding Lane trước lửa — "a bakery about a kilometre from here" | A (12) |  |
+| M04 | 0:56.0 | 12.000 | L07 | P1 | LAN | cao | lửa 1666 giờ 0.8 → 1.15 | cú lặn từ Bankside xuống Pudding Lane trước lửa — "a bakery about a kilometre from here" | A (12) | nâng tối γ 0,7 ở bước ghép (đêm 1 giờ sáng gần đen trên tờ khung) |
 | H1-01h | 1:08.0 | 3.000 | L08 (nhóm H1-01: H1-01h, H1-01a, H1-01b) | P8 | DAY | cao | lửa 1666 giờ 0.9 → 1.05 | mở chương (góc cao): City ngủ, đốm lửa đầu ở Pudding Lane 01:00 | A (3) |  |
 | H1-01a | 1:11.0 | 5.000 | L08 (nhóm H1-01: H1-01h, H1-01a, H1-01b) | — | MD | md | — | M-d (1) lò bánh bén lửa | MD (5) | thẻ: Thomas Farriner (thợ làm bánh nhà vua); clip v1 H1-01a-l1-360p |
 | H1-01b | 1:16.0 | 3.875 | L08 (nhóm H1-01: H1-01h, H1-01a, H1-01b) | — | MD | md | — | M-d (1) tàn lửa bay lên hẻm gỗ; hàng xóm cầm đèn | MD (3.875) | clip v1 H1-01b-l1-360p |
@@ -62,9 +62,9 @@
 | H1-16 | 4:40.7 | 7.250 | L29–L30 | P1 | CODINH | cao | lửa 1666 giờ 70 → 102 | P1: gió dịu, lửa tàn → bình minh 6/9 | A (7.25) | góc khung: rijks-luyken-0 |
 | H1-17a | 4:47.9 | 6.000 | L31 (nhóm H1-17: H1-17a, H1-17b) | — | MD | md | — | M-d (7) Moorfields: lều, chòi, đống đồ cứu được | MD (6) | clip v1 H1-17a-l1-360p |
 | H1-17b | 4:53.9 | 6.292 | L31 (nhóm H1-17: H1-17a, H1-17b) | — | MD | md | — | M-d (7) Moorfields chạng vạng | MD (6.2917) | clip v1 H1-17b-l1-360p |
-| H1-18a | 5:00.2 | 6.000 | L10–L33 (nhóm H1-18: H1-18a, H1-18t, H1-18b) | P7 | XUONG | cao | lửa 1666 giờ 124 → 130 | phế tích 7/9 nhìn thẳng xuống → xiên; bộ đếm 13 200 nhà / 87 nhà thờ | A (6), THE (4) | bộ đếm: 13,200 houses / 87 churches |
+| H1-18a | 5:00.2 | 6.000 | L10–L33 (nhóm H1-18: H1-18a, H1-18t, H1-18b) | P7 | XUONG | cao | lửa 1666 giờ 128 → 129.5 | phế tích 7/9 nhìn thẳng xuống → xiên; bộ đếm 13 200 nhà / 87 nhà thờ | A (6), THE (4) | bộ đếm: 13,200 houses / 87 churches |
 | H1-18t | 5:06.2 | 5.000 | L10–L33 (nhóm H1-18: H1-18a, H1-18t, H1-18b) | — | TL | tl | — | tư liệu toàn khung (12:52): tấm Hollar SAU cháy — dải phế tích | KHAC (5) | KHAC: met-360649-0 — "Hollar: London after the Fire, 1666" |
-| H1-18b | 5:11.2 | 5.292 | L10–L33 (nhóm H1-18: H1-18a, H1-18t, H1-18b) | P7 | CODINH | cao | lửa 1666 giờ 128 → 130 | ranh vùng cháy 1666 chiếu trên phế tích (kết chương góc cao) | A (5.2917), MAP3D (5) | bộ đếm: 13,200 houses / 87 churches |
+| H1-18b | 5:11.2 | 5.292 | L10–L33 (nhóm H1-18: H1-18a, H1-18t, H1-18b) | P7 | CODINH | cao | lửa 1666 giờ 129.5 → 131 | ranh vùng cháy 1666 chiếu trên phế tích (kết chương góc cao) | A (5.2917), MAP3D (5) | bộ đếm: 13,200 houses / 87 churches |
 | H2-00 | 5:16.5 | 3.000 | L34–L35 (nhóm H2-01: H2-00, H2-01a, H2-01b) | P5 | DAY | cao | 1666.72 | mở chương (góc cao): City cháy trụi, khói mỏng, tháp nhà thờ cháy dở | A (3) |  |
 | H2-01a | 5:19.5 | 5.000 | L34–L35 (nhóm H2-01: H2-00, H2-01a, H2-01b) | — | MD | md | — | M-d (8) lối đi giữa tro còn nóng | MD (5) | clip v1 H2-01a-l1-360p |
 | H2-01b | 5:24.5 | 5.167 | L34–L35 (nhóm H2-01: H2-00, H2-01a, H2-01b) | — | MD | md | — | M-d (30) DN06 tượng Gresham rơi khỏi hốc còn nguyên giữa tro Royal Exchange (Evelyn 7/9) | MD (5.1667) | MỚI · kiểm day_du |

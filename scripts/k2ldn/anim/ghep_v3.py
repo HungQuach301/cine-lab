@@ -101,7 +101,7 @@ def tl_frame(r, t, cache):
     ih, iw = im.shape[:2]; u = ease(t / max(r['dur'], 1e-3)); a, b = np.array(kb['tu'], float), np.array(kb['den'], float); cx, cy, z = a + (b - a) * u
     sc_cov = max(W / iw, H / ih); bg = cv2.resize(im, (int(iw * sc_cov) + 2, int(ih * sc_cov) + 2), interpolation=cv2.INTER_AREA)
     bg = bg[(bg.shape[0] - H) // 2:(bg.shape[0] - H) // 2 + H, (bg.shape[1] - W) // 2:(bg.shape[1] - W) // 2 + W]; bg = (cv2.GaussianBlur(bg, (0, 0), 14) * 0.35).astype(np.uint8)
-    sc = min(W / iw, H / ih) * z; fw, fh = iw * sc, ih * sc
+    sc = (max(W / iw, H / ih) if kb.get('phu') else min(W / iw, H / ih)) * z; fw, fh = iw * sc, ih * sc   # phu: phủ kín khung (tranh toàn cảnh rất dài) rồi lia
     M = np.float32([[sc, 0, W / 2 - cx * fw], [0, sc, H / 2 - cy * fh]])   # điểm (cx, cy) của ảnh về tâm khung
     fg = cv2.warpAffine(im, M, (W, H), flags=cv2.INTER_AREA, borderMode=cv2.BORDER_CONSTANT, borderValue=(0, 0, 0))
     mk = cv2.warpAffine(np.full((ih, iw), 255, np.uint8), M, (W, H), flags=cv2.INTER_NEAREST) > 0
@@ -196,6 +196,8 @@ def main():
             if cu == 'PP':
                 c = PP['the'][0] if t < PP['the'][0]['giay'] else PP['the'][1]; img = GH.pp_card(prev if i == 0 else cache.get('ppbg', prev), c['dong'], c.get('tieu_de'))
                 if i == 0: cache['ppbg'] = prev.copy()
+            if them.get('nang_toi') and not miss and cu not in ('MD', 'TL', 'PP'):   # nâng vùng tối cảnh đêm trước cháy (bước ghép, không dựng lại): out = 255·(in/255)^γ
+                g_ = them['nang_toi']; img = cv2.LUT(img, np.array([min(255, 255 * (i / 255) ** g_) for i in range(256)], np.uint8))
             raw_img = img
             if cu == 'TL' and not miss: img = GH.text_box(img, them['chu'], (14, H - 34), GH.F('m', 13), min(1.0, t / 0.4, (r['dur'] - t) / 0.4))
             if ma in KHAC and not miss:
