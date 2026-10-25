@@ -1,0 +1,60 @@
+# Ghi chép WebFetch ngày 25/10/2026 (curl trả 403 cho pexels.com và pixabay.com)
+# LƯU Ý: WebFetch trả về bản đã qua mô hình tóm tắt, giới hạn trích ≤125 ký tự/đoạn.
+# Các câu trong ngoặc kép dưới đây là "trích" do công cụ trả về, CHƯA đối chiếu được với HTML gốc.
+
+## https://www.pexels.com/license/  (curl: 403)
+"All photos and videos on Pexels are free to use."
+"Don't sell unaltered copies of a photo or video"
+(tóm tắt công cụ: không cần ghi công; được sửa; không mô tả người nhận diện được theo cách xúc phạm; không ngụ ý tán thành; không bán lại trên nền tảng stock/hình nền khác; không dùng làm nhãn hiệu.)
+
+## https://www.pexels.com/terms-of-service/  (WebFetch)
+Section 5: "we grant you an irrevocable, worldwide, perpetual (or as long as allowed by law), non-exclusive and royalty-free right"
+Section 5: "download, use, copy, modify or adapt the Content for commercial or non-commercial purposes"
+Section 5: "You cannot sell or distribute the Content (either in digital or physical form) on a Standalone basis."
+Section 5: "you cannot use that Content for commercial purposes in relation to goods and services"
+Section 5: "You cannot use Content in any immoral or illegal way, especially Content which features a recognisable person."
+Section 5: "by suggesting that any depicted person, brand, organization or other third party endorses or is affiliated with you"
+Section 5: "We do not warrant that any consents or licenses have been obtained in relation to any Content,"
+Section 5: "we expressly disclaim any and all responsibility and liability in relation to such matters."
+Section 5: "Responsibility for determining whether permissions are needed always rests solely and exclusively with you."
+Section 8: "use or compile any Content to replicate a similar or competing service to the Service"
+Section 14: "THE SERVICE, CONTENT AND COMMUNICATIONS ARE PROVIDED "AS IS"."
+
+## https://pixabay.com/service/license-summary/  (curl: 403)
+"Use Content for free"
+"Use Content without having to attribute the author"
+"Modify or adapt Content into new works"
+"You cannot sell or distribute Content (either in digital or physical form) on a Standalone basis."
+"If Content contains any recognisable trademarks, logos or brands,"
+"you cannot use that Content for commercial purposes in relation to goods and services."
+"You cannot use Content in any immoral or illegal way, especially Content which features recognisable people."
+"You cannot use Content in a misleading or deceptive way."
+"You cannot use any of the Content as part of a trade-mark, design-mark, trade-name, business name or service mark."
+"It is your responsibility to check whether you require the consent of a third party or a license to use Content."
+
+## https://pixabay.com/service/terms/  (curl: 403)
+Section 5: "we grant you an irrevocable, worldwide, perpetual (or as long as allowed by law), non-exclusive and royalty-free right"
+Section 5: "You cannot sell or distribute the Content (either in digital or physical form) on a Standalone basis."
+Section 5: "If Content depicts any trademarks, logos or brands (whether two- or three-dimensional),"
+Section 5: "certain Content (including CC0 Content) may be subject to additional intellectual property rights"
+Section 5: "This includes but is not limited to identifiable people, logos, brands of all kinds"
+Section 5: "Responsibility for determining whether permissions are needed always rests solely and exclusively with you."
+Section 5: "We do not warrant that any consents or licenses have been obtained in relation to any Content,"
+Section 2 (theo công cụ): "Videos" means moving images, animations, film footage and other audio-visual representations and content.
+
+## Getty Images EULA https://www.gettyimages.com/eula (WebFetch)
+Section 2: "Any and all media, meaning content can be used in print, in digital or in any other medium or format."
+Section 2: "Unlimited, meaning content can be used an unlimited number of times."
+Section 4: "Up to 10 individuals (total, not at any given time) may use an item of content"
+Section 4: "The raw file of content may not be provided to anyone outside of your legal entity"
+Section 4: "distributors to use content in any production or distribution process related to your final project or end use."
+Section 3.3: "allows others to download, extract or redistribute content as a standalone file"
+Section 10.2: "Getty Images agrees, subject to the terms of this Section 10, to defend, indemnify and hold harmless you"
+(Công cụ: trang không nêu bậc indemnity "enhanced/premium"; không nói rõ về bán phim thành phẩm.)
+
+## Storyblocks https://www.storyblocks.com/license (WebFetch)
+"Anything you download is yours to use royalty free, all within the flat price of your subscription fee."
+Business plan: "broadcast, TV, streaming / OTT, and feature films."
+"Anything you create and publish during your time as a Storyblocks member will be covered by our license - forever."
+Individual/Small Business: "1x channel." ; bảng so sánh "Perpetual use of assets after your subscription ends" = "No" (Individual/Small Business), "Yes" (Business) — mâu thuẫn với câu "forever", cần đọc bản pháp lý đầy đủ.
+Individual: US$20k indemnification; Business: US$1 million indemnification.

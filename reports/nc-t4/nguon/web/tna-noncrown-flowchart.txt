@@ -1,0 +1,49 @@
+URL: https://www.nationalarchives.gov.uk/documents/information-management/non-crown-copyright-flowchart.pdf
+Truy cập: 25/10/2026 (curl, UA CineLab-research), HTTP 200
+Ghi chú: pdftotext -layout; nhánh đọc từ bản render: 'Is the author known?' Yes -> 'Is the work a literary, dramatic or musical work, a photograph or an engraving, created before 1 August 1989?' Yes -> 'Is the work a photograph taken before 1 June 1957?' Yes -> 'Copyright expires 70 years after the author dies'. Nhánh tác giả không rõ: 'Is the work a photograph created before 1 June 1957?' Yes -> 'Copyright expires 70 years after creation, or 70 years after the work was made available to the public if within 70 years after creation'
+----
+                                 Duration of copyright (excluding Crown copyright)
+                                                                              Is the author known?
+
+
+
+                                                                                 No             Yes
+
+
+
+                                    Was the work created before 1 January 1969?                Is the work a literary, dramatic or musical work, a photograph or an
+                                                                                               engraving, created before 1 August 1989?
+
+                                Yes
+                                                                              No                     No                                 Yes
+
+           Is the work a photograph created
+                                                             Yes
+           before 1 June 1957?
+                                                                                                                        Is the work a photograph taken before 1 June 1957?
+
+               No
+                                                                                                                                                     No
+
+Was the work published
+before 1 August 1989?                                                                                                              Was the work published before 1 August 1989?
+                                        No
+
+                                                                                                                  Yes                 Yes                           No
+                 Has the work ever been made
+                 available to the public?
+     Yes                                                 Yes                                                                 Did the author die           Did the author die before
+                                                                                                                             more than 20 years           1 January 1969?
+                                                                                                                             before publication?
+                               Was the work first made available
+                      No       to the public before 1 January 1969?   Copyright expires
+                                                                                                                                                            No              Yes
+                                                                      70 years after                                         Yes                No
+                                  Yes                   No            creation, or 70
+                                                                      years after the
+ Copyright              Copyright              Copyright expires      work was made                  Copyright                Copyright            Copyright          Copyright
+ expires 70             expires 31             70 years after the     available to the               expires 70               expires 50           expires 70         expires 31
+ years after            December               work was made          public if within 70            years after              years after          years after        December
+ first                  2039                   available to the       years after                    the author               first                the author         2039
+ publication                                   public                 creation                       dies                     publication          dies
+
