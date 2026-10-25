@@ -30,4 +30,4 @@ Giờ UTC theo đồng hồ container.
 | 18:53–19:07 | k2check 1.17.8 sau khoá: T4 = bản trước khoá (ngoài LOCK); **T3 56/56 giống hệt 1.17.7** (diff: tiêu đề + nhãn LOCK) | xong |
 | 18:54 | dừng selftest cinecheck (PGID) — 3 tiến trình nặng cùng lúc ≈ 1 phút (lệch P ≤ 2); chạy lại sau khoá | xong — sự cố |
 | 19:07–19:17 | khai thử 1.17.8 (sau khoá) + selftest sau khoá: 17/17 bộ checks/ll 0 SAI; cinecheck L1 đang chạy | xong / đang chạy |
-| 19:20 | Báo cáo K1178 | xong |
+| 19:20–19:40 | Báo cáo K1178; cinecheck L1 sau khoá rc 0 (TẤT CẢ KHỚP; tệp báo cáo ngoài vùng khôi phục) | xong — **DỪNG chờ chủ dự án** |

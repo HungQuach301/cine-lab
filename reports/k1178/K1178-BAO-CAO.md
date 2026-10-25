@@ -2,7 +2,7 @@
 
 # Phiên K-1.17.8 — luật còn thiếu trước bản cuối T4 London: LUẬT E + khiếu nại ANIMATIC-T4-V2 §8 + hiệu chuẩn BIEN-CO-V — BÁO CÁO
 
-> Phiên K, 25/10/2026 ≈ 17:12 → ≈ 19:20 UTC (00:12 → 02:20 ngày 26/10 Asia/Saigon). Mọi số là số đo thật trong phiên; tệp số đo ở `reports/k1178/do/`.
+> Phiên K, 25/10/2026 ≈ 17:12 → ≈ 19:40 UTC (00:12 → 02:40 ngày 26/10 Asia/Saigon). Mọi số là số đo thật trong phiên; tệp số đo ở `reports/k1178/do/`.
 > Căn cứ (nguyên văn, Asia/Saigon): 26/10 00:07 "Chọn hướng cho cảnh hiện đại: A+B+E (khuyến nghị)" (E = ảnh nền AI TOÀN KHUNG cho góc rộng 2026 máy cố định; AI vẽ lại cả nhà thường; sông, đường bờ, mái vòm St Paul's, toà tháp có tên ghép lại từ 3D; nới ngưỡng px/m riêng cảnh năm ≥ 2020); 25/10 09:08 "…các vấn đề khác đều có thể nới để tăng chất lượng và độ chân thực của hình ảnh / Người xem cũng không phải là người chuyên về khảo cổ…"; 25/10 21:35 "Các hình 3D hiện đại đang rất yếu so với hình từ Omni".
 > Email chủ dự án không có trong tệp, commit, header, URL, payload hay User-Agent nào (UA `CineLab-research (+https://github.com/HungQuach301/cine-lab)`). Không in/ghi khoá (proxy gắn khoá).
 
@@ -12,7 +12,7 @@
 | Nhánh | `checks-1-17-8` từ @1277400a | harness buộc `claude/k1178-t4-london-rules-pdjfmz` (dòng đầu); gốc đúng @1277400a |
 | Vùng sửa | `checks/**`, `checks-appeal.md`, `reports/k1178/**` | đúng. Không sửa `docs/`, sổ, `scripts/`, `design/`, `channel-k2/`, main, nhánh khác (nhánh v2 chỉ ĐỌC bằng `git archive` vào `/var/tmp`) |
 | Khiếu nại trước phán quyết | chép K-LAI-3 ↔ KIEM-2-MUC + §8 trước khi phán | commit `47e0ef61` 17:21 UTC (bảng §8 nguyên văn, đoạn TU-LIEU-OMNI, C7, dòng lỗi k2check, căn cứ LUẬT E); phán quyết thêm sau đo |
-| Chi phí | Claude mốc $3 (chặn $10), OpenAI mốc $2 (chặn $5), Gemini 0, giờ máy 5 h | **Claude API $1,419 · OpenAI $0,855 · Gemini $0** · giờ máy ≈ 2,1 h (§11) |
+| Chi phí | Claude mốc $3 (chặn $10), OpenAI mốc $2 (chặn $5), Gemini 0, giờ máy 5 h | **Claude API $1,419 · OpenAI $0,855 · Gemini $0** · giờ máy ≈ 2,5 h (§11) |
 | Preflight | `set -o pipefail`; commit chỉ khi "— ĐẠT"; hook trước lần đẩy đầu | hook pre-commit + pre-push cài 17:15 (trước lần đẩy đầu 17:21); mọi commit/push "PREFLIGHT ĐẠT"; mã chưa khoá cất bằng stash khi commit (`day.sh`) |
 | `lock.py` không `--verify` | đúng một lần ở bước khoá cuối | **đúng một lần** (18:53:09 UTC → `045b7bb7…`); preflight quét `checks/` TRƯỚC khi khoá — bắt 1 email giả trong selftest, sửa trước khoá (bài học K-1.17.7) |
 | Force/amend/dừng hỏi | không | không |
@@ -103,7 +103,7 @@ Video: nối 4 bản xem v2 (`git archive 1a911a01 reports/animatic-t4-v2/xem` +
 ## 6. Selftest
 - `checks/ll/selftest_k1178.py` **69/69** (không mạng/API; ảnh tổng hợp 1920×1080 dựng trong mã; mô hình nhìn giả lập): LUẬT E 34 (ghép đúng, tấm thường cùng ảnh, (k) ×4, (i)/(f1), (f) THIẾU, (f2) ×3, (g) ×6, (iii) ×2, mô hình ×7, BMN, N2P-5 ×2, áp dụng) · K-LAI-3 nen 7 · KIEM-2-MUC 3 · Q34 3 · Q26b-K2 1 · SACH-1 9 · Q37 (d) 5 · TU-LIEU-OMNI 4 · BIEN-CO-V 4. Mỗi luật đổi/mới ≥ 1 ca đạt + ≥ 1 ca trượt.
 - Trước khoá (`do/selftest-truoc-khoa.txt`): 17/17 bộ `checks/ll` đạt sau khi sửa **1 ca cũ**: `selftest_k1174` "BIEN-CO-V thước đạt + G2 → Chặn" bật/tắt `HIEU_CHUAN` trên tập T4 — T4 nay dùng `HIEU_CHUAN_T4` → ca đổi sang bật/tắt hiệu chuẩn CỦA TẬP (`q_bcv.hc_tap_nay`), **kỳ vọng giữ nguyên** (91/91).
-- **Sau khoá** (`do/selftest-sau-khoa.txt`, LOCK KHỚP): k112 75/75 · k1121 48/48 · k1122 37/37 · k113 64/64 · k114 126/126 · k115 105/105 · k116 144/144 · k117 130/130 · k1172 74/74 · k1173 42/42 · k1174 91/91 · k1175 52/52 · k1176 62/62 · k1177 87/87 · **k1178 69/69** · k2 129/129 · ll 317/317 — **0 SAI**. Bộ L1 `checks/selftest/run_selftest.py` (cinecheck, không đổi trừ VERSION): xem dòng cuối tệp.
+- **Sau khoá** (`do/selftest-sau-khoa.txt`, LOCK KHỚP): k112 75/75 · k1121 48/48 · k1122 37/37 · k113 64/64 · k114 126/126 · k115 105/105 · k116 144/144 · k117 130/130 · k1172 74/74 · k1173 42/42 · k1174 91/91 · k1175 52/52 · k1176 62/62 · k1177 87/87 · **k1178 69/69** · k2 129/129 · ll 317/317 — **0 SAI**. Bộ L1 `checks/selftest/run_selftest.py` (cinecheck, không đổi trừ VERSION): **rc 0, TẤT CẢ KHỚP** (142 ca OK; báo cáo của bộ ghi đè `reports/checks-selftest/` — ngoài vùng sửa → chép sang `do/cinecheck-selftest/`, khôi phục tệp gốc, không commit).
 
 ## 7. LOCK
 Cũ 1.17.7 `3a53574ce8c2094e4f79bc1fac88cf3e6f7bbe61993ab5a1cf695834a2067b08` → **mới 1.17.8 `045b7bb7414364d4732fe22c4b643ae04d7a0e19ae25f0e839de149379d3185a`** (DATE_UTC 2026-10-25T18:53:09Z), `--verify` KHỚP. `lock.py` không cờ gọi **đúng một lần**.
@@ -140,7 +140,7 @@ Bảng đủ: `do/k2/k2check-1.17.7-t4.md`, `do/k2/k2check-1.17.8-t4.md`, khai t
 | Claude API | **$1,419** = claude-sonnet-5-5 mô hình nhìn E v1+v2+đối chứng ($0,705) + q_thoi_dai O2 ($0,714) — trong mốc $3 |
 | Gemini / ElevenLabs / RunPod | 0 |
 | Tải | master T3 LFS 1,79 GB (SHA khớp) |
-| Giờ máy | ≈ 2,1 h (17:12 → ≈ 19:20 UTC): hiệu chuẩn BCV ≈ 12 phút (P 2), k2check 7 lượt (6–12 phút, P ≤ 2), selftest toàn bộ 2 lượt |
+| Giờ máy | ≈ 2,5 h (17:12 → ≈ 19:40 UTC): hiệu chuẩn BCV ≈ 12 phút (P 2), k2check 7 lượt (6–12 phút, P ≤ 2), selftest toàn bộ 2 lượt |
 Sổ: `reports/k1178/so-ai.jsonl` (model, lệnh/đề bài + phiên bản, SHA vào/ra, usage, giá).
 
 ## 12. Sự cố
@@ -150,7 +150,8 @@ Sổ: `reports/k1178/so-ai.jsonl` (model, lệnh/đề bài + phiên bản, SHA 
 4. `setsid … & echo $! > tệp` hai lần ghi PID thất bại (thư mục chưa tạo khi chuyển hướng) — tiến trình vẫn chạy; chờ theo PID đọc lại từ `ps`/tệp kết quả, không dùng `pgrep -f`.
 5. **Ba tiến trình nặng cùng lúc ≈ 1 phút** (selftest cinecheck `checks/selftest/run_selftest.py` + 2 k2check sau khoá) — dừng selftest cinecheck theo PGID ngay (lệch "P ≤ 2"); bộ này chạy lại sau khoá (§6).
 6. **Đẩy trễ ≈ 22 phút** so mốc 30 phút (18:00 → 18:52): không cất `checks/` khi selftest đang đọc tệp.
-7. Bản xem T4 cho khung tĩnh dài nhất khác bản animatic đủ của phiên dựng (10,38 s @4:29 so 8,96 s @12:35) — mọi so sánh 1.17.7 ↔ 1.17.8 trong báo cáo cùng video nên không ảnh hưởng hàng đổi.
+7. `run_selftest.py` ghi đè `reports/checks-selftest/selftest.{md,json}` (ngoài vùng sửa) — đã khôi phục bằng `git checkout`, bản chạy chép vào `do/cinecheck-selftest/`.
+8. Bản xem T4 cho khung tĩnh dài nhất khác bản animatic đủ của phiên dựng (10,38 s @4:29 so 8,96 s @12:35) — mọi so sánh 1.17.7 ↔ 1.17.8 trong báo cáo cùng video nên không ảnh hưởng hàng đổi.
 
 ## 13. Quyết định đề xuất (chủ dự án)
 | # | Đề xuất | Phương án | Ưu | Nhược | Tác động | Rủi ro | Khuyến nghị |
@@ -163,7 +164,7 @@ Sổ: `reports/k1178/so-ai.jsonl` (model, lệnh/đề bài + phiên bản, SHA 
 | **K1178-D6** | Vùng Q26b-K2 cho T4 | A: khai `vung` khu nội dung (như T3). B: K cho `noi` làm vùng | A: một nghĩa mỗi trường | A: thêm một trường khai | T4 | B: `noi` gác minh_hoa/tu_lieu → sai vùng | **A** |
 
 ## 14. Dòng sổ đề xuất (P ghi — phiên này không sửa sổ)
-- **COST-LEDGER:** `2026-10-25/26 · K-1.17.8 · OpenAI $0,855 (3 ảnh đáp án E $0,227 + mô hình nhìn $0,628) · Claude API $1,419 (mô hình nhìn E $0,705 + q_thoi_dai $0,714) · Gemini 0 · ≈ 2,1 h máy · tải LFS 1,79 GB`.
+- **COST-LEDGER:** `2026-10-25/26 · K-1.17.8 · OpenAI $0,855 (3 ảnh đáp án E $0,227 + mô hình nhìn $0,628) · Claude API $1,419 (mô hình nhìn E $0,705 + q_thoi_dai $0,714) · Gemini 0 · ≈ 2,5 h máy · tải LFS 1,79 GB`.
 - **AUTHORSHIP:** căn cứ 26/10 00:07 "Chọn hướng cho cảnh hiện đại: A+B+E (khuyến nghị)"; ghi khi chủ dự án trả lời K1178-D1…D6.
 - **RIGHTS:** ảnh đáp án `reports/k1178/do/e/ai/*.jpg` — sinh bằng OpenAI gpt-image-2.5 từ render V2 của dự án; chỉ dùng kiểm, không vào sản phẩm.
 - **Kinh thánh (P):** §15 thêm (k) LUẬT E — tấm nền AI toàn khung cho góc rộng hiện đại (≥ 2020) máy cố định: nhà thường AI vẽ lại; sông, bờ, toà có tên, cầu, thuyền, lửa ghép lại từ 3D; chân trời mốc; đêm không chữ/biển (RULES-LL §1.17.8; Kinh thánh không chép luật).
