@@ -1,0 +1,317 @@
+{
+ "id": "wellcome-b6zd76cd-evelyn-nanteuil",
+ "nhom": "A",
+ "chu_de": "John Evelyn",
+ "source_url": "https://wellcomecollection.org/works/b6zd76cd",
+ "api_url": "https://api.wellcomecollection.org/catalogue/v2/works/b6zd76cd?include=notes,contributors,production,items,images,subjects",
+ "accessed": "2026-10-25",
+ "holder": "Wellcome Collection, b6zd76cd / V0001805",
+ "title": "John Evelyn. Line engraving by R. Nanteuil, 1706, after himself.",
+ "date": null,
+ "creator": "Robert Nanteuil",
+ "licence": "Public Domain Mark (Wellcome Collection)",
+ "licence_quote_verbatim": "{\"id\": \"pdm\", \"type\": \"License\", \"label\": \"Public Domain Mark\", \"url\": \"https://creativecommons.org/share-your-work/public-domain/pdm/\"}",
+ "original": {
+  "url": "https://iiif.wellcomecollection.org/image/V0001805/full/max/0/default.jpg",
+  "file": "/var/tmp/nc-t4/goc/wellcome-b6zd76cd-evelyn-nanteuil/goc.jpg",
+  "bytes": 3362572,
+  "sha256": "682b56a06c11f7631bc258f57287f56673a1cc87f221edc662983ec797b13135",
+  "px": [
+   2448,
+   3370
+  ]
+ },
+ "derivative": {
+  "file": "channel-k2/k2c-t4-02/nc/anh/wellcome-b6zd76cd-evelyn-nanteuil.jpg",
+  "bytes": 2087779,
+  "px": [
+   1743,
+   2400
+  ]
+ },
+ "raw_metadata_verbatim": {
+  "work": {
+   "production": [],
+   "physicalDescription": "1 print",
+   "subjects": [
+    {
+     "label": "John Evelyn",
+     "concepts": [
+      {
+       "id": "guwebnhx",
+       "label": "John Evelyn",
+       "type": "Person"
+      }
+     ],
+     "id": "guwebnhx",
+     "type": "Subject"
+    }
+   ],
+   "items": [
+    {
+     "id": "a6rzunf3",
+     "locations": [
+      {
+       "locationType": {
+        "id": "closed-stores",
+        "type": "LocationType",
+        "label": "Closed stores"
+       },
+       "accessConditions": [
+        {
+         "method": {
+          "id": "online-request",
+          "type": "AccessMethod",
+          "label": "Online request"
+         },
+         "status": {
+          "id": "open",
+          "type": "AccessStatus",
+          "label": "Open"
+         },
+         "type": "AccessCondition"
+        }
+       ],
+       "label": "Closed stores",
+       "type": "PhysicalLocation"
+      }
+     ],
+     "type": "Item"
+    }
+   ],
+   "workType": {
+    "id": "k",
+    "type": "Format",
+    "label": "Pictures"
+   },
+   "thumbnail": {
+    "url": "https://iiif.wellcomecollection.org/image/L0009665/full/300,/0/default.jpg",
+    "license": {
+     "id": "cc-by",
+     "type": "License",
+     "label": "Attribution 4.0 International (CC BY 4.0)",
+     "url": "http://creativecommons.org/licenses/by/4.0/"
+    },
+    "accessConditions": [],
+    "locationType": {
+     "id": "thumbnail-image",
+     "type": "LocationType",
+     "label": "Thumbnail image"
+    },
+    "type": "DigitalLocation"
+   },
+   "alternativeTitles": [],
+   "id": "b6zd76cd",
+   "lettering": "Meliora retinete. βουλου ταs εικοναs τηs αρετηs υπόμνημα μάλλον ή του σώματος καταλιπειν. ... R. Nanteuil delineabat & scul.\n\nIncludes Greek quotation from Isocrates, Ad Nicoclem 36, meaning: Wish to leave behind statues as a reminder of your virtue rather than of your body.",
+   "notes": [
+    {
+     "contents": [
+      "R. Burgess, Portraits of doctors & scientists in the Wellcome Institute, London 1973, no. 922.1"
+     ],
+     "noteType": {
+      "id": "references-note",
+      "type": "NoteType",
+      "label": "References note"
+     },
+     "type": "Note"
+    },
+    {
+     "contents": [
+      "Wellcome Collection 2789i"
+     ],
+     "noteType": {
+      "id": "reference",
+      "type": "NoteType",
+      "label": "Reference"
+     },
+     "type": "Note"
+    }
+   ],
+   "title": "John Evelyn. Line engraving by R. Nanteuil, 1706, after himself.",
+   "type": "Work",
+   "contributors": [
+    {
+     "agent": {
+      "id": "yf7dmxpe",
+      "label": "Robert Nanteuil",
+      "type": "Person"
+     },
+     "roles": [],
+     "primary": true,
+     "type": "Contributor"
+    }
+   ],
+   "images": [
+    {
+     "id": "x5nv9p78",
+     "type": "Image"
+    },
+    {
+     "id": "ukfa5de4",
+     "type": "Image"
+    }
+   ],
+   "availabilities": [
+    {
+     "id": "closed-stores",
+     "type": "Availability",
+     "label": "Closed stores"
+    }
+   ],
+   "referenceNumber": "2789i"
+  },
+  "image": {
+   "locations": [
+    {
+     "url": "https://iiif.wellcomecollection.org/image/V0001805/info.json",
+     "credit": "Wellcome Collection",
+     "license": {
+      "id": "pdm",
+      "type": "License",
+      "label": "Public Domain Mark",
+      "url": "https://creativecommons.org/share-your-work/public-domain/pdm/"
+     },
+     "accessConditions": [
+      {
+       "method": {
+        "id": "view-online",
+        "type": "AccessMethod",
+        "label": "View online"
+       },
+       "status": {
+        "id": "open",
+        "type": "AccessStatus",
+        "label": "Open"
+       },
+       "type": "AccessCondition"
+      }
+     ],
+     "locationType": {
+      "id": "iiif-image",
+      "type": "LocationType",
+      "label": "IIIF Image API"
+     },
+     "type": "DigitalLocation"
+    }
+   ],
+   "source": {
+    "id": "b6zd76cd",
+    "title": "John Evelyn. Line engraving by R. Nanteuil, 1706, after himself.",
+    "type": "Work"
+   },
+   "aspectRatio": 0.7275,
+   "thumbnail": {
+    "url": "https://iiif.wellcomecollection.org/image/V0001805/info.json",
+    "credit": "Wellcome Collection",
+    "license": {
+     "id": "pdm",
+     "type": "License",
+     "label": "Public Domain Mark",
+     "url": "https://creativecommons.org/share-your-work/public-domain/pdm/"
+    },
+    "accessConditions": [
+     {
+      "method": {
+       "id": "view-online",
+       "type": "AccessMethod",
+       "label": "View online"
+      },
+      "status": {
+       "id": "open",
+       "type": "AccessStatus",
+       "label": "Open"
+      },
+      "type": "AccessCondition"
+     }
+    ],
+    "locationType": {
+     "id": "iiif-image",
+     "type": "LocationType",
+     "label": "IIIF Image API"
+    },
+    "type": "DigitalLocation"
+   },
+   "averageColor": "#595141",
+   "id": "ukfa5de4",
+   "type": "Image"
+  },
+  "iiif_info": {
+   "@context": "http://iiif.io/api/image/2/context.json",
+   "@id": "https://iiif.wellcomecollection.org/image/V0001805",
+   "@type": "iiif:Image",
+   "profile": [
+    "http://iiif.io/api/image/2/level2.json",
+    {
+     "formats": [
+      "jpg",
+      "tif",
+      "gif",
+      "png"
+     ],
+     "qualities": [
+      "bitonal",
+      "default",
+      "gray",
+      "color"
+     ],
+     "supports": [
+      "regionByPx",
+      "sizeByW",
+      "sizeByWhListed",
+      "cors",
+      "regionSquare",
+      "sizeByDistortedWh",
+      "canonicalLinkHeader",
+      "sizeByConfinedWh",
+      "sizeByPct",
+      "jsonldMediaType",
+      "regionByPct",
+      "rotationArbitrary",
+      "sizeByH",
+      "baseUriRedirect",
+      "rotationBy90s",
+      "profileLinkHeader",
+      "sizeByForcedWh",
+      "sizeByWh",
+      "mirroring"
+     ]
+    }
+   ],
+   "protocol": "http://iiif.io/api/image",
+   "width": 2448,
+   "height": 3370,
+   "sizes": [
+    {
+     "width": 744,
+     "height": 1024
+    },
+    {
+     "width": 291,
+     "height": 400
+    },
+    {
+     "width": 145,
+     "height": 200
+    },
+    {
+     "width": 73,
+     "height": 100
+    }
+   ],
+   "tiles": [
+    {
+     "width": 512,
+     "height": 512,
+     "scaleFactors": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+     ]
+    }
+   ]
+  }
+ }
+}

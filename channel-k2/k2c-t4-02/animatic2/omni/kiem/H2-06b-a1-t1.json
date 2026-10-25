@@ -1,0 +1,39 @@
+{
+ "tag": "H2-06b-a1",
+ "tang": 1,
+ "moc_hoi": "must show: an unfinished fluted column (the Monument); must NOT show any dome or modern building",
+ "moc_co_mat": true,
+ "cong_trinh_chua_ton_tai": [
+  "Mái vòm Nhà thờ chính tòa Thánh Paul (St Paul's Cathedral dome)"
+ ],
+ "model": "gemini-3.8-flash",
+ "nam": 1675.0,
+ "canh": "the Monument column under construction, London, 1670s, Portland stone hoisted",
+ "loi_cau": "Near the bakery, Wren and Hooke raise a column: the Monument. Two hundred and two feet high — exactly the distance to the spot in Pudding Lane where the fire began. Portland stone is so hard to come by that the column takes six years.",
+ "mo_ta": "Khung cảnh thi công xây dựng Đài tưởng niệm (The Monument) tại London vào khoảng năm 1675 với cần cẩu bánh xe lực đạp và giàn giáo gỗ, nhưng phía xa lại xuất hiện mái vòm Nhà thờ Thánh Paul đã hoàn thành.",
+ "muc": [
+  {
+   "anh": 1,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Mái vòm hoàn chỉnh của Nhà thờ chính tòa Thánh Paul (St Paul's Cathedral) xuất hiện ở đường chân trời phía sau bên trái; trên thực tế năm 1675 nhà thờ mới bắt đầu xây móng và mái vòm chỉ hoàn thành vào khoảng 1708-1710.",
+   "nam_xuat_hien": 1708,
+   "do_tin": 0.98
+  }
+ ],
+ "loi": [
+  {
+   "anh": 1,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Mái vòm hoàn chỉnh của Nhà thờ chính tòa Thánh Paul (St Paul's Cathedral) xuất hiện ở đường chân trời phía sau bên trái; trên thực tế năm 1675 nhà thờ mới bắt đầu xây móng và mái vòm chỉ hoàn thành vào khoảng 1708-1710.",
+   "nam_xuat_hien": 1708,
+   "do_tin": 0.98
+  },
+  {
+   "loai": "cong_trinh_sai",
+   "mo_ta": "chưa tồn tại: Mái vòm Nhà thờ chính tòa Thánh Paul (St Paul's Cathedral dome)",
+   "do_tin": 1.0
+  }
+ ],
+ "ket_luan": "LOẠI",
+ "usd": 0.00699
+}

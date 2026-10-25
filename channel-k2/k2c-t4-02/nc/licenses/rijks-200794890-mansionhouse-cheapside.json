@@ -1,0 +1,1307 @@
+{
+ "id": "rijks-200794890-mansionhouse-cheapside",
+ "nhom": "B",
+ "chu_de": "Mansion House & Cheapside",
+ "source_url": "https://www.rijksmuseum.nl/en/collection/RP-F-00-15716",
+ "api_url": "https://id.rijksmuseum.nl/200794890",
+ "accessed": "2026-10-25",
+ "holder": "Rijksmuseum, RP-F-00-15716",
+ "title": "Valentine's Series / Mansion House and Cheapside, London",
+ "date": "1902 - ca. 1930",
+ "creator": "anoniem (None–None)",
+ "licence": "Rijksmuseum linked-art: https://creativecommons.org/publicdomain/zero/1.0/",
+ "licence_quote_verbatim": "object: https://creativecommons.org/publicdomain/zero/1.0/",
+ "original": {
+  "url": "https://iiif.micr.io/Efxmc/full/max/0/default.jpg",
+  "file": "/var/tmp/nc-t4/goc/rijks-200794890-mansionhouse-cheapside/goc.jpg",
+  "bytes": 895229,
+  "sha256": "f94fca4b9de024995e0ab29f62e1da44cf4458abdccd562d6a384ecf0e6ba4fc",
+  "px": [
+   2592,
+   1687
+  ]
+ },
+ "derivative": {
+  "file": "channel-k2/k2c-t4-02/nc/anh/rijks-200794890-mansionhouse-cheapside.jpg",
+  "bytes": 940777,
+  "px": [
+   2400,
+   1562
+  ]
+ },
+ "raw_metadata_verbatim": {
+  "object": {
+   "@context": "https://linked.art/ns/v1/linked-art.json",
+   "id": "https://id.rijksmuseum.nl/200794890",
+   "type": "HumanMadeObject",
+   "produced_by": {
+    "type": "Production",
+    "technique": [
+     {
+      "id": "https://id.rijksmuseum.nl/2202676",
+      "type": "Type",
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "assigned_by": [
+         {
+          "type": "AttributeAssignment",
+          "assigned": [
+           "https://id.rijksmuseum.nl/200794890"
+          ],
+          "assigned_property": "influenced_by"
+         }
+        ],
+        "content": "1",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ]
+       }
+      ],
+      "notation": [
+       {
+        "@language": "en",
+        "@value": "collotype"
+       },
+       {
+        "@language": "nl",
+        "@value": "lichtdruk"
+       }
+      ],
+      "equivalent": [
+       {
+        "id": "http://vocab.getty.edu/aat/300053204",
+        "type": "Type"
+       }
+      ]
+     }
+    ],
+    "timespan": {
+     "type": "TimeSpan",
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "1902 - ca. 1930",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      },
+      {
+       "type": "Name",
+       "content": "1902 - c. 1930",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388277",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "begin_of_the_begin": "1902-01-01T00:00:00Z",
+     "end_of_the_end": "1930-12-31T23:59:59Z"
+    },
+    "referred_to_by": [
+     {
+      "type": "LinguisticObject",
+      "content": "James Valentine (mentioned on object)",
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300435416",
+        "type": "Type"
+       }
+      ],
+      "language": [
+       {
+        "id": "http://vocab.getty.edu/aat/300388277",
+        "type": "Language"
+       }
+      ]
+     },
+     {
+      "type": "LinguisticObject",
+      "content": "James Valentine (vermeld op object)",
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300435416",
+        "type": "Type"
+       }
+      ],
+      "language": [
+       {
+        "id": "http://vocab.getty.edu/aat/300388256",
+        "type": "Language"
+       }
+      ]
+     }
+    ],
+    "part": [
+     {
+      "type": "Production",
+      "carried_out_by": [
+       {
+        "id": "https://id.rijksmuseum.nl/210640",
+        "type": "Person",
+        "notation": [
+         {
+          "@language": "nl",
+          "@value": "anoniem"
+         },
+         {
+          "@language": "en",
+          "@value": "anonymous"
+         }
+        ],
+        "equivalent": [
+         {
+          "id": "https://rkd.nl/artists/1984",
+          "type": "Person"
+         },
+         {
+          "id": "http://viaf.org/viaf/100627125",
+          "type": "Person"
+         },
+         {
+          "id": "http://vocab.getty.edu/ulan/500397994",
+          "type": "Person"
+         },
+         {
+          "id": "http://www.wikidata.org/entity/Q4233718",
+          "type": "Person"
+         }
+        ]
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "content": "2",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ]
+       }
+      ],
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300379012",
+        "type": "Type"
+       }
+      ],
+      "technique": [
+       {
+        "id": "https://id.rijksmuseum.nl/22010805",
+        "type": "Type",
+        "notation": {
+         "@language": "nl",
+         "@value": "clichémaker"
+        }
+       }
+      ],
+      "referred_to_by": [
+       {
+        "type": "LinguisticObject",
+        "content": "clichémaker: anonymous",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "content": "clichémaker: anoniem",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "type": "Production",
+      "assigned_by": [
+       {
+        "type": "AttributeAssignment",
+        "assigned": [
+         {
+          "id": "https://id.rijksmuseum.nl/2108310",
+          "type": "Person"
+         }
+        ],
+        "assigned_property": "carried_out_by",
+        "motivated_by": [
+         {
+          "type": "LinguisticObject",
+          "carried_by": [
+           "https://id.rijksmuseum.nl/200794890"
+          ],
+          "classified_as": [
+           {
+            "id": "http://vocab.getty.edu/aat/300028702",
+            "type": "Type"
+           }
+          ]
+         }
+        ]
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "content": "1",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ]
+       }
+      ],
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300404450",
+        "type": "Type"
+       }
+      ],
+      "technique": [
+       {
+        "id": "https://id.rijksmuseum.nl/2204764",
+        "type": "Type",
+        "notation": [
+         {
+          "@language": "nl",
+          "@value": "fotograaf"
+         },
+         {
+          "@language": "en",
+          "@value": "photographer"
+         }
+        ],
+        "equivalent": [
+         {
+          "id": "http://vocab.getty.edu/aat/300025687",
+          "type": "Type"
+         }
+        ]
+       }
+      ],
+      "referred_to_by": [
+       {
+        "type": "LinguisticObject",
+        "content": "James Valentine (mentioned on object)",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435417",
+          "type": "Type"
+         }
+        ],
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "content": "photographer: James Valentine (mentioned on object), London",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "content": "James Valentine (vermeld op object)",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435417",
+          "type": "Type"
+         }
+        ],
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "content": "fotograaf: James Valentine (vermeld op object), Londen",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       }
+      ],
+      "took_place_at": [
+       {
+        "id": "https://id.rijksmuseum.nl/230164",
+        "type": "Place",
+        "notation": [
+         {
+          "@language": "nl",
+          "@value": "Londen"
+         },
+         {
+          "@language": "en",
+          "@value": "London"
+         }
+        ],
+        "equivalent": [
+         {
+          "id": "https://sws.geonames.org/2643743/",
+          "type": "Place"
+         },
+         {
+          "id": "http://www.wikidata.org/entity/Q84",
+          "type": "Place"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "type": "Production",
+      "assigned_by": [
+       {
+        "type": "AttributeAssignment",
+        "assigned": [
+         {
+          "id": "https://id.rijksmuseum.nl/210640",
+          "type": "Person",
+          "notation": [
+           {
+            "@language": "nl",
+            "@value": "anoniem"
+           },
+           {
+            "@language": "en",
+            "@value": "anonymous"
+           }
+          ],
+          "equivalent": [
+           {
+            "id": "https://rkd.nl/artists/1984",
+            "type": "Person"
+           },
+           {
+            "id": "http://viaf.org/viaf/100627125",
+            "type": "Person"
+           },
+           {
+            "id": "http://vocab.getty.edu/ulan/500397994",
+            "type": "Person"
+           },
+           {
+            "id": "http://www.wikidata.org/entity/Q4233718",
+            "type": "Person"
+           }
+          ]
+         }
+        ],
+        "assigned_property": "carried_out_by",
+        "motivated_by": [
+         {
+          "type": "LinguisticObject",
+          "carried_by": [
+           "https://id.rijksmuseum.nl/200794890"
+          ],
+          "classified_as": [
+           {
+            "id": "http://vocab.getty.edu/aat/300028702",
+            "type": "Type"
+           }
+          ]
+         }
+        ]
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "content": "3",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ]
+       }
+      ],
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300379012",
+        "type": "Type"
+       }
+      ],
+      "technique": [
+       {
+        "id": "https://id.rijksmuseum.nl/2203016",
+        "type": "Type",
+        "notation": [
+         {
+          "@language": "nl",
+          "@value": "drukker"
+         },
+         {
+          "@language": "en",
+          "@value": "printer (person)"
+         }
+        ],
+        "equivalent": [
+         {
+          "id": "http://vocab.getty.edu/aat/300025732",
+          "type": "Type"
+         }
+        ]
+       }
+      ],
+      "referred_to_by": [
+       {
+        "type": "LinguisticObject",
+        "content": "printer (person): anonymous (mentioned on object), Great Britain",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "content": "drukker: anoniem (vermeld op object), Groot-Brittannië",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       }
+      ],
+      "took_place_at": [
+       {
+        "id": "https://id.rijksmuseum.nl/230152",
+        "type": "Place",
+        "notation": [
+         {
+          "@language": "nl",
+          "@value": "Groot-Brittannië"
+         },
+         {
+          "@language": "en",
+          "@value": "Great Britain"
+         }
+        ],
+        "equivalent": [
+         {
+          "id": "http://vocab.getty.edu/tgn/7008653",
+          "type": "Place"
+         },
+         {
+          "id": "http://www.wikidata.org/entity/Q23666",
+          "type": "Place"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "type": "Production",
+      "assigned_by": [
+       {
+        "type": "AttributeAssignment",
+        "assigned": [
+         {
+          "id": "https://id.rijksmuseum.nl/21033461",
+          "type": "Group",
+          "classified_as": [
+           {
+            "id": "https://id.rijksmuseum.nl/22015651",
+            "type": "Type"
+           }
+          ]
+         }
+        ],
+        "assigned_property": "carried_out_by",
+        "motivated_by": [
+         {
+          "type": "LinguisticObject",
+          "carried_by": [
+           "https://id.rijksmuseum.nl/200794890"
+          ],
+          "classified_as": [
+           {
+            "id": "http://vocab.getty.edu/aat/300028702",
+            "type": "Type"
+           }
+          ]
+         }
+        ]
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "content": "4",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ]
+       }
+      ],
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300379012",
+        "type": "Type"
+       }
+      ],
+      "technique": [
+       {
+        "id": "https://id.rijksmuseum.nl/2205148",
+        "type": "Type",
+        "notation": [
+         {
+          "@language": "en",
+          "@value": "publisher"
+         },
+         {
+          "@language": "nl",
+          "@value": "uitgever"
+         }
+        ],
+        "equivalent": [
+         {
+          "id": "http://vocab.getty.edu/aat/300025574",
+          "type": "Type"
+         }
+        ]
+       }
+      ],
+      "referred_to_by": [
+       {
+        "type": "LinguisticObject",
+        "content": "publisher: Valentine & Sons (mentioned on object), Dundee (Schotland)",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "content": "uitgever: Valentine & Sons (vermeld op object), Dundee (Schotland)",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       }
+      ],
+      "took_place_at": [
+       {
+        "id": "https://id.rijksmuseum.nl/23012327",
+        "type": "Place",
+        "notation": {
+         "@language": "nl",
+         "@value": "Dundee (Schotland)"
+        },
+        "equivalent": [
+         {
+          "id": "http://www.wikidata.org/entity/Q123709",
+          "type": "Place"
+         },
+         {
+          "id": "http://vocab.getty.edu/tgn/7009741",
+          "type": "Place"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "subject_of": [
+    {
+     "type": "LinguisticObject",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ],
+     "digitally_carried_by": [
+      {
+       "type": "DigitalObject",
+       "format": "text/html",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300264578",
+         "type": "Type"
+        }
+       ],
+       "access_point": [
+        {
+         "id": "https://www.rijksmuseum.nl/nl/collectie/object/RP-F-00-15716--cc31ab11d8e694efb260f3377fe9328b",
+         "type": "DigitalObject"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "https://data.rijksmuseum.nl/200794890",
+     "type": "LinguisticObject",
+     "subject_to": [
+      {
+       "type": "Right",
+       "classified_as": [
+        {
+         "id": "https://creativecommons.org/publicdomain/zero/1.0/",
+         "type": "Type"
+        }
+       ]
+      }
+     ],
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300379475",
+       "type": "Type"
+      }
+     ]
+    }
+   ],
+   "identified_by": [
+    {
+     "type": "Identifier",
+     "content": "RP-F-00-15716",
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22015218",
+       "type": "Type",
+       "notation": [
+        {
+         "@language": "nl",
+         "@value": "objectnummer"
+        },
+        {
+         "@language": "en",
+         "@value": "object number"
+        }
+       ]
+      },
+      {
+       "id": "http://vocab.getty.edu/aat/300312355",
+       "type": "Type"
+      }
+     ]
+    },
+    {
+     "type": "Name",
+     "carried_by": [
+      "https://id.rijksmuseum.nl/200794890"
+     ],
+     "content": "Valentine's Series",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "content": "2",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ]
+      }
+     ],
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22015531",
+       "type": "Type",
+       "notation": [
+        {
+         "@language": "nl",
+         "@value": "serietitel op object"
+        },
+        {
+         "@language": "en",
+         "@value": "series title on object"
+        }
+       ]
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "Name",
+     "carried_by": [
+      "https://id.rijksmuseum.nl/200794890"
+     ],
+     "content": "Mansion House and Cheapside, London",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "content": "1",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ]
+      }
+     ],
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300404670",
+       "type": "Type"
+      },
+      {
+       "id": "http://vocab.getty.edu/aat/300417200",
+       "type": "Type"
+      },
+      {
+       "id": "https://id.rijksmuseum.nl/22015525",
+       "type": "Type",
+       "notation": [
+        {
+         "@language": "nl",
+         "@value": "titel op object"
+        },
+        {
+         "@language": "en",
+         "@value": "title on object"
+        }
+       ]
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    }
+   ],
+   "classified_as": [
+    {
+     "id": "https://id.rijksmuseum.nl/2203020",
+     "type": "Type",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435443",
+       "type": "Type",
+       "_label": "Type of Work"
+      }
+     ],
+     "notation": {
+      "@language": "nl",
+      "@value": "prentbriefkaart"
+     },
+     "equivalent": [
+      {
+       "id": "http://vocab.getty.edu/aat/300026819",
+       "type": "Type"
+      }
+     ]
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/22010762",
+     "type": "Type",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435443",
+       "type": "Type",
+       "_label": "Type of Work"
+      }
+     ],
+     "notation": [
+      {
+       "@language": "en",
+       "@value": "photomechanical print"
+      },
+      {
+       "@language": "nl",
+       "@value": "fotomechanische afdruk"
+      }
+     ],
+     "equivalent": [
+      {
+       "id": "http://vocab.getty.edu/aat/300041424",
+       "type": "Type"
+      }
+     ]
+    }
+   ],
+   "dimension": [
+    {
+     "type": "Dimension",
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "kaart",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22011",
+       "type": "Type",
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "height"
+        },
+        {
+         "@language": "nl",
+         "@value": "hoogte"
+        }
+       ],
+       "equivalent": [
+        {
+         "id": "http://vocab.getty.edu/aat/300055644",
+         "type": "Type"
+        }
+       ]
+      }
+     ],
+     "value": "90",
+     "unit": {
+      "id": "http://vocab.getty.edu/aat/300379097",
+      "type": "MeasurementUnit"
+     }
+    },
+    {
+     "type": "Dimension",
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "kaart",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22012",
+       "type": "Type",
+       "notation": [
+        {
+         "@language": "nl",
+         "@value": "breedte"
+        },
+        {
+         "@language": "en",
+         "@value": "width"
+        }
+       ],
+       "equivalent": [
+        {
+         "id": "http://vocab.getty.edu/aat/300055647",
+         "type": "Type"
+        }
+       ]
+      }
+     ],
+     "value": "140",
+     "unit": {
+      "id": "http://vocab.getty.edu/aat/300379097",
+      "type": "MeasurementUnit"
+     }
+    }
+   ],
+   "made_of": [
+    {
+     "id": "https://id.rijksmuseum.nl/220192",
+     "type": "Material",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "assigned_by": [
+        {
+         "type": "AttributeAssignment",
+         "assigned": [
+          "https://id.rijksmuseum.nl/200794890"
+         ],
+         "assigned_property": "influenced_by"
+        }
+       ],
+       "content": "1",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ]
+      }
+     ],
+     "notation": [
+      {
+       "@language": "nl",
+       "@value": "karton"
+      },
+      {
+       "@language": "en",
+       "@value": "cardboard"
+      }
+     ],
+     "equivalent": [
+      {
+       "id": "http://vocab.getty.edu/aat/300014224",
+       "type": "Material"
+      },
+      {
+       "id": "http://www.wikidata.org/entity/Q389782",
+       "type": "Material"
+      }
+     ]
+    }
+   ],
+   "shows": [
+    {
+     "id": "https://id.rijksmuseum.nl/202794890",
+     "type": "VisualItem"
+    }
+   ],
+   "referred_to_by": [
+    {
+     "type": "LinguisticObject",
+     "content": "kaart: hoogte 90 mm x breedte 140 mm",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "content": "1",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ]
+      }
+     ],
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435430",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "content": "height 90 mm x width 140 mm",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "content": "1",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ]
+      }
+     ],
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435430",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "content": "lichtdruk",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435429",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    }
+   ],
+   "equivalent": [
+    {
+     "id": "http://hdl.handle.net/10934/RM0001.COLLECT.784885",
+     "type": "HumanMadeObject"
+    }
+   ],
+   "member_of": [
+    {
+     "id": "https://id.rijksmuseum.nl/26150",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/260239",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/260238",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/260251",
+     "type": "Set"
+    }
+   ]
+  },
+  "visual_item": {
+   "@context": "https://linked.art/ns/v1/linked-art.json",
+   "id": "https://id.rijksmuseum.nl/202794890",
+   "type": "VisualItem",
+   "subject_to": [
+    {
+     "type": "Right",
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "Public Domain",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388277",
+         "type": "Language",
+         "_label": "English"
+        }
+       ]
+      },
+      {
+       "type": "Name",
+       "content": "Publieke domein",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language",
+         "_label": "Dutch"
+        }
+       ]
+      }
+     ],
+     "classified_as": [
+      {
+       "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+       "type": "Type",
+       "_label": "Public Domain"
+      }
+     ]
+    }
+   ],
+   "subject_of": [
+    {
+     "id": "https://data.rijksmuseum.nl/202794890",
+     "type": "LinguisticObject",
+     "subject_to": [
+      {
+       "type": "Right",
+       "classified_as": [
+        {
+         "id": "https://creativecommons.org/publicdomain/zero/1.0/",
+         "type": "Type"
+        }
+       ]
+      }
+     ],
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300379475",
+       "type": "Type"
+      }
+     ]
+    }
+   ],
+   "represents": [
+    {
+     "id": "https://id.rijksmuseum.nl/2309373",
+     "type": "Place"
+    }
+   ],
+   "represents_instance_of_type": [
+    {
+     "id": "https://id.rijksmuseum.nl/221637",
+     "type": "Type",
+     "equivalent": [
+      {
+       "id": "https://iconclass.org/25I141",
+       "type": "Type"
+      }
+     ]
+    }
+   ],
+   "shown_by": [
+    {
+     "id": "https://id.rijksmuseum.nl/200794890",
+     "type": "HumanMadeObject",
+     "equivalent": [
+      {
+       "id": "http://hdl.handle.net/10934/RM0001.COLLECT.784885",
+       "type": "HumanMadeObject"
+      }
+     ]
+    }
+   ],
+   "digitally_shown_by": [
+    {
+     "id": "https://id.rijksmuseum.nl/5009974108106517170119",
+     "type": "DigitalObject"
+    }
+   ]
+  },
+  "digital_object": {
+   "@context": "https://linked.art/ns/v1/linked-art.json",
+   "id": "https://id.rijksmuseum.nl/5009974108106517170119",
+   "type": "DigitalObject",
+   "access_point": [
+    {
+     "id": "https://iiif.micr.io/Efxmc/full/max/0/default.jpg",
+     "type": "DigitalObject"
+    }
+   ],
+   "digitally_shows": [
+    {
+     "id": "https://id.rijksmuseum.nl/202794890",
+     "type": "VisualItem"
+    }
+   ],
+   "referred_to_by": [
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435434",
+       "type": "Type"
+      }
+     ],
+     "content": "downloadbaar"
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435434",
+       "type": "Type"
+      }
+     ],
+     "content": "zichtbaar"
+    }
+   ]
+  }
+ }
+}

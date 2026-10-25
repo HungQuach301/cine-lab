@@ -1,0 +1,357 @@
+{
+ "tag": "H1-11b-l1-360p",
+ "clip": "/var/tmp/anim/omni3/H1-11b/H1-11b-l1-360p.mp4",
+ "clip_sha": "e84c9166c5255646ead2eb7f1c3f34d6282459508b7532ea3182dc162e805503",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic2/omni/dau/H1-11b-dau.jpg",
+ "dau_sha": "ac5c69bc5970b11663bb36c07e9ce81461b15f15e6b5a1dbb3d9acf503e0fa5e",
+ "nam": "1666",
+ "canh": "the courtyard of the Royal Exchange burning, 3 September 1666",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/anim/kiem2/H1-11b-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0229,
+      "usage": {
+       "input_tokens": 10134,
+       "input_tokens_details": {
+        "cache_write_tokens": 10131,
+        "cached_tokens": 0
+       },
+       "output_tokens": 260,
+       "output_tokens_details": {
+        "reasoning_tokens": 116
+       },
+       "total_tokens": 10394
+      }
+     },
+     "secs": 8.0,
+     "mo_ta": "Khung hình cho thấy sân trong Royal Exchange đang cháy, với các dãy vòm và tượng đá, cột đá giữa sân cùng gỗ cháy đổ xuống nền.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Royal Exchange với sân trong, hành lang vòm hai tầng và các tượng trong hốc tường; công trình này đã hiện diện trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.0,
+        1.0,
+        0.887
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-11b-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "44b05588514dfbb047cf87c81a5fea27f204bda8b75a3d3ecfe70403af3798a6",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Large stone Italianate Renaissance courtyard. It has arcaded loggias, statues in niches, a classical balustrade and a column on a pedestal. The paving is neat stone slabs. The whole building is stone and is burning.",
+        "ly_do": "Pre-Fire London was mostly timber-framed and jettied, with medieval Gothic stone churches and halls. Nothing like this Italian palazzo courtyard stood in London in 1666. Classical stone architecture of this kind only spread to London later, through Wren, Hawksmoor and the Georgian builders. It is pr",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         0,
+         0,
+         1920,
+         972
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0343616,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 915,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0343616,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 95,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Large stone Italianate Renaissance courtyard. It has arcaded loggias, statues in niches, a classical balustrade and a column on a pedestal. The paving is neat stone slabs. The whole building is stone and is burning.\",\"ly_do\":\"Pre-Fire London was mostly timber-framed and jettied, with medieval Gothic stone churches and halls. Nothing like this Italian palazzo courtyard stood in London in 1666. Classical stone architecture of this kind only spread to London later, through Wren, Hawksmoor and the Georgian builders. It is probably not an anachronism in date, but it is wrong for the place.\",\"nam_xuat_hien\":null,\"toa_do\":[0.0,0.0,1.0,0.9],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0344,
+    "chi_phi_tb": 0.0344,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/anim/kiem2/H1-11b-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0234,
+      "usage": {
+       "input_tokens": 10128,
+       "input_tokens_details": {
+        "cache_write_tokens": 10125,
+        "cached_tokens": 0
+       },
+       "output_tokens": 319,
+       "output_tokens_details": {
+        "reasoning_tokens": 95
+       },
+       "total_tokens": 10447
+      }
+     },
+     "secs": 8.6,
+     "mo_ta": "Sân trong Royal Exchange ở London đang bốc cháy, với các dãy vòm và tượng đá bao quanh, một cột đá trong sân cùng xà gỗ cháy đổ xuống nền.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Công trình Royal Exchange với sân trong, hành lang vòm và các hốc tượng trên mặt đứng.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.0,
+        1.0,
+        0.87
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cột đá dạng đài tưởng niệm trên bệ nhiều tầng ở phía trái trung tâm sân; đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.223,
+        0.424,
+        0.296,
+        0.835
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-11b-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "4ada22ab7fdcd2f47cf763482a66e010ca4ae25e9bdf6d39d2cfd0196763af18",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A large, stone-faced courtyard in an Italian Renaissance or Baroque palazzo style. It has arcaded ground-floor loggias, round-arched niches holding classical statues, and a regular ashlar facade with a balustraded roofline. It is burning.",
+        "ly_do": "This is not how London looked in 1666. The city then was mostly timber-framed, jettied medieval houses and Gothic churches such as Old St Paul's. Palladian or Italianate stone courtyards with rows of statue niches were not typical of the city. Such a building would be out of place in London, though ",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         0,
+         0,
+         1920,
+         1026
+        ],
+        "do_tin": 0.4
+       }
+      ],
+      "cost_usd": 0.0339716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 876,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0339716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 64,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A large, stone-faced courtyard in an Italian Renaissance or Baroque palazzo style. It has arcaded ground-floor loggias, round-arched niches holding classical statues, and a regular ashlar facade with a balustraded roofline. It is burning.\",\"ly_do\":\"This is not how London looked in 1666. The city then was mostly timber-framed, jettied medieval houses and Gothic churches such as Old St Paul's. Palladian or Italianate stone courtyards with rows of statue niches were not typical of the city. Such a building would be out of place in London, though it is not strictly an invention of a later date.\",\"nam_xuat_hien\":null,\"toa_do\":[0.0,0.0,1.0,0.95],\"do_tin\":0.4}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.034,
+    "chi_phi_tb": 0.034,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/anim/kiem2/H1-11b-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0242,
+      "usage": {
+       "input_tokens": 10128,
+       "input_tokens_details": {
+        "cache_write_tokens": 10125,
+        "cached_tokens": 0
+       },
+       "output_tokens": 390,
+       "output_tokens_details": {
+        "reasoning_tokens": 160
+       },
+       "total_tokens": 10518
+      }
+     },
+     "secs": 9.4,
+     "mo_ta": "Khung hình cho thấy sân trong Royal Exchange đang cháy, với mái gỗ sụp đổ, khói dày, các hốc tượng và một cột đài giữa sân.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Dãy nhà bao quanh sân trong Royal Exchange, có hành lang vòm và các tượng trong hốc tường; công trình đã hiện diện trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.0,
+        1.0,
+        0.883
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cột đài trên bệ đá trong sân, cùng cột đài đã thấy trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.193,
+        0.394,
+        0.273,
+        0.857
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-11b-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "978a1d96e38ace0bcbdea405a2b69c5c539f67c390c7960a82d5350f92b4d01a",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "The burning courtyard has a regular Italian Renaissance or Baroque facade. It has tiers of round-arched niches with classical statues, rusticated arcades and a statue column. London's burnt buildings in 1666 were mostly timber-framed medieval houses and Gothic churches.",
+        "ly_do": "This stone palazzo-style courtyard with statue niches does not match the architecture of the City of London during the 1666 fire. It looks more like an Italian or Roman palace.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         0,
+         0,
+         1920,
+         972
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0328716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 766,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0328716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.0,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The burning courtyard has a regular Italian Renaissance or Baroque facade. It has tiers of round-arched niches with classical statues, rusticated arcades and a statue column. London's burnt buildings in 1666 were mostly timber-framed medieval houses and Gothic churches.\",\"ly_do\":\"This stone palazzo-style courtyard with statue niches does not match the architecture of the City of London during the 1666 fire. It looks more like an Italian or Roman palace.\",\"nam_xuat_hien\":null,\"toa_do\":[0.0,0.0,1.0,0.9],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0329,
+    "chi_phi_tb": 0.0329,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

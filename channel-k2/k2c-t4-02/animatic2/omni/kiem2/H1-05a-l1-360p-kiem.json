@@ -1,0 +1,425 @@
+{
+ "tag": "H1-05a-l1-360p",
+ "clip": "/var/tmp/anim/omni3/H1-05a/H1-05a-l1-360p.mp4",
+ "clip_sha": "644328ac47ca656fa8212cceee5cef235787851d49cc89306e0b774d22a75ce2",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic2/omni/dau/H1-05a-dau.jpg",
+ "dau_sha": "312f38a1f5b19aec6ce395afe0c9636388407fa7eb84849771c86e1ccc0e42a0",
+ "nam": "1666",
+ "canh": "Whitehall Palace, 2 September 1666: the diarist reports the fire to the King",
+ "so_khung": 120,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/anim/kiem2/H1-05a-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0214,
+      "usage": {
+       "input_tokens": 10128,
+       "input_tokens_details": {
+        "cache_write_tokens": 10125,
+        "cached_tokens": 0
+       },
+       "output_tokens": 113,
+       "output_tokens_details": {
+        "reasoning_tokens": 59
+       },
+       "total_tokens": 10241
+      }
+     },
+     "secs": 4.7,
+     "mo_ta": "Ba người đàn ông trong trang phục cổ đứng trong phòng cung điện có lò sưởi, bàn và quả địa cầu, với cột khói xa nhìn thấy qua cửa sổ.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.044 (TB $0.044/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05a-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "7dab7aed8d9de87360fec27c9e319830c7d6d835109cdfcc4b0d7ff778ee54f0",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "khác:None",
+        "mo_ta": "The large window has tall, regular leaded panes. Through it you can see a Gothic spire over a dense, tidy skyline with a smoke column.",
+        "ly_do": "The skyline looks like a generic later townscape. Old St Paul's had no spire by 1666. The smoke column may be meant as the Great Fire, so the view is only loosely accurate.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1517,
+         0,
+         1786,
+         562
+        ],
+        "do_tin": 0.15
+       },
+       {
+        "muc": "khác:None",
+        "mo_ta": "The two men in the foreground and the man in the doorway wear long, knee-length, collarless coats with wide turned-back cuffs and braided front edges. They also wear white stockings and low shoes with buckles. The coats are the justaucorps type, with a long wig and a cravat.",
+        "ly_do": "This coat style, with the buckled shoes and white stockings, belongs to the 1680s–1710s. In 1666 London fashion was the short doublet, petticoat breeches, a loose cloak or short coat, and ribbon-tied shoes. The justaucorps was only introduced in the late 1660s and 1670s, and the cravat followed at a",
+        "nam_xuat_hien": 1675,
+        "toa_do_px": [
+         557,
+         270,
+         1248,
+         940
+        ],
+        "do_tin": 0.5,
+        "xac_nhan": {
+         "vung_px": [
+          0,
+          0,
+          1920,
+          1080
+         ],
+         "phong": 0.35,
+         "tra_loi": {
+          "vat": "Table with a patterned cloth, a candlestick and books, in a wood-panelled room",
+          "dac_diem": "Small table at the centre of the room, covered with a red, brown and gold patterned carpet-style cloth. A tall candle in a brass candlestick and some books or papers sit on it. Two men in 17th-century dress stand nearby, one in a brown coat and one in a dark coat with a long curled wig. A floor globe on a wooden stand is to the right, and a tall window shows smoke over a city skyline.",
+          "co_tu_nam": null,
+          "da_co_nam_1666": "yes",
+          "ly_do": "Tables with carpet or tapestry cloths and candlesticks were common in 17th-century interiors, and the globe, panelling and costume also fit the 1660s. I can't see any anachronistic design."
+         },
+         "da_co": "yes",
+         "giu": false,
+         "cost_usd": 0.007647599999999999,
+         "loi": null
+        },
+        "ly_do_ha": "phóng to 0.35×: da_co_nam = 'yes' — không xác nhận"
+       }
+      ],
+      "cost_usd": 0.04436919999999999,
+      "cost_buoc2": 0.00765,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1151,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.03672159999999999,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 168,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 13.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"mo_ta\":\"The two men in the foreground and the man in the doorway wear long, knee-length, collarless coats with wide turned-back cuffs and braided front edges. They also wear white stockings and low shoes with buckles. The coats are the justaucorps type, with a long wig and a cravat.\",\"ly_do\":\"This coat style, with the buckled shoes and white stockings, belongs to the 1680s–1710s. In 1666 London fashion was the short doublet, petticoat breeches, a loose cloak or short coat, and ribbon-tied shoes. The justaucorps was only introduced in the late 1660s and 1670s, and the cravat followed at about the same time.\",\"nam_xuat_hien\":1675,\"toa_do\":[0.29,0.25,0.65,0.87],\"do_tin\":0.5},{\"mo_ta\":\"The large window has tall, regular leaded panes. Through it you can see a Gothic spire over a dense, tidy skyline with a smoke column.\",\"ly_do\":\"The skyline looks like a generic later townscape. Old St Paul's had no spire by 1666. The smoke column may be meant as the Great Fire, so the view is only loosely accurate.\",\"nam_xuat_hien\":null,\"toa_do\":[0.79,0.0,0.93,0.52],\"do_tin\":0.15}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0444,
+    "chi_phi_tb": 0.0444,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/anim/kiem2/H1-05a-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0217,
+      "usage": {
+       "input_tokens": 10140,
+       "input_tokens_details": {
+        "cache_write_tokens": 10137,
+        "cached_tokens": 0
+       },
+       "output_tokens": 142,
+       "output_tokens_details": {
+        "reasoning_tokens": 85
+       },
+       "total_tokens": 10282
+      }
+     },
+     "secs": 5.5,
+     "mo_ta": "Ba người đàn ông mặc trang phục thế kỷ XVII trong một căn phòng cung điện, với bàn, quả địa cầu, lò sưởi và cột khói phía xa ngoài cửa sổ.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05a-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "3db5515cbd2436cf259089e85086cc7b7bbce75029f460967081a193a07458ff",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The men wear long, knee-length buttoned coats with deep turned-back cuffs. They also wear white stockings pulled up over the knee and low black buckled shoes. The standing man at left has a coat with a fully braided front.",
+        "ly_do": "This is the cut of c.1690–1720 (the justaucorps and a cravat-and-wig look). Around 1666 men wore short doublets, petticoat breeches with ribbons, and a loose coat or cassock. Buckled shoes and this coat cut came later.",
+        "nam_xuat_hien": 1690,
+        "toa_do_px": [
+         518,
+         151,
+         1248,
+         940
+        ],
+        "do_tin": 0.45
+       },
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Through the window, a slender Gothic spire rises above a skyline of dense, castle-like buildings, with smoke behind it.",
+        "ly_do": "Old St Paul's lost its spire in 1561. The thin pointed spire and Gothic-revival skyline do not match the London of 1666, which was a timber-and-jettied city with many church towers. Wren's steeples came after the Fire.",
+        "nam_xuat_hien": 1700,
+        "toa_do_px": [
+         1536,
+         346,
+         1728,
+         540
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0369816,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1177,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0369816,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 206,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 14.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The men wear long, knee-length buttoned coats with deep turned-back cuffs. They also wear white stockings pulled up over the knee and low black buckled shoes. The standing man at left has a coat with a fully braided front.\",\"ly_do\":\"This is the cut of c.1690–1720 (the justaucorps and a cravat-and-wig look). Around 1666 men wore short doublets, petticoat breeches with ribbons, and a loose coat or cassock. Buckled shoes and this coat cut came later.\",\"nam_xuat_hien\":1690,\"toa_do\":[0.27,0.14,0.65,0.87],\"do_tin\":0.45},{\"muc\":\"kien_truc\",\"mo_ta\":\"Through the window, a slender Gothic spire rises above a skyline of dense, castle-like buildings, with smoke behind it.\",\"ly_do\":\"Old St Paul's lost its spire in 1561. The thin pointed spire and Gothic-revival skyline do not match the London of 1666, which was a timber-and-jettied city with many church towers. Wren's steeples came after the Fire.\",\"nam_xuat_hien\":1700,\"toa_do\":[0.8,0.32,0.9,0.5],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.037,
+    "chi_phi_tb": 0.037,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/anim/kiem2/H1-05a-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0244,
+      "usage": {
+       "input_tokens": 10146,
+       "input_tokens_details": {
+        "cache_write_tokens": 10143,
+        "cached_tokens": 0
+       },
+       "output_tokens": 407,
+       "output_tokens_details": {
+        "reasoning_tokens": 192
+       },
+       "total_tokens": 10553
+      }
+     },
+     "secs": 11.2,
+     "mo_ta": "Ba người đàn ông mặc trang phục cổ đứng trong một căn phòng ốp gỗ, bên cửa sổ nhìn ra các mái nhà và một cột khói phía xa.",
+     "muc": [
+      {
+       "loai": "chu",
+       "mo_ta": "Dấu dạng chữ lồng màu vàng, giống chữ P hoặc ký tự Φ, trên mặt bệ tượng bán thân bên phải.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.906,
+        0.552,
+        0.924,
+        0.617
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cột khói lớn bốc lên giữa các công trình ngoài cửa sổ; cột khói này đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.823,
+        0.184,
+        0.868,
+        0.415
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      }
+     ],
+     "loi": [
+      {
+       "loai": "chu",
+       "mo_ta": "Dấu dạng chữ lồng màu vàng, giống chữ P hoặc ký tự Φ, trên mặt bệ tượng bán thân bên phải.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.906,
+        0.552,
+        0.924,
+        0.617
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cột khói lớn bốc lên giữa các công trình ngoài cửa sổ; cột khói này đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.823,
+        0.184,
+        0.868,
+        0.415
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 3 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05a-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "b98ec3894de5dd79f090e89e17653e41635200e451bf1d79e8c12c7e0d3e9128",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "The skyline seen through the window has a tall, slender Gothic-revival spire among the roofs. It looks like a Victorian church or monument spire. The smoke plume beside it presumably represents the Great Fire.",
+        "ly_do": "London in 1666 had no such spire. Old St Paul's had lost its spire in 1561. A Victorian-style Gothic spire on the skyline is anachronistic.",
+        "nam_xuat_hien": 1840,
+        "toa_do_px": [
+         1536,
+         346,
+         1594,
+         486
+        ],
+        "do_tin": 0.45
+       },
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The men wear knee-length coats with wide turned-back cuffs and long vests. The shoes have buckles and are low-cut. The coat on the left has braid trim and a cravat.",
+        "ly_do": "This is the later justaucorps and buckle-shoe fashion of the 1680s and after. In 1666 men wore shorter doublet-style coats, petticoat breeches, and shoes tied with ribbon.",
+        "nam_xuat_hien": 1675,
+        "toa_do_px": [
+         211,
+         302,
+         614,
+         940
+        ],
+        "do_tin": 0.3
+       },
+       {
+        "muc": "kien_truc",
+        "mo_ta": "The tall window has slim glazing bars and large rectangular panes. Its frames look like a vertical sash or modern casement.",
+        "ly_do": "Sash windows were not introduced in England until about the 1670s. A great house in 1666 would more likely have leaded or stone-mullioned casements.",
+        "nam_xuat_hien": 1675,
+        "toa_do_px": [
+         1286,
+         0,
+         1709,
+         594
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.0382716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1306,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0382716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 205,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 14.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The skyline seen through the window has a tall, slender Gothic-revival spire among the roofs. It looks like a Victorian church or monument spire. The smoke plume beside it presumably represents the Great Fire.\",\"ly_do\":\"London in 1666 had no such spire. Old St Paul's had lost its spire in 1561. A Victorian-style Gothic spire on the skyline is anachronistic.\",\"nam_xuat_hien\":1840,\"toa_do\":[0.8,0.32,0.83,0.45],\"do_tin\":0.45},{\"muc\":\"quan_phuc\",\"mo_ta\":\"The men wear knee-length coats with wide turned-back cuffs and long vests. The shoes have buckles and are low-cut. The coat on the left has braid trim and a cravat.\",\"ly_do\":\"This is the later justaucorps and buckle-shoe fashion of the 1680s and after. In 1666 men wore shorter doublet-style coats, petticoat breeches, and shoes tied with ribbon.\",\"nam_xuat_hien\":1675,\"toa_do\":[0.11,0.28,0.32,0.87],\"do_tin\":0.3},{\"muc\":\"kien_truc\",\"mo_ta\":\"The tall window has slim glazing bars and large rectangular panes. Its frames look like a vertical sash or modern casement.\",\"ly_do\":\"Sash windows were not introduced in England until about the 1670s. A great house in 1666 would more likely have leaded or stone-mullioned casements.\",\"nam_xuat_hien\":1675,\"toa_do\":[0.67,0.0,0.89,0.55],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0383,
+    "chi_phi_tb": 0.0383,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 1,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "LOẠI",
+  "chi_tiet": [
+   {
+    "u": 0.9,
+    "mo_hinh": "gpt",
+    "loai": "chu",
+    "mo_ta": "Dấu dạng chữ lồng màu vàng, giống chữ P hoặc ký tự Φ, trên mặt bệ tượng bán thân bên phải.",
+    "nam": null
+   }
+  ]
+ }
+}

@@ -1,0 +1,700 @@
+{
+ "tag": "H2-01b-l1-360p",
+ "clip": "/var/tmp/anim/omni3/H2-01b/H2-01b-l1-360p.mp4",
+ "clip_sha": "234880c79eb6eea4177aab47a19ddeaef1e4535068ad0d6e6cafd20ba30fffa8",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic2/omni/dau/H2-01b-dau.jpg",
+ "dau_sha": "b32c3946522cc9faced737dcd167b174e7b695224ba350864b2ce7d4e4f155b7",
+ "nam": "1666",
+ "canh": "the fallen statue of Thomas Gresham in the ruins of the Royal Exchange, September 1666",
+ "so_khung": 120,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/anim/kiem2/H2-01b-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0271,
+      "usage": {
+       "input_tokens": 10140,
+       "input_tokens_details": {
+        "cache_write_tokens": 10137,
+        "cached_tokens": 0
+       },
+       "output_tokens": 680,
+       "output_tokens_details": {
+        "reasoning_tokens": 165
+       },
+       "total_tokens": 10820
+      }
+     },
+     "secs": 13.7,
+     "mo_ta": "Tượng Thomas Gresham đổ nằm giữa gỗ cháy và gạch đá trong phế tích Royal Exchange, phía sau có tháp Gothic, lửa và khói.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Phế tích Royal Exchange với các dãy vòm đá bao quanh sân.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.0,
+        1.0,
+        0.665
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tượng Thomas Gresham bị đổ ở tiền cảnh.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.119,
+        0.491,
+        0.553,
+        0.934
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp nhà thờ Gothic lớn với nhiều chóp nhọn ở hậu cảnh; không đủ cơ sở xác định tên riêng.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.739,
+        0.012,
+        0.817,
+        0.27
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Các đám cháy và cột khói giữa những công trình đổ nát phía sau dãy vòm.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.739,
+        0.097,
+        0.938,
+        0.334
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Lửa nhỏ cháy trong đống đổ nát giữa sân, bên trái bệ đá.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.653,
+        0.605,
+        0.712,
+        0.676
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Luồng khói trắng cục bộ được thêm ngay sau vai và thân tượng đổ, che một phần gạch đá và chân cột.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.299,
+        0.507,
+        0.464,
+        0.698
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Các đám cháy và cột khói giữa những công trình đổ nát phía sau dãy vòm.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.739,
+        0.097,
+        0.938,
+        0.334
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Lửa nhỏ cháy trong đống đổ nát giữa sân, bên trái bệ đá.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.653,
+        0.605,
+        0.712,
+        0.676
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Luồng khói trắng cục bộ được thêm ngay sau vai và thân tượng đổ, che một phần gạch đá và chân cột.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.299,
+        0.507,
+        0.464,
+        0.698
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.029 (TB $0.029/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01b-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "85e15aeaa5a9dc905da6d05a93989e0133cc5c8f551c0b58ac7488d17d61bed7",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
+       "NO Wren dome",
+       "NO Monument column"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.028600600000000004,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 715,
+        "cacheReadInputTokens": 4786,
+        "cacheCreationInputTokens": 8384,
+        "webSearchRequests": 0,
+        "costUSD": 0.028600600000000004,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 239,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0286,
+    "chi_phi_tb": 0.0286,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01b-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "99b198f6abbcc6e0f64683c1c9bd506e28383af6187c1548c2047d01656188a9",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0317716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 656,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0317716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 110,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0318,
+    "chi_phi_tb": 0.0318,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H2-01b-l1-360p-k25.json"
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/anim/kiem2/H2-01b-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0272,
+      "usage": {
+       "input_tokens": 10134,
+       "input_tokens_details": {
+        "cache_write_tokens": 10131,
+        "cached_tokens": 0
+       },
+       "output_tokens": 696,
+       "output_tokens_details": {
+        "reasoning_tokens": 269
+       },
+       "total_tokens": 10830
+      }
+     },
+     "secs": 16.2,
+     "mo_ta": "Tượng Thomas Gresham đổ giữa sân Royal Exchange hoang tàn, với các vòm đá cháy sém, gạch vụn, khói và lửa ở hậu cảnh.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tượng đài Thomas Gresham bị đổ ở tiền cảnh; đây là tượng đá, không phải thi thể.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.099,
+        0.473,
+        0.567,
+        0.945
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Phần kiến trúc đổ nát của Royal Exchange, gồm các dãy vòm và sân trong nhận diện được theo bối cảnh được cung cấp.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.0,
+        1.0,
+        0.659
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp Gothic lớn ở hậu cảnh có hình dáng gợi tháp Victoria của Cung điện Westminster; việc định danh chưa chắc chắn, nhưng cùng tháp này đã xuất hiện trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.742,
+        0.008,
+        0.816,
+        0.323
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.64
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đám khói xám cục bộ được thêm trước các vòm bên trái và lan xuống đống đổ nát; ảnh tham chiếu không có đám khói rõ tương ứng tại vị trí này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.254,
+        0.343,
+        0.555,
+        0.72
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Đám khói xám cục bộ được thêm trước các vòm bên trái và lan xuống đống đổ nát; ảnh tham chiếu không có đám khói rõ tương ứng tại vị trí này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.254,
+        0.343,
+        0.555,
+        0.72
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01b-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "8be0d15f7f2bf3211541ab753e955c2059c301f2024ca12423728a22edbb671f",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
+       "NO Wren dome",
+       "NO Monument column"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "In the distance there is a tall Gothic tower with four slender corner spires or pinnacles. It looks like a generic cathedral tower, not the plain square tower of Old St Paul's. No dome and no Monument column are visible.",
+        "ly_do": "Old St Paul's had a squat square tower with no spire after 1561. A tower with tall pinnacles is a doubtful match for it. This is a weak finding, and the tower could be another burnt church.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1421,
+         22,
+         1574,
+         216
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.031530600000000006,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1008,
+        "cacheReadInputTokens": 4786,
+        "cacheCreationInputTokens": 8384,
+        "webSearchRequests": 0,
+        "costUSD": 0.031530600000000006,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 319,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"In the distance there is a tall Gothic tower with four slender corner spires or pinnacles. It looks like a generic cathedral tower, not the plain square tower of Old St Paul's. No dome and no Monument column are visible.\",\"ly_do\":\"Old St Paul's had a squat square tower with no spire after 1561. A tower with tall pinnacles is a doubtful match for it. This is a weak finding, and the tower could be another burnt church.\",\"nam_xuat_hien\":null,\"toa_do\":[0.74,0.02,0.82,0.2],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0315,
+    "chi_phi_tb": 0.0315,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01b-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "47fe79260ece9bec3a8c366e4b21ae7230f5d7f68def68734a32694abf1b40ff",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A tall, slender Gothic tower with four corner pinnacles and a crenellated top stands in the distant skyline. It looks like a Victorian Gothic Revival tower. The scene is the burnt ruins after the Great Fire.",
+        "ly_do": "It may not match any London building of 1666. Old St Paul's had a squat square tower with no spire, and the pinnacled Gothic Revival style is mostly 19th century. The match is uncertain.",
+        "nam_xuat_hien": 1840,
+        "toa_do_px": [
+         1421,
+         32,
+         1574,
+         324
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.0340116,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 880,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0340116,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 122,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 12.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall, slender Gothic tower with four corner pinnacles and a crenellated top stands in the distant skyline. It looks like a Victorian Gothic Revival tower. The scene is the burnt ruins after the Great Fire.\",\"ly_do\":\"It may not match any London building of 1666. Old St Paul's had a squat square tower with no spire, and the pinnacled Gothic Revival style is mostly 19th century. The match is uncertain.\",\"nam_xuat_hien\":1840,\"toa_do\":[0.74,0.03,0.82,0.3],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.034,
+    "chi_phi_tb": 0.034,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H2-01b-l1-360p-k55.json"
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/anim/kiem2/H2-01b-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0247,
+      "usage": {
+       "input_tokens": 10140,
+       "input_tokens_details": {
+        "cache_write_tokens": 10137,
+        "cached_tokens": 0
+       },
+       "output_tokens": 438,
+       "output_tokens_details": {
+        "reasoning_tokens": 144
+       },
+       "total_tokens": 10578
+      }
+     },
+     "secs": 18.6,
+     "mo_ta": "Tượng Thomas Gresham đổ nghiêng giữa gạch đá và xà gỗ cháy trong sân Royal Exchange đổ nát, phía xa có tháp Gothic và các đám cháy.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tượng đài Thomas Gresham đổ nằm ở tiền cảnh.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.089,
+        0.455,
+        0.59,
+        0.968
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Phế tích Royal Exchange với các dãy vòm và cột đá bao quanh sân.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.0,
+        1.0,
+        0.669
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp Gothic lớn với nhiều chóp nhọn nổi bật trên đường chân trời; không đủ chi tiết để xác định chắc chắn tên công trình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.743,
+        0.009,
+        0.821,
+        0.318
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01b-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "a426e5388b4f24db8e67aea3c36ae3cd15564da7f183525480451ef83d7e9c8b",
+      "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+      "model": "claude-sonnet-5-5",
+      "moc": [
+       "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
+       "NO Wren dome",
+       "NO Monument column"
+      ],
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "cong_trinh_moc",
+        "mo_ta": "The distant landmark is a tall, slender Gothic tower with four tall spire-like pinnacles and traceried upper stages. It looks like a Victorian Gothic or cathedral tower. It stands intact among the burning ruins.",
+        "ly_do": "The tower of Old St Paul's was a squat square tower with no spire, and in 1666 it was burnt and ruined. This tower is intact and has tall pinnacles, so it does not match the 1666 form. I am only moderately sure, because it could be read as a loosely drawn Old St Paul's tower.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1421,
+         22,
+         1574,
+         324
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.030870600000000005,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 942,
+        "cacheReadInputTokens": 4786,
+        "cacheCreationInputTokens": 8384,
+        "webSearchRequests": 0,
+        "costUSD": 0.030870600000000005,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 216,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The distant landmark is a tall, slender Gothic tower with four tall spire-like pinnacles and traceried upper stages. It looks like a Victorian Gothic or cathedral tower. It stands intact among the burning ruins.\",\"ly_do\":\"The tower of Old St Paul's was a squat square tower with no spire, and in 1666 it was burnt and ruined. This tower is intact and has tall pinnacles, so it does not match the 1666 form. I am only moderately sure, because it could be read as a loosely drawn Old St Paul's tower.\",\"nam_xuat_hien\":null,\"toa_do\":[0.74,0.02,0.82,0.3],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0309,
+    "chi_phi_tb": 0.0309,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_o2v2": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01b-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "753253adaffa6b05b1ecd91140e7dfc1760d3c77ffc19016d48eeb3c9a9aa269",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A tall Gothic tower with slender pinnacles and spires stands in the distance. It looks like a Victorian Gothic Revival cathedral or church tower.",
+        "ly_do": "Old St Paul's had a squat square tower with no spire in 1666, because the spire was lost in 1561. This slender, multi-pinnacled tower does not match any known London landmark of the time. It looks like Gothic Revival work from the 19th century.",
+        "nam_xuat_hien": 1840,
+        "toa_do_px": [
+         1421,
+         22,
+         1574,
+         216
+        ],
+        "do_tin": 0.3
+       },
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A ruined brick house has a multi-pane window with a regular grid of glazing bars. It looks like a sash window.",
+        "ly_do": "Sash windows were not yet common in London in 1666. Houses then mostly had casement or leaded windows.",
+        "nam_xuat_hien": 1680,
+        "toa_do_px": [
+         1536,
+         248,
+         1594,
+         335
+        ],
+        "do_tin": 0.15
+       }
+      ],
+      "cost_usd": 0.035641599999999996,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1043,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.035641599999999996,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 147,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 13.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall Gothic tower with slender pinnacles and spires stands in the distance. It looks like a Victorian Gothic Revival cathedral or church tower.\",\"ly_do\":\"Old St Paul's had a squat square tower with no spire in 1666, because the spire was lost in 1561. This slender, multi-pinnacled tower does not match any known London landmark of the time. It looks like Gothic Revival work from the 19th century.\",\"nam_xuat_hien\":1840,\"toa_do\":[0.74,0.02,0.82,0.2],\"do_tin\":0.3},{\"muc\":\"kien_truc\",\"mo_ta\":\"A ruined brick house has a multi-pane window with a regular grid of glazing bars. It looks like a sash window.\",\"ly_do\":\"Sash windows were not yet common in London in 1666. Houses then mostly had casement or leaded windows.\",\"nam_xuat_hien\":1680,\"toa_do\":[0.8,0.23,0.83,0.31],\"do_tin\":0.15}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0356,
+    "chi_phi_tb": 0.0356,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   },
+   "q_thoi_dai_moc_tep": "omni/kiem2/qtd-moc-H2-01b-l1-360p-k90.json"
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": [],
+  "q_thoi_dai_nghi_van_moc": 0
+ },
+ "gop": {
+  "tang2": "channel-k2/k2c-t4-02/animatic2/omni/kiem2/H2-01b-l1-360p-kiem.json",
+  "lop_moc": "qmoc_v3.sh (lệnh bổ sung #2 bước 4, K1177-D4)"
+ }
+}

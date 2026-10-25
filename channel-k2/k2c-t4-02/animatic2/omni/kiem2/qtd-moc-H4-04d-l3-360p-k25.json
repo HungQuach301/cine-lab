@@ -1,0 +1,90 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 3 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H4-04d-l3-360p-k25",
+   "nam": 1940,
+   "noi": "London",
+   "sha256": "3c61508388fac7ffbcfef9eee636e6389a4c064ab1acb0627973f83a1655688a",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "medieval Guildhall with Gothic front",
+    "St Paul's dome if visible",
+    "no post-war buildings"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The burning main building is a large church-like Gothic hall. It has a row of tall pinnacled spires, a traceried clerestory and a collapsing open-timber roof. It does not look like the Guildhall's real front.",
+     "ly_do": "The 1940 Guildhall had a medieval Gothic porch front and a flat-fronted hall. It had no row of tall spired buttresses like a cathedral, so the landmark is shown in the wrong form.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      288,
+      0,
+      1536,
+      864
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "xe",
+     "mo_ta": "A fire appliance with large spoked wheels and an open, carriage-like body stands in the street. It looks like a horse-drawn or very early motor pump.",
+     "ly_do": "By 1940 the London Fire Service (the wartime Auxiliary Fire Service and the National Fire Service) used motor pumps and trailer pumps. Spoked-wheel carriage appliances had been obsolete for decades.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1171,
+      724,
+      1402,
+      864
+     ],
+     "do_tin": 0.35
+    },
+    {
+     "muc": "den",
+     "mo_ta": "A street lamp is brightly lit. Several windows in the building on the right are also lit, and bright lights show among the crowd in the distance.",
+     "ly_do": "The wartime blackout was in force in London in December 1940, so street lamps and windows would have been unlit. Only the fire itself gave light.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1325,
+      691,
+      1402,
+      810
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.0383434,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1283,
+     "cacheReadInputTokens": 3064,
+     "cacheCreationInputTokens": 10078,
+     "webSearchRequests": 0,
+     "costUSD": 0.0383434,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 246,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 14.9,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The burning main building is a large church-like Gothic hall. It has a row of tall pinnacled spires, a traceried clerestory and a collapsing open-timber roof. It does not look like the Guildhall's real front.\",\"ly_do\":\"The 1940 Guildhall had a medieval Gothic porch front and a flat-fronted hall. It had no row of tall spired buttresses like a cathedral, so the landmark is shown in the wrong form.\",\"nam_xuat_hien\":null,\"toa_do\":[0.15,0.0,0.8,0.8],\"do_tin\":0.4},{\"muc\":\"xe\",\"mo_ta\":\"A fire appliance with large spoked wheels and an open, carriage-like body stands in the street. It looks like a horse-drawn or very early motor pump.\",\"ly_do\":\"By 1940 the London Fire Service (the wartime Auxiliary Fire Service and the National Fire Service) used motor pumps and trailer pumps. Spoked-wheel carriage appliances had been obsolete for decades.\",\"nam_xuat_hien\":null,\"toa_do\":[0.61,0.67,0.73,0.8],\"do_tin\":0.35},{\"muc\":\"den\",\"mo_ta\":\"A street lamp is brightly lit. Several windows in the building on the right are also lit, and bright lights show among the crowd in the distance.\",\"ly_do\":\"The wartime blackout was in force in London in December 1940, so street lamps and windows would have been unlit. Only the fire itself gave light.\",\"nam_xuat_hien\":null,\"toa_do\":[0.69,0.64,0.73,0.75],\"do_tin\":0.25}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0383,
+ "chi_phi_tb": 0.0383,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

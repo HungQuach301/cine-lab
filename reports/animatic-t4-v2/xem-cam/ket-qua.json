@@ -1,0 +1,184 @@
+{
+ "ghi": "THAM KHẢO — không phải chấm đạt; chủ dự án chấm cuối (§13.4)",
+ "may": "claude-sonnet-5-5 (claude -p, chỉ Read)",
+ "thang": "0/1/2 mỗi câu × 3 người = tối đa 6/câu",
+ "theo_cau": {
+  "Q1": 6,
+  "Q2": 6,
+  "Q3": 6,
+  "Q4": 6,
+  "Q5": 6,
+  "Q6": 6,
+  "Q7": 6,
+  "Q8": 6
+ },
+ "tong": 48,
+ "toi_da": 48,
+ "clarity_tb": 4.0,
+ "nguoi": {
+  "R1": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2,
+    "Q5": 2,
+    "Q6": 2,
+    "Q7": 2,
+    "Q8": 2
+   },
+   "clarity": 4,
+   "tra_loi": {
+    "Q1": "A huge city fire. The date counter reads 2 Sept 1666 and the caption says 'The Great Fire'. Flames and smoke sweep over a dense city of timber houses beside a river.",
+    "Q2": "Small place at first. It starts in one baker's shop, where a bakery oven is burning (caption 'Thomas Farriner, baker to the King'), in a narrow street of timber houses. It then spreads along the riverside and across the whole walled city. The map shows a big burned area over 3–5 Sept.",
+    "Q3": "They flee with carts piled with belongings and carry bundles on foot. They escape in crowded rowing boats on the river. Men pull down houses with hooks and ropes to make firebreaks, and houses are blown up. Two men bury goods in a garden pit. Refugees then camp in open fields with tents and campfires. A caption reads '13,200 houses' (lost).",
+    "Q4": "The great Gothic church (old St Paul's) catches fire. Its walls and roof burn, and molten lead pours down the walls and runs along the street. Afterwards it is a ruin with a toppled statue among the rubble.",
+    "Q5": "It is rebuilt in brick: red brick houses go up with scaffolding and brick carts. Officials look over plans. The chapter title reads 'Rebuilding on the old streets', so the city keeps its old, crooked street layout rather than a new grid.",
+    "Q6": "A big white stone cathedral with a large dome (St Paul's, shown 1708–1711 and captioned 'The dome rules the skyline'; '365 ft' appears on screen). A tall column is not clearly shown, so I'm not sure about the column.",
+    "Q7": "On 29 Dec 1940 the city is bombed from the air (airships or planes in the sky) and burns again; the caption reads 'The second great fire'. Firefighters spray hoses and fight the flames. A 'killed' counter reads 160. The dome cathedral survives: a 1942 photo shows it standing among damaged buildings and a snowy ruined area. The city is rebuilt after the war on the same streets.",
+    "Q8": "A modern 2026 city of glass and concrete towers and blocks beside the river with bridges. Among the towers you can still spot the white domed cathedral, and the old street pattern is still there. At night the buildings glow with lit windows."
+   },
+   "lac": [
+    {
+     "frame": 13,
+     "why": "Cut from 2026 to 1917 and 1774 shots with no explanation, then straight back to the 1666 fire; the intro montage is confusing."
+    },
+    {
+     "frame": 21,
+     "why": "A dark night landscape with a '1666 — The Great Fire' title and a sudden jump to a bakery; I couldn't tell the link to the earlier fire shots."
+    },
+    {
+     "frame": 59,
+     "why": "The date jumps to 27 Aug 1666 (frames 61–62) in the middle of the 4 Sept fire, with two men and a drawing of a church, and it isn't clear why."
+    },
+    {
+     "frame": 119,
+     "why": "Date counter jumps around (1676, 1647, 1711) with the same river views repeated; unclear what is being compared."
+    },
+    {
+     "frame": 143,
+     "why": "Date jumps back to 1666 just before the 1940 section, with no clear reason."
+    },
+    {
+     "frame": 162,
+     "why": "The 7 Sept 1666 date reappears in the middle of the 1941 section, and I couldn't tell why."
+    }
+   ]
+  },
+  "R2": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2,
+    "Q5": 2,
+    "Q6": 2,
+    "Q7": 2,
+    "Q8": 2
+   },
+   "clarity": 4,
+   "tra_loi": {
+    "Q1": "A huge fire. The video labels it 'The Great Fire' of 2 Sept 1666. Flames and smoke spread over the wooden city beside the river.",
+    "Q2": "It starts in one small place: a baker's oven (Thomas Farriner, 'baker to the King'). Flames then jump to the timber houses in a narrow street. After that it spreads over a very large area. The overhead shots and the map show most of the walled city by the river burning, with Pudding Lane and London Bridge marked.",
+    "Q3": "They flee with loaded carts and carry bundles on foot. They escape in boats on the river. Men pull down houses with ropes and hooks to make firebreaks, and a house is blown up. Some bury goods in a garden. Afterwards people camp in open fields with tents and cooking fires.",
+    "Q4": "Old St Paul's, the big Gothic church on the hill, is engulfed by the fire on 4 Sept. Its stonework burns and what looks like molten lead runs down the walls and along the street. It is left burnt out, with ruins and a fallen statue shown later.",
+    "Q5": "It is rebuilt in red brick, with new brick houses going up on scaffolding. The streets stay the same as the old medieval layout ('Rebuilding on the old streets'). A new plan is shown on screen, but the city follows the old street pattern.",
+    "Q6": "A big white domed cathedral, St Paul's with its dome, rises above the new red-brick roofs. It is labelled 1711, 'The dome rules the skyline'. A tall column also appears; I'm not fully sure what it is. A '365 ft' caption shows around 1710.",
+    "Q7": "Night bombing on 29 Dec 1940: aircraft and barrage balloons, then a second great fire. Firefighters work on the riverbank and rooftops, and a Gothic church burns. Much of the City is wrecked, with the bombed area shown on a map. A '160 killed' caption appears. St Paul's dome survives, as a 1942 photo shows. It is then rebuilt on the same streets.",
+    "Q8": "A modern, dense city of glass and concrete blocks and tall skyscrapers by the Thames with bridges. The St Paul's dome is still visible among the towers, and a few older red-brick buildings remain. The film ends at night with lit windows and a 'How this film was made' credit."
+   },
+   "lac": [
+    {
+     "frame": 21,
+     "why": "Sudden cut to a dark, empty landscape with the caption '1666 — The Great Fire'; unclear where we are"
+    },
+    {
+     "frame": 13,
+     "why": "Jumps among 1917, 1774 and 2026 while the fire scene is paused, with no explanation"
+    },
+    {
+     "frame": 59,
+     "why": "A cut back to 27 Aug 1666 (Evelyn and Wren) with no obvious reason; the date counter jumps backwards"
+    },
+    {
+     "frame": 119,
+     "why": "Sudden jump to 1676 and 1647 views, then back to 1711; the order of dates is confusing"
+    },
+    {
+     "frame": 143,
+     "why": "The 1666 label appears in the middle of the 1938 section"
+    },
+    {
+     "frame": 162,
+     "why": "The date jumps to 7 Sept 1666 after the 1940 and 1942 scenes, so a comparison is hard to follow"
+    },
+    {
+     "frame": 172,
+     "why": "Dates jump among 2026, 1989 and 2027 in quick succession"
+    },
+    {
+     "frame": 185,
+     "why": "A flash back to the 1666 fire at the end, a brief jump with no explanation"
+    }
+   ]
+  },
+  "R3": {
+   "diem": {
+    "Q1": 2,
+    "Q2": 2,
+    "Q3": 2,
+    "Q4": 2,
+    "Q5": 2,
+    "Q6": 2,
+    "Q7": 2,
+    "Q8": 2
+   },
+   "clarity": 4,
+   "tra_loi": {
+    "Q1": "A huge fire, dated 2 Sept 1666 and labelled 'The Great Fire'. It burns through a dense city of timber houses and spreads for several days (2 to 5 Sept). Smoke and flames cover the riverside and then most of the walled city.",
+    "Q2": "It begins small, in one building. A baker's shop with a glowing oven and sparks (labelled Thomas Farriner, baker to the King) is followed by a burning street. From there the fire spreads along the river and the wooden streets until a large area is burning.",
+    "Q3": "People flee with carts piled with belongings and carry bundles on foot. They escape by boat on the river and camp in open fields outside the city. Men pull down houses with hooks and ropes to make firebreaks, and some bury goods in a garden. Officials (the Lord Mayor, Pepys) appear, but the pictures do not show whether they achieved much.",
+    "Q4": "The great Gothic church on the hill (Old St Paul's) is engulfed on 4 Sept. Flames burst from its windows and roof, and molten lead streams down into the street. It is destroyed.",
+    "Q5": "It is rebuilt in brick, with new red-brick terraced houses and bricklayers working on scaffolding. The streets follow the old medieval layout: the caption says 'Rebuilding on the old streets', and the map shows the same street pattern. Courts and surveyors appear, and a rebuilding plan (Wren's) is shown but not used.",
+    "Q6": "A large white domed cathedral (St Paul's, labelled 1708 to 1711, with the dome ruling the skyline). A tall column is shown in the rebuilt city at around 1677. 'Dome' and '365 ft' are shown, but the pictures do not clearly show the column's name or purpose, so I am not sure what it is.",
+    "Q7": "On 29 Dec 1940 the city burns again, with night fires, bombers or airships overhead, and firemen with hoses on the riverbank and rooftops. A burning Gothic church is shown. The city is badly damaged ('160 killed' is shown). St Paul's survives and stands among the damage. A 1942 photo of it and a map outlining the bombed area follow. Rebuilding is then shown on the same streets.",
+    "Q8": "A dense modern city of glass and concrete blocks and distant skyscrapers, with the river and bridges (2026). The old domed cathedral (St Paul's) is still visible among the towers. The film ends on a night view of lit windows and then a credits note."
+   },
+   "lac": [
+    {
+     "frame": 14,
+     "why": "A 1774 shot appears among 2026 and 1666 shots in the opening teaser; the order is confusing"
+    },
+    {
+     "frame": 21,
+     "why": "A dark night view with a '1666 The Great Fire' title shows no clear action"
+    },
+    {
+     "frame": 117,
+     "why": "A black screen with '365 ft' gives no clear picture of what is being measured"
+    },
+    {
+     "frame": 119,
+     "why": "The timeline jumps back to 1676 and 1647 with no explanation"
+    },
+    {
+     "frame": 143,
+     "why": "The date label reads 1666 in a 1938 sequence, which is jarring"
+    },
+    {
+     "frame": 162,
+     "why": "The date label reads 7 Sept 1666 in the 1941 sequence, a time jump with no explanation"
+    },
+    {
+     "frame": 139,
+     "why": "A circle drawn around the cathedral in 1937 and 1938 is unexplained until the bombing begins"
+    },
+    {
+     "frame": 134,
+     "why": "The 1912 aerial shot and the 1930s street scenes with the pedestrians have no clear narrative role"
+    }
+   ]
+  }
+ },
+ "chi_phi_usd": 0.769
+}

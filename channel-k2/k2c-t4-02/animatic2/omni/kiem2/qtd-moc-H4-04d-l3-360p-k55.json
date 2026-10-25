@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H4-04d-l3-360p-k55",
+   "nam": 1940,
+   "noi": "London",
+   "sha256": "cc5476bf44d12f60592ee5843bcee505d72a1128d85aa65f5eeb677a041b8d2c",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "medieval Guildhall with Gothic front",
+    "St Paul's dome if visible",
+    "no post-war buildings"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The burning main building is a tall, cathedral-like Gothic structure with many slender pinnacles, big traceried windows and a flying-buttress look. It does not look like the Guildhall's low, wide Gothic front.",
+     "ly_do": "The Guildhall in 1940 had a wide, relatively low façade with a central porch, built in 1788–89 in the Dance 'City Gothic' style. It did not have a tall spired, church-like front. The expected landmark is shown in the wrong form.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      230,
+      0,
+      1574,
+      864
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "xe",
+     "mo_ta": "The fire appliance is a boxy, old-fashioned vehicle with spoked wheels, like a horse-drawn or manual engine.",
+     "ly_do": "The London Fire Service in the Blitz used motor pumps and the Auxiliary Fire Service's towed trailer pumps. A carriage-style engine with spoked wheels looks earlier than 1940.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1190,
+      756,
+      1440,
+      886
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.0361934,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1068,
+     "cacheReadInputTokens": 3064,
+     "cacheCreationInputTokens": 10078,
+     "webSearchRequests": 0,
+     "costUSD": 0.0361934,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 184,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 13.2,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The burning main building is a tall, cathedral-like Gothic structure with many slender pinnacles, big traceried windows and a flying-buttress look. It does not look like the Guildhall's low, wide Gothic front.\",\"ly_do\":\"The Guildhall in 1940 had a wide, relatively low façade with a central porch, built in 1788–89 in the Dance 'City Gothic' style. It did not have a tall spired, church-like front. The expected landmark is shown in the wrong form.\",\"nam_xuat_hien\":null,\"toa_do\":[0.12,0.0,0.82,0.8],\"do_tin\":0.4},{\"muc\":\"xe\",\"mo_ta\":\"The fire appliance is a boxy, old-fashioned vehicle with spoked wheels, like a horse-drawn or manual engine.\",\"ly_do\":\"The London Fire Service in the Blitz used motor pumps and the Auxiliary Fire Service's towed trailer pumps. A carriage-style engine with spoked wheels looks earlier than 1940.\",\"nam_xuat_hien\":null,\"toa_do\":[0.62,0.7,0.75,0.82],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0362,
+ "chi_phi_tb": 0.0362,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

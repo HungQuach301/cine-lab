@@ -1,0 +1,64 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-01a-l1-360p-k55",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "5e732a30bc2dba83bf10194ab5837f93819bab67ec6cd3bf68a873a6148275f2",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
+    "NO Wren dome",
+    "NO Monument column"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "A plain multi-arched stone bridge crosses the middle distance. It has no houses or buildings on it and looks like a later, open-parapet bridge.",
+     "ly_do": "London Bridge in 1666 was lined with timber-framed houses. Part of it burned in the Great Fire. A bare arched bridge does not match its 1666 form.",
+     "nam_xuat_hien": 1831,
+     "toa_do_px": [
+      902,
+      540,
+      1344,
+      648
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.034159800000000004,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 861,
+     "cacheReadInputTokens": 3078,
+     "cacheCreationInputTokens": 10092,
+     "webSearchRequests": 0,
+     "costUSD": 0.034159800000000004,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 205,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A plain multi-arched stone bridge crosses the middle distance. It has no houses or buildings on it and looks like a later, open-parapet bridge.\",\"ly_do\":\"London Bridge in 1666 was lined with timber-framed houses. Part of it burned in the Great Fire. A bare arched bridge does not match its 1666 form.\",\"nam_xuat_hien\":1831,\"toa_do\":[0.47,0.5,0.7,0.6],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0342,
+ "chi_phi_tb": 0.0342,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

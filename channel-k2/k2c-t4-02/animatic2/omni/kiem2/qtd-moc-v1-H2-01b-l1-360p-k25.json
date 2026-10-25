@@ -1,0 +1,100 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung H2-01b-l1-360p-k25 năm 1666: [kien_truc] In the distance there is a tall, slender Gothic-revival clock tower with a pointed spire and a lit clock face. It looks like a Victorian tower, similar to St Pancras or the Houses of Parliament. — A Victorian Gothic-revival clock tower with a clock face did not exist in London in 1666. It is also a landmark structure from a later period. (xuất hiện 1860) @px [1248, 205, 1344, 356] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.045 (TB $0.045/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-01b-l1-360p-k25",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "76a637e67001ee83afe6b7a0e8d59abfaf1879ecf1c60b0030f4b593f3b6e1b7",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
+    "NO Wren dome",
+    "NO Monument column"
+   ],
+   "nghi_van": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "In the distance there is a tall, slender Gothic-revival clock tower with a pointed spire and a lit clock face. It looks like a Victorian tower, similar to St Pancras or the Houses of Parliament.",
+     "ly_do": "A Victorian Gothic-revival clock tower with a clock face did not exist in London in 1666. It is also a landmark structure from a later period.",
+     "nam_xuat_hien": 1860,
+     "toa_do_px": [
+      1248,
+      205,
+      1344,
+      356
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "vung_px": [
+       1069,
+       54,
+       1522,
+       507
+      ],
+      "phong": 1.48,
+      "tra_loi": {
+       "vat": "Một tháp chuông/gác chuông cao có mái chóp nhọn và đồng hồ tròn, nhìn từ xa trong sương mù. Phía trước là những bức tường và ống khói cháy dở.",
+       "dac_diem": "Tháp mảnh có chóp nhọn rất cao. Mặt đồng hồ tròn nằm gần đỉnh tháp. Có các tháp nhỏ nhọn ở hai bên và một khối nhà lớn phía sau. Bên phải có một tháp khác với mái hình củ hành. Phía trước là tàn tích tường gạch và ống khói bị cháy đen. Kiểu dáng giống tháp đồng hồ Gothic Phục hưng thế kỷ 19, chẳng hạn mặt tiền ga St Pancras.",
+       "co_tu_nam": 1868,
+       "da_co_nam_1666": "no",
+       "ly_do": "Tháp đồng hồ Gothic có chóp nhọn và các tháp góc là phong cách Victoria, giống St Pancras (1868), nên không thể có ở London năm 1666. Các nhà thờ thời đó có tháp kiểu Trung cổ hoặc Tudor và không có kiểu này."
+      },
+      "da_co": "no",
+      "giu": true,
+      "cost_usd": 0.008230600000000001,
+      "loi": null
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The skyline has no ruined Old St Paul's. There is no burnt Gothic nave or squat square tower. Instead there are thin needle spires, and one is at the left of the distant skyline.",
+     "ly_do": "The ruined Old St Paul's, with its square tower and no spire, should stand in the view. It is absent and replaced by generic Gothic spires.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      768,
+      162,
+      1114,
+      378
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.04465040000000001,
+   "cost_buoc2": 0.00823,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1087,
+     "cacheReadInputTokens": 3078,
+     "cacheCreationInputTokens": 10092,
+     "webSearchRequests": 0,
+     "costUSD": 0.0364198,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 238,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"In the distance there is a tall, slender Gothic-revival clock tower with a pointed spire and a lit clock face. It looks like a Victorian tower, similar to St Pancras or the Houses of Parliament.\",\"ly_do\":\"A Victorian Gothic-revival clock tower with a clock face did not exist in London in 1666. It is also a landmark structure from a later period.\",\"nam_xuat_hien\":1860,\"toa_do\":[0.65,0.19,0.7,0.33],\"do_tin\":0.5},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The skyline has no ruined Old St Paul's. There is no burnt Gothic nave or squat square tower. Instead there are thin needle spires, and one is at the left of the distant skyline.\",\"ly_do\":\"The ruined Old St Paul's, with its square tower and no spire, should stand in the view. It is absent and replaced by generic Gothic spires.\",\"nam_xuat_hien\":null,\"toa_do\":[0.4,0.15,0.58,0.35],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0447,
+ "chi_phi_tb": 0.0447,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

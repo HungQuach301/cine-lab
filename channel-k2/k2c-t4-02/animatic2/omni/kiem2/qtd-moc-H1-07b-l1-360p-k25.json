@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-07b-l1-360p-k25",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "e67a82badad0184db35b4f0d23a0d63d8847ee756f04003912883589f4327879",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+    "Old London Bridge lined with houses",
+    "NO Monument column (built 1671-77)",
+    "NO Wren dome or Wren steeples"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "On the skyline at right, a Gothic church with a tall square crenellated tower has a separate slender pointed spire beside it. It looks like a generic cathedral. It does not show Old St Paul's very long nave with a squat crossing tower.",
+     "ly_do": "Old St Paul's had a square crossing tower with no spire, because the spire was lost in 1561. It also had a very long nave. The pointed spire and the tower shape here do not match its 1666 form.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1613,
+      281,
+      1805,
+      432
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.035509,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 985,
+     "cacheReadInputTokens": 3120,
+     "cacheCreationInputTokens": 10134,
+     "webSearchRequests": 0,
+     "costUSD": 0.035509,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 292,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.7,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"On the skyline at right, a Gothic church with a tall square crenellated tower has a separate slender pointed spire beside it. It looks like a generic cathedral. It does not show Old St Paul's very long nave with a squat crossing tower.\",\"ly_do\":\"Old St Paul's had a square crossing tower with no spire, because the spire was lost in 1561. It also had a very long nave. The pointed spire and the tower shape here do not match its 1666 form.\",\"nam_xuat_hien\":null,\"toa_do\":[0.84,0.26,0.94,0.4],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0355,
+ "chi_phi_tb": 0.0355,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

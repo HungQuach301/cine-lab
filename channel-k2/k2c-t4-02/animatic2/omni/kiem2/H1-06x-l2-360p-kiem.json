@@ -1,0 +1,567 @@
+{
+ "tag": "H1-06x-l2-360p",
+ "clip": "/var/tmp/anim/omni3/H1-06x/H1-06x-l2-360p.mp4",
+ "clip_sha": "6d9317d661ddacb51bb6f9e6abacaec0dcee405035d7476ab34ae61dfa9c351f",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic2/omni/dau/H1-06x-dau.jpg",
+ "dau_sha": "0d3cdf99a69520029024f94ac6f40293484d6ca450a2bf0a726bcf460cda0151",
+ "nam": "1666",
+ "canh": "the royal barge on the Thames, afternoon of 2 September 1666",
+ "so_khung": 168,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/anim/kiem2/H1-06x-l2-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0265,
+      "usage": {
+       "input_tokens": 10130,
+       "input_tokens_details": {
+        "cache_write_tokens": 10127,
+        "cached_tokens": 0
+       },
+       "output_tokens": 620,
+       "output_tokens_details": {
+        "reasoning_tokens": 358
+       },
+       "total_tokens": 10750
+      }
+     },
+     "secs": 17.9,
+     "mo_ta": "Một chiếc thuyền chèo hoàng gia trang trí mạ vàng đi trên sông Thames, phía sau là các dãy nhà và một nhà thờ Gothic giữa đám cháy lớn.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ lớn với tháp vuông Gothic và các tháp nhọn ở góc, gợi hình ảnh nhà thờ chính tòa trên đường chân trời London; không đủ chi tiết để xác định chắc chắn tên công trình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.785,
+        0.132,
+        0.971,
+        0.393
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.7
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Mảng tường xây sáng màu có cửa vòm và đỉnh trang trí ở bờ sông bên phải là chi tiết kiến trúc được thêm vào, không thấy công trình tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.908,
+        0.423,
+        0.958,
+        0.566
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.79
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mảng tường xây sáng màu có cửa vòm và đỉnh trang trí ở bờ sông bên phải là chi tiết kiến trúc được thêm vào, không thấy công trình tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.908,
+        0.423,
+        0.958,
+        0.566
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.79
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": false,
+    "ket_qua": null,
+    "loi": [
+     "khung H1-06x-l2-360p-k25 năm 1666: [quan_phuc] Rowers and attendants on the barge wear matching red coats with white cuffs and black tricorne or cocked hats. This looks like a livery uniform from the 18th century. — Tricorne hats and matching coats with turned-back cuffs became common after about 1680 to 1700. In 1666, watermen's livery and hats were different, with broad-brimmed or soft hats and no tricornes. (xuất hiện 1690) @px [0, 454, 576, 734] tin 0.6"
+    ],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.050 (TB $0.050/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-06x-l2-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "218b40d76f377dbcb48d9f1ea65ae84cda41e214e6a46cc9ae9579782ee08af1",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "Rowers and attendants on the barge wear matching red coats with white cuffs and black tricorne or cocked hats. This looks like a livery uniform from the 18th century.",
+        "ly_do": "Tricorne hats and matching coats with turned-back cuffs became common after about 1680 to 1700. In 1666, watermen's livery and hats were different, with broad-brimmed or soft hats and no tricornes.",
+        "nam_xuat_hien": 1690,
+        "toa_do_px": [
+         0,
+         454,
+         576,
+         734
+        ],
+        "do_tin": 0.6,
+        "xac_nhan": {
+         "vung_px": [
+          0,
+          0,
+          1152,
+          1080
+         ],
+         "phong": 0.58,
+         "tra_loi": {
+          "vat": "Red livery coats and tricorn-style hats worn by the oarsmen of a royal barge",
+          "dac_diem": "The rowers wear matching crimson coats and dark hats with the brim turned up. Some of the hats look tricorne-shaped. The barge is gilded and has a red canopy. Men in long wigs and long coats stand on board, and a fire burns on the shore behind them.",
+          "co_tu_nam": 1690,
+          "da_co_nam_1666": "no",
+          "ly_do": "Matching crimson livery coats did exist, since watermen and royal bargemen wore badged liveries. The cocked or tricorne hats shown here only became common around the 1690s to 1700s. In 1666 men wore broad-brimmed hats, so this headgear is anachronistic."
+         },
+         "da_co": "no",
+         "giu": true,
+         "cost_usd": 0.006689199999999999,
+         "loi": null
+        }
+       }
+      ],
+      "ghi_chu": [
+       {
+        "muc": "tau",
+        "mo_ta": "The royal barge has a gilded, carved stern canopy with crimson drapery and crowns, and a gilded scrolled prow. It resembles a Georgian state barge, such as the 1732 Prince Frederick barge.",
+        "ly_do": "The ornate rococo-style canopy and carving look later than the Restoration-era royal barges of 1666. The style is a Georgian-era one.",
+        "nam_xuat_hien": 1732,
+        "toa_do_px": [
+         0,
+         140,
+         1152,
+         864
+        ],
+        "do_tin": 0.35
+       }
+      ],
+      "cost_usd": 0.0495363,
+      "cost_buoc2": 0.00669,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 10,
+        "outputTokens": 1649,
+        "cacheReadInputTokens": 13521,
+        "cacheCreationInputTokens": 9994,
+        "webSearchRequests": 0,
+        "costUSD": 0.0428471,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 254,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 17.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"Rowers and attendants on the barge wear matching red coats with white cuffs and black tricorne or cocked hats. This looks like a livery uniform from the 18th century.\",\"ly_do\":\"Tricorne hats and matching coats with turned-back cuffs became common after about 1680 to 1700. In 1666, watermen's livery and hats were different, with broad-brimmed or soft hats and no tricornes.\",\"nam_xuat_hien\":1690,\"toa_do\":[0.0,0.42,0.3,0.68],\"do_tin\":0.6},{\"muc\":\"tau\",\"mo_ta\":\"The royal barge has a gilded, carved stern canopy with crimson drapery and crowns, and a gilded scrolled prow. It resembles a Georgian state barge, such as the 1732 Prince Frederick barge.\",\"ly_do\":\"The ornate rococo-style canopy and carving look later than the Restoration-era royal barges of 1666. The style is a Georgian-era one.\",\"nam_xuat_hien\":1732,\"toa_do\":[0.0,0.13,0.6,0.8],\"do_tin\":0.35}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0495,
+    "chi_phi_tb": 0.0495,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/anim/kiem2/H1-06x-l2-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0264,
+      "usage": {
+       "input_tokens": 10142,
+       "input_tokens_details": {
+        "cache_write_tokens": 10139,
+        "cached_tokens": 0
+       },
+       "output_tokens": 610,
+       "output_tokens_details": {
+        "reasoning_tokens": 307
+       },
+       "total_tokens": 10752
+      }
+     },
+     "secs": 17.3,
+     "mo_ta": "Sà lan hoàng gia có người chèo và các nhân vật mặc trang phục cổ đi qua khu phố ven sông đang cháy, phía sau có một nhà thờ Gothic lớn.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ Gothic lớn với tháp vuông và các tháp nhọn ở góc, gợi hình ảnh nhà thờ St Paul cổ; công trình tương ứng đã có trong ảnh tham chiếu, nhưng không đủ chi tiết để xác định chắc chắn danh tính.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.71,
+        0.135,
+        0.897,
+        0.414
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.68
+      },
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "Nhóm mũ có vành gấp kiểu tricorn trên người chèo và người đứng trên sà lan; đây là kiểu dáng giáp ranh đối với năm 1666, chỉ phổ biến từ khoảng thập niên 1690, không phải bằng chứng chắc chắn về lỗi niên đại. Các mũ tương ứng đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.424,
+        0.522,
+        0.623
+       ],
+       "nam_xuat_hien": 1690,
+       "do_tin": 0.65
+      }
+     ],
+     "loi": [
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "Nhóm mũ có vành gấp kiểu tricorn trên người chèo và người đứng trên sà lan; đây là kiểu dáng giáp ranh đối với năm 1666, chỉ phổ biến từ khoảng thập niên 1690, không phải bằng chứng chắc chắn về lỗi niên đại. Các mũ tương ứng đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.424,
+        0.522,
+        0.623
+       ],
+       "nam_xuat_hien": 1690,
+       "do_tin": 0.65
+      }
+     ],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": false,
+    "ket_qua": null,
+    "loi": [
+     "khung H1-06x-l2-360p-k55 năm 1666: [quan_phuc] The rowers and attendants wear matching red coats with white cuffs. Several men wear black tricorne hats with turned-up brims. The gentleman in the red coat standing at the stern also wears a tricorne. — The tricorne became fashionable around the 1690s to 1720s. In 1666 men wore wide-brimmed hats with a round crown, and the tricorne is a later style. The uniform red coats with cuffs for the rowers also look like 18th-century livery. (xuất hiện 1690) @px [0, 454, 538, 734] tin 0.6"
+    ],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 2 · chi phí $0.049 (TB $0.049/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-06x-l2-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "476adf0c18b2fbe5776b53a3424412493224713f00e87ece99c84e44c7223fa0",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The rowers and attendants wear matching red coats with white cuffs. Several men wear black tricorne hats with turned-up brims. The gentleman in the red coat standing at the stern also wears a tricorne.",
+        "ly_do": "The tricorne became fashionable around the 1690s to 1720s. In 1666 men wore wide-brimmed hats with a round crown, and the tricorne is a later style. The uniform red coats with cuffs for the rowers also look like 18th-century livery.",
+        "nam_xuat_hien": 1690,
+        "toa_do_px": [
+         0,
+         454,
+         538,
+         734
+        ],
+        "do_tin": 0.6,
+        "xac_nhan": {
+         "vung_px": [
+          0,
+          0,
+          1076,
+          1080
+         ],
+         "phong": 0.62,
+         "tra_loi": {
+          "vat": "Tricorne (cocked) hats worn with matching red livery coats by the men on a state barge",
+          "dac_diem": "The men on the barge wear black hats with the brim folded up into three corners and edged with trim. Several wear them: the standing figure at right, the men under the canopy, and the rowers. The rowers wear uniform red coats with white cuffs. The central man has a long curled wig and a dark coat with a white cravat. The barge has a gilded canopy with red drapes.",
+          "co_tu_nam": 1690,
+          "da_co_nam_1666": "no",
+          "ly_do": "The tricorne became common in the 1680s–1690s, and the matching red coats with cuffs look like early 18th-century livery. In 1666 men wore broad-brimmed hats with plumes or loosely turned brims, and the crisp three-cornered shape was not yet standard."
+         },
+         "da_co": "no",
+         "giu": true,
+         "cost_usd": 0.012865900000000001,
+         "loi": null
+        }
+       }
+      ],
+      "ghi_chu": [
+       {
+        "muc": "tau",
+        "mo_ta": "The royal barge has a gilded canopy with red velvet drapes and swag curtains. The hull is heavily carved and gilded, with a curved prow. The rowers sit on benches and pull long oars.",
+        "ly_do": "This looks like a Georgian or Baroque state barge in the style of the 1732 Prince's barge. A Thames royal barge of 1666 would have been plainer.",
+        "nam_xuat_hien": 1732,
+        "toa_do_px": [
+         0,
+         151,
+         1152,
+         864
+        ],
+        "do_tin": 0.3
+       },
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The man in the foreground wears a light-coloured long wig and a long buff coat. The other man wears a full dark curly wig with a white jabot.",
+        "ly_do": "Long full-bottomed wigs were in fashion by the 1670s and later. The long frock-style coat is also a later style, though some of this dress is close to 1666 fashion.",
+        "nam_xuat_hien": 1675,
+        "toa_do_px": [
+         422,
+         432,
+         691,
+         670
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.0494275,
+      "cost_buoc2": 0.01287,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1135,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0365616,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The rowers and attendants wear matching red coats with white cuffs. Several men wear black tricorne hats with turned-up brims. The gentleman in the red coat standing at the stern also wears a tricorne.\",\"ly_do\":\"The tricorne became fashionable around the 1690s to 1720s. In 1666 men wore wide-brimmed hats with a round crown, and the tricorne is a later style. The uniform red coats with cuffs for the rowers also look like 18th-century livery.\",\"nam_xuat_hien\":1690,\"toa_do\":[0.0,0.42,0.28,0.68],\"do_tin\":0.6},{\"muc\":\"tau\",\"mo_ta\":\"The royal barge has a gilded canopy with red velvet drapes and swag curtains. The hull is heavily carved and gilded, with a curved prow. The rowers sit on benches and pull long oars.\",\"ly_do\":\"This looks like a Georgian or Baroque state barge in the style of the 1732 Prince's barge. A Thames royal barge of 1666 would have been plainer.\",\"nam_xuat_hien\":1732,\"toa_do\":[0.0,0.14,0.6,0.8],\"do_tin\":0.3},{\"muc\":\"quan_phuc\",\"mo_ta\":\"The man in the foreground wears a light-coloured long wig and a long buff coat. The other man wears a full dark curly wig with a white jabot.\",\"ly_do\":\"Long full-bottomed wigs were in fashion by the 1670s and later. The long frock-style coat is also a later style, though some of this dress is close to 1666 fashion.\",\"nam_xuat_hien\":1675,\"toa_do\":[0.22,0.4,0.36,0.62],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0494,
+    "chi_phi_tb": 0.0494,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/anim/kiem2/H1-06x-l2-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0302,
+      "usage": {
+       "input_tokens": 10136,
+       "input_tokens_details": {
+        "cache_write_tokens": 10133,
+        "cached_tokens": 0
+       },
+       "output_tokens": 990,
+       "output_tokens_details": {
+        "reasoning_tokens": 622
+       },
+       "total_tokens": 11126
+      }
+     },
+     "secs": 27.1,
+     "mo_ta": "An ornate royal rowing barge passes a burning London waterfront beneath dense smoke, with a large Gothic church rising behind the houses.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Prominent Gothic church or cathedral with a square, pinnacled tower; apparently the same monumental church seen at the upper right of REFERENCE, though its precise identity is uncertain.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.636,
+        0.137,
+        0.82,
+        0.424
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.78
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added pale masonry waterfront ramp and retaining frontage with a dark arched opening, replacing the timber-fronted shoreline visible in REFERENCE.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.81,
+        0.532,
+        1.0,
+        0.618
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Reconfigured waterfront house facades, including new prominent triangular gables, exposed timber patterns and window arrangements not matching the supplied buildings.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.788,
+        0.319,
+        1.0,
+        0.567
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Added pale masonry waterfront ramp and retaining frontage with a dark arched opening, replacing the timber-fronted shoreline visible in REFERENCE.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.81,
+        0.532,
+        1.0,
+        0.618
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Reconfigured waterfront house facades, including new prominent triangular gables, exposed timber patterns and window arrangements not matching the supplied buildings.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.788,
+        0.319,
+        1.0,
+        0.567
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 3 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-06x-l2-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "4c6cb7638ec584346f04000eb01d94e702f3831d6451fc6dcd6273e3e5c593c5",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The rowers and attendants wear matching red coats with white cuffs and small tricorne-style or round caps. This looks like a uniform livery of the 18th century.",
+        "ly_do": "In 1666 the royal watermen wore Tudor-style livery, not matching coats with turned-back cuffs. The tricorne hats on the people on the barge also look like early 18th-century fashion. Hats in the 1660s were wide-brimmed, with high crowns or only slightly turned-up brims.",
+        "nam_xuat_hien": 1700,
+        "toa_do_px": [
+         0,
+         594,
+         576,
+         756
+        ],
+        "do_tin": 0.4
+       },
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "Several people on the barge wear black tricorne-style hats with the brim turned up on three sides. The man standing at the center of the barge wears one.",
+        "ly_do": "The tricorne became fashionable around 1690–1710. In 1666 men wore wide-brimmed hats with a high crown.",
+        "nam_xuat_hien": 1690,
+        "toa_do_px": [
+         902,
+         518,
+         1037,
+         562
+        ],
+        "do_tin": 0.4
+       },
+       {
+        "muc": "tau",
+        "mo_ta": "A very ornate gilded state barge with a carved canopy, a curtained and crowned baldachin, and a scrolled prow. The style is late Baroque or Rococo.",
+        "ly_do": "The design resembles the 1732 Prince Frederick barge or later barges. Royal barges in 1666 were less elaborate.",
+        "nam_xuat_hien": 1732,
+        "toa_do_px": [
+         0,
+         130,
+         1152,
+         864
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0361716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1096,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0361716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The rowers and attendants wear matching red coats with white cuffs and small tricorne-style or round caps. This looks like a uniform livery of the 18th century.\",\"ly_do\":\"In 1666 the royal watermen wore Tudor-style livery, not matching coats with turned-back cuffs. The tricorne hats on the people on the barge also look like early 18th-century fashion. Hats in the 1660s were wide-brimmed, with high crowns or only slightly turned-up brims.\",\"nam_xuat_hien\":1700,\"toa_do\":[0.0,0.55,0.3,0.7],\"do_tin\":0.4},{\"muc\":\"quan_phuc\",\"mo_ta\":\"Several people on the barge wear black tricorne-style hats with the brim turned up on three sides. The man standing at the center of the barge wears one.\",\"ly_do\":\"The tricorne became fashionable around 1690–1710. In 1666 men wore wide-brimmed hats with a high crown.\",\"nam_xuat_hien\":1690,\"toa_do\":[0.47,0.48,0.54,0.52],\"do_tin\":0.4},{\"muc\":\"tau\",\"mo_ta\":\"A very ornate gilded state barge with a carved canopy, a curtained and crowned baldachin, and a scrolled prow. The style is late Baroque or Rococo.\",\"ly_do\":\"The design resembles the 1732 Prince Frederick barge or later barges. Royal barges in 1666 were less elaborate.\",\"nam_xuat_hien\":1732,\"toa_do\":[0.0,0.12,0.6,0.8],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0362,
+    "chi_phi_tb": 0.0362,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 1,
+  "q_thoi_dai_nghi_van": 2,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 2,
+  "ket_qua": "LOẠI",
+  "chi_tiet": [
+   {
+    "u": 0.55,
+    "mo_hinh": "gpt",
+    "loai": "thoi_dai",
+    "mo_ta": "Nhóm mũ có vành gấp kiểu tricorn trên người chèo và người đứng trên sà lan; đây là kiểu dáng giáp ranh đối với năm 1666, chỉ phổ biến từ khoảng thập niên 1690, không phải bằng chứng chắc chắn về lỗi niên đại. Các mũ tương ứng đã có trong ảnh tham chiếu.",
+    "nam": 1690
+   },
+   {
+    "u": 0.25,
+    "mo_hinh": "q_thoi_dai",
+    "mo_ta": "{\"muc\": \"quan_phuc\", \"mo_ta\": \"Rowers and attendants on the barge wear matching red coats with white cuffs and black tricorne or cocked hats. This looks like a livery uniform from the 18th century.\", "
+   },
+   {
+    "u": 0.55,
+    "mo_hinh": "q_thoi_dai",
+    "mo_ta": "{\"muc\": \"quan_phuc\", \"mo_ta\": \"The rowers and attendants wear matching red coats with white cuffs. Several men wear black tricorne hats with turned-up brims. The gentleman in the red coat standing at "
+   }
+  ]
+ }
+}

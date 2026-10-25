@@ -1,0 +1,64 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H4-04d-l3-360p-k90",
+   "nam": 1940,
+   "noi": "London",
+   "sha256": "d2a05b4003da03ee5978c482645c9450a5f0a837906ccce5102f66e5d8fe26a3",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "medieval Guildhall with Gothic front",
+    "St Paul's dome if visible",
+    "no post-war buildings"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The burning main building looks like a Gothic church or cathedral. It has a steep pointed gable, tall thin spires and pinnacles, and a large traceried window. The real Guildhall has a low, broad 1788 Gothic-style front with a few pinnacles, and no tall spires. I could not identify it as the Guildhal",
+     "ly_do": "The Guildhall should stand in this view in its 1940 form. The building shown does not match that form. Some of the other buildings may also be generic invented Gothic.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      192,
+      0,
+      1574,
+      918
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.0343434,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 883,
+     "cacheReadInputTokens": 3064,
+     "cacheCreationInputTokens": 10078,
+     "webSearchRequests": 0,
+     "costUSD": 0.0343434,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 175,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.9,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The burning main building looks like a Gothic church or cathedral. It has a steep pointed gable, tall thin spires and pinnacles, and a large traceried window. The real Guildhall has a low, broad 1788 Gothic-style front with a few pinnacles, and no tall spires. I could not identify it as the Guildhall.\",\"ly_do\":\"The Guildhall should stand in this view in its 1940 form. The building shown does not match that form. Some of the other buildings may also be generic invented Gothic.\",\"nam_xuat_hien\":null,\"toa_do\":[0.1,0.0,0.82,0.85],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0343,
+ "chi_phi_tb": 0.0343,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

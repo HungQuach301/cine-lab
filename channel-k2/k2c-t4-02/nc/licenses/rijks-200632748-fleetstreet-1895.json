@@ -1,0 +1,1816 @@
+{
+ "id": "rijks-200632748-fleetstreet-1895",
+ "nhom": "B",
+ "chu_de": "Fleet Street",
+ "source_url": "https://www.rijksmuseum.nl/en/collection/RP-F-00-8439",
+ "api_url": "https://id.rijksmuseum.nl/200632748",
+ "accessed": "2026-10-25",
+ "holder": "Rijksmuseum, RP-F-00-8439",
+ "title": "Gezicht op Fleet Street te Londen",
+ "date": "1895-08",
+ "creator": "anoniem (None–None)",
+ "licence": "Rijksmuseum linked-art: https://creativecommons.org/publicdomain/mark/1.0/, https://creativecommons.org/publicdomain/zero/1.0/",
+ "licence_quote_verbatim": "object: https://creativecommons.org/publicdomain/mark/1.0/, https://creativecommons.org/publicdomain/zero/1.0/ | digital object: https://creativecommons.org/publicdomain/mark/1.0/, https://creativecommons.org/publicdomain/zero/1.0/",
+ "original": {
+  "url": "https://iiif.micr.io/rUnuY/full/max/0/default.jpg",
+  "file": "/var/tmp/nc-t4/goc/rijks-200632748-fleetstreet-1895/goc.jpg",
+  "bytes": 2708267,
+  "sha256": "4a7e63e624c79e17b8f982ddadde4cff82a921958d7ce261401221b4e5bd81e9",
+  "px": [
+   5544,
+   4138
+  ]
+ },
+ "derivative": {
+  "file": "channel-k2/k2c-t4-02/nc/anh/rijks-200632748-fleetstreet-1895.jpg",
+  "bytes": 698522,
+  "px": [
+   2400,
+   1791
+  ]
+ },
+ "raw_metadata_verbatim": {
+  "object": {
+   "@context": "https://linked.art/ns/v1/linked-art.json",
+   "id": "https://id.rijksmuseum.nl/200632748",
+   "type": "HumanMadeObject",
+   "classified_as": [
+    {
+     "id": "https://id.rijksmuseum.nl/220951",
+     "type": "Type",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435443",
+       "type": "Type",
+       "_label": "Type of Work"
+      }
+     ],
+     "equivalent": [
+      {
+       "id": "http://vocab.getty.edu/aat/300046300",
+       "type": "Type"
+      },
+      {
+       "id": "http://www.wikidata.org/entity/Q125191",
+       "type": "Type"
+      }
+     ],
+     "notation": [
+      {
+       "@language": "en",
+       "@value": "photograph"
+      },
+      {
+       "@language": "nl",
+       "@value": "foto"
+      }
+     ]
+    }
+   ],
+   "dimension": [
+    {
+     "type": "Dimension",
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22011",
+       "type": "Type",
+       "equivalent": [
+        {
+         "id": "http://vocab.getty.edu/aat/300055644",
+         "type": "Type"
+        }
+       ],
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "height"
+        },
+        {
+         "@language": "nl",
+         "@value": "hoogte"
+        }
+       ]
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "foto",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "unit": {
+      "id": "http://vocab.getty.edu/aat/300379097",
+      "type": "MeasurementUnit"
+     },
+     "value": "138"
+    },
+    {
+     "type": "Dimension",
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22012",
+       "type": "Type",
+       "equivalent": [
+        {
+         "id": "http://vocab.getty.edu/aat/300055647",
+         "type": "Type"
+        }
+       ],
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "width"
+        },
+        {
+         "@language": "nl",
+         "@value": "breedte"
+        }
+       ]
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "foto",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "unit": {
+      "id": "http://vocab.getty.edu/aat/300379097",
+      "type": "MeasurementUnit"
+     },
+     "value": "215"
+    }
+   ],
+   "equivalent": [
+    {
+     "id": "http://hdl.handle.net/10934/RM0001.COLLECT.605182",
+     "type": "HumanMadeObject"
+    }
+   ],
+   "identified_by": [
+    {
+     "type": "Identifier",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300312355",
+       "type": "Type"
+      },
+      {
+       "id": "https://id.rijksmuseum.nl/22015218",
+       "type": "Type",
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "object number"
+        },
+        {
+         "@language": "nl",
+         "@value": "objectnummer"
+        }
+       ]
+      }
+     ],
+     "content": "RP-F-00-8439"
+    },
+    {
+     "type": "Name",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300404670",
+       "type": "Type"
+      },
+      {
+       "id": "http://vocab.getty.edu/aat/300417200",
+       "type": "Type"
+      }
+     ],
+     "content": "Gezicht op Fleet Street te Londen",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    }
+   ],
+   "made_of": [
+    {
+     "id": "https://id.rijksmuseum.nl/2202619",
+     "type": "Material",
+     "equivalent": [
+      {
+       "id": "http://vocab.getty.edu/aat/300014190",
+       "type": "Material"
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "assigned_by": [
+        {
+         "type": "AttributeAssignment",
+         "assigned": [
+          "https://id.rijksmuseum.nl/200632748"
+         ],
+         "assigned_property": "influenced_by"
+        }
+       ],
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "notation": [
+      {
+       "@language": "en",
+       "@value": "photographic support"
+      },
+      {
+       "@language": "nl",
+       "@value": "fotodrager"
+      }
+     ]
+    }
+   ],
+   "member_of": [
+    {
+     "id": "https://id.rijksmuseum.nl/260238",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/260239",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/260251",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/26150",
+     "type": "Set"
+    }
+   ],
+   "produced_by": {
+    "type": "Production",
+    "part": [
+     {
+      "type": "Production",
+      "carried_out_by": [
+       {
+        "id": "https://id.rijksmuseum.nl/210640",
+        "type": "Person",
+        "equivalent": [
+         {
+          "id": "http://viaf.org/viaf/100627125",
+          "type": "Person"
+         },
+         {
+          "id": "http://vocab.getty.edu/ulan/500397994",
+          "type": "Person"
+         },
+         {
+          "id": "http://www.wikidata.org/entity/Q4233718",
+          "type": "Person"
+         },
+         {
+          "id": "https://rkd.nl/artists/1984",
+          "type": "Person"
+         }
+        ],
+        "notation": [
+         {
+          "@language": "en",
+          "@value": "anonymous"
+         },
+         {
+          "@language": "nl",
+          "@value": "anoniem"
+         }
+        ]
+       }
+      ],
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300404450",
+        "type": "Type"
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ],
+        "content": "1"
+       }
+      ],
+      "referred_to_by": [
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "content": "fotograaf: anoniem, Londen",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "content": "photographer: anonymous, London",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435417",
+          "type": "Type"
+         }
+        ],
+        "content": "anoniem",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435417",
+          "type": "Type"
+         }
+        ],
+        "content": "anonymous",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       }
+      ],
+      "technique": [
+       {
+        "id": "https://id.rijksmuseum.nl/2204764",
+        "type": "Type",
+        "equivalent": [
+         {
+          "id": "http://vocab.getty.edu/aat/300025687",
+          "type": "Type"
+         }
+        ],
+        "notation": [
+         {
+          "@language": "en",
+          "@value": "photographer"
+         },
+         {
+          "@language": "nl",
+          "@value": "fotograaf"
+         }
+        ]
+       }
+      ],
+      "took_place_at": [
+       {
+        "id": "https://id.rijksmuseum.nl/230164",
+        "type": "Place",
+        "equivalent": [
+         {
+          "id": "http://www.wikidata.org/entity/Q84",
+          "type": "Place"
+         },
+         {
+          "id": "https://sws.geonames.org/2643743/",
+          "type": "Place"
+         }
+        ],
+        "notation": [
+         {
+          "@language": "en",
+          "@value": "London"
+         },
+         {
+          "@language": "nl",
+          "@value": "Londen"
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "referred_to_by": [
+     {
+      "type": "LinguisticObject",
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300435416",
+        "type": "Type"
+       }
+      ],
+      "content": "anoniem",
+      "language": [
+       {
+        "id": "http://vocab.getty.edu/aat/300388256",
+        "type": "Language"
+       }
+      ]
+     },
+     {
+      "type": "LinguisticObject",
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300435416",
+        "type": "Type"
+       }
+      ],
+      "content": "anonymous",
+      "language": [
+       {
+        "id": "http://vocab.getty.edu/aat/300388277",
+        "type": "Language"
+       }
+      ]
+     }
+    ],
+    "technique": [
+     {
+      "id": "https://id.rijksmuseum.nl/2206661",
+      "type": "Type",
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "assigned_by": [
+         {
+          "type": "AttributeAssignment",
+          "assigned": [
+           "https://id.rijksmuseum.nl/200632748"
+          ],
+          "assigned_property": "influenced_by"
+         }
+        ],
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ],
+        "content": "1"
+       }
+      ],
+      "notation": {
+       "@language": "nl",
+       "@value": "daglichtgelatinezilverdruk"
+      }
+     }
+    ],
+    "timespan": {
+     "type": "TimeSpan",
+     "begin_of_the_begin": "1895-08-01T00:00:00Z",
+     "end_of_the_end": "1895-08-31T23:59:59Z",
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "1895-08",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      },
+      {
+       "type": "Name",
+       "content": "1895-08",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388277",
+         "type": "Language"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "referred_to_by": [
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "collector's mark: ‘Instituut voor kunst-nijverheidsonderwijs Gabriël Metsustraat No. 16, Amsterdam’",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "collector's mark: ‘Kunstnijverheidschool Quellinus Amsterdam Frans Halsstraat 14.’",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "inscription: ‘Londen. Aug 1895 Fleet-street’",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "opschrift, verso, handgeschreven: ‘Londen. Aug 1895 Fleet-street’",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "verzamelaarsmerk, verso, gestempeld: ‘Instituut voor kunst-nijverheidsonderwijs Gabriël Metsustraat No. 16, Amsterdam’",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "verzamelaarsmerk, verso, gestempeld: ‘Kunstnijverheidschool Quellinus Amsterdam Frans Halsstraat 14.’",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435429",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "daglichtgelatinezilverdruk",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435430",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "foto: hoogte 138 mm x breedte 215 mm",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435430",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "height 138 mm x width 215 mm",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    }
+   ],
+   "shows": [
+    {
+     "id": "https://id.rijksmuseum.nl/202632748",
+     "type": "VisualItem"
+    }
+   ],
+   "subject_of": [
+    {
+     "type": "LinguisticObject",
+     "digitally_carried_by": [
+      {
+       "type": "DigitalObject",
+       "access_point": [
+        {
+         "id": "https://iiif.micr.io/rUnuY/full/max/0/default.jpg",
+         "type": "DigitalObject"
+        }
+       ],
+       "referred_to_by": [
+        {
+         "type": "LinguisticObject",
+         "_label": "Public Domain",
+         "classified_as": [
+          {
+           "id": "https://vocab.getty.edu/aat/300460240",
+           "type": "Type"
+          }
+         ],
+         "content": "https://creativecommons.org/publicdomain/mark/1.0/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "digitally_carried_by": [
+      {
+       "type": "DigitalObject",
+       "access_point": [
+        {
+         "id": "https://www.rijksmuseum.nl/nl/collectie/object/RP-F-00-8439--9408cf99881a4a516deac0ca0bebad1c",
+         "type": "DigitalObject"
+        }
+       ],
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300264578",
+         "type": "Type"
+        }
+       ],
+       "format": "text/html"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "id": "https://data.rijksmuseum.nl/200632748",
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300379475",
+       "type": "Type"
+      }
+     ],
+     "subject_to": [
+      {
+       "type": "Right",
+       "classified_as": [
+        {
+         "id": "https://creativecommons.org/publicdomain/zero/1.0/",
+         "type": "Type"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "visual_item": {
+   "@context": "https://linked.art/ns/v1/linked-art.json",
+   "id": "https://id.rijksmuseum.nl/202632748",
+   "type": "VisualItem",
+   "subject_to": [
+    {
+     "type": "Right",
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "Public Domain",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388277",
+         "type": "Language",
+         "_label": "English"
+        }
+       ]
+      },
+      {
+       "type": "Name",
+       "content": "Publieke domein",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language",
+         "_label": "Dutch"
+        }
+       ]
+      }
+     ],
+     "classified_as": [
+      {
+       "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+       "type": "Type",
+       "_label": "Public Domain"
+      }
+     ]
+    }
+   ],
+   "subject_of": [
+    {
+     "id": "https://data.rijksmuseum.nl/202632748",
+     "type": "LinguisticObject",
+     "subject_to": [
+      {
+       "type": "Right",
+       "classified_as": [
+        {
+         "id": "https://creativecommons.org/publicdomain/zero/1.0/",
+         "type": "Type"
+        }
+       ]
+      }
+     ],
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300379475",
+       "type": "Type"
+      }
+     ]
+    }
+   ],
+   "represents": [
+    {
+     "id": "https://id.rijksmuseum.nl/230164",
+     "type": "Place",
+     "equivalent": [
+      {
+       "id": "https://sws.geonames.org/2643743/",
+       "type": "Place"
+      },
+      {
+       "id": "http://www.wikidata.org/entity/Q84",
+       "type": "Place"
+      }
+     ]
+    }
+   ],
+   "represents_instance_of_type": [
+    {
+     "id": "https://id.rijksmuseum.nl/221637",
+     "type": "Type",
+     "equivalent": [
+      {
+       "id": "https://iconclass.org/25I141",
+       "type": "Type"
+      }
+     ]
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/221226",
+     "type": "Type",
+     "equivalent": [
+      {
+       "id": "https://iconclass.org/46C144",
+       "type": "Type"
+      }
+     ]
+    }
+   ],
+   "shown_by": [
+    {
+     "id": "https://id.rijksmuseum.nl/200632748",
+     "type": "HumanMadeObject",
+     "equivalent": [
+      {
+       "id": "http://hdl.handle.net/10934/RM0001.COLLECT.605182",
+       "type": "HumanMadeObject"
+      }
+     ]
+    }
+   ],
+   "digitally_shown_by": [
+    {
+     "id": "https://id.rijksmuseum.nl/500871111161088311651115",
+     "type": "DigitalObject"
+    }
+   ]
+  },
+  "digital_object": {
+   "@context": "https://linked.art/ns/v1/linked-art.json",
+   "id": "https://id.rijksmuseum.nl/200632748",
+   "type": "HumanMadeObject",
+   "classified_as": [
+    {
+     "id": "https://id.rijksmuseum.nl/220951",
+     "type": "Type",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435443",
+       "type": "Type",
+       "_label": "Type of Work"
+      }
+     ],
+     "equivalent": [
+      {
+       "id": "http://vocab.getty.edu/aat/300046300",
+       "type": "Type"
+      },
+      {
+       "id": "http://www.wikidata.org/entity/Q125191",
+       "type": "Type"
+      }
+     ],
+     "notation": [
+      {
+       "@language": "en",
+       "@value": "photograph"
+      },
+      {
+       "@language": "nl",
+       "@value": "foto"
+      }
+     ]
+    }
+   ],
+   "dimension": [
+    {
+     "type": "Dimension",
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22011",
+       "type": "Type",
+       "equivalent": [
+        {
+         "id": "http://vocab.getty.edu/aat/300055644",
+         "type": "Type"
+        }
+       ],
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "height"
+        },
+        {
+         "@language": "nl",
+         "@value": "hoogte"
+        }
+       ]
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "foto",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "unit": {
+      "id": "http://vocab.getty.edu/aat/300379097",
+      "type": "MeasurementUnit"
+     },
+     "value": "138"
+    },
+    {
+     "type": "Dimension",
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22012",
+       "type": "Type",
+       "equivalent": [
+        {
+         "id": "http://vocab.getty.edu/aat/300055647",
+         "type": "Type"
+        }
+       ],
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "width"
+        },
+        {
+         "@language": "nl",
+         "@value": "breedte"
+        }
+       ]
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "foto",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "unit": {
+      "id": "http://vocab.getty.edu/aat/300379097",
+      "type": "MeasurementUnit"
+     },
+     "value": "215"
+    }
+   ],
+   "equivalent": [
+    {
+     "id": "http://hdl.handle.net/10934/RM0001.COLLECT.605182",
+     "type": "HumanMadeObject"
+    }
+   ],
+   "identified_by": [
+    {
+     "type": "Identifier",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300312355",
+       "type": "Type"
+      },
+      {
+       "id": "https://id.rijksmuseum.nl/22015218",
+       "type": "Type",
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "object number"
+        },
+        {
+         "@language": "nl",
+         "@value": "objectnummer"
+        }
+       ]
+      }
+     ],
+     "content": "RP-F-00-8439"
+    },
+    {
+     "type": "Name",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300404670",
+       "type": "Type"
+      },
+      {
+       "id": "http://vocab.getty.edu/aat/300417200",
+       "type": "Type"
+      }
+     ],
+     "content": "Gezicht op Fleet Street te Londen",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    }
+   ],
+   "made_of": [
+    {
+     "id": "https://id.rijksmuseum.nl/2202619",
+     "type": "Material",
+     "equivalent": [
+      {
+       "id": "http://vocab.getty.edu/aat/300014190",
+       "type": "Material"
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "assigned_by": [
+        {
+         "type": "AttributeAssignment",
+         "assigned": [
+          "https://id.rijksmuseum.nl/200632748"
+         ],
+         "assigned_property": "influenced_by"
+        }
+       ],
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "notation": [
+      {
+       "@language": "en",
+       "@value": "photographic support"
+      },
+      {
+       "@language": "nl",
+       "@value": "fotodrager"
+      }
+     ]
+    }
+   ],
+   "member_of": [
+    {
+     "id": "https://id.rijksmuseum.nl/260238",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/260239",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/260251",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/26150",
+     "type": "Set"
+    }
+   ],
+   "produced_by": {
+    "type": "Production",
+    "part": [
+     {
+      "type": "Production",
+      "carried_out_by": [
+       {
+        "id": "https://id.rijksmuseum.nl/210640",
+        "type": "Person",
+        "equivalent": [
+         {
+          "id": "http://viaf.org/viaf/100627125",
+          "type": "Person"
+         },
+         {
+          "id": "http://vocab.getty.edu/ulan/500397994",
+          "type": "Person"
+         },
+         {
+          "id": "http://www.wikidata.org/entity/Q4233718",
+          "type": "Person"
+         },
+         {
+          "id": "https://rkd.nl/artists/1984",
+          "type": "Person"
+         }
+        ],
+        "notation": [
+         {
+          "@language": "en",
+          "@value": "anonymous"
+         },
+         {
+          "@language": "nl",
+          "@value": "anoniem"
+         }
+        ]
+       }
+      ],
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300404450",
+        "type": "Type"
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ],
+        "content": "1"
+       }
+      ],
+      "referred_to_by": [
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "content": "fotograaf: anoniem, Londen",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "content": "photographer: anonymous, London",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435417",
+          "type": "Type"
+         }
+        ],
+        "content": "anoniem",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435417",
+          "type": "Type"
+         }
+        ],
+        "content": "anonymous",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       }
+      ],
+      "technique": [
+       {
+        "id": "https://id.rijksmuseum.nl/2204764",
+        "type": "Type",
+        "equivalent": [
+         {
+          "id": "http://vocab.getty.edu/aat/300025687",
+          "type": "Type"
+         }
+        ],
+        "notation": [
+         {
+          "@language": "en",
+          "@value": "photographer"
+         },
+         {
+          "@language": "nl",
+          "@value": "fotograaf"
+         }
+        ]
+       }
+      ],
+      "took_place_at": [
+       {
+        "id": "https://id.rijksmuseum.nl/230164",
+        "type": "Place",
+        "equivalent": [
+         {
+          "id": "http://www.wikidata.org/entity/Q84",
+          "type": "Place"
+         },
+         {
+          "id": "https://sws.geonames.org/2643743/",
+          "type": "Place"
+         }
+        ],
+        "notation": [
+         {
+          "@language": "en",
+          "@value": "London"
+         },
+         {
+          "@language": "nl",
+          "@value": "Londen"
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "referred_to_by": [
+     {
+      "type": "LinguisticObject",
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300435416",
+        "type": "Type"
+       }
+      ],
+      "content": "anoniem",
+      "language": [
+       {
+        "id": "http://vocab.getty.edu/aat/300388256",
+        "type": "Language"
+       }
+      ]
+     },
+     {
+      "type": "LinguisticObject",
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300435416",
+        "type": "Type"
+       }
+      ],
+      "content": "anonymous",
+      "language": [
+       {
+        "id": "http://vocab.getty.edu/aat/300388277",
+        "type": "Language"
+       }
+      ]
+     }
+    ],
+    "technique": [
+     {
+      "id": "https://id.rijksmuseum.nl/2206661",
+      "type": "Type",
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "assigned_by": [
+         {
+          "type": "AttributeAssignment",
+          "assigned": [
+           "https://id.rijksmuseum.nl/200632748"
+          ],
+          "assigned_property": "influenced_by"
+         }
+        ],
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ],
+        "content": "1"
+       }
+      ],
+      "notation": {
+       "@language": "nl",
+       "@value": "daglichtgelatinezilverdruk"
+      }
+     }
+    ],
+    "timespan": {
+     "type": "TimeSpan",
+     "begin_of_the_begin": "1895-08-01T00:00:00Z",
+     "end_of_the_end": "1895-08-31T23:59:59Z",
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "1895-08",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      },
+      {
+       "type": "Name",
+       "content": "1895-08",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388277",
+         "type": "Language"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "referred_to_by": [
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "collector's mark: ‘Instituut voor kunst-nijverheidsonderwijs Gabriël Metsustraat No. 16, Amsterdam’",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "collector's mark: ‘Kunstnijverheidschool Quellinus Amsterdam Frans Halsstraat 14.’",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "inscription: ‘Londen. Aug 1895 Fleet-street’",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "opschrift, verso, handgeschreven: ‘Londen. Aug 1895 Fleet-street’",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "verzamelaarsmerk, verso, gestempeld: ‘Instituut voor kunst-nijverheidsonderwijs Gabriël Metsustraat No. 16, Amsterdam’",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "verzamelaarsmerk, verso, gestempeld: ‘Kunstnijverheidschool Quellinus Amsterdam Frans Halsstraat 14.’",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435429",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "daglichtgelatinezilverdruk",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435430",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "foto: hoogte 138 mm x breedte 215 mm",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435430",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "height 138 mm x width 215 mm",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    }
+   ],
+   "shows": [
+    {
+     "id": "https://id.rijksmuseum.nl/202632748",
+     "type": "VisualItem"
+    }
+   ],
+   "subject_of": [
+    {
+     "type": "LinguisticObject",
+     "digitally_carried_by": [
+      {
+       "type": "DigitalObject",
+       "access_point": [
+        {
+         "id": "https://iiif.micr.io/rUnuY/full/max/0/default.jpg",
+         "type": "DigitalObject"
+        }
+       ],
+       "referred_to_by": [
+        {
+         "type": "LinguisticObject",
+         "_label": "Public Domain",
+         "classified_as": [
+          {
+           "id": "https://vocab.getty.edu/aat/300460240",
+           "type": "Type"
+          }
+         ],
+         "content": "https://creativecommons.org/publicdomain/mark/1.0/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "digitally_carried_by": [
+      {
+       "type": "DigitalObject",
+       "access_point": [
+        {
+         "id": "https://www.rijksmuseum.nl/nl/collectie/object/RP-F-00-8439--9408cf99881a4a516deac0ca0bebad1c",
+         "type": "DigitalObject"
+        }
+       ],
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300264578",
+         "type": "Type"
+        }
+       ],
+       "format": "text/html"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "id": "https://data.rijksmuseum.nl/200632748",
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300379475",
+       "type": "Type"
+      }
+     ],
+     "subject_to": [
+      {
+       "type": "Right",
+       "classified_as": [
+        {
+         "id": "https://creativecommons.org/publicdomain/zero/1.0/",
+         "type": "Type"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

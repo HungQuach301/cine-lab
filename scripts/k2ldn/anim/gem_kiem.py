@@ -34,7 +34,8 @@ def frames(clip, out, tag):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--anh', required=True); ap.add_argument('--clip'); ap.add_argument('--nam', required=True); ap.add_argument('--canh', required=True)
-    ap.add_argument('--loi', default=''); ap.add_argument('--tag', required=True); ap.add_argument('--out', required=True); a = ap.parse_args()
+    ap.add_argument('--loi', default=''); ap.add_argument('--tag', required=True); ap.add_argument('--out', required=True)
+    ap.add_argument('--moc', default='', help='ANIMATIC-T4-V2 mức kiểm ĐỦ: công trình mốc phải có / không được có (câu hỏi bắt buộc)'); a = ap.parse_args()
     G.kiem_truoc(0.05); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     C = json.loads((G.REPO / 'scripts/k2ldn/ai/cam_thoi_dai.json').read_text()); nam = float(a.nam)
     cam = (C['chung'] if nam < 1850 else []) + (C['t4_1666'] if nam < 1700 else []) + C['ai_da_bia']
@@ -43,6 +44,10 @@ def main():
         fr, n, fps = frames(a.clip, out, a.tag); imgs = [Path(a.anh)] + fr; meta = {'so_khung': n, 'fps': fps, 'giay': round(n / fps, 2)}
         ref = 'Image 1 is the REFERENCE first frame we supplied (anything in it is allowed). Images 2-4 are frames of the generated clip — inspect those.'
     pr = PROMPT.format(canh=a.canh, nam=int(nam), loi=a.loi.replace('"', "'"), ref=ref, cam='; '.join(cam))
+    if a.moc:   # ANIMATIC-T4-V2: câu hỏi bắt buộc của mức kiểm ĐỦ (lệnh 25/10/2026) — "công trình mốc của năm đó có mặt chưa / có công trình chưa tồn tại không"
+        pr += (f'\nMANDATORY landmark check for {int(nam)}: {a.moc}. Are the landmark buildings that existed in {int(nam)} present and correct where the scene needs them? '
+               f'Is any building shown that did NOT yet exist in {int(nam)} (or had already disappeared)? Report every such problem as an item with "loai": "cong_trinh_sai". '
+               'Also add to the JSON object the fields "moc_co_mat": true|false and "cong_trinh_chua_ton_tai": ["<building>", ...].')
     parts = [{'inline_data': {'mime_type': 'image/jpeg', 'data': base64.b64encode(cv2.imencode('.jpg', cv2.resize(cv2.imread(str(p)), (1280, 720)), [cv2.IMWRITE_JPEG_QUALITY, 90])[1].tobytes()).decode()}} for p in imgs]
     body = {'contents': [{'role': 'user', 'parts': parts + [{'text': pr}]}], 'generationConfig': {'responseMimeType': 'application/json', 'temperature': 0}}
     st, raw = G.req('POST', f'{G.API}/models/{MODEL}:generateContent', body, timeout=300)
@@ -58,7 +63,8 @@ def main():
     G.log(rec)
     loi = [m for m in R.get('muc', []) if (m.get('do_tin') or 0) >= 0.5 and (m.get('loai') != 'thoi_dai' or (isinstance(m.get('nam_xuat_hien'), (int, float)) and m['nam_xuat_hien'] > nam) or m.get('nam_xuat_hien') is None)
            and m.get('loai') != 'khac' and not (a.clip and m.get('anh') == 1)]
-    kq = {'tag': a.tag, 'tang': 1, 'model': MODEL, 'nam': nam, 'canh': a.canh, 'loi_cau': a.loi, **meta, 'mo_ta': R.get('mo_ta'), 'muc': R.get('muc', []), 'loi': loi, 'ket_luan': 'LOẠI' if loi else 'ĐẠT-T1', 'usd': rec['usd']}
+    if a.moc and R.get('cong_trinh_chua_ton_tai'): loi += [{'loai': 'cong_trinh_sai', 'mo_ta': 'chưa tồn tại: ' + ', '.join(map(str, R['cong_trinh_chua_ton_tai'])), 'do_tin': 1.0}]
+    kq = {'tag': a.tag, 'tang': 1, 'moc_hoi': a.moc or None, 'moc_co_mat': R.get('moc_co_mat'), 'cong_trinh_chua_ton_tai': R.get('cong_trinh_chua_ton_tai'), 'model': MODEL, 'nam': nam, 'canh': a.canh, 'loi_cau': a.loi, **meta, 'mo_ta': R.get('mo_ta'), 'muc': R.get('muc', []), 'loi': loi, 'ket_luan': 'LOẠI' if loi else 'ĐẠT-T1', 'usd': rec['usd']}
     (out / f'{a.tag}-t1.json').write_text(json.dumps(kq, ensure_ascii=False, indent=1))
     print(json.dumps({k: kq[k] for k in ('tag', 'ket_luan', 'usd')} | {'loi': [f"{m.get('loai')}: {m.get('mo_ta')}" for m in loi][:6]}, ensure_ascii=False))
 

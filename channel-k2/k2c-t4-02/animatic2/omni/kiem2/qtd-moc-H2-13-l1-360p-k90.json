@@ -1,0 +1,51 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-13-l1-360p-k90",
+   "nam": 1711,
+   "noi": "London",
+   "sha256": "6d67cdf29cb52cffcc91cb21a7a6d5b5b9435b1251f4b6d6533ad2560d75c1ba",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "St Paul's Cathedral, Wren's dome with lantern and cross (completed 1710)",
+    "City church steeples by Wren (1670s-1700s)",
+    "no Gothic spire on St Paul's (Old St Paul's destroyed 1666)",
+    "no Monument-era-later buildings"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.0314614,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 569,
+     "cacheReadInputTokens": 3144,
+     "cacheCreationInputTokens": 10178,
+     "webSearchRequests": 0,
+     "costUSD": 0.0314614,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 73,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.2,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0315,
+ "chi_phi_tb": 0.0315,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

@@ -1,0 +1,53 @@
+{
+ "tag": "H2-06b-a3",
+ "tang": 1,
+ "moc_hoi": "must show: an unfinished fluted column (the Monument); must NOT show any dome or modern building",
+ "moc_co_mat": true,
+ "cong_trinh_chua_ton_tai": [
+  "Nhà thờ Thánh Paul có mái vòm (Wren's St Paul's Cathedral dome)"
+ ],
+ "model": "gemini-3.8-flash",
+ "nam": 1675.0,
+ "canh": "the Monument column under construction, London, 1670s, Portland stone hoisted",
+ "loi_cau": "Near the bakery, Wren and Hooke raise a column: the Monument. Two hundred and two feet high — exactly the distance to the spot in Pudding Lane where the fire began. Portland stone is so hard to come by that the column takes six years.",
+ "mo_ta": "Cảnh thi công công trình đài tưởng niệm The Monument ở London năm 1675 với cần cẩu bánh xe guồng, nhưng hậu cảnh xuất hiện mái vòm Nhà thờ St Paul đã hoàn thiện.",
+ "muc": [
+  {
+   "anh": 1,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Mái vòm Nhà thờ St Paul của Christopher Wren xuất hiện hoàn thiện ở hậu cảnh phía xa, trong khi công trình này chỉ mới bắt đầu khởi công năm 1675 và mái vòm hoàn thành năm 1708.",
+   "nam_xuat_hien": 1708,
+   "do_tin": 0.98
+  },
+  {
+   "anh": 1,
+   "loai": "tau_lon",
+   "mo_ta": "Thuyền buồm lớn hai cột buồm neo đậu/di chuyển trên sông Thames ở hậu cảnh.",
+   "nam_xuat_hien": null,
+   "do_tin": 0.85
+  }
+ ],
+ "loi": [
+  {
+   "anh": 1,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Mái vòm Nhà thờ St Paul của Christopher Wren xuất hiện hoàn thiện ở hậu cảnh phía xa, trong khi công trình này chỉ mới bắt đầu khởi công năm 1675 và mái vòm hoàn thành năm 1708.",
+   "nam_xuat_hien": 1708,
+   "do_tin": 0.98
+  },
+  {
+   "anh": 1,
+   "loai": "tau_lon",
+   "mo_ta": "Thuyền buồm lớn hai cột buồm neo đậu/di chuyển trên sông Thames ở hậu cảnh.",
+   "nam_xuat_hien": null,
+   "do_tin": 0.85
+  },
+  {
+   "loai": "cong_trinh_sai",
+   "mo_ta": "chưa tồn tại: Nhà thờ Thánh Paul có mái vòm (Wren's St Paul's Cathedral dome)",
+   "do_tin": 1.0
+  }
+ ],
+ "ket_luan": "LOẠI",
+ "usd": 0.00639
+}

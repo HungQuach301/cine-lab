@@ -1,0 +1,601 @@
+{
+ "tag": "H1-03b-l3-360p",
+ "clip": "/var/tmp/anim/omni3/H1-03b/H1-03b-l3-360p.mp4",
+ "clip_sha": "171688f984555a2d3f9bf5acfeb013478f5dd5492b97415ae39ebc0f035238c6",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic2/omni/dau/H1-03b-dau.jpg",
+ "dau_sha": "4fe09f3418cf99f655332a18f157a7713714009337d1b0ca56248a0ea1bf2b88",
+ "nam": "1647",
+ "canh": "an artist sketching London from the tower of St Saviour's church, Southwark, 1647",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/anim/kiem2/H1-03b-l3-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0305,
+      "usage": {
+       "input_tokens": 10136,
+       "input_tokens_details": {
+        "cache_write_tokens": 10133,
+        "cached_tokens": 0
+       },
+       "output_tokens": 1026,
+       "output_tokens_details": {
+        "reasoning_tokens": 249
+       },
+       "total_tokens": 11162
+      }
+     },
+     "secs": 17.4,
+     "mo_ta": "Một họa sĩ ngồi ký họa trên tháp nhà thờ, nhìn qua sông Thames với thuyền buồm, cầu có nhà xây bên trên và đường chân trời London.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Phần kiến trúc Gothic của tháp nhà thờ St Saviour’s ở sát mép trái tiền cảnh.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.0,
+        0.062,
+        0.658
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu London cũ với các nhịp vòm đá và dãy nhà xây trên cầu ở phía phải.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.691,
+        0.329,
+        1.0,
+        0.543
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Đại giáo đường Gothic nổi bật trên đường chân trời, có vẻ được dùng để thể hiện nhà thờ St Paul’s cũ.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.549,
+        0.147,
+        0.716,
+        0.297
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm chở hàng bên trái giữa sông, phần thân bị mái nhà tiền cảnh che khuất.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.342,
+        0.449,
+        0.434,
+        0.655
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm có nhiều người ở xa hơn, ngay bên phải cánh buồm lớn phía trái.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.409,
+        0.438,
+        0.469,
+        0.537
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.73
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền hàng thân dài giữa sông, chở nhiều kiện hàng và người, có một cánh buồm nhỏ.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.536,
+        0.529,
+        0.702,
+        0.643
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm lớn bên phải, chở nhiều người trên thân thuyền dài.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.849,
+        0.503,
+        0.994,
+        0.733
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-03b-l3-360p-k25",
+      "nam": 1647,
+      "noi": "London",
+      "sha256": "f1b5d0ef9300c3d1af7bb8e639aa28c1d7c42a6464ed99674991976e06df0aaa",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0320816,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 687,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0320816,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 141,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1647,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0321,
+    "chi_phi_tb": 0.0321,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/anim/kiem2/H1-03b-l3-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0289,
+      "usage": {
+       "input_tokens": 10136,
+       "input_tokens_details": {
+        "cache_write_tokens": 10133,
+        "cached_tokens": 0
+       },
+       "output_tokens": 858,
+       "output_tokens_details": {
+        "reasoning_tokens": 207
+       },
+       "total_tokens": 10994
+      }
+     },
+     "secs": 15.8,
+     "mo_ta": "Một họa sĩ phác họa London nhìn từ tháp nhà thờ St Saviour’s, với sông Thames, thuyền buồm, cầu có nhà xây bên trên và nhiều tháp nhà thờ phía xa.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Phần kiến trúc nhà thờ St Saviour’s ở sát mép trái khung hình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.0,
+        0.028,
+        0.342
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Công trình nhà thờ lớn trên đường chân trời, thể hiện nhà thờ St Paul’s cũ với tháp vuông trung tâm.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.55,
+        0.147,
+        0.715,
+        0.298
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu London cũ với các vòm đá và dãy nhà xây trên cầu ở bên phải.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.716,
+        0.33,
+        1.0,
+        0.539
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm chở hàng bên trái giữa sông, thân thuyền bị mái nhà tiền cảnh che một phần.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.348,
+        0.442,
+        0.436,
+        0.658
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền hàng lớn giữa sông, chở các kiện hàng, có mái chèo và một buồm nhỏ.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.551,
+        0.53,
+        0.722,
+        0.65
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.89
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm lớn chở nhiều người ở mép phải, một phần thân thuyền nằm ngoài khung hình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.874,
+        0.504,
+        1.0,
+        0.743
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà tiền cảnh dưới giá vẽ được biến đổi thành các mặt tiền cao, lộ khung gỗ, có thêm cửa sổ và đầu hồi rõ nét; những chi tiết kiến trúc này không hiện diện trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.266,
+        0.653,
+        0.509,
+        0.929
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà tiền cảnh dưới giá vẽ được biến đổi thành các mặt tiền cao, lộ khung gỗ, có thêm cửa sổ và đầu hồi rõ nét; những chi tiết kiến trúc này không hiện diện trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.266,
+        0.653,
+        0.509,
+        0.929
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-03b-l3-360p-k55",
+      "nam": 1647,
+      "noi": "London",
+      "sha256": "ae938407551ae0b1b59daaa6920800aec3ea191ee166e09a3b92b53e528718aa",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "The bridge at the right edge is a stone arched bridge. Its upper part is hard to make out, and I can't see the houses London Bridge carried.",
+        "ly_do": "London Bridge in 1647 was lined with houses and shops along its length. The plain arches may be a loose depiction. I'm not confident this is an anachronism.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1498,
+         799,
+         1920,
+         562
+        ],
+        "do_tin": 0.12
+       }
+      ],
+      "cost_usd": 0.033671599999999996,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 846,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.033671599999999996,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 130,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1647,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The bridge at the right edge is a stone arched bridge. Its upper part is hard to make out, and I can't see the houses London Bridge carried.\",\"ly_do\":\"London Bridge in 1647 was lined with houses and shops along its length. The plain arches may be a loose depiction. I'm not confident this is an anachronism.\",\"nam_xuat_hien\":null,\"toa_do\":[0.78,0.74,1.0,0.52],\"do_tin\":0.12}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0337,
+    "chi_phi_tb": 0.0337,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/anim/kiem2/H1-03b-l3-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0326,
+      "usage": {
+       "input_tokens": 10148,
+       "input_tokens_details": {
+        "cache_write_tokens": 10145,
+        "cached_tokens": 0
+       },
+       "output_tokens": 1229,
+       "output_tokens_details": {
+        "reasoning_tokens": 368
+       },
+       "total_tokens": 11377
+      }
+     },
+     "secs": 23.8,
+     "mo_ta": "Khung hình cho thấy bàn tay họa sĩ đang phác họa London bên sông Thames, với nhà cửa, tháp nhà thờ, cầu có nhà xây phía trên và các thuyền buồm.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ lớn nổi bật trên đường chân trời, thể hiện như nhà thờ St Paul thời trước Đại hỏa hoạn; công trình này đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.55,
+        0.145,
+        0.715,
+        0.291
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu London cổ với các nhịp vòm đá và dãy nhà phía trên, ở bên phải khung hình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.715,
+        0.337,
+        1.0,
+        0.548
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm bị giá vẽ và mái nhà che khuất phần thân, chỉ thấy các cột buồm, dây chằng và buồm cuộn ở bên trái; bộ giàn buồm này không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.124,
+        0.418,
+        0.286,
+        0.608
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm chở hàng gần bờ bên trái trung tâm, với buồm màu kem và phần thân bị mái nhà che một phần.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.343,
+        0.439,
+        0.437,
+        0.67
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Sà lan chở hàng dài giữa sông, có nhiều người, kiện hàng và một buồm nhỏ.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.571,
+        0.522,
+        0.745,
+        0.655
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm lớn chở nhiều người ở mép phải, bị cắt mất một phần bởi rìa khung hình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.898,
+        0.505,
+        1.0,
+        0.747
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà tiền cảnh bên dưới giá vẽ được biến đổi thành các mặt đứng khung gỗ nhiều tầng, thêm hệ giằng chéo, cửa sổ và tầng nhô ra không thấy trên các nhà tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.24,
+        0.635,
+        0.513,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      }
+     ],
+     "loi": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm bị giá vẽ và mái nhà che khuất phần thân, chỉ thấy các cột buồm, dây chằng và buồm cuộn ở bên trái; bộ giàn buồm này không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.124,
+        0.418,
+        0.286,
+        0.608
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà tiền cảnh bên dưới giá vẽ được biến đổi thành các mặt đứng khung gỗ nhiều tầng, thêm hệ giằng chéo, cửa sổ và tầng nhô ra không thấy trên các nhà tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.24,
+        0.635,
+        0.513,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-03b-l3-360p-k90",
+      "nam": 1647,
+      "noi": "London",
+      "sha256": "c47f78e72c46585093d9e9bbcea80ca031a98938bdcd019c33c9996927b792ae",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The standing figure on the wharf at lower right seems to wear a cocked or tricorn-style hat with a long coat. The figure is small and blurry.",
+        "ly_do": "Tricorn hats became fashionable in the 1690s and later. In 1647 men wore broad-brimmed or high-crowned hats. The identification is uncertain.",
+        "nam_xuat_hien": 1690,
+        "toa_do_px": [
+         1757,
+         929,
+         1843,
+         1037
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.033851599999999996,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 864,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.033851599999999996,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 142,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1647,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The standing figure on the wharf at lower right seems to wear a cocked or tricorn-style hat with a long coat. The figure is small and blurry.\",\"ly_do\":\"Tricorn hats became fashionable in the 1690s and later. In 1647 men wore broad-brimmed or high-crowned hats. The identification is uncertain.\",\"nam_xuat_hien\":1690,\"toa_do\":[0.915,0.86,0.96,0.96],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0339,
+    "chi_phi_tb": 0.0339,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 1,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "LOẠI",
+  "chi_tiet": [
+   {
+    "u": 0.9,
+    "mo_hinh": "gpt",
+    "loai": "tau_lon",
+    "mo_ta": "Tàu buồm bị giá vẽ và mái nhà che khuất phần thân, chỉ thấy các cột buồm, dây chằng và buồm cuộn ở bên trái; bộ giàn buồm này không có trong ảnh tham chiếu.",
+    "nam": null
+   }
+  ]
+ }
+}

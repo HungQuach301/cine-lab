@@ -1,0 +1,68 @@
+{
+ "tag": "H2-10b-a1",
+ "tang": 1,
+ "moc_hoi": "must show: top of St Paul's lantern; no modern building below",
+ "moc_co_mat": true,
+ "cong_trinh_chua_ton_tai": [
+  "Cầu vòm đá không có nhà kiểu Westminster Bridge (1750)",
+  "Bản sao Nhà thờ Thánh Paul thứ hai ở hậu cảnh phía trên bên phải"
+ ],
+ "model": "gemini-3.8-flash",
+ "nam": 1708.0,
+ "canh": "the last stone set on top of the lantern of St Paul's Cathedral, October 1708",
+ "loi_cau": "The last stone of the lantern is set in 1708 — by Wren's son, Christopher. In 1711, Parliament declares St Paul's complete — three hundred and sixty-five feet, to the top of the cross.",
+ "mo_ta": "Cảnh hai người đàn ông đặt viên đá cuối cùng lên đỉnh đèn lồng của Nhà thờ Thánh Paul vào năm 1708 nhìn ra toàn cảnh London.",
+ "muc": [
+  {
+   "anh": 1,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Một mái vòm Nhà thờ Thánh Paul thứ hai xuất hiện kỳ lạ ở phía chân trời góc trên bên phải, trong khi cảnh quay đang diễn ra trên đỉnh chính Nhà thờ Thánh Paul.",
+   "nam_xuat_hien": null,
+   "do_tin": 0.98
+  },
+  {
+   "anh": 1,
+   "loai": "thoi_dai",
+   "mo_ta": "Cây cầu vòm đá bắc qua sông Thames không có nhà cửa bên trên; vào năm 1708 London chỉ có Cầu London duy nhất và vẫn còn dày đặc nhà cửa san sát (mãi đến năm 1750 mới có Cầu Westminster và năm 1762 Cầu London mới dỡ bỏ nhà).",
+   "nam_xuat_hien": 1750,
+   "do_tin": 0.95
+  },
+  {
+   "anh": 1,
+   "loai": "tau_lon",
+   "mo_ta": "Các thuyền buồm viễn dương lớn nhiều cột buồm neo đậu dày đặc dọc hai bên bờ sông phía thượng lưu.",
+   "nam_xuat_hien": null,
+   "do_tin": 0.85
+  }
+ ],
+ "loi": [
+  {
+   "anh": 1,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Một mái vòm Nhà thờ Thánh Paul thứ hai xuất hiện kỳ lạ ở phía chân trời góc trên bên phải, trong khi cảnh quay đang diễn ra trên đỉnh chính Nhà thờ Thánh Paul.",
+   "nam_xuat_hien": null,
+   "do_tin": 0.98
+  },
+  {
+   "anh": 1,
+   "loai": "thoi_dai",
+   "mo_ta": "Cây cầu vòm đá bắc qua sông Thames không có nhà cửa bên trên; vào năm 1708 London chỉ có Cầu London duy nhất và vẫn còn dày đặc nhà cửa san sát (mãi đến năm 1750 mới có Cầu Westminster và năm 1762 Cầu London mới dỡ bỏ nhà).",
+   "nam_xuat_hien": 1750,
+   "do_tin": 0.95
+  },
+  {
+   "anh": 1,
+   "loai": "tau_lon",
+   "mo_ta": "Các thuyền buồm viễn dương lớn nhiều cột buồm neo đậu dày đặc dọc hai bên bờ sông phía thượng lưu.",
+   "nam_xuat_hien": null,
+   "do_tin": 0.85
+  },
+  {
+   "loai": "cong_trinh_sai",
+   "mo_ta": "chưa tồn tại: Cầu vòm đá không có nhà kiểu Westminster Bridge (1750), Bản sao Nhà thờ Thánh Paul thứ hai ở hậu cảnh phía trên bên phải",
+   "do_tin": 1.0
+  }
+ ],
+ "ket_luan": "LOẠI",
+ "usd": 0.00711
+}

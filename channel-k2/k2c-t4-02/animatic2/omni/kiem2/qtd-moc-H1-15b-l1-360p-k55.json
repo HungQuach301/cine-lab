@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-15b-l1-360p-k55",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "86c3c098b239aff5304ed881cc90e70a2c10f565e7b62622fe92fccbee746eac",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+    "Old London Bridge lined with houses",
+    "NO Monument column (built 1671-77)",
+    "NO Wren dome or Wren steeples"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "A thin needle spire rises on the skyline left of the big Gothic tower. The big tower has four corner pinnacles and sits on a short, low body. No very long nave is visible.",
+     "ly_do": "The skyline is meant to show Old St Paul's, which had a square crossing tower, a very long nave and no spire after 1561. The needle spire looks like a later spire or Wren-style steeple, and the short church body does not match Old St Paul's. This is a low-confidence reading.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      922,
+      205,
+      1325,
+      335
+     ],
+     "do_tin": 0.3
+    },
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "A tall tower with a rounded, lantern-like top stands among the burning buildings on the right of the skyline.",
+     "ly_do": "It could be read as a Wren-style steeple. Wren's City steeples were built only after the Great Fire, from the 1670s onward. It is small and unclear, so this is a low-confidence reading.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      1536,
+      238,
+      1632,
+      335
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.036979,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1132,
+     "cacheReadInputTokens": 3120,
+     "cacheCreationInputTokens": 10134,
+     "webSearchRequests": 0,
+     "costUSD": 0.036979,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 258,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 15.0,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A thin needle spire rises on the skyline left of the big Gothic tower. The big tower has four corner pinnacles and sits on a short, low body. No very long nave is visible.\",\"ly_do\":\"The skyline is meant to show Old St Paul's, which had a square crossing tower, a very long nave and no spire after 1561. The needle spire looks like a later spire or Wren-style steeple, and the short church body does not match Old St Paul's. This is a low-confidence reading.\",\"nam_xuat_hien\":null,\"toa_do\":[0.48,0.19,0.69,0.31],\"do_tin\":0.3},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A tall tower with a rounded, lantern-like top stands among the burning buildings on the right of the skyline.\",\"ly_do\":\"It could be read as a Wren-style steeple. Wren's City steeples were built only after the Great Fire, from the 1670s onward. It is small and unclear, so this is a low-confidence reading.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.8,0.22,0.85,0.31],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.037,
+ "chi_phi_tb": 0.037,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

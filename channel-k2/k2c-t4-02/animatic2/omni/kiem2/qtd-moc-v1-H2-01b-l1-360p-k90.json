@@ -1,0 +1,84 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung H2-01b-l1-360p-k90 năm 1666: [cong_trinh_moc] The skyline has no ruined Old St Paul's. There is no massive burnt Gothic nave and no square central tower. Only generic ruined houses and small distant spires appear where it should stand. — Old St Paul's, ruined but still standing, should dominate the City skyline in 1666. Its absence is a finding. @px [576, 194, 1440, 540] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-01b-l1-360p-k90",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "ea2575bdeffbf100c5e63a9abcaee4bc2e19318db5c97c4c033b38aaa1319db9",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
+    "NO Wren dome",
+    "NO Monument column"
+   ],
+   "nghi_van": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The skyline has no ruined Old St Paul's. There is no massive burnt Gothic nave and no square central tower. Only generic ruined houses and small distant spires appear where it should stand.",
+     "ly_do": "Old St Paul's, ruined but still standing, should dominate the City skyline in 1666. Its absence is a finding.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      576,
+      194,
+      1440,
+      540
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "loi": null,
+      "ghi": "lớp công trình mốc: không qua bước 2 (vật vắng không phóng được) — giữ"
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A tall, slender Gothic-revival clock-tower-style spire with a pointed roof and turret corners rises in the distant skyline. It resembles the Victorian Palace of Westminster tower.",
+     "ly_do": "This Victorian Gothic Revival tower form did not exist in 1666. Its form does not match any London structure of 1666.",
+     "nam_xuat_hien": 1859,
+     "toa_do_px": [
+      288,
+      194,
+      365,
+      367
+     ],
+     "do_tin": 0.45
+    }
+   ],
+   "cost_usd": 0.036249800000000006,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1070,
+     "cacheReadInputTokens": 3078,
+     "cacheCreationInputTokens": 10092,
+     "webSearchRequests": 0,
+     "costUSD": 0.036249800000000006,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 242,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The skyline has no ruined Old St Paul's. There is no massive burnt Gothic nave and no square central tower. Only generic ruined houses and small distant spires appear where it should stand.\",\"ly_do\":\"Old St Paul's, ruined but still standing, should dominate the City skyline in 1666. Its absence is a finding.\",\"nam_xuat_hien\":null,\"toa_do\":[0.3,0.18,0.75,0.5],\"do_tin\":0.5},{\"mo_ta\":\"A tall, slender Gothic-revival clock-tower-style spire with a pointed roof and turret corners rises in the distant skyline. It resembles the Victorian Palace of Westminster tower.\",\"muc\":\"kien_truc\",\"ly_do\":\"This Victorian Gothic Revival tower form did not exist in 1666. Its form does not match any London structure of 1666.\",\"nam_xuat_hien\":1859,\"toa_do\":[0.15,0.18,0.19,0.34],\"do_tin\":0.45}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0362,
+ "chi_phi_tb": 0.0362,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

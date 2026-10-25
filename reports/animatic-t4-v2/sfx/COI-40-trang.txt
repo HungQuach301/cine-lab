@@ -1,0 +1,501 @@
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+ National Alert Signal, Rémalard (61) — Free Download WAV & MP3 | BigSoundBank 
+ 
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+  
+ 
+// Lazy-load FundingChoices : uniquement à la 1re interaction (ou fallback 6 s)
+(function() {
+    var loaded = false;
+    function loadFC() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://fundingchoicesmessages.google.com/i/pub-0956937040179491?ers=1';
+        s.async = true;
+        document.head.appendChild(s);
+        (function() {
+            function signalGooglefcPresent() {
+                if (!window.frames['googlefcPresent']) {
+                    if (document.body) {
+                        var iframe = document.createElement('iframe');
+                        iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px; display: none;';
+                        iframe.name = 'googlefcPresent';
+                        document.body.appendChild(iframe);
+                    } else {
+                        setTimeout(signalGooglefcPresent, 0);
+                    }
+                }
+            }
+            signalGooglefcPresent();
+        })();
+        cleanup();
+    }
+    var events = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+    function cleanup() {
+        events.forEach(function(e) { window.removeEventListener(e, loadFC, { passive: true }); });
+    }
+    events.forEach(function(e) { window.addEventListener(e, loadFC, { passive: true, once: true }); });
+    setTimeout(loadFC, 6000);
+})();
+ 
+
+ 
+ 
+
+ 
+  window.version = "442";
+     
+ 
+ 
+
+ 
+   
+    Your browser does not support JavaScript! The site will not work properly. Please enable it.   
+ 
+
+ 
+   
+     
+          
+         
+                 Make a donation          Cart       Account   
+ 
+
+
+ 
+   
+
+   
+
+   
+ 
+
+
+
+   
+     Menu ⏷    Shop    Sound games    Museum of Lost Sounds    Articles    Categories    All sounds     
+ 
+          
+  
+ 
+
+ 
+
+     
+ 
+  Free Sound Library  
+  All sounds  
+  Categories  
+  Advanced search  
+  Generator  
+  Licenses  
+ 
+ 
+  And also  
+  Shop  
+  Sound games  
+  Museum of Lost Sounds  
+  Comic: "1.65 µHz"  
+  Atmosphere  
+  Articles  
+  Blog  
+ 
+ 
+  BigSoundBank  
+  Make a donation  
+  Account  
+  About  
+  Useful links  
+  Contact me  
+ 
+   
+ 
+ 
+     
+
+         National Alert Signal, Rémalard (61) 
+      
+   
+     
+     
+     (adsbygoogle = window.adsbygoogle || []).push({}); 
+      
+     
+     
+     (adsbygoogle = window.adsbygoogle || []).push({}); 
+        Listen                    0:00  /  1:33     Download   Download   WAV (13.0 MB)  MP3 (3.6 MB)  BWF (13.0 MB)  OGG (772 KB)  M4A (740 KB)  AIFF (13.0 MB)  AAC (710 KB)  FLAC (8.6 MB)        Download   
+(function(){
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var f = document.getElementById("dl-form-6add7504f0888");
+  if (!f) return;
+  f.addEventListener('submit', function(){
+    var sel = f.querySelector('select[name="format"]');
+    gtag('event', 'sound_download', {
+      sound_id: "3257",
+      sound_name: "National Alert Signal, Rémalard (61)",
+      sound_category: "ALRMSirn",
+      format: sel ? sel.value : '',
+      language: "en",
+      is_free: true
+    });
+  });
+})();
+   How to download and/or use these sounds?   License   CC0 (public domain): Free and royalty-free ( More information on licenses )      While this sound is free here, it would typically cost around $6 elsewhere.   Donations   or   merchandise purchases   are appreciated.  
+     Make a donation 
+    Civil siren of the "national alert signal", recorded in Rémalard, in France, on the first Wednesday of October 2024, at 12.   
+          Listen                    0:00  /  1:33     Download   Download   WAV (13.0 MB)  MP3 (3.6 MB)  BWF (13.0 MB)  OGG (772 KB)  M4A (740 KB)  AIFF (13.0 MB)  AAC (710 KB)  FLAC (8.6 MB)        Download   
+(function(){
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var f = document.getElementById("dl-form-6add7504f0915");
+  if (!f) return;
+  f.addEventListener('submit', function(){
+    var sel = f.querySelector('select[name="format"]');
+    gtag('event', 'sound_download', {
+      sound_id: "3257",
+      sound_name: "National Alert Signal, Rémalard (61)",
+      sound_category: "ALRMSirn",
+      format: sel ? sel.value : '',
+      language: "en",
+      is_free: true
+    });
+  });
+})();
+   How to download and/or use these sounds?   License   CC0 (public domain): Free and royalty-free ( More information on licenses )      While this sound is free here, it would typically cost around $6 elsewhere.   Donations   or   merchandise purchases   are appreciated.  
+     Make a donation 
+            &#10094;     &#10095;              Technical details 
+         
+                 Length : 01:33   UCS Category  : Alarms / Siren ( ALRMSirn )  Type :  Alone sound   Channels :  Monophonic   Conditions : Outdoor  Realism : Realistic  Sampling Rate :  48,000 Hz   Bit Depth :  24 bits   Equipment :  SoundDevices MixPre-3  + Sennheiser ME66  Author :  Joseph SARDIN   Sound number : 3,257   Other interesting files    National Alert Signal  05:11    National Alert Signal, Rémalard (61)  01:33    National alert signal, end  01:19    National alert signal, test  01:47    
+   FAQ about this sound 
+
+   
+     Is this sound free? 
+     Yes, because I intentionally release it under the CC0 license (public-domain equivalent). You can download and use it without paying, without creating an account, and without asking for permission. 
+     In return, the site is funded by ads,  donations ,  Thomann affiliate links , and a few sales ( shop ). If you find this project useful, a small donation really helps keep it going. 
+   
+
+   
+     Can I edit or redistribute this sound? 
+     Yes. You can edit, process, remix, transform, and redistribute this sound, including in your own music, podcasts, audiobooks, games, apps, or videos, without asking for permission. 
+   
+
+   
+     Is this sound free for commercial use? 
+     Yes. You can use this sound in any project, including commercial ones, anywhere in the world, without paying a license fee. 
+   
+
+   
+     Do I have to credit LaSonotheque or the author? 
+     No. Attribution isn't required, but it's always appreciated when your project includes a credits page or end credits. It costs nothing, and it's respectful of my work. 
+   
+
+   
+     What exactly is the license? 
+     These sounds are released under a "public-domain equivalent" license (CC0 / WTFPL / public domain). For more details, see the  licenses page . 
+   
+ 
+ {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this sound free?","acceptedAnswer":{"@type":"Answer","text":"Yes, because I intentionally release it under the CC0 license (public-domain equivalent). You can download and use it without paying, without creating an account, and without asking for permission."}},{"@type":"Question","name":"Can I edit or redistribute this sound?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can edit, process, remix, transform, and redistribute this sound, including in your own music, podcasts, audiobooks, games, apps, or videos, without asking for permission."}},{"@type":"Question","name":"Is this sound free for commercial use?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can use this sound in any project, including commercial ones, anywhere in the world, without paying a license fee."}},{"@type":"Question","name":"Do I have to credit LaSonotheque or the author?","acceptedAnswer":{"@type":"Answer","text":"No. Attribution isn\u0027t required, but it\u0027s always appreciated when your project includes a credits page or end credits."}},{"@type":"Question","name":"What exactly is the license?","acceptedAnswer":{"@type":"Answer","text":"These sounds are released under a public-domain equivalent license (CC0 / WTFPL / public domain)."}}]}  
+             
+             
+             
+             
+             
+     (adsbygoogle = window.adsbygoogle || []).push({});       Notation                    &nbsp;-&nbsp;Rated  10.0 / 10    (average) - 1 Reviews        Rate & Comment   
+         
+         
+         Optional comment 
+         Your rating 
+         
+         Your rating 
+         Great (10/10) 
+         Good (8/10) 
+         Average (5/10) 
+         Bad (2/10) 
+         Terrible (0/10) 
+          
+                OK 
+             Keywords    #Alarm    #Alert    #Bomb    #Civil    #Danger    #Information    #Lockdown    #National    #Signal    #Siren    #System    #Urgencie    #Urgencies    #Urgency    #War    #Wednesday         
+ 
+
+ 
+
+ 
+  
+     
+     
+     (adsbygoogle = window.adsbygoogle || []).push({}); 
+      
+     
+     
+     (adsbygoogle = window.adsbygoogle || []).push({}); 
+       
+     
+         
+             BigSoundBank 
+             Sound library created by Joseph SARDIN since 2005. Free, royalty-free sounds (CC0). 
+         
+                 
+             Explore 
+             
+                  All sounds    Categories    Articles    Sound games    Blog               
+         
+                 
+             BigSoundBank 
+             
+                  About    Shop    Make a donation    Contact               
+         
+                 
+             Follow me 
+             
+                  Facebook    Instagram    YouTube    Switch to French               
+         
+             
+
+     
+         All files whose download page mentions "Free and Royalty Free" are made available free of charge and  freely  for all your projects, whether commercial or not, and worldwide.  &copy; 2005-2026 BigSoundBank &middot;  Licenses  &middot;  Legal notice       
+ 
+ 
+
+ 
+   
+     Email   
+     Website   
+     URL   
+     Phone   
+     Subscribe 
+   
+ 
+  
+
+ 
+   
+     &times; 
+
+     
+              
+       LaSonothèque needs you 
+     
+
+           I'll be honest with you: LaSonothèque is going through a difficult time. Revenue no longer covers the costs. 
+       If my free sounds have ever been useful to you,  your help can truly make a difference . 
+    
+     
+       
+             Make a donation 
+         As a thank you:  amount² = ad-free days   €5 = 25 days · €10 = 100 days · €20 = 1 year  
+       
+
+       
+               Visit the shop 
+         Comics, games, mugs, sound goodies and audio players,  every purchase directly supports the site  
+       
+
+             
+              Create a free account 
+          Instant  sound downloads and  1 ad-free day  offered 
+       
+           
+
+     Thank you from the bottom of my heart, Joseph 
+
+     Maybe later 
+   
+ 
+
+ 
+/* Couleurs de la charte (css/style.css) : rose don, orange boutique, vert compte.
+   Les titres sont foncés en clair, éclaircis en sombre, pour rester lisibles. */
+#popup-soutien { --ps-fond:var(--carte-fond); --ps-texte:#0a1230; --ps-doux:var(--texte-doux); --ps-bord:var(--carte-bord); --ps-don:var(--couleurDon); --ps-compte:var(--couleurCompte); --ps-boutique:var(--couleurBoutique); --ps-melange:black; --ps-dose:75%; }
+[data-theme="dark"] #popup-soutien { --ps-texte:var(--d-text); --ps-melange:white; --ps-dose:55%; }
+.ps-overlay { position:fixed; inset:0; z-index:100000; display:flex; align-items:center; justify-content:center; padding:16px; background:var(--voile); backdrop-filter:var(--voile-flou); -webkit-backdrop-filter:var(--voile-flou); opacity:0; transition:opacity .3s ease; }
+.ps-overlay[hidden] { display:none; }
+.ps-overlay.ps-visible { opacity:1; }
+.ps-boite { position:relative; width:100%; max-width:480px; max-height:calc(100vh - 32px); overflow-y:auto; background:var(--ps-fond); color:var(--ps-texte); border-radius:calc(var(--arrondi) + 4px); padding:22px 22px 16px; box-shadow:var(--ombre-flottante); transform:translateY(16px) scale(.97); transition:transform .35s cubic-bezier(.2,.9,.3,1.2); font-size:13.5px; line-height:1.5; text-align:left; }
+.ps-visible .ps-boite { transform:none; }
+.ps-entete { text-align:center; margin-bottom:12px; }
+.ps-icone { line-height:0; margin-bottom:8px; color:var(--ps-texte); }
+.ps-icone .icone { width:44px; height:44px; stroke-width:1.2; } /* trait plus fin : à cette taille, le trait standard paraît grossier */
+.ps-boite h2 { margin:0; font-size:1.3em; line-height:1.25; color:var(--ps-texte); }
+.ps-boite p { margin:0 0 10px; }
+.ps-fermer { position:absolute; top:10px; right:12px; width:34px; height:34px; border:0; border-radius:50%; background:transparent; color:var(--ps-doux); font-size:26px; line-height:1; cursor:pointer; }
+.ps-fermer:hover { background:var(--ps-bord); color:var(--ps-texte); }
+.ps-options { display:grid; gap:8px; margin:14px 0 12px; }
+/* Chaque option mène à une page : famille « naviguer » du site, elle s'éclaircit au survol */
+.ps-option { --ps-c:var(--ps-don); display:block; padding:10px 14px; border-radius:var(--arrondi); border:2px solid var(--ps-c); background:color-mix(in srgb, var(--ps-c) 10%, var(--ps-fond)); text-decoration:none !important; color:var(--ps-texte) !important; transition:filter var(--survol-duree); }
+.ps-option:hover { filter:var(--survol); }
+.ps-option:focus-visible { outline:2px solid var(--ps-c); outline-offset:2px; }
+.ps-boite:focus { outline:none; }
+.ps-option-compte { --ps-c:var(--ps-compte); }
+.ps-option-boutique { --ps-c:var(--ps-boutique); }
+.ps-option-titre { display:flex; align-items:center; gap:6px; font-weight:700; font-size:1.05em; margin-bottom:2px; color:color-mix(in srgb, var(--ps-c) var(--ps-dose), var(--ps-melange)); }
+.ps-option-titre .icone { width:18px; height:18px; }
+.ps-option-texte { display:block; font-size:.95em; }
+.ps-option-texte small { color:var(--ps-doux); }
+.ps-signature { text-align:right; font-style:italic; color:var(--ps-doux); }
+.ps-plus-tard { display:block; margin:4px auto 0; padding:6px 12px; border:0; background:transparent; color:var(--ps-doux); font-size:.9em; text-decoration:underline; cursor:pointer; }
+@media (prefers-reduced-motion: reduce) { .ps-overlay, .ps-boite { transition:none; } }
+ 
+
+ 
+(function () {
+  var CLE = 'laso_popup_soutien_v1';
+  // En aperçu admin : mémorisé le temps de l'onglet seulement, pour pouvoir retester
+  var stockage = 'localStorage';
+  var popup = document.getElementById('popup-soutien');
+  if (!popup) return;
+
+  var force = /[?&]popup-soutien\b/.test(location.search);
+  var dejaVu = false;
+  try { dejaVu = window[stockage].getItem(CLE) === '1'; } catch (e) {}
+  if (dejaVu && !force) return;
+
+  function memoriser() { try { window[stockage].setItem(CLE, '1'); } catch (e) {} }
+
+  function fermer() {
+    memoriser();
+    popup.classList.remove('ps-visible');
+    document.removeEventListener('keydown', surTouche);
+    setTimeout(function () { popup.hidden = true; }, 300);
+  }
+
+  function surTouche(e) { if (e.key === 'Escape') fermer(); }
+
+  popup.addEventListener('click', function (e) {
+    if (e.target === popup || e.target.closest('[data-ps-fermer]')) fermer();
+    else if (e.target.closest('[data-ps-vu]')) memoriser();
+  });
+
+  setTimeout(function () {
+    popup.hidden = false;
+    requestAnimationFrame(function () { popup.classList.add('ps-visible'); });
+    document.addEventListener('keydown', surTouche);
+    // Focus sur la fenêtre (et non sur le 1er choix, qui paraîtrait présélectionné) ; Tab mène aux choix
+    popup.querySelector('.ps-boite').focus({ preventScroll: true });
+  }, 1200);
+})();
+ 
+
+ 
+    (function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-WLDY19X753');
+        gtag('config', 'G-YN8J938QZE');
+
+        var loaded = false;
+        function loadGtag() {
+            if (loaded) return;
+            loaded = true;
+            var s = document.createElement('script');
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-WLDY19X753';
+            s.async = true;
+            document.head.appendChild(s);
+            cleanup();
+        }
+
+        var events = ['scroll', 'mousemove', 'touchstart', 'keydown', 'click'];
+        function cleanup() {
+            events.forEach(function(e) {
+                window.removeEventListener(e, loadGtag, { passive: true });
+            });
+        }
+        events.forEach(function(e) {
+            window.addEventListener(e, loadGtag, { passive: true, once: true });
+        });
+
+        // Fallback : charger après 4s même sans interaction
+        setTimeout(loadGtag, 4000);
+
+        // ═══════════════════════════════════════════════════════════════
+        // GA4 : evenement « affiliate_click » (Thomann / Amazon)
+        // Delegation globale : tout clic sur un lien sortant vers un affilie.
+        // ═══════════════════════════════════════════════════════════════
+        document.addEventListener('click', function(e){
+            var a = e.target && e.target.closest ? e.target.closest('a') : null;
+            if (!a || !a.href) return;
+            var href = a.href;
+            var network = '';
+            if (/(^https?:\/\/)([^\/]*\.)?thomann\.de\//i.test(href) || /thmn\.to\//i.test(href) || /\/thomann\/?$/i.test(href)) {
+                network = 'thomann';
+            } else if (/amzn\.to\//i.test(href) || /(^https?:\/\/)([^\/]*\.)?amazon\./i.test(href) || /\/amazon\/?$/i.test(href)) {
+                network = 'amazon';
+            } else if (/(^https?:\/\/)([^\/]*\.)?aliexpress\.com\//i.test(href) || /s\.click\.aliexpress\.com\//i.test(href)) {
+                network = 'aliexpress';
+            }
+            if (!network) return;
+            gtag('event', 'affiliate_click', {
+                affiliate_network: network,
+                link_url: href,
+                link_text: (a.textContent || '').trim().slice(0, 80),
+                page_path: location.pathname
+            });
+        }, true);
+
+        // ═══════════════════════════════════════════════════════════════
+        // GA4 : evenement « sound_preview » global (tous les lecteurs du site)
+        // Couvre detail.php, search.php, search_landing.php, widgets, etc.
+        // Filtre sur les audios id='MyAudio ' ou 'MyAudio _ '.
+        // 1 event par son par chargement de page (flag window.__ga4PreviewFired).
+        // ═══════════════════════════════════════════════════════════════
+        window.__ga4PreviewFired = window.__ga4PreviewFired || {};
+        document.addEventListener('play', function(e){
+            var audio = e.target;
+            if (!audio || !audio.id) return;
+            var m = /^MyAudio(\d+)(?:_[a-z])?$/.exec(audio.id);
+            if (!m) return;
+            var key = 's' + m[1];
+            if (window.__ga4PreviewFired[key]) return;
+            window.__ga4PreviewFired[key] = true;
+            gtag('event', 'sound_preview', {
+                sound_id: m[1],
+                page_path: location.pathname
+            });
+        }, true);
+    })();
+     
+ 
+    {"@context":"https://schema.org","@type":"AudioObject","@id":"https://bigsoundbank.com/national-alert-signal-remalard-61-s3257.html","url":"https://bigsoundbank.com/national-alert-signal-remalard-61-s3257.html","mainEntityOfPage":"https://bigsoundbank.com/national-alert-signal-remalard-61-s3257.html","name":"National Alert Signal, Rémalard (61) — Free Download WAV \u0026 MP3 | BigSoundBank","description":"Civil siren of the \u0027national alert signal\u0027, recorded in Rémalard, in France, on the first Wednesday of October 2024, at 12.","inLanguage":"en-US","isAccessibleForFree":true,"duration":"PT1M33S","uploadDate":"2024-10-28T00:00:00+01:00","datePublished":"2024-10-28T00:00:00+01:00","dateModified":"2024-11-01T20:43:03+01:00","encoding":[{"@type":"MediaObject","encodingFormat":"audio/wav","contentUrl":"https://bigsoundbank.com/UPLOAD/bwf-en/3257.wav","contentSize":"13349950"},{"@type":"MediaObject","encodingFormat":"audio/aiff","contentUrl":"https://bigsoundbank.com/UPLOAD/aiff/3257.aiff","contentSize":"133491

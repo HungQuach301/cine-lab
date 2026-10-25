@@ -1,0 +1,1118 @@
+{
+ "id": "rijks-200337941-ludgate-1892",
+ "nhom": "B",
+ "chu_de": "Ludgate Hill",
+ "source_url": "https://www.rijksmuseum.nl/en/collection/RP-F-F07788",
+ "api_url": "https://id.rijksmuseum.nl/200337941",
+ "accessed": "2026-10-25",
+ "holder": "Rijksmuseum, RP-F-F07788",
+ "title": "Ludgate Hill, London, England. / Gezicht op Ludgate Hill te Londen",
+ "date": "1892",
+ "creator": "anoniem/không ghi",
+ "licence": "Rijksmuseum linked-art: https://creativecommons.org/publicdomain/mark/1.0/, https://creativecommons.org/publicdomain/zero/1.0/",
+ "licence_quote_verbatim": "object: https://creativecommons.org/publicdomain/mark/1.0/, https://creativecommons.org/publicdomain/zero/1.0/",
+ "original": {
+  "url": "https://iiif.micr.io/qPRtp/full/max/0/default.jpg",
+  "file": "/var/tmp/nc-t4/goc/rijks-200337941-ludgate-1892/goc.jpg",
+  "bytes": 1447928,
+  "sha256": "c94ecfe180cd447dfff0aebad1168c9b2b6ebf3457fd95928aef812cf5e61f32",
+  "px": [
+   4888,
+   2306
+  ]
+ },
+ "derivative": {
+  "file": "channel-k2/k2c-t4-02/nc/anh/rijks-200337941-ludgate-1892.jpg",
+  "bytes": 498266,
+  "px": [
+   2400,
+   1132
+  ]
+ },
+ "raw_metadata_verbatim": {
+  "object": {
+   "@context": "https://linked.art/ns/v1/linked-art.json",
+   "id": "https://id.rijksmuseum.nl/200337941",
+   "type": "HumanMadeObject",
+   "classified_as": [
+    {
+     "id": "https://id.rijksmuseum.nl/2202849",
+     "type": "Type",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435443",
+       "type": "Type",
+       "_label": "Type of Work"
+      }
+     ],
+     "equivalent": [
+      {
+       "id": "http://vocab.getty.edu/aat/300162872",
+       "type": "Type"
+      }
+     ],
+     "notation": [
+      {
+       "@language": "en",
+       "@value": "stereograph"
+      },
+      {
+       "@language": "nl",
+       "@value": "stereofoto"
+      }
+     ]
+    }
+   ],
+   "dimension": [
+    {
+     "type": "Dimension",
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22011",
+       "type": "Type",
+       "equivalent": [
+        {
+         "id": "http://vocab.getty.edu/aat/300055644",
+         "type": "Type"
+        }
+       ],
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "height"
+        },
+        {
+         "@language": "nl",
+         "@value": "hoogte"
+        }
+       ]
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "secundaire drager",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "unit": {
+      "id": "http://vocab.getty.edu/aat/300379097",
+      "type": "MeasurementUnit"
+     },
+     "value": "85"
+    },
+    {
+     "type": "Dimension",
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22012",
+       "type": "Type",
+       "equivalent": [
+        {
+         "id": "http://vocab.getty.edu/aat/300055647",
+         "type": "Type"
+        }
+       ],
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "width"
+        },
+        {
+         "@language": "nl",
+         "@value": "breedte"
+        }
+       ]
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "secundaire drager",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "unit": {
+      "id": "http://vocab.getty.edu/aat/300379097",
+      "type": "MeasurementUnit"
+     },
+     "value": "170"
+    }
+   ],
+   "equivalent": [
+    {
+     "id": "http://hdl.handle.net/10934/RM0001.COLLECT.268406",
+     "type": "HumanMadeObject"
+    }
+   ],
+   "identified_by": [
+    {
+     "type": "Identifier",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300312355",
+       "type": "Type"
+      },
+      {
+       "id": "https://id.rijksmuseum.nl/22015218",
+       "type": "Type",
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "object number"
+        },
+        {
+         "@language": "nl",
+         "@value": "objectnummer"
+        }
+       ]
+      }
+     ],
+     "content": "RP-F-F07788"
+    },
+    {
+     "type": "Name",
+     "content": "Ludgate Hill, London, England.",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "2"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "Name",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300404670",
+       "type": "Type"
+      },
+      {
+       "id": "http://vocab.getty.edu/aat/300417200",
+       "type": "Type"
+      }
+     ],
+     "content": "Gezicht op Ludgate Hill te Londen",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    }
+   ],
+   "made_of": [
+    {
+     "id": "https://id.rijksmuseum.nl/220192",
+     "type": "Material",
+     "equivalent": [
+      {
+       "id": "http://vocab.getty.edu/aat/300014224",
+       "type": "Material"
+      },
+      {
+       "id": "http://www.wikidata.org/entity/Q389782",
+       "type": "Material"
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "assigned_by": [
+        {
+         "type": "AttributeAssignment",
+         "assigned": [
+          "https://id.rijksmuseum.nl/200337941"
+         ],
+         "assigned_property": "influenced_by"
+        }
+       ],
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "notation": [
+      {
+       "@language": "en",
+       "@value": "cardboard"
+      },
+      {
+       "@language": "nl",
+       "@value": "karton"
+      }
+     ]
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/2202619",
+     "type": "Material",
+     "equivalent": [
+      {
+       "id": "http://vocab.getty.edu/aat/300014190",
+       "type": "Material"
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "assigned_by": [
+        {
+         "type": "AttributeAssignment",
+         "assigned": [
+          "https://id.rijksmuseum.nl/200337941"
+         ],
+         "assigned_property": "influenced_by"
+        }
+       ],
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "2"
+      }
+     ],
+     "notation": [
+      {
+       "@language": "en",
+       "@value": "photographic support"
+      },
+      {
+       "@language": "nl",
+       "@value": "fotodrager"
+      }
+     ]
+    }
+   ],
+   "member_of": [
+    {
+     "id": "https://id.rijksmuseum.nl/260238",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/260239",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/260251",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/26150",
+     "type": "Set"
+    }
+   ],
+   "produced_by": {
+    "type": "Production",
+    "part": [
+     {
+      "type": "Production",
+      "assigned_by": [
+       {
+        "type": "AttributeAssignment",
+        "assigned": [
+         {
+          "id": "https://id.rijksmuseum.nl/21034377",
+          "type": "Person"
+         }
+        ],
+        "assigned_property": "carried_out_by",
+        "motivated_by": [
+         {
+          "type": "LinguisticObject",
+          "carried_by": [
+           "https://id.rijksmuseum.nl/200337941"
+          ],
+          "classified_as": [
+           {
+            "id": "http://vocab.getty.edu/aat/300028702",
+            "type": "Type"
+           }
+          ]
+         }
+        ]
+       }
+      ],
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300379012",
+        "type": "Type"
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ],
+        "content": "2"
+       }
+      ],
+      "referred_to_by": [
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "content": "fotograaf: John Fillis Jarvis (vermeld op object), Washington D.C.",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "content": "photographer: John Fillis Jarvis (mentioned on object), Washington D.C.",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       }
+      ],
+      "technique": [
+       {
+        "id": "https://id.rijksmuseum.nl/2204764",
+        "type": "Type",
+        "equivalent": [
+         {
+          "id": "http://vocab.getty.edu/aat/300025687",
+          "type": "Type"
+         }
+        ],
+        "notation": [
+         {
+          "@language": "en",
+          "@value": "photographer"
+         },
+         {
+          "@language": "nl",
+          "@value": "fotograaf"
+         }
+        ]
+       }
+      ],
+      "took_place_at": [
+       {
+        "id": "https://id.rijksmuseum.nl/2306244",
+        "type": "Place",
+        "equivalent": [
+         {
+          "id": "http://vocab.getty.edu/tgn/7013962",
+          "type": "Place"
+         },
+         {
+          "id": "http://www.wikidata.org/entity/Q61",
+          "type": "Place"
+         }
+        ],
+        "notation": {
+         "@language": "nl",
+         "@value": "Washington D.C."
+        }
+       }
+      ]
+     },
+     {
+      "type": "Production",
+      "assigned_by": [
+       {
+        "type": "AttributeAssignment",
+        "assigned": [
+         {
+          "id": "https://id.rijksmuseum.nl/21035511",
+          "type": "Group"
+         }
+        ],
+        "assigned_property": "carried_out_by",
+        "motivated_by": [
+         {
+          "type": "LinguisticObject",
+          "carried_by": [
+           "https://id.rijksmuseum.nl/200337941"
+          ],
+          "classified_as": [
+           {
+            "id": "http://vocab.getty.edu/aat/300028702",
+            "type": "Type"
+           }
+          ]
+         }
+        ]
+       }
+      ],
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300404450",
+        "type": "Type"
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ],
+        "content": "1"
+       }
+      ],
+      "referred_to_by": [
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "content": "fotograaf: Underwood and Underwood (vermeld op object), Ludgate Hill",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type"
+         }
+        ],
+        "content": "photographer: Underwood and Underwood (mentioned on object), Ludgate Hill",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435417",
+          "type": "Type"
+         }
+        ],
+        "content": "Underwood and Underwood (mentioned on object)",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435417",
+          "type": "Type"
+         }
+        ],
+        "content": "Underwood and Underwood (vermeld op object)",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       }
+      ],
+      "technique": [
+       {
+        "id": "https://id.rijksmuseum.nl/2204764",
+        "type": "Type",
+        "equivalent": [
+         {
+          "id": "http://vocab.getty.edu/aat/300025687",
+          "type": "Type"
+         }
+        ],
+        "notation": [
+         {
+          "@language": "en",
+          "@value": "photographer"
+         },
+         {
+          "@language": "nl",
+          "@value": "fotograaf"
+         }
+        ]
+       }
+      ],
+      "took_place_at": [
+       {
+        "id": "https://id.rijksmuseum.nl/23016469",
+        "type": "Place",
+        "equivalent": [
+         {
+          "id": "https://sws.geonames.org/11552738/",
+          "type": "Place"
+         }
+        ],
+        "notation": {
+         "@language": "nl",
+         "@value": "Ludgate Hill"
+        }
+       }
+      ]
+     }
+    ],
+    "referred_to_by": [
+     {
+      "type": "LinguisticObject",
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300435416",
+        "type": "Type"
+       }
+      ],
+      "content": "Underwood and Underwood (mentioned on object)",
+      "language": [
+       {
+        "id": "http://vocab.getty.edu/aat/300388277",
+        "type": "Language"
+       }
+      ]
+     },
+     {
+      "type": "LinguisticObject",
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300435416",
+        "type": "Type"
+       }
+      ],
+      "content": "Underwood and Underwood (vermeld op object)",
+      "language": [
+       {
+        "id": "http://vocab.getty.edu/aat/300388256",
+        "type": "Language"
+       }
+      ]
+     }
+    ],
+    "technique": [
+     {
+      "id": "https://id.rijksmuseum.nl/2202645",
+      "type": "Type",
+      "equivalent": [
+       {
+        "id": "http://vocab.getty.edu/aat/300133274",
+        "type": "Type"
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "assigned_by": [
+         {
+          "type": "AttributeAssignment",
+          "assigned": [
+           "https://id.rijksmuseum.nl/200337941"
+          ],
+          "assigned_property": "influenced_by"
+         }
+        ],
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ],
+        "content": "1"
+       }
+      ],
+      "notation": [
+       {
+        "@language": "en",
+        "@value": "albumen print"
+       },
+       {
+        "@language": "nl",
+        "@value": "albuminedruk"
+       }
+      ]
+     }
+    ],
+    "timespan": {
+     "type": "TimeSpan",
+     "begin_of_the_begin": "1892-01-01T00:00:00Z",
+     "end_of_the_end": "1892-12-31T23:59:59Z",
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "1892",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      },
+      {
+       "type": "Name",
+       "content": "1892",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388277",
+         "type": "Language"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "referred_to_by": [
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "naam, recto, gedrukt: ‘Sold only by Underwood & Underwood Liverpool-New York-Chicago-Toronto-Ottawa Kas-El Paso Tex.’",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "name: ‘Sold only by Underwood & Underwood Liverpool-New York-Chicago-Toronto-Ottawa Kas-El Paso Tex.’",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435429",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "albuminedruk",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435430",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "height 85 mm x width 170 mm",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435430",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "secundaire drager: hoogte 85 mm x breedte 170 mm",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    }
+   ],
+   "shows": [
+    {
+     "id": "https://id.rijksmuseum.nl/202337941",
+     "type": "VisualItem"
+    }
+   ],
+   "subject_of": [
+    {
+     "type": "LinguisticObject",
+     "digitally_carried_by": [
+      {
+       "type": "DigitalObject",
+       "access_point": [
+        {
+         "id": "https://iiif.micr.io/qPRtp/full/max/0/default.jpg",
+         "type": "DigitalObject"
+        }
+       ],
+       "referred_to_by": [
+        {
+         "type": "LinguisticObject",
+         "_label": "Public Domain",
+         "classified_as": [
+          {
+           "id": "https://vocab.getty.edu/aat/300460240",
+           "type": "Type"
+          }
+         ],
+         "content": "https://creativecommons.org/publicdomain/mark/1.0/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "digitally_carried_by": [
+      {
+       "type": "DigitalObject",
+       "access_point": [
+        {
+         "id": "https://www.rijksmuseum.nl/nl/collectie/object/RP-F-F07788--4fa9f2d79c745a97ca80109e00873c44",
+         "type": "DigitalObject"
+        }
+       ],
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300264578",
+         "type": "Type"
+        }
+       ],
+       "format": "text/html"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "id": "https://data.rijksmuseum.nl/200337941",
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300379475",
+       "type": "Type"
+      }
+     ],
+     "subject_to": [
+      {
+       "type": "Right",
+       "classified_as": [
+        {
+         "id": "https://creativecommons.org/publicdomain/zero/1.0/",
+         "type": "Type"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "visual_item": {
+   "@context": "https://linked.art/ns/v1/linked-art.json",
+   "id": "https://id.rijksmuseum.nl/202337941",
+   "type": "VisualItem",
+   "digitally_shown_by": [
+    {
+     "id": "https://id.rijksmuseum.nl/50074102117801148067100",
+     "type": "DigitalObject"
+    }
+   ],
+   "represents": [
+    {
+     "id": "https://id.rijksmuseum.nl/23016469",
+     "type": "Place",
+     "equivalent": [
+      {
+       "id": "https://sws.geonames.org/11552738/",
+       "type": "Place"
+      }
+     ]
+    }
+   ],
+   "represents_instance_of_type": [
+    {
+     "id": "https://id.rijksmuseum.nl/2213717",
+     "type": "Type",
+     "equivalent": [
+      {
+       "id": "https://iconclass.org/46C1451",
+       "type": "Type"
+      }
+     ]
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/2215654",
+     "type": "Type",
+     "equivalent": [
+      {
+       "id": "https://iconclass.org/41A31",
+       "type": "Type"
+      }
+     ]
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/221637",
+     "type": "Type",
+     "equivalent": [
+      {
+       "id": "https://iconclass.org/25I141",
+       "type": "Type"
+      }
+     ]
+    }
+   ],
+   "shown_by": [
+    {
+     "id": "https://id.rijksmuseum.nl/200337941",
+     "type": "HumanMadeObject",
+     "equivalent": [
+      {
+       "id": "http://hdl.handle.net/10934/RM0001.COLLECT.268406",
+       "type": "HumanMadeObject"
+      }
+     ]
+    }
+   ],
+   "subject_of": [
+    {
+     "id": "https://data.rijksmuseum.nl/202337941",
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300379475",
+       "type": "Type"
+      }
+     ],
+     "subject_to": [
+      {
+       "type": "Right",
+       "classified_as": [
+        {
+         "id": "https://creativecommons.org/publicdomain/zero/1.0/",
+         "type": "Type"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "subject_to": [
+    {
+     "type": "Right",
+     "classified_as": [
+      {
+       "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+       "type": "Type",
+       "_label": "Public Domain"
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "Public Domain",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388277",
+         "type": "Language",
+         "_label": "English"
+        }
+       ]
+      },
+      {
+       "type": "Name",
+       "content": "Publieke domein",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language",
+         "_label": "Dutch"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "digital_object": {
+   "@context": "https://linked.art/ns/v1/linked-art.json",
+   "id": "https://id.rijksmuseum.nl/50074102117801148067100",
+   "type": "DigitalObject",
+   "access_point": [
+    {
+     "id": "https://iiif.micr.io/qPRtp/full/max/0/default.jpg",
+     "type": "DigitalObject"
+    }
+   ],
+   "digitally_shows": [
+    {
+     "id": "https://id.rijksmuseum.nl/202337941",
+     "type": "VisualItem"
+    }
+   ],
+   "referred_to_by": [
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435434",
+       "type": "Type"
+      }
+     ],
+     "content": "downloadbaar"
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435434",
+       "type": "Type"
+      }
+     ],
+     "content": "zichtbaar"
+    }
+   ]
+  }
+ }
+}

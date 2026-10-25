@@ -1,0 +1,380 @@
+{
+ "id": "wellcome-uv3mugch-embankment-1865",
+ "nhom": "B",
+ "chu_de": "Embankment construction drawing 1865",
+ "source_url": "https://wellcomecollection.org/works/uv3mugch",
+ "api_url": "https://api.wellcomecollection.org/catalogue/v2/works/uv3mugch?include=notes,contributors,production,items,images,subjects",
+ "accessed": "2026-10-25",
+ "holder": "Wellcome Collection, uv3mugch / V0024386",
+ "title": "Civil engineering: construction drawings for the Thames Embankment. Coloured drawing, 1865, after Sir J. Bazalgette.",
+ "date": "1865",
+ "creator": "Joseph Bazalgette",
+ "licence": "Public Domain Mark (Wellcome Collection)",
+ "licence_quote_verbatim": "{\"id\": \"pdm\", \"type\": \"License\", \"label\": \"Public Domain Mark\", \"url\": \"https://creativecommons.org/share-your-work/public-domain/pdm/\"}",
+ "original": {
+  "url": "https://iiif.wellcomecollection.org/image/V0024386/full/max/0/default.jpg",
+  "file": "/var/tmp/nc-t4/goc/wellcome-uv3mugch-embankment-1865/goc.jpg",
+  "bytes": 2111837,
+  "sha256": "688f4cb91ba8582f1500d5bcdd3675dfa410aca2062367a81e0f8dc2f68c133c",
+  "px": [
+   3048,
+   2386
+  ]
+ },
+ "derivative": {
+  "file": "channel-k2/k2c-t4-02/nc/anh/wellcome-uv3mugch-embankment-1865.jpg",
+  "bytes": 1767957,
+  "px": [
+   2400,
+   1879
+  ]
+ },
+ "raw_metadata_verbatim": {
+  "work": {
+   "production": [
+    {
+     "label": "1865",
+     "agents": [],
+     "dates": [
+      {
+       "label": "1865",
+       "type": "Period"
+      }
+     ],
+     "type": "ProductionEvent",
+     "places": [
+      {
+       "label": "England",
+       "type": "Place"
+      }
+     ]
+    }
+   ],
+   "physicalDescription": "1 drawing : pen and ink, with watercolour, on linen ; sheet 45 x 57 cm",
+   "subjects": [
+    {
+     "label": "Civil engineering",
+     "concepts": [
+      {
+       "id": "uenu8awk",
+       "label": "Civil engineering",
+       "type": "Concept"
+      }
+     ],
+     "id": "uenu8awk",
+     "type": "Subject"
+    },
+    {
+     "label": "Sanitation",
+     "concepts": [
+      {
+       "id": "d8z89dv6",
+       "label": "Sanitation",
+       "type": "Concept"
+      }
+     ],
+     "id": "d8z89dv6",
+     "type": "Subject"
+    },
+    {
+     "label": "Thames River (England)",
+     "concepts": [
+      {
+       "id": "zjbypn32",
+       "label": "Thames River (England)",
+       "type": "Place"
+      }
+     ],
+     "id": "zjbypn32",
+     "type": "Subject"
+    }
+   ],
+   "items": [
+    {
+     "id": "w26swc3v",
+     "locations": [
+      {
+       "locationType": {
+        "id": "closed-stores",
+        "type": "LocationType",
+        "label": "Closed stores"
+       },
+       "accessConditions": [
+        {
+         "method": {
+          "id": "online-request",
+          "type": "AccessMethod",
+          "label": "Online request"
+         },
+         "status": {
+          "id": "open",
+          "type": "AccessStatus",
+          "label": "Open"
+         },
+         "type": "AccessCondition"
+        }
+       ],
+       "label": "Closed stores",
+       "type": "PhysicalLocation"
+      },
+      {
+       "url": "https://iiif.wellcomecollection.org/image/V0024386/info.json",
+       "credit": "Wellcome Collection",
+       "license": {
+        "id": "pdm",
+        "type": "License",
+        "label": "Public Domain Mark",
+        "url": "https://creativecommons.org/share-your-work/public-domain/pdm/"
+       },
+       "accessConditions": [
+        {
+         "method": {
+          "id": "view-online",
+          "type": "AccessMethod",
+          "label": "View online"
+         },
+         "status": {
+          "id": "open",
+          "type": "AccessStatus",
+          "label": "Open"
+         },
+         "type": "AccessCondition"
+        }
+       ],
+       "locationType": {
+        "id": "iiif-image",
+        "type": "LocationType",
+        "label": "IIIF Image API"
+       },
+       "type": "DigitalLocation"
+      }
+     ],
+     "type": "Item"
+    }
+   ],
+   "workType": {
+    "id": "k",
+    "type": "Format",
+    "label": "Pictures"
+   },
+   "thumbnail": {
+    "url": "https://iiif.wellcomecollection.org/image/V0024386/full/300,/0/default.jpg",
+    "license": {
+     "id": "pdm",
+     "type": "License",
+     "label": "Public Domain Mark",
+     "url": "https://creativecommons.org/share-your-work/public-domain/pdm/"
+    },
+    "accessConditions": [],
+    "locationType": {
+     "id": "thumbnail-image",
+     "type": "LocationType",
+     "label": "Thumbnail image"
+    },
+    "type": "DigitalLocation"
+   },
+   "alternativeTitles": [],
+   "id": "uv3mugch",
+   "lettering": "Thames Embankment north - Temple steam boat pier.",
+   "notes": [
+    {
+     "contents": [
+      "Wellcome Collection 44535i"
+     ],
+     "noteType": {
+      "id": "reference",
+      "type": "NoteType",
+      "label": "Reference"
+     },
+     "type": "Note"
+    }
+   ],
+   "title": "Civil engineering: construction drawings for the Thames Embankment. Coloured drawing, 1865, after Sir J. Bazalgette.",
+   "type": "Work",
+   "contributors": [
+    {
+     "agent": {
+      "id": "vt72zuhh",
+      "label": "Joseph Bazalgette",
+      "type": "Person"
+     },
+     "roles": [],
+     "primary": false,
+     "type": "Contributor"
+    }
+   ],
+   "images": [
+    {
+     "id": "c2jjfncy",
+     "type": "Image"
+    }
+   ],
+   "availabilities": [
+    {
+     "id": "closed-stores",
+     "type": "Availability",
+     "label": "Closed stores"
+    },
+    {
+     "id": "online",
+     "type": "Availability",
+     "label": "Online"
+    }
+   ],
+   "referenceNumber": "44535i"
+  },
+  "image": {
+   "locations": [
+    {
+     "url": "https://iiif.wellcomecollection.org/image/V0024386/info.json",
+     "credit": "Wellcome Collection",
+     "license": {
+      "id": "pdm",
+      "type": "License",
+      "label": "Public Domain Mark",
+      "url": "https://creativecommons.org/share-your-work/public-domain/pdm/"
+     },
+     "accessConditions": [
+      {
+       "method": {
+        "id": "view-online",
+        "type": "AccessMethod",
+        "label": "View online"
+       },
+       "status": {
+        "id": "open",
+        "type": "AccessStatus",
+        "label": "Open"
+       },
+       "type": "AccessCondition"
+      }
+     ],
+     "locationType": {
+      "id": "iiif-image",
+      "type": "LocationType",
+      "label": "IIIF Image API"
+     },
+     "type": "DigitalLocation"
+    }
+   ],
+   "source": {
+    "id": "uv3mugch",
+    "title": "Civil engineering: construction drawings for the Thames Embankment. Coloured drawing, 1865, after Sir J. Bazalgette.",
+    "type": "Work"
+   },
+   "aspectRatio": 1.2779552715654952,
+   "thumbnail": {
+    "url": "https://iiif.wellcomecollection.org/image/V0024386/info.json",
+    "credit": "Wellcome Collection",
+    "license": {
+     "id": "pdm",
+     "type": "License",
+     "label": "Public Domain Mark",
+     "url": "https://creativecommons.org/share-your-work/public-domain/pdm/"
+    },
+    "accessConditions": [
+     {
+      "method": {
+       "id": "view-online",
+       "type": "AccessMethod",
+       "label": "View online"
+      },
+      "status": {
+       "id": "open",
+       "type": "AccessStatus",
+       "label": "Open"
+      },
+      "type": "AccessCondition"
+     }
+    ],
+    "locationType": {
+     "id": "iiif-image",
+     "type": "LocationType",
+     "label": "IIIF Image API"
+    },
+    "type": "DigitalLocation"
+   },
+   "averageColor": "#b2a092",
+   "id": "c2jjfncy",
+   "type": "Image"
+  },
+  "iiif_info": {
+   "@context": "http://iiif.io/api/image/2/context.json",
+   "@id": "https://iiif.wellcomecollection.org/image/V0024386",
+   "@type": "iiif:Image",
+   "profile": [
+    "http://iiif.io/api/image/2/level2.json",
+    {
+     "formats": [
+      "jpg",
+      "tif",
+      "gif",
+      "png"
+     ],
+     "qualities": [
+      "bitonal",
+      "default",
+      "gray",
+      "color"
+     ],
+     "supports": [
+      "regionByPx",
+      "sizeByW",
+      "sizeByWhListed",
+      "cors",
+      "regionSquare",
+      "sizeByDistortedWh",
+      "canonicalLinkHeader",
+      "sizeByConfinedWh",
+      "sizeByPct",
+      "jsonldMediaType",
+      "regionByPct",
+      "rotationArbitrary",
+      "sizeByH",
+      "baseUriRedirect",
+      "rotationBy90s",
+      "profileLinkHeader",
+      "sizeByForcedWh",
+      "sizeByWh",
+      "mirroring"
+     ]
+    }
+   ],
+   "protocol": "http://iiif.io/api/image",
+   "width": 3048,
+   "height": 2386,
+   "sizes": [
+    {
+     "width": 1024,
+     "height": 802
+    },
+    {
+     "width": 400,
+     "height": 313
+    },
+    {
+     "width": 200,
+     "height": 157
+    },
+    {
+     "width": 100,
+     "height": 78
+    }
+   ],
+   "tiles": [
+    {
+     "width": 512,
+     "height": 512,
+     "scaleFactors": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-01b-l1-360p-k90",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "a426e5388b4f24db8e67aea3c36ae3cd15564da7f183525480451ef83d7e9c8b",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
+    "NO Wren dome",
+    "NO Monument column"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The distant landmark is a tall, slender Gothic tower with four tall spire-like pinnacles and traceried upper stages. It looks like a Victorian Gothic or cathedral tower. It stands intact among the burning ruins.",
+     "ly_do": "The tower of Old St Paul's was a squat square tower with no spire, and in 1666 it was burnt and ruined. This tower is intact and has tall pinnacles, so it does not match the 1666 form. I am only moderately sure, because it could be read as a loosely drawn Old St Paul's tower.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1421,
+      22,
+      1574,
+      324
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.030870600000000005,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 942,
+     "cacheReadInputTokens": 4786,
+     "cacheCreationInputTokens": 8384,
+     "webSearchRequests": 0,
+     "costUSD": 0.030870600000000005,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 216,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.4,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The distant landmark is a tall, slender Gothic tower with four tall spire-like pinnacles and traceried upper stages. It looks like a Victorian Gothic or cathedral tower. It stands intact among the burning ruins.\",\"ly_do\":\"The tower of Old St Paul's was a squat square tower with no spire, and in 1666 it was burnt and ruined. This tower is intact and has tall pinnacles, so it does not match the 1666 form. I am only moderately sure, because it could be read as a loosely drawn Old St Paul's tower.\",\"nam_xuat_hien\":null,\"toa_do\":[0.74,0.02,0.82,0.3],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0309,
+ "chi_phi_tb": 0.0309,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

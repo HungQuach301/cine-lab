@@ -1,0 +1,1300 @@
+{
+ "id": "rijks-200221267-james2-loggan",
+ "nhom": "A",
+ "chu_de": "James, Duke of York / James II",
+ "source_url": "https://www.rijksmuseum.nl/en/collection/RP-P-1962-185",
+ "api_url": "https://id.rijksmuseum.nl/200221267",
+ "accessed": "2026-10-25",
+ "holder": "Rijksmuseum, RP-P-1962-185",
+ "title": "Portret van koning Jacobus II van Engeland",
+ "date": "1643 - 1692",
+ "creator": "David Loggan (1633–1692 - 1692-08-01)",
+ "licence": "Rijksmuseum linked-art: https://creativecommons.org/publicdomain/mark/1.0/, https://creativecommons.org/publicdomain/zero/1.0/",
+ "licence_quote_verbatim": "object: https://creativecommons.org/publicdomain/mark/1.0/, https://creativecommons.org/publicdomain/zero/1.0/",
+ "original": {
+  "url": "https://iiif.micr.io/FVwDr/full/max/0/default.jpg",
+  "file": "/var/tmp/nc-t4/goc/rijks-200221267-james2-loggan/goc.jpg",
+  "bytes": 7616934,
+  "sha256": "94f09c070f54902ed075deb497d3c9dbf9717fc1324c737b40ca572fd4e7a735",
+  "px": [
+   3872,
+   6308
+  ]
+ },
+ "derivative": {
+  "file": "channel-k2/k2c-t4-02/nc/anh/rijks-200221267-james2-loggan.jpg",
+  "bytes": 1594249,
+  "px": [
+   1473,
+   2400
+  ]
+ },
+ "raw_metadata_verbatim": {
+  "object": {
+   "@context": "https://linked.art/ns/v1/linked-art.json",
+   "id": "https://id.rijksmuseum.nl/200221267",
+   "type": "HumanMadeObject",
+   "assigned_by": [
+    {
+     "type": "AttributeAssignment",
+     "assigned": [
+      {
+       "type": "LinguisticObject",
+       "identified_by": [
+        {
+         "type": "Identifier",
+         "classified_as": [
+          {
+           "id": "http://vocab.getty.edu/aat/300311705",
+           "type": "Type"
+          }
+         ],
+         "content": "Hollstein Dutch 42"
+        }
+       ]
+      }
+     ],
+     "assigned_property": "referred_to_by",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300311954",
+       "type": "Type"
+      }
+     ],
+     "used_specific_object": [
+      {
+       "id": "https://id.rijksmuseum.nl/2208315",
+       "type": [
+        "LinguisticObject",
+        "skos:Concept"
+       ],
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300026061",
+         "type": "Type"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "AttributeAssignment",
+     "assigned": [
+      {
+       "type": "LinguisticObject",
+       "identified_by": [
+        {
+         "type": "Identifier",
+         "classified_as": [
+          {
+           "id": "http://vocab.getty.edu/aat/300311705",
+           "type": "Type"
+          }
+         ],
+         "part": [
+          {
+           "type": "Identifier",
+           "classified_as": [
+            {
+             "id": "http://vocab.getty.edu/aat/300404620",
+             "type": "Type"
+            }
+           ],
+           "content": "27"
+          },
+          {
+           "type": "Identifier",
+           "classified_as": [
+            {
+             "id": "http://vocab.getty.edu/aat/300445022",
+             "type": "Type"
+            }
+           ],
+           "content": "dl. II, p. 623"
+          }
+         ]
+        }
+       ],
+       "part_of": [
+        {
+         "id": "https://id.rijksmuseum.nl/30124099",
+         "type": "http://id.loc.gov/ontologies/bibframe/Instance"
+        }
+       ]
+      }
+     ],
+     "assigned_property": "referred_to_by",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300311954",
+       "type": "Type"
+      }
+     ]
+    },
+    {
+     "type": "AttributeAssignment",
+     "assigned": [
+      {
+       "type": "LinguisticObject",
+       "identified_by": [
+        {
+         "type": "Identifier",
+         "classified_as": [
+          {
+           "id": "http://vocab.getty.edu/aat/300311705",
+           "type": "Type"
+          }
+         ],
+         "part": [
+          {
+           "type": "Identifier",
+           "classified_as": [
+            {
+             "id": "http://vocab.getty.edu/aat/300404620",
+             "type": "Type"
+            }
+           ],
+           "content": "42"
+          },
+          {
+           "type": "Identifier",
+           "classified_as": [
+            {
+             "id": "http://vocab.getty.edu/aat/300445022",
+             "type": "Type"
+            }
+           ],
+           "content": "p. 91"
+          }
+         ]
+        }
+       ],
+       "part_of": [
+        {
+         "id": "https://id.rijksmuseum.nl/30185782",
+         "type": "http://id.loc.gov/ontologies/bibframe/Instance"
+        }
+       ]
+      }
+     ],
+     "assigned_property": "referred_to_by",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300311954",
+       "type": "Type"
+      }
+     ]
+    }
+   ],
+   "classified_as": [
+    {
+     "id": "https://id.rijksmuseum.nl/22040",
+     "type": "Type",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435443",
+       "type": "Type",
+       "_label": "Type of Work"
+      }
+     ],
+     "equivalent": [
+      {
+       "id": "http://vocab.getty.edu/aat/300041273",
+       "type": "Type"
+      }
+     ],
+     "notation": [
+      {
+       "@language": "en",
+       "@value": "print"
+      },
+      {
+       "@language": "nl",
+       "@value": "prent"
+      }
+     ]
+    }
+   ],
+   "dimension": [
+    {
+     "type": "Dimension",
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22011",
+       "type": "Type",
+       "equivalent": [
+        {
+         "id": "http://vocab.getty.edu/aat/300055644",
+         "type": "Type"
+        }
+       ],
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "height"
+        },
+        {
+         "@language": "nl",
+         "@value": "hoogte"
+        }
+       ]
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "blad",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "unit": {
+      "id": "http://vocab.getty.edu/aat/300379097",
+      "type": "MeasurementUnit"
+     },
+     "value": "431"
+    },
+    {
+     "type": "Dimension",
+     "classified_as": [
+      {
+       "id": "https://id.rijksmuseum.nl/22012",
+       "type": "Type",
+       "equivalent": [
+        {
+         "id": "http://vocab.getty.edu/aat/300055647",
+         "type": "Type"
+        }
+       ],
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "width"
+        },
+        {
+         "@language": "nl",
+         "@value": "breedte"
+        }
+       ]
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "blad",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      }
+     ],
+     "unit": {
+      "id": "http://vocab.getty.edu/aat/300379097",
+      "type": "MeasurementUnit"
+     },
+     "value": "264"
+    }
+   ],
+   "equivalent": [
+    {
+     "id": "http://hdl.handle.net/10934/RM0001.COLLECT.141490",
+     "type": "HumanMadeObject"
+    }
+   ],
+   "identified_by": [
+    {
+     "type": "Identifier",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300312355",
+       "type": "Type"
+      },
+      {
+       "id": "https://id.rijksmuseum.nl/22015218",
+       "type": "Type",
+       "notation": [
+        {
+         "@language": "en",
+         "@value": "object number"
+        },
+        {
+         "@language": "nl",
+         "@value": "objectnummer"
+        }
+       ]
+      }
+     ],
+     "content": "RP-P-1962-185"
+    },
+    {
+     "type": "Name",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300404670",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      },
+      {
+       "id": "http://vocab.getty.edu/aat/300417200",
+       "type": "Type"
+      }
+     ],
+     "content": "Portret van koning Jacobus II van Engeland",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    }
+   ],
+   "made_of": [
+    {
+     "id": "https://id.rijksmuseum.nl/22020",
+     "type": "Material",
+     "equivalent": [
+      {
+       "id": "http://vocab.getty.edu/aat/300014109",
+       "type": "Material"
+      },
+      {
+       "id": "http://www.wikidata.org/entity/Q11472",
+       "type": "Material"
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "assigned_by": [
+        {
+         "type": "AttributeAssignment",
+         "assigned": [
+          "https://id.rijksmuseum.nl/200221267"
+         ],
+         "assigned_property": "influenced_by"
+        }
+       ],
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "notation": [
+      {
+       "@language": "en",
+       "@value": "paper"
+      },
+      {
+       "@language": "nl",
+       "@value": "papier (materiaal)"
+      }
+     ]
+    }
+   ],
+   "member_of": [
+    {
+     "id": "https://id.rijksmuseum.nl/260238",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/260239",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/260241",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/260251",
+     "type": "Set"
+    },
+    {
+     "id": "https://id.rijksmuseum.nl/26151",
+     "type": "Set"
+    }
+   ],
+   "produced_by": {
+    "type": "Production",
+    "part": [
+     {
+      "type": "Production",
+      "carried_out_by": [
+       {
+        "id": "https://id.rijksmuseum.nl/21020884",
+        "type": "Person",
+        "equivalent": [
+         {
+          "id": "http://viaf.org/viaf/100329291",
+          "type": "Person"
+         },
+         {
+          "id": "http://vocab.getty.edu/ulan/500030441",
+          "type": "Person"
+         },
+         {
+          "id": "http://www.wikidata.org/entity/Q5236742",
+          "type": "Person"
+         },
+         {
+          "id": "https://rkd.nl/artists/50613",
+          "type": "Person"
+         }
+        ],
+        "notation": [
+         {
+          "@language": "en",
+          "@value": "David Loggan"
+         },
+         {
+          "@language": "nl",
+          "@value": "David Loggan"
+         }
+        ]
+       }
+      ],
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300404450",
+        "type": "Type"
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ],
+        "content": "1"
+       }
+      ],
+      "referred_to_by": [
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "classified_as": [
+           {
+            "id": "http://vocab.getty.edu/aat/300418049",
+            "type": "Type",
+            "_label": "brief text"
+           }
+          ]
+         }
+        ],
+        "content": "prentmaker: David Loggan",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435416",
+          "type": "Type",
+          "classified_as": [
+           {
+            "id": "http://vocab.getty.edu/aat/300418049",
+            "type": "Type",
+            "_label": "brief text"
+           }
+          ]
+         }
+        ],
+        "content": "printmaker: David Loggan",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435417",
+          "type": "Type"
+         }
+        ],
+        "content": "David Loggan",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388256",
+          "type": "Language"
+         }
+        ]
+       },
+       {
+        "type": "LinguisticObject",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300435417",
+          "type": "Type"
+         }
+        ],
+        "content": "David Loggan",
+        "language": [
+         {
+          "id": "http://vocab.getty.edu/aat/300388277",
+          "type": "Language"
+         }
+        ]
+       }
+      ],
+      "technique": [
+       {
+        "id": "https://id.rijksmuseum.nl/2202348",
+        "type": "Type",
+        "equivalent": [
+         {
+          "id": "http://vocab.getty.edu/aat/300025164",
+          "type": "Type"
+         }
+        ],
+        "notation": [
+         {
+          "@language": "en",
+          "@value": "printmaker"
+         },
+         {
+          "@language": "nl",
+          "@value": "prentmaker"
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "referred_to_by": [
+     {
+      "type": "LinguisticObject",
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300435416",
+        "type": "Type",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300418049",
+          "type": "Type",
+          "_label": "brief text"
+         }
+        ]
+       }
+      ],
+      "content": "David Loggan",
+      "language": [
+       {
+        "id": "http://vocab.getty.edu/aat/300388256",
+        "type": "Language"
+       }
+      ]
+     },
+     {
+      "type": "LinguisticObject",
+      "classified_as": [
+       {
+        "id": "http://vocab.getty.edu/aat/300435416",
+        "type": "Type",
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300418049",
+          "type": "Type",
+          "_label": "brief text"
+         }
+        ]
+       }
+      ],
+      "content": "David Loggan",
+      "language": [
+       {
+        "id": "http://vocab.getty.edu/aat/300388277",
+        "type": "Language"
+       }
+      ]
+     }
+    ],
+    "technique": [
+     {
+      "id": "https://id.rijksmuseum.nl/2207277",
+      "type": "Type",
+      "equivalent": [
+       {
+        "id": "http://vocab.getty.edu/aat/300053225",
+        "type": "Type"
+       }
+      ],
+      "identified_by": [
+       {
+        "type": "Identifier",
+        "assigned_by": [
+         {
+          "type": "AttributeAssignment",
+          "assigned": [
+           "https://id.rijksmuseum.nl/200221267"
+          ],
+          "assigned_property": "influenced_by"
+         }
+        ],
+        "classified_as": [
+         {
+          "id": "http://vocab.getty.edu/aat/300456575",
+          "type": "Type"
+         }
+        ],
+        "content": "1"
+       }
+      ],
+      "notation": [
+       {
+        "@language": "en",
+        "@value": "engraving"
+       },
+       {
+        "@language": "nl",
+        "@value": "graveren (drukprocedé)"
+       }
+      ]
+     }
+    ],
+    "timespan": {
+     "type": "TimeSpan",
+     "begin_of_the_begin": "1643-01-01T00:00:00Z",
+     "end_of_the_end": "1692-12-31T23:59:59Z",
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "1643 - 1692",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language"
+        }
+       ]
+      },
+      {
+       "type": "Name",
+       "content": "1643 - 1692",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388277",
+         "type": "Language"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "referred_to_by": [
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300026687",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "Aankoop uit het F.G. Waller-Fonds",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300026687",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "Purchased with the support of the F.G. Waller-Fonds",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300404670",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      },
+      {
+       "id": "http://vocab.getty.edu/aat/300435452",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "Portret van Jacobus II, koning van Engeland en Schotland, ten voeten uit.",
+     "created_by": {
+      "type": "Creation",
+      "timespan": {
+       "type": "TimeSpan",
+       "begin_of_the_begin": "2011-04-06T00:00:00Z",
+       "end_of_the_end": "2011-04-06T23:59:59Z",
+       "identified_by": [
+        {
+         "type": "Name",
+         "content": "2011-04-06",
+         "language": [
+          {
+           "id": "http://vocab.getty.edu/aat/300388256",
+           "type": "Language"
+          }
+         ]
+        },
+        {
+         "type": "Name",
+         "content": "2011-04-06",
+         "language": [
+          {
+           "id": "http://vocab.getty.edu/aat/300388277",
+           "type": "Language"
+          }
+         ]
+        }
+       ]
+      }
+     },
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "collector's mark: Lugt 2228",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "collector's mark: Lugt 2760",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "verzamelaarsmerk, verso, gestempeld: Lugt 2228",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435414",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "verzamelaarsmerk, verso, gestempeld: Lugt 2760",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435416",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "Fagan, p.61, nr. 2 II ex. W. Sharp-coll.",
+     "created_by": {
+      "type": "Creation",
+      "timespan": {
+       "type": "TimeSpan",
+       "begin_of_the_begin": "2012-11-10T00:00:00Z",
+       "end_of_the_end": "2012-11-10T23:59:59Z",
+       "identified_by": [
+        {
+         "type": "Name",
+         "content": "2012-11-10",
+         "language": [
+          {
+           "id": "http://vocab.getty.edu/aat/300388256",
+           "type": "Language"
+          }
+         ]
+        },
+        {
+         "type": "Name",
+         "content": "2012-11-10",
+         "language": [
+          {
+           "id": "http://vocab.getty.edu/aat/300388277",
+           "type": "Language"
+          }
+         ]
+        }
+       ]
+      }
+     },
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435429",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "gravure",
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435430",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "blad: hoogte 431 mm x breedte 264 mm",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435430",
+       "type": "Type",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300418049",
+         "type": "Type",
+         "_label": "brief text"
+        }
+       ]
+      }
+     ],
+     "content": "height 431 mm x width 264 mm",
+     "identified_by": [
+      {
+       "type": "Identifier",
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300456575",
+         "type": "Type"
+        }
+       ],
+       "content": "1"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388277",
+       "type": "Language"
+      }
+     ]
+    }
+   ],
+   "shows": [
+    {
+     "id": "https://id.rijksmuseum.nl/202221267",
+     "type": "VisualItem"
+    }
+   ],
+   "subject_of": [
+    {
+     "type": "LinguisticObject",
+     "digitally_carried_by": [
+      {
+       "type": "DigitalObject",
+       "access_point": [
+        {
+         "id": "https://iiif.micr.io/FVwDr/full/max/0/default.jpg",
+         "type": "DigitalObject"
+        }
+       ],
+       "referred_to_by": [
+        {
+         "type": "LinguisticObject",
+         "_label": "Public Domain",
+         "classified_as": [
+          {
+           "id": "https://vocab.getty.edu/aat/300460240",
+           "type": "Type"
+          }
+         ],
+         "content": "https://creativecommons.org/publicdomain/mark/1.0/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "LinguisticObject",
+     "digitally_carried_by": [
+      {
+       "type": "DigitalObject",
+       "access_point": [
+        {
+         "id": "https://www.rijksmuseum.nl/nl/collectie/object/RP-P-1962-185--80661aa64e0ce96a8179639396221584",
+         "type": "DigitalObject"
+        }
+       ],
+       "classified_as": [
+        {
+         "id": "http://vocab.getty.edu/aat/300264578",
+         "type": "Type"
+        }
+       ],
+       "format": "text/html"
+      }
+     ],
+     "language": [
+      {
+       "id": "http://vocab.getty.edu/aat/300388256",
+       "type": "Language"
+      }
+     ]
+    },
+    {
+     "id": "https://data.rijksmuseum.nl/200221267",
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300379475",
+       "type": "Type"
+      }
+     ],
+     "subject_to": [
+      {
+       "type": "Right",
+       "classified_as": [
+        {
+         "id": "https://creativecommons.org/publicdomain/zero/1.0/",
+         "type": "Type"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "visual_item": {
+   "@context": "https://linked.art/ns/v1/linked-art.json",
+   "id": "https://id.rijksmuseum.nl/202221267",
+   "type": "VisualItem",
+   "digitally_shown_by": [
+    {
+     "id": "https://id.rijksmuseum.nl/500113886710885518757",
+     "type": "DigitalObject"
+    }
+   ],
+   "represents": [
+    {
+     "id": "https://id.rijksmuseum.nl/21084940",
+     "type": "Person",
+     "equivalent": [
+      {
+       "id": "http://viaf.org/viaf/3265477",
+       "type": "Person"
+      },
+      {
+       "id": "http://vocab.getty.edu/ulan/500253666",
+       "type": "Person"
+      },
+      {
+       "id": "http://www.wikidata.org/entity/Q126188",
+       "type": "Person"
+      }
+     ]
+    }
+   ],
+   "shown_by": [
+    {
+     "id": "https://id.rijksmuseum.nl/200221267",
+     "type": "HumanMadeObject",
+     "equivalent": [
+      {
+       "id": "http://hdl.handle.net/10934/RM0001.COLLECT.141490",
+       "type": "HumanMadeObject"
+      }
+     ]
+    }
+   ],
+   "subject_of": [
+    {
+     "id": "https://data.rijksmuseum.nl/202221267",
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300379475",
+       "type": "Type"
+      }
+     ],
+     "subject_to": [
+      {
+       "type": "Right",
+       "classified_as": [
+        {
+         "id": "https://creativecommons.org/publicdomain/zero/1.0/",
+         "type": "Type"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "subject_to": [
+    {
+     "type": "Right",
+     "classified_as": [
+      {
+       "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+       "type": "Type",
+       "_label": "Public Domain"
+      }
+     ],
+     "identified_by": [
+      {
+       "type": "Name",
+       "content": "Public Domain",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388277",
+         "type": "Language",
+         "_label": "English"
+        }
+       ]
+      },
+      {
+       "type": "Name",
+       "content": "Publieke domein",
+       "language": [
+        {
+         "id": "http://vocab.getty.edu/aat/300388256",
+         "type": "Language",
+         "_label": "Dutch"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "digital_object": {
+   "@context": "https://linked.art/ns/v1/linked-art.json",
+   "id": "https://id.rijksmuseum.nl/500113886710885518757",
+   "type": "DigitalObject",
+   "access_point": [
+    {
+     "id": "https://iiif.micr.io/FVwDr/full/max/0/default.jpg",
+     "type": "DigitalObject"
+    }
+   ],
+   "digitally_shows": [
+    {
+     "id": "https://id.rijksmuseum.nl/202221267",
+     "type": "VisualItem"
+    }
+   ],
+   "referred_to_by": [
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435434",
+       "type": "Type"
+      }
+     ],
+     "content": "downloadbaar"
+    },
+    {
+     "type": "LinguisticObject",
+     "classified_as": [
+      {
+       "id": "http://vocab.getty.edu/aat/300435434",
+       "type": "Type"
+      }
+     ],
+     "content": "zichtbaar"
+    }
+   ]
+  }
+ }
+}
