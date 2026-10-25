@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-05a-l2-360p-k25",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "8452b6b9a6c8f14c389bc921156ebf2dea04f3bb20b51803258cd2a4adb8ad20",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+    "Old London Bridge lined with houses",
+    "NO Monument column (built 1671-77)",
+    "NO Wren dome or Wren steeples"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "The men wear long, full-skirted knee-length coats with wide embroidered front borders. They also wear very large full-bottomed wigs, tight knee breeches, white stockings and buckled shoes. The standing man at the right has a sword hanging at his hip.",
+     "ly_do": "This silhouette looks like the 1690s–1710s. In 1666 men wore the short Restoration doublet or jacket with petticoat breeches and a shorter, lighter wig. The long coat and vest only came in after the 1666 fashion change, and the full-bottomed wig was not yet common.",
+     "nam_xuat_hien": 1690,
+     "toa_do_px": [
+      576,
+      281,
+      1267,
+      929
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "khác:cong_trinho_moc",
+     "mo_ta": "The skyline seen through the window shows a dense town with thin pointed Gothic spires. No long Gothic nave with a square crossing tower (Old St Paul's) can be made out. The view is tiny and blurred.",
+     "ly_do": "Old St Paul's should dominate the City skyline, with a square crossing tower and no spire. The pointed spires shown do not match that form.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1536,
+      346,
+      1766,
+      562
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.038149,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1249,
+     "cacheReadInputTokens": 3120,
+     "cacheCreationInputTokens": 10134,
+     "webSearchRequests": 0,
+     "costUSD": 0.038149,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 331,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The men wear long, full-skirted knee-length coats with wide embroidered front borders. They also wear very large full-bottomed wigs, tight knee breeches, white stockings and buckled shoes. The standing man at the right has a sword hanging at his hip.\",\"ly_do\":\"This silhouette looks like the 1690s–1710s. In 1666 men wore the short Restoration doublet or jacket with petticoat breeches and a shorter, lighter wig. The long coat and vest only came in after the 1666 fashion change, and the full-bottomed wig was not yet common.\",\"nam_xuat_hien\":1690,\"toa_do\":[0.3,0.26,0.66,0.86],\"do_tin\":0.4},{\"muc\":\"cong_trinho_moc\",\"mo_ta\":\"The skyline seen through the window shows a dense town with thin pointed Gothic spires. No long Gothic nave with a square crossing tower (Old St Paul's) can be made out. The view is tiny and blurred.\",\"ly_do\":\"Old St Paul's should dominate the City skyline, with a square crossing tower and no spire. The pointed spires shown do not match that form.\",\"nam_xuat_hien\":null,\"toa_do\":[0.8,0.32,0.92,0.52],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0381,
+ "chi_phi_tb": 0.0381,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

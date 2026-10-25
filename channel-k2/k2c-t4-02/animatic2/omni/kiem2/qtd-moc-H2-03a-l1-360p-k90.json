@@ -1,0 +1,70 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung H2-03a-l1-360p-k90 năm 1667: [cong_trinh_moc] The skyline has no ruined Old St Paul's, which should be a burnt Gothic nave with a square central tower. The dominant landmark is a tall, slender tower with a classical or baroque belfry and arched openings. It is surrounded by several intact, needle-like Gothic spires. — Old St Paul's should stand here in ruins with a squat square tower and no spire. A slim Wren-style tower and intact spires do not fit. The 1666 fire destroyed the medieval spires, and Wren's City church towers were built after 1670. (xuất hiện 1680) @px [1306, 0, 1459, 259] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 0 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-03a-l1-360p-k90",
+   "nam": 1667,
+   "noi": "London",
+   "sha256": "91e776db384964a3a4379caf17acc23643e3cbe478daa0323b7fa25b241a4812",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
+    "NO Wren dome",
+    "NO Monument column"
+   ],
+   "nghi_van": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The skyline has no ruined Old St Paul's, which should be a burnt Gothic nave with a square central tower. The dominant landmark is a tall, slender tower with a classical or baroque belfry and arched openings. It is surrounded by several intact, needle-like Gothic spires.",
+     "ly_do": "Old St Paul's should stand here in ruins with a squat square tower and no spire. A slim Wren-style tower and intact spires do not fit. The 1666 fire destroyed the medieval spires, and Wren's City church towers were built after 1670.",
+     "nam_xuat_hien": 1680,
+     "toa_do_px": [
+      1306,
+      0,
+      1459,
+      259
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "loi": null,
+      "ghi": "lớp công trình mốc: không qua bước 2 (vật vắng không phóng được) — giữ"
+     }
+    }
+   ],
+   "ghi_chu": [],
+   "cost_usd": 0.0349198,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 937,
+     "cacheReadInputTokens": 3078,
+     "cacheCreationInputTokens": 10092,
+     "webSearchRequests": 0,
+     "costUSD": 0.0349198,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 211,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.7,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The skyline has no ruined Old St Paul's, which should be a burnt Gothic nave with a square central tower. The dominant landmark is a tall, slender tower with a classical or baroque belfry and arched openings. It is surrounded by several intact, needle-like Gothic spires.\",\"ly_do\":\"Old St Paul's should stand here in ruins with a squat square tower and no spire. A slim Wren-style tower and intact spires do not fit. The 1666 fire destroyed the medieval spires, and Wren's City church towers were built after 1670.\",\"nam_xuat_hien\":1680,\"toa_do\":[0.68,0.0,0.76,0.24],\"do_tin\":0.5}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0349,
+ "chi_phi_tb": 0.0349,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

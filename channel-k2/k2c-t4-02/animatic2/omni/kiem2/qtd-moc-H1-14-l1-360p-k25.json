@@ -1,0 +1,51 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-14-l1-360p-k25",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "7396b67eefb388f00f04bc02bb69e05df069d09807d72206c1b6d0b08d869eb4",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+    "Old London Bridge lined with houses",
+    "NO Monument column (built 1671-77)",
+    "NO Wren dome or Wren steeples"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.0315209,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 589,
+     "cacheReadInputTokens": 3114,
+     "cacheCreationInputTokens": 10123,
+     "webSearchRequests": 0,
+     "costUSD": 0.0315209,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 118,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 6.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0315,
+ "chi_phi_tb": 0.0315,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

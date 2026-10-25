@@ -1,0 +1,49 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H3-05b-l1-360p-k55",
+   "nam": 1937,
+   "noi": "London",
+   "sha256": "87117a2c38942fa2893b77300f2ac998aa29fce3f30cb1c0501f651ba06094ad",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "St Paul's Cathedral with Wren's dome",
+    "no tower blocks or buildings later than 1937"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.030993400000000004,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 548,
+     "cacheReadInputTokens": 3064,
+     "cacheCreationInputTokens": 10078,
+     "webSearchRequests": 0,
+     "costUSD": 0.030993400000000004,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 72,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 7.7,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1937,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.031,
+ "chi_phi_tb": 0.031,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

@@ -5,7 +5,7 @@ Gốc: ANIMATIC-T4 · việc 8 — khai cho k2check 1.17.4 (Kinh thánh §13.6 "
 episode.yaml: kenh2_tu_t4, animatic, ngan_sach_gemini_usd 35 / moc 30 (chủ dự án 23/10/2026 23:45), so_ai_gemini (gộp sổ Gemini T4: tiền kỳ + LOOK-T4-V2 + phiên này, mỗi dòng `usd` thật),
 so_ai / so_ai_openai (gộp OpenAI T4), sha_tu_lieu (licenses/SHA256-TU-LIEU.txt + -LOOK), goc_toa_do [532000, 180800], log_shot. Log shot từng shot: cu_may, log_may (log.json render_look.js,
 giữ trong git — K1174-D4), tieu_diem_en, khop_voi/diem_neo/hoa_s, lo_ra, lop, ai_nen, minh_hoa, goc, tl, chuong. Timeline: một đoạn mỗi shot (cách mk_tl.py của K-1.17.2), speech = mốc câu lời dựng."""
-import gzip, json, shutil
+import gzip, hashlib, json, re, shutil
 from pathlib import Path
 import yaml
 REPO = Path(__file__).resolve().parents[3]; EP = REPO / 'channel-k2/k2c-t4-02'; AN = EP / 'animatic2'; AN1 = EP / 'animatic'
@@ -21,6 +21,40 @@ def gop(paths, loc, ra):
                 r = json.loads(l)
                 if loc(r): r.setdefault('so_goc', str(p.relative_to(REPO))); f.write(json.dumps(r, ensure_ascii=False) + '\n'); n += 1
     return n
+
+
+import sys; sys.path.insert(0, str(Path(__file__).resolve().parent)); from ghep_v3 import KHAC as KHAC3   # noqa: E402
+MOC_CITY = {}   # tag → (năm, danh sách mốc) — các clip đã chạy q_thoi_dai lớp mốc (qmoc_v3.sh)
+def _moc():
+    for l in (REPO / 'reports/animatic-t4-v2/qtd-moc.jsonl').read_text().splitlines():
+        r = json.loads(l)
+        if 'tag' in r and 'moc' in r: MOC_CITY[r['tag']] = r['moc']
+    MOC_CITY.setdefault('H2-13-l1-360p', "St Paul's Cathedral, Wren's dome with lantern and cross (completed 1710); City church steeples by Wren; no Gothic spire on St Paul's")
+
+
+def md_doan(r):
+    """mục đoạn M-d theo K1177 §4 (muc_kiem, so_luot, kiem_t1, kiem, to_khung, clip, nhan_vat_ten, chan_dung_tham_chieu, duyet_chu_du_an, cong_trinh_moc, chan_troi_city)."""
+    if not MOC_CITY: _moc()
+    ch = AN / 'omni/chon' / f"{r['ma']}.txt"; v3 = ch.exists(); tag = ch.read_text().strip() if v3 else r.get('md_clip')
+    base = 'omni' if v3 else '../animatic/omni'; luot = int(re.search(r'-l(\d)-', tag).group(1))
+    sg = (REPO / ('reports/animatic-t4-v2/md-so-giay.jsonl' if v3 else 'reports/animatic-t4/md-so-giay.jsonl')).read_text().splitlines()
+    so = len({json.loads(l)['luot'] for l in sg if json.loads(l).get('ma') == r['ma'] and 'luot' in json.loads(l) and 'ghi' not in json.loads(l) and 'chon_sau_soi_mat' not in json.loads(l)}) or luot
+    k2 = f'{base}/kiem2/{tag}-kiem.json'; mk = (AN / 'omni/kiem-mat.json')
+    d = {'ma': r['ma'], 't0': 0.0, 't1': r['dur'], 'luot': tag, 'so_luot': so, 'clip': f'{base}/clip/{tag}.mp4', 'so_ai': 'so-ai-gemini-t4.jsonl',
+         'muc_kiem': (r.get('muc_kiem') if v3 else 'day_du'), 'kiem_t1': f'{base}/kiem/{tag}-t1.json',
+         'kiem': k2 if (EP / ('animatic2' if v3 else 'animatic') / 'omni/kiem2' / f'{tag}-kiem.json').exists() else None,
+         'nhan_vat_ten': r.get('nhan_vat_ten') or [], 'cong_trinh_moc': [], 'chan_troi_city': tag in MOC_CITY}
+    if d['muc_kiem'] == 'nen': d['to_khung'] = f'omni/kiem-mat.json#{tag}'
+    if tag in MOC_CITY:
+        d['cong_trinh_moc'] = [x.strip() for x in MOC_CITY[tag].split(';') if x.strip()]
+        d['kiem_moc'] = [f'omni/kiem2/qtd-moc-{tag}-k{u}.json' for u in (25, 55, 90)]
+    if d['nhan_vat_ten']:
+        MC = json.loads((AN / 'omni/lenh/muc-luc.json').read_text()).get(r['ma'], {})
+        refs = [{'tep': p_, 'sha256': hashlib.sha256((REPO / p_).read_bytes()).hexdigest()} for p_ in MC.get('tham_chieu', [])]
+        d['chan_dung_tham_chieu'] = refs[0] if len(refs) == 1 else (refs or None)
+        if not refs: d['chan_dung_tham_chieu_ghi'] = 'không có chân dung xác thực/sạch quyền (NHAN-VAT-ANH.md) — tạo không tham chiếu, khung xa'
+        d['duyet_chu_du_an'] = ''
+    return d
 
 
 def main():
@@ -48,23 +82,24 @@ def main():
             if a.exists() and b.exists():
                 A, Bq = json.loads(a.read_text()), json.loads(b.read_text()); cut = r['thoi_gian'][3]; na = int(round((cut - 0.5) * 24))
                 A['frames'] = A['frames'][:na] + [dict(f, f=na + i) for i, f in enumerate(Bq['frames'])]; (LG / f"{r['ma']}.json").write_text(json.dumps(A))
-            x.update(khop_voi=r['khop_voi'], diem_neo=r['diem_neo'], hoa_s=r['hoa_s'])
+            x.update(khop_voi=r['khop_voi'], diem_neo_en=r['diem_neo'], hoa_s=r['hoa_s'])   # K1177 A1: neo hệ EN ở trường riêng
         if r['cu_may'] == 'KEO': x['lo_ra'] = r['lo_ra']
         if (LG / f"{r['ma']}.json").exists(): x['log_may'] = f"log-may/{r['ma']}.json"
         if r['minh_hoa']: x['md_moc'] = r['md_moc']; x['ai_image'] = True
         if r['minh_hoa']:
-            tg = (AN / 'omni/chon' / f"{r['ma']}.txt"); tag = tg.read_text().strip() if tg.exists() else r.get('md_clip')
-            kp = (f"omni/kiem2/{tag}-kiem.json" if (AN / 'omni/kiem2' / f'{tag}-kiem.json').exists() else (f"omni/kiem-mat.json#{tag}" if tg.exists() else f"../animatic/omni/kiem2/{tag}-kiem.json")) if tag else None
-            x['kiem'] = kp; x['muc_kiem'] = r.get('muc_kiem') if tg.exists() else 'v1 (2 tầng ANIMATIC-T4)'; x['nhan_vat_ten'] = r.get('nhan_vat_ten') or []
-            if tag: x['minh_hoa'] = [{'ma': r['ma'], 't0': 0.0, 't1': r['dur'], 'luot': tag, 'kiem': kp, 'so_ai': 'so-ai-gemini-t4.jsonl'}]
-            if x['nhan_vat_ten']:
-                MC = json.loads((AN / 'omni/lenh/muc-luc.json').read_text()).get(r['ma'], {}); import hashlib
-                x['chan_dung_tham_chieu'] = [{'tep': p_, 'sha256': hashlib.sha256((REPO / p_).read_bytes()).hexdigest()} for p_ in MC.get('tham_chieu', [])]
+            x['minh_hoa'] = [md_doan(r)]; x['kiem'] = x['minh_hoa'][0]['kiem']; x['muc_kiem'] = x['minh_hoa'][0]['muc_kiem']; x['nhan_vat_ten'] = x['minh_hoa'][0]['nhan_vat_ten']
+        if r['cu_may'] == 'TL' and r['lop_tl'] == 'THAT':
+            gp = AN / 'tu-lieu/giay-phep' / f"{r['tl_anh']}.json"; gp = gp if gp.exists() else AN / 'tu-lieu/giay-phep' / f"{r['tl_anh']}-goc.json"
+            ncp = EP / 'nc/licenses' / f"{r['tl_anh']}.json"; gp = ncp if ncp.exists() else gp
+            x['that'] = {'loai': 'footage_hien_dai' if r['them']['kb'].get('video') else 'anh', 'nguon': r['tl_anh'], 'hien_dai': bool(r['them']['kb'].get('video')),
+                         'giay_phep': {'tep': str(gp.relative_to(EP)) if gp.exists() else None, 'sha256': hashlib.sha256(gp.read_bytes()).hexdigest() if gp.exists() else None}}
+            x['cu_may'] = 'THAT'; x['goc'] = 'phang'; x['lop'] = {'THAT': r['dur']}
+        if r['cu_may'] == 'TL' and r['lop_tl'] != 'THAT': x['goc'] = 'phang'; x['tu_lieu_lan'] = [{'t0': r['t0'], 't1': r['t1'], 'lop': r['lop_tl']}]
+        if r['ma'] in KHAC3:
+            k_ = KHAC3[r['ma']]; x['tu_lieu_lan'] = [{'t0': round(r['t0'] + k_[2], 3), 't1': round(r['t0'] + k_[2] + k_[3], 3), 'lop': 'TL' if k_[0] == 'loc-wren-plan-0' else 'KHAC'}]
         if r['cu_may'] == 'TL':
             x['tu_lieu_toan_khung'] = {'anh': r['tl_anh'], 'lop': r['lop_tl'], 'chu': r['them']['chu'], 'chuyen_dong': '2D chậm (Ken Burns) — không AI chạm', 'ghi_cong': 'ghi-cong.json'}   # mục đoạn (K1172: kiem/so_ai/luot đọc ở mục đoạn)
-        if r['ai_nen']:
-            k = {'H5-05a': 'P9-2026-oai-l2'}.get(r['ma'])
-            x['n2p'] = {'tam': [{'tag': k, 'kiem': f'../animatic/tam-nen/do/{k}-kiem.json', 'ghep': f'../animatic/tam-nen/do/{k}-ghep.json', 'v': f"tam-nen/do/{r['ma']}-v.json", 'khoang_s': r['them']['tam_nen']}]}
+        if r['ai_nen']: x['n2p_tam'] = 'P9-2026'   # khai tấm ở episode.yaml n2p.tam (K1177 A5)
         x['tu_lieu_chong_sau_ai'] = False; x['ai_image'] = bool(r['minh_hoa']); x['noi'] = 'minh_hoa' if r['cu_may'] == 'MD' else r['diem_may']
         ls.append(x)
     (AN / 'log-shot.json').write_text(json.dumps(ls, ensure_ascii=False, indent=1))
@@ -110,6 +145,9 @@ def main():
             if r['t0'] <= t0_ < r['t1']: bt.append({'t': round(t0_ - r['t0'], 3), 'k': 'bo_dem', 's': f'{n1} {n2}'.strip()})
         if r['ma'] in G.KHAC: bt.append({'t': G.KHAC[r['ma']][2], 'k': 'tu_lieu', 's': G.KHAC[r['ma']][1]})
         if r['cu_may'] == 'TL': bt.append({'t': 0.0, 'k': 'tu_lieu', 's': r['them']['chu']})
+        lc = [{'at': b['t'], 'k': b['k'], 's': b['s'], 'mo_vao_s': {'the_chuong': 0.6, 'tu_lieu': 0.5}.get(b['k'], 0.3)} for b in bt if b['k'] in ('the_nhan_vat', 'bo_dem', 'tu_lieu', 'the_chuong')]
+        if lc: sh['p']['lop_chong'] = lc   # K1177 A4 / D5: lớp chồng ghi vào đặc tả (ghep_v3 đặt theo cùng mốc)
+        if r['cu_may'] == 'TL' and r['lop_tl'] == 'THAT': sh['p']['that'] = True
         s['beats'] = sorted(bt, key=lambda x: x['t'])
         if r['cu_may'] == 'PP':
             PPd = json.loads((AN1 / 'the-phuong-phap.json').read_text())['the']
@@ -122,9 +160,10 @@ def main():
         if c1: nhip.append({'id': r['ma'], 'chinh': True, 'cau': c1[:40], 'vat': ([{'loai': 'the_chuong', 'shot': r['ma']}] if any(x['k'] == 'the_chuong' for x in bt) else []) + [{'loai': 'su_kien', 'shot': r['ma']}]})
     E = {'id': 'k2c-t4-02-anim3', 'title': 'London — T4 animatic v3 (whole episode, 640×360, G1 narration v3)', 'brand': 'MOVING PARTS', 'channel': 'k2', 'out': '/var/tmp/cine-out/k2c-t4-02-anim',
          'music': [], 'sources': {}, 'numbers': {}, 'khung_sach': True, 'kenh2_tu_t4': True, 'animatic': True,
-         'ngan_sach_gemini_usd': 55, 'ngan_sach_gemini_moc_usd': 50, 'tu_lieu_tran_pct': 15,
-         'tu_lieu_tran_ghi_chu': 'chủ dự án duyệt 20 % (25/10/2026 09:15, gói 50 % tiết kiệm: tư liệu + khắc + thẻ + ảnh/footage thật ≤ 20 %) — chờ K-1.17.7; khai 15 % theo checks 1.17.6',
-         'goc_cao_san_pct': 50, 'goc_cao_ghi_chu': 'gói 50 % (chủ dự án 25/10/2026 09:15) — chờ K-1.17.7; 1.17.6 còn GOC-CAO-60', 'so_ai_gemini': 'so-ai-gemini-t4.jsonl', 'so_ai': 'so-ai-openai-t4.jsonl', 'so_ai_openai': 'so-ai-openai-t4.jsonl',
+         'ngan_sach_gemini_usd': 55, 'ngan_sach_gemini_moc_usd': 50, 'tu_lieu_tran_pct': 20, 'goc_cao_min_pct': 50, 'goc_cao_chuong_min_pct': 40, 'tl1_muc_tieu_pct': 60,
+         'be_mat_nha_px_m_min': 4, 'be_mat_nha_y_san_nhap': 0.01, 'kiem_2_muc': True,
+         'ghi_chu_khai': 'K1177 §4 (lệnh bổ sung #2 12:05, chủ dự án duyệt K1177-D1…D7): gói 50 % tiết kiệm (chủ dự án 25/10/2026 09:15) — góc cao ≥ 50 %, chương ≥ 40 %, tư liệu + thật ≤ 20 %',
+         'n2p': {'noi': 'bo_nam_bankside', 't4': True, 'tam': [{'id': 'P9-2026-oai-l2', 'shot': 'H5-05a', 'render': 'tam-nen/P9-2026/render.png', 'ghep': 'tam-nen/P9-2026/ghep.png', 'mat_na': 'tam-nen/P9-2026/matna.png', 'nam': 2026, 'anh_tinh': True}]}, 'so_ai_gemini': 'so-ai-gemini-t4.jsonl', 'so_ai': 'so-ai-openai-t4.jsonl', 'so_ai_openai': 'so-ai-openai-t4.jsonl',
          'sha_tu_lieu': 'sha-tu-lieu-t4.txt', 'goc_toa_do': [532000, 180800], 'loi_khoa': '../loi-khoa-v3.txt', 'log_shot': 'log-shot.json', 'nhip_vat': 'nhip-vat.json', 'segments': segs}
     if (AN / 'xem-cam.json').exists(): E['xem_cam'] = 'xem-cam.json'
     (AN / 'nhip-vat.json').write_text(json.dumps({'nhip': nhip}, ensure_ascii=False, indent=1))

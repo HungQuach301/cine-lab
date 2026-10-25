@@ -68,7 +68,8 @@ def lich(B, M):
 def md_frames(r, n):
     ch = AN2 / 'omni/chon' / f"{r['ma']}.txt"; tag = ch.read_text().strip() if ch.exists() else r.get('md_clip')
     if not tag: return None, None
-    clip = next((p for p in (AN2 / 'omni/clip' / f'{tag}.mp4', AN / 'omni/clip' / f'{tag}.mp4') if p.exists()), None)
+    cands = (AN2 / 'omni/clip' / f'{tag}.mp4', AN / 'omni/clip' / f'{tag}.mp4') if ch.exists() else (AN / 'omni/clip' / f'{tag}.mp4',)   # clip v1 giữ: chỉ tìm ở animatic/ (tên v3 có thể trùng)
+    clip = next((p for p in cands if p.exists()), None)
     if clip is None: return None, None
     d = GH.MDF / f"{r['ma']}-{tag}"
     if not (d / 'xong').exists():

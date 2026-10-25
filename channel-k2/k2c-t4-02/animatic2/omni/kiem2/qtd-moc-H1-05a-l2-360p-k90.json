@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-05a-l2-360p-k90",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "bddc40d03c15eaa59cf0b50717a7a71d209fb7e4d83af19617c26f0fa942596d",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+    "Old London Bridge lined with houses",
+    "NO Monument column (built 1671-77)",
+    "NO Wren dome or Wren steeples"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "khác:None",
+     "mo_ta": "The skyline seen through the window has a domed building with a small lantern. It stands among the spires, to the right of the smoke column.",
+     "ly_do": "Old St Paul's had a square crossing tower, no spire and no dome. A Wren-type dome and steeples did not exist in 1666. The Great Fire smoke suggests this is meant to be September 1666. The old Gothic cathedral is not clearly visible, and a dome-like landmark appears in its place.",
+     "nam_xuat_hien": 1710,
+     "toa_do_px": [
+      1632,
+      367,
+      1690,
+      432
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "khác:None",
+     "mo_ta": "Two men wear long knee-length coats with a cravat and a lace jabot, a waistcoat, and white stockings. They also wear full, long curled wigs.",
+     "ly_do": "This is the late-1660s to 1670s justaucorps and cravat look. Charles II only introduced the vest and long coat in October 1666. Cravats and full-bottom wigs became widespread after the 1670s, so the outfits look slightly too late for 1666.",
+     "nam_xuat_hien": 1675,
+     "toa_do_px": [
+      960,
+      194,
+      1210,
+      950
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.037319000000000005,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1166,
+     "cacheReadInputTokens": 3120,
+     "cacheCreationInputTokens": 10134,
+     "webSearchRequests": 0,
+     "costUSD": 0.037319000000000005,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 288,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"mo_ta\":\"The skyline seen through the window has a domed building with a small lantern. It stands among the spires, to the right of the smoke column.\",\"ly_do\":\"Old St Paul's had a square crossing tower, no spire and no dome. A Wren-type dome and steeples did not exist in 1666. The Great Fire smoke suggests this is meant to be September 1666. The old Gothic cathedral is not clearly visible, and a dome-like landmark appears in its place.\",\"nam_xuat_hien\":1710,\"toa_do\":[0.85,0.34,0.88,0.4],\"do_tin\":0.4},{\"mo_ta\":\"Two men wear long knee-length coats with a cravat and a lace jabot, a waistcoat, and white stockings. They also wear full, long curled wigs.\",\"ly_do\":\"This is the late-1660s to 1670s justaucorps and cravat look. Charles II only introduced the vest and long coat in October 1666. Cravats and full-bottom wigs became widespread after the 1670s, so the outfits look slightly too late for 1666.\",\"nam_xuat_hien\":1675,\"toa_do\":[0.5,0.18,0.63,0.88],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0373,
+ "chi_phi_tb": 0.0373,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

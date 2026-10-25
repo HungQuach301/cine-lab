@@ -1,0 +1,64 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-01a-l1-360p-k90",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "19df8eb63efa31175b54a9e82e5eabbc284655ed0bd88642cae593d33a5445de",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
+    "NO Wren dome",
+    "NO Monument column"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "A plain multi-arched stone bridge crosses the middle of the view. It has no houses or buildings along its deck.",
+     "ly_do": "London Bridge in 1666 was a medieval stone bridge lined with houses, and the fire burned only part of them. A bare, regular-arched bridge may not match its 1666 form. This is a weak finding.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      902,
+      540,
+      1402,
+      626
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.0341698,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 862,
+     "cacheReadInputTokens": 3078,
+     "cacheCreationInputTokens": 10092,
+     "webSearchRequests": 0,
+     "costUSD": 0.0341698,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 206,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A plain multi-arched stone bridge crosses the middle of the view. It has no houses or buildings along its deck.\",\"ly_do\":\"London Bridge in 1666 was a medieval stone bridge lined with houses, and the fire burned only part of them. A bare, regular-arched bridge may not match its 1666 form. This is a weak finding.\",\"nam_xuat_hien\":null,\"toa_do\":[0.47,0.5,0.73,0.58],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0342,
+ "chi_phi_tb": 0.0342,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

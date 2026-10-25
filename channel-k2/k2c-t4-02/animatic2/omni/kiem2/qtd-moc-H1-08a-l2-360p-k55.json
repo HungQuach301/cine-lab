@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-08a-l2-360p-k55",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "44f0e684c13203c170c631a1d2e10f015667221a80f1d5f1adb798e009702c80",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+    "Old London Bridge lined with houses",
+    "NO Monument column (built 1671-77)",
+    "NO Wren dome or Wren steeples"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The burning skyline across the river is a row of low buildings with several thin pointed spires and Gothic-revival-style towers. I can't see Old St Paul's. It should be a very long Gothic nave with a square crossing tower and no spire. Old London Bridge with its houses is also not visible.",
+     "ly_do": "Old St Paul's should dominate the skyline in its 1666 form, with a long nave and a square crossing tower. The pointed spires in its place are wrong. They look like later or generic Gothic spires, not the 1666 landmark.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      691,
+      162,
+      1920,
+      540
+     ],
+     "do_tin": 0.45
+    }
+   ],
+   "cost_usd": 0.034419000000000005,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 876,
+     "cacheReadInputTokens": 3120,
+     "cacheCreationInputTokens": 10134,
+     "webSearchRequests": 0,
+     "costUSD": 0.034419000000000005,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 156,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 12.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The burning skyline across the river is a row of low buildings with several thin pointed spires and Gothic-revival-style towers. I can't see Old St Paul's. It should be a very long Gothic nave with a square crossing tower and no spire. Old London Bridge with its houses is also not visible.\",\"ly_do\":\"Old St Paul's should dominate the skyline in its 1666 form, with a long nave and a square crossing tower. The pointed spires in its place are wrong. They look like later or generic Gothic spires, not the 1666 landmark.\",\"nam_xuat_hien\":null,\"toa_do\":[0.36,0.15,1.0,0.5],\"do_tin\":0.45}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0344,
+ "chi_phi_tb": 0.0344,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

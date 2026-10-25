@@ -72,7 +72,7 @@ S = [
  md('H1-01b', 'HỒI 1', 'H1-01', R_, 1, 'M-d (1) tàn lửa bay lên hẻm gỗ; hàng xóm cầm đèn', clip='H1-01b-l1-360p'),
  moi('H1-02h', 'HỒI 1', 'H1-02', 2.0, 'P2', 'DAY', ('h66', 1.8, 2.0), 'kẹp 3D (C8): lửa nhỏ giữa mái gỗ phía bắc cầu', {'A': 2.0}, {'day_k': 0.008, 'tieu_diem_en': [532880, 180780, 10]}),
  md('H1-02', 'HỒI 1', 'H1-02', R_, 1, 'M-d (1) hẻm nhà khung gỗ tầng nhô, lửa liếm mái hiên', clip='H1-02-l1-360p'),
- v2('H1-03', them={'dung_sua': 'M-d H1-03b (Hollar vẽ trên tháp 1647) TRƯỢT 3/3 → 3D TRUOT như v1'}),
+ v2('H1-03', dur=15.875, them={'chuyen_s': 0.0, 'dung_sua': 'M-d H1-03b (Hollar vẽ trên tháp 1647) TRƯỢT 3/3 → 3D TRUOT như v1'}),
  v2('H1-04', dur=R_, cu='DAY', tg=('h66', 7.0, 12.0), them={'day_k': 0.006, 'dung_sua': 'MO-DAU §3: CODINH → DAY chậm; M-d H1-04b (nền) trượt 2/2 ở ảnh đầu (tàu lớn, đèn, mái vòm) → 3D'}),
  md('H1-05a', 'HỒI 1', 'H1-05', 5.0, 21, 'M-d (21) DN02 Whitehall: người viết nhật ký báo tin cho nhà Vua (khung trung/xa, không cận mặt)', ten=['Samuel Pepys', 'Charles II'], kiem='day_du',
     the=['Samuel Pepys (người viết nhật ký)']),
@@ -82,8 +82,7 @@ S = [
  md('H1-06b', 'HỒI 1', 'H1-06', 4.3333, 23, 'M-d (23) DN03 móc sắt dài kéo đổ mặt nhà gỗ ("pull down houses apace")'),
  v2('H1-07', dur=9.4583, them={'vong_deg': 24}),
  md('H1-07b', 'HỒI 1', 'H1-07', R_, 24, 'M-d (24) THÊM GÓC: khoảng trống 1633 trên cầu London — lửa dừng ở chỗ trống giữa hai dãy nhà trên cầu', kiem='day_du'),
- md('H1-08a', 'HỒI 1', 'H1-08', 6.0, 9, 'M-d (9) quán bia Bankside chạng vạng: người xem lửa bên kia sông', clip='H1-08a-l2-360p'),
- v2('H1-08b', them={'khac': 'ycba-40597-0'}),
+ v2('H1-08b', dur=R_, tg=('h66', 17.2, 22.0), them={'khac': 'ycba-40597-0', 'dung_sua': 'M-d H1-08a (clip v1) trượt lớp CÔNG TRÌNH MỐC q_thoi_dai 1.17.7 (chân trời 1666 thiếu Old St Paul\'s) → 3D P1 cả nhóm'}),
  v2('H1-09'), md('H1-10', 'HỒI 1', 'H1-10', 7.083, 4, 'M-d (4)+(6) Watling Street / Cheapside 3/9', clip='H1-10-l1-360p', chuyen_s=4.167),
  md('H1-12', 'HỒI 1', 'H1-12', 6.4583, 3, 'M-d (3) Thames đêm 3/9: sà lan, đồ trôi, bờ bắc rực lửa', clip='H1-12-l1-360p'),
  v2('H1-11', dur=8.4167, tg=('h66', 38.0, 43.0), them={'the': ['John Evelyn (người viết nhật ký)'], 'the_anh': {'John Evelyn': 'wellcome-b6zd76cd-evelyn-nanteuil'}}),
@@ -110,9 +109,8 @@ S = [
  md('H2-01b', 'HỒI 2', 'H2-01', R_, 30, 'M-d (30) DN06 tượng Gresham rơi khỏi hốc còn nguyên giữa tro Royal Exchange (Evelyn 7/9)', kiem='day_du'),
  v2('H2-02', lop={'A': 14.625, 'TL': 8, 'MAP3D': 4, 'THE': 7}, them={'dung_sua': 'M-d H2-02b TRƯỢT 3/3 (mũ tricorn; tháp kiểu Big Ben qua cửa sổ) → 3D cả nhóm', 'the': ['Christopher Wren', 'Charles II', 'Robert Hooke'],
     'the_anh': {'Christopher Wren': 'nga-wren-0', 'Charles II': 'met-435943-charles2-cooper'}}),
- md('H2-03a', 'HỒI 2', 'H2-03', 8.0, 10, 'M-d (10) thợ đo chia lô giữa tro 1667', clip='H2-03a-l1-360p'),
- v2('H2-03b', cu='DAY', them={'day_k': 0.008, 'dung_sua': 'MO-DAU §3: CODINH → DAY chậm'}),
- md('H2-03c', 'HỒI 2', 'H2-03', R_, 19, 'M-d (19) Toà Cháy 1667', clip='H2-03c-l1-360p'),
+ v2('H2-03b', dur=R_, cu='DAY', tg=('y', 1667.05, 1667.45, [3, 10, 13.0], 0), them={'day_k': 0.008, 'dung_sua': 'CODINH → DAY chậm; M-d H2-03a (clip v1) trượt lớp CÔNG TRÌNH MỐC (thiếu tàn tích Old St Paul\'s) → 3D'}),
+ md('H2-03c', 'HỒI 2', 'H2-03', 6.0, 19, 'M-d (19) Toà Cháy 1667', clip='H2-03c-l1-360p'),
  moi('H2-04h', 'HỒI 2', 'H2-04', 2.5, 'P2', 'NGHIENG', ('y', 1667.6, 1667.9, [6, 1, 11.0], 0), 'kẹp 3D góc cao: nhà gạch mọc dọc phố cũ', {'A': 2.5}, {'nghieng_deg': 3, 'tieu_diem_en': [532300, 181050, 20]}),
  v2('H2-04a', dur=3.5, tg=('y', 1667.9, 1668.4, [6, 1, 11.0], 0), them={'page': 'look2d', 'f2': True}),
  md('H2-04b', 'HỒI 2', 'H2-04', R_, 11, 'M-d (11) xe chở gạch, giàn giáo gỗ', clip='H2-04b-l1-360p'),
@@ -193,6 +191,7 @@ def main():
         if abs(tot - G[g]) > 2e-3: loi.append(f'{g}: shot {tot:.4f} ≠ nhóm {G[g]}')
         if g in LV and 0.2 + LV[g]['loi_s'] > G[g] + 1e-3: loi.append(f'{g}: lời {LV[g]["loi_s"]:.3f} + 0,2 > nhóm {G[g]}')
     assert set(by) == set(G), set(G) ^ set(by)
+    if abs(sum(s['dur'] for s in S) - sum(G.values())) > 2e-3: loi.append(f"tổng shot {sum(s['dur'] for s in S):.4f} ≠ tổng nhóm {sum(G.values()):.4f}")
     assert not [g for g in LV if g not in G], [g for g in LV if g not in G]
     rows, t, nhom_t0 = [], 0.0, collections.OrderedDict()
     for g in G: nhom_t0[g] = round(t, 4); t += G[g]
@@ -240,7 +239,7 @@ def main():
     k_('Thời lượng ≤ 780 s', T, cap=780)
     k_('Góc cao / thân phim % (gói 50 %: ≥ 50)', tong['goc_cao_than_phim_pct'], duoi=50, ghi='ước theo điểm máy (≥ 120 m); số đo thật: k2check theo log khung')
     k_('Mục tiêu cảnh báo TL-1: góc cao ≥ 60 % (chốt 5, không chặn)', tong['goc_cao_than_phim_pct'], duoi=60, ghi='chỉ cảnh báo (gói 50 %)')
-    k_('Omni % (≈ 30–35, mục tiêu gần đúng)', tong['MD_pct'], cap=35, duoi=30, dat=28.5 <= tong['MD_pct'] <= 36.75, ghi='≈: đạt khi trong ±5 % quanh dải; dưới 30 vì 11 clip trượt hết lượt về 3D (H1-03b, H1-04b, H1-06x, H1-13c, H1-15x, H2-02b, H2-06b, H2-09x, H2-10b, H4-02b, H5-01b) — không thêm clip chỉ để vượt ngưỡng; xem PHIEU-XEM-V2 C')
+    k_('Omni % (≈ 30–35, mục tiêu gần đúng)', tong['MD_pct'], cap=35, duoi=30, dat=28.5 <= tong['MD_pct'] <= 36.75, ghi='≈: đạt khi trong ±5 % quanh dải; dưới 30 vì 11 clip v3 trượt hết lượt + 2 clip v1 trượt lớp mốc 1.17.7 (H1-08a, H2-03a) về 3D (H1-03b, H1-04b, H1-06x, H1-13c, H1-15x, H2-02b, H2-06b, H2-09x, H2-10b, H4-02b, H5-01b) — không thêm clip chỉ để vượt ngưỡng; xem PHIEU-XEM-V2 C')
     k_('TL + KHAC + THE + THAT % (≤ 20, chủ dự án duyệt — chờ K-1.17.7)', tong['TL_KHAC_THE_THAT_pct'], cap=20)
     k_('TU-LIEU 1.17.6: TL + KHAC + THE + THAT % (≤ 15)', tong['TL_KHAC_THE_THAT_pct'], cap=15, ghi='chờ K-1.17.7 (20 %)')
     k_('Tổng AI % (≤ 70)', tong['AI_pct'], cap=70)

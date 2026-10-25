@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-15b-l1-360p-k25",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "06b8dfe9ed3203bd76c44a4384d52f33caa24955f4db860c89d87f411a9fa6fb",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+    "Old London Bridge lined with houses",
+    "NO Monument column (built 1671-77)",
+    "NO Wren dome or Wren steeples"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "In the burning skyline there is a rounded, lantern-topped tower at the right. It could read as a Wren-style steeple. The large square pinnacled tower in the centre is plausibly Old St Paul's crossing tower, with no spire and no dome.",
+     "ly_do": "Wren's steeples and domes did not exist in 1666. The rounded tower is small and blurred, so it may just be a medieval church tower. I am not confident it is anachronistic.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1536,
+      270,
+      1613,
+      367
+     ],
+     "do_tin": 0.15
+    }
+   ],
+   "cost_usd": 0.034909,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 925,
+     "cacheReadInputTokens": 3120,
+     "cacheCreationInputTokens": 10134,
+     "webSearchRequests": 0,
+     "costUSD": 0.034909,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 234,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"In the burning skyline there is a rounded, lantern-topped tower at the right. It could read as a Wren-style steeple. The large square pinnacled tower in the centre is plausibly Old St Paul's crossing tower, with no spire and no dome.\",\"ly_do\":\"Wren's steeples and domes did not exist in 1666. The rounded tower is small and blurred, so it may just be a medieval church tower. I am not confident it is anachronistic.\",\"nam_xuat_hien\":null,\"toa_do\":[0.8,0.25,0.84,0.34],\"do_tin\":0.15}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0349,
+ "chi_phi_tb": 0.0349,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

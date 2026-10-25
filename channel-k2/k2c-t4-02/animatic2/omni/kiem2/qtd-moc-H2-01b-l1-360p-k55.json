@@ -1,0 +1,64 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-01b-l1-360p-k55",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "8be0d15f7f2bf3211541ab753e955c2059c301f2024ca12423728a22edbb671f",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
+    "NO Wren dome",
+    "NO Monument column"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "In the distance there is a tall Gothic tower with four slender corner spires or pinnacles. It looks like a generic cathedral tower, not the plain square tower of Old St Paul's. No dome and no Monument column are visible.",
+     "ly_do": "Old St Paul's had a squat square tower with no spire after 1561. A tower with tall pinnacles is a doubtful match for it. This is a weak finding, and the tower could be another burnt church.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1421,
+      22,
+      1574,
+      216
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.031530600000000006,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1008,
+     "cacheReadInputTokens": 4786,
+     "cacheCreationInputTokens": 8384,
+     "webSearchRequests": 0,
+     "costUSD": 0.031530600000000006,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 319,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.4,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"In the distance there is a tall Gothic tower with four slender corner spires or pinnacles. It looks like a generic cathedral tower, not the plain square tower of Old St Paul's. No dome and no Monument column are visible.\",\"ly_do\":\"Old St Paul's had a squat square tower with no spire after 1561. A tower with tall pinnacles is a doubtful match for it. This is a weak finding, and the tower could be another burnt church.\",\"nam_xuat_hien\":null,\"toa_do\":[0.74,0.02,0.82,0.2],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0315,
+ "chi_phi_tb": 0.0315,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

@@ -1,0 +1,64 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-01b-l1-360p-k55",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "94a46bbb73e2fa63534a35cd37faa14ebd71f4950e8929beb6b51cc8082aba7f",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "ruined Old St Paul's (burnt Gothic nave and square tower, no spire, no dome)",
+    "NO Wren dome",
+    "NO Monument column"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The skyline behind the ruins shows only thin Gothic-style spires and small towers, including a tall pointed spire at about x=0.44, y=0.12–0.17. I can't pick out the large, ruined Old St Paul's with its long burnt nave and squat square tower. Nothing in the view reads as that cathedral.",
+     "ly_do": "Old St Paul's should dominate the City skyline in 1666 as a burnt Gothic shell with a square tower and no spire. A spired silhouette stands where it should be, and the cathedral itself is not identifiable. I did not see a dome or a Monument column, so those are not at issue.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      576,
+      108,
+      1248,
+      378
+     ],
+     "do_tin": 0.35
+    }
+   ],
+   "cost_usd": 0.0353498,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 980,
+     "cacheReadInputTokens": 3078,
+     "cacheCreationInputTokens": 10092,
+     "webSearchRequests": 0,
+     "costUSD": 0.0353498,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 230,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The skyline behind the ruins shows only thin Gothic-style spires and small towers, including a tall pointed spire at about x=0.44, y=0.12–0.17. I can't pick out the large, ruined Old St Paul's with its long burnt nave and squat square tower. Nothing in the view reads as that cathedral.\",\"ly_do\":\"Old St Paul's should dominate the City skyline in 1666 as a burnt Gothic shell with a square tower and no spire. A spired silhouette stands where it should be, and the cathedral itself is not identifiable. I did not see a dome or a Monument column, so those are not at issue.\",\"nam_xuat_hien\":null,\"toa_do\":[0.3,0.1,0.65,0.35],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0353,
+ "chi_phi_tb": 0.0353,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

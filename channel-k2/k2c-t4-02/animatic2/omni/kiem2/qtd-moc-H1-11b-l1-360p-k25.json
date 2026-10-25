@@ -1,0 +1,99 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.044 (TB $0.044/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-11b-l1-360p-k25",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "fd95fbd930f11861be38026ff6f2518240eacf0d95159b455750d41e5f217453",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "Old St Paul's Cathedral: very long Gothic nave with a square crossing tower and NO spire (spire lost 1561), NO dome",
+    "Old London Bridge lined with houses",
+    "NO Monument column (built 1671-77)",
+    "NO Wren dome or Wren steeples"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The frame is meant to show the Great Fire of London, but the burning building is a classical palazzo-style structure. Old St Paul's is not recognisable. There is no long Gothic nave and no square crossing tower. A classical column on a pedestal stands in the courtyard.",
+     "ly_do": "Old St Paul's, a Gothic cathedral with a square crossing tower and no spire, should be the landmark here. It is absent or replaced by an Italianate classical building. The column on a pedestal could also read as a Monument-like column, which was not built until 1671–77.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      0,
+      0,
+      1920,
+      972
+     ],
+     "do_tin": 0.45
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A burning courtyard in Italian Renaissance or Baroque style. It has tall round-arched arcades, rusticated pilasters, and statues of standing figures in round-headed niches on two storeys. A balustraded roofline and a classical monument column on a pedestal stand in the open court.",
+     "ly_do": "This is not 1666 London architecture. London then was mostly timber-framed and brick, with Gothic and Jacobean buildings. A large classical arcaded palazzo with niche statuary does not fit the city before the Great Fire. It looks like a later or foreign classical style.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      0,
+      0,
+      1920,
+      972
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "vung_px": [
+       0,
+       0,
+       1920,
+       1080
+      ],
+      "phong": 0.35,
+      "tra_loi": {
+       "vat": "Một sân trong của tòa nhà lớn đang cháy, có hành lang vòm và tượng trong các hốc tường",
+       "dac_diem": "Mặt tiền đá kiểu Phục Hưng/cổ điển ba tầng. Tầng trệt có hành lang mái vòm. Tầng trên có các hốc vòm tròn chứa tượng người. Giữa sân có một bục đặt tượng. Mái nhà đang cháy, các dầm gỗ cháy rơi xuống. Khói dày, mặt sân lát đá đầy mảnh vụn cháy.",
+       "co_tu_nam": null,
+       "da_co_nam_1666": "yes",
+       "ly_do": "Kiểu kiến trúc sân trong có hành lang vòm và tượng trong hốc tường theo phong cách Phục Hưng/Baroque đã phổ biến ở châu Âu trước năm 1666. Cảnh cháy phù hợp với trận Đại hỏa hoạn London năm 1666. Tôi không thấy chi tiết nào chắc chắn là của thời sau đó."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.0071757999999999995,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 0.35×: da_co_nam = 'yes' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.043724799999999994,
+   "cost_buoc2": 0.00718,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1089,
+     "cacheReadInputTokens": 3120,
+     "cacheCreationInputTokens": 10134,
+     "webSearchRequests": 0,
+     "costUSD": 0.036549,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 110,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A burning courtyard in Italian Renaissance or Baroque style. It has tall round-arched arcades, rusticated pilasters, and statues of standing figures in round-headed niches on two storeys. A balustraded roofline and a classical monument column on a pedestal stand in the open court.\",\"ly_do\":\"This is not 1666 London architecture. London then was mostly timber-framed and brick, with Gothic and Jacobean buildings. A large classical arcaded palazzo with niche statuary does not fit the city before the Great Fire. It looks like a later or foreign classical style.\",\"nam_xuat_hien\":null,\"toa_do\":[0.0,0.0,1.0,0.9],\"do_tin\":0.5},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The frame is meant to show the Great Fire of London, but the burning building is a classical palazzo-style structure. Old St Paul's is not recognisable. There is no long Gothic nave and no square crossing tower. A classical column on a pedestal stands in the courtyard.\",\"ly_do\":\"Old St Paul's, a Gothic cathedral with a square crossing tower and no spire, should be the landmark here. It is absent or replaced by an Italianate classical building. The column on a pedestal could also read as a Monument-like column, which was not built until 1671–77.\",\"nam_xuat_hien\":null,\"toa_do\":[0.0,0.0,1.0,0.9],\"do_tin\":0.45}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0437,
+ "chi_phi_tb": 0.0437,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}
