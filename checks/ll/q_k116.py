@@ -169,7 +169,11 @@ def text_frames(TL, logs, log_chu=None, base='.'):
     """→ ({khung phim: [mục]}, bước mẫu khung, W, H) hoặc (None, …)"""
     M, W, H = {}, 1920.0, 1080.0
     if log_chu:
-        J = _load(_p(base, log_chu)); J = J['frames'] if isinstance(J, dict) and 'frames' in J else J
+        J = _load(_p(base, log_chu))
+        if isinstance(J, dict) and J.get('fmt') == 'khoang':   # 1.17.8: khuôn KHOẢNG cho đường ghép Python {fmt: khoang, muc: [{t0, t1, role, s, …}]} (giây phim)
+            from checks.ll import q_k1178 as K78
+            J = K78.log_chu_khoang(J, FPS)
+        J = J['frames'] if isinstance(J, dict) and 'frames' in J else J
         for x in J or []: M.setdefault(int(x['f']), []).extend(x.get('items') or x.get('text') or [])
     elif logs and TL:
         t0 = {s['id']: float(s['t0']) for s in TL.get('segments') or []}
@@ -206,7 +210,9 @@ def _run_s(f0, f1, step): return (f1 - f0 + step) / FPS
 # ------------------------------------------------------------------ SACH-1
 def sach1(E, TL, TX=None, step=12, mh=None):
     """mh = [(id, t0, t1)] shot minh hoạ (1.17, §14.1 (c)): nhãn "Illustration" (vai minh_hoa hoặc đúng chữ đó) trong các shot này hợp lệ."""
-    M = {k: [] for k in 'abcdef'}; S = shot_list(E, TL); PP = {x[0] for x in pp_spans(E, TL)}
+    M = {k: [] for k in 'abcdefg'}; S = shot_list(E, TL); PP = {x[0] for x in pp_spans(E, TL)}
+    T4 = bool(E.get('kenh2_tu_t4') or E.get('n2p'))   # 1.17.8: vai §17 (thẻ nhân vật, bộ đếm số, chú thích tư liệu) hợp lệ từ T4 — giới hạn ở (g)
+    R17 = ('the_nhan_vat', 'bo_dem_so', 'chu_thich_tu_lieu') if T4 else ()
     for z in S:
         p = z['sh'].get('p') or {}; ps = z['spec'].get('p') or {}; P = dict(p, **ps); w = f"{z['seg']}/{z['i']} @{mmss(z['t0'])}"
         if z['seg'] in PP: continue
@@ -229,7 +235,9 @@ def sach1(E, TL, TX=None, step=12, mh=None):
     PPT = [(a, b) for _, a, b, _ in pp_spans(E, TL)]
     CHT = [(re.sub(r'\s+', ' ', c['s']).strip().lower(), c['t0'], c['t0'] + c['d']) for c in the_chuong(E, TL) if c['nguon'] == 'đặc tả' and c['d'] > 0]
     n_the = {'pp': 0, 'chuong': 0}
-    if TX is None: th.append('(c) không có log chữ (--logs k2.js) — không đo được chữ thực hiện trên hình; (d) chip nơi chưa đo')
+    if TX is None: th.append('(c) không có log chữ (--logs k2.js) — không đo được chữ thực hiện trên hình; (d) chip nơi chưa đo' if not T4 else
+                             '(c) không có log chữ — khai `log_chu: <tệp>` ở episode.yaml (khuôn khung [{f, items: [{role, s, …}]}] hoặc, 1.17.8 cho đường ghép Python, khuôn khoảng '
+                             '{fmt: khoang, muc: [{t0, t1, role, s, px1080?, box?}]} giây phim) hoặc --logs k2.js — không đo được chữ trên hình; (d) chip nơi chưa đo')
     else:
         by_role = {}; nhan = {}   # nhan: shot → {chữ: [khung]} (nhãn địa danh K116-D3)
         def shot_of(f):
@@ -244,7 +252,7 @@ def sach1(E, TL, TX=None, step=12, mh=None):
                 if any(a - 1e-6 <= f / FPS < b + 1e-6 for a, b in PPT): n_the['pp'] += 1; continue   # 1.17.3 A6: thẻ phương pháp
                 if ro not in OK_ROLES and any(re.sub(r'\s+', ' ', s_).strip().lower() == k and a - step / FPS - 1e-6 <= f / FPS <= b + step / FPS + 1e-6 for k, a, b in CHT):
                     n_the['chuong'] += 1; continue   # 1.17.3 A6: thẻ chương khai ở đặc tả (log ghi vai khác `the_chuong`)
-                if ro in OK_ROLES:
+                if ro in OK_ROLES or ro in R17:
                     if ro == 'where': by_role.setdefault(s_, []).append(f)
                     continue
                 if ro in BANNED_ROLES or BANNED_TXT.search(s_): by_role.setdefault(('BAN', ro), []).append((f, s_))
@@ -263,11 +271,16 @@ def sach1(E, TL, TX=None, step=12, mh=None):
             fs = sorted(f for v in L.values() for f in v); d = _run_s(fs[0], fs[-1], step); nl.append(d)
             if len(L) > MAP_LABEL_N: M['e'].append(f"(e) shot {sh} @{mmss(fs[0] / FPS)}: {len(L)} nhãn địa danh > {MAP_LABEL_N} ({', '.join(repr(x) for x in list(L)[:4])})")
             if d > MAP_LABEL_S + step / FPS / 2: M['e'].append(f"(e) shot {sh} @{mmss(fs[0] / FPS)}: nhãn địa danh hiện {d:.2f} s > {MAP_LABEL_S:g} s")
+    n17 = 0
+    if T4 and TX is not None:
+        from checks.ll import q_k1178 as K78
+        lg, n17 = K78.sach1_s17(TX, step, FPS); M['g'] += lg
     loi = sum(M.values(), [])
     near = (sat('chip nơi dài nhất s', round(max(chip), 2), CHIP_S) if chip else []) + (sat('nhãn địa danh dài nhất s', round(max(nl), 2), MAP_LABEL_S) if nl else [])
     return r(loi=loi, thieu=th, muc=M, sat_nguong=near,
              val=f"{len(S)} shot · tấm số/trích {len(M['a'])} · tư liệu đứng riêng {len(M['b'])} · " + (f"log chữ {nv} mục hiện · cấm {len(M['c'])} · chip {len(chip)} lần, dài nhất {max(chip or [0]):.2f} s · nhãn địa danh {len(nl)} shot, dài nhất {max(nl or [0]):.2f} s · lỗi chữ bản đồ/khác {len(M['e'])}" if TX is not None else 'không log chữ')
-                 + (f" · chữ thẻ theo đặc tả (1.17.3): PP {n_the['pp']} mẫu, chương {n_the['chuong']} mẫu" if TX is not None and (n_the['pp'] or n_the['chuong']) else ''))
+                 + (f" · chữ thẻ theo đặc tả (1.17.3): PP {n_the['pp']} mẫu, chương {n_the['chuong']} mẫu" if TX is not None and (n_the['pp'] or n_the['chuong']) else '')
+                 + (f" · vai §17 (1.17.8): {n17} mẫu, lỗi (g) {len(M['g'])}" if n17 else ''))
 
 
 # ------------------------------------------------------------------ thẻ chương

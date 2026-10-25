@@ -394,7 +394,7 @@ def kiem_bmn(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False
 def be_mat_nha(E, ep_dir='.', vision=False, out=None):
     """hàng BE-MAT-NHA (tập từ T4) — chỉ tấm n2p.tam khai `be_mat_nha_ai: true`"""
     if not ap_1175(E): return dict(ok=True, ket_qua='KHÔNG ÁP', loi=[], val='tập trước T4 — không hồi tố')
-    N2 = E.get('n2p') or {}; tam = [t for t in N2.get('tam') or [] if t.get('be_mat_nha_ai')]
+    N2 = E.get('n2p') or {}; tam = [t for t in N2.get('tam') or [] if t.get('be_mat_nha_ai') and not t.get('n2p_toan_khung_hien_dai')]   # 1.17.8: tấm LUẬT E không đo BMN (N2P-E)
     if not tam: return dict(ok=True, ket_qua='KHÔNG ÁP', loi=[], val='không tấm nào khai be_mat_nha_ai: true')
     out = out or E.get('out'); cp = os.path.join(out, 'bmn-vision-cache.json') if out else None
     cache = json.load(open(cp)) if cp and os.path.exists(cp) else {}

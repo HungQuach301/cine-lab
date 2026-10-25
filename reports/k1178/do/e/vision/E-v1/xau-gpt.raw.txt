@@ -1,0 +1,66 @@
+{
+  "moc": [
+    {"ten":"st_pauls","co_mat":true,"nhan_doi":true,"mo_ta":"The original pale cathedral remains in its original position and shape, but an additional illuminated dome and lantern rise behind and slightly left of it. An extra golden-topped tower also appears behind its left tower, producing a doubled silhouette.","do_tin":0.99},
+    {"ten":"toa_1","co_mat":true,"nhan_doi":false,"mo_ta":"Original rectangular tower retained at the same position and with the same silhouette. A separate, much taller HSBC building rises behind it.","do_tin":0.99},
+    {"ten":"toa_2","co_mat":true,"nhan_doi":false,"mo_ta":"Original rectangular tower clearly retained in place; no clear doubling, cutting or misalignment.","do_tin":0.99},
+    {"ten":"toa_3","co_mat":true,"nhan_doi":false,"mo_ta":"Original rectangular tower clearly retained in place; no clear doubling, cutting or misalignment.","do_tin":0.99},
+    {"ten":"toa_4","co_mat":true,"nhan_doi":false,"mo_ta":"Original horizontally banded tower retained at its original position and shape.","do_tin":0.99},
+    {"ten":"toa_5","co_mat":true,"nhan_doi":false,"mo_ta":"Original narrow rectangular tower retained in place; no clear doubling, cutting or misalignment.","do_tin":0.99},
+    {"ten":"toa_6","co_mat":true,"nhan_doi":false,"mo_ta":"Original banded tower retained in place, in front of the added Citi tower.","do_tin":0.99},
+    {"ten":"toa_7","co_mat":true,"nhan_doi":false,"mo_ta":"Original broad stepped tower retained at its original position and shape, overlapping the added Google billboard.","do_tin":0.99}
+  ],
+  "thap_bia": [
+    {"mo_ta":"Narrow dark high-rise on the left skyline.","toa_do":[0.148,0.444,0.162,0.503],"cao_hon_moc_gan":true,"do_tin":0.88},
+    {"mo_ta":"Tall slim rectangular tower farther right on the left skyline.","toa_do":[0.186,0.411,0.204,0.502],"cao_hon_moc_gan":true,"do_tin":0.97},
+    {"mo_ta":"Prominent dark rectangular high-rise left of St Paul's.","toa_do":[0.344,0.386,0.369,0.492],"cao_hon_moc_gan":true,"do_tin":0.98},
+    {"mo_ta":"Slim distant high-rise immediately left of the HSBC tower.","toa_do":[0.462,0.406,0.474,0.47],"cao_hon_moc_gan":true,"do_tin":0.86},
+    {"mo_ta":"Large HSBC-branded skyscraper behind toa_1.","toa_do":[0.484,0.337,0.517,0.565],"cao_hon_moc_gan":true,"do_tin":1.0},
+    {"mo_ta":"Narrow dark high-rise immediately left of the broad tower behind toa_2.","toa_do":[0.545,0.387,0.558,0.482],"cao_hon_moc_gan":true,"do_tin":0.94},
+    {"mo_ta":"Broad illuminated rectangular high-rise behind toa_2.","toa_do":[0.561,0.376,0.591,0.537],"cao_hon_moc_gan":true,"do_tin":0.99},
+    {"mo_ta":"Very tall angular, twisting glass skyscraper.","toa_do":[0.598,0.158,0.641,0.551],"cao_hon_moc_gan":true,"do_tin":1.0},
+    {"mo_ta":"Tall stepped dark skyscraper between the two tallest glass towers.","toa_do":[0.649,0.283,0.688,0.498],"cao_hon_moc_gan":true,"do_tin":1.0},
+    {"mo_ta":"Extremely tall pointed Shard-like skyscraper.","toa_do":[0.686,0.065,0.733,0.503],"cao_hon_moc_gan":true,"do_tin":1.0},
+    {"mo_ta":"Dark stepped high-rise immediately right of the pointed skyscraper, behind toa_4.","toa_do":[0.741,0.388,0.776,0.549],"cao_hon_moc_gan":true,"do_tin":0.98},
+    {"mo_ta":"Tall rectangular background tower with an uneven roof, above and right of toa_4.","toa_do":[0.762,0.333,0.781,0.459],"cao_hon_moc_gan":true,"do_tin":0.98},
+    {"mo_ta":"Narrow illuminated high-rise immediately right of that background tower.","toa_do":[0.779,0.365,0.806,0.473],"cao_hon_moc_gan":true,"do_tin":0.98},
+    {"mo_ta":"Citi-branded skyscraper behind toa_6.","toa_do":[0.823,0.339,0.855,0.553],"cao_hon_moc_gan":true,"do_tin":1.0},
+    {"mo_ta":"Slim distant high-rise left of the Google billboard.","toa_do":[0.867,0.401,0.885,0.495],"cao_hon_moc_gan":true,"do_tin":0.94},
+    {"mo_ta":"Broad high-rise supporting the large Google billboard, behind toa_7.","toa_do":[0.884,0.401,0.927,0.596],"cao_hon_moc_gan":true,"do_tin":0.99},
+    {"mo_ta":"Narrow background high-rise near the right-hand crane.","toa_do":[0.949,0.413,0.965,0.494],"cao_hon_moc_gan":true,"do_tin":0.87},
+    {"mo_ta":"Partially cropped high-rise at the far right edge.","toa_do":[0.984,0.441,1.0,0.593],"cao_hon_moc_gan":true,"do_tin":0.88}
+  ],
+  "them": [
+    {"loai":"cong_trinh","mo_ta":"Additional illuminated St Paul's-like dome and lantern behind and slightly left of the protected cathedral.","toa_do":[0.389,0.4,0.449,0.569],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.99},
+    {"loai":"cong_trinh","mo_ta":"Additional golden-topped cathedral tower behind the protected cathedral's left tower.","toa_do":[0.308,0.516,0.325,0.571],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.95},
+    {"loai":"khac","mo_ta":"Added construction crane on the left skyline.","toa_do":[0.223,0.428,0.24,0.513],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.92},
+    {"loai":"khac","mo_ta":"Added construction crane farther right on the left skyline.","toa_do":[0.272,0.421,0.287,0.507],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.94},
+    {"loai":"khac","mo_ta":"Added tall construction crane left of the dark rectangular high-rise.","toa_do":[0.293,0.402,0.307,0.5],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.97},
+    {"loai":"khac","mo_ta":"Added construction crane immediately left of the rectangular high-rise near x=0.35.","toa_do":[0.332,0.386,0.354,0.496],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.86},
+    {"loai":"khac","mo_ta":"Added distant crane between St Paul's and the HSBC tower.","toa_do":[0.415,0.43,0.437,0.507],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.78},
+    {"loai":"khac","mo_ta":"Added distant crane just right of the HSBC tower.","toa_do":[0.531,0.405,0.546,0.495],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.86},
+    {"loai":"khac","mo_ta":"Added construction crane beside the tall background tower right of the pointed skyscraper.","toa_do":[0.751,0.336,0.765,0.416],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.98},
+    {"loai":"khac","mo_ta":"Added construction crane above the right-hand skyline.","toa_do":[0.937,0.349,0.954,0.47],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.99},
+    {"loai":"khac","mo_ta":"Pair of added construction cranes near the far right edge.","toa_do":[0.975,0.359,0.999,0.463],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.99},
+    {"loai":"nguoi","mo_ta":"Numerous added tiny pedestrian silhouettes along the foreground waterfront promenade.","toa_do":[0.0,0.933,0.824,0.997],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.98},
+    {"loai":"nguoi","mo_ta":"Additional small pedestrians on the lower-right streets and walkways.","toa_do":[0.86,0.936,0.989,0.998],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.86},
+    {"loai":"xe_may","mo_ta":"Added traffic and vehicle light trails on the street running down the right side of St Paul's.","toa_do":[0.392,0.717,0.414,0.841],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.94},
+    {"loai":"xe_may","mo_ta":"Added traffic and vehicle light trails on the winding street left of the Coca-Cola billboard.","toa_do":[0.707,0.69,0.781,0.83],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.98},
+    {"loai":"xe_may","mo_ta":"Added small road vehicles on the streets below and right of the Coca-Cola billboard.","toa_do":[0.822,0.823,0.942,0.977],"thoi_dai_sai":false,"ly_do_thoi_dai":"","nam_xuat_hien":null,"do_tin":0.9}
+  ],
+  "bot_doi": [
+    {"loai":"cong_trinh","mo_ta":"The original plain foreground riverbank has been repainted as a detailed illuminated promenade with trees, lamps and pedestrians; much of the protected bank is not restored.","toa_do":[0.0,0.935,0.825,1.0],"do_tin":0.98},
+    {"loai":"cong_trinh","mo_ta":"The protected lower-right bank and small water inlet are obscured or replaced by repainted foreground buildings, trees and streets.","toa_do":[0.811,0.937,0.971,1.0],"do_tin":0.9}
+  ],
+  "chu": [
+    {"mo_ta":"Large illuminated SAMSUNG billboard with phone images.","toa_do":[0.036,0.554,0.087,0.63],"do_tin":1.0},
+    {"mo_ta":"HSBC name and red-and-white logo on the added skyscraper.","toa_do":[0.491,0.36,0.509,0.4],"do_tin":1.0},
+    {"mo_ta":"citi name with red arc on the added skyscraper.","toa_do":[0.829,0.348,0.847,0.374],"do_tin":1.0},
+    {"mo_ta":"Google billboard, including smaller partially obscured wording reading 'brighter' and '...orrow'.","toa_do":[0.884,0.441,0.927,0.565],"do_tin":1.0},
+    {"mo_ta":"Large red Coca-Cola billboard with white brand lettering and a bottle.","toa_do":[0.782,0.729,0.828,0.819],"do_tin":1.0},
+    {"mo_ta":"Spotify logo and name, with the slogan 'Music for a brighter day'.","toa_do":[0.948,0.686,1.0,0.883],"do_tin":1.0}
+  ],
+  "doi_loai_vung": [
+    {"mo_ta":"Land to water: at the lower-left edge the new waterline lies above the original waterline, replacing a strip of the original paved bank.","toa_do":[0.0,0.963,0.072,0.991],"do_tin":0.93},
+    {"mo_ta":"Water to land: the original small inlet at the lower right is replaced or obscured by land, trees and foreground structures.","toa_do":[0.862,0.987,0.949,1.0],"do_tin":0.88}
+  ]
+}

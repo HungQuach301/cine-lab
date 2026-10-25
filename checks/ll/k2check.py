@@ -27,6 +27,9 @@ Phiên xưởng chỉ CHẠY (không đọc mã). Định nghĩa: checks/ll/RULE
              `goc_cao_min_pct` + 5 chốt cấu trúc) · TU-LIEU trần tới 20 % + lớp THAT, hàng TU-LIEU-THAT · K-LAI-1 không tính M-d (Q2) · TL-1 (a)
              `tl1_muc_tieu_pct`, (c) miễn ranh M-d/tư liệu · NHAN-VAT-TEN (đo mặt YuNet ≤ 1/8) · KIEM-2-MUC · MAY-19 hệ toạ độ + khung KHOP gần nhất ·
              Q37 (a) `p.lop_chong` · BE-MAT-NHA (d) sàn Y nhấp nháy `be_mat_nha_y_san_nhap` · q_thoi_dai lớp công trình mốc (`--moc`)
+             1.17.8 (chủ dự án 26/10 00:07 "A+B+E"; khiếu nại ANIMATIC-T4-V2 §8): tập từ T4: N2P-E LUẬT E (tấm nền AI toàn khung hiện đại) · K-LAI-3
+             nhận Flash + tờ khung cho đoạn mức nen · Q34 thêm minh_hoa/tu_lieu/that · Q26b → Q26b-K2 · SACH-1 log chữ khoảng + vai §17 · Q37 (d) miễn
+             thẻ PP cuối · TU-LIEU-OMNI clip M-d gần nhất · BIEN-CO-V hiệu chuẩn T4 v2
 
 Gọi: Q26b bối cảnh · Q32 footage/ảnh nguồn ngoài · Q33 lặp cảnh · Q34 loại shot · Q35 nhãn loại số (D5) · Q36 chữ trên màn hình ·
 Q37 nhịp thị giác · A1–A13 âm thanh · LOCK. Mã thoát 0 khi mọi mục ĐẠT (âm thanh của tập cũ: CHỈ BÁO, không tính).
@@ -88,7 +91,10 @@ def main():
     def row(q, ten, r, nguong=''):
         kq = r.get('ket_qua') or ('ĐẠT' if r['ok'] else 'TRƯỢT')
         rows.append(dict(q=q, ten=ten, kq=kq, val=r.get('val', ''), nguong=nguong, sat='; '.join(r.get('sat_nguong') or []), loi=(r.get('loi') or []) + (r.get('thieu') or [])))
-    row('Q26b', 'Đa dạng bối cảnh' + (' (1.16: cảnh tl/* theo vùng)' if V16 else ''), q_setting.q26b(TL, E, v116=V16), '≤ 25 % · ≤ 90 s · nửa sau ≥ 3')
+    from checks.ll import q_k1178
+    q26 = (dict(ok=True, ket_qua='KHÔNG ÁP', loi=[], val='1.17.8 (tập từ T4): thay bằng Q26b-K2 — cùng ngưỡng (c)(d)(e) đo trên vùng; Q26b chỉ đọc bối cảnh qua hero / tl/* (đặc tả ghép không hero → trung tính)')
+           if q_k1178.ap_1178(E) else q_setting.q26b(TL, E, v116=V16))
+    row('Q26b', 'Đa dạng bối cảnh' + (' (1.16: cảnh tl/* theo vùng)' if V16 else ''), q26, '≤ 25 % · ≤ 90 s · nửa sau ≥ 3')
     row('Q32', 'Footage/ảnh nguồn ngoài', q_footage.q32(E, TL, ep_dir), '≤ 40 % · footage ≤ 20 % · ≤ 8 s/clip · < 720p trong khung ≤ 1,5×')
     row('Q33', 'Lặp cảnh' + (' (1.17.3: miễn cùng điểm máy năm khác — TL-1, năm hiện theo opt.time)' if NL17 else ''), q_scene.q33(E, TL, video=m if m and os.path.exists(m) else None, nam_log=NL17), '≤ 2 lần')
     row('Q34', 'Loại shot', q_types.q34(E, TL, ep_dir), 'type · map ±6 s · photo ±6 s · số neo 3D ≥ 60 % · document ≤ 3 s · record ≤ 12 s + dòng tô + nguồn')
@@ -295,11 +301,13 @@ def main():
         for k in K7T: bao(k, K7T[k], lambda k=k: K7[k], K7N[k])
         from checks.ll import q_n2p
         N2T = {'N2P-1': 'N2+ (i) lớp (a) sau ghép', 'N2P-2': 'N2+ (ii) lỗi thời đại (2 mô hình + O2)', 'N2P-3': 'N2+ (iii) đổi loại vùng T9b',
-               'N2P-4': 'N2+ (iv) đóng băng trên tấm tĩnh', 'N2P-5': 'N2+ (v) nhấp nháy + chuyển tấm', 'N2P-6': 'N2+ (vi) trần §15(d)'}
+               'N2P-4': 'N2+ (iv) đóng băng trên tấm tĩnh', 'N2P-5': 'N2+ (v) nhấp nháy + chuyển tấm', 'N2P-6': 'N2+ (vi) trần §15(d)',
+               'N2P-E': 'N2+ toàn khung hiện đại — LUẬT E (1.17.8)'}
         N2N = {'N2P-1': '0/255 trong (a) · 0 vật (a) thêm/bớt/đổi · cụm ΔE ≥ 30 trong dải 20 px → người đọc · (1.17.5) lớp sống cộng hiệu ≤ 1/255 · vòng khớp màu cục bộ · (1.17.6) tấm BMN: trừ nhà đo được nở 1 px',
                'N2P-2': '0 lỗi có năm (gpt ∪ claude) · O2 mới so render 0',
                'N2P-3': 'T9b đất→nước ≤ 2 % · (1.17.5) T9c: 0 bờ lấn ≥ 6 px · giữa nước ≤ 2 % · 0 báo mô hình · (1.17.6) khung không nước: T9c KHÔNG ÁP', 'N2P-4': '0 vật chuyển động trên tấm tĩnh', 'N2P-5': 'hoà ≥ 2 s · ≤ 1 ΔE/khung · nhấp nháy ≤ 1,5 × đối chứng',
-               'N2P-6': 'tấm nền ≤ 50 % · minh hoạ ≤ 20 % · tổng AI ≤ 70 % · không chồng shot'}
+               'N2P-6': 'tấm nền ≤ 50 % · minh hoạ ≤ 20 % · tổng AI ≤ 70 % · không chồng shot',
+               'N2P-E': 'tấm n2p_toan_khung_hien_dai: năm ≥ nam_min (≥ 2020) + CODINH · (a)-E 0/255 (sông, bờ, toà có tên, cầu, thuyền, lửa) · (f) mọi toà có tên khai có mặt; toà bịa cao hơn mốc gần → Cảnh báo · (g) đêm: 0 chữ/biển/logo AI'}
         if not q_n2p.ap_n2p(E): bao('N2P-1…6', 'Luật N2+ (§15, từ T4)', lambda: dict(ok=True, loi=[], val='tập trước T4 (không khai kenh2_tu_t4 / n2p)', ket_qua='KHÔNG ÁP'))
         else:
             try: N2 = q_n2p.check(E, TL, ep_dir, LS17, vision='--n2p-vision' in a)
@@ -329,7 +337,7 @@ def main():
                 '(a) hình khối từng nhà đo được (≥ be_mat_nha_px_m_min px/m, mặc định 2) · (b) khoá 0/255 · (c) 0 lỗi thời đại · (d) quỹ đạo sáng theo điểm ảnh/nhấp nháy · (e) khung 0 chiếu 3D ở độ phân giải video · (w) cạnh màu mới')
     lk = subprocess.run([sys.executable, os.path.join(base.REPO, 'checks', 'lock.py'), '--verify'], capture_output=True, text=True)
     rows.append(dict(q='LOCK', ten=f'checks/ khớp LOCK ({VERSION})', kq='ĐẠT' if lk.returncode == 0 else 'TRƯỢT', val='KHỚP' if lk.returncode == 0 else 'KHÔNG KHỚP', nguong='', sat='', loi=[]))
-    ok = all(r['kq'] in ('ĐẠT', 'CẢNH BÁO') or r['kq'].startswith('CHỈ BÁO') for r in rows)
+    ok = all(r['kq'] in ('ĐẠT', 'CẢNH BÁO', 'KHÔNG ÁP') or r['kq'].startswith('CHỈ BÁO') for r in rows)   # 1.17.8: KHÔNG ÁP (Q26b từ T4) không tính trượt
     md = [f"# Luật kênh 2 (checks {VERSION}) — {E['id']} — {'ĐẠT' if ok else 'TRƯỢT'}", '',
           '| Mục | Kiểm | Kết quả | Cấp (1.12.1) | Giá trị | Ngưỡng | Sát ngưỡng (±5 %) |', '|---|---|---|---|---|---|---|']
     capv = lambda r: f"{r['cap']} — lỗi Chặn {r['chan']}, Cảnh báo {r['canh_bao']}" if r.get('cap') else ''

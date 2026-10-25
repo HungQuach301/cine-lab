@@ -375,7 +375,10 @@ def kiem_2_muc(E, LS, ep_dir='.', cong=None):
             except Exception as e: return None, f'không đọc được {k} ({p}): {e}'   # noqa: BLE001
         T1, e1 = doc('kiem_t1')
         if e1: M['b'].append(f'(b) {w}: tầng Flash: {e1}')
-        elif not _kl(T1).upper().startswith('ĐẠT'): M['b'].append(f'(b) {w}: tầng Flash kết luận {_kl(T1)!r} (cần ĐẠT)')
+        elif not _kl(T1).upper().startswith('ĐẠT'):
+            from checks.ll import q_k1178 as K78   # 1.17.8: ngoại lệ chủ dự án duyệt (như K-LAI-3) — `ngoai_le_duyet` của đoạn
+            okd, why = K78.ngoai_le_duyet({'ngoai_le_duyet': g(d, 'ngoai_le_duyet')}) if mk == 'nen' else (False, '')
+            if not okd: M['b'].append(f'(b) {w}: tầng Flash kết luận {_kl(T1)!r} (cần ĐẠT' + (f'; hoặc ngoai_le_duyet của chủ dự án: {why})' if mk == 'nen' else ')'))
         if mk == 'nen':
             tk = g(d, 'to_khung')
             if not tk or not os.path.exists(K.K6._p(ep_dir, tk)): M['b'].append(f'(b) {w}: mức nen cần `to_khung` (tờ khung soi tay) có thật' + (f' — {tk} không có' if tk else ''))

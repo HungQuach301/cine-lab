@@ -432,6 +432,11 @@ def klai3_mh(DS, L, base):
     KM = L.get('kiem_minh_hoa') or {}; loi, th, ok = [], [], 0
     for d in DS:
         m = d['m'] or {}; p = m.get('kiem') or next((KM.get(k) for k in (d['ma'], str(m.get('luot') or ''), d['id']) if k and KM.get(k)), None)
+        nen = False
+        if not p and str(m.get('muc_kiem') or '') == 'nen':   # 1.17.8 (K-LAI-3 ↔ KIEM-2-MUC): mức nen — tệp kiểm = Flash khi có tờ khung soi tay
+            from checks.ll import q_k1178 as K78
+            p, ly = K78.tep_kiem_nen(m, base); nen = True
+            if not p: th.append(f"{d['id']}: {ly}"); continue
         if not p: th.append(f"{d['id']}: không có tệp kiểm (mục đoạn `kiem` hoặc lai.kiem_minh_hoa.{d['ma']})"); continue
         try: J = _load(_p(base, p))
         except Exception as e: th.append(f"{d['id']}: không đọc được tệp kiểm {p}: {e}"); continue
@@ -440,10 +445,17 @@ def klai3_mh(DS, L, base):
         nl = kl.get('loi_mo_hinh', kl.get('loi_chac', kl.get('loi_chac_cuoi')))
         nl = len(nl) if isinstance(nl, list) else nl
         if re.search(r'kiem-mu|blind|chấm mù', json.dumps(J.get('bang_chung') or '', ensure_ascii=False), re.I): loi.append(f"(e) {d['id']}: bằng chứng kiểm trỏ tới chấm mù"); continue
-        if not re.match(r'^(ĐẠT|DAT|dat|dùng|pass)', kq): loi.append(f"(b) {d['id']}: kết luận kiểm {kq or '—'!r} (cần ĐẠT)")
+        if not re.match(r'^(ĐẠT|DAT|dat|dùng|pass)', kq):
+            if nen:
+                from checks.ll import q_k1178 as K78
+                okd, why = K78.ngoai_le_duyet(m)
+                if okd: ok += 1; continue
+                loi.append(f"(b) {d['id']}: mức nen — kết luận Flash {kq or '—'!r} (cần ĐẠT hoặc ngoai_le_duyet của chủ dự án: {why})"); continue
+            loi.append(f"(b) {d['id']}: kết luận kiểm {kq or '—'!r} (cần ĐẠT)")
         elif nl not in (0, None): loi.append(f"(b) {d['id']}: {nl} lỗi mô hình mà vẫn dùng")
         else: ok += 1
-    return r(loi=loi, thieu=th, val=f'minh hoạ: {len(DS)} đoạn · kiểm ĐẠT {ok} · thiếu tệp kiểm {len(th)}')
+    nn = sum(1 for d in DS if str((d['m'] or {}).get('muc_kiem') or '') == 'nen' and not (d['m'] or {}).get('kiem'))
+    return r(loi=loi, thieu=th, val=f'minh hoạ: {len(DS)} đoạn · kiểm ĐẠT {ok} · thiếu tệp kiểm {len(th)}' + (f' · mức nen (Flash + tờ khung, 1.17.8): {nn}' if nn else ''))
 
 
 def so_ai_tap(E, L, base):

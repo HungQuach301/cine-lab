@@ -61,7 +61,7 @@ CAP = {
     'BC2': ('Cảnh báo (tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}), 'BC3': ('Cảnh báo (tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}),
     'BC4': ('Cảnh báo (chỉ báo; tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}),
     # 1.16 (CHỈ tập từ T3) — chủ dự án DUYỆT K116-D1 19/10/2026 18:48 (mức như bảng §3 reports/k116/K116-BAO-CAO.md) + D2/D3/D5 (1.16.1)
-    'SACH-1': ('Chặn (a)–(f) (K116-D1; (e) chữ bản đồ Chặn theo K116-D3: ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ)', set('abcdef'), set()),
+    'SACH-1': ('Chặn (a)–(f) (K116-D1; (e) chữ bản đồ Chặn theo K116-D3: ≤ 2 nhãn địa danh ≤ 3 s, không chú giải chữ)', set('abcdefg'), set()),   # 1.17.8: (g) vai §17 (từ T4) — mô tả cấp giữ nguyên chữ (T3 giống hệt)
     'CHUONG-1': ('Chặn (a)–(e) · Cảnh báo (f) vị trí/mờ (K116-D1)', set('abcde'), set('f')),
     'PP-1': ('Chặn (a)–(d) · Cảnh báo (e) tốc độ đọc ≤ 3 từ/s (K116-D1, D8: ≈ 8 s = 7–9 s)', set('abcd'), set('e')),
     'TL-1': ('Cảnh báo (K116-D1; mục tiêu §13.6, hiệu chỉnh sau V7-PILOT)', set(), {'*'}),
@@ -101,10 +101,12 @@ CAP = {
     'TU-LIEU-THAT': ('Chặn (a) THAT có AI, (g) footage hiện đại thiếu giấy phép (tệp + SHA) ở G2 · Cảnh báo ở animatic · (w) luôn Cảnh báo — §19 (c) + gói tiết kiệm', set('ag'), {'w'}),
     'NHAN-VAT-TEN': ('Chặn (a) cận mặt > 1/8 khung, (k) chân dung tham chiếu, (u) thiếu duyệt chủ dự án, (m) không đo được ở G2 · Cảnh báo ở animatic · (w) luôn Cảnh báo — P2 b', set('akum'), {'w'}),
     'KIEM-2-MUC': ('Chặn ở G2 · Cảnh báo ở animatic — kiểm 2 mức day_du / nen (gói tiết kiệm)', {'*'}, set()),
+    # 1.17.8 (chủ dự án 26/10 00:07 "A+B+E"): LUẬT E — tấm nền AI toàn khung hiện đại
+    'N2P-E': ('Chặn (k) điều kiện, (f) toà có tên có mặt, (g) đêm không chữ/biển/logo AI ở G2 · Cảnh báo ở animatic · (w) toà bịa cao hơn mốc gần / chữ ban ngày luôn Cảnh báo — 1.17.8', set('kfg'), {'w'}),
 }
 CONG = {'K-LAI-3V', 'MINH-HOA', 'EO-DAT-R2', 'EO-DAT-R3', 'EO-DAT-R4', 'N2P-1', 'N2P-2', 'N2P-3', 'N2P-4', 'N2P-5', 'N2P-6',
         'BIEN-CO-V', 'MAY-19', 'BAN-DO-12', 'TU-LIEU-10', 'AI-TU-LIEU', 'GEMINI-NGAN-SACH', 'GOC-CAO-60', 'BE-MAT-NHA', 'TU-LIEU-OMNI',
-        'GOC-CAO', 'TU-LIEU-THAT', 'NHAN-VAT-TEN', 'KIEM-2-MUC'}   # cấp theo cổng (r['cong']); 1.17.4 thêm 7 hàng; 1.17.5 +1; 1.17.6 +1; 1.17.7 +4
+        'GOC-CAO', 'TU-LIEU-THAT', 'NHAN-VAT-TEN', 'KIEM-2-MUC', 'N2P-E'}   # cấp theo cổng (r['cong']); 1.17.4 thêm 7 hàng; 1.17.5 +1; 1.17.6 +1; 1.17.7 +4; 1.17.8 +1
 _M = re.compile(r'^\((\w)\)')
 
 

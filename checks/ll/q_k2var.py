@@ -70,8 +70,13 @@ def _f(x, k):
 
 
 def shots(E, TL):
-    """→ [dict(seg, i, t0, t1, ty, loai, vung, scene, cam, hero, sh, spec)] phim chính theo thời gian"""
+    """→ [dict(seg, i, t0, t1, ty, loai, vung, scene, cam, hero, sh, spec)] phim chính theo thời gian.
+    1.17.8 (tập từ T4): loại minh_hoa → 'minh_hoa', tu_lieu / that → 'anh' (q_k1178.LOAI_K2_T4); tập trước: như cũ ('khac')."""
     H = E.get('heroes') or {}; TH = TL.get('heroes') or {}
+    LO = LOAI
+    if E.get('kenh2_tu_t4') or E.get('n2p'):
+        from checks.ll import q_k1178
+        LO = dict(LOAI, **q_k1178.LOAI_K2_T4)
     SP = {s['id']: s.get('shots') or [] for s in E.get('segments') or [] if isinstance(s, dict) and 'id' in s}
     out = []
     for s in TL['segments']:
@@ -89,8 +94,8 @@ def shots(E, TL):
                 if str(sc).startswith('relief/'): vung = str(sc).split('/', 1)[1]
                 elif str(sc) == 'map/globe': vung = 'toan-cau'
                 elif ty == 'footage' and str(p.get('setting') or '').strip(): vung = str(p['setting']).strip()
-            boi = vung or (str(sc) if sc and LOAI.get(ty) in ('3d', 'timelapse') else None)   # bối cảnh K2: vùng; 3D/timelapse không khai vùng → bộ cảnh
-            out.append(dict(seg=s['id'], i=i, t0=round(a, 3), t1=round(b, 3), ty=ty, loai=LOAI.get(ty, 'khac'), vung=vung, boi=boi, scene=str(sc), cam=str(cam),
+            boi = vung or (str(sc) if sc and LO.get(ty) in ('3d', 'timelapse') else None)   # bối cảnh K2: vùng; 3D/timelapse không khai vùng → bộ cảnh
+            out.append(dict(seg=s['id'], i=i, t0=round(a, 3), t1=round(b, 3), ty=ty, loai=LO.get(ty, 'khac'), vung=vung, boi=boi, scene=str(sc), cam=str(cam),
                             hero=k, sh=sh, spec=spec, h=h, st0=s['t0']))
     return out
 
