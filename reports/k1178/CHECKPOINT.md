@@ -26,3 +26,8 @@ Giờ UTC theo đồng hồ container.
 | 18:14–18:38 | k2check 1.17.8 (chưa khoá): T4 13 hàng đổi (Q26b KHÔNG ÁP, Q34 ĐẠT, K-LAI-3 2→1 Chặn, TU-LIEU-OMNI 18→11, Q37 (1.13) miễn thẻ PP, BIEN-CO-V T4 chưa hiệu chuẩn → Q37 không cộng biến cố đo) + N2P-E mới; T3 giống hệt ngoài LOCK; khai thử (log chữ khoảng + tu_lieu_lan) | xong |
 | 18:28–18:50 | Selftest toàn bộ trước khoá: 17/17 bộ checks/ll — 1 SAI ở selftest_k1174 (ca bật/tắt HIEU_CHUAN trên tập T4 — T4 nay dùng HIEU_CHUAN_T4) → sửa cơ chế ca (kỳ vọng giữ), 91/91; SACH-1 (g) gộp một dòng mỗi chữ | xong |
 | 18:52 | Đẩy WIP muộn ≈ 22 phút so mốc 30 phút (không stash được khi selftest đọc tệp) — nêu ở báo cáo | xong |
+| 18:53:09 | `lock.py` (một lần) → **1.17.8 045b7bb7…**, --verify KHỚP; commit e078d241, đẩy | xong |
+| 18:53–19:07 | k2check 1.17.8 sau khoá: T4 = bản trước khoá (ngoài LOCK); **T3 56/56 giống hệt 1.17.7** (diff: tiêu đề + nhãn LOCK) | xong |
+| 18:54 | dừng selftest cinecheck (PGID) — 3 tiến trình nặng cùng lúc ≈ 1 phút (lệch P ≤ 2); chạy lại sau khoá | xong — sự cố |
+| 19:07–19:17 | khai thử 1.17.8 (sau khoá) + selftest sau khoá: 17/17 bộ checks/ll 0 SAI; cinecheck L1 đang chạy | xong / đang chạy |
+| 19:20 | Báo cáo K1178 | xong |
