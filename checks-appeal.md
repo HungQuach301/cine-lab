@@ -335,3 +335,30 @@ Tái hiện bằng tấm thật của THU-B (`origin/ccr-ce664665-996oyl` @353d0
 - **KN-6 — LỖI LUẬT, sửa.** (e) so ở độ phân giải video (khung 0 đọc cỡ gốc; tấm thu INTER_AREA; mặt nạ NEAREST). Chiếu 3D: B3 4,6/12,6 → **ĐẠT**, M4 4,8/14,7 → ĐẠT, M1 4,9/12,9 → ĐẠT (số ở báo cáo §KN-6).
 - **B ≥ 4 px/m (15:25) — luật mới:** `be_mat_nha_px_m_min` (mặc định 2, < 2 không nhận); T4 khai 4 → nhà 2–4 px/m phải = render ((b)).
 - **Tư liệu T4 (12:52) — luật mới/đổi:** TU-LIEU-10 đọc `tu_lieu_tran_pct` (mặc định 10, > 15 không nhận) + (b) mỗi lần ≤ 10 s; TU-LIEU-OMNI (a) không trùng clip M-d, (b) không ghép liền (≥ 1 shot 3D hoặc ≥ 1 s 3D). P ghi ngoại lệ T4 vào Kinh thánh §19 (c).
+
+## Khiếu nại cho K-1.17.7 (ghi 25/10/2026 02:35 UTC, TRƯỚC khi phán; nguồn nguyên văn: `reports/animatic-t4/ANIMATIC-T4-BAO-CAO.md` §9.3 (sha256 `9111538d…`) và `reports/animatic-t4/PHIEU-XEM.md` C11, C13 (sha256 `74d3fb08…`) — phiên ANIMATIC-T4, trên origin/main @2a49e3ca; lệnh mở phiên K-1.17.7 kèm căn cứ chủ dự án 25/10 06:56, 09:08, 09:15, giờ Asia/Saigon)
+
+### Câu hỏi cho K (ANIMATIC-T4 §9.3, nguyên văn)
+- **A1.** K1174 §5 nói `log_may` = log.json `render_ldn.js` (ghi [E, N, h]) nhưng MAY-19 đọc hệ cảnh → xin ghi rõ hệ toạ độ trong RULES-LL (hoặc MAY-19 dùng `goc_toa_do` để đổi).
+- **A2.** MAY-19 (c) H5-07b KHOP "lệch 62 139 px": tự chiếu điểm neo [532118, 181150, 111] qua ma trận máy → **0 px** giữa hai nửa a/b và với khung đầu M03; xin xem cách (c) chọn khung so khi `khop_voi` là shot DAY.
+- **A3.** K-LAI-1 (≤ 20 % `ai_image`) mâu thuẫn Q2/1.17.4 (bỏ trần 20 % M-d từ T4) ở đúng dải Q1 20–23 %.
+- **A4.** Q37 (a): lớp chồng mờ vào 0,4–0,5 s → biến cố đo trễ > 0,3 s so với mốc khai; phiên không dịch mốc để khớp thước.
+- **A5.** N2P-1…5 báo "chưa khai `n2p.tam`" dù log shot có `n2p: {tam: [{tag, kiem, ghep, v, khoang_s}]}` — xin khuôn đúng.
+
+### PHIEU-XEM C13 (nguyên văn)
+**C13 — (thông tin, cần K trả lời) cách khai log máy và KHOP H5-07b.** (1) K1174 §5 nói `log_may` = log.json của `render_ldn.js` (ghi `cam.p` theo [E, N, h]), nhưng MAY-19 đọc `cam.p` theo hệ cảnh y-lên (như log T3) → phiên ghi thêm `cam` hệ cảnh, giữ `cam_en` gốc (cùng số liệu, đổi trục). (2) H5-07b KHOP báo lệch 62 139 px; tự chiếu điểm neo qua ma trận máy: 0 px giữa hai nửa và với khung đầu M03 — đề nghị K xem cách MAY-19 (c) chọn khung so khi `khop_voi` là shot DAY.
+
+### PHIEU-XEM C11 (nguyên văn; chủ dự án 25/10 06:56 "C11, C13 theo khuyến nghị")
+**C11 — K-LAI-1 = 20,4 % > 20 % (k2check 1.17.4, Chặn P2-2).** Q1 (chủ dự án) duyệt M-d 20–23 % và 1.17.4 (Q2) bỏ trần 20 % ở MINH-HOA, nhưng K-LAI-1 vẫn tính `ai_image` ≤ 20 % trên cùng 23 đoạn — hai luật mâu thuẫn ở đúng dải Q1 (số nằm trong ±5 % quanh ngưỡng: 20,36 %).
+- (a) Đề nghị K sửa K-LAI-1 theo Q2 (minh hoạ M-d tính ở MINH-HOA/N2P-6, không trần 20 %). Ưu: giữ đúng tỷ lệ chủ dự án duyệt. Nhược: chờ một vòng K. Rủi ro: không.
+- (b) Rút 1 clip M-d ≈ 3 s về 3D → 19,9 %. Nhược: dưới Q1 20 %; **thêm/bớt chỉ để vượt chỉ số — trái luật cứng**.
+- **Khuyến nghị (a)**; phiên không tự cắt.
+
+### Ghi thêm cho K (PHIEU-XEM C14, nguyên văn dòng cuối)
+- Ghi thêm cho K: Q37 (a) không nhận 12 mốc lớp chồng đã khai (thẻ nhân vật, bộ đếm, tư liệu) — lớp chồng mờ vào 0,4–0,5 s nên biến cố đo trên video trễ > 0,3 s so với mốc khai; phiên không dịch mốc khai để khớp thước.
+
+### Yêu cầu kèm theo của lệnh K-1.17.7 (không phải khiếu nại; căn cứ chủ dự án, Asia/Saigon, nguyên văn)
+- 25/10 09:08 "Vấn đề tôi concern nhất là chỉ phí bị đội nhiều, còn các vấn đề khác đều có thể nới để tăng chất lượng và độ chân thực của hình ảnh / Người xem cũng không phải là người chuyên về khảo cổ hay gì để có thể nhận ra những dự khác biệt nhỏ trong những frame hình ngắn".
+- 25/10 09:15 "Duyệt gói 50 % tiết kiệm + P1–P10 theo khuyến nghị".
+- 25/10 06:56 C11, C13 theo khuyến nghị.
+- Việc theo lệnh: GOC-CAO tham số + 5 chốt cấu trúc; TU-LIEU trần 20 % + lớp THAT; K-LAI-1 theo Q2 từ T4; TL-1 (c) miễn ranh M-d/tư liệu; nhân vật có tên trong M-d (mặt ≤ 1/8 khung); kiểm 2 mức `muc_kiem`; câu "công trình mốc" trong q_thoi_dai; K1176-D6 sàn Y cho nhấp nháy BMN (d).
