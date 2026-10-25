@@ -25,7 +25,7 @@ Cách xem như v1: tắt tiếng, không phụ đề, xem các tệp `xem-1…4`
 
 **C4 — Tấm nền H5-04 bỏ** (C6 làm lệch tấm AI P1-2026 cũ). (a) Giữ 3D V2 (tấm nền chỉ còn H5-05a, 0,8 %). (b) Làm tấm P1-2026 mới theo hướng xoay ở bản cuối (≈ $0,5). **Khuyến nghị (b)** ở bản cuối, cùng lượt B (AI phủ bề mặt).
 
-**C5 — Bản xem 4 phần, âm AAC 128 kb/s (F5).** Ở 5 MB/phần, âm 128 k chiếm ≈ 60 % dung lượng → hình còn ≈ 70–80 kb/s (mờ hơn v1 ≈ 100 kb/s). (a) Giữ; (b) 5–6 phần ≤ 5 MB ở vòng sau. **Khuyến nghị (b)** nếu chủ dự án thấy hình quá mờ.
+**C5 — Bản xem 4 phần, âm AAC ≥ 128 kb/s (F5; đặt 132 k, đo 131,9–132,6 k).** Ở 5 MB/phần, âm 128 k chiếm ≈ 60 % dung lượng → hình còn ≈ 70–80 kb/s (mờ hơn v1 ≈ 100 kb/s). (a) Giữ; (b) 5–6 phần ≤ 5 MB ở vòng sau. **Khuyến nghị (b)** nếu chủ dự án thấy hình quá mờ.
 
 **C6 — Thẻ Pepys/James.** Theo P6, chân dung Pepys (sau 1685) và James (năm chưa rõ) chưa dùng — thẻ chỉ chữ. (a) Giữ chữ; (b) dùng chân dung. **Khuyến nghị (a)**.
 
