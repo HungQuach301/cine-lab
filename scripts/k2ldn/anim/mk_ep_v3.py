@@ -127,7 +127,7 @@ def main():
                    + ''.join(f"{json.loads(q.read_text())['tai']['sha256']}  {q.stem}  ({json.loads(q.read_text())['tai']['src']})\n" for q in sorted((AN / 'tu-lieu/giay-phep').glob('*.json'))))
     import importlib.util as IU
     spec = IU.spec_from_file_location('ghep_v3', str(Path(__file__).parent / 'ghep_v3.py')); G = IU.module_from_spec(spec); spec.loader.exec_module(G)
-    NOI = {'P1': 'bo_nam_bankside', 'P2': 'cau_london', 'P3': 'thanh_pho_dong', 'P4': 'fleet_street', 'P4b': 'ludgate', 'P5': 'thanh_pho_bac', 'P6': 'song', 'P7': 'thien_dinh', 'P8': 'tower_hill', 'P9': 'bo_nam_bankside'}
+    NOI = {'P1': 'bo_nam_bankside', 'P2': 'cau_london', 'P3': 'thanh_pho_dong', 'P4': 'fleet_street', 'P4b': 'ludgate', 'P5': 'thanh_pho_bac', 'P6': 'song', 'P7': 'thien_dinh', 'P8': 'tower_hill', 'P9': 'bo_nam_bankside', 'P6h': 'song', 'P10': 'thanh_pho_bac', 'P11': 'thanh_pho_bac'}   # v3: điểm mới theo cùng quy ước vùng của v1 (P6h trên sông; King Street, London Wall thuộc City bắc)
     chon = {q.stem: q.read_text().strip() for q in (AN / 'omni/chon').glob('*.txt')}
     for r in B['shot']:
         if r['cu_may'] == 'MD' and r['ma'] not in chon and r.get('md_clip'): chon[r['ma']] = r['md_clip']
