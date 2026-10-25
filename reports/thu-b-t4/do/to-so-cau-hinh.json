@@ -1,0 +1,258 @@
+{
+ "ra": "reports/thu-b-t4/to-so-thu-b.jpg",
+ "o_dir": "reports/thu-b-t4/khung",
+ "hang": [
+  {
+   "ten": "B1 · M1-trung 1666",
+   "vai": "tháp St Saviour 70 m · 11/9/1666 16:00 · timelapse +2 h",
+   "o": [
+    {
+     "anh": "/var/tmp/ldn/thub/bp/M1-trung/render.png",
+     "nhan": "V2 đã chọn (dựng lại, cùng máy/giờ)",
+     "ten_tep": "M1-trung-v2",
+     "ghi": [
+      "8 510 nhà thường thấy · 557 đo được (6,5 % số nhà;",
+      "79,3 % diện tích nhà; 27,7 % khung)",
+      "mặt tiền gần: khối hộp, mái trơn"
+     ]
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/bp/M1-trung/l2/ghep.png",
+     "nhan": "B ảnh tĩnh (i) — lượt 2",
+     "ten_tep": "M1-trung-B-anh-tinh",
+     "ghi": [
+      "BE-MAT-NHA (a) 0 Chặn · (w) 2 (dời? ở 2,3–2,4 px/m)",
+      "(b) 0/255 · (c) 0 lỗi thời đại (2 mô hình + O2)",
+      "(d) video: 100 % nhà lệch; nhấp nháy 0,088 → TRƯỢT",
+      "N2P-1 (a) TRƯỢT 218/255 = vùng BMN (KN-2) · N2P-3 ĐẠT"
+     ]
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/bp/M1-trung/l2/khung0-cuoi.png",
+     "nhan": "B chiếu 3D (ii) — khung 0",
+     "ten_tep": "M1-trung-B-chieu-3d",
+     "ghi": [
+      "khung 0 (1080p) ΔE 2,43 / p95 8,09 so tấm",
+      "(e) 4,9/12,9 so tấm 1080p · ĐẠT so tấm 640×360",
+      "(d) 3D: 39,3 % nhà lệch, nhấp nháy 0,020 → TRƯỢT",
+      "(d) tỉ số bóng: 32,1 %, nhấp nháy 0,014 → TRƯỢT"
+     ]
+    }
+   ],
+   "phu": [
+    {
+     "anh": "/var/tmp/ldn/thub/toso/M1-trung-cuoi-render.png",
+     "nhan": "+2 h: V2 render"
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/toso/M1-trung-cuoi-anh_tinh.png",
+     "nhan": "+2 h: (i) ảnh tĩnh"
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/toso/M1-trung-cuoi-chieu_3d.png",
+     "nhan": "+2 h: (ii-a) chiếu 3D"
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/toso/M1-trung-cuoi-chieu_tiso.png",
+     "nhan": "+2 h: (ii-b) tỉ số bóng"
+    }
+   ]
+  },
+  {
+   "ten": "B2 · M4-trung 2026",
+   "vai": "Fleet St 19 m · 2/9/2026 16:30 · timelapse +2 h",
+   "o": [
+    {
+     "anh": "/var/tmp/ldn/thub/bp/M4-trung/render.png",
+     "nhan": "V2 đã chọn (dựng lại, cùng máy/giờ)",
+     "ten_tep": "M4-trung-v2",
+     "ghi": [
+      "34 toà thường thấy · 14 đo được (41,2 % số toà;",
+      "92,0 % diện tích; 29,4 % khung)",
+      "\"hộp trắng\" giữa-phải = toà CÓ TÊN (lớp a): giữ render"
+     ]
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/bp/M4-trung/l2/ghep.png",
+     "nhan": "B ảnh tĩnh (i) — lượt 2",
+     "ten_tep": "M4-trung-B-anh-tinh",
+     "ghi": [
+      "BE-MAT-NHA (a) 0 Chặn · 0 (w) · (b) 0/255",
+      "(c) 0 lỗi thời đại",
+      "(d) video: 57,1 % nhà lệch; nhấp nháy 0,046 → TRƯỢT",
+      "N2P-*: không chạy được (KeyError, không nước — KN-1)"
+     ]
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/bp/M4-trung/l2/khung0-cuoi.png",
+     "nhan": "B chiếu 3D (ii) — khung 0",
+     "ten_tep": "M4-trung-B-chieu-3d",
+     "ghi": [
+      "khung 0 (1080p) ΔE 2,90 / p95 9,52 sau 4 vòng",
+      "(e) 4,8/14,7 so tấm 1080p · ĐẠT so tấm 640×360",
+      "(d) 3D: 7,1 % (1/14 toà), nhấp nháy 0,0138 (+15 %)",
+      "(d) tỉ số bóng: 7,1 % (1/14), nhấp nháy ĐẠT"
+     ]
+    }
+   ],
+   "phu": [
+    {
+     "anh": "/var/tmp/ldn/thub/toso/M4-trung-cuoi-render.png",
+     "nhan": "+2 h: V2 render"
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/toso/M4-trung-cuoi-anh_tinh.png",
+     "nhan": "+2 h: (i) ảnh tĩnh"
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/toso/M4-trung-cuoi-chieu_3d.png",
+     "nhan": "+2 h: (ii-a) chiếu 3D"
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/toso/M4-trung-cuoi-chieu_tiso.png",
+     "nhan": "+2 h: (ii-b) tỉ số bóng"
+    }
+   ]
+  },
+  {
+   "ten": "B3 · H3-05 P4 1938",
+   "vai": "Fleet St/Ludgate 40 m · 2/9/1938 15:00 · timelapse +2 h",
+   "o": [
+    {
+     "anh": "/var/tmp/ldn/thub/bp/B3-p4-1938/render.png",
+     "nhan": "V2 đã chọn (dựng lại, cùng máy/giờ)",
+     "ten_tep": "B3-p4-1938-v2",
+     "ghi": [
+      "1 248 nhà thường thấy · 153 đo được (12,3 %;",
+      "91,7 % diện tích nhà; 41,0 % khung)",
+      "khối Victoria–Edward ước lượng (bậc 5)"
+     ]
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/bp/B3-p4-1938/l2/ghep.png",
+     "nhan": "B ảnh tĩnh (i) — lượt 2",
+     "ten_tep": "B3-p4-1938-B-anh-tinh",
+     "ghi": [
+      "BE-MAT-NHA (a) 0 Chặn · (w) 1 (nhà 34226 dời?) · (b) 0/255",
+      "(c) 0 lỗi thời đại · lượt 1: gpt 10 (w) thêm ống khói",
+      "(d) video: 88,2 % nhà lệch; nhấp nháy 0,047 → TRƯỢT",
+      "N2P-*: không chạy được (KN-1)"
+     ]
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/bp/B3-p4-1938/l2/khung0-cuoi.png",
+     "nhan": "B chiếu 3D (ii) — khung 0",
+     "ten_tep": "B3-p4-1938-B-chieu-3d",
+     "ghi": [
+      "khung 0 (1080p) ΔE 2,36 / p95 9,77",
+      "(e) 4,6/12,6 so tấm 1080p · ĐẠT so tấm 640×360",
+      "(d) 3D: 15,0 % nhà lệch, nhấp nháy ĐẠT",
+      "(d) tỉ số bóng: 7,2 % (11/153) — KN-5"
+     ]
+    }
+   ],
+   "phu": [
+    {
+     "anh": "/var/tmp/ldn/thub/toso/B3-p4-1938-cuoi-render.png",
+     "nhan": "+2 h: V2 render"
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/toso/B3-p4-1938-cuoi-anh_tinh.png",
+     "nhan": "+2 h: (i) ảnh tĩnh"
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/toso/B3-p4-1938-cuoi-chieu_3d.png",
+     "nhan": "+2 h: (ii-a) chiếu 3D"
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/toso/B3-p4-1938-cuoi-chieu_tiso.png",
+     "nhan": "+2 h: (ii-b) tỉ số bóng"
+    }
+   ]
+  },
+  {
+   "ten": "D1 · M1-rong 1666",
+   "vai": "P1 fov 36° · 11/9/1666 15:30 · timelapse +2 h (dải dưới)",
+   "o": [
+    {
+     "anh": "/var/tmp/ldn/thub/test/M1-rong-hep-v2-lut.jpg",
+     "nhan": "V2 đã chọn (P1 fov 36°)",
+     "ten_tep": "M1-rong-hep-v2",
+     "ghi": [
+      "2 275 896 tam giác",
+      "bão hoà TV 0,137 · trời + sương 7,0 %"
+     ]
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/test/M1-rong-hep-d-lut.jpg",
+     "nhan": "D 3D (nâng hình học + bề mặt)",
+     "ten_tep": "M1-rong-hep-D",
+     "ghi": [
+      "4 601 432 tam giác (×2,02)",
+      "bão hoà TV 0,137 · trời + sương 7,0 %",
+      "công trình có tên: tam giác trùng từng bit"
+     ]
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/test/M1-rong-hep-d2-lut.jpg",
+     "nhan": "D + vân nướng (D2, AI)",
+     "ten_tep": "M1-rong-hep-D2",
+     "ghi": [
+      "bão hoà TV 0,122 · trời + sương 7,0 %",
+      "vân nướng: 8 mặt tiền/thời kỳ + 3 mái (4 ảnh AI $0,30)",
+      "giây/khung: xem báo cáo §4 (đo không chạy chồng)"
+     ]
+    }
+   ],
+   "phu": [
+    {
+     "anh": "/var/tmp/ldn/thub/toso/M1-rong-cuoi-v2.png",
+     "nhan": "+2 h: V2"
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/toso/M1-rong-cuoi-d.png",
+     "nhan": "+2 h: D"
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/toso/M1-rong-cuoi-d2.png",
+     "nhan": "+2 h: D2"
+    }
+   ]
+  },
+  {
+   "ten": "D2 · M4-rong 2026",
+   "vai": "P1 fov 36° · 2/9/2026 15:00",
+   "o": [
+    {
+     "anh": "/var/tmp/ldn/thub/test/M4-rong-hep-v2-lut.jpg",
+     "nhan": "V2 đã chọn (P1 fov 36°)",
+     "ten_tep": "M4-rong-hep-v2",
+     "ghi": [
+      "bão hoà TV 0,114 · trời + sương 7,0 %",
+      "(cột V2 chọn ở fov 50° là V2 + tấm nền OpenAI)"
+     ]
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/test/M4-rong-hep-d-lut.jpg",
+     "nhan": "D 3D (nâng hình học + bề mặt)",
+     "ten_tep": "M4-rong-hep-D",
+     "ghi": [
+      "bão hoà TV 0,114 · trời + sương 7,0 %",
+      "lan can + phòng máy + lam ở toà KHÔNG tên",
+      "kính phản chiếu dải phố + trời"
+     ]
+    },
+    {
+     "anh": "/var/tmp/ldn/thub/test/M4-rong-hep-d2-lut.jpg",
+     "nhan": "D + vân nướng (D2, AI)",
+     "ten_tep": "M4-rong-hep-D2",
+     "ghi": [
+      "bão hoà TV 0,141 · trời + sương 7,0 %",
+      "mặt tiền văn phòng AI (gạch 2026 giữ thủ tục)",
+      "giây/khung: xem báo cáo §4"
+     ]
+    }
+   ]
+  }
+ ]
+}

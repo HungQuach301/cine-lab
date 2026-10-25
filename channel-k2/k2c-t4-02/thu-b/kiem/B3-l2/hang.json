@@ -1,0 +1,14 @@
+{
+ "lenh": "/opt/cine/bin/python checks/ll/k2check.py channel-k2/k2c-t4-02/thu-b/kiem/B3-l2/episode.yaml --tl channel-k2/k2c-t4-02/thu-b/kiem/B3-l2/timeline.json --no-asr --cap --n2p-vision",
+ "ma_thoat": 1,
+ "hang": [
+  "| N2P-1 | N2+ (i) lớp (a) sau ghép | **CẢNH BÁO** | Chặn (a), (b), (d) vòng khớp màu cục bộ, (e) lớp sống ở G2 · Cảnh báo ở animatic · (c) cụm dải 20 px luôn Cảnh báo (người đọc tờ so) — §15 (c)(i); (d)(e) 1.17.5 — lỗi Chặn 0, Cảnh báo 1 | — | 0/255 trong (a) · 0 vật (a) thêm/bớt/đổi · cụm ΔE ≥ 30 trong dải 20 px → người đọc · (1.17.5) lớp sống cộng hiệu ≤ 1/255 · vòng khớp màu cục bộ |  |",
+  "| N2P-2 | N2+ (ii) lỗi thời đại (2 mô hình + O2) | **TRƯỢT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(ii), K đề xuất — lỗi Chặn 1, Cảnh báo 0 | — | 0 lỗi có năm (gpt ∪ claude) · O2 mới so render 0 |  |",
+  "| N2P-3 | N2+ (iii) đổi loại vùng T9b | **TRƯỢT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iii); 1.17.5: nước→đất = T9c (c) bờ lấn, (d) giữa nước (đối chứng render) — lỗi Chặn 1, Cảnh báo 0 | — | T9b đất→nước ≤ 2 % · (1.17.5) T9c: 0 bờ lấn ≥ 6 px · giữa nước ≤ 2 % · 0 báo mô hình |  |",
+  "| N2P-4 | N2+ (iv) đóng băng trên tấm tĩnh | **TRƯỢT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iv), K đề xuất — lỗi Chặn 1, Cảnh báo 0 | — | 0 vật chuyển động trên tấm tĩnh |  |",
+  "| N2P-5 | N2+ (v) nhấp nháy + chuyển tấm | **TRƯỢT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (b), (c)(v), K đề xuất — lỗi Chặn 1, Cảnh báo 0 | — | hoà ≥ 2 s · ≤ 1 ΔE/khung · nhấp nháy ≤ 1,5 × đối chứng |  |",
+  "| N2P-6 | N2+ (vi) trần §15(d) | **TRƯỢT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (d) trần, K đề xuất — lỗi Chặn 1, Cảnh báo 0 | — | tấm nền ≤ 50 % · minh hoạ ≤ 20 % · tổng AI ≤ 70 % · không chồng shot |  |",
+  "| BE-MAT-NHA | AI phủ bề mặt nhà thường (phương án B) | **TRƯỢT** | Chặn (a)–(e) ở G2 · Cảnh báo ở animatic · (w) mô hình nhìn không năm/hình khối luôn Cảnh báo — phương án B (AI phủ bề mặt nhà thường) — lỗi Chặn 5, Cảnh báo 3 | 3 tấm · B3-p4-1938-l2-anh_tinh: 153/1248 nhà đo được, 0 lỗi, (b) 0/255, video e TV 0.2562 · B3-p4-1938-l2-chieu_3d: 153/1248 nhà đo được, 0 lỗi, (b) 0/255, video e TV 0.0324 · B3-p4-1938-l2-chieu_tiso: 153/1248 nhà đo được, 0 lỗi, (b) 0/255, video e TV 0.0195 | (a) hình khối từng nhà đo được · (b) khoá 0/255 · (c) 0 lỗi thời đại · (d) quỹ đạo sáng/nhấp nháy · (e) khung 0 chiếu 3D |  |",
+  "| LOCK | checks/ khớp LOCK (1.17.5) | **ĐẠT** |  | KHỚP |  |  |"
+ ]
+}

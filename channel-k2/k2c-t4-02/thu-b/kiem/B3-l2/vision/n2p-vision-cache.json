@@ -1,0 +1,510 @@
+{
+ "1d76c6295942e47725915af99b651326": {
+  "ket_qua": {
+   "gpt": {
+    "meta": {
+     "model": "gpt-6.1-sol",
+     "usd": 0.045,
+     "usage": {
+      "input_tokens": 16122,
+      "input_tokens_details": {
+       "cache_write_tokens": 16119,
+       "cached_tokens": 0
+      },
+      "output_tokens": 1272,
+      "output_tokens_details": {
+       "reasoning_tokens": 730
+      },
+      "total_tokens": 17394
+     },
+     "loi": null
+    },
+    "secs": 28.3,
+    "json": {
+     "them": [
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Added sash-window frames, glazing divisions and projecting pale sills within previously plain dark window openings on the large pale gabled building left of centre, including its visible right-hand return.",
+       "toa_do": [
+        0.179,
+        0.638,
+        0.288,
+        1.0
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Added framed sash windows, glazing bars and pale projecting sills to the smaller pale building immediately in front of the large left-hand gabled building; particularly visible in the two vertically stacked windows facing the camera.",
+       "toa_do": [
+        0.136,
+        0.757,
+        0.179,
+        0.927
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Added sash-window framing, glazing divisions and projecting window surrounds/sills to the pale gabled building behind the narrow street, immediately left of the large central ochre building. BEFORE has plain dark rectangular openings.",
+       "toa_do": [
+        0.327,
+        0.599,
+        0.375,
+        0.808
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Added sash-window frames, glazing bars and pale sills to the narrow pale gabled building in the right middle ground, between the ochre houses and the larger brown gabled building.",
+       "toa_do": [
+        0.711,
+        0.677,
+        0.77,
+        0.836
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      }
+     ],
+     "bot_doi": [],
+     "doi_loai_vung": []
+    }
+   },
+   "claude": {
+    "meta": {
+     "model": [
+      "claude-sonnet-5-5"
+     ],
+     "usd": 0.058846300000000004,
+     "loi": null
+    },
+    "secs": 10.3,
+    "json": {
+     "them": [
+      {
+       "loai": "khac",
+       "mo_ta": "Small white gutter or eave trim on the lower edge of the right foreground gable. It is a minor detail and may only be a texture change.",
+       "toa_do": [
+        0.72,
+        0.95,
+        0.77,
+        1.0
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.25
+      }
+     ],
+     "bot_doi": [],
+     "doi_loai_vung": []
+    }
+   }
+  },
+  "prompt_ver": "n2p-v1 (NC-N2P vision_kiem 21/10/2026 → K-1.17)",
+  "loi": null,
+  "chi_phi_usd": 0.1038
+ },
+ "qtd": {
+  "B3-p4-1938-l2-anh_tinh": {
+   "ghep": {
+    "id": "B3-p4-1938-l2-anh_tinh-ghep",
+    "nam": 1938,
+    "noi": "London",
+    "sha256": "5362d04d93001e6e0ec1b99600c58521f2d315979006df92337aacb08a40737f",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [
+     {
+      "muc": "kien_truc",
+      "mo_ta": "On the far horizon there is a large, plain, flat-roofed slab block. It has regular window grids and no period detailing. It sits beside a row of uniform, mid-rise terraced blocks.",
+      "ly_do": "The slab block looks like a post-war modernist or council housing block, which would be out of place in the 1938 skyline. It is small and distant, so this is low confidence.",
+      "nam_xuat_hien": 1950,
+      "toa_do_px": [
+       1427,
+       572,
+       1486,
+       599
+      ],
+      "do_tin": 0.25
+     }
+    ],
+    "cost_usd": 0.035052099999999996,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 970,
+      "cacheReadInputTokens": 2901,
+      "cacheCreationInputTokens": 10020,
+      "webSearchRequests": 0,
+      "costUSD": 0.035052099999999996,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 213,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 8.2,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":1938,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"On the far horizon there is a large, plain, flat-roofed slab block. It has regular window grids and no period detailing. It sits beside a row of uniform, mid-rise terraced blocks.\",\"ly_do\":\"The slab block looks like a post-war modernist or council housing block, which would be out of place in the 1938 skyline. It is small and distant, so this is low confidence.\",\"nam_xuat_hien\":1950,\"toa_do\":[0.743,0.53,0.774,0.555],\"do_tin\":0.25}]}"
+   },
+   "render": {
+    "id": "B3-p4-1938-l2-anh_tinh-render",
+    "nam": 1938,
+    "noi": "London",
+    "sha256": "782d8ddab8edb3c8dc0e520a1be2261e310e6cf8b752e2eb987634daa402ed11",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [
+     {
+      "muc": "kien_truc",
+      "mo_ta": "Far right on the horizon there is a wide, plain, white slab-like block with a flat roof. Beside it is a cluster of uniform mid-rise blocks. They look like modern or inter-war blocks of flats rather than the usual London roofline.",
+      "ly_do": "The blocks are uniform and flat-roofed, and they look like postwar slab or estate housing. This is a weak suspicion. They could just be generic rendered buildings.",
+      "nam_xuat_hien": 1950,
+      "toa_do_px": [
+       1421,
+       562,
+       1882,
+       616
+      ],
+      "do_tin": 0.15
+     }
+    ],
+    "cost_usd": 0.0339759,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 868,
+      "cacheReadInputTokens": 2889,
+      "cacheCreationInputTokens": 9998,
+      "webSearchRequests": 0,
+      "costUSD": 0.0339759,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 101,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 9.9,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":1938,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Far right on the horizon there is a wide, plain, white slab-like block with a flat roof. Beside it is a cluster of uniform mid-rise blocks. They look like modern or inter-war blocks of flats rather than the usual London roofline.\",\"ly_do\":\"The blocks are uniform and flat-roofed, and they look like postwar slab or estate housing. This is a weak suspicion. They could just be generic rendered buildings.\",\"nam_xuat_hien\":1950,\"toa_do\":[0.74,0.52,0.98,0.57],\"do_tin\":0.15}]}"
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.069
+  },
+  "B3-p4-1938-l2-chieu_3d": {
+   "ghep": {
+    "nam": 1938,
+    "noi": "London",
+    "sha256": "5362d04d93001e6e0ec1b99600c58521f2d315979006df92337aacb08a40737f",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [
+     {
+      "muc": "kien_truc",
+      "mo_ta": "On the far horizon there is a large, plain, flat-roofed slab block. It has regular window grids and no period detailing. It sits beside a row of uniform, mid-rise terraced blocks.",
+      "ly_do": "The slab block looks like a post-war modernist or council housing block, which would be out of place in the 1938 skyline. It is small and distant, so this is low confidence.",
+      "nam_xuat_hien": 1950,
+      "toa_do_px": [
+       1427,
+       572,
+       1486,
+       599
+      ],
+      "do_tin": 0.25
+     }
+    ],
+    "cost_usd": 0.035052099999999996,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 970,
+      "cacheReadInputTokens": 2901,
+      "cacheCreationInputTokens": 10020,
+      "webSearchRequests": 0,
+      "costUSD": 0.035052099999999996,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 213,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 8.2,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":1938,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"On the far horizon there is a large, plain, flat-roofed slab block. It has regular window grids and no period detailing. It sits beside a row of uniform, mid-rise terraced blocks.\",\"ly_do\":\"The slab block looks like a post-war modernist or council housing block, which would be out of place in the 1938 skyline. It is small and distant, so this is low confidence.\",\"nam_xuat_hien\":1950,\"toa_do\":[0.743,0.53,0.774,0.555],\"do_tin\":0.25}]}",
+    "id": "B3-p4-1938-l2-chieu_3d-ghep",
+    "tu_bo_dem": true
+   },
+   "render": {
+    "nam": 1938,
+    "noi": "London",
+    "sha256": "782d8ddab8edb3c8dc0e520a1be2261e310e6cf8b752e2eb987634daa402ed11",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [
+     {
+      "muc": "kien_truc",
+      "mo_ta": "Far right on the horizon there is a wide, plain, white slab-like block with a flat roof. Beside it is a cluster of uniform mid-rise blocks. They look like modern or inter-war blocks of flats rather than the usual London roofline.",
+      "ly_do": "The blocks are uniform and flat-roofed, and they look like postwar slab or estate housing. This is a weak suspicion. They could just be generic rendered buildings.",
+      "nam_xuat_hien": 1950,
+      "toa_do_px": [
+       1421,
+       562,
+       1882,
+       616
+      ],
+      "do_tin": 0.15
+     }
+    ],
+    "cost_usd": 0.0339759,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 868,
+      "cacheReadInputTokens": 2889,
+      "cacheCreationInputTokens": 9998,
+      "webSearchRequests": 0,
+      "costUSD": 0.0339759,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 101,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 9.9,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":1938,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Far right on the horizon there is a wide, plain, white slab-like block with a flat roof. Beside it is a cluster of uniform mid-rise blocks. They look like modern or inter-war blocks of flats rather than the usual London roofline.\",\"ly_do\":\"The blocks are uniform and flat-roofed, and they look like postwar slab or estate housing. This is a weak suspicion. They could just be generic rendered buildings.\",\"nam_xuat_hien\":1950,\"toa_do\":[0.74,0.52,0.98,0.57],\"do_tin\":0.15}]}",
+    "id": "B3-p4-1938-l2-chieu_3d-render",
+    "tu_bo_dem": true
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.069
+  },
+  "B3-p4-1938-l2-chieu_tiso": {
+   "ghep": {
+    "nam": 1938,
+    "noi": "London",
+    "sha256": "5362d04d93001e6e0ec1b99600c58521f2d315979006df92337aacb08a40737f",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [
+     {
+      "muc": "kien_truc",
+      "mo_ta": "On the far horizon there is a large, plain, flat-roofed slab block. It has regular window grids and no period detailing. It sits beside a row of uniform, mid-rise terraced blocks.",
+      "ly_do": "The slab block looks like a post-war modernist or council housing block, which would be out of place in the 1938 skyline. It is small and distant, so this is low confidence.",
+      "nam_xuat_hien": 1950,
+      "toa_do_px": [
+       1427,
+       572,
+       1486,
+       599
+      ],
+      "do_tin": 0.25
+     }
+    ],
+    "cost_usd": 0.035052099999999996,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 970,
+      "cacheReadInputTokens": 2901,
+      "cacheCreationInputTokens": 10020,
+      "webSearchRequests": 0,
+      "costUSD": 0.035052099999999996,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 213,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 8.2,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":1938,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"On the far horizon there is a large, plain, flat-roofed slab block. It has regular window grids and no period detailing. It sits beside a row of uniform, mid-rise terraced blocks.\",\"ly_do\":\"The slab block looks like a post-war modernist or council housing block, which would be out of place in the 1938 skyline. It is small and distant, so this is low confidence.\",\"nam_xuat_hien\":1950,\"toa_do\":[0.743,0.53,0.774,0.555],\"do_tin\":0.25}]}",
+    "id": "B3-p4-1938-l2-chieu_tiso-ghep",
+    "tu_bo_dem": true
+   },
+   "render": {
+    "nam": 1938,
+    "noi": "London",
+    "sha256": "782d8ddab8edb3c8dc0e520a1be2261e310e6cf8b752e2eb987634daa402ed11",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [
+     {
+      "muc": "kien_truc",
+      "mo_ta": "Far right on the horizon there is a wide, plain, white slab-like block with a flat roof. Beside it is a cluster of uniform mid-rise blocks. They look like modern or inter-war blocks of flats rather than the usual London roofline.",
+      "ly_do": "The blocks are uniform and flat-roofed, and they look like postwar slab or estate housing. This is a weak suspicion. They could just be generic rendered buildings.",
+      "nam_xuat_hien": 1950,
+      "toa_do_px": [
+       1421,
+       562,
+       1882,
+       616
+      ],
+      "do_tin": 0.15
+     }
+    ],
+    "cost_usd": 0.0339759,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 868,
+      "cacheReadInputTokens": 2889,
+      "cacheCreationInputTokens": 9998,
+      "webSearchRequests": 0,
+      "costUSD": 0.0339759,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 101,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 9.9,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":1938,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Far right on the horizon there is a wide, plain, white slab-like block with a flat roof. Beside it is a cluster of uniform mid-rise blocks. They look like modern or inter-war blocks of flats rather than the usual London roofline.\",\"ly_do\":\"The blocks are uniform and flat-roofed, and they look like postwar slab or estate housing. This is a weak suspicion. They could just be generic rendered buildings.\",\"nam_xuat_hien\":1950,\"toa_do\":[0.74,0.52,0.98,0.57],\"do_tin\":0.15}]}",
+    "id": "B3-p4-1938-l2-chieu_tiso-render",
+    "tu_bo_dem": true
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.069
+  }
+ },
+ "o2": {
+  "97f715ef481fb15a9b1b9315b2f274e5": {
+   "nam": 1938,
+   "noi": "London",
+   "sha256": "5362d04d93001e6e0ec1b99600c58521f2d315979006df92337aacb08a40737f",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "On the far horizon there is a large, plain, flat-roofed slab block. It has regular window grids and no period detailing. It sits beside a row of uniform, mid-rise terraced blocks.",
+     "ly_do": "The slab block looks like a post-war modernist or council housing block, which would be out of place in the 1938 skyline. It is small and distant, so this is low confidence.",
+     "nam_xuat_hien": 1950,
+     "toa_do_px": [
+      1427,
+      572,
+      1486,
+      599
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.035052099999999996,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 970,
+     "cacheReadInputTokens": 2901,
+     "cacheCreationInputTokens": 10020,
+     "webSearchRequests": 0,
+     "costUSD": 0.035052099999999996,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 213,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.2,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1938,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"On the far horizon there is a large, plain, flat-roofed slab block. It has regular window grids and no period detailing. It sits beside a row of uniform, mid-rise terraced blocks.\",\"ly_do\":\"The slab block looks like a post-war modernist or council housing block, which would be out of place in the 1938 skyline. It is small and distant, so this is low confidence.\",\"nam_xuat_hien\":1950,\"toa_do\":[0.743,0.53,0.774,0.555],\"do_tin\":0.25}]}"
+  },
+  "13500832cbeb8e3af6dd80cfd8dd85d6": {
+   "nam": 1938,
+   "noi": "London",
+   "sha256": "782d8ddab8edb3c8dc0e520a1be2261e310e6cf8b752e2eb987634daa402ed11",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Far right on the horizon there is a wide, plain, white slab-like block with a flat roof. Beside it is a cluster of uniform mid-rise blocks. They look like modern or inter-war blocks of flats rather than the usual London roofline.",
+     "ly_do": "The blocks are uniform and flat-roofed, and they look like postwar slab or estate housing. This is a weak suspicion. They could just be generic rendered buildings.",
+     "nam_xuat_hien": 1950,
+     "toa_do_px": [
+      1421,
+      562,
+      1882,
+      616
+     ],
+     "do_tin": 0.15
+    }
+   ],
+   "cost_usd": 0.0339759,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 868,
+     "cacheReadInputTokens": 2889,
+     "cacheCreationInputTokens": 9998,
+     "webSearchRequests": 0,
+     "costUSD": 0.0339759,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 101,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.9,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1938,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Far right on the horizon there is a wide, plain, white slab-like block with a flat roof. Beside it is a cluster of uniform mid-rise blocks. They look like modern or inter-war blocks of flats rather than the usual London roofline.\",\"ly_do\":\"The blocks are uniform and flat-roofed, and they look like postwar slab or estate housing. This is a weak suspicion. They could just be generic rendered buildings.\",\"nam_xuat_hien\":1950,\"toa_do\":[0.74,0.52,0.98,0.57],\"do_tin\":0.15}]}"
+  }
+ }
+}

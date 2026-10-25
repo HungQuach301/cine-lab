@@ -1,0 +1,686 @@
+{
+ "604cd95ca4ca672707b5160e0db7b19d": {
+  "ket_qua": {
+   "gpt": {
+    "meta": {
+     "model": "gpt-6.1-sol",
+     "usd": 0.0506,
+     "usage": {
+      "input_tokens": 16132,
+      "input_tokens_details": {
+       "cache_write_tokens": 16129,
+       "cached_tokens": 0
+      },
+      "output_tokens": 1832,
+      "output_tokens_details": {
+       "reasoning_tokens": 254
+      },
+      "total_tokens": 17964
+     },
+     "loi": null
+    },
+    "secs": 35.8,
+    "json": {
+     "them": [
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Added recessed window surrounds, dark perimeter frames, internal glazing divisions and narrow sills on the large stone facade at the far left; the original window openings remain in place.",
+       "toa_do": [
+        0.0,
+        0.389,
+        0.113,
+        1.0
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Modern framed glazing is compatible with London in 2026; the issue is unsupported added detail, not its date.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Added dimensional window frames, mullions, transoms and projecting sill edges across the four visible window bands of the left foreground office block.",
+       "toa_do": [
+        0.11,
+        0.631,
+        0.24,
+        0.995
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "These architectural details are compatible with 2026, although absent from the ground-truth render.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "do_dac",
+       "mo_ta": "Added office-interior contents behind the left foreground block's windows: desk-like surfaces, chairs, cabinets or shelving, and small equipment-like objects. Individual contents are not consistently identifiable.",
+       "toa_do": [
+        0.113,
+        0.637,
+        0.237,
+        0.989
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Contemporary office furnishings are compatible with 2026.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added partially lowered horizontal window blinds in several windows of the left foreground office block.",
+       "toa_do": [
+        0.112,
+        0.709,
+        0.238,
+        0.989
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Window blinds are compatible with 2026.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Added recessed frames and sill details to the repeated narrow windows of the lower, receding stone office building left of centre.",
+       "toa_do": [
+        0.251,
+        0.718,
+        0.37,
+        0.976
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "The added window detailing is compatible with 2026.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Added substantial glazing frames, mullions, transoms and sill edges across the five visible window bands of the stone office block right of centre.",
+       "toa_do": [
+        0.49,
+        0.664,
+        0.634,
+        0.931
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Modern office-window construction is compatible with 2026.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "do_dac",
+       "mo_ta": "Added office furnishings and equipment-like contents behind the right-of-centre stone block's windows, including desk-like surfaces, chairs and cabinets or shelving.",
+       "toa_do": [
+        0.492,
+        0.672,
+        0.631,
+        0.923
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "These office contents are compatible with 2026.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added partially lowered blinds in several windows of the right-of-centre stone office block.",
+       "toa_do": [
+        0.492,
+        0.706,
+        0.631,
+        0.921
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Window blinds are compatible with 2026.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Added dark window frames, central glazing divisions, transoms and projecting pale sills on the foreground red-brick building, including its upper and lower window rows.",
+       "toa_do": [
+        0.665,
+        0.708,
+        1.0,
+        1.0
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "These window details are compatible with 2026; their addition is a ground-truth departure rather than an anachronism.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Added horizontal slatted blinds, partly lowered, in the upper and lower windows of the foreground red-brick building.",
+       "toa_do": [
+        0.668,
+        0.717,
+        0.905,
+        1.0
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Slatted window blinds are compatible with 2026.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "do_dac",
+       "mo_ta": "Added indistinct interior furnishings or equipment behind several upper windows of the foreground red-brick building.",
+       "toa_do": [
+        0.756,
+        0.717,
+        1.0,
+        0.806
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "The visible interior objects do not indicate a date later than 2026.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.76
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Added dimensional curtain-wall mullions, transoms and panel joints on the dark office building at the upper right, plus a thin projecting cap along its sloping roof edge.",
+       "toa_do": [
+        0.878,
+        0.462,
+        1.0,
+        0.705
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Curtain-wall framing and roof coping are compatible with 2026.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      }
+     ],
+     "bot_doi": [],
+     "doi_loai_vung": []
+    }
+   },
+   "claude": {
+    "meta": {
+     "model": [
+      "claude-sonnet-5-5"
+     ],
+     "usd": 0.057930300000000004,
+     "loi": null
+    },
+    "secs": 7.3,
+    "json": {
+     "them": [],
+     "bot_doi": [],
+     "doi_loai_vung": []
+    }
+   }
+  },
+  "prompt_ver": "n2p-v1 (NC-N2P vision_kiem 21/10/2026 → K-1.17)",
+  "loi": null,
+  "chi_phi_usd": 0.1085
+ },
+ "qtd": {
+  "M4-trung-l1-anh_tinh": {
+   "ghep": {
+    "id": "M4-trung-l1-anh_tinh-ghep",
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "056c78824a61edffe459639d5bcf53de29b43406d2c250d1ef270ab70d20bfec",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.03174780000000001,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 648,
+      "cacheReadInputTokens": 2883,
+      "cacheCreationInputTokens": 9987,
+      "webSearchRequests": 0,
+      "costUSD": 0.03174780000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 92,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 5.4,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+   },
+   "render": {
+    "id": "M4-trung-l1-anh_tinh-render",
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "f92e08bf8afa48c46fd9bddd9a9a49aaeb77a288ba05505a164e47c46cff8a4a",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.0306716,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 546,
+      "cacheReadInputTokens": 2871,
+      "cacheCreationInputTokens": 9965,
+      "webSearchRequests": 0,
+      "costUSD": 0.0306716,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 5.5,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0624
+  },
+  "M4-trung-l2-anh_tinh": {
+   "ghep": {
+    "id": "M4-trung-l2-anh_tinh-ghep",
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "337992486e90986b3fced54bc191d8852a4533a2bcaf7181b4171368798dc857",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.03256780000000001,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 730,
+      "cacheReadInputTokens": 2883,
+      "cacheCreationInputTokens": 9987,
+      "webSearchRequests": 0,
+      "costUSD": 0.03256780000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 174,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 7.1,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+   },
+   "render": {
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "f92e08bf8afa48c46fd9bddd9a9a49aaeb77a288ba05505a164e47c46cff8a4a",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.0306716,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 546,
+      "cacheReadInputTokens": 2871,
+      "cacheCreationInputTokens": 9965,
+      "webSearchRequests": 0,
+      "costUSD": 0.0306716,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 5.5,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+    "id": "M4-trung-l2-anh_tinh-render",
+    "tu_bo_dem": true
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0632
+  },
+  "M4-trung-l2-chieu_3d": {
+   "ghep": {
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "337992486e90986b3fced54bc191d8852a4533a2bcaf7181b4171368798dc857",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.03256780000000001,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 730,
+      "cacheReadInputTokens": 2883,
+      "cacheCreationInputTokens": 9987,
+      "webSearchRequests": 0,
+      "costUSD": 0.03256780000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 174,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 7.1,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+    "id": "M4-trung-l2-chieu_3d-ghep",
+    "tu_bo_dem": true
+   },
+   "render": {
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "f92e08bf8afa48c46fd9bddd9a9a49aaeb77a288ba05505a164e47c46cff8a4a",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.0306716,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 546,
+      "cacheReadInputTokens": 2871,
+      "cacheCreationInputTokens": 9965,
+      "webSearchRequests": 0,
+      "costUSD": 0.0306716,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 5.5,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+    "id": "M4-trung-l2-chieu_3d-render",
+    "tu_bo_dem": true
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0632
+  },
+  "M4-trung-l2-chieu_tiso": {
+   "ghep": {
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "337992486e90986b3fced54bc191d8852a4533a2bcaf7181b4171368798dc857",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.03256780000000001,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 730,
+      "cacheReadInputTokens": 2883,
+      "cacheCreationInputTokens": 9987,
+      "webSearchRequests": 0,
+      "costUSD": 0.03256780000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 174,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 7.1,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+    "id": "M4-trung-l2-chieu_tiso-ghep",
+    "tu_bo_dem": true
+   },
+   "render": {
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "f92e08bf8afa48c46fd9bddd9a9a49aaeb77a288ba05505a164e47c46cff8a4a",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.0306716,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 546,
+      "cacheReadInputTokens": 2871,
+      "cacheCreationInputTokens": 9965,
+      "webSearchRequests": 0,
+      "costUSD": 0.0306716,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 5.5,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+    "id": "M4-trung-l2-chieu_tiso-render",
+    "tu_bo_dem": true
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0632
+  }
+ },
+ "o2": {
+  "79a346be9a1e7bc3df346e8c95bc7cd2": {
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "056c78824a61edffe459639d5bcf53de29b43406d2c250d1ef270ab70d20bfec",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.03174780000000001,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 648,
+     "cacheReadInputTokens": 2883,
+     "cacheCreationInputTokens": 9987,
+     "webSearchRequests": 0,
+     "costUSD": 0.03174780000000001,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 92,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 5.4,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+  },
+  "4a07495d48a7704a6a381b4233b65bf9": {
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "f92e08bf8afa48c46fd9bddd9a9a49aaeb77a288ba05505a164e47c46cff8a4a",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.0306716,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 546,
+     "cacheReadInputTokens": 2871,
+     "cacheCreationInputTokens": 9965,
+     "webSearchRequests": 0,
+     "costUSD": 0.0306716,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 5.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+  },
+  "3bc92bcc618d8d5c2c2f5fdd7d5b340e": {
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "337992486e90986b3fced54bc191d8852a4533a2bcaf7181b4171368798dc857",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.03256780000000001,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 730,
+     "cacheReadInputTokens": 2883,
+     "cacheCreationInputTokens": 9987,
+     "webSearchRequests": 0,
+     "costUSD": 0.03256780000000001,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 174,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 7.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+  }
+ },
+ "3e04b395eb7b6a182b5c4b81cf906153": {
+  "ket_qua": {
+   "gpt": {
+    "meta": {
+     "model": "gpt-6.1-sol",
+     "usd": 0.0415,
+     "usage": {
+      "input_tokens": 16122,
+      "input_tokens_details": {
+       "cache_write_tokens": 16119,
+       "cached_tokens": 0
+      },
+      "output_tokens": 922,
+      "output_tokens_details": {
+       "reasoning_tokens": 516
+      },
+      "total_tokens": 17044
+     },
+     "loi": null
+    },
+    "secs": 22.9,
+    "json": {
+     "them": [
+      {
+       "loai": "do_dac",
+       "mo_ta": "Office furnishings newly visible behind the central-right building's window bands, including desks, chairs and monitor-like rectangular objects; grouped because individual objects are small and partly occluded.",
+       "toa_do": [
+        0.491,
+        0.707,
+        0.632,
+        0.925
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Modern office furnishings are compatible with London in 2026.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "do_dac",
+       "mo_ta": "Additional interior furnishings and shelving-like objects visible through the foreground brick building's windows, most clearly in the broad upper windows and lower-right windows.",
+       "toa_do": [
+        0.754,
+        0.716,
+        0.908,
+        1.0
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "These interior furnishings are compatible with 2026.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.76
+      },
+      {
+       "loai": "do_dac",
+       "mo_ta": "Office furniture and equipment newly visible through the upper-right background building's glazed window bands.",
+       "toa_do": [
+        0.881,
+        0.544,
+        1.0,
+        0.696
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "Modern office interiors are compatible with 2026.",
+       "nam_xuat_hien": null,
+       "do_tin": 0.75
+      }
+     ],
+     "bot_doi": [],
+     "doi_loai_vung": []
+    }
+   },
+   "claude": {
+    "meta": {
+     "model": [
+      "claude-sonnet-5-5"
+     ],
+     "usd": 0.056092699999999995,
+     "loi": null
+    },
+    "secs": 6.0,
+    "json": {
+     "them": [],
+     "bot_doi": [],
+     "doi_loai_vung": []
+    }
+   }
+  },
+  "prompt_ver": "n2p-v1 (NC-N2P vision_kiem 21/10/2026 → K-1.17)",
+  "loi": null,
+  "chi_phi_usd": 0.0976
+ }
+}

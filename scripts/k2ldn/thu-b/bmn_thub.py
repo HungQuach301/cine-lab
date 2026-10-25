@@ -1,0 +1,256 @@
+#!/opt/cine/bin/python
+"""THU-B-T4 · (B) AI phủ bề mặt nhà thường — chuẩn bị, ghép, chiếu, timelapse, khai kiểm (K-1.17.5 §7 BE-MAT-NHA; Kinh thánh §15 (j) ĐANG THỬ).
+  bmn_thub.py prep <khung>                 → $THUB/bp/<khung>/: render.png (V2 + LUT kênh A = "render-khớp"), vao.jpg (ảnh vào AI; 1666 KHÔNG khói bếp), matna.png (lớp + nha_thuong),
+                                             mat_na_nha.png, mat_na_mat.png, bong.png, albedo.png, nha.json [{id, lo, px_m}], do-duoc.png, prep.json (% nhà đo được…)
+  bmn_thub.py ghep <khung> <tag> <ai.jpg>  → <tag>/ghep.png (+ nen.png khi có lớp sống), ghep.json — AI CHỈ trong nhà đo được nở 1 px (không lấn lớp (a)/nước); ngoài = render 0/255
+  bmn_thub.py proj <khung> <tag> [vòng]    → <tag>/proj.png (albedo đã khử sáng, RGBA; A = nhà đo được) + proj.json (ma trận chiếu VP) — vòng ≥ 1: hiệu chỉnh theo khung 0 đã dựng
+  bmn_thub.py tl <khung> <tag>             → <tag>/tl-anh_tinh.mp4, tl-chieu_3d.mp4, tl-render.mp4 (640×360, 3 s, LUT A, x264 crf 10)
+Nhà ĐO ĐƯỢC (K-1.17.5 §5.1/§6, cùng định nghĩa): ≥ 2 px/m (1 m ngang chiếu tại tâm nhà, quy 1080p), ≥ 100 px, ≥ 40 điểm cạnh hình học (biên mã nhà ∪ biên mã mặt phẳng)
+có gradient ≥ 3 ở cả render (màu Lab, σ 1) và pass bóng (L*, σ 1)."""
+import json, os, subprocess, sys
+import numpy as np, cv2
+REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+THUB = os.environ.get('THUB', '/var/tmp/ldn/thub'); RR = f'{THUB}/r'; BP = f'{THUB}/bp'; D = os.environ.get('LDN_DATA', '/var/tmp/ldn')
+LUT = os.path.join(REPO, 'channel-k2/k2c-t3-01/mau/k2c-t3-kenh-v030.cube')
+NAM = {'M1-trung': 1666, 'M4-trung': 2026, 'B3-p4-1938': 1938}
+CAO360 = os.environ.get('CAO360') == '1'
+# mã hoá video kiểm: mặc định crf 10 yuv420p (xem); MA_HOA_KIEM=1 → không mất (crf 0, yuv444p) để phép (d)(e) không đo nhiễu mã hoá
+MA_HOA = ['-crf', '0', '-pix_fmt', 'yuv444p'] if os.environ.get('MA_HOA_KIEM') == '1' else ['-crf', '10', '-pix_fmt', 'yuv420p']
+SONG = {'M1-trung'}                       # khung có khói bếp (lớp sống, ghép cộng hiệu render có/không khói)
+PAL = {'troi': (40, 80, 200), 'nuoc': (0, 170, 190), 'bang': (200, 170, 90), 'suon': (150, 120, 70), 'nha': (235, 235, 235), 'nha_thuong': (215, 215, 215),
+       'tau': (255, 0, 0), 'khac': (128, 128, 128), 'cay': (60, 140, 60)}
+NEN_CHO = ('troi', 'bang', 'suon', 'cay')   # vòng nở 1 px của nhà đo được chỉ được lấn vào lớp nền (không lấn lớp (a), không lấn nước)
+E0, N0 = 532000.0, 180800.0
+
+
+def lut(src, dst):
+    subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-i', src, '-vf', f"lut3d=file='{LUT}':interp=tetrahedral", dst], check=True)
+
+
+def lop(m, k): return np.all(m == np.array(PAL[k][::-1]), -1)
+def dec24(im): im = im.astype(np.int64); return (im[..., 2] << 16) | (im[..., 1] << 8) | im[..., 0]
+def enc24(a): a = a.astype(np.int64); return np.stack([a & 255, (a >> 8) & 255, (a >> 16) & 255], -1).astype(np.uint8)
+def s2l(x): x = x / 255.0; return np.where(x <= 0.04045, x / 12.92, ((x + 0.055) / 1.055) ** 2.4)
+def l2s(x): x = np.clip(x, 0, 1); return np.where(x <= 0.0031308, x * 12.92, 1.055 * x ** (1 / 2.4) - 0.055) * 255.0
+
+
+def grad(b, sig, mau=False):
+    """như K (reports/k1175/do/ma/bmn.py): độ lớn gradient L* (hoặc ΔE76 Lab khi mau) mỗi px sau mờ Gauss σ"""
+    x = cv2.cvtColor(b, cv2.COLOR_BGR2LAB).astype(np.float32) * np.array([100 / 255, 1, 1], np.float32)
+    x = cv2.GaussianBlur(x, (0, 0), sig); ch = range(3) if mau else (0,)
+    return np.sqrt(sum((cv2.Sobel(x[..., c], cv2.CV_32F, 1, 0, ksize=3) / 8) ** 2 + (cv2.Sobel(x[..., c], cv2.CV_32F, 0, 1, ksize=3) / 8) ** 2 for c in ch))
+
+
+def bien(M):
+    b = np.zeros(M.shape, bool)
+    b[:-1] |= M[:-1] != M[1:]; b[1:] |= M[1:] != M[:-1]; b[:, :-1] |= M[:, :-1] != M[:, 1:]; b[:, 1:] |= M[:, 1:] != M[:, :-1]
+    return b
+
+
+def lo_int(lo):
+    """mã lô số nguyên: lô 1666 = chỉ số lô; toà OSM 'osm:<id>' = id (way), quan hệ 'osm:r<id>' = 10^12 + id"""
+    s_ = str(lo)
+    if not s_.startswith('osm:'): return lo
+    s_ = s_[4:]; return 10 ** 12 + int(s_[1:]) if s_.startswith('r') else int(s_.lstrip('w'))
+
+
+def cam(logp):
+    f = json.load(open(logp))['frames'][0]; V = np.array(f['view']).reshape(4, 4).T; P = np.array(f['proj']).reshape(4, 4).T; return V, P
+
+
+def chieu(V, P, X, W, H):
+    p = (P @ V @ np.c_[X, np.ones(len(X))].T).T; ndc = p[:, :3] / p[:, 3:4]
+    return np.c_[(ndc[:, 0] + 1) / 2 * W, (1 - ndc[:, 1]) / 2 * H], p[:, 3]
+
+
+def prep(k):
+    o = f'{BP}/{k}'; os.makedirs(o, exist_ok=True)
+    lut(f'{RR}/{k}-v2/00000.png', f'{o}/render.png')
+    if k in SONG: lut(f'{RR}/{k}-v2-kk/00000.png', f'{o}/render-khong.png')
+    vao = cv2.imread(f'{o}/render-khong.png' if k in SONG else f'{o}/render.png'); cv2.imwrite(f'{o}/vao.jpg', vao, [cv2.IMWRITE_JPEG_QUALITY, 95])
+    M1 = cv2.imread(f'{RR}/{k}-m1/00000.png'); IID = dec24(cv2.imread(f'{RR}/{k}-m3/00000.png')); PID = dec24(cv2.imread(f'{RR}/{k}-m4/00000.png'))
+    nha = json.load(open(f'{D}/look3b/nha.json')); la = ~np.isin(IID, np.array([int(x) for x in nha], np.int64)) & (IID > 0); n_la = int(la.sum()); IID[la] = 0; PID[la] = 0   # mã không có trong bảng nhà (vài điểm ảnh lẻ) → 0
+    cv2.imwrite(f'{o}/matna.png', M1); cv2.imwrite(f'{o}/mat_na_nha.png', enc24(IID)); cv2.imwrite(f'{o}/mat_na_mat.png', enc24(PID))
+    cv2.imwrite(f'{o}/bong.png', cv2.imread(f'{RR}/{k}-bong/00000.png')); (cv2.imwrite(f'{o}/albedo.png', cv2.imread(f'{RR}/{k}-m6/00000.png')) if os.path.exists(f'{RR}/{k}-m6/00000.png') else None)
+    R = cv2.imread(f'{o}/render.png'); BO = cv2.imread(f'{o}/bong.png'); H, W = IID.shape; s = H / 1080.0
+    # nhất quán mặt nạ: điểm mã nhà > 0 phải là lớp nha_thuong
+    nt = lop(M1, 'nha_thuong'); lech = int(((IID > 0) != nt).sum())
+    V, P = cam(f'{RR}/{k}-v2/log.json')
+    ids, cnt = np.unique(IID[IID > 0], return_counts=True)
+    X = np.array([[nha[str(i)]['E'] - E0, (nha[str(i)]['y0'] + nha[str(i)]['y1']) / 2, -(nha[str(i)]['N'] - N0)] for i in ids])
+    right = V[0, :3] / np.linalg.norm(V[0, :3]); right = right - np.array([0, right[1], 0]); right /= np.linalg.norm(right)
+    a, w0 = chieu(V, P, X, W, H); b, _ = chieu(V, P, X + right, W, H); ppm = np.hypot(*(b - a).T) / s
+    gR = grad(R, 1.0 * s, True); gB = grad(BO, 1.0 * s); GE = (bien(IID) | bien(PID)) & (gR >= 3) & (gB >= 3)
+    ec = np.bincount(IID[GE].ravel(), minlength=int(IID.max()) + 1)
+    rows = []; meas = []
+    for i, c, pm in zip(ids, cnt, ppm):
+        e = int(ec[i]); d = bool(pm >= 2.0 and c >= 100 * s * s and e >= 40)
+        rows.append({'id': int(i), 'lo': lo_int(nha[str(i)]['lo']), 'px_m': round(float(pm), 3),
+                     'px': int(c), 'n_canh': e, 'do_duoc': d, 'k': nha[str(i)]['k']})
+        if d: meas.append(int(i))
+    MM = np.isin(IID, np.array(meas, np.int64)); cv2.imwrite(f'{o}/do-duoc.png', (MM * 255).astype(np.uint8))
+    json.dump([{kk: r[kk] for kk in ('id', 'lo', 'px_m')} for r in rows], open(f'{o}/nha.json', 'w'))
+    json.dump(rows, open(f'{o}/nha-chi-tiet.json', 'w'))
+    st = dict(khung=k, nam=NAM.get(k, int(k.split('-')[-1]) if k.startswith('uoc') else None), nha_thay=len(rows), nha_do_duoc=len(meas), pct_nha_do_duoc=round(100 * len(meas) / max(1, len(rows)), 1),
+              px_nha_thuong_pct=round(float((IID > 0).mean() * 100), 2), px_nha_do_duoc_pct=round(float(MM.mean() * 100), 2),
+              pct_dien_tich_nha_do_duoc=round(100 * float(MM.sum()) / max(1, float((IID > 0).sum())), 1), lech_ma_nha_vs_lop=lech, ma_la_px=n_la,
+              px_m_trung_vi=round(float(np.median(ppm)), 2), px_m_trung_vi_do_duoc=round(float(np.median([r['px_m'] for r in rows if r['do_duoc']] or [0])), 2),
+              loai_do_khong_duoc={'px_m<2': sum(1 for r in rows if r['px_m'] < 2), 'px<100': sum(1 for r in rows if r['px'] < 100 * s * s), 'canh<40': sum(1 for r in rows if r['n_canh'] < 40)},
+              theo_lop={str(kk): [sum(1 for r in rows if r['k'] == kk), sum(1 for r in rows if r['k'] == kk and r['do_duoc'])] for kk in (1, 3, 4, 10)})
+    json.dump(st, open(f'{o}/prep.json', 'w'), ensure_ascii=False, indent=1); print(json.dumps(st, ensure_ascii=False))
+
+
+def vung_ai(o):
+    MM = cv2.imread(f'{o}/do-duoc.png', 0) > 127; M1 = cv2.imread(f'{o}/matna.png')
+    nen = np.zeros(MM.shape, bool)
+    for kk in NEN_CHO: nen |= lop(M1, kk)
+    dil = cv2.dilate(MM.astype(np.uint8), np.ones((3, 3), np.uint8)) > 0
+    return MM | (dil & nen)
+
+
+def ghep(k, tag, ai):
+    o = f'{BP}/{k}'; t = f'{o}/{tag}'; os.makedirs(t, exist_ok=True)
+    R = cv2.imread(f'{o}/render.png'); H, W = R.shape[:2]; A = cv2.resize(cv2.imread(ai), (W, H), interpolation=cv2.INTER_LANCZOS4)
+    MA = vung_ai(o); base = cv2.imread(f'{o}/render-khong.png') if k in SONG else R
+    # khớp tông AI VÀO tông render đã duyệt (Lab: trung bình + độ lệch chuẩn trong vùng AI, k = 0,7 — một phép toàn cục, tất định; ngược chiều tấm nền §15 b vì ở đây render là nền)
+    lab = lambda x: cv2.cvtColor(x, cv2.COLOR_BGR2LAB).astype(np.float32); Al, Bl = lab(A), lab(base); kk = 0.7
+    ma, sa = Al[MA].mean(0), Al[MA].std(0) + 1e-3; mb, sb = Bl[MA].mean(0), Bl[MA].std(0) + 1e-3
+    AK = cv2.cvtColor(np.clip((Al - ma) * (1 + kk * (sb / sa - 1)) + ma + kk * (mb - ma), 0, 255).astype(np.uint8), cv2.COLOR_LAB2BGR)
+    # viền mềm 2 px PHÍA TRONG vùng AI (ngoài vùng vẫn đúng render 0/255)
+    al = np.clip(cv2.distanceTransform(MA.astype(np.uint8), cv2.DIST_L2, 3) / 2.0, 0, 1)[..., None]
+    NEN = np.where(MA[..., None], np.round(al * AK + (1 - al) * base), base).astype(np.uint8); A = AK
+    if k in SONG:
+        cv2.imwrite(f'{t}/nen.png', NEN); G = np.clip(NEN.astype(np.int16) + (R.astype(np.int16) - base.astype(np.int16)), 0, 255).astype(np.uint8)
+    else: G = NEN
+    cv2.imwrite(f'{t}/ghep.png', G); cv2.imwrite(f'{t}/ghep.jpg', G, [cv2.IMWRITE_JPEG_QUALITY, 93]); cv2.imwrite(f'{t}/ai-1080.png', A)
+    out = ~MA; b = int(np.abs(G.astype(int) - R.astype(int))[out].max()) if out.any() else 0
+    rec = dict(khung=k, tag=tag, ai=os.path.relpath(ai, REPO) if ai.startswith(REPO) else ai, pct_diem_anh_ai=round(float(MA.mean() * 100), 2), b_ngoai_vung_max=b,
+               khop_tong=dict(k=kk, mean_ai=ma.round(2).tolist(), mean_render=mb.round(2).tolist(), std_ai=sa.round(2).tolist(), std_render=sb.round(2).tolist()), vien_mem_px=2,
+               sha_ghep=__import__('hashlib').sha256(open(f'{t}/ghep.png', 'rb').read()).hexdigest())
+    json.dump(rec, open(f'{t}/ghep.json', 'w'), ensure_ascii=False, indent=1); print(json.dumps(rec, ensure_ascii=False))
+
+
+def proj(k, tag, vong=0):
+    """albedo đã khử sáng = albedo render × (ảnh ghép / render) (tuyến tính) trong nhà đo được; vòng ≥ 1: × (ghép / khung 0 đã dựng bằng chiếu) — hiệu chỉnh phi tuyến LUT/ánh xạ tông"""
+    o = f'{BP}/{k}'; t = f'{o}/{tag}'
+    MM = cv2.imread(f'{o}/do-duoc.png', 0) > 127; ALB = s2l(cv2.imread(f'{o}/albedo.png').astype(np.float64))
+    base = cv2.imread(f'{t}/nen.png') if k in SONG else cv2.imread(f'{t}/ghep.png')
+    R0 = cv2.imread(f'{o}/render-khong.png') if k in SONG else cv2.imread(f'{o}/render.png')
+    if vong == 0:
+        Q = (s2l(base.astype(np.float64)) + 2e-3) / (s2l(R0.astype(np.float64)) + 2e-3); A = ALB * np.clip(Q, 0.2, 5.0)
+    else:
+        prev = cv2.imread(f'{t}/proj.png', cv2.IMREAD_UNCHANGED); Ap = s2l(prev[..., :3].astype(np.float64))
+        if CAO360:   # hiệu chỉnh theo khung 0 ở ĐỘ PHÂN GIẢI VIDEO 640×360 (phép (e) đo trên video): so tấm thu nhỏ (INTER_AREA), tỉ số phóng lại 1080 (song tuyến)
+            lut(f'{RR}/{k}-bp360-{tag}/00000.png', f'{t}/khung0-360-v{vong - 1}.png'); C0 = cv2.imread(f'{t}/khung0-360-v{vong - 1}.png')
+            G0 = cv2.resize(cv2.imread(f'{t}/ghep.png'), (640, 360), interpolation=cv2.INTER_AREA)
+            Q = (s2l(G0.astype(np.float64)) + 2e-3) / (s2l(C0.astype(np.float64)) + 2e-3); Q = cv2.resize(Q, (Ap.shape[1], Ap.shape[0]), interpolation=cv2.INTER_LINEAR)
+        else:
+            lut(f'{RR}/{k}-bp-{tag}/00000.png', f'{t}/khung0-v{vong - 1}.png'); C0 = cv2.imread(f'{t}/khung0-v{vong - 1}.png')
+            if k in SONG: C0 = np.clip(C0.astype(np.int16) - (cv2.imread(f'{o}/render.png').astype(np.int16) - R0.astype(np.int16)), 0, 255).astype(np.uint8)
+            Q = (s2l(base.astype(np.float64)) + 2e-3) / (s2l(C0.astype(np.float64)) + 2e-3)
+        A = Ap * np.clip(Q, 0.5, 2.0)
+    A = np.clip(A, 0.004, 0.95); out = np.zeros(MM.shape + (4,), np.uint8); out[..., :3] = np.round(l2s(A)).astype(np.uint8); out[..., 3] = MM * 255
+    cv2.imwrite(f'{t}/proj.png', out)
+    V, P = cam(f'{RR}/{k}-v2/log.json'); VP = P @ V
+    json.dump({'vp': VP.T.ravel().tolist(), 'vong': vong, 'ghi_chu': 'VP = proj · view của máy khung V2 (cột trước, như three.js elements)'}, open(f'{t}/proj.json', 'w'))
+    print('proj', k, tag, 'vòng', vong)
+
+
+def mp4(frames_glob, dst, extra_vf=''):
+    vf = f"lut3d=file='{LUT}':interp=tetrahedral" + (',' + extra_vf if extra_vf else '')
+    subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-framerate', '24', '-i', frames_glob, '-vf', vf, '-c:v', 'libx264', '-preset', 'slow'] + MA_HOA + [dst], check=True)
+
+
+def tl(k, tag):
+    o = f'{BP}/{k}'; t = f'{o}/{tag}'; tmp = f'{t}/tl-tmp'; os.makedirs(tmp, exist_ok=True)
+    TP = os.environ.get('TL_PREFIX', 'tl'); mp4(f'{RR}/{TP}-{k}-v2/%05d.png', f'{t}/tl-render.mp4')
+    if TP == 'tl': mp4(f'{RR}/tl-{k}-bp-{tag}/%05d.png', f'{t}/tl-chieu_3d.mp4')
+    # (i) ảnh tĩnh: tấm AI dán cố định mọi khung trong nhà đo được (640×360), ngoài = render khung đó (1666: cộng hiệu khói bếp)
+    MA = cv2.resize(vung_ai(o).astype(np.uint8), (640, 360), interpolation=cv2.INTER_NEAREST) > 0
+    A = cv2.resize(cv2.imread(f'{t}/ai-1080.png'), (640, 360), interpolation=cv2.INTER_AREA)
+    n = len([x for x in os.listdir(f'{RR}/{TP}-{k}-v2') if x.endswith('.png')])
+    for i in range(n):
+        lut(f'{RR}/{TP}-{k}-v2/{i:05d}.png', f'{tmp}/r.png'); Rt = cv2.imread(f'{tmp}/r.png')
+        if k in SONG:
+            lut(f'{RR}/{TP}-{k}-v2-kk/{i:05d}.png', f'{tmp}/rk.png'); Rk = cv2.imread(f'{tmp}/rk.png')
+            G = np.clip(np.where(MA[..., None], A, Rk).astype(np.int16) + Rt.astype(np.int16) - Rk.astype(np.int16), 0, 255).astype(np.uint8)
+        else: G = np.where(MA[..., None], A, Rt)
+        cv2.imwrite(f'{tmp}/{i:05d}.png', G)
+    subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-framerate', '24', '-i', f'{tmp}/%05d.png', '-c:v', 'libx264', '-preset', 'slow'] + MA_HOA + [f'{t}/tl-anh_tinh.mp4'], check=True)
+    subprocess.run(['rm', '-rf', tmp]); print('tl', k, tag, n, 'khung')
+
+
+if __name__ == '__main__':
+    c = sys.argv[1]
+    if c == 'prep': prep(sys.argv[2])
+    elif c == 'ghep': ghep(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif c == 'proj': proj(sys.argv[2], sys.argv[3], int(sys.argv[4]) if len(sys.argv) > 4 else 0)
+    elif c == 'tl': tl(sys.argv[2], sys.argv[3])
+
+
+def soi(k, tag, n=8):
+    """tự soi (a): đỡ cạnh hình học từng nhà đo được (thước nháp của K: reports/k1175/do/ma/bmn.py::do_nha — chỉ để chọn ô phóng, KHÔNG thay k2check) → n nhà thấp nhất,
+    ô cắt phóng ×3 (render | ghép) → <tag>/soi-a.jpg + soi-a.json"""
+    sys.path.insert(0, os.path.join(REPO, 'reports/k1175/do/ma')); import bmn as KB
+    o = f'{BP}/{k}'; t = f'{o}/{tag}'
+    R = cv2.imread(f'{o}/render.png'); G = cv2.imread(f'{t}/ghep.png'); IID = dec24(cv2.imread(f'{o}/mat_na_nha.png')); PID = dec24(cv2.imread(f'{o}/mat_na_mat.png'))
+    BO = cv2.imread(f'{o}/bong.png'); rows = {r['id']: r for r in json.load(open(f'{o}/nha-chi-tiet.json'))}
+    meas = [i for i, r in rows.items() if r['do_duoc']]; nha = {i: {'px_m': rows[i]['px_m'], 'lo': rows[i]['lo']} for i in meas}
+    res = KB.do_nha(R, G, IID, nha, PID=PID, chi_id=set(meas), BONG=BO)
+    L = sorted([(v.get('sup0', 1.0), i, v) for i, v in res.items() if v.get('do')])[:n]
+    tiles = []
+    for s0, i, v in L:
+        ys, xs = np.nonzero(IID == i); y0, y1, x0, x1 = ys.min(), ys.max(), xs.min(), xs.max(); cy, cx = (y0 + y1) // 2, (x0 + x1) // 2
+        h = max(y1 - y0, x1 - x0, 40) // 2 + 12; yy0, xx0 = max(0, cy - h), max(0, cx - h); yy1, xx1 = min(R.shape[0], cy + h), min(R.shape[1], cx + h)
+        a = cv2.resize(R[yy0:yy1, xx0:xx1], (300, 300), interpolation=cv2.INTER_NEAREST); b = cv2.resize(G[yy0:yy1, xx0:xx1], (300, 300), interpolation=cv2.INTER_NEAREST)
+        cell = np.hstack([a, np.full((300, 6, 3), 255, np.uint8), b]); cv2.putText(cell, f'nha {i} do {s0:.2f} doi {v.get("dich_m", 0)} m', (6, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 255, 255), 2)
+        tiles.append(cell)
+    if tiles:
+        rowsimg = [np.hstack(tiles[j:j + 2]) if len(tiles[j:j + 2]) == 2 else np.hstack([tiles[j], np.zeros_like(tiles[j])]) for j in range(0, len(tiles), 2)]
+        cv2.imwrite(f'{t}/soi-a.jpg', np.vstack(rowsimg), [cv2.IMWRITE_JPEG_QUALITY, 88])
+    sup = [v['sup0'] for v in res.values() if v.get('do')]
+    out = dict(khung=k, tag=tag, n_do=len(sup), sup0_p5=round(float(np.percentile(sup, 5)), 3) if sup else None, sup0_tv=round(float(np.median(sup)), 3) if sup else None,
+               duoi_045=sum(1 for s_ in sup if s_ < 0.45), duoi_020=sum(1 for s_ in sup if s_ < 0.20), thap_nhat=[dict(id=i, sup0=s0, dich_m=v.get('dich_m'), loi=v.get('loi')) for s0, i, v in L])
+    json.dump(out, open(f'{t}/soi-a.json', 'w'), ensure_ascii=False, indent=1); print(json.dumps(out, ensure_ascii=False)[:600])
+
+
+if __name__ == '__main__' and sys.argv[1] == 'soi': soi(sys.argv[2], sys.argv[3])
+
+
+def tiso(k, tag):
+    """(B ii-b) chiếu theo TỈ SỐ BÓNG render (máy cố định): trong nhà đo được C(t) = tấm × R(t) / R(0) (sRGB tuyến tính, từng điểm ảnh); ngoài = render khung t.
+    Với máy cố định và bóng khuếch tán, đây đúng bằng chiếu ảnh AI đã khử sáng (albedo = tấm / bóng(0)) lên hình học rồi dựng lại ánh sáng (× bóng(t)) — không lấy mẫu lại kết cấu.
+    1666: tỉ số tính trên render KHÔNG khói bếp, khói bếp cộng hiệu lại từng khung (lớp sống)."""
+    o = f'{BP}/{k}'; t = f'{o}/{tag}'; tmp = f'{t}/tiso-tmp'; os.makedirs(tmp, exist_ok=True)
+    MA = cv2.resize(vung_ai(o).astype(np.uint8), (640, 360), interpolation=cv2.INTER_NEAREST) > 0
+    I = cv2.resize(cv2.imread(f'{t}/nen.png' if k in SONG else f'{t}/ghep.png'), (640, 360), interpolation=cv2.INTER_AREA).astype(np.float64)
+    TP = os.environ.get('TL_PREFIX', 'tl'); src = f'{RR}/{TP}-{k}-v2-kk' if k in SONG else f'{RR}/{TP}-{k}-v2'
+    n = len([x for x in os.listdir(src) if x.endswith('.png')]); R0 = None
+    for i in range(n):
+        lut(f'{src}/{i:05d}.png', f'{tmp}/r.png'); Rb = cv2.imread(f'{tmp}/r.png').astype(np.float64)
+        if R0 is None: R0 = Rb.copy()
+        q = (s2l(Rb) + 1e-3) / (s2l(R0) + 1e-3); C = np.round(l2s(s2l(I) * q)); G = np.where(MA[..., None], C, Rb)
+        if k in SONG:
+            lut(f'{RR}/{TP}-{k}-v2/{i:05d}.png', f'{tmp}/rs.png'); Rs = cv2.imread(f'{tmp}/rs.png').astype(np.float64); G = G + Rs - Rb
+        cv2.imwrite(f'{tmp}/{i:05d}.png', np.clip(G, 0, 255).astype(np.uint8))
+    subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-framerate', '24', '-i', f'{tmp}/%05d.png', '-c:v', 'libx264', '-preset', 'slow'] + MA_HOA + [f'{t}/tl-chieu_tiso.mp4'], check=True)
+    subprocess.run(['rm', '-rf', tmp]); print('tiso', k, tag, n, 'khung')
+
+
+if __name__ == '__main__' and sys.argv[1] == 'tiso': tiso(sys.argv[2], sys.argv[3])
+
+
+def xem(k, tag):
+    """bản XEM (crf 20 yuv420p, ≤ 5 MB) của mọi video kiểm + SHA video kiểm (không mất) → <tag>/video-sha.json"""
+    import hashlib
+    t = f'{BP}/{k}/{tag}'; rec = {}
+    for v in ('render', 'anh_tinh', 'chieu_3d', 'chieu_tiso'):
+        f_ = f'{t}/tl-{v}.mp4'
+        if not os.path.exists(f_): continue
+        rec[f'tl-{v}.mp4'] = dict(sha256=hashlib.sha256(open(f_, 'rb').read()).hexdigest(), bytes=os.path.getsize(f_), ma_hoa='libx264 crf 0 yuv444p (kiểm)' if os.environ.get('MA_HOA_KIEM') == '1' else 'libx264 crf 10 yuv420p')
+        subprocess.run(['ffmpeg', '-nostdin', '-loglevel', 'error', '-y', '-i', f_, '-c:v', 'libx264', '-preset', 'slow', '-crf', '20', '-pix_fmt', 'yuv420p', f'{t}/tl-{v}-xem.mp4'], check=True)
+        rec[f'tl-{v}.mp4']['xem'] = dict(tep=f'tl-{v}-xem.mp4', bytes=os.path.getsize(f'{t}/tl-{v}-xem.mp4'))
+    json.dump(rec, open(f'{t}/video-sha.json', 'w'), indent=1); print(json.dumps(rec)[:300])
+
+
+if __name__ == '__main__' and sys.argv[1] == 'xem': xem(sys.argv[2], sys.argv[3])

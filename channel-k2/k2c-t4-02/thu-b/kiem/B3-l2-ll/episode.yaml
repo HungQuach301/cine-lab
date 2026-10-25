@@ -1,0 +1,85 @@
+id: thu-b-t4-B3-l2-ll
+title: THU-B-T4 vòng thử (không phải tập)
+brand: MOVING PARTS
+channel: k2
+khung_sach: true
+kenh2_tu_t4: true
+animatic: false
+out: /var/tmp/ldn/thub/k2c/B3-l2-ll
+segments:
+- id: s0
+  dur: 3.0
+  shots:
+  - id: B3-p4-1938
+    at: 0.0
+    tpl: scene3d
+- id: s1
+  dur: 3.0
+  shots:
+  - id: B3-p4-1938
+    at: 0.0
+    tpl: scene3d
+- id: s2
+  dur: 3.0
+  shots:
+  - id: B3-p4-1938
+    at: 0.0
+    tpl: scene3d
+n2p:
+  noi: London
+  t4: true
+  tam:
+  - id: B3-p4-1938-l2-anh_tinh
+    shot: B3-p4-1938
+    render: ../../tam/B3-p4-1938/render.png
+    ghep: ../../tam/B3-p4-1938/l2/ghep.png
+    mat_na: ../../tam/B3-p4-1938/matna.png
+    nam: 1938
+    anh_tinh: true
+    be_mat_nha_ai: true
+    mat_na_nha: ../../tam/B3-p4-1938/mat_na_nha.png
+    mat_na_mat: ../../tam/B3-p4-1938/mat_na_mat.png
+    bong: ../../tam/B3-p4-1938/bong.png
+    nha: ../../tam/B3-p4-1938/nha.json
+    nen_ai: false
+    be_mat_nha_video:
+      ghep: ../../tam/B3-p4-1938/l2/tl-anh_tinh.mp4
+      render: ../../tam/B3-p4-1938/l2/tl-render.mp4
+      cach: anh_tinh
+  - id: B3-p4-1938-l2-chieu_3d
+    shot: B3-p4-1938
+    render: ../../tam/B3-p4-1938/render.png
+    ghep: ../../tam/B3-p4-1938/l2/ghep.png
+    mat_na: ../../tam/B3-p4-1938/matna.png
+    nam: 1938
+    anh_tinh: true
+    be_mat_nha_ai: true
+    mat_na_nha: ../../tam/B3-p4-1938/mat_na_nha.png
+    mat_na_mat: ../../tam/B3-p4-1938/mat_na_mat.png
+    bong: ../../tam/B3-p4-1938/bong.png
+    nha: ../../tam/B3-p4-1938/nha.json
+    nen_ai: false
+    be_mat_nha_video:
+      ghep: ../../tam/B3-p4-1938/l2/tl-chieu_3d.mp4
+      render: ../../tam/B3-p4-1938/l2/tl-render.mp4
+      cach: chieu_3d
+      tam: ../../tam/B3-p4-1938/l2/ghep.png
+  - id: B3-p4-1938-l2-chieu_tiso
+    shot: B3-p4-1938
+    render: ../../tam/B3-p4-1938/render.png
+    ghep: ../../tam/B3-p4-1938/l2/ghep.png
+    mat_na: ../../tam/B3-p4-1938/matna.png
+    nam: 1938
+    anh_tinh: true
+    be_mat_nha_ai: true
+    mat_na_nha: ../../tam/B3-p4-1938/mat_na_nha.png
+    mat_na_mat: ../../tam/B3-p4-1938/mat_na_mat.png
+    bong: ../../tam/B3-p4-1938/bong.png
+    nha: ../../tam/B3-p4-1938/nha.json
+    nen_ai: false
+    be_mat_nha_video:
+      ghep: ../../tam/B3-p4-1938/l2/tl-chieu_tiso.mp4
+      render: ../../tam/B3-p4-1938/l2/tl-render.mp4
+      cach: chieu_3d
+      tam: ../../tam/B3-p4-1938/l2/ghep.png
+log_shot: log-shot.json
