@@ -1,0 +1,344 @@
+{
+ "tag": "H2-07-l2-360p",
+ "clip": "/var/tmp/anim/omni/H2-07/H2-07-l2-360p.mp4",
+ "clip_sha": "e3aa2cccad30325dc0e9cea3ffb5683d902252df2d135c7b6e37ddeb2a44e775",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H2-07-dau.jpg",
+ "dau_sha": "0e1bf5dec5c4ba8f1378dbcd590e9e43689ad77fd36b85aab96f416e840c3e6d",
+ "nam": "1680",
+ "canh": "a rebuilt London street in 1680 with an insurance fire mark on a house",
+ "so_khung": 192,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-07-l2-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0228,
+      "usage": {
+       "input_tokens": 10130,
+       "input_tokens_details": {
+        "cache_write_tokens": 10127,
+        "cached_tokens": 0
+       },
+       "output_tokens": 256,
+       "output_tokens_details": {
+        "reasoning_tokens": 117
+       },
+       "total_tokens": 10386
+      }
+     },
+     "secs": 8.8,
+     "mo_ta": "Khung hình cho thấy một con phố lát đá với các ngôi nhà gạch, người đi bộ mặc trang phục cổ và dấu bảo hiểm cháy hình vỏ sò phía trên cửa một ngôi nhà.",
+     "muc": [
+      {
+       "loai": "chu",
+       "mo_ta": "Biển dấu bảo hiểm cháy bằng kim loại hình vỏ sò gắn trên cửa nhà; không thấy chữ hoặc số đọc được.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.746,
+        0.139,
+        0.797,
+        0.254
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-07-l2-360p-k25",
+      "nam": 1680,
+      "noi": "London",
+      "sha256": "c0450f6b18a37105f77e83a0141037a27abe6949546bb8f047cf73a2021fe56f",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Narrow brick house windows on the left have thin white glazing bars and look like vertical sliding sash windows, with a cast-iron-style drainpipe running down beside them.",
+        "ly_do": "Sash windows were only just appearing in 1680 and were very rare, mostly in elite buildings. On ordinary brick houses in this street the windows would be leaded casements like the diamond-pane ones nearby. This is a weak finding.",
+        "nam_xuat_hien": 1685,
+        "toa_do_px": [
+         595,
+         184,
+         672,
+         389
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.0368917,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1109,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0368917,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 254,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.0,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1680,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Narrow brick house windows on the left have thin white glazing bars and look like vertical sliding sash windows, with a cast-iron-style drainpipe running down beside them.\",\"ly_do\":\"Sash windows were only just appearing in 1680 and were very rare, mostly in elite buildings. On ordinary brick houses in this street the windows would be leaded casements like the diamond-pane ones nearby. This is a weak finding.\",\"nam_xuat_hien\":1685,\"toa_do\":[0.31,0.17,0.35,0.36],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0369,
+    "chi_phi_tb": 0.0369,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-07-l2-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0222,
+      "usage": {
+       "input_tokens": 10136,
+       "input_tokens_details": {
+        "cache_write_tokens": 10133,
+        "cached_tokens": 0
+       },
+       "output_tokens": 192,
+       "output_tokens_details": {
+        "reasoning_tokens": 60
+       },
+       "total_tokens": 10328
+      }
+     },
+     "secs": 6.1,
+     "mo_ta": "Khung hình cho thấy mặt tiền nhà gạch trên phố London, có phù hiệu hình vỏ sò phía trên cửa gỗ và người mặc trang phục cổ đứng gần cửa.",
+     "muc": [
+      {
+       "loai": "chu",
+       "mo_ta": "Phù hiệu bảo hiểm kim loại hình vỏ sò gắn trên tường phía trên cửa; không thấy chữ hoặc số đọc được.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.601,
+        0.107,
+        0.672,
+        0.242
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-07-l2-360p-k55",
+      "nam": 1680,
+      "noi": "London",
+      "sha256": "40308df45c14c0e715556c8ca823bc8eadfe975695e43cc5f2453163543cb3c6",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "khác:None",
+        "mo_ta": "Several windows on the neighbouring brick houses at left are multi-pane vertical sliding sashes with thin white glazing bars. The main house has leaded diamond casements.",
+        "ly_do": "Sash windows were only just appearing in England in the 1670s and 1680s. They were rare and mostly limited to high-status buildings. Using them on ordinary brick terrace houses in 1680 is probably too early.",
+        "nam_xuat_hien": 1685,
+        "toa_do_px": [
+         115,
+         173,
+         211,
+         767
+        ],
+        "do_tin": 0.4
+       }
+      ],
+      "cost_usd": 0.0366717,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1087,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0366717,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 249,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1680,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"mo_ta\":\"Several windows on the neighbouring brick houses at left are multi-pane vertical sliding sashes with thin white glazing bars. The main house has leaded diamond casements.\",\"ly_do\":\"Sash windows were only just appearing in England in the 1670s and 1680s. They were rare and mostly limited to high-status buildings. Using them on ordinary brick terrace houses in 1680 is probably too early.\",\"nam_xuat_hien\":1685,\"toa_do\":[0.06,0.16,0.11,0.71],\"do_tin\":0.4}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0367,
+    "chi_phi_tb": 0.0367,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-07-l2-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0243,
+      "usage": {
+       "input_tokens": 10124,
+       "input_tokens_details": {
+        "cache_write_tokens": 10121,
+        "cached_tokens": 0
+       },
+       "output_tokens": 402,
+       "output_tokens_details": {
+        "reasoning_tokens": 182
+       },
+       "total_tokens": 10526
+      }
+     },
+     "secs": 10.4,
+     "mo_ta": "Cận cảnh mặt tiền nhà gạch với cửa gỗ, cửa sổ kính ô quả trám và dấu bảo hiểm hỏa hoạn hình vỏ sò phía trên cửa.",
+     "muc": [
+      {
+       "loai": "chu",
+       "mo_ta": "Biển dấu bảo hiểm hỏa hoạn bằng kim loại hình vỏ sò, không thấy chữ hoặc số đọc được.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.432,
+        0.281,
+        0.55,
+        0.51
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Gờ gạch cong nhô ra thành nhiều tầng phía trên cửa ra vào, được thêm hoặc làm nổi rõ khác với vòm gạch đơn giản trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.335,
+        0.513,
+        0.78,
+        0.735
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.82
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Gờ gạch cong nhô ra thành nhiều tầng phía trên cửa ra vào, được thêm hoặc làm nổi rõ khác với vòm gạch đơn giản trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.335,
+        0.513,
+        0.78,
+        0.735
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.82
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-07-l2-360p-k90",
+      "nam": 1680,
+      "noi": "London",
+      "sha256": "80ca7036ce481c2459d0dc504aaf672632f1d70ef69a80e145f2a24ae6d1e40f",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0323117,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 651,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0323117,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1680,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0323,
+    "chi_phi_tb": 0.0323,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "tat_tieng": true,
+ "cau_hoi": [
+  "Q1 What disaster strikes the old city at the start of the story (what kind of event)?",
+  "Q2 Where/how does it begin (a big area at once, or one small place)?",
+  "Q3 How do ordinary people try to save themselves and their belongings?",
+  "Q4 What happens to the great old church on the hill during the disaster?",
+  "Q5 Afterwards, how is the city rebuilt (material, and on what street layout)?",
+  "Q6 What big new building with a dome (and what tall column) appear after the rebuilding?",
+  "Q7 What happens to the city in 1940, and what survives?",
+  "Q8 What does the city look like today, and what is still visible among the towers?"
+ ],
+ "ghi": "8 câu §13.4 (0/1/2 mỗi câu); chuỗi 1 khung/4 s, 320×180, không tiếng, không phụ đề; người chấm AI chỉ THAM KHẢO. diem_tho = P ĐỌC TAY nguyên văn (từ khoá cho Q4 2/2 dù cả 3 trả lời \"Not sure\" → hạ 1/2); chủ dự án CHƯA chấm (PHIEU-XEM mục B)",
+ "nguoi_cham": [
+  {
+   "id": "R1",
+   "vai": "ai",
+   "model": "claude-sonnet-5-5",
+   "dung": 7.5,
+   "tong": 8,
+   "diem_tho": 15,
+   "diem_tho_toi_da": 16,
+   "diem_tu_khoa": 16,
+   "ngay": "2026-10-24"
+  },
+  {
+   "id": "R2",
+   "vai": "ai",
+   "model": "claude-sonnet-5-5",
+   "dung": 7.5,
+   "tong": 8,
+   "diem_tho": 15,
+   "diem_tho_toi_da": 16,
+   "diem_tu_khoa": 16,
+   "ngay": "2026-10-24"
+  },
+  {
+   "id": "R3",
+   "vai": "ai",
+   "model": "claude-sonnet-5-5",
+   "dung": 7.5,
+   "tong": 8,
+   "diem_tho": 15,
+   "diem_tho_toi_da": 16,
+   "diem_tu_khoa": 16,
+   "ngay": "2026-10-24"
+  }
+ ],
+ "chi_phi_usd": 0.7622,
+ "ket_qua": "reports/animatic-t4/xem-cam/ket-qua.json",
+ "video": "/var/tmp/anim/out/k2c-t4-02-animatic-640.mp4",
+ "video_sha256": "ae7dadbbf00a443199d2d70c5142508f7fd9e80fe8ea3a12521e2809b937414a"
+}

@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-13-l2-360p-k90",
+   "nam": 1711,
+   "noi": "London",
+   "sha256": "29dbfd1b7c60f3c6010ab9f5696aee8bf17e8f26faac2e91dd78ea17e3ec31cf",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "The skyline is Gothic church spires and a square pinnacled tower, with no St Paul's dome and no London Bridge. The riverfront looks like a provincial town.",
+     "ly_do": "This is not a clear anachronism. St Paul's Cathedral was topped out in 1710, so a London view from 1711 would normally show its dome. The spires are generic and do not match London's rebuilt post-Fire churches.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      634,
+      54,
+      1651,
+      432
+     ],
+     "do_tin": 0.15
+    }
+   ],
+   "cost_usd": 0.0358717,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1007,
+     "cacheReadInputTokens": 2997,
+     "cacheCreationInputTokens": 10196,
+     "webSearchRequests": 0,
+     "costUSD": 0.0358717,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 158,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The skyline is Gothic church spires and a square pinnacled tower, with no St Paul's dome and no London Bridge. The riverfront looks like a provincial town.\",\"ly_do\":\"This is not a clear anachronism. St Paul's Cathedral was topped out in 1710, so a London view from 1711 would normally show its dome. The spires are generic and do not match London's rebuilt post-Fire churches.\",\"nam_xuat_hien\":null,\"toa_do\":[0.33,0.05,0.86,0.4],\"do_tin\":0.15}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0359,
+ "chi_phi_tb": 0.0359,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

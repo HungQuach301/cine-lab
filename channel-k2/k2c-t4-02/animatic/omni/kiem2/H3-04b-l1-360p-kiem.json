@@ -1,0 +1,448 @@
+{
+ "tag": "H3-04b-l1-360p",
+ "clip": "/var/tmp/anim/omni/H3-04b/H3-04b-l1-360p.mp4",
+ "clip_sha": "d9a783cfd74a9d557727b79af2d80d68098c0ee5a079da323b76533c829b5391",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H3-04b-dau.jpg",
+ "dau_sha": "4691d321398a9dd017bf5f7610c6829b34b9303e881c54893c922ee7b72108f4",
+ "nam": "1935",
+ "canh": "a narrow lane in the City of London in the 1930s",
+ "so_khung": 168,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H3-04b-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.026,
+      "usage": {
+       "input_tokens": 9747,
+       "input_tokens_details": {
+        "cache_write_tokens": 9744,
+        "cached_tokens": 0
+       },
+       "output_tokens": 649,
+       "output_tokens_details": {
+        "reasoning_tokens": 358
+       },
+       "total_tokens": 10396
+      }
+     },
+     "secs": 15.9,
+     "mo_ta": "Một ngõ lát đá ở London với người đi bộ mặc áo khoác, xe ngựa chở hàng và mái vòm Nhà thờ St Paul ở phía xa.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Mái vòm và phần thân phía trên của Nhà thờ St Paul hiện rõ ở cuối phố.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.5,
+        0.0,
+        0.595,
+        0.255
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "chu",
+       "mo_ta": "Biển nhỏ hình chữ nhật gắn trên mặt tiền bên phải; nội dung không đọc được.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.868,
+        0.237,
+        0.899,
+        0.272
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ô thông gió hoặc cửa sổ tầng hầm có song sắt được thêm vào chân tường bên trái, nơi khung tham chiếu chỉ có tường đá kín.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.852,
+        0.107,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Ô thông gió hoặc cửa sổ tầng hầm có song sắt được thêm vào chân tường bên trái, nơi khung tham chiếu chỉ có tường đá kín.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.852,
+        0.107,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H3-04b-l1-360p-k25",
+      "nam": 1935,
+      "noi": "London",
+      "sha256": "3916020530bc41a2f5bda1128c59a7313e8449b43ebabefe3d5e338fbbabd0f9",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 661,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1935,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0325,
+    "chi_phi_tb": 0.0325,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H3-04b-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0263,
+      "usage": {
+       "input_tokens": 9753,
+       "input_tokens_details": {
+        "cache_write_tokens": 9750,
+        "cached_tokens": 0
+       },
+       "output_tokens": 683,
+       "output_tokens_details": {
+        "reasoning_tokens": 391
+       },
+       "total_tokens": 10436
+      }
+     },
+     "secs": 17.2,
+     "mo_ta": "Một con ngõ lát đá ở London với người đi bộ mặc trang phục thời kỳ, xe ngựa chở hàng và mái vòm Nhà thờ St Paul ở phía xa.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Mái vòm và phần thân phía trên của Nhà thờ St Paul ở cuối phố.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.502,
+        0.0,
+        0.593,
+        0.26
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ô cửa tầng hầm có song sắt được thêm vào chân tường bên trái; phần tường tương ứng trong ảnh tham chiếu không có ô cửa này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.068,
+        0.647,
+        0.152,
+        0.908
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "chu",
+       "mo_ta": "Biển nhỏ gắn trên mặt tiền bên phải, cạnh cửa sổ vòm; không đọc được nội dung.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.902,
+        0.218,
+        0.938,
+        0.245
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.72
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Ô cửa tầng hầm có song sắt được thêm vào chân tường bên trái; phần tường tương ứng trong ảnh tham chiếu không có ô cửa này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.068,
+        0.647,
+        0.152,
+        0.908
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H3-04b-l1-360p-k55",
+      "nam": 1935,
+      "noi": "London",
+      "sha256": "8b6877029c4ccabed465de279f8945247ce090a4246e5586e658d6e36caeeaea",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 661,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 5.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1935,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0325,
+    "chi_phi_tb": 0.0325,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H3-04b-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0274,
+      "usage": {
+       "input_tokens": 9753,
+       "input_tokens_details": {
+        "cache_write_tokens": 9750,
+        "cached_tokens": 0
+       },
+       "output_tokens": 792,
+       "output_tokens_details": {
+        "reasoning_tokens": 312
+       },
+       "total_tokens": 10545
+      }
+     },
+     "secs": 18.7,
+     "mo_ta": "Một con ngõ lát đá ở London với người đi bộ mặc trang phục đương thời, xe ngựa chở hàng và mái vòm Nhà thờ St Paul ở hậu cảnh.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Mái vòm và phần thân phía trên của Nhà thờ St Paul ở cuối ngõ.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.502,
+        0.0,
+        0.594,
+        0.254
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ô cửa tầng hầm có song sắt được thêm vào chân tường bên trái; vị trí tương ứng trong ảnh tham chiếu là tường đá đặc.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.129,
+        0.643,
+        0.171,
+        0.849
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ô cửa vòm nhọn thấp được thêm ở mép phải, làm thay đổi cấu trúc mặt tiền so với ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.95,
+        0.278,
+        1.0,
+        0.437
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đèn đường phía giữa bên phải bị biến dạng thành một trụ hộp đặc cao, với phần đèn nhỏ nằm trên đỉnh.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.608,
+        0.363,
+        0.648,
+        0.633
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Ô cửa tầng hầm có song sắt được thêm vào chân tường bên trái; vị trí tương ứng trong ảnh tham chiếu là tường đá đặc.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.129,
+        0.643,
+        0.171,
+        0.849
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ô cửa vòm nhọn thấp được thêm ở mép phải, làm thay đổi cấu trúc mặt tiền so với ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.95,
+        0.278,
+        1.0,
+        0.437
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đèn đường phía giữa bên phải bị biến dạng thành một trụ hộp đặc cao, với phần đèn nhỏ nằm trên đỉnh.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.608,
+        0.363,
+        0.648,
+        0.633
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H3-04b-l1-360p-k90",
+      "nam": 1935,
+      "noi": "London",
+      "sha256": "8a2dee087253a55b3729859cb282bd0b2e57c103ac60ed2e4823e47ebc72975b",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 661,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 5.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1935,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0325,
+    "chi_phi_tb": 0.0325,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

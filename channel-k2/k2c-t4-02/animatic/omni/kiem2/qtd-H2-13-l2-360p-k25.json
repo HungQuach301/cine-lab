@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-13-l2-360p-k25",
+   "nam": 1711,
+   "noi": "London",
+   "sha256": "f5d897dbe62f5882300c397cc0e538201aac1fd291fdb582ca88bce191890845",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "The skyline is dominated by tall Gothic stone spires and a square-towered cathedral. There is no sign of Wren's domed St Paul's Cathedral. The tallest spire stands in the centre of the skyline.",
+     "ly_do": "By 1711 Wren's St Paul's, with its dome, had just been completed (1710) and dominated the London skyline. Old St Paul's had lost its spire in 1561 and burned down in 1666. A tall medieval-style spire dominating the skyline is therefore wrong for 1711 London.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      643,
+      108,
+      730,
+      400
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.0364817,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1068,
+     "cacheReadInputTokens": 2997,
+     "cacheCreationInputTokens": 10196,
+     "webSearchRequests": 0,
+     "costUSD": 0.0364817,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 177,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The skyline is dominated by tall Gothic stone spires and a square-towered cathedral. There is no sign of Wren's domed St Paul's Cathedral. The tallest spire stands in the centre of the skyline.\",\"ly_do\":\"By 1711 Wren's St Paul's, with its dome, had just been completed (1710) and dominated the London skyline. Old St Paul's had lost its spire in 1561 and burned down in 1666. A tall medieval-style spire dominating the skyline is therefore wrong for 1711 London.\",\"nam_xuat_hien\":null,\"toa_do\":[0.335,0.1,0.38,0.37],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0365,
+ "chi_phi_tb": 0.0365,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

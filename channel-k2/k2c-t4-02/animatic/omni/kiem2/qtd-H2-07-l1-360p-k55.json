@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-07-l1-360p-k55",
+   "nam": 1680,
+   "noi": "London",
+   "sha256": "e7a45e849045e2ca51c72d0ab0f1db9eeb67257906971a64c658b706faa108d1",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Narrow-framed vertical sash windows with thin glazing bars and many small panes, in the brick houses at the left. They sit beside the leaded diamond-pane casements.",
+     "ly_do": "Sash windows were only just appearing in England around 1670–1690. Slim, regular multi-pane sashes in an ordinary street look more like the Georgian period than 1680.",
+     "nam_xuat_hien": 1700,
+     "toa_do_px": [
+      154,
+      540,
+      250,
+      778
+     ],
+     "do_tin": 0.3
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A dark, thin vertical downpipe runs down the brick facade at the left, next to the eaves gutter.",
+     "ly_do": "This looks like a uniform, cast-iron-style rainwater pipe. Such pipes were uncommon before the 18th century, and 1680 houses mostly had lead or no downpipes.",
+     "nam_xuat_hien": 1750,
+     "toa_do_px": [
+      288,
+      0,
+      326,
+      648
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.038121699999999994,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1232,
+     "cacheReadInputTokens": 2997,
+     "cacheCreationInputTokens": 10196,
+     "webSearchRequests": 0,
+     "costUSD": 0.038121699999999994,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 227,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1680,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Narrow-framed vertical sash windows with thin glazing bars and many small panes, in the brick houses at the left. They sit beside the leaded diamond-pane casements.\",\"ly_do\":\"Sash windows were only just appearing in England around 1670–1690. Slim, regular multi-pane sashes in an ordinary street look more like the Georgian period than 1680.\",\"nam_xuat_hien\":1700,\"toa_do\":[0.08,0.5,0.13,0.72],\"do_tin\":0.3},{\"muc\":\"kien_truc\",\"mo_ta\":\"A dark, thin vertical downpipe runs down the brick facade at the left, next to the eaves gutter.\",\"ly_do\":\"This looks like a uniform, cast-iron-style rainwater pipe. Such pipes were uncommon before the 18th century, and 1680 houses mostly had lead or no downpipes.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.15,0.0,0.17,0.6],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0381,
+ "chi_phi_tb": 0.0381,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

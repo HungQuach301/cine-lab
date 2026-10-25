@@ -1,0 +1,247 @@
+{
+ "tag": "H1-01b-l1-360p",
+ "clip": "/var/tmp/anim/omni/H1-01b/H1-01b-l1-360p.mp4",
+ "clip_sha": "9b9cdfaac6c4fb256f253efab83fbf64d5b4f59eeaa0c63cf44175414d8ed919",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H1-01b-dau.jpg",
+ "dau_sha": "80e020abec8ab4635401426d5897e38efd79c21023ab4c42ea7a9504a53fb84f",
+ "nam": "1666",
+ "canh": "a narrow lane outside the bakery in Pudding Lane, 1666, at night",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-01b-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0216,
+      "usage": {
+       "input_tokens": 10125,
+       "input_tokens_details": {
+        "cache_write_tokens": 10122,
+        "cached_tokens": 0
+       },
+       "output_tokens": 133,
+       "output_tokens_details": {
+        "reasoning_tokens": 77
+       },
+       "total_tokens": 10258
+      }
+     },
+     "secs": 5.6,
+     "mo_ta": "Khung hình cho thấy một ngõ hẹp lát đá giữa các nhà khung gỗ đang cháy vào ban đêm, với người dân mặc trang phục cổ cầm đèn lồng.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-01b-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "8e7abc1375ee5882cf21fd0c0c0bbeac4416a38f3ecec979e9c7e041de5d52a4",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 661,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 5.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0325,
+    "chi_phi_tb": 0.0325,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-01b-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0215,
+      "usage": {
+       "input_tokens": 10131,
+       "input_tokens_details": {
+        "cache_write_tokens": 10128,
+        "cached_tokens": 0
+       },
+       "output_tokens": 128,
+       "output_tokens_details": {
+        "reasoning_tokens": 71
+       },
+       "total_tokens": 10259
+      }
+     },
+     "secs": 4.3,
+     "mo_ta": "Khung hình cho thấy một ngõ hẹp ở London ban đêm, với những ngôi nhà khung gỗ đang cháy và người dân mặc trang phục cổ cầm đèn lồng.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-01b-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "0deae2e9d77301ccf2c53c9ecb9567753cb77224e630e13b899bad3130908c4c",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.033547900000000005,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 769,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.033547900000000005,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 108,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0335,
+    "chi_phi_tb": 0.0335,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-01b-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0215,
+      "usage": {
+       "input_tokens": 10131,
+       "input_tokens_details": {
+        "cache_write_tokens": 10128,
+        "cached_tokens": 0
+       },
+       "output_tokens": 122,
+       "output_tokens_details": {
+        "reasoning_tokens": 62
+       },
+       "total_tokens": 10253
+      }
+     },
+     "secs": 4.3,
+     "mo_ta": "Khung hình cho thấy một ngõ hẹp lát đá ở London ban đêm, với những ngôi nhà khung gỗ đang cháy và người dân mặc trang phục thời kỳ cầm đèn lồng.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-01b-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "b2f2b6315b0f8693c3a95d5df8b36295198387b353910e13f5dc438baa178887",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 661,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0325,
+    "chi_phi_tb": 0.0325,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

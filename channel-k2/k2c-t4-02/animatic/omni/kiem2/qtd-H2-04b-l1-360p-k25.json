@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-04b-l1-360p-k25",
+   "nam": 1668,
+   "noi": "London",
+   "sha256": "abb1cbb67ed9f3381cbbf0ee11e32ff99b4f39cbd7cde0515ab65b6231bc747e",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "Several workers wear soft flat caps with a short brim, like 19th-century newsboy or flat caps. They also wear plain waistcoats and loose work trousers tucked into boots.",
+     "ly_do": "Workers in 1668 London would have worn broad-brimmed felt hats, knitted or linen caps, doublets and breeches. Brimmed flat caps and trousers like these belong to the 19th century.",
+     "nam_xuat_hien": 1850,
+     "toa_do_px": [
+      115,
+      346,
+      346,
+      540
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.0381279,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1227,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0381279,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 367,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.9,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1668,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"Several workers wear soft flat caps with a short brim, like 19th-century newsboy or flat caps. They also wear plain waistcoats and loose work trousers tucked into boots.\",\"ly_do\":\"Workers in 1668 London would have worn broad-brimmed felt hats, knitted or linen caps, doublets and breeches. Brimmed flat caps and trousers like these belong to the 19th century.\",\"nam_xuat_hien\":1850,\"toa_do\":[0.06,0.32,0.18,0.5],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0381,
+ "chi_phi_tb": 0.0381,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

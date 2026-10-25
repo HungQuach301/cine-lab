@@ -1,0 +1,93 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.049 (TB $0.049/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-03c-l1-360p-k55",
+   "nam": 1667,
+   "noi": "London",
+   "sha256": "df4b97d10a4fa8e55f89ed03d0d4d52418bec9e07479fc3d13256f5023e4c8b0",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "The two men standing at the front wear long, knee-length coats with flared, pleated skirts and large turned-back cuffs. One of them has a waistcoat with a row of buttons, and they wear grey stockings.",
+     "ly_do": "This looks like the cut of about 1690–1720. In 1667 men wore the shorter coat and vest of Charles II's new fashion, with breeches and a different silhouette.",
+     "nam_xuat_hien": 1690,
+     "toa_do_px": [
+      0,
+      346,
+      998,
+      1026
+     ],
+     "do_tin": 0.3
+    },
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "Two seated judges wear very large, tall, full-bottomed curled white wigs with white bands. The curls are stacked high and fall onto the chest, in the style of about 1700 or later.",
+     "ly_do": "Full-bottomed wigs were only starting to appear at court in the 1660s. Judges did not wear this tall, voluminous form in 1667. It belongs to the late 17th or early 18th century.",
+     "nam_xuat_hien": 1685,
+     "toa_do_px": [
+      960,
+      356,
+      1440,
+      540
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "vung_px": [
+       480,
+       0,
+       1920,
+       1080
+      ],
+      "phong": 0.47,
+      "tra_loi": {
+       "vat": "Judges' full-bottomed periwigs with white neck bands, worn with dark robes",
+       "dac_diem": "Two seated men at a long table draped in dark cloth. Each wears a tall, voluminous, light grey-white curled wig that falls past the shoulders. Each has a dark gown with two white rectangular tabs (bands) at the neck. Open books or papers lie in front of them. A man in a dark long coat stands with his back to the camera, and a woman wearing a white cap stands at right.",
+       "co_tu_nam": 1660,
+       "da_co_nam_1667": "yes",
+       "ly_do": "Periwigs became fashionable in England after the 1660 Restoration, and Charles II wore one. Legal bands and dark gowns were older still. Large wigs and bands for judges were therefore plausible in 1667, though the wigs shown look somewhat more elaborate than the 1660s style."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.0082863,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 0.47×: da_co_nam = 'yes' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.0486442,
+   "cost_buoc2": 0.00829,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1450,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0403579,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 394,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 13.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"Two seated judges wear very large, tall, full-bottomed curled white wigs with white bands. The curls are stacked high and fall onto the chest, in the style of about 1700 or later.\",\"ly_do\":\"Full-bottomed wigs were only starting to appear at court in the 1660s. Judges did not wear this tall, voluminous form in 1667. It belongs to the late 17th or early 18th century.\",\"nam_xuat_hien\":1685,\"toa_do\":[0.5,0.33,0.75,0.5],\"do_tin\":0.5},{\"muc\":\"quan_phuc\",\"mo_ta\":\"The two men standing at the front wear long, knee-length coats with flared, pleated skirts and large turned-back cuffs. One of them has a waistcoat with a row of buttons, and they wear grey stockings.\",\"ly_do\":\"This looks like the cut of about 1690–1720. In 1667 men wore the shorter coat and vest of Charles II's new fashion, with breeches and a different silhouette.\",\"nam_xuat_hien\":1690,\"toa_do\":[0.0,0.32,0.52,0.95],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0486,
+ "chi_phi_tb": 0.0486,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

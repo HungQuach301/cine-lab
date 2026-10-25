@@ -1,0 +1,302 @@
+{
+ "tag": "H1-08a-l2-360p",
+ "clip": "/var/tmp/anim/omni/H1-08a/H1-08a-l2-360p.mp4",
+ "clip_sha": "954e1a0de26b7fc5f44accbda5ec970282528a23b009a45bead45204d10cfc47",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H1-08a-dau.jpg",
+ "dau_sha": "c9449419ec1627ac94877d8b06c3b20d8ea34b0c73f7d433a79f7eb093745f38",
+ "nam": "1666",
+ "canh": "Bankside, south bank of the Thames, dusk on 2 September 1666, outside a small ale-house",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-08a-l2-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0216,
+      "usage": {
+       "input_tokens": 10137,
+       "input_tokens_details": {
+        "cache_write_tokens": 10134,
+        "cached_tokens": 0
+       },
+       "output_tokens": 136,
+       "output_tokens_details": {
+        "reasoning_tokens": 84
+       },
+       "total_tokens": 10273
+      }
+     },
+     "secs": 6.1,
+     "mo_ta": "Người dân đứng ngoài một quán bia nhỏ bên bờ nam sông Thames lúc chạng vạng, nhìn sang dãy nhà đang cháy ở bờ đối diện.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-08a-l2-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "0add9cae454eb40b63d132ce46abe2eb57eed555027dfbdb4b26277746d0e137",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Across the river, the skyline on the right has slim, sharply pointed Gothic-style spires and towers. The long waterfront facade is regular and classical-looking, with evenly spaced lit windows. Old St Paul's, the main landmark, is not visible as a squat, spireless central tower.",
+        "ly_do": "The spires look more like Victorian Gothic Revival than the pre-Fire skyline. Old St Paul's had lost its spire in 1561. The other tall landmarks, the Wren-era church steeples and the Monument, were built after 1666. The match is weak because the shapes are small and blurred.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1344,
+         324,
+         1920,
+         497
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.0369679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1111,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0369679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 188,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Across the river, the skyline on the right has slim, sharply pointed Gothic-style spires and towers. The long waterfront facade is regular and classical-looking, with evenly spaced lit windows. Old St Paul's, the main landmark, is not visible as a squat, spireless central tower.\",\"ly_do\":\"The spires look more like Victorian Gothic Revival than the pre-Fire skyline. Old St Paul's had lost its spire in 1561. The other tall landmarks, the Wren-era church steeples and the Monument, were built after 1666. The match is weak because the shapes are small and blurred.\",\"nam_xuat_hien\":null,\"toa_do\":[0.7,0.3,1.0,0.46],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.037,
+    "chi_phi_tb": 0.037,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-08a-l2-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0217,
+      "usage": {
+       "input_tokens": 10149,
+       "input_tokens_details": {
+        "cache_write_tokens": 10146,
+        "cached_tokens": 0
+       },
+       "output_tokens": 141,
+       "output_tokens_details": {
+        "reasoning_tokens": 81
+       },
+       "total_tokens": 10290
+      }
+     },
+     "secs": 7.0,
+     "mo_ta": "Người dân đứng ngoài quán bia ven sông Thames lúc chạng vạng, nhìn sang những dãy nhà đang cháy ở bờ đối diện, với thuyền chèo nhỏ neo sát bờ.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-08a-l2-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "3a3c386aa58af6031239b4c2b90e1194b5ced4baa108e1630b44f0a06457fd6d",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "The burning skyline across the river is a long, uniform row of regular multi-storey façades with rows of small lit windows. Slender Gothic-revival style spires and towers rise from it, and no domed or square-towered Old St Paul's is visible.",
+        "ly_do": "Pre-Fire London was a dense medieval timber city. Old St Paul's had a square tower with no spire, because the spire was lost in 1561. A uniform classical or Victorian-looking waterfront with slim pointed spires does not match it. This is a low-confidence finding, since the distant detail is blurred.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1056,
+         324,
+         1920,
+         508
+        ],
+        "do_tin": 0.25
+       }
+      ],
+      "cost_usd": 0.0372079,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1135,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0372079,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 223,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The burning skyline across the river is a long, uniform row of regular multi-storey façades with rows of small lit windows. Slender Gothic-revival style spires and towers rise from it, and no domed or square-towered Old St Paul's is visible.\",\"ly_do\":\"Pre-Fire London was a dense medieval timber city. Old St Paul's had a square tower with no spire, because the spire was lost in 1561. A uniform classical or Victorian-looking waterfront with slim pointed spires does not match it. This is a low-confidence finding, since the distant detail is blurred.\",\"nam_xuat_hien\":null,\"toa_do\":[0.55,0.3,1.0,0.47],\"do_tin\":0.25}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0372,
+    "chi_phi_tb": 0.0372,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-08a-l2-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.023,
+      "usage": {
+       "input_tokens": 10143,
+       "input_tokens_details": {
+        "cache_write_tokens": 10140,
+        "cached_tokens": 0
+       },
+       "output_tokens": 273,
+       "output_tokens_details": {
+        "reasoning_tokens": 231
+       },
+       "total_tokens": 10416
+      }
+     },
+     "secs": 7.9,
+     "mo_ta": "People in period clothing stand outside a timber-framed ale-house beside small rowing boats, watching flames and smoke across the Thames at dusk.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.039 (TB $0.039/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-08a-l2-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "99ee86f06559f5c4a7c9674fcb583ab4d3dff60d2934e742ff899b145dd52de1",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "The far-bank skyline has tall, thin, pointed Gothic-revival spires and a long, continuous, regular classical or Victorian-looking waterfront range. They stand on the right side of the skyline, with a similar spire at about x 0.72.",
+        "ly_do": "Pre-fire London was a jumble of medieval timber and jettied houses with church towers. Old St Paul's had lost its spire in 1561. The needle spires and uniform stone frontage look like 18th–19th century or Gothic-revival architecture, not 1666 London.",
+        "nam_xuat_hien": 1800,
+        "toa_do_px": [
+         1670,
+         184,
+         1920,
+         540
+        ],
+        "do_tin": 0.4
+       },
+       {
+        "muc": "den",
+        "mo_ta": "Small, evenly spaced, steady warm lights run along the far waterfront buildings, like rows of lit windows or lamps.",
+        "ly_do": "Regular rows of lit windows and street lamps suggest later gas or electric lighting. Candle-lit windows were possible in 1666, but the rows of small lights look more like later lighting.",
+        "nam_xuat_hien": 1807,
+        "toa_do_px": [
+         1152,
+         464,
+         1632,
+         508
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.0387479,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1289,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0387479,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 216,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 12.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The far-bank skyline has tall, thin, pointed Gothic-revival spires and a long, continuous, regular classical or Victorian-looking waterfront range. They stand on the right side of the skyline, with a similar spire at about x 0.72.\",\"ly_do\":\"Pre-fire London was a jumble of medieval timber and jettied houses with church towers. Old St Paul's had lost its spire in 1561. The needle spires and uniform stone frontage look like 18th–19th century or Gothic-revival architecture, not 1666 London.\",\"nam_xuat_hien\":1800,\"toa_do\":[0.87,0.17,1.0,0.5],\"do_tin\":0.4},{\"muc\":\"den\",\"mo_ta\":\"Small, evenly spaced, steady warm lights run along the far waterfront buildings, like rows of lit windows or lamps.\",\"ly_do\":\"Regular rows of lit windows and street lamps suggest later gas or electric lighting. Candle-lit windows were possible in 1666, but the rows of small lights look more like later lighting.\",\"nam_xuat_hien\":1807,\"toa_do\":[0.6,0.43,0.85,0.47],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0387,
+    "chi_phi_tb": 0.0387,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

@@ -1,0 +1,275 @@
+{
+ "tag": "H1-10-l1-360p",
+ "clip": "/var/tmp/anim/omni/H1-10/H1-10-l1-360p.mp4",
+ "clip_sha": "3edcdac6d51b9f8af30081197417d1573689911f0d70f7940b2ba9b0b78fbc9d",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H1-10-dau.jpg",
+ "dau_sha": "20f5008eeb87d81558883cac266bddebbc7f66298cd797642b69841b7edd55d2",
+ "nam": "1666",
+ "canh": "Watling Street and Cheapside, London, Monday 3 September 1666",
+ "so_khung": 192,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-10-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0217,
+      "usage": {
+       "input_tokens": 10131,
+       "input_tokens_details": {
+        "cache_write_tokens": 10128,
+        "cached_tokens": 0
+       },
+       "output_tokens": 140,
+       "output_tokens_details": {
+        "reasoning_tokens": 78
+       },
+       "total_tokens": 10271
+      }
+     },
+     "secs": 5.1,
+     "mo_ta": "Đám đông mặc trang phục thế kỷ XVII mang đồ đạc và xe ngựa chở gia sản qua phố lát đá giữa những dãy nhà khung gỗ, với lửa và khói lớn ở phía xa.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-10-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "66f0da2174b4d561f9cb55713029dc32d89610d8e8bbf1bfe4c222f8d76d1abd",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0323117,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 651,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0323117,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0323,
+    "chi_phi_tb": 0.0323,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-10-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.024,
+      "usage": {
+       "input_tokens": 10143,
+       "input_tokens_details": {
+        "cache_write_tokens": 10140,
+        "cached_tokens": 0
+       },
+       "output_tokens": 371,
+       "output_tokens_details": {
+        "reasoning_tokens": 219
+       },
+       "total_tokens": 10514
+      }
+     },
+     "secs": 10.9,
+     "mo_ta": "Khung hình cho thấy người dân cùng xe ngựa chở đồ đạc trên phố nhà khung gỗ, với lửa và khói dày ở phía sau.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Nguồn cháy mới trên mái dãy nhà bên phải, kèm cuộn khói đen lớn tràn ngang phần trên khung hình; mái nhà tương ứng trong ảnh tham chiếu không có nguồn cháy này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.695,
+        0.0,
+        1.0,
+        0.315
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Nguồn cháy mới trên mái dãy nhà bên phải, kèm cuộn khói đen lớn tràn ngang phần trên khung hình; mái nhà tương ứng trong ảnh tham chiếu không có nguồn cháy này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.695,
+        0.0,
+        1.0,
+        0.315
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-10-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "55b27c50e5f7a5da0eb19346d2c9d832e24e51fe2ad12372487a0736c33ec2e0",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.034181699999999995,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 838,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.034181699999999995,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 187,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0342,
+    "chi_phi_tb": 0.0342,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-10-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0216,
+      "usage": {
+       "input_tokens": 10125,
+       "input_tokens_details": {
+        "cache_write_tokens": 10122,
+        "cached_tokens": 0
+       },
+       "output_tokens": 137,
+       "output_tokens_details": {
+        "reasoning_tokens": 83
+       },
+       "total_tokens": 10262
+      }
+     },
+     "secs": 5.0,
+     "mo_ta": "Đám đông mặc trang phục thời kỳ cùng xe ngựa chở đồ đạc trên con phố nhà khung gỗ, với lửa và khói bốc lên ở phía xa.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-10-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "313dd06278e842fb27f58e7afdbab834be001a511ee865587af34900012f34b1",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0331117,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 731,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0331117,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 80,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0331,
+    "chi_phi_tb": 0.0331,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

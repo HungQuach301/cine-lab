@@ -1,0 +1,247 @@
+{
+ "tag": "H1-05a-l3-360p",
+ "clip": "/var/tmp/anim/omni/H1-05a/H1-05a-l3-360p.mp4",
+ "clip_sha": "87d93dae3bacf271bd519cffd77a71dd9a6060e2aab2b48de3a90789ea78a9c3",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H1-05a-dau.jpg",
+ "dau_sha": "f07faf1ed3eff762b1e44c3bd93c08e207de948902d100f4e5713f18246d3f31",
+ "nam": "1666",
+ "canh": "riverside stairs near the bridge, London, morning of 2 September 1666",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-05a-l3-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0218,
+      "usage": {
+       "input_tokens": 10131,
+       "input_tokens_details": {
+        "cache_write_tokens": 10128,
+        "cached_tokens": 0
+       },
+       "output_tokens": 151,
+       "output_tokens_details": {
+        "reasoning_tokens": 82
+       },
+       "total_tokens": 10282
+      }
+     },
+     "secs": 7.1,
+     "mo_ta": "Cảnh bậc thang gỗ ven sông ở London, với người dân chuyển đồ đạc xuống những thuyền chèo nhỏ, phía xa là các dãy nhà có lửa và khói vốn đã hiện diện trong ảnh tham chiếu.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05a-l3-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "1285ba93707bb80ad0359f6075282190b9fdfe8a1c47a1a18170913d0cd4b967",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 661,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0325,
+    "chi_phi_tb": 0.0325,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-05a-l3-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0217,
+      "usage": {
+       "input_tokens": 10137,
+       "input_tokens_details": {
+        "cache_write_tokens": 10134,
+        "cached_tokens": 0
+       },
+       "output_tokens": 145,
+       "output_tokens_details": {
+        "reasoning_tokens": 91
+       },
+       "total_tokens": 10282
+      }
+     },
+     "secs": 6.8,
+     "mo_ta": "Người dân chuyển đồ đạc xuống những chiếc thuyền nhỏ bên cầu thang ven sông ở London, với nhà khung gỗ và đám cháy ở phía xa.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05a-l3-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "101532fb3e1e7a3f3d2d1348f3c1951f25bdd4ca9f504d998933c3f6f0ab205f",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 661,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0325,
+    "chi_phi_tb": 0.0325,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-05a-l3-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0224,
+      "usage": {
+       "input_tokens": 10131,
+       "input_tokens_details": {
+        "cache_write_tokens": 10128,
+        "cached_tokens": 0
+       },
+       "output_tokens": 213,
+       "output_tokens_details": {
+        "reasoning_tokens": 148
+       },
+       "total_tokens": 10344
+      }
+     },
+     "secs": 7.0,
+     "mo_ta": "Khung hình cho thấy người dân chuyển đồ đạc giữa các thuyền chèo nhỏ và cầu thang gỗ ven sông, phía sau là dãy nhà cùng lửa và khói đã có trong ảnh tham chiếu.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-05a-l3-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "baaaa906f363e6269b90ecc5ba26b9bdbe071da458aec5db2c0c05b0c9d9212c",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 661,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0325,
+    "chi_phi_tb": 0.0325,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

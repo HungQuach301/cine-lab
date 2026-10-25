@@ -1,0 +1,303 @@
+{
+ "tag": "H1-01a-l1-360p",
+ "clip": "/var/tmp/anim/omni/H1-01a/H1-01a-l1-360p.mp4",
+ "clip_sha": "254d4250a3226aadfa5b4360c3ebf944ffe0cafcaef24b93ffa674247e13ba95",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H1-01a-dau.jpg",
+ "dau_sha": "47a778afaa0d1ee18430cf07e35c327bf57c3f45c3bf80c129940dd42088774e",
+ "nam": "1666",
+ "canh": "Pudding Lane, London, 01:00 on Sunday 2 September 1666, a baker's shop",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-01a-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0219,
+      "usage": {
+       "input_tokens": 10143,
+       "input_tokens_details": {
+        "cache_write_tokens": 10140,
+        "cached_tokens": 0
+       },
+       "output_tokens": 158,
+       "output_tokens_details": {
+        "reasoning_tokens": 105
+       },
+       "total_tokens": 10301
+      }
+     },
+     "secs": 6.1,
+     "mo_ta": "The frame shows a dim baker’s shop with dough on a flour-covered table, sacks, bread shelves, a brick oven, and flames beside stacked firewood, all consistent with the reference.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-01a-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "23b4b880da54b290060d51f19fe96a9d24d0de9785cdbe900b6a245a7663ea09",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 661,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 5.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0325,
+    "chi_phi_tb": 0.0325,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-01a-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0234,
+      "usage": {
+       "input_tokens": 10149,
+       "input_tokens_details": {
+        "cache_write_tokens": 10146,
+        "cached_tokens": 0
+       },
+       "output_tokens": 312,
+       "output_tokens_details": {
+        "reasoning_tokens": 165
+       },
+       "total_tokens": 10461
+      }
+     },
+     "secs": 9.1,
+     "mo_ta": "Nội thất một tiệm bánh với bàn bột, bao tải, lò gạch đang nóng và ngọn lửa cháy trên đống củi cạnh lò.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Đống củi bên ngoài khoang lò đang bốc cháy, tạo hình ảnh một đám cháy trong tiệm; ngọn lửa này đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.536,
+        0.14,
+        0.635,
+        0.605
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Đống củi bên ngoài khoang lò đang bốc cháy, tạo hình ảnh một đám cháy trong tiệm; ngọn lửa này đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.536,
+        0.14,
+        0.635,
+        0.605
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-01a-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "8387eff68b2c7ea016c68c713e8fab87d3480dd0e304f8845c36fdfd5c7ac653",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0344379,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 858,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0344379,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 197,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0344,
+    "chi_phi_tb": 0.0344,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-01a-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0233,
+      "usage": {
+       "input_tokens": 10149,
+       "input_tokens_details": {
+        "cache_write_tokens": 10146,
+        "cached_tokens": 0
+       },
+       "output_tokens": 300,
+       "output_tokens_details": {
+        "reasoning_tokens": 151
+       },
+       "total_tokens": 10449
+      }
+     },
+     "secs": 9.0,
+     "mo_ta": "Khung hình cho thấy lò gạch đang cháy trong tiệm bánh, cạnh các bao và bó củi, với một dải khói xoắn trắng bất thường phía trên.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Dải khói trắng có các đường xoắn đều như nét vẽ trang trí, trông như hiệu ứng đồ họa thay vì khói tự nhiên; không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.084,
+        0.025,
+        0.615,
+        0.303
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Dải khói trắng có các đường xoắn đều như nét vẽ trang trí, trông như hiệu ứng đồ họa thay vì khói tự nhiên; không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.084,
+        0.025,
+        0.615,
+        0.303
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-01a-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "fff2c9f8fad4c2d571d2675979df7e1b1231282d9f00955780bcab9d2dd59826",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0324679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 661,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0324679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 5.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0325,
+    "chi_phi_tb": 0.0325,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

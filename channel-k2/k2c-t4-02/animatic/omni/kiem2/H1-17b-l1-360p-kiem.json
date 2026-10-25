@@ -1,0 +1,275 @@
+{
+ "tag": "H1-17b-l1-360p",
+ "clip": "/var/tmp/anim/omni/H1-17b/H1-17b-l1-360p.mp4",
+ "clip_sha": "7db906cb51ef46a7aa1365cf514864df5d4e98c82c048014747140e1cd929b71",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H1-17b-dau.jpg",
+ "dau_sha": "6e87eea804aec0c32f4f0250f5c654630d3737a482df00424c889a1505c55c5e",
+ "nam": "1666",
+ "canh": "Moorfields at dusk, 5 September 1666, families at cooking fires",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-17b-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0216,
+      "usage": {
+       "input_tokens": 10130,
+       "input_tokens_details": {
+        "cache_write_tokens": 10127,
+        "cached_tokens": 0
+       },
+       "output_tokens": 134,
+       "output_tokens_details": {
+        "reasoning_tokens": 74
+       },
+       "total_tokens": 10264
+      }
+     },
+     "secs": 5.9,
+     "mo_ta": "Các gia đình quây quần bên bếp lửa giữa lều tạm và đồ đạc tại Moorfields lúc chạng vạng, phía xa là đường chân trời London rực lửa và khói.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-17b-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "05d6404f4640a0d45c547b9dfaae424c8c87214b643b030705b06ef14562ee52",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "The burning skyline has a square, battlemented Gothic tower with corner pinnacles. Several slender needle spires stand near it. The silhouette looks like a Victorian or Oxford-style Gothic Revival skyline. It does not show the squat, spireless crossing tower of Old St Paul's or the dense medieval Ci",
+        "ly_do": "A London skyline in 1666 would show Old St Paul's, which lost its spire in 1561, plus many parish church towers. It would not show thin Gothic Revival spires. Wren's steeples and the new St Paul's came after the Fire. This is a weak, low-confidence finding because the skyline is blurred.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1498,
+         162,
+         1920,
+         324
+        ],
+        "do_tin": 0.25
+       }
+      ],
+      "cost_usd": 0.0375179,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1166,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0375179,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 226,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The burning skyline has a square, battlemented Gothic tower with corner pinnacles. Several slender needle spires stand near it. The silhouette looks like a Victorian or Oxford-style Gothic Revival skyline. It does not show the squat, spireless crossing tower of Old St Paul's or the dense medieval City.\",\"ly_do\":\"A London skyline in 1666 would show Old St Paul's, which lost its spire in 1561, plus many parish church towers. It would not show thin Gothic Revival spires. Wren's steeples and the new St Paul's came after the Fire. This is a weak, low-confidence finding because the skyline is blurred.\",\"nam_xuat_hien\":null,\"toa_do\":[0.78,0.15,1.0,0.3],\"do_tin\":0.25}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0375,
+    "chi_phi_tb": 0.0375,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-17b-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0217,
+      "usage": {
+       "input_tokens": 10136,
+       "input_tokens_details": {
+        "cache_write_tokens": 10133,
+        "cached_tokens": 0
+       },
+       "output_tokens": 140,
+       "output_tokens_details": {
+        "reasoning_tokens": 93
+       },
+       "total_tokens": 10276
+      }
+     },
+     "secs": 6.9,
+     "mo_ta": "Families in period clothing gather around cooking fires among tents, carts and household belongings at dusk, with a smoke-filled, fire-lit London skyline in the distance.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-17b-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "63c19c7d09200f3c3cdfe459589666b21a17821f7c636f5143a304a86b44c187",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "The distant burning skyline has a tall square Gothic tower with corner pinnacles and several thin spires. It looks more like a generic Gothic or Victorian skyline than the 1666 City. The City then had many church steeples and the old St Paul's. The tower is blurred, so the identification is uncertai",
+        "ly_do": "It is probably a generic Gothic skyline, not an accurate view of 1666 London. It is not a clearly datable post-1666 structure.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1536,
+         173,
+         1670,
+         313
+        ],
+        "do_tin": 0.15
+       }
+      ],
+      "cost_usd": 0.0361679,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1031,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0361679,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 155,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The distant burning skyline has a tall square Gothic tower with corner pinnacles and several thin spires. It looks more like a generic Gothic or Victorian skyline than the 1666 City. The City then had many church steeples and the old St Paul's. The tower is blurred, so the identification is uncertain.\",\"ly_do\":\"It is probably a generic Gothic skyline, not an accurate view of 1666 London. It is not a clearly datable post-1666 structure.\",\"nam_xuat_hien\":null,\"toa_do\":[0.8,0.16,0.87,0.29],\"do_tin\":0.15}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0362,
+    "chi_phi_tb": 0.0362,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-17b-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0223,
+      "usage": {
+       "input_tokens": 10130,
+       "input_tokens_details": {
+        "cache_write_tokens": 10127,
+        "cached_tokens": 0
+       },
+       "output_tokens": 203,
+       "output_tokens_details": {
+        "reasoning_tokens": 139
+       },
+       "total_tokens": 10333
+      }
+     },
+     "secs": 7.7,
+     "mo_ta": "Các gia đình trong trang phục thế kỷ XVII quây quần bên bếp lửa và lều tạm tại Moorfields lúc chạng vạng, phía xa là đường chân trời London rực lửa và khói.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-17b-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "1bae9b70fd69b7686cd3ac458252db1108197494ad21435afea22f6e4785b171",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0346179,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 876,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0346179,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 215,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0346,
+    "chi_phi_tb": 0.0346,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

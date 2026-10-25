@@ -1,0 +1,113 @@
+{
+ "tag": "P9-2026-oai-l2",
+ "render": "/var/tmp/anim/tn/tn/P9-2026/P9-2026-oai-l2/render-khop.png",
+ "ai": "/var/tmp/anim/tn/tn/P9-2026/P9-2026-oai-l2/ghep.png",
+ "ghep": "/var/tmp/anim/tn/tn/P9-2026/P9-2026-oai-l2/P9-2026-oai-l2-ghep.png",
+ "sha_ghep": "1566361da31dcb855043fb6cb6dcffc0b53ce7023ac239a16a9771f9ea805b23",
+ "nam": "2026",
+ "i_lop_a": {
+  "max_trong_a": 0,
+  "diem_lech_trong_a": 0,
+  "dien_tich_a_pct": 45.74,
+  "dai20_pct": 8.26,
+  "dai20_cum_dE30": 0,
+  "dai20_cum_lon": [],
+  "khop_anh_sang_vien": {
+   "so_cum": 10,
+   "dE_trung_vi": 3.52,
+   "dE_p90": 7.71
+  },
+  "khop_mau": false,
+  "dat_ghep": true,
+  "vat_lop_a": [],
+  "dat": true
+ },
+ "ii_thoi_dai": {
+  "loi": [],
+  "mo_hinh_bao": [],
+  "nghi_van_khong_nam": [],
+  "dat": true,
+  "q_thoi_dai": {
+   "ok": true,
+   "ket_qua": null,
+   "loi": [],
+   "thieu": [],
+   "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+   "khung": [
+    {
+     "id": "ghep",
+     "nam": 2026,
+     "noi": "London",
+     "sha256": "1566361da31dcb855043fb6cb6dcffc0b53ce7023ac239a16a9771f9ea805b23",
+     "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+     "model": "claude-sonnet-5-5",
+     "nghi_van": [],
+     "ghi_chu": [
+      {
+       "muc": "kien_truc",
+       "mo_ta": "The skyline is a row of generic, evenly spaced glass towers in the distance. There is no Shard, Gherkin, Walkie-Talkie or Canary Wharf cluster. The domed cathedral is a simplified version of St Paul's. It has a single side tower and no twin west towers, and its surroundings are uniform low-rise bloc",
+       "ly_do": "This does not match London's 2026 skyline or the real St Paul's. The scene looks like a generic reconstruction, not an accurate one. I could not identify any specific structure that was built after 2026.",
+       "nam_xuat_hien": null,
+       "toa_do_px": [
+        576,
+        475,
+        1824,
+        810
+       ],
+       "do_tin": 0.2
+      }
+     ],
+     "cost_usd": 0.0345692,
+     "cost_buoc2": 0.0,
+     "model_usage": {
+      "claude-sonnet-5-5": {
+       "inputTokens": 6,
+       "outputTokens": 947,
+       "cacheReadInputTokens": 2847,
+       "cacheCreationInputTokens": 9921,
+       "webSearchRequests": 0,
+       "costUSD": 0.0345692,
+       "contextWindow": 1000000,
+       "maxOutputTokens": 128000,
+       "thinkingTokens": 174,
+       "canonicalModel": "claude-sonnet-5-5",
+       "provider": "firstParty",
+       "costBasis": "list"
+      }
+     },
+     "secs": 9.0,
+     "so_anh_doc": 5,
+     "loi": null,
+     "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The skyline is a row of generic, evenly spaced glass towers in the distance. There is no Shard, Gherkin, Walkie-Talkie or Canary Wharf cluster. The domed cathedral is a simplified version of St Paul's. It has a single side tower and no twin west towers, and its surroundings are uniform low-rise blocks.\",\"ly_do\":\"This does not match London's 2026 skyline or the real St Paul's. The scene looks like a generic reconstruction, not an accurate one. I could not identify any specific structure that was built after 2026.\",\"nam_xuat_hien\":null,\"toa_do\":[0.3,0.44,0.95,0.75],\"do_tin\":0.2}]}",
+     "t": null
+    }
+   ],
+   "chi_phi_usd": 0.0346,
+   "chi_phi_tb": 0.0346,
+   "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+  }
+ },
+ "iii_doi_vung": {
+  "dat_thanh_nuoc_pct": 1.98,
+  "nuoc_thanh_dat_pct": 3.8,
+  "t9b_dat_thanh_nuoc_pct": 1.98,
+  "t9b_nuoc_thanh_dat_pct": 0.8,
+  "dat": true,
+  "mo_hinh_bao": [],
+  "trong_hop_dia_hinh": {
+   "dat_thanh_nuoc_pct": 3.29,
+   "nuoc_thanh_dat_pct": 3.8,
+   "t9b_dat_thanh_nuoc_pct": 3.29,
+   "t9b_nuoc_thanh_dat_pct": 0.8,
+   "dat": false,
+   "ghi_chu": "cùng công thức T9/T9b, chỉ tính điểm thuộc hộp địa hình đã dựng (bỏ đất xa ngoài hộp và nhà xa) — phép (iii) đang được K-1.17.4 xét; KHÔNG dùng để tự nới"
+  }
+ },
+ "iv_dong_bang": {
+  "ap_dung": true,
+  "loi": [],
+  "mo_hinh_bao": [],
+  "dat": true
+ },
+ "dat_ca": true
+}

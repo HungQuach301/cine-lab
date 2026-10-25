@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-04b-l1-360p-k90",
+   "nam": 1668,
+   "noi": "London",
+   "sha256": "daa72b61181a603687c7bdb5e867cd5e443071edf6ad7ce30b9ef93b98c72ac1",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "Several labourers wear long trousers, waistcoats and soft peaked flat caps. The worker at far left and the man carrying a plank at centre wear them. They look like 19th-century workmen's clothing.",
+     "ly_do": "Labourers in 1668 London would wear knee breeches with hose, loose jerkins or doublets, and brimmed felt hats or simple knit caps. Long trousers and peaked flat caps are 18th and 19th century.",
+     "nam_xuat_hien": 1800,
+     "toa_do_px": [
+      0,
+      313,
+      134,
+      540
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "The plank carrier at centre wears a peaked flat cap, a waistcoat and long dark trousers with boots.",
+     "ly_do": "This is the same clothing problem: it looks like Victorian working dress, not 1660s dress.",
+     "nam_xuat_hien": 1800,
+     "toa_do_px": [
+      730,
+      594,
+      902,
+      896
+     ],
+     "do_tin": 0.35
+    }
+   ],
+   "cost_usd": 0.0376879,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1183,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0376879,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 168,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1668,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"Several labourers wear long trousers, waistcoats and soft peaked flat caps. The worker at far left and the man carrying a plank at centre wear them. They look like 19th-century workmen's clothing.\",\"ly_do\":\"Labourers in 1668 London would wear knee breeches with hose, loose jerkins or doublets, and brimmed felt hats or simple knit caps. Long trousers and peaked flat caps are 18th and 19th century.\",\"nam_xuat_hien\":1800,\"toa_do\":[0.0,0.29,0.07,0.5],\"do_tin\":0.4},{\"muc\":\"quan_phuc\",\"mo_ta\":\"The plank carrier at centre wears a peaked flat cap, a waistcoat and long dark trousers with boots.\",\"ly_do\":\"This is the same clothing problem: it looks like Victorian working dress, not 1660s dress.\",\"nam_xuat_hien\":1800,\"toa_do\":[0.38,0.55,0.47,0.83],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0377,
+ "chi_phi_tb": 0.0377,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

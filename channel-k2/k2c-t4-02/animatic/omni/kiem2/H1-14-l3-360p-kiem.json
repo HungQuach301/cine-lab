@@ -1,0 +1,331 @@
+{
+ "tag": "H1-14-l3-360p",
+ "clip": "/var/tmp/anim/omni/H1-14/H1-14-l3-360p.mp4",
+ "clip_sha": "3b6e2bca49381559a04eb7c548c27dafb61019e0fd347a5aecba406851b07b18",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H1-14-dau.jpg",
+ "dau_sha": "99908e957a6482f781ea9727e03d3dedeabdd540b72f8d015917fe39f2063fa9",
+ "nam": "1666",
+ "canh": "a street near the great church, night of 4 September 1666, molten lead running in the gutter",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-14-l3-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0236,
+      "usage": {
+       "input_tokens": 10142,
+       "input_tokens_details": {
+        "cache_write_tokens": 10139,
+        "cached_tokens": 0
+       },
+       "output_tokens": 336,
+       "output_tokens_details": {
+        "reasoning_tokens": 173
+       },
+       "total_tokens": 10478
+      }
+     },
+     "secs": 10.4,
+     "mo_ta": "Một con phố lát đá giữa các ngôi nhà đang cháy, với dòng chất lỏng nóng sáng trong rãnh đường và nhiều vệt sáng thẳng đứng rơi giữa khung hình.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Nhiều vệt sáng vàng kéo dài thẳng đứng, trông như mưa vật chất nóng sáng hoặc hiệu ứng tia lửa phóng đại, được thêm trên bầu trời và phía trên dòng chảy; không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.436,
+        0.0,
+        0.618,
+        0.708
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Nhiều vệt sáng vàng kéo dài thẳng đứng, trông như mưa vật chất nóng sáng hoặc hiệu ứng tia lửa phóng đại, được thêm trên bầu trời và phía trên dòng chảy; không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.436,
+        0.0,
+        0.618,
+        0.708
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-14-l3-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "15d7023637fef6926c1ca2f42fb964c5f976bdbd6d4adcfdaa201dd7d4550491",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0333817,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 758,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0333817,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 107,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0334,
+    "chi_phi_tb": 0.0334,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-14-l3-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0227,
+      "usage": {
+       "input_tokens": 10142,
+       "input_tokens_details": {
+        "cache_write_tokens": 10139,
+        "cached_tokens": 0
+       },
+       "output_tokens": 238,
+       "output_tokens_details": {
+        "reasoning_tokens": 94
+       },
+       "total_tokens": 10380
+      }
+     },
+     "secs": 7.9,
+     "mo_ta": "Một con phố lát đá giữa các dãy nhà đang cháy trong đêm, với dòng kim loại nóng chảy chạy dọc rãnh đường và đổ nát hai bên.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Ngọn lửa lớn được thêm vào ô cửa bên trái phố; vị trí tương ứng trong ảnh tham chiếu chỉ có khói, không có ngọn lửa này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.191,
+        0.315,
+        0.222,
+        0.453
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Ngọn lửa lớn được thêm vào ô cửa bên trái phố; vị trí tương ứng trong ảnh tham chiếu chỉ có khói, không có ngọn lửa này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.191,
+        0.315,
+        0.222,
+        0.453
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-14-l3-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "2014884f263eeb8daee9194c821068e7655d2a322137f69095c901924ab9a564",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0330517,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 725,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0330517,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 74,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.0,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0331,
+    "chi_phi_tb": 0.0331,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-14-l3-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0227,
+      "usage": {
+       "input_tokens": 10136,
+       "input_tokens_details": {
+        "cache_write_tokens": 10133,
+        "cached_tokens": 0
+       },
+       "output_tokens": 239,
+       "output_tokens_details": {
+        "reasoning_tokens": 86
+       },
+       "total_tokens": 10375
+      }
+     },
+     "secs": 7.9,
+     "mo_ta": "Khung hình cho thấy con phố lát đá giữa các ngôi nhà đang cháy ban đêm, với dòng kim loại nóng chảy sáng rực chạy dọc rãnh đường.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Ngọn lửa lớn được thêm sát mặt tiền nhà bên trái, phía sau xe kéo; vị trí tương ứng trong ảnh tham chiếu chỉ có khói và ánh hắt, không có ngọn lửa này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.147,
+        0.217,
+        0.195,
+        0.453
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Ngọn lửa lớn được thêm sát mặt tiền nhà bên trái, phía sau xe kéo; vị trí tương ứng trong ảnh tham chiếu chỉ có khói và ánh hắt, không có ngọn lửa này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.147,
+        0.217,
+        0.195,
+        0.453
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-14-l3-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "05e1089dcf8155282f714185b589818910be5d4aa4d6188c82a87a5a2425e159",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0323117,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 651,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0323117,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0323,
+    "chi_phi_tb": 0.0323,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

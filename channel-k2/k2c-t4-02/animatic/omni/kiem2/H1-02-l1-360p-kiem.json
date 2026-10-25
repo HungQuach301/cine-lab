@@ -1,0 +1,301 @@
+{
+ "tag": "H1-02-l1-360p",
+ "clip": "/var/tmp/anim/omni/H1-02/H1-02-l1-360p.mp4",
+ "clip_sha": "4d2bf73ad005ec60ec2103aafffe49875aadf2aa97eeec635418d999134fa400",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H1-02-dau.jpg",
+ "dau_sha": "9efec03371173c8fb55a1bb01dcf759edb23d8c6c4dfcefcc2aa4d4fbdd9a17f",
+ "nam": "1666",
+ "canh": "a London lane of timber houses whose upper storeys almost touch, night of 2 September 1666, fire spreading along the eaves",
+ "so_khung": 192,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-02-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0213,
+      "usage": {
+       "input_tokens": 10148,
+       "input_tokens_details": {
+        "cache_write_tokens": 10145,
+        "cached_tokens": 0
+       },
+       "output_tokens": 99,
+       "output_tokens_details": {
+        "reasoning_tokens": 57
+       },
+       "total_tokens": 10247
+      }
+     },
+     "secs": 6.6,
+     "mo_ta": "A narrow London lane lined with overhanging timber-framed houses at night, with flames spreading along the eaves and smoke overhead.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-02-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "448a6e9a062a5d72a0ee1db458000dedbc820c43ea931ed50d2b730a98451082",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0339557,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 651,
+        "cacheReadInputTokens": 2312,
+        "cacheCreationInputTokens": 10881,
+        "webSearchRequests": 0,
+        "costUSD": 0.0339557,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.034,
+    "chi_phi_tb": 0.034,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-02-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0214,
+      "usage": {
+       "input_tokens": 10136,
+       "input_tokens_details": {
+        "cache_write_tokens": 10133,
+        "cached_tokens": 0
+       },
+       "output_tokens": 113,
+       "output_tokens_details": {
+        "reasoning_tokens": 53
+       },
+       "total_tokens": 10249
+      }
+     },
+     "secs": 5.4,
+     "mo_ta": "Khung hình nhìn lên giữa hai dãy nhà khung gỗ trong ngõ hẹp, với lửa cháy dọc mái hiên, khói dày và tàn lửa bay trong đêm.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-02-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "eb9249c32650a78edffe30e72efe7183aef67c869c0f6b1b38963711575499b0",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0323117,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 651,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0323117,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0323,
+    "chi_phi_tb": 0.0323,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H1-02-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0251,
+      "usage": {
+       "input_tokens": 10136,
+       "input_tokens_details": {
+        "cache_write_tokens": 10133,
+        "cached_tokens": 0
+       },
+       "output_tokens": 481,
+       "output_tokens_details": {
+        "reasoning_tokens": 251
+       },
+       "total_tokens": 10617
+      }
+     },
+     "secs": 12.7,
+     "mo_ta": "Khung hình nhìn ngược lên giữa các nhà khung gỗ, với lửa cháy dọc mái hiên và khói dày phủ bầu trời đêm.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt hồi tam giác bên trái với mái dốc và hệ giằng gỗ không thấy trong ảnh tham chiếu, có vẻ là kiến trúc được thêm hoặc biến đổi.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.19,
+        0.25,
+        0.435,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt hồi mái nhỏ ở sát mép dưới, lệch phải, không thấy trong ảnh tham chiếu; có vẻ là chi tiết kiến trúc được thêm.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.601,
+        0.858,
+        0.735,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.72
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt hồi tam giác bên trái với mái dốc và hệ giằng gỗ không thấy trong ảnh tham chiếu, có vẻ là kiến trúc được thêm hoặc biến đổi.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.19,
+        0.25,
+        0.435,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt hồi mái nhỏ ở sát mép dưới, lệch phải, không thấy trong ảnh tham chiếu; có vẻ là chi tiết kiến trúc được thêm.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.601,
+        0.858,
+        0.735,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.72
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-02-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "389a77232d8f31ad36c0a62d0c7d7bba127362df21d99e2022f7ca4d486c2338",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0323117,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 651,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0323117,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 5.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0323,
+    "chi_phi_tb": 0.0323,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

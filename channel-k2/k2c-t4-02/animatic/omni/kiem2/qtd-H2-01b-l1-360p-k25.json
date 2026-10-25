@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-01b-l1-360p-k25",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "121094837c4bbafbf6235a8c29b1474ea6cf311c67d36d9884f94fd5898aac32",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "khác:None",
+     "mo_ta": "A tall, slender Gothic spire with pinnacles and a dark, ornate, tiered tower stands on the distant skyline. It looks like a Victorian Gothic Revival tower, similar to the Scott Monument or St Pancras.",
+     "ly_do": "Spires of this Gothic Revival form did not exist in 1666. The City's medieval churches had no such spires, and Old St Paul's had lost its spire in 1561. The scene shows the burnt city just after the Great Fire.",
+     "nam_xuat_hien": 1840,
+     "toa_do_px": [
+      1248,
+      108,
+      1344,
+      367
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.0364379,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1058,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0364379,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 182,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.0,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"mo_ta\":\"A tall, slender Gothic spire with pinnacles and a dark, ornate, tiered tower stands on the distant skyline. It looks like a Victorian Gothic Revival tower, similar to the Scott Monument or St Pancras.\",\"ly_do\":\"Spires of this Gothic Revival form did not exist in 1666. The City's medieval churches had no such spires, and Old St Paul's had lost its spire in 1561. The scene shows the burnt city just after the Great Fire.\",\"nam_xuat_hien\":1840,\"toa_do\":[0.65,0.1,0.7,0.34],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0364,
+ "chi_phi_tb": 0.0364,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

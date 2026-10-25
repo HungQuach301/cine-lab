@@ -1,0 +1,453 @@
+{
+ "tag": "H2-07-l1-360p",
+ "clip": "/var/tmp/anim/omni/H2-07/H2-07-l1-360p.mp4",
+ "clip_sha": "9d96cfe8fe9d14980ad404ccfb0444466a3eebfce967aca5a7f0c799878e6864",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H2-07-dau.jpg",
+ "dau_sha": "0e1bf5dec5c4ba8f1378dbcd590e9e43689ad77fd36b85aab96f416e840c3e6d",
+ "nam": "1680",
+ "canh": "a rebuilt London street in 1680 with an insurance fire mark on a house",
+ "so_khung": 192,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-07-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0266,
+      "usage": {
+       "input_tokens": 10130,
+       "input_tokens_details": {
+        "cache_write_tokens": 10127,
+        "cached_tokens": 0
+       },
+       "output_tokens": 633,
+       "output_tokens_details": {
+        "reasoning_tokens": 332
+       },
+       "total_tokens": 10763
+      }
+     },
+     "secs": 16.3,
+     "mo_ta": "Phố lát đá với nhà gạch, người đi bộ và xe ngựa; một phụ nữ đang gõ cửa dưới biển bảo hiểm hình vỏ sò.",
+     "muc": [
+      {
+       "loai": "chu",
+       "mo_ta": "Biển bảo hiểm hình vỏ sò gắn trên cửa nhà, không có chữ đọc được.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.756,
+        0.158,
+        0.803,
+        0.261
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "Mũ đen của người đàn ông ở giữa có chóp trụ cao, phẳng kiểu top hat, khác dáng mũ thấp hơn trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.312,
+        0.498,
+        0.351,
+        0.545
+       ],
+       "nam_xuat_hien": 1793,
+       "do_tin": 0.84
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ô thông gió hình chữ nhật có các khe ngang được thêm ở chân tường, bên phải chiếc ghế; không thấy chi tiết này trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.597,
+        0.763,
+        0.631,
+        0.82
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "loi": [
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "Mũ đen của người đàn ông ở giữa có chóp trụ cao, phẳng kiểu top hat, khác dáng mũ thấp hơn trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.312,
+        0.498,
+        0.351,
+        0.545
+       ],
+       "nam_xuat_hien": 1793,
+       "do_tin": 0.84
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Ô thông gió hình chữ nhật có các khe ngang được thêm ở chân tường, bên phải chiếc ghế; không thấy chi tiết này trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.597,
+        0.763,
+        0.631,
+        0.82
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.050 (TB $0.050/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-07-l1-360p-k25",
+      "nam": 1680,
+      "noi": "London",
+      "sha256": "da1bbe6e8f64d14b9ce3b1aebc4f1d2209fa29ffd622dba4504d64fdadfef8d6",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Several windows on the brick houses are tall, narrow, white-framed multi-pane windows that look like vertical sashes. One is at left-center, near x 0.36, y 0.3. Another is at x 0.31, y 0.15.",
+        "ly_do": "Sash windows were only just appearing in London in the 1670s and 1680s. They were not common on ordinary street houses until the early 18th century.",
+        "nam_xuat_hien": 1700,
+        "toa_do_px": [
+         576,
+         194,
+         730,
+         670
+        ],
+        "do_tin": 0.2
+       },
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The man walking in the foreground wears a tall, straight-sided, narrow-brimmed black top hat. His coat is a plain, long, dark frock-style coat.",
+        "ly_do": "This hat shape is a late 18th to 19th century top hat. Around 1680 men wore broad-brimmed, lower-crowned or sugar-loaf hats, and fashionable men wore periwigs.",
+        "nam_xuat_hien": 1790,
+        "toa_do_px": [
+         538,
+         529,
+         720,
+         994
+        ],
+        "do_tin": 0.55,
+        "xac_nhan": {
+         "vung_px": [
+          0,
+          64,
+          1326,
+          1080
+         ],
+         "phong": 0.51,
+         "tra_loi": {
+          "vat": "Tall black crowned hat worn by a man walking in the street (headgear)",
+          "dac_diem": "The hat is dark and tall with a flat top, a slightly tapered crown and a narrow brim. It looks like a plain, buckle-less sugarloaf or capotain hat. The man also wears a long dark coat with a belt and dark boots. The image is blurry, so I can't make out a hat band or buckle.",
+          "co_tu_nam": 1590,
+          "da_co_nam_1680": "yes",
+          "ly_do": "Tall-crowned black hats (capotain/sugarloaf style) were worn in England from about the late 16th century, and Puritan-style plain versions were still common around 1680. Nothing visible, such as a top-hat silhouette or a buckle, points to a later design."
+         },
+         "da_co": "yes",
+         "giu": false,
+         "cost_usd": 0.0100879,
+         "loi": null
+        },
+        "ly_do_ha": "phóng to 0.51×: da_co_nam = 'yes' — không xác nhận"
+       }
+      ],
+      "cost_usd": 0.050489599999999996,
+      "cost_buoc2": 0.01009,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1460,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0404017,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 422,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 13.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1680,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The man walking in the foreground wears a tall, straight-sided, narrow-brimmed black top hat. His coat is a plain, long, dark frock-style coat.\",\"ly_do\":\"This hat shape is a late 18th to 19th century top hat. Around 1680 men wore broad-brimmed, lower-crowned or sugar-loaf hats, and fashionable men wore periwigs.\",\"nam_xuat_hien\":1790,\"toa_do\":[0.28,0.49,0.375,0.92],\"do_tin\":0.55},{\"muc\":\"kien_truc\",\"mo_ta\":\"Several windows on the brick houses are tall, narrow, white-framed multi-pane windows that look like vertical sashes. One is at left-center, near x 0.36, y 0.3. Another is at x 0.31, y 0.15.\",\"ly_do\":\"Sash windows were only just appearing in London in the 1670s and 1680s. They were not common on ordinary street houses until the early 18th century.\",\"nam_xuat_hien\":1700,\"toa_do\":[0.30,0.18,0.38,0.62],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0505,
+    "chi_phi_tb": 0.0505,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-07-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0257,
+      "usage": {
+       "input_tokens": 10136,
+       "input_tokens_details": {
+        "cache_write_tokens": 10133,
+        "cached_tokens": 0
+       },
+       "output_tokens": 539,
+       "output_tokens_details": {
+        "reasoning_tokens": 326
+       },
+       "total_tokens": 10675
+      }
+     },
+     "secs": 14.4,
+     "mo_ta": "Khung hình cho thấy mặt tiền nhà gạch trên phố London, với phù hiệu hình vỏ sò phía trên cửa và một phụ nữ đang bước vào nhà.",
+     "muc": [
+      {
+       "loai": "chu",
+       "mo_ta": "Phù hiệu bảo hiểm hình vỏ sò gắn phía trên cửa; không thấy chữ hoặc số đọc được.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.596,
+        0.115,
+        0.664,
+        0.255
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Chi tiết dạng ô thông gió hoặc tấm lưới chữ nhật tối màu được thêm ở chân tường dưới cửa sổ, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.373,
+        0.921,
+        0.418,
+        0.999
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Chi tiết dạng ô thông gió hoặc tấm lưới chữ nhật tối màu được thêm ở chân tường dưới cửa sổ, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.373,
+        0.921,
+        0.418,
+        0.999
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-07-l1-360p-k55",
+      "nam": 1680,
+      "noi": "London",
+      "sha256": "e7a45e849045e2ca51c72d0ab0f1db9eeb67257906971a64c658b706faa108d1",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Narrow-framed vertical sash windows with thin glazing bars and many small panes, in the brick houses at the left. They sit beside the leaded diamond-pane casements.",
+        "ly_do": "Sash windows were only just appearing in England around 1670–1690. Slim, regular multi-pane sashes in an ordinary street look more like the Georgian period than 1680.",
+        "nam_xuat_hien": 1700,
+        "toa_do_px": [
+         154,
+         540,
+         250,
+         778
+        ],
+        "do_tin": 0.3
+       },
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A dark, thin vertical downpipe runs down the brick facade at the left, next to the eaves gutter.",
+        "ly_do": "This looks like a uniform, cast-iron-style rainwater pipe. Such pipes were uncommon before the 18th century, and 1680 houses mostly had lead or no downpipes.",
+        "nam_xuat_hien": 1750,
+        "toa_do_px": [
+         288,
+         0,
+         326,
+         648
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.038121699999999994,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1232,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.038121699999999994,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 227,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1680,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Narrow-framed vertical sash windows with thin glazing bars and many small panes, in the brick houses at the left. They sit beside the leaded diamond-pane casements.\",\"ly_do\":\"Sash windows were only just appearing in England around 1670–1690. Slim, regular multi-pane sashes in an ordinary street look more like the Georgian period than 1680.\",\"nam_xuat_hien\":1700,\"toa_do\":[0.08,0.5,0.13,0.72],\"do_tin\":0.3},{\"muc\":\"kien_truc\",\"mo_ta\":\"A dark, thin vertical downpipe runs down the brick facade at the left, next to the eaves gutter.\",\"ly_do\":\"This looks like a uniform, cast-iron-style rainwater pipe. Such pipes were uncommon before the 18th century, and 1680 houses mostly had lead or no downpipes.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.15,0.0,0.17,0.6],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0381,
+    "chi_phi_tb": 0.0381,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-07-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0225,
+      "usage": {
+       "input_tokens": 10130,
+       "input_tokens_details": {
+        "cache_write_tokens": 10127,
+        "cached_tokens": 0
+       },
+       "output_tokens": 226,
+       "output_tokens_details": {
+        "reasoning_tokens": 79
+       },
+       "total_tokens": 10356
+      }
+     },
+     "secs": 6.8,
+     "mo_ta": "Khung hình cận cảnh mặt tiền nhà gạch với cửa sổ kính ô trám, cửa ra vào và phù hiệu bảo hiểm cháy hình vỏ sò phía trên cửa.",
+     "muc": [
+      {
+       "loai": "chu",
+       "mo_ta": "Phù hiệu bảo hiểm cháy bằng kim loại hình vỏ sò gắn trên tường phía trên cửa, không có chữ đọc được; cùng phù hiệu đã hiện diện trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.428,
+        0.241,
+        0.562,
+        0.498
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-07-l1-360p-k90",
+      "nam": 1680,
+      "noi": "London",
+      "sha256": "b53ec24ef5f02a2f04d9e2e37c699ca60f97ef6f63fe10c581b2e7733a8f1e99",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0323117,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 651,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0323117,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1680,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0323,
+    "chi_phi_tb": 0.0323,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 1,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "LOẠI",
+  "chi_tiet": [
+   {
+    "u": 0.25,
+    "mo_hinh": "gpt",
+    "loai": "thoi_dai",
+    "mo_ta": "Mũ đen của người đàn ông ở giữa có chóp trụ cao, phẳng kiểu top hat, khác dáng mũ thấp hơn trong ảnh tham chiếu.",
+    "nam": 1793
+   }
+  ]
+ }
+}

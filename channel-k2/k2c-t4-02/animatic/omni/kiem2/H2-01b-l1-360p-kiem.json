@@ -1,0 +1,397 @@
+{
+ "tag": "H2-01b-l1-360p",
+ "clip": "/var/tmp/anim/omni/H2-01b/H2-01b-l1-360p.mp4",
+ "clip_sha": "107c1a1bb50b57f61c1e6c0ac6b070f50b97ae5723e640cf0d91b9b8424fafa0",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H2-01b-dau.jpg",
+ "dau_sha": "e0ea1d4ae7dd3a4417de4e4243260f7e215ba8a5b4460f5e6a32f51a71a35a78",
+ "nam": "1666",
+ "canh": "Londoners searching the ruins, September 1666",
+ "so_khung": 168,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-01b-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0225,
+      "usage": {
+       "input_tokens": 10124,
+       "input_tokens_details": {
+        "cache_write_tokens": 10121,
+        "cached_tokens": 0
+       },
+       "output_tokens": 221,
+       "output_tokens_details": {
+        "reasoning_tokens": 167
+       },
+       "total_tokens": 10345
+      }
+     },
+     "secs": 8.9,
+     "mo_ta": "Người dân mặc trang phục cổ đang tìm kiếm giữa những bức tường đổ nát, gỗ cháy và khói âm ỉ ở London sau hỏa hoạn.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01b-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "121094837c4bbafbf6235a8c29b1474ea6cf311c67d36d9884f94fd5898aac32",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "khác:None",
+        "mo_ta": "A tall, slender Gothic spire with pinnacles and a dark, ornate, tiered tower stands on the distant skyline. It looks like a Victorian Gothic Revival tower, similar to the Scott Monument or St Pancras.",
+        "ly_do": "Spires of this Gothic Revival form did not exist in 1666. The City's medieval churches had no such spires, and Old St Paul's had lost its spire in 1561. The scene shows the burnt city just after the Great Fire.",
+        "nam_xuat_hien": 1840,
+        "toa_do_px": [
+         1248,
+         108,
+         1344,
+         367
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0364379,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1058,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0364379,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 182,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.0,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"mo_ta\":\"A tall, slender Gothic spire with pinnacles and a dark, ornate, tiered tower stands on the distant skyline. It looks like a Victorian Gothic Revival tower, similar to the Scott Monument or St Pancras.\",\"ly_do\":\"Spires of this Gothic Revival form did not exist in 1666. The City's medieval churches had no such spires, and Old St Paul's had lost its spire in 1561. The scene shows the burnt city just after the Great Fire.\",\"nam_xuat_hien\":1840,\"toa_do\":[0.65,0.1,0.7,0.34],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0364,
+    "chi_phi_tb": 0.0364,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-01b-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0254,
+      "usage": {
+       "input_tokens": 10130,
+       "input_tokens_details": {
+        "cache_write_tokens": 10127,
+        "cached_tokens": 0
+       },
+       "output_tokens": 515,
+       "output_tokens_details": {
+        "reasoning_tokens": 281
+       },
+       "total_tokens": 10645
+      }
+     },
+     "secs": 15.7,
+     "mo_ta": "Người dân tìm kiếm giữa gạch vụn và gỗ cháy trong khu phố London đổ nát, với khói mỏng và các tháp nhọn ở phía xa.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mảng tường đổ lớn bên phải có ô cửa vòm và phần đỉnh giật cấp, là chi tiết kiến trúc mới không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.83,
+        0.174,
+        0.982,
+        0.635
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt đứng nhà ở hậu cảnh bên phải với nhiều ô cửa sổ hình chữ nhật và phần mái nhọn còn sót lại, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.625,
+        0.266,
+        0.723,
+        0.507
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mảng tường đổ lớn bên phải có ô cửa vòm và phần đỉnh giật cấp, là chi tiết kiến trúc mới không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.83,
+        0.174,
+        0.982,
+        0.635
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt đứng nhà ở hậu cảnh bên phải với nhiều ô cửa sổ hình chữ nhật và phần mái nhọn còn sót lại, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.625,
+        0.266,
+        0.723,
+        0.507
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01b-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "011d453008d48d1c10edf694ce61e017e28cda69989b566e825df68beb929797",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "In the background skyline there is a tall, slender pointed tower with a clock-like stage and a Gothic-revival spire. It looks like a Victorian clock tower, similar to the Elizabeth Tower at Westminster. It stands among the hazy distant buildings, just right of centre-left.",
+        "ly_do": "A Victorian Gothic-revival clock tower did not exist in 1666. The Elizabeth Tower and the Palace of Westminster rebuild date from the 1840s–1850s. The skyline of the burnt city should show medieval church steeples, Old St Paul's with its squat tower and no spire, and timber-framed houses.",
+        "nam_xuat_hien": 1859,
+        "toa_do_px": [
+         816,
+         205,
+         874,
+         367
+        ],
+        "do_tin": 0.4
+       }
+      ],
+      "cost_usd": 0.0375779,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1172,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0375779,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 236,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"In the background skyline there is a tall, slender pointed tower with a clock-like stage and a Gothic-revival spire. It looks like a Victorian clock tower, similar to the Elizabeth Tower at Westminster. It stands among the hazy distant buildings, just right of centre-left.\",\"ly_do\":\"A Victorian Gothic-revival clock tower did not exist in 1666. The Elizabeth Tower and the Palace of Westminster rebuild date from the 1840s–1850s. The skyline of the burnt city should show medieval church steeples, Old St Paul's with its squat tower and no spire, and timber-framed houses.\",\"nam_xuat_hien\":1859,\"toa_do\":[0.425,0.19,0.455,0.34],\"do_tin\":0.4}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0376,
+    "chi_phi_tb": 0.0376,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-01b-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0259,
+      "usage": {
+       "input_tokens": 10136,
+       "input_tokens_details": {
+        "cache_write_tokens": 10133,
+        "cached_tokens": 0
+       },
+       "output_tokens": 561,
+       "output_tokens_details": {
+        "reasoning_tokens": 315
+       },
+       "total_tokens": 10697
+      }
+     },
+     "secs": 17.1,
+     "mo_ta": "Người dân tìm kiếm giữa đống đổ nát và gỗ cháy âm ỉ, với các bức tường nhà hư hại và đường chân trời London phía sau.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mảng nhà đổ nát lớn mới ở bên phải, có hai tầng cửa sổ chữ nhật, khung cửa và bậu cửa rõ nét, không có đối tượng tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.746,
+        0.053,
+        1.0,
+        0.697
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Bức tường nhà đổ nát mới ở giữa-phải, gồm phần tường cao dạng bậc và ô cửa vòm phía dưới, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.548,
+        0.18,
+        0.685,
+        0.614
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mảng nhà đổ nát lớn mới ở bên phải, có hai tầng cửa sổ chữ nhật, khung cửa và bậu cửa rõ nét, không có đối tượng tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.746,
+        0.053,
+        1.0,
+        0.697
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Bức tường nhà đổ nát mới ở giữa-phải, gồm phần tường cao dạng bậc và ô cửa vòm phía dưới, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.548,
+        0.18,
+        0.685,
+        0.614
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-01b-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "66ae3a5e45eb43f4da524eb6cecd2db8f660706d24e072b873014c3ee063b1ee",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "In the distant skyline there is a tall, slender, ornate Gothic-style spire with pinnacles. It looks like a Victorian Gothic Revival tower. A second tall tower with a lantern-like top sits beside it.",
+        "ly_do": "Spires of this Gothic Revival type belong to the 19th century. London's skyline in 1666 had old St Paul's, whose spire was lost in 1561, and medieval church towers. Wren's steeples came after the Fire.",
+        "nam_xuat_hien": 1850,
+        "toa_do_px": [
+         288,
+         194,
+         365,
+         356
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0370179,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1116,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0370179,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 235,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"In the distant skyline there is a tall, slender, ornate Gothic-style spire with pinnacles. It looks like a Victorian Gothic Revival tower. A second tall tower with a lantern-like top sits beside it.\",\"ly_do\":\"Spires of this Gothic Revival type belong to the 19th century. London's skyline in 1666 had old St Paul's, whose spire was lost in 1561, and medieval church towers. Wren's steeples came after the Fire.\",\"nam_xuat_hien\":1850,\"toa_do\":[0.15,0.18,0.19,0.33],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.037,
+    "chi_phi_tb": 0.037,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

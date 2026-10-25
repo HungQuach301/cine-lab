@@ -1,0 +1,93 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.048 (TB $0.048/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-03c-l1-360p-k25",
+   "nam": 1667,
+   "noi": "London",
+   "sha256": "a9bab60e4de900902dc0f56a10a61afcacc5b1543c85f932b68a2721f70558b0",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "Men wear knee-length, full-skirted coats with a fitted cut, deep cuffs and a row of buttons (the brown coat at left-centre and the dark coat of the central figure). Their stockings are pulled up over the knee-breeches.",
+     "ly_do": "This coat style resembles the justaucorps or frock coat of the 1680s–1700s. In 1667 men wore short doublets or jackets with petticoat breeches, or the vest-and-coat ensemble that Charles II introduced only in October 1666. The cut shown looks later than that.",
+     "nam_xuat_hien": 1680,
+     "toa_do_px": [
+      269,
+      292,
+      998,
+      799
+     ],
+     "do_tin": 0.35
+    },
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "Two seated judges wear tall, full-bottomed powdered or grey curled wigs. They also wear white linen bands.",
+     "ly_do": "Full-bottomed judicial wigs were not worn by English judges in 1667. They became standard in the 1680s and 1690s and later. In 1667 men wore shoulder-length natural hair or smaller periwigs.",
+     "nam_xuat_hien": 1685,
+     "toa_do_px": [
+      979,
+      324,
+      1402,
+      508
+     ],
+     "do_tin": 0.6,
+     "xac_nhan": {
+      "vung_px": [
+       556,
+       0,
+       1825,
+       1050
+      ],
+      "phong": 0.53,
+      "tra_loi": {
+       "vat": "Judges' powdered full-bottomed wigs with white neck bands, worn with dark robes at a court bench",
+       "dac_diem": "Two seated men behind a dark-draped table. Both wear long, curled, light-grey or white wigs that fall past the shoulders. Each has a white band or collar at the throat and a dark gown. Books or papers lie on the table. A man in a dark coat stands in front holding a large scroll or paper.",
+       "co_tu_nam": 1660,
+       "da_co_nam_1667": "yes",
+       "ly_do": "Long periwigs became fashionable in England around 1660 under Charles II, and English judges and lawyers wore them from the 1660s. White bands were standard legal and clerical neckwear well before 1667. The wigs look very white, which may be a little stylised for 1667, but the kind of object existed."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.0080763,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 0.53×: da_co_nam = 'yes' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.048004200000000004,
+   "cost_buoc2": 0.00808,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1407,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0399279,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 316,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"Two seated judges wear tall, full-bottomed powdered or grey curled wigs. They also wear white linen bands.\",\"ly_do\":\"Full-bottomed judicial wigs were not worn by English judges in 1667. They became standard in the 1680s and 1690s and later. In 1667 men wore shoulder-length natural hair or smaller periwigs.\",\"nam_xuat_hien\":1685,\"toa_do\":[0.51,0.3,0.73,0.47],\"do_tin\":0.6},{\"muc\":\"quan_phuc\",\"mo_ta\":\"Men wear knee-length, full-skirted coats with a fitted cut, deep cuffs and a row of buttons (the brown coat at left-centre and the dark coat of the central figure). Their stockings are pulled up over the knee-breeches.\",\"ly_do\":\"This coat style resembles the justaucorps or frock coat of the 1680s–1700s. In 1667 men wore short doublets or jackets with petticoat breeches, or the vest-and-coat ensemble that Charles II introduced only in October 1666. The cut shown looks later than that.\",\"nam_xuat_hien\":1680,\"toa_do\":[0.14,0.27,0.52,0.74],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.048,
+ "chi_phi_tb": 0.048,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

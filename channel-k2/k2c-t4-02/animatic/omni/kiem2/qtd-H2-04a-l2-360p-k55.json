@@ -1,0 +1,80 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.047 (TB $0.047/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-04a-l2-360p-k55",
+   "nam": 1667,
+   "noi": "London",
+   "sha256": "4083d2fdb1b8921e1cf120e70d053873e0b2fa51325744341d719c269738661c",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "Bricklayers wear soft, peaked flat caps (newsboy or baker-boy style) with a stitched crown and a short brim. They also wear buttoned waistcoats over collarless shirts, with plain work aprons.",
+     "ly_do": "The peaked flat cap is a late 18th to 19th century working-class style. In 1667 London labourers wore brimmed felt hats, knitted or woollen caps, or coifs. The cut of the waistcoats and shirts also looks 19th century.",
+     "nam_xuat_hien": 1800,
+     "toa_do_px": [
+      1453,
+      86,
+      1574,
+      799
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "vung_px": [
+       444,
+       0,
+       1920,
+       1080
+      ],
+      "phong": 0.46,
+      "tra_loi": {
+       "vat": "Bricklayers' work clothes (flat caps, waistcoats, shirtsleeves, aprons) on a brick building site with timber scaffolding",
+       "dac_diem": "Several workmen are laying red brick. They wear soft flat or brimmed caps, dark sleeveless waistcoats or vests over light shirts, loose breeches or trousers, and one wears a leather or cloth apron. The scaffolding is lashed pole timber with rope ties. There are brick piles, a mortar tub and a trowel. No military uniform, insignia or weapons are visible.",
+       "co_tu_nam": null,
+       "da_co_nam_1667": "yes",
+       "ly_do": "This is ordinary working dress and brick construction, not a uniform, insignia or weapon. Brick building with lashed timber scaffolding was common in London in 1667, notably in the rebuilding after the Great Fire of 1666. Waistcoats, caps and aprons were period-plausible. The flat, peaked-looking caps are a slight modern look, but the blur means I can't confirm that."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.0078263,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 0.46×: da_co_nam = 'yes' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.0466642,
+   "cost_buoc2": 0.00783,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1298,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0388379,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 409,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 14.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"Bricklayers wear soft, peaked flat caps (newsboy or baker-boy style) with a stitched crown and a short brim. They also wear buttoned waistcoats over collarless shirts, with plain work aprons.\",\"ly_do\":\"The peaked flat cap is a late 18th to 19th century working-class style. In 1667 London labourers wore brimmed felt hats, knitted or woollen caps, or coifs. The cut of the waistcoats and shirts also looks 19th century.\",\"nam_xuat_hien\":1800,\"toa_do\":[0.757,0.08,0.82,0.74],\"do_tin\":0.5}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0467,
+ "chi_phi_tb": 0.0467,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

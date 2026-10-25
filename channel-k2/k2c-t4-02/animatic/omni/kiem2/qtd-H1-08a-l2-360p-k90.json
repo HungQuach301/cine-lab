@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.039 (TB $0.039/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H1-08a-l2-360p-k90",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "99ee86f06559f5c4a7c9674fcb583ab4d3dff60d2934e742ff899b145dd52de1",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "The far-bank skyline has tall, thin, pointed Gothic-revival spires and a long, continuous, regular classical or Victorian-looking waterfront range. They stand on the right side of the skyline, with a similar spire at about x 0.72.",
+     "ly_do": "Pre-fire London was a jumble of medieval timber and jettied houses with church towers. Old St Paul's had lost its spire in 1561. The needle spires and uniform stone frontage look like 18th–19th century or Gothic-revival architecture, not 1666 London.",
+     "nam_xuat_hien": 1800,
+     "toa_do_px": [
+      1670,
+      184,
+      1920,
+      540
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "den",
+     "mo_ta": "Small, evenly spaced, steady warm lights run along the far waterfront buildings, like rows of lit windows or lamps.",
+     "ly_do": "Regular rows of lit windows and street lamps suggest later gas or electric lighting. Candle-lit windows were possible in 1666, but the rows of small lights look more like later lighting.",
+     "nam_xuat_hien": 1807,
+     "toa_do_px": [
+      1152,
+      464,
+      1632,
+      508
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.0387479,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1289,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0387479,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 216,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 12.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The far-bank skyline has tall, thin, pointed Gothic-revival spires and a long, continuous, regular classical or Victorian-looking waterfront range. They stand on the right side of the skyline, with a similar spire at about x 0.72.\",\"ly_do\":\"Pre-fire London was a jumble of medieval timber and jettied houses with church towers. Old St Paul's had lost its spire in 1561. The needle spires and uniform stone frontage look like 18th–19th century or Gothic-revival architecture, not 1666 London.\",\"nam_xuat_hien\":1800,\"toa_do\":[0.87,0.17,1.0,0.5],\"do_tin\":0.4},{\"muc\":\"den\",\"mo_ta\":\"Small, evenly spaced, steady warm lights run along the far waterfront buildings, like rows of lit windows or lamps.\",\"ly_do\":\"Regular rows of lit windows and street lamps suggest later gas or electric lighting. Candle-lit windows were possible in 1666, but the rows of small lights look more like later lighting.\",\"nam_xuat_hien\":1807,\"toa_do\":[0.6,0.43,0.85,0.47],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0387,
+ "chi_phi_tb": 0.0387,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

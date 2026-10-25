@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-01a-l1-360p-k90",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "c805c766f263d3d29c3d92bb6e2d6bc8d85ef8e0ebbfb475737232246b05430e",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A low, plain multi-arch stone bridge crosses the middle distance. It has no houses or buildings on it.",
+     "ly_do": "The only Thames crossing in London in 1666 was Old London Bridge. It was a medieval bridge with narrow arches and rows of houses along it, and it is unlikely to have looked like this open, regular arcade. Houses on the bridge were largely lost in the fire, so this is a weak finding. The next bridge,",
+     "nam_xuat_hien": 1750,
+     "toa_do_px": [
+      883,
+      540,
+      1402,
+      648
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.036307900000000004,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1045,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.036307900000000004,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 161,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A low, plain multi-arch stone bridge crosses the middle distance. It has no houses or buildings on it.\",\"ly_do\":\"The only Thames crossing in London in 1666 was Old London Bridge. It was a medieval bridge with narrow arches and rows of houses along it, and it is unlikely to have looked like this open, regular arcade. Houses on the bridge were largely lost in the fire, so this is a weak finding. The next bridge, Westminster, opened in 1750.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.46,0.5,0.73,0.6],\"do_tin\":0.25}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0363,
+ "chi_phi_tb": 0.0363,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

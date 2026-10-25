@@ -1,0 +1,526 @@
+{
+ "tag": "H2-13-l2-360p",
+ "clip": "/var/tmp/anim/omni/H2-13/H2-13-l2-360p.mp4",
+ "clip_sha": "318badf1759db90463ad9158cdd98a8717f3a2bda997f09e67962c9801357bf1",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H2-13-dau.jpg",
+ "dau_sha": "7299a42b5656735d6c88bbaf6e0f208180a1af63dd2b50ee3ac7c5b6fa53895c",
+ "nam": "1711",
+ "canh": "the River Thames in 1711, wherries carrying passengers",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-13-l2-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0316,
+      "usage": {
+       "input_tokens": 10126,
+       "input_tokens_details": {
+        "cache_write_tokens": 10123,
+        "cached_tokens": 0
+       },
+       "output_tokens": 1138,
+       "output_tokens_details": {
+        "reasoning_tokens": 437
+       },
+       "total_tokens": 11264
+      }
+     },
+     "secs": 28.5,
+     "mo_ta": "Các thuyền chèo chở khách đi trên sông trước khu nhà ven bờ, với một số tàu buồm và tháp nhà thờ ở hậu cảnh.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm gỗ một cột ở giữa sông, lớn hơn các thuyền chèo chở khách.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.381,
+        0.225,
+        0.522,
+        0.554
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm lớn bị cắt bởi mép phải khung hình, thấy thân tàu, người trên boong, cột và dây buồm.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.912,
+        0.0,
+        1.0,
+        0.619
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu hoặc sà lan gỗ thân tối màu nằm sát bờ bên trái, kích thước lớn hơn thuyền chèo.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.182,
+        0.475,
+        0.276,
+        0.545
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp nhà thờ Gothic có chóp rất cao ở phía trái trung tâm; không đủ căn cứ xác định tên công trình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.336,
+        0.094,
+        0.379,
+        0.396
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.76
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp nhà thờ có chóp nhọn nhỏ ở hậu cảnh bên phải trung tâm; không xác định được tên.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.628,
+        0.246,
+        0.659,
+        0.392
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.71
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ có mái dài và tháp vuông với các đỉnh nhọn ở hậu cảnh bên phải; không xác định được tên.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.697,
+        0.244,
+        0.84,
+        0.384
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.75
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-13-l2-360p-k25",
+      "nam": 1711,
+      "noi": "London",
+      "sha256": "f5d897dbe62f5882300c397cc0e538201aac1fd291fdb582ca88bce191890845",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "The skyline is dominated by tall Gothic stone spires and a square-towered cathedral. There is no sign of Wren's domed St Paul's Cathedral. The tallest spire stands in the centre of the skyline.",
+        "ly_do": "By 1711 Wren's St Paul's, with its dome, had just been completed (1710) and dominated the London skyline. Old St Paul's had lost its spire in 1561 and burned down in 1666. A tall medieval-style spire dominating the skyline is therefore wrong for 1711 London.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         643,
+         108,
+         730,
+         400
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0364817,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1068,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0364817,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 177,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The skyline is dominated by tall Gothic stone spires and a square-towered cathedral. There is no sign of Wren's domed St Paul's Cathedral. The tallest spire stands in the centre of the skyline.\",\"ly_do\":\"By 1711 Wren's St Paul's, with its dome, had just been completed (1710) and dominated the London skyline. Old St Paul's had lost its spire in 1561 and burned down in 1666. A tall medieval-style spire dominating the skyline is therefore wrong for 1711 London.\",\"nam_xuat_hien\":null,\"toa_do\":[0.335,0.1,0.38,0.37],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0365,
+    "chi_phi_tb": 0.0365,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-13-l2-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0295,
+      "usage": {
+       "input_tokens": 10120,
+       "input_tokens_details": {
+        "cache_write_tokens": 10117,
+        "cached_tokens": 0
+       },
+       "output_tokens": 926,
+       "output_tokens_details": {
+        "reasoning_tokens": 209
+       },
+       "total_tokens": 11046
+      }
+     },
+     "secs": 17.1,
+     "mo_ta": "Khung hình cho thấy các thuyền chèo chở khách trên sông, phía sau là tàu buồm, bến gỗ và dãy nhà có các tháp nhà thờ.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp nhà thờ Gothic với chóp nhọn rất cao ở bên trái trung tâm; không đủ căn cứ xác định tên công trình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.337,
+        0.094,
+        0.381,
+        0.39
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp nhà thờ có chóp nhọn nhỏ hơn ở phía phải trung tâm; không xác định được tên.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.631,
+        0.248,
+        0.66,
+        0.409
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ lớn phía xa bên phải, có mái dài và tháp vuông với các ô cửa cao; không xác định được tên.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.707,
+        0.247,
+        0.844,
+        0.39
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu buồm gỗ một cột ở giữa sông, có buồm nâu và nhiều người trên boong, lớn hơn thuyền chèo.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.379,
+        0.223,
+        0.522,
+        0.556
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu gỗ lớn chỉ hiện một phần ở mép phải, có mạn cao, cột buồm và dây chằng.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.931,
+        0.135,
+        1.0,
+        0.636
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thân tàu gỗ tối màu đậu sát bến bên trái, phía sau người chèo thuyền, lớn hơn các thuyền chèo chở khách.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.182,
+        0.47,
+        0.283,
+        0.548
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-13-l2-360p-k55",
+      "nam": 1711,
+      "noi": "London",
+      "sha256": "10c55b08bdefff687ff61ba3a78d3b5d01ddda425aaa0940c0bfb6dfe428aa28",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "The London skyline is dominated by medieval Gothic-style spires and a square-towered cathedral-like building. St Paul's Cathedral with Wren's dome is not visible, and neither is London Bridge with its houses.",
+        "ly_do": "By 1711 Wren's St Paul's, with its dome, had just been completed (1710) and dominated the skyline. The old Gothic St Paul's spire was lost in 1561 and the building burned in 1666. The Gothic cathedral-style spire and tower do not match the London of 1711.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         653,
+         108,
+         1651,
+         432
+        ],
+        "do_tin": 0.35
+       }
+      ],
+      "cost_usd": 0.036521700000000004,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1072,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.036521700000000004,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 183,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The London skyline is dominated by medieval Gothic-style spires and a square-towered cathedral-like building. St Paul's Cathedral with Wren's dome is not visible, and neither is London Bridge with its houses.\",\"ly_do\":\"By 1711 Wren's St Paul's, with its dome, had just been completed (1710) and dominated the skyline. The old Gothic St Paul's spire was lost in 1561 and the building burned in 1666. The Gothic cathedral-style spire and tower do not match the London of 1711.\",\"nam_xuat_hien\":null,\"toa_do\":[0.34,0.1,0.86,0.4],\"do_tin\":0.35}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0365,
+    "chi_phi_tb": 0.0365,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-13-l2-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0307,
+      "usage": {
+       "input_tokens": 10132,
+       "input_tokens_details": {
+        "cache_write_tokens": 10129,
+        "cached_tokens": 0
+       },
+       "output_tokens": 1047,
+       "output_tokens_details": {
+        "reasoning_tokens": 335
+       },
+       "total_tokens": 11179
+      }
+     },
+     "secs": 25.3,
+     "mo_ta": "Các thuyền chèo chở khách trên sông Thames, phía sau là thuyền buồm, bến sông và những tháp nhà thờ.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp nhà thờ có chóp nhọn rất cao ở phía trái trung tâm; không xác định chắc tên công trình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.339,
+        0.092,
+        0.383,
+        0.397
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp nhà thờ có chóp nhọn nhỏ hơn ở phía phải trung tâm; không xác định chắc tên công trình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.635,
+        0.245,
+        0.664,
+        0.388
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp nhà thờ hình vuông với các cửa cao và đỉnh có chóp nhỏ ở hậu cảnh bên phải; không xác định chắc tên công trình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.809,
+        0.242,
+        0.848,
+        0.382
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.93
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm lớn có cột buồm cao, buồm nâu và nhiều người trên boong ở giữa sông.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.376,
+        0.219,
+        0.523,
+        0.554
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Một phần tàu buồm lớn bị cắt bởi mép phải khung hình, thấy thân gỗ cao, dây chằng và người trên boong.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.952,
+        0.302,
+        1.0,
+        0.619
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Tàu gỗ thân sẫm màu neo sát bến bên trái, phía sau thuyền chèo chở khách, có kích thước lớn hơn thuyền chèo.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.17,
+        0.466,
+        0.278,
+        0.553
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-13-l2-360p-k90",
+      "nam": 1711,
+      "noi": "London",
+      "sha256": "29dbfd1b7c60f3c6010ab9f5696aee8bf17e8f26faac2e91dd78ea17e3ec31cf",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "The skyline is Gothic church spires and a square pinnacled tower, with no St Paul's dome and no London Bridge. The riverfront looks like a provincial town.",
+        "ly_do": "This is not a clear anachronism. St Paul's Cathedral was topped out in 1710, so a London view from 1711 would normally show its dome. The spires are generic and do not match London's rebuilt post-Fire churches.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         634,
+         54,
+         1651,
+         432
+        ],
+        "do_tin": 0.15
+       }
+      ],
+      "cost_usd": 0.0358717,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1007,
+        "cacheReadInputTokens": 2997,
+        "cacheCreationInputTokens": 10196,
+        "webSearchRequests": 0,
+        "costUSD": 0.0358717,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 158,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The skyline is Gothic church spires and a square pinnacled tower, with no St Paul's dome and no London Bridge. The riverfront looks like a provincial town.\",\"ly_do\":\"This is not a clear anachronism. St Paul's Cathedral was topped out in 1710, so a London view from 1711 would normally show its dome. The spires are generic and do not match London's rebuilt post-Fire churches.\",\"nam_xuat_hien\":null,\"toa_do\":[0.33,0.05,0.86,0.4],\"do_tin\":0.15}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0359,
+    "chi_phi_tb": 0.0359,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

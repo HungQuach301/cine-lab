@@ -1,0 +1,289 @@
+{
+ "tag": "H2-03a-l1-360p",
+ "clip": "/var/tmp/anim/omni/H2-03a/H2-03a-l1-360p.mp4",
+ "clip_sha": "6391841096a8a44abe669cc59aef40713c5910309fe9da552f8ec1deb337e1ec",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H2-03a-dau.jpg",
+ "dau_sha": "b5a7f2285c15443ecdd43ca0308d9a42850290a8291f61b65075f9d6def73ff5",
+ "nam": "1667",
+ "canh": "surveyors marking plots in the ashes of London, spring 1667",
+ "so_khung": 192,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-03a-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0215,
+      "usage": {
+       "input_tokens": 10134,
+       "input_tokens_details": {
+        "cache_write_tokens": 10131,
+        "cached_tokens": 0
+       },
+       "output_tokens": 123,
+       "output_tokens_details": {
+        "reasoning_tokens": 71
+       },
+       "total_tokens": 10257
+      }
+     },
+     "secs": 5.2,
+     "mo_ta": "Những người đo đạc dùng dây xích và cọc gỗ để phân định các lô đất giữa đống đổ nát cháy rụi ở London.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-03a-l1-360p-k25",
+      "nam": 1667,
+      "noi": "London",
+      "sha256": "ac495e1f2f771318bf897c8bfe25ffb4a28b58e14b9719135654d201b058a84b",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A tall, slender Gothic-style tower with a pinnacled top and a tall arched belfry window stands in the centre-right skyline. It looks like a 19th-century Gothic Revival clock or bell tower. Several thin Gothic spires also rise in the distance.",
+        "ly_do": "After the 1666 Great Fire, the City's skyline was ruins. Wren's classical steeples were built from the 1670s onward. Old St Paul's had no spire, because it was lost in 1561. A Victorian-style Gothic tower would not have been standing in 1667.",
+        "nam_xuat_hien": 1850,
+        "toa_do_px": [
+         1363,
+         0,
+         1478,
+         227
+        ],
+        "do_tin": 0.4
+       }
+      ],
+      "cost_usd": 0.038097900000000004,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1224,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.038097900000000004,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 314,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 12.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall, slender Gothic-style tower with a pinnacled top and a tall arched belfry window stands in the centre-right skyline. It looks like a 19th-century Gothic Revival clock or bell tower. Several thin Gothic spires also rise in the distance.\",\"ly_do\":\"After the 1666 Great Fire, the City's skyline was ruins. Wren's classical steeples were built from the 1670s onward. Old St Paul's had no spire, because it was lost in 1561. A Victorian-style Gothic tower would not have been standing in 1667.\",\"nam_xuat_hien\":1850,\"toa_do\":[0.71,0.0,0.77,0.21],\"do_tin\":0.4}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0381,
+    "chi_phi_tb": 0.0381,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-03a-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0217,
+      "usage": {
+       "input_tokens": 10140,
+       "input_tokens_details": {
+        "cache_write_tokens": 10137,
+        "cached_tokens": 0
+       },
+       "output_tokens": 146,
+       "output_tokens_details": {
+        "reasoning_tokens": 91
+       },
+       "total_tokens": 10286
+      }
+     },
+     "secs": 6.7,
+     "mo_ta": "Những người mặc trang phục thế kỷ XVII đo đạc và đánh dấu các lô đất giữa nền móng cùng đống đổ nát của London sau hỏa hoạn.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-03a-l1-360p-k55",
+      "nam": 1667,
+      "noi": "London",
+      "sha256": "e06de5f91245e573190ebc5163872e6085560329d20ed654fcf6c54a9fb87342",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A tall, intact, classical-style stone church tower with a stepped belfry and a pinnacled top stands in the centre background. It rises untouched above the burnt-out ruins.",
+        "ly_do": "The scene is the ruins after the 1666 Great Fire. A tower in this style resembles Wren's rebuilt City church steeples, which date from the 1670s–1710s. It may also be a surviving medieval tower, so this is uncertain.",
+        "nam_xuat_hien": 1680,
+        "toa_do_px": [
+         1306,
+         0,
+         1459,
+         238
+        ],
+        "do_tin": 0.25
+       }
+      ],
+      "cost_usd": 0.0363579,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1050,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0363579,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 180,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall, intact, classical-style stone church tower with a stepped belfry and a pinnacled top stands in the centre background. It rises untouched above the burnt-out ruins.\",\"ly_do\":\"The scene is the ruins after the 1666 Great Fire. A tower in this style resembles Wren's rebuilt City church steeples, which date from the 1670s–1710s. It may also be a surviving medieval tower, so this is uncertain.\",\"nam_xuat_hien\":1680,\"toa_do\":[0.68,0.0,0.76,0.22],\"do_tin\":0.25}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0364,
+    "chi_phi_tb": 0.0364,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-03a-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0222,
+      "usage": {
+       "input_tokens": 10134,
+       "input_tokens_details": {
+        "cache_write_tokens": 10131,
+        "cached_tokens": 0
+       },
+       "output_tokens": 189,
+       "output_tokens_details": {
+        "reasoning_tokens": 127
+       },
+       "total_tokens": 10323
+      }
+     },
+     "secs": 7.4,
+     "mo_ta": "Những người khảo sát dùng dây xích và cọc để đo đạc các lô đất giữa đống đổ nát ở London, trong khi công nhân thu dọn bằng xe kéo và xe cút kít.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-03a-l1-360p-k90",
+      "nam": 1667,
+      "noi": "London",
+      "sha256": "4277e84dd5af04d1492d1eb3cf58cb106814115e43535129a95d01bf3f7a7595",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A tall, intact stone church tower with a classical-looking belfry and a stepped top stands above the ruins in the upper right. Several thin, intact Gothic-style spires rise in the distant skyline.",
+        "ly_do": "The Great Fire of 1666 destroyed most City churches, and the scene is set in the aftermath. A tall, intact tower with a Wren-style classical belfry would look like the post-1670 rebuilt steeples. Wren's City churches were built from 1670 onward. The intact skyline spires are also doubtful for a fres",
+        "nam_xuat_hien": 1677,
+        "toa_do_px": [
+         1325,
+         0,
+         1421,
+         248
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.037197900000000006,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1134,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.037197900000000006,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 223,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall, intact stone church tower with a classical-looking belfry and a stepped top stands above the ruins in the upper right. Several thin, intact Gothic-style spires rise in the distant skyline.\",\"ly_do\":\"The Great Fire of 1666 destroyed most City churches, and the scene is set in the aftermath. A tall, intact tower with a Wren-style classical belfry would look like the post-1670 rebuilt steeples. Wren's City churches were built from 1670 onward. The intact skyline spires are also doubtful for a freshly burnt city.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.69,0.0,0.74,0.23],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0372,
+    "chi_phi_tb": 0.0372,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

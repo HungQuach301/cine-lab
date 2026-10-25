@@ -1,0 +1,129 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung H2-04a-l1-360p-k25 năm 1667: [xe] A boxy, dark green, car-like vehicle with a flat roof and glazed windows stands in the street background. It looks like an early motor car or a closed motor van. — Motor vehicles did not exist in 1667. Street traffic was horse-drawn carts, sedan chairs and coaches, and a boxy glazed body like this does not match any of them. (xuất hiện 1886) @px [230, 605, 307, 702] tin 0.6",
+  "khung H2-04a-l1-360p-k25 năm 1667: [quan_phuc] Bricklayers wear soft flat peaked caps (newsboy or baker-boy style) with a stitched crown and short brim. They also wear fitted waistcoats over collarless shirts. — The peaked flat cap is a 19th-century working-class style. Workmen in 1667 London would wear brimmed felt hats, knitted or woollen caps, or coifs. (xuất hiện 1850) @px [1498, 670, 1632, 745] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 2 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.060 (TB $0.060/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-04a-l1-360p-k25",
+   "nam": 1667,
+   "noi": "London",
+   "sha256": "fa40eae22a224bfa5e7f1e3898d7f578ce5132b4a693f38b47cdaa70aaf98bef",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [
+    {
+     "muc": "xe",
+     "mo_ta": "A boxy, dark green, car-like vehicle with a flat roof and glazed windows stands in the street background. It looks like an early motor car or a closed motor van.",
+     "ly_do": "Motor vehicles did not exist in 1667. Street traffic was horse-drawn carts, sedan chairs and coaches, and a boxy glazed body like this does not match any of them.",
+     "nam_xuat_hien": 1886,
+     "toa_do_px": [
+      230,
+      605,
+      307,
+      702
+     ],
+     "do_tin": 0.6,
+     "xac_nhan": {
+      "vung_px": [
+       123,
+       508,
+       414,
+       799
+      ],
+      "phong": 2.31,
+      "tra_loi": {
+       "vat": "A boxy, enclosed motor car, possibly an early-1900s automobile or taxi",
+       "dac_diem": "A dark green-grey square cabin with a flat roof that overhangs slightly. It has a rectangular window at the front and a side window. The body is upright and boxy, and it sits in a street among pedestrians and a horse. It is blurry, so I can't see wheels or other detail.",
+       "co_tu_nam": 1910,
+       "da_co_nam_1667": "no",
+       "ly_do": "The enclosed, flat-roofed motorcar body is a design from the early 20th century. In 1667 London had only horse-drawn coaches, sedan chairs and carts, with no motor vehicles."
+      },
+      "da_co": "no",
+      "giu": true,
+      "cost_usd": 0.0069967,
+      "loi": null
+     }
+    },
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "Bricklayers wear soft flat peaked caps (newsboy or baker-boy style) with a stitched crown and short brim. They also wear fitted waistcoats over collarless shirts.",
+     "ly_do": "The peaked flat cap is a 19th-century working-class style. Workmen in 1667 London would wear brimmed felt hats, knitted or woollen caps, or coifs.",
+     "nam_xuat_hien": 1850,
+     "toa_do_px": [
+      1498,
+      670,
+      1632,
+      745
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "vung_px": [
+       1364,
+       506,
+       1766,
+       908
+      ],
+      "phong": 1.67,
+      "tra_loi": {
+       "vat": "Flat cap (soft peaked cap) worn by a man",
+       "dac_diem": "Grey, soft, rounded crown that looks paneled or stitched, with a short stiff brim at the front. It sits low on the head of a bearded man. He wears a grey waistcoat or vest over a rolled-sleeve off-white shirt. A brick wall and a dark doorway are behind him. The image is blurry, so the seams and stitching are not clearly visible.",
+       "co_tu_nam": 1880,
+       "da_co_nam_1667": "no",
+       "ly_do": "The wool flat caps of the 16th and 17th centuries were brimless soft bonnets. A flat or newsboy cap with a sewn crown and a stiff peak became common in the 19th century, especially in the late 1800s. This design is therefore probably anachronistic for London in 1667. The blur leaves some uncertainty."
+      },
+      "da_co": "no",
+      "giu": true,
+      "cost_usd": 0.0127445,
+      "loi": null
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "A bricklayer on the scaffold at top right wears a flat peaked cap and a Victorian-style waistcoat.",
+     "ly_do": "The peaked flat cap and the tailored waistcoat are 19th-century workwear, not 1660s dress.",
+     "nam_xuat_hien": 1850,
+     "toa_do_px": [
+      1344,
+      22,
+      1498,
+      130
+     ],
+     "do_tin": 0.45
+    }
+   ],
+   "cost_usd": 0.059899100000000004,
+   "cost_buoc2": 0.01974,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1430,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0401579,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 245,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.9,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"xe\",\"mo_ta\":\"A boxy, dark green, car-like vehicle with a flat roof and glazed windows stands in the street background. It looks like an early motor car or a closed motor van.\",\"ly_do\":\"Motor vehicles did not exist in 1667. Street traffic was horse-drawn carts, sedan chairs and coaches, and a boxy glazed body like this does not match any of them.\",\"nam_xuat_hien\":1886,\"toa_do\":[0.12,0.56,0.16,0.65],\"do_tin\":0.6},{\"muc\":\"quan_phuc\",\"mo_ta\":\"Bricklayers wear soft flat peaked caps (newsboy or baker-boy style) with a stitched crown and short brim. They also wear fitted waistcoats over collarless shirts.\",\"ly_do\":\"The peaked flat cap is a 19th-century working-class style. Workmen in 1667 London would wear brimmed felt hats, knitted or woollen caps, or coifs.\",\"nam_xuat_hien\":1850,\"toa_do\":[0.78,0.62,0.85,0.69],\"do_tin\":0.5},{\"muc\":\"quan_phuc\",\"mo_ta\":\"A bricklayer on the scaffold at top right wears a flat peaked cap and a Victorian-style waistcoat.\",\"ly_do\":\"The peaked flat cap and the tailored waistcoat are 19th-century workwear, not 1660s dress.\",\"nam_xuat_hien\":1850,\"toa_do\":[0.7,0.02,0.78,0.12],\"do_tin\":0.45}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0599,
+ "chi_phi_tb": 0.0599,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

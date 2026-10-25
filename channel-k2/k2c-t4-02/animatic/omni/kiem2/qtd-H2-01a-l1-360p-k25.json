@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-01a-l1-360p-k25",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "2ad4899ce4f3115bdd7c276c9415e58b12c0353f80706d1f605c2b6952f0c8f0",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A plain, low, multi-arched stone bridge crosses the middle distance. It has no houses or buildings on it.",
+     "ly_do": "London Bridge in 1666 was a medieval stone bridge lined with houses and structures. The fire destroyed only the northern section of those. A bare, modern-looking arched bridge is therefore probably wrong. This is a low-confidence call, because the bridge is small and hazy and could be read as a dama",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      902,
+      540,
+      1344,
+      648
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.036877900000000005,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1102,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.036877900000000005,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 228,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A plain, low, multi-arched stone bridge crosses the middle distance. It has no houses or buildings on it.\",\"ly_do\":\"London Bridge in 1666 was a medieval stone bridge lined with houses and structures. The fire destroyed only the northern section of those. A bare, modern-looking arched bridge is therefore probably wrong. This is a low-confidence call, because the bridge is small and hazy and could be read as a damaged London Bridge.\",\"nam_xuat_hien\":null,\"toa_do\":[0.47,0.50,0.70,0.60],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0369,
+ "chi_phi_tb": 0.0369,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

@@ -1,0 +1,316 @@
+{
+ "tag": "H2-04b-l1-360p",
+ "clip": "/var/tmp/anim/omni/H2-04b/H2-04b-l1-360p.mp4",
+ "clip_sha": "392b29f2f80290269cfc5a29e1fcb30e78647e69a71f0844a1b770c09ab27720",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/dau/H2-04b-dau.jpg",
+ "dau_sha": "3634ebe7ae93a9f431f340713b5ec004fa4da345c7c4e70923a378097610a4c2",
+ "nam": "1668",
+ "canh": "a London street being rebuilt, 1668",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-04b-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0252,
+      "usage": {
+       "input_tokens": 10129,
+       "input_tokens_details": {
+        "cache_write_tokens": 10126,
+        "cached_tokens": 0
+       },
+       "output_tokens": 495,
+       "output_tokens_details": {
+        "reasoning_tokens": 362
+       },
+       "total_tokens": 10624
+      }
+     },
+     "secs": 17.6,
+     "mo_ta": "Cảnh phố đang được xây dựng lại với công nhân, giàn giáo gỗ, xe ngựa và vật liệu xây dựng.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt hồi ở dãy nhà bên phải được thêm đường viền cong và một ô cửa chữ nhật gần đỉnh, không thấy các chi tiết này trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.712,
+        0.327,
+        0.794,
+        0.493
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt hồi ở dãy nhà bên phải được thêm đường viền cong và một ô cửa chữ nhật gần đỉnh, không thấy các chi tiết này trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.712,
+        0.327,
+        0.794,
+        0.493
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-04b-l1-360p-k25",
+      "nam": 1668,
+      "noi": "London",
+      "sha256": "abb1cbb67ed9f3381cbbf0ee11e32ff99b4f39cbd7cde0515ab65b6231bc747e",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "Several workers wear soft flat caps with a short brim, like 19th-century newsboy or flat caps. They also wear plain waistcoats and loose work trousers tucked into boots.",
+        "ly_do": "Workers in 1668 London would have worn broad-brimmed felt hats, knitted or linen caps, doublets and breeches. Brimmed flat caps and trousers like these belong to the 19th century.",
+        "nam_xuat_hien": 1850,
+        "toa_do_px": [
+         115,
+         346,
+         346,
+         540
+        ],
+        "do_tin": 0.4
+       }
+      ],
+      "cost_usd": 0.0381279,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1227,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0381279,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 367,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1668,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"Several workers wear soft flat caps with a short brim, like 19th-century newsboy or flat caps. They also wear plain waistcoats and loose work trousers tucked into boots.\",\"ly_do\":\"Workers in 1668 London would have worn broad-brimmed felt hats, knitted or linen caps, doublets and breeches. Brimmed flat caps and trousers like these belong to the 19th century.\",\"nam_xuat_hien\":1850,\"toa_do\":[0.06,0.32,0.18,0.5],\"do_tin\":0.4}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0381,
+    "chi_phi_tb": 0.0381,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-04b-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0215,
+      "usage": {
+       "input_tokens": 10129,
+       "input_tokens_details": {
+        "cache_write_tokens": 10126,
+        "cached_tokens": 0
+       },
+       "output_tokens": 120,
+       "output_tokens_details": {
+        "reasoning_tokens": 67
+       },
+       "total_tokens": 10249
+      }
+     },
+     "secs": 5.5,
+     "mo_ta": "Khung hình cho thấy một con phố London đang được xây dựng lại, với công nhân, giàn giáo gỗ, nhà gạch, xe ngựa và vật liệu xây dựng.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-04b-l1-360p-k55",
+      "nam": 1668,
+      "noi": "London",
+      "sha256": "933a320bb53e2db3490af22ad503398c6975c4ba5573497e6cbeac4d4ad1189a",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0348579,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 900,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0348579,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 239,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1668,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0349,
+    "chi_phi_tb": 0.0349,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic/omni/kiem2/H2-04b-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0213,
+      "usage": {
+       "input_tokens": 10123,
+       "input_tokens_details": {
+        "cache_write_tokens": 10120,
+        "cached_tokens": 0
+       },
+       "output_tokens": 109,
+       "output_tokens_details": {
+        "reasoning_tokens": 56
+       },
+       "total_tokens": 10232
+      }
+     },
+     "secs": 4.5,
+     "mo_ta": "Một con phố London đang được xây dựng lại, với thợ xây trên giàn giáo gỗ, nhà gạch, xe ngựa và vật liệu xây dựng dọc đường đất.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-04b-l1-360p-k90",
+      "nam": 1668,
+      "noi": "London",
+      "sha256": "daa72b61181a603687c7bdb5e867cd5e443071edf6ad7ce30b9ef93b98c72ac1",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "Several labourers wear long trousers, waistcoats and soft peaked flat caps. The worker at far left and the man carrying a plank at centre wear them. They look like 19th-century workmen's clothing.",
+        "ly_do": "Labourers in 1668 London would wear knee breeches with hose, loose jerkins or doublets, and brimmed felt hats or simple knit caps. Long trousers and peaked flat caps are 18th and 19th century.",
+        "nam_xuat_hien": 1800,
+        "toa_do_px": [
+         0,
+         313,
+         134,
+         540
+        ],
+        "do_tin": 0.4
+       },
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The plank carrier at centre wears a peaked flat cap, a waistcoat and long dark trousers with boots.",
+        "ly_do": "This is the same clothing problem: it looks like Victorian working dress, not 1660s dress.",
+        "nam_xuat_hien": 1800,
+        "toa_do_px": [
+         730,
+         594,
+         902,
+         896
+        ],
+        "do_tin": 0.35
+       }
+      ],
+      "cost_usd": 0.0376879,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1183,
+        "cacheReadInputTokens": 3009,
+        "cacheCreationInputTokens": 10218,
+        "webSearchRequests": 0,
+        "costUSD": 0.0376879,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 168,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1668,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"Several labourers wear long trousers, waistcoats and soft peaked flat caps. The worker at far left and the man carrying a plank at centre wear them. They look like 19th-century workmen's clothing.\",\"ly_do\":\"Labourers in 1668 London would wear knee breeches with hose, loose jerkins or doublets, and brimmed felt hats or simple knit caps. Long trousers and peaked flat caps are 18th and 19th century.\",\"nam_xuat_hien\":1800,\"toa_do\":[0.0,0.29,0.07,0.5],\"do_tin\":0.4},{\"muc\":\"quan_phuc\",\"mo_ta\":\"The plank carrier at centre wears a peaked flat cap, a waistcoat and long dark trousers with boots.\",\"ly_do\":\"This is the same clothing problem: it looks like Victorian working dress, not 1660s dress.\",\"nam_xuat_hien\":1800,\"toa_do\":[0.38,0.55,0.47,0.83],\"do_tin\":0.35}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0377,
+    "chi_phi_tb": 0.0377,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

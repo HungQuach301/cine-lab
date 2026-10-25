@@ -5,3 +5,10 @@
 !licenses/met-336039.json
 !licenses/met-336038.json
 !licenses/met-757299.json
+# ANIMATIC-T4 (24/10/2026): bảng shot v2 + tệp máy/log máy/mốc lời dựng của animatic (K39, K49)
+!BANG-SHOT-v2.json
+!animatic/**/*.json
+!animatic/**/*.jsonl
+# ANIMATIC-T4 sự cố 24/10 ≈ 03:30: ảnh lát/khung trung gian của bộ kiểm (q_thoi_dai, kiem_minh_hoa) KHÔNG vào git — chỉ JSON kết quả
+animatic/omni/kiem2/qtd-*/
+animatic/omni/kiem2/*.png

@@ -1,0 +1,59 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H4-04b-l3-360p-k90",
+   "nam": 1940,
+   "noi": "London",
+   "sha256": "c95beb6f96064e3b25e3f18f4c8ca75a101c3ad79010ee32449350c36dc346bf",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "den",
+     "mo_ta": "A dormer window on the lower right is brightly lit with warm light. Other windows in the burning skyline also glow.",
+     "ly_do": "London was under strict blackout in 1940, so lit windows would have been unusual. The glow could be reflected fire or interior fire, so this is only a weak concern and not a true anachronism.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1690,
+      875,
+      1786,
+      983
+     ],
+     "do_tin": 0.12
+    }
+   ],
+   "cost_usd": 0.0355379,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 968,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0355379,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 144,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 12.2,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"den\",\"mo_ta\":\"A dormer window on the lower right is brightly lit with warm light. Other windows in the burning skyline also glow.\",\"ly_do\":\"London was under strict blackout in 1940, so lit windows would have been unusual. The glow could be reflected fire or interior fire, so this is only a weak concern and not a true anachronism.\",\"nam_xuat_hien\":null,\"toa_do\":[0.88,0.81,0.93,0.91],\"do_tin\":0.12}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0355,
+ "chi_phi_tb": 0.0355,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

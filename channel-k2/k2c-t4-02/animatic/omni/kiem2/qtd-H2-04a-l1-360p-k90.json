@@ -1,0 +1,114 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.054 (TB $0.054/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-04a-l1-360p-k90",
+   "nam": 1667,
+   "noi": "London",
+   "sha256": "05f1622262e232a8d045a1fbd817fce2b2bfa04936ed415b6bc66af91f30c417",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "The bricklayer on the upper scaffold wears a fitted dark waistcoat over a light shirt with rolled sleeves. His trousers are plain grey and full-length, and he has a close-fitting cap. This is 19th-century workman's dress.",
+     "ly_do": "A London labourer in 1667 would have worn a loose linen shirt, breeches with stockings, a jerkin or doublet, and a soft brimmed hat or coif. Tailored waistcoats with long trousers came into common working use in the late 18th and 19th centuries.",
+     "nam_xuat_hien": 1800,
+     "toa_do_px": [
+      1152,
+      119,
+      1325,
+      346
+     ],
+     "do_tin": 0.55,
+     "xac_nhan": {
+      "vung_px": [
+       898,
+       0,
+       1579,
+       573
+      ],
+      "phong": 0.99,
+      "tra_loi": {
+       "vat": "A bricklayer working on a timber scaffold (the image shows no uniform, headgear, insignia or weapon)",
+       "dac_diem": "A man bends over a plank platform laying bricks. He wears a dark grey sleeveless waistcoat over a light grey long-sleeved shirt, grey trousers and a small dark cap. The scaffold is made of round poles lashed together, with wooden planks across them. A red brick wall is at the lower right, and part of another person's head and hat shows at the bottom.",
+       "co_tu_nam": null,
+       "da_co_nam_1667": "yes",
+       "ly_do": "Pole-and-plank scaffolding and brick building were standard in London in 1667, especially during the rebuilding after the 1666 Great Fire. The waistcoat, shirt and cap are plain workman's clothes that fit the period. The image is too blurry to check the exact cut of the clothes."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.007421099999999999,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 0.99×: da_co_nam = 'yes' — không xác nhận"
+    },
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "The bricklayer in the middle wears a hard, rounded, bowler-like cap. He also wears a plain collarless light shirt and dark long trousers with an apron.",
+     "ly_do": "The bowler and flat-cap style of headgear and the trouser-and-shirt outfit are 19th-century. In 1667 the usual headwear would have been a soft felt hat or a knitted cap, with breeches.",
+     "nam_xuat_hien": 1849,
+     "toa_do_px": [
+      1075,
+      540,
+      1210,
+      778
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "vung_px": [
+       785,
+       302,
+       1499,
+       1016
+      ],
+      "phong": 0.94,
+      "tra_loi": {
+       "vat": "Bricklayer's flat-brimmed dark hat (workman's headgear)",
+       "dac_diem": "A bricklayer on a scaffold wears a dark, rounded, low-crowned hat with a short brim, a pale shirt and dark trousers or apron. He is working beside a brick wall with a mortar tub. The scaffold is made of lashed timber poles. The image has no military insignia, uniform or weapons.",
+       "co_tu_nam": null,
+       "da_co_nam_1667": "yes",
+       "ly_do": "Plain brimmed felt or wool hats were common working-class headgear in the 17th century. This is not a uniform, insignia or weapon, and nothing in it looks anachronistic for 1667."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.0070011,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 0.94×: da_co_nam = 'yes' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.053580100000000006,
+   "cost_buoc2": 0.01442,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1330,
+     "cacheReadInputTokens": 3009,
+     "cacheCreationInputTokens": 10218,
+     "webSearchRequests": 0,
+     "costUSD": 0.0391579,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 228,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 12.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The bricklayer on the upper scaffold wears a fitted dark waistcoat over a light shirt with rolled sleeves. His trousers are plain grey and full-length, and he has a close-fitting cap. This is 19th-century workman's dress.\",\"ly_do\":\"A London labourer in 1667 would have worn a loose linen shirt, breeches with stockings, a jerkin or doublet, and a soft brimmed hat or coif. Tailored waistcoats with long trousers came into common working use in the late 18th and 19th centuries.\",\"nam_xuat_hien\":1800,\"toa_do\":[0.6,0.11,0.69,0.32],\"do_tin\":0.55},{\"muc\":\"quan_phuc\",\"mo_ta\":\"The bricklayer in the middle wears a hard, rounded, bowler-like cap. He also wears a plain collarless light shirt and dark long trousers with an apron.\",\"ly_do\":\"The bowler and flat-cap style of headgear and the trouser-and-shirt outfit are 19th-century. In 1667 the usual headwear would have been a soft felt hat or a knitted cap, with breeches.\",\"nam_xuat_hien\":1849,\"toa_do\":[0.56,0.5,0.63,0.72],\"do_tin\":0.5}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0536,
+ "chi_phi_tb": 0.0536,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}
