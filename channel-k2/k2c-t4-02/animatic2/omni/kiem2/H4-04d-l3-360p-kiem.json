@@ -1,0 +1,516 @@
+{
+ "tag": "H4-04d-l3-360p",
+ "clip": "/var/tmp/anim/omni3/H4-04d/H4-04d-l3-360p.mp4",
+ "clip_sha": "9e65af8fdfa7f9b289c4fb44de2836d3bb63e8cc6970c2913c1b7fc42b8a6f2c",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic2/omni/dau/H4-04d-dau.jpg",
+ "dau_sha": "6496f0929dbe43a8262b7ffea172137c87fde2acebe4553f8aebff3c4aa229e4",
+ "nam": "1940",
+ "canh": "the Guildhall roof burning, night of 29 December 1940",
+ "so_khung": 120,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/anim/kiem2/H4-04d-l3-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0255,
+      "usage": {
+       "input_tokens": 9741,
+       "input_tokens_details": {
+        "cache_write_tokens": 9738,
+        "cached_tokens": 0
+       },
+       "output_tokens": 605,
+       "output_tokens_details": {
+        "reasoning_tokens": 276
+       },
+       "total_tokens": 10346
+      }
+     },
+     "secs": 14.3,
+     "mo_ta": "Khung hình cho thấy một công trình Gothic được dùng để minh họa Guildhall đang cháy mái vào ban đêm, với lính cứu hỏa phun nước và các vòi chữa cháy trải trên đường ướt.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Công trình Gothic trung tâm được dùng để thể hiện Guildhall, với mái gỗ đang cháy và nhiều tháp nhọn.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.132,
+        0.0,
+        0.794,
+        0.805
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp nhà thờ có mái vòm nhỏ và chóp ở hậu cảnh bên phải; không đủ chi tiết để xác định chắc chắn tên.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.818,
+        0.267,
+        0.877,
+        0.458
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đốm lửa mới trên mặt đường ngay sau người lính cứu hỏa đang giữ vòi bên trái; không thấy đốm lửa tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.312,
+        0.772,
+        0.332,
+        0.822
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Đốm lửa mới trên mặt đường ngay sau người lính cứu hỏa đang giữ vòi bên trái; không thấy đốm lửa tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.312,
+        0.772,
+        0.332,
+        0.822
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H4-04d-l3-360p-k25",
+      "nam": 1940,
+      "noi": "London",
+      "sha256": "66936f1578a33dc2dd8081b104773a606c96ed2a5df27e0bf6bbb1ec0e6d518d",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "den",
+        "mo_ta": "Street lamps glow brightly, and many windows in the buildings on the right are lit. Several other lights are lit in the street. The scene is a night-time fire.",
+        "ly_do": "London was under a strict blackout from September 1939. Lit street lamps and lit windows would not have been allowed during a night-time fire or air raid. Only the fire itself would have given light.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1344,
+         324,
+         1920,
+         864
+        ],
+        "do_tin": 0.35
+       }
+      ],
+      "cost_usd": 0.033671599999999996,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 846,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.033671599999999996,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 124,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"den\",\"mo_ta\":\"Street lamps glow brightly, and many windows in the buildings on the right are lit. Several other lights are lit in the street. The scene is a night-time fire.\",\"ly_do\":\"London was under a strict blackout from September 1939. Lit street lamps and lit windows would not have been allowed during a night-time fire or air raid. Only the fire itself would have given light.\",\"nam_xuat_hien\":null,\"toa_do\":[0.7,0.3,1.0,0.8],\"do_tin\":0.35}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0337,
+    "chi_phi_tb": 0.0337,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/anim/kiem2/H4-04d-l3-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0257,
+      "usage": {
+       "input_tokens": 9747,
+       "input_tokens_details": {
+        "cache_write_tokens": 9744,
+        "cached_tokens": 0
+       },
+       "output_tokens": 622,
+       "output_tokens_details": {
+        "reasoning_tokens": 272
+       },
+       "total_tokens": 10369
+      }
+     },
+     "secs": 13.7,
+     "mo_ta": "Khung hình cho thấy một tòa nhà Gothic được dùng để minh họa Guildhall đang cháy dữ dội, với lính cứu hỏa phun nước từ mặt đường ướt vào ban đêm.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tòa nhà chính được dùng để thể hiện Guildhall, với các cửa sổ Gothic, tháp nhọn và mái đang cháy; công trình này đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.111,
+        0.0,
+        0.803,
+        0.833
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Tháp nhọn phía trước, bên trái tâm ảnh, bị nghiêng rõ rệt so với trạng thái thẳng đứng trong ảnh tham chiếu, tạo thêm biểu hiện biến dạng hoặc sụp đổ kiến trúc.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.396,
+        0.008,
+        0.467,
+        0.365
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đốm lửa riêng trên mặt đường ngay sau nhóm lính cứu hỏa bên trái, không thấy đốm lửa tương ứng ở vị trí này trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.289,
+        0.809,
+        0.316,
+        0.866
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Tháp nhọn phía trước, bên trái tâm ảnh, bị nghiêng rõ rệt so với trạng thái thẳng đứng trong ảnh tham chiếu, tạo thêm biểu hiện biến dạng hoặc sụp đổ kiến trúc.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.396,
+        0.008,
+        0.467,
+        0.365
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đốm lửa riêng trên mặt đường ngay sau nhóm lính cứu hỏa bên trái, không thấy đốm lửa tương ứng ở vị trí này trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.289,
+        0.809,
+        0.316,
+        0.866
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H4-04d-l3-360p-k55",
+      "nam": 1940,
+      "noi": "London",
+      "sha256": "9e5b3a575b5907b259f53bc8814dad3e53ac62e2443b788f2a3eef123e53c490",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "den",
+        "mo_ta": "Many lit windows in the buildings on the right, plus lit street lamps. The lamps include a gas-style lantern on a post and several glowing lamps in the background.",
+        "ly_do": "London was under a strict blackout in 1940. Lit windows and lit street lamps would not have been allowed. The only lights should be the fire and dim shielded lamps.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1536,
+         626,
+         1920,
+         810
+        ],
+        "do_tin": 0.3
+       },
+       {
+        "muc": "xe",
+        "mo_ta": "A red fire appliance with spoked wooden-style wheels, which looks like a horse-drawn or very early motor steamer. A second vehicle with bright headlamps stands behind it.",
+        "ly_do": "By 1940 the London Fire Service used motor pumps with pneumatic tyres, and Auxiliary Fire Service trailer pumps. A vintage Victorian-style appliance would be outdated.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1190,
+         756,
+         1440,
+         896
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0355516,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1034,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0355516,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 121,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"den\",\"mo_ta\":\"Many lit windows in the buildings on the right, plus lit street lamps. The lamps include a gas-style lantern on a post and several glowing lamps in the background.\",\"ly_do\":\"London was under a strict blackout in 1940. Lit windows and lit street lamps would not have been allowed. The only lights should be the fire and dim shielded lamps.\",\"nam_xuat_hien\":null,\"toa_do\":[0.8,0.58,1.0,0.75],\"do_tin\":0.3},{\"muc\":\"xe\",\"mo_ta\":\"A red fire appliance with spoked wooden-style wheels, which looks like a horse-drawn or very early motor steamer. A second vehicle with bright headlamps stands behind it.\",\"ly_do\":\"By 1940 the London Fire Service used motor pumps with pneumatic tyres, and Auxiliary Fire Service trailer pumps. A vintage Victorian-style appliance would be outdated.\",\"nam_xuat_hien\":null,\"toa_do\":[0.62,0.7,0.75,0.83],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0356,
+    "chi_phi_tb": 0.0356,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/anim/kiem2/H4-04d-l3-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0266,
+      "usage": {
+       "input_tokens": 9747,
+       "input_tokens_details": {
+        "cache_write_tokens": 9744,
+        "cached_tokens": 0
+       },
+       "output_tokens": 710,
+       "output_tokens_details": {
+        "reasoning_tokens": 181
+       },
+       "total_tokens": 10457
+      }
+     },
+     "secs": 14.7,
+     "mo_ta": "Khung hình cho thấy một tòa nhà Gothic được thể hiện là Guildhall đang cháy dữ dội, các mảng mái đổ xuống và lính cứu hỏa phun nước từ đường phố vào ban đêm.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tòa nhà được thể hiện là Guildhall, với mái gỗ cháy và mặt đứng Gothic nhiều tháp nhọn; công trình chính đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.088,
+        0.039,
+        0.814,
+        0.868
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Các mảng mái và dầm lớn đang rơi, văng ra ngoài mặt đứng, bổ sung diễn biến sụp đổ không được thể hiện trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.27,
+        0.0,
+        0.626,
+        0.793
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ô cửa dạng bầu dục trên đầu hồi bên trái là chi tiết kiến trúc bị biến đổi hoặc thêm mới so với các ô cửa hẹp, cao trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.146,
+        0.193,
+        0.174,
+        0.282
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Gờ đá lớn nhô ra dưới cửa sổ nhọn bên trái, có các khối đỡ phía dưới, không thấy ở vị trí tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.188,
+        0.564,
+        0.281,
+        0.636
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Các mảng mái và dầm lớn đang rơi, văng ra ngoài mặt đứng, bổ sung diễn biến sụp đổ không được thể hiện trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.27,
+        0.0,
+        0.626,
+        0.793
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ô cửa dạng bầu dục trên đầu hồi bên trái là chi tiết kiến trúc bị biến đổi hoặc thêm mới so với các ô cửa hẹp, cao trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.146,
+        0.193,
+        0.174,
+        0.282
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Gờ đá lớn nhô ra dưới cửa sổ nhọn bên trái, có các khối đỡ phía dưới, không thấy ở vị trí tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.188,
+        0.564,
+        0.281,
+        0.636
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H4-04d-l3-360p-k90",
+      "nam": 1940,
+      "noi": "London",
+      "sha256": "faa77f1127038ccec567059c7eb47245ed1afae736fcc6f742276ddd72684d60",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "den",
+        "mo_ta": "A street lamp is lit at the right of centre. Several unshaded lit windows and bright headlights on the vehicle at the far right are visible in the same area.",
+        "ly_do": "London was under a strict blackout from 1939. Street lamps were off, and vehicle headlamps were masked. The fire itself would justify some light, but the steady unshaded lamps and windows are doubtful for the Blitz.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1363,
+         724,
+         1421,
+         821
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.0337016,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 849,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0337016,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 114,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1940,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"den\",\"mo_ta\":\"A street lamp is lit at the right of centre. Several unshaded lit windows and bright headlights on the vehicle at the far right are visible in the same area.\",\"ly_do\":\"London was under a strict blackout from 1939. Street lamps were off, and vehicle headlamps were masked. The fire itself would justify some light, but the steady unshaded lamps and windows are doubtful for the Blitz.\",\"nam_xuat_hien\":null,\"toa_do\":[0.71,0.67,0.74,0.76],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0337,
+    "chi_phi_tb": 0.0337,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

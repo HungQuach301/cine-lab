@@ -1,0 +1,39 @@
+{
+ "tag": "H2-06b-a2",
+ "tang": 1,
+ "moc_hoi": "must show: an unfinished fluted column (the Monument); must NOT show any dome or modern building",
+ "moc_co_mat": true,
+ "cong_trinh_chua_ton_tai": [
+  "Nhà thờ chính tòa Thánh Paul có mái vòm (St Paul's Cathedral)"
+ ],
+ "model": "gemini-3.8-flash",
+ "nam": 1675.0,
+ "canh": "the Monument column under construction, London, 1670s, Portland stone hoisted",
+ "loi_cau": "Near the bakery, Wren and Hooke raise a column: the Monument. Two hundred and two feet high — exactly the distance to the spot in Pudding Lane where the fire began. Portland stone is so hard to come by that the column takes six years.",
+ "mo_ta": "Khung cảnh thi công Đài tưởng niệm Great Fire of London năm 1675 nhưng ở hậu cảnh lại xuất hiện Nhà thờ chính tòa Thánh Paul với mái vòm đã hoàn thiện.",
+ "muc": [
+  {
+   "anh": 1,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Nhà thờ chính tòa Thánh Paul với mái vòm cổ điển hoàn chỉnh của Christopher Wren xuất hiện ở phía xa bên trái; trên thực tế công trình này mới chỉ đặt viên đá móng năm 1675 và đến năm 1708-1710 mới hoàn thành mái vòm.",
+   "nam_xuat_hien": 1708,
+   "do_tin": 0.99
+  }
+ ],
+ "loi": [
+  {
+   "anh": 1,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Nhà thờ chính tòa Thánh Paul với mái vòm cổ điển hoàn chỉnh của Christopher Wren xuất hiện ở phía xa bên trái; trên thực tế công trình này mới chỉ đặt viên đá móng năm 1675 và đến năm 1708-1710 mới hoàn thành mái vòm.",
+   "nam_xuat_hien": 1708,
+   "do_tin": 0.99
+  },
+  {
+   "loai": "cong_trinh_sai",
+   "mo_ta": "chưa tồn tại: Nhà thờ chính tòa Thánh Paul có mái vòm (St Paul's Cathedral)",
+   "do_tin": 1.0
+  }
+ ],
+ "ket_luan": "LOẠI",
+ "usd": 0.00617
+}

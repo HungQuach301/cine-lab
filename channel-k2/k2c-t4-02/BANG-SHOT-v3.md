@@ -83,12 +83,10 @@
 | H2-04b | 6:16.5 | 5.708 | L41–L42 (nhóm H2-04: H2-04h, H2-04a, H2-04b) | — | MD | md | — | M-d (11) xe chở gạch, giàn giáo gỗ | MD (5.7083) | clip v1 H2-04b-l1-360p |
 | H2-05 | 6:22.2 | 11.000 | L43–L44 (nhóm H2-05: H2-05, H2-05s) | P1 | CODINH | cao | 1668 → 1670.2 | P1: timelapse xây lại bằng gạch trên đúng lô cũ (≈ 6 000 nhà cuối 1670) | A (11) |  |
 | H2-05s | 6:33.2 | 7.833 | L43–L44 (nhóm H2-05: H2-05, H2-05s) | P10 | TRUOT | thap | 1670.2 → 1671 | 3D TẦM PHỐ (look2d): King Street mới cắt về Guildhall — xe ngựa, người, nhà gạch | A (7.8333) | look2d (người/xe) |
-| H2-06 | 6:41.0 | 11.292 | L46 + N9 (nhóm H2-06: H2-06, H2-06b) | P3 | VONG | cao | 1671 → 1677 | Monument mọc; 202 ft = khoảng cách tới lò bánh | A (11.2917), THE (2.5), KHAC (3) | bộ đếm: 202 ft; góc khung: rijks-monument-0 |
-| H2-06b | 6:52.3 | 6.000 | L46 + N9 (nhóm H2-06: H2-06, H2-06b) | — | MD | md | — | M-d (32) DN09 tời gỗ nâng khối đá Portland lên cột đang xây (lời N9) | MD (6) | MỚI · kiểm day_du |
+| H2-06 | 6:41.0 | 17.292 | L46 + N9 | P3 | VONG | cao | 1671 → 1677 | Monument mọc; 202 ft = khoảng cách tới lò bánh | A (17.2917), THE (2.5), KHAC (3) | bộ đếm: 202 ft; góc khung: rijks-monument-0; M-d H2-06b (DN09 đá Portland) TRƯỢT 3/3 ở ảnh đầu (mái vòm St Paul's năm 1675 — lỗi thời đại) → 3D VONG cả nhóm |
 | H2-07 | 6:58.3 | 7.917 | L47 | — | MD | md | — | M-d (13) phố gạch 1680 + dấu bảo hiểm cháy | MD (7.9167) | thẻ: Nicholas Barbon; clip v1 H2-07-l1-360p |
 | H2-08 | 7:06.2 | 5.708 | L48 | P2 | NGHIENG | cao | 1670 → 1700 | chóp nhà thờ Wren mọc quanh City; nghiêng lên kết ở chóp | A (5.708) |  |
-| H2-09x | 7:11.9 | 6.000 | L49 (nhóm H2-09: H2-09x, H2-09) | — | MD | md | — | M-d (33) DN08 1675: thợ đá hạ khối đá đầu tiên trên đồi Ludgate cạnh tàn tích nhà thờ cũ | MD (6) | MỚI · kiểm day_du |
-| H2-09 | 7:17.9 | 4.000 | L49 (nhóm H2-09: H2-09x, H2-09) | P1 | CODINH | cao | 1675 → 1708 | P1: St Paul's mới mọc từ nền Old St Paul's | A (4) |  |
+| H2-09 | 7:11.9 | 10.000 | L49 | P1 | CODINH | cao | 1675 → 1708 | P1: St Paul's mới mọc từ nền Old St Paul's | A (10) | M-d H2-09x (DN08 viên đá đầu tiên 1675) TRƯỢT 3/3 (tay/người biến dạng — Flash) → 3D P1 cả nhóm |
 | H2-10b | 7:21.9 | 6.500 | L50 + N4 (nhóm H2-10: H2-10b, H2-10) | — | MD | md | — | M-d (34) DN10 10/1708: hai người đặt viên đá cuối trên đỉnh đèn lồng (khung xa) — lời N4 | MD (6.5) | MỚI · kiểm day_du · nhân vật: Christopher Wren (con), Edward Strong |
 | H2-10 | 7:28.4 | 11.542 | L50 + N4 (nhóm H2-10: H2-10b, H2-10) | P4b | THAP | thap | 1708 → 1711 | đèn lồng hoàn tất; 365 ft — mái vòm anh hùng giờ vàng | A (11.5417), THE (2.5) | bộ đếm: 365 ft |
 | H2-11 | 7:40.0 | 6.000 | (lặng) | P7 | XUONG | cao | 1676 | nhìn xuống → xiên 1676: City gạch trên cùng tuyến phố 1666 (thay Ogilby — D13 không lên hình) | A (6) |  |
@@ -124,7 +122,7 @@
 | H5-02 | 10:56.2 | 7.875 | L74 (nhóm H5-02: H5-02, H5-02s) | P5 | CAU | cao | 1957 → 1971 | London Wall (Route 11) + Barbican mọc trên Cripplegate | A (7.875) |  |
 | H5-02s | 11:04.0 | 7.000 | L74 (nhóm H5-02: H5-02, H5-02s) | P11 | TRUOT | thap | 1976 | 3D TẦM PHỐ (look2d): đường London Wall 1976 — ô tô, xe buýt, người; Barbican | A (7) | look2d (người/xe) |
 | H5-03 | 11:11.0 | 6.458 | L75 | P7 | XUONG | cao | 2026.67 | lưới phố Doornick 1666 chồng lên 3D 2026: cùng tuyến | A (6.458), MAP (6.458) |  |
-| H5-04 | 11:17.5 | 10.417 | L76–L78 | P1 | CODINH | cao | 1985 → 2026.67 | P1: khoảng trống lấp dần; cụm toà cao phía đông mọc (thế kỷ này) | A (10.417), N2P (6) | tấm nền 4.417–10.417 s |
+| H5-04 | 11:17.5 | 10.417 | L76–L78 | P1 | CODINH | cao | 1985 → 2026.67 | P1: khoảng trống lấp dần; cụm toà cao phía đông mọc (thế kỷ này) | A (10.417) | bỏ tấm nền P1-2026 (C6 xoay P1 4° → tấm AI cũ lệch khung; không làm tấm mới vòng này) |
 | H5-05a | 11:27.9 | 6.000 | L79–L82 (nhóm H5-05: H5-05a, H5-05c, H5-05b) | P9 | CODINH | cao | 2/9/2026 17h → 17.1h | tầm nhìn bảo vệ từ bờ nam: toà cao mọc trên phố cũ, mái vòm vẫn có nền trời | A (6), N2P (6) | tấm nền 0–6 s; C14: tấm nền ≤ 6 s |
 | H5-05c | 11:33.9 | 10.500 | L79–L82 (nhóm H5-05: H5-05a, H5-05c, H5-05b) | P2 | VONG | cao | 2/9/2026 17.1h → 17.5h | C14 biến cố thật: vòng quanh mái vòm từ bờ nam, nắng chiều dịch — tầm nhìn bảo vệ | A (10.5) |  |
 | H5-05b | 11:44.4 | 9.125 | L79–L82 (nhóm H5-05: H5-05a, H5-05c, H5-05b) | P4 | THAP | thap | 2/9/2026 17.5h → 17.6h | từ Fleet Street: Leadenhall vát — mái vòm còn nền trời | A (9.125) |  |
@@ -136,20 +134,20 @@
 
 ## Tổng + tự kiểm trước dựng
 
-- Thời lượng **770.875 s** · **107 shot** · TB 7.2 s · Omni 40 clip (22 mới/đổi, 131.25 s).
-- Lớp (s): {'A': 478.749, 'MD': 241.624, 'KHAC': 25.0, 'THE': 44.0, 'MAP': 9.958, 'MAP3D': 23.5, 'TL': 8, 'THAT': 20.5, 'N2P': 12.0, 'PP': 16.0}
-- Góc cao từng chương %: {'MÓC': 100.0, 'HỒI 1': 43.13, 'HỒI 2': 47.56, 'HỒI 3': 69.6, 'HỒI 4': 58.03, 'HỒI 5': 74.68}
+- Thời lượng **770.875 s** · **105 shot** · TB 7.34 s · Omni 38 clip (20 mới/đổi, 119.25 s).
+- Lớp (s): {'A': 490.749, 'MD': 229.624, 'KHAC': 25.0, 'THE': 44.0, 'MAP': 9.958, 'MAP3D': 23.5, 'TL': 8, 'THAT': 20.5, 'N2P': 6.0, 'PP': 16.0}
+- Góc cao từng chương %: {'MÓC': 100.0, 'HỒI 1': 43.13, 'HỒI 2': 54.54, 'HỒI 3': 69.6, 'HỒI 4': 58.03, 'HỒI 5': 74.68}
 
 | Chỉ số | Giá trị | Trần | Sàn | Đạt | ±5 % quanh ngưỡng | Ghi |
 |---|---|---|---|---|---|---|
 | Nhóm lời khớp, lời vừa nhóm | 0 | 0 |  | ĐẠT |  |  |
 | Thời lượng ≤ 780 s | 770.875 | 780 |  | ĐẠT | **CÓ** |  |
-| Góc cao / thân phim % (gói 50 %: ≥ 50) | 58.06 |  | 50 | ĐẠT |  | ước theo điểm máy (≥ 120 m); số đo thật: k2check theo log khung |
-| Mục tiêu cảnh báo TL-1: góc cao ≥ 60 % (chốt 5, không chặn) | 58.06 |  | 60 | **TRƯỢT** | **CÓ** | chỉ cảnh báo (gói 50 %) |
-| Omni % (≈ 30–35) | 31.34 | 35 | 30 | ĐẠT | **CÓ** |  |
+| Góc cao / thân phim % (gói 50 %: ≥ 50) | 59.65 |  | 50 | ĐẠT |  | ước theo điểm máy (≥ 120 m); số đo thật: k2check theo log khung |
+| Mục tiêu cảnh báo TL-1: góc cao ≥ 60 % (chốt 5, không chặn) | 59.65 |  | 60 | **TRƯỢT** | **CÓ** | chỉ cảnh báo (gói 50 %) |
+| Omni % (≈ 30–35, mục tiêu gần đúng) | 29.79 | 35 | 30 | ĐẠT | **CÓ** | ≈: đạt khi trong ±5 % quanh dải; dưới 30 vì 2 clip trượt 3/3 về 3D (H2-06b, H2-09x) — không thêm clip chỉ để vượt ngưỡng |
 | TL + KHAC + THE + THAT % (≤ 20, chủ dự án duyệt — chờ K-1.17.7) | 12.65 | 20 |  | ĐẠT |  |  |
 | TU-LIEU 1.17.6: TL + KHAC + THE + THAT % (≤ 15) | 12.65 | 15 |  | ĐẠT |  | chờ K-1.17.7 (20 %) |
-| Tổng AI % (≤ 70) | 32.9 | 70 |  | ĐẠT |  |  |
+| Tổng AI % (≤ 70) | 30.57 | 70 |  | ĐẠT |  |  |
 | Bản đồ MAP + MAP3D % (≤ 12) | 4.34 | 12 |  | ĐẠT |  |  |
 | THAP % (≤ 12) | 5.97 | 12 |  | ĐẠT |  |  |
 | M-d mỗi clip ≤ 8 s | 8.0 | 8.0 |  | ĐẠT | **CÓ** |  |
@@ -168,7 +166,7 @@
 | Chốt 2 HỒI 1: P1 tái xuất (fov 36°, cùng khung) | H1-08b, H1-16 |  |  | ĐẠT |  |  |
 | HỒI 1: số loại cú máy ≥ 4 | 7 |  | 4 | ĐẠT |  |  |
 | Chốt 1 HỒI 2: mở và kết bằng góc cao | H2-00 / H2-14 |  |  | ĐẠT |  |  |
-| Chốt 4 HỒI 2: góc cao ≥ 40 % | 47.56 |  | 40 | ĐẠT |  |  |
+| Chốt 4 HỒI 2: góc cao ≥ 40 % | 54.54 |  | 40 | ĐẠT |  |  |
 | Chốt 2 HỒI 2: P1 tái xuất (fov 36°, cùng khung) | H2-05, H2-09 |  |  | ĐẠT |  |  |
 | HỒI 2: số loại cú máy ≥ 4 | 9 |  | 4 | ĐẠT |  |  |
 | Chốt 1 HỒI 3: mở và kết bằng góc cao | H3-01 / H3-06 |  |  | ĐẠT |  |  |
@@ -217,8 +215,6 @@
 | 29 | Vua + Công tước chữa cháy (DN04) | H1-15x | 7.500 | day_du | Charles II, James, Duke of York |
 | 30 | tượng Gresham (DN06) | H2-01b | 5.167 | day_du |  |
 | 31 | bản vẽ Wren (DN07) | H2-02b | 5.000 | day_du | Christopher Wren |
-| 32 | đá Portland lên Monument (DN09) | H2-06b | 6.000 | day_du |  |
-| 33 | viên đá đầu tiên 1675 (DN08) | H2-09x | 6.000 | day_du |  |
 | 34 | viên đá cuối đèn lồng 1708 (DN10) | H2-10b | 6.500 | day_du | Christopher Wren (con), Edward Strong |
 | 35 | người khảo sát 1937 (DN15 Heights) | H3-05b | 6.000 | day_du | Godfrey Allen |
 | 36 | Hollar vẽ từ St Saviour 1647 | H1-03b | 6.000 | day_du | Wenceslaus Hollar |

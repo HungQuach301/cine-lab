@@ -1,0 +1,629 @@
+{
+ "tag": "H2-02b-l3-360p",
+ "clip": "/var/tmp/anim/omni3/H2-02b/H2-02b-l3-360p.mp4",
+ "clip_sha": "02844f8bc95cbaa68135a10b5c36a60585df6d248b222888e9bbf99eb2e654f3",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic2/omni/dau/H2-02b-dau.jpg",
+ "dau_sha": "3826324dd4695544d8f112cf6e405bd2b4bac6f3d3f61db7dd4bfeb2085021e3",
+ "nam": "1666",
+ "canh": "a new city plan unrolled on a table, September 1666",
+ "so_khung": 120,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/anim/kiem2/H2-02b-l3-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0258,
+      "usage": {
+       "input_tokens": 10122,
+       "input_tokens_details": {
+        "cache_write_tokens": 10119,
+        "cached_tokens": 0
+       },
+       "output_tokens": 551,
+       "output_tokens_details": {
+        "reasoning_tokens": 334
+       },
+       "total_tokens": 10673
+      }
+     },
+     "secs": 14.9,
+     "mo_ta": "Hai người đàn ông xem bản quy hoạch trải trên bàn, trong khi ba người đứng bên cửa sổ nhìn ra sông, cầu và thành phố đang cháy ở phía xa.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu nhiều nhịp bắc qua sông ở hậu cảnh, gợi nhận diện cầu London cũ.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.06,
+        0.215,
+        0.309,
+        0.276
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm thân dài trên sông, phía sau tượng ven bờ; kích thước lớn hơn thuyền chèo nhỏ.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.203,
+        0.264,
+        0.267,
+        0.315
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": false,
+    "ket_qua": null,
+    "loi": [
+     "khung H2-02b-l3-360p-k25 năm 1666: [kien_truc] Through the window, a tall Gothic clock tower with a pointed spire stands on the skyline. It looks like the Elizabeth Tower (Big Ben) at Westminster. — The Elizabeth Tower was built in 1859 as part of the Palace of Westminster rebuild. It did not exist in 1666. (xuất hiện 1859) @px [288, 97, 326, 216] tin 0.6",
+     "khung H2-02b-l3-360p-k25 năm 1666: [quan_phuc] The man at the window wears a black tricorne hat with a feather trim. He also wears a knee-length flared-skirt coat and white stockings. — The tricorne and the flared-skirt coat with stockings are early 18th-century fashion. In 1666 men wore wide-brimmed hats and a doublet or the newly introduced vest and coat. (xuất hiện 1700) @px [576, 173, 749, 583] tin 0.55"
+    ],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 2 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.059 (TB $0.059/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-02b-l3-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "f69102112b8c5976041f220132d0392d4a39ed531c2ce85807f683160c9e9ddc",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Through the window, a tall Gothic clock tower with a pointed spire stands on the skyline. It looks like the Elizabeth Tower (Big Ben) at Westminster.",
+        "ly_do": "The Elizabeth Tower was built in 1859 as part of the Palace of Westminster rebuild. It did not exist in 1666.",
+        "nam_xuat_hien": 1859,
+        "toa_do_px": [
+         288,
+         97,
+         326,
+         216
+        ],
+        "do_tin": 0.6,
+        "xac_nhan": {
+         "vung_px": [
+          128,
+          0,
+          485,
+          335
+         ],
+         "phong": 1.88,
+         "tra_loi": {
+          "vat": "A tall, narrow clock-tower-style spire in the city skyline, behind a stone arch bridge, with the Great Fire burning to the right",
+          "dac_diem": "A dark, slender square tower in the centre. It has a tall pointed spire and a slightly lighter upper stage that looks like a clock or belfry. It is much taller than the surrounding roofs and looks like a Victorian Gothic tower, similar to the Elizabeth Tower (Big Ben). Smaller spires and turrets stand on either side. A multi-arched bridge crosses the foreground, and there are boats on the water. Flames and dark smoke rise on the right.",
+          "co_tu_nam": 1859,
+          "da_co_nam_1666": "no",
+          "ly_do": "The tall, slender Gothic clock tower resembles the Elizabeth Tower at Westminster, built 1843–1859 after the 1834 fire. Nothing like it stood in London in 1666, when the skyline was medieval church steeples and Old St Paul's."
+         },
+         "da_co": "no",
+         "giu": true,
+         "cost_usd": 0.0125002,
+         "loi": null
+        }
+       },
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The man at the window wears a black tricorne hat with a feather trim. He also wears a knee-length flared-skirt coat and white stockings.",
+        "ly_do": "The tricorne and the flared-skirt coat with stockings are early 18th-century fashion. In 1666 men wore wide-brimmed hats and a doublet or the newly introduced vest and coat.",
+        "nam_xuat_hien": 1700,
+        "toa_do_px": [
+         576,
+         173,
+         749,
+         583
+        ],
+        "do_tin": 0.55,
+        "xac_nhan": {
+         "vung_px": [
+          47,
+          0,
+          1277,
+          993
+         ],
+         "phong": 0.55,
+         "tra_loi": {
+          "vat": "Tricorn (three-cornered) hat worn by a man in a knee-length dark coat, white stockings and buckled shoes",
+          "dac_diem": "The hat is black with a brim folded up into a triangular shape. It sits on a figure seen from behind at the window. The coat is dark brown and flared, with a belt at the waist. The stockings are white and the shoes are dark.",
+          "co_tu_nam": 1690,
+          "da_co_nam_1666": "no",
+          "ly_do": "The fully cocked tricorn became fashionable around the 1680s–1690s. In 1666 men wore wide-brimmed hats, often with the brim only loosely turned up, and the flared knee-length coat also looks later than 1666. This is based on a blurry image, so the hat shape is not certain."
+         },
+         "da_co": "no",
+         "giu": true,
+         "cost_usd": 0.0075066,
+         "loi": null
+        }
+       }
+      ],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A long stone multi-arch bridge crosses the Thames, with a plain deck and no buildings on it.",
+        "ly_do": "In 1666 the only bridge at London was Old London Bridge, which was crowded with houses along its length. A clean stone arch bridge like this one looks like the later Westminster or Blackfriars bridges.",
+        "nam_xuat_hien": 1750,
+        "toa_do_px": [
+         109,
+         238,
+         595,
+         292
+        ],
+        "do_tin": 0.35
+       }
+      ],
+      "cost_usd": 0.059348399999999996,
+      "cost_buoc2": 0.02001,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1413,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0393416,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 335,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 15.0,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Through the window, a tall Gothic clock tower with a pointed spire stands on the skyline. It looks like the Elizabeth Tower (Big Ben) at Westminster.\",\"ly_do\":\"The Elizabeth Tower was built in 1859 as part of the Palace of Westminster rebuild. It did not exist in 1666.\",\"nam_xuat_hien\":1859,\"toa_do\":[0.15,0.09,0.17,0.2],\"do_tin\":0.6},{\"muc\":\"quan_phuc\",\"mo_ta\":\"The man at the window wears a black tricorne hat with a feather trim. He also wears a knee-length flared-skirt coat and white stockings.\",\"ly_do\":\"The tricorne and the flared-skirt coat with stockings are early 18th-century fashion. In 1666 men wore wide-brimmed hats and a doublet or the newly introduced vest and coat.\",\"nam_xuat_hien\":1700,\"toa_do\":[0.3,0.16,0.39,0.54],\"do_tin\":0.55},{\"muc\":\"kien_truc\",\"mo_ta\":\"A long stone multi-arch bridge crosses the Thames, with a plain deck and no buildings on it.\",\"ly_do\":\"In 1666 the only bridge at London was Old London Bridge, which was crowded with houses along its length. A clean stone arch bridge like this one looks like the later Westminster or Blackfriars bridges.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.057,0.22,0.31,0.27],\"do_tin\":0.35}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0593,
+    "chi_phi_tb": 0.0593,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/anim/kiem2/H2-02b-l3-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0268,
+      "usage": {
+       "input_tokens": 10134,
+       "input_tokens_details": {
+        "cache_write_tokens": 10131,
+        "cached_tokens": 0
+       },
+       "output_tokens": 649,
+       "output_tokens_details": {
+        "reasoning_tokens": 416
+       },
+       "total_tokens": 10783
+      }
+     },
+     "secs": 17.3,
+     "mo_ta": "Hai người đàn ông xem bản quy hoạch trải trên bàn trong một căn phòng nhìn ra sông, cầu đá và thành phố đang cháy phía xa.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Đám cháy lớn với lửa và cột khói phủ đường chân trời ngoài cửa sổ; cảnh cháy này đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.143,
+        0.0,
+        0.347,
+        0.177
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu đá nhiều nhịp qua sông ở hậu cảnh, gợi Cầu London cũ trong bối cảnh được chỉ định; không có đủ chi tiết để xác nhận chắc chắn danh tính.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.039,
+        0.192,
+        0.299,
+        0.248
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.7
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Đám cháy lớn với lửa và cột khói phủ đường chân trời ngoài cửa sổ; cảnh cháy này đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.143,
+        0.0,
+        0.347,
+        0.177
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": false,
+    "ket_qua": null,
+    "loi": [
+     "khung H2-02b-l3-360p-k55 năm 1666: [kien_truc] A tall, dark Gothic clock-tower-like spire stands on the skyline across the river. It looks like the Elizabeth Tower (Big Ben) at Westminster. — The Elizabeth Tower was built in 1859. London in 1666 had no such clock tower. The skyline was dominated by old St Paul's with its medieval tower. (xuất hiện 1859) @px [278, 76, 326, 194] tin 0.5"
+    ],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 2 · chi phí $0.046 (TB $0.046/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-02b-l3-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "146198f09c873c183ae868ee09712fc11ae3edbe3b1e2a0702e79443c9d9c93c",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A tall, dark Gothic clock-tower-like spire stands on the skyline across the river. It looks like the Elizabeth Tower (Big Ben) at Westminster.",
+        "ly_do": "The Elizabeth Tower was built in 1859. London in 1666 had no such clock tower. The skyline was dominated by old St Paul's with its medieval tower.",
+        "nam_xuat_hien": 1859,
+        "toa_do_px": [
+         278,
+         76,
+         326,
+         194
+        ],
+        "do_tin": 0.5,
+        "xac_nhan": {
+         "vung_px": [
+          125,
+          0,
+          479,
+          312
+         ],
+         "phong": 1.9,
+         "tra_loi": {
+          "vat": "Một tháp đồng hồ cao có chóp nhọn, trông giống tháp Big Ben (Elizabeth Tower), nằm trong đường chân trời thành phố, phía sau một cây cầu đá nhiều nhịp bắc qua sông. Bên phải có đám cháy và khói.",
+          "dac_diem": "Tháp vuông, cao và hẹp, ở phần trên có một mặt đồng hồ hoặc một khối tối, đỉnh là mái chóp nhọn. Xung quanh có các tháp chuông nhỏ hơn và nhà cửa. Phía trước là cây cầu đá có các vòm tròn, trên sông có thuyền. Bên phải có lửa và khói lớn.",
+          "co_tu_nam": 1859,
+          "da_co_nam_1666": "no",
+          "ly_do": "Tháp này có dáng của tháp đồng hồ Victoria (Big Ben, hoàn thành năm 1859) ở Westminster. Kiểu tháp đó chưa có vào năm 1666, nên đây là một công trình xuất hiện sau thời điểm đó. Các tháp nhà thờ nhỏ hơn thì có thể đã tồn tại."
+         },
+         "da_co": "no",
+         "giu": true,
+         "cost_usd": 0.0082838,
+         "loi": null
+        }
+       }
+      ],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A long, low stone multi-arch bridge crosses the river with no houses on it.",
+        "ly_do": "In 1666 old London Bridge was lined with houses and shops and had a different, narrower look. A plain, wide, open arched bridge is a later style, such as Westminster Bridge (1750) or Blackfriars Bridge (1769).",
+        "nam_xuat_hien": 1750,
+        "toa_do_px": [
+         77,
+         205,
+         768,
+         281
+        ],
+        "do_tin": 0.35
+       },
+       {
+        "muc": "tau",
+        "mo_ta": "A boxy, flat-hulled vessel with a cabin-like superstructure sits on the river. It looks like a steam paddle boat or barge.",
+        "ly_do": "Steam-powered river vessels did not exist in 1666. Boats on the Thames then were sailing vessels, wherries and barges.",
+        "nam_xuat_hien": 1801,
+        "toa_do_px": [
+         384,
+         259,
+         518,
+         313
+        ],
+        "do_tin": 0.25
+       }
+      ],
+      "cost_usd": 0.0462054,
+      "cost_buoc2": 0.00828,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1271,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0379216,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 205,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall, dark Gothic clock-tower-like spire stands on the skyline across the river. It looks like the Elizabeth Tower (Big Ben) at Westminster.\",\"ly_do\":\"The Elizabeth Tower was built in 1859. London in 1666 had no such clock tower. The skyline was dominated by old St Paul's with its medieval tower.\",\"nam_xuat_hien\":1859,\"toa_do\":[0.145,0.07,0.17,0.18],\"do_tin\":0.5},{\"muc\":\"kien_truc\",\"mo_ta\":\"A long, low stone multi-arch bridge crosses the river with no houses on it.\",\"ly_do\":\"In 1666 old London Bridge was lined with houses and shops and had a different, narrower look. A plain, wide, open arched bridge is a later style, such as Westminster Bridge (1750) or Blackfriars Bridge (1769).\",\"nam_xuat_hien\":1750,\"toa_do\":[0.04,0.19,0.4,0.26],\"do_tin\":0.35},{\"muc\":\"tau\",\"mo_ta\":\"A boxy, flat-hulled vessel with a cabin-like superstructure sits on the river. It looks like a steam paddle boat or barge.\",\"ly_do\":\"Steam-powered river vessels did not exist in 1666. Boats on the Thames then were sailing vessels, wherries and barges.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.2,0.24,0.27,0.29],\"do_tin\":0.25}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0462,
+    "chi_phi_tb": 0.0462,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/anim/kiem2/H2-02b-l3-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0263,
+      "usage": {
+       "input_tokens": 10128,
+       "input_tokens_details": {
+        "cache_write_tokens": 10125,
+        "cached_tokens": 0
+       },
+       "output_tokens": 605,
+       "output_tokens_details": {
+        "reasoning_tokens": 199
+       },
+       "total_tokens": 10733
+      }
+     },
+     "secs": 14.0,
+     "mo_ta": "Hai người đàn ông xem bản quy hoạch trải trên bàn trong một căn phòng, phía sau có những người đứng bên cửa sổ nhìn ra sông, cầu và thành phố đang cháy.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu nhiều nhịp vòm qua sông, được thể hiện như London Bridge trong bối cảnh London.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.023,
+        0.143,
+        0.287,
+        0.208
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.76
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Đám cháy lớn với lửa và cột khói phủ lên khu nhà bên kia sông; đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.181,
+        0.0,
+        0.346,
+        0.133
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "Mũ có dáng ba góc của người đứng giữa cửa sổ; kiểu tricorn là chi tiết giáp ranh đối với năm 1666, phổ biến từ khoảng thập niên 1690, nhưng đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.295,
+        0.072,
+        0.366,
+        0.118
+       ],
+       "nam_xuat_hien": 1690,
+       "do_tin": 0.77
+      }
+     ],
+     "loi": [
+      {
+       "loai": "thoi_dai",
+       "mo_ta": "Mũ có dáng ba góc của người đứng giữa cửa sổ; kiểu tricorn là chi tiết giáp ranh đối với năm 1666, phổ biến từ khoảng thập niên 1690, nhưng đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.295,
+        0.072,
+        0.366,
+        0.118
+       ],
+       "nam_xuat_hien": 1690,
+       "do_tin": 0.77
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Đám cháy lớn với lửa và cột khói phủ lên khu nhà bên kia sông; đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.181,
+        0.0,
+        0.346,
+        0.133
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": false,
+    "ket_qua": null,
+    "loi": [
+     "khung H2-02b-l3-360p-k90 năm 1666: [quan_phuc] The man at the window wears a black tricorne hat. The men's coats have knee-length flared skirts, and they wear white stockings. — Tricorne hats and this style of pleated coat skirt became fashionable around 1680 to 1700 and later. In 1666 men wore wide-brimmed, high-crowned hats and a different coat cut. (xuất hiện 1690) @px [557, 76, 730, 216] tin 0.5"
+    ],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.050 (TB $0.050/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-02b-l3-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "40fe17d19cd79c7cf3ecadcb12ed5f1a860c80d127b18fc52ddec8a4b02e288b",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The man at the window wears a black tricorne hat. The men's coats have knee-length flared skirts, and they wear white stockings.",
+        "ly_do": "Tricorne hats and this style of pleated coat skirt became fashionable around 1680 to 1700 and later. In 1666 men wore wide-brimmed, high-crowned hats and a different coat cut.",
+        "nam_xuat_hien": 1690,
+        "toa_do_px": [
+         557,
+         76,
+         730,
+         216
+        ],
+        "do_tin": 0.5,
+        "xac_nhan": {
+         "vung_px": [
+          384,
+          0,
+          903,
+          405
+         ],
+         "phong": 1.29,
+         "tra_loi": {
+          "vat": "A man's dark hat with the brim turned up, seen from behind. It looks like an early tricorne or cocked hat.",
+          "dac_diem": "The hat is black or dark with a brim folded up at the sides and back, which gives a triangular, cocked outline. There is pale feather or lace trim along the edge. The man wears a dark reddish-brown knee-length coat with a flared skirt and light cuffs. He is looking out a window at a fire across the river.",
+          "co_tu_nam": 1685,
+          "da_co_nam_1666": "no",
+          "ly_do": "The cocked or tricorne hat became fashionable in the 1680s and 1690s. In 1666 men wore wide-brimmed, uncocked hats, often with feathers, so this shape is probably an anachronism. The blur makes the exact hat shape uncertain."
+         },
+         "da_co": "no",
+         "giu": true,
+         "cost_usd": 0.007694,
+         "loi": null
+        }
+       }
+      ],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A tall clock tower with a pointed spire stands on the skyline. It looks like the Elizabeth Tower (Big Ben) at Westminster. A long multi-arched stone bridge crosses the river in the background.",
+        "ly_do": "The Elizabeth Tower and the Palace of Westminster clock tower were built in the 1840s and 1850s. In 1666 London Bridge was a medieval bridge lined with houses, and no other multi-arched stone bridge crossed the Thames in London.",
+        "nam_xuat_hien": 1859,
+        "toa_do_px": [
+         269,
+         22,
+         576,
+         151
+        ],
+        "do_tin": 0.55,
+        "xac_nhan": {
+         "vung_px": [
+          0,
+          0,
+          883,
+          547
+         ],
+         "phong": 0.76,
+         "tra_loi": {
+          "vat": "Cảnh nhìn qua cửa sổ ra thành phố London đang cháy, với một cây cầu đá nhiều nhịp vòm bắc qua sông Thames",
+          "dac_diem": "Một cây cầu dài có nhiều nhịp vòm tròn bắc qua sông. Ở xa có lửa và khói lớn bốc lên từ các tòa nhà. Có các tháp chuông nhà thờ nhọn và một tháp nhỏ gần bờ nước. Thuyền nhỏ đậu trên sông. Hai người mặc áo dài thế kỷ 17 và một người đội mũ rộng vành đứng ở phía trước cạnh khung cửa sổ. Ảnh mờ nên không thấy được chi tiết nhỏ.",
+          "co_tu_nam": null,
+          "da_co_nam_1666": "yes",
+          "ly_do": "Cầu nhiều vòm bắc qua sông, các tháp nhà thờ và cảnh cháy đều phù hợp với London năm 1666 (Đại hỏa hoạn). Tôi không thấy công trình nào xây sau năm 1666."
+         },
+         "da_co": "yes",
+         "giu": false,
+         "cost_usd": 0.0076338,
+         "loi": null
+        },
+        "ly_do_ha": "phóng to 0.76×: da_co_nam = 'yes' — không xác nhận"
+       }
+      ],
+      "cost_usd": 0.0501094,
+      "cost_buoc2": 0.01533,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 957,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.034781599999999996,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall clock tower with a pointed spire stands on the skyline. It looks like the Elizabeth Tower (Big Ben) at Westminster. A long multi-arched stone bridge crosses the river in the background.\",\"ly_do\":\"The Elizabeth Tower and the Palace of Westminster clock tower were built in the 1840s and 1850s. In 1666 London Bridge was a medieval bridge lined with houses, and no other multi-arched stone bridge crossed the Thames in London.\",\"nam_xuat_hien\":1859,\"toa_do\":[0.14,0.02,0.3,0.14],\"do_tin\":0.55},{\"muc\":\"quan_phuc\",\"mo_ta\":\"The man at the window wears a black tricorne hat. The men's coats have knee-length flared skirts, and they wear white stockings.\",\"ly_do\":\"Tricorne hats and this style of pleated coat skirt became fashionable around 1680 to 1700 and later. In 1666 men wore wide-brimmed, high-crowned hats and a different coat cut.\",\"nam_xuat_hien\":1690,\"toa_do\":[0.29,0.07,0.38,0.2],\"do_tin\":0.5}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0501,
+    "chi_phi_tb": 0.0501,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 1,
+  "q_thoi_dai_nghi_van": 4,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 3,
+  "ket_qua": "LOẠI",
+  "chi_tiet": [
+   {
+    "u": 0.9,
+    "mo_hinh": "gpt",
+    "loai": "thoi_dai",
+    "mo_ta": "Mũ có dáng ba góc của người đứng giữa cửa sổ; kiểu tricorn là chi tiết giáp ranh đối với năm 1666, phổ biến từ khoảng thập niên 1690, nhưng đã có trong ảnh tham chiếu.",
+    "nam": 1690
+   },
+   {
+    "u": 0.25,
+    "mo_hinh": "q_thoi_dai",
+    "mo_ta": "{\"muc\": \"kien_truc\", \"mo_ta\": \"Through the window, a tall Gothic clock tower with a pointed spire stands on the skyline. It looks like the Elizabeth Tower (Big Ben) at Westminster.\", \"ly_do\": \"The Eli"
+   },
+   {
+    "u": 0.25,
+    "mo_hinh": "q_thoi_dai",
+    "mo_ta": "{\"muc\": \"quan_phuc\", \"mo_ta\": \"The man at the window wears a black tricorne hat with a feather trim. He also wears a knee-length flared-skirt coat and white stockings.\", \"ly_do\": \"The tricorne and the"
+   },
+   {
+    "u": 0.55,
+    "mo_hinh": "q_thoi_dai",
+    "mo_ta": "{\"muc\": \"kien_truc\", \"mo_ta\": \"A tall, dark Gothic clock-tower-like spire stands on the skyline across the river. It looks like the Elizabeth Tower (Big Ben) at Westminster.\", \"ly_do\": \"The Elizabeth "
+   },
+   {
+    "u": 0.9,
+    "mo_hinh": "q_thoi_dai",
+    "mo_ta": "{\"muc\": \"quan_phuc\", \"mo_ta\": \"The man at the window wears a black tricorne hat. The men's coats have knee-length flared skirts, and they wear white stockings.\", \"ly_do\": \"Tricorne hats and this style"
+   }
+  ]
+ }
+}

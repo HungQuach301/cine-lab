@@ -3483,10 +3483,10 @@
    "chuong": "HỒI 2",
    "nhom_loi": "H2-06",
    "bat_dau_s": 400.999,
-   "giay": 11.2917,
+   "giay": 17.2917,
    "t0": 400.999,
-   "t1": 412.2907,
-   "dur": 11.2917,
+   "t1": 418.2907,
+   "dur": 17.2917,
    "cau_loi": [
     "Near the bakery, Wren and Hooke raise a column: the Monument.",
     "Two hundred and two feet high — exactly the distance to the spot in Pudding Lane where the fire began.",
@@ -3522,7 +3522,7 @@
    ],
    "vai": "Monument mọc; 202 ft = khoảng cách tới lò bánh",
    "lop": {
-    "A": 11.2917,
+    "A": 17.2917,
     "THE": 2.5,
     "KHAC": 3
    },
@@ -3537,7 +3537,7 @@
    ],
    "them": {
     "khac": "rijks-monument-0",
-    "vong_deg": 22,
+    "vong_deg": 26,
     "tam": [
      532923,
      180761,
@@ -3555,53 +3555,13 @@
      532923,
      180761,
      30
-    ]
+    ],
+    "dung_sua": "M-d H2-06b (DN09 đá Portland) TRƯỢT 3/3 ở ảnh đầu (mái vòm St Paul's năm 1675 — lỗi thời đại) → 3D VONG cả nhóm"
    },
    "trang": "look2",
    "nguon_v2": "H2-06",
    "loi_bd_s": 401.2,
-   "loi": "L46 + N9 (nhóm H2-06: H2-06, H2-06b)"
-  },
-  {
-   "ma": "H2-06b",
-   "phan": "HỒI 2",
-   "chuong": "HỒI 2",
-   "nhom_loi": "H2-06",
-   "bat_dau_s": 412.2907,
-   "giay": 6.0,
-   "t0": 412.2907,
-   "t1": 418.2907,
-   "dur": 6.0,
-   "cau_loi": [],
-   "diem_may": "—",
-   "may": null,
-   "cu_may": "MD",
-   "loai_may": "MD",
-   "thoi_gian": null,
-   "vai": "M-d (32) DN09 tời gỗ nâng khối đá Portland lên cột đang xây (lời N9)",
-   "lop": {
-    "MD": 6.0
-   },
-   "goc": "md",
-   "tl": false,
-   "minh_hoa": true,
-   "ai_nen": false,
-   "tieu_diem_en": null,
-   "them": {
-    "md": 32,
-    "md_clip": null,
-    "nhan_vat_ten": [],
-    "muc_kiem": "day_du"
-   },
-   "trang": null,
-   "nguon_v2": null,
-   "loi_bd_s": null,
-   "md_moc": 32,
-   "md_ten": "đá Portland lên Monument (DN09)",
-   "nhan_vat_ten": [],
-   "muc_kiem": "day_du",
-   "md_clip": null,
-   "loi": "L46 + N9 (nhóm H2-06: H2-06, H2-06b)"
+   "loi": "L46 + N9"
   },
   {
    "ma": "H2-07",
@@ -3718,59 +3678,18 @@
    "loi": "L48"
   },
   {
-   "ma": "H2-09x",
-   "phan": "HỒI 2",
-   "chuong": "HỒI 2",
-   "nhom_loi": "H2-09",
-   "bat_dau_s": 431.9154,
-   "giay": 6.0,
-   "t0": 431.9154,
-   "t1": 437.9154,
-   "dur": 6.0,
-   "cau_loi": [
-    "And on Ludgate Hill, where Old St Paul's stood, work starts in 1675 on a new cathedral."
-   ],
-   "diem_may": "—",
-   "may": null,
-   "cu_may": "MD",
-   "loai_may": "MD",
-   "thoi_gian": null,
-   "vai": "M-d (33) DN08 1675: thợ đá hạ khối đá đầu tiên trên đồi Ludgate cạnh tàn tích nhà thờ cũ",
-   "lop": {
-    "MD": 6.0
-   },
-   "goc": "md",
-   "tl": false,
-   "minh_hoa": true,
-   "ai_nen": false,
-   "tieu_diem_en": null,
-   "them": {
-    "md": 33,
-    "md_clip": null,
-    "nhan_vat_ten": [],
-    "muc_kiem": "day_du"
-   },
-   "trang": null,
-   "nguon_v2": null,
-   "loi_bd_s": 432.1167,
-   "md_moc": 33,
-   "md_ten": "viên đá đầu tiên 1675 (DN08)",
-   "nhan_vat_ten": [],
-   "muc_kiem": "day_du",
-   "md_clip": null,
-   "loi": "L49 (nhóm H2-09: H2-09x, H2-09)"
-  },
-  {
    "ma": "H2-09",
    "phan": "HỒI 2",
    "chuong": "HỒI 2",
    "nhom_loi": "H2-09",
-   "bat_dau_s": 437.9154,
-   "giay": 4.0,
-   "t0": 437.9154,
+   "bat_dau_s": 431.9154,
+   "giay": 10.0,
+   "t0": 431.9154,
    "t1": 441.9154,
-   "dur": 4.0,
-   "cau_loi": [],
+   "dur": 10.0,
+   "cau_loi": [
+    "And on Ludgate Hill, where Old St Paul's stood, work starts in 1675 on a new cathedral."
+   ],
    "diem_may": "P1",
    "may": {
     "ten": "BANKSIDE-CAO (xương sống; CHON-V2 + V5 fov 36°)",
@@ -3801,7 +3720,7 @@
    ],
    "vai": "P1: St Paul's mới mọc từ nền Old St Paul's",
    "lop": {
-    "A": 4.0
+    "A": 10.0
    },
    "goc": "cao",
    "tl": true,
@@ -3817,12 +3736,13 @@
      532118,
      181150,
      111
-    ]
+    ],
+    "dung_sua": "M-d H2-09x (DN08 viên đá đầu tiên 1675) TRƯỢT 3/3 (tay/người biến dạng — Flash) → 3D P1 cả nhóm"
    },
    "trang": "look2",
    "nguon_v2": "H2-09",
-   "loi_bd_s": null,
-   "loi": "L49 (nhóm H2-09: H2-09x, H2-09)"
+   "loi_bd_s": 432.1167,
+   "loi": "L49"
   },
   {
    "ma": "H2-10b",
@@ -6001,24 +5921,18 @@
    ],
    "vai": "P1: khoảng trống lấp dần; cụm toà cao phía đông mọc (thế kỷ này)",
    "lop": {
-    "A": 10.417,
-    "N2P": 6.0
+    "A": 10.417
    },
    "goc": "cao",
    "tl": true,
    "minh_hoa": false,
-   "ai_nen": true,
+   "ai_nen": false,
    "tieu_diem_en": [
     533150,
     181150,
     120
    ],
    "them": {
-    "tam_nen": [
-     4.417,
-     10.417
-    ],
-    "tam_nen_tu": "M01",
     "nam": [
      [
       0,
@@ -6037,7 +5951,8 @@
      533150,
      181150,
      120
-    ]
+    ],
+    "dung_sua": "bỏ tấm nền P1-2026 (C6 xoay P1 4° → tấm AI cũ lệch khung; không làm tấm mới vòng này)"
    },
    "trang": "look2",
    "nguon_v2": "H5-04",
@@ -6576,36 +6491,36 @@
  ],
  "tong": {
   "thoi_luong_s": 770.875,
-  "so_shot": 107,
-  "shot_tb_s": 7.2,
+  "so_shot": 105,
+  "shot_tb_s": 7.34,
   "lop_s": {
-   "A": 478.749,
-   "MD": 241.624,
+   "A": 490.749,
+   "MD": 229.624,
    "KHAC": 25.0,
    "THE": 44.0,
    "MAP": 9.958,
    "MAP3D": 23.5,
    "TL": 8,
    "THAT": 20.5,
-   "N2P": 12.0,
+   "N2P": 6.0,
    "PP": 16.0
   },
   "lop_pct": {
-   "A": 62.1,
-   "MD": 31.34,
+   "A": 63.66,
+   "MD": 29.79,
    "KHAC": 3.24,
    "THE": 5.71,
    "MAP": 1.29,
    "MAP3D": 3.05,
    "TL": 1.04,
    "THAT": 2.66,
-   "N2P": 1.56,
+   "N2P": 0.78,
    "PP": 2.08
   },
   "than_phim_s": 754.875,
-  "MD_pct": 31.34,
-  "N2P_pct": 1.56,
-  "AI_pct": 32.9,
+  "MD_pct": 29.79,
+  "N2P_pct": 0.78,
+  "AI_pct": 30.57,
   "MAP_ALL_pct": 4.34,
   "TL_KHAC_THE_pct": 9.99,
   "TL_KHAC_THE_THAT_pct": 12.65,
@@ -6613,15 +6528,15 @@
   "TL_toan_khung_s": 25.5,
   "look2d_s": 18.333,
   "THAP_pct": 5.97,
-  "goc_cao_s": 438.249,
-  "goc_cao_than_phim_pct": 58.06,
-  "md_clip": 40,
-  "md_moi": 22,
-  "md_moi_s": 131.25,
+  "goc_cao_s": 450.249,
+  "goc_cao_than_phim_pct": 59.65,
+  "md_clip": 38,
+  "md_moi": 20,
+  "md_moi_s": 119.25,
   "goc_cao_chuong_pct": {
    "MÓC": 100.0,
    "HỒI 1": 43.13,
-   "HỒI 2": 47.56,
+   "HỒI 2": 54.54,
    "HỒI 3": 69.6,
    "HỒI 4": 58.03,
    "HỒI 5": 74.68
@@ -6648,7 +6563,7 @@
   },
   {
    "chi_so": "Góc cao / thân phim % (gói 50 %: ≥ 50)",
-   "gia_tri": 58.06,
+   "gia_tri": 59.65,
    "tran": null,
    "san": 50,
    "dat": true,
@@ -6657,7 +6572,7 @@
   },
   {
    "chi_so": "Mục tiêu cảnh báo TL-1: góc cao ≥ 60 % (chốt 5, không chặn)",
-   "gia_tri": 58.06,
+   "gia_tri": 59.65,
    "tran": null,
    "san": 60,
    "dat": false,
@@ -6665,13 +6580,13 @@
    "ghi": "chỉ cảnh báo (gói 50 %)"
   },
   {
-   "chi_so": "Omni % (≈ 30–35)",
-   "gia_tri": 31.34,
+   "chi_so": "Omni % (≈ 30–35, mục tiêu gần đúng)",
+   "gia_tri": 29.79,
    "tran": 35,
    "san": 30,
    "dat": true,
    "trong_5pct": true,
-   "ghi": ""
+   "ghi": "≈: đạt khi trong ±5 % quanh dải; dưới 30 vì 2 clip trượt 3/3 về 3D (H2-06b, H2-09x) — không thêm clip chỉ để vượt ngưỡng"
   },
   {
    "chi_so": "TL + KHAC + THE + THAT % (≤ 20, chủ dự án duyệt — chờ K-1.17.7)",
@@ -6693,7 +6608,7 @@
   },
   {
    "chi_so": "Tổng AI % (≤ 70)",
-   "gia_tri": 32.9,
+   "gia_tri": 30.57,
    "tran": 70,
    "san": null,
    "dat": true,
@@ -6864,7 +6779,7 @@
   },
   {
    "chi_so": "Chốt 4 HỒI 2: góc cao ≥ 40 %",
-   "gia_tri": 47.56,
+   "gia_tri": 54.54,
    "tran": null,
    "san": 40,
    "dat": true,

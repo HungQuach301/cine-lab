@@ -1,0 +1,371 @@
+{
+ "tag": "H1-14-l1-360p",
+ "clip": "/var/tmp/anim/omni3/H1-14/H1-14-l1-360p.mp4",
+ "clip_sha": "ace4e6afb96a0a52d0c95ef6b9bb6ad70e37732330d6da81266029d11672df04",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic2/omni/dau/H1-14-dau.jpg",
+ "dau_sha": "bcc9f9b19ff7834a246a99ba0e0be68b9d03ddcf123cc3875731c064adfe1220",
+ "nam": "1666",
+ "canh": "the roof of Old St Paul's collapsing and molten lead running in the street, night of 4 September 1666",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/anim/kiem2/H1-14-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0223,
+      "usage": {
+       "input_tokens": 10131,
+       "input_tokens_details": {
+        "cache_write_tokens": 10128,
+        "cached_tokens": 0
+       },
+       "output_tokens": 208,
+       "output_tokens_details": {
+        "reasoning_tokens": 82
+       },
+       "total_tokens": 10339
+      }
+     },
+     "secs": 7.0,
+     "mo_ta": "A burning Gothic cathedral fills the right side of a night-time London street, with collapsing roof timbers, flying embers and glowing molten material flowing onto the cobbles.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Old St Paul's Cathedral, depicted with Gothic windows, pinnacles and a burning, collapsing roof.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.228,
+        0.0,
+        1.0,
+        0.885
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-14-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "f4292318e114f44c983a8253622c6dd4fc6b269a7fcd5087da6538d5ec7fda5d",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A large Gothic stone church with slender pinnacles, crisp window tracery, a battlemented parapet and low iron railings. It looks like a Gothic Revival building. It does not look like Old St Paul's, which had Inigo Jones's classical west portico and a tower with no spire.",
+        "ly_do": "The style is only loosely right for a pre-fire London church. The tidy, Victorian-looking tracery and railings may be stylised rather than period-accurate. This is a weak suspicion and nothing in the frame is clearly post-1666.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1056,
+         0,
+         1920,
+         864
+        ],
+        "do_tin": 0.12
+       }
+      ],
+      "cost_usd": 0.036129400000000006,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 933,
+        "cacheReadInputTokens": 2174,
+        "cacheCreationInputTokens": 10628,
+        "webSearchRequests": 0,
+        "costUSD": 0.036129400000000006,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 157,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.0,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A large Gothic stone church with slender pinnacles, crisp window tracery, a battlemented parapet and low iron railings. It looks like a Gothic Revival building. It does not look like Old St Paul's, which had Inigo Jones's classical west portico and a tower with no spire.\",\"ly_do\":\"The style is only loosely right for a pre-fire London church. The tidy, Victorian-looking tracery and railings may be stylised rather than period-accurate. This is a weak suspicion and nothing in the frame is clearly post-1666.\",\"nam_xuat_hien\":null,\"toa_do\":[0.55,0.0,1.0,0.8],\"do_tin\":0.12}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0361,
+    "chi_phi_tb": 0.0361,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/anim/kiem2/H1-14-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0235,
+      "usage": {
+       "input_tokens": 10149,
+       "input_tokens_details": {
+        "cache_write_tokens": 10146,
+        "cached_tokens": 0
+       },
+       "output_tokens": 325,
+       "output_tokens_details": {
+        "reasoning_tokens": 102
+       },
+       "total_tokens": 10474
+      }
+     },
+     "secs": 8.0,
+     "mo_ta": "Khung hình cho thấy nhà thờ Old St Paul's đang cháy, mái sụp và những dòng vật chất nóng sáng chảy xuống con đường lát đá.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ Old St Paul's với tường đá, cửa sổ Gothic và mái đang cháy sụp.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.207,
+        0.0,
+        1.0,
+        0.746
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dải lửa bùng cao kèm các đám khói ngay giữa mặt đường được thêm vào; REFERENCE chỉ có những dòng nóng sáng thấp trên mặt đường tại vùng này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.122,
+        0.558,
+        0.567,
+        0.792
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Dải lửa bùng cao kèm các đám khói ngay giữa mặt đường được thêm vào; REFERENCE chỉ có những dòng nóng sáng thấp trên mặt đường tại vùng này.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.122,
+        0.558,
+        0.567,
+        0.792
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-14-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "d36aa68b20ab3b998ea5a9b733dc41d0eaac890d7d4717469188b1352dd087c5",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0314354,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 628,
+        "cacheReadInputTokens": 2859,
+        "cacheCreationInputTokens": 9943,
+        "webSearchRequests": 0,
+        "costUSD": 0.0314354,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 92,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0314,
+    "chi_phi_tb": 0.0314,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/anim/kiem2/H1-14-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0233,
+      "usage": {
+       "input_tokens": 10137,
+       "input_tokens_details": {
+        "cache_write_tokens": 10134,
+        "cached_tokens": 0
+       },
+       "output_tokens": 303,
+       "output_tokens_details": {
+        "reasoning_tokens": 75
+       },
+       "total_tokens": 10440
+      }
+     },
+     "secs": 7.8,
+     "mo_ta": "Khung hình cho thấy nhà thờ Old St Paul’s đang cháy, những dòng chì nóng chảy đổ xuống đường lát đá và khói dày bốc lên giữa phố.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ Old St Paul’s với tường đá, cửa sổ Gothic và mái đang cháy sụp.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.211,
+        0.0,
+        1.0,
+        0.62
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Các cụm khói dày bốc lên ngay giữa mặt đường, phía trước nhà thờ; không thấy nguồn khói tại vị trí tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.239,
+        0.184,
+        0.491,
+        0.574
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Các cụm khói dày bốc lên ngay giữa mặt đường, phía trước nhà thờ; không thấy nguồn khói tại vị trí tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.239,
+        0.184,
+        0.491,
+        0.574
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-14-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "dfab44b354ff20e48bef92f4151521b384accb97bae7726d5155aed9bb8dc01d",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Street has a raised dressed-stone kerb and flagstone pavement edge beside the cobbles. The cobbles are laid in neat, regular rows.",
+        "ly_do": "London streets in 1666 usually had no raised kerbed footways. They had rough cobbles with a central gutter, and kerbed pavements became common in the 18th century. The finding is low confidence.",
+        "nam_xuat_hien": 1700,
+        "toa_do_px": [
+         1440,
+         670,
+         1920,
+         918
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.0334854,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 833,
+        "cacheReadInputTokens": 2859,
+        "cacheCreationInputTokens": 9943,
+        "webSearchRequests": 0,
+        "costUSD": 0.0334854,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 112,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Street has a raised dressed-stone kerb and flagstone pavement edge beside the cobbles. The cobbles are laid in neat, regular rows.\",\"ly_do\":\"London streets in 1666 usually had no raised kerbed footways. They had rough cobbles with a central gutter, and kerbed pavements became common in the 18th century. The finding is low confidence.\",\"nam_xuat_hien\":1700,\"toa_do\":[0.75,0.62,1.0,0.85],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0335,
+    "chi_phi_tb": 0.0335,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

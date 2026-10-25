@@ -4,12 +4,13 @@ Ngân sách T4 (chủ dự án 23/10/2026 23:45; lệnh ANIMATIC-T4): $35, mốc
 Chặn: tổng T4 + dự phòng lượt > $35 → từ chối; HTTP 402 / hết hạn mức → ghi DUNG-GEMINI, từ chối mọi lệnh sau; cùng lỗi ≥ 3 lần liên tiếp → dừng.
 Giá (https://ai.google.dev/gemini-api/docs/pricing, tải 24/10/2026, SHA d80f45c5…): Omni vào $1,50/1M, ra video $17,50/1M, chữ/suy nghĩ $9,00/1M;
 gemini-3.8-flash vào $0,75/1M, ra $3,75/1M (tới 31/12/2026). Khoá do proxy gắn — mã KHÔNG đọc/đặt/in khoá; UA nghiên cứu, không email."""
-import datetime, hashlib, json, sys, time, urllib.error, urllib.request
+import datetime, hashlib, json, os, sys, time, urllib.error, urllib.request
 from pathlib import Path
-REPO = Path(__file__).resolve().parents[3]; D = REPO / 'reports/animatic-t4'; SO = D / 'so-ai-gemini.jsonl'; STOP = D / 'DUNG-GEMINI'
-TRUOC = [REPO / 'reports/tien-ky-t4/so-ai-gemini.jsonl', REPO / 'reports/look-t4-v2/so-ai.jsonl']
+REPO = Path(__file__).resolve().parents[3]; D = REPO / os.environ.get('GEM_DIR', 'reports/animatic-t4'); SO = D / 'so-ai-gemini.jsonl'; STOP = D / 'DUNG-GEMINI'
+TRUOC = [REPO / 'reports/tien-ky-t4/so-ai-gemini.jsonl', REPO / 'reports/look-t4-v2/so-ai.jsonl'] + [REPO / x for x in os.environ.get('GEM_TRUOC_THEM', '').split(',') if x]
+# ANIMATIC-T4-V2: GEM_DIR=reports/animatic-t4-v2, GEM_TRUOC_THEM=reports/animatic-t4/so-ai-gemini.jsonl, ngân sách T4 TỔNG $55 (chặn), mốc $50 (chủ dự án 25/10/2026 09:15, P10)
 API = 'https://generativelanguage.googleapis.com/v1beta'; UA = 'CineLab-research (+https://github.com/HungQuach301/cine-lab)'
-NGAN_SACH, MOC = 35.0, 30.0
+NGAN_SACH, MOC = float(os.environ.get('GEM_NGAN_SACH', 35.0)), float(os.environ.get('GEM_MOC', 30.0))
 GIA = {'gemini-omni-1.1-flash': (1.50e-6, 9.00e-6, 17.50e-6), 'gemini-3.8-flash': (0.75e-6, 3.75e-6, 0)}
 
 

@@ -1,0 +1,53 @@
+{
+ "tag": "H2-10b-a2",
+ "tang": 1,
+ "moc_hoi": "must show: top of St Paul's lantern; no modern building below",
+ "moc_co_mat": true,
+ "cong_trinh_chua_ton_tai": [
+  "Cầu đá Westminster / Blackfriars (hoặc cầu vòm đá không có nhà bắc qua sông Thames)"
+ ],
+ "model": "gemini-3.8-flash",
+ "nam": 1708.0,
+ "canh": "the last stone set on top of the lantern of St Paul's Cathedral, October 1708",
+ "loi_cau": "The last stone of the lantern is set in 1708 — by Wren's son, Christopher. In 1711, Parliament declares St Paul's complete — three hundred and sixty-five feet, to the top of the cross.",
+ "mo_ta": "Cảnh hai người thợ đang đặt phiến đá cuối cùng trên đỉnh đèn lồng của Nhà thờ chính tòa Thánh Phaolô nhìn bao quát thành phố Luân Đôn năm 1708.",
+ "muc": [
+  {
+   "anh": 1,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Cây cầu đá nhiều nhịp không có nhà ở hậu cảnh bắc qua sông Thames; vào năm 1708 chỉ có duy nhất Cầu Luân Đôn cũ (với các dãy nhà san sát trên mặt cầu), còn Cầu Westminster mãi đến năm 1750 mới hoàn thành.",
+   "nam_xuat_hien": 1750,
+   "do_tin": 0.95
+  },
+  {
+   "anh": 1,
+   "loai": "tau_lon",
+   "mo_ta": "Các thuyền buồm lớn có cột buồm cao di chuyển trên đoạn sông Thames này, trong khi thực tế Cầu Luân Đôn cũ ngăn tàu buồm lớn đi ngược dòng về phía tây St Paul's.",
+   "nam_xuat_hien": null,
+   "do_tin": 0.85
+  }
+ ],
+ "loi": [
+  {
+   "anh": 1,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Cây cầu đá nhiều nhịp không có nhà ở hậu cảnh bắc qua sông Thames; vào năm 1708 chỉ có duy nhất Cầu Luân Đôn cũ (với các dãy nhà san sát trên mặt cầu), còn Cầu Westminster mãi đến năm 1750 mới hoàn thành.",
+   "nam_xuat_hien": 1750,
+   "do_tin": 0.95
+  },
+  {
+   "anh": 1,
+   "loai": "tau_lon",
+   "mo_ta": "Các thuyền buồm lớn có cột buồm cao di chuyển trên đoạn sông Thames này, trong khi thực tế Cầu Luân Đôn cũ ngăn tàu buồm lớn đi ngược dòng về phía tây St Paul's.",
+   "nam_xuat_hien": null,
+   "do_tin": 0.85
+  },
+  {
+   "loai": "cong_trinh_sai",
+   "mo_ta": "chưa tồn tại: Cầu đá Westminster / Blackfriars (hoặc cầu vòm đá không có nhà bắc qua sông Thames)",
+   "do_tin": 1.0
+  }
+ ],
+ "ket_luan": "LOẠI",
+ "usd": 0.01286
+}
