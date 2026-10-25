@@ -89,3 +89,31 @@
 | BIEN-CO-V | Hiệu chuẩn lại BIEN-CO-V trên animatic T4 (log máy thật) | K1174-D2 | G2 T4 |
 | V1-1666 | Mở tấm nền cho cảnh 1666 ban ngày sau khi luật đo đã có (V1 hiện giữ: chỉ 2026 ban ngày) | Kinh thánh §15 (d) cập nhật 24/10 | tấm nền 1666 |
 | Đ5 | Quyền giọng G1 cho bản phát hành (chờ thư ElevenLabs) | RIGHTS P1910-G1 | phát hành T4 |
+
+## F. Cập nhật 25/10/2026 sau ANIMATIC-T4, THU-B-T4, K-1.17.6 (P-2510 ghi)
+
+**Đã quyết** (nguyên văn + nghĩa: `AUTHORSHIP.md`, các dòng P-2510):
+
+| # | Quyết định | Khi nào (Asia/Saigon) | Áp ở |
+|---|---|---|---|
+| (giờ) | tin "Duyệt K1175-D1…D7 theo khuyến nghị và lưu master giọng T4 vào LFS" lúc 24/10 11:52 | lệnh P-2510 | AUTHORSHIP dòng bổ sung |
+| V1-1666 | A — mở tấm nền 1666 ban ngày ở bản cuối, chỉ tấm qua 1.17.6; trượt → 3D (dòng "còn treo" V1-1666 mục E: **đã quyết**) | 24/10 12:29 | Kinh thánh §15 (d) cập nhật P-2510 (1) |
+| Hollar | met-360649-0 = SAU cháy, -1 = TRƯỚC cháy; ghi công "published 1666" | 24/10 12:48 (lệnh bổ sung ANIMATIC-T4) | animatic H1-03, H2-12; Kinh thánh §19 (c) (4); RIGHTS T4-AN-HOLLAR-0/1 |
+| Tư liệu | trần T4 15 %; tư liệu chỉ chồng shot 3D, không chồng/ghép liền Omni, ≤ 10 s/lần; 5 vị trí; Ogilby D13 | 24/10 12:52 | Kinh thánh §19 (c) ngoại lệ T4; RULES-LL 1.17.6 TU-LIEU-10/OMNI |
+| THU-B | B1 V2; B2, B3 B chiếu; D1, D2 D 3D; T1 tỉ số bóng (máy cố định) / chiếu 3D (máy di chuyển); T2 B chỉ ≥ 4 px/m; T3 D 3D không vân nướng; T4 nâng vật liệu 3D toà 2026 có tên (dòng "còn treo" THU-B-T4 mục E: **đã quyết phần chủ dự án**) | 24/10 15:25 | Kinh thánh §14.7 LOOK-T4-8, §15 (j) cập nhật P-2510 |
+| K1176-D1…D6 | D1 A (duyệt 1.17.6); D2 A (KN-4 chỉ (w) + soi hộp (w)); D3 A, tạm B; D4 A; D5 A (sàn Y 0,01 cho (d)); D6 A (sàn Y nhấp nháy ở phiên K đo lại) | 24/10 17:54 | RULES-LL 1.17.6 (LOCK `513c9442…`); Kinh thánh §15 (j), §19 (c) |
+| XEM CÂM T4 | chủ dự án 8/8 ("có thể hiểu được cả 8") | 25/10 06:56 | Kinh thánh §13.4 bổ sung |
+| C1–C14, F1–F5 | theo khuyến nghị điều phối ("đồng ý với những nhận định của bạn"): C1 a · C2 a · C3 a · C4 giữ · C5 a · C6 b · C7 a · C8 a · C9 a · C10 = H1-18 · C11 a · C12 a · C13 → K · C14 a · F1–F5 | 25/10 06:56 | bản cuối T4 / ANIMATIC-T4-V2; Kinh thánh §14.7 LOOK-T4-9 (C6) |
+| Nhận xét 1–4 | 10 s đầu đứng/xấu + khoảnh khắc đứng; thiếu điểm nhấn sự kiện/nhân vật/công trình; nới Gemini + cận/trung; thêm ảnh/footage thật | 25/10 06:56 | NC-T4 (N4); Kinh thánh §15 (d) (4), §19 (c) footage |
+| N1–N6 | N1 Gemini T4 $55 / mốc $45 · N2 giữ góc cao ≥ 60 % · N3 T4 ≤ 13:00 · N4 mở NC-T4 · N5 footage miễn phí giấy phép thương mại rõ, mua khi chủ dự án duyệt giá · N6 lời mới ≤ 10 câu, ≤ 2 000 ký tự, qua kiểm nguồn | 25/10 07:01 | Kinh thánh §3, §14.6, §15 (d), §19 (c) |
+
+**Còn treo:**
+
+| # | Nội dung | Căn cứ | Chặn gì |
+|---|---|---|---|
+| NC-T4 | Danh sách điểm nhấn (sự kiện, nhân vật, công trình biểu tượng — cận/trung, Gemini) + tư liệu/footage thật — **chờ chủ dự án duyệt**; gồm cả chỗ cần nới §15 (f) (công trình có tên làm chủ thể, nhân vật có tên) nếu có | nhận xét 25/10 06:56 mục 2–4; N4, N5, N6 | ANIMATIC-T4-V2, bản cuối T4 |
+| K-1.17.7 | (1) sửa K-LAI-1 theo Q2 (C11); (2) câu hỏi A1–A5 của ANIMATIC-T4 §9.3 (hệ toạ độ `log_may`/MAY-19, MAY-19 (c) KHOP H5-07b, K-LAI-1 ↔ Q2, Q37 (a) lớp chồng mờ, khuôn `n2p.tam`) và C13; (3) sàn Y cho thước nhấp nháy (K1176-D6); (4) đo lại tấm BMN ghép ≥ 4 px/m (+ chiếu 3D sau khi phía dựng sửa, K1176-D3); (5) hiệu chuẩn lại BIEN-CO-V trên animatic T4 (log máy thật; K1174-D2) | C11, C13; ANIMATIC-T4 §9.3; K1176-D3, D6; K1174-D2 | G2 T4, bản cuối |
+| ANIMATIC-T4-V2 | Animatic sửa theo nhận xét 1–4 + C/F (F1 H2-13 1711 có mái vòm, F2 khối đen 1668, F4 lửa khối vuông H1-15, F5 bản xem âm; 10 s đầu không đứng) + điểm nhấn NC-T4 khi duyệt; thời lượng ≤ 13:00; ngân sách Gemini $55 | 25/10 06:56–07:01 | bản cuối T4 |
+| KN THU-B → appeal | THU-B-T4 §11 mục 2 đề nghị P chuyển `reports/thu-b-t4/khieu-nai-K.md` (KN-1…KN-6) vào `checks-appeal.md`; P-2510 không được sửa tệp đó. K-1.17.6 đã xử lý KN-1…KN-6 (K1176 §2) | lệnh P-2510 (vùng sửa) | không (hồ sơ) |
+| LOOK-T9c | (từ mục E) đo lại 24 tấm look2 bằng T9c | K1175 §12 | dùng lại tấm look2 |
+| Đ5 | Quyền giọng G1 cho bản phát hành (chờ thư ElevenLabs) | RIGHTS P1910-G1 | phát hành T4 |
