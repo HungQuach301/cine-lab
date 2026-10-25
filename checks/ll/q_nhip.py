@@ -34,6 +34,8 @@ Trong ±5 % quanh 3,5 s và 6 s: nêu tên.
         frames_meta[f].clock) → log chữ của bộ (role clock, mẫu thưa; độ dài quãng tính theo bước mẫu). Biến cố = khung đầu quãng dừng.
       Ánh xạ khung cảnh → giây phim qua shot đặc tả/timeline có `p.hero` (hoặc `p.dir` = heroes[k].dir) = `canh`: t = đầu shot +
       (f_cảnh − frame0) / (24 · speed), chỉ trong khung shot. Campath không có `canh` → không ánh xạ (không thêm biến cố). Biến cố đo không qua (a).
+1.17.7 (khiếu nại A4 ANIMATIC-T4): (a) nhận mốc lớp chồng khai trong ĐẶC TẢ `shots[].p.lop_chong: [{at, k?, s?, mo_vao_s?}]` (giây trong đoạn; mốc =
+at và at + mo_vao_s) — lớp chồng do trình ghép đặt phải đọc từ đặc tả; beats khai tự do vẫn không được nhận. Đặc tả không có `lop_chong` → như cũ.
 1.17.3 (khiếu nại A2 BAN-CUOI-T3; chỉ tập từ T3 — `tl_moc`): (a) đối chiếu thêm mốc thật của cảnh timelapse `tl/*` đọc từ đặc tả (tl_moc_canh: opt.time,
       smoke.t, năm thế giới của lớp vật qua bản sao tl7.timeline) và thẻ chương `p.the_chuong.at`. (b)(c)(d) không đổi.
 """
@@ -222,6 +224,10 @@ def spec_times(heroes, shots, dur, tl_moc=False):
         for sd2 in (sc.get('corner') or {}).get('sides', []) or []:
             if isinstance(sd2.get('n'), list):
                 for e in sd2['n']: add2(e.get('t'))
+        for x in p.get('lop_chong', []) or []:   # 1.17.7 (A4): lớp chồng do trình ghép đặt (thẻ nhân vật, bộ đếm, tư liệu) — mốc = `at` (giây trong đoạn)
+            if isinstance(x, dict) and num(x.get('at')) is not None:   # + điểm hết mờ vào `at + mo_vao_s` (đặc tả là nguồn của trình ghép)
+                add2(x['at'])
+                if num(x.get('mo_vao_s')) is not None: add2(num(x['at']) + num(x['mo_vao_s']))
     return sorted(T)
 
 

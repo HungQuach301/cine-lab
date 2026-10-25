@@ -215,6 +215,7 @@ def sach1(E, TL, TX=None, step=12, mh=None):
         if (z['ty'] == 'card' or c) and not P.get('the_chuong') and not P.get('the_phuong_phap'):
             M['a'].append(f"(a) {w}: tấm {c.get('type') or 'card'} đứng riêng ({str(c.get('big') or c.get('title') or c.get('s') or '')[:30]!r}) — TL-4")
         doc = z['ty'] in DOC_TYPES or z['sh'].get('tpl') in ('footage', 'archive') or P.get('clip') or P.get('photo')
+        if doc and P.get('that') and (E.get('kenh2_tu_t4') or E.get('n2p')): doc = False   # 1.17.7 (tập từ T4): ảnh/footage thật toàn khung (`p.that`) là shot hợp lệ — TU-LIEU-10/OMNI/THAT kiểm
         if doc:
             ov = P.get('phu_dia_hinh')
             dur = float((ov or {}).get('dur') or 0) if isinstance(ov, dict) else 0.0
@@ -533,8 +534,10 @@ def cat_r3(D, cv):
 
 def tl1(E, TL, LS=None, why=None, video=None, VF=None):
     T = tong(E, TL); PPd = sum(b - a for _, a, b, _ in pp_spans(E, TL)); Tb = T - PPd; M = {k: [] for k in 'abcdef'}; th = []; near = []
-    from checks.ll import q_k117
+    from checks.ll import q_k117, q_k1177
     ap_r3 = q_k117.ap_117(E)   # 1.17.2: miễn cắt góc R3 chỉ tập từ T3 (như mọi luật 1.17)
+    ap_77 = q_k1177.ap_1177(E)   # 1.17.7 (P9, tập từ T4): miễn ranh vào/ra M-d + tư liệu/ảnh thật khỏi cắt/phút
+    tv = E.get('tl1_muc_tieu_pct'); TL_CAO_PCT = float(tv) if isinstance(tv, (int, float)) and not isinstance(tv, bool) and 0 < tv <= 100 else globals()['TL_CAO_PCT']   # 1.17.7 GOC-CAO (e)
     cuts_s = cut_times_spec(E, TL); cpm_s = len(cuts_s) / (Tb / 60) if Tb else 0.0
     # (b) số shot của đặc tả = CẬN TRÊN số cắt (đổi năm cùng góc máy được khai là shot mới nhưng không phải cắt) → chỉ báo; (c) video quyết
     D = shot_durs(E, TL, LS) if LS is not None else []
@@ -565,8 +568,11 @@ def tl1(E, TL, LS=None, why=None, video=None, VF=None):
             cv = cuts_video(F, fps); Tv = len(F) / fps; Tvb = max(1e-6, Tv - PPd); cpm_v = len([c for c in cv if c < Tv - PPd]) / (Tvb / 60)
             nk, chi_v, chi_s = doi_chieu_cat(cv, cuts_s); cvn = dict(n=len(cv), khop=nk, chi_video=len(chi_v), chi_dac_ta=len(chi_s))   # 1.16.1: đối chiếu ranh shot đặc tả (±CUT_TOL s), báo cả hai số
             cr3 = cat_r3(D, [c for c in cv if c < Tv - PPd]) if ap_r3 else []   # 1.17.2 (V2-D7): cắt góc trong shot khai R3 không tính vào trần
-            cpm_t = (len([c for c in cv if c < Tv - PPd]) - len(cr3)) / (Tvb / 60); cvn.update(r3=len(cr3), cpm_tho=round(cpm_v, 2), cpm_tran=round(cpm_t, 2))
-            r3t = f' − {len(cr3)} cắt góc R3 (so_goc/goc_may) = {cpm_t:.2f}/phút tính trần' if ap_r3 else ''
+            cmd = q_k1177.cat_mien(q_k1177.ranh_mien(LS), [c for c in cv if c < Tv - PPd], CUT_TOL, cr3) if ap_77 else []   # 1.17.7 (P9)
+            cpm_t = (len([c for c in cv if c < Tv - PPd]) - len(cr3) - len(cmd)) / (Tvb / 60); cvn.update(r3=len(cr3), cpm_tho=round(cpm_v, 2), cpm_tran=round(cpm_t, 2))
+            if ap_77: cvn.update(mien_md_tl=len(cmd), cpm_truoc_mien=round((len([c for c in cv if c < Tv - PPd]) - len(cr3)) / (Tvb / 60), 2))
+            r3t = (f' − {len(cr3)} cắt góc R3 (so_goc/goc_may)' + (f' − {len(cmd)} ranh vào/ra M-d/tư liệu/ảnh thật (1.17.7; trước miễn {cvn["cpm_truoc_mien"]:.2f}/phút)' if ap_77 else '')
+                   + f' = {cpm_t:.2f}/phút tính trần') if ap_r3 else ''
             if cpm_t > TL_CUT_MIN: M['c'].append(f'(c) video: {len(cv)} cắt đo / {Tvb / 60:.2f} phút = {cpm_v:.2f} cắt/phút{r3t} > {TL_CUT_MIN:g} (đặc tả {len(cuts_s)} ranh = {cpm_s:.2f}/phút; khớp ±{CUT_TOL:g} s {nk})')
             near += sat('cắt/phút (video, tính trần)', round(cpm_t, 2), TL_CUT_MIN); dr = []
             for x, a, b in D:

@@ -16,16 +16,19 @@ B ≥ 4 px/m (15:25): BE-MAT-NHA (a) đọc `be_mat_nha_px_m_min` của tập (m
 TU-LIEU (12:52): TU-LIEU-10 đọc `tu_lieu_tran_pct` (mặc định 10; > 15 không nhận — trần cao nhất chủ dự án đã duyệt), thêm (b) mỗi lần ≤ 10 s;
      hàng mới TU-LIEU-OMNI: (a) tư liệu (lớp TL/KHAC/THE/MAP) không trùng thời gian clip M-d (`minh_hoa`); (b) không ghép liền: giữa lần tư liệu và
      clip M-d có ≥ 1 shot 3D hoặc ≥ 1 s 3D (hoà qua 3D).
+1.17.7 (chủ dự án 25/10/2026 09:15, gói "50 % tiết kiệm"): `tu_lieu_tran_pct` nhận tới 20 (T4 khai 20; > 20 không nhận); lớp mới THAT (ảnh chụp /
+     footage thật) tính vào tư liệu ở TU-LIEU-10 (a)(b) và TU-LIEU-OMNI (không tính AI, không tính góc cao — q_k1177). Tập không khai: như 1.17.6.
 """
 import json, os, sys, time
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 
 PPM_MAC_DINH, PPM_SAN = 2.0, 2.0          # be_mat_nha_px_m_min: mặc định 2 (1.17.5); không nhận < 2
-TU_LIEU_MAC_DINH, TU_LIEU_TRAN_DUYET = 10.0, 15.0   # tu_lieu_tran_pct: mặc định 10 (§19 c); cao nhất chủ dự án duyệt 15 (T4, 24/10 12:52)
+TU_LIEU_MAC_DINH, TU_LIEU_TRAN_DUYET = 10.0, 20.0   # tu_lieu_tran_pct: mặc định 10 (§19 c); cao nhất chủ dự án duyệt 20 (T4, 25/10 09:15; trước: 15, 24/10 12:52)
 TU_LIEU_LAN_S = 10.0                       # mỗi lần tư liệu ≤ 10 s
 GHEP_LIEN_S = 1.0                          # khoảng 3D tối thiểu giữa tư liệu và clip M-d khi không có shot 3D xen giữa
-LOP_TU_LIEU = ('TL', 'KHAC', 'THE', 'MAP')
+LOP_TU_LIEU = ('TL', 'KHAC', 'THE', 'MAP', 'THAT')   # 1.17.7: + THAT (ảnh chụp/footage thật)
+LOP_TRAN = ('TL', 'KHAC', 'THE', 'THAT')            # lớp tính vào trần tư liệu (a); MAP tính ở BAN-DO-12
 D_LOI_MIN_PX = 4                           # (d) nhà cần ≥ 4 điểm lõi ở độ phân giải video mới tính quỹ đạo
 
 
@@ -171,6 +174,30 @@ def quy_dao_px(Cs, Rs, IID, eps=1e-3, y_san=None):
                 bo_nho=[int(h) for h, k in zip(ids, keep) if not k])
 
 
+Y_SAN_NHAP_MAC_DINH = 0.0                  # 1.17.7 (K1176-D6): sàn Y của thước nhấp nháy (d) theo tập — mặc định 0 (như 1.17.6); T4 khai 0,01 (= sàn (d))
+
+
+def y_san_nhap(E):
+    """`be_mat_nha_y_san_nhap` (gốc episode.yaml hoặc khối n2p): số 0–0,05; khác → mặc định 0 (như 1.17.6)"""
+    v = E.get('be_mat_nha_y_san_nhap', (E.get('n2p') or {}).get('be_mat_nha_y_san_nhap'))
+    return float(v) if _num(v) and 0 <= float(v) <= 0.05 else Y_SAN_NHAP_MAC_DINH
+
+
+def nhap_nhay_san(Cs, Rs, IID, y_san):
+    """(d) nhấp nháy bề mặt CÓ SÀN Y (K1176-D6): ε_t = ln Y(ghép_t) − ln Y(render_t) (mờ σ 1) trên lõi vùng nhà (xói 3×3); cặp (t, t+1) chỉ lấy
+    điểm có Y ≥ y_san ở ghép và render cả hai khung (lượng tử 8 bit gần đen vô nghĩa); TB |ε_{t+1} − ε_t| rồi TB theo cặp. y_san = 0 → đúng
+    thước 1.17.5/1.17.6 (q_k1175.quy_dao)."""
+    import cv2, numpy as np
+    M = cv2.erode((IID > 0).astype(np.uint8), np.ones((3, 3), np.uint8)) > 0
+    Yc = [_Y(c) for c in Cs]; Yr = [_Y(r) for r in Rs]
+    eps = [cv2.GaussianBlur(np.log(yc + 1e-3) - np.log(yr + 1e-3), (0, 0), 1.0) for yc, yr in zip(Yc, Yr)]
+    v = []
+    for i in range(len(eps) - 1):
+        ok = M & (np.minimum(np.minimum(Yc[i], Yc[i + 1]), np.minimum(Yr[i], Yr[i + 1])) >= y_san)
+        if ok.any(): v.append(float(np.abs(eps[i + 1] - eps[i])[ok].mean()))
+    return round(float(np.mean(v)), 4) if v else 0.0
+
+
 def quy_dao_tb(Cs, Rs, IID):
     """thước 1.17.5 (TB độ sáng mỗi nhà) — chỉ để in so sánh trong báo cáo/selftest (không tính lỗi từ 1.17.6)"""
     from checks.ll import q_k1175 as K75
@@ -223,7 +250,7 @@ def tran_tu_lieu(E):
     if v is None: return TU_LIEU_MAC_DINH, None
     if not _num(v): return TU_LIEU_MAC_DINH, f'(k) tu_lieu_tran_pct {v!r} không phải số — dùng {TU_LIEU_MAC_DINH:g} %'
     if float(v) > TU_LIEU_TRAN_DUYET + 1e-9:
-        return TU_LIEU_MAC_DINH, f'(k) tu_lieu_tran_pct {v:g} > {TU_LIEU_TRAN_DUYET:g} % (trần cao nhất chủ dự án duyệt, T4 24/10/2026 12:52) — dùng {TU_LIEU_MAC_DINH:g} %'
+        return TU_LIEU_MAC_DINH, f'(k) tu_lieu_tran_pct {v:g} > {TU_LIEU_TRAN_DUYET:g} % (trần cao nhất chủ dự án duyệt, T4 25/10/2026 09:15) — dùng {TU_LIEU_MAC_DINH:g} %'
     return float(v), None
 
 
@@ -256,13 +283,14 @@ def tu_lieu_10(E, TL, LS, cong='G2'):
     from checks.ll import q_k1174 as K
     if LS is None: return K.r(thieu=['không có log shot'], val='—', cong=cong)
     tran, lk = tran_tu_lieu(E)
-    T = K._tong(E, TL, LS); tot = sum(K._lop(s, 'TL', 'KHAC', 'THE') for s in LS); p = 100 * tot / T if T else 0.0
+    T = K._tong(E, TL, LS); tot = sum(K._lop(s, *LOP_TRAN) for s in LS); p = 100 * tot / T if T else 0.0
     M = {'a': [], 'b': [], 'k': [lk] if lk else []}
-    if p > tran + 1e-9: M['a'].append(f'(a) tư liệu + tranh khắc + thẻ {tot:.1f} s = {p:.2f} % > {tran:g} %')
+    if p > tran + 1e-9: M['a'].append(f'(a) tư liệu + tranh khắc + thẻ' + (' + ảnh/footage thật' if any(K._lop(s, 'THAT') for s in LS) else '') + f' {tot:.1f} s = {p:.2f} % > {tran:g} %')
     for x in lan_tu_lieu(LS):
         if x['s'] > TU_LIEU_LAN_S + 1e-9: M['b'].append(f"(b) {x['shot']}: một lần tư liệu ({x['lop']}) {x['s']:.1f} s > {TU_LIEU_LAN_S:g} s" + ('' if x['co_gio'] else ' (không khai tu_lieu_lan — tính cả lớp của shot)'))
     return K.r(sum(M.values(), []), val=f'{tot:.1f} s / {T:.1f} s = {p:.2f} % / trần {tran:g} %' + (' (khai tu_lieu_tran_pct)' if E.get('tu_lieu_tran_pct') is not None and not lk else ' (mặc định)')
-               + f' (TL {sum(K._lop(s, "TL") for s in LS):g} · KHAC {sum(K._lop(s, "KHAC") for s in LS):g} · THE {sum(K._lop(s, "THE") for s in LS):g} s) · lần dài nhất '
+               + f' (TL {sum(K._lop(s, "TL") for s in LS):g} · KHAC {sum(K._lop(s, "KHAC") for s in LS):g} · THE {sum(K._lop(s, "THE") for s in LS):g}'
+               + (f' · THAT {sum(K._lop(s, "THAT") for s in LS):g}' if any(K._lop(s, 'THAT') for s in LS) else '') + ' s) · lần dài nhất '
                + f"{max([x['s'] for x in lan_tu_lieu(LS)] or [0]):.1f} s", sat_nguong=K.sat('tư liệu + khắc + thẻ %', round(p, 2), tran), muc=M, cong=cong, pct=round(p, 2), tran=tran)
 
 

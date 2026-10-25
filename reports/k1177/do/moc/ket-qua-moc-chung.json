@@ -1,0 +1,95 @@
+[
+ {
+  "id": "H2-13-l2-k55-chung",
+  "nam": 1711,
+  "dap_an": "bat",
+  "bat_moc": true,
+  "nghi_van": [
+   {
+    "muc": "cong_trinh_moc",
+    "mo_ta": "The skyline is dominated by a tall medieval Gothic spire on a church tower, plus other Gothic spires and a square tower. There is no St Paul's Cathedral dome anywhere on the skyline.",
+    "ly_do": "By 1711 Wren's St Paul's Cathedral, with its dome and lantern, was essentially complete and dominated the London skyline. The old cathedral's medieval spire had been gone since 1561 and the building burned in 1666. The Gothic spire shown is the wrong form for the landmark, and the dome is missing.",
+    "nam_xuat_hien": 1708,
+    "toa_do_px": [
+     634,
+     108,
+     749,
+     400
+    ],
+    "do_tin": 0.6,
+    "xac_nhan": {
+     "loi": null,
+     "ghi": "lớp công trình mốc: không qua bước 2 (vật vắng không phóng được) — giữ"
+    }
+   }
+  ],
+  "ghi_chu": [
+   {
+    "muc": "kien_truc",
+    "mo_ta": "A generic Gothic cathedral-style square tower with a small spire, and a second Gothic spire, stand on the right side of the skyline. They resemble a provincial cathedral rather than the London skyline of 1711.",
+    "ly_do": "The Wren city churches rebuilt after the 1666 fire had classical towers and steeples. This skyline doesn't match the rebuilt London of 1711.",
+    "nam_xuat_hien": null,
+    "toa_do_px": [
+     1190,
+     151,
+     1632,
+     410
+    ],
+    "do_tin": 0.3
+   }
+  ],
+  "loi": null,
+  "cost_usd": 0.0362972,
+  "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)"
+ },
+ {
+  "id": "H4-01b-l1-k55-chung",
+  "nam": 1940,
+  "dap_an": "khong",
+  "bat_moc": false,
+  "nghi_van": [],
+  "ghi_chu": [
+   {
+    "muc": "cong_trinh_moc",
+    "mo_ta": "A tall, thin Gothic spire stands just right of St Paul's dome. It is about the same height as the dome and looks like a separate cathedral spire.",
+    "ly_do": "No spire of this kind stood beside St Paul's in the 1940 skyline. It may be an invented or misplaced landmark, so this is a weak finding.",
+    "nam_xuat_hien": null,
+    "toa_do_px": [
+     1248,
+     346,
+     1325,
+     475
+    ],
+    "do_tin": 0.25
+   }
+  ],
+  "loi": null,
+  "cost_usd": 0.0333753,
+  "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)"
+ },
+ {
+  "id": "H2-01a-l1-k55-chung",
+  "nam": 1666,
+  "dap_an": "khong",
+  "bat_moc": false,
+  "nghi_van": [],
+  "ghi_chu": [
+   {
+    "muc": "cong_trinh_moc",
+    "mo_ta": "A plain, low, multi-arched stone bridge crosses the middle of the view. It has no houses, shops or gatehouse on it, and no sign of the Great Stone Gate.",
+    "ly_do": "If this is London Bridge, it was lined with tall timber-framed houses in 1666. The fire destroyed only the northern part of them. A bare arched bridge is not its 1666 form.",
+    "nam_xuat_hien": null,
+    "toa_do_px": [
+     902,
+     540,
+     1382,
+     648
+    ],
+    "do_tin": 0.4
+   }
+  ],
+  "loi": null,
+  "cost_usd": 0.034025299999999994,
+  "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)"
+ }
+]

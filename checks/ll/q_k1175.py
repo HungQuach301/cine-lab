@@ -373,7 +373,10 @@ def kiem_bmn(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=False
                             pct_lech_1175=round(float((e5 > p['E_MAX']).mean() * 100), 2), nhap_be_mat=q['nhap_be_mat'],
                             lech=sorted(([h, v] for h, v in qp['e_h'].items() if v > p['E_MAX']), key=lambda z: -z[1])[:12])
                 if pct > p['NHA_LECH_PCT']: loi.append(f"(d) {w}: {pct:.1f} % nhà có quỹ đạo sáng (trung vị theo điểm ảnh) lệch render > {p['E_MAX']:g} (ln) — bề mặt không theo ánh sáng (dán ảnh tĩnh khi nắng đổi?)")
-                if q['nhap_be_mat'] > p['NHAP_MAX']: loi.append(f"(d) {w}: nhấp nháy bề mặt {q['nhap_be_mat']} > {p['NHAP_MAX']:g} (ln/khung)")
+                ysn = float(p.get('Y_SAN_NHAP') or 0.0)   # 1.17.7 (K1176-D6): sàn Y cho nhấp nháy theo tập (`be_mat_nha_y_san_nhap`; mặc định 0 = như 1.17.6)
+                nh = K76.nhap_nhay_san(list(Cs[:n_]), list(Rs[:n_]), I2, ysn) if ysn > 0 else q['nhap_be_mat']
+                if ysn > 0: so_d.update(nhap_be_mat_san=nh, y_san_nhap=ysn)
+                if nh > p['NHAP_MAX']: loi.append(f"(d) {w}: nhấp nháy bề mặt {nh} > {p['NHAP_MAX']:g} (ln/khung)" + (f' (sàn Y {ysn:g}; không sàn {q["nhap_be_mat"]})' if ysn > 0 else ''))
                 if cach == 'chieu_3d':
                     tp = _p(ep_dir, vd.get('tam'))
                     if not (tp and os.path.exists(tp)): thieu.append(f'(e) {w}: chieu_3d cần `tam` (tấm AI đã duyệt) để kiểm khung 0')
@@ -400,7 +403,7 @@ def be_mat_nha(E, ep_dir='.', vision=False, out=None):
     ppm, lk = K76.ppm_min(E)   # 1.17.6 (15:25): ngưỡng nhà đo được theo tập (`be_mat_nha_px_m_min`, mặc định 2; T4 khai 4)
     if lk: cb.append(f'(w) {lk}')
     for t in tam:
-        try: k = kiem_bmn(t, ep_dir, vision, cache, out, N2.get('noi', ''), bool(N2.get('t4')), dict(PPM_MIN=ppm))
+        try: k = kiem_bmn(t, ep_dir, vision, cache, out, N2.get('noi', ''), bool(N2.get('t4')), dict(PPM_MIN=ppm, Y_SAN_NHAP=K76.y_san_nhap(E)))
         except Exception as e: thieu.append(f"(a) tấm {t.get('id')}: {type(e).__name__}: {e}"); continue   # noqa: BLE001
         loi += k['loi']; thieu += k['thieu']; cb += k['canh_bao']; s = k['so']
         vals.append(f"{t.get('id')}: {s.get('nha_do', 0)}/{s.get('nha', 0)} nhà đo được, {s.get('nha_loi', 0)} lỗi, (b) {s.get('b_max', '—')}/255" + (f", video e TV {s['video'].get('e_tv')}" if s.get('video') else ''))

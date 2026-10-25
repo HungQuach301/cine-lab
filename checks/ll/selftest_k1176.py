@@ -280,7 +280,7 @@ case('TU-LIEU-10 (a)', 'khai 15: 14 % → sạch', bad(K76.tu_lieu_10(E15, None,
 case('TU-LIEU-10 (a)', 'khai 15: 16 % → (a)', bad(K76.tu_lieu_10(E15, None, L16), 'a'), True)
 case('TU-LIEU-10 (a)', 'không khai (mặc định 10): 14 % → (a)', bad(K76.tu_lieu_10(E4, None, L14), 'a'), True)
 case('TU-LIEU-10 (a)', 'không khai: 10 % → sạch (giữ hành vi 1.17.4)', bad(K76.tu_lieu_10(E4, None, LS_(('a', 6, dict(lop=dict(TL=4, KHAC=3, THE=3))), ('b', 94, {}))), 'a'), False)
-case('TU-LIEU-10 (k)', 'khai 20 (> 15 % đã duyệt) → (k) Chặn, dùng 10', bad(K76.tu_lieu_10(dict(E4, tu_lieu_tran_pct=20), None, L14), 'k'), True)
+case('TU-LIEU-10 (k)', 'khai 25 (> trần đã duyệt: 15 % ở 1.17.6, 20 % từ 1.17.7) → (k) Chặn, dùng 10', bad(K76.tu_lieu_10(dict(E4, tu_lieu_tran_pct=25), None, L14), 'k'), True)   # K-1.17.7: 20 → 25 (trần duyệt nâng 15 → 20, chủ dự án 25/10 09:15)
 case('TU-LIEU-10 (b)', 'một lần tư liệu 12 s → (b)', bad(K76.tu_lieu_10(E15, None, LS_(('a', 14, dict(lop=dict(TL=12))), ('b', 86, {}))), 'b'), True)
 case('TU-LIEU-10 (b)', 'một lần tư liệu 10 s → sạch', bad(K76.tu_lieu_10(E15, None, LS_(('a', 12, dict(lop=dict(TL=10))), ('b', 88, {}))), 'b'), False)
 case('TU-LIEU-10 (b)', 'tu_lieu_lan khai giờ: 2 lần 6 s trong một shot → sạch', bad(K76.tu_lieu_10(E15, None, LS_(('a', 20, dict(lop=dict(TL=12), tu_lieu_lan=[dict(t0=1, t1=7), dict(t0=12, t1=18)])), ('b', 80, {}))), 'b'), False)
