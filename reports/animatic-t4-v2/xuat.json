@@ -1,8 +1,8 @@
 {
  "animatic": {
   "tep": "/var/tmp/anim/out3/k2c-t4-02-animatic-v3-640.mp4",
-  "sha256": "b0ec5b4154f1376a91e765ac56544cf8a7c8df096d6c95e6863ba17341c80612",
-  "bytes": 265524903,
+  "sha256": "a9c16c6b1f7fe630371a0339ab478dfe91b18be8caa210feeca49da026fc9bdd",
+  "bytes": 265532176,
   "giay": 770.875,
   "ngoai_git": true,
   "I_LUFS": -14.0,
@@ -10,7 +10,7 @@
   "tai_tao": "du_lieu.sh (+ nướng 14 mốc) → may_v3.py → dung3.sh (animatic2/may) → md_v3.sh (animatic2/omni/chon + clip; clip v1 theo cột md_clip) → tn.py prep/ghep/tl (P9-2026) → giong/tai_tao.sh → loi_dung.py → loi_v3.py dung → am_v3.py → ghep_v3.py → xuat_v3.py"
  },
  "hinh": {
-  "sha256": "6ab0c78475b77abbb4df9c403662eaeaef8434dcc38682032396a81833516749"
+  "sha256": "1b3ed253ef81305fb2b93989339644f68c193bc65bda457351a5de5f1bd6df4e"
  },
  "am": {
   "sha256": "648724099c39c7528e7c73dfd2004ca0fd4140dd313def415959e15effc7d4a9"
@@ -46,8 +46,8 @@
    "tep": "reports/animatic-t4-v2/xem/k2c-t4-02-animatic-v3-xem-2.mp4",
    "tu_s": 192.375,
    "den_s": 382.166,
-   "bytes": 4895584,
-   "sha256": "c0da189c1bbecd0e82042bd7a7337f2034445032e95969b61fe14835b33d1681",
+   "bytes": 4895425,
+   "sha256": "568398ae2b5617d6676f0c84dc8f468e366c13dd9acadf204384ed6b3ce86f3b",
    "video_bps": 68433,
    "am_bps_do": 132414,
    "am_kbps_dat": 132,
@@ -58,13 +58,13 @@
      "gain_dB": -1.2,
      "I_LUFS": -15.2,
      "TP_dBTP": -3.1,
-     "bytes": 5014356
+     "bytes": 5014481
     },
     {
      "gain_dB": -1.2,
      "I_LUFS": -15.2,
      "TP_dBTP": -3.1,
-     "bytes": 4895584
+     "bytes": 4895425
     }
    ]
   },
@@ -72,8 +72,8 @@
    "tep": "reports/animatic-t4-v2/xem/k2c-t4-02-animatic-v3-xem-3.mp4",
    "tu_s": 382.166,
    "den_s": 581.916,
-   "bytes": 4911583,
-   "sha256": "440cffddddab05843058156239e55d43d7a226cc71b826ce0470857837fff62d",
+   "bytes": 4911470,
+   "sha256": "5ca2f5a711ac69f689370d049c137ec419cb890331d05447d38ce0e59d44d152",
    "video_bps": 59145,
    "am_bps_do": 131893,
    "am_kbps_dat": 132,
@@ -84,13 +84,13 @@
      "gain_dB": -1.2,
      "I_LUFS": -15.4,
      "TP_dBTP": -3.2,
-     "bytes": 5010911
+     "bytes": 5010657
     },
     {
      "gain_dB": -1.2,
      "I_LUFS": -15.4,
      "TP_dBTP": -3.2,
-     "bytes": 4911583
+     "bytes": 4911470
     }
    ]
   },
@@ -123,10 +123,10 @@
  ],
  "to_khung": {
   "tep": "reports/animatic-t4-v2/to-khung.jpg",
-  "bytes": 1232324
+  "bytes": 1232977
  },
  "to_khung_10s": {
   "tep": "reports/animatic-t4-v2/to-khung-10s.jpg",
-  "bytes": 585402
+  "bytes": 585558
  }
 }
