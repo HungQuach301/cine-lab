@@ -88,7 +88,7 @@ S = [
  v2('H1-11', dur=8.4167, tg=('h66', 38.0, 43.0), them={'the': ['John Evelyn (người viết nhật ký)'], 'the_anh': {'John Evelyn': 'wellcome-b6zd76cd-evelyn-nanteuil'}}),
  md('H1-11b', 'HỒI 1', 'H1-11', R_, 25, "M-d (25) DN06 sân Royal Exchange cháy: hàng tượng vua trong hốc, mái đổ", kiem='day_du'),
  v2('H1-13', ma='H1-13a', dur=7.0, tg=('h66', 66.0, 67.3), vai="lửa leo đồi Ludgate tới Old St Paul's bọc giàn giáo gỗ (3D thấp)", lop={'A': 7.0}, them={'chuyen_s': 0.0, 'khac': None}),
- moi('H1-12x', 'HỒI 1', 'H1-13', 7.5, 'P9', 'DAY', ('d', [1666, 8, 27, 15.0], [1666, 8, 27, 16.0], 0), "DN01: sáu ngày trước cháy — Old St Paul's bọc giàn giáo (Evelyn + Wren khảo sát, đề xuất mái vòm); tranh Hollar từ phía Đông",
+ moi('H1-12x', 'HỒI 1', 'H1-13', 7.5, 'P9', 'DAY', ('y', 1666.655, 1666.6551, [8, 27, 15.0], 0), "DN01: sáu ngày trước cháy — Old St Paul's bọc giàn giáo (Evelyn + Wren khảo sát, đề xuất mái vòm); tranh Hollar từ phía Đông",
      {'A': 7.5, 'KHAC': 5.0, 'THE': 4.0}, {'day_k': 0.006, 'khac': 'met-395057-0', 'nhan': '27 AUG 1666', 'tieu_diem_en': [532080, 181140, 60],
       'the': ['John Evelyn · Christopher Wren'], 'the_anh': {'John Evelyn · Christopher Wren': 'nga-wren-0'}}),
  v2('H1-13', ma='H1-13c', dur=R_, tg=('h66', 68.0, 69.5), vai="Old St Paul's bốc cháy tối 4/9 (3D thấp; M-d H1-13c: Omni từ chối 3/3 INVALID_ARGUMENT, $0 → 3D)", lop={'A': 6.2}, them={'chuyen_s': 0.0, 'khac': None}),
