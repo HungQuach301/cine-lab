@@ -1,0 +1,587 @@
+{
+ "tag": "H1-03b-l2-360p",
+ "clip": "/var/tmp/anim/omni3/H1-03b/H1-03b-l2-360p.mp4",
+ "clip_sha": "ce82b729b2c902a3765d60004d2d8fff8f4ffe8a0b0907163e8be4f9826adfe5",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/animatic2/omni/dau/H1-03b-dau.jpg",
+ "dau_sha": "4fe09f3418cf99f655332a18f157a7713714009337d1b0ca56248a0ea1bf2b88",
+ "nam": "1647",
+ "canh": "an artist sketching London from the tower of St Saviour's church, Southwark, 1647",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/anim/kiem2/H1-03b-l2-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0294,
+      "usage": {
+       "input_tokens": 10130,
+       "input_tokens_details": {
+        "cache_write_tokens": 10127,
+        "cached_tokens": 0
+       },
+       "output_tokens": 917,
+       "output_tokens_details": {
+        "reasoning_tokens": 385
+       },
+       "total_tokens": 11047
+      }
+     },
+     "secs": 19.4,
+     "mo_ta": "Một họa sĩ ngồi phác họa London từ tháp nhà thờ St Saviour's, nhìn qua sông Thames với thuyền buồm, sà lan và cầu London cũ.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Phần kiến trúc tháp nhà thờ St Saviour's ở sát mép trái tiền cảnh.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.0,
+        0.074,
+        0.658
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ lớn trên đường chân trời, thể hiện nhà thờ St Paul's cũ với tháp vuông trung tâm.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.548,
+        0.148,
+        0.714,
+        0.291
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu London cũ với các nhịp vòm đá và dãy nhà xây trên cầu ở bên phải.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.705,
+        0.327,
+        1.0,
+        0.546
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm chở hàng ở phía trái mặt sông, thân thuyền bị các mái nhà tiền cảnh che một phần.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.335,
+        0.435,
+        0.435,
+        0.661
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Sà lan lớn chở hàng và người ở giữa sông, có một cánh buồm nhỏ phía phải.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.534,
+        0.528,
+        0.7,
+        0.64
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm lớn chở nhiều người ở bên phải mặt sông.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.851,
+        0.502,
+        0.999,
+        0.737
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-03b-l2-360p-k25",
+      "nam": 1647,
+      "noi": "London",
+      "sha256": "57582061d7fd7450ac14589b0b94f52fbccea9093d9acd54610b6c56de03b1ec",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0326116,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 740,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0326116,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 194,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1647,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0326,
+    "chi_phi_tb": 0.0326,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/anim/kiem2/H1-03b-l2-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0338,
+      "usage": {
+       "input_tokens": 10148,
+       "input_tokens_details": {
+        "cache_write_tokens": 10145,
+        "cached_tokens": 0
+       },
+       "output_tokens": 1348,
+       "output_tokens_details": {
+        "reasoning_tokens": 309
+       },
+       "total_tokens": 11496
+      }
+     },
+     "secs": 23.5,
+     "mo_ta": "Một họa sĩ đang phác họa London từ tháp nhà thờ, nhìn ra sông Thames với thuyền buồm, cầu có nhà xây trên cầu và đường chân trời nhiều tháp nhà thờ.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Phần tháp Gothic của nhà thờ St Saviour’s ở sát mép trái, theo địa điểm của cảnh.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.0,
+        0.043,
+        0.356
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu London cũ với các nhịp cầu đá và dãy nhà xây trên cầu ở bên phải.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.722,
+        0.326,
+        1.0,
+        0.545
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Đại giáo đường Gothic có tháp vuông nổi bật giữa đường chân trời, dường như đại diện cho nhà thờ St Paul’s cũ.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.548,
+        0.153,
+        0.713,
+        0.303
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm lớn phía trái mặt sông, một phần thân bị các mái nhà tiền cảnh che khuất.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.331,
+        0.448,
+        0.433,
+        0.674
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm chở nhiều người ở xa hơn, phía trái giữa sông.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.4,
+        0.453,
+        0.46,
+        0.546
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.81
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền hàng thân dài giữa sông, chở kiện hàng và nhiều người, có một cánh buồm nhỏ.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.546,
+        0.527,
+        0.715,
+        0.653
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm lớn chở nhiều người ở mép phải, bị cắt một phần khỏi khung hình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.874,
+        0.492,
+        1.0,
+        0.754
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.96
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà tiền cảnh dưới giá vẽ được bổ sung hoặc biến đổi đáng kể thành các mặt tiền khung gỗ lộ thiên, cửa sổ và cửa mái; những chi tiết kiến trúc này không hiện diện tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.21,
+        0.607,
+        0.502,
+        0.937
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ngôi nhà mái dốc có ống khói ngay bên trái cần cẩu được bổ sung mặt tiền khung gỗ và các cửa sổ lớn so với phần mái nhà thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.509,
+        0.678,
+        0.653,
+        0.93
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm nhà tiền cảnh dưới giá vẽ được bổ sung hoặc biến đổi đáng kể thành các mặt tiền khung gỗ lộ thiên, cửa sổ và cửa mái; những chi tiết kiến trúc này không hiện diện tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.21,
+        0.607,
+        0.502,
+        0.937
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Ngôi nhà mái dốc có ống khói ngay bên trái cần cẩu được bổ sung mặt tiền khung gỗ và các cửa sổ lớn so với phần mái nhà thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.509,
+        0.678,
+        0.653,
+        0.93
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-03b-l2-360p-k55",
+      "nam": 1647,
+      "noi": "London",
+      "sha256": "1fe309bfdb1862e5b294aa720d56e25a50c9aa566d0d194e3bd1ee88fff440bc",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0306716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 546,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0306716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 5.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1647,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0307,
+    "chi_phi_tb": 0.0307,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/anim/kiem2/H1-03b-l2-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0285,
+      "usage": {
+       "input_tokens": 10130,
+       "input_tokens_details": {
+        "cache_write_tokens": 10127,
+        "cached_tokens": 0
+       },
+       "output_tokens": 819,
+       "output_tokens_details": {
+        "reasoning_tokens": 248
+       },
+       "total_tokens": 10949
+      }
+     },
+     "secs": 15.9,
+     "mo_ta": "The frame shows an artist’s hand and drawing board overlooking the Thames, riverboats, waterfront houses, a house-lined stone bridge and a cathedral-dominated London skyline.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Large Gothic cathedral dominating the distant skyline, apparently representing Old St Paul’s; the same building is present in the reference.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.551,
+        0.163,
+        0.714,
+        0.302
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.95
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Old London Bridge, recognizable as a stone arched bridge carrying closely packed houses.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.739,
+        0.342,
+        1.0,
+        0.569
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Narrow surviving fragment of the foreground church tower at the extreme left, corresponding to St Saviour’s tower in the reference.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.009,
+        0.018,
+        0.563
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "The foreground waterfront houses have acquired conspicuous new half-timbered façades, projecting gables, windows and an arched ground floor not visible on the corresponding houses in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.132,
+        0.637,
+        0.519,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "chu",
+       "mo_ta": "Indistinct letter-like strokes beneath the architectural sketch on the drawing sheet; no reliable wording is legible.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.041,
+        0.797,
+        0.081,
+        0.85
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.65
+      }
+     ],
+     "loi": [
+      {
+       "loai": "chu",
+       "mo_ta": "Indistinct letter-like strokes beneath the architectural sketch on the drawing sheet; no reliable wording is legible.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.041,
+        0.797,
+        0.081,
+        0.85
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.65
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "The foreground waterfront houses have acquired conspicuous new half-timbered façades, projecting gables, windows and an arched ground floor not visible on the corresponding houses in the reference.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.132,
+        0.637,
+        0.519,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-03b-l2-360p-k90",
+      "nam": 1647,
+      "noi": "London",
+      "sha256": "fe21839c55dc9c8d03756b29977c6f4e83cd451fec9de78e7db22a471db4cd6d",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A second stone arched bridge is visible at the far left of the river, in addition to the main multi-arch bridge on the right. The right-hand bridge looks like Old London Bridge.",
+        "ly_do": "In 1647 the only bridge across the Thames at London was London Bridge. Westminster Bridge, the second one, opened in 1750. A second stone bridge in this view is therefore anachronistic.",
+        "nam_xuat_hien": 1750,
+        "toa_do_px": [
+         0,
+         432,
+         115,
+         540
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0346816,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 947,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0346816,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 207,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 12.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1647,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A second stone arched bridge is visible at the far left of the river, in addition to the main multi-arch bridge on the right. The right-hand bridge looks like Old London Bridge.\",\"ly_do\":\"In 1647 the only bridge across the Thames at London was London Bridge. Westminster Bridge, the second one, opened in 1750. A second stone bridge in this view is therefore anachronistic.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.0,0.4,0.06,0.5],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0347,
+    "chi_phi_tb": 0.0347,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 1,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "LOẠI",
+  "chi_tiet": [
+   {
+    "u": 0.9,
+    "mo_hinh": "gpt",
+    "loai": "chu",
+    "mo_ta": "Indistinct letter-like strokes beneath the architectural sketch on the drawing sheet; no reliable wording is legible.",
+    "nam": null
+   }
+  ]
+ }
+}
