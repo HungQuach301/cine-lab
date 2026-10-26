@@ -41,3 +41,4 @@
 - 10:17 UTC nhịp: 7 tệp 1080p đã đẩy LFS; đang dựng: H1-08b 210 khung; H1-09 101 khung; ; RAM trống 4967 MB, đĩa trống 12G
 - 10:18 UTC: thông lượng đo 05:14→10:18 ≈ 13 s/khung (P = 2, CPU bão hoà: load 8/4 nhân, 26 % sys) → HỒI 1 + HỒI 3 + H3-05c (4 818 khung) ước xong ≈ 22–23 h UTC; tổng giờ máy phiên ≈ 19–20 h (> 14 h lệnh). Tiếp tục dựng đủ theo nguyên tắc chất lượng; nêu vượt ở báo cáo §chi phí + §ước B2/B3.
 - 10:42 UTC nhịp: 7 tệp 1080p đã đẩy LFS; đang dựng: H1-08b 287 khung; H1-09 158 khung; ; RAM trống 4928 MB, đĩa trống 12G
+- 11:07 UTC nhịp: 7 tệp 1080p đã đẩy LFS; đang dựng: H1-08b 361 khung; H1-09 211 khung; ; RAM trống 4661 MB, đĩa trống 12G
