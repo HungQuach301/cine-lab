@@ -92,15 +92,18 @@
 | H4-07 | 10:27.7 | 5.458 | HỒI 4 | P7 | XUONG | cao | D 3D (look3 cờ d) | city_tren_cao | MAP3D 5 | vùng bom nặng Cripplegate / Paternoster (ước lượng) |  |
 | H4-08 | 10:33.1 | 10.500 | HỒI 4 | P2 | KHOP | cao | D 3D (look3 cờ d) | st_saviour |  | hai khoảng trống cùng một khung: 1666 ↔ 1941 |  |
 | H5-01 | 10:43.6 | 12.542 | HỒI 5 | P5 | DAY | cao | D 3D (look3 cờ d) | cripplegate_bac | THE 4 | Holden–Holford: quy hoạch lại vùng bom |  |
-| H5-02 | 10:56.2 | 7.875 | HỒI 5 | P5 | CAU | cao | D 3D (look3 cờ d) | cripplegate_bac |  | London Wall (Route 11) + Barbican mọc trên Cripplegate |  |
+| H5-02 | 10:56.2 | 3.875 | HỒI 5 | P5 | CAU | cao | D 3D (look3 cờ d) | cripplegate_bac |  | London Wall (Route 11) + Barbican mọc trên Cripplegate |  |
+| H5-02t | 11:00.0 | 4.000 | HỒI 5 | — | TL | phang | THAT (ảnh thật) | barbican | THAT 4 | ẢNH THẬT hiện đại toàn khung: Barbican towers, 2013 (CC BY 2.0 ) | chèn ảnh thật 4.0 s: Barbican towers, 2013 (flickr-8649139240, CC BY 2.0) |
 | H5-02s | 11:04.0 | 7.000 | HỒI 5 | P11 | TRUOT | thap | D 3D look2d tầm phố | london_wall |  | 3D TẦM PHỐ (look2d): đường London Wall 1976 — ô tô, xe buýt, người; Barbican | Omni KHÔNG đạt → giữ 3D tầm phố/thấp |
 | H5-03 | 11:11.0 | 6.458 | HỒI 5 | P7 | XUONG | cao | D 3D (look3 cờ d) | city_tren_cao | MAP 6.458 | lưới phố Doornick 1666 chồng lên 3D 2026: cùng tuyến |  |
 | H5-04 | 11:17.5 | 4.417 | HỒI 5 | P1 | CODINH | cao | D 3D (look3 cờ d) | bankside_city |  | P1: khoảng trống lấp dần; cụm toà cao phía đông mọc (thế kỷ này) |  |
 | H5-04c | 11:21.9 | 6.000 | HỒI 5 | — | MD | md | Omni (M-d) · H5-04c-l1-360p | leadenhall |  | M-d cụm toà cao Leadenhall/Bishopsgate từ phố 2026 | chèn M-d 6.0 s (tách H5-04 tại 4.417 s) |
 | H5-05a | 11:27.9 | 6.000 | HỒI 5 | P9 | CODINH | cao | E (tấm AI toàn khung 2026, CODINH) | bankside_st_pauls | N2P 6 | tầm nhìn bảo vệ từ bờ nam: toà cao mọc trên phố cũ, mái vòm vẫn có nền trời | tấm nền N2P cũ → tấm E (LUẬT E, mặt nạ thap) |
-| H5-05c | 11:33.9 | 10.500 | HỒI 5 | P2 | VONG | cao | D 3D (look3 cờ d) | st_saviour |  | C14 biến cố thật: vòng quanh mái vòm từ bờ nam, nắng chiều dịch — tầm nhìn bảo vệ |  |
+| H5-05c | 11:33.9 | 4.500 | HỒI 5 | P2 | VONG | cao | D 3D (look3 cờ d) | st_saviour |  | C14 biến cố thật: vòng quanh mái vòm từ bờ nam, nắng chiều dịch — tầm nhìn bảo vệ |  |
+| H5-05d | 11:38.4 | 6.000 | HỒI 5 | — | MD | md | Omni (M-d) · H5-05d-l2-360p | bankside_st_pauls |  | M-d mái vòm nhìn bắc từ cầu Millennium 2026 | chèn M-d 6.0 s (tách H5-05c tại 4.5 s) |
 | H5-05b | 11:44.4 | 9.125 | HỒI 5 | P4 | THAP | thap | D 3D (look3 cờ d) | fleet_ludgate |  | từ Fleet Street: Leadenhall vát — mái vòm còn nền trời | Omni KHÔNG đạt → giữ 3D tầm phố/thấp |
-| H5-06 | 11:53.5 | 6.000 | HỒI 5 | P3 | CODINH | cao | D 3D (look3 cờ d) + B đề xuất | monument_dong |  | từ phía đông: mái vòm giữa cụm toà cao |  |
+| H5-06 | 11:53.5 | 3.000 | HỒI 5 | P3 | CODINH | cao | D 3D (look3 cờ d) + B đề xuất | monument_dong |  | từ phía đông: mái vòm giữa cụm toà cao |  |
+| H5-06t | 11:56.5 | 3.000 | HỒI 5 | — | TL | phang | THAT (ảnh thật) | leadenhall | THAT 3 | ẢNH THẬT hiện đại toàn khung: 22 Bishopsgate and Leadenhall, 2019 (CC BY 2.0 ) | chèn ảnh thật 3.0 s: 22 Bishopsgate and Leadenhall, 2019 (flickr-49102341647, CC BY 2.0) |
 | H5-07a | 11:59.5 | 6.000 | HỒI 5 | P9 | DAY | cao | D 3D (look3 cờ d) | bankside_st_pauls |  | bờ nam đêm 2026: City sáng đèn quanh mái vòm (M-d (18) trượt 3 lượt ở ảnh đầu → 3D) |  |
 | H5-07b | 12:05.5 | 15.333 | HỒI 5 | P1 | KHOP | cao | D 3D (look3 cờ d) | bankside_city |  | KHÉP VÒNG: cùng khung Bankside — vòng cung lửa 1666 ↔ đèn City 2026 |  |
 | H5-08 | 12:20.9 | 14.000 | HỒI 5 | P1 | KEO | cao | D 3D (look3 cờ d) | bankside_city |  | kéo lùi cuối: mái vòm giữa toà cao, sông, Bankside |  |
@@ -108,17 +111,17 @@
 
 ## Tổng + tự kiểm
 
-- Thời lượng **770.874 s** · 100 shot · thân phim 754.874 s · Omni 175.0 s (23.18 %, 30 clip) · E 6.0 s · THAT 17.667 s · TL toàn khung 5.0 s · lớp chồng 72.0 s.
+- Thời lượng **770.874 s** · 103 shot · thân phim 754.874 s · Omni 181.0 s (23.98 %, 31 clip) · E 6.0 s · THAT 24.667 s · TL toàn khung 5.0 s · lớp chồng 72.0 s.
 
 | Chỉ số | Giá trị | Trần | Sàn | Đạt | ±5 % quanh ngưỡng | Ghi |
 |---|---|---|---|---|---|---|
 | Thời lượng ≤ 780 s | 770.874 | 780 |  | ĐẠT | **CÓ** |  |
-| Góc cao / thân phim % (≥ 50) | 66.04 |  | 50 | ĐẠT |  | ước theo điểm máy; số đo thật: k2check theo log khung ở bản dựng |
-| Omni (M-d) % thân phim | 23.18 |  |  | ĐẠT |  | không có sàn/trần cứng (Q2); chỉ ghi |
-| Tư liệu + khắc + thẻ + THẬT % (≤ 20) | 12.54 | 20 |  | ĐẠT |  |  |
+| Góc cao / thân phim % (≥ 50) | 64.32 |  | 50 | ĐẠT |  | ước theo điểm máy; số đo thật: k2check theo log khung ở bản dựng |
+| Omni (M-d) % thân phim | 23.98 |  |  | ĐẠT |  | không có sàn/trần cứng (Q2); chỉ ghi |
+| Tư liệu + khắc + thẻ + THẬT % (≤ 20) | 13.47 | 20 |  | ĐẠT |  |  |
 | Bản đồ MAP + MAP3D % (≤ 12) | 4.43 | 12 |  | ĐẠT |  |  |
 | THAP % (≤ 12) | 7.78 | 12 |  | ĐẠT |  |  |
-| Tổng AI % (M-d + E; ≤ 70) | 23.98 | 70 |  | ĐẠT |  |  |
+| Tổng AI % (M-d + E; ≤ 70) | 24.77 | 70 |  | ĐẠT |  |  |
 | M-d mỗi clip ≤ 8 s | 8.0 | 8.0 |  | ĐẠT | **CÓ** |  |
 | Chốt 3: ≤ 2 shot thấp/M-d/ảnh thật liền | 2 | 2 |  | ĐẠT | **CÓ** | dài nhất kết ở H1-01b |
 | Chốt 1 MÓC: mở và kết bằng góc cao | M00 / M04 |  |  | ĐẠT |  |  |
@@ -141,7 +144,7 @@
 | Chốt 2 HỒI 4: P1 tái xuất | H4-01a, H4-05, H4-06 |  |  | ĐẠT |  |  |
 | HỒI 4: số loại cú máy ≥ 4 | 5 |  | 4 | ĐẠT |  |  |
 | Chốt 1 HỒI 5: mở và kết bằng góc cao | H5-01 / H5-08 |  |  | ĐẠT |  |  |
-| Chốt 4 HỒI 5: góc cao ≥ 40 % | 80.11 |  | 40 | ĐẠT |  |  |
+| Chốt 4 HỒI 5: góc cao ≥ 40 % | 68.43 |  | 40 | ĐẠT |  |  |
 | Chốt 2 HỒI 5: P1 tái xuất | H5-04, H5-07b, H5-08 |  |  | ĐẠT |  |  |
 | HỒI 5: số loại cú máy ≥ 4 | 9 |  | 4 | ĐẠT |  |  |
 

@@ -21,7 +21,7 @@ def doi_duong(o):
     """đường tương đối của khai v3 (so với animatic2/) → so với dac-ta-v4/"""
     if isinstance(o, dict): return {k: doi_duong(v) for k, v in o.items()}
     if isinstance(o, list): return [doi_duong(v) for v in o]
-    if isinstance(o, str) and '/' in o and not o.startswith(('http', '/')) and os.path.exists(os.path.normpath(os.path.join(A2, o))):
+    if isinstance(o, str) and o and not o.startswith(('http', '/')) and len(o) < 200 and os.path.isfile(os.path.normpath(os.path.join(A2, o))):
         return os.path.relpath(os.path.normpath(os.path.join(A2, o)), OUT)
     return o
 
@@ -108,6 +108,18 @@ for ma, vung, dur in (('H5-02s', 'london_wall', 7.0), ('H5-05b', 'fleet_ludgate'
         k = SI(ma) + 1; SEG[k]['dur'] = round(SEG[k]['dur'] + old - dur, 4); SEG[k]['moc_loi'] = [dict(m, t=round(m['t'] + old - dur, 3)) for m in SEG[k].get('moc_loi', [])]
         nx = LS[LS.index(L) + 1]; nx['t0'] = L['t1']; nx['dur'] = SEG[k]['dur']; nx['lop'] = {kk: (nx['dur'] if kk == 'A' else v) for kk, v in nx['lop'].items()}
     DOI.append((ma, f'3D → M-d Omni {dur} s'))
+
+# (4b) ảnh thật hiện đại (việc 5; CC BY 2.0, bằng chứng ban-cuoi/that/licenses/) — tách shot 3D, không liền clip M-d
+TH = os.path.join(BC, 'that')
+for ma, a, moi, dur, khoa, vung in (('H5-02', 3.875, 'H5-02t', 4.0, 'flickr-8649139240', 'barbican'), ('H5-06', 3.0, 'H5-06t', 3.0, 'flickr-49102341647', 'leadenhall')):
+    J = json.load(open(f'{TH}/licenses/{khoa}.json')); tep = os.path.relpath(f"{TH}/{J['tep']}", OUT); lic = os.path.relpath(f'{TH}/licenses/{khoa}.json', OUT)
+    if a >= SEG[SI(ma)]['dur'] - 0.05: continue
+    seg = dict(at=0, type='tu_lieu', tpl='plate', p=dict(sach=True, tl=False, tu_lieu=dict(anh=khoa, lop='THAT', chu=J['chu_thich'], tep=tep), lop_chong=[dict(at=0.0, k='tu_lieu', s=J['chu_thich'], mo_vao_s=0.5)], that=True),
+               cau='', noi='tu_lieu', vung=vung, ai_image=False)
+    log = dict(goc='phang', tl=False, cu_may='TL', lop={'THAT': dur}, ai_nen=False, minh_hoa=False, vai=f"ẢNH THẬT hiện đại toàn khung: {J['chu_thich']} ({J['giay_phep'][:10]})", tieu_diem_en=None, diem_may='—',
+               thoi_gian=None, that=dict(loai='anh', hien_dai=True, giay_phep=dict(tep=lic, sha256=hashlib.sha256(open(f'{TH}/licenses/{khoa}.json', 'rb').read()).hexdigest()), anh=dict(tep=tep, sha256=J['sha256'])),
+               tu_lieu_toan_khung=dict(anh=khoa, lop='THAT', chu=J['chu_thich'], chuyen_dong='2D chậm (Ken Burns) — không AI chạm', ghi_cong=J['ghi_cong']), ai_image=False, vung=vung, noi='—', tu_lieu_chong_sau_ai=False)
+    tach(ma, a, moi, seg, log); DOI.append((moi, f"chèn ảnh thật {dur} s: {J['chu_thich']} ({khoa}, CC BY 2.0)"))
 # (5) E cho H5-05a
 T = os.path.relpath(f'{BC}/e/tam/E-P9-ngay', OUT); sx = '-thap' if MN == 'thap' else ''
 toa = json.load(open(f'{BC}/e/tam/E-P9-ngay/toa{sx}.json'))
@@ -165,16 +177,14 @@ for L in LS:
         if (L.get('lop') or {}).get(k) and L.get('cu_may') not in ('TL', 'THAT'): w.append(dict(t0=L['t0'], t1=round(L['t0'] + L['lop'][k], 3), lop=k))
     if w: L['tu_lieu_lan'] = w
 json.dump(dict(fmt='khoang', muc=[{k: v for k, v in m.items() if k != 'shot'} for m in muc]), open(f'{OUT}/log-chu-khoang.json', 'w'), ensure_ascii=False, indent=1)
-# beats: cắt + câu lời + lớp chữ + biến cố timelapse thấy được mỗi ≤ 5 s trong shot 3D có thời gian chạy (D4: biến cố đo T4 không cộng — khai)
-for s in SEG:
-    L = LD.get(s['id'], {}); b = {(round(x['t'], 2), x['k']) for x in s.get('beats', [])}
-    for m in s.get('moc_loi', []): s.setdefault('beats', []).append(dict(t=m['t'], k='loi', s=m['s'][:28])) if (round(m['t'], 2), 'loi') not in b else None
-    for m in muc:
-        if s['t0'] <= m['t0'] < s['t1']: s.setdefault('beats', []).append(dict(t=round(m['t0'] - s['t0'], 3), k=m['role'], s=m['s'][:28]))
-    if L.get('tl') and L.get('cu_may') not in ('MD', 'TL', 'THAT', 'PP') and L.get('thoi_gian'):
-        x = 4.0
-        while x < s['dur'] - 0.5: s['beats'].append(dict(t=x, k='bien_co_tl', s=f"timelapse {L['thoi_gian'][0]}: thời gian/lửa/ánh sáng đổi")); x += 4.0
-    s['beats'] = sorted(s.get('beats', []), key=lambda z: z['t'])
+# lop_chong đồng bộ với log_chu (cửa sổ đã dời cách ranh M-d ≥ 1 s) + beats CHỈ từ mốc có neo trong đặc tả (ranh shot, lop_chong) — RULES 1.17.7 A4: beats khai tự do không được nhận
+for s_ in SEG:
+    for sh in s_['shots']:
+        for lc in sh.get('p', {}).get('lop_chong', []) or []:
+            m = next((m for m in muc if m['s'].startswith(str(lc.get('s', ''))[:20]) and s_['t0'] - 1e-6 <= m['t0'] < s_['t1'] + 1), None)
+            if m and abs((s_['t0'] + lc['at']) - m['t0']) > 0.05: lc['at'] = round(max(0.0, m['t0'] - s_['t0']), 3)
+    s_['beats'] = [dict(t=0.0, k='cut', s=s_['id'])] + [dict(t=lc['at'], k=lc.get('k', 'lop_chong'), s=str(lc.get('s', ''))[:28]) for sh in s_['shots'] for lc in (sh.get('p', {}).get('lop_chong') or [])]
+    s_['beats'] = sorted({(round(x['t'], 3), x['k']): x for x in s_['beats']}.values(), key=lambda z: z['t'])
 E['log_chu'] = 'log-chu-khoang.json'; E['id'] = 'k2c-t4-02-dac-ta-v4'; E['title'] = 'London — T4 đặc tả v4 (BAN-CUOI-T4-A; chưa dựng — kiểm đặc tả)'
 E['so_ai_gemini'] = os.path.relpath(f'{REPO}/reports/ban-cuoi-t4-a/so-ai-gemini-t4-gop.jsonl', OUT)
 with open(f'{REPO}/reports/ban-cuoi-t4-a/so-ai-gemini-t4-gop.jsonl', 'w') as f:
@@ -188,7 +198,7 @@ with open(f'{REPO}/reports/ban-cuoi-t4-a/so-ai-gemini-t4-gop.jsonl', 'w') as f:
 E2 = copy.deepcopy(E); E2['segments'] = [{k: v for k, v in x.items() if k not in ('speech', 't0', 't1', 'frames')} for x in SEG]
 yaml.safe_dump(E2, open(f'{OUT}/episode.yaml', 'w'), allow_unicode=True, sort_keys=False, width=200)
 json.dump(LS, open(f'{OUT}/log-shot.json', 'w'), ensure_ascii=False, indent=1)
-TL = dict(id=E['id'], title=None, music=[], segments=[{k: v for k, v in s.items()} | {'shots': [dict(id=s['id'], at=0.0, tpl=s['shots'][0].get('tpl', 'plate'), t0=0.0, t1=s['dur'])], 'sfx': s.get('sfx', []), 'speech': s.get('speech', [])} for s in SEG],
+TL = dict(id=E['id'], title=None, music=[], segments=[{k: v for k, v in s.items()} | {'shots': [dict(sh, id=s['id'], t0=sh.get('at', 0.0), t1=s['dur']) for sh in s['shots']], 'sfx': s.get('sfx', []), 'speech': s.get('speech', [])} for s in SEG],
           heroes={}, tong_s=TONG, tong_khung=sum(s['frames'] for s in SEG))
 json.dump(TL, open(f'{OUT}/timeline.json', 'w'), ensure_ascii=False)
 json.dump(DOI, open(f'{OUT}/doi-v3-v4.json', 'w'), ensure_ascii=False, indent=1)

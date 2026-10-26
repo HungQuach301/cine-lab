@@ -1930,14 +1930,14 @@
   {
    "ma": "H5-02",
    "t0": 656.1663,
-   "dur": 7.875,
+   "dur": 3.875,
    "chuong": "HỒI 5",
    "diem_may": "P5",
    "cu_may": "CAU",
    "goc": "cao",
    "lop_shot": "D 3D (look3 cờ d)",
    "lop": {
-    "A": 7.875
+    "A": 3.875
    },
    "vung": "cripplegate_bac",
    "vai": "London Wall (Route 11) + Barbican mọc trên Cripplegate",
@@ -1945,6 +1945,33 @@
    "tu_lieu_lan": null,
    "nhan_vat_ten": [],
    "doi": []
+  },
+  {
+   "ma": "H5-02t",
+   "t0": 660.0413,
+   "dur": 4.0,
+   "chuong": "HỒI 5",
+   "diem_may": "—",
+   "cu_may": "TL",
+   "goc": "phang",
+   "lop_shot": "THAT (ảnh thật)",
+   "lop": {
+    "THAT": 4.0
+   },
+   "vung": "barbican",
+   "vai": "ẢNH THẬT hiện đại toàn khung: Barbican towers, 2013 (CC BY 2.0 )",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 660.0413,
+     "t1": 664.0413,
+     "lop": "THAT"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": [
+    "chèn ảnh thật 4.0 s: Barbican towers, 2013 (flickr-8649139240, CC BY 2.0)"
+   ]
   },
   {
    "ma": "H5-02s",
@@ -2058,14 +2085,14 @@
   {
    "ma": "H5-05c",
    "t0": 693.9163,
-   "dur": 10.5,
+   "dur": 4.5,
    "chuong": "HỒI 5",
    "diem_may": "P2",
    "cu_may": "VONG",
    "goc": "cao",
    "lop_shot": "D 3D (look3 cờ d)",
    "lop": {
-    "A": 10.5
+    "A": 4.5
    },
    "vung": "st_saviour",
    "vai": "C14 biến cố thật: vòng quanh mái vòm từ bờ nam, nắng chiều dịch — tầm nhìn bảo vệ",
@@ -2073,6 +2100,27 @@
    "tu_lieu_lan": null,
    "nhan_vat_ten": [],
    "doi": []
+  },
+  {
+   "ma": "H5-05d",
+   "t0": 698.4163,
+   "dur": 6.0,
+   "chuong": "HỒI 5",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.0
+   },
+   "vung": "bankside_st_pauls",
+   "vai": "M-d mái vòm nhìn bắc từ cầu Millennium 2026",
+   "md": "H5-05d-l2-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": [
+    "chèn M-d 6.0 s (tách H5-05c tại 4.5 s)"
+   ]
   },
   {
    "ma": "H5-05b",
@@ -2098,14 +2146,14 @@
   {
    "ma": "H5-06",
    "t0": 713.5413,
-   "dur": 6.0,
+   "dur": 3.0,
    "chuong": "HỒI 5",
    "diem_may": "P3",
    "cu_may": "CODINH",
    "goc": "cao",
    "lop_shot": "D 3D (look3 cờ d) + B đề xuất",
    "lop": {
-    "A": 6.0
+    "A": 3.0
    },
    "vung": "monument_dong",
    "vai": "từ phía đông: mái vòm giữa cụm toà cao",
@@ -2113,6 +2161,33 @@
    "tu_lieu_lan": null,
    "nhan_vat_ten": [],
    "doi": []
+  },
+  {
+   "ma": "H5-06t",
+   "t0": 716.5413,
+   "dur": 3.0,
+   "chuong": "HỒI 5",
+   "diem_may": "—",
+   "cu_may": "TL",
+   "goc": "phang",
+   "lop_shot": "THAT (ảnh thật)",
+   "lop": {
+    "THAT": 3.0
+   },
+   "vung": "leadenhall",
+   "vai": "ẢNH THẬT hiện đại toàn khung: 22 Bishopsgate and Leadenhall, 2019 (CC BY 2.0 )",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 716.5413,
+     "t1": 719.5413,
+     "lop": "THAT"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": [
+    "chèn ảnh thật 3.0 s: 22 Bishopsgate and Leadenhall, 2019 (flickr-49102341647, CC BY 2.0)"
+   ]
   },
   {
    "ma": "H5-07a",
@@ -2194,17 +2269,17 @@
  "tong": {
   "thoi_luong_s": 770.874,
   "than_phim_s": 754.874,
-  "so_shot": 100,
-  "omni_s": 175.0,
-  "omni_pct": 23.18,
+  "so_shot": 103,
+  "omni_s": 181.0,
+  "omni_pct": 23.98,
   "E_s": 6.0,
-  "THAT_s": 17.667,
+  "THAT_s": 24.667,
   "TL_toan_khung_s": 5.0,
   "chong_s": 72.0,
-  "tu_lieu_that_pct": 12.54,
-  "goc_cao_s": 498.499,
-  "goc_cao_pct": 66.04,
-  "md_clip": 30
+  "tu_lieu_that_pct": 13.47,
+  "goc_cao_s": 485.499,
+  "goc_cao_pct": 64.32,
+  "md_clip": 31
  },
  "kiem": [
   {
@@ -2218,7 +2293,7 @@
   },
   {
    "chi_so": "Góc cao / thân phim % (≥ 50)",
-   "gia_tri": 66.04,
+   "gia_tri": 64.32,
    "tran": null,
    "san": 50,
    "dat": true,
@@ -2227,7 +2302,7 @@
   },
   {
    "chi_so": "Omni (M-d) % thân phim",
-   "gia_tri": 23.18,
+   "gia_tri": 23.98,
    "tran": null,
    "san": null,
    "dat": true,
@@ -2236,7 +2311,7 @@
   },
   {
    "chi_so": "Tư liệu + khắc + thẻ + THẬT % (≤ 20)",
-   "gia_tri": 12.54,
+   "gia_tri": 13.47,
    "tran": 20,
    "san": null,
    "dat": true,
@@ -2263,7 +2338,7 @@
   },
   {
    "chi_so": "Tổng AI % (M-d + E; ≤ 70)",
-   "gia_tri": 23.98,
+   "gia_tri": 24.77,
    "tran": 70,
    "san": null,
    "dat": true,
@@ -2470,7 +2545,7 @@
   },
   {
    "chi_so": "Chốt 4 HỒI 5: góc cao ≥ 40 %",
-   "gia_tri": 80.11,
+   "gia_tri": 68.43,
    "tran": null,
    "san": 40,
    "dat": true,
@@ -2531,7 +2606,7 @@
   ],
   [
    "H5-05d",
-   "Omni KHÔNG đạt (2 lượt) → giữ 3D, không chèn"
+   "chèn M-d 6.0 s (tách H5-05c tại 4.5 s)"
   ],
   [
    "H5-02s",
@@ -2540,6 +2615,14 @@
   [
    "H5-05b",
    "Omni KHÔNG đạt → giữ 3D tầm phố/thấp"
+  ],
+  [
+   "H5-02t",
+   "chèn ảnh thật 4.0 s: Barbican towers, 2013 (flickr-8649139240, CC BY 2.0)"
+  ],
+  [
+   "H5-06t",
+   "chèn ảnh thật 3.0 s: 22 Bishopsgate and Leadenhall, 2019 (flickr-49102341647, CC BY 2.0)"
   ],
   [
    "H5-05a",
