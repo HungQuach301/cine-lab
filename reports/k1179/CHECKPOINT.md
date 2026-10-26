@@ -22,3 +22,5 @@ Giờ UTC theo đồng hồ container.
 | 03:51 | T3: master LFS `release-k2-t3-g2` SHA `5b9f0bcc…` khớp; timeline `0ff3f0da…`, log chữ `17053dff…` khớp; k2check 1.17.8 T3 (worktree) chạy nền | đang chạy |
 | 03:53 | checks-appeal.md: phán quyết 1.17.9 | xong |
 | 03:54 | preflight `checks/` bắt 1 email giả trong selftest (dựng lúc chạy) → ĐẠT; **lock.py (một lần) 03:54:51 → 1.17.9 `9eddaf24…`, --verify KHỚP** | xong |
+| 03:55–04:05 | Sau khoá: selftest 18/18 bộ ĐẠT (`do/selftest-sau-khoa.txt`); T3 1.17.8 (worktree) **trùng hệt** bảng K-1.17.8 trừ tiêu đề | xong |
+| 04:05– | cinecheck L1 selftest; rồi T3 1.17.9; chuỗi E/KN-1/KN-8/đặc tả v4 sau khoá (P ≤ 2) | đang chạy |
