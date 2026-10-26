@@ -112,9 +112,12 @@ rep("          if (ruv.x > 0.0 && ruv.x < 1.0 && ruv.y > 0.0 && ruv.y < 1.0) { v
 rep("        c += vec3(1.0, 0.45, 0.15) * uFireK * (fg.g * 0.30 + fg.b * 0.12) * (0.25 + F);   // V2: ánh lửa trên mặt sông",
     "        float wl = 0.45 + 0.9 * fbm3(rot * p * vec2(0.09, 0.03) + vec2(uT * 0.08, 0.0));   /* B1: ánh lửa trên mặt sông theo sóng, không phủ phẳng */\n"
     "        c += vec3(1.0, 0.45, 0.15) * uFireK * (fg.g * 0.075 + fg.b * 0.022) * (0.12 + 1.6 * F) * wl;")
+rep("        vec3 c = mix(deep, env * vec3(0.92, 0.92, 0.86), F);",
+    "        float Fq = min(0.6, F * (1.0 + 1.6 * uNight * max(step(0.0, uHour), step(0.0, uH40))));   /* B1: đêm cháy 1666 + 1940 — vệt phản chiếu lửa đọc được (lửa là nguồn rất sáng) */\n"
+    "        vec3 c = mix(deep, env * vec3(0.92, 0.92, 0.86), Fq);")
 # lửa: quầng rộng/dày hơn (vòng lửa liền); khói mép mềm + nhiều hạt mỏng hơn
 rep("float size = (26.0 + sd.y * 22.0) * step(0.05, I);", "float size = (44.0 + sd.y * 40.0) * step(0.05, I);")
-rep("gl_FragColor = vec4(vec3(1.0, 0.40, 0.09) * k * vA * 0.20 * (0.25 + 0.75 * uNight), 0.0); }", "gl_FragColor = vec4(vec3(1.0, 0.40, 0.09) * k * vA * 0.26 * (0.25 + 0.75 * uNight), 0.0); }")
+rep("gl_FragColor = vec4(vec3(1.0, 0.40, 0.09) * k * vA * 0.20 * (0.25 + 0.75 * uNight), 0.0); }", "gl_FragColor = vec4(vec3(1.0, 0.40, 0.09) * k * vA * 0.23 * (0.25 + 0.75 * uNight), 0.0); }")
 rep("        d = smoothstep(0.04, 0.55, t.r) * vA * 0.85 * smoothstep(0.0, 0.10, vUv.y) * smoothstep(1.0, 0.45, vUv.y) * smoothstep(0.0, 0.24, min(vUv.x, 1.0 - vUv.x));   /* V2: khói đặc khối, mép rõ */",
     "        d = smoothstep(0.04, 0.55, t.r) * vA * 0.85 * smoothstep(0.0, 0.10, vUv.y) * smoothstep(1.0, 0.45, vUv.y) * smoothstep(0.0, 0.24, min(vUv.x, 1.0 - vUv.x));   /* V2: khói đặc khối, mép rõ */\n"
     "        if (uNight > 0.5) d = smoothstep(0.0, 0.85, t.r) * vA * 0.62 * smoothstep(0.0, 0.22, vUv.y) * smoothstep(1.0, 0.30, vUv.y) * smoothstep(0.0, 0.42, min(vUv.x, 1.0 - vUv.x));   /* B1: khói đêm mép mềm, mỏng hơn — cột khói liền */")

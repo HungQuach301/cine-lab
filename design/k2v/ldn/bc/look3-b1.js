@@ -343,7 +343,8 @@ async function build(cfg) {
         if (uReflOn > 0.5) { vec4 cp = uReflVP * vec4(vW + vec3(N.x, 0.0, N.z) * 10.0 * min(dist / 150.0, 6.0), 1.0); vec2 ruv = cp.xy / cp.w * 0.5 + 0.5;
           if (ruv.x > 0.0 && ruv.x < 1.0 && ruv.y > 0.0 && ruv.y < 1.0) { vec4 rc = texture2D(uRefl, ruv); float ra = clamp(rc.a, 0.0, 1.0); env = mix(env, rc.rgb, ra * 0.80) + rc.rgb * (1.0 - ra) * 0.85; } }   /* B1: giữ phần phát sáng cộng (lửa) */
         vec3 deep = uWater * (1.0 - 0.85 * uNight) * (0.9 + 0.2 * fbm3(p * 0.02));
-        vec3 c = mix(deep, env * vec3(0.92, 0.92, 0.86), F);
+        float Fq = min(0.6, F * (1.0 + 1.6 * uNight * max(step(0.0, uHour), step(0.0, uH40))));   /* B1: đêm cháy 1666 + 1940 — vệt phản chiếu lửa đọc được (lửa là nguồn rất sáng) */
+        vec3 c = mix(deep, env * vec3(0.92, 0.92, 0.86), Fq);
         c += uSunCol * pow(max(dot(Rr, uSunDir), 0.0), 500.0) * 4.0 * (0.4 + 0.6 * a) * (1.0 - uNight);
         vec2 fu = (vW.xz + vec2(0.0, -110.0) - uFireBox.xy) / uFireBox.zw; vec3 fg = (uHour >= 0.0 ? texture2D(uFire, fu + N.xz * 0.03).rgb : texture2D(uFire40, fu + N.xz * 0.03).rgb);
         float wl = 0.45 + 0.9 * fbm3(rot * p * vec2(0.09, 0.03) + vec2(uT * 0.08, 0.0));   /* B1: ánh lửa trên mặt sông theo sóng, không phủ phẳng */
@@ -481,7 +482,7 @@ function buildParticles(LC, grid, hU, key) {
       vec3 toC = normalize(uCam - c); vec3 rt = normalize(cross(vec3(0.0, 1.0, 0.0), toC)); vec3 up = normalize(cross(toC, rt));
       vec3 w = c + (rt * position.x + up * (position.y - 0.35)) * size; if (size < 0.01) w = vec3(0.0, -1000.0, 0.0); gl_Position = projectionMatrix * viewMatrix * vec4(w, 1.0); }`;
   const FSG = `varying vec2 vUv; varying float vA; uniform float uNight;
-    void main(){ vec2 q = (vUv - vec2(0.5, 0.35)) * vec2(2.0, 1.6); float k = exp(-dot(q, q) * 3.2); gl_FragColor = vec4(vec3(1.0, 0.40, 0.09) * k * vA * 0.26 * (0.25 + 0.75 * uNight), 0.0); }`;
+    void main(){ vec2 q = (vUv - vec2(0.5, 0.35)) * vec2(2.0, 1.6); float k = exp(-dot(q, q) * 3.2); gl_FragColor = vec4(vec3(1.0, 0.40, 0.09) * k * vA * 0.23 * (0.25 + 0.75 * uNight), 0.0); }`;
   const add = { transparent: true, depthWrite: false, blending: THREE.CustomBlending, blendSrc: THREE.OneFactor, blendDst: THREE.OneFactor };
   const emb = new THREE.Mesh(mk(key === '40' ? 3 : 5), new THREE.ShaderMaterial(Object.assign({ uniforms: U, vertexShader: VSE, fragmentShader: FSE }, add)));
   const glow = new THREE.Mesh(mk(1), new THREE.ShaderMaterial(Object.assign({ uniforms: U, vertexShader: VSG, fragmentShader: FSG }, add)));

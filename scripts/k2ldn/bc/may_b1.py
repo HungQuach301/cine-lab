@@ -17,7 +17,7 @@ V = {}
 
 
 def ghi(ten, sh): sh['W'], sh['H'] = 1920, 1080; sh['page'] = PAGE; json.dump(sh, open(f'{OUT}/{ten}.json', 'w'), ensure_ascii=False, indent=1); return REL + ten + '.json'
-def viec(nhom, ten, shot, **kw): V.setdefault(nhom, []).append(dict(ten=ten, shot=shot, page=PAGE, lk='look3d/', key=D, spp=4, **kw))
+def viec(nhom, ten, shot, **kw): V.setdefault(nhom, []).append(dict(dict(ten=ten, shot=shot, page=PAGE, lk='look3d/', key=D, spp=4), **kw))
 def nkhung(ma): s = LS[ma]; return int(round(s['t1'] * FPS)) - int(round(s['t0'] * FPS))
 def nmay(sh): return int(round(sh['dur'] * FPS)) or 1
 
@@ -88,7 +88,7 @@ for ma, lo, hi in (('H2-10', 6.0, 9.0), ('H5-05b', 6.0, 9.0)):
         k['l'] = [k['l'][0], k['l'][1], round(k['p'][2] + d_ * math.tan(math.radians(g)), 3)]
     sh['may_b1'] = f'MAY-19 (a): ngửa {lo} → {hi}° (bản v4: {round(ngua(ld(f"{A2}/{ma}.json")["keys"][0]), 2)} → {round(ngua(ld(f"{A2}/{ma}.json")["keys"][-1]), 2)}°)'
     p = ghi(ma + '-v5', sh); N = nmay(sh); lg = log_tinh(sh, list(range(N)))
-    with gzip.open(f'{OUT}/{ma}-v5-log-may.json.gz', 'wt') as f: json.dump(lg, f)
+    with open(f'{OUT}/{ma}-v5-log-may.json.gz', 'wb') as f: f.write(gzip.compress(json.dumps(lg).encode(), mtime=0))
     ng = [fr['ngua_deg'] for fr in lg['frames']]; MAY19[ma] = dict(tep=p, khung=N, ngua_min=min(ng), ngua_max=max(ng), truoc=[round(ngua(ld(f'{A2}/{ma}.json')['keys'][0]), 2), round(ngua(ld(f'{A2}/{ma}.json')['keys'][-1]), 2)])
 
 # ---------------------------------------------------------------- soi niên đại năm biên (§19 (d)) — khung 3D tại năm biên của từng shot có St Paul's mới / Monument 1666–1711
@@ -109,6 +109,19 @@ for base, f in (('M01', 208), ('H1-08b', 212), ('H2-10', 210), ('H3-05', 158), (
     sh = ld(f'{BC}/may/mau-{base}.json'); p = ghi('mau-' + base, sh); viec('mau', 'mau-' + base, p, only=[f])
 viec('mau', 'mau-M00', pm0, only=[0, 204, 407])
 viec('mau', 'mau-H2-10-v5', REL + 'H2-10-v5.json', only=[210])
+
+# ---------------------------------------------------------------- (vi) ảnh đầu Omni H5-02b (1973) / H5-02s (1976) từ render 3D CÙNG NĂM sau sửa niên đại toà (máy của phiên A)
+for ma in ('H5-02b', 'H5-02s'):
+    sh = ld(f'{BC}/may/md-{ma}.json')
+    if ma == 'H5-02b': sh['keys'][0].update(year=1973.0, date=[1973, 9, 1, 14.0])
+    p = ghi('md-' + ma, sh); viec('md', 'md-' + ma, p, png=1, spp=24, only=[0]); viec('md', 'md-' + ma + '-xem', p, w=960, h=540, png=1, spp=8, only=[0])
+
+# ---------------------------------------------------------------- tờ so (iv) ngày/đêm P9 + "trước" = cùng khung, cùng hình học, trang cũ thu-b/look3 (look3 phiên A)
+for ten, src in (('mau-P9-ngay', 'E-P9-ngay'), ('mau-P9-dem', 'E-P9-dem')):
+    p = ghi(ten, ld(f'{BC}/may/{src}.json')); viec('mau', ten, p, only=[0])
+for j in [dict(j) for j in V['mau']] + [dict(j) for j in V['soi'] if j['ten'] in ('soi-H2-10', 'soi-H2-09') ]:
+    if j['ten'] == 'mau-H2-10-v5': continue
+    j['ten'] = 'truoc-' + j['ten']; j['page'] = 'thu-b/look3'; V.setdefault('truoc', []).append(j)
 
 for nhom, L in V.items(): json.dump(L, open(f'{OUT}/viec-{nhom}.json', 'w'), ensure_ascii=False, indent=1)
 json.dump(dict(dung=DS, may19=MAY19, soi=SOIK), open(f'{OUT}/muc-luc-b1.json', 'w'), ensure_ascii=False, indent=1)
