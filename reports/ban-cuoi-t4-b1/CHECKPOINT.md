@@ -82,3 +82,5 @@
 - 19:50 UTC dựng xong **H3-06-b**: 108 khung (f 0..107), 16.94 s/khung/tiến trình (P = 2), 15 MB, SHA `824b990106474f71…` → LFS + đẩy
 - 19:54 UTC nhịp: 25 tệp 1080p đã đẩy LFS; đang dựng: H3-05c 11 khung; ; RAM trống 5014 MB, đĩa trống 9.0G
 - 20:01 UTC dựng xong **H3-05**: 329 khung (f 0..328), 14.99 s/khung/tiến trình (P = 2), 80 MB, SHA `8ae1266cd4543faa…` → LFS + đẩy
+- 20:18 UTC: tự soi tờ khung HỒI 1: H1-13a/H1-13c (máy tầm phố cạnh đám cháy Ludgate) cháy trắng do quầng lửa B1 to hơn → sửa: quầng giảm khi cách máy < 320 m (mix 0,25 → 1 theo khoảng 60–320 m), ≥ 320 m không đổi; thử trước/sau sua/iii-b-quang-lua-gan-H1-13.jpg; dựng lại H1-13a + H1-13c (317 khung) sau H3-05c.
+- 20:19 UTC nhịp: 26 tệp 1080p đã đẩy LFS; đang dựng: H3-05c 110 khung; ; RAM trống 10075 MB, đĩa trống 8.8G
