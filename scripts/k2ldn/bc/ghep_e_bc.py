@@ -91,3 +91,39 @@ if __name__ == '__main__':
     if c == 'prep': prep(sys.argv[2])
     elif c == 'ghep': ghep(sys.argv[2], sys.argv[3], sys.argv[4])
     elif c == 'video': video(sys.argv[2], sys.argv[3], sys.argv[4])
+
+
+# ---- biến thể mặt nạ "thap" (đề xuất E1-b): lớp (a)-E công trình có tên = mái vòm St Paul's + mọi lớp không phải nhà OSM (cầu, tường, nhà thờ, Monument…)
+#      + toà OSM có tên là THÁP (đỉnh ≥ THAP_Y1 m ODN) hoặc thuộc danh sách công trình lịch sử; toà OSM có tên khác (cửa hàng, văn phòng thấp) → nha_thuong 215.
+THAP_Y1 = 75.0
+LICH_SU = ('Guildhall', 'Royal Exchange', 'Bank of England', 'Mansion House', 'Tower of St Mary Somerset', 'Monument')
+
+
+def prep_thap(k):
+    o = f'{BCE}/{k}'; M = cv2.imread(f'{o}/matna.png'); M3 = dec24(cv2.imread(f'{R}/{k}-m3e/00000.png')); CT = cv2.imread(f'{o}/mat_na_ct.png')
+    ten = {t['ma']: t for t in json.load(open(f'{D}/look3e/ten.json'))}
+    giu = [m for m, t in ten.items() if t['y1'] >= THAP_Y1 or any(t['ten'].startswith(x) for x in LICH_SU)]
+    ha = (M3 > 0) & ~np.isin(M3, np.array(giu, np.int64)) & lop(M, 'nha')
+    M2 = M.copy(); M2[ha] = (215, 215, 215); CT2 = CT.copy(); CT2[ha] = 0
+    cv2.imwrite(f'{o}/matna-thap.png', M2); cv2.imwrite(f'{o}/mat_na_ct-thap.png', CT2)
+    toa = [t for t in json.load(open(f'{o}/toa.json')) if t['ten'] == "St Paul's Cathedral" or ('osm_id' in t and any(tt['osm_id'] == t['osm_id'] and m in giu for m, tt in ten.items()))]
+    # toà còn lại phải còn ≥ 50 điểm sau khi hạ
+    toa = [t for t in toa if (np.all(CT2 == np.array(t['mau'][::-1]), -1)).sum() >= 50]
+    json.dump(toa, open(f'{o}/toa-thap.json', 'w'), ensure_ascii=False, indent=1)
+    print(json.dumps(dict(khung=k, ha_ve_nha_thuong_pct=round(float(ha.mean() * 100), 2), lop_a_E_pct=round(float(lop_a(M2).mean() * 100), 2), toa=[t['ten'] for t in toa]), ensure_ascii=False))
+
+
+def ghep_mn(k, ai, tag, mn):
+    """ghép với mặt nạ khác (matna-<mn>.png)"""
+    o = f'{BCE}/{k}'; t = f'{o}/{tag}'; os.makedirs(t, exist_ok=True)
+    Rr = cv2.imread(f'{o}/render.png'); H, W = Rr.shape[:2]; AI = cv2.resize(cv2.imread(ai), (W, H), interpolation=cv2.INTER_AREA)
+    M = cv2.imread(f'{o}/matna-{mn}.png'); A = lop_a(M); B = bao_ve(A)
+    al = np.clip(cv2.distanceTransform((~B).astype(np.uint8), cv2.DIST_L2, 3) / 2.0, 0, 1)[..., None]
+    G = np.round(al * AI + (1 - al) * Rr).astype(np.uint8); G[B] = Rr[B]; cv2.imwrite(f'{t}/ghep.png', G); cv2.imwrite(f'{t}/ai-1080.png', AI)
+    rec = dict(khung=k, tag=tag, mat_na=f'matna-{mn}.png', sha_ai=sha(ai), lop_a_E_pct=round(float(A.mean() * 100), 2), pct_diem_anh_ai=round(float((~B).mean() * 100), 2),
+               sai_khac_lop_a_max=int(np.abs(G.astype(int) - Rr.astype(int))[A].max()), sha_ghep=sha(f'{t}/ghep.png'))
+    json.dump(rec, open(f'{t}/ghep.json', 'w'), ensure_ascii=False, indent=1); print(json.dumps(rec, ensure_ascii=False))
+
+
+if __name__ == '__main__' and sys.argv[1] == 'prep_thap': prep_thap(sys.argv[2])
+if __name__ == '__main__' and sys.argv[1] == 'ghep_mn': ghep_mn(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])

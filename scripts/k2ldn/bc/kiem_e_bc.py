@@ -1,15 +1,16 @@
 #!/opt/cine/bin/python
 """BAN-CUOI-T4-A · k2check 1.17.8 trên MỘT tấm E (N2P-E + N2P-1…5) — episode/timeline/log shot tối thiểu theo khuôn THU-B (`thu-b/kiem/*`) + khai K1178 §4.
 Chỉ CHẠY checks/ll/k2check.py (không đọc mã checks/). Mức G2 (`animatic: false`) để thấy đúng cấp Chặn.
-  kiem_e_bc.py <khung> <tag> <shot> <dem 0|1> [--video <ghep.mp4> <render.mp4> <matna-640.png>] [--vision]"""
+  kiem_e_bc.py <khung> <tag> <shot> <dem 0|1> [--video <ghep.mp4> <render.mp4> <matna-640.png>] [--vision] [--mn thap]"""
 import json, os, subprocess, sys
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 BCE = os.path.join(REPO, 'channel-k2/k2c-t4-02/ban-cuoi/e')
 a = sys.argv[1:]; k, tag, shot, dem = a[0], a[1], a[2], a[3] == '1'
+mn = a[a.index('--mn') + 1] if '--mn' in a else ''; sx = f'-{mn}' if mn else ''
 d = f'{BCE}/kiem/{k}-{tag}'; os.makedirs(d, exist_ok=True); T = f'../../tam/{k}'
-toa = json.load(open(f'{BCE}/tam/{k}/toa.json'))
-tam = dict(id=f'{k}-{tag}', shot=shot, render=f'{T}/render.png', ghep=f'{T}/{tag}/ghep.png', mat_na=f'{T}/matna.png', nam=2026, anh_tinh=True,
-           n2p_toan_khung_hien_dai=True, nam_min=2020, cu_may='CODINH', dem=dem, mat_na_ct=f'{T}/mat_na_ct.png',
+toa = json.load(open(f'{BCE}/tam/{k}/toa{sx}.json'))
+tam = dict(id=f'{k}-{tag}', shot=shot, render=f'{T}/render.png', ghep=f'{T}/{tag}/ghep.png', mat_na=f'{T}/matna{sx}.png', nam=2026, anh_tinh=True,
+           n2p_toan_khung_hien_dai=True, nam_min=2020, cu_may='CODINH', dem=dem, mat_na_ct=f'{T}/mat_na_ct{sx}.png',
            toa_co_ten=[dict(ten=t['ten'], mau=t['mau']) for t in toa], noi='London')
 n2p = dict(noi='London', t4=True, tam=[tam])
 if '--video' in a:

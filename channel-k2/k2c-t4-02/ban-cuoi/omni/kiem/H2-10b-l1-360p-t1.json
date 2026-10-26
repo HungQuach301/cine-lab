@@ -1,0 +1,56 @@
+{
+ "tag": "H2-10b-l1-360p",
+ "tang": 1,
+ "moc_hoi": "only old London Bridge (with houses) across the Thames; no other dome; St Paul's lantern in the foreground",
+ "moc_co_mat": false,
+ "cong_trinh_chua_ton_tai": [
+  "Cầu thứ hai qua sông Thames"
+ ],
+ "model": "gemini-3.8-flash",
+ "nam": 1708.0,
+ "canh": "the top of the lantern of St Paul's Cathedral, October 1708",
+ "loi_cau": "The last stone of the lantern is set in 1708 — by Wren's son, Christopher.",
+ "so_khung": 144,
+ "fps": 24.0,
+ "giay": 6.0,
+ "mo_ta": "Khung hình cuối xuất hiện cây cầu thứ hai bắc qua sông Thames và tàu buồm lớn không phù hợp với bối cảnh năm 1708.",
+ "muc": [
+  {
+   "anh": 4,
+   "loai": "tau_lon",
+   "mo_ta": "Tàu buồm lớn đi biển xuất hiện trên đoạn sông phía tây.",
+   "nam_xuat_hien": null,
+   "do_tin": 0.68
+  },
+  {
+   "anh": 4,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Cây cầu thứ hai bắc qua sông Thames xuất hiện ở phía tây, trong khi năm 1708 chỉ có Old London Bridge.",
+   "nam_xuat_hien": 1750,
+   "do_tin": 0.72
+  }
+ ],
+ "loi": [
+  {
+   "anh": 4,
+   "loai": "tau_lon",
+   "mo_ta": "Tàu buồm lớn đi biển xuất hiện trên đoạn sông phía tây.",
+   "nam_xuat_hien": null,
+   "do_tin": 0.68
+  },
+  {
+   "anh": 4,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Cây cầu thứ hai bắc qua sông Thames xuất hiện ở phía tây, trong khi năm 1708 chỉ có Old London Bridge.",
+   "nam_xuat_hien": 1750,
+   "do_tin": 0.72
+  },
+  {
+   "loai": "cong_trinh_sai",
+   "mo_ta": "chưa tồn tại: Cầu thứ hai qua sông Thames",
+   "do_tin": 1.0
+  }
+ ],
+ "ket_luan": "LOẠI",
+ "usd": 0.014
+}

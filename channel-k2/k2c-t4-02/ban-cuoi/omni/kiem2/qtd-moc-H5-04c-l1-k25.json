@@ -1,0 +1,50 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.030 (TB $0.030/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "k25",
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "32edd1e7abc6bb777fcfcbda53d294ef85f1ae7e7c4ff30b1cd734d5296d86e7",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "Leadenhall Building (tapering wedge)",
+    "22 Bishopsgate",
+    "no tower that is not in the input"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.0299972,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 489,
+     "cacheReadInputTokens": 3027,
+     "cacheCreationInputTokens": 9917,
+     "webSearchRequests": 0,
+     "costUSD": 0.0299972,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 73,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 6.0,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.03,
+ "chi_phi_tb": 0.03,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

@@ -1,0 +1,408 @@
+{
+ "tag": "H5-04c-l1-360p",
+ "clip": "/var/tmp/bc/omni/H5-04c/H5-04c-l1-360p.mp4",
+ "clip_sha": "ad58454643b819e012e6df6c36299e108f44227d282f85b28262c031d026c74c",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/ban-cuoi/omni/dau/H5-04c-l1-dau.jpg",
+ "dau_sha": "3dbe2f1d63cae9f528437659f3b76e538333caa7b55ee83492600db2ed3c33ba",
+ "nam": "2026",
+ "canh": "the cluster of City towers seen from Leadenhall Street, 2026",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/bc/kiem2/H5-04c-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0245,
+      "usage": {
+       "input_tokens": 9754,
+       "input_tokens_details": {
+        "cache_write_tokens": 9751,
+        "cached_tokens": 0
+       },
+       "output_tokens": 500,
+       "output_tokens_details": {
+        "reasoning_tokens": 261
+       },
+       "total_tokens": 10254
+      }
+     },
+     "secs": 14.4,
+     "mo_ta": "Khung hình nhìn ngước từ phố Leadenhall ở London lên cụm cao ốc kính, giữa các mặt tiền văn phòng hiện đại và tòa nhà gạch đỏ.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cao ốc có mặt nghiêng ở trung tâm, nhận diện là Leadenhall Building (Cheesegrater), đã hiện diện trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.301,
+        0.225,
+        0.523,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cao ốc kính mái bằng phía sau tòa nhà mặt nghiêng, có hình dáng tương ứng với 22 Bishopsgate, đã hiện diện trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.496,
+        0.302,
+        0.585,
+        0.608
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.72
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H5-04c-l1-360p-k25",
+      "nam": 2026,
+      "noi": "London",
+      "sha256": "32edd1e7abc6bb777fcfcbda53d294ef85f1ae7e7c4ff30b1cd734d5296d86e7",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0306716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 546,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0306716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 5.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0307,
+    "chi_phi_tb": 0.0307,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/bc/kiem2/H5-04c-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0271,
+      "usage": {
+       "input_tokens": 9748,
+       "input_tokens_details": {
+        "cache_write_tokens": 9745,
+        "cached_tokens": 0
+       },
+       "output_tokens": 765,
+       "output_tokens_details": {
+        "reasoning_tokens": 442
+       },
+       "total_tokens": 10513
+      }
+     },
+     "secs": 18.6,
+     "mo_ta": "Khung hình nhìn ngước lên các tháp kính của City of London giữa những mặt tiền văn phòng, với một cụm đèn gắn trên tòa nhà gạch bên phải.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp kính dạng nêm ở giữa, có hình dáng gợi tòa Leadenhall Building (122 Leadenhall Street, «Cheesegrater»).",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.345,
+        0.49,
+        0.526,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.78
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp kính cao phía sau, bên phải tháp dạng nêm, có hình dáng gợi 22 Bishopsgate.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.494,
+        0.561,
+        0.587,
+        0.882
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.73
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm đèn lồng tối màu với giá kim loại nhô khỏi mặt tiền gạch bên phải; đây là chi tiết gắn thêm không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.651,
+        0.244,
+        0.764,
+        0.322
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cụm đèn lồng tối màu với giá kim loại nhô khỏi mặt tiền gạch bên phải; đây là chi tiết gắn thêm không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.651,
+        0.244,
+        0.764,
+        0.322
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H5-04c-l1-360p-k55",
+      "nam": 2026,
+      "noi": "London",
+      "sha256": "7516c4d9c9a1c8ae6c462c3dc77cd87473c20590fba7043f6cdb1730b5b1001a",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0306716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 546,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0306716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 5.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0307,
+    "chi_phi_tb": 0.0307,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/bc/kiem2/H5-04c-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0277,
+      "usage": {
+       "input_tokens": 9748,
+       "input_tokens_details": {
+        "cache_write_tokens": 9745,
+        "cached_tokens": 0
+       },
+       "output_tokens": 825,
+       "output_tokens_details": {
+        "reasoning_tokens": 402
+       },
+       "total_tokens": 10573
+      }
+     },
+     "secs": 22.1,
+     "mo_ta": "Khung hình ngước lên giữa các mặt tiền kính và gạch đỏ trên phố Leadenhall, với phần đỉnh cụm tháp City ở phía dưới bầu trời.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp kính hình nêm với hai mũi nhọn trong cụm tháp City, tương ứng với tháp trung tâm trong ảnh tham chiếu; chưa đủ chắc chắn để gán tên riêng.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.414,
+        0.763,
+        0.522,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp kính cao có đỉnh bậc và các dải ngang, đứng phía sau bên phải tháp hình nêm; cũng xuất hiện trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.497,
+        0.839,
+        0.595,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Dải phào màu sáng với hàng răng trang trí nhô xuống trên mặt tiền gạch đỏ bên phải, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.706,
+        0.038,
+        1.0,
+        0.254
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Hệ gờ đứng màu sáng chia mặt tiền gạch đỏ thành các ô lớn, kèm kiểu cửa sổ bốn ô khác với mặt tiền tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.589,
+        0.113,
+        1.0,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Dải phào màu sáng với hàng răng trang trí nhô xuống trên mặt tiền gạch đỏ bên phải, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.706,
+        0.038,
+        1.0,
+        0.254
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Hệ gờ đứng màu sáng chia mặt tiền gạch đỏ thành các ô lớn, kèm kiểu cửa sổ bốn ô khác với mặt tiền tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.589,
+        0.113,
+        1.0,
+        1.0
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.85
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H5-04c-l1-360p-k90",
+      "nam": 2026,
+      "noi": "London",
+      "sha256": "4ffabd47b2b77ce51daaf25d7a8e4fafa0ed1ea8c9664401f9c5a1c43e39b02c",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0306716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 546,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0306716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 5.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0307,
+    "chi_phi_tb": 0.0307,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

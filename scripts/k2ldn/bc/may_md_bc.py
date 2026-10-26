@@ -17,8 +17,8 @@ M = {
  'H5-02b': ('H5-02', [532300, 181558, 30], [532300, 181870, 75], 50, {'year': 1973.0, 'date': [1973, 9, 1, 14.0]}, 'tháp Barbican đang xây (1973) nhìn bắc từ London Wall'),
  'H5-02s': ('H5-02s', [532180, 181556, 16], [532600, 181566, 19], 45, {}, 'London Wall 1976 tầm người'),
  'H5-04c': ('H5-04', [533350, 181124, 16], [533150, 181220, 150], 55, {'year': 2026.667, 'date': [2026, 9, 2, 14.0]}, 'cụm toà cao Leadenhall/Bishopsgate từ phố (ngửa)'),
- 'H5-05d': ('H5-05a', [531450, 180520, 8], [532118, 181150, 90], 30, {}, 'tầm nhìn bảo vệ tới mái vòm từ bờ nam / Waterloo (ven sông)'),
- 'H5-05b': ('H5-05b', [531300, 181160, 15], [532118, 181150, 95], 32, {}, 'Fleet Street 2026 tầm người nhìn đông lên mái vòm, nền trời'),
+ 'H5-05d': ('H5-05a', [532105, 180600, 12], [532118, 181150, 95], 34, {}, 'mái vòm nhìn bắc từ cầu Millennium (giữa sông) — tầm nhìn tới mái vòm'),
+ 'H5-05b': ('H5-05b', [531600, 181172, 15], [532118, 181150, 95], 30, {}, 'Fleet Street 2026 tầm người nhìn đông lên mái vòm, nền trời'),
 }
 V = []
 for ma, (base, p, l, fov, gd, vai) in M.items():
