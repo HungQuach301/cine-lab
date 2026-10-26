@@ -15,7 +15,7 @@
   tao_look3_b1.py   → design/k2v/ldn/bc/look3-b1.js (+ in SHA look3.js nguồn)"""
 import hashlib, os, sys
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-SRC = os.path.join(REPO, 'design/k2v/ldn/thu-b/look3.js'); DST = os.path.join(REPO, 'design/k2v/ldn/bc/look3-b1.js')
+SRC = os.path.join(REPO, 'design/k2v/ldn/thu-b/look3.js'); DST = os.path.join(REPO, os.environ.get('LOOK3B1_DST', 'design/k2v/ldn/bc/look3-b1.js'))
 s = open(SRC, encoding='utf-8').read(); sha = hashlib.sha256(s.encode()).hexdigest()
 
 
@@ -117,6 +117,8 @@ rep("        vec3 c = mix(deep, env * vec3(0.92, 0.92, 0.86), F);",
     "        vec3 c = mix(deep, env * vec3(0.92, 0.92, 0.86), Fq);")
 # lửa: quầng rộng/dày hơn (vòng lửa liền); khói mép mềm + nhiều hạt mỏng hơn
 rep("float size = (26.0 + sd.y * 22.0) * step(0.05, I);", "float size = (44.0 + sd.y * 40.0) * step(0.05, I);")
+rep("vec3 c = off.xyz + vec3(0.0, 4.0, 0.0); vA = smoothstep(0.1, 0.7, I) * (0.85 + 0.15 * sin(uT * 3.0 + sd.x * 20.0));",
+    "vec3 c = off.xyz + vec3(0.0, 4.0, 0.0); vA = smoothstep(0.1, 0.7, I) * (0.85 + 0.15 * sin(uT * 3.0 + sd.x * 20.0)) * mix(0.25, 1.0, smoothstep(60.0, 320.0, length(uCam - c)));   /* B1 (soi H1-13a/c): quầng gần máy giảm — tránh cháy trắng ở máy tầm phố */")
 rep("gl_FragColor = vec4(vec3(1.0, 0.40, 0.09) * k * vA * 0.20 * (0.25 + 0.75 * uNight), 0.0); }", "gl_FragColor = vec4(vec3(1.0, 0.40, 0.09) * k * vA * 0.23 * (0.25 + 0.75 * uNight), 0.0); }")
 rep("        d = smoothstep(0.04, 0.55, t.r) * vA * 0.85 * smoothstep(0.0, 0.10, vUv.y) * smoothstep(1.0, 0.45, vUv.y) * smoothstep(0.0, 0.24, min(vUv.x, 1.0 - vUv.x));   /* V2: khói đặc khối, mép rõ */",
     "        d = smoothstep(0.04, 0.55, t.r) * vA * 0.85 * smoothstep(0.0, 0.10, vUv.y) * smoothstep(1.0, 0.45, vUv.y) * smoothstep(0.0, 0.24, min(vUv.x, 1.0 - vUv.x));   /* V2: khói đặc khối, mép rõ */\n"

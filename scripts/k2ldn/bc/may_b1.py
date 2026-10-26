@@ -86,6 +86,7 @@ for i in range(69):
     keys.append(dict(k0, t=round(t, 4), p=[round(L0[0] + r * math.cos(a), 2), round(L0[1] + r * math.sin(a), 2), round(125.0 - 13.0 * u, 2)], l=list(L0), hour=round(19.6 + 1.0 * u, 4)))
 m0v = copy.deepcopy(m0); m0v.update(dur=17.0, keys=keys, cu_may='VONG', shot='M00', nguon_may='ban-cuoi/may/M00-moi-a.json (điểm P1b, D-A8) → VONG ±12,5° quanh tâm nhìn, 17 s')
 pm0 = ghi('M00', m0v)
+with open(f'{OUT}/M00-log-may.json.gz', 'wb') as f: f.write(gzip.compress(json.dumps(log_tinh(m0v, list(range(408)))).encode(), mtime=0))
 
 # ---------------------------------------------------------------- MAY-19 (a): H2-10 THAP, H5-05b THAP → ngửa 6,0 → 9,0° (trong 5–15°), giữ điểm máy + hướng ngang + nhịp ngửa dần
 MAY19 = {}

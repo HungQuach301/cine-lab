@@ -478,7 +478,7 @@ function buildParticles(LC, grid, hU, key) {
       gl_FragColor = vec4(mix(vec3(1.0, 0.45, 0.10), vec3(1.0, 0.80, 0.45), vF) * k * vA * fl * 2.4 * (0.30 + 0.70 * uNight), 0.0); }`;
   const VSG = `attribute vec4 off; attribute vec2 sd; uniform float uHour, uH40, uT; uniform vec3 uCam; varying vec2 vUv; varying float vA; ${burnI}
     void main(){ vUv = position.xy + vec2(0.5, 0.0); float I = ${BI}(off.w, ${hU}); float size = (44.0 + sd.y * 40.0) * step(0.05, I);
-      vec3 c = off.xyz + vec3(0.0, 4.0, 0.0); vA = smoothstep(0.1, 0.7, I) * (0.85 + 0.15 * sin(uT * 3.0 + sd.x * 20.0));
+      vec3 c = off.xyz + vec3(0.0, 4.0, 0.0); vA = smoothstep(0.1, 0.7, I) * (0.85 + 0.15 * sin(uT * 3.0 + sd.x * 20.0)) * mix(0.25, 1.0, smoothstep(60.0, 320.0, length(uCam - c)));   /* B1 (soi H1-13a/c): quầng gần máy giảm — tránh cháy trắng ở máy tầm phố */
       vec3 toC = normalize(uCam - c); vec3 rt = normalize(cross(vec3(0.0, 1.0, 0.0), toC)); vec3 up = normalize(cross(toC, rt));
       vec3 w = c + (rt * position.x + up * (position.y - 0.35)) * size; if (size < 0.01) w = vec3(0.0, -1000.0, 0.0); gl_Position = projectionMatrix * viewMatrix * vec4(w, 1.0); }`;
   const FSG = `varying vec2 vUv; varying float vA; uniform float uNight;
