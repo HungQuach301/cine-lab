@@ -1,0 +1,383 @@
+{
+ "tag": "H1-15x-l1-360p",
+ "clip": "/var/tmp/bc/omni/H1-15x/H1-15x-l1-360p.mp4",
+ "clip_sha": "d8e429b033624414383f66792d61141ee21f7be4628631893f85f258f09a43f6",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/ban-cuoi/omni/dau/H1-15x-l1-dau.jpg",
+ "dau_sha": "401f7f9dacb27de4591433732d3848b273d3d5329dd713556746f36376d60028",
+ "nam": "1666",
+ "canh": "the King and the Duke of York at the fire-lines, Fleet Street, 4 September 1666",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/bc/kiem2/H1-15x-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0236,
+      "usage": {
+       "input_tokens": 10147,
+       "input_tokens_details": {
+        "cache_write_tokens": 10144,
+        "cached_tokens": 0
+       },
+       "output_tokens": 328,
+       "output_tokens_details": {
+        "reasoning_tokens": 202
+       },
+       "total_tokens": 10475
+      }
+     },
+     "secs": 11.1,
+     "mo_ta": "A cobbled street lined with timber-framed houses contains period-dressed people and barrels, with a Gothic church tower, flames and dense smoke in the distance.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Distant square Gothic church tower with corner pinnacles; its specific identity cannot be established from the image.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.442,
+        0.351,
+        0.495,
+        0.519
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-15x-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "dedb2baf7bf24ae7d75222a5b9b273d913b83e4773a14658db3b0678d740c6c3",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0334456,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 659,
+        "cacheReadInputTokens": 2186,
+        "cacheCreationInputTokens": 10650,
+        "webSearchRequests": 0,
+        "costUSD": 0.0334456,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 113,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0334,
+    "chi_phi_tb": 0.0334,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/bc/kiem2/H1-15x-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0247,
+      "usage": {
+       "input_tokens": 10141,
+       "input_tokens_details": {
+        "cache_write_tokens": 10138,
+        "cached_tokens": 0
+       },
+       "output_tokens": 444,
+       "output_tokens_details": {
+        "reasoning_tokens": 240
+       },
+       "total_tokens": 10585
+      }
+     },
+     "secs": 15.2,
+     "mo_ta": "A crowded street of timber-framed houses leads toward burning buildings and a distant Gothic church tower, with period-dressed figures in the foreground.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Distant square Gothic church tower with corner pinnacles; its specific identity cannot be established from the image.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.444,
+        0.35,
+        0.494,
+        0.485
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.78
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "An added foreground man appears to duplicate the dark-haired principal figure still standing farther left, repeating his long black coat, white neckcloth and hairstyle.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.411,
+        0.684,
+        0.484,
+        0.976
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "An added foreground man appears to duplicate the dark-haired principal figure still standing farther left, repeating his long black coat, white neckcloth and hairstyle.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.411,
+        0.684,
+        0.484,
+        0.976
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-15x-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "b8eaa416b7444a6764c975a9da7d5695a2fbe261aa45562d2609015fee1cd52a",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0320916,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 688,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0320916,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 142,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0321,
+    "chi_phi_tb": 0.0321,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/bc/kiem2/H1-15x-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0271,
+      "usage": {
+       "input_tokens": 10135,
+       "input_tokens_details": {
+        "cache_write_tokens": 10132,
+        "cached_tokens": 0
+       },
+       "output_tokens": 685,
+       "output_tokens_details": {
+        "reasoning_tokens": 358
+       },
+       "total_tokens": 10820
+      }
+     },
+     "secs": 19.1,
+     "mo_ta": "Một phố nhà khung gỗ đông người với hai người đàn ông ăn mặc sang trọng ở trung cảnh, một cặp nhân vật tương tự ở tiền cảnh và tháp nhà thờ phía xa giữa khói lửa.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp nhà thờ Gothic có các chóp nhọn ở đường chân trời; không đủ chi tiết để xác định chắc tên công trình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.442,
+        0.351,
+        0.491,
+        0.482
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cửa sổ mái lớn có mái tam giác trên ngôi nhà sát mép phải, là chi tiết kiến trúc không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.946,
+        0.058,
+        1.0,
+        0.309
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.78
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Người đàn ông tiền cảnh mặc áo đen, cổ trắng và tóc dài trông như bản sao bổ sung của nhân vật áo đen vẫn đứng cùng người áo nâu ở trung cảnh.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.369,
+        0.683,
+        0.437,
+        0.974
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Cửa sổ mái lớn có mái tam giác trên ngôi nhà sát mép phải, là chi tiết kiến trúc không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.946,
+        0.058,
+        1.0,
+        0.309
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.78
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Người đàn ông tiền cảnh mặc áo đen, cổ trắng và tóc dài trông như bản sao bổ sung của nhân vật áo đen vẫn đứng cùng người áo nâu ở trung cảnh.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.369,
+        0.683,
+        0.437,
+        0.974
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-15x-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "edda87c1c731ef13bfebfd1df64fb586ec7d5a1154068c490b4307ef111cf557",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "The street has flat-fronted half-timbered houses with no overhanging upper floors (jetties). The frame also shows a distant pinnacled Gothic tower, which could be meant as Old St Paul's. The houses look tidy and uniform.",
+        "ly_do": "Pre-Fire London houses typically had jettied upper storeys. The distant tower is generic and may not match the real Old St Paul's, which was a square tower with no spire after 1561. This is only a weak doubt about accuracy, and nothing in the scene clearly post-dates 1666.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         826,
+         389,
+         960,
+         486
+        ],
+        "do_tin": 0.12
+       }
+      ],
+      "cost_usd": 0.035251599999999994,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1004,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.035251599999999994,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 215,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The street has flat-fronted half-timbered houses with no overhanging upper floors (jetties). The frame also shows a distant pinnacled Gothic tower, which could be meant as Old St Paul's. The houses look tidy and uniform.\",\"ly_do\":\"Pre-Fire London houses typically had jettied upper storeys. The distant tower is generic and may not match the real Old St Paul's, which was a square tower with no spire after 1561. This is only a weak doubt about accuracy, and nothing in the scene clearly post-dates 1666.\",\"nam_xuat_hien\":null,\"toa_do\":[0.43,0.36,0.5,0.45],\"do_tin\":0.12}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0353,
+    "chi_phi_tb": 0.0353,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}
