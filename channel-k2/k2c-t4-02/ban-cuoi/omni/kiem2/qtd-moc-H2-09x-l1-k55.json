@@ -1,0 +1,68 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung k55 năm 1675: [cong_trinh_moc] A tall, slender white tower stands on the skyline at the centre. It has a rounded, domed cupola top and looks like a minaret or a later clock tower. Nothing like it stood in the City in 1675. — The scene must not show any dome, because the new St Paul's was not yet built. A smooth white tower with a domed cap does not match any London landmark standing in 1675. Old St Paul's stood ruined, and the Wren church steeples were not yet built. @px [1098, 394, 1146, 545] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 0 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "k55",
+   "nam": 1675,
+   "noi": "London",
+   "sha256": "144c19fadf7614e7eec495a9dd7eb60ff6448a6da1edc9f7adb50f0b378ce49b",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "must NOT show any dome (the new cathedral is not built yet)"
+   ],
+   "nghi_van": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "A tall, slender white tower stands on the skyline at the centre. It has a rounded, domed cupola top and looks like a minaret or a later clock tower. Nothing like it stood in the City in 1675.",
+     "ly_do": "The scene must not show any dome, because the new St Paul's was not yet built. A smooth white tower with a domed cap does not match any London landmark standing in 1675. Old St Paul's stood ruined, and the Wren church steeples were not yet built.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1098,
+      394,
+      1146,
+      545
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "loi": null,
+      "ghi": "lớp công trình mốc: không qua bước 2 (vật vắng không phóng được) — giữ"
+     }
+    }
+   ],
+   "ghi_chu": [],
+   "cost_usd": 0.0329356,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 787,
+     "cacheReadInputTokens": 3011,
+     "cacheCreationInputTokens": 9901,
+     "webSearchRequests": 0,
+     "costUSD": 0.0329356,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 149,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.4,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A tall, slender white tower stands on the skyline at the centre. It has a rounded, domed cupola top and looks like a minaret or a later clock tower. Nothing like it stood in the City in 1675.\",\"ly_do\":\"The scene must not show any dome, because the new St Paul's was not yet built. A smooth white tower with a domed cap does not match any London landmark standing in 1675. Old St Paul's stood ruined, and the Wren church steeples were not yet built.\",\"nam_xuat_hien\":null,\"toa_do\":[0.572,0.365,0.597,0.505],\"do_tin\":0.5}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0329,
+ "chi_phi_tb": 0.0329,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

@@ -1,0 +1,89 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 3 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "k25",
+   "nam": 1675,
+   "noi": "London",
+   "sha256": "53e9537fda0c9ec7cbad801e2c37e97dcf521638f03796779e62e78ebbd67030",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the unfinished Monument column (fluted, inside timber scaffolding)",
+    "must NOT show any dome"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The Monument column inside the timber scaffolding is a plain, smooth, pale cylinder. It shows no fluting and no recognisable Monument form such as a base or pedestal.",
+     "ly_do": "The unfinished Monument of 1675 should be a fluted Doric column. What is shown is not that form.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1027,
+      227,
+      1104,
+      454
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Very large, uniform 5–6 storey red-brick blocks with regular grids of white-framed multi-pane sash windows. They look like Georgian or industrial mill buildings.",
+     "ly_do": "London houses in 1675 were mostly 3–4 storeys. Sash windows were only just appearing then. Flat, repetitive tall brick blocks of this kind belong to the 18th and 19th centuries.",
+     "nam_xuat_hien": 1750,
+     "toa_do_px": [
+      0,
+      130,
+      691,
+      994
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "The right-hand blocks are tall, regular, many-windowed brick buildings with sash windows.",
+     "ly_do": "These are too tall and too uniform for post-Fire London in 1675. Their style is later Georgian.",
+     "nam_xuat_hien": 1750,
+     "toa_do_px": [
+      1325,
+      324,
+      1920,
+      994
+     ],
+     "do_tin": 0.35
+    }
+   ],
+   "cost_usd": 0.0359368,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1084,
+     "cacheReadInputTokens": 3023,
+     "cacheCreationInputTokens": 9913,
+     "webSearchRequests": 0,
+     "costUSD": 0.0359368,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 166,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 12.4,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinho_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The Monument column inside the timber scaffolding is a plain, smooth, pale cylinder. It shows no fluting and no recognisable Monument form such as a base or pedestal.\",\"ly_do\":\"The unfinished Monument of 1675 should be a fluted Doric column. What is shown is not that form.\",\"nam_xuat_hien\":null,\"toa_do\":[0.535,0.21,0.575,0.42],\"do_tin\":0.4},{\"muc\":\"kien_truc\",\"mo_ta\":\"Very large, uniform 5–6 storey red-brick blocks with regular grids of white-framed multi-pane sash windows. They look like Georgian or industrial mill buildings.\",\"ly_do\":\"London houses in 1675 were mostly 3–4 storeys. Sash windows were only just appearing then. Flat, repetitive tall brick blocks of this kind belong to the 18th and 19th centuries.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.0,0.12,0.36,0.92],\"do_tin\":0.4},{\"muc\":\"kien_truc\",\"mo_ta\":\"The right-hand blocks are tall, regular, many-windowed brick buildings with sash windows.\",\"ly_do\":\"These are too tall and too uniform for post-Fire London in 1675. Their style is later Georgian.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.69,0.3,1.0,0.92],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0359,
+ "chi_phi_tb": 0.0359,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

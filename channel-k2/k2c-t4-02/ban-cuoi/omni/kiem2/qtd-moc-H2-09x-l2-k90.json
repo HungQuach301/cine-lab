@@ -1,0 +1,75 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.032 (TB $0.032/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "k90",
+   "nam": 1675,
+   "noi": "London",
+   "sha256": "de2b75ec54dd8bd005e677fbb0f520526b3bb3a8681b8715a5886acbf54403bd",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "must NOT show any dome (the new cathedral is not built yet)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "A tall, slim, pale tower with a small dark pointed cap stands alone on the skyline. It looks like a plain campanile or minaret, or a monument shaft. It does not look like a London church steeple or any known 1675 landmark.",
+     "ly_do": "No such tower stood in London in 1675. The Monument was only begun in 1671 and finished in 1677, and it is a fluted column with an urn on top, not a capped tower. The tower may also be a stand-in for a later spire or monument.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      1098,
+      400,
+      1146,
+      540
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A long, uniform skyline of red-brick terrace blocks with regular windows and many chimneys. The blocks are tall and look Georgian or Victorian.",
+     "ly_do": "The blocks look like later 18th- or 19th-century brick terraces. In 1675 London was still being rebuilt after the 1666 fire, with a mix of timber and brick houses.",
+     "nam_xuat_hien": 1800,
+     "toa_do_px": [
+      0,
+      432,
+      1920,
+      616
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.032200799999999995,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1092,
+     "cacheReadInputTokens": 4588,
+     "cacheCreationInputTokens": 8324,
+     "webSearchRequests": 0,
+     "costUSD": 0.032200799999999995,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 264,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A tall, slim, pale tower with a small dark pointed cap stands alone on the skyline. It looks like a plain campanile or minaret, or a monument shaft. It does not look like a London church steeple or any known 1675 landmark.\",\"ly_do\":\"No such tower stood in London in 1675. The Monument was only begun in 1671 and finished in 1677, and it is a fluted column with an urn on top, not a capped tower. The tower may also be a stand-in for a later spire or monument.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.572,0.37,0.597,0.5],\"do_tin\":0.4},{\"muc\":\"kien_truc\",\"mo_ta\":\"A long, uniform skyline of red-brick terrace blocks with regular windows and many chimneys. The blocks are tall and look Georgian or Victorian.\",\"ly_do\":\"The blocks look like later 18th- or 19th-century brick terraces. In 1675 London was still being rebuilt after the 1666 fire, with a mix of timber and brick houses.\",\"nam_xuat_hien\":1800,\"toa_do\":[0.0,0.4,1.0,0.57],\"do_tin\":0.25}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0322,
+ "chi_phi_tb": 0.0322,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

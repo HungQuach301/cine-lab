@@ -1,0 +1,76 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "k90",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "47fddd477ce20e6e9c7d4ec1636f6ba8293af38f0d65d9787614e98149074234",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "Old St Paul's ruined Gothic tower without dome (through the window, if visible)",
+    "must NOT show any dome"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "A tall, thin, isolated column or obelisk stands on the skyline at the right of centre. It looks like the Monument to the Great Fire.",
+     "ly_do": "The Monument was built in 1671–77, after 1666. The city is still smouldering ruins in this frame.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      1311,
+      416,
+      1352,
+      451
+     ],
+     "do_tin": 0.45
+    },
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "Old St Paul's should appear as a ruined Gothic tower without a dome. No such large central tower is recognisable on the skyline. There are only three identical square, chimney-like towers on a wall at far left, plus small distant spires.",
+     "ly_do": "The landmark expected in this view is missing or replaced by generic towers and walls.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      154,
+      389,
+      384,
+      475
+     ],
+     "do_tin": 0.35
+    }
+   ],
+   "cost_usd": 0.0353772,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1027,
+     "cacheReadInputTokens": 3027,
+     "cacheCreationInputTokens": 9917,
+     "webSearchRequests": 0,
+     "costUSD": 0.0353772,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 279,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 13.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A tall, thin, isolated column or obelisk stands on the skyline at the right of centre. It looks like the Monument to the Great Fire.\",\"ly_do\":\"The Monument was built in 1671–77, after 1666. The city is still smouldering ruins in this frame.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.683,0.385,0.704,0.418],\"do_tin\":0.45},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"Old St Paul's should appear as a ruined Gothic tower without a dome. No such large central tower is recognisable on the skyline. There are only three identical square, chimney-like towers on a wall at far left, plus small distant spires.\",\"ly_do\":\"The landmark expected in this view is missing or replaced by generic towers and walls.\",\"nam_xuat_hien\":null,\"toa_do\":[0.08,0.36,0.2,0.44],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0354,
+ "chi_phi_tb": 0.0354,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

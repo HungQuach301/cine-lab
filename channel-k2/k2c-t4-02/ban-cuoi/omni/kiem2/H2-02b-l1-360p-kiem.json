@@ -1,0 +1,503 @@
+{
+ "tag": "H2-02b-l1-360p",
+ "clip": "/var/tmp/bc/omni/H2-02b/H2-02b-l1-360p.mp4",
+ "clip_sha": "032cd15ca9a3e27af33376f7ec156f120161312e93fda642adf66468e4fc832e",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/ban-cuoi/omni/dau/H2-02b-l1-dau.jpg",
+ "dau_sha": "11101592c52cda0d51c299ed4d2ef52bc008f63203a991c5e9276a2f0bb2c971",
+ "nam": "1666",
+ "canh": "a new City plan laid out on a table by a window overlooking the burnt City, September 1666",
+ "so_khung": 120,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/bc/kiem2/H2-02b-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0253,
+      "usage": {
+       "input_tokens": 10141,
+       "input_tokens_details": {
+        "cache_write_tokens": 10138,
+        "cached_tokens": 0
+       },
+       "output_tokens": 501,
+       "output_tokens_details": {
+        "reasoning_tokens": 284
+       },
+       "total_tokens": 10642
+      }
+     },
+     "secs": 16.1,
+     "mo_ta": "Bản quy hoạch thành phố trải trên bàn cạnh cửa sổ nhìn ra những phế tích London, với người đi lại, khói âm ỉ và một cây cầu ở phía xa.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu London cũ với các công trình nằm trên cầu, ở xa phía bên phải.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.816,
+        0.418,
+        0.954,
+        0.466
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Một tháp đá vuông ngoài cùng bên trái đường chân trời xuất hiện thêm trong phần cảnh được mở rộng; tháp này không nhìn thấy trong REFERENCE.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.094,
+        0.368,
+        0.11,
+        0.434
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Một tháp đá vuông ngoài cùng bên trái đường chân trời xuất hiện thêm trong phần cảnh được mở rộng; tháp này không nhìn thấy trong REFERENCE.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.094,
+        0.368,
+        0.11,
+        0.434
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.84
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-02b-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "e90f0a8ed44a96f3c9dfeb31ef41731283423b8ade89acbca28988d354f45554",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Slender isolated column or obelisk on the far skyline, right of centre. It resembles the Monument to the Great Fire.",
+        "ly_do": "The Monument was built 1671–1677, after the 1666 fire. It could not stand on the skyline in 1666. The shape is small and blurred, so the identification is uncertain.",
+        "nam_xuat_hien": 1677,
+        "toa_do_px": [
+         1315,
+         421,
+         1354,
+         475
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0338716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 866,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0338716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 150,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.9,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Slender isolated column or obelisk on the far skyline, right of centre. It resembles the Monument to the Great Fire.\",\"ly_do\":\"The Monument was built 1671–1677, after the 1666 fire. It could not stand on the skyline in 1666. The shape is small and blurred, so the identification is uncertain.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.685,0.39,0.705,0.44],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0339,
+    "chi_phi_tb": 0.0339,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/bc/kiem2/H2-02b-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0267,
+      "usage": {
+       "input_tokens": 10135,
+       "input_tokens_details": {
+        "cache_write_tokens": 10132,
+        "cached_tokens": 0
+       },
+       "output_tokens": 644,
+       "output_tokens_details": {
+        "reasoning_tokens": 248
+       },
+       "total_tokens": 10779
+      }
+     },
+     "secs": 15.7,
+     "mo_ta": "Bản quy hoạch trải trên bàn cạnh chân nến, nhìn qua cửa sổ ra những khu nhà đổ nát và khói âm ỉ của London sau hỏa hoạn.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu London cũ với dãy công trình bên trên và các nhịp vượt sông ở phía xa bên phải.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.815,
+        0.419,
+        0.954,
+        0.471
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt tiền nhà bằng đá được thêm sát mép trái bên ngoài cửa sổ, có cửa sổ chữ nhật, cửa vòm và gờ ngang; không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.035,
+        0.429,
+        0.095,
+        0.71
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Tháp vuông thứ ba được thêm vào cụm công trình phía trái đường chân trời, biến cụm hai tháp trong ảnh tham chiếu thành ba tháp.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.164,
+        0.372,
+        0.181,
+        0.434
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.89
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt tiền nhà bằng đá được thêm sát mép trái bên ngoài cửa sổ, có cửa sổ chữ nhật, cửa vòm và gờ ngang; không có trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.035,
+        0.429,
+        0.095,
+        0.71
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.97
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Tháp vuông thứ ba được thêm vào cụm công trình phía trái đường chân trời, biến cụm hai tháp trong ảnh tham chiếu thành ba tháp.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.164,
+        0.372,
+        0.181,
+        0.434
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.89
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-02b-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "ecb5480a173c882fc9c4664fc9897c5a0e66b37237ac73a0963b108a8cbfac78",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A thin, isolated column or obelisk-like shaft stands on the distant skyline. It may be a spire, but it looks like the Monument to the Great Fire.",
+        "ly_do": "If it is the Monument, it was built in 1671–77, after the 1666 fire. It is tiny and blurred, so the identification is uncertain.",
+        "nam_xuat_hien": 1677,
+        "toa_do_px": [
+         1325,
+         421,
+         1344,
+         464
+        ],
+        "do_tin": 0.15
+       }
+      ],
+      "cost_usd": 0.0345116,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 930,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0345116,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 212,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.4,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A thin, isolated column or obelisk-like shaft stands on the distant skyline. It may be a spire, but it looks like the Monument to the Great Fire.\",\"ly_do\":\"If it is the Monument, it was built in 1671–77, after the 1666 fire. It is tiny and blurred, so the identification is uncertain.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.69,0.39,0.7,0.43],\"do_tin\":0.15}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0345,
+    "chi_phi_tb": 0.0345,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/bc/kiem2/H2-02b-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.028,
+      "usage": {
+       "input_tokens": 10129,
+       "input_tokens_details": {
+        "cache_write_tokens": 10126,
+        "cached_tokens": 0
+       },
+       "output_tokens": 770,
+       "output_tokens_details": {
+        "reasoning_tokens": 257
+       },
+       "total_tokens": 10899
+      }
+     },
+     "secs": 17.8,
+     "mo_ta": "Khung hình nhìn qua bậu cửa ra khu London cháy rụi, với người đi giữa đống đổ nát, xe kéo và cây cầu ở xa; bản quy hoạch trên bàn không còn trong khuôn hình.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt tiền nhà đá hai tầng được thêm ở mép trái, có cửa vòm, cửa sổ và gờ trang trí; không có mặt tiền này trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.425,
+        0.089,
+        0.734
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Tháp vuông thứ ba được thêm vào cụm kiến trúc phía trái đường chân trời; cụm tương ứng trong ảnh tham chiếu chỉ có hai tháp cao.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.163,
+        0.367,
+        0.181,
+        0.429
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cột khói lớn mới xuất hiện phía trái, tách biệt với cột khói vốn có gần giữa nửa trái ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.008,
+        0.168,
+        0.133,
+        0.399
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu London cũ với dãy công trình trên cầu và các nhịp cầu bắc qua sông ở xa bên phải.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.82,
+        0.416,
+        0.949,
+        0.467
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mặt tiền nhà đá hai tầng được thêm ở mép trái, có cửa vòm, cửa sổ và gờ trang trí; không có mặt tiền này trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.0,
+        0.425,
+        0.089,
+        0.734
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Tháp vuông thứ ba được thêm vào cụm kiến trúc phía trái đường chân trời; cụm tương ứng trong ảnh tham chiếu chỉ có hai tháp cao.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.163,
+        0.367,
+        0.181,
+        0.429
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.91
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Cột khói lớn mới xuất hiện phía trái, tách biệt với cột khói vốn có gần giữa nửa trái ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.008,
+        0.168,
+        0.133,
+        0.399
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-02b-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "47fddd477ce20e6e9c7d4ec1636f6ba8293af38f0d65d9787614e98149074234",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A thin, tall, obelisk-like column stands on the distant skyline, right of centre. It looks like the Monument to the Great Fire.",
+        "ly_do": "The Monument was built in 1671–77, after the fire. It could not stand in 1666.",
+        "nam_xuat_hien": 1677,
+        "toa_do_px": [
+         1315,
+         232,
+         1354,
+         265
+        ],
+        "do_tin": 0.35
+       },
+       {
+        "muc": "kien_truc",
+        "mo_ta": "On the left is a roofless, regular, Italianate-looking stone house. It has an arched doorway and evenly spaced rectangular windows with stone surrounds. Beside it, a very long, uniform, high continuous wall with square towers crosses the whole plain.",
+        "ly_do": "Pre-fire London houses were mostly timber-framed, with jettied upper floors and gables. This looks like a Mediterranean-style stone building. The long, uniform wall does not match the medieval City wall.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         0,
+         464,
+         173,
+         788
+        ],
+        "do_tin": 0.25
+       }
+      ],
+      "cost_usd": 0.036371600000000004,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1116,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.036371600000000004,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 201,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A thin, tall, obelisk-like column stands on the distant skyline, right of centre. It looks like the Monument to the Great Fire.\",\"ly_do\":\"The Monument was built in 1671–77, after the fire. It could not stand in 1666.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.685,0.215,0.705,0.245],\"do_tin\":0.35},{\"muc\":\"kien_truc\",\"mo_ta\":\"On the left is a roofless, regular, Italianate-looking stone house. It has an arched doorway and evenly spaced rectangular windows with stone surrounds. Beside it, a very long, uniform, high continuous wall with square towers crosses the whole plain.\",\"ly_do\":\"Pre-fire London houses were mostly timber-framed, with jettied upper floors and gables. This looks like a Mediterranean-style stone building. The long, uniform wall does not match the medieval City wall.\",\"nam_xuat_hien\":null,\"toa_do\":[0.0,0.43,0.09,0.73],\"do_tin\":0.25}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0364,
+    "chi_phi_tb": 0.0364,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

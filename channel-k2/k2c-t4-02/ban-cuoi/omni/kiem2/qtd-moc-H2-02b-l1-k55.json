@@ -1,0 +1,83 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung k55 năm 1666: [cong_trinh_moc] A thin, tall column or obelisk stands on the distant skyline, right of centre. It looks like the Monument to the Great Fire. — The Monument was built in 1671–77, after the Great Fire. It did not exist in 1666. (xuất hiện 1677) @px [1317, 421, 1352, 459] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "k55",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "ecb5480a173c882fc9c4664fc9897c5a0e66b37237ac73a0963b108a8cbfac78",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "Old St Paul's ruined Gothic tower without dome (through the window, if visible)",
+    "must NOT show any dome"
+   ],
+   "nghi_van": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "A thin, tall column or obelisk stands on the distant skyline, right of centre. It looks like the Monument to the Great Fire.",
+     "ly_do": "The Monument was built in 1671–77, after the Great Fire. It did not exist in 1666.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      1317,
+      421,
+      1352,
+      459
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "loi": null,
+      "ghi": "lớp công trình mốc: không qua bước 2 (vật vắng không phóng được) — giữ"
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The skyline has only small, thin spires. I can't see the massive ruined Gothic tower of Old St Paul's. The nearest large structures are crenellated walls with square towers.",
+     "ly_do": "Old St Paul's tower, without a dome, should be visible in this view in 1666. It appears to be absent or replaced by generic spires.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      730,
+      464,
+      998,
+      540
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.0355572,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1045,
+     "cacheReadInputTokens": 3027,
+     "cacheCreationInputTokens": 9917,
+     "webSearchRequests": 0,
+     "costUSD": 0.0355572,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 301,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 12.4,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A thin, tall column or obelisk stands on the distant skyline, right of centre. It looks like the Monument to the Great Fire.\",\"ly_do\":\"The Monument was built in 1671–77, after the Great Fire. It did not exist in 1666.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.686,0.39,0.704,0.425],\"do_tin\":0.5},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The skyline has only small, thin spires. I can't see the massive ruined Gothic tower of Old St Paul's. The nearest large structures are crenellated walls with square towers.\",\"ly_do\":\"Old St Paul's tower, without a dome, should be visible in this view in 1666. It appears to be absent or replaced by generic spires.\",\"nam_xuat_hien\":null,\"toa_do\":[0.38,0.43,0.52,0.5],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0356,
+ "chi_phi_tb": 0.0356,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

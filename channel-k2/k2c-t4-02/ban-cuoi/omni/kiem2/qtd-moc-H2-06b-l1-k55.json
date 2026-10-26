@@ -1,0 +1,76 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "k55",
+   "nam": 1675,
+   "noi": "London",
+   "sha256": "d6c87d02a9eefd354f5b7570af1be96ed1bb9f9d69d3fef254e109a5da328e74",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the unfinished Monument column (fluted, inside timber scaffolding)",
+    "must NOT show any dome"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The Monument shaft is a smooth, plain white cylinder standing inside the timber scaffold. It has no visible fluting.",
+     "ly_do": "The Monument was built with a fluted Doric shaft. The unfinished column in 1675 should show fluting inside the scaffolding, so this is the wrong form.",
+     "nam_xuat_hien": 1671,
+     "toa_do_px": [
+      1021,
+      335,
+      1094,
+      562
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Large, uniform, five- or six-storey red-brick blocks with regular sash windows, flat parapet roofs and tall stacks of chimneys. They look like Georgian or Victorian mill or tenement buildings.",
+     "ly_do": "London in 1675 was still being rebuilt after the Great Fire. Its houses were mostly smaller, with different window and roof forms. Buildings of this scale, with repeated large sash windows, belong to the 18th and 19th centuries.",
+     "nam_xuat_hien": 1750,
+     "toa_do_px": [
+      0,
+      216,
+      691,
+      1080
+     ],
+     "do_tin": 0.35
+    }
+   ],
+   "cost_usd": 0.0356068,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1051,
+     "cacheReadInputTokens": 3023,
+     "cacheCreationInputTokens": 9913,
+     "webSearchRequests": 0,
+     "costUSD": 0.0356068,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 244,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The Monument shaft is a smooth, plain white cylinder standing inside the timber scaffold. It has no visible fluting.\",\"ly_do\":\"The Monument was built with a fluted Doric shaft. The unfinished column in 1675 should show fluting inside the scaffolding, so this is the wrong form.\",\"nam_xuat_hien\":1671,\"toa_do\":[0.532,0.31,0.57,0.52],\"do_tin\":0.4},{\"muc\":\"kien_truc\",\"mo_ta\":\"Large, uniform, five- or six-storey red-brick blocks with regular sash windows, flat parapet roofs and tall stacks of chimneys. They look like Georgian or Victorian mill or tenement buildings.\",\"ly_do\":\"London in 1675 was still being rebuilt after the Great Fire. Its houses were mostly smaller, with different window and roof forms. Buildings of this scale, with repeated large sash windows, belong to the 18th and 19th centuries.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.0,0.2,0.36,1.0],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0356,
+ "chi_phi_tb": 0.0356,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

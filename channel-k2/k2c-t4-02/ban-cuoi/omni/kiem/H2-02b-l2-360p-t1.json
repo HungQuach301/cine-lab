@@ -1,0 +1,63 @@
+{
+ "tag": "H2-02b-l2-360p",
+ "tang": 1,
+ "moc_hoi": "Old St Paul's ruined Gothic tower without dome (through the window, if visible); must NOT show any dome",
+ "moc_co_mat": false,
+ "cong_trinh_chua_ton_tai": [
+  "Mái vòm Nhà thờ St Paul"
+ ],
+ "model": "gemini-3.8-flash",
+ "nam": 1666.0,
+ "canh": "a new City plan laid out on a table by a window overlooking the burnt City, September 1666",
+ "loi_cau": "Within days, Christopher Wren hands the King a new City on paper — straight avenues, open squares, a grid. John Evelyn draws another. Robert Hooke, a third. None of them is built.",
+ "so_khung": 120,
+ "fps": 24.0,
+ "giay": 5.0,
+ "mo_ta": "Cảnh bản đồ quy hoạch London trên bàn nhìn ra tàn tích hỏa hoạn xuất hiện mái vòm nhà thờ và dị vật trên bầu trời.",
+ "muc": [
+  {
+   "anh": 3,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Mái vòm nhà thờ St Paul xuất hiện ở phía xa bên trái",
+   "nam_xuat_hien": 1675,
+   "do_tin": 0.7
+  },
+  {
+   "anh": 3,
+   "loai": "khac",
+   "mo_ta": "Đốm đen dị vật lơ lửng trên bầu trời",
+   "nam_xuat_hien": null,
+   "do_tin": 0.65
+  },
+  {
+   "anh": 4,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Mái vòm nhà thờ phong cách cổ điển bên góc trái đường chân trời",
+   "nam_xuat_hien": 1675,
+   "do_tin": 0.7
+  }
+ ],
+ "loi": [
+  {
+   "anh": 3,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Mái vòm nhà thờ St Paul xuất hiện ở phía xa bên trái",
+   "nam_xuat_hien": 1675,
+   "do_tin": 0.7
+  },
+  {
+   "anh": 4,
+   "loai": "cong_trinh_sai",
+   "mo_ta": "Mái vòm nhà thờ phong cách cổ điển bên góc trái đường chân trời",
+   "nam_xuat_hien": 1675,
+   "do_tin": 0.7
+  },
+  {
+   "loai": "cong_trinh_sai",
+   "mo_ta": "chưa tồn tại: Mái vòm Nhà thờ St Paul",
+   "do_tin": 1.0
+  }
+ ],
+ "ket_luan": "LOẠI",
+ "usd": 0.01034
+}
