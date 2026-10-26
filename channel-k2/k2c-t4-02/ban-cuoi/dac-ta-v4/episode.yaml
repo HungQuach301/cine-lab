@@ -1288,12 +1288,10 @@ segments:
 - id: H1-15h
   part: HỒI 1
   chuong: HỒI 1
-  dur: 14.5
+  dur: 3.2
   fadeIn: 0
   fadeOut: 0
-  moc_loi:
-  - t: 3.52
-    s: In the last days of the fire
+  moc_loi: []
   shots:
   - at: 0
     type: scene3d
@@ -1309,16 +1307,57 @@ segments:
   - t: 0.0
     k: cut
     s: H1-15h
-  - t: 3.52
+- id: H1-15x
+  part: HỒI 1
+  chuong: HỒI 1
+  dur: 6.0
+  fadeIn: 0
+  fadeOut: 0
+  moc_loi:
+  - t: 0.32
+    s: In the last days of the fire
+  shots:
+  - at: 0
+    type: minh_hoa
+    tpl: plate
+    p:
+      sach: true
+      tl: false
+    cau: In the last days of the fire, the King and the Duke work the fire-lines themselves — "even laboring in person," Evelyn writes.
+    noi: minh_hoa
+    vung: fleet_street
+    ai_image: true
+    kiem: ../omni/kiem2/H1-15x-l1-360p-kiem.json
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-15x
+  - t: 0.32
     k: loi
     s: In the last days of the fire
+- id: H1-15h2
+  part: HỒI 1
+  chuong: HỒI 1
+  dur: 5.3
+  fadeIn: 0
+  fadeOut: 0
+  moc_loi: []
+  shots:
+  - at: 0
+    type: scene3d
+    tpl: plate
+    p:
+      sach: true
+      tl: true
+    cau: In the last days of the fire, the King and the Duke work the fire-lines themselves — “even laboring in person,” Evelyn writes.
+    noi: thanh_pho_dong
+    ai_image: false
+    vung: monument_dong
+  beats:
+  - t: 0.0
+    k: cut
+    s: H1-15h2
   - t: 4.0
-    k: bien_co_tl
-    s: 'timelapse h66: thời gian/lửa/ánh sáng đổi'
-  - t: 8.0
-    k: bien_co_tl
-    s: 'timelapse h66: thời gian/lửa/ánh sáng đổi'
-  - t: 12.0
     k: bien_co_tl
     s: 'timelapse h66: thời gian/lửa/ánh sáng đổi'
 - id: H1-16

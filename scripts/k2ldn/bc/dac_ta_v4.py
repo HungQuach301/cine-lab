@@ -87,14 +87,19 @@ L2 = LD['H1-15h']; L2['t0'] = L['t1']; L2['dur'] = round(L2['dur'] + dd, 4); L2[
 DOI.append(('H1-15b', f'7,5 → 4,625 s (clip khung 0–110; YuNet hộp > 1/8 ở khung 113–139 — báo nhầm trên trời, vẫn cắt theo A1); H1-15h +{dd} s'))
 # (4) M-d mới
 CH = [('H1-06', 13.5, 'H1-06x', 6.0, 'M-d DN03 sà lan hoàng gia: Charles II + James trên Thames chiều 2/9/1666 (khung xa)', 'thames_bo_bac'),
-      ('H1-15h', None, 'H1-15x', 6.0, 'M-d DN04 nhà Vua + Công tước York ở tuyến chữa cháy Fleet Street 4/9/1666 (khung xa)', 'fleet_street'),
+      ('H1-15h', 3.2, 'H1-15x', 6.0, 'M-d DN04 nhà Vua + Công tước York ở tuyến chữa cháy Fleet Street 4/9/1666 (khung xa)', 'fleet_street'),
       ('H5-02', 3.875, 'H5-02b', 4.0, 'M-d tháp Barbican đang xây (1973) từ London Wall', 'london_wall'),
       ('H5-04', 4.417, 'H5-04c', 6.0, 'M-d cụm toà cao Leadenhall/Bishopsgate từ phố 2026', 'leadenhall'),
       ('H5-05c', 4.5, 'H5-05d', 6.0, 'M-d mái vòm nhìn bắc từ cầu Millennium 2026', 'bankside_st_pauls')]
 for ma, a, moi, dur, vai, vung in CH:
     if not chon(moi): DOI.append((moi, 'Omni KHÔNG đạt (2 lượt) → giữ 3D, không chèn')); continue
     if a is None: a = round(SEG[SI(ma)]['dur'] - dur, 4)
+    goc3d = copy.deepcopy(SEG[SI(ma)]['shots'][0]); log3d = copy.deepcopy(LD[ma])
     s, l = md(moi, dur, vai, vung); tach(ma, a, moi, s, l); DOI.append((moi, f'chèn M-d {dur} s (tách {ma} tại {a} s)'))
+    con = round(SEG[SI(moi)]['dur'] - dur, 4)
+    if con > 0.05:   # phần 3D còn lại sau clip → shot <ma>2 (cùng máy, thời gian chạy tiếp)
+        L3 = {k: v for k, v in log3d.items() if k not in ('ma', 'shot', 't0', 't1', 'dur', 'chuong', 'cau', 'lop', 'tu_lieu_lan')}; L3['lop'] = {'A': con}
+        tach(moi, dur, ma + '2', goc3d, L3); LD[moi]['minh_hoa'][0]['t1'] = dur; LD[moi]['lop'] = {'MD': dur}; DOI.append((ma + '2', f'phần 3D còn lại của {ma} sau clip {moi} ({con} s)'))
 for ma, vung, dur in (('H5-02s', 'london_wall', 7.0), ('H5-05b', 'fleet_ludgate', 8.0)):
     if not chon(ma): DOI.append((ma, 'Omni KHÔNG đạt → giữ 3D tầm phố/thấp')); continue
     i = SI(ma); old = SEG[i]['dur']; s, l = md(ma, dur, LD[ma]['vai'] + ' → M-d Omni', vung)

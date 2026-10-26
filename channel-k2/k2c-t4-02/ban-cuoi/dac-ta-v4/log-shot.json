@@ -1701,14 +1701,14 @@
  {
   "ma": "H1-15h",
   "t0": 266.1659,
-  "t1": 280.6659,
-  "dur": 14.5,
+  "t1": 269.3659,
+  "dur": 3.2,
   "chuong": "HỒI 1",
   "goc": "cao",
   "tl": true,
   "cu_may": "DAY",
   "lop": {
-   "A": 14.5
+   "A": 3.2
   },
   "ai_nen": false,
   "minh_hoa": false,
@@ -1735,6 +1735,110 @@
   "tu_lieu_chong_sau_ai": false,
   "ai_image": false,
   "noi": "P3",
+  "vung": "monument_dong"
+ },
+ {
+  "goc": "md",
+  "tl": false,
+  "cu_may": "MD",
+  "lop": {
+   "MD": 6.0
+  },
+  "ai_nen": false,
+  "minh_hoa": [
+   {
+    "ma": "H1-15x",
+    "t0": 0.0,
+    "t1": 6.0,
+    "luot": "H1-15x-l1-360p",
+    "so_luot": 1,
+    "clip": "../omni/clip/H1-15x-l1-360p.mp4",
+    "so_ai": "../../../../reports/ban-cuoi-t4-a/so-ai-gemini.jsonl",
+    "muc_kiem": "day_du",
+    "kiem_t1": "../omni/kiem/H1-15x-l1-360p-t1.json",
+    "kiem": "../omni/kiem2/H1-15x-l1-360p-kiem.json",
+    "kiem_moc": [
+     "../omni/kiem2/qtd-moc-H1-15x-l1-k25.json",
+     "../omni/kiem2/qtd-moc-H1-15x-l1-k55.json",
+     "../omni/kiem2/qtd-moc-H1-15x-l1-k90.json"
+    ],
+    "nhan_vat_ten": [
+     "Charles II",
+     "James, Duke of York"
+    ],
+    "cong_trinh_moc": [
+     "Old St Paul's Gothic tower without dome (if visible); must NOT show any dome"
+    ],
+    "chan_troi_city": false,
+    "dau": "../omni/dau/H1-15x-l1-dau.jpg",
+    "chan_dung_tham_chieu": [
+     {
+      "tep": "../../nc/anh/met-435943-charles2-cooper.jpg",
+      "sha256": "ba1980e9df74171cdc5044c8fdd731f5a3e4d4cc9f910e1a05aa0b359cbcf696"
+     },
+     {
+      "tep": "../../nc/anh/rijks-200221267-james2-loggan.jpg",
+      "sha256": "fe45e8f5e655836d2ceffee6c8941149c73493bf61f39524875718b31281593e"
+     }
+    ],
+    "duyet_chu_du_an": null
+   }
+  ],
+  "vai": "M-d DN04 nhà Vua + Công tước York ở tuyến chữa cháy Fleet Street 4/9/1666 (khung xa)",
+  "tieu_diem_en": null,
+  "diem_may": "—",
+  "thoi_gian": null,
+  "ai_image": true,
+  "kiem": "../omni/kiem2/H1-15x-l1-360p-kiem.json",
+  "muc_kiem": "day_du",
+  "nhan_vat_ten": [
+   "Charles II",
+   "James, Duke of York"
+  ],
+  "tu_lieu_chong_sau_ai": false,
+  "noi": "minh_hoa",
+  "vung": "fleet_street",
+  "md_moi": "BAN-CUOI-T4-A",
+  "ma": "H1-15x",
+  "shot": "H1-15x",
+  "t0": 269.3659,
+  "t1": 275.3659,
+  "dur": 6.0,
+  "chuong": "HỒI 1",
+  "cau": []
+ },
+ {
+  "goc": "cao",
+  "tl": true,
+  "cu_may": "DAY",
+  "ai_nen": false,
+  "minh_hoa": false,
+  "vai": "tuyến chặn lửa phía tây — lời N3 (M-d H1-15x DN04 TRƯỢT 3/3: mặt/tay méo → 3D)",
+  "tieu_diem_en": [
+   532300,
+   181050,
+   10
+  ],
+  "diem_may": "P3",
+  "thoi_gian": [
+   "h66",
+   70.0,
+   71.6
+  ],
+  "log_may": "../../animatic2/log-may/H1-15h.json",
+  "tu_lieu_chong_sau_ai": false,
+  "ai_image": false,
+  "noi": "P3",
+  "lop": {
+   "A": 5.3
+  },
+  "ma": "H1-15h2",
+  "shot": "H1-15h2",
+  "t0": 275.3659,
+  "t1": 280.6659,
+  "dur": 5.3,
+  "chuong": "HỒI 1",
+  "cau": [],
   "vung": "monument_dong"
  },
  {
