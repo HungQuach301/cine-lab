@@ -15,3 +15,9 @@
 
 ## Lệnh bổ sung đã áp
 - (không có)
+
+## Kết thúc phiên (26/10/2026)
+- Hàng Commons (PGID 10460) dừng: upload.wikimedia.org vẫn 429 đến cuối phiên → IWM D 6418 gốc **chưa tải được** (giữ bản v3; phiên B thử lại). Ảnh thật hiện đại: 2 ảnh CC BY 2.0 (Flickr gốc, FlickreviewR xác nhận); ảnh thứ 3 chưa có.
+- Việc 1–9 xong; số liệu và kết luận trong `BAN-CUOI-T4-A-BAO-CAO.md`, phiếu duyệt trong `PHIEU-A.md`, khiếu nại phiên K trong `khieu-nai-K.md` (KN-1…KN-6).
+- Chi phí phiên: Gemini $3,512 (T4 cộng dồn $18,58) · OpenAI $3,345 · Claude API $2,642 · ElevenLabs 0 · RunPod 0.
+- Commit cuối "DỪNG chờ chủ dự án"; đã đẩy nhánh, KHÔNG merge. **Chờ chủ dự án duyệt PHIẾU-A** trước khi mở BAN-CUOI-T4-B.
