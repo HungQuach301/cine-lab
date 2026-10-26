@@ -216,3 +216,33 @@
 | Đ5 quyền giọng G1 | quyền phát hành giọng G1 (ElevenLabs) vẫn chờ | mục G | phát hành T4 |
 | H3-05b ↔ NHAN-VAT-TEN (k) — **phát hiện của P-2610b** | chủ dự án duyệt H3-05b (Godfrey Allen, khung xa) nhưng clip không có chân dung tham chiếu; NHAN-VAT-TEN (RULES-LL 1.17.7) đòi `chan_dung_tham_chieu` có thật → (k), **Chặn ở G2** (mục H đã ghi "(k)"). Duyệt A1 không thay được trường này. Hướng: phía dựng/K xem ở bản cuối (khiếu nại `checks-appeal.md` hoặc bỏ nhân vật có tên khỏi khai) — P-2610b không quyết, không sửa `checks-appeal.md` | Kinh thánh §15 (f) cập nhật 26/10; RULES-LL NHAN-VAT-TEN | G2 T4 |
 | Ảnh thật hiện đại (B); đo lại BMN; ảnh Blitz Crown C01–C03, C05; LUAN-2, LOOK-T9c, KN THU-B → appeal; đề xuất K85 (chặn `pgrep -f` bằng công cụ) | giữ như mục G/H | mục G, H | như mục G/H |
+
+## J. Cập nhật 26/10/2026 sau PHIẾU-A của BAN-CUOI-T4-A (P-2610c ghi)
+
+**Đã quyết** — chủ dự án "Duyệt PHIẾU-A theo khuyến nghị điều phối", **26/10 10:08 Asia/Saigon (giờ dán lệnh P-2610c)**; nguyên văn + nghĩa từng mục: `AUTHORSHIP.md`, 9 dòng P-2610c. Mục I "PHIẾU-A của BAN-CUOI-T4-A" và "Thử 2 khung E" → **đã quyết** (thử đã làm: `reports/ban-cuoi-t4-a/BAN-CUOI-T4-A-BAO-CAO.md` §1; nhánh đã merge vào main ở P-2610c).
+
+| # | Quyết định | Khi nào (Asia/Saigon) | Áp ở |
+|---|---|---|---|
+| D-A1 (E1) | H5-05a dùng tấm E P9-2026 ngày, mặt nạ "tháp" + ngoại lệ "bờ" (KN-1) — chờ K-1.17.9 xác nhận; K bác → mặt nạ "đủ". E-P1 chưa dùng (chờ K xét KN-8 nước, KN-6 đẩy 2D). Đêm H5-07a giữ 3D | 26/10 10:08 | Kinh thánh §15 (k) cập nhật 26/10 10:08 |
+| D-A2 (E2) | H5-04 giữ D 3D + clip H5-04c | 26/10 10:08 | §15 (k) cập nhật 26/10 10:08 (3) |
+| D-A3 (P1) | giữ điểm đứng hiện tại + C6 4°; không dời, không xoay M03 | 26/10 10:08 | §14.7 LOOK-T4-9 cập nhật 26/10 10:08 (1) |
+| D-A4 (mẫu D 1080p) | duyệt CÓ ĐIỀU KIỆN — phiên B sửa trước khi dựng: (i) niên đại mái vòm St Paul's trong 3D (H2-10 ≈ 1709,5 thiếu mái vòm); (ii) đốm đen elip trên mặt nước 2026 (M01, mọi khung P1 2026); (iii) M00: mặt sông đêm phẳng màu cát, lửa cụm bông; (iv) Q-A4 (a) vật liệu mái vòm + toà tháp có tên + đèn pha đêm; (v) MAY-19 máy H2-10, H5-05b; (vi) Q-A5 (a) lọc năm toà OSM 1960s–70s, thử lại H5-02b/H5-02s ≤ 2 lượt | 26/10 10:08 | §19 (d) (luật dựng niên đại công trình mốc T4); §14.7 LOOK-T4-9 (2); §15 (k) (5) |
+| D-A5 (B) | B-H5-06 lượt 1, B-H2-12b lượt 2 | 26/10 10:08 | RIGHTS T4-BC-B |
+| D-A6 (A1) | H1-06x, H1-15x duyệt (phiên B khai `duyet_chu_du_an` bằng dòng AUTHORSHIP D-A6). H3-05b giữ (a) chờ K-1.17.9 (KN-7); K bác → H3-05c | 26/10 10:08 | AUTHORSHIP; RIGHTS T4-BC-OMNI |
+| D-A7 | clip H5-04c, H5-05d; ảnh thật H5-02t, H5-06t (CC BY 2.0) | 26/10 10:08 | RIGHTS T4-THAT-*, T4-BC-OMNI |
+| D-A8 | Q-A2 (a)+(b) chờ K; Q-A3 (a) M00 điểm P1b kèm sửa (iii); Q-A6 giữ D5 (H1-06b kiểm lại ở 720p) | 26/10 10:08 | §14.7 LOOK-T4-9 (2) |
+| D-A9 | bản cuối chia B1/B2/B3, P = 2; IWM D 6418 gốc: phiên B tự thử lại Commons, chủ dự án chỉ tải tay nếu vẫn 429 | 26/10 10:08 | RIGHTS (IWM D 6418) |
+
+**Còn treo:**
+
+| # | Nội dung | Căn cứ | Chặn gì |
+|---|---|---|---|
+| KN-1 | ngoại lệ "bờ" — mô hình báo "bờ sông bị vẽ lại" trên tấm E P9 mặt nạ "tháp" (K1178-D2 phương án B) | `reports/ban-cuoi-t4-a/khieu-nai-K.md`; K-1.17.9 (đang chạy) | mặt nạ "tháp" ở H5-05a (D-A1) |
+| KN-2 | Q37 / NHIP-K2: beats neo log máy, hiệu chuẩn BIEN-CO-V trên 1080p | như trên; D-A8 (Q-A2) | Q37 ở G2 |
+| KN-4 | NHAN-VAT-TEN: YuNet báo "mặt" trên trời/tán cây; k2check không đọc `cat_clip` (H1-15b) | như trên | NHAN-VAT-TEN (a) ở G2 |
+| KN-5 | LUẬT E (f): định nghĩa "toà có tên" (tên cửa hàng/văn phòng thấp) | như trên | mặt nạ "tháp" (D-A1) |
+| KN-6 | đẩy máy 2D chậm trên tấm E | như trên | E-P1, M01 (D-A1) |
+| KN-7 | NHAN-VAT-TEN (k): nhân vật có tên không có chân dung (H3-05b, Godfrey Allen) | như trên; mục I (phát hiện P-2610b) | H3-05b (K bác → H3-05c, D-A6) |
+| KN-8 | nước trong tấm E (lớp (a)-E gồm toàn mặt nước) — theo điều phối, thuộc K-1.17.9; chưa có tệp trong repo khi P-2610c ghi | lệnh P-2610c; BAI-HOC-K2 K100 | E-P1 (D-A1) |
+| Đ5 quyền giọng G1 | quyền phát hành giọng G1 (ElevenLabs) vẫn chờ | mục G, I | phát hành T4 |
+| Giữ từ mục I (không đổi ở P-2610c) | XEM CÂM Q2/Q3/Q4/Q6 chấm trên bản cuối; các mục giữ từ G/H | mục I | như mục I |
