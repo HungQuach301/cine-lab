@@ -20,10 +20,12 @@ def moc(y):
     return '; '.join(a)
 
 
-for s in json.load(open('/var/tmp/bc/soi-crop.json')):
-    cm, f = s['may'], s['khung']; js = f'{OUT}/qtd-{cm}-k{f}.json'
+import sys
+NG, TIEN, HAU = (sys.argv[1:4] + ['/var/tmp/bc/soi-crop.json', 'soi', ''][len(sys.argv[1:4]):])   # lần soi lại: <json cắt> soi2 -lan2
+for s in json.load(open(NG)):
+    cm, f = s['may'], s['khung']; js = f'{OUT}/qtd-{cm}-k{f}{HAU}.json'
     if os.path.exists(js): continue
-    im = cv2.imread(f'/var/tmp/bc/r/soi-{cm}/{f:05d}.jpg')
+    im = cv2.imread(f'/var/tmp/bc/r/{TIEN}-{cm}/{f:05d}.jpg')
     if s.get('khung_cat') and s['px']: X, Y, w, h = s['khung_cat']; im = im[Y:Y + h, X:X + w]
     p = f'/var/tmp/bc/qmoc-soi/{cm}-k{f}.jpg'; os.makedirs(os.path.dirname(p), exist_ok=True); cv2.imwrite(p, cv2.resize(im, (1280, 720), interpolation=cv2.INTER_CUBIC), [cv2.IMWRITE_JPEG_QUALITY, 92])
     nam = int(s['nam']); mc = moc(s['nam'])

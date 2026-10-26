@@ -26,5 +26,5 @@ ok=0; for w in 0 2 4 8 16; do sleep $w; if git lfs push origin $B > /var/tmp/bc/
 [ $ok = 1 ] || { echo "LFS PUSH HỎNG $ten:"; cat /var/tmp/bc/log/lfs-$ten.log; exit 6; }
 ok=0; for w in 0 2 4 8 16; do sleep $w; if git push -q origin $B > /var/tmp/bc/log/push-$ten.log 2>&1; then ok=1; break; fi; done
 [ $ok = 1 ] || { echo "PUSH HỎNG $ten:"; cat /var/tmp/bc/log/push-$ten.log; exit 7; }
-git lfs ls-files | grep -q "$ten-1080p.mp4" || { echo "git lfs ls-files thiếu $ten"; exit 8; }
+LF=$(git lfs ls-files); echo "$LF" | grep -q "$ten-1080p.mp4" || { echo "git lfs ls-files thiếu $ten"; exit 8; }
 echo "XONG-B1 $ten $n $sha"

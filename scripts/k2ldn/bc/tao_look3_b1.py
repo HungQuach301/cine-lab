@@ -36,8 +36,8 @@ LICH = """vec4 lsched(float c){   /* B1 · lịch xây (năm đầu, số năm, 
         if (abs(c - 1675.5) < 0.05) return vec4(1675.5, 21.5, 0.0, 41.0);    /* St Paul's: thân, hợp xướng, cánh ngang, apse (1675 → hợp xướng mở 1697) */
         if (abs(c - 1697.0) < 0.05) return vec4(1697.0, 8.0, 33.5, 61.8);    /* trống + hàng cột + tầng gác */
         if (abs(c - 1707.0) < 0.05) return vec4(1702.0, 6.0, 0.0, 67.5);     /* mặt tây + hai tháp tây */
-        if (abs(c - 1708.5) < 0.05) return vec4(1705.0, 3.0, 61.8, 85.7);    /* vỏ vòm chì — hoàn tất 1708,0 */
-        if (abs(c - 1708.8) < 0.05) return vec4(1707.85, 0.15, 85.6, 111.4);   /* Golden Gallery + đèn lồng + quả cầu + thập giá — đặt cuối 1707, hoàn tất 1708,0 (soi B1: H2-09 1707,86 đọc thành vòm hoàn chỉnh) */
+        if (abs(c - 1708.5) < 0.05) return vec4(1707.3, 0.7, 61.8, 85.7);    /* vỏ vòm chì — hoàn tất 1708,0 (soi B1: H2-09 1707,86 phải còn dở) */
+        if (abs(c - 1708.8) < 0.05) return vec4(1707.95, 0.05, 85.6, 111.4);   /* Golden Gallery + đèn lồng + quả cầu + thập giá — đặt cuối 1707, hoàn tất 1708,0 (soi B1: H2-09 1707,86 đọc thành vòm hoàn chỉnh) */
         if (abs(c - 1671.5) < 0.05) return vec4(1671.0, 1.5, 0.0, 13.9);     /* Monument: đế + bệ + rồng */
         if (abs(c - 1672.5) < 0.05) return vec4(1672.5, 3.0, 13.2, 46.5);    /* thân cột có rãnh */
         if (abs(c - 1676.5) < 0.05) return vec4(1675.5, 1.0, 46.4, 58.6);    /* đầu cột, ban công, chóp */

@@ -31,6 +31,11 @@ BANG_NAM = {
     '20 Ropemaker': (2021.0, '20 Ropemaker Street 2021'),
 }
 for _i in range(1485996625, 1485996630): BANG_NAM[str(_i)] = (2017.0, 'phần của London Wall Place (2017)')
+for _n, _y, _g in (("Barber-Surgeons' Hall", 1969.0, 'Barber-Surgeons\' Hall dựng lại 1969'), ("Salters' Hall", 1976.0, 'Salters\' Hall 1976 (Basil Spence)'), ("Girdlers' Hall", 1961.0, 'Girdlers\' Hall dựng lại 1961'),
+                   ("Brewers' Hall", 1960.0, 'Brewers\' Hall dựng lại 1960'), ("Pewterers' Hall", 1961.0, 'Pewterers\' Hall 1961'), ('Armourers Hall', 1841.0, 'Armourers\' Hall 1840–41 (không bị bom phá)')):
+    BANG_NAM[_n] = (_y, _g + ' (Wikipedia)')
+import re as _re
+LICH_SU = lambda b: b.get('b') in ('church', 'chapel', 'cathedral') or bool(_re.search(r"Hall|Church|Chapel|St |Tower", b.get('name') or ''))   # công trình lịch sử/có tên riêng: không áp quy tắc (c)
 BARB = (532000, 181690, 532520, 182000); LWALL = (531950, 181440, 532760, 181700)
 inbox = lambda c, B: B[0] < c[0] < B[2] and B[1] < c[1] < B[3]
 hb = lambda s, salt: (zlib.crc32(f'{s}|{salt}'.encode()) % 100000) / 100000.0
@@ -52,7 +57,7 @@ def toa_start_b1():
             if key in BANG_NAM: st, why = BANG_NAM[key][0] - 2.5, BANG_NAM[key][1] + ' — năm HOÀN THÀNH; toà lớp 4 mọc 2,5 năm nên năm xuất hiện = hoàn thành − 2,5'; break
         if why is None and known is None:
             if inbox(c, BARB) and b.get('b') in ('apartments', 'residential') and (b['h'] or 0) < 60: st, why = 1965.0 + 11.0 * hb(b['id'], 'barb'), 'Barbican Estate 1965–1976 (quy tắc b)'
-            elif inbox(c, LWALL): st, why = 1985.0 + 35.0 * hb(b['id'], 'lw'), 'hành lang London Wall dựng lại 1985–2020 (quy tắc c)'
+            elif inbox(c, LWALL) and not LICH_SU(b): st, why = 1985.0 + 35.0 * hb(b['id'], 'lw'), 'hành lang London Wall dựng lại 1985–2020 (quy tắc c)'
         if why: S[b['id']] = max(st, 1667.5); DOI.append(dict(id=b['id'], ten=b.get('name'), E=round(c[0]), N=round(c[1]), h=b['h'], cu=round(st0, 1), moi=round(S[b['id']], 1), ly_do=why))
         if known is None and why not in (None,) and 'Barbican' in why: continue
         if known is None and b['id'] not in [k for k in BANG_NAM] and HL.at(HL.BLITZ_M, c) and S[b['id']] > 1962.0 and not b['part']:
