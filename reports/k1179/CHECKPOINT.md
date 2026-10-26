@@ -12,3 +12,6 @@ Giờ UTC theo đồng hồ container.
 
 ## Lệnh bổ sung đã áp
 - (chưa có)
+| 03:22–03:40 | Lượt chuẩn 1.17.8 (worktree `/var/tmp/k1179/wt178` @41de7ce3, LOCK KHỚP): bộ đệm mô hình nhìn tái tạo từ raw.txt trong git (0 API) → 8 tấm E **trùng bảng phiên A** ở N2P-1…4, N2P-E (N2P-5: video đối chứng ngoài git → không đo, cả hai phiên bản như nhau) | xong |
+| 03:25–03:40 | Số đo: YuNet H1-15b/H3-05b (`do/yunet-*.json`), KN-2 Q37 + biến cố log máy (`do/kn2-q37-log.json`), KN-8 ghép thử bo8 + bo_dat (`do/ghep_kn8.py`, T9c `do/kn8-t9c.json`) | xong |
+| 03:30–03:45 | Mã 1.17.9 (chưa khoá, bản vá WIP `wip/`): q_k1179 mới; q_n2p, q_k1178, q_k1177, q_nhip, q_k2var, k2check, cap112, VERSION | đang làm |
