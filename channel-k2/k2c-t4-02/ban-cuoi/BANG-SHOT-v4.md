@@ -75,7 +75,7 @@
 | H3-03t | 8:35.4 | 5.000 | HỒI 3 | — | THAT | phang | THAT (ảnh thật) | tu_lieu | THAT 5 | ẢNH THẬT toàn khung: kè Victoria (photochrom LoC) |  |
 | H3-04a | 8:40.4 | 5.000 | HỒI 3 | P5 | CODINH | cao | D 3D (look3 cờ d) | cripplegate_bac |  | toà văn phòng 1930 cao dần quanh nhà thờ |  |
 | H3-04b | 8:45.4 | 5.958 | HỒI 3 | — | MD | md | Omni (M-d) · H3-04b-l1-360p | hem_city |  | M-d (14) hẻm City 1930s |  |
-| H3-05b | 8:51.3 | 6.000 | HỒI 3 | — | MD | md | Omni (M-d) · H3-05b-l1-360p | mai_city |  | M-d (35) 1937: người khảo sát đặt máy kinh vĩ trên mái nhà, ngắm mái vòm (khung xa) |  |
+| H3-05b | 8:51.3 | 6.000 | HỒI 3 | — | MD | md | Omni (M-d) · H3-05b-l1-360p | mai_city |  | M-d (35) 1937: người khảo sát đặt máy kinh vĩ trên mái nhà, ngắm mái vòm (khung xa) | giữ khai tên Godfrey Allen; chan_dung: khong_co (đã tra LoC/Wellcome/Rijks/Met); YuNet mặt lớn nhất 0.1025 khung (≤ 1/8); duyệt A1 26/10 00:12 — dự phòng (c) ở PHIẾU-A |
 | H3-05 | 8:57.3 | 13.708 | HỒI 3 | P9 | DAY | cao | D 3D (look3 cờ d) | bankside_st_pauls | THE 4 | St Paul's Heights: mặt phẳng trần cao độ hiện mờ quanh mái vòm | lớp chữ "Godfrey Allen · St Paul's surveyor" mở 537.933 → 538.333 (cách M-d ≥ 1 s) |
 | H3-06 | 9:11.0 | 8.000 | HỒI 3 | P1 | KHOP | cao | D 3D (look3 cờ d) | bankside_city |  | P1 KHOP 1938 ↔ 1666 |  |
 | H4-01a | 9:19.0 | 6.000 | HỒI 4 | P1 | CODINH | cao | D 3D (look3 cờ d) | bankside_city |  | P1: Chủ nhật 29/12/1940 chạng vạng mùa đông |  |
@@ -151,6 +151,16 @@
 ## Shot điểm máy P1 (phải dựng lại nếu chủ dự án chọn dời điểm đứng — việc 2; hiện giữ điểm cũ)
 
 M01 (17.875 s), M02 (10.083 s), M03 (11 s), M04 (12 s), H1-08b (18.2083 s), H1-16 (7.25 s), H2-05 (11 s), H2-09 (10 s), H3-01 (3 s), H3-06 (8 s), H4-01a (6 s), H4-05 (4.542 s), H4-06 (5.2083 s), H5-04 (4.417 s), H5-07b (15.333 s), H5-08 (14 s) — **16 shot, 157.917 s**
+
+## Nhân vật có tên trong M-d
+
+| Mã | Nhân vật | Chân dung | Mặt lớn nhất (YuNet) | Duyệt chủ dự án |
+|---|---|---|---|---|
+| H1-05a | Samuel Pepys, Charles II | chân dung tham chiếu (khai) | — | A1 phiếu xem v2 (26/10 00:12) |
+| H1-06x | Charles II, James, Duke of York | chân dung tham chiếu (khai) | — | CHỜ — clip mới BAN-CUOI-T4-A (PHIẾU-A) |
+| H1-15b | Samuel Pepys | chân dung tham chiếu (khai) | — | A1 phiếu xem v2 (26/10 00:12) |
+| H1-15x | Charles II, James, Duke of York | chân dung tham chiếu (khai) | — | CHỜ — clip mới BAN-CUOI-T4-A (PHIẾU-A) |
+| H3-05b | Godfrey Allen | **khong_co** — đã tra: Library of Congress (loc.gov) — không có mục; Wellcome Collection — không có mục; Rijksmuseum — không có mục; The Met Open Access — không có mục (2026-10-25) | 0.1025 khung (khung 137, điểm 0.569; trần 0.125) | AUTHORSHIP.md 2026-10-26 00:12 (P-2610b ghi, main @41de7ce3) — phiếu xem v2 A1: "H3-05b (Godfrey Allen, khung xa, không chân dung tham chiếu) ✓" |
 
 ## Lớp chữ (log_chu khoảng, giây phim)
 

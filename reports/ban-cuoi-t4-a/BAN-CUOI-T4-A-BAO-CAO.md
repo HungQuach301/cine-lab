@@ -110,7 +110,20 @@ Ba máy ảnh đầu đầu tiên rơi vào trong nhà/sai phố (H1-15x, H5-05d
 
 ## 7. Việc 7 — Kiểm
 - **Tấm E / B:** §1, §3 (k2check 1.17.8 từng tấm, G2).
-- **Đặc tả v4** (chế độ animatic, không master — bản dựng là phiên B): `dac-ta-v4/k2check-1.17.8-dac-ta-v4.md`, 86 hàng, rc 1. **TRƯỢT:** Q37 / NHIP-K2 / Q37 (1.13) (TB 5,75 s > 3,5; dài nhất 20,17 s ở H2-03b — KN-2), K-LAI-2 (chưa khai `phat_hanh.mo_ta` — gói phát hành), K-LAI-3 (27 tệp kiểm v3 không có trong git — lỗi khai kế thừa; + H1-06b nen chờ D5), XEM-CAM (chưa khai điểm chủ dự án). **ĐẠT** đáng chú ý: Q34, SACH-1 (196 mẫu, vai §17, 0 lỗi (g)), TU-LIEU-10 12,28 %, TU-LIEU-THAT, N2P-E (tấm E P9 tháp). **CẢNH BÁO:** GOC-CAO (P1 nhận theo khai — chưa có log máy), TU-LIEU-OMNI 11 (KN-3), NHAN-VAT-TEN ((k)/(u) cũ của H1-05a, H1-15b, H3-05b: đường chân dung v3 + chờ AUTHORSHIP), KIEM-2-MUC, MINH-HOA, Q26b-K2 (3D 70,6 %).
+- **Đặc tả v4 — đính chính 26/10 (lệnh bổ sung #1):** bản trước của `dac-ta-v4/episode.yaml` khai `log_shot: ../../animatic2/log-shot.json` (log **v3**). Đây là lỗi khai của phiên. Hệ quả: lượt k2check đặc tả v4 đầu tiên đọc log v3 cho mọi hàng dựa trên log shot. Đã sửa thành `log_shot: log-shot.json` và chạy lại (máy, chặn mạng, 0 lệnh API). Bảng hiện hành: `dac-ta-v4/k2check-1.17.8-dac-ta-v4.md`, rc 1.
+  - **TRƯỢT (không đổi):** Q37 / NHIP-K2 / Q37 (1.13) (TB 5,75 s > 3,5; dài nhất 20,17 s ở H2-03b — KN-2) · K-LAI-2 (chưa khai `phat_hanh.mo_ta`) · **K-LAI-3: 30/31 ĐẠT, 0 thiếu tệp**, chỉ còn H1-06b (mức nen, Flash LOẠI, chờ D5) · XEM-CAM.
+  - **Cảnh báo ở animatic, Chặn ở G2 — việc phiên B:**
+    - NHAN-VAT-TEN:
+      - (a) H1-15b 0,162 khung đo trên **cả clip** — k2check không đọc `cat_clip` [0, 110]; bản dựng cắt khung 0–110 (KN-4).
+      - (k) H3-05b → KN-7.
+      - (u) H1-05a, H1-15b chưa khai duyệt A1; (u) H1-06x, H1-15x chờ PHIẾU-A.
+      - H3-05b: (u) và (m) đã hết, mặt 0,070.
+    - KIEM-2-MUC (d): 4 clip mới H1-06x, H1-15x, H5-04c, H5-05d khai `kiem` = tệp o2-v2 (`-kiem.json`). Lớp mốc đã chạy (`kiem_moc` 3 tệp/clip), nhưng chưa có tệp gộp `-kiem-moc.json` → phiên B gộp (không gọi mô hình).
+    - MAY-19 (a): H2-10 THAP ngửa 4,35…7,34° và H5-05b THAP ngửa 3,95…6,94° (ngoài 5–15°) → sửa máy trước khi dựng.
+    - GOC-CAO (a): HỒI 1 mở bằng H1-01h, chưa nhận là góc cao. Tổng 62,6 % (log khung 63 shot).
+  - **ĐẠT:** Q34, SACH-1, TU-LIEU-10 13,19 %, TU-LIEU-THAT, N2P-E, N2P-6 (tổng AI 24,3 %).
+  - **TU-LIEU-OMNI:** 6 cảnh báo thật (H2-02 ↔ H2-01b ghép liền). **KN-3 rút lại** vì cùng gốc lỗi `log_shot`.
+  - Các số "K-LAI-3 thiếu 27 tệp" và "TU-LIEU-OMNI 11" ở bản báo cáo trước là sai cùng gốc lỗi trên.
 - **Tự soi bằng mắt** mọi tấm/clip trước khi đẩy: tờ so E, tờ P1, 6 mẫu, B, tờ khung Omni `omni/to-khung-omni.jpg` (9 clip × 3 khung), M00. Điều phối soi độc lập.
 
 ## 8. Việc 8 — Ước phiên B
@@ -149,7 +162,9 @@ Ba máy ảnh đầu đầu tiên rơi vào trong nhà/sai phố (H1-15x, H5-05d
 10. Mô hình Claude (k2check B-H5-06) không đọc đủ 8 ảnh (kiểu KN-3 THU-B) → chạy lại đủ.
 11. Render H5-02b/H5-02s (máy cũ) trong chuỗi 2 và chuỗi 3 bị bỏ (dừng chuỗi 3 theo PGID) — ≈ 6 phút máy phí.
 12. Một lần `pgrep -f` để in kiểm (§0).
-13. 27 tệp kiểm JSON của animatic v3 không có trong git (`.gitignore *.json`) → K-LAI-3 THIẾU trên đặc tả v4 (phiên B sinh lại).
+13. ~~27 tệp kiểm JSON của animatic v3 không có trong git → K-LAI-3 THIẾU~~ — **chẩn đoán sai, đính chính 26/10.** Gốc thật: đặc tả v4 trỏ `log_shot` về log v3 (sự cố 14).
+14. **Lỗi khai của phiên** (phát hiện khi làm lệnh bổ sung #1): `dac-ta-v4/episode.yaml` → `log_shot` v3. Lượt k2check đặc tả v4 đầu đọc log v3 → KN-3 và chẩn đoán K-LAI-3 sai. Đã sửa ở `dac_ta_v4.py` và chạy lại (§7).
+15. Một lần gọi `checks/ll/k2check.py --help` để xem tham số. Lệnh lỗi và in traceback 5 dòng mã `checks/` ra màn hình. Không mở tệp mã; nêu theo luật "không đọc mã checks/".
 Không lỗi nào lặp ≥ 3 lần cùng cách.
 
 ## 12. Chỉ số trong ±5 % quanh ngưỡng (luật cứng — nêu tên)
@@ -171,7 +186,19 @@ Ngoài ±5 % nhưng đáng nêu: OpenAI $3,345 so mốc $5 (−33 %); Claude $2,
 ## 14. Việc chờ chủ dự án
 1. Trả lời **PHIẾU-A**: E1 (mặt nạ "đủ"/"tháp" + ngoại lệ "bờ"), E2, P1 (khuyến nghị giữ), mẫu D/B, **A1 từng clip H1-06x, H1-15x**, H5-04c, H5-05d, 2 ảnh thật, Q-A1…Q-A6, chia phiên B (B1/B2/B3 hoặc P = 3).
 2. **Tải tay IWM D 6418 bản gốc** (Commons ảnh 429 cả phiên).
-3. Phiên P: merge nhánh khi duyệt; ghi sổ §13; chuyển `khieu-nai-K.md` (KN-1…KN-6) vào `checks-appeal.md`.
-4. Phiên K (nếu chủ dự án đồng ý): KN-1 (D2 = B), KN-2 (Q37/BIEN-CO-V T4), KN-3, KN-4, KN-5 (định nghĩa toà có tên cho LUẬT E).
+3. Phiên P: merge nhánh khi duyệt; ghi sổ §13; chuyển `khieu-nai-K.md` (KN-1, KN-2, KN-4…KN-7; KN-3 rút) vào `checks-appeal.md`.
+4. Phiên K (nếu chủ dự án đồng ý): KN-1 (D2 = B), KN-2 (Q37/BIEN-CO-V T4), KN-4, KN-5 (định nghĩa toà có tên cho LUẬT E), **KN-7 (NHAN-VAT-TEN (k) — nhân vật không có chân dung, H3-05b)**. KN-3 đã rút.
+5. **H3-05b:** giữ (a) chờ K hay dùng dự phòng (c) H3-05c 3D 6,0 s (PHIẾU-A mục A1-H3-05b).
+
+## 15. Lệnh bổ sung #1 (chủ dự án 26/10/2026 07:39 — H3-05b, hướng (a))
+- **(1) Khiếu nại:** `khieu-nai-K.md` **KN-7** — đề xuất luật nguyên văn; số đo YuNet thật; danh sách nơi đã tra chân dung.
+  - YuNet chạy 1 lần trên máy, chỉ dùng tệp mô hình. Script `scripts/k2ldn/bc/do_mat_yunet.py`; kết quả `ban-cuoi/omni/kiem/H3-05b-l1-360p-yunet.json`; tờ soi `omni/soi-H3-05b-yunet.jpg`.
+  - Số đo: mặt lớn nhất 0,1025 (khung 137, điểm 0,569). Hộp điểm ≥ 0,75: 0,072. k2check: 0,070. Trần 0,125.
+  - Đã tra: LoC, Wellcome, Rijksmuseum, The Met. Chưa tra: NPG, St Paul's, Commons, Historic England.
+- **(2) BẢNG SHOT v4:** giữ H3-05b. Khai `nhan_vat_ten: Godfrey Allen`, `chan_dung: khong_co`, `chan_dung_nguon_da_tra`, `mat_yunet`, `duyet_chu_du_an` = A1 phiếu xem v2 (AUTHORSHIP 26/10 00:12). Bảng có thêm mục "Nhân vật có tên trong M-d". Các shot khác không đổi; tổng vẫn 770,874 s, 103 shot.
+- **(3) PHIẾU-A:** mục A1-H3-05b, dự phòng (c) = H3-05c 3D 6,0 s ở 531,333–537,333 s. Có tệp máy và khung thử 1080p.
+- **Phát sinh (nêu thật):** sửa lỗi khai `log_shot` v3 của đặc tả v4 (§7, §11 sự cố 14). Lỗi này làm k2check không thấy khai mới của H3-05b; sửa là cần cho việc (2). Kết quả kiểm đặc tả v4 cập nhật, KN-3 rút. Những việc mới lộ ra (KIEM-2-MUC (d), MAY-19 (a), GOC-CAO (a), (u) H1-05a/H1-15b) **chỉ ghi lại cho phiên B, không sửa** — theo lệnh "không đổi việc khác".
+- **Chi phí lệnh bổ sung:** 0 USD API (YuNet + k2check chạy trên máy, chặn mạng). Máy: 1 khung 3D thử (H3-05c) + 2 lượt k2check ≈ 25 phút.
+- main đã tiến lên `41de7ce3` (P-2610b) sau khi phiên mở nhánh. Phiên **không** merge main (ngoài phạm vi).
 
 **DỪNG chờ chủ dự án.**

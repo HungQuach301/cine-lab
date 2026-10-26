@@ -14,10 +14,16 @@
 - Chi phí đến giờ: Gemini 0 · OpenAI 0 · Claude API 0 · ElevenLabs 0 · RunPod 0.
 
 ## Lệnh bổ sung đã áp
-- (không có)
+- **#1 (chủ dự án 26/10/2026 07:39, hướng (a) cho H3-05b):**
+  - (1) `khieu-nai-K.md` KN-7: luật đề xuất nguyên văn, YuNet thật (0,1025 / ≥ 0,75: 0,072 / k2check 0,070; trần 0,125), nơi đã tra chân dung.
+  - (2) BẢNG SHOT v4 giữ H3-05b, khai `nhan_vat_ten: Godfrey Allen`, `chan_dung: khong_co`, nguồn đã tra, `duyet_chu_du_an` = A1 (AUTHORSHIP 26/10 00:12).
+  - (3) PHIẾU-A: dự phòng (c) = H3-05c, 3D 6,0 s ở 531,333–537,333 s; có khung thử.
+  - Phát sinh: sửa `log_shot` v3 → v4 trong đặc tả v4, chạy lại k2check, KN-3 rút (báo cáo §7, §11, §15).
+  - API: 0 USD.
 
 ## Kết thúc phiên (26/10/2026)
 - Hàng Commons (PGID 10460) dừng: upload.wikimedia.org vẫn 429 đến cuối phiên → IWM D 6418 gốc **chưa tải được** (giữ bản v3; phiên B thử lại). Ảnh thật hiện đại: 2 ảnh CC BY 2.0 (Flickr gốc, FlickreviewR xác nhận); ảnh thứ 3 chưa có.
 - Việc 1–9 xong; số liệu và kết luận trong `BAN-CUOI-T4-A-BAO-CAO.md`, phiếu duyệt trong `PHIEU-A.md`, khiếu nại phiên K trong `khieu-nai-K.md` (KN-1…KN-6).
 - Chi phí phiên: Gemini $3,512 (T4 cộng dồn $18,58) · OpenAI $3,345 · Claude API $2,642 · ElevenLabs 0 · RunPod 0.
 - Commit cuối "DỪNG chờ chủ dự án"; đã đẩy nhánh, KHÔNG merge. **Chờ chủ dự án duyệt PHIẾU-A** trước khi mở BAN-CUOI-T4-B.
+- 26/10 ~02:20 UTC: lệnh bổ sung #1 xong; commit "… DỪNG chờ chủ dự án"; đẩy, KHÔNG merge.

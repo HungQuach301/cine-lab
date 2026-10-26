@@ -85,6 +85,16 @@ mo = SEG[i].get('moc_loi', []); SEG[j]['moc_loi'] = [dict(m, t=round(m['t'] - cu
 L = LD['H1-15b']; L['dur'] = cut; L['t1'] = round(L['t0'] + cut, 4); L['lop'] = {'MD': cut}; L['minh_hoa'][0]['t1'] = cut; L['minh_hoa'][0]['cat_clip'] = [0, 110]
 L2 = LD['H1-15h']; L2['t0'] = L['t1']; L2['dur'] = round(L2['dur'] + dd, 4); L2['lop'] = {'A': L2['dur']}
 DOI.append(('H1-15b', f'7,5 → 4,625 s (clip khung 0–110; YuNet hộp > 1/8 ở khung 113–139 — báo nhầm trên trời, vẫn cắt theo A1); H1-15h +{dd} s'))
+# (3b) H3-05b Godfrey Allen — lệnh bổ sung #1 (chủ dự án 26/10 07:39, hướng a): GIỮ khai tên; chan_dung: khong_co + nguồn đã tra + mặt YuNet + duyệt A1 (khiếu nại K: KN-7)
+YN = f'{BC}/omni/kiem/H3-05b-l1-360p-yunet.json'; Y = json.load(open(YN))
+NGUON_ALLEN = ['Library of Congress (loc.gov) — không có mục', 'Wellcome Collection — không có mục', 'Rijksmuseum — không có mục', 'The Met Open Access — không có mục']
+L = LD['H3-05b']; mh = L['minh_hoa'][0]
+mh.update(chan_dung='khong_co', chan_dung_tham_chieu=None,
+          chan_dung_nguon_da_tra=dict(ngay='2026-10-25', ghi=os.path.relpath(f'{REPO}/reports/nc-t4/NHAN-VAT-ANH.md', OUT) + ' §2', noi=NGUON_ALLEN),
+          mat_yunet=dict(tep=os.path.relpath(YN, OUT), sha256=sha(YN), mat_lon_nhat=Y['mat_lon_nhat']['ti_le'], khung=Y['mat_lon_nhat']['k'], diem=Y['mat_lon_nhat']['diem'], tran=0.125),
+          duyet_chu_du_an='AUTHORSHIP.md 2026-10-26 00:12 (P-2610b ghi, main @41de7ce3) — phiếu xem v2 A1: "H3-05b (Godfrey Allen, khung xa, không chân dung tham chiếu) ✓"')
+L.update(clip=mh['clip'], chan_dung='khong_co', duyet_chu_du_an=mh['duyet_chu_du_an'])
+DOI.append(('H3-05b', f"giữ khai tên Godfrey Allen; chan_dung: khong_co (đã tra LoC/Wellcome/Rijks/Met); YuNet mặt lớn nhất {Y['mat_lon_nhat']['ti_le']} khung (≤ 1/8); duyệt A1 26/10 00:12 — dự phòng (c) ở PHIẾU-A"))
 # (4) M-d mới
 CH = [('H1-06', 13.5, 'H1-06x', 6.0, 'M-d DN03 sà lan hoàng gia: Charles II + James trên Thames chiều 2/9/1666 (khung xa)', 'thames_bo_bac'),
       ('H1-15h', 3.2, 'H1-15x', 6.0, 'M-d DN04 nhà Vua + Công tước York ở tuyến chữa cháy Fleet Street 4/9/1666 (khung xa)', 'fleet_street'),
@@ -185,7 +195,8 @@ for s_ in SEG:
             if m and abs((s_['t0'] + lc['at']) - m['t0']) > 0.05: lc['at'] = round(max(0.0, m['t0'] - s_['t0']), 3)
     s_['beats'] = [dict(t=0.0, k='cut', s=s_['id'])] + [dict(t=lc['at'], k=lc.get('k', 'lop_chong'), s=str(lc.get('s', ''))[:28]) for sh in s_['shots'] for lc in (sh.get('p', {}).get('lop_chong') or [])]
     s_['beats'] = sorted({(round(x['t'], 3), x['k']): x for x in s_['beats']}.values(), key=lambda z: z['t'])
-E['log_chu'] = 'log-chu-khoang.json'; E['id'] = 'k2c-t4-02-dac-ta-v4'; E['title'] = 'London — T4 đặc tả v4 (BAN-CUOI-T4-A; chưa dựng — kiểm đặc tả)'
+E['log_chu'] = 'log-chu-khoang.json'; E['log_shot'] = 'log-shot.json'   # sửa 26/10 (lệnh bổ sung #1): trước đó trỏ animatic2/log-shot.json (v3) → k2check v4 đọc log v3
+E['id'] = 'k2c-t4-02-dac-ta-v4'; E['title'] = 'London — T4 đặc tả v4 (BAN-CUOI-T4-A; chưa dựng — kiểm đặc tả)'
 E['so_ai_gemini'] = os.path.relpath(f'{REPO}/reports/ban-cuoi-t4-a/so-ai-gemini-t4-gop.jsonl', OUT)
 with open(f'{REPO}/reports/ban-cuoi-t4-a/so-ai-gemini-t4-gop.jsonl', 'w') as f:
     for p in ('reports/tien-ky-t4/so-ai-gemini.jsonl', 'reports/look-t4-v2/so-ai.jsonl', 'reports/animatic-t4/so-ai-gemini.jsonl', 'reports/animatic-t4-v2/so-ai-gemini.jsonl', 'reports/ban-cuoi-t4-a/so-ai-gemini.jsonl'):

@@ -47,6 +47,23 @@ Tự soi: look3 d đỡ "đồ chơi" ở 1666–1940; **đêm 2026 (H5-08) còn
 | **H1-15x** (DN04, 6 s, đặt đúng câu "In the last days… the King and the Duke work the fire-lines") | `H1-15x-l1-360p` | Charles II, James Duke of York | như trên | 0,031 khung (≤ 1/8) | Flash ĐẠT · tầng 2 ĐẠT · lớp mốc ĐẠT | ☐ ✓ ☐ ✗ |
 Ghi: hình nhà Vua/Công tước nhỏ, khó nhận ra là ai — đúng P2 (b) "không cận mặt"; nhận diện dựa vào lời + thẻ chữ.
 
+### A1-H3-05b — Godfrey Allen, không có chân dung (lệnh bổ sung #1, chủ dự án 26/10 07:39, hướng (a))
+- **Giữ H3-05b** trong BẢNG SHOT v4: 8:51,3–8:57,3 (531,333–537,333 s), 6,0 s, clip `H3-05b-l1-360p`.
+  - Khai: `nhan_vat_ten: Godfrey Allen`, `chan_dung: khong_co`, nguồn đã tra (LoC, Wellcome, Rijksmuseum, The Met — NC-T4 25/10), `duyet_chu_du_an` = A1 phiếu xem v2 (AUTHORSHIP 26/10 00:12).
+  - **Không bỏ khai tên.**
+- **YuNet:** mặt lớn nhất **0,1025** khung (khung 137, điểm 0,569). Với hộp điểm ≥ 0,75: **0,072**; k2check đo 0,070. Trần 1/8 = 0,125.
+- k2check 1.17.8 còn **(k) Chặn ở G2** → khiếu nại **KN-7** gửi phiên K kế (miễn (k) khi khai `chan_dung: khong_co` + nguồn đã tra + YuNet ≤ 1/8 + duyệt).
+- **Phương án dự phòng (c) — chỉ dùng nếu K bác KN-7:** thay H3-05b bằng **H3-05c**, 3D look3 cờ d (D), **6,0 s, cùng chỗ 531,333–537,333 s**.
+  - Máy: CODINH, mái nhà City phía đông, p [532560, 180990, 48] nhìn [532118, 181150, 95], fov 40. Năm 1937, ngày 1/9 16:00 — cùng giờ với H3-05.
+  - Tệp máy: `ban-cuoi/may/H3-05c-du-phong.json`. Khung thử 1080p: `reports/ban-cuoi-t4-a/omni/H3-05c-du-phong-k0.jpg` (19,1 s/khung). Tự soi: mái vòm giữa khung, mái City 1937. Một tháp nhà thờ ở tiền cảnh che chân mái vòm; trời ≈ 60 % khung. Phiên B dịch máy ≈ 20 m về nam và hạ điểm nhìn trước khi dựng, nếu dùng (c).
+  - Lời không đổi (câu "In 1937, the cathedral's surveyor, Godfrey Allen…" nằm trên shot 3D). Thẻ chữ "Godfrey Allen · St Paul's surveyor" giữ ở H3-05 (537,933 s).
+  - Tác động: Omni 181 → 175 s (23,98 → 23,18 %); góc cao +6 s; dựng thêm 144 khung (≈ 17–23 phút máy ở P = 2, theo mẫu 14,4–19,1 s/khung); không tốn API.
+  - Ảnh tư liệu **không** khuyến nghị: NC-T4 không có ảnh St Paul's/mái City thập niên 1930 sạch quyền (gần nhất là bưu thiếp Mansion House 1902–ca. 1930, đã dành cho H3-04; IWM D 6418 là năm 1942, sai năm).
+
+| H3-05b | Giữ (a) chờ K | Dùng (c) ngay |
+|---|---|---|
+| Duyệt | ☐ | ☐ |
+
 ## A — Clip Omni hiện đại (A, mức ĐỦ, lớp công trình mốc)
 | Mã | Kết quả | Giây | Duyệt |
 |---|---|---|---|
@@ -84,6 +101,6 @@ Footage đêm: **BỎ** (C2 đã quyết).
 | **Q-A6** | H1-06b (ngoại lệ animatic D5) | kiểm lại ở 720p (phiên B) | — | — | 4,3 s | — | giữ D5 |
 
 ## Việc chờ chủ dự án
-1. E1 (mặt nạ + ngoại lệ "bờ"), E2 (H5-04 đuôi E?), P1 (a/b/c), D/B mẫu, **A1 từng clip H1-06x, H1-15x**, clip hiện đại H5-04c, H5-05d, 2 ảnh thật, Q-A1…Q-A6, chia phiên B.
+1. E1 (mặt nạ + ngoại lệ "bờ"), E2 (H5-04 đuôi E?), P1 (a/b/c), D/B mẫu, **A1 từng clip H1-06x, H1-15x**, **H3-05b: giữ (a) chờ K hay dùng (c) H3-05c**, clip hiện đại H5-04c, H5-05d, 2 ảnh thật, Q-A1…Q-A6, chia phiên B.
 2. Tải tay IWM D 6418 bản gốc (Commons ảnh 429 suốt phiên).
 3. Dòng AUTHORSHIP cho A1 (P ghi) → khai `duyet_chu_du_an` ở phiên B.

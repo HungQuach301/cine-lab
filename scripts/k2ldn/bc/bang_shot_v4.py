@@ -22,6 +22,9 @@ for L in LS:
     rows.append(dict(ma=ma, t0=L['t0'], dur=L['dur'], chuong=L['chuong'], diem_may=L.get('diem_may'), cu_may=cm, goc=L.get('goc'), lop_shot=lp, lop=lop, vung=L.get('vung'),
                      vai=L.get('vai', ''), md=(L.get('minh_hoa') or [{}])[0].get('luot') if cm == 'MD' else None, tu_lieu_lan=L.get('tu_lieu_lan'),
                      nhan_vat_ten=L.get('nhan_vat_ten') or [], doi=[d[1] for d in DOI if d[0] == ma]))
+    mh0 = (L.get('minh_hoa') or [{}])[0] if cm == 'MD' else {}
+    if mh0.get('chan_dung'):   # lệnh bổ sung #1: nhân vật có tên không chân dung (H3-05b)
+        rows[-1].update({k: mh0[k] for k in ('chan_dung', 'chan_dung_nguon_da_tra', 'mat_yunet', 'duyet_chu_du_an')})
 T = round(sum(r['dur'] for r in rows), 3); than = round(sum(r['dur'] for r in rows if r['cu_may'] != 'PP'), 3)
 s = lambda f: round(sum(r['dur'] for r in rows if f(r)), 3)
 cao = s(lambda r: r['goc'] == 'cao' and r['cu_may'] not in ('MD', 'TL', 'THAT'))
@@ -80,6 +83,9 @@ M += ['', '## Tổng + tự kiểm', '', f"- Thời lượng **{T} s** · {len(r
       '| Chỉ số | Giá trị | Trần | Sàn | Đạt | ±5 % quanh ngưỡng | Ghi |', '|---|---|---|---|---|---|---|']
 for k in K: M.append(f"| {k['chi_so']} | {k['gia_tri']} | {k['tran'] if k['tran'] is not None else ''} | {k['san'] if k['san'] is not None else ''} | {'ĐẠT' if k['dat'] else '**TRƯỢT**'} | {'**CÓ**' if k['trong_5pct'] else ''} | {k['ghi']} |")
 M += ['', '## Shot điểm máy P1 (phải dựng lại nếu chủ dự án chọn dời điểm đứng — việc 2; hiện giữ điểm cũ)', '', ', '.join(f'{a} ({b:g} s)' for a, b in P1_LAI) + f" — **{len(P1_LAI)} shot, {round(sum(b for _, b in P1_LAI), 3)} s**",
-      '', '## Lớp chữ (log_chu khoảng, giây phim)', '', '| t0 | t1 | Vai | Chữ |', '|---|---|---|---|'] + [f"| {m['t0']} | {m['t1']} | {m['role']} | {m['s']} |" for m in LC]
+      '', '## Nhân vật có tên trong M-d', '', '| Mã | Nhân vật | Chân dung | Mặt lớn nhất (YuNet) | Duyệt chủ dự án |', '|---|---|---|---|---|']
+M += [f"| {r['ma']} | {', '.join(r['nhan_vat_ten'])} | {'**khong_co** — đã tra: ' + '; '.join(r['chan_dung_nguon_da_tra']['noi']) + ' (' + r['chan_dung_nguon_da_tra']['ngay'] + ')' if r.get('chan_dung') == 'khong_co' else 'chân dung tham chiếu (khai)'} | "
+      f"{(str(r['mat_yunet']['mat_lon_nhat']) + ' khung (khung ' + str(r['mat_yunet']['khung']) + ', điểm ' + str(r['mat_yunet']['diem']) + '; trần 0.125)') if r.get('mat_yunet') else '—'} | {r.get('duyet_chu_du_an') or ('A1 phiếu xem v2 (26/10 00:12)' if r['ma'] in ('H1-05a', 'H1-15b') else 'CHỜ — clip mới BAN-CUOI-T4-A (PHIẾU-A)')} |" for r in rows if r['nhan_vat_ten']]
+M += ['', '## Lớp chữ (log_chu khoảng, giây phim)', '', '| t0 | t1 | Vai | Chữ |', '|---|---|---|---|'] + [f"| {m['t0']} | {m['t1']} | {m['role']} | {m['s']} |" for m in LC]
 open(f'{EP}/ban-cuoi/BANG-SHOT-v4.md', 'w').write('\n'.join(M) + '\n')
 print(json.dumps(J['tong'], ensure_ascii=False)); [print(('ĐẠT ' if k['dat'] else 'TRƯỢT ') + k['chi_so'], k['gia_tri']) for k in K if not k['dat'] or k['trong_5pct']]
