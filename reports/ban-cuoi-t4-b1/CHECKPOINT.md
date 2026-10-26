@@ -16,3 +16,5 @@
 - 04:11–04:15: thử M00 960×540 (trang cũ ↔ B1): mặt sông hết mảng cát phẳng, vòng lửa liền; tăng phản chiếu lửa trên nước (Fq) → thử lại; M01: hết đốm elip đen (sà lan 2026).
 - 04:16: lượt kiểm 1080p (mẫu sau sửa + H3-05c 3 phương án + soi năm biên 24 khung + mặt nạ 2) nền PGID 5662.
 - Phát hiện: BANG_NAM ghi năm HOÀN THÀNH nhưng lớp 4 mọc 2,5 năm → sửa hinh_hoc_b1.py (năm xuất hiện = hoàn thành − 2,5); dựng lại hình học trước ảnh đầu Omni (vi). HỒI 1/HỒI 3 (≤ 1938) không đổi.
+- 04:47: (vi) phát hiện quy tắc (c) gán nhầm năm cho công trình lịch sử có tên (nhà thờ St Giles/St Alban/St Botolph, hội quán phường hội) → sửa hinh_hoc_b1.py (loại trừ + bảng năm hội quán). HỒI 1/HỒI 3 không đổi; dựng lại hình học + ảnh đầu Omni H5-02b/H5-02s dời sang SAU khi dựng sản xuất (không chạy chồng vòng nặng).
+- 05:12 UTC dựng xong **H1-02h**: 48 khung (f 0..47), 23.04 s/khung/tiến trình (P = 2), 9 MB, SHA `8a705c9ff61842f8…` → LFS + đẩy
