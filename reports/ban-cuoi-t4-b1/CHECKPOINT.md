@@ -24,3 +24,4 @@
 - 05:50 UTC dựng xong **H1-01h**: 72 khung (f 0..71), 29.61 s/khung/tiến trình (P = 2), 12 MB, SHA `d19fbc571d647c68…` → LFS + đẩy
 - 05:51 UTC: H1-01h xong 29,6 s/khung/tiến trình (đêm, fov 50°, máy P8 120 m) — nặng hơn mẫu ngày phiên A (14–19 s). Ước lại thông lượng HỒI 1 đêm ≈ 11–12 s/khung (P = 2) → dựng B1 ≈ 14–15 h máy (> 12 h dự kiến); tiếp tục dựng đủ (chất lượng trước), báo vượt giờ ở báo cáo.
 - 06:06 UTC nhịp: 2 tệp 1080p đã đẩy LFS; đang dựng: H1-03 153 khung; H1-04 37 khung; ; RAM trống 4975 MB, đĩa trống 13G
+- 06:31 UTC nhịp: 2 tệp 1080p đã đẩy LFS; đang dựng: H1-03 228 khung; H1-04 101 khung; ; RAM trống 4931 MB, đĩa trống 13G
