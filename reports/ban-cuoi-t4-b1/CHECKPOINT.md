@@ -89,3 +89,4 @@
 - 20:50 UTC: HỒI 1 + HỒI 3 + H3-05c xong 27 tệp / 4 818 khung (05:14 → 20:28, thông lượng 11,6 s/khung); đang dựng lại H1-13a + H1-13c.
 - 21:24 UTC dựng xong **H1-13c**: 149 khung (f 0..148), 22.06 s/khung/tiến trình (P = 2), 27 MB, SHA `732620e79d639b4d…` → LFS + đẩy
 - 21:30 UTC dựng xong **H1-13a**: 168 khung (f 0..167), 21.71 s/khung/tiến trình (P = 2), 30 MB, SHA `b240417590b8a6bc…` → LFS + đẩy
+- 21:52 UTC: (vi) hình học cuối + nướng 2026.7/1975.5/1955.5; ảnh đầu H5-02b (1973), H5-02s (1976) từ render 3D cùng năm; Omni 360p 2 lượt mỗi clip: H5-02b TRƯỢT (Flash: tháp hiện đại chân trời; xe hiện đại), H5-02s TRƯỢT (lượt 1 ảnh đầu LOẠI: tháp Barbican sai; lượt 2 tầng 2 LOẠI) → giữ 3D, bảng không đổi. Gemini T4 tổng $19,16. k2check v5 (log khung 1080p): MAY-19 lỗi a 0; GOC-CAO 61,1 %, (a) M00/H1-01h chưa nhận là góc cao (thử 160 m → ĐẠT).

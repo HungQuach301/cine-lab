@@ -1,0 +1,63 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "k25",
+   "nam": 1976,
+   "noi": "London",
+   "sha256": "68a5e07bb1936c200be243372da2ea206e4f5f4cf657ef5eb7e3319caa8c466b",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "St Paul's Cathedral dome (only if visible)",
+    "Barbican towers (completed)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The skyline on the right shows plain rectangular slab towers with regular window bands. I can't see the Barbican's distinctive towers, which have triangular-plan shafts and projecting balconies. St Paul's dome is only a tiny, doubtful speck at the centre of the skyline.",
+     "ly_do": "The Barbican towers were completed by 1976 and should appear in their own form. These generic slab blocks stand where they would be, so the landmark looks missing or replaced.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1478,
+      324,
+      1728,
+      540
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.0339649,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 872,
+     "cacheReadInputTokens": 3004,
+     "cacheCreationInputTokens": 9973,
+     "webSearchRequests": 0,
+     "costUSD": 0.0339649,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 220,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1976,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The skyline on the right shows plain rectangular slab towers with regular window bands. I can't see the Barbican's distinctive towers, which have triangular-plan shafts and projecting balconies. St Paul's dome is only a tiny, doubtful speck at the centre of the skyline.\",\"ly_do\":\"The Barbican towers were completed by 1976 and should appear in their own form. These generic slab blocks stand where they would be, so the landmark looks missing or replaced.\",\"nam_xuat_hien\":null,\"toa_do\":[0.77,0.3,0.9,0.5],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.034,
+ "chi_phi_tb": 0.034,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

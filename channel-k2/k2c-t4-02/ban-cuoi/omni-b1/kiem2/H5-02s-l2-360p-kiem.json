@@ -1,0 +1,418 @@
+{
+ "tag": "H5-02s-l2-360p",
+ "clip": "/var/tmp/bc/omni-b1/H5-02s/H5-02s-l2-360p.mp4",
+ "clip_sha": "ac1357be88a6f5eafdb2dd0eb1b0b456d2fb8cf8dd1184289d8b915110e21009",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/ban-cuoi/omni-b1/dau/H5-02s-l2-dau.jpg",
+ "dau_sha": "e93b974b569b7ca3feacca443e1bfe9d340951aa6aab6e207e688e04cc8f31aa",
+ "nam": "1976",
+ "canh": "London Wall, 1976",
+ "so_khung": 168,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/bc/kiem2-b1/H5-02s-l2-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0299,
+      "usage": {
+       "input_tokens": 9733,
+       "input_tokens_details": {
+        "cache_write_tokens": 9730,
+        "cached_tokens": 0
+       },
+       "output_tokens": 1044,
+       "output_tokens_details": {
+        "reasoning_tokens": 740
+       },
+       "total_tokens": 10777
+      }
+     },
+     "secs": 33.1,
+     "mo_ta": "Khung hình nhìn từ trên cao xuống một tuyến phố London với các khối văn phòng, tháp nhọn ở hậu cảnh, xe buýt hai tầng đỏ và người đi bộ.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp có chóp nhọn cao ở hậu cảnh bên phải; hình ảnh không đủ rõ để xác định tên công trình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.894,
+        0.346,
+        0.925,
+        0.521
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp nhọn nhỏ ở sát mép phải đường chân trời; không xác định được tên công trình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.974,
+        0.384,
+        0.985,
+        0.446
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.67
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Mái che màu xanh nhô ra trên vỉa hè bên trái đường, là chi tiết kiến trúc được thêm vào và không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.523,
+        0.737,
+        0.54,
+        0.771
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mái che màu xanh nhô ra trên vỉa hè bên trái đường, là chi tiết kiến trúc được thêm vào và không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.523,
+        0.737,
+        0.54,
+        0.771
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.046 (TB $0.046/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H5-02s-l2-360p-k25",
+      "nam": 1976,
+      "noi": "London",
+      "sha256": "68a5e07bb1936c200be243372da2ea206e4f5f4cf657ef5eb7e3319caa8c466b",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.046320400000000005,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 10,
+        "outputTokens": 808,
+        "cacheReadInputTokens": 25504,
+        "cacheCreationInputTokens": 14268,
+        "webSearchRequests": 0,
+        "costUSD": 0.046320400000000005,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 11.5,
+      "so_anh_doc": 7,
+      "loi": null,
+      "tra_loi": "{\"nam\":1976,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0463,
+    "chi_phi_tb": 0.0463,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/bc/kiem2-b1/H5-02s-l2-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0272,
+      "usage": {
+       "input_tokens": 9733,
+       "input_tokens_details": {
+        "cache_write_tokens": 9730,
+        "cached_tokens": 0
+       },
+       "output_tokens": 777,
+       "output_tokens_details": {
+        "reasoning_tokens": 728
+       },
+       "total_tokens": 10510
+      }
+     },
+     "secs": 31.2,
+     "mo_ta": "Khung hình nhìn từ trên cao xuống một tuyến phố London với các khối văn phòng, xe buýt hai tầng màu đỏ, ô tô và người đi bộ.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H5-02s-l2-360p-k55",
+      "nam": 1976,
+      "noi": "London",
+      "sha256": "fc3dcf4f60fe63071b30f0eec97d2c8400794c081a1ece5d73d83960900467b3",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A dense cluster of tall, dark glass-and-concrete office towers on the distant skyline at right. A slab tower also stands at top-left.",
+        "ly_do": "This many high-rise blocks looks more like a post-1980s skyline, such as the City or Docklands. Some of the towers may be later than 1976. The cars, bus and road markings fit 1976, and I am not sure about the towers.",
+        "nam_xuat_hien": 1985,
+        "toa_do_px": [
+         1421,
+         151,
+         1882,
+         518
+        ],
+        "do_tin": 0.2
+       }
+      ],
+      "cost_usd": 0.0338359,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 854,
+        "cacheReadInputTokens": 2889,
+        "cacheCreationInputTokens": 9998,
+        "webSearchRequests": 0,
+        "costUSD": 0.0338359,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 100,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1976,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A dense cluster of tall, dark glass-and-concrete office towers on the distant skyline at right. A slab tower also stands at top-left.\",\"ly_do\":\"This many high-rise blocks looks more like a post-1980s skyline, such as the City or Docklands. Some of the towers may be later than 1976. The cars, bus and road markings fit 1976, and I am not sure about the towers.\",\"nam_xuat_hien\":1985,\"toa_do\":[0.74,0.14,0.98,0.48],\"do_tin\":0.2}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0338,
+    "chi_phi_tb": 0.0338,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/bc/kiem2-b1/H5-02s-l2-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0276,
+      "usage": {
+       "input_tokens": 9733,
+       "input_tokens_details": {
+        "cache_write_tokens": 9730,
+        "cached_tokens": 0
+       },
+       "output_tokens": 817,
+       "output_tokens_details": {
+        "reasoning_tokens": 516
+       },
+       "total_tokens": 10550
+      }
+     },
+     "secs": 25.0,
+     "mo_ta": "Khung hình nhìn từ trên cao xuống phố London Wall với các khối văn phòng, xe buýt hai tầng màu đỏ, ô tô và người đi bộ.",
+     "muc": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mái che màu xanh ngọc nhô ra trên vỉa hè bên trái, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.431,
+        0.726,
+        0.454,
+        0.77
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Mái che dài màu nâu phía trên lối vào ở mặt tiền bên trái; đây là chi tiết kiến trúc không thấy trong ảnh tham chiếu, dù vị trí này có thể đã bị khuất.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.352,
+        0.853,
+        0.405,
+        0.94
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.64
+      },
+      {
+       "loai": "chu",
+       "mo_ta": "Biển nhỏ màu đỏ gắn trên cột ở vỉa hè bên trái; nội dung không đọc được.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.412,
+        0.887,
+        0.421,
+        0.916
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.78
+      }
+     ],
+     "loi": [
+      {
+       "loai": "chu",
+       "mo_ta": "Biển nhỏ màu đỏ gắn trên cột ở vỉa hè bên trái; nội dung không đọc được.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.412,
+        0.887,
+        0.421,
+        0.916
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.78
+      }
+     ],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Mái che màu xanh ngọc nhô ra trên vỉa hè bên trái, không thấy trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.431,
+        0.726,
+        0.454,
+        0.77
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.86
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Mái che dài màu nâu phía trên lối vào ở mặt tiền bên trái; đây là chi tiết kiến trúc không thấy trong ảnh tham chiếu, dù vị trí này có thể đã bị khuất.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.352,
+        0.853,
+        0.405,
+        0.94
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.64
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H5-02s-l2-360p-k90",
+      "nam": 1976,
+      "noi": "London",
+      "sha256": "7480dc6a054aa77b99264917cc8e3b0ef00dcf5a5adc940d6bbcd3616f522b1b",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A cluster of dark glass-and-concrete high-rise towers on the skyline at right and centre. They look like a modern business-district skyline.",
+        "ly_do": "A group of tall towers this size would be unusual in London in 1976, and many similar towers were built later. The single slab block at top left is plausible for the period. The towers at right are low-confidence, since they are distant and hard to date.",
+        "nam_xuat_hien": 1990,
+        "toa_do_px": [
+         1267,
+         130,
+         1786,
+         518
+        ],
+        "do_tin": 0.25
+       }
+      ],
+      "cost_usd": 0.0335159,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 822,
+        "cacheReadInputTokens": 2889,
+        "cacheCreationInputTokens": 9998,
+        "webSearchRequests": 0,
+        "costUSD": 0.0335159,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 73,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.0,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1976,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A cluster of dark glass-and-concrete high-rise towers on the skyline at right and centre. They look like a modern business-district skyline.\",\"ly_do\":\"A group of tall towers this size would be unusual in London in 1976, and many similar towers were built later. The single slab block at top left is plausible for the period. The towers at right are low-confidence, since they are distant and hard to date.\",\"nam_xuat_hien\":1990,\"toa_do\":[0.66,0.12,0.93,0.48],\"do_tin\":0.25}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0335,
+    "chi_phi_tb": 0.0335,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 1,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "LOẠI",
+  "chi_tiet": [
+   {
+    "u": 0.9,
+    "mo_hinh": "gpt",
+    "loai": "chu",
+    "mo_ta": "Biển nhỏ màu đỏ gắn trên cột ở vỉa hè bên trái; nội dung không đọc được.",
+    "nam": null
+   }
+  ]
+ }
+}

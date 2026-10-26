@@ -37,7 +37,7 @@ for s in LS:
         if f0: L['frames'] = [dict(f, f=f['f'] - f0) for f in L['frames']]
         NG[ma] = 'dựng 1080p B1' + (f' (khung máy {f0}… đánh số lại từ 0)' if f0 else '')
     elif ma in TINH and os.path.exists(TINH[ma]):
-        L = canh(doc(TINH[ma])); NG[ma] = 'tính từ tệp máy v5 (không dựng): ' + os.path.relpath(TINH[ma], BC)
+        L = canh(doc(TINH[ma])); L['shot'] = dict(shot=L['shot'], fps=24, W=1920, H=1080) if isinstance(L.get('shot'), str) else L.get('shot'); NG[ma] = 'tính từ tệp máy v5 (không dựng): ' + os.path.relpath(TINH[ma], BC)
     if L is not None:
         open(f'{LG}/{ma}.json', 'w').write(json.dumps(L)); s['log_may'] = f'log-may/{ma}.json'
     elif s.get('log_may'): NG[ma] = 'giữ log animatic v3 (chưa dựng ở B1)'
