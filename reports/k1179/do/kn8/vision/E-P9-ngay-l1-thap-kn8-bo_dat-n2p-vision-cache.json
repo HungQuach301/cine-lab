@@ -1,0 +1,555 @@
+{
+ "6db2bfe8775047a9cb668611a795fd32": {
+  "ket_qua": {
+   "gpt": {
+    "meta": {
+     "model": "gpt-6.1-sol",
+     "usd": 0.0442,
+     "usage": {
+      "input_tokens": 16340,
+      "input_tokens_details": {
+       "cache_write_tokens": 16337,
+       "cached_tokens": 0
+      },
+      "output_tokens": 1150,
+      "output_tokens_details": {
+       "reasoning_tokens": 407
+      },
+      "total_tokens": 17490
+     },
+     "loi": null
+    },
+    "secs": 24.0,
+    "json": {
+     "moc": [
+      {
+       "ten": "St Paul's Cathedral",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present in the same position with matching dome, lantern, cross, facade and flanking towers. No clear cutting, ghosting or misalignment.",
+       "do_tin": 0.99
+      },
+      {
+       "ten": "CityPoint",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Matching position, height and rounded, horizontally banded silhouette. No clear duplication or displacement.",
+       "do_tin": 0.97
+      },
+      {
+       "ten": "White Collar Factory",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the supplied location with matching rectangular outline and height. No clear clipping or ghosting.",
+       "do_tin": 0.95
+      },
+      {
+       "ten": "20 Ropemaker",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The narrow visible portion at the supplied location remains aligned and retains its outline.",
+       "do_tin": 0.86
+      },
+      {
+       "ten": "Guildhall Art Gallery",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Visible roofline and facade portion within the supplied box remain in place, without an evident duplicate or cut.",
+       "do_tin": 0.87
+      },
+      {
+       "ten": "Guildhall",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The corresponding structures in the supplied broad region remain aligned. The box encompasses several buildings, limiting certainty about individual landmark boundaries.",
+       "do_tin": 0.78
+      },
+      {
+       "ten": "Cromwell Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Tall rectangular silhouette retains the same top, sides and position. A fine pale edge is visible, but no clear doubled structure or displacement.",
+       "do_tin": 0.97
+      },
+      {
+       "ten": "Lauderdale Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tall tower in the supplied broad region retains its position and rectangular silhouette. No clear duplication, clipping or misalignment.",
+       "do_tin": 0.88
+      },
+      {
+       "ten": "The Heron",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present with matching narrow rectangular silhouette and height. A thin pale perimeter is visible without a separate ghosted tower.",
+       "do_tin": 0.97
+      },
+      {
+       "ten": "2 London Wall Place",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Visible stepped building mass remains at the same location with matching overall outline. No evident duplicate or displaced section.",
+       "do_tin": 0.93
+      }
+     ],
+     "thap_bia": [],
+     "them": [],
+     "bot_doi": [],
+     "chu": [],
+     "doi_loai_vung": []
+    }
+   },
+   "claude": {
+    "meta": {
+     "model": [
+      "claude-sonnet-5-5"
+     ],
+     "usd": 0.065015,
+     "loi": null,
+     "lan": 1
+    },
+    "secs": 23.0,
+    "json": {
+     "moc": [
+      {
+       "ten": "St Paul's Cathedral",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The dome and towers are in the same place and have the same shape as in BEFORE. There is no ghosting.",
+       "do_tin": 0.85
+      },
+      {
+       "ten": "CityPoint",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tower is present and matches BEFORE.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "White Collar Factory",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tower is present at the same place as in BEFORE.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "20 Ropemaker",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tower is present and matches BEFORE.",
+       "do_tin": 0.55
+      },
+      {
+       "ten": "Guildhall Art Gallery",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The building is present and has no visible misalignment.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Guildhall",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The building is present and has no visible misalignment.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Cromwell Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tower is present at the same place as in BEFORE.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "Lauderdale Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tower is present and matches BEFORE.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "The Heron",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tower is present and matches BEFORE.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "2 London Wall Place",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The building is present and matches BEFORE.",
+       "do_tin": 0.5
+      }
+     ],
+     "thap_bia": [],
+     "them": [
+      {
+       "loai": "cay",
+       "mo_ta": "The AFTER frame has extra trees and greenery along the streets and around St Paul's.",
+       "toa_do": [
+        0.0,
+        0.7,
+        1.0,
+        0.95
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.3
+      }
+     ],
+     "bot_doi": [],
+     "chu": [],
+     "doi_loai_vung": [
+      {
+       "mo_ta": "A river-like water strip appears in the distant city at the upper left. It is not in BEFORE, where that area is land. It is probably the Thames in the background.",
+       "toa_do": [
+        0.12,
+        0.52,
+        0.24,
+        0.54
+       ],
+       "do_tin": 0.35
+      }
+     ]
+    }
+   }
+  },
+  "prompt_ver": "n2p-e-v2 (K-1.17.8, 25/10/2026)",
+  "loi": null,
+  "chi_phi_usd": 0.1092
+ },
+ "qtd": {
+  "E-P9-ngay-l1-thap-kn8-bo_dat": {
+   "ghep": {
+    "id": "E-P9-ngay-l1-thap-kn8-bo_dat-ghep",
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "9af063a2ae2972fc79a25018f04d384c66fe93bf2424cc9aeba9a6170a5f35ce",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.0327803,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 681,
+      "cacheReadInputTokens": 3033,
+      "cacheCreationInputTokens": 10262,
+      "webSearchRequests": 0,
+      "costUSD": 0.0327803,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 7.5,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+   },
+   "render": {
+    "id": "E-P9-ngay-l1-thap-kn8-bo_dat-render",
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "7995c19ebd34471a80c1be61fabef2dc2a89b509dbd8e90d1ee75cd5f4762455",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.033754099999999995,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 784,
+      "cacheReadInputTokens": 3021,
+      "cacheCreationInputTokens": 10240,
+      "webSearchRequests": 0,
+      "costUSD": 0.033754099999999995,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 113,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 10.1,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0665
+  }
+ },
+ "o2": {
+  "17ac6037219a33169cb81920257650aa": {
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "9af063a2ae2972fc79a25018f04d384c66fe93bf2424cc9aeba9a6170a5f35ce",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.0327803,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 681,
+     "cacheReadInputTokens": 3033,
+     "cacheCreationInputTokens": 10262,
+     "webSearchRequests": 0,
+     "costUSD": 0.0327803,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 7.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+  },
+  "7be60dff7b0750b5aa27afac080944fc": {
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "7995c19ebd34471a80c1be61fabef2dc2a89b509dbd8e90d1ee75cd5f4762455",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.033754099999999995,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 784,
+     "cacheReadInputTokens": 3021,
+     "cacheCreationInputTokens": 10240,
+     "webSearchRequests": 0,
+     "costUSD": 0.033754099999999995,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 113,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+  }
+ },
+ "700569f3e3620ba61c7ed4765730e4ce": {
+  "ket_qua": {
+   "gpt": {
+    "meta": {
+     "model": "gpt-6.1-sol",
+     "usd": 0.0457,
+     "usage": {
+      "input_tokens": 16430,
+      "input_tokens_details": {
+       "cache_write_tokens": 16427,
+       "cached_tokens": 0
+      },
+      "output_tokens": 1289,
+      "output_tokens_details": {
+       "reasoning_tokens": 515
+      },
+      "total_tokens": 17719
+     },
+     "loi": null
+    },
+    "secs": 27.7,
+    "json": {
+     "moc": [
+      {
+       "ten": "St Paul's Cathedral",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present in the same position. Dome, lantern, cross, flanking towers and main building silhouette match; no visible cutting, ghosting or misalignment.",
+       "do_tin": 0.99
+      },
+      {
+       "ten": "CityPoint",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Same position, height and tower silhouette. A thin bright perimeter is visible, but there is no separate duplicate or displaced outline.",
+       "do_tin": 0.97
+      },
+      {
+       "ten": "White Collar Factory",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The rectangular tower remains in the same position with the same roofline and visible proportions; no evident cutting or misalignment.",
+       "do_tin": 0.95
+      },
+      {
+       "ten": "20 Ropemaker",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The narrow visible building portion matches the original position and silhouette. No visible duplication or displacement.",
+       "do_tin": 0.88
+      },
+      {
+       "ten": "Guildhall Art Gallery",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The visible low building and roofline in the specified location remain aligned with BEFORE; no evident duplicate or missing section.",
+       "do_tin": 0.88
+      },
+      {
+       "ten": "Guildhall",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Visible protected forms within the supplied broad region remain in place. No clear doubling, cutting or displacement is apparent; the broad overlapping reference box limits independent identification.",
+       "do_tin": 0.81
+      },
+      {
+       "ten": "Cromwell Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Same rectangular silhouette, height and position. A pale compositing rim is visible, without a distinct ghost tower or geometric offset.",
+       "do_tin": 0.97
+      },
+      {
+       "ten": "Lauderdale Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The corresponding tower silhouette remains aligned and retains its height and shape. No separate duplicate is visible; the supplied reference region overlaps several landmarks.",
+       "do_tin": 0.87
+      },
+      {
+       "ten": "The Heron",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Same position, height and rectangular outline. A thin bright edge is present, but no visible doubling, cutting or displacement.",
+       "do_tin": 0.97
+      },
+      {
+       "ten": "2 London Wall Place",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The stepped building mass remains at the same location with the same principal outline; no evident ghosting or misalignment.",
+       "do_tin": 0.94
+      }
+     ],
+     "thap_bia": [],
+     "them": [],
+     "bot_doi": [],
+     "chu": [],
+     "doi_loai_vung": []
+    }
+   },
+   "claude": {
+    "meta": {
+     "model": [
+      "claude-sonnet-5-5"
+     ],
+     "usd": 0.079192,
+     "loi": null,
+     "lan": 1
+    },
+    "secs": 17.0,
+    "json": {
+     "moc": [
+      {
+       "ten": "St Paul's Cathedral",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The dome and towers are in the same place with the same shape. I saw no doubling or cutting.",
+       "do_tin": 0.8
+      },
+      {
+       "ten": "CityPoint",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tower is present at the same position.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "White Collar Factory",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the same position.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "20 Ropemaker",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the same position.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "Guildhall Art Gallery",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with no visible misalignment.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Guildhall",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with no visible misalignment.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Cromwell Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the same position.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "Lauderdale Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with no visible misalignment.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "The Heron",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the same position.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "2 London Wall Place",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the same position.",
+       "do_tin": 0.5
+      }
+     ],
+     "thap_bia": [],
+     "them": [],
+     "bot_doi": [],
+     "chu": [],
+     "doi_loai_vung": []
+    }
+   }
+  },
+  "prompt_ver": "n2p-e-v2-nuoc (K-1.17.9, 26/10/2026)",
+  "loi": null,
+  "chi_phi_usd": 0.1249
+ }
+}

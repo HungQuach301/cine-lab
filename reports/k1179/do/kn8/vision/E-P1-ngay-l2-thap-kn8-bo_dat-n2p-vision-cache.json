@@ -1,0 +1,900 @@
+{
+ "25ce16b662afa0bed59d4061493957f7": {
+  "ket_qua": {
+   "gpt": {
+    "meta": {
+     "model": "gpt-6.1-sol",
+     "usd": 0.0618,
+     "usage": {
+      "input_tokens": 16596,
+      "input_tokens_details": {
+       "cache_write_tokens": 16593,
+       "cached_tokens": 0
+      },
+      "output_tokens": 2864,
+      "output_tokens_details": {
+       "reasoning_tokens": 1429
+      },
+      "total_tokens": 19460
+     },
+     "loi": null
+    },
+    "secs": 67.3,
+    "json": {
+     "moc": [
+      {
+       "ten": "St Paul's Cathedral",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Same position and silhouette, including dome, lantern and western towers; no clear cutting, ghosting or misalignment.",
+       "do_tin": 0.99
+      },
+      {
+       "ten": "Mansion House",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Structure in the supplied box remains in place with the same overall outline; no clear duplicate or displacement.",
+       "do_tin": 0.88
+      },
+      {
+       "ten": "Royal Exchange",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present in the supplied location with its overall roofline retained; no clear cutting or ghosting.",
+       "do_tin": 0.87
+      },
+      {
+       "ten": "Pinsent Masons",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Same location and tower outline; facade detail changes, but no clear geometric displacement.",
+       "do_tin": 0.91
+      },
+      {
+       "ten": "CityPoint",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The structures within the supplied box retain their positions and principal silhouettes; no clear doubling.",
+       "do_tin": 0.92
+      },
+      {
+       "ten": "White Collar Factory",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the supplied position with the same overall height and outline; no clear ghosting.",
+       "do_tin": 0.89
+      },
+      {
+       "ten": "Beechwood",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The supplied region retains its principal building masses and outlines; no clear duplicate, cut or misalignment.",
+       "do_tin": 0.9
+      },
+      {
+       "ten": "20 Ropemaker",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Small feature remains visible at the supplied location; its tiny image size limits precise shape assessment.",
+       "do_tin": 0.69
+      },
+      {
+       "ten": "The Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Same position, height and broad rectangular silhouette; no clear duplication or cutting.",
+       "do_tin": 0.94
+      },
+      {
+       "ten": "Guildhall Art Gallery",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present within the supplied box with the overall mass and roofline retained; no clear displacement.",
+       "do_tin": 0.85
+      },
+      {
+       "ten": "Guildhall",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the same location with its overall outline retained; no clear doubling or misalignment.",
+       "do_tin": 0.86
+      },
+      {
+       "ten": "Tower of St Mary Somerset",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Feature in the supplied box remains in place without a clear silhouette change or duplicate.",
+       "do_tin": 0.83
+      },
+      {
+       "ten": "Cromwell Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The supplied box is identical to the CityPoint box; the visible structures retain their positions and principal silhouettes.",
+       "do_tin": 0.9
+      },
+      {
+       "ten": "Lauderdale Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Same tall, narrow, horizontally banded silhouette and position; no clear cutting or ghosting.",
+       "do_tin": 0.98
+      },
+      {
+       "ten": "The Heron",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Same narrow tower position and outline; no clear doubling or displacement.",
+       "do_tin": 0.92
+      },
+      {
+       "ten": "2 London Wall Place",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the supplied location with the same overall mass and height; no clear misalignment.",
+       "do_tin": 0.9
+      },
+      {
+       "ten": "Bank of England",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The supplied box is identical to the Beechwood box; its principal building masses remain aligned with BEFORE.",
+       "do_tin": 0.9
+      }
+     ],
+     "thap_bia": [
+      {
+       "mo_ta": "Distant pale paired high-rise forms behind and just left of the dark foreground tower; these conspicuous vertical forms are absent from the simplified BEFORE background.",
+       "toa_do": [
+        0.401,
+        0.109,
+        0.413,
+        0.157
+       ],
+       "cao_hon_moc_gan": true,
+       "do_tin": 0.78
+      },
+      {
+       "mo_ta": "Very slender pale tower in the distant central skyline, above the nearer buildings.",
+       "toa_do": [
+        0.59,
+        0.085,
+        0.596,
+        0.109
+       ],
+       "cao_hon_moc_gan": true,
+       "do_tin": 0.75
+      },
+      {
+       "mo_ta": "Distant dark rectangular high-rise in the central-right background, standing above the surrounding newly detailed cityscape.",
+       "toa_do": [
+        0.71,
+        0.089,
+        0.719,
+        0.123
+       ],
+       "cao_hon_moc_gan": true,
+       "do_tin": 0.82
+      },
+      {
+       "mo_ta": "Distant pale high-rise immediately left of the dark background tower; no corresponding tall silhouette is distinguishable in BEFORE.",
+       "toa_do": [
+        0.697,
+        0.096,
+        0.707,
+        0.124
+       ],
+       "cao_hon_moc_gan": true,
+       "do_tin": 0.7
+      },
+      {
+       "mo_ta": "Distant narrow high-rise immediately right of the dark background tower.",
+       "toa_do": [
+        0.724,
+        0.1,
+        0.734,
+        0.128
+       ],
+       "cao_hon_moc_gan": true,
+       "do_tin": 0.68
+      },
+      {
+       "mo_ta": "Slender distant tower in the right-hand skyline cluster, above the low background development.",
+       "toa_do": [
+        0.854,
+        0.076,
+        0.861,
+        0.104
+       ],
+       "cao_hon_moc_gan": true,
+       "do_tin": 0.73
+      }
+     ],
+     "them": [],
+     "bot_doi": [
+      {
+       "loai": "khac",
+       "mo_ta": "The protected river's appearance has changed substantially: blue mottled water in BEFORE becomes grey-brown water with fine ripples in AFTER. This is a surface-appearance change, not a land/water conversion; the bank outline remains aligned.",
+       "toa_do": [
+        0.0,
+        0.686,
+        1.0,
+        1.0
+       ],
+       "do_tin": 0.99
+      }
+     ],
+     "chu": [
+      {
+       "mo_ta": "Small dark, illegible lettering-like signage on a pale horizontal facade beneath the right-hand towers; not visible in BEFORE.",
+       "toa_do": [
+        0.943,
+        0.307,
+        0.974,
+        0.32
+       ],
+       "do_tin": 0.68
+      }
+     ],
+     "doi_loai_vung": []
+    }
+   },
+   "claude": {
+    "meta": {
+     "model": [
+      "claude-sonnet-5-5"
+     ],
+     "usd": 0.065645,
+     "loi": null,
+     "lan": 1
+    },
+    "secs": 12.0,
+    "json": {
+     "moc": [
+      {
+       "ten": "St Paul's Cathedral",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Dome and towers are in the same place with the same shape.",
+       "do_tin": 0.9
+      },
+      {
+       "ten": "The Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tall tower at top right is present. It has a slightly different top.",
+       "do_tin": 0.7
+      },
+      {
+       "ten": "CityPoint",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tower cluster is present and aligned.",
+       "do_tin": 0.7
+      },
+      {
+       "ten": "Tower of St Mary Somerset",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The white spire is present.",
+       "do_tin": 0.7
+      },
+      {
+       "ten": "Bank of England",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The block is present and aligned.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Lauderdale Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tower is present.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "The Heron",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tower is present.",
+       "do_tin": 0.6
+      }
+     ],
+     "thap_bia": [
+      {
+       "mo_ta": "A thin pale tower on the horizon, just right of The Tower. It is a small addition and is not taller than The Tower.",
+       "toa_do": [
+        0.875,
+        0.11,
+        0.89,
+        0.18
+       ],
+       "cao_hon_moc_gan": false,
+       "do_tin": 0.25
+      }
+     ],
+     "them": [],
+     "bot_doi": [],
+     "chu": [],
+     "doi_loai_vung": []
+    }
+   }
+  },
+  "prompt_ver": "n2p-e-v2 (K-1.17.8, 25/10/2026)",
+  "loi": null,
+  "chi_phi_usd": 0.1274
+ },
+ "qtd": {
+  "E-P1-ngay-l2-thap-kn8-bo_dat": {
+   "ghep": {
+    "id": "E-P1-ngay-l2-thap-kn8-bo_dat-ghep",
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "f53770bbecb093dbd484516df04ac43940ef2ed0c05263d5f074238491816db1",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [
+     {
+      "muc": "kien_truc",
+      "mo_ta": "A large white domed building with twin western towers stands on the north bank. It resembles St Paul's Cathedral but is shown set in a plaza among office blocks, and its proportions look wrong.",
+      "ly_do": "St Paul's does not look like this in 2026. The shape and setting differ from the real cathedral and its surroundings, so the building is probably a rendering error rather than a real structure.",
+      "nam_xuat_hien": null,
+      "toa_do_px": [
+       173,
+       259,
+       499,
+       486
+      ],
+      "do_tin": 0.2
+     },
+     {
+      "muc": "kien_truc",
+      "mo_ta": "A flat, dark grey slab-like footbridge or pier runs diagonally into the river. It has no visible piers, cables or arches.",
+      "ly_do": "It does not match any real Thames crossing as it was in 2026. It looks like a generated structure and not a real bridge.",
+      "nam_xuat_hien": null,
+      "toa_do_px": [
+       922,
+       799,
+       1114,
+       1069
+      ],
+      "do_tin": 0.2
+     }
+    ],
+    "cost_usd": 0.03766030000000001,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1169,
+      "cacheReadInputTokens": 3033,
+      "cacheCreationInputTokens": 10262,
+      "webSearchRequests": 0,
+      "costUSD": 0.03766030000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 148,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 23.7,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A large white domed building with twin western towers stands on the north bank. It resembles St Paul's Cathedral but is shown set in a plaza among office blocks, and its proportions look wrong.\",\"ly_do\":\"St Paul's does not look like this in 2026. The shape and setting differ from the real cathedral and its surroundings, so the building is probably a rendering error rather than a real structure.\",\"nam_xuat_hien\":null,\"toa_do\":[0.09,0.24,0.26,0.45],\"do_tin\":0.2},{\"muc\":\"kien_truc\",\"mo_ta\":\"A flat, dark grey slab-like footbridge or pier runs diagonally into the river. It has no visible piers, cables or arches.\",\"ly_do\":\"It does not match any real Thames crossing as it was in 2026. It looks like a generated structure and not a real bridge.\",\"nam_xuat_hien\":null,\"toa_do\":[0.48,0.74,0.58,0.99],\"do_tin\":0.2}]}"
+   },
+   "render": {
+    "id": "E-P1-ngay-l2-thap-kn8-bo_dat-render",
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "6a09c8cfbc3f55f54d93d19887be318f4af2ea62b2b12db7f9c2149293b50179",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.033304099999999996,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 739,
+      "cacheReadInputTokens": 3021,
+      "cacheCreationInputTokens": 10240,
+      "webSearchRequests": 0,
+      "costUSD": 0.033304099999999996,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 68,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 7.4,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.071
+  }
+ },
+ "o2": {
+  "fa68a742f32581017a7742344738379a": {
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "f53770bbecb093dbd484516df04ac43940ef2ed0c05263d5f074238491816db1",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A large white domed building with twin western towers stands on the north bank. It resembles St Paul's Cathedral but is shown set in a plaza among office blocks, and its proportions look wrong.",
+     "ly_do": "St Paul's does not look like this in 2026. The shape and setting differ from the real cathedral and its surroundings, so the building is probably a rendering error rather than a real structure.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      173,
+      259,
+      499,
+      486
+     ],
+     "do_tin": 0.2
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A flat, dark grey slab-like footbridge or pier runs diagonally into the river. It has no visible piers, cables or arches.",
+     "ly_do": "It does not match any real Thames crossing as it was in 2026. It looks like a generated structure and not a real bridge.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      922,
+      799,
+      1114,
+      1069
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.03766030000000001,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1169,
+     "cacheReadInputTokens": 3033,
+     "cacheCreationInputTokens": 10262,
+     "webSearchRequests": 0,
+     "costUSD": 0.03766030000000001,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 148,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 23.7,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A large white domed building with twin western towers stands on the north bank. It resembles St Paul's Cathedral but is shown set in a plaza among office blocks, and its proportions look wrong.\",\"ly_do\":\"St Paul's does not look like this in 2026. The shape and setting differ from the real cathedral and its surroundings, so the building is probably a rendering error rather than a real structure.\",\"nam_xuat_hien\":null,\"toa_do\":[0.09,0.24,0.26,0.45],\"do_tin\":0.2},{\"muc\":\"kien_truc\",\"mo_ta\":\"A flat, dark grey slab-like footbridge or pier runs diagonally into the river. It has no visible piers, cables or arches.\",\"ly_do\":\"It does not match any real Thames crossing as it was in 2026. It looks like a generated structure and not a real bridge.\",\"nam_xuat_hien\":null,\"toa_do\":[0.48,0.74,0.58,0.99],\"do_tin\":0.2}]}"
+  },
+  "fb259b89e0a1103559fccbcb5b137d0d": {
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "6a09c8cfbc3f55f54d93d19887be318f4af2ea62b2b12db7f9c2149293b50179",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.033304099999999996,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 739,
+     "cacheReadInputTokens": 3021,
+     "cacheCreationInputTokens": 10240,
+     "webSearchRequests": 0,
+     "costUSD": 0.033304099999999996,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 68,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 7.4,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+  }
+ },
+ "73b5bceb3f50859d6b16d20b60ecd811": {
+  "ket_qua": {
+   "gpt": {
+    "meta": {
+     "model": "gpt-6.1-sol",
+     "usd": 0.0546,
+     "usage": {
+      "input_tokens": 16676,
+      "input_tokens_details": {
+       "cache_write_tokens": 16673,
+       "cached_tokens": 0
+      },
+      "output_tokens": 2120,
+      "output_tokens_details": {
+       "reasoning_tokens": 612
+      },
+      "total_tokens": 18796
+     },
+     "loi": null
+    },
+    "secs": 41.5,
+    "json": {
+     "moc": [
+      {
+       "ten": "St Paul's Cathedral",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the same position. Dome, lantern, flanking towers and main silhouette remain aligned; no visible doubling or clipping.",
+       "do_tin": 0.99
+      },
+      {
+       "ten": "Mansion House",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The small protected structure remains in the indicated location with its visible outline retained. No clear duplicate or displacement.",
+       "do_tin": 0.87
+      },
+      {
+       "ten": "Royal Exchange",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present in the indicated area; visible roofline and outline remain aligned. No clear ghosting or clipping.",
+       "do_tin": 0.86
+      },
+      {
+       "ten": "Pinsent Masons",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the same position with the same visible massing. Surface detailing differs, but no clear silhouette displacement or duplication is visible.",
+       "do_tin": 0.88
+      },
+      {
+       "ten": "CityPoint",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The towers within the supplied broad box retain their positions and principal silhouettes. No clear doubling or misalignment.",
+       "do_tin": 0.9
+      },
+      {
+       "ten": "White Collar Factory",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The narrow tower remains at the indicated position with its top and sides aligned; no clear duplicate.",
+       "do_tin": 0.86
+      },
+      {
+       "ten": "Beechwood",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The building masses in the supplied broad box remain aligned with BEFORE. Facades were repainted, but no clear major silhouette change or doubling is evident.",
+       "do_tin": 0.88
+      },
+      {
+       "ten": "20 Ropemaker",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "A small structure remains at the supplied position. Its tiny visible extent limits shape verification; no evident displacement or doubling.",
+       "do_tin": 0.65
+      },
+      {
+       "ten": "The Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The pale tall slab remains in the same position with the same principal outline. No visible doubling or clipping.",
+       "do_tin": 0.94
+      },
+      {
+       "ten": "Guildhall Art Gallery",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present in the indicated location with its visible roofline retained. No clear duplication or misalignment.",
+       "do_tin": 0.84
+      },
+      {
+       "ten": "Guildhall",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the same location; visible roof and building outline remain aligned. No clear ghosting or cut.",
+       "do_tin": 0.86
+      },
+      {
+       "ten": "Tower of St Mary Somerset",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The small pale tower remains at the same position, with its visible silhouette retained and no doubling.",
+       "do_tin": 0.95
+      },
+      {
+       "ten": "Cromwell Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Within the supplied box, the tall narrow tower and surrounding principal silhouettes remain in place. No clear duplicate or displacement.",
+       "do_tin": 0.91
+      },
+      {
+       "ten": "Lauderdale Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The striped rectangular tower retains its position, height and silhouette. No visible doubling or clipping.",
+       "do_tin": 0.98
+      },
+      {
+       "ten": "The Heron",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The narrow slab remains at the same position with its top and sides aligned. No clear doubling.",
+       "do_tin": 0.93
+      },
+      {
+       "ten": "2 London Wall Place",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the indicated position with the same visible massing. Repainted facade detail does not indicate clear displacement, clipping or duplication.",
+       "do_tin": 0.89
+      },
+      {
+       "ten": "Bank of England",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The supplied box overlaps the Beechwood box. Its visible building masses remain aligned; no clear doubling or major silhouette change is evident.",
+       "do_tin": 0.87
+      }
+     ],
+     "thap_bia": [
+      {
+       "mo_ta": "New distant pale twin-upright high-rise behind and slightly left of the dark tower near x=0.42. BEFORE has only low background blocks here.",
+       "toa_do": [
+        0.4,
+        0.109,
+        0.416,
+        0.157
+       ],
+       "cao_hon_moc_gan": true,
+       "do_tin": 0.93
+      },
+      {
+       "mo_ta": "New very distant slender white tower on the central background skyline, above the foreground tower cluster.",
+       "toa_do": [
+        0.589,
+        0.086,
+        0.595,
+        0.108
+       ],
+       "cao_hon_moc_gan": true,
+       "do_tin": 0.81
+      },
+      {
+       "mo_ta": "New distant narrow high-rise in the background skyline around x=0.67; substantially taller than the low background blocks in BEFORE.",
+       "toa_do": [
+        0.669,
+        0.092,
+        0.677,
+        0.121
+       ],
+       "cao_hon_moc_gan": true,
+       "do_tin": 0.76
+      },
+      {
+       "mo_ta": "New distant dark rectangular high-rise around x=0.714, standing above the surrounding background development.",
+       "toa_do": [
+        0.71,
+        0.088,
+        0.718,
+        0.117
+       ],
+       "cao_hon_moc_gan": true,
+       "do_tin": 0.84
+      },
+      {
+       "mo_ta": "New distant pale high-rise around x=0.764 in the right-hand background skyline.",
+       "toa_do": [
+        0.759,
+        0.097,
+        0.767,
+        0.122
+       ],
+       "cao_hon_moc_gan": true,
+       "do_tin": 0.72
+      },
+      {
+       "mo_ta": "New distant pale skyline tower near x=0.859, absent from the low background blocks in BEFORE.",
+       "toa_do": [
+        0.854,
+        0.082,
+        0.863,
+        0.106
+       ],
+       "cao_hon_moc_gan": true,
+       "do_tin": 0.75
+      },
+      {
+       "mo_ta": "New distant narrow tower immediately right of the preceding background tower, around x=0.874.",
+       "toa_do": [
+        0.869,
+        0.078,
+        0.878,
+        0.103
+       ],
+       "cao_hon_moc_gan": true,
+       "do_tin": 0.74
+      },
+      {
+       "mo_ta": "New pale, narrow pointed tower immediately left of the large pale slab identified as The Tower. It rises distinctly above the buildings occupying this position in BEFORE.",
+       "toa_do": [
+        0.878,
+        0.15,
+        0.893,
+        0.22
+       ],
+       "cao_hon_moc_gan": false,
+       "do_tin": 0.94
+      }
+     ],
+     "them": [],
+     "bot_doi": [],
+     "chu": [],
+     "doi_loai_vung": []
+    }
+   },
+   "claude": {
+    "meta": {
+     "model": [
+      "claude-sonnet-5-5"
+     ],
+     "usd": 0.067282,
+     "loi": null,
+     "lan": 1
+    },
+    "secs": 11.1,
+    "json": {
+     "moc": [
+      {
+       "ten": "St Paul's Cathedral",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the same place with the same shape.",
+       "do_tin": 0.85
+      },
+      {
+       "ten": "Mansion House",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the same layout.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Royal Exchange",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the same layout.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Pinsent Masons",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the same layout.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "CityPoint",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the same layout.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "White Collar Factory",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the same layout.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Beechwood",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the same layout.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "20 Ropemaker",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the same layout.",
+       "do_tin": 0.4
+      },
+      {
+       "ten": "The Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tall tower at top right is present, with the same shape.",
+       "do_tin": 0.7
+      },
+      {
+       "ten": "Guildhall Art Gallery",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the same layout.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Guildhall",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the same layout.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Tower of St Mary Somerset",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The white spire is present at the same place.",
+       "do_tin": 0.7
+      },
+      {
+       "ten": "Cromwell Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the same layout.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Lauderdale Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the same layout.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "The Heron",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the same layout.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "2 London Wall Place",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the same layout.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Bank of England",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the same layout.",
+       "do_tin": 0.5
+      }
+     ],
+     "thap_bia": [],
+     "them": [],
+     "bot_doi": [],
+     "chu": [],
+     "doi_loai_vung": []
+    }
+   }
+  },
+  "prompt_ver": "n2p-e-v2-nuoc (K-1.17.9, 26/10/2026)",
+  "loi": null,
+  "chi_phi_usd": 0.1219
+ }
+}
