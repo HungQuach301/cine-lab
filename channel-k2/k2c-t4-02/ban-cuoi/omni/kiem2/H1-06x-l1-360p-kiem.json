@@ -1,0 +1,289 @@
+{
+ "tag": "H1-06x-l1-360p",
+ "clip": "/var/tmp/bc/omni/H1-06x/H1-06x-l1-360p.mp4",
+ "clip_sha": "d20edfe8049829a3317841370b9e44e40216e5ef84936baaa6458559d7e2e7ea",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/ban-cuoi/omni/dau/H1-06x-l1-dau.jpg",
+ "dau_sha": "5515d3be211318aa5ab0e571f6534e4c1bda4e4e370bd8b1524a36980ada69dc",
+ "nam": "1666",
+ "canh": "the royal barge on the Thames, afternoon of 2 September 1666",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/bc/kiem2/H1-06x-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.024,
+      "usage": {
+       "input_tokens": 10136,
+       "input_tokens_details": {
+        "cache_write_tokens": 10133,
+        "cached_tokens": 0
+       },
+       "output_tokens": 370,
+       "output_tokens_details": {
+        "reasoning_tokens": 225
+       },
+       "total_tokens": 10506
+      }
+     },
+     "secs": 11.5,
+     "mo_ta": "Một thuyền chèo hoàng gia có mái che đi trên sông Thames, phía sau là thuyền buồm và dãy nhà ven sông đang cháy dưới những cột khói lớn.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm có thân rộng và một cánh buồm vuông màu nâu ở trung cảnh, phía sau thuyền hoàng gia.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.732,
+        0.429,
+        0.786,
+        0.581
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.82
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-06x-l1-360p-k25",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "24491310192d7a92a629217a15f2dcbfdbdb15bae6d9a4007994a380e8dd81ff",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "quan_phuc",
+        "mo_ta": "The rowers in the state barge wear dark, brimmed hats that look like tricorns or cocked hats. They also wear plain coats.",
+        "ly_do": "Cocked and tricorn hats were an 18th-century fashion. In 1666 men wore wide-brimmed or high-crowned hats, and the rowers' hats look more like the later style. The hats are small and dark, so I am only moderately sure.",
+        "nam_xuat_hien": 1690,
+        "toa_do_px": [
+         1286,
+         648,
+         1651,
+         734
+        ],
+        "do_tin": 0.35
+       }
+      ],
+      "cost_usd": 0.0355756,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 872,
+        "cacheReadInputTokens": 2186,
+        "cacheCreationInputTokens": 10650,
+        "webSearchRequests": 0,
+        "costUSD": 0.0355756,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 129,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The rowers in the state barge wear dark, brimmed hats that look like tricorns or cocked hats. They also wear plain coats.\",\"ly_do\":\"Cocked and tricorn hats were an 18th-century fashion. In 1666 men wore wide-brimmed or high-crowned hats, and the rowers' hats look more like the later style. The hats are small and dark, so I am only moderately sure.\",\"nam_xuat_hien\":1690,\"toa_do\":[0.67,0.6,0.86,0.68],\"do_tin\":0.35}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0356,
+    "chi_phi_tb": 0.0356,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/bc/kiem2/H1-06x-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0252,
+      "usage": {
+       "input_tokens": 10124,
+       "input_tokens_details": {
+        "cache_write_tokens": 10121,
+        "cached_tokens": 0
+       },
+       "output_tokens": 496,
+       "output_tokens_details": {
+        "reasoning_tokens": 356
+       },
+       "total_tokens": 10620
+      }
+     },
+     "secs": 14.7,
+     "mo_ta": "Một chiếc thuyền chèo hoàng gia có mái che đi trên sông Thames, phía sau là thuyền buồm và dãy nhà ven bờ đang cháy dưới khói dày.",
+     "muc": [
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Thuyền buồm một cột với cánh buồm vuông màu nâu ở phía sau thuyền hoàng gia.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.741,
+        0.42,
+        0.796,
+        0.583
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.82
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-06x-l1-360p-k55",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "f3077688d6d03a32e87b099862e07e1568699245a356abf8efd024eae9c213ad",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0306716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 546,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0306716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 7.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0307,
+    "chi_phi_tb": 0.0307,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/bc/kiem2/H1-06x-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0227,
+      "usage": {
+       "input_tokens": 10142,
+       "input_tokens_details": {
+        "cache_write_tokens": 10139,
+        "cached_tokens": 0
+       },
+       "output_tokens": 241,
+       "output_tokens_details": {
+        "reasoning_tokens": 206
+       },
+       "total_tokens": 10383
+      }
+     },
+     "secs": 9.7,
+     "mo_ta": "An ornate royal rowing barge crosses the Thames before burning timber-framed waterfront buildings and dense smoke.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H1-06x-l1-360p-k90",
+      "nam": 1666,
+      "noi": "London",
+      "sha256": "bda069296d108099c9f4b69021455a04178c827f898bd118cda18ba4bf85de94",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0306716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 546,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0306716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0307,
+    "chi_phi_tb": 0.0307,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

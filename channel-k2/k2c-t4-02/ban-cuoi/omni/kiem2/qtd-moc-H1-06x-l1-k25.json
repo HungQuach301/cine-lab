@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "k25",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "24491310192d7a92a629217a15f2dcbfdbdb15bae6d9a4007994a380e8dd81ff",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "Old London Bridge with houses on it (if visible)",
+    "Old St Paul's Gothic tower without dome (if visible)",
+    "must NOT show any dome"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "quan_phuc",
+     "mo_ta": "The rowers wear dark cocked or tricorne-style hats and short coats, in an 18th-century style.",
+     "ly_do": "In 1666 men wore broad-brimmed hats and periwigs. The tricorne became standard in the 1690s and later.",
+     "nam_xuat_hien": 1690,
+     "toa_do_px": [
+      1267,
+      648,
+      1651,
+      734
+     ],
+     "do_tin": 0.3
+    },
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The skyline along the burning waterfront shows no Old St Paul's Gothic tower and no Old London Bridge with its houses. Only generic gabled houses and a distant row of buildings are visible.",
+     "ly_do": "A view of London during the 1666 fire should show Old St Paul's tower, and Old London Bridge if the river is in frame. Neither is clearly visible.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1056,
+      302,
+      1824,
+      562
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.03428,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 907,
+     "cacheReadInputTokens": 3005,
+     "cacheCreationInputTokens": 9959,
+     "webSearchRequests": 0,
+     "costUSD": 0.03428,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 153,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"quan_phuc\",\"mo_ta\":\"The rowers wear dark cocked or tricorne-style hats and short coats, in an 18th-century style.\",\"ly_do\":\"In 1666 men wore broad-brimmed hats and periwigs. The tricorne became standard in the 1690s and later.\",\"nam_xuat_hien\":1690,\"toa_do\":[0.66,0.6,0.86,0.68],\"do_tin\":0.3},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The skyline along the burning waterfront shows no Old St Paul's Gothic tower and no Old London Bridge with its houses. Only generic gabled houses and a distant row of buildings are visible.\",\"ly_do\":\"A view of London during the 1666 fire should show Old St Paul's tower, and Old London Bridge if the river is in frame. Neither is clearly visible.\",\"nam_xuat_hien\":null,\"toa_do\":[0.55,0.28,0.95,0.52],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0343,
+ "chi_phi_tb": 0.0343,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}
