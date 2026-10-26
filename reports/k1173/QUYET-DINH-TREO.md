@@ -246,3 +246,30 @@
 | KN-8 | nước trong tấm E (lớp (a)-E gồm toàn mặt nước) — theo điều phối, thuộc K-1.17.9; chưa có tệp trong repo khi P-2610c ghi | lệnh P-2610c; BAI-HOC-K2 K100 | E-P1 (D-A1) |
 | Đ5 quyền giọng G1 | quyền phát hành giọng G1 (ElevenLabs) vẫn chờ | mục G, I | phát hành T4 |
 | Giữ từ mục I (không đổi ở P-2610c) | XEM CÂM Q2/Q3/Q4/Q6 chấm trên bản cuối; các mục giữ từ G/H | mục I | như mục I |
+
+## K. Cập nhật 26/10/2026 sau K-1.17.9 (P-2610d ghi)
+
+**Đã quyết** — chủ dự án "Duyệt K1179-D1…D7 theo khuyến nghị điều phối", **26/10 13:02 Asia/Saigon (giờ dán lệnh P-2610d)**; nguyên văn + nghĩa từng mục: `AUTHORSHIP.md`, 7 dòng P-2610d. Nhánh K-1.17.9 `ccr-196e0bda-gcj9iw` @a7dc969f đã merge vào main (P-2610d). Mục J "KN-1, KN-2, KN-4, KN-5, KN-6, KN-7, KN-8" → **đã quyết** như bảng dưới.
+
+| # | Quyết định | Khi nào (Asia/Saigon) | Áp ở |
+|---|---|---|---|
+| K1179-D1 | duyệt luật 1.17.9 (LOCK `9eddaf24…`) | 26/10 13:02 | Kinh thánh §13.6 (hàng kiểm 1.17.9, cách khai) |
+| K1179-D2 (KN-1) | `ngoai_le` "bờ" cho E-P9-ngay-l1 "tháp" (H5-05a), hộp [0.0, 0.96, 0.09, 1.0], khuôn K1179 §4 → H5-05a dùng mặt nạ "tháp" (D-A1 hết nhánh "K bác") | 26/10 13:02 | §15 (k) cập nhật 13:02 (2) |
+| K1179-D3 (KN-2) | Q37 T4 giữ Chặn ở G2; sửa nhịp thật ở khâu dựng sau khi chủ dự án xem bản xem 1080p; miễn ≤ 3 shot "đứng có chủ ý" | 26/10 13:02 | §13.6 cập nhật 13:02 |
+| K1179-D4 (KN-5) | toà có tên = tháp ≥ 75 m ODN + lịch sử có `nguon_lich_su` + St Paul's; Guildhall Art Gallery không tính nếu không có nguồn | 26/10 13:02 | §15 (k) cập nhật 13:02 (1) |
+| K1179-D5 (KN-6) | đẩy/trượt 2D ≤ 1,5 %/s trên tấm E (một phép 2D cả khung, máy 3D CODINH); dùng theo tờ so, duyệt ở phiếu bản cuối | 26/10 13:02 | §15 (k) cập nhật 13:02 (3) |
+| K1179-D6 (KN-8) | nước AI trên tấm E (`nuoc_ai`, bờ phía đất), duyệt từng tấm; sửa thuyền elip đen + bóng cầu AI lệch trước | 26/10 13:02 | §15 (k) cập nhật 13:02 (4) |
+| K1179-D7 (KN-7) | giữ H3-05b (miễn (k) theo 1.17.9); H3-05c dự phòng | 26/10 13:02 | §15 (f) cập nhật 13:02 |
+| KN-4 | `cat_clip` (lỗi mã, đã sửa ở 1.17.9) — không cần quyết riêng | 26/10 13:02 (cùng D1) | RULES-LL 1.17.9 |
+
+**Còn treo:**
+
+| # | Nội dung | Căn cứ | Chặn gì |
+|---|---|---|---|
+| Hiệu chuẩn BIEN-CO-V T4 | K hiệu chuẩn trên master 1080p **sau phiên B** (K1178-D4 giữ); tới lúc đó BIEN-CO-V T4 chỉ Cảnh báo | K1179-D3; Kinh thánh §13.6 | Q37/TL-3 đo video ở G2 |
+| Chọn shot nhịp (D3) | chủ dự án xem bản xem 1080p, chỉ shot chậm + chọn ≤ 3 shot "đứng có chủ ý" | K1179-D3 | Q37 ở G2 |
+| Tra thêm chân dung Godfrey Allen | NPG, St Paul's, Wikimedia Commons, Historic England — trước gói phát hành | K1179-D7 | gói phát hành T4 (H3-05b) |
+| Đ5 quyền giọng G1 | quyền phát hành giọng G1 (ElevenLabs) vẫn chờ | mục G, I, J | phát hành T4 |
+| Phiếu bản cuối: đẩy 2D (D5), nước AI từng tấm (D6) | chủ dự án duyệt qua tờ so khi phiên B dùng | K1179-D5, D6 | M01/H5-05a (đẩy 2D), E-P1 |
+| Chặn `pkill -f`/`pgrep -f` bằng công cụ | đề xuất giao phiên Nền tảng (BAI-HOC-K2 K105; trước đó K85) | P-2610d | vận hành |
+| Giữ từ mục I/J (không đổi ở P-2610d) | XEM CÂM Q2/Q3/Q4/Q6 chấm trên bản cuối; các mục giữ từ G/H | mục I, J | như mục I |
