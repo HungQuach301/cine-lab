@@ -47,8 +47,10 @@ def chay(nhan, ra, ep_path, vision_dir=None):
         json.dump(cache_tu_raw(E, ep_dir, vision_dir), open(os.path.join(d, 'n2p-vision-cache.json'), 'w'), ensure_ascii=False)
     yaml.safe_dump(E, open(os.path.join(d, 'episode.yaml'), 'w'), allow_unicode=True, sort_keys=False)
     tl = abs_(ep_dir, 'timeline.json')
-    r = subprocess.run(['/opt/cine/bin/python', 'checks/ll/k2check.py', os.path.join(d, 'episode.yaml'), '--tl', tl, '--no-asr', '--cap'],
-                       cwd=REPO, capture_output=True, text=True, env=dict(os.environ, NO_PROXY='*', no_proxy='*', HTTPS_PROXY='http://127.0.0.1:9', https_proxy='http://127.0.0.1:9'))
+    vis = os.environ.get('VISION') == '1'   # chỉ lượt KN-8 có mô hình nhìn (k2check --n2p-vision; sổ n2p-cost.jsonl) — mặc định chặn mạng
+    env = dict(os.environ) if vis else dict(os.environ, NO_PROXY='*', no_proxy='*', HTTPS_PROXY='http://127.0.0.1:9', https_proxy='http://127.0.0.1:9')
+    r = subprocess.run(['/opt/cine/bin/python', 'checks/ll/k2check.py', os.path.join(d, 'episode.yaml'), '--tl', tl, '--no-asr', '--cap'] + (['--n2p-vision'] if vis else []),
+                       cwd=REPO, capture_output=True, text=True, env=env)
     open(os.path.join(d, f'k2check-{nhan}.md'), 'w').write(r.stdout + ('\n\n<!-- stderr -->\n' + r.stderr[-3000:] if r.returncode not in (0, 1) else ''))
     print(nhan, tid, 'rc', r.returncode, flush=True)
 
