@@ -1,0 +1,125 @@
+{
+"moc": [
+{
+"ten": "St Paul's Cathedral",
+"co_mat": true,
+"nhan_doi": false,
+"mo_ta": "Dome, lantern, cross, flanking towers and main body remain in the same position and retain their silhouettes. No clear cutting, displacement or ghost copy.",
+"do_tin": 0.99
+},
+{
+"ten": "CityPoint",
+"co_mat": true,
+"nhan_doi": false,
+"mo_ta": "Same skyline position, height and rounded, horizontally banded silhouette. No clear misalignment or duplication.",
+"do_tin": 0.97
+},
+{
+"ten": "White Collar Factory",
+"co_mat": true,
+"nhan_doi": false,
+"mo_ta": "Rectangular tower remains in the supplied location with the same roof height and outline. No clear doubling or cutting.",
+"do_tin": 0.95
+},
+{
+"ten": "20 Ropemaker",
+"co_mat": true,
+"nhan_doi": false,
+"mo_ta": "Small, partially obscured tower remains at the supplied location; its visible outline appears consistent, without a separate ghost image.",
+"do_tin": 0.83
+},
+{
+"ten": "Guildhall Art Gallery",
+"co_mat": true,
+"nhan_doi": false,
+"mo_ta": "Low building at the supplied location remains aligned, with no clear missing section or duplicate.",
+"do_tin": 0.86
+},
+{
+"ten": "Guildhall",
+"co_mat": true,
+"nhan_doi": false,
+"mo_ta": "Visible buildings within the supplied broad box remain spatially consistent. No obvious duplication or displacement; the unusually broad box limits certainty about individual landmark boundaries.",
+"do_tin": 0.76
+},
+{
+"ten": "Cromwell Tower",
+"co_mat": true,
+"nhan_doi": false,
+"mo_ta": "Tall rectangular tower retains its position, roofline and proportions. No clear doubling, cut or misalignment.",
+"do_tin": 0.98
+},
+{
+"ten": "Lauderdale Tower",
+"co_mat": true,
+"nhan_doi": false,
+"mo_ta": "The tall slab at the left edge of the supplied broad box retains its height and outline. No clear duplicate or displacement.",
+"do_tin": 0.94
+},
+{
+"ten": "The Heron",
+"co_mat": true,
+"nhan_doi": false,
+"mo_ta": "Slender tower retains the same skyline position, height and rectangular silhouette. No clear duplication or cutting.",
+"do_tin": 0.97
+},
+{
+"ten": "2 London Wall Place",
+"co_mat": true,
+"nhan_doi": false,
+"mo_ta": "Building remains in the supplied location with its stepped massing and overall outline intact. No clear ghosting or misalignment.",
+"do_tin": 0.93
+}
+],
+"thap_bia": [
+{
+"mo_ta": "Distant cluster of approximately two upright high-rise slabs on the far-left background skyline. These rise noticeably above the low background development represented in BEFORE. Their tops are lower in the frame than St Paul's Cathedral's cross.",
+"toa_do": [
+0.091,
+0.467,
+0.103,
+0.491
+],
+"cao_hon_moc_gan": false,
+"do_tin": 0.75
+},
+{
+"mo_ta": "Distant slender, rounded-top high-rise farther right along the left background skyline, without a corresponding tall silhouette in BEFORE. Its top is lower in the frame than St Paul's Cathedral's cross.",
+"toa_do": [
+0.134,
+0.465,
+0.142,
+0.49
+],
+"cao_hon_moc_gan": false,
+"do_tin": 0.76
+}
+],
+"them": [],
+"bot_doi": [
+{
+"loai": "cong_trinh",
+"mo_ta": "At the extreme lower-left edge, the projecting dark quay or pier surface and its closely spaced vertical supports in BEFORE are replaced by a brown, water-like area in AFTER.",
+"toa_do": [
+0.0,
+0.972,
+0.078,
+1.0
+],
+"do_tin": 0.86
+}
+],
+"chu": [],
+"doi_loai_vung": [
+{
+"mo_ta": "Apparent land/pier-to-water conversion at the extreme lower-left corner: the previously solid projecting waterfront structure is now occupied by a brown water-like surface.",
+"toa_do": [
+0.0,
+0.975,
+0.075,
+1.0
+],
+"do_tin": 0.83
+}
+]
+}

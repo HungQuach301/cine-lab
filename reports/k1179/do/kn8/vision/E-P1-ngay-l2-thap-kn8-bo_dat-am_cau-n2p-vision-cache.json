@@ -1,0 +1,533 @@
+{
+ "ff62cebb8bed6d74880430da2bbdfd72": {
+  "ket_qua": {
+   "gpt": {
+    "meta": {
+     "model": "gpt-6.1-sol",
+     "usd": 0.0553,
+     "usage": {
+      "input_tokens": 16706,
+      "input_tokens_details": {
+       "cache_write_tokens": 16703,
+       "cached_tokens": 0
+      },
+      "output_tokens": 2190,
+      "output_tokens_details": {
+       "reasoning_tokens": 516
+      },
+      "total_tokens": 18896
+     },
+     "loi": null
+    },
+    "secs": 45.7,
+    "json": {
+     "moc": [
+      {
+       "ten": "St Paul's Cathedral",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present in the same position; dome, lantern, flanking towers and main silhouette align. No clear cutting or ghosting.",
+       "do_tin": 0.99
+      },
+      {
+       "ten": "Mansion House",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The small landmark remains at the supplied location; no clear displacement or doubled silhouette.",
+       "do_tin": 0.83
+      },
+      {
+       "ten": "Royal Exchange",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the same location with the same visible roof silhouette; no clear duplication.",
+       "do_tin": 0.85
+      },
+      {
+       "ten": "Pinsent Masons",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present in the same position with its stepped tower outline retained; no clear misalignment.",
+       "do_tin": 0.9
+      },
+      {
+       "ten": "CityPoint",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tower group in the supplied box retains its positions and principal silhouettes. Surface detail differs, but no clear doubled or displaced tower is visible.",
+       "do_tin": 0.92
+      },
+      {
+       "ten": "White Collar Factory",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the indicated position with the same narrow outline; no clear duplication or cutting.",
+       "do_tin": 0.84
+      },
+      {
+       "ten": "Beechwood",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The structures in the supplied broad box retain their principal outlines and positions; no clear ghosted copy.",
+       "do_tin": 0.88
+      },
+      {
+       "ten": "20 Ropemaker",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "A small feature remains at the indicated location. Its very small visible size limits verification of exact shape; no obvious duplicate is visible.",
+       "do_tin": 0.58
+      },
+      {
+       "ten": "The Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tall upper-right tower remains aligned, including its asymmetric crown. No clear duplicate or cut.",
+       "do_tin": 0.97
+      },
+      {
+       "ten": "Guildhall Art Gallery",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the indicated location; visible roof mass remains aligned without an obvious duplicate.",
+       "do_tin": 0.82
+      },
+      {
+       "ten": "Guildhall",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present in the same position; no clear change to its visible silhouette or duplication.",
+       "do_tin": 0.85
+      },
+      {
+       "ten": "Tower of St Mary Somerset",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The small pale tower remains in the same position and retains its visible outline.",
+       "do_tin": 0.93
+      },
+      {
+       "ten": "Cromwell Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The structures within the supplied box remain aligned with BEFORE; no clear doubled or ghosted tower.",
+       "do_tin": 0.91
+      },
+      {
+       "ten": "Lauderdale Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The narrow horizontally banded tower retains its height, position and silhouette.",
+       "do_tin": 0.98
+      },
+      {
+       "ten": "The Heron",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The narrow tower remains at the same position with the same principal outline; no clear duplication.",
+       "do_tin": 0.9
+      },
+      {
+       "ten": "2 London Wall Place",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present with the same visible mass and position; no obvious ghosting or cutting.",
+       "do_tin": 0.9
+      },
+      {
+       "ten": "Bank of England",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The supplied box overlaps the Beechwood box. Its visible structures remain in place with their principal silhouettes retained; no clear duplication.",
+       "do_tin": 0.86
+      }
+     ],
+     "thap_bia": [
+      {
+       "mo_ta": "Added distant skyline cluster behind the central-right towers, including a conspicuous narrow dark high-rise. These vertical silhouettes are absent from the corresponding low background in BEFORE. Their tops are higher in the frame than nearby named foreground landmarks.",
+       "toa_do": [
+        0.649,
+        0.087,
+        0.766,
+        0.14
+       ],
+       "cao_hon_moc_gan": true,
+       "do_tin": 0.82
+      },
+      {
+       "mo_ta": "Added distant high-rise cluster to the left of the upper-right landmark tower, with a particularly tall pale narrow slab near its centre. Its top is approximately level with, rather than clearly higher than, the crown of The Tower.",
+       "toa_do": [
+        0.827,
+        0.076,
+        0.881,
+        0.124
+       ],
+       "cao_hon_moc_gan": false,
+       "do_tin": 0.76
+      }
+     ],
+     "them": [
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Added pale, curved wall or narrow deck over the water at the left edge. It crosses the existing left bridge and bends toward the embankment; absent in BEFORE.",
+       "toa_do": [
+        0.0,
+        0.692,
+        0.131,
+        0.727
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Added detached curved concrete-looking wall or narrow deck in the river, left of centre. This is solid geometry, not a water reflection.",
+       "toa_do": [
+        0.171,
+        0.727,
+        0.326,
+        0.785
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 1.0
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Added long pale wall or narrow bridge-like strip across the river. It runs from near the centre across the existing foreground bridge toward the right and terminates on the water.",
+       "toa_do": [
+        0.353,
+        0.765,
+        0.783,
+        0.871
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 1.0
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Added broad, partly transparent or ghosted bridge/deck footprint immediately left of the original foreground bridge. Its dark diagonal left edge starts in mid-river and extends to the bottom edge; the original bridge remains visible beside it.",
+       "toa_do": [
+        0.293,
+        0.768,
+        0.536,
+        1.0
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.98
+      }
+     ],
+     "bot_doi": [
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "The foreground bridge is contaminated by an additional offset, ghosted deck outline to its left and by a new transverse pale strip crossing it. The original bridge has not been removed.",
+       "toa_do": [
+        0.293,
+        0.741,
+        0.584,
+        1.0
+       ],
+       "do_tin": 0.98
+      }
+     ],
+     "chu": [],
+     "doi_loai_vung": []
+    }
+   },
+   "claude": {
+    "meta": {
+     "model": [
+      "claude-sonnet-5-5"
+     ],
+     "usd": 0.074603,
+     "loi": null,
+     "lan": 1
+    },
+    "secs": 18.6,
+    "json": {
+     "moc": [
+      {
+       "ten": "St Paul's Cathedral",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present with the same shape and position.",
+       "do_tin": 0.8
+      },
+      {
+       "ten": "The Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Tall tower at the top right is present and unchanged.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "Tower of St Mary Somerset",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The white spire is present.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "Bank of England",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present, with the surrounding buildings restyled.",
+       "do_tin": 0.4
+      },
+      {
+       "ten": "CityPoint",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Lauderdale Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "The Heron",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.5
+      }
+     ],
+     "thap_bia": [],
+     "them": [
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Long pale strip like a jetty or quay wall lying on the water in mid-river. It is not in BEFORE.",
+       "toa_do": [
+        0.36,
+        0.77,
+        0.78,
+        0.87
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.7
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Pale curved strip, like a breakwater or pier, on the water left of centre. It is not in BEFORE.",
+       "toa_do": [
+        0.17,
+        0.73,
+        0.32,
+        0.78
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.7
+      },
+      {
+       "loai": "cong_trinho",
+       "mo_ta": "Pale strip on the water at the left edge, next to the existing bridge. It is not in BEFORE.",
+       "toa_do": [
+        0.0,
+        0.7,
+        0.12,
+        0.73
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      },
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "Dark diagonal strips on the water, like a second pier or bridge ramp, beside the existing pier.",
+       "toa_do": [
+        0.27,
+        0.77,
+        0.37,
+        1.0
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.5
+      }
+     ],
+     "bot_doi": [
+      {
+       "loai": "cong_trinh",
+       "mo_ta": "The shoreline and embankment edge look altered. Pale strips now sit on the water where BEFORE showed open water.",
+       "toa_do": [
+        0.17,
+        0.7,
+        0.78,
+        0.87
+       ],
+       "do_tin": 0.4
+      }
+     ],
+     "chu": [],
+     "doi_loai_vung": [
+      {
+       "mo_ta": "Water became land or structure: pale strips on the river surface, with dark diagonal strips beside the existing pier.",
+       "toa_do": [
+        0.17,
+        0.73,
+        0.78,
+        0.87
+       ],
+       "do_tin": 0.6
+      }
+     ]
+    }
+   }
+  },
+  "prompt_ver": "n2p-e-v2-nuoc (K-1.17.9, 26/10/2026)",
+  "loi": null,
+  "chi_phi_usd": 0.1299
+ },
+ "qtd": {
+  "E-P1-ngay-l2-thap-kn8-bo_dat-am_cau": {
+   "ghep": {
+    "id": "E-P1-ngay-l2-thap-kn8-bo_dat-am_cau-ghep",
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "91978cea737aeff5a0b73b7a1a460a8744723752e79160931a74b23ad266770f",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.034951300000000005,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 870,
+      "cacheReadInputTokens": 3093,
+      "cacheCreationInputTokens": 10372,
+      "webSearchRequests": 0,
+      "costUSD": 0.034951300000000005,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 139,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 11.6,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+   },
+   "render": {
+    "id": "E-P1-ngay-l2-thap-kn8-bo_dat-am_cau-render",
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "6a09c8cfbc3f55f54d93d19887be318f4af2ea62b2b12db7f9c2149293b50179",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.03340510000000001,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 721,
+      "cacheReadInputTokens": 3081,
+      "cacheCreationInputTokens": 10350,
+      "webSearchRequests": 0,
+      "costUSD": 0.03340510000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 9.7,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0684
+  }
+ },
+ "o2": {
+  "5c80bfe153d08f31edac96ef15e68179": {
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "91978cea737aeff5a0b73b7a1a460a8744723752e79160931a74b23ad266770f",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.034951300000000005,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 870,
+     "cacheReadInputTokens": 3093,
+     "cacheCreationInputTokens": 10372,
+     "webSearchRequests": 0,
+     "costUSD": 0.034951300000000005,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 139,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+  },
+  "fb259b89e0a1103559fccbcb5b137d0d": {
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "6a09c8cfbc3f55f54d93d19887be318f4af2ea62b2b12db7f9c2149293b50179",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.03340510000000001,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 721,
+     "cacheReadInputTokens": 3081,
+     "cacheCreationInputTokens": 10350,
+     "webSearchRequests": 0,
+     "costUSD": 0.03340510000000001,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.7,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+  }
+ }
+}

@@ -1,0 +1,147 @@
+OK  N1  kỳ vọng PASS → PASS  | 24 fps CFR (testsrc2)
+OK  N1  kỳ vọng FAIL → FAIL  | rơi khung 10 (PTS hở)
+OK  N1  kỳ vọng FAIL → FAIL  | 25 fps
+OK  N2  kỳ vọng PASS → PASS  | BT.709 đủ nhãn, dải limited
+OK  N2  kỳ vọng FAIL → FAIL  | không có nhãn màu
+OK  N2  kỳ vọng FAIL → FAIL  | nhãn tv nhưng luma 0/255 (full range)
+OK  N3  kỳ vọng PASS → PASS  | YouTube: H.264 High 14 Mbps, AAC 384k 48 kHz
+OK  N3  kỳ vọng FAIL → FAIL  | YouTube: 3 Mbps, AAC 128k 44,1 kHz
+OK  N3  kỳ vọng PASS → PASS  | Lưu trữ: ProRes 422 HQ + PCM 24 bit
+OK  N3  kỳ vọng FAIL → FAIL  | Lưu trữ: H.264 + AAC
+OK  P1  kỳ vọng PASS → PASS  | tiêu đề + phụ đề tách rời
+OK  P1  kỳ vọng FAIL → FAIL  | phụ đề đè lên tiêu đề
+OK  P1  kỳ vọng FAIL → FAIL  | matte khai lệch vị trí so với render
+OK  G4  kỳ vọng PASS → PASS  | chữ sáng trên nền tối (~14:1)
+OK  G4  kỳ vọng FAIL → FAIL  | chữ xám trên nền xám (~1,4:1)
+OK  G3  kỳ vọng FAIL → FAIL  | gradient 8 bit không dither (bậc thang)
+OK  G3  kỳ vọng PASS → PASS  | cùng gradient có dither/grain
+OK  G3  kỳ vọng PASS → PASS  | mảng phẳng phong cách hoá, biên cứng
+OK  M1  kỳ vọng PASS → PASS  | −14 LUFS, đỉnh giới hạn −1,6 dBFS
+OK  M1  kỳ vọng FAIL → FAIL  | −8 LUFS, cắt đỉnh tại 0 dBFS
+OK  M3  kỳ vọng PASS → PASS  | stereo tương quan cao
+OK  M3  kỳ vọng FAIL → FAIL  | kênh phải đảo pha
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 6 files:  17%|█▋        | 1/6 [00:00<00:04,  1.02it/s]Fetching 6 files:  33%|███▎      | 2/6 [00:01<00:01,  2.13it/s]Fetching 6 files:  83%|████████▎ | 5/6 [00:01<00:00,  6.28it/s]Fetching 6 files: 100%|██████████| 6/6 [00:08<00:00,  1.50s/it]
+OK  J1  kỳ vọng PASS → PASS  | lời + nhạc nền thấp 22 dB
+OK  J1  kỳ vọng FAIL → FAIL  | nhạc/ồn lấn át lời 1,7–4,2 s
+OK  H1  kỳ vọng PASS → PASS  | easing, cung, quay chậm 4 s; kim đồng hồ 'mechanical'
+OK  H1  kỳ vọng FAIL → FAIL  | cánh tay nội suy tuyến tính 20 khung
+OK  O3  kỳ vọng PASS → PASS  | tài sản khớp SHA thư viện
+OK  O3  kỳ vọng FAIL → FAIL  | tài sản bị sửa sau khoá + vẽ lại ngoài thư viện
+OK  P0  kỳ vọng FAIL → FAIL  | tiêu đề + phụ đề, chỉ xuất matte tiêu đề (giới hạn 2 của v0)
+OK  P0  kỳ vọng FAIL → FAIL  | chữ trong hình, không có thư mục chữ
+OK  P0  kỳ vọng PASS → PASS  | tiêu đề + phụ đề đủ matte, nền lưới cửa sổ sáng
+OK  P0  kỳ vọng PASS → PASS  | không có chữ, nền lưới cửa sổ sáng, không thư mục chữ
+OK  P0  kỳ vọng PASS → PASS  | hồi quy: khung 204 của M0 a-2d-mb8, lưới cửa sổ bị đọc thành '88:18' (độ tin 0,86)
+OK  G3b kỳ vọng PASS → PASS  | 2 shot, grain động σ 1,8 đều
+OK  G3b kỳ vọng FAIL → FAIL  | không grain
+OK  G3b kỳ vọng FAIL → FAIL  | shot 2 grain σ 1,1 so với shot 1 σ 1,8
+OK  G3b kỳ vọng FAIL → FAIL  | grain đứng yên (cùng mẫu nhiễu mọi khung)
+OK  J1b kỳ vọng PASS → PASS  | lời + nhạc nền −22 dB; stem cộng đúng mix
+OK  J1b kỳ vọng PASS → PASS  | lời + nhạc nền, chuẩn −14 LUFS + limiter đỉnh −1,5 dBFS
+OK  J1b kỳ vọng FAIL → FAIL  | ồn lấn lời +9 dB 1,7–4,2 s (mẫu J1 vẫn đoán đúng 17/18 từ)
+OK  J1b kỳ vọng FAIL → FAIL  | stem thoại xuất to hơn trong mix 6 dB (khai man)
+OK  J1b kỳ vọng FAIL → FAIL  | mix có tiếng ồn 2,5 s không nằm trong stem nào
+OK  H1b kỳ vọng PASS → PASS  | track khai báo = chuyển động render (easing, cung)
+OK  H1b kỳ vọng FAIL → FAIL  | khai báo easing nhưng render chạy tuyến tính
+OK  H1b kỳ vọng FAIL → FAIL  | có kênh bộ phận nhân vật nhưng không có screen track
+OK  C3  kỳ vọng PASS → PASS  | đúng sheet, đầu 146 px (mặt nạ 2×)
+OK  C3  kỳ vọng FAIL → FAIL  | thân dài hơn sheet 6%, đầu 146 px (mặt nạ 2×)
+OK  C3  kỳ vọng FAIL → FAIL  | thân dài hơn 2%, đầu 57 px: nhiễu đo vượt biên 3%, không chứng minh được (cả bộ phận đúng)
+OK  C3  kỳ vọng PASS → PASS  | thân dài hơn 2%, đầu 146 px: chứng minh được đạt (mặt nạ 2×)
+OK  C3  kỳ vọng FAIL → FAIL  | mặt nạ khai lệch 20 px so với render (mặt nạ 2×)
+OK  C3  kỳ vọng PASS → PASS  | hiệu chuẩn mô hình nhiễu U(δ mặt nạ; v1.2: δ = 2 px), đầu 40–146 px, s = 1, 2, 4
+OK  C3  kỳ vọng FAIL → FAIL  | v1.1: đúng sheet đầu 146 px nhưng mặt nạ 1× (hệ số < 2)
+OK  C3  kỳ vọng PASS → PASS  | v1.1: đầu 57 px (như shot A) thân +1,5%, mặt nạ 4×: chứng minh được đạt (v1.2: từ +2% đổi +1,5%)
+OK  C3  kỳ vọng PASS → PASS  | v1.1: đúng sheet, đầu 100 px, mặt nạ 3×
+OK  C3  kỳ vọng FAIL → FAIL  | v1.1: mặt nạ 1× phóng to lên 4× (láng giềng gần nhất), khai scale 4
+OK  C3  kỳ vọng FAIL → FAIL  | v1.1: mặt nạ thật 2× nhưng khai scale 4
+OK  C3  kỳ vọng PASS → PASS  | v1.1: mặt nạ 2× không khai scale (máy tự đo)
+OK  P0  kỳ vọng PASS → PASS  | v1.1: tiêu đề + biển hiệu diegetic 'ROSE AND CROWN' đủ matte, có kịch bản
+OK  P0  kỳ vọng FAIL → FAIL  | v1.1: phụ đề (trùng câu thoại trong kịch bản) gắn diegetic
+OK  P0  kỳ vọng FAIL → FAIL  | v1.1: chữ gắn diegetic trùng tiêu đề không diegetic (không có kịch bản)
+OK  P0  kỳ vọng FAIL → FAIL  | v1.1: biển hiệu diegetic không xuất matte
+OK  G4  kỳ vọng PASS → PASS  | v1.1: biển hiệu xám trên nền xám (~1,4:1) gắn diegetic + tiêu đề đạt tương phản
+OK  G4  kỳ vọng FAIL → FAIL  | v1.1: cùng biển hiệu nhưng không gắn diegetic
+OK  G4  kỳ vọng FAIL → FAIL  | v1.1: nhãn diegetic sai kiểu (chuỗi "true") không được miễn
+OK  G4  kỳ vọng FAIL → FAIL  | v1.1: chỉ có chữ diegetic nhưng matte khai lệch 60 px so với render
+OK  P1  kỳ vọng PASS → PASS  | v1.1: biển hiệu diegetic tách rời phụ đề
+OK  P1  kỳ vọng FAIL → FAIL  | v1.1: phụ đề đè lên biển hiệu diegetic
+OK  N3  kỳ vọng FAIL → FAIL  | v1.1: YouTube 1080p có grain σ 2,5, H.264 14 Mbps (đạt ngưỡng cũ 12)
+OK  N3  kỳ vọng PASS → PASS  | v1.1: YouTube 1080p có grain σ 2,5, H.264 36 Mbps
+OK  J1  kỳ vọng PASS → PASS  | v1.2: table read nháp 1 bị khiếu nại (goodnight; 'you' trong im lặng số; 'warm' ở ranh giới đoạn)
+OK  J1  kỳ vọng PASS → PASS  | v1.2: bảng ghép/tách: goodnight = good night, alright = all right, okay = OK
+OK  J1  kỳ vọng FAIL → FAIL  | v1.2: không nới — 'good' thay cho 'goodnight' vẫn là lỗi
+OK  J1  kỳ vọng PASS → PASS  | v1.2: chữ bịa trong đoạn 0 tuyệt đối bị bỏ, chữ ở vùng có tiếng được giữ
+OK  J1  kỳ vọng FAIL → FAIL  | v1.2: thiếu từ thật — xoá 'Warm' khỏi audio (đặt 0 tuyệt đối 139,40–139,86 s)
+OK  J1  kỳ vọng FAIL → FAIL  | v1.2: chèn từ thật trong vùng có tiếng — kịch bản thiếu câu "You'll be brighter now."
+OK  J1  kỳ vọng FAIL → FAIL  | v1.2: thiếu từ thật — kịch bản có thêm 'more' không nói ("Three more counts")
+OK  C3  kỳ vọng PASS → PASS  | v1.2: mặt nạ thật 4× khử răng cưa (xám ở chính 4×), đầu 100 px
+OK  C3  kỳ vọng FAIL → FAIL  | v1.2: matte 1× khử răng cưa phóng to 4× song tuyến, giữ xám (biên mờ)
+OK  C3  kỳ vọng FAIL → FAIL  | v1.2: matte 1× khử răng cưa phóng to 2× song tuyến, giữ xám (biên mờ)
+OK  C3  kỳ vọng FAIL → FAIL  | v1.2: matte 1× khử răng cưa phóng to 4× láng giềng gần rồi ngưỡng hoá (bậc thang)
+OK  C3  kỳ vọng PASS → PASS  | v1.2: δ = 2 px phủ sai số mặt nạ thật và mặt nạ phóng to ngưỡng hoá (s = 2, 3, 4; đầu 40–146 px)
+OK  J1  kỳ vọng PASS → PASS  | v1.3: table read + room tone −55 dBFS trong mix, stem thoại im giữa câu (Q-J1c)
+OK  J1  kỳ vọng PASS → PASS  | v1.3: chữ bịa trong room tone −55 dBFS: quy tắc −60 giữ, quy tắc stem thoại bỏ
+OK  J1  kỳ vọng FAIL → FAIL  | v1.3: chèn thật khi stem thoại có tiếng (kịch bản thiếu câu có trong stem thoại)
+OK  C3  kỳ vọng FAIL → FAIL  | v1.3: đúng sheet, đầu 57 px, mặt nạ 2× (đầu < 100 px phải 4×)
+OK  C3  kỳ vọng PASS → PASS  | v1.3: đúng sheet, đầu 80 px, mặt nạ 4×
+OK  C3  kỳ vọng PASS → PASS  | v1.3 kiểm toán: mặt nạ render lại khớp mặt nạ nộp, log đủ
+OK  C3  kỳ vọng FAIL → FAIL  | v1.3 kiểm toán: mặt nạ nộp là matte 1× phóng to 4× bicubic rồi ngưỡng hoá (loại C3b không bắt được)
+OK  C3  kỳ vọng FAIL → FAIL  | v1.3 kiểm toán: mặt nạ nộp khác render lại (thân dài hơn 2%)
+OK  C3  kỳ vọng FAIL → FAIL  | v1.3 kiểm toán: thiếu render.log
+OK  C3  kỳ vọng FAIL → FAIL  | v1.3 kiểm toán: log ghi SHA file cảnh sai
+OK  C3  kỳ vọng FAIL → FAIL  | v1.3 kiểm toán: log thiếu dòng FRAME … CMD
+OK  C3  kỳ vọng FAIL → FAIL  | v1.3 kiểm toán: không render lại được (thiếu mặt nạ render lại)
+OK  C3  kỳ vọng FAIL → FAIL  | v1.3 kiểm toán: mặt nạ nộp bị sửa sau khi phát yêu cầu
+OK  C3  kỳ vọng MISSING → MISSING | v1.3 kiểm toán: chưa có yêu cầu kiểm toán → THIẾU (không ĐẠT)
+OK  C3  kỳ vọng PASS → PASS  | v1.3 kiểm toán: không phát lại yêu cầu khi đã có (chống chọn lại khung)
+OK  J1  kỳ vọng N/A  → N/A   | v1.4: không có luồng âm, kịch bản rỗng (chỉ ghi chú/chỉ dẫn) → — (như M3)
+OK  J1b kỳ vọng N/A  → N/A   | v1.4: không có luồng âm, kịch bản rỗng → — (không cần stem)
+OK  J1  kỳ vọng MISSING → MISSING | v1.4: không có luồng âm nhưng kịch bản có lời → THIẾU (không ĐẠT)
+OK  J1b kỳ vọng MISSING → MISSING | v1.4: không có luồng âm nhưng kịch bản có lời → THIẾU (không ĐẠT)
+OK  J1  kỳ vọng FAIL → FAIL  | v1.4: có luồng âm nhưng thiếu từ (kịch bản thêm câu không nói) → vẫn TRƯỢT
+OK  J1b kỳ vọng N/A  → N/A   | v1.4 run.py: không luồng âm + kịch bản rỗng + không có thư mục stem → J1, J1b, M3 đều —
+OK  C3  kỳ vọng PASS → PASS  | v1.4 (a): đúng tỷ lệ, cẳng tay gập về phía máy (2D còn 55%), views khai foreshorten 0,55 → không TRƯỢT
+OK  C3  kỳ vọng FAIL → FAIL  | v1.4 (a, đối chứng): cùng mẫu, không có views → so mọi mẫu như v1.3 → TRƯỢT oan (lý do khiếu nại)
+OK  C3  kỳ vọng FAIL → FAIL  | v1.4 (b): cánh tay (trên + cẳng) dài thêm 20% ở góc chuẩn 0°, không gập → TRƯỢT
+OK  C3  kỳ vọng REVIEW → REVIEW | v1.4 (c): shot toàn góc lệch (view 150°, cách góc gần nhất 60°), tay dài 20% → CẦN NGƯỜI XEM (không ĐẠT)
+OK  C3  kỳ vọng REVIEW → REVIEW | v1.4: góc nhìn 0° nhưng máy ngẩng 35° (lệch 3D 35° > 30°) → CẦN NGƯỜI XEM
+OK  C3  kỳ vọng PASS → PASS  | v1.4: nhân vật đúng số góc 45°, views 40° → so với góc gần nhất 45° → ĐẠT
+OK  C3  kỳ vọng FAIL → FAIL  | v1.4: cùng nhân vật (số góc 45°) nhưng views khai 5° → so với 0° → TRƯỢT
+OK  C3  kỳ vọng PASS → PASS  | v1.4: view 85° → góc 90° ghi null cho tay → 2 tay không đo được, thân/chân đạt
+OK  C3  kỳ vọng PASS → PASS  | v1.4: cẳng tay gần máy hơn đầu 6% (vẽ dài 6%), views depth 0,94 → không đo được, còn lại ĐẠT
+OK  C3  kỳ vọng FAIL → FAIL  | v1.4 chống khai sai: mặt nạ cẳng tay rỗng nhưng views khai không bị che (hidden 0) → TRƯỢT
+OK  C3  kỳ vọng PASS → PASS  | v1.4: cẳng tay bị che hoàn toàn (hidden 1,0), mặt nạ rỗng → không đo được, còn lại ĐẠT
+OK  C3  kỳ vọng REVIEW → REVIEW | v1.4: đầu bị cắt ở mép trên khung, không có views → máy tự loại mẫu → CẦN NGƯỜI XEM
+OK  C3  kỳ vọng REVIEW → REVIEW | v1.4: 2 shot trong một file, shot 2 toàn góc lệch → CẦN NGƯỜI XEM, báo tỷ lệ đo được từng shot
+OK  C3  kỳ vọng PASS → PASS  | v1.4 kiểm toán: views render lại khớp bản nộp (mặt nạ khớp, log đủ)
+OK  C3  kỳ vọng FAIL → FAIL  | v1.4 kiểm toán: views nộp khai 0° nhưng render lại ra 40° (khai sai góc để chọn số so) → TRƯỢT
+OK  C3  kỳ vọng PASS → PASS  | v1.4 lược đồ: độ dài chỉ nằm trong parts{} (sheet của phim) → đọc được, ĐẠT
+OK  C3  kỳ vọng MISSING → MISSING | v1.4 lược đồ: thiếu độ dài 'torso' ở mọi nơi (trước: LỖI ĐO KeyError) → THIẾU, thông báo rõ
+OK  C3  kỳ vọng MISSING → MISSING | v1.4 lược đồ: c3_views có khoá góc không đọc được ('front') → THIẾU, thông báo rõ
+OK  C3  kỳ vọng MISSING → MISSING | v1.4 lược đồ: views thiếu trường foreshorten → THIẾU, thông báo rõ
+OK  P0  kỳ vọng FAIL → FAIL  | v1.5 (a): s42a khung 2775, '56' ở mắt Cas, không mặt nạ nhân vật (v1.4, đối chứng: mẫu tái tạo đúng báo nhầm)
+OK  P0  kỳ vọng PASS → PASS  | v1.5 (a): s42a khung 2775, '56' ở mắt Cas, có bóng nhân vật → không báo chữ
+OK  P0  kỳ vọng FAIL → FAIL  | v1.5 (a): s33 khung 1980, 'MA' ở dáng hai nhân vật, không mặt nạ nhân vật (v1.4, đối chứng: mẫu tái tạo đúng báo nhầm)
+OK  P0  kỳ vọng PASS → PASS  | v1.5 (a): s33 khung 1980, 'MA' ở dáng hai nhân vật, có bóng nhân vật → không báo chữ
+OK  P0  kỳ vọng FAIL → FAIL  | v1.5 (b): chữ thật 'BAKERY' (6 ký tự) in trên áo Cas → vẫn TRƯỢT
+OK  P0  kỳ vọng FAIL → FAIL  | v1.5 (b): chữ thật 'CAFE' (4 ký tự, sát giới hạn) in trên áo Cas → vẫn TRƯỢT
+OK  P0  kỳ vọng FAIL → FAIL  | v1.5 (c): '56' trên tường, ngoài nhân vật → vẫn TRƯỢT
+OK  P0  kỳ vọng FAIL → FAIL  | v1.5 (c): '56' trên nền cửa tối, chạm mép đầu Cas → vẫn TRƯỢT (xoá nhân vật vẫn đọc ra '56')
+OK  P0  kỳ vọng FAIL → FAIL  | v1.5 (c): '56' trên tường + mặt nạ giả vẽ thêm che chữ → vẫn TRƯỢT (mặt nạ không khớp cạnh ảnh)
+OK  P0  kỳ vọng PASS → PASS  | v1.5 giới hạn đã biết (phán quyết cho phép): chữ thật ≤ 3 ký tự in trên áo ('56') được miễn, liệt kê trong bằng chứng để người duyệt soi
+OK  P0  kỳ vọng PASS → PASS  | v1.5: run.py tự dùng <video>.parts/ (bóng nhân vật) cho P0, khung s42a → không báo chữ
+OK  C3  kỳ vọng PASS → PASS  | v1.5: đầu rộng hơn cao (rộng 1.63 × cao 1 H) ở 0°, sheet khai c3_head_axis 'doc' → ĐẠT
+OK  C3  kỳ vọng FAIL → FAIL  | v1.5 đối chứng: cùng mặt nạ, sheet không khai (đo như v1.4, trục chính) → trục lật, TRƯỢT
+OK  C3  kỳ vọng FAIL → FAIL  | v1.5: đầu rộng hơn cao, 'doc', thân dài +20% → vẫn TRƯỢT
+OK  C3  kỳ vọng PASS → PASS  | v1.5: đầu rộng hơn cao, cả nhân vật nghiêng 20° trong khung (máy nghiêng), 'doc' → ĐẠT
+OK  C3  kỳ vọng MISSING → MISSING | v1.5: c3_head_axis sai giá trị ('vertical') → THIẾU, thông báo rõ
+OK  C3  kỳ vọng PASS → PASS  | v1.5 kiểm toán: sheet 'doc' + 'silhouettes', render lại khớp (cả silhouette.png) → ĐẠT
+OK  C3  kỳ vọng FAIL → FAIL  | v1.5 kiểm toán: có 'silhouettes' mà render lại thiếu silhouette.png → TRƯỢT
+OK  C3  kỳ vọng FAIL → FAIL  | v1.5 kiểm toán: sửa bóng nhân vật sau khi phát yêu cầu → TRƯỢT (SHA bộ mặt nạ gồm 'silhouettes')
+OK  C3  kỳ vọng PASS → PASS  | v1.5 kiểm toán: bóng nhân vật ở khung ngoài C3 (khung P0) → phiếu chọn thêm 1 khung bóng; render lại khớp → ĐẠT
+OK  C3  kỳ vọng FAIL → FAIL  | v1.5 kiểm toán: khung bóng được chọn (ngoài C3) không render lại silhouette.png → TRƯỢT
+E2E run.py: sạch verdict=ĐẠT exit=0; bẩn exit=1; OK {'N1': 'PASS', 'N2': 'PASS', 'N3': 'PASS', 'P0': 'PASS', 'P1': 'PASS', 'G4': 'PASS', 'G3': 'PASS', 'G3b': 'PASS', 'M1': 'PASS', 'M3': 'PASS', 'J1': 'PASS', 'J1b': 'PASS', 'H1': 'PASS', 'H1b': 'PASS', 'C3': 'PASS', 'O3': 'PASS'}
+TẤT CẢ KHỚP — báo cáo: /home/user/cine-lab/reports/checks-selftest/selftest.md
+cinecheck rc 0

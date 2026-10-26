@@ -30,6 +30,9 @@ Phiên xưởng chỉ CHẠY (không đọc mã). Định nghĩa: checks/ll/RULE
              1.17.8 (chủ dự án 26/10 00:07 "A+B+E"; khiếu nại ANIMATIC-T4-V2 §8): tập từ T4: N2P-E LUẬT E (tấm nền AI toàn khung hiện đại) · K-LAI-3
              nhận Flash + tờ khung cho đoạn mức nen · Q34 thêm minh_hoa/tu_lieu/that · Q26b → Q26b-K2 · SACH-1 log chữ khoảng + vai §17 · Q37 (d) miễn
              thẻ PP cuối · TU-LIEU-OMNI clip M-d gần nhất · BIEN-CO-V hiệu chuẩn T4 v2
+             1.17.9 (khiếu nại BAN-CUOI-T4-A KN-1…KN-7, KN-8 điều phối; chủ dự án 26/10 07:39 H3-05b hướng (a)): tập từ T4: N2P-E ngoại lệ mô hình
+             đã duyệt (`ngoai_le`), "toà có tên" = tháp ≥ 75 m ODN / lịch sử / St Paul's (`loai`), đẩy/trượt 2D ≤ 1,5 %/s (`day_2d`), nước AI (`nuoc_ai`)
+             · Q37/NHIP-K2/Q37 (1.13) cộng biến cố đo từ log máy (mặt trời, pha máy) · NHAN-VAT-TEN `cat_clip` + miễn (k) không chân dung (KN-7)
 
 Gọi: Q26b bối cảnh · Q32 footage/ảnh nguồn ngoài · Q33 lặp cảnh · Q34 loại shot · Q35 nhãn loại số (D5) · Q36 chữ trên màn hình ·
 Q37 nhịp thị giác · A1–A13 âm thanh · LOCK. Mã thoát 0 khi mọi mục ĐẠT (âm thanh của tập cũ: CHỈ BÁO, không tính).
@@ -87,6 +90,8 @@ def main():
         except Exception as e: BCV = e
     BCVR = q_bcv.hang(E, TL, mv0, 'animatic' if E.get('animatic') else 'G2', MIEN, BCV if isinstance(BCV, dict) else None) if (V16 and isinstance(BCV, dict)) else None
     BV = [(t, s_, k_, d_) for t, s_, k_, d_ in q_bcv.cho_q37(E, BCV if isinstance(BCV, dict) else None, bool(BCVR and BCVR.get('dat_hieu_chuan')))]
+    from checks.ll import q_k1179
+    BL = q_k1179.bien_co_log(E, LS17, ep_dir) if LS17 else []   # 1.17.9 KN-2: biến cố đo từ log máy (T4)
 
     def row(q, ten, r, nguong=''):
         kq = r.get('ket_qua') or ('ĐẠT' if r['ok'] else 'TRƯỢT')
@@ -100,7 +105,7 @@ def main():
     row('Q34', 'Loại shot', q_types.q34(E, TL, ep_dir), 'type · map ±6 s · photo ±6 s · số neo 3D ≥ 60 % · document ≤ 3 s · record ≤ 12 s + dòng tô + nguồn')
     row('Q35', 'Nhãn loại số (D5)', q_chu.q35(E, TL, logs), 'ACTUAL ≤ 1/khung · ESTIMATE bắt buộc · số có năm rõ không cần ACTUAL')
     row('Q36', 'Chữ trên màn hình', q_chu.q36(E, TL, logs), 'nguồn ≥ 38 px, 1 dòng, ≤ 70 ký tự · Facts as of chỉ với luật hiệu lực (+ 1 lần trong câu miễn trừ 0:00–0:15)')
-    row('Q37', 'Nhịp thị giác' + (' (1.16: miễn khung neo/im lặng ≤ 10 s; 1.17.4: + thẻ PP cuối phim)' if V16 else ''), q_nhip.q37(E, TL, m if m and os.path.exists(m) else None, tl=TLB or None, mien=MIEN, tl_moc=V17, bcv=BV),
+    row('Q37', 'Nhịp thị giác' + (' (1.16: miễn khung neo/im lặng ≤ 10 s; 1.17.4: + thẻ PP cuối phim)' if V16 else ''), q_nhip.q37(E, TL, m if m and os.path.exists(m) else None, tl=TLB or None, mien=MIEN, tl_moc=V17, bcv=BV, blog=BL),
         'TB ≤ 3,5 s · dài nhất ≤ 6 s · khung tĩnh ≤ 6 s')
     ra = q_amthanh.check(E, TL, master=m, MX=MX, vo=g('vo'), bed=g('bed'), asr='--no-asr' not in a, v116=V16)
     row('A1–A13', 'Âm thanh (' + ('MIX=audio' if ra['ap_dung'] else 'tập cũ — chỉ báo') + ')', ra, 'docs/AUDIO-THUOC-DO.md')
@@ -137,7 +142,7 @@ def main():
     if g('vang') and g('moi'): bao('KHOP1', 'Khớp cấu trúc khi đổi trình dựng', lambda: q_hinh.khop1(g('vang'), g('moi')), 'tần thấp ≤ 3 % · dịch ≤ 1 · PSNR¼ ≥ 40 · SSIM ≥ 0,90 · renderer ghi rõ, không trộn')
     # ---- 1.12.2: biến thể kênh 2 (NN2, NN3, khiếu nại Q14/Q15/Q17) — CHỈ BÁO cạnh luật cũ tới khi chủ dự án duyệt thay
     mv = m if m and os.path.exists(m) else None
-    bao('NHIP-K2', 'Nhịp kênh 2 (Q14–Q18 không áp → Q37)', lambda: q_k2var.nhip_k2(E, TL, mv, tl=TLB or None, mien=MIEN, tl_moc=V17, bcv=BV), 'TB ≤ 3,5 s · dài nhất ≤ 6 s')
+    bao('NHIP-K2', 'Nhịp kênh 2 (Q14–Q18 không áp → Q37)', lambda: q_k2var.nhip_k2(E, TL, mv, tl=TLB or None, mien=MIEN, tl_moc=V17, bcv=BV, blog=BL), 'TB ≤ 3,5 s · dài nhất ≤ 6 s')
     bao('Q26b-K2', 'Đa dạng loại cảnh + vùng', lambda: q_k2var.q26b_k2(E, TL), '≥ 3 loại/nửa · loại ≤ 70 % · vùng ≤ 25 %, ≤ 90 s, nửa sau ≥ 3')
     bao('Q33-K2', 'Lặp cảnh (vùng, góc) + pHash L/ΔE', lambda: {k: v for k, v in q_k2var.q33_k2(E, TL, mv, nam_log=NL17).items() if k != 'aps'},
         '≤ 2 lần (miễn: khác chương + khác năm/lớp' + ('; 1.17.3: năm hiện (opt.time / log shot) không chồng — TL-1)' if NL17 else ')'))
@@ -187,7 +192,7 @@ def main():
     bao('Q33 (1.13)', 'Lặp cảnh — pHash bỏ lớp chữ cố định', lambda: q_scene.q33(E, TL, video=mv, k2=True, nam_log=NL17),
         '≤ 2 lần · pHash L vùng nội dung y 18–72 %, θ 16' + (' · 1.17.3: miễn cùng điểm máy năm khác (TL-1, năm hiện theo opt.time)' if NL17 else ''))
     bao('Q36 (1.13)', 'Chữ — câu miễn trừ nhận theo chữ', lambda: q_chu.q36(E, TL, logs, v113=True), '"This video explains… Facts as of" 1 lần trong 0:00–0:15 không đòi nguồn luật')
-    bao('Q37 (1.13)', 'Nhịp — khung tĩnh theo khung neo', lambda: q_nhip.q37(E, TL, mv, v113=True, tl=TLB or None, mien=MIEN, tl_moc=V17, bcv=BV), 'khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s')
+    bao('Q37 (1.13)', 'Nhịp — khung tĩnh theo khung neo', lambda: q_nhip.q37(E, TL, mv, v113=True, tl=TLB or None, mien=MIEN, tl_moc=V17, bcv=BV, blog=BL), 'khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s')
     if V16:   # 1.17.4 (K117-D8): thước biến cố ĐO trên video
         def bcv_row():
             if BCVR: return BCVR
