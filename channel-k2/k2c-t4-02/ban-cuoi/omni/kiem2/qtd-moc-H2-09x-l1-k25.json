@@ -1,0 +1,68 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung k25 năm 1675: [cong_trinh_moc] A tall, slender white tower with a domed or cupola cap and a clock-tower look stands on the skyline at the centre. It rises well above the brick rooftops. — No such tower stood in London in 1675. Old St Paul's was a medieval cathedral with a central tower, and Wren's new cathedral with its dome was not yet built. A smooth white domed tower is an invented or later landmark, and it breaks the 'no dome' condition. @px [1098, 397, 1142, 545] tin 0.6"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 0 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "k25",
+   "nam": 1675,
+   "noi": "London",
+   "sha256": "5c188e28608fe352b03a629b52aad080d51f44c701ab7b57cd9cd8b1fb0997f1",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "must NOT show any dome (the new cathedral is not built yet)"
+   ],
+   "nghi_van": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "A tall, slender white tower with a domed or cupola cap and a clock-tower look stands on the skyline at the centre. It rises well above the brick rooftops.",
+     "ly_do": "No such tower stood in London in 1675. Old St Paul's was a medieval cathedral with a central tower, and Wren's new cathedral with its dome was not yet built. A smooth white domed tower is an invented or later landmark, and it breaks the 'no dome' condition.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1098,
+      397,
+      1142,
+      545
+     ],
+     "do_tin": 0.6,
+     "xac_nhan": {
+      "loi": null,
+      "ghi": "lớp công trình mốc: không qua bước 2 (vật vắng không phóng được) — giữ"
+     }
+    }
+   ],
+   "ghi_chu": [],
+   "cost_usd": 0.0332656,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 820,
+     "cacheReadInputTokens": 3011,
+     "cacheCreationInputTokens": 9901,
+     "webSearchRequests": 0,
+     "costUSD": 0.0332656,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 187,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.0,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A tall, slender white tower with a domed or cupola cap and a clock-tower look stands on the skyline at the centre. It rises well above the brick rooftops.\",\"ly_do\":\"No such tower stood in London in 1675. Old St Paul's was a medieval cathedral with a central tower, and Wren's new cathedral with its dome was not yet built. A smooth white domed tower is an invented or later landmark, and it breaks the 'no dome' condition.\",\"nam_xuat_hien\":null,\"toa_do\":[0.572,0.368,0.595,0.505],\"do_tin\":0.6}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0333,
+ "chi_phi_tb": 0.0333,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

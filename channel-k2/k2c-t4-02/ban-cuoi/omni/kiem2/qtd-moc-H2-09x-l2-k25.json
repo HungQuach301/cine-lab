@@ -1,0 +1,82 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung k25 năm 1675: [cong_trinh_moc] A tall, slender, pale rectangular tower with a small dark pointed cap stands alone on the skyline. It looks like a modern clock or campanile tower. It does not match the Monument's fluted column with a flaming urn, and it does not match any other London landmark of 1675. — No such tower stood in London in 1675. The Monument was still being built (1671-77) and had a different form. Old St Paul's had a stump of a tower, not this shape. @px [1098, 400, 1142, 551] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.033 (TB $0.033/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "k25",
+   "nam": 1675,
+   "noi": "London",
+   "sha256": "262c75251eb197ac28dc2565474dd30508fee5a4ea30bbb8532db2d06bf04ece",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "must NOT show any dome (the new cathedral is not built yet)"
+   ],
+   "nghi_van": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "A tall, slender, pale rectangular tower with a small dark pointed cap stands alone on the skyline. It looks like a modern clock or campanile tower. It does not match the Monument's fluted column with a flaming urn, and it does not match any other London landmark of 1675.",
+     "ly_do": "No such tower stood in London in 1675. The Monument was still being built (1671-77) and had a different form. Old St Paul's had a stump of a tower, not this shape.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1098,
+      400,
+      1142,
+      551
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "loi": null,
+      "ghi": "lớp công trình mốc: không qua bước 2 (vật vắng không phóng được) — giữ"
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "The skyline is a long, uniform wall of red-brick blocks with regular rows of windows and many chimneys. The terraces at left look Georgian or Victorian, and the taller blocks look like multi-storey tenements.",
+     "ly_do": "London in 1675 was just rebuilding after the Great Fire. Its houses were mixed timber, brick and stone, with gabled fronts. Uniform multi-storey brick terraces of this kind came later, in the 18th and 19th centuries.",
+     "nam_xuat_hien": 1750,
+     "toa_do_px": [
+      0,
+      454,
+      384,
+      626
+     ],
+     "do_tin": 0.35
+    }
+   ],
+   "cost_usd": 0.0328008,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1152,
+     "cacheReadInputTokens": 4588,
+     "cacheCreationInputTokens": 8324,
+     "webSearchRequests": 0,
+     "costUSD": 0.0328008,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 294,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.0,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A tall, slender, pale rectangular tower with a small dark pointed cap stands alone on the skyline. It looks like a modern clock or campanile tower. It does not match the Monument's fluted column with a flaming urn, and it does not match any other London landmark of 1675.\",\"ly_do\":\"No such tower stood in London in 1675. The Monument was still being built (1671-77) and had a different form. Old St Paul's had a stump of a tower, not this shape.\",\"nam_xuat_hien\":null,\"toa_do\":[0.572,0.37,0.595,0.51],\"do_tin\":0.5},{\"muc\":\"kien_truc\",\"mo_ta\":\"The skyline is a long, uniform wall of red-brick blocks with regular rows of windows and many chimneys. The terraces at left look Georgian or Victorian, and the taller blocks look like multi-storey tenements.\",\"ly_do\":\"London in 1675 was just rebuilding after the Great Fire. Its houses were mixed timber, brick and stone, with gabled fronts. Uniform multi-storey brick terraces of this kind came later, in the 18th and 19th centuries.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.0,0.42,0.2,0.58],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0328,
+ "chi_phi_tb": 0.0328,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

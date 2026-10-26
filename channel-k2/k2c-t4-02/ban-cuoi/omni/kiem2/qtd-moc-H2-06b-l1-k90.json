@@ -1,0 +1,83 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung k90 năm 1675: [cong_trinh_moc] The Monument column inside the timber scaffolding is a smooth, plain white cylinder. I can't see any fluting on it. — The Monument was built as a fluted Doric column, and in 1675 it was unfinished and still being raised. A smooth, unfluted shaft is the wrong form for it. @px [1018, 421, 1114, 648] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "k90",
+   "nam": 1675,
+   "noi": "London",
+   "sha256": "1215de4084ff3bf5502c62b6c9bf0d74791c3b77353575c5f5a56a638c3088b1",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the unfinished Monument column (fluted, inside timber scaffolding)",
+    "must NOT show any dome"
+   ],
+   "nghi_van": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The Monument column inside the timber scaffolding is a smooth, plain white cylinder. I can't see any fluting on it.",
+     "ly_do": "The Monument was built as a fluted Doric column, and in 1675 it was unfinished and still being raised. A smooth, unfluted shaft is the wrong form for it.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1018,
+      421,
+      1114,
+      648
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "loi": null,
+      "ghi": "lớp công trình mốc: không qua bước 2 (vật vắng không phóng được) — giữ"
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "The large, uniform red-brick blocks have four or five storeys, regular rows of identical white-framed sash windows, and slate roofs with grouped chimney stacks. They look like Georgian-era or industrial-era mill or tenement buildings.",
+     "ly_do": "In 1675, after the Great Fire, London brick houses were generally lower. The very large, regular, multi-storey blocks with uniform sash windows look more like the 18th century or later.",
+     "nam_xuat_hien": 1750,
+     "toa_do_px": [
+      0,
+      302,
+      691,
+      1080
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.034526799999999996,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 943,
+     "cacheReadInputTokens": 3023,
+     "cacheCreationInputTokens": 9913,
+     "webSearchRequests": 0,
+     "costUSD": 0.034526799999999996,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 146,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The Monument column inside the timber scaffolding is a smooth, plain white cylinder. I can't see any fluting on it.\",\"ly_do\":\"The Monument was built as a fluted Doric column, and in 1675 it was unfinished and still being raised. A smooth, unfluted shaft is the wrong form for it.\",\"nam_xuat_hien\":null,\"toa_do\":[0.53,0.39,0.58,0.6],\"do_tin\":0.5},{\"muc\":\"kien_truc\",\"mo_ta\":\"The large, uniform red-brick blocks have four or five storeys, regular rows of identical white-framed sash windows, and slate roofs with grouped chimney stacks. They look like Georgian-era or industrial-era mill or tenement buildings.\",\"ly_do\":\"In 1675, after the Great Fire, London brick houses were generally lower. The very large, regular, multi-storey blocks with uniform sash windows look more like the 18th century or later.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.0,0.28,0.36,1.0],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0345,
+ "chi_phi_tb": 0.0345,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

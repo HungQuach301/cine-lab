@@ -1,0 +1,412 @@
+{
+ "tag": "H2-06b-l1-360p",
+ "clip": "/var/tmp/bc/omni/H2-06b/H2-06b-l1-360p.mp4",
+ "clip_sha": "a903565ed6e5dd24f8b50f889a9282e4df284addbc37aee83d5fe89ac0c8274c",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/ban-cuoi/omni/dau/H2-06b-l1-dau.jpg",
+ "dau_sha": "16adcfdb260701833246ac6424e89b3fd816f81ab0cbe25cca1c2a25bd8a956f",
+ "nam": "1675",
+ "canh": "the Monument column under construction near Pudding Lane, 1675",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/bc/kiem2/H2-06b-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0222,
+      "usage": {
+       "input_tokens": 10139,
+       "input_tokens_details": {
+        "cache_write_tokens": 10136,
+        "cached_tokens": 0
+       },
+       "output_tokens": 191,
+       "output_tokens_details": {
+        "reasoning_tokens": 59
+       },
+       "total_tokens": 10330
+      }
+     },
+     "secs": 5.6,
+     "mo_ta": "Khung hình cho thấy cột Monument đang xây dựng giữa các nhà gạch ở London, với giàn giáo, cần trục gỗ và người lao động trên phố.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Thân cột Monument đang xây dựng, lộ ra phía trên mái nhà giữa giàn giáo gỗ.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.533,
+        0.218,
+        0.572,
+        0.429
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.048 (TB $0.048/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-06b-l1-360p-k25",
+      "nam": 1675,
+      "noi": "London",
+      "sha256": "53e9537fda0c9ec7cbad801e2c37e97dcf521638f03796779e62e78ebbd67030",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Right-hand block of 5–6 storeys with regularly spaced, uniform sash windows and a gabled end.",
+        "ly_do": "The scale and the uniform window grid look like a Georgian or industrial-era building, not a London house of 1675.",
+        "nam_xuat_hien": 1750,
+        "toa_do_px": [
+         1325,
+         302,
+         1920,
+         994
+        ],
+        "do_tin": 0.4
+       },
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Very tall, plain brick blocks of 4–6 storeys. They have uniform rows of large, regular, white-framed multi-pane sash-style windows and a mill or warehouse look. The roofs are slate with simple brick chimney stacks.",
+        "ly_do": "These look like Georgian or Industrial-Revolution mills and tenements, not London in 1675. Rebuilding after the Great Fire was under way, and the 1667 Rebuilding Act limited houses to 2–4 storeys. Sash windows were only just appearing in the 1670s, and flush, regular window grids on blocks this tall",
+        "nam_xuat_hien": 1750,
+        "toa_do_px": [
+         0,
+         108,
+         672,
+         1026
+        ],
+        "do_tin": 0.5,
+        "xac_nhan": {
+         "vung_px": [
+          0,
+          0,
+          1713,
+          1080
+         ],
+         "phong": 0.39,
+         "tra_loi": {
+          "vat": "Cần cẩu bánh guồng bằng gỗ và giàn giáo bao quanh một cột trụ tròn màu trắng đang xây, phía sau các dãy nhà gạch",
+          "dac_diem": "Giàn giáo gỗ cao. Cần cẩu có bánh guồng lớn, đang nâng một khối đá. Một thân cột hình trụ màu trắng ở giữa giàn giáo. Phía trước là các nhà gạch đỏ 3–4 tầng, mái dốc, ống khói gạch và cửa sổ đều đặn. Có công nhân, xe ngựa và thùng gỗ ở dưới đường.",
+          "co_tu_nam": null,
+          "da_co_nam_1675": "yes",
+          "ly_do": "Cần cẩu bánh guồng gỗ và giàn giáo đã có từ thời trung cổ. Nhà gạch kiểu này là kiểu xây lại sau trận Đại hỏa hoạn 1666. Cột trụ đang xây có thể là Monument (xây 1671–77), nên cảnh này hợp với London năm 1675. Tôi không chắc cột trụ là Monument hay một ống khói công nghiệp, vì ảnh bị mờ."
+         },
+         "da_co": "yes",
+         "giu": false,
+         "cost_usd": 0.011168999999999998,
+         "loi": null
+        },
+        "ly_do_ha": "phóng to 0.39×: da_co_nam = 'yes' — không xác nhận"
+       }
+      ],
+      "cost_usd": 0.0476406,
+      "cost_buoc2": 0.01117,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1126,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0364716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 161,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Very tall, plain brick blocks of 4–6 storeys. They have uniform rows of large, regular, white-framed multi-pane sash-style windows and a mill or warehouse look. The roofs are slate with simple brick chimney stacks.\",\"ly_do\":\"These look like Georgian or Industrial-Revolution mills and tenements, not London in 1675. Rebuilding after the Great Fire was under way, and the 1667 Rebuilding Act limited houses to 2–4 storeys. Sash windows were only just appearing in the 1670s, and flush, regular window grids on blocks this tall belong to the 18th century or later.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.0,0.1,0.35,0.95],\"do_tin\":0.5},{\"muc\":\"kien_truc\",\"mo_ta\":\"Right-hand block of 5–6 storeys with regularly spaced, uniform sash windows and a gabled end.\",\"ly_do\":\"The scale and the uniform window grid look like a Georgian or industrial-era building, not a London house of 1675.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.69,0.28,1.0,0.92],\"do_tin\":0.4}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0476,
+    "chi_phi_tb": 0.0476,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/bc/kiem2/H2-06b-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0222,
+      "usage": {
+       "input_tokens": 10127,
+       "input_tokens_details": {
+        "cache_write_tokens": 10124,
+        "cached_tokens": 0
+       },
+       "output_tokens": 193,
+       "output_tokens_details": {
+        "reasoning_tokens": 63
+       },
+       "total_tokens": 10320
+      }
+     },
+     "secs": 6.0,
+     "mo_ta": "Khung hình cho thấy cột Monument đang được xây dựng giữa các dãy nhà gạch ở London, với giàn giáo và cần trục gỗ.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Thân cột Monument đang xây dựng, nhô lên sau mái nhà và nằm trong giàn giáo gỗ.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.533,
+        0.317,
+        0.571,
+        0.523
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.043 (TB $0.043/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-06b-l1-360p-k55",
+      "nam": 1675,
+      "noi": "London",
+      "sha256": "d6c87d02a9eefd354f5b7570af1be96ed1bb9f9d69d3fef254e109a5da328e74",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Large block buildings on the right, with many regularly spaced sash windows and tall brick chimney stacks.",
+        "ly_do": "The scale and uniformity of these buildings is more typical of the Georgian or industrial period than of 1675.",
+        "nam_xuat_hien": 1780,
+        "toa_do_px": [
+         1325,
+         410,
+         1920,
+         1080
+        ],
+        "do_tin": 0.4
+       },
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Very large, uniform, multi-storey red-brick buildings, five to six storeys high. They have regular grids of tall white-framed sash windows and flat parapet-style roofs. They look like Georgian or industrial-era mills or tenements.",
+        "ly_do": "In 1675 London, houses were mostly 3–4 storeys, and many were timber-framed. Brick rebuilding after the 1666 Fire was still under way. Rows of identical, large, multi-storey sash-windowed brick blocks look like late 18th or 19th century industrial or Georgian architecture. Sash windows were only jus",
+        "nam_xuat_hien": 1780,
+        "toa_do_px": [
+         0,
+         270,
+         691,
+         1080
+        ],
+        "do_tin": 0.5,
+        "xac_nhan": {
+         "vung_px": [
+          0,
+          0,
+          1560,
+          1080
+         ],
+         "phong": 0.43,
+         "tra_loi": {
+          "vat": "Một công trường xây dựng với giàn giáo gỗ và cần cẩu bánh guồng, xung quanh là nhà gạch đỏ",
+          "dac_diem": "Ở giữa ảnh có một cột trụ tròn màu sáng đang được xây, bao quanh là giàn giáo gỗ cao. Bên phải có cần cẩu gỗ với bánh guồng lớn kiểu bánh đạp, đang nâng một khối đá. Phía trước là các dãy nhà gạch đỏ nhiều tầng, cửa sổ trượt khung trắng, mái dốc đầu hồi và ống khói cao. Có khói bốc lên từ các ống khói.",
+          "co_tu_nam": null,
+          "da_co_nam_1675": "yes",
+          "ly_do": "Cần cẩu bánh đạp bằng gỗ và giàn giáo là công nghệ có từ thời trung cổ. Cảnh này khớp với việc xây lại London sau trận Đại hỏa hoạn 1666, gồm nhà gạch và công trình đá như Nhà thờ St Paul hoặc Đài tưởng niệm. Vì vậy loại công trình này đã có vào năm 1675."
+         },
+         "da_co": "yes",
+         "giu": false,
+         "cost_usd": 0.008028999999999998,
+         "loi": null
+        },
+        "ly_do_ha": "phóng to 0.43×: da_co_nam = 'yes' — không xác nhận"
+       }
+      ],
+      "cost_usd": 0.04281059999999999,
+      "cost_buoc2": 0.00803,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 957,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.034781599999999996,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 9.8,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Very large, uniform, multi-storey red-brick buildings, five to six storeys high. They have regular grids of tall white-framed sash windows and flat parapet-style roofs. They look like Georgian or industrial-era mills or tenements.\",\"ly_do\":\"In 1675 London, houses were mostly 3–4 storeys, and many were timber-framed. Brick rebuilding after the 1666 Fire was still under way. Rows of identical, large, multi-storey sash-windowed brick blocks look like late 18th or 19th century industrial or Georgian architecture. Sash windows were only just appearing in the 1670s.\",\"nam_xuat_hien\":1780,\"toa_do\":[0.0,0.25,0.36,1.0],\"do_tin\":0.5},{\"muc\":\"kien_truc\",\"mo_ta\":\"Large block buildings on the right, with many regularly spaced sash windows and tall brick chimney stacks.\",\"ly_do\":\"The scale and uniformity of these buildings is more typical of the Georgian or industrial period than of 1675.\",\"nam_xuat_hien\":1780,\"toa_do\":[0.69,0.38,1.0,1.0],\"do_tin\":0.4}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0428,
+    "chi_phi_tb": 0.0428,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/bc/kiem2/H2-06b-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0225,
+      "usage": {
+       "input_tokens": 10139,
+       "input_tokens_details": {
+        "cache_write_tokens": 10136,
+        "cached_tokens": 0
+       },
+       "output_tokens": 227,
+       "output_tokens_details": {
+        "reasoning_tokens": 91
+       },
+       "total_tokens": 10366
+      }
+     },
+     "secs": 6.8,
+     "mo_ta": "Khung hình cho thấy cột Monument đang xây dựng giữa giàn giáo và cần cẩu gỗ, phía sau các dãy nhà gạch ở London.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Thân cột Monument đang xây dựng, được bao quanh bởi giàn giáo gỗ; công trình này đã có trong ảnh tham chiếu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.533,
+        0.394,
+        0.573,
+        0.603
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-06b-l1-360p-k90",
+      "nam": 1675,
+      "noi": "London",
+      "sha256": "1215de4084ff3bf5502c62b6c9bf0d74791c3b77353575c5f5a56a638c3088b1",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Large, flat-fronted red-brick blocks of four to five storeys. They have very regular grids of white-framed multi-pane sash windows, uniform brickwork and slate roofs. They look like Georgian or Victorian warehouses or mills.",
+        "ly_do": "This scale and uniformity of brick block with sash windows is more typical of the 18th and 19th centuries. London was still rebuilding after the 1666 Fire in 1675, and sash windows were only just appearing then. Houses were mostly smaller and less regular.",
+        "nam_xuat_hien": 1720,
+        "toa_do_px": [
+         0,
+         292,
+         691,
+         1080
+        ],
+        "do_tin": 0.35
+       },
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A tall, smooth white cylindrical column or tower stands inside a timber scaffold, with a treadwheel crane lifting a stone block beside it.",
+        "ly_do": "This looks like a large stone structure already well advanced, as in St Paul's Cathedral. Its first stone was laid in 1675 and the dome was not built until about 1708. The tall finished drum or column is premature for 1675.",
+        "nam_xuat_hien": 1708,
+        "toa_do_px": [
+         941,
+         410,
+         1114,
+         648
+        ],
+        "do_tin": 0.25
+       }
+      ],
+      "cost_usd": 0.0370316,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1182,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0370316,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 205,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 12.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"Large, flat-fronted red-brick blocks of four to five storeys. They have very regular grids of white-framed multi-pane sash windows, uniform brickwork and slate roofs. They look like Georgian or Victorian warehouses or mills.\",\"ly_do\":\"This scale and uniformity of brick block with sash windows is more typical of the 18th and 19th centuries. London was still rebuilding after the 1666 Fire in 1675, and sash windows were only just appearing then. Houses were mostly smaller and less regular.\",\"nam_xuat_hien\":1720,\"toa_do\":[0.0,0.27,0.36,1.0],\"do_tin\":0.35},{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall, smooth white cylindrical column or tower stands inside a timber scaffold, with a treadwheel crane lifting a stone block beside it.\",\"ly_do\":\"This looks like a large stone structure already well advanced, as in St Paul's Cathedral. Its first stone was laid in 1675 and the dome was not built until about 1708. The tall finished drum or column is premature for 1675.\",\"nam_xuat_hien\":1708,\"toa_do\":[0.49,0.38,0.58,0.6],\"do_tin\":0.25}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.037,
+    "chi_phi_tb": 0.037,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

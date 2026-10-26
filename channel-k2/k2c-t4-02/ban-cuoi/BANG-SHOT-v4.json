@@ -1,0 +1,2924 @@
+{
+ "tap": "K2C-T4-02",
+ "phien": "BAN-CUOI-T4-A",
+ "ngay": "2026-10-26",
+ "nguon": "ban-cuoi/dac-ta-v4 (dac_ta_v4.py) + BANG-SHOT-v3.json",
+ "loi": "v3 (khoá, không đổi)",
+ "shot": [
+  {
+   "ma": "M00",
+   "t0": 0.0,
+   "dur": 17.0,
+   "chuong": "MÓC",
+   "diem_may": "P1b",
+   "cu_may": "VONG",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 17.0
+   },
+   "vung": "bankside_dong_cau",
+   "vai": "MỞ LẠNH: Bankside phía đông (125 m) nhìn đông bắc vào vòng lửa đầu cầu đêm 2/9/1666 — góc KHÁC M03 (hết lặp khung 0:40–0:50)",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": [
+    "điểm máy P1 → P1b [532560,180330,125] nhìn [532880,180760,15] fov 42°, DAY → VONG (bản cuối dựng lại)"
+   ]
+  },
+  {
+   "ma": "M01",
+   "t0": 17.0,
+   "dur": 17.875,
+   "chuong": "MÓC",
+   "diem_may": "P1",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 17.875
+   },
+   "vung": "bankside_city",
+   "vai": "nhận ra nơi chốn: City 2026 chiều — mái vòm giữa toà cao (bỏ tấm nền tĩnh 0–11 s; cú máy DAY chậm)",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "M02",
+   "t0": 34.875,
+   "dur": 10.083,
+   "chuong": "MÓC",
+   "diem_may": "P1",
+   "cu_may": "KEO",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 10.083
+   },
+   "vung": "bankside_city",
+   "vai": "luận đề: tua ngược — toà cao lún, mái vòm tan, Old St Paul's hiện lại",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "M03",
+   "t0": 44.958,
+   "dur": 11.0,
+   "chuong": "MÓC",
+   "diem_may": "P1",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 11.0
+   },
+   "vung": "bankside_city",
+   "vai": "KHOẢNH KHẮC GIÁ TRỊ NHẤT ≤ 30 s: \"one entire arch of fire\" từ chỗ Pepys đứng",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "M04",
+   "t0": 55.958,
+   "dur": 12.0,
+   "chuong": "MÓC",
+   "diem_may": "P1",
+   "cu_may": "LAN",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 12.0
+   },
+   "vung": "bankside_city",
+   "vai": "cú lặn từ Bankside xuống Pudding Lane trước lửa — \"a bakery about a kilometre from here\"",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": [
+    "+0,5 EV (C9b) ở dựng bản cuối"
+   ]
+  },
+  {
+   "ma": "H1-01h",
+   "t0": 67.958,
+   "dur": 3.0,
+   "chuong": "HỒI 1",
+   "diem_may": "P8",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 3.0
+   },
+   "vung": "tower_hill",
+   "vai": "mở chương (góc cao): City ngủ, đốm lửa đầu ở Pudding Lane 01:00",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-01a",
+   "t0": 70.958,
+   "dur": 5.0,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 5.0
+   },
+   "vung": "pudding_lane",
+   "vai": "M-d (1) lò bánh bén lửa",
+   "md": "H1-01a-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-01b",
+   "t0": 75.958,
+   "dur": 3.875,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 3.875
+   },
+   "vung": "pudding_lane",
+   "vai": "M-d (1) tàn lửa bay lên hẻm gỗ; hàng xóm cầm đèn",
+   "md": "H1-01b-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-02h",
+   "t0": 79.833,
+   "dur": 2.0,
+   "chuong": "HỒI 1",
+   "diem_may": "P2",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 2.0
+   },
+   "vung": "st_saviour",
+   "vai": "kẹp 3D (C8): lửa nhỏ giữa mái gỗ phía bắc cầu",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-02",
+   "t0": 81.833,
+   "dur": 6.9167,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.9167
+   },
+   "vung": "pudding_lane",
+   "vai": "M-d (1) hẻm nhà khung gỗ tầng nhô, lửa liếm mái hiên",
+   "md": "H1-02-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-03",
+   "t0": 88.7497,
+   "dur": 15.875,
+   "chuong": "HỒI 1",
+   "diem_may": "P2",
+   "cu_may": "TRUOT",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 15.875,
+    "KHAC": 6
+   },
+   "vung": "st_saviour",
+   "vai": "Hollar vẽ London từ tháp St Saviour's (lời: 1647); hiện bản khắc \"prospect before the Fire\" (xuất bản 1666, Met 360649 tấm -1) ở dải đáy khung",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 89.75,
+     "t1": 95.75,
+     "lop": "KHAC"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": [
+    "chú thích \"Hollar: London before the Fire (pub. 1666)\" → \"Hollar, pre-Fire view, published 1666\""
+   ]
+  },
+  {
+   "ma": "H1-04",
+   "t0": 104.6247,
+   "dur": 10.5833,
+   "chuong": "HỒI 1",
+   "diem_may": "P2",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 10.5833
+   },
+   "vung": "st_saviour",
+   "vai": "St Magnus + Fish Street cháy; gió đông (khói sang tây)",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-05a",
+   "t0": 115.208,
+   "dur": 5.0,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 5.0
+   },
+   "vung": "whitehall",
+   "vai": "M-d (21) DN02 Whitehall: người viết nhật ký báo tin cho nhà Vua (khung trung/xa, không cận mặt)",
+   "md": "H1-05a-l2-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [
+    "Samuel Pepys",
+    "Charles II"
+   ],
+   "doi": []
+  },
+  {
+   "ma": "H1-05h",
+   "t0": 120.208,
+   "dur": 2.0,
+   "chuong": "HỒI 1",
+   "diem_may": "P6h",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 2.0
+   },
+   "vung": "thames_cau",
+   "vai": "kẹp 3D góc cao: sông trước đầu cầu cháy, thuyền rời bến",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-05b",
+   "t0": 122.208,
+   "dur": 3.6667,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 3.6667
+   },
+   "vung": "thames_cau",
+   "vai": "M-d (2) sà lan đầy đồ đạc rời bến",
+   "md": "H1-05b-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-06",
+   "t0": 125.8747,
+   "dur": 13.5,
+   "chuong": "HỒI 1",
+   "diem_may": "P5",
+   "cu_may": "CAU",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 13.5,
+    "THE": 3
+   },
+   "vung": "cripplegate_bac",
+   "vai": "Thị trưởng bất lực ở Cannon Street; lửa vượt sức phá nhà",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 126.875,
+     "t1": 130.475,
+     "lop": "THE"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": [
+    "lớp chữ \"Sir Thomas Bludworth · Lord Mayor of London\" mở 126.475 → 126.875 (cách M-d ≥ 1 s)"
+   ]
+  },
+  {
+   "ma": "H1-06x",
+   "t0": 139.3747,
+   "dur": 6.0,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.0
+   },
+   "vung": "thames_bo_bac",
+   "vai": "M-d DN03 sà lan hoàng gia: Charles II + James trên Thames chiều 2/9/1666 (khung xa)",
+   "md": "H1-06x-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [
+    "Charles II",
+    "James, Duke of York"
+   ],
+   "doi": [
+    "chèn M-d 6.0 s (tách H1-06 tại 13.5 s)"
+   ]
+  },
+  {
+   "ma": "H1-06b",
+   "t0": 145.3747,
+   "dur": 4.3333,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 4.3333
+   },
+   "vung": "cannon_street",
+   "vai": "M-d (23) DN03 móc sắt dài kéo đổ mặt nhà gỗ (\"pull down houses apace\")",
+   "md": "H1-06b-l2-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-07",
+   "t0": 149.708,
+   "dur": 9.4583,
+   "chuong": "HỒI 1",
+   "diem_may": "P2",
+   "cu_may": "VONG",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 9.4583
+   },
+   "vung": "st_saviour",
+   "vai": "khoảng trống 1633 trên cầu chặn lửa sang Southwark; gió đẩy lửa sang tây",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-07b",
+   "t0": 159.1663,
+   "dur": 6.0,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.0
+   },
+   "vung": "thames_cau",
+   "vai": "M-d (24) THÊM GÓC: khoảng trống 1633 trên cầu London — lửa dừng ở chỗ trống giữa hai dãy nhà trên cầu",
+   "md": "H1-07b-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-08b",
+   "t0": 165.1663,
+   "dur": 18.2083,
+   "chuong": "HỒI 1",
+   "diem_may": "P1",
+   "cu_may": "CODINH",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 18.2083
+   },
+   "vung": "bankside_city",
+   "vai": "P1 tái xuất: chạng vạng → vòng cung lửa (cùng khung M03)",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 169.166,
+     "t1": 174.166,
+     "lop": "KHAC"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-09",
+   "t0": 183.3746,
+   "dur": 9.0,
+   "chuong": "HỒI 1",
+   "diem_may": "P7",
+   "cu_may": "XUONG",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "MAP": 3.5,
+    "MAP3D": 5.5
+   },
+   "vung": "city_tren_cao",
+   "vai": "BẢN ĐỒ CỔ HOẠT HOÁ Doornick 1666: lửa lan theo ngày 2→3/9 → chuyển 3D cùng toạ độ, nhìn xuống → xiên",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 183.3746,
+     "t1": 186.875,
+     "lop": "MAP"
+    },
+    {
+     "t0": 183.3746,
+     "t1": 188.875,
+     "lop": "MAP3D"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-10",
+   "t0": 192.3746,
+   "dur": 7.083,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 7.083
+   },
+   "vung": "cheapside",
+   "vai": "M-d (4)+(6) Watling Street / Cheapside 3/9",
+   "md": "H1-10-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-12",
+   "t0": 199.4576,
+   "dur": 6.4583,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.4583
+   },
+   "vung": "thames_cau",
+   "vai": "M-d (3) Thames đêm 3/9: sà lan, đồ trôi, bờ bắc rực lửa",
+   "md": "H1-12-l2-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-11",
+   "t0": 205.9159,
+   "dur": 8.4167,
+   "chuong": "HỒI 1",
+   "diem_may": "P8",
+   "cu_may": "CODINH",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 8.4167,
+    "THE": 4
+   },
+   "vung": "tower_hill",
+   "vai": "Royal Exchange cháy; trời \"như miệng lò\" — Evelyn",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 206.916,
+     "t1": 210.816,
+     "lop": "THE"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": [
+    "lớp chữ \"John Evelyn · diarist\" mở 206.816 → 206.916 (cách M-d ≥ 1 s)"
+   ]
+  },
+  {
+   "ma": "H1-11b",
+   "t0": 214.3326,
+   "dur": 6.0,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.0
+   },
+   "vung": "royal_exchange",
+   "vai": "M-d (25) DN06 sân Royal Exchange cháy: hàng tượng vua trong hốc, mái đổ",
+   "md": "H1-11b-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-13a",
+   "t0": 220.3326,
+   "dur": 7.0,
+   "chuong": "HỒI 1",
+   "diem_may": "P4b",
+   "cu_may": "THAP",
+   "goc": "thap",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 7.0
+   },
+   "vung": "fleet_ludgate",
+   "vai": "lửa leo đồi Ludgate tới Old St Paul's bọc giàn giáo gỗ (3D thấp)",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-12x",
+   "t0": 227.3326,
+   "dur": 7.5,
+   "chuong": "HỒI 1",
+   "diem_may": "P9",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 7.5,
+    "KHAC": 5.0,
+    "THE": 4.0
+   },
+   "vung": "bankside_st_pauls",
+   "vai": "DN01: sáu ngày trước cháy — Old St Paul's bọc giàn giáo (Evelyn + Wren khảo sát, đề xuất mái vòm); tranh Hollar từ phía Đông",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 229.706,
+     "t1": 233.706,
+     "lop": "THE"
+    },
+    {
+     "t0": 228.333,
+     "t1": 233.333,
+     "lop": "KHAC"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": [
+    "chú thích \"Hollar: Old St Paul's from the east\" → \"Old St Paul's, by Hollar\""
+   ]
+  },
+  {
+   "ma": "H1-13c",
+   "t0": 234.8326,
+   "dur": 6.2083,
+   "chuong": "HỒI 1",
+   "diem_may": "P4b",
+   "cu_may": "THAP",
+   "goc": "thap",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 6.2083
+   },
+   "vung": "fleet_ludgate",
+   "vai": "Old St Paul's bốc cháy tối 4/9 (3D thấp; M-d H1-13c: Omni từ chối 3/3 INVALID_ARGUMENT, $0 → 3D)",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-14",
+   "t0": 241.0409,
+   "dur": 6.5,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.5
+   },
+   "vung": "st_pauls_cu",
+   "vai": "M-d (5) DN05 + C12: mái nhà thờ lớn sập, chì chảy thành dòng xuống phố",
+   "md": "H1-14-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-15",
+   "t0": 247.5409,
+   "dur": 8.0,
+   "chuong": "HỒI 1",
+   "diem_may": "P8",
+   "cu_may": "CAU",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 8.0
+   },
+   "vung": "tower_hill",
+   "vai": "lửa vượt sông Fleet; nổ nhà bằng thuốc súng mở khoảng chặn (lớp a, render); Navy Office",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-15m",
+   "t0": 255.5409,
+   "dur": 6.0,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.0
+   },
+   "vung": "tower_street",
+   "vai": "M-d (27) THÊM GÓC: nổ thuốc súng mở khoảng chặn lửa trên phố (Tower Street)",
+   "md": "H1-15m-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-15b",
+   "t0": 261.5409,
+   "dur": 4.625,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 4.625
+   },
+   "vung": "navy_office",
+   "vai": "M-d (28) Navy Office: hai người đào hố trong vườn chôn rượu và phô mai Parmesan (khung xa)",
+   "md": "H1-15b-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [
+    "Samuel Pepys"
+   ],
+   "doi": [
+    "7,5 → 4,625 s (clip khung 0–110; YuNet hộp > 1/8 ở khung 113–139 — báo nhầm trên trời, vẫn cắt theo A1); H1-15h +2.875 s"
+   ]
+  },
+  {
+   "ma": "H1-15h",
+   "t0": 266.1659,
+   "dur": 3.2,
+   "chuong": "HỒI 1",
+   "diem_may": "P3",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 3.2
+   },
+   "vung": "monument_dong",
+   "vai": "tuyến chặn lửa phía tây — lời N3 (M-d H1-15x DN04 TRƯỢT 3/3: mặt/tay méo → 3D)",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-15x",
+   "t0": 269.3659,
+   "dur": 6.0,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.0
+   },
+   "vung": "fleet_street",
+   "vai": "M-d DN04 nhà Vua + Công tước York ở tuyến chữa cháy Fleet Street 4/9/1666 (khung xa)",
+   "md": "H1-15x-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [
+    "Charles II",
+    "James, Duke of York"
+   ],
+   "doi": [
+    "chèn M-d 6.0 s (tách H1-15h tại 3.2 s)"
+   ]
+  },
+  {
+   "ma": "H1-15h2",
+   "t0": 275.3659,
+   "dur": 5.3,
+   "chuong": "HỒI 1",
+   "diem_may": "P3",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 5.3
+   },
+   "vung": "monument_dong",
+   "vai": "tuyến chặn lửa phía tây — lời N3 (M-d H1-15x DN04 TRƯỢT 3/3: mặt/tay méo → 3D)",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": [
+    "phần 3D còn lại của H1-15h sau clip H1-15x (5.3 s)"
+   ]
+  },
+  {
+   "ma": "H1-16",
+   "t0": 280.6659,
+   "dur": 7.25,
+   "chuong": "HỒI 1",
+   "diem_may": "P1",
+   "cu_may": "CODINH",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 7.25
+   },
+   "vung": "bankside_city",
+   "vai": "P1: gió dịu, lửa tàn → bình minh 6/9",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 281.666,
+     "t1": 285.666,
+     "lop": "KHAC"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-17a",
+   "t0": 287.9159,
+   "dur": 6.0,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.0
+   },
+   "vung": "moorfields",
+   "vai": "M-d (7) Moorfields: lều, chòi, đống đồ cứu được",
+   "md": "H1-17a-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-17b",
+   "t0": 293.9159,
+   "dur": 6.2917,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.2917
+   },
+   "vung": "moorfields",
+   "vai": "M-d (7) Moorfields chạng vạng",
+   "md": "H1-17b-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-18a",
+   "t0": 300.2076,
+   "dur": 6.0,
+   "chuong": "HỒI 1",
+   "diem_may": "P7",
+   "cu_may": "XUONG",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 6.0,
+    "THE": 4
+   },
+   "vung": "city_tren_cao",
+   "vai": "phế tích 7/9 nhìn thẳng xuống → xiên; bộ đếm 13 200 nhà / 87 nhà thờ",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 301.208,
+     "t1": 302.808,
+     "lop": "THE"
+    },
+    {
+     "t0": 303.434,
+     "t1": 305.434,
+     "lop": "THE"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": [
+    "lớp chữ \"13,200 houses\" mở 300.608 → 301.208 (cách M-d ≥ 1 s)"
+   ]
+  },
+  {
+   "ma": "H1-18t",
+   "t0": 306.2076,
+   "dur": 5.0,
+   "chuong": "HỒI 1",
+   "diem_may": "—",
+   "cu_may": "TL",
+   "goc": "phang",
+   "lop_shot": "TL (tư liệu toàn khung)",
+   "lop": {
+    "KHAC": 5.0
+   },
+   "vung": "tu_lieu",
+   "vai": "tư liệu toàn khung (12:52): tấm Hollar SAU cháy — dải phế tích",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 306.2076,
+     "t1": 311.2076,
+     "lop": "KHAC"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H1-18b",
+   "t0": 311.2076,
+   "dur": 5.2917,
+   "chuong": "HỒI 1",
+   "diem_may": "P7",
+   "cu_may": "CODINH",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 5.2917,
+    "MAP3D": 5.0
+   },
+   "vung": "city_tren_cao",
+   "vai": "ranh vùng cháy 1666 chiếu trên phế tích (kết chương góc cao)",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 311.2076,
+     "t1": 316.208,
+     "lop": "MAP3D"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-00",
+   "t0": 316.4993,
+   "dur": 3.0,
+   "chuong": "HỒI 2",
+   "diem_may": "P5",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 3.0
+   },
+   "vung": "cripplegate_bac",
+   "vai": "mở chương (góc cao): City cháy trụi, khói mỏng, tháp nhà thờ cháy dở",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-01a",
+   "t0": 319.4993,
+   "dur": 5.0,
+   "chuong": "HỒI 2",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 5.0
+   },
+   "vung": "cheapside",
+   "vai": "M-d (8) lối đi giữa tro còn nóng",
+   "md": "H2-01a-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-01b",
+   "t0": 324.4993,
+   "dur": 5.1667,
+   "chuong": "HỒI 2",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 5.1667
+   },
+   "vung": "royal_exchange",
+   "vai": "M-d (30) DN06 tượng Gresham rơi khỏi hốc còn nguyên giữa tro Royal Exchange (Evelyn 7/9)",
+   "md": "H2-01b-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-02",
+   "t0": 329.666,
+   "dur": 14.625,
+   "chuong": "HỒI 2",
+   "diem_may": "P7",
+   "cu_may": "XUONG",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 14.625,
+    "TL": 8,
+    "MAP3D": 4,
+    "THE": 7
+   },
+   "vung": "city_tren_cao",
+   "vai": "phương án Wren (bản in LoC) đặt khớp lên City cháy — không được dựng",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 330.666,
+     "t1": 333.766,
+     "lop": "THE"
+    },
+    {
+     "t0": 334.266,
+     "t1": 337.766,
+     "lop": "THE"
+    },
+    {
+     "t0": 338.266,
+     "t1": 341.766,
+     "lop": "THE"
+    },
+    {
+     "t0": 330.666,
+     "t1": 337.866,
+     "lop": "KHAC"
+    },
+    {
+     "t0": 329.666,
+     "t1": 333.666,
+     "lop": "MAP3D"
+    },
+    {
+     "t0": 329.666,
+     "t1": 337.666,
+     "lop": "TL"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": [
+    "lớp chữ \"Christopher Wren · architect\" mở 330.266 → 330.666 (cách M-d ≥ 1 s)",
+    "lớp chữ \"Wren's 1666 plan, engraved 1767\" mở 329.866 → 330.666 (cách M-d ≥ 1 s)"
+   ]
+  },
+  {
+   "ma": "H2-03b",
+   "t0": 344.291,
+   "dur": 20.1667,
+   "chuong": "HỒI 2",
+   "diem_may": "P5",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 20.1667
+   },
+   "vung": "cripplegate_bac",
+   "vai": "lô đất rối trên đúng lưới phố cũ",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-03c",
+   "t0": 364.4577,
+   "dur": 6.0,
+   "chuong": "HỒI 2",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.0
+   },
+   "vung": "cliffords_inn",
+   "vai": "M-d (19) Toà Cháy 1667",
+   "md": "H2-03c-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-04h",
+   "t0": 370.4577,
+   "dur": 2.5,
+   "chuong": "HỒI 2",
+   "diem_may": "P2",
+   "cu_may": "NGHIENG",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 2.5
+   },
+   "vung": "st_saviour",
+   "vai": "kẹp 3D góc cao: nhà gạch mọc dọc phố cũ",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-04a",
+   "t0": 372.9577,
+   "dur": 3.5,
+   "chuong": "HỒI 2",
+   "diem_may": "P4",
+   "cu_may": "TRUOT",
+   "goc": "thap",
+   "lop_shot": "D 3D look2d tầm phố",
+   "lop": {
+    "A": 3.5
+   },
+   "vung": "fleet_ludgate",
+   "vai": "Rebuilding Act: nhà gạch mọc dọc Fleet Street (M-d (11) trượt 3 lượt — mũ lỗi thời đại → 3D)",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-04b",
+   "t0": 376.4577,
+   "dur": 5.7083,
+   "chuong": "HỒI 2",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 5.7083
+   },
+   "vung": "fleet_street",
+   "vai": "M-d (11) xe chở gạch, giàn giáo gỗ",
+   "md": "H2-04b-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-05",
+   "t0": 382.166,
+   "dur": 11.0,
+   "chuong": "HỒI 2",
+   "diem_may": "P1",
+   "cu_may": "CODINH",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 11.0
+   },
+   "vung": "bankside_city",
+   "vai": "P1: timelapse xây lại bằng gạch trên đúng lô cũ (≈ 6 000 nhà cuối 1670)",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-05s",
+   "t0": 393.166,
+   "dur": 7.8333,
+   "chuong": "HỒI 2",
+   "diem_may": "P10",
+   "cu_may": "TRUOT",
+   "goc": "thap",
+   "lop_shot": "D 3D look2d tầm phố",
+   "lop": {
+    "A": 7.8333
+   },
+   "vung": "guildhall",
+   "vai": "3D TẦM PHỐ (look2d): King Street mới cắt về Guildhall — xe ngựa, người, nhà gạch",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-06",
+   "t0": 400.9993,
+   "dur": 17.2917,
+   "chuong": "HỒI 2",
+   "diem_may": "P3",
+   "cu_may": "VONG",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 17.2917,
+    "THE": 2.5,
+    "KHAC": 3
+   },
+   "vung": "monument_dong",
+   "vai": "Monument mọc; 202 ft = khoảng cách tới lò bánh",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 406.415,
+     "t1": 408.915,
+     "lop": "THE"
+    },
+    {
+     "t0": 402.499,
+     "t1": 405.499,
+     "lop": "KHAC"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-07",
+   "t0": 418.291,
+   "dur": 7.9167,
+   "chuong": "HỒI 2",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 7.9167
+   },
+   "vung": "pho_gach",
+   "vai": "M-d (13) phố gạch 1680 + dấu bảo hiểm cháy",
+   "md": "H2-07-l2-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-08",
+   "t0": 426.2077,
+   "dur": 5.708,
+   "chuong": "HỒI 2",
+   "diem_may": "P2",
+   "cu_may": "NGHIENG",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 5.708
+   },
+   "vung": "st_saviour",
+   "vai": "chóp nhà thờ Wren mọc quanh City; nghiêng lên kết ở chóp",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-09",
+   "t0": 431.9157,
+   "dur": 10.0,
+   "chuong": "HỒI 2",
+   "diem_may": "P1",
+   "cu_may": "CODINH",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 10.0
+   },
+   "vung": "bankside_city",
+   "vai": "P1: St Paul's mới mọc từ nền Old St Paul's",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-10",
+   "t0": 441.9157,
+   "dur": 18.042,
+   "chuong": "HỒI 2",
+   "diem_may": "P4b",
+   "cu_may": "THAP",
+   "goc": "thap",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 18.042,
+    "THE": 2.5
+   },
+   "vung": "fleet_ludgate",
+   "vai": "đèn lồng hoàn tất; 365 ft — mái vòm anh hùng giờ vàng",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 453.397,
+     "t1": 455.897,
+     "lop": "THE"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-11",
+   "t0": 459.9577,
+   "dur": 6.0,
+   "chuong": "HỒI 2",
+   "diem_may": "P7",
+   "cu_may": "XUONG",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 6.0
+   },
+   "vung": "city_tren_cao",
+   "vai": "nhìn xuống → xiên 1676: City gạch trên cùng tuyến phố 1666 (thay Ogilby — D13 không lên hình)",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-12",
+   "t0": 465.9577,
+   "dur": 10.5,
+   "chuong": "HỒI 2",
+   "diem_may": "P2",
+   "cu_may": "KHOP",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d) + B đề xuất",
+   "lop": {
+    "A": 10.5,
+    "KHAC": 3
+   },
+   "vung": "st_saviour",
+   "vai": "then–now: cùng khung St Saviour 1647 ↔ 1711",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 466.458,
+     "t1": 469.458,
+     "lop": "KHAC"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": [
+    "chú thích \"Hollar: London before the Fire (pub. 1666)\" → \"Hollar, pre-Fire view, published 1666\""
+   ]
+  },
+  {
+   "ma": "H2-13",
+   "t0": 476.4577,
+   "dur": 6.0,
+   "chuong": "HỒI 2",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.0
+   },
+   "vung": "thames_cau",
+   "vai": "M-d (12) F1 Thames 1711: đò chở khách; chân trời có MÁI VÒM St Paul's mới (không chóp Gothic)",
+   "md": "H2-13-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H2-14",
+   "t0": 482.4577,
+   "dur": 6.0,
+   "chuong": "HỒI 2",
+   "diem_may": "P5",
+   "cu_may": "CAU",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 6.0
+   },
+   "vung": "cripplegate_bac",
+   "vai": "cần cẩu hạ: City gạch đã kín lô, mái vòm hoàn tất",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H3-01",
+   "t0": 488.4577,
+   "dur": 3.0,
+   "chuong": "HỒI 3",
+   "diem_may": "P1",
+   "cu_may": "CODINH",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 3.0
+   },
+   "vung": "bankside_city",
+   "vai": "P1: mái vòm cao nhất > 250 năm",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H3-01t",
+   "t0": 491.4577,
+   "dur": 3.1667,
+   "chuong": "HỒI 3",
+   "diem_may": "—",
+   "cu_may": "THAT",
+   "goc": "phang",
+   "lop_shot": "THAT (ảnh thật)",
+   "lop": {
+    "THAT": 3.1667
+   },
+   "vung": "tu_lieu",
+   "vai": "ẢNH THẬT toàn khung (P6): mái vòm vẫn cao nhất chân trời (Rijksmuseum, PDM) — thay phần footage H5-07a không tải được",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 491.4577,
+     "t1": 494.6244,
+     "lop": "THAT"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H3-02",
+   "t0": 494.6244,
+   "dur": 6.7917,
+   "chuong": "HỒI 3",
+   "diem_may": "P6h",
+   "cu_may": "TRUOT",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 6.7917
+   },
+   "vung": "thames_cau",
+   "vai": "nhà trên cầu London dỡ (1758, LMA); cầu mới (1831) thay cầu cổ",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H3-02t",
+   "t0": 501.4161,
+   "dur": 4.5,
+   "chuong": "HỒI 3",
+   "diem_may": "—",
+   "cu_may": "THAT",
+   "goc": "phang",
+   "lop_shot": "THAT (ảnh thật)",
+   "lop": {
+    "THAT": 4.5
+   },
+   "vung": "tu_lieu",
+   "vai": "ẢNH THẬT toàn khung: cầu London mới (photochrom LoC)",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 501.4161,
+     "t1": 505.9161,
+     "lop": "THAT"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H3-03",
+   "t0": 505.9161,
+   "dur": 9.4583,
+   "chuong": "HỒI 3",
+   "diem_may": "P7",
+   "cu_may": "XUONG",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 9.4583,
+    "MAP3D": 4,
+    "KHAC": 3.0,
+    "THE": 3.5
+   },
+   "vung": "city_tren_cao",
+   "vai": "Victoria Embankment đẩy bờ bắc ra sông (bờ 1666 ↔ nay)",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 511.424,
+     "t1": 515.424,
+     "lop": "THE"
+    },
+    {
+     "t0": 511.416,
+     "t1": 514.416,
+     "lop": "KHAC"
+    },
+    {
+     "t0": 505.9161,
+     "t1": 509.916,
+     "lop": "MAP3D"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H3-03t",
+   "t0": 515.3744,
+   "dur": 5.0,
+   "chuong": "HỒI 3",
+   "diem_may": "—",
+   "cu_may": "THAT",
+   "goc": "phang",
+   "lop_shot": "THAT (ảnh thật)",
+   "lop": {
+    "THAT": 5.0
+   },
+   "vung": "tu_lieu",
+   "vai": "ẢNH THẬT toàn khung: kè Victoria (photochrom LoC)",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 515.3744,
+     "t1": 520.3744,
+     "lop": "THAT"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H3-04a",
+   "t0": 520.3744,
+   "dur": 5.0,
+   "chuong": "HỒI 3",
+   "diem_may": "P5",
+   "cu_may": "CODINH",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 5.0
+   },
+   "vung": "cripplegate_bac",
+   "vai": "toà văn phòng 1930 cao dần quanh nhà thờ",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H3-04b",
+   "t0": 525.3744,
+   "dur": 5.9583,
+   "chuong": "HỒI 3",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 5.9583
+   },
+   "vung": "hem_city",
+   "vai": "M-d (14) hẻm City 1930s",
+   "md": "H3-04b-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H3-05b",
+   "t0": 531.3327,
+   "dur": 6.0,
+   "chuong": "HỒI 3",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.0
+   },
+   "vung": "mai_city",
+   "vai": "M-d (35) 1937: người khảo sát đặt máy kinh vĩ trên mái nhà, ngắm mái vòm (khung xa)",
+   "md": "H3-05b-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [
+    "Godfrey Allen"
+   ],
+   "doi": [
+    "giữ khai tên Godfrey Allen; chan_dung: khong_co (đã tra LoC/Wellcome/Rijks/Met); YuNet mặt lớn nhất 0.1025 khung (≤ 1/8); duyệt A1 26/10 00:12 — dự phòng (c) ở PHIẾU-A"
+   ],
+   "chan_dung": "khong_co",
+   "chan_dung_nguon_da_tra": {
+    "ngay": "2026-10-25",
+    "ghi": "../../../../reports/nc-t4/NHAN-VAT-ANH.md §2",
+    "noi": [
+     "Library of Congress (loc.gov) — không có mục",
+     "Wellcome Collection — không có mục",
+     "Rijksmuseum — không có mục",
+     "The Met Open Access — không có mục"
+    ]
+   },
+   "mat_yunet": {
+    "tep": "../omni/kiem/H3-05b-l1-360p-yunet.json",
+    "sha256": "e5253870fd36107253b9dda3d88ffd362dd02bd1926845c766afd996387f58c3",
+    "mat_lon_nhat": 0.1025,
+    "khung": 137,
+    "diem": 0.569,
+    "tran": 0.125
+   },
+   "duyet_chu_du_an": "AUTHORSHIP.md 2026-10-26 00:12 (P-2610b ghi, main @41de7ce3) — phiếu xem v2 A1: \"H3-05b (Godfrey Allen, khung xa, không chân dung tham chiếu) ✓\""
+  },
+  {
+   "ma": "H3-05",
+   "t0": 537.3327,
+   "dur": 13.7083,
+   "chuong": "HỒI 3",
+   "diem_may": "P9",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 13.7083,
+    "THE": 4
+   },
+   "vung": "bankside_st_pauls",
+   "vai": "St Paul's Heights: mặt phẳng trần cao độ hiện mờ quanh mái vòm",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 538.333,
+     "t1": 541.933,
+     "lop": "THE"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": [
+    "lớp chữ \"Godfrey Allen · St Paul's surveyor\" mở 537.933 → 538.333 (cách M-d ≥ 1 s)"
+   ]
+  },
+  {
+   "ma": "H3-06",
+   "t0": 551.041,
+   "dur": 8.0,
+   "chuong": "HỒI 3",
+   "diem_may": "P1",
+   "cu_may": "KHOP",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 8.0
+   },
+   "vung": "bankside_city",
+   "vai": "P1 KHOP 1938 ↔ 1666",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H4-01a",
+   "t0": 559.041,
+   "dur": 6.0,
+   "chuong": "HỒI 4",
+   "diem_may": "P1",
+   "cu_may": "CODINH",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 6.0
+   },
+   "vung": "bankside_city",
+   "vai": "P1: Chủ nhật 29/12/1940 chạng vạng mùa đông",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H4-01b",
+   "t0": 565.041,
+   "dur": 6.0,
+   "chuong": "HỒI 4",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.0
+   },
+   "vung": "pho_city",
+   "vai": "M-d (15) phố City vắng chiều Chủ nhật 1940",
+   "md": "H4-01b-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H4-02",
+   "t0": 571.041,
+   "dur": 10.875,
+   "chuong": "HỒI 4",
+   "diem_may": "P5",
+   "cu_may": "CAU",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 10.875,
+    "THE": 3
+   },
+   "vung": "cripplegate_bac",
+   "vai": "bom cháy rơi; ≈ 1 500 đám cháy; bộ đếm 100 000",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 574.242,
+     "t1": 577.242,
+     "lop": "THE"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H4-03",
+   "t0": 581.916,
+   "dur": 8.0,
+   "chuong": "HỒI 4",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 8.0
+   },
+   "vung": "thames_bo_bac",
+   "vai": "M-d (16) vòi rồng trên bãi bùn triều thấp",
+   "md": "H4-03-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H4-04a",
+   "t0": 589.916,
+   "dur": 7.5,
+   "chuong": "HỒI 4",
+   "diem_may": "P5",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 7.5
+   },
+   "vung": "cripplegate_bac",
+   "vai": "Paternoster Row cháy cạnh mái vòm",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H4-04b",
+   "t0": 597.416,
+   "dur": 6.5,
+   "chuong": "HỒI 4",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.5
+   },
+   "vung": "st_pauls_mai",
+   "vai": "M-d (17) St Paul's Watch trên mái chì",
+   "md": "H4-04b-l3-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H4-04c",
+   "t0": 603.916,
+   "dur": 4.0,
+   "chuong": "HỒI 4",
+   "diem_may": "P3",
+   "cu_may": "CODINH",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 4.0
+   },
+   "vung": "monument_dong",
+   "vai": "cả City cháy; mái Guildhall; mái vòm còn đứng giữa khói",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H4-04d",
+   "t0": 607.916,
+   "dur": 5.0,
+   "chuong": "HỒI 4",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 5.0
+   },
+   "vung": "guildhall",
+   "vai": "M-d (38) THÊM GÓC DN13: mái Guildhall cháy",
+   "md": "H4-04d-l3-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H4-05",
+   "t0": 612.916,
+   "dur": 4.542,
+   "chuong": "HỒI 4",
+   "diem_may": "P1",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 4.542
+   },
+   "vung": "bankside_city",
+   "vai": "P1: sáng ra mái vòm còn đứng giữa vòng phế tích",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H4-06",
+   "t0": 617.458,
+   "dur": 5.2083,
+   "chuong": "HỒI 4",
+   "diem_may": "P1",
+   "cu_may": "CODINH",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 5.2083,
+    "THE": 2.5
+   },
+   "vung": "bankside_city",
+   "vai": "P1: vòng phế tích; bộ đếm 160",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 617.858,
+     "t1": 620.358,
+     "lop": "THE"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H4-06t",
+   "t0": 622.6663,
+   "dur": 5.0,
+   "chuong": "HỒI 4",
+   "diem_may": "—",
+   "cu_may": "THAT",
+   "goc": "phang",
+   "lop_shot": "THAT (ảnh thật)",
+   "lop": {
+    "THAT": 5.0
+   },
+   "vung": "tu_lieu",
+   "vai": "ẢNH THẬT toàn khung (P6): MoI Crown, IWM D 6418 — mái vòm sau Blitz (chú thích đúng năm)",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 622.6663,
+     "t1": 627.6663,
+     "lop": "THAT"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H4-07",
+   "t0": 627.6663,
+   "dur": 5.458,
+   "chuong": "HỒI 4",
+   "diem_may": "P7",
+   "cu_may": "XUONG",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 5.458,
+    "MAP3D": 5
+   },
+   "vung": "city_tren_cao",
+   "vai": "vùng bom nặng Cripplegate / Paternoster (ước lượng)",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 627.6663,
+     "t1": 632.666,
+     "lop": "MAP3D"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H4-08",
+   "t0": 633.1243,
+   "dur": 10.5,
+   "chuong": "HỒI 4",
+   "diem_may": "P2",
+   "cu_may": "KHOP",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 10.5
+   },
+   "vung": "st_saviour",
+   "vai": "hai khoảng trống cùng một khung: 1666 ↔ 1941",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H5-01",
+   "t0": 643.6243,
+   "dur": 12.542,
+   "chuong": "HỒI 5",
+   "diem_may": "P5",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 12.542,
+    "THE": 4
+   },
+   "vung": "cripplegate_bac",
+   "vai": "Holden–Holford: quy hoạch lại vùng bom",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 644.524,
+     "t1": 648.024,
+     "lop": "THE"
+    },
+    {
+     "t0": 648.524,
+     "t1": 652.024,
+     "lop": "THE"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H5-02",
+   "t0": 656.1663,
+   "dur": 3.875,
+   "chuong": "HỒI 5",
+   "diem_may": "P5",
+   "cu_may": "CAU",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 3.875
+   },
+   "vung": "cripplegate_bac",
+   "vai": "London Wall (Route 11) + Barbican mọc trên Cripplegate",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H5-02t",
+   "t0": 660.0413,
+   "dur": 4.0,
+   "chuong": "HỒI 5",
+   "diem_may": "—",
+   "cu_may": "TL",
+   "goc": "phang",
+   "lop_shot": "THAT (ảnh thật)",
+   "lop": {
+    "THAT": 4.0
+   },
+   "vung": "barbican",
+   "vai": "ẢNH THẬT hiện đại toàn khung: Barbican towers, 2013 (CC BY 2.0 )",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 660.0413,
+     "t1": 664.0413,
+     "lop": "THAT"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": [
+    "chèn ảnh thật 4.0 s: Barbican towers, 2013 (flickr-8649139240, CC BY 2.0)"
+   ]
+  },
+  {
+   "ma": "H5-02s",
+   "t0": 664.0413,
+   "dur": 7.0,
+   "chuong": "HỒI 5",
+   "diem_may": "P11",
+   "cu_may": "TRUOT",
+   "goc": "thap",
+   "lop_shot": "D 3D look2d tầm phố",
+   "lop": {
+    "A": 7.0
+   },
+   "vung": "london_wall",
+   "vai": "3D TẦM PHỐ (look2d): đường London Wall 1976 — ô tô, xe buýt, người; Barbican",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": [
+    "Omni KHÔNG đạt → giữ 3D tầm phố/thấp"
+   ]
+  },
+  {
+   "ma": "H5-03",
+   "t0": 671.0413,
+   "dur": 6.458,
+   "chuong": "HỒI 5",
+   "diem_may": "P7",
+   "cu_may": "XUONG",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 6.458,
+    "MAP": 6.458
+   },
+   "vung": "city_tren_cao",
+   "vai": "lưới phố Doornick 1666 chồng lên 3D 2026: cùng tuyến",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 671.0413,
+     "t1": 677.499,
+     "lop": "MAP"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H5-04",
+   "t0": 677.4993,
+   "dur": 4.417,
+   "chuong": "HỒI 5",
+   "diem_may": "P1",
+   "cu_may": "CODINH",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 4.417
+   },
+   "vung": "bankside_city",
+   "vai": "P1: khoảng trống lấp dần; cụm toà cao phía đông mọc (thế kỷ này)",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H5-04c",
+   "t0": 681.9163,
+   "dur": 6.0,
+   "chuong": "HỒI 5",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.0
+   },
+   "vung": "leadenhall",
+   "vai": "M-d cụm toà cao Leadenhall/Bishopsgate từ phố 2026",
+   "md": "H5-04c-l1-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": [
+    "chèn M-d 6.0 s (tách H5-04 tại 4.417 s)"
+   ]
+  },
+  {
+   "ma": "H5-05a",
+   "t0": 687.9163,
+   "dur": 6.0,
+   "chuong": "HỒI 5",
+   "diem_may": "P9",
+   "cu_may": "CODINH",
+   "goc": "cao",
+   "lop_shot": "E (tấm AI toàn khung 2026, CODINH)",
+   "lop": {
+    "A": 6.0,
+    "N2P": 6.0
+   },
+   "vung": "bankside_st_pauls",
+   "vai": "tầm nhìn bảo vệ từ bờ nam: toà cao mọc trên phố cũ, mái vòm vẫn có nền trời",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": [
+    "tấm nền N2P cũ → tấm E (LUẬT E, mặt nạ thap)"
+   ]
+  },
+  {
+   "ma": "H5-05c",
+   "t0": 693.9163,
+   "dur": 4.5,
+   "chuong": "HỒI 5",
+   "diem_may": "P2",
+   "cu_may": "VONG",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 4.5
+   },
+   "vung": "st_saviour",
+   "vai": "C14 biến cố thật: vòng quanh mái vòm từ bờ nam, nắng chiều dịch — tầm nhìn bảo vệ",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H5-05d",
+   "t0": 698.4163,
+   "dur": 6.0,
+   "chuong": "HỒI 5",
+   "diem_may": "—",
+   "cu_may": "MD",
+   "goc": "md",
+   "lop_shot": "Omni (M-d)",
+   "lop": {
+    "MD": 6.0
+   },
+   "vung": "bankside_st_pauls",
+   "vai": "M-d mái vòm nhìn bắc từ cầu Millennium 2026",
+   "md": "H5-05d-l2-360p",
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": [
+    "chèn M-d 6.0 s (tách H5-05c tại 4.5 s)"
+   ]
+  },
+  {
+   "ma": "H5-05b",
+   "t0": 704.4163,
+   "dur": 9.125,
+   "chuong": "HỒI 5",
+   "diem_may": "P4",
+   "cu_may": "THAP",
+   "goc": "thap",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 9.125
+   },
+   "vung": "fleet_ludgate",
+   "vai": "từ Fleet Street: Leadenhall vát — mái vòm còn nền trời",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": [
+    "Omni KHÔNG đạt → giữ 3D tầm phố/thấp"
+   ]
+  },
+  {
+   "ma": "H5-06",
+   "t0": 713.5413,
+   "dur": 3.0,
+   "chuong": "HỒI 5",
+   "diem_may": "P3",
+   "cu_may": "CODINH",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d) + B đề xuất",
+   "lop": {
+    "A": 3.0
+   },
+   "vung": "monument_dong",
+   "vai": "từ phía đông: mái vòm giữa cụm toà cao",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H5-06t",
+   "t0": 716.5413,
+   "dur": 3.0,
+   "chuong": "HỒI 5",
+   "diem_may": "—",
+   "cu_may": "TL",
+   "goc": "phang",
+   "lop_shot": "THAT (ảnh thật)",
+   "lop": {
+    "THAT": 3.0
+   },
+   "vung": "leadenhall",
+   "vai": "ẢNH THẬT hiện đại toàn khung: 22 Bishopsgate and Leadenhall, 2019 (CC BY 2.0 )",
+   "md": null,
+   "tu_lieu_lan": [
+    {
+     "t0": 716.5413,
+     "t1": 719.5413,
+     "lop": "THAT"
+    }
+   ],
+   "nhan_vat_ten": [],
+   "doi": [
+    "chèn ảnh thật 3.0 s: 22 Bishopsgate and Leadenhall, 2019 (flickr-49102341647, CC BY 2.0)"
+   ]
+  },
+  {
+   "ma": "H5-07a",
+   "t0": 719.5413,
+   "dur": 6.0,
+   "chuong": "HỒI 5",
+   "diem_may": "P9",
+   "cu_may": "DAY",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 6.0
+   },
+   "vung": "bankside_st_pauls",
+   "vai": "bờ nam đêm 2026: City sáng đèn quanh mái vòm (M-d (18) trượt 3 lượt ở ảnh đầu → 3D)",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H5-07b",
+   "t0": 725.5413,
+   "dur": 15.333,
+   "chuong": "HỒI 5",
+   "diem_may": "P1",
+   "cu_may": "KHOP",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 15.333
+   },
+   "vung": "bankside_city",
+   "vai": "KHÉP VÒNG: cùng khung Bankside — vòng cung lửa 1666 ↔ đèn City 2026",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H5-08",
+   "t0": 740.8743,
+   "dur": 14.0,
+   "chuong": "HỒI 5",
+   "diem_may": "P1",
+   "cu_may": "KEO",
+   "goc": "cao",
+   "lop_shot": "D 3D (look3 cờ d)",
+   "lop": {
+    "A": 14.0
+   },
+   "vung": "bankside_city",
+   "vai": "kéo lùi cuối: mái vòm giữa toà cao, sông, Bankside",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  },
+  {
+   "ma": "H5-09",
+   "t0": 754.8743,
+   "dur": 16.0,
+   "chuong": "HỒI 5",
+   "diem_may": "—",
+   "cu_may": "PP",
+   "goc": "pp",
+   "lop_shot": "PP (thẻ)",
+   "lop": {
+    "PP": 16.0
+   },
+   "vung": "the_pp",
+   "vai": "hai thẻ \"How this film was made\" × 8 s (§12.1 b)",
+   "md": null,
+   "tu_lieu_lan": null,
+   "nhan_vat_ten": [],
+   "doi": []
+  }
+ ],
+ "tong": {
+  "thoi_luong_s": 770.874,
+  "than_phim_s": 754.874,
+  "so_shot": 103,
+  "omni_s": 181.0,
+  "omni_pct": 23.98,
+  "E_s": 6.0,
+  "THAT_s": 24.667,
+  "TL_toan_khung_s": 5.0,
+  "chong_s": 72.0,
+  "tu_lieu_that_pct": 13.47,
+  "goc_cao_s": 485.499,
+  "goc_cao_pct": 64.32,
+  "md_clip": 31
+ },
+ "kiem": [
+  {
+   "chi_so": "Thời lượng ≤ 780 s",
+   "gia_tri": 770.874,
+   "tran": 780,
+   "san": null,
+   "dat": true,
+   "trong_5pct": true,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Góc cao / thân phim % (≥ 50)",
+   "gia_tri": 64.32,
+   "tran": null,
+   "san": 50,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": "ước theo điểm máy; số đo thật: k2check theo log khung ở bản dựng"
+  },
+  {
+   "chi_so": "Omni (M-d) % thân phim",
+   "gia_tri": 23.98,
+   "tran": null,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": "không có sàn/trần cứng (Q2); chỉ ghi"
+  },
+  {
+   "chi_so": "Tư liệu + khắc + thẻ + THẬT % (≤ 20)",
+   "gia_tri": 13.47,
+   "tran": 20,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Bản đồ MAP + MAP3D % (≤ 12)",
+   "gia_tri": 4.43,
+   "tran": 12,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "THAP % (≤ 12)",
+   "gia_tri": 7.78,
+   "tran": 12,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Tổng AI % (M-d + E; ≤ 70)",
+   "gia_tri": 24.77,
+   "tran": 70,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "M-d mỗi clip ≤ 8 s",
+   "gia_tri": 8.0,
+   "tran": 8.0,
+   "san": null,
+   "dat": true,
+   "trong_5pct": true,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 3: ≤ 2 shot thấp/M-d/ảnh thật liền",
+   "gia_tri": 2,
+   "tran": 2,
+   "san": null,
+   "dat": true,
+   "trong_5pct": true,
+   "ghi": "dài nhất kết ở H1-01b"
+  },
+  {
+   "chi_so": "Chốt 1 MÓC: mở và kết bằng góc cao",
+   "gia_tri": "M00 / M04",
+   "tran": null,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 4 MÓC: góc cao ≥ 40 %",
+   "gia_tri": 100.0,
+   "tran": null,
+   "san": 40,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "MÓC: số loại cú máy ≥ 4",
+   "gia_tri": 4,
+   "tran": null,
+   "san": 4,
+   "dat": true,
+   "trong_5pct": true,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 1 HỒI 1: mở và kết bằng góc cao",
+   "gia_tri": "H1-01h / H1-18b",
+   "tran": null,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 4 HỒI 1: góc cao ≥ 40 %",
+   "gia_tri": 54.15,
+   "tran": null,
+   "san": 40,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 2 HỒI 1: P1 tái xuất",
+   "gia_tri": "H1-08b, H1-16",
+   "tran": null,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "HỒI 1: số loại cú máy ≥ 4",
+   "gia_tri": 7,
+   "tran": null,
+   "san": 4,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 1 HỒI 2: mở và kết bằng góc cao",
+   "gia_tri": "H2-00 / H2-14",
+   "tran": null,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 4 HỒI 2: góc cao ≥ 40 %",
+   "gia_tri": 62.1,
+   "tran": null,
+   "san": 40,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 2 HỒI 2: P1 tái xuất",
+   "gia_tri": "H2-05, H2-09",
+   "tran": null,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "HỒI 2: số loại cú máy ≥ 4",
+   "gia_tri": 9,
+   "tran": null,
+   "san": 4,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 1 HỒI 3: mở và kết bằng góc cao",
+   "gia_tri": "H3-01 / H3-06",
+   "tran": null,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 4 HỒI 3: góc cao ≥ 40 %",
+   "gia_tri": 65.11,
+   "tran": null,
+   "san": 40,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 2 HỒI 3: P1 tái xuất",
+   "gia_tri": "H3-01, H3-06",
+   "tran": null,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "HỒI 3: số loại cú máy ≥ 4",
+   "gia_tri": 5,
+   "tran": null,
+   "san": 4,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 1 HỒI 4: mở và kết bằng góc cao",
+   "gia_tri": "H4-01a / H4-08",
+   "tran": null,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 4 HỒI 4: góc cao ≥ 40 %",
+   "gia_tri": 63.94,
+   "tran": null,
+   "san": 40,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 2 HỒI 4: P1 tái xuất",
+   "gia_tri": "H4-01a, H4-05, H4-06",
+   "tran": null,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "HỒI 4: số loại cú máy ≥ 4",
+   "gia_tri": 5,
+   "tran": null,
+   "san": 4,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 1 HỒI 5: mở và kết bằng góc cao",
+   "gia_tri": "H5-01 / H5-08",
+   "tran": null,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 4 HỒI 5: góc cao ≥ 40 %",
+   "gia_tri": 68.43,
+   "tran": null,
+   "san": 40,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "Chốt 2 HỒI 5: P1 tái xuất",
+   "gia_tri": "H5-04, H5-07b, H5-08",
+   "tran": null,
+   "san": null,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  },
+  {
+   "chi_so": "HỒI 5: số loại cú máy ≥ 4",
+   "gia_tri": 9,
+   "tran": null,
+   "san": 4,
+   "dat": true,
+   "trong_5pct": false,
+   "ghi": ""
+  }
+ ],
+ "doi_v3_v4": [
+  [
+   "M00",
+   "điểm máy P1 → P1b [532560,180330,125] nhìn [532880,180760,15] fov 42°, DAY → VONG (bản cuối dựng lại)"
+  ],
+  [
+   "M04",
+   "+0,5 EV (C9b) ở dựng bản cuối"
+  ],
+  [
+   "H1-15b",
+   "7,5 → 4,625 s (clip khung 0–110; YuNet hộp > 1/8 ở khung 113–139 — báo nhầm trên trời, vẫn cắt theo A1); H1-15h +2.875 s"
+  ],
+  [
+   "H3-05b",
+   "giữ khai tên Godfrey Allen; chan_dung: khong_co (đã tra LoC/Wellcome/Rijks/Met); YuNet mặt lớn nhất 0.1025 khung (≤ 1/8); duyệt A1 26/10 00:12 — dự phòng (c) ở PHIẾU-A"
+  ],
+  [
+   "H1-06x",
+   "chèn M-d 6.0 s (tách H1-06 tại 13.5 s)"
+  ],
+  [
+   "H1-15x",
+   "chèn M-d 6.0 s (tách H1-15h tại 3.2 s)"
+  ],
+  [
+   "H1-15h2",
+   "phần 3D còn lại của H1-15h sau clip H1-15x (5.3 s)"
+  ],
+  [
+   "H5-02b",
+   "Omni KHÔNG đạt (2 lượt) → giữ 3D, không chèn"
+  ],
+  [
+   "H5-04c",
+   "chèn M-d 6.0 s (tách H5-04 tại 4.417 s)"
+  ],
+  [
+   "H5-05d",
+   "chèn M-d 6.0 s (tách H5-05c tại 4.5 s)"
+  ],
+  [
+   "H5-02s",
+   "Omni KHÔNG đạt → giữ 3D tầm phố/thấp"
+  ],
+  [
+   "H5-05b",
+   "Omni KHÔNG đạt → giữ 3D tầm phố/thấp"
+  ],
+  [
+   "H5-02t",
+   "chèn ảnh thật 4.0 s: Barbican towers, 2013 (flickr-8649139240, CC BY 2.0)"
+  ],
+  [
+   "H5-06t",
+   "chèn ảnh thật 3.0 s: 22 Bishopsgate and Leadenhall, 2019 (flickr-49102341647, CC BY 2.0)"
+  ],
+  [
+   "H5-05a",
+   "tấm nền N2P cũ → tấm E (LUẬT E, mặt nạ thap)"
+  ],
+  [
+   "H1-03",
+   "chú thích \"Hollar: London before the Fire (pub. 1666)\" → \"Hollar, pre-Fire view, published 1666\""
+  ],
+  [
+   "H1-12x",
+   "chú thích \"Hollar: Old St Paul's from the east\" → \"Old St Paul's, by Hollar\""
+  ],
+  [
+   "H2-12",
+   "chú thích \"Hollar: London before the Fire (pub. 1666)\" → \"Hollar, pre-Fire view, published 1666\""
+  ],
+  [
+   "H1-06",
+   "lớp chữ \"Sir Thomas Bludworth · Lord Mayor of London\" mở 126.475 → 126.875 (cách M-d ≥ 1 s)"
+  ],
+  [
+   "H1-11",
+   "lớp chữ \"John Evelyn · diarist\" mở 206.816 → 206.916 (cách M-d ≥ 1 s)"
+  ],
+  [
+   "H2-02",
+   "lớp chữ \"Christopher Wren · architect\" mở 330.266 → 330.666 (cách M-d ≥ 1 s)"
+  ],
+  [
+   "H3-05",
+   "lớp chữ \"Godfrey Allen · St Paul's surveyor\" mở 537.933 → 538.333 (cách M-d ≥ 1 s)"
+  ],
+  [
+   "H1-18a",
+   "lớp chữ \"13,200 houses\" mở 300.608 → 301.208 (cách M-d ≥ 1 s)"
+  ],
+  [
+   "H2-02",
+   "lớp chữ \"Wren's 1666 plan, engraved 1767\" mở 329.866 → 330.666 (cách M-d ≥ 1 s)"
+  ]
+ ],
+ "p1_shot": [
+  [
+   "M01",
+   17.875
+  ],
+  [
+   "M02",
+   10.083
+  ],
+  [
+   "M03",
+   11.0
+  ],
+  [
+   "M04",
+   12.0
+  ],
+  [
+   "H1-08b",
+   18.2083
+  ],
+  [
+   "H1-16",
+   7.25
+  ],
+  [
+   "H2-05",
+   11.0
+  ],
+  [
+   "H2-09",
+   10.0
+  ],
+  [
+   "H3-01",
+   3.0
+  ],
+  [
+   "H3-06",
+   8.0
+  ],
+  [
+   "H4-01a",
+   6.0
+  ],
+  [
+   "H4-05",
+   4.542
+  ],
+  [
+   "H4-06",
+   5.2083
+  ],
+  [
+   "H5-04",
+   4.417
+  ],
+  [
+   "H5-07b",
+   15.333
+  ],
+  [
+   "H5-08",
+   14.0
+  ]
+ ],
+ "log_chu": [
+  {
+   "t0": 71.858,
+   "t1": 75.858,
+   "role": "the_nhan_vat",
+   "s": "Thomas Farriner · baker to the King"
+  },
+  {
+   "t0": 115.808,
+   "t1": 119.808,
+   "role": "the_nhan_vat",
+   "s": "Samuel Pepys · diarist, Navy Office"
+  },
+  {
+   "t0": 126.875,
+   "t1": 130.475,
+   "role": "the_nhan_vat",
+   "s": "Sir Thomas Bludworth · Lord Mayor of London"
+  },
+  {
+   "t0": 206.916,
+   "t1": 210.816,
+   "role": "the_nhan_vat",
+   "s": "John Evelyn · diarist"
+  },
+  {
+   "t0": 229.706,
+   "t1": 233.706,
+   "role": "the_nhan_vat",
+   "s": "John Evelyn · Christopher Wren · surveyors, August 1666"
+  },
+  {
+   "t0": 330.666,
+   "t1": 333.766,
+   "role": "the_nhan_vat",
+   "s": "Christopher Wren · architect"
+  },
+  {
+   "t0": 334.266,
+   "t1": 337.766,
+   "role": "the_nhan_vat",
+   "s": "Charles II · King of England"
+  },
+  {
+   "t0": 338.266,
+   "t1": 341.766,
+   "role": "the_nhan_vat",
+   "s": "Robert Hooke · City surveyor"
+  },
+  {
+   "t0": 422.008,
+   "t1": 426.008,
+   "role": "the_nhan_vat",
+   "s": "Nicholas Barbon · founder, Fire Office"
+  },
+  {
+   "t0": 511.424,
+   "t1": 515.424,
+   "role": "the_nhan_vat",
+   "s": "Joseph Bazalgette · engineer"
+  },
+  {
+   "t0": 538.333,
+   "t1": 541.933,
+   "role": "the_nhan_vat",
+   "s": "Godfrey Allen · St Paul's surveyor"
+  },
+  {
+   "t0": 644.524,
+   "t1": 648.024,
+   "role": "the_nhan_vat",
+   "s": "Charles Holden"
+  },
+  {
+   "t0": 648.524,
+   "t1": 652.024,
+   "role": "the_nhan_vat",
+   "s": "William Holford"
+  },
+  {
+   "t0": 301.208,
+   "t1": 302.808,
+   "role": "bo_dem_so",
+   "s": "13,200 houses"
+  },
+  {
+   "t0": 303.434,
+   "t1": 305.434,
+   "role": "bo_dem_so",
+   "s": "87 churches"
+  },
+  {
+   "t0": 406.415,
+   "t1": 408.915,
+   "role": "bo_dem_so",
+   "s": "202 ft"
+  },
+  {
+   "t0": 453.397,
+   "t1": 455.897,
+   "role": "bo_dem_so",
+   "s": "365 ft"
+  },
+  {
+   "t0": 574.242,
+   "t1": 577.242,
+   "role": "bo_dem_so",
+   "s": "100,000 incendiaries"
+  },
+  {
+   "t0": 617.858,
+   "t1": 620.358,
+   "role": "bo_dem_so",
+   "s": "160 killed"
+  },
+  {
+   "t0": 89.75,
+   "t1": 95.75,
+   "role": "chu_thich_tu_lieu",
+   "s": "Hollar, pre-Fire view, published 1666"
+  },
+  {
+   "t0": 169.166,
+   "t1": 174.166,
+   "role": "chu_thich_tu_lieu",
+   "s": "The Great Fire, period print"
+  },
+  {
+   "t0": 228.333,
+   "t1": 233.333,
+   "role": "chu_thich_tu_lieu",
+   "s": "Old St Paul's, by Hollar"
+  },
+  {
+   "t0": 281.666,
+   "t1": 285.666,
+   "role": "chu_thich_tu_lieu",
+   "s": "Luyken: the Great Fire, 1698"
+  },
+  {
+   "t0": 330.666,
+   "t1": 337.866,
+   "role": "chu_thich_tu_lieu",
+   "s": "Wren's 1666 plan, engraved 1767"
+  },
+  {
+   "t0": 402.499,
+   "t1": 405.499,
+   "role": "chu_thich_tu_lieu",
+   "s": "The Monument, engraving"
+  },
+  {
+   "t0": 466.458,
+   "t1": 469.458,
+   "role": "chu_thich_tu_lieu",
+   "s": "Hollar, pre-Fire view, published 1666"
+  },
+  {
+   "t0": 511.416,
+   "t1": 514.416,
+   "role": "chu_thich_tu_lieu",
+   "s": "Embankment works, 1865 drawing"
+  }
+ ]
+}

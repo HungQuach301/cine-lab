@@ -1,0 +1,369 @@
+{
+ "tag": "H2-09x-l2-360p",
+ "clip": "/var/tmp/bc/omni/H2-09x/H2-09x-l2-360p.mp4",
+ "clip_sha": "b9051557f558a9bb421060a261d5036ae3226e93c1c3abc97640a4ee59ca53f0",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/ban-cuoi/omni/dau/H2-09x-l2-dau.jpg",
+ "dau_sha": "a7129993c2fb252bac3b9cdb6fe78a77914dda9736cc6aa53fb5f6792370f3bf",
+ "nam": "1675",
+ "canh": "the site of the new cathedral on Ludgate Hill, 1675",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/bc/kiem2/H2-09x-l2-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.022,
+      "usage": {
+       "input_tokens": 10134,
+       "input_tokens_details": {
+        "cache_write_tokens": 10131,
+        "cached_tokens": 0
+       },
+       "output_tokens": 171,
+       "output_tokens_details": {
+        "reasoning_tokens": 119
+       },
+       "total_tokens": 10305
+      }
+     },
+     "secs": 7.5,
+     "mo_ta": "Khung hình cho thấy công trường xây dựng với móng và tường đá đổ nát, cần cẩu gỗ, các công nhân và dãy nhà phía xa.",
+     "muc": [],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-09x-l2-360p-k25",
+      "nam": 1675,
+      "noi": "London",
+      "sha256": "262c75251eb197ac28dc2565474dd30508fee5a4ea30bbb8532db2d06bf04ece",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A tall, slender, plain white square tower or obelisk with a small dome and spike stands on the skyline. It looks like a modern campanile or minaret.",
+        "ly_do": "No such isolated white tower stood in 1675 London. The Monument was a fluted column still under construction, and Wren's church steeples and St Paul's dome were not yet built. The skyline should show a medieval St Paul's ruin or scaffolded church spires.",
+        "nam_xuat_hien": 1710,
+        "toa_do_px": [
+         1104,
+         400,
+         1133,
+         540
+        ],
+        "do_tin": 0.4
+       },
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Long, uniform rows of tall red-brick buildings with regular sash windows, many chimneys and a flat Victorian-style look. At the left they are multi-storey terraces.",
+        "ly_do": "In 1675 London was still being rebuilt after the 1666 fire. The rebuilt brick terraces were lower and less uniform, and large continuous 19th-century-style brick blocks are anachronistic.",
+        "nam_xuat_hien": 1800,
+        "toa_do_px": [
+         0,
+         454,
+         576,
+         626
+        ],
+        "do_tin": 0.25
+       }
+      ],
+      "cost_usd": 0.0367616,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1155,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0367616,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 207,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 13.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall, slender, plain white square tower or obelisk with a small dome and spike stands on the skyline. It looks like a modern campanile or minaret.\",\"ly_do\":\"No such isolated white tower stood in 1675 London. The Monument was a fluted column still under construction, and Wren's church steeples and St Paul's dome were not yet built. The skyline should show a medieval St Paul's ruin or scaffolded church spires.\",\"nam_xuat_hien\":1710,\"toa_do\":[0.575,0.37,0.59,0.5],\"do_tin\":0.4},{\"muc\":\"kien_truc\",\"mo_ta\":\"Long, uniform rows of tall red-brick buildings with regular sash windows, many chimneys and a flat Victorian-style look. At the left they are multi-storey terraces.\",\"ly_do\":\"In 1675 London was still being rebuilt after the 1666 fire. The rebuilt brick terraces were lower and less uniform, and large continuous 19th-century-style brick blocks are anachronistic.\",\"nam_xuat_hien\":1800,\"toa_do\":[0.0,0.42,0.3,0.58],\"do_tin\":0.25}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0368,
+    "chi_phi_tb": 0.0368,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/bc/kiem2/H2-09x-l2-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0235,
+      "usage": {
+       "input_tokens": 10128,
+       "input_tokens_details": {
+        "cache_write_tokens": 10125,
+        "cached_tokens": 0
+       },
+       "output_tokens": 321,
+       "output_tokens_details": {
+        "reasoning_tokens": 204
+       },
+       "total_tokens": 10449
+      }
+     },
+     "secs": 11.5,
+     "mo_ta": "The frame shows a cathedral construction site with excavated foundations, surviving Gothic masonry, a wooden lifting crane, workers and brick buildings in the background.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Surviving Gothic ruins of Old St Paul's Cathedral at the rebuilding site.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.657,
+        0.519,
+        1.0,
+        0.773
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-09x-l2-360p-k55",
+      "nam": 1675,
+      "noi": "London",
+      "sha256": "654ebe1c8ab019913026266b6ba8b6a12252ad27f7a662c3582712c93bf7332b",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A tall, slender white tower with a small dark pointed cap stands on the skyline. It looks like a Monument-style column or a later campanile. It is not a recognisable 1675 London church spire, and it is not St Paul's.",
+        "ly_do": "The Monument was only built in 1671–77. No tall white stone tower like this stood in the City in 1675. Wren's church steeples were mostly built after 1675. St Paul's was only just being started, and the old cathedral's ruins would be visible instead.",
+        "nam_xuat_hien": 1677,
+        "toa_do_px": [
+         1098,
+         400,
+         1131,
+         540
+        ],
+        "do_tin": 0.35
+       },
+       {
+        "muc": "kien_truc",
+        "mo_ta": "There are long, uniform rows of tall red-brick blocks with regular grids of windows and many chimneys. The block on the left has a regular multi-storey window grid. The skyline looks like a Georgian or Victorian city.",
+        "ly_do": "London in 1675 was still being rebuilt after the 1666 fire. Houses were smaller, with gabled or varied rooflines and timber or brick fronts. Large, uniform multi-storey brick terraces and blocks look later, from the 18th–19th century.",
+        "nam_xuat_hien": 1750,
+        "toa_do_px": [
+         0,
+         454,
+         384,
+         616
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0372616,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1205,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0372616,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 204,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 12.6,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall, slender white tower with a small dark pointed cap stands on the skyline. It looks like a Monument-style column or a later campanile. It is not a recognisable 1675 London church spire, and it is not St Paul's.\",\"ly_do\":\"The Monument was only built in 1671–77. No tall white stone tower like this stood in the City in 1675. Wren's church steeples were mostly built after 1675. St Paul's was only just being started, and the old cathedral's ruins would be visible instead.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.572,0.37,0.589,0.5],\"do_tin\":0.35},{\"muc\":\"kien_truc\",\"mo_ta\":\"There are long, uniform rows of tall red-brick blocks with regular grids of windows and many chimneys. The block on the left has a regular multi-storey window grid. The skyline looks like a Georgian or Victorian city.\",\"ly_do\":\"London in 1675 was still being rebuilt after the 1666 fire. Houses were smaller, with gabled or varied rooflines and timber or brick fronts. Large, uniform multi-storey brick terraces and blocks look later, from the 18th–19th century.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.0,0.42,0.2,0.57],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0373,
+    "chi_phi_tb": 0.0373,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/bc/kiem2/H2-09x-l2-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.024,
+      "usage": {
+       "input_tokens": 10128,
+       "input_tokens_details": {
+        "cache_write_tokens": 10125,
+        "cached_tokens": 0
+       },
+       "output_tokens": 374,
+       "output_tokens_details": {
+        "reasoning_tokens": 178
+       },
+       "total_tokens": 10502
+      }
+     },
+     "secs": 10.5,
+     "mo_ta": "The frame shows a cathedral construction site with excavated foundations, masonry ruins, workers, a wooden crane, and surrounding London buildings.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Prominent pale church-like tower rising above the background rooftops; its specific identity is uncertain.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.571,
+        0.36,
+        0.591,
+        0.503
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.72
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Standing Gothic cathedral ruins on the right, identifiable from the scene context as remnants of Old St Paul's Cathedral.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.66,
+        0.514,
+        1.0,
+        0.752
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-09x-l2-360p-k90",
+      "nam": 1675,
+      "noi": "London",
+      "sha256": "de2b75ec54dd8bd005e677fbb0f520526b3bb3a8681b8715a5886acbf54403bd",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A single tall, slender white tower with a small dark cap stands on the skyline. It looks like a minaret or campanile and has no church body or spire. It is not any known London landmark.",
+        "ly_do": "In 1675 the City was still rebuilding after the 1666 Fire. Old St Paul's was a ruin, and Wren's new churches and spires were still going up. A plain white tower like this does not match anything that stood then.",
+        "nam_xuat_hien": null,
+        "toa_do_px": [
+         1098,
+         389,
+         1146,
+         540
+        ],
+        "do_tin": 0.35
+       },
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A long, continuous skyline of uniform red-brick terraced blocks with many chimneys and regular rows of windows. It looks like 18th–19th-century brick terraces.",
+        "ly_do": "London in 1675 was mostly timber-framed, plastered and early brick houses, and much of the burnt City was still rubble. Regular, uniform brick terraces on this scale belong to the Georgian and Victorian periods.",
+        "nam_xuat_hien": 1720,
+        "toa_do_px": [
+         0,
+         454,
+         1920,
+         616
+        ],
+        "do_tin": 0.3
+       }
+      ],
+      "cost_usd": 0.0357916,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1058,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0357916,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 112,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 10.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A single tall, slender white tower with a small dark cap stands on the skyline. It looks like a minaret or campanile and has no church body or spire. It is not any known London landmark.\",\"ly_do\":\"In 1675 the City was still rebuilding after the 1666 Fire. Old St Paul's was a ruin, and Wren's new churches and spires were still going up. A plain white tower like this does not match anything that stood then.\",\"nam_xuat_hien\":null,\"toa_do\":[0.572,0.36,0.597,0.5],\"do_tin\":0.35},{\"muc\":\"kien_truc\",\"mo_ta\":\"A long, continuous skyline of uniform red-brick terraced blocks with many chimneys and regular rows of windows. It looks like 18th–19th-century brick terraces.\",\"ly_do\":\"London in 1675 was mostly timber-framed, plastered and early brick houses, and much of the burnt City was still rubble. Regular, uniform brick terraces on this scale belong to the Georgian and Victorian periods.\",\"nam_xuat_hien\":1720,\"toa_do\":[0.0,0.42,1.0,0.57],\"do_tin\":0.3}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0358,
+    "chi_phi_tb": 0.0358,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

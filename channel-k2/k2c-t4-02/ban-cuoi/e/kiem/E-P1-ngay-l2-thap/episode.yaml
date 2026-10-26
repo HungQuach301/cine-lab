@@ -1,0 +1,128 @@
+id: ban-cuoi-t4-a-E-E-P1-ngay-l2-thap
+title: BAN-CUOI-T4-A thử E (không phải tập)
+brand: MOVING PARTS
+channel: k2
+khung_sach: true
+kenh2_tu_t4: true
+animatic: false
+out: /var/tmp/bc/k2c/E-P1-ngay-l2-thap
+segments:
+- id: s0
+  dur: 3.0
+  shots:
+  - id: H5-04
+    at: 0.0
+    tpl: scene3d
+n2p:
+  noi: London
+  t4: true
+  tam:
+  - id: E-P1-ngay-l2-thap
+    shot: H5-04
+    render: ../../tam/E-P1-ngay/render.png
+    ghep: ../../tam/E-P1-ngay/l2-thap/ghep.png
+    mat_na: ../../tam/E-P1-ngay/matna-thap.png
+    nam: 2026
+    anh_tinh: true
+    n2p_toan_khung_hien_dai: true
+    nam_min: 2020
+    cu_may: CODINH
+    dem: false
+    mat_na_ct: ../../tam/E-P1-ngay/mat_na_ct-thap.png
+    toa_co_ten:
+    - ten: St Paul's Cathedral
+      mau:
+      - 20
+      - 0
+      - 200
+    - ten: Mansion House
+      mau:
+      - 28
+      - 128
+      - 198
+    - ten: Royal Exchange
+      mau:
+      - 199
+      - 128
+      - 199
+    - ten: Pinsent Masons
+      mau:
+      - 255
+      - 128
+      - 198
+    - ten: CityPoint
+      mau:
+      - 255
+      - 128
+      - 188
+    - ten: White Collar Factory
+      mau:
+      - 255
+      - 128
+      - 183
+    - ten: Beechwood
+      mau:
+      - 255
+      - 128
+      - 181
+    - ten: 20 Ropemaker
+      mau:
+      - 255
+      - 128
+      - 195
+    - ten: The Tower
+      mau:
+      - 255
+      - 128
+      - 193
+    - ten: Guildhall Art Gallery
+      mau:
+      - 255
+      - 128
+      - 190
+    - ten: Guildhall
+      mau:
+      - 255
+      - 128
+      - 200
+    - ten: Tower of St Mary Somerset
+      mau:
+      - 255
+      - 128
+      - 199
+    - ten: Cromwell Tower
+      mau:
+      - 255
+      - 128
+      - 188
+    - ten: Lauderdale Tower
+      mau:
+      - 255
+      - 128
+      - 187
+    - ten: The Heron
+      mau:
+      - 255
+      - 128
+      - 191
+    - ten: 2 London Wall Place
+      mau:
+      - 255
+      - 128
+      - 189
+    - ten: Bank of England
+      mau:
+      - 255
+      - 128
+      - 181
+    noi: London
+  video:
+  - shot: H5-04
+    ghep: /var/tmp/bc/E-P1-ngay-l2-thap-tl-ghep.mp4
+    render: /var/tmp/bc/E-P1-ngay-l2-thap-tl-render.mp4
+    mat_na: /home/user/cine-lab/channel-k2/k2c-t4-02/ban-cuoi/e/tam/E-P1-ngay/l2-thap/matna-640.png
+    chuyen_tam: []
+    n2p_toan_khung_hien_dai: true
+    nam: 2026
+    cu_may: CODINH
+log_shot: log-shot.json

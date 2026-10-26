@@ -1,0 +1,410 @@
+{
+ "tag": "H2-09x-l1-360p",
+ "clip": "/var/tmp/bc/omni/H2-09x/H2-09x-l1-360p.mp4",
+ "clip_sha": "1165dcaa562b211d0213e69ea84457fc1cbced057f380cbb1e248180c282cd6c",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/ban-cuoi/omni/dau/H2-09x-l1-dau.jpg",
+ "dau_sha": "b873386116d07db7dd67a77f4dd2f98dd260b7bee442d5529a4edbde67622faa",
+ "nam": "1675",
+ "canh": "the site of the new cathedral on Ludgate Hill, 1675",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/bc/kiem2/H2-09x-l1-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0245,
+      "usage": {
+       "input_tokens": 10134,
+       "input_tokens_details": {
+        "cache_write_tokens": 10131,
+        "cached_tokens": 0
+       },
+       "output_tokens": 426,
+       "output_tokens_details": {
+        "reasoning_tokens": 190
+       },
+       "total_tokens": 10560
+      }
+     },
+     "secs": 11.9,
+     "mo_ta": "Công trường xây dựng nhà thờ với các hố móng, đá xây, công nhân, cần cẩu gỗ, phế tích Gothic bên trái và một tháp cao phía xa.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Phế tích kiến trúc Gothic ở mép trái, thể hiện phần còn lại của nhà thờ St Paul cũ trong bối cảnh này.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.295,
+        0.074,
+        0.75
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.92
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp màu sáng nổi bật trên đường chân trời, có đỉnh dạng mái vòm nhỏ và chóp nhọn; không xác định chắc danh tính công trình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.571,
+        0.366,
+        0.591,
+        0.507
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.78
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-09x-l1-360p-k25",
+      "nam": 1675,
+      "noi": "London",
+      "sha256": "5c188e28608fe352b03a629b52aad080d51f44c701ab7b57cd9cd8b1fb0997f1",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A tall, slender, white, round clock or lantern tower with a small domed cap stands on the skyline. It looks like a late-Georgian or Victorian campanile or lighthouse.",
+        "ly_do": "No such isolated tower stood in London in 1675. Wren's City church steeples were still being built then, and none had this form. The tower looks out of place for the period.",
+        "nam_xuat_hien": 1800,
+        "toa_do_px": [
+         1098,
+         400,
+         1137,
+         540
+        ],
+        "do_tin": 0.35
+       }
+      ],
+      "cost_usd": 0.0338416,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 863,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0338416,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 136,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 8.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall, slender, white, round clock or lantern tower with a small domed cap stands on the skyline. It looks like a late-Georgian or Victorian campanile or lighthouse.\",\"ly_do\":\"No such isolated tower stood in London in 1675. Wren's City church steeples were still being built then, and none had this form. The tower looks out of place for the period.\",\"nam_xuat_hien\":1800,\"toa_do\":[0.572,0.37,0.592,0.5],\"do_tin\":0.35}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0338,
+    "chi_phi_tb": 0.0338,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/bc/kiem2/H2-09x-l1-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0258,
+      "usage": {
+       "input_tokens": 10134,
+       "input_tokens_details": {
+        "cache_write_tokens": 10131,
+        "cached_tokens": 0
+       },
+       "output_tokens": 554,
+       "output_tokens_details": {
+        "reasoning_tokens": 236
+       },
+       "total_tokens": 10688
+      }
+     },
+     "secs": 15.7,
+     "mo_ta": "Khung hình cho thấy công trường xây nhà thờ trên Ludgate Hill với móng đào, đá xây, công nhân, cần trục gỗ và các dãy nhà phía xa.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Phần tường phế tích của nhà thờ St Paul cũ ở sát mép trái, phần lớn đã nằm ngoài khung hình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.317,
+        0.018,
+        0.594
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.87
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp nhà thờ màu sáng nổi bật trên đường chân trời gần giữa ảnh; không đủ chi tiết để xác định tên.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.571,
+        0.366,
+        0.591,
+        0.503
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.79
+      },
+      {
+       "loai": "khac",
+       "mo_ta": "Chi tiết cột đá tròn có đầu cột và chân đế rõ nét được thêm vào đống phế tích bên trái; không thấy chi tiết tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.025,
+        0.603,
+        0.06,
+        0.705
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      }
+     ],
+     "loi": [],
+     "nghi_van": [
+      {
+       "loai": "khac",
+       "mo_ta": "Chi tiết cột đá tròn có đầu cột và chân đế rõ nét được thêm vào đống phế tích bên trái; không thấy chi tiết tương ứng trong ảnh tham chiếu.",
+       "co_trong_dau": false,
+       "toa_do": [
+        0.025,
+        0.603,
+        0.06,
+        0.705
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.8
+      }
+     ],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-09x-l1-360p-k55",
+      "nam": 1675,
+      "noi": "London",
+      "sha256": "144c19fadf7614e7eec495a9dd7eb60ff6448a6da1edc9f7adb50f0b378ce49b",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A tall, slender white tower with a small domed cap stands alone on the skyline. It looks like a minaret, lighthouse or 19th-century clock tower.",
+        "ly_do": "No tower of this form existed in London in 1675. Wren's City church steeples were still being built and were stone spires of a different design. St Paul's was only just begun in 1675 and was not finished until 1710. The tower is also too smooth and too isolated to be a period landmark.",
+        "nam_xuat_hien": 1710,
+        "toa_do_px": [
+         1094,
+         400,
+         1152,
+         540
+        ],
+        "do_tin": 0.4
+       },
+       {
+        "muc": "kien_truc",
+        "mo_ta": "Long, continuous rows of uniform red-brick terraced houses with regular chimney stacks fill the skyline.",
+        "ly_do": "The uniform brick terraces look more like Georgian or Victorian London. In 1675 the rebuilt City was a mix of houses, and many older timber-framed or jettied buildings survived outside the fire area.",
+        "nam_xuat_hien": 1720,
+        "toa_do_px": [
+         0,
+         454,
+         1920,
+         616
+        ],
+        "do_tin": 0.25
+       }
+      ],
+      "cost_usd": 0.0364416,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1123,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0364416,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 190,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 14.1,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall, slender white tower with a small domed cap stands alone on the skyline. It looks like a minaret, lighthouse or 19th-century clock tower.\",\"ly_do\":\"No tower of this form existed in London in 1675. Wren's City church steeples were still being built and were stone spires of a different design. St Paul's was only just begun in 1675 and was not finished until 1710. The tower is also too smooth and too isolated to be a period landmark.\",\"nam_xuat_hien\":1710,\"toa_do\":[0.57,0.37,0.60,0.5],\"do_tin\":0.4},{\"muc\":\"kien_truc\",\"mo_ta\":\"Long, continuous rows of uniform red-brick terraced houses with regular chimney stacks fill the skyline.\",\"ly_do\":\"The uniform brick terraces look more like Georgian or Victorian London. In 1675 the rebuilt City was a mix of houses, and many older timber-framed or jettied buildings survived outside the fire area.\",\"nam_xuat_hien\":1720,\"toa_do\":[0.0,0.42,1.0,0.57],\"do_tin\":0.25}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0364,
+    "chi_phi_tb": 0.0364,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/bc/kiem2/H2-09x-l1-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0236,
+      "usage": {
+       "input_tokens": 10122,
+       "input_tokens_details": {
+        "cache_write_tokens": 10119,
+        "cached_tokens": 0
+       },
+       "output_tokens": 334,
+       "output_tokens_details": {
+        "reasoning_tokens": 177
+       },
+       "total_tokens": 10456
+      }
+     },
+     "secs": 10.9,
+     "mo_ta": "Khung hình cho thấy công trường nền móng với thợ xây, cần trục gỗ, các khối đá và dãy nhà phía sau có một tháp đá cao.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp đá cao có chóp nhỏ nổi bật trên đường chân trời ở gần giữa khung hình; cùng tháp này đã hiện diện trong ảnh tham chiếu, nhưng chưa đủ chi tiết để xác định tên công trình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.572,
+        0.363,
+        0.592,
+        0.505
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.83
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H2-09x-l1-360p-k90",
+      "nam": 1675,
+      "noi": "London",
+      "sha256": "e7081451174a9408ec3fc7eb2e9350976d05b4134c57ca85245c159c55fd4a38",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A tall, slender white tower with a small lantern and spire stands alone on the skyline. It looks like a 18th–19th century campanile or church steeple. It is not the domed St Paul's, which was only being started in 1675.",
+        "ly_do": "No tower of this form existed in London's skyline in 1675. The Wren steeples were built after 1675, and the old St Paul's had been destroyed in 1666. The tower looks anachronistic.",
+        "nam_xuat_hien": 1710,
+        "toa_do_px": [
+         1098,
+         394,
+         1137,
+         540
+        ],
+        "do_tin": 0.4
+       },
+       {
+        "muc": "kien_truc",
+        "mo_ta": "A long, continuous line of uniform red-brick terraced buildings with many chimney stacks runs along the horizon.",
+        "ly_do": "The rows look like regular Georgian or Victorian terraces. London in 1675 was mid-rebuild after the 1666 fire, with a mix of timber and brick houses, and not yet this uniform.",
+        "nam_xuat_hien": 1750,
+        "toa_do_px": [
+         0,
+         454,
+         1920,
+         605
+        ],
+        "do_tin": 0.25
+       }
+      ],
+      "cost_usd": 0.0355516,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 1034,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0355516,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 106,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 16.7,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"A tall, slender white tower with a small lantern and spire stands alone on the skyline. It looks like a 18th–19th century campanile or church steeple. It is not the domed St Paul's, which was only being started in 1675.\",\"ly_do\":\"No tower of this form existed in London's skyline in 1675. The Wren steeples were built after 1675, and the old St Paul's had been destroyed in 1666. The tower looks anachronistic.\",\"nam_xuat_hien\":1710,\"toa_do\":[0.572,0.365,0.592,0.5],\"do_tin\":0.4},{\"muc\":\"kien_truc\",\"mo_ta\":\"A long, continuous line of uniform red-brick terraced buildings with many chimney stacks runs along the horizon.\",\"ly_do\":\"The rows look like regular Georgian or Victorian terraces. London in 1675 was mid-rebuild after the 1666 fire, with a mix of timber and brick houses, and not yet this uniform.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.0,0.42,1.0,0.56],\"do_tin\":0.25}]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0356,
+    "chi_phi_tb": 0.0356,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

@@ -1,0 +1,380 @@
+{
+ "tag": "H5-05d-l2-360p",
+ "clip": "/var/tmp/bc/omni/H5-05d/H5-05d-l2-360p.mp4",
+ "clip_sha": "a59e18b5f1292c1acba7dea1b0ed34b936a11049e94af548e8465ab5378e993a",
+ "dau": "/home/user/cine-lab/channel-k2/k2c-t4-02/ban-cuoi/omni/dau/H5-05d-l2-dau.jpg",
+ "dau_sha": "1d1a16aee0f9f5d4f82a1c0e7e9e29db8610a5578e096a5c0887a0017c4a84a3",
+ "nam": "2026",
+ "canh": "a protected view of St Paul's dome across the Thames, 2026",
+ "so_khung": 144,
+ "fps": 24.0,
+ "prompt_sha": "3e18a078f783ef1ad1345913a4a6f52a7f3d6b71e1ab7595e4eaba0fb628b154",
+ "khung": [
+  {
+   "u": 0.25,
+   "anh": "/var/tmp/bc/kiem2/H5-05d-l2-360p-k25.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0252,
+      "usage": {
+       "input_tokens": 9741,
+       "input_tokens_details": {
+        "cache_write_tokens": 9738,
+        "cached_tokens": 0
+       },
+       "output_tokens": 570,
+       "output_tokens_details": {
+        "reasoning_tokens": 179
+       },
+       "total_tokens": 10311
+      }
+     },
+     "secs": 9.5,
+     "mo_ta": "Khung hình minh họa cảnh nhìn qua sông Thames về mái vòm St Paul's lúc hoàng hôn, với cầu bên trái, các tòa nhà ven sông, một sà lan và người đi bộ ở tiền cảnh.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ St Paul's, gồm mái vòm, tháp đèn và phần kiến trúc nhà thờ nhô lên sau các tòa nhà ven sông.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.222,
+        0.318,
+        0.481,
+        0.625
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Cầu qua sông ở mé trái khung hình, trên hướng nhìn về St Paul's.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.716,
+        0.273,
+        0.858
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.9
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Sà lan thân dài màu sẫm trên sông, lớn hơn thuyền chèo hoặc thuyền đánh cá nhỏ.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.72,
+        0.86,
+        0.985,
+        0.925
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H5-05d-l2-360p-k25",
+      "nam": 2026,
+      "noi": "London",
+      "sha256": "c37f97af21802c2fd767b8c3635abbb683619b95c12624f055085d50dcbf9155",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0306716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 546,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0306716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 5.5,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0307,
+    "chi_phi_tb": 0.0307,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.55,
+   "anh": "/var/tmp/bc/kiem2/H5-05d-l2-360p-k55.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0255,
+      "usage": {
+       "input_tokens": 9747,
+       "input_tokens_details": {
+        "cache_write_tokens": 9744,
+        "cached_tokens": 0
+       },
+       "output_tokens": 604,
+       "output_tokens_details": {
+        "reasoning_tokens": 215
+       },
+       "total_tokens": 10351
+      }
+     },
+     "secs": 12.8,
+     "mo_ta": "Khung hình cho thấy mái vòm Nhà thờ St Paul’s bên kia sông Thames ở London lúc hoàng hôn, với cầu, sà lan và người đi bộ ven sông.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ St Paul’s, gồm mái vòm lớn và phần tháp, thân nhà thờ nhìn thấy phía sau các tòa nhà ven sông.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.217,
+        0.309,
+        0.451,
+        0.621
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Phần cầu Millennium Bridge đi vào khung hình từ mép trái, gồm mặt cầu và các trụ trên sông.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.713,
+        0.269,
+        0.851
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.94
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Tháp nhà thờ nhỏ bên phải St Paul’s, có khả năng là tháp St Augustine Watling Street.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.449,
+        0.485,
+        0.465,
+        0.56
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.7
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Sà lan thân tối màu trên sông ở phía dưới bên phải, lớn hơn thuyền chèo nhỏ.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.725,
+        0.862,
+        0.995,
+        0.921
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H5-05d-l2-360p-k55",
+      "nam": 2026,
+      "noi": "London",
+      "sha256": "22cd4cf2f8af5727e14529897a8875bb309ff474dd2e1a0d2c3e8e2cf001f405",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0306716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 546,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0306716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.2,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0307,
+    "chi_phi_tb": 0.0307,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  },
+  {
+   "u": 0.9,
+   "anh": "/var/tmp/bc/kiem2/H5-05d-l2-360p-k90.png",
+   "mo_hinh": {
+    "gpt": {
+     "meta": {
+      "model": "gpt-6.1-sol",
+      "usd": 0.0248,
+      "usage": {
+       "input_tokens": 9741,
+       "input_tokens_details": {
+        "cache_write_tokens": 9738,
+        "cached_tokens": 0
+       },
+       "output_tokens": 534,
+       "output_tokens_details": {
+        "reasoning_tokens": 143
+       },
+       "total_tokens": 10275
+      }
+     },
+     "secs": 13.5,
+     "mo_ta": "Khung hình cho thấy mái vòm Nhà thờ St Paul's bên kia sông Thames lúc hoàng hôn, với cầu bên trái, một sà lan trên sông và người đi bộ ở tiền cảnh.",
+     "muc": [
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Nhà thờ St Paul's, gồm mái vòm lớn, tháp đèn và phần thân cùng các tháp nhỏ nhìn thấy phía trên những tòa nhà ven sông.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.209,
+        0.289,
+        0.473,
+        0.608
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      },
+      {
+       "loai": "cong_trinh_ten",
+       "mo_ta": "Đoạn cầu bắc qua sông ở mé trái khung hình; không đủ chi tiết để xác định chắc chắn tên cầu.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.0,
+        0.711,
+        0.262,
+        0.86
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.88
+      },
+      {
+       "loai": "tau_lon",
+       "mo_ta": "Sà lan lớn thân tối màu trên sông, bị cắt một phần ở mé phải khung hình.",
+       "co_trong_dau": true,
+       "toa_do": [
+        0.731,
+        0.861,
+        1.0,
+        0.929
+       ],
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "loi": [],
+     "nghi_van": [],
+     "doc_duoc": true
+    }
+   },
+   "q_thoi_dai": {
+    "ok": true,
+    "ket_qua": null,
+    "loi": [],
+    "thieu": [],
+    "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+    "khung": [
+     {
+      "id": "H5-05d-l2-360p-k90",
+      "nam": 2026,
+      "noi": "London",
+      "sha256": "de200d514eed7ae8d63d0d7dc4849861b324f553a76c24c0da2165d5135f04bc",
+      "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+      "model": "claude-sonnet-5-5",
+      "nghi_van": [],
+      "ghi_chu": [],
+      "cost_usd": 0.0306716,
+      "cost_buoc2": 0.0,
+      "model_usage": {
+       "claude-sonnet-5-5": {
+        "inputTokens": 6,
+        "outputTokens": 546,
+        "cacheReadInputTokens": 2871,
+        "cacheCreationInputTokens": 9965,
+        "webSearchRequests": 0,
+        "costUSD": 0.0306716,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 0,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+       }
+      },
+      "secs": 6.3,
+      "so_anh_doc": 5,
+      "loi": null,
+      "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}",
+      "t": null
+     }
+    ],
+    "chi_phi_usd": 0.0307,
+    "chi_phi_tb": 0.0307,
+    "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+   }
+  }
+ ],
+ "ket_luan_may": {
+  "loi_mo_hinh": 0,
+  "q_thoi_dai_nghi_van": 0,
+  "mo_hinh_doc_duoc": true,
+  "q_thoi_dai_thieu": 0,
+  "ket_qua": "ĐẠT",
+  "chi_tiet": []
+ }
+}

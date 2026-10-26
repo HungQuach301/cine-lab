@@ -1,0 +1,84 @@
+id: ban-cuoi-t4-a-E-E-P9-dem-l1-thap
+title: BAN-CUOI-T4-A thử E (không phải tập)
+brand: MOVING PARTS
+channel: k2
+khung_sach: true
+kenh2_tu_t4: true
+animatic: false
+out: /var/tmp/bc/k2c/E-P9-dem-l1-thap
+segments:
+- id: s0
+  dur: 3.0
+  shots:
+  - id: H5-07a
+    at: 0.0
+    tpl: scene3d
+n2p:
+  noi: London
+  t4: true
+  tam:
+  - id: E-P9-dem-l1-thap
+    shot: H5-07a
+    render: ../../tam/E-P9-dem/render.png
+    ghep: ../../tam/E-P9-dem/l1-thap/ghep.png
+    mat_na: ../../tam/E-P9-dem/matna-thap.png
+    nam: 2026
+    anh_tinh: true
+    n2p_toan_khung_hien_dai: true
+    nam_min: 2020
+    cu_may: CODINH
+    dem: true
+    mat_na_ct: ../../tam/E-P9-dem/mat_na_ct-thap.png
+    toa_co_ten:
+    - ten: St Paul's Cathedral
+      mau:
+      - 20
+      - 0
+      - 200
+    - ten: CityPoint
+      mau:
+      - 109
+      - 128
+      - 189
+    - ten: White Collar Factory
+      mau:
+      - 118
+      - 128
+      - 188
+    - ten: 20 Ropemaker
+      mau:
+      - 136
+      - 128
+      - 186
+    - ten: Guildhall Art Gallery
+      mau:
+      - 255
+      - 128
+      - 191
+    - ten: Guildhall
+      mau:
+      - 255
+      - 128
+      - 197
+    - ten: Cromwell Tower
+      mau:
+      - 255
+      - 128
+      - 198
+    - ten: Lauderdale Tower
+      mau:
+      - 255
+      - 128
+      - 197
+    - ten: The Heron
+      mau:
+      - 255
+      - 128
+      - 195
+    - ten: 2 London Wall Place
+      mau:
+      - 255
+      - 128
+      - 182
+    noi: London
+log_shot: log-shot.json
