@@ -1,0 +1,64 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-09-k0",
+   "nam": 1675,
+   "noi": "London",
+   "sha256": "fb20ba775a56801e9ed6e03b3c8a94981913f2866d78680bc7ebef6a2ff6a866",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument under construction (1671-1677): a fluted Doric column, incomplete at the top",
+    "no new St Paul's Cathedral (begun 1675)",
+    "only the ruins of Old St Paul's"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "Old St Paul's is a plain grey cross-shaped block with a stubby central tower. It has no ruined-nave detail and no sign of the lost spire. There is no sign of new St Paul's, which is correct for 1675. The Monument is only a tiny white spike near the waterfront, not a clear fluted Doric column.",
+     "ly_do": "The Monument should be a visible column still under construction, with an incomplete top. The Old St Paul's form is not convincingly the 1675 ruined cathedral. The Monument identification is uncertain.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      653,
+      378,
+      806,
+      486
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.0357552,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1022,
+     "cacheReadInputTokens": 3082,
+     "cacheCreationInputTokens": 10086,
+     "webSearchRequests": 0,
+     "costUSD": 0.0357552,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 312,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"Old St Paul's is a plain grey cross-shaped block with a stubby central tower. It has no ruined-nave detail and no sign of the lost spire. There is no sign of new St Paul's, which is correct for 1675. The Monument is only a tiny white spike near the waterfront, not a clear fluted Doric column.\",\"ly_do\":\"The Monument should be a visible column still under construction, with an incomplete top. The Old St Paul's form is not convincingly the 1675 ruined cathedral. The Monument identification is uncertain.\",\"nam_xuat_hien\":null,\"toa_do\":[0.34,0.35,0.42,0.45],\"do_tin\":0.25}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0358,
+ "chi_phi_tb": 0.0358,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

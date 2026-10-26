@@ -1,0 +1,83 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung H3-01-k71 năm 1798: [cong_trinh_moc] The Monument (a fluted Doric column with a gilded flaming urn) is not visible anywhere. The nearest candidate is a squat square white tower with a small domed cap, east of St Paul's. Other thin spires nearby are ordinary church spires. — The Monument stood in 1798 and should be in this view as a tall fluted column topped by a flaming urn. Here it is missing or replaced by a plain square tower. (xuất hiện 1677) @px [1498, 626, 1594, 778] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H3-01-k71",
+   "nam": 1798,
+   "noi": "London",
+   "sha256": "9774d4b527a9ffaf8f7af1e026cf5457f002b12fff9134b2f59ee9e975c42b86",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "St Paul's Cathedral completed (1711): dome, lantern, two west towers"
+   ],
+   "nghi_van": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The Monument (a fluted Doric column with a gilded flaming urn) is not visible anywhere. The nearest candidate is a squat square white tower with a small domed cap, east of St Paul's. Other thin spires nearby are ordinary church spires.",
+     "ly_do": "The Monument stood in 1798 and should be in this view as a tall fluted column topped by a flaming urn. Here it is missing or replaced by a plain square tower.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      1498,
+      626,
+      1594,
+      778
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "loi": null,
+      "ghi": "lớp công trình mốc: không qua bước 2 (vật vắng không phóng được) — giữ"
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The St Paul's dome is drawn as a ribbed grey dome on a plain drum. The lantern is slim and ends in a pointed spire, with no ball and cross. The body is a plain boxy block with no west portico, and the two towers are plain square blocks.",
+     "ly_do": "Wren's St Paul's has a lead dome with a stone lantern topped by a ball and cross. It also has a columned west portico and two ornate baroque west towers. This form is not accurate for 1798.",
+     "nam_xuat_hien": 1711,
+     "toa_do_px": [
+      422,
+      108,
+      1536,
+      886
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.0378422,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1232,
+     "cacheReadInputTokens": 3077,
+     "cacheCreationInputTokens": 10081,
+     "webSearchRequests": 0,
+     "costUSD": 0.0378422,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 328,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 12.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1798,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The Monument (a fluted Doric column with a gilded flaming urn) is not visible anywhere. The nearest candidate is a squat square white tower with a small domed cap, east of St Paul's. Other thin spires nearby are ordinary church spires.\",\"ly_do\":\"The Monument stood in 1798 and should be in this view as a tall fluted column topped by a flaming urn. Here it is missing or replaced by a plain square tower.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.78,0.58,0.83,0.72],\"do_tin\":0.5},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The St Paul's dome is drawn as a ribbed grey dome on a plain drum. The lantern is slim and ends in a pointed spire, with no ball and cross. The body is a plain boxy block with no west portico, and the two towers are plain square blocks.\",\"ly_do\":\"Wren's St Paul's has a lead dome with a stone lantern topped by a ball and cross. It also has a columned west portico and two ornate baroque west towers. This form is not accurate for 1798.\",\"nam_xuat_hien\":1711,\"toa_do\":[0.22,0.1,0.8,0.82],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0378,
+ "chi_phi_tb": 0.0378,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

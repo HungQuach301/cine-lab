@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-10-k0",
+   "nam": 1708,
+   "noi": "London",
+   "sha256": "3888c5679ecc883f65cd64aa0a430197fd4ff0bde5865992c06fe90fa1a252b6",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "St Paul's with its completed dome and lantern (1708)",
+    "the cathedral being finished (completed 1711)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The Monument on the right horizon is a thin, plain column. I can't make out any flutes or a gilded flaming urn on top. The top looks like a small cross-shaped or flat cap.",
+     "ly_do": "In 1708 the Monument was a fluted Doric column topped by a gilded flaming urn. The form shown does not match it, though the object is small and blurred.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      1766,
+      670,
+      1824,
+      767
+     ],
+     "do_tin": 0.3
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A very large, plain pointed stone spire stands in the left foreground. It sits on a square tower and rises to about the height of the cathedral's lantern. Nearby buildings are plain white boxes with no period detail.",
+     "ly_do": "No London church had a spire like this next to St Paul's in 1708. Wren's City church steeples were smaller and stepped, with classical detail. The foreground spire looks like a later or invented form.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      480,
+      443,
+      614,
+      1080
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.0378378,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1230,
+     "cacheReadInputTokens": 3083,
+     "cacheCreationInputTokens": 10087,
+     "webSearchRequests": 0,
+     "costUSD": 0.0378378,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 376,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 16.7,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1708,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The Monument on the right horizon is a thin, plain column. I can't make out any flutes or a gilded flaming urn on top. The top looks like a small cross-shaped or flat cap.\",\"ly_do\":\"In 1708 the Monument was a fluted Doric column topped by a gilded flaming urn. The form shown does not match it, though the object is small and blurred.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.92,0.62,0.95,0.71],\"do_tin\":0.3},{\"muc\":\"kien_truc\",\"mo_ta\":\"A very large, plain pointed stone spire stands in the left foreground. It sits on a square tower and rises to about the height of the cathedral's lantern. Nearby buildings are plain white boxes with no period detail.\",\"ly_do\":\"No London church had a spire like this next to St Paul's in 1708. Wren's City church steeples were smaller and stepped, with classical detail. The foreground spire looks like a later or invented form.\",\"nam_xuat_hien\":null,\"toa_do\":[0.25,0.41,0.32,1.0],\"do_tin\":0.25}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0378,
+ "chi_phi_tb": 0.0378,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

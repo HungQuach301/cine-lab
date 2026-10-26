@@ -1,0 +1,63 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H3-01-k0",
+   "nam": 1711,
+   "noi": "London",
+   "sha256": "2c0808b8bf51292468c94f2cd6907b0caeee80630c91eacbf53c9c99e402de9a",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "St Paul's Cathedral completed (1711): dome, lantern, two west towers"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The cathedral's dome is topped by a small lantern with a thin pointed spire-like finial. There is no ball and cross, and the lantern is not the stepped Wren form. The body is a plain rectangular block with a flat roofline. The west towers have small pointed spirelets instead of Wren's balustraded, u",
+     "ly_do": "The completed St Paul's of 1711 had a stone dome with a ball and cross, a Wren-style lantern, and two Baroque west towers. This rendering is a simplified or inaccurate form of that building.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      422,
+      108,
+      1498,
+      886
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.0367422,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1122,
+     "cacheReadInputTokens": 3077,
+     "cacheCreationInputTokens": 10081,
+     "webSearchRequests": 0,
+     "costUSD": 0.0367422,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 405,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 12.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The cathedral's dome is topped by a small lantern with a thin pointed spire-like finial. There is no ball and cross, and the lantern is not the stepped Wren form. The body is a plain rectangular block with a flat roofline. The west towers have small pointed spirelets instead of Wren's balustraded, urn-topped towers.\",\"ly_do\":\"The completed St Paul's of 1711 had a stone dome with a ball and cross, a Wren-style lantern, and two Baroque west towers. This rendering is a simplified or inaccurate form of that building.\",\"nam_xuat_hien\":null,\"toa_do\":[0.22,0.1,0.78,0.82],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0367,
+ "chi_phi_tb": 0.0367,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

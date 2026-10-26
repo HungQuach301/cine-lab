@@ -70,6 +70,14 @@ for ten, dn, dz, lz in (('H3-05c-s20', -20, 0, 95), ('H3-05c-s20-l', -20, -6, 80
     sh['may_b1'] = f'H3-05c-du-phong.json dịch {dn} m bắc–nam, cao {dz:+} m, điểm nhìn z {lz}'; p = ghi(ten, sh)
     viec('h5c-thu', ten, p, only=[0]); viec('h5c-thu', ten + '-m2', p, only=[0], mask=2)
 
+# H3-05c dùng: phương án s20 (soi B1: dịch 20 m về nam đưa tháp tiền cảnh sang phải mái vòm — chân trống + thân nhà thờ lộ; hạ máy làm tháp che thêm)
+#   + hạ điểm nhìn 95 → 85 m (bớt trời, mái vòm lên cao hơn trong khung). 6,0 s = 144 khung.
+sh = copy.deepcopy(h5c)
+for k in sh['keys']: k['p'] = [k['p'][0], k['p'][1] - 20, k['p'][2]]; k['l'] = [k['l'][0], k['l'][1], 85.0]
+sh['may_b1'] = 'H3-05c-du-phong.json dịch 20 m về nam, điểm nhìn z 95 → 85 (chọn sau soi 3 phương án)'; sh['shot'] = 'H3-05c'
+viec('h3', 'H3-05c', ghi('H3-05c', sh), only=list(range(144))); DS.append(dict(ma='H3-05c', tep='H3-05c', may='ban-cuoi/may/H3-05c-du-phong.json (dịch)', khung=[0, 143], so_khung=144, khung_bang=144, khung_may=144, giay=6.0))
+viec('soi2', 'soi2-H2-09', REL + 'soi-H2-09.json', only=[239])
+
 # ---------------------------------------------------------------- M00 VONG 17 s (P1b, D-A8): cung quanh tâm lửa đầu cầu, ±12,5° (≈ 1,5°/s ≤ 3°/s), hạ 125 → 112 m, giờ 19,6 → 20,6
 m0 = ld(f'{BC}/may/M00-moi-a.json'); k0 = m0['keys'][0]; L0 = k0['l']; dx, dy = k0['p'][0] - L0[0], k0['p'][1] - L0[1]; r0 = math.hypot(dx, dy); a0 = math.atan2(dy, dx)
 keys = []

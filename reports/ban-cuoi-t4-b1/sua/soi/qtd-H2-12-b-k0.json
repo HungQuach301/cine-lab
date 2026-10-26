@@ -1,0 +1,63 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-12-b-k0",
+   "nam": 1711,
+   "noi": "London",
+   "sha256": "4891b3a400932d599cbefa8bb726fdf41a538b479efcf948f51ad1fa2ac49ccf",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "St Paul's Cathedral completed (1711): dome, lantern, two west towers"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "St Paul's is shown with its dome, lantern and two west towers. I can't see the Monument, a tall fluted Doric column with a gilded urn, anywhere in the skyline east of St Paul's. Only small spires and plain tower-like blocks stand there.",
+     "ly_do": "The Monument was completed in 1677 and should stand in this view in 1711. It is missing or has been replaced by generic spires.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      1344,
+      540,
+      1574,
+      842
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.0346184,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 904,
+     "cacheReadInputTokens": 3089,
+     "cacheCreationInputTokens": 10103,
+     "webSearchRequests": 0,
+     "costUSD": 0.0346184,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 226,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.0,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"St Paul's is shown with its dome, lantern and two west towers. I can't see the Monument, a tall fluted Doric column with a gilded urn, anywhere in the skyline east of St Paul's. Only small spires and plain tower-like blocks stand there.\",\"ly_do\":\"The Monument was completed in 1677 and should stand in this view in 1711. It is missing or has been replaced by generic spires.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.7,0.5,0.82,0.78],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0346,
+ "chi_phi_tb": 0.0346,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

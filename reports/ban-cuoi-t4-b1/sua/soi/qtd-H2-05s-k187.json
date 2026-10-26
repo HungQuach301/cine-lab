@@ -1,0 +1,124 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 4 · chi phí $0.050 (TB $0.050/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-05s-k187",
+   "nam": 1670,
+   "noi": "London",
+   "sha256": "fc032b6f18fb39ccc2e0f2d86ac855dd423eddf27dd1a957d1b509eb04e223ae",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "no Monument column yet (the Monument was begun in 1671)",
+    "no new St Paul's Cathedral (begun 1675)",
+    "only the ruins of Old St Paul's"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "Dense, uniform brick terraced houses fill the view. They have flat-fronted facades in regular grids of white-framed multi-pane sash windows, and the brick walls rise to plain parapets.",
+     "ly_do": "This is a Georgian-style townscape. Sash windows only came in around the 1670s–1680s, and uniform brick terraces came after the 1666 Fire building acts. Most of 1670 London was still being rebuilt, with many ruins, timber-framed jettied houses and casement windows.",
+     "nam_xuat_hien": 1700,
+     "toa_do_px": [
+      0,
+      648,
+      1920,
+      1080
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A long, pale white-rendered building with regular rows of windows sits on the left horizon. It looks like a Georgian or Regency terrace or block.",
+     "ly_do": "A long, uniform, white stuccoed terrace with a regular window grid is not typical of 1670 London. Such terraces date from the 18th and 19th centuries.",
+     "nam_xuat_hien": 1750,
+     "toa_do_px": [
+      403,
+      497,
+      672,
+      540
+     ],
+     "do_tin": 0.35
+    },
+    {
+     "muc": "khác:cong_trinho_moc",
+     "mo_ta": "No ruins of Old St Paul's, and no other large landmark such as a church tower or steeple, appear in the skyline. There is only one small spire on the far right horizon.",
+     "ly_do": "The ruined Old St Paul's was a dominant feature of the 1670 skyline, and the city churches were still being rebuilt. If the view covers the City, that landmark is missing.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      576,
+      432,
+      1344,
+      540
+     ],
+     "do_tin": 0.2
+    },
+    {
+     "muc": "vat_hien_dai",
+     "mo_ta": "A tall, flat-sided slab of featureless dark grey, windowless material stands among the brick houses on the left. It looks like a modern concrete block or tower.",
+     "ly_do": "Nothing like a plain concrete or slab-sided high-rise existed in 1670 London. Buildings were brick, timber or stone with pitched roofs and windows.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      182,
+      529,
+      346,
+      724
+     ],
+     "do_tin": 0.55,
+     "xac_nhan": {
+      "vung_px": [
+       0,
+       334,
+       556,
+       919
+      ],
+      "phong": 1.15,
+      "tra_loi": {
+       "vat": "Dense red-brick townhouses and chimneys, with a tall plain dark-grey block at the centre",
+       "dac_diem": "Brick houses with pitched slate or tile roofs. The windows are regularly spaced, white-framed and multi-paned. There are many brick chimney stacks. At the centre is a tall, flat, featureless grey-brown wall with a dark side face. It looks like a blank rendered building side or an untextured model. I can't see any antennas, wires, plastic, road markings or street furniture.",
+       "co_tu_nam": null,
+       "da_co_nam_1670": "cannot_tell",
+       "ly_do": "Nothing clearly modern is visible. Brick houses with chimneys existed in 1670, though the uniform Georgian-style sash windows look somewhat later. The central grey slab is too featureless to identify."
+      },
+      "da_co": "cannot_tell",
+      "giu": false,
+      "cost_usd": 0.0099329,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 1.15×: da_co_nam = 'cannot_tell' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.05018759999999999,
+   "cost_buoc2": 0.00993,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1472,
+     "cacheReadInputTokens": 3077,
+     "cacheCreationInputTokens": 10086,
+     "webSearchRequests": 0,
+     "costUSD": 0.04025469999999999,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 229,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 15.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1670,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"A tall, flat-sided slab of featureless dark grey, windowless material stands among the brick houses on the left. It looks like a modern concrete block or tower.\",\"ly_do\":\"Nothing like a plain concrete or slab-sided high-rise existed in 1670 London. Buildings were brick, timber or stone with pitched roofs and windows.\",\"nam_xuat_hien\":null,\"toa_do\":[0.095,0.49,0.18,0.67],\"do_tin\":0.55},{\"muc\":\"kien_truc\",\"mo_ta\":\"Dense, uniform brick terraced houses fill the view. They have flat-fronted facades in regular grids of white-framed multi-pane sash windows, and the brick walls rise to plain parapets.\",\"ly_do\":\"This is a Georgian-style townscape. Sash windows only came in around the 1670s–1680s, and uniform brick terraces came after the 1666 Fire building acts. Most of 1670 London was still being rebuilt, with many ruins, timber-framed jettied houses and casement windows.\",\"nam_xuat_hien\":1700,\"toa_do\":[0.0,0.6,1.0,1.0],\"do_tin\":0.4},{\"muc\":\"kien_truc\",\"mo_ta\":\"A long, pale white-rendered building with regular rows of windows sits on the left horizon. It looks like a Georgian or Regency terrace or block.\",\"ly_do\":\"A long, uniform, white stuccoed terrace with a regular window grid is not typical of 1670 London. Such terraces date from the 18th and 19th centuries.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.21,0.46,0.35,0.5],\"do_tin\":0.35},{\"muc\":\"cong_trinho_moc\",\"mo_ta\":\"No ruins of Old St Paul's, and no other large landmark such as a church tower or steeple, appear in the skyline. There is only one small spire on the far right horizon.\",\"ly_do\":\"The ruined Old St Paul's was a dominant feature of the 1670 skyline, and the city churches were still being rebuilt. If the view covers the City, that landmark is missing.\",\"nam_xuat_hien\":null,\"toa_do\":[0.3,0.4,0.7,0.5],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0502,
+ "chi_phi_tb": 0.0502,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

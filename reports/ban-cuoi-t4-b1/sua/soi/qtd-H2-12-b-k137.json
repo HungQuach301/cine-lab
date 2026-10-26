@@ -1,0 +1,63 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-12-b-k137",
+   "nam": 1711,
+   "noi": "London",
+   "sha256": "9d091fd4489efa514f23633369a36893ac15273ad73d8bd2bb3c8a52ed24c418",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "St Paul's Cathedral completed (1711): dome, lantern, two west towers"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "I can't find the Monument, a tall fluted Doric column with a gilded urn, anywhere in the view. The area east of St Paul's shows only ordinary houses and thin church spires.",
+     "ly_do": "The Monument was completed in 1677 and should stand in this view in 1711. It looks absent.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1306,
+      486,
+      1632,
+      864
+     ],
+     "do_tin": 0.35
+    }
+   ],
+   "cost_usd": 0.0341184,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 854,
+     "cacheReadInputTokens": 3089,
+     "cacheCreationInputTokens": 10103,
+     "webSearchRequests": 0,
+     "costUSD": 0.0341184,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 212,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.0,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"I can't find the Monument, a tall fluted Doric column with a gilded urn, anywhere in the view. The area east of St Paul's shows only ordinary houses and thin church spires.\",\"ly_do\":\"The Monument was completed in 1677 and should stand in this view in 1711. It looks absent.\",\"nam_xuat_hien\":null,\"toa_do\":[0.68,0.45,0.85,0.8],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0341,
+ "chi_phi_tb": 0.0341,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

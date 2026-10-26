@@ -1,0 +1,83 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung H2-06-k414 năm 1676: [cong_trinh_moc] I can't see St Paul's Cathedral in the view. Where the old and new cathedral should stand, up the river from the Monument, there are only small white church spires among uniform brick housing. There is no large cathedral mass, no building site, and no medieval nave or tower. — The new St Paul's was under construction from 1675, with a large building site in the city. Old St Paul's had been demolished. Neither is shown. (xuất hiện 1675) @px [422, 162, 691, 432] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-06-k414",
+   "nam": 1676,
+   "noi": "London",
+   "sha256": "46795e25ec6fe07815b53e18c100f56a725a051287e58599f1559c0756349265",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument under construction (1671-1677): a fluted Doric column, incomplete at the top",
+    "the new St Paul's Cathedral under construction (begun 1675): NO completed dome and lantern yet (completed 1708)"
+   ],
+   "nghi_van": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "I can't see St Paul's Cathedral in the view. Where the old and new cathedral should stand, up the river from the Monument, there are only small white church spires among uniform brick housing. There is no large cathedral mass, no building site, and no medieval nave or tower.",
+     "ly_do": "The new St Paul's was under construction from 1675, with a large building site in the city. Old St Paul's had been demolished. Neither is shown.",
+     "nam_xuat_hien": 1675,
+     "toa_do_px": [
+      422,
+      162,
+      691,
+      432
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "loi": null,
+      "ghi": "lớp công trình mốc: không qua bước 2 (vật vắng không phóng được) — giữ"
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The Monument is drawn as a finished, slender column with a capped top. It has a plinth and a small finial or platform on top.",
+     "ly_do": "In 1676 the Monument was still under construction (1671-1677) and the top was incomplete. The finial (urn) was added in 1677.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      806,
+      454,
+      883,
+      886
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.036455999999999995,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1090,
+     "cacheReadInputTokens": 3090,
+     "cacheCreationInputTokens": 10094,
+     "webSearchRequests": 0,
+     "costUSD": 0.036455999999999995,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 258,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1676,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"I can't see St Paul's Cathedral in the view. Where the old and new cathedral should stand, up the river from the Monument, there are only small white church spires among uniform brick housing. There is no large cathedral mass, no building site, and no medieval nave or tower.\",\"ly_do\":\"The new St Paul's was under construction from 1675, with a large building site in the city. Old St Paul's had been demolished. Neither is shown.\",\"nam_xuat_hien\":1675,\"toa_do\":[0.22,0.15,0.36,0.4],\"do_tin\":0.5},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The Monument is drawn as a finished, slender column with a capped top. It has a plinth and a small finial or platform on top.\",\"ly_do\":\"In 1676 the Monument was still under construction (1671-1677) and the top was incomplete. The finial (urn) was added in 1677.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.42,0.42,0.46,0.82],\"do_tin\":0.25}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0365,
+ "chi_phi_tb": 0.0365,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}
