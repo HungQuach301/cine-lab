@@ -51,7 +51,7 @@
 | N2P-2 | N2+ (ii) lỗi thời đại (2 mô hình + O2) | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(ii), K đề xuất — lỗi Chặn 0, Cảnh báo 0 | 1 tấm · lỗi có năm 0 · nghi vấn không năm 0 (người đọc) · q_thoi_dai mới 0 · giới hạn: cờ ~20 px không bảo đảm | 0 lỗi có năm (gpt ∪ claude) · O2 mới so render 0 |  |
 | N2P-3 | N2+ (iii) đổi loại vùng T9b | **TRƯỢT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iii); 1.17.5: nước→đất = T9c (c) bờ lấn, (d) giữa nước (đối chứng render) — lỗi Chặn 1, Cảnh báo 0 | 1 tấm · T9b lớn nhất 0.00 % · mô hình báo 1 · T9c (1.17.5): đoạn bờ lấn 0, sâu nhất 0.0 px, giữa nước ≤ 0.0 %; T9b nước→đất (chỉ in) 0.00 % | T9b đất→nước ≤ 2 % · (1.17.5) T9c: 0 bờ lấn ≥ 6 px · giữa nước ≤ 2 % · 0 báo mô hình · (1.17.6) khung không nước: T9c KHÔNG ÁP |  |
 | N2P-4 | N2+ (iv) đóng băng trên tấm tĩnh | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (c)(iv), K đề xuất — lỗi Chặn 0, Cảnh báo 0 | 1 tấm (1 tĩnh) · vật chuyển động 0 | 0 vật chuyển động trên tấm tĩnh |  |
-| N2P-5 | N2+ (v) nhấp nháy + chuyển tấm | **TRƯỢT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (b), (c)(v), K đề xuất — lỗi Chặn 1, Cảnh báo 0 | 1 shot tấm nền · chưa đo | hoà ≥ 2 s · ≤ 1 ΔE/khung · nhấp nháy ≤ 1,5 × đối chứng |  |
+| N2P-5 | N2+ (v) nhấp nháy + chuyển tấm | **ĐẠT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (b), (c)(v), K đề xuất — lỗi Chặn 0, Cảnh báo 0 | 1 shot tấm nền · H5-05a: bước 0.029 ΔE/khung @1.333 s · nhấp nháy 0.0354 (đối chứng 2.1884, trần 3.2826) | hoà ≥ 2 s · ≤ 1 ΔE/khung · nhấp nháy ≤ 1,5 × đối chứng |  |
 | N2P-6 | N2+ (vi) trần §15(d) | **TRƯỢT** | Chặn ở G2 · Cảnh báo ở animatic — §15 (d) trần, K đề xuất — lỗi Chặn 2, Cảnh báo 0 | 3.0 s · tấm nền 100.0 % (1) · minh hoạ 0.0 % (0; không trần cứng từ 1.17.4 — Q2) · tổng AI 100.0 % (1) | tấm nền ≤ 50 % · minh hoạ ≤ 20 % · tổng AI ≤ 70 % · không chồng shot |  |
 | N2P-E | N2+ toàn khung hiện đại — LUẬT E (1.17.8) | **ĐẠT** | Chặn (k) điều kiện, (f) toà có tên có mặt, (g) đêm không chữ/biển/logo AI ở G2 · Cảnh báo ở animatic · (w) toà bịa cao hơn mốc gần / chữ ban ngày luôn Cảnh báo — 1.17.8 — lỗi Chặn 0, Cảnh báo 0 | 1 tấm E · E-P9-ngay-l1-thap: 10 toà có tên, (f1) 0 lỗi, tháp bịa máy 0 / mô hình 0, ngày (khai `dem`), chữ máy 0 / mô hình 0, (a)-E 5.74 %, nhà thường 37.68 % | tấm n2p_toan_khung_hien_dai: năm ≥ nam_min (≥ 2020) + CODINH · (a)-E 0/255 (sông, bờ, toà có tên, cầu, thuyền, lửa) · (f) mọi toà có tên khai có mặt; toà bịa cao hơn mốc gần → Cảnh báo · (g) đêm: 0 chữ/biển/logo AI |  |
 | MAY-19 | Ngữ pháp máy §19 (a) | **TRƯỢT** | Chặn (a)–(g) ở G2 · Cảnh báo ở animatic · (w) luôn Cảnh báo — §19 (a) — lỗi Chặn 2, Cảnh báo 0 | 1 shot cú máy · log khung 0 · tóm tắt 0 · loại/chương thu-e:1 · THAP 0.0 % · lỗi a 0 b 0 c 0 d 1 e 0 f 0 · cảnh báo w 0 | tốc độ theo cú máy (log khung) · N2+ = CODINH · KHOP ≤ 0,5 px · ≥ 4 loại/chương · ≤ 2 liền · THAP ≤ 12 % |  |
@@ -123,8 +123,6 @@
 - (c) tấm E-P9-ngay-l1-thap (H5-05a): 10 cụm ΔE ≥ 30 trong dải 20 px quanh (a) (người đọc tờ so): [228, 867, 275, 882] 310 px, [48, 854, 82, 861] 197 px, [659, 771, 676, 796] 159 px, [1753, 701, 1784, 709] 157 px
 ### N2P-3
 - (b) tấm E-P9-ngay-l1-thap (H5-05a): gpt báo đổi loại vùng «Apparent land/pier-to-water conversion at the extreme lower-left corne»
-### N2P-5
-- H5-05a: shot tấm nền chưa có video đo (n2p.video: ghep + render đối chứng + mat_na)
 ### N2P-6
 - (a) tấm nền N2+ 100.0 % > 50 % thời lượng (1 shot)
 - (c) tổng khung có AI 100.0 % > 70 % (1 shot)

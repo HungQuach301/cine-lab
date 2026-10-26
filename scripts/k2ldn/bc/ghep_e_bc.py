@@ -72,10 +72,12 @@ def ghep(k, ai, tag):
     json.dump(rec, open(f'{t}/ghep.json', 'w'), ensure_ascii=False, indent=1); print(json.dumps(rec, ensure_ascii=False))
 
 
-def video(k, tag, src):
+def video(k, tag, src, mn=''):
     """tấm tĩnh + lớp (a)-E từ render từng khung (640×360); mặt nạ khung 0 (máy CODINH)"""
     o = f'{BCE}/{k}'; t = f'{o}/{tag}'; tmp = f'/var/tmp/bc/tmp-{k}-{tag}'; os.makedirs(tmp, exist_ok=True)
-    M = cv2.imread(f'{R}/{src}-m1/00000.png'); A = lop_a(M); B = bao_ve(A); al = np.clip(cv2.distanceTransform((~B).astype(np.uint8), cv2.DIST_L2, 3) / 2.0, 0, 1)[..., None]
+    M = cv2.imread(f'{R}/{src}-m1/00000.png')
+    if mn: M = cv2.resize(cv2.imread(f'{o}/matna-{mn}.png'), (M.shape[1], M.shape[0]), interpolation=cv2.INTER_NEAREST)   # mặt nạ biến thể (thu nhỏ NEAREST)
+    A = lop_a(M); B = bao_ve(A); al = np.clip(cv2.distanceTransform((~B).astype(np.uint8), cv2.DIST_L2, 3) / 2.0, 0, 1)[..., None]
     T = cv2.resize(cv2.imread(f'{t}/ghep.png'), (M.shape[1], M.shape[0]), interpolation=cv2.INTER_AREA).astype(np.float64)
     fs = sorted(x for x in os.listdir(f'{R}/{src}') if x.endswith('.png'))
     for i, f in enumerate(fs):
@@ -90,7 +92,7 @@ if __name__ == '__main__':
     c = sys.argv[1]
     if c == 'prep': prep(sys.argv[2])
     elif c == 'ghep': ghep(sys.argv[2], sys.argv[3], sys.argv[4])
-    elif c == 'video': video(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif c == 'video': video(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5] if len(sys.argv) > 5 else '')
 
 
 # ---- biến thể mặt nạ "thap" (đề xuất E1-b): lớp (a)-E công trình có tên = mái vòm St Paul's + mọi lớp không phải nhà OSM (cầu, tường, nhà thờ, Monument…)
