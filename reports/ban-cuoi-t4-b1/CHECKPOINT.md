@@ -10,3 +10,5 @@
 
 ## Lệnh bổ sung đã áp
 - (chưa có)
+- 04:00: dừng du_lieu.sh sau bước flipbook (bước hình học look2 + nướng look2 không dùng ở B1) → hình học B1 `scripts/k2ldn/bc/hinh_hoc_b1.py` (THU-B d + sửa niên đại toà OSM, Q-A5) nền PID 3352; nướng look3d 10 mốc `scripts/k2ldn/bc/nuong_b1.sh` nền PGID 3742 (chờ hình học).
+- 04:10: trang dựng B1 `design/k2v/ldn/bc/look3-b1.js` sinh bằng `scripts/k2ldn/bc/tao_look3_b1.py` (look3 + D-A4 (i)–(iv)); máy + danh sách việc `scripts/k2ldn/bc/may_b1.py` → `channel-k2/k2c-t4-02/ban-cuoi/may/b1/` (HỒI 1: 19 việc 3 547 khung; HỒI 3: 7 việc 1 127 khung; M00 VONG; H3-05c thử 3 phương án; MAY-19 H2-10/H5-05b; soi năm biên 10 máy 24 khung).
