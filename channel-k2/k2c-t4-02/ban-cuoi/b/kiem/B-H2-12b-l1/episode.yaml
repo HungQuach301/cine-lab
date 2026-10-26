@@ -1,0 +1,40 @@
+id: ban-cuoi-t4-a-B-B-H2-12b
+title: BAN-CUOI-T4-A thử B (không phải tập)
+brand: MOVING PARTS
+channel: k2
+khung_sach: true
+kenh2_tu_t4: true
+animatic: false
+be_mat_nha_px_m_min: 4
+be_mat_nha_y_san_nhap: 0.01
+out: /var/tmp/bc/k2c/B-H2-12b
+segments:
+- id: s0
+  dur: 3.0
+  shots:
+  - id: H2-12
+    at: 0.0
+    tpl: scene3d
+n2p:
+  noi: London
+  t4: true
+  tam:
+  - id: B-H2-12b-l1-tiso
+    shot: H2-12
+    render: ../../tam/B-H2-12b/render.png
+    ghep: ../../tam/B-H2-12b/l1/ghep.png
+    mat_na: ../../tam/B-H2-12b/matna.png
+    nam: 1711
+    anh_tinh: true
+    be_mat_nha_ai: true
+    mat_na_nha: ../../tam/B-H2-12b/mat_na_nha.png
+    mat_na_mat: ../../tam/B-H2-12b/mat_na_mat.png
+    bong: ../../tam/B-H2-12b/bong.png
+    nha: ../../tam/B-H2-12b/nha.json
+    nen_ai: false
+    be_mat_nha_video:
+      ghep: /var/tmp/bc/thub/bp/B-H2-12b/l1/tl-chieu_tiso.mp4
+      render: /var/tmp/bc/B-H2-12b-tl-render.mp4
+      cach: chieu_3d
+      tam: ../../tam/B-H2-12b/l1/ghep.png
+log_shot: log-shot.json
