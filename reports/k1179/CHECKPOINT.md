@@ -24,3 +24,4 @@ Giờ UTC theo đồng hồ container.
 | 03:54 | preflight `checks/` bắt 1 email giả trong selftest (dựng lúc chạy) → ĐẠT; **lock.py (một lần) 03:54:51 → 1.17.9 `9eddaf24…`, --verify KHỚP** | xong |
 | 03:55–04:05 | Sau khoá: selftest 18/18 bộ ĐẠT (`do/selftest-sau-khoa.txt`); T3 1.17.8 (worktree) **trùng hệt** bảng K-1.17.8 trừ tiêu đề | xong |
 | 04:05– | cinecheck L1 selftest; rồi T3 1.17.9; chuỗi E/KN-1/KN-8/đặc tả v4 sau khoá (P ≤ 2) | đang chạy |
+| 04:17–04:20 | Sau khoá: 8 tấm E 0 hàng đổi; KN-1 khai thử; ghép KN-8 (+ bộ đệm mô hình); đặc tả v4 1.17.8 (tái chạy = bảng A) ↔ 1.17.9: 5 hàng; bảng ở `do/k2/` | xong |
