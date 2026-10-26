@@ -10,6 +10,7 @@
 - 23:51: dữ liệu LDN xong (OSM, LiDAR, tư liệu — 2 lỗi tải không dùng: Ogilby 429, NGA Wren; atlas lửa; hình học look2; nướng 9 mốc). Chuỗi nền 1 (`scripts/k2ldn/bc/chuoi_1.sh`, PGID 4833): hình học look3d (THU-B d: 95 393 nhà thường, 4 599 255 tam giác) + look3e (mã 3 485 toà OSM có tên) xong 23:59 → nướng look3d 9 mốc → dựng (ảnh đầu M-d, E, P1, B, mẫu, video E).
 - Commons: 429 liên tục từ 23:37 (chờ theo Retry-After/600 s, ≤ 1 yêu cầu/5 s) — IWM D 6418 gốc chưa về. Europeana/LoC thử: không có ảnh hiện đại CC BY/PD phù hợp (LoC "rights not evaluated", Europeana chủ yếu BY-SA/trước 1900).
 - H1-15b: YuNet (mô hình checks/models, chỉ dùng tệp mô hình) — các hộp "mặt > 1/8" (khung 113–139, điểm 0,6–0,78) nằm trên trời/tán cây (báo nhầm; mặt người thật ≈ 3 % khung). Theo A1: cắt clip còn khung 0–110 (4,625 s).
+- 00:50: Omni C1 (b): H1-06x CHỌN l1; H2-02b, H2-06b, H2-09x, H2-10b TRƯỢT 2/2 (lỗi thật lớp mốc/cầu/tàu); H5-04c CHỌN l1. 720p đo thật $0,614/6 s. E lượt 1: P9 ngày (mặt nạ đủ) 0 Chặn trừ N2P-5 chưa đo; P9 đêm TRƯỢT (g); P1 ngày TRƯỢT N2P-4 (người AI) → lượt 2 xong, chờ kiểm. P1 điểm đứng: đo xong (khuyến nghị giữ). B: 2 khung ghép xong (≥ 4 px/m), chờ timelapse tỉ số bóng. Chuỗi 1 đang dựng mẫu 1080p; chuỗi 2 (PGID 20097) chờ.
 - Chi phí đến giờ: Gemini 0 · OpenAI 0 · Claude API 0 · ElevenLabs 0 · RunPod 0.
 
 ## Lệnh bổ sung đã áp
