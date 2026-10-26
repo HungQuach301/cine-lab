@@ -1,0 +1,54 @@
+[ WARN:0@16.731] global net_impl_backend.cpp:345 setPreferableTarget Targets are not supported by the new graph engine for now
+ĐÚNG | KN-1 | THẬT E-P9-ngay-l1-thap: không ngoai_le → GPT "bờ" N2P-1 (b) + N2P-3 (b) Chặn (tái hiện) | kỳ vọng bắt lỗi
+ĐÚNG | KN-1 | THẬT: máy sạch — N2P-1 (a) 0/255 ở 640×360 | kỳ vọng sạch
+ĐÚNG | KN-1 | THẬT + ngoai_le hợp lệ (máy sạch, hộp ≤ 25 % lõi) → hết N2P-1 (b), N2P-3 (b) | kỳ vọng sạch
+ĐÚNG | KN-1 | … báo mô hình chuyển thành (w) Cảnh báo ở N2P-E (người đọc thấy) | kỳ vọng sạch
+ĐÚNG | KN-1 | … N2P-E không Chặn ở G2 vì ngoại lệ (w) | kỳ vọng sạch
+ĐÚNG | KN-1 | ngoai_le có email ở nguoi_ky → không nhận, (b) giữ | kỳ vọng bắt lỗi
+ĐÚNG | KN-1 | ngoai_le xin miễn máy N2P-1 (a) → không nhận | kỳ vọng bắt lỗi
+ĐÚNG | KN-1 | ngoai_le hộp khai ở chỗ khác → (b) giữ | kỳ vọng bắt lỗi
+ĐÚNG | KN-1 | ngoai_le không có duyet_chu_du_an → (b) giữ | kỳ vọng bắt lỗi
+ĐÚNG | KN-1 | máy BẨN (AI vẽ lên mái vòm St Paul's) + ngoai_le → ngoại lệ không áp: (b) giữ + N2P-1 (a) | kỳ vọng bắt lỗi
+ĐÚNG | KN-1 | … máy không bao giờ được miễn: N2P-1 (a) vẫn Chặn | kỳ vọng bắt lỗi
+ĐÚNG | KN-1 | hộp mô hình nằm phần lớn trong lõi (a)-E (mái vòm St Paul's) + ngoai_le → (b) giữ | kỳ vọng bắt lỗi
+ĐÚNG | KN-5 | THẬT CityPoint đỉnh 122,6 m ODN, loai thap → sạch | kỳ vọng sạch
+ĐÚNG | KN-5 | THẬT Mansion House 26,2 m khai loai thap → (k) không phải tháp | kỳ vọng bắt lỗi
+ĐÚNG | KN-5 | THẬT Mansion House loai lich_su + nguon (NHLE) → sạch | kỳ vọng sạch
+ĐÚNG | KN-5 | THẬT mục có `nguon` mặt nạ ("OSM name") nhưng lich_su thiếu nguon_lich_su → (k) | kỳ vọng bắt lỗi
+ĐÚNG | KN-5 | St Paul's loai mai_vom → sạch; thap thiếu độ cao → (k) | kỳ vọng sạch
+ĐÚNG | KN-5 | không khai loai → không lỗi (hành vi 1.17.8; chỉ đếm ở giá trị) | kỳ vọng sạch
+ĐÚNG | KN-5 | tấm thật khai mọi toà loai thap (gồm Guildhall 2x m) → N2P-E (k) Chặn ở G2 | kỳ vọng bắt lỗi
+ĐÚNG | KN-5 | cấp: (k) KN-5 Chặn ở G2, Cảnh báo ở animatic | kỳ vọng sạch
+ĐÚNG | KN-8 | THẬT P1 nước AI (bờ phía đất + cầu/tàu render) + nuoc_ai → N2P-1 (a) 0/255 | kỳ vọng sạch
+ĐÚNG | KN-8 | … T9c trên tấm nuoc_ai chỉ in (không Chặn N2P-3 (c)(d)) | kỳ vọng sạch
+ĐÚNG | KN-8 | … có duyệt → không (u) | kỳ vọng sạch
+ĐÚNG | KN-8 | cùng ảnh KHÔNG khai nuoc_ai → N2P-1 (a) (nước phải = render như 1.17.8) | kỳ vọng bắt lỗi
+ĐÚNG | KN-8 | nuoc_ai không duyệt chủ dự án → (u) THIẾU | kỳ vọng bắt lỗi
+ĐÚNG | KN-8 | mô hình báo THÊM cầu trên mặt nước AI → N2P-1 (b) Chặn | kỳ vọng bắt lỗi
+ĐÚNG | KN-8 | mô hình báo đổi trên nhà thường (đất) → không (b) (AI vẽ lại nhà thường được phép) | kỳ vọng sạch
+ĐÚNG | KN-6 | đẩy 2D cả khung 1,0 %/s → không (h) | kỳ vọng sạch
+ĐÚNG | KN-6 | đẩy 2D cả khung đúng 1,5 %/s (đo 1,505 — sai số đo 2 %) → không (h) | kỳ vọng sạch
+ĐÚNG | KN-6 | đẩy 2D 3,0 %/s > 1,5 %/s → (h) | kỳ vọng bắt lỗi
+ĐÚNG | KN-6 | lớp (a)-E đứng yên trong khi nền đẩy 1,0 %/s (khác quỹ đạo) → (h) | kỳ vọng bắt lỗi
+ĐÚNG | KN-6 | video không khai day_2d → không đo (hành vi 1.17.8) | kỳ vọng sạch
+ĐÚNG | KN-6 | cấp: (h) Chặn ở G2, Cảnh báo ở animatic | kỳ vọng sạch
+ĐÚNG | KN-4 | THẬT H1-15b cả clip (7 s) → (a) mặt giả trên trời 0,162 > 1/8 (tái hiện) | kỳ vọng bắt lỗi
+ĐÚNG | KN-4 | THẬT H1-15b cat_clip [0, 110] (4,625 s dùng) → không (a) | kỳ vọng sạch
+ĐÚNG | KN-4 | cat_clip dài khác thời lượng đoạn → (k) | kỳ vọng bắt lỗi
+ĐÚNG | KN-4 | cat_clip {t0, t1} giây → nhận | kỳ vọng sạch
+ĐÚNG | KN-7 | THẬT H3-05b không chân dung, không khai chan_dung → (k) như 1.17.8 | kỳ vọng bắt lỗi
+ĐÚNG | KN-7 | THẬT H3-05b chan_dung khong_co + nguồn đã tra + YuNet 0,070 + AUTHORSHIP 00:12 → hết (k) | kỳ vọng sạch
+ĐÚNG | KN-7 | nguồn đã tra rỗng → (k) | kỳ vọng bắt lỗi
+ĐÚNG | KN-7 | duyệt không có dòng AUTHORSHIP khớp giờ → (k) | kỳ vọng bắt lỗi
+ĐÚNG | KN-7 | THẬT H1-15b (mặt > 1/8) + chan_dung khong_co → (k) giữ + (a) cận mặt vẫn Chặn | kỳ vọng bắt lỗi
+ĐÚNG | KN-7 | … và (k) không được miễn khi YuNet > 1/8 | kỳ vọng bắt lỗi
+ĐÚNG | KN-2 | THẬT H1-08b (CODINH, hoàng hôn): mặt trời qua 0° và −6° → 2 biến cố n1 | kỳ vọng sạch
+ĐÚNG | KN-2 | THẬT H1-16 (32 giờ trong 7,25 s): ≥ 4 biến cố n1 | kỳ vọng sạch
+ĐÚNG | KN-2 | THẬT H2-03b (DAY, năm 1667,05→1667,45, nắng không đổi): 0 biến cố n1; năm chạy KHÔNG tính | kỳ vọng sạch
+ĐÚNG | KN-2 | tập T3 → không cộng (hành vi 1.17.8) | kỳ vọng sạch
+ĐÚNG | KN-2 | Q37 cộng biến cố log máy: TB giảm, giá trị ghi "đo log máy" | kỳ vọng sạch
+ĐÚNG | KN-2 | Q37 không ép đạt: H2-03b 20,17 s không biến cố → (c) vẫn TRƯỢT | kỳ vọng bắt lỗi
+ĐÚNG | KN-2 | beats tự khai bien_co_tl không neo mốc đặc tả → (a) như cũ (A4 1.17.7 giữ) | kỳ vọng bắt lỗi
+
+selftest_k1179: 50/50 đúng kỳ vọng
+rc=0
