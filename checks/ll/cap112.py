@@ -99,10 +99,10 @@ CAP = {
     # 1.17.7 (phiên K-1.17.7, 25/10/2026; chủ dự án 25/10 09:15 gói "50 % tiết kiệm" + P1–P10; 06:56 C11, C13; lệnh: "Chặn G2 / Cảnh báo animatic")
     'GOC-CAO': ('Chặn (p) tỉ lệ ≥ goc_cao_min_pct, (a)–(d) 5 chốt cấu trúc, (k) khai sai ở G2 · Cảnh báo ở animatic · (w) luôn Cảnh báo — Q2 (iii) + gói tiết kiệm', set('pabcdk'), {'w'}),
     'TU-LIEU-THAT': ('Chặn (a) THAT có AI, (g) footage hiện đại thiếu giấy phép (tệp + SHA) ở G2 · Cảnh báo ở animatic · (w) luôn Cảnh báo — §19 (c) + gói tiết kiệm', set('ag'), {'w'}),
-    'NHAN-VAT-TEN': ('Chặn (a) cận mặt > 1/8 khung, (k) chân dung tham chiếu, (u) thiếu duyệt chủ dự án, (m) không đo được ở G2 · Cảnh báo ở animatic · (w) luôn Cảnh báo — P2 b', set('akum'), {'w'}),
+    'NHAN-VAT-TEN': ('Chặn (a) cận mặt > 1/8 khung, (k) chân dung tham chiếu (1.17.9 KN-7: miễn khi không có chân dung + nguồn đã tra + YuNet ≤ 1/8 + duyệt; `cat_clip` sai), (u) thiếu duyệt chủ dự án, (m) không đo được ở G2 · Cảnh báo ở animatic · (w) luôn Cảnh báo — P2 b; 1.17.9 KN-4 cửa sổ `cat_clip`', set('akum'), {'w'}),
     'KIEM-2-MUC': ('Chặn ở G2 · Cảnh báo ở animatic — kiểm 2 mức day_du / nen (gói tiết kiệm)', {'*'}, set()),
     # 1.17.8 (chủ dự án 26/10 00:07 "A+B+E"): LUẬT E — tấm nền AI toàn khung hiện đại
-    'N2P-E': ('Chặn (k) điều kiện, (f) toà có tên có mặt, (g) đêm không chữ/biển/logo AI ở G2 · Cảnh báo ở animatic · (w) toà bịa cao hơn mốc gần / chữ ban ngày luôn Cảnh báo — 1.17.8', set('kfg'), {'w'}),
+    'N2P-E': ('Chặn (k) điều kiện + loại toà có tên (1.17.9 KN-5), (f) toà có tên có mặt, (g) đêm không chữ/biển/logo AI, (h) đẩy/trượt 2D (1.17.9 KN-6), (u) duyệt tấm nước AI (1.17.9 KN-8) ở G2 · Cảnh báo ở animatic · (w) toà bịa cao hơn mốc gần / chữ ban ngày / ngoại lệ mô hình đã duyệt luôn Cảnh báo — 1.17.8; 1.17.9', set('kfghu'), {'w'}),
 }
 CONG = {'K-LAI-3V', 'MINH-HOA', 'EO-DAT-R2', 'EO-DAT-R3', 'EO-DAT-R4', 'N2P-1', 'N2P-2', 'N2P-3', 'N2P-4', 'N2P-5', 'N2P-6',
         'BIEN-CO-V', 'MAY-19', 'BAN-DO-12', 'TU-LIEU-10', 'AI-TU-LIEU', 'GEMINI-NGAN-SACH', 'GOC-CAO-60', 'BE-MAT-NHA', 'TU-LIEU-OMNI',

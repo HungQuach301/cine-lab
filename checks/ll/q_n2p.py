@@ -119,10 +119,11 @@ def _blue(bgr):
     h = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV); return (h[..., 0] >= 85) & (h[..., 0] <= 130) & (h[..., 1] >= 40) & (h[..., 2] >= 30)
 
 
-def do_tam(render_p, ghep_p, mat_na_p, lop_a=LOP_A, bang=None, tru=None, bo_a=0):
+def do_tam(render_p, ghep_p, mat_na_p, lop_a=LOP_A, bang=None, tru=None, bo_a=0, bo_nuoc=False):
     """số đo máy một tấm: (i) lệch trong (a), dải 20 px, cụm ΔE; (iii) T9 + T9b. Px ngưỡng quy theo chiều cao khung / 1080.
     1.17.6 (KN-2): `tru` = vùng loại khỏi (a) và khỏi dải 20 px (nhà đo được nở 1 px của tấm be_mat_nha_ai — do BE-MAT-NHA (a)(b) kiểm).
-    1.17.8 (LUẬT E): `bo_a` > 0 → dải bờ ±bo_a px @1080 quanh nước thêm vào (a) ("đường bờ" ghép lại từ 3D)."""
+    1.17.8 (LUẬT E): `bo_a` > 0 → dải bờ ±bo_a px @1080 quanh nước thêm vào (a) ("đường bờ" ghép lại từ 3D).
+    1.17.9 (KN-8, tấm `nuoc_ai`): `bo_nuoc` → bỏ mọi điểm nước khỏi (a) (dải bờ chỉ còn phía đất; mặt nước lấy từ AI)."""
     import cv2, numpy as np
     R = cv2.imread(render_p, cv2.IMREAD_COLOR); G = cv2.imread(ghep_p, cv2.IMREAD_COLOR)
     if R is None: raise FileNotFoundError(render_p)
@@ -132,6 +133,7 @@ def do_tam(render_p, ghep_p, mat_na_p, lop_a=LOP_A, bang=None, tru=None, bo_a=0)
     if bo_a and 'nuoc' in names:
         kb = 2 * max(1, int(round(bo_a * s))) + 1
         A = A | (cv2.dilate((cv2.morphologyEx((L == names.index('nuoc')).astype(np.uint8), cv2.MORPH_GRADIENT, np.ones((3, 3), np.uint8)) > 0).astype(np.uint8), np.ones((kb, kb), np.uint8)) > 0)
+    if bo_nuoc and 'nuoc' in names: A = A & ~(L == names.index('nuoc'))   # 1.17.9 KN-8
     A0 = A
     if tru is not None: A = A & ~tru
     dif = np.abs(G.astype(np.int16) - R.astype(np.int16)).max(-1)
@@ -152,7 +154,7 @@ def do_tam(render_p, ghep_p, mat_na_p, lop_a=LOP_A, bang=None, tru=None, bo_a=0)
                        dai20_pct=round(float(band.mean() * 100), 2), dai20_cum_dE30=len(cum), dai20_cum_lon=cum[:15],
                        **(dict(tru_bmn_pct=round(float((A0 & tru).mean() * 100), 2), max_trong_a_chua_tru=int(dif[A0].max()) if A0.any() else 0) if tru is not None else {})),
                 iii=dict(t9_dat_thanh_nuoc_pct=round(d2n, 2), t9_nuoc_thanh_dat_pct=round(n2d, 2), t9b_dat_thanh_nuoc_pct=round(d2n_b, 2), t9b_nuoc_thanh_dat_pct=round(n2d_b, 2), t9c=t9c),
-                _band=band, _A=A, W=R.shape[1], H=R.shape[0])
+                _band=band, _A=A, _L=L, _names=names, W=R.shape[1], H=R.shape[0])
 
 
 def _in(box, M):
@@ -282,7 +284,7 @@ def tong_tam(KT):
             if k.get('E') is not None and nm == 'đất→nước': continue   # 1.17.8 LUẬT E: kính/mái xanh AI vẽ lại ≠ nước — T9b đất→nước chỉ in; sông/bờ khoá trong (a)-E
             t9.append(v); near['N2P-3'] += sat(f'{w} T9b {nm} %', v, T9B_MAX)
             if v > T9B_MAX: L['N2P-3'].append(f'(a) {w}: T9b {nm} {v} % > {T9B_MAX:g} %')
-        if c9 is not None and c9.get('ap') is not False:
+        if c9 is not None and c9.get('ap') is not False and not (k.get('E') or {}).get('nuoc_ai'):   # 1.17.9 KN-8: tấm nước AI — T9c chỉ in (N2P-E (w))
             L['N2P-3'] += [f"(c) {w}: bờ lấn ({x['kieu']}) sâu {x['sau_px']} px @1080" + (f", dài {x['dai_px']} px, x {x['x0']}–{x['x1']}" if 'x0' in x else f", hộp {x['hop']}") for x in c9['lan'][:8]]
             if c9['giua_pct'] > K75_GIUA: L['N2P-3'].append(f"(d) {w}: khác nước (đối chứng render) không bám bờ {c9['giua_pct']} % > {K75_GIUA:g} %")
             near['N2P-3'] += sat(f'{w} T9c giữa nước %', c9['giua_pct'], K75_GIUA)
@@ -411,7 +413,12 @@ def check(E, TL=None, ep_dir='.', LS=None, vision=False, out=None, KT=None, vids
             except Exception as e: KT.append(dict(id=str(t.get('id')), loi_chay=f"tấm {t.get('id')}: {type(e).__name__}: {e}"))   # noqa: BLE001
         if cp and vision:
             os.makedirs(out, exist_ok=True); json.dump(cache, open(cp, 'w'), ensure_ascii=False, indent=1)
-    if KT: res.update(tong_tam(KT))
+    if KT:
+        from checks.ll import q_k1179 as K79   # 1.17.9 KN-1: ngoại lệ mô hình đã duyệt trên tấm E (máy không miễn)
+        for t in tam:
+            k = next((x for x in KT if str(x.get('id')) == str(t.get('id')) and not x.get('loi_chay')), None)
+            if k is not None and k.get('E') is not None and t.get('ngoai_le'): K79.ap_ngoai_le(k, t)
+        res.update(tong_tam(KT))
     else:
         nen = [s for s in LS or [] if s.get('ai_nen')]
         # 1.17.7 (A5): nêu khuôn đúng — tấm kiểm khai ở episode.yaml khối n2p.tam (không phải log shot)
@@ -423,7 +430,9 @@ def check(E, TL=None, ep_dir='.', LS=None, vision=False, out=None, KT=None, vids
                       else na('không có tấm nền AI (n2p.tam / log ai_nen)'))
     res['N2P-5'] = n2p5(E, LS, ep_dir, vids)
     res['N2P-6'] = n2p6(E, LS, (TL or {}).get('tong_s'))
-    res['N2P-E'] = K78.hang_e(KT, EK)   # 1.17.8 LUẬT E
+    from checks.ll import q_k1179 as K79   # 1.17.9 KN-6: đẩy/trượt 2D trên video tấm E
+    DAY = [(v, K79.kiem_day_2d(v, ep_dir, K78.LOP_A_E, {'nha_thuong': K78.NHA_THUONG})) for v in N.get('video') or [] if K78.e_bat(v) and v.get('day_2d')]
+    res['N2P-E'] = K78.hang_e(KT, EK, DAY)   # 1.17.8 LUẬT E
     cong = 'animatic' if E.get('animatic') else 'G2'
     return {k: dict(v, cong=cong) for k, v in res.items()}
 

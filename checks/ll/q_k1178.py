@@ -261,7 +261,9 @@ def kiem_tam_e(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=Fal
     nam = t.get('nam'); tid = str(t.get('id') or os.path.basename(gp or '?'))
     if not (rp and gp and mp and nam is not None): return dict(id=tid, loi_chay=f'tấm {tid}: thiếu render/ghep/mat_na/nam')
     bang, la = bang_e(t), lop_a_e(t)
-    D = N.do_tam(rp, gp, mp, la, bang, None, bo_a=BO_PX_E)
+    from checks.ll import q_k1179 as K79
+    na_ = K79.nuoc_ai(t)   # 1.17.9 KN-8
+    D = N.do_tam(rp, gp, mp, la, bang, None, bo_a=BO_PX_E, bo_nuoc=na_)
     R = cv2.imread(rp); G = cv2.imread(gp)
     if G.shape != R.shape: G = cv2.resize(G, (R.shape[1], R.shape[0]), interpolation=cv2.INTER_AREA)
     H, W = R.shape[:2]; L, names = N.idmap(mp, (W, H), bang); A = D['_A']
@@ -275,8 +277,16 @@ def kiem_tam_e(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=Fal
     except Exception as e: CH = None; th_.append(f'(g) tấm {tid}: máy dò chữ lỗi: {type(e).__name__}: {e}')   # noqa: BLE001
     pr = PROMPT_E.format(noi=t.get('noi', noi) or 'the place', nam=int(float(nam)), truoc='{truoc}', sau='{sau}', moc=de_bai_e(F['toa'], W, H),
                          loai=', '.join(f'"{a}" ({b})' for a, b in QV.LOAI.items()))
-    V = QV.soi(rp, gp, nam, t.get('noi', noi), t.get('t4', t4), out=out, tag=tid, api=vision, cache=cache, de=dict(prompt=pr, ver=PROMPT_VER_E))
+    if na_: pr = K79.de_bai_nuoc(pr)   # 1.17.9 KN-8: mặt nước vẽ lại được — đề bài riêng (khoá bộ đệm theo SHA đề bài)
+    V = QV.soi(rp, gp, nam, t.get('noi', noi), t.get('t4', t4), out=out, tag=tid, api=vision, cache=cache, de=dict(prompt=pr, ver=K79.PROMPT_VER_NUOC if na_ else PROMPT_VER_E))
     L1, L2, L2b, L4, VUNG, F2, CHU = ket_luan_e(V.get('ket_qua') or {}, A, bool(t.get('anh_tinh', True)), nam, F['toa'])
+    k5, n5 = K79.kiem_toa(t.get('toa_co_ten'))   # 1.17.9 KN-5 định nghĩa toà có tên
+    u_ = []
+    if na_:   # 1.17.9 KN-8: vật thêm trên nước AI → N2P-1 (b); T9c chỉ in; tấm phải có duyệt chủ dự án (tờ so)
+        L1 += K79.vat_tren_nuoc(V.get('ket_qua') or {}, L, names); c9 = D['iii'].get('t9c') or {}
+        w_.append(f"(w) tấm {tid}: nước AI (KN-8) — T9c chỉ in: {c9.get('so_doan_lan')} đoạn bờ lấn, sâu nhất {c9.get('sau_lon_nhat_px')} px, giữa nước {c9.get('giua_pct')} % (người đọc tờ so)")
+        okd, why = ngoai_le_duyet({'ngoai_le_duyet': t.get('duyet_chu_du_an')})
+        if not okd: u_.append(f'(u) tấm {tid}: nước AI (KN-8) cần `duyet_chu_du_an: {{nguoi_ky, vai: chu_du_an, ngay, ket_luan: chap_nhan}}` sau khi người soi tờ so — {why}')
     Q = None; cache = cache if cache is not None else {}
     if vision or cache.get('qtd', {}).get(tid):
         Q = cache.setdefault('qtd', {}).get(tid)
@@ -287,24 +297,27 @@ def kiem_tam_e(t, ep_dir='.', vision=False, cache=None, out=None, noi='', t4=Fal
             Q = dict(ghep=Qg, render=Qr, moi=N.qtd_moi(Qg, Qr), loi='; '.join(x for x in (Qg.get('loi'), Qr.get('loi')) if x) or None,
                      chi_phi_usd=round(float(Qg.get('cost_usd') or 0) + float(Qr.get('cost_usd') or 0), 4))
             if not Q['loi']: cache['qtd'][tid] = Q
-    EE = dict(f1=F['f1'], f2_may=F['f2'], f2_mh=F2, cum=F['cum'], toa=F['toa'], dem=dem, dem_nguon=dem_nguon, chu_may=CH, chu_mh=CHU, w=w_, thieu=th_,
+    EE = dict(f1=F['f1'], f2_may=F['f2'], f2_mh=F2, cum=F['cum'], toa=F['toa'], dem=dem, dem_nguon=dem_nguon, chu_may=CH, chu_mh=CHU, w=w_, thieu=th_, k5=k5, toa_chua_loai=n5, u=u_, nuoc_ai=na_,
               vision_loi=V.get('loi'), nha_thuong_pct=round(pnt, 2), lop_a_e_pct=round(float(A.mean() * 100), 2))
     return dict(id=tid, shot=t.get('shot'), nam=nam, anh_tinh=bool(t.get('anh_tinh', True)), do={k: v for k, v in D.items() if not k.startswith('_')},
-                V=V, L1=L1, L1b=[], L2=L2, L2b=L2b, L4=L4, VUNG=VUNG, Q=Q, SONG=None, VONG=None, E=EE)
+                V=V, L1=L1, L1b=[], L2=L2, L2b=L2b, L4=L4, VUNG=VUNG, Q=Q, SONG=None, VONG=None, E=EE, _LOI=K79.loi_a_e(D, H / 1080.0))
 
 
-def hang_e(KT, EK):
-    """hàng N2P-E. KT: kết quả tấm (đã đo); EK: {id tấm: e_dieu_kien} của mọi tấm khai E"""
+def hang_e(KT, EK, DAY=None):
+    """hàng N2P-E. KT: kết quả tấm (đã đo); EK: {id tấm: e_dieu_kien} của mọi tấm khai E; DAY (1.17.9 KN-6): [(mục video, (lỗi, thiếu, đo))]"""
     from checks.ll import q_n2p as N
     if not EK: return N.na('không tấm nào khai n2p_toan_khung_hien_dai')
-    M = {k: [] for k in 'kfgw'}; th, vals = [], []
+    M = {k: [] for k in 'kfghuw'}; th, vals = [], []
+    for v, (lh, th_h, Rh) in DAY or []:   # 1.17.9 KN-6
+        M['h'] += lh; th += th_h
+        if Rh and not Rh.get('loi'): vals.append(f"video {v.get('shot')}: đẩy/trượt 2D {Rh['toc_do_pct_s']:.2f} %/s, sai sau bù (a)-E {Rh['du_a']:.2f} / ngoài {Rh['du_ngoai']:.2f}")
     for tid, ek in EK.items():
         M['k'] += [x for x in ek['loi']]
         k = next((x for x in KT or [] if str(x.get('id')) == str(tid)), None)
         if not ek['hieu_luc']: vals.append(f'{tid}: E không hiệu lực'); continue
         if k is None or k.get('loi_chay'): th.append(f"(f) tấm {tid}: {(k or {}).get('loi_chay') or 'chưa đo'}"); continue
         e = k.get('E') or {}; w = f'tấm {tid}'
-        M['f'] += e.get('f1') or []; M['w'] += (e.get('f2_may') or []) + (e.get('w') or [])
+        M['f'] += e.get('f1') or []; M['w'] += (e.get('f2_may') or []) + (e.get('w') or []); M['k'] += e.get('k5') or []; th += e.get('u') or []
         M['w'] += [f"(w) {w}: {x['mh']}: toà cao không tên bịa «{str(x.get('mo_ta') or '')[:70]}» @{[round(v, 3) for v in x['toa_do']]} cao hơn mốc gần ({x.get('gan')})" for x in e.get('f2_mh') or []]
         th += e.get('thieu') or []
         chu = [f"(g) {w}: máy: chữ «{x['chu']}» (đọc {x['tin']}) hộp {x['hop']}" for x in e.get('chu_may') or []]
@@ -314,9 +327,9 @@ def hang_e(KT, EK):
             if e.get('vision_loi'): th.append(f"(g) {w} (đêm): mô hình nhìn — {e['vision_loi']}")
         else: M['w'] += ['(w)' + x[3:] + ' — ban ngày (Cảnh báo)' for x in chu]
         vals.append(f"{tid}: {len(e.get('toa') or [])} toà có tên, (f1) {len(e.get('f1') or [])} lỗi, tháp bịa máy {len(e.get('f2_may') or [])} / mô hình {len(e.get('f2_mh') or [])}, "
-                    f"{'đêm' if e.get('dem') else 'ngày'} ({e.get('dem_nguon')}), chữ máy {len(e.get('chu_may') or [])} / mô hình {len(e.get('chu_mh') or [])}, (a)-E {e.get('lop_a_e_pct')} %, nhà thường {e.get('nha_thuong_pct')} %")
-    loi = M['k'] + M['f'] + M['g'] + M['w']
-    return N.r(loi, th, val=f'{len(EK)} tấm E · ' + ' · '.join(vals[:4]), muc={k: [x for x in loi + th if x.startswith(f'({k})')] for k in 'kfgw'})
+                    f"{'đêm' if e.get('dem') else 'ngày'} ({e.get('dem_nguon')}), " + (f"toà chưa khai loai (KN-5) {e.get('toa_chua_loai')}, " if e.get('toa_chua_loai') else '') + (f"nước AI (KN-8), " if e.get('nuoc_ai') else '') + f"chữ máy {len(e.get('chu_may') or [])} / mô hình {len(e.get('chu_mh') or [])}, (a)-E {e.get('lop_a_e_pct')} %, nhà thường {e.get('nha_thuong_pct')} %")
+    loi = M['k'] + M['f'] + M['g'] + M['h'] + M['w']
+    return N.r(loi, th, val=f'{len(EK)} tấm E · ' + ' · '.join(vals[:5]), muc={k: [x for x in loi + th if x.startswith(f'({k})')] for k in 'kfghuw'})
 
 
 # ================================================================ K-LAI-3 ↔ KIEM-2-MUC (đoạn M-d mức nền)

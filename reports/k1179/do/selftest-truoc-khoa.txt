@@ -1,0 +1,19 @@
+selftest_k112.py rc=0 5s :: selftest 1.12.0: 75/75 ca đúng kỳ vọng · 13 luật, luật thiếu ca đạt hoặc trượt: không
+selftest_k1121.py rc=0 5s :: selftest 1.12.1: 48/48 ca đúng kỳ vọng · 9 luật, luật thiếu ca đạt hoặc trượt: không
+selftest_k1122.py rc=0 1s :: selftest 1.12.2: 37/37 ca đúng kỳ vọng · 4 biến thể, thiếu ca đạt hoặc trượt: không
+selftest_k113.py rc=0 4s :: selftest 1.13: 64/64 ca đúng kỳ vọng · 11 nhóm, luật thiếu ca đạt hoặc trượt: không
+selftest_k114.py rc=0 7s :: selftest 1.14: 126/126 đúng kỳ vọng
+selftest_k115.py rc=0 6s :: selftest 1.15: 105/105 đúng kỳ vọng · 15 nhóm · K-LAI-1 6, K-LAI-2 10, K-LAI-3 14, K-LAI-4 6, K-LAI-5 9, K-LAI-6 8, K-LAI-B 3, K-LAI 2, cap 3, O2 10, BC2 7, BC3 5, BC4 5, Q37 9, TL-Q1 8 · luật thiếu ca đạt hoặc trượt: không
+selftest_k116.py rc=0 7s :: selftest 1.16: 144/144 đúng kỳ vọng · 23 nhóm · cổng 3, SACH-1 17, cap 7, CHUONG-1 10, PP-1 7, TL-1 17, TL-2 5, TL-3 6, NHIP-NGHIA 7, XEM-CAM 12, PC-1 6, K-LAI-2 6, K-LAI-3 6, K-LAI-4 2, K-LAI-6 3, K-LAI-3V 3, K-LAI-5 2, NC-H5 5, BD-3 4, Q26b 3, Q37 6, A* 5, ML1 2 · luật thiếu ca đạt hoặc trượt: không
+selftest_k117.py rc=0 23s :: selftest 1.17: 130/130 ca đúng kỳ vọng · N2P đáp án 3/3 · N2P-1 7/7 · N2P-2 5/5 · N2P-3 4/4 · N2P-4 3/3 · N2P vision 2/2 · cấp 15/15 · N2P áp dụng 1/1 · N2P-5 6/6 · N2P-6 6/6 · MINH-HOA 16/16 · SACH-1 3/3 · EO-DAT-R1 10/10 · EO-DAT-R2 13/13 · EO-DAT-R3 6/6 · EO-DAT-R4 15/15 · 1.17 áp dụng 1/1 · Q33 (1.17) 6/6 · Q33-K2 (1.17) 2/2 · ML1 (1.17) 2/2 · NC-H1 (1.17) 4/4
+selftest_k1172.py rc=0 6s :: selftest 1.17.2: 74/74 ca đúng kỳ vọng · MINH-HOA 17/17 · cấp 7/7 · SACH-1 1/1 · V2-D5 7/7 · K-LAI 3/3 · K-LAI-1 2/2 · K-LAI-2 4/4 · K-LAI-3 3/3 · K-LAI-4/5/B 1/1 · K-LAI-6 3/3 · PP-1 4/4 · CONG-BO-1 9/9 · TL-1 7/7 · EO-DAT-R1 4/4 · 1.17.2 áp dụng 2/2 · luật thiếu ca đạt hoặc trượt: không
+selftest_k1173.py rc=0 0s :: selftest 1.17.3: 42/42 ca đúng kỳ vọng · TL-3 7/7 · Q37 (a) tl 9/9 · EO-DAT-R3 12/12 · cấp 1/1 · PP-1 2/2 · Q33 miễn năm 5/5 · SACH-1 5/5 · 1.17.3 áp dụng 1/1 · luật thiếu ca đạt hoặc trượt: không
+selftest_k1174.py rc=0 24s :: selftest_k1174: 91/91 ca đúng kỳ vọng — ĐẠT
+selftest_k1175.py rc=0 59s :: selftest_k1175: 52/52 ca đúng kỳ vọng — ĐẠT
+selftest_k1176.py rc=0 48s :: selftest_k1176: 62/62 ca đúng kỳ vọng — ĐẠT
+selftest_k1177.py rc=0 1s :: selftest_k1177: 87/87 đúng kỳ vọng
+selftest_k1178.py rc=0 45s :: selftest_k1178: 69/69 đúng kỳ vọng
+selftest_k1179.py rc=0 18s :: selftest_k1179: 49/49 đúng kỳ vọng
+selftest_k2.py rc=0 30s :: selftest kênh 2 (1.11.1): 129/129 ca đúng kỳ vọng
+selftest_ll.py rc=0 79s :: selftest LL v3: 317/317 ca đúng kỳ vọng
+XONG
