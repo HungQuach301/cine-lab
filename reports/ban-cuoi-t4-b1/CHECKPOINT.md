@@ -20,3 +20,4 @@
 - 05:12 UTC dựng xong **H1-02h**: 48 khung (f 0..47), 23.04 s/khung/tiến trình (P = 2), 9 MB, SHA `8a705c9ff61842f8…` → LFS + đẩy
 - 05:14: H1-02h dựng + LFS đẩy THÀNH CÔNG (Uploading LFS objects 1/1, 8,5 MB; tải công khai media.githubusercontent.com SHA khớp) nhưng bước kiểm `git lfs ls-files | grep -q` trả lỗi giả do `pipefail` + SIGPIPE → hàng dừng đúng thiết kế; sửa xong_b1.sh (lưu đầu ra trước khi grep), chạy tiếp sản xuất.
 - 05:15: trang look3-b1 đổi LỊCH vỏ vòm (1707,3 → 1708,0) + đèn lồng (1707,95 → 1708,0) sau soi lại H2-09 1707,86 (q_thoi_dai vẫn đọc vòm hoàn chỉnh). Chỉ đổi khung năm 1705–1708 → không ảnh hưởng shot HỒI 1/HỒI 3 đang dựng.
+- 05:41 UTC nhịp: 1 tệp 1080p đã đẩy LFS; đang dựng: H1-01h 51 khung; H1-03 76 khung; ; RAM trống 4693 MB, đĩa trống 13G
