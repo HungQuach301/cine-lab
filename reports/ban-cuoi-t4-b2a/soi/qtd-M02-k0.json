@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M02-k0",
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "c0316e9e3f89a56d3ba7d4450f3ac40c41097c45cb18e3cc71c4c4d6ca8889bc",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "St Paul's Cathedral completed (1711): dome, lantern, two west towers"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The Monument should be in the dense city blocks east of St Paul's, toward the river. I can see no fluted Doric column or gilded urn there. Only ordinary blocks stand in that area.",
+     "ly_do": "The Monument (completed 1677) stood in 2026 and lies inside this view, but it is absent.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      1152,
+      216,
+      1382,
+      454
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.0349,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 779,
+     "cacheReadInputTokens": 2380,
+     "cacheCreationInputTokens": 10744,
+     "webSearchRequests": 0,
+     "costUSD": 0.0349,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 153,
+     "cacheCreationEphemeral5mInputTokens": 10744,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The Monument should be in the dense city blocks east of St Paul's, toward the river. I can see no fluted Doric column or gilded urn there. Only ordinary blocks stand in that area.\",\"ly_do\":\"The Monument (completed 1677) stood in 2026 and lies inside this view, but it is absent.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.6,0.2,0.72,0.42],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0349,
+ "chi_phi_tb": 0.0349,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

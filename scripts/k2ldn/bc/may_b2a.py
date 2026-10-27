@@ -20,7 +20,7 @@ REPO = M1.REPO; EP = M1.EP; A2 = M1.A2; BC = M1.BC; OUT = f'{BC}/may/b2a'; os.ma
 REL = 'channel-k2/k2c-t4-02/ban-cuoi/may/b2a/'; PAGE = 'bc/look3-b1'; D = {'d': True}; FPS = 24
 ld = M1.ld; LS = M1.LS; nkhung = M1.nkhung; nmay = M1.nmay
 V = {}
-CHON = {'M00': 0.5, 'H1-01h': 0.5}     # kp đã chọn sau thử (báo cáo §1)
+CHON = {'M00': 0.0, 'H1-01h': 1.0}     # kp đã chọn sau thử (reports/ban-cuoi-t4-b2a/thu-may-do.json; báo cáo §1): M00 giữ vị trí vòng lửa, H1-01h giữ chân trời + khung City
 Z_MOI = {'M00': (165.0, 155.0), 'H1-01h': (160.0, 160.0)}   # M00: giữ cú hạ nhẹ 10 m (B1: 125 → 112); H1-01h: 160 m (B1: 120 → 117,9)
 
 

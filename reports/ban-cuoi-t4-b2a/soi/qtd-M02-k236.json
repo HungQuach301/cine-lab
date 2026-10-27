@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M02-k236",
+   "nam": 1675,
+   "noi": "London",
+   "sha256": "f3bb909e23c84b938e72353a38572f62e8ee5d842106a6c4b63d351f362095cf",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument under construction (1671-1677): a fluted Doric column, incomplete at the top",
+    "the new St Paul's Cathedral under construction (begun 1675): NO completed dome and lantern yet (completed 1708)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The skyline has no large cathedral mass. I see only small white spires and towers scattered among uniform red houses. Nothing reads as the broad, low, under-construction St Paul's, which should stand on Ludgate Hill north of the river.",
+     "ly_do": "The new St Paul's was under construction in 1675, and the ruined or building-site cathedral should be visible. It appears to be missing.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      806,
+      389,
+      1075,
+      540
+     ],
+     "do_tin": 0.35
+    },
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The river runs across the frame with no bridge. Old London Bridge, with its houses on the span, is not visible anywhere on the water.",
+     "ly_do": "Old London Bridge stood in 1675 and should be present if this stretch of river is in view.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1056,
+      670,
+      1632,
+      864
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.0365398,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1104,
+     "cacheReadInputTokens": 3078,
+     "cacheCreationInputTokens": 10072,
+     "webSearchRequests": 0,
+     "costUSD": 0.0365398,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 307,
+     "cacheCreationEphemeral5mInputTokens": 10072,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 14.7,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The skyline has no large cathedral mass. I see only small white spires and towers scattered among uniform red houses. Nothing reads as the broad, low, under-construction St Paul's, which should stand on Ludgate Hill north of the river.\",\"ly_do\":\"The new St Paul's was under construction in 1675, and the ruined or building-site cathedral should be visible. It appears to be missing.\",\"nam_xuat_hien\":null,\"toa_do\":[0.42,0.36,0.56,0.5],\"do_tin\":0.35},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The river runs across the frame with no bridge. Old London Bridge, with its houses on the span, is not visible anywhere on the water.\",\"ly_do\":\"Old London Bridge stood in 1675 and should be present if this stretch of river is in view.\",\"nam_xuat_hien\":null,\"toa_do\":[0.55,0.62,0.85,0.8],\"do_tin\":0.25}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0365,
+ "chi_phi_tb": 0.0365,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

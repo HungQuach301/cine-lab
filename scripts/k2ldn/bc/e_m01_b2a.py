@@ -3,7 +3,7 @@
 Thủ tục ghép = reports/k1179/do/ghep_kn8.py (K1179 §4: `ghep_kn8.py <khung> <lượt> thap bo_dat`; hàm lop/bo/lop_a/bao_ve/ghep NẠP NGUYÊN từ tệp đó)
 — chỉ khác đầu vào: render + mặt nạ dựng lại bằng trang bc/look3-b1 (sà lan có boong — hết elip đen của lớp tàu look3), 2304×1296 (đẩy 2D không phóng to).
 Trước ghép: CHE bóng cầu AI lệch (vệt tối trên mặt nước sát cầu, phía không có bóng render) — mặt nạ vệt = điểm nước AI trong dải ≤ 28 px quanh cầu tối hơn
-trung vị nước AI vòng ngoài (28–70 px) quá 14/255 → inpaint TELEA từ chính nước AI (không lấy màu render).
+trung vị nước AI vòng ngoài (28–70 px) quá 14/255 (bóng cầu AI lệch), hoặc SÁNG hơn quá 14/255 (mặt cầu AI lệch ra ngoài cầu render) → inpaint TELEA từ chính nước AI (không lấy màu render).
   e_m01_b2a.py prep            → e/tam/E-M01/: render.png (LUT kênh), matna.png, matna-thap.png, mat_na_ct(-thap).png, toa(-thap).json, prep.json
   e_m01_b2a.py ghep            → e/tam/E-M01/l2-thap-bo_dat/: ai-sua.png (AI 2304×1296 đã che bóng cầu), vet-bong-cau.png, ghep.png, ghep.json
   e_m01_b2a.py video           → /var/tmp/bc/e-m01/: ghép từng khung (tấm + (a)-E từ render tl CODINH) → đẩy 2D 1,0 %/s một phép cho cả khung → 1920×1080
@@ -67,7 +67,7 @@ def bong_cau(AI, M):
     gan = W & (dist <= r1); xa = W & (dist > r1) & (dist <= r2)
     Y = cv2.cvtColor(AI, cv2.COLOR_BGR2GRAY).astype(float)
     med = float(np.median(Y[xa])) if xa.any() else 0.0
-    vet = gan & (Y < med - 14); vet = cv2.morphologyEx(vet.astype(np.uint8), cv2.MORPH_OPEN, np.ones((3, 3), np.uint8)) > 0
+    vet = gan & (np.abs(Y - med) > 14);   # tối = bóng cầu AI lệch; sáng = mặt cầu AI lệch ra ngoài cầu render vet = cv2.morphologyEx(vet.astype(np.uint8), cv2.MORPH_OPEN, np.ones((3, 3), np.uint8)) > 0
     vet = cv2.dilate(vet.astype(np.uint8), np.ones((5, 5), np.uint8)) > 0; vet &= W
     return vet, cau, med
 

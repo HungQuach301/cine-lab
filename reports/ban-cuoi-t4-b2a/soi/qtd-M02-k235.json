@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M02-k235",
+   "nam": 1677,
+   "noi": "London",
+   "sha256": "8bed21b509aef11dc01a7e05c6638aa5737f4b94275e5a51f6037db9b155b5fa",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "the new St Paul's Cathedral under construction (begun 1675): NO completed dome and lantern yet (completed 1708)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The Monument should appear as a slender fluted Doric column with a gilded flaming urn. The view shows only a stout white tower with a small cap beside a white church-like block, and no tall column. I could not find the Monument anywhere else in the frame.",
+     "ly_do": "The Monument was completed in 1677 and should be present in its 1677 form. The shape shown here is a plain tower, not a fluted column with a gilded urn.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      998,
+      562,
+      1267,
+      821
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.034359799999999996,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 886,
+     "cacheReadInputTokens": 3078,
+     "cacheCreationInputTokens": 10072,
+     "webSearchRequests": 0,
+     "costUSD": 0.034359799999999996,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 224,
+     "cacheCreationEphemeral5mInputTokens": 10072,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 12.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1677,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The Monument should appear as a slender fluted Doric column with a gilded flaming urn. The view shows only a stout white tower with a small cap beside a white church-like block, and no tall column. I could not find the Monument anywhere else in the frame.\",\"ly_do\":\"The Monument was completed in 1677 and should be present in its 1677 form. The shape shown here is a plain tower, not a fluted column with a gilded urn.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.52,0.52,0.66,0.76],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0344,
+ "chi_phi_tb": 0.0344,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

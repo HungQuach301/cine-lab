@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M02-k212",
+   "nam": 1711,
+   "noi": "London",
+   "sha256": "6ba11349efea84be55cc90d7441239a989d3b0aa33f88e91dc77d63b86bedd30",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "St Paul's Cathedral completed (1711): dome, lantern, two west towers"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "East of St Paul's, on the right side of the view, I see only plain, squat white church-tower shapes. None is a tall fluted Doric column, and none has a gilded flaming urn. I think the Monument is missing or has been replaced by a generic tower. The boxed area is where it should stand.",
+     "ly_do": "The Monument was completed in 1677, so it should be visible in the 1711 view as a fluted column with a gilded urn.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      1690,
+      410,
+      1901,
+      670
+     ],
+     "do_tin": 0.35
+    }
+   ],
+   "cost_usd": 0.035306,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 984,
+     "cacheReadInputTokens": 3065,
+     "cacheCreationInputTokens": 10059,
+     "webSearchRequests": 0,
+     "costUSD": 0.035306,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 319,
+     "cacheCreationEphemeral5mInputTokens": 10059,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1711,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"East of St Paul's, on the right side of the view, I see only plain, squat white church-tower shapes. None is a tall fluted Doric column, and none has a gilded flaming urn. I think the Monument is missing or has been replaced by a generic tower. The boxed area is where it should stand.\",\"ly_do\":\"The Monument was completed in 1677, so it should be visible in the 1711 view as a fluted column with a gilded urn.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.88,0.38,0.99,0.62],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0353,
+ "chi_phi_tb": 0.0353,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

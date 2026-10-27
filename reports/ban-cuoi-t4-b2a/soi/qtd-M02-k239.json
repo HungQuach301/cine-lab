@@ -1,0 +1,66 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M02-k239",
+   "nam": 1671,
+   "noi": "London",
+   "sha256": "d546b0b2d447807b165b3042b5d9b84e54ef07d5cf138351c0fcb91dd2ca2d2e",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument under construction (1671-1677): a fluted Doric column, incomplete at the top",
+    "no new St Paul's Cathedral (begun 1675)",
+    "only the ruins of Old St Paul's"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The Monument is not visible. The north-bank streets east of the Old St Paul's ruins show only uniform houses, with no tall fluted column rising above the roofs.",
+     "ly_do": "The Monument was under construction in 1671 (1671-1677), so an incomplete Doric column should stand near Pudding Lane close to the north bank. It is missing from the view.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      768,
+      518,
+      960,
+      670
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.034789,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 931,
+     "cacheReadInputTokens": 3070,
+     "cacheCreationInputTokens": 10064,
+     "webSearchRequests": 0,
+     "costUSD": 0.034789,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 289,
+     "cacheCreationEphemeral5mInputTokens": 10064,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.2,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1671,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The Monument is not visible. The north-bank streets east of the Old St Paul's ruins show only uniform houses, with no tall fluted column rising above the roofs.\",\"ly_do\":\"The Monument was under construction in 1671 (1671-1677), so an incomplete Doric column should stand near Pudding Lane close to the north bank. It is missing from the view.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.4,0.48,0.5,0.62],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0348,
+ "chi_phi_tb": 0.0348,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

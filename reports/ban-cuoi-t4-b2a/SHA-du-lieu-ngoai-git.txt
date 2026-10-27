@@ -1,0 +1,23 @@
+d4d4e6a739167e0a659222cda8ebc159a39685e22d5b8494a5231fbca1a5437e  look3d/ldn2.bin
+bf809b6fd9eda1b4d6ae030a6d21e5851e7754a6408c889659e76a06b8e3c3d4  look3d/hid.f32
+689c4291d068819b2de662c754596675d7d39ef5b72ca8d0ef78934bc45e7d4d  look3d/nid.f32
+a3176cbb8c1be5b0bbc8ad6516a12cc8d5092d0b8090a78498c3af24c60b5048  look3d/dan.json
+c60bf00542b39a179ac42c603fc9113a52189cdf35b0c7236017df7ce3013056  look3d/bake_1666.6.png
+06262bf0178500ec46c9bb437ad1b1d3975ca610661a577353086fa2adfe8f11  look3d/bake_1667.3.png
+0ef302e58902238adf37e68055cbd347ff1e946e1eca427c14341935d21179b4  look3d/bake_1700.5.png
+ebe9001b71aa686c9c7a74c4bfa72bc91235ca8e1c4b6b9f451163ec2fa7fa1f  look3d/bake_1711.5.png
+c8c46f920c3ffe8ca1b171c4dea9b447998cdce3b50dae88bed9b791b4d6070f  look3d/bake_1800.5.png
+ab295a43bebcdefd781fdec19aae390d95ce1b4455356d55fbc602265582968d  look3d/bake_1860.5.png
+1f58751fef88f2bb98bfa35c8653bd23dd154d310124d8e7a1f4cd8ed79af960  look3d/bake_1900.5.png
+09ac69086ea4d0ac9efe9019c6749b3a43d46b32482f8f97fbab66048e97cdc5  look3d/bake_1938.5.png
+09ac69086ea4d0ac9efe9019c6749b3a43d46b32482f8f97fbab66048e97cdc5  look3d/bake_1940.98.png
+57e22bf975df0bc21a3714f8b8b1aba399cd3e4f17d9e0cbe2f537c9946ff734  look3d/bake_1955.5.png
+dd380fb62a1766632a4fe10988c91e307b635f8e2655490217bbfe27fa6af2c8  look3d/bake_1975.5.png
+1ccd8a935bf9309e047d790b0cc3c40d56739cf60a019f80e5ac1c7b56d76cf8  look3d/bake_2026.7.png
+# đầu vào OSM (API 0.6 /map, tải 27/10/2026 01:25 UTC — dữ liệu sống, KHÔNG trùng B1): sha256 nối 17 ô t_*.osm (sắp tên) + vec
+349f03346cec5ea0dd720ec2cf55c9caba9ab889a694347af50ec036586bb8eb  cache/osm/ldn/t_*.osm (17 ô, nối theo tên)
+99dc84721ea4a546658f479fcfe70dc82a8dac8242daccc55e698a306209bd51  vec/osm2026.json
+# tấm E-M01 (2304×1296) ngoài git (> 5 MB/tệp; tái tạo: chuoi_b2a.sh thu → e_m01_b2a.py prep → ghep):
+54446402516711ce066ab66f16c73d5be77854fc04eea3b2ee069013600fb0c2  channel-k2/k2c-t4-02/ban-cuoi/e/tam/E-M01/render.png
+8f865efc577184e73f97599eebeb5a12c50a13a367eff17f4c22af6d17e233b1  channel-k2/k2c-t4-02/ban-cuoi/e/tam/E-M01/l2-thap-bo_dat/ghep.png
+dd2ac500dfa731e96db1f7918529ac845b96a263ea6d2bc5d8c4fa4ad126cc82  channel-k2/k2c-t4-02/ban-cuoi/e/tam/E-M01/l2-thap-bo_dat/ai-sua.png

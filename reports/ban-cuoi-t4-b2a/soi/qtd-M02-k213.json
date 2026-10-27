@@ -1,0 +1,72 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung M02-k213 năm 1709: [cong_trinh_moc] The Monument, a fluted Doric column with a gilded urn, is not visible anywhere in the view. The area east and south-east of St Paul's is filled only with ordinary houses and small white church towers. St Paul's itself is shown with its dome and lantern. — The Monument was completed in 1677 and should stand in this view in 1709. It is absent, so the landmark layer is wrong. The box is a best estimate of where it should stand, because the river is not visible to fix its position. (xuất hiện 1677) @px [1190, 594, 1498, 864] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 0 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M02-k213",
+   "nam": 1709,
+   "noi": "London",
+   "sha256": "b5ac68fb6d0033032aeb3b7f9c78e120245dfb6a47ff360944748fb9ceeaf686",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "St Paul's with its completed dome and lantern (1708)",
+    "the cathedral being finished (completed 1711)"
+   ],
+   "nghi_van": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The Monument, a fluted Doric column with a gilded urn, is not visible anywhere in the view. The area east and south-east of St Paul's is filled only with ordinary houses and small white church towers. St Paul's itself is shown with its dome and lantern.",
+     "ly_do": "The Monument was completed in 1677 and should stand in this view in 1709. It is absent, so the landmark layer is wrong. The box is a best estimate of where it should stand, because the river is not visible to fix its position.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      1190,
+      594,
+      1498,
+      864
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "loi": null,
+      "ghi": "lớp công trình mốc: không qua bước 2 (vật vắng không phóng được) — giữ"
+     }
+    }
+   ],
+   "ghi_chu": [],
+   "cost_usd": 0.034751599999999994,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 927,
+     "cacheReadInputTokens": 3071,
+     "cacheCreationInputTokens": 10065,
+     "webSearchRequests": 0,
+     "costUSD": 0.034751599999999994,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 242,
+     "cacheCreationEphemeral5mInputTokens": 10065,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1709,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The Monument, a fluted Doric column with a gilded urn, is not visible anywhere in the view. The area east and south-east of St Paul's is filled only with ordinary houses and small white church towers. St Paul's itself is shown with its dome and lantern.\",\"ly_do\":\"The Monument was completed in 1677 and should stand in this view in 1709. It is absent, so the landmark layer is wrong. The box is a best estimate of where it should stand, because the river is not visible to fix its position.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.62,0.55,0.78,0.8],\"do_tin\":0.5}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0348,
+ "chi_phi_tb": 0.0348,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}
