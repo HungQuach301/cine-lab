@@ -1,0 +1,147 @@
+id: ban-cuoi-t4-b2a-E-M01-a
+title: BAN-CUOI-T4-B2a thử E M01 (không phải tập)
+brand: MOVING PARTS
+channel: k2
+khung_sach: true
+kenh2_tu_t4: true
+animatic: false
+out: /var/tmp/bc/k2c/E-M01-a-day
+segments:
+- id: s0
+  dur: 3.0
+  shots:
+  - id: M01
+    at: 0.0
+    tpl: scene3d
+n2p:
+  noi: London
+  t4: true
+  tam:
+  - id: E-M01-l2-thap-bo_dat
+    shot: M01
+    render: ../../tam/E-M01/render.png
+    ghep: ../../tam/E-M01/l2-thap-bo_dat/ghep.png
+    mat_na: ../../tam/E-M01/matna-thap.png
+    nam: 2026
+    anh_tinh: true
+    n2p_toan_khung_hien_dai: true
+    nam_min: 2020
+    cu_may: CODINH
+    dem: false
+    mat_na_ct: ../../tam/E-M01/mat_na_ct-thap.png
+    toa_co_ten:
+    - ten: St Paul's Cathedral
+      mau:
+      - 20
+      - 0
+      - 200
+      loai: mai_vom
+      nguon_lich_su: Historic England NHLE — St Paul's Cathedral (Grade I)
+    - ten: Mansion House
+      mau:
+      - 28
+      - 128
+      - 198
+      loai: lich_su
+      nguon_lich_su: Historic England NHLE — Mansion House (Grade I)
+    - ten: Royal Exchange
+      mau:
+      - 37
+      - 128
+      - 197
+      loai: lich_su
+      nguon_lich_su: Historic England NHLE — Royal Exchange (Grade I)
+    - ten: Pinsent Masons
+      mau:
+      - 46
+      - 128
+      - 196
+      loai: thap
+      dinh_odn_m: 78.1
+    - ten: CityPoint
+      mau:
+      - 55
+      - 128
+      - 195
+      loai: thap
+      dinh_odn_m: 122.5
+    - ten: White Collar Factory
+      mau:
+      - 64
+      - 128
+      - 194
+      loai: thap
+      dinh_odn_m: 91.1
+    - ten: Beechwood
+      mau:
+      - 73
+      - 128
+      - 193
+      loai: thap
+      dinh_odn_m: 81.3
+    - ten: 20 Ropemaker
+      mau:
+      - 82
+      - 128
+      - 192
+      loai: thap
+      dinh_odn_m: 85.2
+    - ten: The Tower
+      mau:
+      - 91
+      - 128
+      - 191
+      loai: thap
+      dinh_odn_m: 140.9
+    - ten: Guildhall
+      mau:
+      - 100
+      - 128
+      - 190
+      loai: lich_su
+      nguon_lich_su: Historic England NHLE — Guildhall (Grade I)
+    - ten: Tower of St Mary Somerset
+      mau:
+      - 109
+      - 128
+      - 189
+      loai: lich_su
+      nguon_lich_su: Historic England NHLE — Tower of St Mary Somerset (Grade I)
+    - ten: Cromwell Tower
+      mau:
+      - 118
+      - 128
+      - 188
+      loai: thap
+      dinh_odn_m: 140.5
+    - ten: Lauderdale Tower
+      mau:
+      - 127
+      - 128
+      - 187
+      loai: thap
+      dinh_odn_m: 141.2
+    - ten: The Heron
+      mau:
+      - 136
+      - 128
+      - 186
+      loai: thap
+      dinh_odn_m: 126.6
+    - ten: 2 London Wall Place
+      mau:
+      - 145
+      - 128
+      - 185
+      loai: thap
+      dinh_odn_m: 78.2
+    - ten: Bank of England
+      mau:
+      - 154
+      - 128
+      - 184
+      loai: lich_su
+      nguon_lich_su: Historic England NHLE — Bank of England (Grade I)
+    noi: London
+    nuoc_ai: true
+log_shot: log-shot.json

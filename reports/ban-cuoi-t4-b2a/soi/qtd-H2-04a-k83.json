@@ -1,0 +1,115 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung H2-04a-k83 năm 1668: [vat_hien_dai] Several flat, uniformly dark, windowless rectangular slabs rise above the brick roofs. They look like modern concrete or steel tower blocks. — Tall featureless box-shaped blocks do not match the brick and timber houses of 1668 London. They look like modern high-rise structures. (xuất hiện 1950) @px [346, 626, 461, 788] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 2 · chi phí $0.046 (TB $0.046/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-04a-k83",
+   "nam": 1668,
+   "noi": "London",
+   "sha256": "b65714cb897bab734e5b117d92d82a429f3ef66174ebe2292d7e6e167ed1d911",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "no Monument column yet (the Monument was begun in 1671)",
+    "no new St Paul's Cathedral (begun 1675)",
+    "only the ruins of Old St Paul's"
+   ],
+   "nghi_van": [
+    {
+     "muc": "vat_hien_dai",
+     "mo_ta": "Several flat, uniformly dark, windowless rectangular slabs rise above the brick roofs. They look like modern concrete or steel tower blocks.",
+     "ly_do": "Tall featureless box-shaped blocks do not match the brick and timber houses of 1668 London. They look like modern high-rise structures.",
+     "nam_xuat_hien": 1950,
+     "toa_do_px": [
+      346,
+      626,
+      461,
+      788
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "vung_px": [
+       160,
+       464,
+       646,
+       950
+      ],
+      "phong": 1.38,
+      "tra_loi": {
+       "vat": "Một khối nhà cao tối màu, hình hộp chữ nhật phẳng, nằm giữa các mái nhà",
+       "dac_diem": "Khối cao, tối, gần như đen, có các cạnh thẳng và mặt phẳng không có chi tiết. Nó nhô lên cao hơn hẳn các mái ngói đỏ và nâu xung quanh. Không thấy cửa sổ, mái dốc hay ống khói. Nó giống một tháp bê tông hoặc khối nhà cao tầng hiện đại. Xung quanh có khói và mái nhà kiểu cũ.",
+       "co_tu_nam": 1900,
+       "da_co_nam_1668": "no",
+       "ly_do": "Khối tối, vuông vức, cao và phẳng này giống một công trình bê tông hoặc thép hiện đại. London năm 1668 là nhà gạch và gỗ thấp với mái dốc. Khi đó chưa có công trình nào như vậy."
+      },
+      "da_co": "no",
+      "giu": true,
+      "cost_usd": 0.0073655000000000005,
+      "loi": null
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A second dark slab-like block stands on the right side of the cityscape. It has a flat top and no windows or period detail.",
+     "ly_do": "It looks like a modern monolithic building, not a 17th-century house.",
+     "nam_xuat_hien": 1950,
+     "toa_do_px": [
+      1402,
+      713,
+      1536,
+      821
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "I see no ruins of Old St Paul's, with its large nave and stump of a tower, anywhere on the skyline. The only landmark visible is the Tower of London, in the distance.",
+     "ly_do": "The ruined Old St Paul's should dominate the City skyline in 1668, but it is absent.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      576,
+      486,
+      1056,
+      648
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.045850199999999994,
+   "cost_buoc2": 0.00737,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1295,
+     "cacheReadInputTokens": 3077,
+     "cacheCreationInputTokens": 10086,
+     "webSearchRequests": 0,
+     "costUSD": 0.0384847,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 358,
+     "cacheCreationEphemeral5mInputTokens": 10086,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 12.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1668,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"Several flat, uniformly dark, windowless rectangular slabs rise above the brick roofs. They look like modern concrete or steel tower blocks.\",\"ly_do\":\"Tall featureless box-shaped blocks do not match the brick and timber houses of 1668 London. They look like modern high-rise structures.\",\"nam_xuat_hien\":1950,\"toa_do\":[0.18,0.58,0.24,0.73],\"do_tin\":0.5},{\"muc\":\"kien_truc\",\"mo_ta\":\"A second dark slab-like block stands on the right side of the cityscape. It has a flat top and no windows or period detail.\",\"ly_do\":\"It looks like a modern monolithic building, not a 17th-century house.\",\"nam_xuat_hien\":1950,\"toa_do\":[0.73,0.66,0.8,0.76],\"do_tin\":0.4},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"I see no ruins of Old St Paul's, with its large nave and stump of a tower, anywhere on the skyline. The only landmark visible is the Tower of London, in the distance.\",\"ly_do\":\"The ruined Old St Paul's should dominate the City skyline in 1668, but it is absent.\",\"nam_xuat_hien\":null,\"toa_do\":[0.3,0.45,0.55,0.6],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0459,
+ "chi_phi_tb": 0.0459,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

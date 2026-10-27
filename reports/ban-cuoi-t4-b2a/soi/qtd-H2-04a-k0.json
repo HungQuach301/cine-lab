@@ -1,0 +1,115 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung H2-04a-k0 năm 1667: [vat_hien_dai] Several plain, dark, flat-faced rectangular slab blocks. They rise above the red-brick rooftops and look like modern high-rise or monolithic towers. — Windowless tall box structures like these resemble modern concrete or steel towers. They don't match 1667 London, which had low brick and timber houses. (xuất hiện 1950) @px [595, 626, 730, 853] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 2 · chi phí $0.045 (TB $0.045/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-04a-k0",
+   "nam": 1667,
+   "noi": "London",
+   "sha256": "7a9756468f641b3cb8911d6a39ea914f2bf1254a8e013ee34254d13f4abeff80",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "no Monument column yet (the Monument was begun in 1671)",
+    "no new St Paul's Cathedral (begun 1675)",
+    "only the ruins of Old St Paul's"
+   ],
+   "nghi_van": [
+    {
+     "muc": "vat_hien_dai",
+     "mo_ta": "Several plain, dark, flat-faced rectangular slab blocks. They rise above the red-brick rooftops and look like modern high-rise or monolithic towers.",
+     "ly_do": "Windowless tall box structures like these resemble modern concrete or steel towers. They don't match 1667 London, which had low brick and timber houses.",
+     "nam_xuat_hien": 1950,
+     "toa_do_px": [
+      595,
+      626,
+      730,
+      853
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "vung_px": [
+       322,
+       399,
+       1003,
+       1080
+      ],
+      "phong": 0.99,
+      "tra_loi": {
+       "vat": "A tall, dark, flat-sided rectangular block, apparently a modern high-rise or slab building, among red-brick rooftops",
+       "dac_diem": "The block is near the centre. It is a very dark, almost black, featureless rectangle with straight vertical edges and a flat roof. It has no visible windows, chimneys or pitched roof. It rises well above the surrounding red-brick houses with pitched roofs, which have small chimneys and smoke. More dark slab-like blocks stand at the right and bottom left. A pale tower sits in the distance at the upper right.",
+       "co_tu_nam": 1950,
+       "da_co_nam_1667": "no",
+       "ly_do": "A monolithic flat-roofed glass or concrete tower block does not fit 1667 London, which had low brick and timber houses, church spires and old St Paul's. Tall slab towers date from the mid-20th century."
+      },
+      "da_co": "no",
+      "giu": true,
+      "cost_usd": 0.0069055,
+      "loi": null
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A very large, dark, featureless rectangular block in the lower-left foreground, standing among the houses.",
+     "ly_do": "A huge flat-sided block of this kind is a modern building form. It isn't a 1667 house.",
+     "nam_xuat_hien": 1950,
+     "toa_do_px": [
+      269,
+      853,
+      499,
+      1080
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The skyline has no visible ruins of Old St Paul's, with its truncated tower and roofless nave. Only generic houses stand to the west of the Tower.",
+     "ly_do": "The ruined Old St Paul's should be a landmark in this view. It is absent or replaced by ordinary buildings.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      288,
+      540,
+      768,
+      670
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.0453502,
+   "cost_buoc2": 0.00691,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1291,
+     "cacheReadInputTokens": 3077,
+     "cacheCreationInputTokens": 10086,
+     "webSearchRequests": 0,
+     "costUSD": 0.0384447,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 344,
+     "cacheCreationEphemeral5mInputTokens": 10086,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 16.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"vat_hien_dai\",\"mo_ta\":\"Several plain, dark, flat-faced rectangular slab blocks. They rise above the red-brick rooftops and look like modern high-rise or monolithic towers.\",\"ly_do\":\"Windowless tall box structures like these resemble modern concrete or steel towers. They don't match 1667 London, which had low brick and timber houses.\",\"nam_xuat_hien\":1950,\"toa_do\":[0.31,0.58,0.38,0.79],\"do_tin\":0.5},{\"muc\":\"kien_truc\",\"mo_ta\":\"A very large, dark, featureless rectangular block in the lower-left foreground, standing among the houses.\",\"ly_do\":\"A huge flat-sided block of this kind is a modern building form. It isn't a 1667 house.\",\"nam_xuat_hien\":1950,\"toa_do\":[0.14,0.79,0.26,1.0],\"do_tin\":0.4},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The skyline has no visible ruins of Old St Paul's, with its truncated tower and roofless nave. Only generic houses stand to the west of the Tower.\",\"ly_do\":\"The ruined Old St Paul's should be a landmark in this view. It is absent or replaced by ordinary buildings.\",\"nam_xuat_hien\":null,\"toa_do\":[0.15,0.5,0.4,0.62],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0454,
+ "chi_phi_tb": 0.0454,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}
