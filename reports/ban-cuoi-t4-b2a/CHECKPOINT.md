@@ -3,11 +3,9 @@
 **Nhánh thật:** `claude/adoring-wright-i76iay` (harness buộc; lệnh ghi `k2c-t4-02-final-b2a`). Gốc B1 @6f6c2636 + merge origin/main @75e94b98 (commit 64a304ee, LOCK 1.17.9 `9eddaf24…` KHỚP).
 
 ## Trạng thái
-- 01:43 dữ liệu nền xong (18 phút; SHA `reports/ban-cuoi-t4-b2a/SHA-du-lieu-ngoai-git.txt`; OSM API sống → khác SHA B1, đã ghim `ban-cuoi/may/b2a/osm2026-b2a.json.gz` + `thuyen-b2a.json`).
-- Việc 1 xong phần máy: M00 kp 0 (165 → 155 m), H1-01h kp 1 (160 m); k2check 1.17.9 v5b GOC-CAO ĐẠT 0 (a). H1-01h 1080p đã LFS (02:18).
-- Tấm E-M01 (2304×1296, look3-b1) + ghép bo_dat + che bóng cầu AI xong; k2check (a) máy: N2P-E chỉ Chặn (u) (chưa duyệt tấm).
-- Soi năm biên lượt 1 → lỗi phế tích (khối đen trơn đọc thành toà hiện đại) → sửa `tao_look3_b1.py` (chỉ năm 1666,69–1700) → đang soi lượt 2.
-- Hàng dựng: hàng chính PGID 11487 (M00 đang chạy, thoát sau M00 vì cờ dừng tạm 02:03); hàng phụ PGID 16973 P = 1 (M01 → E-M01-tl). Còn lại (M02…H2-05) chạy sau soi lượt 2.
+- **XONG 08:35 UTC — DỪNG chờ chủ dự án.** Báo cáo: `reports/ban-cuoi-t4-b2a/BAN-CUOI-T4-B2a-BAO-CAO.md`.
+- Dựng 1080p: 11 shot B2a + H1-01h (3 018 khung) + thử E M01 — 13/13 tệp trong LFS; không còn tiến trình nền.
+- k2check 1.17.9 v5b: GOC-CAO ĐẠT 0, MAY-19 lỗi (a)–(f) 0. Soi năm biên lượt 2: 17/18 ĐẠT (1 ghi).
 
 ## Lệnh bổ sung đã áp
 - (không có)
