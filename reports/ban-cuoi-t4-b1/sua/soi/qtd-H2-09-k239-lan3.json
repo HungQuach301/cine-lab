@@ -1,0 +1,63 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-09-k239",
+   "nam": 1707,
+   "noi": "London",
+   "sha256": "7bf620b517ad59bc55e3f9e79a7906ee4b7504021b28934c51fe945ecbdc546b",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "the new St Paul's Cathedral under construction (begun 1675): NO completed dome and lantern yet (completed 1708)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "St Paul's Cathedral is shown with a large, fully formed ribbed dome on a colonnaded drum. The dome looks finished apart from the lantern, and the rest of the building looks complete.",
+     "ly_do": "In 1707 the new St Paul's was still under construction. The dome and lantern were completed in 1708, so a finished dome is premature for this date.",
+     "nam_xuat_hien": 1708,
+     "toa_do_px": [
+      922,
+      281,
+      1190,
+      626
+     ],
+     "do_tin": 0.45
+    }
+   ],
+   "cost_usd": 0.036129999999999995,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 893,
+     "cacheReadInputTokens": 2405,
+     "cacheCreationInputTokens": 10779,
+     "webSearchRequests": 0,
+     "costUSD": 0.036129999999999995,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 240,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.9,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1707,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"St Paul's Cathedral is shown with a large, fully formed ribbed dome on a colonnaded drum. The dome looks finished apart from the lantern, and the rest of the building looks complete.\",\"ly_do\":\"In 1707 the new St Paul's was still under construction. The dome and lantern were completed in 1708, so a finished dome is premature for this date.\",\"nam_xuat_hien\":1708,\"toa_do\":[0.48,0.26,0.62,0.58],\"do_tin\":0.45}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0361,
+ "chi_phi_tb": 0.0361,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

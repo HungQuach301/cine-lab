@@ -1,0 +1,113 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung H2-05s-k0 năm 1670: [vat_hien_dai] A tall, plain, dark-grey rectangular slab with no windows or roof detail stands in the middle of the brick rooftops. It looks like a modern concrete or steel block. — No windowless monolithic tower block like this existed in 1670 London. It is a modern-looking structure. (xuất hiện 1900) @px [826, 529, 941, 778] tin 0.6"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 2 · chi phí $0.046 (TB $0.046/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-05s-k0",
+   "nam": 1670,
+   "noi": "London",
+   "sha256": "17eb846f49e4d78a33628aa66efa621aadbcae4edd02671dcd9d890c524c27be",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "no Monument column yet (the Monument was begun in 1671)",
+    "no new St Paul's Cathedral (begun 1675)",
+    "only the ruins of Old St Paul's"
+   ],
+   "nghi_van": [
+    {
+     "muc": "vat_hien_dai",
+     "mo_ta": "A tall, plain, dark-grey rectangular slab with no windows or roof detail stands in the middle of the brick rooftops. It looks like a modern concrete or steel block.",
+     "ly_do": "No windowless monolithic tower block like this existed in 1670 London. It is a modern-looking structure.",
+     "nam_xuat_hien": 1900,
+     "toa_do_px": [
+      826,
+      529,
+      941,
+      778
+     ],
+     "do_tin": 0.6,
+     "xac_nhan": {
+      "vung_px": [
+       510,
+       280,
+       1257,
+       1027
+      ],
+      "phong": 0.9,
+      "tra_loi": {
+       "vat": "A tall, flat-sided dark grey block in the middle of the red-brick houses. It looks like a modern concrete tower or slab.",
+       "dac_diem": "It is a plain, windowless, rectangular grey-brown slab with a flat top. It has no roof pitch, no chimneys and no visible windows. It is much taller than the surrounding pitched-roof brick houses, and its texture and colour differ from the brick.",
+       "co_tu_nam": 1950,
+       "da_co_nam_1670": "no",
+       "ly_do": "A tall, featureless concrete-style slab does not match 1670 London, which had low brick and timber houses with pitched roofs. Concrete high-rise blocks only appeared in the 20th century."
+      },
+      "da_co": "no",
+      "giu": true,
+      "cost_usd": 0.0063555,
+      "loi": null
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "A long, pale cream-white terrace with a uniform row of windows sits on the skyline. It looks like a Georgian or Regency terrace.",
+     "ly_do": "Long uniform plastered terraces are an 18th–19th century form. London in 1670 was mostly timber or brick houses with varied gabled frontages.",
+     "nam_xuat_hien": 1750,
+     "toa_do_px": [
+      595,
+      508,
+      902,
+      540
+     ],
+     "do_tin": 0.35
+    },
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The whole district is uniform red-brick houses with regular grids of white-framed sash windows, slate roofs and tall brick chimneys. It reads as a Georgian townscape. There is no Old St Paul's ruin and no medieval church towers in the view.",
+     "ly_do": "London in 1670 was still mid-rebuilding after the 1666 Fire. Many houses were timber-framed or jettied, and sash windows were only just appearing. The ruins of Old St Paul's should stand as a landmark, and the view shows no sign of them.",
+     "nam_xuat_hien": 1700,
+     "toa_do_px": [
+      0,
+      594,
+      1920,
+      1080
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.0462742,
+   "cost_buoc2": 0.00636,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1274,
+     "cacheReadInputTokens": 2392,
+     "cacheCreationInputTokens": 10771,
+     "webSearchRequests": 0,
+     "costUSD": 0.0399187,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 219,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1670,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"mo_ta\":\"A tall, plain, dark-grey rectangular slab with no windows or roof detail stands in the middle of the brick rooftops. It looks like a modern concrete or steel block.\",\"ly_do\":\"No windowless monolithic tower block like this existed in 1670 London. It is a modern-looking structure.\",\"nam_xuat_hien\":1900,\"toa_do\":[0.43,0.49,0.49,0.72],\"do_tin\":0.6,\"muc\":\"vat_hien_dai\"},{\"mo_ta\":\"A long, pale cream-white terrace with a uniform row of windows sits on the skyline. It looks like a Georgian or Regency terrace.\",\"ly_do\":\"Long uniform plastered terraces are an 18th–19th century form. London in 1670 was mostly timber or brick houses with varied gabled frontages.\",\"nam_xuat_hien\":1750,\"toa_do\":[0.31,0.47,0.47,0.5],\"do_tin\":0.35,\"muc\":\"kien_truc\"},{\"mo_ta\":\"The whole district is uniform red-brick houses with regular grids of white-framed sash windows, slate roofs and tall brick chimneys. It reads as a Georgian townscape. There is no Old St Paul's ruin and no medieval church towers in the view.\",\"ly_do\":\"London in 1670 was still mid-rebuilding after the 1666 Fire. Many houses were timber-framed or jettied, and sash windows were only just appearing. The ruins of Old St Paul's should stand as a landmark, and the view shows no sign of them.\",\"nam_xuat_hien\":1700,\"toa_do\":[0.0,0.55,1.0,1.0],\"do_tin\":0.3,\"muc\":\"cong_trinh_moc\"}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0463,
+ "chi_phi_tb": 0.0463,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

@@ -1,0 +1,97 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung H2-06-k0 năm 1671: [cong_trinh_moc] Near the north end of London Bridge, the dense houses show no tall fluted column. The Monument is absent, and there is no column under construction or scaffolding. — The Monument was under construction from 1671 to 1677 beside Fish Street Hill. It should appear as an incomplete Doric column, but nothing like it is visible. (xuất hiện 1677) @px [346, 540, 614, 756] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 2 · chi phí $0.038 (TB $0.038/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-06-k0",
+   "nam": 1671,
+   "noi": "London",
+   "sha256": "377cda17c210c007bb1426f12eb2383f7be7c56c46c2eb3bc08403eebb3c49d2",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument under construction (1671-1677): a fluted Doric column, incomplete at the top",
+    "no new St Paul's Cathedral (begun 1675)",
+    "only the ruins of Old St Paul's"
+   ],
+   "nghi_van": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "Near the north end of London Bridge, the dense houses show no tall fluted column. The Monument is absent, and there is no column under construction or scaffolding.",
+     "ly_do": "The Monument was under construction from 1671 to 1677 beside Fish Street Hill. It should appear as an incomplete Doric column, but nothing like it is visible.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      346,
+      540,
+      614,
+      756
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "loi": null,
+      "ghi": "lớp công trình mốc: không qua bước 2 (vật vắng không phóng được) — giữ"
+     }
+    }
+   ],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "No large ruined medieval cathedral with a tower stands in the city. The area where Old St Paul's should be is covered by uniform houses. There are only a few grey blocks in the far distance.",
+     "ly_do": "The ruins of Old St Paul's should stand on Ludgate Hill in 1671, and its large footprint is missing from the skyline. The view also shows no other landmark church towers or spires.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      480,
+      216,
+      960,
+      432
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "kien_truc",
+     "mo_ta": "London Bridge is drawn as a flat, plain stone slab with blocky piers. It has no houses, no arches and no buildings along it.",
+     "ly_do": "In 1671 Old London Bridge had many arches and a built-up roadway. Parts of it were rebuilt with houses after the 1666 fire. A bare slab is not the 1671 form.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      0,
+      756,
+      365,
+      896
+     ],
+     "do_tin": 0.4
+    }
+   ],
+   "cost_usd": 0.0383352,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1280,
+     "cacheReadInputTokens": 3082,
+     "cacheCreationInputTokens": 10086,
+     "webSearchRequests": 0,
+     "costUSD": 0.0383352,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 259,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1671,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"Near the north end of London Bridge, the dense houses show no tall fluted column. The Monument is absent, and there is no column under construction or scaffolding.\",\"ly_do\":\"The Monument was under construction from 1671 to 1677 beside Fish Street Hill. It should appear as an incomplete Doric column, but nothing like it is visible.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.18,0.5,0.32,0.7],\"do_tin\":0.5},{\"mo_ta\":\"No large ruined medieval cathedral with a tower stands in the city. The area where Old St Paul's should be is covered by uniform houses. There are only a few grey blocks in the far distance.\",\"muc\":\"cong_trinh_moc\",\"ly_do\":\"The ruins of Old St Paul's should stand on Ludgate Hill in 1671, and its large footprint is missing from the skyline. The view also shows no other landmark church towers or spires.\",\"nam_xuat_hien\":null,\"toa_do\":[0.25,0.2,0.5,0.4],\"do_tin\":0.4},{\"muc\":\"kien_truc\",\"mo_ta\":\"London Bridge is drawn as a flat, plain stone slab with blocky piers. It has no houses, no arches and no buildings along it.\",\"ly_do\":\"In 1671 Old London Bridge had many arches and a built-up roadway. Parts of it were rebuilt with houses after the 1666 fire. A bare slab is not the 1671 form.\",\"nam_xuat_hien\":null,\"toa_do\":[0.0,0.7,0.19,0.83],\"do_tin\":0.4}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0383,
+ "chi_phi_tb": 0.0383,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

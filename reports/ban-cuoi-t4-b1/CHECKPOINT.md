@@ -1,0 +1,97 @@
+# CHECKPOINT — BAN-CUOI-T4-B1 (K2C-T4-02 bản cuối, phần B1: sửa 3D chung D-A4 + dựng 1080p HỒI 1 + HỒI 3 + H3-05c)
+
+> Nhánh thật: `claude/k2c-t4-02-final-b1-t9ekhx` (harness buộc; lệnh ghi `k2c-t4-02-final-b1`). Gốc origin/main @5453a8b2 (khớp lệnh).
+> Căn cứ: chủ dự án 26/10/2026 10:08 "Duyệt PHIẾU-A theo khuyến nghị điều phối" (D-A1…D-A9); **D-B1** = chủ dự án dán lệnh phiên này — giờ dán (giờ tạo phiên) ghi ở báo cáo §0.
+
+## Trạng thái
+- 03:44 UTC (10:44 Asia/Saigon): khởi động; origin/main = 5453a8b2 (khớp). verify.sh 10 PASS / 5 FAIL → cài OpenEXR, tifffile, pyshp, npm ci (k2v, cong3), pyproj 3.8.0 + OSTN15 (SHA 5d6ed64d… KHỚP). Hook pre-commit + pre-push → tools/preflight.sh (LFS: `git lfs push` trước `git push`, K33).
+- 03:50: tái tạo dữ liệu LDN `scripts/k2ldn/anim/du_lieu.sh` nền PGID 1422 (NAM 1666.6 1667.3 1700.5 1711.5 1938.5 1940.98 1955.5 1975.5 2026.7), log /var/tmp/bc/log/du_lieu.log.
+- D-B1: thêm mẫu `channel-k2/k2c-t4-02/ban-cuoi/dung/*-1080p.mp4` vào tools/lfs-allow.txt + .gitattributes.
+
+## Lệnh bổ sung đã áp
+- (chưa có)
+- 04:00: dừng du_lieu.sh sau bước flipbook (bước hình học look2 + nướng look2 không dùng ở B1) → hình học B1 `scripts/k2ldn/bc/hinh_hoc_b1.py` (THU-B d + sửa niên đại toà OSM, Q-A5) nền PID 3352; nướng look3d 10 mốc `scripts/k2ldn/bc/nuong_b1.sh` nền PGID 3742 (chờ hình học).
+- 04:10: trang dựng B1 `design/k2v/ldn/bc/look3-b1.js` sinh bằng `scripts/k2ldn/bc/tao_look3_b1.py` (look3 + D-A4 (i)–(iv)); máy + danh sách việc `scripts/k2ldn/bc/may_b1.py` → `channel-k2/k2c-t4-02/ban-cuoi/may/b1/` (HỒI 1: 19 việc 3 547 khung; HỒI 3: 7 việc 1 127 khung; M00 VONG; H3-05c thử 3 phương án; MAY-19 H2-10/H5-05b; soi năm biên 10 máy 24 khung).
+- 04:10–04:16: hình học B1 xong (4 618 074 tam giác; 327 toà đổi năm, 182 khối tiền nhiệm hậu chiến); nướng look3d 10 mốc xong (≈ 30 s/mốc).
+- 04:11–04:15: thử M00 960×540 (trang cũ ↔ B1): mặt sông hết mảng cát phẳng, vòng lửa liền; tăng phản chiếu lửa trên nước (Fq) → thử lại; M01: hết đốm elip đen (sà lan 2026).
+- 04:16: lượt kiểm 1080p (mẫu sau sửa + H3-05c 3 phương án + soi năm biên 24 khung + mặt nạ 2) nền PGID 5662.
+- Phát hiện: BANG_NAM ghi năm HOÀN THÀNH nhưng lớp 4 mọc 2,5 năm → sửa hinh_hoc_b1.py (năm xuất hiện = hoàn thành − 2,5); dựng lại hình học trước ảnh đầu Omni (vi). HỒI 1/HỒI 3 (≤ 1938) không đổi.
+- 04:47: (vi) phát hiện quy tắc (c) gán nhầm năm cho công trình lịch sử có tên (nhà thờ St Giles/St Alban/St Botolph, hội quán phường hội) → sửa hinh_hoc_b1.py (loại trừ + bảng năm hội quán). HỒI 1/HỒI 3 không đổi; dựng lại hình học + ảnh đầu Omni H5-02b/H5-02s dời sang SAU khi dựng sản xuất (không chạy chồng vòng nặng).
+- 05:12 UTC dựng xong **H1-02h**: 48 khung (f 0..47), 23.04 s/khung/tiến trình (P = 2), 9 MB, SHA `8a705c9ff61842f8…` → LFS + đẩy
+- 05:14: H1-02h dựng + LFS đẩy THÀNH CÔNG (Uploading LFS objects 1/1, 8,5 MB; tải công khai media.githubusercontent.com SHA khớp) nhưng bước kiểm `git lfs ls-files | grep -q` trả lỗi giả do `pipefail` + SIGPIPE → hàng dừng đúng thiết kế; sửa xong_b1.sh (lưu đầu ra trước khi grep), chạy tiếp sản xuất.
+- 05:15: trang look3-b1 đổi LỊCH vỏ vòm (1707,3 → 1708,0) + đèn lồng (1707,95 → 1708,0) sau soi lại H2-09 1707,86 (q_thoi_dai vẫn đọc vòm hoàn chỉnh). Chỉ đổi khung năm 1705–1708 → không ảnh hưởng shot HỒI 1/HỒI 3 đang dựng.
+- 05:41 UTC nhịp: 1 tệp 1080p đã đẩy LFS; đang dựng: H1-01h 51 khung; H1-03 76 khung; ; RAM trống 4693 MB, đĩa trống 13G
+- 05:50 UTC dựng xong **H1-01h**: 72 khung (f 0..71), 29.61 s/khung/tiến trình (P = 2), 12 MB, SHA `d19fbc571d647c68…` → LFS + đẩy
+- 05:51 UTC: H1-01h xong 29,6 s/khung/tiến trình (đêm, fov 50°, máy P8 120 m) — nặng hơn mẫu ngày phiên A (14–19 s). Ước lại thông lượng HỒI 1 đêm ≈ 11–12 s/khung (P = 2) → dựng B1 ≈ 14–15 h máy (> 12 h dự kiến); tiếp tục dựng đủ (chất lượng trước), báo vượt giờ ở báo cáo.
+- 06:06 UTC nhịp: 2 tệp 1080p đã đẩy LFS; đang dựng: H1-03 153 khung; H1-04 37 khung; ; RAM trống 4975 MB, đĩa trống 13G
+- 06:31 UTC nhịp: 2 tệp 1080p đã đẩy LFS; đang dựng: H1-03 228 khung; H1-04 101 khung; ; RAM trống 4931 MB, đĩa trống 13G
+- 06:56 UTC nhịp: 2 tệp 1080p đã đẩy LFS; đang dựng: H1-03 304 khung; H1-04 164 khung; ; RAM trống 4960 MB, đĩa trống 13G
+- 07:21 UTC nhịp: 2 tệp 1080p đã đẩy LFS; đang dựng: H1-03 378 khung; H1-04 227 khung; ; RAM trống 4892 MB, đĩa trống 13G
+- 07:22 UTC dựng xong **H1-03**: 381 khung (f 0..380), 19.97 s/khung/tiến trình (P = 2), 80 MB, SHA `aedd457e707b3702…` → LFS + đẩy
+- 07:31 UTC dựng xong **H1-04**: 254 khung (f 0..253), 23.66 s/khung/tiến trình (P = 2), 55 MB, SHA `2bc3ac580acfc4df…` → LFS + đẩy
+- 07:45 UTC dựng xong **H1-05h**: 48 khung (f 0..47), 27.26 s/khung/tiến trình (P = 2), 11 MB, SHA `111018185915fc08…` → LFS + đẩy
+- 07:46 UTC nhịp: 5 tệp 1080p đã đẩy LFS; đang dựng: H1-06 39 khung; H1-07 1 khung; ; RAM trống 5431 MB, đĩa trống 13G
+- 08:11 UTC nhịp: 5 tệp 1080p đã đẩy LFS; đang dựng: H1-06 106 khung; H1-07 75 khung; ; RAM trống 4936 MB, đĩa trống 13G
+- 08:36 UTC nhịp: 5 tệp 1080p đã đẩy LFS; đang dựng: H1-06 176 khung; H1-07 150 khung; ; RAM trống 4839 MB, đĩa trống 13G
+- 09:01 UTC nhịp: 5 tệp 1080p đã đẩy LFS; đang dựng: H1-06 243 khung; H1-07 220 khung; ; RAM trống 4899 MB, đĩa trống 13G
+- 09:04 UTC dựng xong **H1-07**: 227 khung (f 0..226), 20.74 s/khung/tiến trình (P = 2), 45 MB, SHA `3c419fcf12e8019c…` → LFS + đẩy
+- 09:26 UTC nhịp: 6 tệp 1080p đã đẩy LFS; đang dựng: H1-08b 60 khung; ; RAM trống 4741 MB, đĩa trống 12G
+- 09:31 UTC dựng xong **H1-06**: 324 khung (f 0..323), 21.9 s/khung/tiến trình (P = 2), 67 MB, SHA `399ea8bd4bafdb14…` → LFS + đẩy
+- 09:51 UTC nhịp: 7 tệp 1080p đã đẩy LFS; đang dựng: H1-08b 134 khung; H1-09 44 khung; ; RAM trống 5120 MB, đĩa trống 12G
+- 10:17 UTC nhịp: 7 tệp 1080p đã đẩy LFS; đang dựng: H1-08b 210 khung; H1-09 101 khung; ; RAM trống 4967 MB, đĩa trống 12G
+- 10:18 UTC: thông lượng đo 05:14→10:18 ≈ 13 s/khung (P = 2, CPU bão hoà: load 8/4 nhân, 26 % sys) → HỒI 1 + HỒI 3 + H3-05c (4 818 khung) ước xong ≈ 22–23 h UTC; tổng giờ máy phiên ≈ 19–20 h (> 14 h lệnh). Tiếp tục dựng đủ theo nguyên tắc chất lượng; nêu vượt ở báo cáo §chi phí + §ước B2/B3.
+- 10:42 UTC nhịp: 7 tệp 1080p đã đẩy LFS; đang dựng: H1-08b 287 khung; H1-09 158 khung; ; RAM trống 4928 MB, đĩa trống 12G
+- 11:07 UTC nhịp: 7 tệp 1080p đã đẩy LFS; đang dựng: H1-08b 361 khung; H1-09 211 khung; ; RAM trống 4661 MB, đĩa trống 12G
+- 11:09 UTC dựng xong **H1-09**: 216 khung (f 0..215), 26.94 s/khung/tiến trình (P = 2), 47 MB, SHA `ec55c10067c4c852…` → LFS + đẩy
+- 11:32 UTC nhịp: 8 tệp 1080p đã đẩy LFS; đang dựng: H1-11 42 khung; ; RAM trống 7315 MB, đĩa trống 12G
+- 11:33 UTC dựng xong **H1-08b**: 437 khung (f 0..436), 20.23 s/khung/tiến trình (P = 2), 74 MB, SHA `c8e65802f993680e…` → LFS + đẩy
+- 11:57 UTC nhịp: 9 tệp 1080p đã đẩy LFS; đang dựng: H1-11 90 khung; H1-13a 59 khung; ; RAM trống 3573 MB, đĩa trống 12G
+- 12:22 UTC nhịp: 9 tệp 1080p đã đẩy LFS; đang dựng: H1-11 137 khung; H1-13a 125 khung; ; RAM trống 3562 MB, đĩa trống 12G
+- 12:38 UTC dựng xong **H1-13a**: 168 khung (f 0..167), 23.09 s/khung/tiến trình (P = 2), 30 MB, SHA `03c1fa9588cee6df…` → LFS + đẩy
+- 12:47 UTC nhịp: 10 tệp 1080p đã đẩy LFS; đang dựng: H1-12x 33 khung; ; RAM trống 4278 MB, đĩa trống 12G
+- 12:56 UTC dựng xong **H1-11**: 202 khung (f 0..201), 31.65 s/khung/tiến trình (P = 2), 33 MB, SHA `161c062b94594cc6…` → LFS + đẩy
+- 13:12 UTC nhịp: 11 tệp 1080p đã đẩy LFS; đang dựng: H1-12x 136 khung; H1-13c 39 khung; ; RAM trống 5209 MB, đĩa trống 11G
+- 13:23 UTC dựng xong **H1-12x**: 180 khung (f 0..179), 14.75 s/khung/tiến trình (P = 2), 41 MB, SHA `333f22b262d3b43c…` → LFS + đẩy
+- 13:37 UTC nhịp: 12 tệp 1080p đã đẩy LFS; đang dựng: H1-13c 103 khung; H1-15 23 khung; ; RAM trống 4582 MB, đĩa trống 11G
+- 13:55 UTC dựng xong **H1-13c**: 149 khung (f 0..148), 23.41 s/khung/tiến trình (P = 2), 26 MB, SHA `837590e780f50d52…` → LFS + đẩy
+- 14:02 UTC nhịp: 13 tệp 1080p đã đẩy LFS; đang dựng: H1-15 69 khung; H1-15h 13 khung; ; RAM trống 4598 MB, đĩa trống 11G
+- 14:28 UTC nhịp: 13 tệp 1080p đã đẩy LFS; đang dựng: H1-15 115 khung; H1-15h 69 khung; ; RAM trống 4550 MB, đĩa trống 11G
+- 14:31 UTC dựng xong **H1-15h**: 77 khung (f 0..76), 27.34 s/khung/tiến trình (P = 2), 13 MB, SHA `74a675fa8213bf46…` → LFS + đẩy
+- 14:53 UTC nhịp: 14 tệp 1080p đã đẩy LFS; đang dựng: H1-15h2 44 khung; ; RAM trống 4532 MB, đĩa trống 11G
+- 15:10 UTC dựng xong **H1-15**: 192 khung (f 0..191), 33.1 s/khung/tiến trình (P = 2), 40 MB, SHA `6e312821ed7e983d…` → LFS + đẩy
+- 15:18 UTC nhịp: 15 tệp 1080p đã đẩy LFS; đang dựng: H1-15h2 100 khung; H1-16 17 khung; ; RAM trống 5116 MB, đĩa trống 11G
+- 15:30 UTC dựng xong **H1-15h2**: 127 khung (f 152..278), 27.54 s/khung/tiến trình (P = 2), 22 MB, SHA `d5b81bc80d15a011…` → LFS + đẩy
+- 15:43 UTC nhịp: 16 tệp 1080p đã đẩy LFS; đang dựng: H1-16 91 khung; H1-18a 25 khung; ; RAM trống 5349 MB, đĩa trống 11G
+- 16:08 UTC nhịp: 16 tệp 1080p đã đẩy LFS; đang dựng: H1-16 169 khung; H1-18a 77 khung; ; RAM trống 5315 MB, đĩa trống 11G
+- 16:09 UTC dựng xong **H1-16**: 174 khung (f 0..173), 19.96 s/khung/tiến trình (P = 2), 29 MB, SHA `d23702d2d3dc226a…` → LFS + đẩy
+- 16:33 UTC nhịp: 17 tệp 1080p đã đẩy LFS; đang dựng: H1-18a 131 khung; H1-18b 50 khung; ; RAM trống 5597 MB, đĩa trống 11G
+- 16:39 UTC dựng xong **H1-18a**: 144 khung (f 0..143), 28.27 s/khung/tiến trình (P = 2), 32 MB, SHA `5ae0de3c8420a380…` → LFS + đẩy
+- 16:58 UTC nhịp: 18 tệp 1080p đã đẩy LFS; đang dựng: H1-18b 104 khung; H3-01 60 khung; ; RAM trống 5305 MB, đĩa trống 11G
+- 17:01 UTC dựng xong **H3-01**: 72 khung (f 0..71), 18.3 s/khung/tiến trình (P = 2), 17 MB, SHA `c5a6c49e9a232170…` → LFS + đẩy
+- 17:08 UTC dựng xong **H1-18b**: 127 khung (f 0..126), 27.17 s/khung/tiến trình (P = 2), 20 MB, SHA `d63b4bfc0eb7321f…` → LFS + đẩy
+- 17:23 UTC nhịp: 20 tệp 1080p đã đẩy LFS; đang dựng: H3-02 51 khung; H3-03 36 khung; ; RAM trống 4111 MB, đĩa trống 9.9G
+- 17:48 UTC nhịp: 20 tệp 1080p đã đẩy LFS; đang dựng: H3-02 115 khung; H3-03 102 khung; ; RAM trống 4078 MB, đĩa trống 9.9G
+- 18:07 UTC dựng xong **H3-02**: 163 khung (f 0..162), 23.79 s/khung/tiến trình (P = 2), 35 MB, SHA `1fa4c43fe8ccd680…` → LFS + đẩy
+- 18:14 UTC nhịp: 21 tệp 1080p đã đẩy LFS; đang dựng: H3-03 166 khung; H3-04a 18 khung; ; RAM trống 4908 MB, đĩa trống 9.7G
+- 18:38 UTC dựng xong **H3-03**: 227 khung (f 0..226), 23.53 s/khung/tiến trình (P = 2), 57 MB, SHA `34b519ad7534ebcf…` → LFS + đẩy
+- 18:39 UTC nhịp: 22 tệp 1080p đã đẩy LFS; đang dựng: H3-04a 99 khung; H3-05 0 khung; ; RAM trống 5077 MB, đĩa trống 9.5G
+- 18:45 UTC dựng xong **H3-04a**: 120 khung (f 0..119), 18.71 s/khung/tiến trình (P = 2), 26 MB, SHA `cd217a6645b63a7c…` → LFS + đẩy
+- 19:04 UTC nhịp: 23 tệp 1080p đã đẩy LFS; đang dựng: H3-05 99 khung; H3-06-a 59 khung; ; RAM trống 5240 MB, đĩa trống 9.3G
+- 19:18 UTC dựng xong **H3-06-a**: 108 khung (f 0..107), 18.12 s/khung/tiến trình (P = 2), 14 MB, SHA `677be1da2a3c3750…` → LFS + đẩy
+- 19:29 UTC nhịp: 24 tệp 1080p đã đẩy LFS; đang dựng: H3-06-b 32 khung; ; RAM trống 5350 MB, đĩa trống 9.2G
+- 19:50 UTC dựng xong **H3-06-b**: 108 khung (f 0..107), 16.94 s/khung/tiến trình (P = 2), 15 MB, SHA `824b990106474f71…` → LFS + đẩy
+- 19:54 UTC nhịp: 25 tệp 1080p đã đẩy LFS; đang dựng: H3-05c 11 khung; ; RAM trống 5014 MB, đĩa trống 9.0G
+- 20:01 UTC dựng xong **H3-05**: 329 khung (f 0..328), 14.99 s/khung/tiến trình (P = 2), 80 MB, SHA `8ae1266cd4543faa…` → LFS + đẩy
+- 20:18 UTC: tự soi tờ khung HỒI 1: H1-13a/H1-13c (máy tầm phố cạnh đám cháy Ludgate) cháy trắng do quầng lửa B1 to hơn → sửa: quầng giảm khi cách máy < 320 m (mix 0,25 → 1 theo khoảng 60–320 m), ≥ 320 m không đổi; thử trước/sau sua/iii-b-quang-lua-gan-H1-13.jpg; dựng lại H1-13a + H1-13c (317 khung) sau H3-05c.
+- 20:19 UTC nhịp: 26 tệp 1080p đã đẩy LFS; đang dựng: H3-05c 110 khung; ; RAM trống 10075 MB, đĩa trống 8.8G
+- 20:28 UTC dựng xong **H3-05c**: 144 khung (f 0..143), 15.48 s/khung/tiến trình (P = 2), 22 MB, SHA `0a285b5d8068d1c6…` → LFS + đẩy
+- 20:44 UTC nhịp: 27 tệp 1080p đã đẩy LFS; đang dựng: H1-13a 40 khung; H1-13c 40 khung; ; RAM trống 4617 MB, đĩa trống 8.7G
+- 20:50 UTC: HỒI 1 + HỒI 3 + H3-05c xong 27 tệp / 4 818 khung (05:14 → 20:28, thông lượng 11,6 s/khung); đang dựng lại H1-13a + H1-13c.
+- 21:24 UTC dựng xong **H1-13c**: 149 khung (f 0..148), 22.06 s/khung/tiến trình (P = 2), 27 MB, SHA `732620e79d639b4d…` → LFS + đẩy
+- 21:30 UTC dựng xong **H1-13a**: 168 khung (f 0..167), 21.71 s/khung/tiến trình (P = 2), 30 MB, SHA `b240417590b8a6bc…` → LFS + đẩy
+- 21:52 UTC: (vi) hình học cuối + nướng 2026.7/1975.5/1955.5; ảnh đầu H5-02b (1973), H5-02s (1976) từ render 3D cùng năm; Omni 360p 2 lượt mỗi clip: H5-02b TRƯỢT (Flash: tháp hiện đại chân trời; xe hiện đại), H5-02s TRƯỢT (lượt 1 ảnh đầu LOẠI: tháp Barbican sai; lượt 2 tầng 2 LOẠI) → giữ 3D, bảng không đổi. Gemini T4 tổng $19,16. k2check v5 (log khung 1080p): MAY-19 lỗi a 0; GOC-CAO 61,1 %, (a) M00/H1-01h chưa nhận là góc cao (thử 160 m → ĐẠT).
+- 21:55 UTC: báo cáo `BAN-CUOI-T4-B1-BAO-CAO.md`; 27 tệp 1080p trong `git lfs ls-files`; commit cuối DỪNG chờ chủ dự án; KHÔNG merge.
+
+## Kết thúc phiên
+- Việc 1 (i)–(vi), việc 2 (HỒI 1 + HỒI 3 + H3-05c, 4 818 khung), việc 3 (k2check v5, tờ khung), việc 4 (ước B2/B3) xong. Chi phí: Gemini $0,581 (T4 $19,16) · OpenAI $0,390 · Claude $0,806 · giờ máy ≈ 18,5 h (vượt 14 h, nêu ở báo cáo §5).
+- Chờ chủ dự án: báo cáo §9 (B1-Q1 góc cao M00/H1-01h, B1-Q2 chia B2a/B2b/B3, B1-Q3 H5-02b/s giữ 3D).

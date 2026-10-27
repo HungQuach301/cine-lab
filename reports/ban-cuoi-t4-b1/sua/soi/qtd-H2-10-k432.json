@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-10-k432",
+   "nam": 1710,
+   "noi": "London",
+   "sha256": "ba9801bd18cb87270ca609ba95b65062cc35850bf8de8bc3310ba03105f4109f",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "St Paul's with its completed dome and lantern (1708)",
+    "the cathedral being finished (completed 1711)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The lantern on St Paul's dome ends in a small stone cone spire. The Monument is the thin white column at the far right, and its top looks like a plain shaft with no gilded flaming urn that I can make out.",
+     "ly_do": "St Paul's lantern was finished in 1708 and carries a ball and cross, not a cone spire. The Monument should have a gilded flaming urn on top. The scene shows neither detail correctly.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      874,
+      97,
+      960,
+      302
+     ],
+     "do_tin": 0.35
+    },
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "A very tall, plain, smooth white needle spire stands in the left foreground. It looks like a modern or Gothic-revival spire and is not a known London landmark.",
+     "ly_do": "No spire of this form stood in London in 1710. Wren's steeples were stepped and baroque, and a medieval-style spire does not match a 1710 landmark.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      480,
+      432,
+      614,
+      1080
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.0368278,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1129,
+     "cacheReadInputTokens": 3083,
+     "cacheCreationInputTokens": 10087,
+     "webSearchRequests": 0,
+     "costUSD": 0.0368278,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 276,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 14.9,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1710,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The lantern on St Paul's dome ends in a small stone cone spire. The Monument is the thin white column at the far right, and its top looks like a plain shaft with no gilded flaming urn that I can make out.\",\"ly_do\":\"St Paul's lantern was finished in 1708 and carries a ball and cross, not a cone spire. The Monument should have a gilded flaming urn on top. The scene shows neither detail correctly.\",\"nam_xuat_hien\":null,\"toa_do\":[0.455,0.09,0.5,0.28],\"do_tin\":0.35},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"A very tall, plain, smooth white needle spire stands in the left foreground. It looks like a modern or Gothic-revival spire and is not a known London landmark.\",\"ly_do\":\"No spire of this form stood in London in 1710. Wren's steeples were stepped and baroque, and a medieval-style spire does not match a 1710 landmark.\",\"nam_xuat_hien\":null,\"toa_do\":[0.25,0.4,0.32,1.0],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0368,
+ "chi_phi_tb": 0.0368,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

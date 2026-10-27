@@ -1,0 +1,64 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-08-k23",
+   "nam": 1675,
+   "noi": "London",
+   "sha256": "5b11290a0dd183a339ec9a82e09cd7587c0aae6fe614cfa265d71cfdbb29014d",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument under construction (1671-1677): a fluted Doric column, incomplete at the top",
+    "no new St Paul's Cathedral (begun 1675)",
+    "only the ruins of Old St Paul's"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The skyline has several thin white spires and a dark boxy mass that is probably Old St Paul's. I could not identify the Monument, a tall fluted Doric column with an unfinished top, anywhere near the riverside on the city side.",
+     "ly_do": "The Monument was under construction in 1675 (1671-1677) and should be visible as an incomplete column. It looks absent or is too indistinct to identify.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      768,
+      324,
+      1152,
+      454
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.035735199999999995,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1020,
+     "cacheReadInputTokens": 3082,
+     "cacheCreationInputTokens": 10086,
+     "webSearchRequests": 0,
+     "costUSD": 0.035735199999999995,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 355,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 13.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The skyline has several thin white spires and a dark boxy mass that is probably Old St Paul's. I could not identify the Monument, a tall fluted Doric column with an unfinished top, anywhere near the riverside on the city side.\",\"ly_do\":\"The Monument was under construction in 1675 (1671-1677) and should be visible as an incomplete column. It looks absent or is too indistinct to identify.\",\"nam_xuat_hien\":null,\"toa_do\":[0.4,0.3,0.6,0.42],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0357,
+ "chi_phi_tb": 0.0357,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

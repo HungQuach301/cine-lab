@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-10-k217",
+   "nam": 1709,
+   "noi": "London",
+   "sha256": "432802c71617d50cae86fe89c3cf42804923962dcc5b7daf84ed424bb12e7769",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "St Paul's with its completed dome and lantern (1708)",
+    "the cathedral being finished (completed 1711)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The lantern of St Paul's dome ends in a tall conical spire with a small ball. The cathedral body is a plain blocky mass with no visible Wren portico or western towers.",
+     "ly_do": "In 1709 Wren's lantern was topped by a ball and cross, and the cathedral's walls and west front were articulated in Portland stone. The shape shown does not match the 1709 form.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      653,
+      97,
+      1306,
+      907
+     ],
+     "do_tin": 0.3
+    },
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The distant Monument is a thin pale column with a small crossbar at the top. No gilded flaming urn is distinguishable.",
+     "ly_do": "The Monument in 1709 was a fluted Doric column with a gilded flaming urn on top.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1766,
+      659,
+      1824,
+      756
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.0361578,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1062,
+     "cacheReadInputTokens": 3083,
+     "cacheCreationInputTokens": 10087,
+     "webSearchRequests": 0,
+     "costUSD": 0.0361578,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 255,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 15.2,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1709,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The lantern of St Paul's dome ends in a tall conical spire with a small ball. The cathedral body is a plain blocky mass with no visible Wren portico or western towers.\",\"ly_do\":\"In 1709 Wren's lantern was topped by a ball and cross, and the cathedral's walls and west front were articulated in Portland stone. The shape shown does not match the 1709 form.\",\"nam_xuat_hien\":null,\"toa_do\":[0.34,0.09,0.68,0.84],\"do_tin\":0.3},{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The distant Monument is a thin pale column with a small crossbar at the top. No gilded flaming urn is distinguishable.\",\"ly_do\":\"The Monument in 1709 was a fluted Doric column with a gilded flaming urn on top.\",\"nam_xuat_hien\":null,\"toa_do\":[0.92,0.61,0.95,0.7],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0362,
+ "chi_phi_tb": 0.0362,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

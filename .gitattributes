@@ -8,3 +8,5 @@ channel-k2/*/v5b1-thu/**/*-1080p.mp4 filter=lfs diff=lfs merge=lfs -text
 # P-2410b (24/10/2026, chủ dự án duyệt 24/10): master giọng T4 (WAV + FLAC) qua LFS; khớp tools/lfs-allow.txt. SHA: channel-k2/k2c-t4-02/am-thanh/master/SHA256SUMS.
 channel-k2/k2c-t4-02/am-thanh/master/*.wav filter=lfs diff=lfs merge=lfs -text
 channel-k2/k2c-t4-02/am-thanh/master/*.flac filter=lfs diff=lfs merge=lfs -text
+# BAN-CUOI-T4-B1 26/10/2026, chủ dự án duyệt D-B1: bản dựng trung gian 1080p từng shot qua LFS; khớp tools/lfs-allow.txt.
+channel-k2/k2c-t4-02/ban-cuoi/dung/*-1080p.mp4 filter=lfs diff=lfs merge=lfs -text

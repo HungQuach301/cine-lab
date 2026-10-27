@@ -1,0 +1,63 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "k55",
+   "nam": 1976,
+   "noi": "London",
+   "sha256": "fc3dcf4f60fe63071b30f0eec97d2c8400794c081a1ece5d73d83960900467b3",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "St Paul's Cathedral dome (only if visible)",
+    "Barbican towers (completed)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The view shows a plain, regular-windowed slab tower at top left. It does not have the Barbican's distinctive triangular-plan towers with balconies and a castellated top. Only a tiny dome is visible in the distance, and I could not confirm it as St Paul's.",
+     "ly_do": "The Barbican towers were completed by 1976 and should be recognisable in this view, but they appear to be missing or replaced by a generic slab block.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      384,
+      259,
+      595,
+      454
+     ],
+     "do_tin": 0.3
+    }
+   ],
+   "cost_usd": 0.0342349,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 899,
+     "cacheReadInputTokens": 3004,
+     "cacheCreationInputTokens": 9973,
+     "webSearchRequests": 0,
+     "costUSD": 0.0342349,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 260,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1976,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The view shows a plain, regular-windowed slab tower at top left. It does not have the Barbican's distinctive triangular-plan towers with balconies and a castellated top. Only a tiny dome is visible in the distance, and I could not confirm it as St Paul's.\",\"ly_do\":\"The Barbican towers were completed by 1976 and should be recognisable in this view, but they appear to be missing or replaced by a generic slab block.\",\"nam_xuat_hien\":null,\"toa_do\":[0.2,0.24,0.31,0.42],\"do_tin\":0.3}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0342,
+ "chi_phi_tb": 0.0342,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

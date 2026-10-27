@@ -1,0 +1,63 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-11-k143",
+   "nam": 1676,
+   "noi": "London",
+   "sha256": "0ab716c248295c0e1f452b6968747645031c63950fc7ac2c7260f462f9e21a41",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument under construction (1671-1677): a fluted Doric column, incomplete at the top",
+    "the new St Paul's Cathedral under construction (begun 1675): NO completed dome and lantern yet (completed 1708)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "Where St Paul's should stand (north of the river, west of the Monument), the view shows only a flat, grey, cleared open area. A bluish cross-shaped footprint lies on it. No building mass, walls or scaffolded works are visible.",
+     "ly_do": "In 1676 the new St Paul's was under construction, begun 1675. The site should show a large building or works in progress, with no dome yet. It is missing or shown only as a flat ground plan.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      326,
+      378,
+      614,
+      464
+     ],
+     "do_tin": 0.45
+    }
+   ],
+   "cost_usd": 0.034726,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 917,
+     "cacheReadInputTokens": 3090,
+     "cacheCreationInputTokens": 10094,
+     "webSearchRequests": 0,
+     "costUSD": 0.034726,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 238,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.7,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1676,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"Where St Paul's should stand (north of the river, west of the Monument), the view shows only a flat, grey, cleared open area. A bluish cross-shaped footprint lies on it. No building mass, walls or scaffolded works are visible.\",\"ly_do\":\"In 1676 the new St Paul's was under construction, begun 1675. The site should show a large building or works in progress, with no dome yet. It is missing or shown only as a flat ground plan.\",\"nam_xuat_hien\":null,\"toa_do\":[0.17,0.35,0.32,0.43],\"do_tin\":0.45}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0347,
+ "chi_phi_tb": 0.0347,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

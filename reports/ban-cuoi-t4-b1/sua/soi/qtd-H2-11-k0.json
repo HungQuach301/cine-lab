@@ -1,0 +1,63 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-11-k0",
+   "nam": 1676,
+   "noi": "London",
+   "sha256": "b83d29601958b3069951f1ca87e8b2cf7eb56505256dcc2735794a565148860f",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument under construction (1671-1677): a fluted Doric column, incomplete at the top",
+    "the new St Paul's Cathedral under construction (begun 1675): NO completed dome and lantern yet (completed 1708)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "This is a top-down view of the dense city. I can't make out the Monument, a tall fluted column, near the north end of London Bridge, around Fish Street Hill. There is no visible column or its long shadow. The only structure there is ordinary housing.",
+     "ly_do": "The Monument was under construction in 1676 and should stand there as an incomplete Doric column. I can't see it, so it may be missing.",
+     "nam_xuat_hien": 1671,
+     "toa_do_px": [
+      1421,
+      864,
+      1613,
+      1004
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.034505999999999995,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 895,
+     "cacheReadInputTokens": 3090,
+     "cacheCreationInputTokens": 10094,
+     "webSearchRequests": 0,
+     "costUSD": 0.034505999999999995,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 232,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.2,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1676,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"This is a top-down view of the dense city. I can't make out the Monument, a tall fluted column, near the north end of London Bridge, around Fish Street Hill. There is no visible column or its long shadow. The only structure there is ordinary housing.\",\"ly_do\":\"The Monument was under construction in 1676 and should stand there as an incomplete Doric column. I can't see it, so it may be missing.\",\"nam_xuat_hien\":1671,\"toa_do\":[0.74,0.8,0.84,0.93],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0345,
+ "chi_phi_tb": 0.0345,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

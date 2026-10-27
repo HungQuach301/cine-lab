@@ -1,0 +1,49 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 0 · chi phí $0.031 (TB $0.031/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "k90",
+   "nam": 1976,
+   "noi": "London",
+   "sha256": "7480dc6a054aa77b99264917cc8e3b0ef00dcf5a5adc940d6bbcd3616f522b1b",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "St Paul's Cathedral dome (only if visible)",
+    "Barbican towers (completed)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.0313649,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 612,
+     "cacheReadInputTokens": 3004,
+     "cacheCreationInputTokens": 9973,
+     "webSearchRequests": 0,
+     "costUSD": 0.0313649,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 181,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 6.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1976,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0314,
+ "chi_phi_tb": 0.0314,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}
