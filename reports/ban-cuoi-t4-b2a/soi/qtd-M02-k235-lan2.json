@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M02-k235",
+   "nam": 1677,
+   "noi": "London",
+   "sha256": "8bed21b509aef11dc01a7e05c6638aa5737f4b94275e5a51f6037db9b155b5fa",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "the new St Paul's Cathedral under construction (begun 1675): NO completed dome and lantern yet (completed 1708)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The view has no fluted Doric column with a gilded flaming urn. The only tall white structure is a plain tower with a small cap, attached to a church-like block south of the large flat-roofed building. That building is probably St Paul's, and it has no dome, which is correct for 1677.",
+     "ly_do": "The Monument was completed in 1677 and should be visible as a fluted column topped by a gilded urn. It is missing or replaced by a generic white tower.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      998,
+      583,
+      1267,
+      788
+     ],
+     "do_tin": 0.35
+    }
+   ],
+   "cost_usd": 0.036683799999999996,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 954,
+     "cacheReadInputTokens": 2393,
+     "cacheCreationInputTokens": 10757,
+     "webSearchRequests": 0,
+     "costUSD": 0.036683799999999996,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 285,
+     "cacheCreationEphemeral5mInputTokens": 10757,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.0,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1677,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The view has no fluted Doric column with a gilded flaming urn. The only tall white structure is a plain tower with a small cap, attached to a church-like block south of the large flat-roofed building. That building is probably St Paul's, and it has no dome, which is correct for 1677.\",\"ly_do\":\"The Monument was completed in 1677 and should be visible as a fluted column topped by a gilded urn. It is missing or replaced by a generic white tower.\",\"nam_xuat_hien\":null,\"toa_do\":[0.52,0.54,0.66,0.73],\"do_tin\":0.35}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0367,
+ "chi_phi_tb": 0.0367,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

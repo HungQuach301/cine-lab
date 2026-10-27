@@ -1,0 +1,66 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M02-k213",
+   "nam": 1709,
+   "noi": "London",
+   "sha256": "95b4c0f8e6373a0ce73cc61cd3ca3a2ac0fbb95fc97339987ceae28fedc702b0",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "St Paul's with its completed dome and lantern (1708)",
+    "the cathedral being finished (completed 1711)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "Near the north bank east of St Paul's, I see only a plain white tapering spire-like block at about x 0.39, y 0.52–0.58. I see no fluted Doric column with a gilded flaming urn. The Monument looks missing or generic.",
+     "ly_do": "The Monument was completed in 1677 and should stand here in 1709 as a fluted column topped by a gilded urn.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      710,
+      540,
+      806,
+      648
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.0351716,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 969,
+     "cacheReadInputTokens": 3071,
+     "cacheCreationInputTokens": 10065,
+     "webSearchRequests": 0,
+     "costUSD": 0.0351716,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 318,
+     "cacheCreationEphemeral5mInputTokens": 10065,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.8,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1709,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"Near the north bank east of St Paul's, I see only a plain white tapering spire-like block at about x 0.39, y 0.52–0.58. I see no fluted Doric column with a gilded flaming urn. The Monument looks missing or generic.\",\"ly_do\":\"The Monument was completed in 1677 and should stand here in 1709 as a fluted column topped by a gilded urn.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.37,0.5,0.42,0.6],\"do_tin\":0.25}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0352,
+ "chi_phi_tb": 0.0352,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

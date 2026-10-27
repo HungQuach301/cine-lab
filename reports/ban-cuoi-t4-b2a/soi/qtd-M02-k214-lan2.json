@@ -1,0 +1,72 @@
+{
+ "ok": false,
+ "ket_qua": null,
+ "loi": [
+  "khung M02-k214 năm 1708: [cong_trinh_moc] The Monument, a tall fluted Doric column with a gilded urn, is not visible. The area east of St Paul's toward the north bank shows only generic white church spires and blocks. — The Monument was completed in 1677 and should stand in this view in 1708, a short distance east of St Paul's near the river. It is missing. (xuất hiện 1677) @px [653, 486, 826, 713] tin 0.5"
+ ],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 1 ở 1 khung · ghi chú (tin < 0.5) 0 · chi phí $0.035 (TB $0.035/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M02-k214",
+   "nam": 1708,
+   "noi": "London",
+   "sha256": "dbb6e1c7e105215c2d1ed3b023cc85931b62835c9b1d979936f935b27fe4270c",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument (completed 1677): fluted Doric column with a gilded flaming urn on top",
+    "St Paul's with its completed dome and lantern (1708)",
+    "the cathedral being finished (completed 1711)"
+   ],
+   "nghi_van": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The Monument, a tall fluted Doric column with a gilded urn, is not visible. The area east of St Paul's toward the north bank shows only generic white church spires and blocks.",
+     "ly_do": "The Monument was completed in 1677 and should stand in this view in 1708, a short distance east of St Paul's near the river. It is missing.",
+     "nam_xuat_hien": 1677,
+     "toa_do_px": [
+      653,
+      486,
+      826,
+      713
+     ],
+     "do_tin": 0.5,
+     "xac_nhan": {
+      "loi": null,
+      "ghi": "lớp công trình mốc: không qua bước 2 (vật vắng không phóng được) — giữ"
+     }
+    }
+   ],
+   "ghi_chu": [],
+   "cost_usd": 0.03518159999999999,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 970,
+     "cacheReadInputTokens": 3071,
+     "cacheCreationInputTokens": 10065,
+     "webSearchRequests": 0,
+     "costUSD": 0.03518159999999999,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 336,
+     "cacheCreationEphemeral5mInputTokens": 10065,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1708,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The Monument, a tall fluted Doric column with a gilded urn, is not visible. The area east of St Paul's toward the north bank shows only generic white church spires and blocks.\",\"ly_do\":\"The Monument was completed in 1677 and should stand in this view in 1708, a short distance east of St Paul's near the river. It is missing.\",\"nam_xuat_hien\":1677,\"toa_do\":[0.34,0.45,0.43,0.66],\"do_tin\":0.5}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0352,
+ "chi_phi_tb": 0.0352,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

@@ -1,0 +1,79 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 2 · chi phí $0.037 (TB $0.037/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-03b-k0",
+   "nam": 1667,
+   "noi": "London",
+   "sha256": "bd1665cf7d08a76474283a4de2854f863a767aee3580ea3deca947b2ed45580b",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "no Monument column yet (the Monument was begun in 1671)",
+    "no new St Paul's Cathedral (begun 1675)",
+    "only the ruins of Old St Paul's"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "khác:None",
+     "mo_ta": "The Thames runs across the view with no bridge over it. London Bridge, which stood in 1667 as a medieval bridge with houses on it, is not visible. The river looks like open water with only a few tiny boats.",
+     "ly_do": "London Bridge stood in 1667 and should appear in its 1667 form, with houses on the bridge. It is absent from the view.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      384,
+      464,
+      1152,
+      540
+     ],
+     "do_tin": 0.4
+    },
+    {
+     "muc": "khác:None",
+     "mo_ta": "No identifiable ruined Old St Paul's, a very large cruciform church with a central tower stump, stands in the city centre. The city is a mass of uniform dark blocks, and only small generic church-like buildings are visible.",
+     "ly_do": "The ruins of Old St Paul's (burnt in 1666) should be a prominent landmark in this view, and I cannot identify it.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      768,
+      594,
+      1440,
+      864
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.037414699999999995,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1188,
+     "cacheReadInputTokens": 3077,
+     "cacheCreationInputTokens": 10086,
+     "webSearchRequests": 0,
+     "costUSD": 0.037414699999999995,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 371,
+     "cacheCreationEphemeral5mInputTokens": 10086,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 14.5,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1667,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"mo_ta\":\"The Thames runs across the view with no bridge over it. London Bridge, which stood in 1667 as a medieval bridge with houses on it, is not visible. The river looks like open water with only a few tiny boats.\",\"ly_do\":\"London Bridge stood in 1667 and should appear in its 1667 form, with houses on the bridge. It is absent from the view.\",\"nam_xuat_hien\":null,\"toa_do\":[0.2,0.43,0.6,0.5],\"do_tin\":0.4},{\"mo_ta\":\"No identifiable ruined Old St Paul's, a very large cruciform church with a central tower stump, stands in the city centre. The city is a mass of uniform dark blocks, and only small generic church-like buildings are visible.\",\"ly_do\":\"The ruins of Old St Paul's (burnt in 1666) should be a prominent landmark in this view, and I cannot identify it.\",\"nam_xuat_hien\":null,\"toa_do\":[0.4,0.55,0.75,0.8],\"do_tin\":0.25}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0374,
+ "chi_phi_tb": 0.0374,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

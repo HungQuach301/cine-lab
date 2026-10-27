@@ -1,0 +1,66 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-02-k350",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "2d8de0c679760fc5bfd1bc33b670c41f1e9ffc83be5acc519621ba64e3daa689",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "no Monument column yet (the Monument was begun in 1671)",
+    "no new St Paul's Cathedral (begun 1675)",
+    "only the ruins of Old St Paul's"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "On the north bank just downstream (east) of London Bridge, where the Tower of London stood, I see only the same dense grey ruin-field blocks. No White Tower or castle walls stand out.",
+     "ly_do": "The Tower of London stood in 1666 and escaped the Great Fire. It should be present as a distinct landmark, and it appears to be missing. I am not sure it falls inside this view, so the confidence is low.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      1613,
+      713,
+      1901,
+      821
+     ],
+     "do_tin": 0.2
+    }
+   ],
+   "cost_usd": 0.0355966,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1009,
+     "cacheReadInputTokens": 3071,
+     "cacheCreationInputTokens": 10075,
+     "webSearchRequests": 0,
+     "costUSD": 0.0355966,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 339,
+     "cacheCreationEphemeral5mInputTokens": 10075,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"On the north bank just downstream (east) of London Bridge, where the Tower of London stood, I see only the same dense grey ruin-field blocks. No White Tower or castle walls stand out.\",\"ly_do\":\"The Tower of London stood in 1666 and escaped the Great Fire. It should be present as a distinct landmark, and it appears to be missing. I am not sure it falls inside this view, so the confidence is low.\",\"nam_xuat_hien\":null,\"toa_do\":[0.84,0.66,0.99,0.76],\"do_tin\":0.2}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0356,
+ "chi_phi_tb": 0.0356,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

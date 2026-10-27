@@ -15,3 +15,5 @@
 ## Nhật ký dựng
 - 02:17 UTC dựng xong **H1-01h**: 72 khung (f 0..71), 17.87 s/khung/tiến trình (P = 2), 12 MB, SHA `1565579256b56989…` → LFS + đẩy
 - 02:20 UTC nhịp: 27 tệp 1080p đã đẩy LFS; đang dựng: M00 138 khung; ; RAM trống 5078 MB, đĩa trống 13G
+- 02:26 UTC **SỰ CỐ:** OOM (cgroup) giết Chromium của M00 ở khung 178/408 — do chạy tiến trình thử thứ 3 (khung phế tích) cạnh 2 tiến trình dựng; M00 dựng lại từ đầu 02:38 (hàng C). Từ đây không chạy tiến trình dựng thứ 3.
+- 02:38 soi năm biên lượt 2 (trang đã sửa phế tích): 17/18 ĐẠT; M02 k214 ghi (Monument ngoài khung). Hàng: B (M01 → E-M01-tl), C (M00, M02, M04, H2-02, H2-04h, H2-05), D sau B (M03, H2-00, H2-03b, H2-04a).

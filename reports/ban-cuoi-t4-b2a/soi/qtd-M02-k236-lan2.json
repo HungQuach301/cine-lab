@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.034 (TB $0.034/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "M02-k236",
+   "nam": 1675,
+   "noi": "London",
+   "sha256": "f3bb909e23c84b938e72353a38572f62e8ee5d842106a6c4b63d351f362095cf",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "the Monument under construction (1671-1677): a fluted Doric column, incomplete at the top",
+    "the new St Paul's Cathedral under construction (begun 1675): NO completed dome and lantern yet (completed 1708)"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "I can't pick out a large St Paul's Cathedral mass in the dense city. Only small white tower or spire blocks stand where it should be, around the centre of the north bank. It may be absent or only a generic church.",
+     "ly_do": "The new St Paul's was under construction in 1675, with its walls rising and no dome. A large cathedral building site should be visible, and none is distinct.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      845,
+      389,
+      1037,
+      497
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.034399799999999994,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 890,
+     "cacheReadInputTokens": 3078,
+     "cacheCreationInputTokens": 10072,
+     "webSearchRequests": 0,
+     "costUSD": 0.034399799999999994,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 244,
+     "cacheCreationEphemeral5mInputTokens": 10072,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1675,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"I can't pick out a large St Paul's Cathedral mass in the dense city. Only small white tower or spire blocks stand where it should be, around the centre of the north bank. It may be absent or only a generic church.\",\"ly_do\":\"The new St Paul's was under construction in 1675, with its walls rising and no dome. A large cathedral building site should be visible, and none is distinct.\",\"nam_xuat_hien\":null,\"toa_do\":[0.44,0.36,0.54,0.46],\"do_tin\":0.25}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0344,
+ "chi_phi_tb": 0.0344,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

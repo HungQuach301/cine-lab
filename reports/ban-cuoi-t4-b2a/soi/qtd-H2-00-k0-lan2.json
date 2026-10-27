@@ -1,0 +1,66 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "1 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 1 · chi phí $0.036 (TB $0.036/khung) · gọi mới 1 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "H2-00-k0",
+   "nam": 1666,
+   "noi": "London",
+   "sha256": "20b3ea1a0990a1d3ef3ad97abfcab5217f3ab992aab80323b3a75e6f149ad6af",
+   "prompt_ver": "o2-v3-moc (K-1.17.7, 25/10/2026: + lớp dữ kiện công trình mốc)",
+   "model": "claude-sonnet-5-5",
+   "moc": [
+    "no Monument column yet (the Monument was begun in 1671)",
+    "no new St Paul's Cathedral (begun 1675)",
+    "only the ruins of Old St Paul's"
+   ],
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "cong_trinh_moc",
+     "mo_ta": "The Thames is visible across the whole width of the frame, but no London Bridge (a built-up bridge with houses) spans it. The river shows only open water and a few small boats.",
+     "ly_do": "London Bridge stood in 1666 as the only Thames crossing in London. If it lies inside this view, it should be shown in its medieval form.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      0,
+      410,
+      576,
+      497
+     ],
+     "do_tin": 0.25
+    }
+   ],
+   "cost_usd": 0.036236599999999994,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1073,
+     "cacheReadInputTokens": 3071,
+     "cacheCreationInputTokens": 10075,
+     "webSearchRequests": 0,
+     "costUSD": 0.036236599999999994,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 432,
+     "cacheCreationEphemeral5mInputTokens": 10075,
+     "cacheCreationEphemeral1hInputTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.1,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1666,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\",\"cong_trinh_moc\"],\"nghi_van\":[{\"muc\":\"cong_trinh_moc\",\"mo_ta\":\"The Thames is visible across the whole width of the frame, but no London Bridge (a built-up bridge with houses) spans it. The river shows only open water and a few small boats.\",\"ly_do\":\"London Bridge stood in 1666 as the only Thames crossing in London. If it lies inside this view, it should be shown in its medieval form.\",\"nam_xuat_hien\":null,\"toa_do\":[0.0,0.38,0.3,0.46],\"do_tin\":0.25}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.0362,
+ "chi_phi_tb": 0.0362,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

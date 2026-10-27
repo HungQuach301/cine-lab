@@ -3,6 +3,7 @@
 #   giai đoạn "thu": khung thử máy B1-Q1 (960×540, 3 phương án pitch + máy cũ) + tấm E-M01 (tĩnh spp 24 + mặt nạ 1/2/3e, 2304×1296)   (dung_bc.py)
 #   giai đoạn "sx":  dựng 1080p theo viec-dung.json (dung_b2a.py: mỗi shot → xong_b2a.sh → LFS → đẩy) — M00, H1-01h, rồi theo bảng; E-M01-tl (lớp (a)-E 3D của thử E, xong: false) xen ngay sau M01
 #   bash scripts/k2ldn/bc/chuoi_b2a.sh thu|sx
+#   bash scripts/k2ldn/bc/chuoi_b2a.sh cho <pid> <tên việc …>   — hàng P = 1 bắt đầu khi tiến trình <pid> (hàng trước) kết thúc (giữ tổng P = 2 khi chia hàng sau lần dừng tạm 02:03)
 set -o pipefail
 cd "$(dirname "$0")/../../.."; export LDN_DATA=/var/tmp/ldn BC_R=/var/tmp/bc/r; PY=/opt/cine/bin/python; V=channel-k2/k2c-t4-02/ban-cuoi/may/b2a
 t() { echo "== $(date -u +%H:%M:%S) $*"; }
@@ -13,4 +14,7 @@ thu) t THU-MAY; $PY scripts/k2ldn/bc/dung_bc.py 2 $V/viec-thu-may.json
      t CHUOI-B2a-THU-XONG ;;
 sx)  t SX; $PY scripts/k2ldn/bc/dung_b2a.py 2 $V/viec-dung.json; [ -f /var/tmp/bc/DUNG-B2a ] && { t "DỪNG: $(cat /var/tmp/bc/DUNG-B2a)"; exit 9; }
      t CHUOI-B2a-XONG ;;
+cho) pid=$2; shift 2; t "CHỜ PID $pid rồi dựng: $*"; while kill -0 $pid 2>/dev/null; do sleep 20; done
+     [ -f /var/tmp/bc/DUNG-B2a ] && { t "DỪNG: $(cat /var/tmp/bc/DUNG-B2a)"; exit 9; }
+     t SX-P1; $PY scripts/k2ldn/bc/dung_b2a.py 1 $V/viec-dung.json "$@"; t "HANG-XONG $*" ;;
 esac
