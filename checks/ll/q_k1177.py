@@ -320,20 +320,31 @@ def nhan_vat_ten(E, TL, LS, ep_dir='.', video=None, cong=None):
         nv = g(d, 'nhan_vat_ten')
         if not nv: continue
         n += 1; w = d['id']; ten = ', '.join(nv) if isinstance(nv, list) else str(nv)
-        cd = g(d, 'chan_dung_tham_chieu')
-        if not cd: M['k'].append(f'(k) {w} ({ten}): chưa khai `chan_dung_tham_chieu: {{tep, sha256}}`')
-        else: M['k'] += [f'(k) {w}: {x}' for x in _tep_sha(cd, ep_dir, 'chan_dung_tham_chieu')]
+        from checks.ll import q_k1179 as K79
+        cd = g(d, 'chan_dung_tham_chieu'); kk = []
+        if not cd: kk.append(f'(k) {w} ({ten}): chưa khai `chan_dung_tham_chieu: {{tep, sha256}}`')
+        else: kk += [f'(k) {w}: {x}' for x in _tep_sha(cd, ep_dir, 'chan_dung_tham_chieu')]
         if not g(d, 'duyet_chu_du_an'): M['u'].append(f'(u) {w} ({ten}): chưa khai `duyet_chu_du_an` (dòng AUTHORSHIP chủ dự án duyệt nhân vật có tên trong M-d)')
         clip = g(d, 'clip'); src = None
         try:
-            if clip and os.path.exists(K.K6._p(ep_dir, clip)): R = do_mat(K.K6._p(ep_dir, clip)); src = 'clip'
+            if clip and os.path.exists(K.K6._p(ep_dir, clip)):
+                import cv2   # 1.17.9 KN-4: cửa sổ `cat_clip` — chỉ đo khung dùng
+                cp = K.K6._p(ep_dir, clip); fps = cv2.VideoCapture(cp).get(cv2.CAP_PROP_FPS) or 24.0
+                win, ek = K79.cua_so(dict(cat_clip=g(d, 'cat_clip')) if g(d, 'cat_clip') is not None else {}, fps, d['b'] - d['a'])
+                if ek: kk.append(f'(k) {w}: {ek}')
+                R = do_mat(cp, win[0], win[1] - 1.0 / fps) if win else do_mat(cp); src = f'clip {win[0]:.3f}–{win[1]:.3f} s (cat_clip)' if win else 'clip'
             elif video and os.path.exists(video): R = do_mat(video, d['a'], d['b']); src = f"master {d['a']:.1f}–{d['b']:.1f} s"
             else: R = None
         except Exception as e: R = None; M['m'].append(f'(m) {w}: không đo được mặt: {type(e).__name__}: {e}')   # noqa: BLE001
+        if not cd:   # 1.17.9 KN-7: nhân vật không có chân dung xác thực/sạch quyền
+            okm, why = K79.mien_k(lambda k_: g(d, k_), str(d.get('shot') or w.split('/')[0]), ep_dir, R)
+            if okm: kk = [x for x in kk if 'chan_dung_tham_chieu' not in x]; so.append(f'{w}: {why}')
+            elif str(g(d, 'chan_dung') or '') == 'khong_co': kk = [x + f' — miễn KN-7 không nhận: {why}' if 'chan_dung_tham_chieu' in x else x for x in kk]
+        M['k'] += kk
         if R is None:
             if not any(x.startswith(f'(m) {w}') for x in M['m']): M['m'].append(f'(m) {w}: không có video để đo mặt (khai `clip` của đoạn hoặc chạy k2check có --master)')
             continue
-        so.append(f"{w} {R['max_ty']:.3f}")
+        so.append(f"{w} {R['max_ty']:.3f}" + (' (cat_clip)' if src and 'cat_clip' in src else ''))
         if R['tren']: M['a'].append(f"(a) {w} ({ten}): mặt cao {max(x[1] for x in R['tren']):.3f} khung > 1/8 ở {len(R['tren'])}/{R['khung']} khung đo (đầu tiên khung {R['tren'][0][0]}, {src}) — cận mặt nhân vật có tên")
         if R['nghi']: M['w'].append(f"(w) {w}: {len(R['nghi'])} hộp điểm {MAT_DIEM_W:g}–{MAT_DIEM:g} cao > 1/8 (lớn nhất {max(x[1] for x in R['nghi']):.3f} @khung {R['nghi'][0][0]}) — người soi: có phải mặt cận?")
     if not n: return dict(K.na('không đoạn M-d nào khai nhan_vat_ten'), cong=cong)

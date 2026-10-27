@@ -1,0 +1,84 @@
+{
+ "so_bien_co_log": {
+  "n1": 25,
+  "n2": 17,
+  "n3": 188,
+  "n4": 560
+ },
+ "goc": {
+  "val": "770.9 s · biến cố khai 143 (gộp 134) · TB 5.75 s · dài nhất 20.17 s · khung tĩnh: không đo (không có master)",
+  "bien_co": {
+   "n": 143,
+   "gop": 134,
+   "tb": 5.75,
+   "dai_nhat": 20.17,
+   "dai_nhat_tu": "H2-03b 344.29s (cut)"
+  }
+ },
+ "n1": {
+  "tb": 5.32,
+  "dai_nhat": 20.17,
+  "tu": "H2-03b 344.29s (cut)",
+  "gop": 145,
+  "loi": [
+   "(b) khoảng biến cố trung bình 5.32 s > 3.5 s",
+   "(c) khoảng dài nhất 20.17 s > 6.0 s (từ H2-03b 344.29s (cut))"
+  ]
+ },
+ "n2": {
+  "tb": 5.43,
+  "dai_nhat": 20.17,
+  "tu": "H2-03b 344.29s (cut)",
+  "gop": 142,
+  "loi": [
+   "(b) khoảng biến cố trung bình 5.43 s > 3.5 s",
+   "(c) khoảng dài nhất 20.17 s > 6.0 s (từ H2-03b 344.29s (cut))"
+  ]
+ },
+ "n3": {
+  "tb": 3.21,
+  "dai_nhat": 20.17,
+  "tu": "H2-03b 344.29s (cut)",
+  "gop": 240,
+  "loi": [
+   "(c) khoảng dài nhất 20.17 s > 6.0 s (từ H2-03b 344.29s (cut))"
+  ]
+ },
+ "n1+n2": {
+  "tb": 5.04,
+  "dai_nhat": 20.17,
+  "tu": "H2-03b 344.29s (cut)",
+  "gop": 153,
+  "loi": [
+   "(b) khoảng biến cố trung bình 5.04 s > 3.5 s",
+   "(c) khoảng dài nhất 20.17 s > 6.0 s (từ H2-03b 344.29s (cut))"
+  ]
+ },
+ "n1+n2+n3": {
+  "tb": 3.03,
+  "dai_nhat": 20.17,
+  "tu": "H2-03b 344.29s (cut)",
+  "gop": 254,
+  "loi": [
+   "(c) khoảng dài nhất 20.17 s > 6.0 s (từ H2-03b 344.29s (cut))"
+  ]
+ },
+ "n4 (cận trên)": {
+  "tb": 2.42,
+  "dai_nhat": 20.17,
+  "tu": "H2-03b 344.29s (cut)",
+  "gop": 319,
+  "loi": [
+   "(c) khoảng dài nhất 20.17 s > 6.0 s (từ H2-03b 344.29s (cut))"
+  ]
+ },
+ "n1+n2+n3+n4": {
+  "tb": 1.78,
+  "dai_nhat": 20.17,
+  "tu": "H2-03b 344.29s (cut)",
+  "gop": 433,
+  "loi": [
+   "(c) khoảng dài nhất 20.17 s > 6.0 s (từ H2-03b 344.29s (cut))"
+  ]
+ }
+}

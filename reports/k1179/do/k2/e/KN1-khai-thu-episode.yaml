@@ -1,0 +1,110 @@
+id: ban-cuoi-t4-a-E-E-P9-ngay-l1-thap-kn1
+title: BAN-CUOI-T4-A thử E (không phải tập)
+brand: MOVING PARTS
+channel: k2
+khung_sach: true
+kenh2_tu_t4: true
+animatic: false
+out: /var/tmp/bc/k2c/E-P9-ngay-l1-thap
+segments:
+- id: s0
+  dur: 3.0
+  shots:
+  - id: H5-05a
+    at: 0.0
+    tpl: scene3d
+n2p:
+  noi: London
+  t4: true
+  tam:
+  - id: E-P9-ngay-l1-thap
+    shot: H5-05a
+    render: /var/tmp/k1179/in/channel-k2/k2c-t4-02/ban-cuoi/e/tam/E-P9-ngay/render.png
+    ghep: /var/tmp/k1179/in/channel-k2/k2c-t4-02/ban-cuoi/e/tam/E-P9-ngay/l1-thap/ghep.png
+    mat_na: /var/tmp/k1179/in/channel-k2/k2c-t4-02/ban-cuoi/e/tam/E-P9-ngay/matna-thap.png
+    nam: 2026
+    anh_tinh: true
+    n2p_toan_khung_hien_dai: true
+    nam_min: 2020
+    cu_may: CODINH
+    dem: false
+    mat_na_ct: /var/tmp/k1179/in/channel-k2/k2c-t4-02/ban-cuoi/e/tam/E-P9-ngay/mat_na_ct-thap.png
+    toa_co_ten:
+    - ten: St Paul's Cathedral
+      mau:
+      - 20
+      - 0
+      - 200
+    - ten: CityPoint
+      mau:
+      - 109
+      - 128
+      - 189
+    - ten: White Collar Factory
+      mau:
+      - 118
+      - 128
+      - 188
+    - ten: 20 Ropemaker
+      mau:
+      - 136
+      - 128
+      - 186
+    - ten: Guildhall Art Gallery
+      mau:
+      - 255
+      - 128
+      - 191
+    - ten: Guildhall
+      mau:
+      - 255
+      - 128
+      - 197
+    - ten: Cromwell Tower
+      mau:
+      - 255
+      - 128
+      - 198
+    - ten: Lauderdale Tower
+      mau:
+      - 255
+      - 128
+      - 197
+    - ten: The Heron
+      mau:
+      - 255
+      - 128
+      - 195
+    - ten: 2 London Wall Place
+      mau:
+      - 255
+      - 128
+      - 182
+    noi: London
+    ngoai_le:
+    - hang:
+      - N2P-1 (b)
+      - N2P-3 (b)
+      hop:
+      - 0.0
+      - 0.96
+      - 0.09
+      - 1.0
+      ly_do: K1178-D2 — vùng ngoài dải bờ 8 px (mép kè/nước AI ở dải ≈ 10 × 190 px
+        sát mép dưới trái), máy 0/255 + T9b/T9c 0 — KHAI THỬ K-1.17.9 (không phải
+        duyệt thật)
+      duyet_chu_du_an:
+        nguoi_ky: Chủ dự án (tác giả – đạo diễn)
+        vai: chu_du_an
+        ngay: '2026-10-26'
+        ket_luan: chap_nhan
+  video:
+  - shot: H5-05a
+    ghep: /var/tmp/bc/E-P9-ngay-l1-thap-tl-ghep.mp4
+    render: /var/tmp/bc/E-P9-ngay-l1-thap-tl-render.mp4
+    mat_na: /home/user/cine-lab/channel-k2/k2c-t4-02/ban-cuoi/e/tam/E-P9-ngay/l1-thap/matna-640.png
+    chuyen_tam: []
+    n2p_toan_khung_hien_dai: true
+    nam: 2026
+    cu_may: CODINH
+log_shot: log-shot.json

@@ -1,0 +1,515 @@
+{
+ "7d94939225823d539fd24dbc7dcc5e26": {
+  "ket_qua": {
+   "gpt": {
+    "meta": {
+     "model": "gpt-6.1-sol",
+     "usd": 0.0516,
+     "usage": {
+      "input_tokens": 16706,
+      "input_tokens_details": {
+       "cache_write_tokens": 16703,
+       "cached_tokens": 0
+      },
+      "output_tokens": 1814,
+      "output_tokens_details": {
+       "reasoning_tokens": 486
+      },
+      "total_tokens": 18520
+     },
+     "loi": null
+    },
+    "secs": 34.0,
+    "json": {
+     "moc": [
+      {
+       "ten": "St Paul's Cathedral",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present in the same position; dome, lantern, twin western towers and main building outline remain aligned. No evident cutting or ghosting.",
+       "do_tin": 0.99
+      },
+      {
+       "ten": "Mansion House",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The structure at the supplied location remains present with its overall silhouette aligned. No clear duplication or displacement.",
+       "do_tin": 0.88
+      },
+      {
+       "ten": "Royal Exchange",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the supplied location with the same overall outline; no evident doubling, cutting or misalignment.",
+       "do_tin": 0.87
+      },
+      {
+       "ten": "Pinsent Masons",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present in the same position with the same tower silhouette. No evident ghosting or duplication.",
+       "do_tin": 0.91
+      },
+      {
+       "ten": "CityPoint",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tower group within the supplied box remains in place with matching principal heights and outlines. No clear duplication or cutting.",
+       "do_tin": 0.92
+      },
+      {
+       "ten": "White Collar Factory",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the supplied position with its narrow, horizontally banded silhouette retained.",
+       "do_tin": 0.92
+      },
+      {
+       "ten": "Beechwood",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The structures within the supplied box retain their principal silhouettes and positions. No evident doubling or misalignment.",
+       "do_tin": 0.9
+      },
+      {
+       "ten": "20 Ropemaker",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The small feature at the supplied location appears retained and aligned; its very small size limits precise shape verification.",
+       "do_tin": 0.67
+      },
+      {
+       "ten": "The Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present with the same tall rectangular silhouette and position. No clear doubling, cutting or displacement.",
+       "do_tin": 0.96
+      },
+      {
+       "ten": "Guildhall Art Gallery",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present in the supplied area with the same low building outline. No evident ghosting or displacement.",
+       "do_tin": 0.83
+      },
+      {
+       "ten": "Guildhall",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the supplied location; the principal outline remains aligned without evident duplication or cutting.",
+       "do_tin": 0.85
+      },
+      {
+       "ten": "Tower of St Mary Somerset",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The feature at the supplied location remains visible and aligned. No clear duplication or displacement.",
+       "do_tin": 0.79
+      },
+      {
+       "ten": "Cromwell Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The supplied box is identical to the CityPoint box; the existing tower silhouettes within it remain aligned, without an added copy.",
+       "do_tin": 0.9
+      },
+      {
+       "ten": "Lauderdale Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present with the same narrow, horizontally banded tower outline and height. No evident cutting or misalignment.",
+       "do_tin": 0.97
+      },
+      {
+       "ten": "The Heron",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present in the same position with its narrow vertical silhouette retained. No evident doubling or ghosting.",
+       "do_tin": 0.92
+      },
+      {
+       "ten": "2 London Wall Place",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the supplied position with the same overall building outline. No clear duplication or displacement.",
+       "do_tin": 0.89
+      },
+      {
+       "ten": "Bank of England",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The supplied box is identical to the Beechwood box; its principal building silhouettes remain present and aligned, without evident doubling or cutting.",
+       "do_tin": 0.88
+      }
+     ],
+     "thap_bia": [],
+     "them": [
+      {
+       "loai": "thuyen_nho",
+       "mo_ta": "An additional white-hulled, dark rectangular covered barge appears on the river to the right of the existing boat and foreground bridge. This is a third covered vessel; BEFORE contains only two.",
+       "toa_do": [
+        0.72,
+        0.886,
+        0.79,
+        0.92
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.99
+      }
+     ],
+     "bot_doi": [],
+     "chu": [],
+     "doi_loai_vung": []
+    }
+   },
+   "claude": {
+    "meta": {
+     "model": [
+      "claude-sonnet-5-5"
+     ],
+     "usd": 0.068766,
+     "loi": null,
+     "lan": 1
+    },
+    "secs": 16.7,
+    "json": {
+     "moc": [
+      {
+       "ten": "St Paul's Cathedral",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present at the same place with the same shape.",
+       "do_tin": 0.8
+      },
+      {
+       "ten": "Mansion House",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present. The buildings are restyled but sit in the same place.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Royal Exchange",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Pinsent Masons",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "CityPoint",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Towers are present at the same positions.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "White Collar Factory",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Beechwood",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "20 Ropemaker",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "The Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The tall tower at top right is present with the same shape.",
+       "do_tin": 0.7
+      },
+      {
+       "ten": "Guildhall Art Gallery",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Guildhall",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Tower of St Mary Somerset",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "The spire is present.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "Cromwell Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "Lauderdale Tower",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "The Heron",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.6
+      },
+      {
+       "ten": "2 London Wall Place",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.5
+      },
+      {
+       "ten": "Bank of England",
+       "co_mat": true,
+       "nhan_doi": false,
+       "mo_ta": "Present.",
+       "do_tin": 0.5
+      }
+     ],
+     "thap_bia": [],
+     "them": [
+      {
+       "loai": "thuyen_nho",
+       "mo_ta": "A new boat with a white hull and dark roof is on the river at right. It is not in BEFORE.",
+       "toa_do": [
+        0.72,
+        0.885,
+        0.79,
+        0.92
+       ],
+       "thoi_dai_sai": false,
+       "ly_do_thoi_dai": "",
+       "nam_xuat_hien": null,
+       "do_tin": 0.7
+      }
+     ],
+     "bot_doi": [],
+     "chu": [],
+     "doi_loai_vung": []
+    }
+   }
+  },
+  "prompt_ver": "n2p-e-v2-nuoc (K-1.17.9, 26/10/2026)",
+  "loi": null,
+  "chi_phi_usd": 0.1204
+ },
+ "qtd": {
+  "E-P1-ngay-l2-thap-kn8-bo_dat-am_thuyen": {
+   "ghep": {
+    "id": "E-P1-ngay-l2-thap-kn8-bo_dat-am_thuyen-ghep",
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "2fc424365b79aab78c541addcf21859b6a9ad73e2511a94049f7554c0bfd5876",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [
+     {
+      "muc": "kien_truc",
+      "mo_ta": "The domed cathedral on the left is a pale, boxy building with a dark dome and small corner turrets. It does not match the real St Paul's Cathedral, which has a stone drum, a lantern and two west towers.",
+      "ly_do": "The landmark's appearance differs from how it looked in 2026. This is more likely a rendering error than a true anachronism.",
+      "nam_xuat_hien": null,
+      "toa_do_px": [
+       173,
+       259,
+       499,
+       486
+      ],
+      "do_tin": 0.2
+     },
+     {
+      "muc": "tau",
+      "mo_ta": "Four flat, featureless white-hulled slabs with dark rectangular tops float on the river. Two dark oval shapes sit beside them. None has a recognisable rig, funnel or wheelhouse.",
+      "ly_do": "These do not look like the river vessels (tour boats, barges, clippers) seen on the Thames in 2026.",
+      "nam_xuat_hien": null,
+      "toa_do_px": [
+       173,
+       853,
+       1517,
+       972
+      ],
+      "do_tin": 0.15
+     }
+    ],
+    "cost_usd": 0.038983699999999996,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1262,
+      "cacheReadInputTokens": 3117,
+      "cacheCreationInputTokens": 10416,
+      "webSearchRequests": 0,
+      "costUSD": 0.038983699999999996,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 163,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 11.6,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The domed cathedral on the left is a pale, boxy building with a dark dome and small corner turrets. It does not match the real St Paul's Cathedral, which has a stone drum, a lantern and two west towers.\",\"ly_do\":\"The landmark's appearance differs from how it looked in 2026. This is more likely a rendering error than a true anachronism.\",\"nam_xuat_hien\":null,\"toa_do\":[0.09,0.24,0.26,0.45],\"do_tin\":0.2},{\"muc\":\"tau\",\"mo_ta\":\"Four flat, featureless white-hulled slabs with dark rectangular tops float on the river. Two dark oval shapes sit beside them. None has a recognisable rig, funnel or wheelhouse.\",\"ly_do\":\"These do not look like the river vessels (tour boats, barges, clippers) seen on the Thames in 2026.\",\"nam_xuat_hien\":null,\"toa_do\":[0.09,0.79,0.79,0.9],\"do_tin\":0.15}]}"
+   },
+   "render": {
+    "id": "E-P1-ngay-l2-thap-kn8-bo_dat-am_thuyen-render",
+    "nam": 2026,
+    "noi": "London",
+    "sha256": "6a09c8cfbc3f55f54d93d19887be318f4af2ea62b2b12db7f9c2149293b50179",
+    "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+    "model": "claude-sonnet-5-5",
+    "nghi_van": [],
+    "ghi_chu": [],
+    "cost_usd": 0.0337175,
+    "cost_buoc2": 0.0,
+    "model_usage": {
+     "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 741,
+      "cacheReadInputTokens": 3105,
+      "cacheCreationInputTokens": 10394,
+      "webSearchRequests": 0,
+      "costUSD": 0.0337175,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+     }
+    },
+    "secs": 5.9,
+    "so_anh_doc": 5,
+    "loi": null,
+    "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+   },
+   "moi": [],
+   "loi": null,
+   "chi_phi_usd": 0.0727
+  }
+ },
+ "o2": {
+  "26a492e862c0b56cab8a01ff34204de1": {
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "2fc424365b79aab78c541addcf21859b6a9ad73e2511a94049f7554c0bfd5876",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "kien_truc",
+     "mo_ta": "The domed cathedral on the left is a pale, boxy building with a dark dome and small corner turrets. It does not match the real St Paul's Cathedral, which has a stone drum, a lantern and two west towers.",
+     "ly_do": "The landmark's appearance differs from how it looked in 2026. This is more likely a rendering error than a true anachronism.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      173,
+      259,
+      499,
+      486
+     ],
+     "do_tin": 0.2
+    },
+    {
+     "muc": "tau",
+     "mo_ta": "Four flat, featureless white-hulled slabs with dark rectangular tops float on the river. Two dark oval shapes sit beside them. None has a recognisable rig, funnel or wheelhouse.",
+     "ly_do": "These do not look like the river vessels (tour boats, barges, clippers) seen on the Thames in 2026.",
+     "nam_xuat_hien": null,
+     "toa_do_px": [
+      173,
+      853,
+      1517,
+      972
+     ],
+     "do_tin": 0.15
+    }
+   ],
+   "cost_usd": 0.038983699999999996,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1262,
+     "cacheReadInputTokens": 3117,
+     "cacheCreationInputTokens": 10416,
+     "webSearchRequests": 0,
+     "costUSD": 0.038983699999999996,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 163,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 11.6,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"kien_truc\",\"mo_ta\":\"The domed cathedral on the left is a pale, boxy building with a dark dome and small corner turrets. It does not match the real St Paul's Cathedral, which has a stone drum, a lantern and two west towers.\",\"ly_do\":\"The landmark's appearance differs from how it looked in 2026. This is more likely a rendering error than a true anachronism.\",\"nam_xuat_hien\":null,\"toa_do\":[0.09,0.24,0.26,0.45],\"do_tin\":0.2},{\"muc\":\"tau\",\"mo_ta\":\"Four flat, featureless white-hulled slabs with dark rectangular tops float on the river. Two dark oval shapes sit beside them. None has a recognisable rig, funnel or wheelhouse.\",\"ly_do\":\"These do not look like the river vessels (tour boats, barges, clippers) seen on the Thames in 2026.\",\"nam_xuat_hien\":null,\"toa_do\":[0.09,0.79,0.79,0.9],\"do_tin\":0.15}]}"
+  },
+  "fb259b89e0a1103559fccbcb5b137d0d": {
+   "nam": 2026,
+   "noi": "London",
+   "sha256": "6a09c8cfbc3f55f54d93d19887be318f4af2ea62b2b12db7f9c2149293b50179",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [],
+   "cost_usd": 0.0337175,
+   "cost_buoc2": 0.0,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 741,
+     "cacheReadInputTokens": 3105,
+     "cacheCreationInputTokens": 10394,
+     "webSearchRequests": 0,
+     "costUSD": 0.0337175,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 0,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 5.9,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":2026,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+  }
+ }
+}

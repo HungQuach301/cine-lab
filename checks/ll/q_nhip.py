@@ -415,14 +415,16 @@ def gaps_mien(ev, total, mien):
     return round(g, 2), f'{e[1]} {e[0]:.2f}s ({e[2]})', ex
 
 
-def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None, tl_moc=False, bcv=None):
+def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None, tl_moc=False, bcv=None, blog=None):
     """v113=True: (d) khung tĩnh theo khung neo (1.13) — CHỈ BÁO (k2check hàng "Q37 (1.13)") tới khi chủ dự án duyệt; mặc định thước 1.11.0.
     tl = [(bộ timelapse, thư mục)] (1.15, I8): cộng biến cố đo trong cảnh tl vào (b), (c).
     mien = [(t0, t1 tuyệt đối, 'khung_neo'|'im_lang', tên)] (1.16, CHỈ tập từ T3 — khiếu nại A-G1B-5): (c) bỏ khoảng nằm trọn trong shot khung neo /
     tấm im lặng khi ≤ 10 s (Kinh thánh §11.2); shot miễn > 10 s → (c); > 2 tấm im lặng/tập → (c). TB (b) và khung tĩnh (d) giữ nguyên.
     tl_moc (1.17.3, CHỈ tập từ T3 — khiếu nại A2): (a) đối chiếu cả mốc thật của cảnh timelapse (spec_times tl_moc). (b)(c)(d) không đổi.
     bcv (1.17.4, K117-D8 — CHỈ tập từ T4, thước q_bcv đạt hiệu chuẩn): [(t tuyệt đối, 'video', loại, mô tả)] biến cố ĐO trên video, cộng vào (b)(c)
-    như I8; không qua (a). Biến cố tự khai trong log shot không bao giờ được nhận."""
+    như I8; không qua (a). Biến cố tự khai trong log shot không bao giờ được nhận.
+    blog (1.17.9 KN-2 — CHỈ tập từ T4): [(t tuyệt đối, shot, 'log:n1'|'log:n2', mô tả)] biến cố ĐO từ log máy (mặt trời qua chân trời, đổi pha máy
+    đứng↔chạy — q_k1179.bien_co_log), cộng vào (b)(c) như I8; không qua (a)."""
     V = view(E, TL); bad, ev, mk, t_abs, nob = [], [], [], 0.0, []
     for sid, dur, HZ, shots, B in V:
         T = spec_times(HZ, shots, dur, tl_moc); mk += [(t_abs + x, sid, 'mốc', '') for x in T if x < dur]
@@ -439,6 +441,7 @@ def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None, tl_moc=Fal
     TE = tl_bien_co(V, tl, dict(E.get('heroes') or {}, **((TL or {}).get('heroes') or {}))) if tl else []
     ev += [(t, sid, k, s) for t, sid, k, s in TE]
     BV = list(bcv or []); ev += BV
+    BL = list(blog or []); ev += BL
     S = stats(ev, t_abs) if ev else None; M = stats(mk, t_abs); near = []
     if S:
         if S['tb'] > MEAN_MAX: bad.append(f"(b) khoảng biến cố trung bình {S['tb']} s > {MEAN_MAX} s")
@@ -467,7 +470,7 @@ def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None, tl_moc=Fal
             if L > STATIC_MAX: bad.append(f'(d) khung tĩnh {L} s > {STATIC_MAX} s (từ {int(a // 60)}:{a % 60:04.1f})')
             elif abs(L - STATIC_MAX) <= 0.05 * STATIC_MAX: near.append(f'khung tĩnh {L} s từ {int(a // 60)}:{a % 60:04.1f} (ngưỡng {STATIC_MAX})')
         troi = [x for x in _runs_cu(F, STATIC_MAX) if not any(L > STATIC_MAX and a <= x[1] + x[0] and x[1] <= a + L for L, a in A)] if v113 else []
-    val = (f"{t_abs:.1f} s · " + (f"biến cố khai {S['n'] - len(TE) - len(BV)}{' + đo cảnh tl ' + str(len(TE)) if TE else ''}{' + đo video ' + str(len(BV)) if BV else ''} (gộp {S['gop']}) · TB {S['tb']} s · dài nhất {S['dai_nhat']} s" if S else 'không khai beats')
+    val = (f"{t_abs:.1f} s · " + (f"biến cố khai {S['n'] - len(TE) - len(BV) - len(BL)}{' + đo cảnh tl ' + str(len(TE)) if TE else ''}{' + đo video ' + str(len(BV)) if BV else ''}{' + đo log máy ' + str(len(BL)) if BL else ''} (gộp {S['gop']}) · TB {S['tb']} s · dài nhất {S['dai_nhat']} s" if S else 'không khai beats')
            + (f" · khung tĩnh ({'neo, < ' + str(STATIC_ANCHOR) + '/255' if v113 else 'khung liền < ' + str(STATIC_DIFF) + '/255'}) dài nhất {st[0]} s (từ {int(st[1] // 60)}:{st[1] % 60:04.1f})"
               + (f" · trôi chậm (thước cũ > {STATIC_MAX:g} s, không tĩnh): {len(troi)} quãng, dài nhất {max(troi)[0]} s từ {int(max(troi)[1] // 60)}:{max(troi)[1] % 60:04.1f}" if troi else '')
               if st else ' · khung tĩnh: không đo (không có master)')
@@ -475,6 +478,7 @@ def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None, mien=None, tl_moc=Fal
            + (f" · miễn khung neo/im lặng (1.16): {len(S.get('mien') or [])} khoảng, dài nhất trước miễn {S.get('dai_nhat_goc')} s" if S and mien is not None else '')
            + (f" · biến cố cảnh tl (đo, I8): {len(TE)} (" + ', '.join(f'{k[3:]} {sum(1 for x in TE if x[2] == k)}' for k in sorted({x[2] for x in TE})) + ')' if TE else '')
            + (f" · biến cố đo trên video (1.17.4, q_bcv): {len(BV)}" if BV else '')
+           + (f" · biến cố đo từ log máy (1.17.9 KN-2): {len(BL)} (" + ', '.join(f'{k[4:]} {sum(1 for x in BL if x[2] == k)}' for k in sorted({x[2] for x in BL})) + ')' if BL else '')
            + (f" · (d) miễn thẻ PP cuối (1.17.8): {'; '.join(mien_d)}" if st and mien_d else ''))
     return dict(ok=not bad, loi=bad, val=val, note='; '.join(bad[:5]), sat_nguong=near, bien_co=S, moc_dac_ta=M, khung_tinh=st, khung_tinh_cu=st_cu,
                 troi_cham=troi, tong_s=round(t_abs, 2), bien_co_tl=TE)
