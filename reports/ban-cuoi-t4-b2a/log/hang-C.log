@@ -1,0 +1,64 @@
+== 02:38:51 CHỜ PID 999999 rồi dựng: M00 M02 M04 H2-02 H2-04h H2-05
+== 02:38:51 SX-P1
+CHẠY M00 02:38:51
+XONG M00 0 4468.8 s 10.92075
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+5cccde29 BAN-CUOI-T4-B2a: dựng 1080p M00 (408 khung, D-B1 LFS)
+XONG-B2a M00 408 7d4468fbcaaa270db6116214f7ed2cd2126bb978dc052cf5ad6c924b7d1ef561
+CHẠY M02 03:54:03
+XONG M02 0 2793.7 s 11.488657024793389
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+ec6e1585 BAN-CUOI-T4-B2a: dựng 1080p M02 (242 khung, D-B1 LFS)
+XONG-B2a M02 242 04d3f672b0c9541eb5caf2ed3dde986f098b39a41298ba5bb85bd2d10ea564ae
+CHẠY M04 04:41:14
+XONG M04 0 3310.2 s 11.441239583333335
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+61ad9b94 BAN-CUOI-T4-B2a: dựng 1080p M04 (288 khung, D-B1 LFS)
+XONG-B2a M04 288 3e557552f8f7e4628b109ce31099b98ab529bf4267b72750efaf99d4f4d58869
+CHẠY H2-02 05:37:00
+XONG H2-02 0 5134.7 s 14.580108262108263
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+f5535ce2 BAN-CUOI-T4-B2a: dựng 1080p H2-02 (351 khung, D-B1 LFS)
+XONG-B2a H2-02 351 d3f4480ee6aa1c10b2f6ff80f22c087d2f95bfe3f7f2a1cf0ebed3ff2d611069
+CHẠY H2-04h 07:03:14
+XONG H2-04h 0 803.4 s 13.143116666666666
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+a3d62eee BAN-CUOI-T4-B2a: dựng 1080p H2-04h (60 khung, D-B1 LFS)
+XONG-B2a H2-04h 60 aeed4a4926c8340614c450e61fbacef219d3d80919a2c09296989a836b7ed060
+CHẠY H2-05 07:16:50
+XONG H2-05 0 3045.6 s 11.48303787878788
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+b595fd0f BAN-CUOI-T4-B2a: dựng 1080p H2-05 (264 khung, D-B1 LFS)
+XONG-B2a H2-05 264 b194073a85186098b1ee682964e18e5840ee43c41a8b4ee54d69d953e9664786
+DUNG-B2a-XONG
+== 08:08:12 HANG-XONG M00 M02 M04 H2-02 H2-04h H2-05

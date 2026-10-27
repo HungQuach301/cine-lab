@@ -1,0 +1,44 @@
+== 02:38:01 CHỜ PID 16973 rồi dựng: M03 H2-00 H2-03b H2-04a
+== 05:08:44 SX-P1
+CHẠY M03 05:08:44
+XONG M03 0 3559.2 s 13.427128787878788
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+ecde4770 BAN-CUOI-T4-B2a: dựng 1080p M03 (264 khung, D-B1 LFS)
+XONG-B2a M03 264 f6a3a7912a96a1041948a03197784f329295bad6c3cebef585f17f8a8fd661ee
+CHẠY H2-00 06:08:35
+XONG H2-00 0 794.5 s 10.839111111111112
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+78bc4806 BAN-CUOI-T4-B2a: dựng 1080p H2-00 (72 khung, D-B1 LFS)
+XONG-B2a H2-00 72 c2978e1b9a5d387bb375ae7a44f9603aa4edb607bc4b0f67a22545ccc617c2c6
+CHẠY H2-03b 06:22:05
+XONG H2-03b 0 5122.9 s 10.556485537190083
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+cecc786e BAN-CUOI-T4-B2a: dựng 1080p H2-03b (484 khung, D-B1 LFS)
+XONG-B2a H2-03b 484 814b4738c325a072f4a874ecbb07da6679fe26d7c88e2bbbdce3024b2045cac1
+CHẠY H2-04a 07:48:21
+XONG H2-04a 0 1244.8 s 14.637023809523809
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+preflight: 4 tệp (staged) — ĐẠT
+lock.py --verify: KHỚP
+PREFLIGHT ĐẠT
+95b78703 BAN-CUOI-T4-B2a: dựng 1080p H2-04a (84 khung, D-B1 LFS)
+XONG-B2a H2-04a 84 7957075968b6bd7f43eaedc26ce22cb01238fc052bab7ea8b303647d33feeaed
+DUNG-B2a-XONG
+== 08:09:23 HANG-XONG M03 H2-00 H2-03b H2-04a
