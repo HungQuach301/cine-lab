@@ -188,15 +188,17 @@ function patchB(mat, depth) {
           else if (m == 16) { float st = 28.0; float d1 = fract((p.x + p.y) / st), d2 = fract((p.x - p.y) / st); float ln = clamp(step(abs(d1 - 0.5), 0.022) + step(abs(d2 - 0.5), 0.022) + step(fract(p.y / st), 0.03) + step(fract(p.x / 14.0), 0.025), 0.0, 1.0);   // V2: Leadenhall — khung giằng chéo lộ
             float mull = step(fract(p.x / 1.5), 0.06) + step(fract(p.y / 3.9), 0.04); alb = mix(vec3(0.20, 0.23, 0.25), vec3(0.30, 0.31, 0.32), clamp(mull, 0.0, 1.0)); alb = mix(alb, vec3(0.66, 0.66, 0.62), ln); glassK = (1.0 - clamp(ln + mull, 0.0, 1.0)) * 0.6; }
           else if (m == 13) { alb = GLS * 1.4; glassK = 0.5; }
-          if (vK > 1.5 && vK < 2.5 && !roof && m == 10 && uYear > 1666.69 && uYear < 1700.0) {   /* B2a: vỏ tường phế tích — đá ám khói + ô cửa vòm nhọn trống */
-            float hs = h21(floor(vW.xz * 0.05) + 4.1); float sk = smoothstep(3.0, 16.0, p.y) * (0.45 + 0.55 * fbm3(vec2(p.x * 0.35 + hs * 9.0, p.y * 0.12)));
+          bool ruOSP = vK > 4.5 && vK < 5.5 && m == 10 && vTx > 1666.5 && vTx < 1667.0, ru2 = vK > 1.5 && vK < 2.5 && m == 10;   /* B2a: vỏ Old St Paul's (lớp 5, tl.x = năm cháy) / phế tích nhà thờ, nhà (lớp 2) */
+          if ((ruOSP || ru2) && !roof && uYear > 1666.69 && uYear < 1700.0) {   /* B2a: vỏ tường phế tích — đá ám khói + ô cửa vòm nhọn trống */
+            float hs = h21(floor(vW.xz * 0.05) + 4.1); float sk = smoothstep(2.0, ruOSP ? 18.0 : 8.0, p.y) * (0.45 + 0.55 * fbm3(vec2(p.x * 0.35 + hs * 9.0, p.y * 0.12)));
             float bl = smoothstep(0.55, 0.80, fbm3(vec2(p.x * 0.9 + hs * 3.0, p.y * 0.35)));   /* vệt cháy loang */
-            vec3 c = alb * (0.86 + 0.20 * vn(p * vec2(1.1, 2.3) + hs)) * mix(1.0, 0.30, clamp(0.30 + 0.60 * sk + 0.40 * bl, 0.0, 0.9));
-            float bay = 6.0, ww = 1.1, y0w = 4.5, hw = 9.5; float u = mod(p.x + hs * 6.0, bay) - bay * 0.5, y = p.y - y0w;
+            vec3 c = alb * (ruOSP ? 1.55 : 1.0) * (0.86 + 0.20 * vn(p * vec2(1.1, 2.3) + hs)) * mix(1.0, 0.30, clamp(0.30 + 0.60 * sk + 0.40 * bl, 0.0, 0.9));
+            float bay = ruOSP ? 6.0 : 4.5, ww = ruOSP ? 1.1 : 0.8, y0w = ruOSP ? 4.5 : 2.0, hw = ruOSP ? 8.0 : 3.4, tg = ruOSP ? 12.0 : 7.0; float u = mod(p.x + hs * 6.0, bay) - bay * 0.5, y = p.y < y0w ? -1.0 : mod(p.y - y0w, tg);   /* ô cửa theo tầng */
             float ys = clamp((y - (hw - 2.2 * ww)) / (2.2 * ww), 0.0, 1.0); float wd = ww * sqrt(max(1.0 - ys * ys, 0.0)) * (1.0 - 0.30 * ys);   /* đỉnh vòm nhọn */
-            float win = step(abs(u), wd) * step(0.0, y) * step(y, hw) * step(y0w + 2.0, 40.0);
+            float win = step(abs(u), wd) * step(0.0, y) * step(y, hw);
             float jam = step(abs(u), wd + 0.18) * step(-0.18, y) * step(y, hw + 0.18) * (1.0 - win);   /* gờ khung đá sáng quanh ô */
-            alb = mix(c * (1.0 + 0.35 * jam), vec3(0.018, 0.016, 0.015), win * 0.94); }
+            float lit = step(0.12, h21(floor(vec2((p.x + hs * 6.0) / bay, 0.0)) + hs));   /* qua ô cửa: lòng phế tích KHÔNG MÁI được nắng (88 % ô) / bóng tường đối diện */
+            alb = mix(c * (1.0 + 0.35 * jam), c * 0.35, win); emis = win * lit * vec3(0.30, 0.28, 0.25) * uSunCol * 0.50 * (0.70 + 0.30 * vn(p * 1.7)); }
           else if (vK > 1.5 && vK < 2.5) alb *= 0.38 + 0.15 * vn(vW.xz * 0.4);   // phế tích: than, tro, gạch ám (Evelyn 7/9: "the ground under my feet so hot")
           bool nt = vHid > 0.5;
           if (uD > 0.5 && nt) { float hs = h21(vec2(vHid * 0.0137, 3.1)), hs2 = h21(vec2(vHid * 0.0291, 7.7)), hs3 = h21(vec2(vHid * 0.0533, 1.9));   /* THU-B D: mỗi nhà một độ sáng/ngả màu/độ bẩn */
@@ -226,6 +228,7 @@ function patchB(mat, depth) {
           else sky = mix(0.55, 1.0, smoothstep(0.0, 12.0, h));
           reflectedLight.indirectDiffuse *= mix(1.0, sky, uBakeK); }`)
       .replace('#include <dithering_fragment>', `#include <dithering_fragment>
+        gl_FragColor.rgb += emis * (1.0 - uNight);   /* B2a: phát sáng cộng (lòng phế tích được nắng qua ô cửa) — trước sương mù */
         vec3 Vd = normalize(vW - uCam); vec3 Nw = normalize(cross(dFdx(vW), dFdy(vW))); if (dot(Nw, Vd) > 0.0) Nw = -Nw;
         if (glassK > 0.01) { vec3 Rf = reflect(Vd, Nw); float ry0 = Rf.y; if (uD > 0.5) { vec2 cl = floor(vUvm / vec2(1.5, 3.9)); Rf = normalize(Rf + vec3(h21(cl) - 0.5, 0.0, h21(cl + 3.3) - 0.5) * 0.06); ry0 = Rf.y; } Rf.y = abs(Rf.y) * 0.7 + 0.02; float fr = 0.06 + 0.94 * pow(1.0 - max(dot(Nw, -Vd), 0.0), 5.0);
           vec3 env = mix(uSkyHor, uSkyTop, pow(clamp(Rf.y, 0.0, 1.0), 0.5)) * (1.0 - 0.85 * uNight); env = mix(env, vec3(dot(env, vec3(0.3, 0.59, 0.11))), 0.45) * 0.8 + uSunCol * pow(max(dot(Rf, uSunDir), 0.0), 220.0) * 4.0 * (1.0 - uNight);

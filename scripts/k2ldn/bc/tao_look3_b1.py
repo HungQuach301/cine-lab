@@ -140,20 +140,24 @@ rep("    const im = new THREE.InstancedMesh(hullGeo(k), mat, list.length);", "  
 
 # ---------------------------------------------------------------- B2a (BAN-CUOI-T4-B2a, 27/10/2026): phế tích lớp 2 sau đám cháy — soi năm biên B2a (q_thoi_dai H2-04a 1667,9/1668,4:
 #   "khối phẳng tối không cửa giống toà hiện đại"; B1 đã ghi cùng lỗi ở H2-05s 1670). Nguyên nhân: mọi bề mặt lớp 2 nhân 0,38 → vỏ tường Old St Paul's (18–19 m) + tháp cụt 44 m
-#   + tường nhà thờ giáo xứ thành khối đen trơn. Sửa CHỈ tường đứng vật liệu 10 (đá/gạch vỏ nhà thờ) của lớp 2, CHỈ khi năm 1666,69–1700 (sau đám cháy 2–6/9/1666):
-#   đá giữ màu (không nhân 0,38), ám khói đen dày dần theo độ cao + vệt cháy loang; ô cửa vòm nhọn TRỐNG (lõi tối) nhịp 6 m, rộng 2,2 m, từ 4,5 m (tường nhà thấp
-#   ≤ 3,2 m không có cửa); ống khói (mt 14), mặt nằm (tro, đầu tường) giữ như cũ. Mọi khung ≤ 1666,68 (HỒI 1, M00, M03, M04, H1-01h) KHÔNG đổi điểm ảnh nào.
+#   + tường nhà thờ giáo xứ thành khối đen trơn. Sửa CHỈ tường đứng vật liệu 10 của vỏ Old St Paul's (lớp 5, tl.x = năm cháy; sáng ×1,55) và phế tích lớp 2 (nhà thờ giáo xứ, nhà), CHỈ khi năm 1666,69–1700 (sau đám cháy 2–6/9/1666):
+#   đá giữ màu (không nhân 0,38), ám khói đen dày dần theo độ cao + vệt cháy loang; ô cửa vòm nhọn TRỐNG (qua ô thấy lòng phế tích không mái được nắng — phát sáng cộng `emis` chỉ ban ngày; 12 % ô tối): Old St Paul's nhịp 6 m, rộng 2,2 m, cao 8 m, mỗi tầng 12 m từ 4,5 m; lớp 2 nhịp 4,5 m, rộng 1,6 m, cao 3,4 m, mỗi tầng 7 m từ 2,0 m; ống khói (mt 14), mặt nằm (tro, đầu tường) giữ như cũ. Mọi khung ≤ 1666,68 (HỒI 1, M00, M03, M04, H1-01h) KHÔNG đổi điểm ảnh nào.
 rep("          if (vK > 1.5 && vK < 2.5) alb *= 0.38 + 0.15 * vn(vW.xz * 0.4);   // phế tích: than, tro, gạch ám (Evelyn 7/9: \"the ground under my feet so hot\")",
-    "          if (vK > 1.5 && vK < 2.5 && !roof && m == 10 && uYear > 1666.69 && uYear < 1700.0) {   /* B2a: vỏ tường phế tích — đá ám khói + ô cửa vòm nhọn trống */\n"
-    "            float hs = h21(floor(vW.xz * 0.05) + 4.1); float sk = smoothstep(3.0, 16.0, p.y) * (0.45 + 0.55 * fbm3(vec2(p.x * 0.35 + hs * 9.0, p.y * 0.12)));\n"
+    "          bool ruOSP = vK > 4.5 && vK < 5.5 && m == 10 && vTx > 1666.5 && vTx < 1667.0, ru2 = vK > 1.5 && vK < 2.5 && m == 10;   /* B2a: vỏ Old St Paul's (lớp 5, tl.x = năm cháy) / phế tích nhà thờ, nhà (lớp 2) */\n"
+    "          if ((ruOSP || ru2) && !roof && uYear > 1666.69 && uYear < 1700.0) {   /* B2a: vỏ tường phế tích — đá ám khói + ô cửa vòm nhọn trống */\n"
+    "            float hs = h21(floor(vW.xz * 0.05) + 4.1); float sk = smoothstep(2.0, ruOSP ? 18.0 : 8.0, p.y) * (0.45 + 0.55 * fbm3(vec2(p.x * 0.35 + hs * 9.0, p.y * 0.12)));\n"
     "            float bl = smoothstep(0.55, 0.80, fbm3(vec2(p.x * 0.9 + hs * 3.0, p.y * 0.35)));   /* vệt cháy loang */\n"
-    "            vec3 c = alb * (0.86 + 0.20 * vn(p * vec2(1.1, 2.3) + hs)) * mix(1.0, 0.30, clamp(0.30 + 0.60 * sk + 0.40 * bl, 0.0, 0.9));\n"
-    "            float bay = 6.0, ww = 1.1, y0w = 4.5, hw = 9.5; float u = mod(p.x + hs * 6.0, bay) - bay * 0.5, y = p.y - y0w;\n"
+    "            vec3 c = alb * (ruOSP ? 1.55 : 1.0) * (0.86 + 0.20 * vn(p * vec2(1.1, 2.3) + hs)) * mix(1.0, 0.30, clamp(0.30 + 0.60 * sk + 0.40 * bl, 0.0, 0.9));\n"
+    "            float bay = ruOSP ? 6.0 : 4.5, ww = ruOSP ? 1.1 : 0.8, y0w = ruOSP ? 4.5 : 2.0, hw = ruOSP ? 8.0 : 3.4, tg = ruOSP ? 12.0 : 7.0; float u = mod(p.x + hs * 6.0, bay) - bay * 0.5, y = p.y < y0w ? -1.0 : mod(p.y - y0w, tg);   /* ô cửa theo tầng */\n"
     "            float ys = clamp((y - (hw - 2.2 * ww)) / (2.2 * ww), 0.0, 1.0); float wd = ww * sqrt(max(1.0 - ys * ys, 0.0)) * (1.0 - 0.30 * ys);   /* đỉnh vòm nhọn */\n"
-    "            float win = step(abs(u), wd) * step(0.0, y) * step(y, hw) * step(y0w + 2.0, 40.0);\n"
+    "            float win = step(abs(u), wd) * step(0.0, y) * step(y, hw);\n"
     "            float jam = step(abs(u), wd + 0.18) * step(-0.18, y) * step(y, hw + 0.18) * (1.0 - win);   /* gờ khung đá sáng quanh ô */\n"
-    "            alb = mix(c * (1.0 + 0.35 * jam), vec3(0.018, 0.016, 0.015), win * 0.94); }\n"
+    "            float lit = step(0.12, h21(floor(vec2((p.x + hs * 6.0) / bay, 0.0)) + hs));   /* qua ô cửa: lòng phế tích KHÔNG MÁI được nắng (88 % ô) / bóng tường đối diện */\n"
+    "            alb = mix(c * (1.0 + 0.35 * jam), c * 0.35, win); emis = win * lit * vec3(0.30, 0.28, 0.25) * uSunCol * 0.50 * (0.70 + 0.30 * vn(p * 1.7)); }\n"
     "          else if (vK > 1.5 && vK < 2.5) alb *= 0.38 + 0.15 * vn(vW.xz * 0.4);   // phế tích: than, tro, gạch ám (Evelyn 7/9: \"the ground under my feet so hot\")")
 
+rep("        vec3 Vd = normalize(vW - uCam); vec3 Nw = normalize(cross(dFdx(vW), dFdy(vW))); if (dot(Nw, Vd) > 0.0) Nw = -Nw;",
+    "        gl_FragColor.rgb += emis * (1.0 - uNight);   /* B2a: phát sáng cộng (lòng phế tích được nắng qua ô cửa) — trước sương mù */\n"
+    "        vec3 Vd = normalize(vW - uCam); vec3 Nw = normalize(cross(dFdx(vW), dFdy(vW))); if (dot(Nw, Vd) > 0.0) Nw = -Nw;")
 os.makedirs(os.path.dirname(DST), exist_ok=True); open(DST, 'w', encoding='utf-8').write(s)
 print(DST, 'nguồn look3.js sha256', sha, '→', hashlib.sha256(s.encode()).hexdigest())

@@ -3,9 +3,11 @@
 **Nhánh thật:** `claude/adoring-wright-i76iay` (harness buộc; lệnh ghi `k2c-t4-02-final-b2a`). Gốc B1 @6f6c2636 + merge origin/main @75e94b98 (commit 64a304ee, LOCK 1.17.9 `9eddaf24…` KHỚP).
 
 ## Trạng thái
-- 01:19 UTC khởi động; môi trường cài lại (setup.sh) — thêm `pyproj`, `pyyaml`, `OpenEXR` vào /opt/cine (thiếu so với setup).
-- Dữ liệu nền đang tái tạo: `scripts/k2ldn/bc/du_lieu_b2a.sh` (OSM → vec → LiDAR → tư liệu → vân → fb → hinh_hoc_b1 → dan → lightmap 12 mốc).
-- Tệp máy + hàng việc: `scripts/k2ldn/bc/may_b2a.py` → `ban-cuoi/may/b2a/`. Trang H2-04a: `design/k2v/ldn/bc/look3-b1d.js` (tao_look3_b1d.py).
+- 01:43 dữ liệu nền xong (18 phút; SHA `reports/ban-cuoi-t4-b2a/SHA-du-lieu-ngoai-git.txt`; OSM API sống → khác SHA B1, đã ghim `ban-cuoi/may/b2a/osm2026-b2a.json.gz` + `thuyen-b2a.json`).
+- Việc 1 xong phần máy: M00 kp 0 (165 → 155 m), H1-01h kp 1 (160 m); k2check 1.17.9 v5b GOC-CAO ĐẠT 0 (a). H1-01h 1080p đã LFS (02:18).
+- Tấm E-M01 (2304×1296, look3-b1) + ghép bo_dat + che bóng cầu AI xong; k2check (a) máy: N2P-E chỉ Chặn (u) (chưa duyệt tấm).
+- Soi năm biên lượt 1 → lỗi phế tích (khối đen trơn đọc thành toà hiện đại) → sửa `tao_look3_b1.py` (chỉ năm 1666,69–1700) → đang soi lượt 2.
+- Hàng dựng: hàng chính PGID 11487 (M00 đang chạy, thoát sau M00 vì cờ dừng tạm 02:03); hàng phụ PGID 16973 P = 1 (M01 → E-M01-tl). Còn lại (M02…H2-05) chạy sau soi lượt 2.
 
 ## Lệnh bổ sung đã áp
 - (không có)
