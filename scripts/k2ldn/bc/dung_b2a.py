@@ -23,7 +23,8 @@ def main():
         json.dump(dict(ten=j['ten'], rc=rc, wall_s=round(w, 1), s_per_frame=spf, setup_s=setup, khung=n, song_song=P), open(f"{R}/{j['ten']}.time.json", 'w'))
         ghi_td(ten=j['ten'], rc=rc, khung=n, s_khung=spf, wall_s=round(w, 1), setup_s=setup)
         print('XONG' if rc == 0 else 'LỖI', j['ten'], rc, round(w, 1), 's', spf, flush=True)
-        if rc == 0:
+        if rc == 0 and j.get('xong') is False: ghi_td(ten=j['ten'], xong_b2a='bỏ (xong: false — việc phụ, không D-B1)')
+        elif rc == 0:
             r2 = subprocess.run(['bash', os.path.join(REPO, 'scripts/k2ldn/bc/xong_b2a.sh'), j['ten']], cwd=REPO)
             ghi_td(ten=j['ten'], xong_b2a=r2.returncode)
             if r2.returncode != 0: open(STOP, 'w').write(f"xong_b2a.sh {j['ten']} rc={r2.returncode} {time.strftime('%H:%M:%S', time.gmtime())}\n")

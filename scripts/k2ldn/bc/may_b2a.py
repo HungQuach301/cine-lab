@@ -79,8 +79,22 @@ for ten, kw in (('E-M01', dict(png=1, spp=24)), ('E-M01-m1', dict(mask=1, key={}
 tl = copy.deepcopy(m01); d0 = k0['date']
 tl.update(cu_may='CODINH', shot='M01-E-tl', dur=round(NE / FPS, 4), keys=[dict(k0, t=0.0, date=list(d0)), dict(k0, t=round(NE / FPS, 4), date=[d0[0], d0[1], d0[2], round(d0[3] + 0.30, 4)])])
 tl['may_b2a'] = 'M01 thử E: lớp (a)-E 3D CODINH (khoá 0 của M01), giờ 14,00 → 14,30 (tấm AI tĩnh)'
-viec('e', 'E-M01-tl', ghi('E-M01-tl', tl, W=WE, H=HE), w=WE, h=HE, only=list(range(NE)))
+viec('e', 'E-M01-tl', ghi('E-M01-tl', tl, W=WE, H=HE), w=WE, h=HE, only=list(range(NE)), xong=False)
+# xen lớp (a)-E 3D của thử E ngay sau M01 3D trong hàng sản xuất (giữ P = 2 liên tục; xong: false → không mã hoá D-B1/LFS)
+i = [j['ten'] for j in V['dung']].index('M01'); V['dung'].insert(i + 1, V['e'][-1])
+
+# ---------------------------------------------------------------- (4) soi năm biên §19 (d): shot B2a có St Paul's (cũ/mới)/Monument trong 1666–1711 — khung năm đầu/cuối
+#     + mọi năm mốc giai đoạn xây nằm trong dải năm của shot (M02 chạy lùi 2026 → 1666 qua cả 1711 … 1671). Soi TRƯỚC khi dựng 1080p (luật §19 (d)): khung 1080p cùng máy/trang + mặt nạ 2 để cắt ô.
+BIEN = (1671.0, 1675.5, 1677.0, 1708.0, 1709.5, 1711.0)
+SOIK = []
+for ma in ('M02', 'H2-00', 'H2-02', 'H2-03b', 'H2-04h', 'H2-04a', 'H2-05'):
+    sh = ld(f'{OUT}/{ma}.json'); n = min(nkhung(ma), nmay(sh)); yr = [M1.at(sh, f / FPS).get('year') or 1666.66 for f in range(n)]
+    want = {0: 'đầu shot', n - 1: 'cuối shot'}
+    for y in BIEN:
+        if min(yr) - 1e-6 <= y <= max(yr) + 1e-6: f = min(range(n), key=lambda f: abs(yr[f] - y)); want.setdefault(f, f'năm mốc {y}')
+    for f, why in sorted(want.items()): SOIK.append(dict(may=ma, khung=f, nam=round(yr[f], 3), ly_do=why))
+    viec('soi', 'soi-' + ma, REL + ma + '.json', only=sorted(want), page=sh['page']); viec('soi', 'soi-' + ma + '-m2', REL + ma + '.json', only=sorted(want), mask=2, key={}, page=sh['page'])
 
 for nhom, L in V.items(): json.dump(L, open(f'{OUT}/viec-{nhom}.json', 'w'), ensure_ascii=False, indent=1)
-json.dump(dict(dung=DS, ngua=NG, z_moi=Z_MOI, chon=CHON), open(f'{OUT}/muc-luc-b2a.json', 'w'), ensure_ascii=False, indent=1)
+json.dump(dict(dung=DS, ngua=NG, z_moi=Z_MOI, chon=CHON, soi=SOIK), open(f'{OUT}/muc-luc-b2a.json', 'w'), ensure_ascii=False, indent=1)
 print({k: (len(v), sum(len(j.get('only') or [0]) for j in v)) for k, v in V.items()}); print(json.dumps(NG, ensure_ascii=False))
