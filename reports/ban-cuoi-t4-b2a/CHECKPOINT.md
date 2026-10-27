@@ -11,3 +11,4 @@
 - (không có)
 
 ## Nhật ký dựng
+- 02:17 UTC dựng xong **H1-01h**: 72 khung (f 0..71), 17.87 s/khung/tiến trình (P = 2), 12 MB, SHA `1565579256b56989…` → LFS + đẩy
