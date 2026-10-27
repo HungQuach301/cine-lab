@@ -1,0 +1,38 @@
+{
+  "moc": [
+    {"ten":"St Paul's Cathedral","co_mat":true,"nhan_doi":false,"mo_ta":"Present in the same position; dome, lantern, west towers and principal silhouette remain aligned. No clear doubling or cutting.","do_tin":0.99},
+    {"ten":"Mansion House","co_mat":true,"nhan_doi":false,"mo_ta":"Visible portion remains in the indicated position with a matching outline; no clear ghosting or displacement.","do_tin":0.86},
+    {"ten":"Royal Exchange","co_mat":true,"nhan_doi":false,"mo_ta":"Main visible mass and curved frontage remain aligned. No clear duplicate or cut.","do_tin":0.91},
+    {"ten":"Pinsent Masons","co_mat":true,"nhan_doi":false,"mo_ta":"Present at the indicated location with the same principal silhouette; no clear doubling.","do_tin":0.87},
+    {"ten":"CityPoint","co_mat":true,"nhan_doi":false,"mo_ta":"Present and aligned; tower height and outline appear retained.","do_tin":0.94},
+    {"ten":"White Collar Factory","co_mat":true,"nhan_doi":false,"mo_ta":"Present in the same position with the principal roofline and mass retained.","do_tin":0.91},
+    {"ten":"Beechwood","co_mat":true,"nhan_doi":false,"mo_ta":"Visible portion remains aligned in the indicated box; no clear duplicate or truncation.","do_tin":0.85},
+    {"ten":"20 Ropemaker","co_mat":true,"nhan_doi":false,"mo_ta":"Small visible portion appears retained, although its very small size limits shape verification.","do_tin":0.7},
+    {"ten":"The Tower","co_mat":true,"nhan_doi":false,"mo_ta":"Sloping-topped tower remains in the same position with a matching silhouette. A separate narrow spire appears immediately to its left.","do_tin":0.96},
+    {"ten":"Guildhall","co_mat":true,"nhan_doi":false,"mo_ta":"Visible roof and tower details remain in the indicated position; no clear doubling or misalignment.","do_tin":0.86},
+    {"ten":"Tower of St Mary Somerset","co_mat":false,"nhan_doi":false,"mo_ta":"The small feature in the supplied box cannot be confidently distinguished in AFTER among the substantially repainted rooftop details; preservation of its exact shape is uncertain.","do_tin":0.58},
+    {"ten":"Cromwell Tower","co_mat":true,"nhan_doi":false,"mo_ta":"Present at the same position and height, with the same narrow rectangular silhouette.","do_tin":0.98},
+    {"ten":"Lauderdale Tower","co_mat":true,"nhan_doi":false,"mo_ta":"Present and aligned; original height and rectangular silhouette are retained.","do_tin":0.98},
+    {"ten":"The Heron","co_mat":true,"nhan_doi":false,"mo_ta":"Present in the same position with the principal tower outline retained.","do_tin":0.94},
+    {"ten":"2 London Wall Place","co_mat":true,"nhan_doi":false,"mo_ta":"Main visible building mass remains aligned; no clear doubling, cutting or displacement.","do_tin":0.91},
+    {"ten":"Bank of England","co_mat":true,"nhan_doi":false,"mo_ta":"Visible broad building mass and roofline remain in the same position; no clear duplicate.","do_tin":0.91}
+  ],
+  "thap_bia": [
+    {"mo_ta":"Small dark high-rise projecting above the far-left distant skyline; absent from the corresponding low background in BEFORE. Its top is above St Paul's Cathedral.","toa_do":[0.015,0.097,0.021,0.115],"cao_hon_moc_gan":true,"do_tin":0.76},
+    {"mo_ta":"Pale narrow high-rise on the far-left horizon, to the right of the preceding dark tower; no corresponding tower is apparent in BEFORE. Its top is above St Paul's Cathedral.","toa_do":[0.03,0.092,0.036,0.114],"cao_hon_moc_gan":true,"do_tin":0.77},
+    {"mo_ta":"Closely spaced pale towers in the distant background between Lauderdale Tower and Cromwell Tower; the conspicuous tall silhouettes are new. Their tops are above Cromwell Tower.","toa_do":[0.401,0.109,0.421,0.141],"cao_hon_moc_gan":true,"do_tin":0.9},
+    {"mo_ta":"Added distant high-rise group behind the central-right skyline, including several pale slab towers. Their tops are above the nearby named central towers.","toa_do":[0.655,0.092,0.701,0.125],"cao_hon_moc_gan":true,"do_tin":0.83},
+    {"mo_ta":"Distinct dark rectangular high-rise at the right end of the added distant central cluster. Its top is above CityPoint and White Collar Factory.","toa_do":[0.704,0.087,0.714,0.117],"cao_hon_moc_gan":true,"do_tin":0.9},
+    {"mo_ta":"Added slender dark tower on the distant right-hand horizon, left of the foreground sloping-topped tower. Its top is above The Tower.","toa_do":[0.854,0.077,0.862,0.107],"cao_hon_moc_gan":true,"do_tin":0.82},
+    {"mo_ta":"Faint narrow high-rises on the far-right horizon, above and left of the tallest foreground stepped tower. Their tops are above The Tower.","toa_do":[0.894,0.069,0.907,0.088],"cao_hon_moc_gan":true,"do_tin":0.7},
+    {"mo_ta":"New slender pale spired tower immediately left of the large sloping-topped tower. Its top is slightly lower in the frame than the top of The Tower.","toa_do":[0.878,0.128,0.894,0.191],"cao_hon_moc_gan":false,"do_tin":0.9},
+    {"mo_ta":"Prominent elongated pale spire above the mid-right curved building; BEFORE has only a substantially shorter pointed feature at this location. Its top is above the nearest Royal Exchange landmark.","toa_do":[0.751,0.296,0.765,0.357],"cao_hon_moc_gan":true,"do_tin":0.85},
+    {"mo_ta":"Added pale pointed tower rising behind the large foreground-right roof. Its top is lower in the frame than the top of the nearby Royal Exchange.","toa_do":[0.858,0.411,0.869,0.469],"cao_hon_moc_gan":false,"do_tin":0.85}
+  ],
+  "them": [],
+  "bot_doi": [
+    {"loai":"cong_trinh","mo_ta":"Preservation of the tiny Tower of St Mary Somerset feature cannot be verified: its BEFORE outline is no longer clearly separable from the repainted rooftop equipment. This is a possible obscuration or replacement, not a certain removal.","toa_do":[0.233,0.552,0.243,0.566],"do_tin":0.58}
+  ],
+  "chu": [],
+  "doi_loai_vung": []
+}
