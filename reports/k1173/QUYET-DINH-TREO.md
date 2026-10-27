@@ -273,3 +273,26 @@
 | Phiếu bản cuối: đẩy 2D (D5), nước AI từng tấm (D6) | chủ dự án duyệt qua tờ so khi phiên B dùng | K1179-D5, D6 | M01/H5-05a (đẩy 2D), E-P1 |
 | Chặn `pkill -f`/`pgrep -f` bằng công cụ | đề xuất giao phiên Nền tảng (BAI-HOC-K2 K105; trước đó K85) | P-2610d | vận hành |
 | Giữ từ mục I/J (không đổi ở P-2610d) | XEM CÂM Q2/Q3/Q4/Q6 chấm trên bản cuối; các mục giữ từ G/H | mục I, J | như mục I |
+
+## L. Cập nhật 27/10/2026 sau BAN-CUOI-T4-B1 (P-2710 ghi)
+
+**Đã quyết** — nguyên văn + nghĩa từng mục: `AUTHORSHIP.md`, 6 dòng P-2710. Nhánh B1 `claude/k2c-t4-02-final-b1-t9ekhx` @6f6c2636 đã merge vào main (P-2710).
+
+| # | Quyết định | Khi nào (Asia/Saigon) | Áp ở |
+|---|---|---|---|
+| D-B1 | LFS bản dựng trung gian 1080p `ban-cuoi/dung/*-1080p.mp4` ("Đã Duyệt D-B1 bằng cách dán lệnh BAN-CUOI-T4-B1 vào một phiên mới.") | 26/10 10:42 (giờ dán lệnh B1) | Kinh thánh §14.7 Look T4 cập nhật 27/10 07:24 (2) |
+| B1-Q1 | nâng máy M00 (P1b) và H1-01h ≈ 160 m (GOC-CAO); H1-01h dựng lại 72 khung + M00 dựng ở B2a; giữ hướng, VONG, giờ P1b (D-A8) | 27/10 07:24 (giờ dán lệnh P-2710) | §14.7 Look T4 cập nhật 27/10 07:24 (B1-Q) (1) |
+| B1-Q2 | chia B2a (MÓC + H2-00…H2-05) / B2b (H2-05s…H2-14 + HỒI 4 + sửa H3-03) / B3 (HỒI 5 + E H5-05a + B + Omni 720p + âm + ghép + xuất + G2); ≤ 12 h máy/phiên | 27/10 07:24 | (B1-Q) (2) |
+| B1-Q3 | H5-02b, H5-02s giữ 3D + ảnh thật H5-02t; không thêm lượt Omni | 27/10 07:24 | §15 (k) cập nhật 27/10 07:24 |
+| B1-Q4 (điều phối) | H3-03: B2b lấp khối nhà thời kỳ ngoài City (OSM, nhà Victoria, không công trình có tên mới) + dựng lại 227 khung; không đạt → MAP3D cả shot | 27/10 07:24 | (B1-Q) (3) |
+| B1-Q5 (điều phối) | H1-01h/H1-02h (tối) + H1-13a/H1-13c (quầng lửa) chấp nhận ở bản dựng; chỉnh màu/ghép B3 (`nang_toi`, tông lửa); chủ dự án chấm lại trên bản xem 1080p | 27/10 07:24 | (B1-Q) (4) |
+
+**Còn treo:**
+
+| # | Nội dung | Căn cứ | Chặn gì |
+|---|---|---|---|
+| Hiệu chuẩn BIEN-CO-V T4 | K hiệu chuẩn trên **master 1080p, sau B3** (thay "sau phiên B" của mục K vì B chia thành B1/B2a/B2b/B3); tới lúc đó BIEN-CO-V T4 chỉ Cảnh báo | K1179-D3, K1178-D4; B1-Q2 | Q37/TL-3 đo video ở G2 |
+| Đ5 quyền giọng G1 | quyền phát hành giọng G1 (ElevenLabs) vẫn chờ | mục G, I, J, K | phát hành T4 |
+| Tra thêm chân dung Godfrey Allen | NPG, St Paul's, Wikimedia Commons, Historic England — trước gói phát hành | K1179-D7 | gói phát hành T4 (H3-05b) |
+| Vòng xem nhịp 1080p (K1179-D3) | chủ dự án xem bản xem 1080p: chỉ shot chậm + chọn ≤ 3 shot "đứng có chủ ý"; **cùng vòng chấm lại độ sáng/tông H1-01h/H1-02h, H1-13a/H1-13c (B1-Q5)** | K1179-D3; B1-Q5 | Q37 ở G2; màu B3 |
+| Giữ từ mục K (không đổi ở P-2710) | phiếu bản cuối đẩy 2D (D5) và nước AI từng tấm (D6); chặn `pkill -f`/`pgrep -f` bằng công cụ (Nền tảng, K105); mục I/J | mục K | như mục K |
