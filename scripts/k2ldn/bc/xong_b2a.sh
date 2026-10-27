@@ -19,7 +19,7 @@ trang=$(/opt/cine/bin/python -c "import json;print(json.load(open('$R/may/$ten.j
 # H1-01h (B2a ghi đè tệp B1): giữ SHA cũ trong reports/ban-cuoi-t4-b2a/SHA-cu-ghi-de.txt trước khi xoá dòng
 grep -A1 -- " $ten-1080p.mp4" $D/SHA256SUMS >> reports/ban-cuoi-t4-b2a/SHA-cu-ghi-de.txt 2>/dev/null || true
 touch $D/SHA256SUMS; grep -v -- " $ten-1080p.mp4" $D/SHA256SUMS > $D/.s.tmp; mv $D/.s.tmp $D/SHA256SUMS
-printf '%s  %s\n# %s khung=%s f=%s..%s s_khung=%s setup_s=%s P=2 spp=4 trang=$trang co_d=1 (chưa LUT, chưa lớp chồng)\n' "$sha" "$ten-1080p.mp4" "$ten-1080p.mp4" "$n" "$f0" "$f1" "$spf" "$setup" >> $D/SHA256SUMS
+printf '%s  %s\n# %s khung=%s f=%s..%s s_khung=%s setup_s=%s P=2 spp=4 trang=%s co_d=1 (chưa LUT, chưa lớp chồng)\n' "$sha" "$ten-1080p.mp4" "$ten-1080p.mp4" "$n" "$f0" "$f1" "$spf" "$setup" "$trang" >> $D/SHA256SUMS
 gzip -9nc $R/$ten/log.json > $D/log-may/$ten.json.gz
 echo "- $(date -u +%H:%M) UTC dựng xong **$ten**: $n khung (f $f0..$f1), $spf s/khung/tiến trình (P = 2), $mb MB, SHA \`${sha:0:16}…\` → LFS + đẩy" >> reports/ban-cuoi-t4-b2a/CHECKPOINT.md
 touch reports/ban-cuoi-t4-b2a/SHA-cu-ghi-de.txt
