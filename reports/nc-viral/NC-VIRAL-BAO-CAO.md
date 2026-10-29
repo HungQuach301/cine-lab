@@ -102,7 +102,7 @@ Dữ liệu đầy đủ, gồm cả cột ngày giờ tạo kênh, nằm trong 
 
 ## §4. Phân tích ngắn (29 video)
 1. **Ngách nổi:**
-   - Gia đình và em bé: 6 video. 3 trong số này tự khai làm bằng AI “realistic”.
+   - Gia đình và em bé: 5 video, cộng 1 video hoạt động gia đình (The Craig Crew). 2 trong số này tự khai làm bằng AI “realistic” (Gala Awesome, Katil Heart & Family).
    - Trẻ em/hoạt hình: 4 video.
    - Kênh bán hàng “Comment X / Link in bio”: 4 video. Lượt xem/ngày rất cao (2–5 triệu).
    - Drama xã hội/gia đình: 4 video, bằng tiếng Hindi, Tamil, Indonesia. 2 video tự khai AI.
@@ -110,7 +110,7 @@ Dữ liệu đầy đủ, gồm cả cột ngày giờ tạo kênh, nằm trong 
    - Stunt/nhào lộn: 2 video. Trục vớt: 1 video.
    - Giải thích kỹ thuật/lịch sử phát minh: 2 video (Doodles Fact, Trial & Eureka).
    - Có hai kênh khác nhau (le viet, Jeffrey Ebadi) cùng làm một ý tưởng “bút sáp màu đỏ gãy”, đăng cách nhau một ngày. Đây là dấu hiệu chạy theo trend hoặc sao ý tưởng.
-2. **Độ dài:** trung vị 31 s. 17 trên 29 video ≤ 41 s. Trong 1 153 id đã quét, chỉ có 2 video > 3 phút của kênh ≤ 30 ngày tuổi đạt ngưỡng. Trong mẫu này, kênh mới bùng nổ gần như chỉ qua Shorts.
+2. **Độ dài:** trung vị 31 s. 17 trên 29 video ≤ 41 s. Trong khoảng 1 150 id đã quét (hai lượt, có thể trùng), chỉ có 2 video > 3 phút của kênh ≤ 30 ngày tuổi đạt ngưỡng. Trong mẫu này, kênh mới bùng nổ gần như chỉ qua Shorts.
 3. **Kiểu tiêu đề:**
    - Trung vị 81 ký tự. 18/29 tiêu đề có emoji, 20/29 có hashtag.
    - Chỉ 1/29 tiêu đề là câu hỏi. 3/29 có con số (ví dụ “3 Tahun…”).
